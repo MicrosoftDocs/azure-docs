@@ -25,12 +25,6 @@ This article shows you how to create a virtual machine with a public IP that is 
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Register the feature for your subscription
-The Routing Preference feature is currently in preview. You must register the feature for your subscription using Azure PowerShell as follows:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
-```
-
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://preview.portal.azure.com/).
@@ -65,10 +59,11 @@ Sign in to the [Azure portal](https://preview.portal.azure.com/).
 9. Once the virtual machine is deployed, enter *myPublicIpAddress* in the search box at the top of the portal. When **myPublicIpAddress** appears in the search results, select it.
 10. You can view the public IP address that is assigned, and that the address is assigned to the **myVM** virtual machine, as shown in the following picture:
 
-    ![View public IP address](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
+    ![Screenshot shows the NIC Public I P for the network interface mynic.](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
 
 11. Select **Networking**, then click on nic **mynic** and then select the public ip address to confirm that the routing preference is assigned as **Internet**.
-    ![View public IP address](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
+
+    ![Screenshot shows the I P address and routing preference for a Public I P address.](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
 
 ## Clean up resources
 

@@ -19,17 +19,17 @@ Application Insights is integrated with various resource providers and works on 
 
 As we're adding more and more integrations, the auto-instrumentation capability matrix becomes complex. The table below shows you the current state of the matter as far as support for various resource providers, languages, and environments go.
 
-|Environment/Resource Provider | .NET            | .NET Core       | Java            | Node.js         |
-|------------------------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service on Windows  | GA, OnBD*       | GA, opt-in      | Private Preview | Private Preview |
-|Azure App Service on Linux    | N/A             | Not supported   | Public Preview  | Public Preview  |
-|Azure App Service on AKS      | N/A             | In design       | In design       | In design       |
-|Azure Functions - basic       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
-|Azure Functions - dependencies| Not supported   | Not supported   | Public Preview  | Not supported   |
-|Azure Kubernetes Service      | N/A             | In design       | Through agent   | In design       |
-|Azure VMs Windows             | Public Preview  | Not supported   | Not supported   | Not supported   |
-|On-Premises VMs Windows       | GA, opt-in      | Not supported   | Through agent   | Not supported   |
-|Standalone agent - any env.   | Not supported   | Not supported   | Public Preview  | Not supported   |
+|Environment/Resource Provider          | .NET            | .NET Core       | Java            | Node.js         |
+|---------------------------------------|-----------------|-----------------|-----------------|-----------------|
+|Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | Private Preview | Private Preview |
+|Azure App Service on Linux             | N/A             | Not supported   | Private Preview | Public Preview  |
+|Azure App Service on AKS               | N/A             | In design       | In design       | In design       |
+|Azure Functions - basic                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
+|Azure Functions Windows - dependencies | Not supported   | Not supported   | Public Preview  | Not supported   |
+|Azure Kubernetes Service               | N/A             | In design       | Through agent   | In design       |
+|Azure VMs Windows                      | Public Preview  | Not supported   | Not supported   | Not supported   |
+|On-Premises VMs Windows                | GA, opt-in      | Not supported   | Through agent   | Not supported   |
+|Standalone agent - any env.            | Not supported   | Not supported   | GA              | Not supported   |
 
 *OnBD is short for On by Default - the Application Insights will be enabled automatically once you deploy your app in supported environments. 
 
@@ -37,7 +37,7 @@ As we're adding more and more integrations, the auto-instrumentation capability 
 
 ### Windows
 
-[Application monitoring on Azure App Service](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net) is available for .NET application and is enabled by default, .NET Core can be enabled with one click, and Java and Node.js are in private preview.
+[Application monitoring on Azure App Service](./azure-web-apps.md?tabs=net) is available for .NET application and is enabled by default, .NET Core can be enabled with one click, and Java and Node.js are in private preview.
 
 ### Linux 
 
@@ -45,24 +45,25 @@ Monitoring of Java and Node.js applications in App Service is in public preview 
 
 ## Azure Functions
 
-The basic monitoring for Azure Functions is enabled by default to collects log, performance, error data, and HTTP requests. For Java applications, you can enable richer monitoring with distributed tracing and get the end-to-end transaction details. This functionality for Java is in public preview and you can [enable it in Azure portal](https://docs.microsoft.com/azure/azure-monitor/app/monitor-functions).
+The basic monitoring for Azure Functions is enabled by default to collects log, performance, error data, and HTTP requests. For Java applications, you can enable richer monitoring with distributed tracing and get the end-to-end transaction details. This functionality for Java is in public preview and you can [enable it in Azure portal](./monitor-functions.md).
 
 ## Azure Kubernetes Service
 
-Codeless instrumentation of Azure Kubernetes Service is currently available for Java applications through the [standalone agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). 
+Codeless instrumentation of Azure Kubernetes Service is currently available for Java applications through the [standalone agent](./java-in-process-agent.md). 
 
 ## Azure Windows VMs and virtual machine scale set
 
-[Auto-instrumentation for Azure VMs and virtual machine scale set](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps) is available for .NET applications 
+[Auto-instrumentation for Azure VMs and virtual machine scale set](./azure-vm-vmss-apps.md) is available for .NET applications 
 
 ## On-premises servers
-You can easily enable monitoring for your [on-premises Windows servers for .NET applications](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) and for [Java apps](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+You can easily enable monitoring for your [on-premises Windows servers for .NET applications](./status-monitor-v2-overview.md) and for [Java apps](./java-in-process-agent.md).
 
 ## Other environments
-The versatile Java standalone agent works on any environment, there's no need to instrument your code. [Follow the guide](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to enable Application Insights and read about the amazing capabilities of the Java agent. The agent is in public preview and available on all regions. 
+The versatile Java standalone agent works on any environment, there's no need to instrument your code. [Follow the guide](./java-in-process-agent.md) to enable Application Insights and read about the amazing capabilities of the Java agent. The agent is in public preview and available on all regions. 
 
 ## Next steps
 
-* [Application Insights Overview](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
-* [Application map](./../../azure-monitor/app/app-map.md)
-* [End-to-end performance monitoring](./../../azure-monitor/learn/tutorial-performance.md)
+* [Application Insights Overview](./app-insights-overview.md)
+* [Application map](./app-map.md)
+* [End-to-end performance monitoring](../learn/tutorial-performance.md)
+

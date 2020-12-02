@@ -6,7 +6,7 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to know how sentence alignment works, so that I can have better understanding of underlying process of sentence extraction, pairing, filtering, aligning.
@@ -53,7 +53,7 @@ For a training to succeed, the table below shows the minimum number of sentences
 > [!NOTE]
 > - Training will not start and will fail if the 10,000 minimum sentence count for Training is not met. 
 > - Tuning and Testing are optional. If you do not provide them, the system will remove an appropriate percentage from Training to use for validation and testing. 
-> - You can train a model using only dictionary data. Please refer to [What is Dictionary](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
+> - You can train a model using only dictionary data. Please refer to [What is Dictionary](./what-is-dictionary.md).
 
 ## Next steps
 

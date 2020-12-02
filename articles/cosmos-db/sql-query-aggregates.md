@@ -3,16 +3,20 @@ title: Aggregate functions in Azure Cosmos DB
 description: Learn about SQL aggregate function syntax, types of aggregate functions supported by Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 11/23/2020
 ms.author: tisande
 
 ---
 # Aggregate functions in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Aggregate functions perform a calculation on a set of values in the `SELECT` clause and return a single value. For example, the following query returns the count of items within the `Families` container:
 
 ## Examples
+
+When using `COUNT()`, you can use any valid scalar expression, such as `1`, as input.
 
 ```sql
     SELECT COUNT(1)

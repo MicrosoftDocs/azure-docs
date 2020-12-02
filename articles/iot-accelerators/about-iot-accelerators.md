@@ -44,7 +44,7 @@ Use the [Connected Factory solution accelerator](iot-accelerators-connected-fact
 
 You can use the connected factory dashboard to monitor and manage your industrial devices:
 
-[![Connected factory solution dashboard](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
+:::image type="content" source="./media/about-iot-accelerators/cf-dashboard-inline.png" alt-text="Screenshot that shows the Connected factory solution dashboard." lightbox="./media/about-iot-accelerators/cf-dashboard-expanded.png":::
 
 ### Predictive Maintenance
 
@@ -52,7 +52,7 @@ Use the [Predictive Maintenance solution accelerator](iot-accelerators-predictiv
 
 You can use the predictive maintenance dashboard to view predictive maintenance analytics:
 
-[![Connected factory solution dashboard](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
+:::image type="content" source="./media/about-iot-accelerators/pm-dashboard-inline.png" alt-text="Screenshot that shows the 'Predictive maintenance' dashboard." lightbox="./media/about-iot-accelerators/pm-dashboard-expanded.png":::
 
 ### Device Simulation
 
@@ -83,7 +83,7 @@ The original solution accelerators were written using .NET using a model-view-co
 | Connected Factory      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Device Simulation      | Microservices | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-To learn more about the microservices architecture, see [Introduction to the Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/).
+To learn more about the microservices architecture, see [Introduction to the Azure IoT reference architecture](/azure/architecture/reference-architectures/iot/).
 
 ## Deployment options
 

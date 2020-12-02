@@ -1,6 +1,6 @@
 ---
 title: Overview of access control in Data Lake Storage Gen1 | Microsoft Docs
-description: Understand how access control works in Azure Data Lake Storage Gen1
+description: Learn about the basics of the access control model of Azure Data Lake Storage Gen1, which derives from HDFS.
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -276,7 +276,11 @@ Entries in the ACLs are stored as GUIDs that correspond to users in Azure AD. Th
 
 ### Why do I sometimes see GUIDs in the ACLs when I'm using the Azure portal?
 
-A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD.
+A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Also, ensure that you're using the right ID for setting ACLs (details in question below).
+
+### When using service principal, what ID should I use to set ACLs?
+
+On the Azure Portal, go to **Azure Active Directory -> Enterprise applications** and select your application. The **Overview** tab should display an Object ID and this is what should be used when adding ACLs for data access (and not Application Id).
 
 ### Does Data Lake Storage Gen1 support inheritance of ACLs?
 

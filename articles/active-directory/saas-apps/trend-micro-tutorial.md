@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure AD SSO integration with Trend Micro Web Security (TMWS)'
 description: Learn how to configure single sign-on between Azure Active Directory and Trend Micro Web Security (TMWS).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 827285d3-8e65-43cd-8453-baeda32ef174
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Trend Micro Web Security (TMWS)
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate Trend Micro Web Security (TMWS) 
 * Enable your users to be automatically signed in to TMWS with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -41,7 +35,7 @@ To get started, you need:
 In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
 * TMWS supports SP-initiated SSO.
-* After you configure TMWS, you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. To learn how to enforce session control by using Microsoft Cloud App Security, see [Onboard and deploy Conditional Access App Control for any app](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* After you configure TMWS, you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. To learn how to enforce session control by using Microsoft Cloud App Security, see [Onboard and deploy Conditional Access App Control for any app](/cloud-app-security/proxy-deployment-any-app).
 
 ## Add TMWS from the gallery
 
@@ -232,15 +226,14 @@ For details, see [Traffic Forwarding Using PAC Files](https://docs.trendmicro.co
 
 ## Additional resources
 
-- [Tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Trend Micro Web Security with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Trend Micro Web Security with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [How to protect Trend Micro Web Security with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

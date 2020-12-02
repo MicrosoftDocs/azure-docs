@@ -4,7 +4,7 @@ description: Understand how Azure SQL Database audit logs are structured.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: reference
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
@@ -26,7 +26,7 @@ Audit logs stored in Azure Blob storage are stored in a container named `sqldbau
 
 For example, for database `Database1` on `Server1` the following is a possible valid path:
 
-    Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
+`Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel`
 
 [Read-only Replicas](read-scale-out.md) audit logs are stored in the same container. The directory hierarchy within the container is of the form `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. The Blob file name shares the same format. The Audit Logs of Read-only Replicas are stored in the same container.
 
@@ -84,8 +84,8 @@ Audit events are written to Log Analytics workspace defined during auditing conf
 | target_server_principal_name | target_server_principal_name_s | Target login of action. NULL if not applicable | sysname | string |
 | target_server_principal_sid | target_server_principal_sid_s | SID of target login. NULL if not applicable | varbinary | string |
 | transaction_id | transaction_id_d | SQL Server only (starting with 2016) - 0 for Azure SQL Database | bigint | int |
-| user_defined_event_id | user_defined_event_id_d | User defined event ID passed as an argument to sp_audit_write. NULL for system events (default) and non-zero for user-defined event. For more information, see [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
-| user_defined_information | user_defined_information_s | User defined information passed as an argument to sp_audit_write. NULL for system events (default) and non-zero for user-defined event. For more information, see [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |
+| user_defined_event_id | user_defined_event_id_d | User defined event ID passed as an argument to sp_audit_write. NULL for system events (default) and non-zero for user-defined event. For more information, see [sp_audit_write (Transact-SQL)](/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
+| user_defined_information | user_defined_information_s | User defined information passed as an argument to sp_audit_write. NULL for system events (default) and non-zero for user-defined event. For more information, see [sp_audit_write (Transact-SQL)](/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |
 
 ## Next steps
 

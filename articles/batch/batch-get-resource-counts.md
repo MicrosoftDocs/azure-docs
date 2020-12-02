@@ -9,11 +9,11 @@ ms.custom: seodec18
 
 To monitor and manage large-scale Azure Batch solutions, you may need to determine counts of resources in various states. Azure Batch provides efficient operations to get counts for Batch tasks and compute nodes. You can use these operations instead of potentially time-consuming list queries that return detailed information about large collections of tasks or nodes.
 
-- [Get Task Counts](https://docs.microsoft.com/rest/api/batchservice/job/gettaskcounts) gets an aggregate count of active, running, and completed tasks in a job, and of tasks that succeeded or failed. 
+- [Get Task Counts](/rest/api/batchservice/job/gettaskcounts) gets an aggregate count of active, running, and completed tasks in a job, and of tasks that succeeded or failed. 
 
   By counting tasks in each state, you can more easily display job progress to a user, or detect unexpected delays or failures that may affect the job. Get Task Counts is available as of Batch Service API version 2017-06-01.5.1 and related SDKs and tools.
 
-- [List Pool Node Counts](https://docs.microsoft.com/rest/api/batchservice/account/listpoolnodecounts) gets the number of dedicated and low-priority compute nodes in each pool that are in various states: creating, idle, offline, preempted, rebooting, reimaging, starting, and others.
+- [List Pool Node Counts](/rest/api/batchservice/account/listpoolnodecounts) gets the number of dedicated and low-priority compute nodes in each pool that are in various states: creating, idle, offline, preempted, rebooting, reimaging, starting, and others.
 
   By counting nodes in each state, you can determine when you have adequate compute resources to run your jobs, and identify potential issues with your pools. List Pool Node Counts is available as of Batch Service API version 2018-03-01.6.1 and related SDKs and tools.
 
@@ -24,9 +24,9 @@ Note that at times, the numbers returned by these operations may not be up to da
 The Get Task Counts operation counts tasks by the following states:
 
 - **Active** - A task that is queued and able to run, but is not currently assigned to a compute node. A task is also `active` if it is [dependent on a parent task](batch-task-dependencies.md) that has not yet completed. 
-- **Running** - A task that has been assigned to a compute node, but has not yet completed. A task is counted as `running` when its state is either `preparing` or `running`, as indicated by the [Get information about a task](https://docs.microsoft.com/rest/api/batchservice/task/get) operation.
+- **Running** - A task that has been assigned to a compute node, but has not yet completed. A task is counted as `running` when its state is either `preparing` or `running`, as indicated by the [Get information about a task](/rest/api/batchservice/task/get) operation.
 - **Completed** - A task that is no longer eligible to run, because it either finished successfully, or finished unsuccessfully and also exhausted its retry limit. 
-- **Succeeded** - A task whose result of task execution is `success`. Batch determines whether a task has succeeded or failed by checking the `TaskExecutionResult` property of the [executionInfo](https://docs.microsoft.com/rest/api/batchservice/task/get) property.
+- **Succeeded** - A task whose result of task execution is `success`. Batch determines whether a task has succeeded or failed by checking the `TaskExecutionResult` property of the [executionInfo](/rest/api/batchservice/task/get) property.
 - **Failed** A task whose result of task execution is `failure`.
 
 The following .NET code sample shows how to retrieve task counts by state:
@@ -59,7 +59,7 @@ The List Pool Node Counts operation counts compute nodes by the following states
 - **Reimaging** - A node on which the operating system is being reinstalled.
 - **Running** - A node that is running one or more tasks (other than the start task).
 - **Starting** - A node on which the Batch service is starting. 
-- **StartTaskFailed** - A node on which the [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) failed and exhausted all retries, and on which `waitForSuccess` is set on the start task. The node is not usable for running tasks.
+- **StartTaskFailed** - A node on which the [start task](/rest/api/batchservice/pool/add#starttask) failed and exhausted all retries, and on which `waitForSuccess` is set on the start task. The node is not usable for running tasks.
 - **Unknown** - A node that lost contact with the Batch service and whose state isn't known.
 - **Unusable** - A node that can't be used for task execution because of errors.
 - **WaitingForStartTask** - A node on which the start task started running, but `waitForSuccess` is set and the start task has not completed.

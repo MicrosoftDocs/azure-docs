@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2019
 ---
 
@@ -158,9 +158,9 @@ This section provides template questionnaires to help gather important informati
 
 ### Azure requirements questionnaire
 
-|**Topic**: **Infrastructure** |||
-|---|---|---|
 |**Question**|**Example**|**Answer**|
+|---|---|---|
+|**Topic**: **Infrastructure** |||
 | Preferred Region|US East||
 |VNet preferred?|Yes||
 |HA / DR Needed?|Yes||
@@ -180,7 +180,7 @@ This section provides template questionnaires to help gather important informati
 |Cloud only Users?|                 Yes||
 |MFA needed?|                       No|| 
 |Data authorization requirements?|  Yes||
-|Role-Based Access Control?|        Yes||
+|Role-based access control?|        Yes||
 |Auditing needed?|                  Yes||
 |Data encryption at rest?|          Yes||
 |Data encryption in transit?|       Yes||

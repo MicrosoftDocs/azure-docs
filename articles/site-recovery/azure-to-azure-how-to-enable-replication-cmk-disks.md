@@ -1,11 +1,11 @@
 ---
-title: Enable replication for encrypted Azure VMs in Azure Site Recovery 
+title: Enable replication of encrypted Azure VMs in Azure Site Recovery 
 description: This article describes how to configure replication for VMs with customer-managed key (CMK) enabled disks from one Azure region to another by using Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 07/10/2020
 ms.author: mayg
 
 ---
@@ -36,7 +36,7 @@ For this example, the primary Azure region is East Asia, and the secondary regio
     - **Target location**: The location where your source virtual machine data will be replicated. Site Recovery provides a list of suitable target regions based on the selected machine's location. We recommend that you use the same location as the Recovery Services vault's location.
     - **Target subscription**: The target subscription that's used for disaster recovery. By default, the target subscription is the same as the source subscription.
     - **Target resource group**: The resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region. The name gets the `asr` suffix. If a resource group already exists that was created by Azure Site Recovery, it's reused. You can also choose to customize it, as shown in the following section. The location of the target resource group can be any Azure region except the region where the source virtual machines are hosted.
-    - **Target virtual network**: By default, Site Recovery creates a new virtual network in the target region. The name gets the `asr` suffix. It's mapped to your source network and used for any future protection. [Learn more](site-recovery-network-mapping-azure-to-azure.md) about network mapping.
+    - **Target virtual network**: By default, Site Recovery creates a new virtual network in the target region. The name gets the `asr` suffix. It's mapped to your source network and used for any future protection. [Learn more](./azure-to-azure-network-mapping.md) about network mapping.
     - **Target storage accounts (if your source VM doesn't use managed disks)**: By default, Site Recovery creates a new target storage account by mimicking your source VM storage configuration. If a storage account already exists, it's reused.
     - **Replica managed disks (if your source VM uses managed disks)**: Site Recovery creates new replica managed disks in the target region to mirror the source VM's managed disks of the same storage type (standard or premium) as the source VM's managed disks.
     - **Cache storage accounts**: Site Recovery needs an extra storage account called *cache storage* in the source region. All the changes on the source VMs are tracked and sent to the cache storage account. They're then replicated to the target location.
@@ -63,7 +63,7 @@ Follow these steps to modify the Site Recovery default target settings.
 4. Select **Create target resource** > **Enable Replication**.
 5. After the VMs are enabled for replication, you can check the VMs' health status under **Replicated items**.
 
-![Enable Replication for machine with CMK enabled disks](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)
+![Screenshot that shows where to check the VMs' health status.](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)
 
 >[!NOTE]
 >During initial replication, the status might take some time to refresh, without apparent progress. Click **Refresh**  to get the latest status.
@@ -77,4 +77,8 @@ Follow these steps to modify the Site Recovery default target settings.
 * I have added a new CMK enabled disk to the replicated item. How can I replicate this disk with Azure Site Recovery?
 
     Addition of a new CMK enabled disk to an existing replicated item is not supported. Disable the replication and enable the replication again for the virtual machine.
+
+* I have enabled both platform and customer managed keys, how can I protect my disks?
+
+    Enabling double encryption with both platform and customer managed keys is suppprted by Site Recovery. Follow the instructions in this article to protect your machine. You need to create a double encryption enabled DES in the target region in advance. At the time of enabling the replication for such a VM, you can provide this DES to Site Recovery.
 

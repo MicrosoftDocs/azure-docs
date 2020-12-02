@@ -4,7 +4,7 @@ description: Push and pull Open Container Initiative (OCI) artifacts using a pri
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 03/11/2020
+ms.date: 08/12/2020
 ms.author: stevelas
 ---
 
@@ -143,6 +143,36 @@ To remove the artifact from your Azure container registry, use the [az acr repos
 az acr repository delete \
     --name myregistry \
     --image samples/artifact:1.0
+```
+
+## Example: Build Docker image from OCI artifact
+
+Source code and binaries to build a container image can be stored as OCI artifacts in an Azure container registry. You can reference a source artifact as the build context for an [ACR task](container-registry-tasks-overview.md). This example shows how to store a Dockerfile as an OCI artifact and then reference the artifact to build a container image.
+
+For example, create a one-line Dockerfile:
+
+```bash
+echo "FROM hello-world" > hello-world.dockerfile
+```
+
+Log in to the destination container registry.
+
+```azurecli
+az login
+az acr login --name myregistry
+```
+
+Create and push a new OCI artifact to the destination registry by using the `oras push` command. This example sets the default media type for the artifact.
+
+```bash
+oras push myregistry.azurecr.io/hello-world:1.0 hello-world.dockerfile
+```
+
+Run the [az acr build](/cli/azure/acr#az-acr-build) command to build the hello-world image using the new artifact as build context:
+
+```azurecli
+az acr build --registry myregistry --file hello-world.dockerfile \
+  oci://myregistry.azurecr.io/hello-world:1.0
 ```
 
 ## Next steps

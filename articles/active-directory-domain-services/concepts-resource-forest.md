@@ -2,37 +2,34 @@
 title: Resource forest concepts for Azure AD Domain Services | Microsoft Docs
 description: Learn what a resource forest is in Azure Active Directory Domain Services and how they benefit your organization in hybrid environment with limited user authentication options or security concerns.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.author: iainfou
+ms.date: 07/06/2020
+ms.author: joflore
 ---
 
 # Resource forest concepts and features for Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) provides a sign-in experience for legacy, on-premises, line-of-business applications. Users, groups, and password hashes of on-premises and cloud users are synchronized to the Azure AD DS managed domain. These synchronized password hashes are what gives users a single set of credentials they can use for the on-premises AD DS, Office 365, and Azure Active Directory.
+Azure Active Directory Domain Services (Azure AD DS) provides a sign-in experience for legacy, on-premises, line-of-business applications. Users, groups, and password hashes of on-premises and cloud users are synchronized to the Azure AD DS managed domain. These synchronized password hashes are what gives users a single set of credentials they can use for the on-premises AD DS, Microsoft 365, and Azure Active Directory.
 
 Although secure and provides additional security benefits, some organizations can't synchronize those user passwords hashes to Azure AD or Azure AD DS. Users in an organization may not know their password because they only use smart card authentication. These limitations prevent some organizations from using Azure AD DS to lift and shift on-premises classic applications to Azure.
 
-To address these needs and restrictions, you can create a managed domain that uses a resource forest. This conceptual article explains what forests are, and how they trust other resources to provide a secure authentication method. Azure AD DS resource forests are currently in preview.
-
-> [!IMPORTANT]
-> Azure AD DS resource forests don't currently support Azure HDInsight or Azure Files. The default Azure AD DS user forests do support both of these additional services.
+To address these needs and restrictions, you can create a managed domain that uses a resource forest. This conceptual article explains what forests are, and how they trust other resources to provide a secure authentication method.
 
 ## What are forests?
 
 A *forest* is a logical construct used by Active Directory Domain Services (AD DS) to group one or more *domains*. The domains then store objects for user or groups, and provide authentication services.
 
-In Azure AD DS, the forest only contains one domain. On-premises AD DS forests often contain many domains. In large organizations, especially after mergers and acquisitions, you may end up with multiple on-premises forests that each then contain multiple domains.
+In an Azure AD DS managed domain, the forest only contains one domain. On-premises AD DS forests often contain many domains. In large organizations, especially after mergers and acquisitions, you may end up with multiple on-premises forests that each then contain multiple domains.
 
 By default, a managed domain is created as a *user* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. User accounts can directly authenticate against the managed domain, such as to sign in to a domain-joined VM. A user forest works when the password hashes can be synchronized and users aren't using exclusive sign-in methods like smart card authentication.
 
-In an Azure AD DS *resource* forest, users authenticate over a one-way forest *trust* from their on-premises AD DS. With this approach, the user objects and password hashes aren't synchronized to Azure AD DS. The user objects and credentials only exist in the on-premises AD DS. This approach lets enterprises host resources and application platforms in Azure that depend on classic authentication such LDAPS, Kerberos, or NTLM, but any authentication issues or concerns are removed. Azure AD DS resource forests are currently in preview.
+In a managed domain *resource* forest, users authenticate over a one-way forest *trust* from their on-premises AD DS. With this approach, the user objects and password hashes aren't synchronized to the managed domain. The user objects and credentials only exist in the on-premises AD DS. This approach lets enterprises host resources and application platforms in Azure that depend on classic authentication such LDAPS, Kerberos, or NTLM, but any authentication issues or concerns are removed.
 
 Resource forests also provide the capability to lift-and-shift your applications one component at a time. Many legacy on-premises applications are multi-tiered, often using a web server or front end and many database-related components. These tiers make it hard to lift-and-shift the entire application to the cloud in one step. With resource forests, you can lift your application to the cloud in phased approach, which makes it easier to move your application to Azure.
 
@@ -52,7 +49,7 @@ Trusts are also be configured to handle additional trust relationships in one of
 * **Nontransitive** - The trust exists only between the two trust partner domains.
 * **Transitive** - Trust automatically extends to any other domains that either of the partners trusts.
 
-In some cases, trust relationships are automatically established when domains are created. Other times, you must choose a type of trust and explicitly establish the appropriate relationships. The specific types of trusts used and the structure of those trust relationships depend on how the Active Directory directory service is organized, and whether different versions of Windows coexist on the network.
+In some cases, trust relationships are automatically established when domains are created. Other times, you must choose a type of trust and explicitly establish the appropriate relationships. The specific types of trusts used and the structure of those trust relationships depend on how the AD DS directory is organized, and whether different versions of Windows coexist on the network.
 
 ## Trusts between two forests
 
@@ -65,11 +62,11 @@ The transitivity of forest trusts is limited to the two forest partners. The for
 
 ![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-You can create different domain and forest trust configurations depending on the Active Directory structure of the organization. Azure AD DS only supports a one-way forest trust. In this configuration, resources in Azure AD DS can trust all domains in an on-premises forest.
+You can create different domain and forest trust configurations depending on the AD DS structure of the organization. Azure AD DS only supports a one-way forest trust. In this configuration, resources in the managed domain can trust all domains in an on-premises forest.
 
 ## Supporting technology for trusts
 
-Trusts use various services and features, such as DNS to locate domain controllers in partnering forests. Trusts also depend on NTLM and Kerberos authentication protocols and on Windows-based authorization and access control mechanisms to help provide a secured communications infrastructure across Active Directory domains and forests. The following services and features help support successful trust relationships.
+Trusts use various services and features, such as DNS to locate domain controllers in partnering forests. Trusts also depend on NTLM and Kerberos authentication protocols and on Windows-based authorization and access control mechanisms to help provide a secured communications infrastructure across AD DS domains and forests. The following services and features help support successful trust relationships.
 
 ### DNS
 
@@ -78,31 +75,31 @@ AD DS needs DNS for domain controller (DC) location and naming. The following su
 * A name resolution service that lets network hosts and services to locate DCs.
 * A naming structure that enables an enterprise to reflect its organizational structure in the names of its directory service domains.
 
-A DNS domain namespace is usually deployed that mirrors the AD DS domain namespace. If there's an existing DNS namespace before the AD DS deployment, the DNS namespace is typically partitioned for Active Directory, and a DNS subdomain and delegation for the Active Directory forest root is created. Additional DNS domain names are then added for each Active Directory child domain.
+A DNS domain namespace is usually deployed that mirrors the AD DS domain namespace. If there's an existing DNS namespace before the AD DS deployment, the DNS namespace is typically partitioned for AD DS, and a DNS subdomain and delegation for the AD DS forest root is created. Additional DNS domain names are then added for each AD DS child domain.
 
-DNS is also used to support the location of Active Directory DCs. The DNS zones are populated with DNS resource records that enable network hosts and services to locate Active Directory DCs.
+DNS is also used to support the location of AD DS DCs. The DNS zones are populated with DNS resource records that enable network hosts and services to locate AD DS DCs.
 
 ### Applications and Net Logon
 
-Both applications and the Net Logon service are components of the Windows distributed security channel model. Applications integrated with Windows Server and Active Directory use authentication protocols to communicate with the Net Logon service so that a secured path can be established over which authentication can occur.
+Both applications and the Net Logon service are components of the Windows distributed security channel model. Applications integrated with Windows Server and AD DS use authentication protocols to communicate with the Net Logon service so that a secured path can be established over which authentication can occur.
 
 ### Authentication Protocols
 
-Active Directory DCs authenticate users and applications using one of the following protocols:
+AD DS DCs authenticate users and applications using one of the following protocols:
 
 * **Kerberos version 5 authentication protocol**
-    * The Kerberos version 5 protocol is the default authentication protocol used by on-premises computers running Windows and supporting third-party operating systems. This protocol is specified in RFC 1510 and is fully integrated with Active Directory, server message block (SMB), HTTP, and remote procedure call (RPC), as well as the client and server applications that use these protocols.
+    * The Kerberos version 5 protocol is the default authentication protocol used by on-premises computers running Windows and supporting third-party operating systems. This protocol is specified in RFC 1510 and is fully integrated with AD DS, server message block (SMB), HTTP, and remote procedure call (RPC), as well as the client and server applications that use these protocols.
     * When the Kerberos protocol is used, the server doesn't have to contact the DC. Instead, the client gets a ticket for a server by requesting one from a DC in the server account domain. The server then validates the ticket without consulting any other authority.
     * If any computer involved in a transaction doesn't support the Kerberos version 5 protocol, the NTLM protocol is used.
 
 * **NTLM authentication protocol**
-    * The NTLM protocol is a classic network authentication protocol used by older operating systems. For compatibility reasons, it's used by Active Directory domains to process network authentication requests that come from applications designed for earlier Windows-based clients and servers, and third-party operating systems.
+    * The NTLM protocol is a classic network authentication protocol used by older operating systems. For compatibility reasons, it's used by AD DS domains to process network authentication requests that come from applications designed for earlier Windows-based clients and servers, and third-party operating systems.
     * When the NTLM protocol is used between a client and a server, the server must contact a domain authentication service on a DC to verify the client credentials. The server authenticates the client by forwarding the client credentials to a DC in the client account domain.
-    * When two Active Directory domains or forests are connected by a trust, authentication requests made using these protocols can be routed to provide access to resources in both forests.
+    * When two AD DS domains or forests are connected by a trust, authentication requests made using these protocols can be routed to provide access to resources in both forests.
 
 ## Authorization and access control
 
-Authorization and trust technologies work together to provide a secured communications infrastructure across Active Directory domains or forests. Authorization determines what level of access a user has to resources in a domain. Trusts facilitate cross-domain authorization of users by providing a path for authenticating users in other domains so their requests to shared resources in those domains can be authorized.
+Authorization and trust technologies work together to provide a secured communications infrastructure across AD DS domains or forests. Authorization determines what level of access a user has to resources in a domain. Trusts facilitate cross-domain authorization of users by providing a path for authenticating users in other domains so their requests to shared resources in those domains can be authorized.
 
 When an authentication request made in a trusting domain is validated by the trusted domain, it's passed to the target resource. The target resource then determines whether to authorize the specific request made by the user, service, or computer in the trusted domain based on its access control configuration.
 
@@ -112,7 +109,7 @@ Trusts provide this mechanism to validate authentication requests that are passe
 
 To learn more about trusts, see [How do forest trusts work in Azure AD DS?][concepts-trust]
 
-To get started with creating an Azure AD DS managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain (preview)][create-forest-trust].
+To get started with creating a managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

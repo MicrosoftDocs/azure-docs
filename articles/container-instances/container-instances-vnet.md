@@ -2,8 +2,8 @@
 title: Deploy container group to Azure virtual network
 description: Learn how to deploy a container group to a new or existing Azure virtual network by using the Azure command-line interface.
 ms.topic: article
-ms.date: 04/29/2020
-ms.author: danlep
+ms.date: 07/02/2020
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Deploy container instances into an Azure virtual network
@@ -35,7 +35,7 @@ Once you've deployed your first container group with this method, you can deploy
 
 ### Example
 
-The following [az container create][az-container-create] command specifies settings for a new virtual network and subnet. Provide the name of a resource group that was created in a region where container group deployments in a virtual network are [available](container-instances-region-availability.md#availability---virtual-network-deployment). This command deploys the public Microsoft [aci-helloworld][aci-helloworld] container that runs a small Node.js webserver serving a static web page. In the next section, you'll deploy a second container group to the same subnet, and test communication between the two container instances.
+The following [az container create][az-container-create] command specifies settings for a new virtual network and subnet. Provide the name of a resource group that was created in a region where container group deployments in a virtual network are [available](container-instances-region-availability.md). This command deploys the public Microsoft [aci-helloworld][aci-helloworld] container that runs a small Node.js webserver serving a static web page. In the next section, you'll deploy a second container group to the same subnet, and test communication between the two container instances.
 
 ```azurecli
 az container create \
@@ -137,7 +137,7 @@ Sample output:
 Once you have the network profile ID, copy the following YAML into a new file named *vnet-deploy-aci.yaml*. Under `networkProfile`, replace the `id` value with ID you just retrieved, then save the file. This YAML creates a container group named *appcontaineryaml* in your virtual network.
 
 ```YAML
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: westus
 name: appcontaineryaml
 properties:

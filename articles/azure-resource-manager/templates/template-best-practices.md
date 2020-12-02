@@ -2,7 +2,7 @@
 title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates. Offers suggestions to avoid common problems when using templates. 
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 12/01/2020
 ---
 # ARM template best practices
 
@@ -81,8 +81,6 @@ The information in this section can be helpful when you work with [parameters](t
    },
    ```
 
-* Don't use a parameter for the API version for a resource type. Resource properties and values can vary by version number. IntelliSense in a code editor can't determine the correct schema when the API version is set to a parameter. Instead, hard-code the API version in the template.
-
 * Use `allowedValues` sparingly. Use it only when you must make sure some values aren't included in the permitted options. If you use `allowedValues` too broadly, you might block valid deployments by not keeping your list up to date.
 
 * When a parameter name in your template matches a parameter in the PowerShell deployment command, Resource Manager resolves this naming conflict by adding the postfix **FromTemplate** to the template parameter. For example, if you include a parameter named **ResourceGroupName** in your template, it conflicts with the **ResourceGroupName** parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. During deployment, you're prompted to provide a value for **ResourceGroupNameFromTemplate**.
@@ -140,8 +138,6 @@ The following information can be helpful when you work with [variables](template
 
 * Use variables for values that you construct from a complex arrangement of template functions. Your template is easier to read when the  complex expression only appears in variables.
 
-* Don't use variables for `apiVersion` on a resource. The API version determines the schema of the resource. Often, you can't change the version without changing the properties for the resource.
-
 * You can't use the [reference](template-functions-resource.md#reference) function in the **variables** section of the template. The **reference** function derives its value from the resource's runtime state. However, variables are resolved during the initial parsing of the template. Construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
 
 * Include variables for resource names that must be unique.
@@ -150,11 +146,21 @@ The following information can be helpful when you work with [variables](template
 
 * Remove unused variables.
 
+## API version
+
+Set the `apiVersion` property to a hard-coded API version for the resource type. When creating a new template, we recommend you use the latest API version for a resource type. To determine available values, see [template reference](/azure/templates/).
+
+When your template works as expected, we recommend you continue using the same API version. By using the same API version, you don't have to worry about breaking changes that might be introduced in later versions.
+
+Don't use a parameter for the API version. Resource properties and values can vary by API version. IntelliSense in a code editor can't determine the correct schema when the API version is set to a parameter. If you pass in an API version that doesn't match the properties in your template, the deployment will fail.
+
+Don't use variables for the API version. In particular, don't use the [providers function](template-functions-resource.md#providers) to dynamically get API versions during deployment. The dynamically retrieved API version might not match the properties in your template.
+
 ## Resource dependencies
 
 When deciding what [dependencies](define-resource-dependency.md) to set, use the following guidelines:
 
-* Use the **reference** function and pass in the resource name to set an implicit dependency between resources that need to share a property. Don't add an explicit `dependsOn` element when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies.
+* Use the **reference** function and pass in the resource name to set an implicit dependency between resources that need to share a property. Don't add an explicit `dependsOn` element when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies. For an example of setting an implicit dependency, see [implicit dependency](define-resource-dependency.md#reference-and-list-functions).
 
 * Set a child resource as dependent on its parent resource.
 
@@ -220,11 +226,11 @@ The following information can be helpful when you work with [resources](template
    
      For more information about connecting to virtual machines, see:
    
-   * [Run VMs for an N-tier architecture in Azure](../../guidance/guidance-compute-n-tier-vm.md)
+   * [Run VMs for an N-tier architecture in Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
    * [Set up WinRM access for VMs in Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Allow external access to your VM by using the Azure portal](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Allow external access to your VM by using PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Allow external access to your Linux VM by using Azure CLI](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Allow external access to your Linux VM by using Azure CLI](../../virtual-machines/linux/nsg-quickstart.md)
 
 * The **domainNameLabel** property for public IP addresses must be unique. The **domainNameLabel** value must be between 3 and 63 characters long, and follow the rules specified by this regular expression: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Because the **uniqueString** function generates a string that is 13 characters long, the **dnsPrefixString** parameter is limited to 50 characters:
 

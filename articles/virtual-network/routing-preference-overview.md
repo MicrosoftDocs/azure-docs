@@ -66,25 +66,13 @@ For storage, primary endpoints always use the **Microsoft global network**. You 
 * Azure DataLake
 
 ## Pricing
-The price difference between both options is reflected in the internet egress data transfer pricing. Routing via **Microsoft global network** data transfer price is same as current internet egress price. Visit [Azure bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/) for the latest pricing information. Routing via **Public Internet** is priced lower as shown in the table below:
-
-| Egress source region | 0-5 GB/Month | 5GB-10 TB/Month | 10-50 TB/Month | 50-150 TB/Month | 150-500 TB/Month |
-| --- | --- | --- | --- | --- | --- |
-| Zone 1 | $0/GB | $0.085/GB | $0.065/GB | $0.06/GB | $0.04/GB |
-| Zone 2 | $0/GB | $0.11/GB | $0.075/GB | $0.07/GB | $0.06/GB  |
-
-[Contact us](https://azure.microsoft.com/overview/sales-number/) for monthly volume over 500 TB.
-* Zone 1—Australia Central, Australia Central 2, Canada Central, Canada East, North Europe, West Europe, France Central, France South, Germany North (Public), Germany West Central (Public), Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2, and West Central US.
-
-* Zone 2—East Asia, Southeast Asia, Australia East, Australia Southeast, Central India, South India, West India, Japan East, Japan West, Korea Central, and Korea South.
-
-* Zone 3—Brazil South, South Africa North, South Africa West, UAE Central, and UAE North.
+The price difference between both options is reflected in the internet egress data transfer pricing. Routing via **Microsoft global network** data transfer price is same as current internet egress price. Visit [Azure bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/) for the latest pricing information. 
 
 ## Availability
 
 Routing Preference support is available in the following regions for services such as virtual machine and internet-facing load balancer that use a public IP for internet egress - North Europe, West Europe, France South, UK South, East US, North Central US, South Central US, West US,  West Central US, Southeast Asia, Germany West Central, Switzerland West, Japan East, and Japan West.
 
-Routing Preference support for storage account is available in the following Azure regions - France South, North Central US, West Central US, Japan East, Japan West, Germany West Central, and Switzerland West.
+Routing Preference support for storage account is available in the following Azure regions - North Central US, West Central US, South Central US, East US, West US,  North Europe, France South, Germany West Central, Switzerland West, South East Asia, Japan East, and Japan West.
 ## Limitations
 
 * Routing preference is only compatible with standard SKU of public IP address. Basic SKU of public IP address is not supported.

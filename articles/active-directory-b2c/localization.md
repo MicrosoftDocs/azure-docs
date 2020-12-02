@@ -8,12 +8,12 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Localization
+# Localization element
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -159,6 +159,7 @@ The ElementType reference to a claim type, a claim transformation, or a user int
 |Predicate user message|`Predicate`|The name of the predicate| The attribute of the predicate to be localized. Possible values: `HelpText`.|
 |Predicate group user message|`InputValidation`|The ID of the PredicateValidation element.|The ID of the PredicateGroup element. The predicate group must be a child of the predicate validation element as defined in the ElementId.|
 |User interface elements |`UxElement` | | The ID of the user interface element to be localized.|
+|[Display Control](display-controls.md) |`DisplayControl` |The ID of the display control. | The ID of the user interface element to be localized.|
 
 ## Examples
 
@@ -326,6 +327,23 @@ The UxElement value is used to localize one of the user interface elements. The 
 ```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+```
+
+### DisplayControl
+
+The DisplayControl value is used to localize one of the [display Control](display-controls.md) user interface elements. The following example shows how to localize the send and verify buttons. 
+
+```xml
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+```
+
+In the Metadata section of a self-asserted technical profile, the referenced ContentDefinition needs to have DataUri set to [page layout version](page-layout.md) 2.1.0 or higher. For example:
+
+```xml
+<ContentDefinition Id="api.selfasserted">
+  <DataUri>urn:com:microsoft:aad:b2c:elements:selfasserted:2.1.0</DataUri>
+  ...
 ```
 
 ## Next steps

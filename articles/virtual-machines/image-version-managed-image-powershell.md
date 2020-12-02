@@ -1,6 +1,6 @@
 ---
-title: Migrate a managed image to a Shared Image Gallery
-description: Learn how to use Azure PowerShell to migrate a managed image to a image version in a Shared Image Gallery.
+title: Clone a managed image to a Shared Image Gallery
+description: Learn how to use Azure PowerShell to clone a managed image to a image version in a Shared Image Gallery.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -11,9 +11,9 @@ ms.author: cynthn
 ms.reviewer: akjosh
 ---
 
-# Migrate from a managed image to a Shared Image Gallery image
+# Clone a managed image to a Shared Image Gallery image
 
-If you have an existing managed image that you would like to migrate into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the managed image. Once you have tested your new image, you can delete the source managed image. You can also migrate from a managed image to a Shared Image Gallery using the [Azure CLI](image-version-managed-image-cli.md).
+If you have an existing managed image that you would like to clone and move into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the managed image. Once you have tested your new image, you can delete the source managed image. You can also migrate from a managed image to a Shared Image Gallery using the [Azure CLI](image-version-managed-image-cli.md).
 
 Images in an image gallery have two components, which we will create in this example:
 - An **Image definition** carries information about the image and requirements for using it. This includes whether the image is Windows or Linux, specialized or generalized, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. 
@@ -49,9 +49,9 @@ Image definitions create a logical grouping for images. They are used to manage 
 
 When making your image definition, make sure is has all of the correct information. Because managed images are always generalized, you should set `-OsState generalized`. 
 
-For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+For more information about the values you can specify for an image definition, see [Image definitions](./windows/shared-image-galleries.md#image-definitions).
 
-Create the image definition using [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In this example, the image definition is named *myImageDefinition*, and is for a generalized Windows OS. To create a definition for images using a Linux OS, use `-OsType Linux`. 
+Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In this example, the image definition is named *myImageDefinition*, and is for a generalized Windows OS. To create a definition for images using a Linux OS, use `-OsType Linux`. 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -68,7 +68,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 ## Get the managed image
 
-You can see a list of images that are available in a resource group using [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage). Once you know the image name and what resource group it is in, you can use `Get-AzImage` again to get the image object and store it in a variable to use later. This example gets an image named *myImage* from the "myResourceGroup" resource group and assigns it to the variable *$managedImage*. 
+You can see a list of images that are available in a resource group using [Get-AzImage](/powershell/module/az.compute/get-azimage). Once you know the image name and what resource group it is in, you can use `Get-AzImage` again to get the image object and store it in a variable to use later. This example gets an image named *myImage* from the "myResourceGroup" resource group and assigns it to the variable *$managedImage*. 
 
 ```azurepowershell-interactive
 $managedImage = Get-AzImage `
@@ -79,7 +79,7 @@ $managedImage = Get-AzImage `
 
 ## Create an image version
 
-Create an image version from the managed image using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Create an image version from the managed image using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -94,10 +94,10 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -GalleryImageDefinitionName $imageDefinition.Name `
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `
-   -ResourceGroupName $resourceGroup.ResourceGroupName `
-   -Location $resourceGroup.Location `
+   -ResourceGroupName $imageDefinition.ResourceGroupName `
+   -Location $imageDefinition.Location `
    -TargetRegion $targetRegions  `
-   -Source $managedImage.Id.ToString() `
+   -SourceImageId $managedImage.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-31' `
    -asJob 
 ```
@@ -112,7 +112,7 @@ $job.State
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version. 
 >
-> You can also store your image in Premiun storage by a adding `-StorageAccountType Premium_LRS`, or [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
+> You can also store your image in Premium storage by adding `-StorageAccountType Premium_LRS`, or [Zone Redundant Storage](../storage/common/storage-redundancy.md) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
 >
 
 ## Delete the managed image
@@ -129,3 +129,4 @@ Remove-AzImage `
 
 Once you have verified that replication is complete, you can create a VM from the [generalized image](vm-generalized-image-version-powershell.md).
 
+For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).

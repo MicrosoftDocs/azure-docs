@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ---
@@ -18,7 +18,7 @@ One key feature of the Microsoft big-data solution is the integration of Microso
 
 * An Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * A workstation that is running Windows 10, 7, Windows Server 2008 R2, or a later operating system.
-* Office 2016, Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone, or Office 2010 Professional Plus.
+* Microsoft 365 apps for enterprise, Office 2016, Office 2013 Professional Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
 
 ## Install Microsoft Power Query
 

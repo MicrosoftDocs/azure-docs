@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with T&E Express | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and T&E Express.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: B42374E5-2559-4309-8EF2-820BEE7EBB0C
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with T&E Express
 
@@ -27,7 +21,7 @@ Integrating T&E Express with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to T&E Express (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -130,11 +124,11 @@ To configure Azure AD single sign-on with T&E Express, perform the following ste
 
 1. Under the **Admin** Tab, Click on **SAML domain** to Open the SAML settings page.
 
-	![Configure Single Sign-On](./media/tyeexpress-tutorial/tye-SAML.png)
+	![Screenshot shows SAML Domain selected from the Admin menu.](./media/tyeexpress-tutorial/tye-SAML.png)
 
 1. Select the **Activar(Activate)** option from **No** to **SI(Yes)**. In the **Identity Provider Metadata** textbox, paste the metadata XML which you have downloaded from the Azure portal.
 
-	![Configure Single Sign-On](./media/tyeexpress-tutorial/tyeAdmin.png)
+	![Screenshot shows the Dominio SAML page where you can enter the metadata.](./media/tyeexpress-tutorial/tyeAdmin.png)
 
 1. Click on the **Guardar(Save)** button to save the settings.
 
@@ -199,29 +193,28 @@ In order to enable Azure AD users to log into T&E Express, they must be provisio
 
 1. Under Admin tag, click on Users to open the Users master page.
 
-    ![Add Employee](./media/tyeexpress-tutorial/tye-adminusers.png)
+    ![Screenshot shows Users selected from the Admin menu.](./media/tyeexpress-tutorial/tye-adminusers.png)
 
 1. On the home page, click on **+** to add the users.
 
-	![Add Employee](./media/tyeexpress-tutorial/tye-usershome.png)
+	![Screenshot shows the plus icon to add users.](./media/tyeexpress-tutorial/tye-usershome.png)
 
 1. Enter all the mandatory details as asked in the form and click the save button to save the details.
 
-	![Add Employee](./media/tyeexpress-tutorial/tye-usersadd.png)
+	![Screenshot shows the User information section where you can enter appropriate values.](./media/tyeexpress-tutorial/tye-usersadd.png)
 
-	![Add Employee](./media/tyeexpress-tutorial/tye-userssave.png)
+	![Screenshot shows the Approvers and Assistant sections where you can enter appropriate values.](./media/tyeexpress-tutorial/tye-userssave.png)
 
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the T&E Express tile in the Access Panel, you should be automatically signed in to the T&E Express for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the T&E Express tile in the Access Panel, you should be automatically signed in to the T&E Express for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Analytics shared metadata model 
-description: Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools (preview), SQL on-demand engine (preview), and SQL pools. 
+title: Shared metadata model 
+description: Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its serverless Apache Spark pools, serverless SQL pool, and dedicated SQL pools. 
 services: synapse-analytics
 author: MikeRys 
 ms.service: synapse-analytics
@@ -13,9 +13,7 @@ ms.reviewer: jrasnick
 
 # Azure Synapse Analytics shared metadata
 
-Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools (preview) and SQL on-demand engine (preview).
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its serverless Apache Spark pools and serverless SQL pool.
 
 The sharing supports the so-called modern data warehouse pattern and gives the workspace SQL engines access to databases and tables created with Spark. It also allows the SQL engines to create their own objects that aren't being shared with the other engines.
 
@@ -27,7 +25,7 @@ The shared metadata model supports the modern data warehouse pattern in the foll
 
 2. The Spark created databases and all their tables become visible in any of the Azure Synapse workspace Spark pool instances and can be used from any of the Spark jobs. This capability is subject to the [permissions](#security-model-at-a-glance) since all Spark pools in a workspace share the same underlying catalog meta store.
 
-3. The Spark created databases and their Parquet-backed tables become visible in the workspace SQL on-demand engine. [Databases](database.md) are created automatically in the SQL on-demand metadata, and both the [external and managed tables](table.md) created by a Spark job are made accessible as external tables in the SQL on-demand metadata in the `dbo` schema of the corresponding database. 
+3. The Spark created databases and their Parquet-backed tables become visible in the workspace serverless SQL pool. [Databases](database.md) are created automatically in the serverless SQL pool metadata, and both the [external and managed tables](table.md) created by a Spark job are made accessible as external tables in the serverless SQL pool metadata in the `dbo` schema of the corresponding database. 
 
 <!--[INSERT PICTURE]-->
 
@@ -35,7 +33,7 @@ The shared metadata model supports the modern data warehouse pattern in the foll
 
 Object synchronization occurs asynchronously. Objects will have a slight delay of a few seconds until they appear in the SQL context. Once they appear, they can be queried, but not updated nor changed by the SQL engines that have access to them.
 
-## Which metadata objects are shared
+## Shared metadata objects
 
 Spark allows you to create databases, external tables, managed tables, and views. Since Spark views require a Spark engine to process the defining Spark SQL statement, and cannot be processed by a SQL engine, only databases and their contained external and managed tables that use the Parquet storage format are shared with the workspace SQL engine. Spark views are only shared among the Spark pool instances.
 
@@ -47,7 +45,7 @@ For more information, see [Azure Synapse Analytics shared database](database.md)
 
 ## Change maintenance
 
-If a metadata object is deleted or changed with Spark, the changes are picked up and propagated to the SQL on-demand engine. Synchronization is asynchronous and changes are reflected in the SQL engine after a short delay.
+If a metadata object is deleted or changed with Spark, the changes are picked up and propagated to the serverless SQL pool. Synchronization is asynchronous and changes are reflected in the SQL engine after a short delay.
 
 ## Next steps
 

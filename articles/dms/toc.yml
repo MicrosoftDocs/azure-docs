@@ -9,10 +9,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create service - Portal
-    href: quickstart-create-data-migration-service-portal.md
-  - name: Create service in hybrid mode - Portal
-    href: quickstart-create-data-migration-service-hybrid-portal.md
+  - name: Create service
+    items: 
+    - name: Portal
+      href: quickstart-create-data-migration-service-portal.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: create-dms-resource-manager-template.md
+    - name: in hybrid mode (Portal)
+      href: quickstart-create-data-migration-service-hybrid-portal.md
 
 - name: Concepts
   items:
@@ -58,6 +63,10 @@
       href: tutorial-postgresql-azure-postgresql-online-portal.md
     - name: to Azure DB for PostgreSQL (Az CLI)
       href: tutorial-postgresql-azure-postgresql-online.md
+  - name: Migrate Azure DB for PostgreSQL - Single Server
+    items: 
+    - name: to Azure DB for PostgreSQL (Portal)
+      href: tutorial-azure-postgresql-to-azure-postgresql-online-portal.md
   - name: Migrate RDS PostgreSQL
     items: 
     - name: to Azure DB for PostgreSQL 
@@ -111,11 +120,11 @@
     - name: Azure Database Migration Guide
       href: https://aka.ms/datamigration
     - name: Data Migration Assistant
-      href: https://aka.ms/dma
+      href: /sql/dma/dma-overview
     - name: SQL Server Migration Assistant
-      href: https://aka.ms/ssma
+      href: /sql/ssma/sql-server-migration-assistant
     - name: Database Experimentation Assistant
-      href: https://aka.ms/dea-docs
+      href: /sql/dea/database-experimentation-assistant-overview
     - name: Data Access Migration Toolkit
       href: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
   - name: Troubleshooting and known issues
@@ -163,5 +172,3 @@
       href: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
     - name: Migrate MongoDB to Azure Cosmos DB
       href: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
-
-

@@ -122,10 +122,11 @@ Follow the steps below to configure autoscale for an Azure API Management servic
     > [!NOTE]
     > Azure API Management has a limit of units an instance can scale out to. The limit depends on a service tier.
 
-    ![Azure Monitor scale in rule](media/api-management-howto-autoscale/07.png)
+    ![Screenshot that highlights where to set the maximum number of Azure API Management units.](media/api-management-howto-autoscale/07.png)
 
 13. Click **Save**. Your autoscale has been configured.
 
 ## Next steps
 
-+ [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
+- [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
+- [Optimize and save on your cloud spending](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

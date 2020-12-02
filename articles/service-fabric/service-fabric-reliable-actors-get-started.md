@@ -6,11 +6,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: vturecek
+ms.custom: devx-track-csharp
 ---
 # Getting started with Reliable Actors
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-actors-get-started.md)
-> * [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
+> * [Java on Linux](./service-fabric-create-your-first-linux-application-with-java.md)
 
 This article walks through creating and debugging a simple Reliable Actor application in Visual Studio. For more information on Reliable Actors, see [Introduction to Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
 
@@ -102,7 +103,7 @@ Create a simple console application to call the actor service.
 
     The NuGet package and all its dependencies are installed in the ActorClient project.
 
-5. The client project also requires a reference to the interfaces project.  In the ActorClient project, right-click **Dependencies** and then click **Add reference...**.  Select **Projects > Solution** (if not already selected), and then tick the checkbox next to **HelloWorld.Interfaces**.  Click **OK**.
+5. The client project also requires a reference to the interfaces project.  In the ActorClient project, right-click **Dependencies** and then click **Add Project Reference...**.  Select **Projects > Solution** (if not already selected), and then tick the checkbox next to **HelloWorld.Interfaces**.  Click **OK**.
     
     ![Add reference dialog][7]
 

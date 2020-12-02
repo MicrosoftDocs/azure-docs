@@ -1,15 +1,15 @@
 ---
 title: "Azure SQL Database: Manage long-term backup retention"
-description: "Learn how to store and restore automated backups for an Azure SQL Database single or pooled database in Azure storage (for up to 10 years) using the Azure portal and PowerShell"
+description: "Learn how to store and restore automated backups for Azure SQL Database in Azure storage (for up to 10 years) using the Azure portal and PowerShell"
 services: sql-database
-ms.service: sql-database
-ms.subservice: operations
+ms.service: sql-db-mi
+ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 04/14/2020
 ---
 
@@ -71,11 +71,11 @@ View the backups that are retained for a specific database with an LTR policy, a
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure storage, and restore from a backup in Azure storage.
 
-### RBAC roles to manage long-term retention
+### Azure roles to manage long-term retention
 
 For **Get-AzSqlDatabaseLongTermRetentionBackup** and **Restore-AzSqlDatabase**, you will need to have one of the following roles:
 
@@ -97,7 +97,7 @@ For **Remove-AzSqlDatabaseLongTermRetentionBackup**, you will need to have one o
 > [!NOTE]
 > The SQL Server Contributor role does not have permission to delete LTR backups.
 
-RBAC permissions could be granted in either *subscription* or *resource group* scope. However, to access LTR backups that belong to a dropped server, the permission must be granted in the *subscription* scope of that server.
+Azure RBAC permissions could be granted in either *subscription* or *resource group* scope. However, to access LTR backups that belong to a dropped server, the permission must be granted in the *subscription* scope of that server.
 
 - Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -130,12 +130,12 @@ This example shows how to list the LTR policies within a server
 
 ```powershell
 # get all LTR policies within a server
-$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | `
-    Get-AzSqlDatabaseLongTermRetentionPolicy -Current
+$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $serverName | `
+    Get-AzSqlDatabaseLongTermRetentionPolicy
 
 # get the LTR policy of a specific database
 $ltrPolicies = Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
-    -ResourceGroupName $resourceGroup -Current
+    -ResourceGroupName $resourceGroup
 ```
 
 ### Clear an LTR policy
@@ -184,7 +184,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 
 ### Restore from LTR backups
 
-This example shows how to restore from an LTR backup. Note, this interface did not change but the resource id parameter now requires the LTR backup resource id.
+This example shows how to restore from an LTR backup. Note, this interface did not change but the resource ID parameter now requires the LTR backup resource ID.
 
 ```powershell
 # restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup
@@ -197,6 +197,9 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 > [!NOTE]
 > From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name. See [point in time restore](recovery-using-backups.md#point-in-time-restore).
+
+## Limitations
+- When restoring from an LTR backup, the read scale property is disabled. To enable, read scale on the restored database, update the database after it has been created.
 
 ## Next steps
 

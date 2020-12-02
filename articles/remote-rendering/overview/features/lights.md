@@ -65,6 +65,17 @@ There are no additional properties.
 
 Light sources have a significant impact on rendering performance. Use them carefully and only if required by the application. Any static global lighting condition, including a static directional component, can be achieved with a [custom sky texture](sky.md), with no additional rendering cost.
 
+## API documentation
+
+* [C# LightComponentBase class](/dotnet/api/microsoft.azure.remoterendering.lightcomponentbase)
+* [C# PointLightComponent class](/dotnet/api/microsoft.azure.remoterendering.pointlightcomponent)
+* [C# SpotLightComponent class](/dotnet/api/microsoft.azure.remoterendering.spotlightcomponent)
+* [C# DirectionalLightComponent class](/dotnet/api/microsoft.azure.remoterendering.directionallightcomponent)
+* [C++ LightComponentBase class](/cpp/api/remote-rendering/lightcomponentbase)
+* [C++ PointLightComponent class](/cpp/api/remote-rendering/pointlightcomponent)
+* [C++ SpotLightComponent class](/cpp/api/remote-rendering/spotlightcomponent)
+* [C++ DirectionalLightComponent class](/cpp/api/remote-rendering/directionallightcomponent)
+
 ## Next steps
 
 * [Materials](../../concepts/materials.md)

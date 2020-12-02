@@ -13,6 +13,7 @@
   - name: Create a profile and endpoint
     href: cdn-create-new-endpoint.md
   - name: Create profile and endpoint - ARM Template
+    displayName: Resource Manager
     href: create-profile-endpoint-template.md
 - name: Tutorials
   items:
@@ -34,6 +35,10 @@
     href: https://azure.microsoft.com/resources/samples/?service=cdn
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: How caching works
     href: cdn-how-caching-works.md
   - name: China content delivery
@@ -63,10 +68,14 @@
       href: cdn-create-endpoint-how-to.md   
     - name: Manage by using Azure PowerShell
       href: cdn-manage-powershell.md
+    - name: Onboard a root or apex domain
+      href: onboard-apex-domain.md
     - name: Restrict access by country or region
       href: cdn-restrict-access-by-country.md
     - name: Improve performance by compressing files
       href: cdn-improve-performance.md
+    - name: Endpoint multi-origin
+      href: endpoint-multiorigin.md
     - name: Control caching behavior
       items:
       - name: Control caching behavior by using caching rules
@@ -102,8 +111,8 @@
   - name: Analyze
     href: cdn-log-analysis.md
     items:
-    - name: HTTP raw logs
-      href: enable-raw-logs.md
+    - name: Monitoring, metrics, and access Logs
+      href: monitoring-and-access-log.md
     - name: Azure diagnostics logs
       href: cdn-azure-diagnostic-logs.md
     - name: Analytics tools for Azure CDN from Verizon
@@ -184,7 +193,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-cdn.html
+    href: /answers/topics/azure-cdn.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cdn/
   - name: Pricing calculator
@@ -194,4 +203,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-cdn
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn   
+    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn

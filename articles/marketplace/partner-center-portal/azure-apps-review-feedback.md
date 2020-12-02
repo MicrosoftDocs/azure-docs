@@ -1,12 +1,12 @@
 ---
 title: Review feedback for Azure apps offers - Microsoft commercial marketplace 
 description: How to handle feedback for your Azure application offer from the Microsoft Azure Marketplace review team. You can access feedback in Azure DevOps with your Partner Center credentials. 
-author: dsindona 
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
+ms.author: mingshen
+author: mingshen-ms
 ---
 
 # Handling review feedback for Azure application offers
@@ -38,7 +38,7 @@ Use the following procedure to review issues documented in the pull request.
 
 1. In the menu on the left-side of the home page, select **Files** to display the list files that comprise the technical assets for this offer. The Microsoft reviewers should have added comments describing the discovered critical issues. In the following example, two issues have been discovered.
 
-    [![Pull request home page](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    [![Screenshot that highlights Files and the two issues that were discovered.](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Click on this image to expand.*
 
 1. Select each comment node in the left tree to navigate to the comment in context of the surrounding code. Fix your source code in your team's project to correct the issue described by the comment.
@@ -52,4 +52,4 @@ Use the following procedure to review issues documented in the pull request.
 
 ## Next steps
 
-After you correct the critical issues documented in the review PR(s), you must [republish your Azure app offer](./create-new-azure-apps-offer.md#publish).
+After you correct the critical issues documented in the review PR(s), you must [republish your Azure app offer](../create-new-azure-apps-offer.md).

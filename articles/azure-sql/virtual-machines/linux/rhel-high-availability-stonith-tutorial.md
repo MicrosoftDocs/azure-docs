@@ -236,7 +236,7 @@ You should get the following results once the command completes:
     done
     ```
 
-The above command creates the VMs, and creates a default VNet for those VMs. For more information on the different configurations, see the [az vm create](https://docs.microsoft.com/cli/azure/vm) article.
+The above command creates the VMs, and creates a default VNet for those VMs. For more information on the different configurations, see the [az vm create](/cli/azure/vm) article.
 
 You should get results similar to the following once the command completes for each VM:
 
@@ -257,7 +257,7 @@ You should get results similar to the following once the command completes for e
 > [!IMPORTANT]
 > The default image that is created with the above command creates a 32GB OS disk by default. You could potentially run out of space with this default installation. You can use the following parameter added to the above `az vm create` command to create an OS disk with 128GB as an example: `--os-disk-size-gb 128`.
 >
-> You can then [configure Logical Volume Manager (LVM)](../../../virtual-machines/linux/configure-lvm.md) if you need to expand appropriate folder volumes to accomodate your installation.
+> You can then [configure Logical Volume Manager (LVM)](/previous-versions/azure/virtual-machines/linux/configure-lvm) if you need to expand appropriate folder volumes to accomodate your installation.
 
 ### Test connection to the created VMs
 
@@ -491,7 +491,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  
 ### Create a custom role for the fence agent
 
-Follow the tutorial to [Create a custom role for Azure resources using Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
+Follow the tutorial to [Create an Azure custom role using Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
 
 Your json file should look similar to the following:
 
@@ -902,7 +902,7 @@ On all SQL Server instances, save the credentials used for the SQL Server login.
 
 1. Once the secondary replicas are joined, you can see them in SSMS Object Explorer by expanding the **Always On High Availability** node:
 
-    ![availability-group-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
+    ![Screenshot shows the primary and secondary availability replicas.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
 ### Add a database to the availability group
 
@@ -945,17 +945,17 @@ We will be following the guide to [create the availability group resources in th
 
 1. Use one of the following commands based on the environment chosen earlier to create the resource `ag_cluster` in the availability group `ag1`.
 
-      **RHEL 7** 
+    **RHEL 7**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
+    ```
 
-      **RHEL 8** 
+    **RHEL 8**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
+    ```
 
 2. Check your resource and ensure that they are online before proceeding using the following command:
 

@@ -14,7 +14,7 @@ ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ---
 
-# Transform data by running U-SQL scripts on Azure Data Lake Analytics 
+# Process data by running U-SQL scripts on Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-usql-activity.md)
 > * [Current version](transform-data-using-data-lake-analytics.md)
@@ -40,7 +40,7 @@ The following table provides descriptions for the generic properties used in the
 | **resourceGroupName**    | Azure resource group name                | No                                       |
 
 ### Service principal authentication
-The Azure Data Lake Analytics linked service requires a service principal authentication to connect to the Azure Data Lake Analytics service. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the access to both the Data Lake Analytics and the Data Lake Store it uses. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
+The Azure Data Lake Analytics linked service requires a service principal authentication to connect to the Azure Data Lake Analytics service. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the access to both the Data Lake Analytics and the Data Lake Store it uses. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
 
 * Application ID
 * Application key 
@@ -193,5 +193,5 @@ See the following articles that explain how to transform data in other ways:
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
 * [Spark activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (classic) Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

@@ -26,10 +26,12 @@ ms.custom: "include file"
     | Pricing tier | *Free* | Currently, **Free** and **Standard** options are available. |
     | Pin to dashboard | ✔ | Select this box to have the resource pinned to your dashboard so it's easier to find. |
 
-4. Select **Create**. The deployment might take a few minutes to complete.
+4. Select **Review + create**. Wait for the validation to complete. 
 
-5. After the deployment is complete, select **Keys** under **SETTINGS**. Copy your connection string for the primary key. You'll use this string later to configure your app to use the Azure SignalR Service resource.
+5. Select **Create**. The deployment might take a few minutes to complete.
+
+6. After the deployment is complete, select **Keys** under **SETTINGS**. Copy your connection string for the primary key. You'll use this string later to configure your app to use the Azure SignalR Service resource.
 
     The connection string will have the following form:
     
-        Endpoint=<service_endpoint>;AccessKey=<access_key>;
+    `Endpoint=<service_endpoint>;AccessKey=<access_key>;`

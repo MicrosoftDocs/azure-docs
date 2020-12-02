@@ -1,19 +1,19 @@
 ---
-title: Troubleshoot module errors
+title: Troubleshoot designer module errors
 titleSuffix: "Azure Machine Learning"
-description: Troubleshoot module exceptions in Azure Machine Learning designer using error codes
+description: Learn how you can read and troubleshoot automated module error codes in Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
-
+ms.topic: reference
+ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 04/16/2020
+ms.date: 11/25/2020
 ---
-# Exceptions and error codes for the designer (preview)
+# Exceptions and error codes for the designer
 
-This article describes the error messages and exception codes in Azure Machine Learning designer (preview) to help you troubleshoot your machine learning pipelines.
+This article describes the error messages and exception codes in Azure Machine Learning designer to help you troubleshoot your machine learning pipelines.
 
 You can find the error message in the designer following these steps:  
 
@@ -284,11 +284,18 @@ If the model was trained using any of the specialized training modules, connect 
 
  This error occurs when a column contains too many unique values.  For example, you might see this error if you specify that a column be handled as categorical data, but there are too many unique values in the column to allow processing to complete. You might also see this error if there is a mismatch between the number of unique values in two inputs.   
 
+The error of unique values is greater than allowed will occur if meeting **both** following conditions:
+
+- More than 97% instances of one column are unique values, which means nearly all categories are different from each other.
+- One column has more than than 1000 unique values.
+
 **Resolution:**
 
 Open the module that generated the error, and identify the columns used as inputs. For some modules, you can right-click the dataset input and select **Visualize** to get statistics on individual columns, including the number of unique values and their distribution.
 
 For columns that you intend to use for grouping or categorization, take steps to reduce the number of unique values in columns. You can reduce in different ways, depending on the data type of the column. 
+
+Usually in this scenario, the column hitting the error is meaningless as a feature to train models. Hence, you can use [Edit Metadata](../algorithm-module-reference/edit-metadata.md) to mark that column as **Clear feature** and it will not be used during training a model. 
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
@@ -736,7 +743,7 @@ For general information about how the Matchbox recommendation algorithm works, a
  This error is caused by many conditions and there is no specific remedy.  
  The following table contains generic messages for this error, which are followed by a specific description of the condition. 
 
- If no details are available, [Microsoft Q&A question page for send feedback](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) and provide information about the modules that generated the error and related conditions.
+ If no details are available, [Microsoft Q&A question page for send feedback](/answers/topics/azure-machine-learning-studio-classic.html) and provide information about the modules that generated the error and related conditions.
 
 |Exception Messages|
 |------------------------|
@@ -891,7 +898,7 @@ Another reason you might get this error if you try to use a column containing fl
 
  This error in Azure Machine Learning occurs if the key used to access the Azure storage account is incorrect. For example, you might see this error if the Azure storage key was truncated when copied and pasted, or if the wrong key was used.  
 
- For more information about how to get the key for an Azure storage account, see [View, copy, and regenerate storage access keys](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/).  
+ For more information about how to get the key for an Azure storage account, see [View, copy, and regenerate storage access keys](../../storage/common/storage-account-create.md).  
 
 **Resolution:**
  Revisit the module and verify that the Azure storage key is correct for the account; copy the key again from the Azure classic portal if necessary.  
@@ -1123,9 +1130,9 @@ The error message from Hive is normally reported back in the Error Log so that y
 
 See the following articles for help with Hive queries for machine learning:
 
-+ [Create Hive tables and load data from Azure Blob Storage](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
-+ [Explore data in tables with Hive queries](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Create features for data in an Hadoop cluster using Hive queries](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
++ [Create Hive tables and load data from Azure Blob Storage](../team-data-science-process/move-hive-tables.md)
++ [Explore data in tables with Hive queries](../team-data-science-process/explore-data-hive-tables.md)
++ [Create features for data in an Hadoop cluster using Hive queries](../team-data-science-process/create-features-hive.md)
 + [Hive for SQL Users Cheat Sheet (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   
@@ -1208,7 +1215,7 @@ This error in Azure Machine Learning occurs when you are trying to bin data usin
 
 Error handling for this event was introduced in an earlier version of Azure Machine Learning that allowed more customization of binning methods. Currently all binning methods are based on a selection from a dropdown list, so technically it should no longer be possible to get this error.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Exception Messages|
 |------------------------|
@@ -1574,11 +1581,10 @@ Internal library exception.
 
 This error is provided to capture otherwise unhandled internal engine errors. Therefore, the cause for this error might be different depending on the module that generated the error.  
 
-To get more help, we recommend that you post the detailed message that accompanies the error to the [Azure Machine Learning forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
+To get more help, we recommend that you post the detailed message that accompanies the error to the [Azure Machine Learning forum](/answers/topics/azure-machine-learning.html), together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
 
 |Exception Messages|
 |------------------------|
 |Library exception.|
 |Library exception: {exception}.|
 |Unknown library exception: {exception}. {customer_support_guidance}.|
-

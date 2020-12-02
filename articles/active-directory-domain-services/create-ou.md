@@ -2,7 +2,7 @@
 title: Create an organizational unit (OU) in Azure AD Domain Services | Microsoft Docs'
 description: Learn how to create and manage a custom Organizational Unit (OU) in an Azure AD Domain Services managed domain.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
-ms.author: iainfou
+ms.date: 07/06/2020
+ms.author: joflore
 
 ---
 # Create an Organizational Unit (OU) in an Azure Active Directory Domain Services managed domain
 
-Organizational units (OUs) in Active Directory Domain Services (AD DS) let you logically group objects such as user accounts, service accounts, or computer accounts. You can then assign administrators to specific OUs, and apply group policy to enforce targeted configuration settings.
+Organizational units (OUs) in an Active Directory Domain Services (AD DS) managed domain let you logically group objects such as user accounts, service accounts, or computer accounts. You can then assign administrators to specific OUs, and apply group policy to enforce targeted configuration settings.
 
 Azure AD DS managed domains include the following two built-in OUs:
 
@@ -25,7 +25,7 @@ Azure AD DS managed domains include the following two built-in OUs:
 
 As you create and run workloads that use Azure AD DS, you may need to create service accounts for applications to authenticate themselves. To organize these service accounts, you often create a custom OU in the managed domain and then create service accounts within that OU.
 
-In a hybrid environment, OUs created in an on-premises AD DS environment aren't synchronized to Azure AD DS. Managed domains use a flat OU structure. All user accounts and groups are stored in the *AADDC Users* container, despite being synchronized from different on-premises domains or forests, even if you've configured a hierarchical OU structure there.
+In a hybrid environment, OUs created in an on-premises AD DS environment aren't synchronized to the managed domain. Managed domains use a flat OU structure. All user accounts and groups are stored in the *AADDC Users* container, despite being synchronized from different on-premises domains or forests, even if you've configured a hierarchical OU structure there.
 
 This article shows you how to create an OU in your managed domain.
 
@@ -45,7 +45,7 @@ To complete this article, you need the following resources and privileges:
 
 ## Custom OU considerations and limitations
 
-When you create custom OUs in a managed domain, you gain additional management flexibility for user management and applying group policy. Compared to an on-premises AD DS environment, there are some limitations and considerations when creating and managing a custom OU structure in Azure AD DS:
+When you create custom OUs in a managed domain, you gain additional management flexibility for user management and applying group policy. Compared to an on-premises AD DS environment, there are some limitations and considerations when creating and managing a custom OU structure in a managed domain:
 
 * To create custom OUs, users must be a member of the *AAD DC Administrators* group.
 * A user that creates a custom OU is granted administrative privileges (full control) over that OU and is the resource owner.
@@ -85,8 +85,8 @@ To create a custom OU, you use the Active Directory Administrative Tools from a 
 
 For more information on using the administrative tools or creating and using service accounts, see the following articles:
 
-* [Active Directory Administrative Center: Getting Started](https://technet.microsoft.com/library/dd560651.aspx)
-* [Service Accounts Step-by-Step Guide](https://technet.microsoft.com/library/dd548356.aspx)
+* [Active Directory Administrative Center: Getting Started](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560651(v=ws.10))
+* [Service Accounts Step-by-Step Guide](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

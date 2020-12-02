@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Enable logging in the Speech SDK
@@ -62,7 +63,7 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-More about file access permission for UWP applications is available [here](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
+More about file access permission for UWP applications is available [here](/windows/uwp/files/file-access-permissions).
 
 ### Android
 

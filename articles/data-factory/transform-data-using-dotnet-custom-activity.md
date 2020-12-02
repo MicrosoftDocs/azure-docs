@@ -1,6 +1,6 @@
 ---
 title: Use custom activities in a pipeline
-description: Learn how to create custom activities and use them in an Azure Data Factory pipeline.
+description: Learn how to create custom activities by using .NET, and then use the activities in an Azure Data Factory pipeline.
 services: data-factory
 ms.service: data-factory
 author: nabhishek
@@ -31,7 +31,7 @@ To move data to/from a data store that Data Factory does not support, or to tran
 See following articles if you are new to Azure Batch service:
 
 * [Azure Batch basics](../batch/batch-technical-overview.md) for an overview of the Azure Batch service.
-* [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) article for detailed instructions on using the cmdlet.
+* [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) article for detailed instructions on using the cmdlet.
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 
 ## Azure Batch linked service
@@ -351,7 +351,7 @@ If you have existing .NET code written for a version 1 (Custom) DotNet Activity,
   - The Microsoft.Azure.Management.DataFactories NuGet package is no longer required.
   - Compile your code, upload the executable and its dependencies to Azure Storage, and define the path in the `folderPath` property.
 
-For a complete sample of how the end-to-end DLL and pipeline sample described in the Data Factory version 1 article [Use custom activities in an Azure Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) can be rewritten as a Data Factory Custom Activity, see [Data Factory Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
+For a complete sample of how the end-to-end DLL and pipeline sample described in the Data Factory version 1 article [Use custom activities in an Azure Data Factory pipeline](./v1/data-factory-use-custom-activities.md) can be rewritten as a Data Factory Custom Activity, see [Data Factory Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## Auto-scaling of Azure Batch
 
@@ -371,7 +371,7 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details.
 
-If the pool is using the default [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity. If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes.
+If the pool is using the default [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity. If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes.
 
 ## Next steps
 See the following articles that explain how to transform data in other ways:
@@ -382,5 +382,5 @@ See the following articles that explain how to transform data in other ways:
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
 * [Spark activity](transform-data-using-spark.md)
-* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (classic) Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

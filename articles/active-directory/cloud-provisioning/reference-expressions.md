@@ -253,7 +253,7 @@ Takes a date string from one format and converts it into a different format.
    | Name | Required/ Repeating | Type | Notes |
    | --- | --- | --- | --- |
    | **source** |Required |String |Usually name of the attribute from the source object. |
-   | **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
    | **outputFormat** |Required |String |Format of the output date. |
 
 ---
@@ -289,7 +289,7 @@ The InStr function finds the first occurrence of a substring in a string
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck: string to be searched
 * stringmatch: string to be found
@@ -735,7 +735,7 @@ Split([extensionAttribute5], ",")
 
 **Sample input/output:** <br>
 
-* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **INPUT** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
 * **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
 
 ### Output date as a string in a certain format
@@ -792,11 +792,13 @@ Based on the user's first name, middle name and last name, you need to generate 
 
 **Expression:** <br>
 
+```ad-attr-mapping-expr
     SelectUniqueValue( 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
     )
+```
 
 **Sample input/output:**
 

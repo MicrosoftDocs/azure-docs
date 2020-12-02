@@ -2,7 +2,7 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 11/06/2020
 ---
 # Using linked and nested templates when deploying Azure resources
 
@@ -10,10 +10,12 @@ To deploy complex solutions, you can break your template into many related templ
 
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. You can easily reuse these templates for other scenarios.
 
-For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](template-tutorial-create-linked-templates.md).
+For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
-> For linked or nested templates, you can only use [Incremental](deployment-modes.md) deployment mode.
+> For linked or nested templates, you can only set the deployment mode to [Incremental](deployment-modes.md). However, the main template can be deployed in complete mode. If you deploy the main template in the complete mode, and the linked or nested template targets the same resource group, the resources deployed in the linked or nested template are included in the evaluation for complete mode deployment. The combined collection of resources deployed in the main template and linked or nested templates is compared against the existing resources in the resource group. Any resources not included in this combined collection are deleted.
+>
+> If the linked or nested template targets a different resource group, that deployment uses incremental mode.
 >
 
 ## Nested template
@@ -154,7 +156,7 @@ The following template demonstrates how template expressions are resolved accord
 
 The value of `exampleVar` changes depending on the value of the `scope` property in `expressionEvaluationOptions`. The following table shows the results for both scopes.
 
-| `expressionEvaluationOptions` `scope` | Output |
+| `expressionEvaluationOptions` scope | Output |
 | ----- | ------ |
 | inner | from nested template |
 | outer (or default) | from parent template |
@@ -275,7 +277,7 @@ The following example deploys a SQL server and retrieves a key vault secret to u
 
 ## Linked template
 
-To link a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the **templateLink** property, specify the URI of the template to include. The following example links to a template that deploys a new storage account.
+To link a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the **templateLink** property, specify the URI of the template to include. The following example links to a template that is in a storage account.
 
 ```json
 {
@@ -302,16 +304,17 @@ To link a template, add a [deployments resource](/azure/templates/microsoft.reso
 }
 ```
 
-When referencing a linked template, the value of `uri` must not be a local file or a file that is only available on your local network. You must provide a URI value that downloadable as **http** or **https**.
+When referencing a linked template, the value of `uri` can't be a local file or a file that is only available on your local network. Azure Resource Manager must be able to access the template. Provide a URI value that downloadable as **http** or **https**. 
 
-> [!NOTE]
->
-> You may reference templates using parameters that ultimately resolve
-> to something that uses **http** or **https**, for example, using the
-> `_artifactsLocation` parameter like so:
-> `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+You may reference templates using parameters that include **http** or **https**. For example, a common pattern is to use the `_artifactsLocation` parameter. You can set the linked template with an expression like:
 
-Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item.
+```json
+"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
+```
+
+If you're linking to a template in GitHub, use the raw URL. The link has the format: `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json`. To get the raw link, select **Raw**.
+
+:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Select raw URL":::
 
 ### Parameters for linked template
 
@@ -361,6 +364,15 @@ To pass parameter values inline, use the **parameters** property.
 ```
 
 You can't use both inline parameters and a link to a parameter file. The deployment fails with an error when both `parametersLink` and `parameters` are specified.
+
+## Template specs
+
+Instead of maintaining your linked templates at an accessible endpoint, you can create a [template spec](template-specs.md) that packages the main template and its linked templates into a single entity you can deploy. The template spec is a resource in your Azure subscription. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
+
+For more information, see:
+
+- [Tutorial: Create a template spec with linked templates](./template-specs-create-linked.md).
+- [Tutorial: Deploy a template spec as a linked template](./template-specs-deploy-linked-template.md).
 
 ## contentVersion
 
@@ -716,6 +728,9 @@ The parameter file can also be limited to access through a SAS token.
 
 Currently, you can't link to a template in a storage account that is behind an [Azure Storage firewall](../../storage/common/storage-network-security.md).
 
+> [!IMPORTANT]
+> Instead of securing your linked template with a SAS token, consider creating a [template spec](template-specs.md). The template spec securely stores the main template and its linked templates as a resource in your Azure subscription. You use Azure RBAC to grant access to users who need to deploy the template.
+
 The following example shows how to pass a SAS token when linking to a template:
 
 ```json
@@ -790,7 +805,7 @@ The following examples show common uses of linked templates.
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create linked Azure Resource Manager templates](template-tutorial-create-linked-templates.md).
+* To go through a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./deployment-tutorial-linked-template.md).
 * To learn about the defining the deployment order for your resources, see [Defining dependencies in Azure Resource Manager templates](define-resource-dependency.md).
 * To learn how to define one resource but create many instances of it, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 * For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](deploy-powershell.md) or [Deploy resources with Resource Manager templates and Azure CLI](deploy-cli.md).

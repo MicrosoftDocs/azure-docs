@@ -3,7 +3,7 @@ title: 'Tutorial - Stream Analytics at the edge using Azure IoT Edge'
 description: 'In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device'
 author: kgremban
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -11,7 +11,7 @@ ms.custom: mvc
 
 # Tutorial: Deploy Azure Stream Analytics as an IoT Edge module
 
-Many IoT solutions use analytics services to gain insight about data as it arrives in the cloud from IoT devices. With Azure IoT Edge, you can take [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) logic and move it onto the device itself. By processing telemetry streams at the edge, you can reduce the amount of uploaded data and reduce the time it takes to react to actionable insights.
+Many IoT solutions use analytics services to gain insight about data as it arrives in the cloud from IoT devices. With Azure IoT Edge, you can take [Azure Stream Analytics](../stream-analytics/index.yml) logic and move it onto the device itself. By processing telemetry streams at the edge, you can reduce the amount of uploaded data and reduce the time it takes to react to actionable insights.
 
 Azure IoT Edge and Azure Stream Analytics are integrated to simplify your workload development. You can create an Azure Stream Analytics job in the Azure portal and then deploy it as an IoT Edge module with no additional code.  
 
@@ -129,7 +129,7 @@ Using the three elements of input, output, and query, this section creates a job
     HAVING Avg(machine.temperature) > 70
     ```
 
-1. Select **Save**.
+1. Select **Save query**.
 
 ### Configure IoT Edge settings
 
@@ -184,7 +184,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
 1. Select **Update** or **Cancel**.
 
-1. Make a note of the name of your Stream Analytics module because you'll need it in the next step, then select **Next: Routes** to continue.
+1. Make a note of the name of your Stream Analytics module because you'll need it in the next step. Then, select **Next: Routes** to continue.
 
 1. On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. Replace the default `route` and `upstream` name and values with the pairs shown in following table, the following name/value pairs, replacing instances of _{moduleName}_ with the name of your Azure Stream Analytics module.
 

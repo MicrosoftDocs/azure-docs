@@ -54,8 +54,6 @@
         href: ios-sdk-300.md
       - name: Objective-C (version 2.0.4)
         href: ios-sdk-204.md
-      - name: Swift
-        href: ios-sdk-swift-rest.md
     - name: Send push notifications to specific devices
       href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
     - name: Send push notifications to specific users
@@ -64,12 +62,6 @@
       href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md                
     - name: Send push localized notifications to iOS devices
       href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-  - name: Cross-Platform
-    items:
-    - name: Send push notifications via a backend service
-      items:
-      - name: Xamarin.Forms
-        href: notification-hubs-backend-service-xamarin-forms.md
   - name: Windows Phone
     items:
     - name: Send push notifications to apps
@@ -121,7 +113,7 @@
     href: notification-hubs-send-push-notifications-scheduled.md      
   - name: Deploy and manage notification hubs using Azure PowerShell
     href: notification-hubs-deploy-and-manage-powershell.md            
-  - name: Securely push notifications to users
+  - name: Send secure notifications to users
     href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
   - name: Export and import registrations in bulk
     href: export-modify-registrations-bulk.md
@@ -184,7 +176,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/notification-hubs/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-notification-hubs.html
+    href: /answers/topics/azure-notification-hubs.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-notificationhub
   - name: Request a feature

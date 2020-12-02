@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using [DisplayControls](display-controls.md) (currently in preview) and the third-party email provider Mailjet, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
 
-Custom email verification requires the use of a third-party email provider like [Mailjet](https://Mailjet.com), [SendGrid](custom-email.md), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses Mailjet.
+Custom email verification requires the use of a third-party email provider like [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses Mailjet.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -53,7 +53,7 @@ Next, store the Mailjet API key in an Azure AD B2C policy key for your policies 
 
 ## Create a Mailjet template
 
-With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C policy key, create a Mailjet [dynamic transactional template](https://Mailjet.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
+With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C policy key, create a Mailjet [dynamic transactional template](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
 
 1. On the Mailjet site, open the [transactional templates](https://app.mailjet.com/templates/transactional) page and select **Create a new template**.
 1. Select **By coding it in HTML**, and then select **Code from scratch**.
@@ -224,12 +224,15 @@ Add the following claims transformation to the `<ClaimsTransformations>` element
 
 ## Add DataUri content definition
 
-Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.0.0 data URI:
+Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.1.0 data URI:
 
 ```XML
 <ContentDefinitions>
  <ContentDefinition Id="api.localaccountsignup">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountpasswordreset">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
   </ContentDefinition>
 </ContentDefinitions>
 ```
@@ -356,7 +359,7 @@ As with the OTP technical profiles, add the following technical profiles to the 
 
 ## Make a reference to the DisplayControl
 
-In the final step, add a reference to the DisplayControl you created. Replace your existing `LocalAccountSignUpWithLogonEmail` self-asserted technical profile with the following if you used an earlier version of Azure AD B2C policy. This technical profile uses `DisplayClaims` with a reference to the DisplayControl.
+In the final step, add a reference to the DisplayControl you created. Replace your existing `LocalAccountSignUpWithLogonEmail` and `LocalAccountDiscoveryUsingEmailAddress` self-asserted technical profiles with the following. If you used an earlier version of Azure AD B2C policy. These technical profiles use `DisplayClaims` with a reference to the DisplayControl..
 
 For more information, see [Self-asserted technical profile](restful-technical-profile.md) and [DisplayControl](display-controls.md).
 
@@ -365,22 +368,13 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-      <DisplayName>Email signup</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
-        <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
-        <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
-        <Item Key="language.button_continue">Create</Item>
-        
         <!--OTP validation error messages-->
-        <Item Key="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</Item>
+        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
+        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
         <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
         <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
       </Metadata>
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="email" />
-      </InputClaims>
       <DisplayClaims>
         <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
         <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
@@ -389,17 +383,18 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
         <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
         <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
       </DisplayClaims>
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="email" Required="true" />
-        <OutputClaim ClaimTypeReferenceId="objectId" />
-        <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
-        <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-        <OutputClaim ClaimTypeReferenceId="newUser" />
-      </OutputClaims>
-      <ValidationTechnicalProfiles>
-        <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
-      </ValidationTechnicalProfiles>
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+    </TechnicalProfile>
+    <TechnicalProfile Id="LocalAccountDiscoveryUsingEmailAddress">
+      <Metadata>
+        <!--OTP validation error messages-->
+        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
+        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
+        <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
+        <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
+      </Metadata>
+      <DisplayClaims>
+        <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+      </DisplayClaims>
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
@@ -455,7 +450,7 @@ To localize the email, you must send localized strings to Mailjet, or your email
         <SupportedLanguage>en</SupportedLanguage>
         <SupportedLanguage>es</SupportedLanguage>
       </SupportedLanguages>
-      <LocalizedResources Id="api.localaccountsignup.en">
+      <LocalizedResources Id="api.custom-email.en">
         <LocalizedStrings>
           <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
           <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for validating the account</LocalizedString>
@@ -464,7 +459,7 @@ To localize the email, you must send localized strings to Mailjet, or your email
         </LocalizedStrings>
         </LocalizedStrings>
       </LocalizedResources>
-      <LocalizedResources Id="api.localaccountsignup.es">
+      <LocalizedResources Id="api.custom-email.es">
         <LocalizedStrings>
           <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
           <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
@@ -478,22 +473,66 @@ To localize the email, you must send localized strings to Mailjet, or your email
 1. Add references to the LocalizedResources elements by updating the [ContentDefinitions](contentdefinitions.md) element.
 
     ```xml
-    <ContentDefinition Id="api.localaccountsignup">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
-      <LocalizedResourcesReferences MergeBehavior="Prepend">
-        <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
-        <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
-      </LocalizedResourcesReferences>
-    </ContentDefinition>
+    <ContentDefinitions>
+      <ContentDefinition Id="api.localaccountsignup">
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
+          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+      <ContentDefinition Id="api.localaccountpasswordreset">
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
+          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+    </ContentDefinitions>
     ```
 
-1. Finally, add the following input claims transformation to the LocalAccountSignUpWithLogonEmail technical profile.
+1. Finally, add following input claims transformation to the `LocalAccountSignUpWithLogonEmail` and `LocalAccountDiscoveryUsingEmailAddress` technical profiles.
 
     ```xml
     <InputClaimsTransformations>
       <InputClaimsTransformation ReferenceId="GetLocalizedStringsForEmail" />
     </InputClaimsTransformations>
     ```
+    
+## [Optional] Localize the UI
+
+The Localization element allows you to support multiple locales or languages in the policy for the user journeys. The localization support in policies allows you to provide language-specific strings for both [Verification display control user interface elements](localization-string-ids.md#verification-display-control-user-interface-elements), and [One time password error messages](localization-string-ids.md#one-time-password-error-messages). Add the following LocalizedString to your LocalizedResources. 
+
+```XML
+<LocalizedResources Id="api.custom-email.en">
+  <LocalizedStrings>
+    ...
+    <!-- Display control UI elements-->
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_send_code_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_send_code_msg">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_verify_code_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_verify_code_msg">We are having trouble verifying your email address. Please try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
+    <!-- Claims-->
+    <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="DisplayName">Verification Code</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="UserHelpText">Verification code received in the email.</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="AdminHelpText">Verification code received in the email.</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Eamil</LocalizedString>
+    <!-- Email validation error messages-->
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+After you add the localized strings, remove the OTP validation error messages metadata from the LocalAccountSignUpWithLogonEmail and LocalAccountDiscoveryUsingEmailAddress technical profiles.
 
 ## Next steps
 

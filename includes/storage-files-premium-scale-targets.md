@@ -2,7 +2,7 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 06/07/2019
+ms.date: 08/10/2020
 ms.author: rogarana
 ---
 #### Additional premium file share level limits
@@ -17,11 +17,15 @@ ms.author: rogarana
 
 #### File level limits
 
-|Area  |Premium file  |Standard file |
+|Area  |Standard file  |Premium file  |
 |---------|---------|---------|
-|Size                  |1 TiB         |1 TiB|
-|Max IOPS per file     |5,000         |1,000|
-|Concurrent handles    |2,000         |2,000|
-|Egress  |300 MiB/sec|      See standard file throughput values|
-|Ingress  |200 MiB/sec| See standard file throughput values|
-|Throughput| See premium file ingress/egress values| Up to 60 MiB/sec|
+|Size     |1 TiB         |4 TiB         |
+|Max IOPS per file      |1,000         |Up to 8,000*         |
+|Concurrent handles     |2,000         |2,000         |
+|Egress     |See standard file throughput values         |300 MiB/sec (Up to 1 GiB/s with SMB Multichannel preview)**         |
+|Ingress     |See standard file throughput values         |200 MiB/sec (Up to 1 GiB/s with SMB Multichannel preview)**        |
+|Throughput     |Up to 60 MiB/sec         |See premium file ingress/egress values         |
+
+\* <sup> Applies to read and write IOs (typically smaller IO sizes <=64K). Metadata operations, other than reads and writes, may be lower. </sup>
+
+\*\* <sup> Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](../articles/storage/files/storage-files-smb-multichannel-performance.md). </sup>

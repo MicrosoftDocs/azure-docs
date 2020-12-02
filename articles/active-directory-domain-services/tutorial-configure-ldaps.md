@@ -1,22 +1,24 @@
 ---
 title: Tutorial - Configure LDAPS for Azure Active Directory Domain Services | Microsoft Docs
 description: In this tutorial, you learn how to configure secure lightweight directory access protocol (LDAPS) for an Azure Active Directory Domain Services managed domain.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
-ms.author: iainfou
+ms.date: 07/06/2020
+ms.author: joflore
 
 #Customer intent: As an identity administrator, I want to secure access to an Azure Active Directory Domain Services managed domain using secure lightweight directory access protocol (LDAPS)
 ---
 
 # Tutorial: Configure secure LDAP for an Azure Active Directory Domain Services managed domain
 
-To communicate with your Azure Active Directory Domain Services (Azure AD DS) managed domain, the Lightweight Directory Access Protocol (LDAP) is used. By default, the LDAP traffic isn't encrypted, which is a security concern for many environments. With Azure AD DS, you can configure the managed domain to use secure Lightweight Directory Access Protocol (LDAPS). When you use secure LDAP, the traffic is encrypted. Secure LDAP is also known as LDAP over Secure Sockets Layer (SSL) / Transport Layer Security (TLS).
+To communicate with your Azure Active Directory Domain Services (Azure AD DS) managed domain, the Lightweight Directory Access Protocol (LDAP) is used. By default, the LDAP traffic isn't encrypted, which is a security concern for many environments.
+
+With Azure AD DS, you can configure the managed domain to use secure Lightweight Directory Access Protocol (LDAPS). When you use secure LDAP, the traffic is encrypted. Secure LDAP is also known as LDAP over Secure Sockets Layer (SSL) / Transport Layer Security (TLS).
 
 This tutorial shows you how to configure LDAPS for an Azure AD DS managed domain.
 
@@ -66,7 +68,11 @@ The certificate you request or create must meet the following requirements. Your
 * **Key usage** - The certificate must be configured for *digital signatures* and *key encipherment*.
 * **Certificate purpose** - The certificate must be valid for TLS server authentication.
 
-There are several tools available to create self-signed certificate such as OpenSSL, Keytool, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet etc. In this tutorial, let's create a self-signed certificate for secure LDAP using the [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet. Open a PowerShell window as **Administrator** and run the following commands. Replace the *$dnsName* variable with the DNS name used by your own managed domain, such as *aaddscontoso.com*:
+There are several tools available to create self-signed certificate such as OpenSSL, Keytool, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet, etc.
+
+In this tutorial, let's create a self-signed certificate for secure LDAP using the [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet.
+
+Open a PowerShell window as **Administrator** and run the following commands. Replace the *$dnsName* variable with the DNS name used by your own managed domain, such as *aaddscontoso.com*:
 
 ```powershell
 # Define your own DNS name used by your managed domain
@@ -102,11 +108,14 @@ To use secure LDAP, the network traffic is encrypted using public key infrastruc
 * A **private** key is applied to the managed domain.
     * This private key is used to *decrypt* the secure LDAP traffic. The private key should only be applied to the managed domain and not widely distributed to client computers.
     * A certificate that includes the private key uses the *.PFX* file format.
+    * The encryption algorithm for the certificate must be *TripleDES-SHA1*.
 * A **public** key is applied to the client computers.
     * This public key is used to *encrypt* the secure LDAP traffic. The public key can be distributed to client computers.
     * Certificates without the private key use the *.CER* file format.
 
-These two keys, the *private* and *public* keys, make sure that only the appropriate computers can successfully communicate with each other. If you use a public CA or enterprise CA, you are issued with a certificate that includes the private key and can be applied to a managed domain. The public key should already be known and trusted by client computers. In this tutorial, you created a self-signed certificate with the private key, so you need to export the appropriate private and public components.
+These two keys, the *private* and *public* keys, make sure that only the appropriate computers can successfully communicate with each other. If you use a public CA or enterprise CA, you are issued with a certificate that includes the private key and can be applied to a managed domain. The public key should already be known and trusted by client computers.
+
+In this tutorial, you created a self-signed certificate with the private key, so you need to export the appropriate private and public components.
 
 ### Export a certificate for Azure AD DS
 
@@ -139,14 +148,16 @@ Before you can use the digital certificate created in the previous step with you
 
 1. As this certificate is used to decrypt data, you should carefully control access. A password can be used to protect the use of the certificate. Without the correct password, the certificate can't be applied to a service.
 
-    On the **Security** page, choose the option for **Password** to protect the *.PFX* certificate file. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your managed domain.
+    On the **Security** page, choose the option for **Password** to protect the *.PFX* certificate file. The encryption algorithm must be *TripleDES-SHA1*. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your managed domain.
 1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as *C:\Users\accountname\azure-ad-ds.pfx*. Keep a note of the password and location of the *.PFX* file as this information would be required in next steps.
 1. On the review page, select **Finish** to export the certificate to a *.PFX* certificate file. A confirmation dialog is displayed when the certificate has been successfully exported.
 1. Leave the MMC open for use in the following section.
 
 ### Export a certificate for client computers
 
-Client computers must trust the issuer of the secure LDAP certificate to be able to connect successfully to the managed domain using LDAPS. The client computers need a certificate to successfully encrypt data that is decrypted by Azure AD DS. If you use a public CA, the computer should automatically trust these certificate issuers and have a corresponding certificate. In this tutorial you use a self-signed certificate, and generated a certificate that includes the private key in the previous step. Now let's export and then install the self-signed certificate into the trusted certificate store on the client computer:
+Client computers must trust the issuer of the secure LDAP certificate to be able to connect successfully to the managed domain using LDAPS. The client computers need a certificate to successfully encrypt data that is decrypted by Azure AD DS. If you use a public CA, the computer should automatically trust these certificate issuers and have a corresponding certificate.
+
+In this tutorial you use a self-signed certificate, and generated a certificate that includes the private key in the previous step. Now let's export and then install the self-signed certificate into the trusted certificate store on the client computer:
 
 1. Go back to the MMC for *Certificates (Local Computer) > Personal > Certificates* store. The self-signed certificate created in a previous step is shown, such as *aaddscontoso.com*. Right-select this certificate, then choose **All Tasks > Export...**
 1. In the **Certificate Export Wizard**, select **Next**.
@@ -184,7 +195,10 @@ With a digital certificate created and exported that includes the private key, a
 
 1. Select the folder icon next to **.PFX file with secure LDAP certificate**. Browse to the path of the *.PFX* file, then select the certificate created in a previous step that includes the private key.
 
-    As noted in the previous section on certificate requirements, you can't use a certificate from a public CA with the default *.onmicrosoft.com* domain. Microsoft owns the *.onmicrosoft.com* domain, so a public CA won't issue a certificate. Make sure your certificate is in the appropriate format. If it's not, the Azure platform generates certificate validation errors when you enable secure LDAP.
+    > [!IMPORTANT]
+    > As noted in the previous section on certificate requirements, you can't use a certificate from a public CA with the default *.onmicrosoft.com* domain. Microsoft owns the *.onmicrosoft.com* domain, so a public CA won't issue a certificate.
+    >
+    > Make sure your certificate is in the appropriate format. If it's not, the Azure platform generates certificate validation errors when you enable secure LDAP.
 
 1. Enter the **Password to decrypt .PFX file** set in a previous step when the certificate was exported to a *.PFX* file.
 1. Select **Save** to enable secure LDAP.
@@ -193,7 +207,9 @@ With a digital certificate created and exported that includes the private key, a
 
 A notification is displayed that secure LDAP is being configured for the managed domain. You can't modify other settings for the managed domain until this operation is complete.
 
-It takes a few minutes to enable secure LDAP for your managed domain. If the secure LDAP certificate you provide doesn't match the required criteria, the action to enable secure LDAP for the managed domain fails. Some common reasons for failure are if the domain name is incorrect, or the certificate expires soon or has already expired. You can re-create the certificate with valid parameters, then enable secure LDAP using this updated certificate.
+It takes a few minutes to enable secure LDAP for your managed domain. If the secure LDAP certificate you provide doesn't match the required criteria, the action to enable secure LDAP for the managed domain fails.
+
+Some common reasons for failure are if the domain name is incorrect, the encryption algorithm for the certificate isn't *TripleDES-SHA1*, or the certificate expires soon or has already expired. You can re-create the certificate with valid parameters, then enable secure LDAP using this updated certificate.
 
 ## Lock down secure LDAP access over the internet
 
@@ -202,7 +218,7 @@ When you enable secure LDAP access over the internet to your managed domain, it 
 Let's create a rule to allow inbound secure LDAP access over TCP port 636 from a specified set of IP addresses. A default *DenyAll* rule with a lower priority applies to all other inbound traffic from the internet, so only the specified addresses can reach your managed domain using secure LDAP.
 
 1. In the Azure portal, select *Resource groups* on the left-hand side navigation.
-1. Choose you resource group, such as *myResourceGroup*, then select your network security group, such as *aaads-nsg*.
+1. Choose your resource group, such as *myResourceGroup*, then select your network security group, such as *aaads-nsg*.
 1. The list of existing inbound and outbound security rules are displayed. On the left-hand side of the network security group windows, choose **Settings > Inbound security rules**.
 1. Select **Add**, then create a rule to allow *TCP* port *636*. For improved security, choose the source as *IP Addresses* and then specify your own valid IP address or range for your organization.
 
@@ -228,7 +244,7 @@ With secure LDAP access enabled over the internet, update the DNS zone so that c
 
 ![View the secure LDAP external IP address for your managed domain in the Azure portal](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
-Configure your external DNS provider to create a host record, such as *ldaps*, to resolve to this external IP address. To test locally on your machine first, you can create an entry in the Windows hosts file. To successfully edit the hosts file on your local machine, open *Notepad* as an administrator, then open the file *C:\Windows\System32\drivers\etc*
+Configure your external DNS provider to create a host record, such as *ldaps*, to resolve to this external IP address. To test locally on your machine first, you can create an entry in the Windows hosts file. To successfully edit the hosts file on your local machine, open *Notepad* as an administrator, then open the file *C:\Windows\System32\drivers\etc\hosts*
 
 The following example DNS entry, either with your external DNS provider or in the local hosts file, resolves traffic for *ldaps.aaddscontoso.com* to the external IP address of *168.62.205.103*:
 
@@ -247,7 +263,7 @@ To connect and bind to your managed domain and search over LDAP, you use the *LD
 Next, bind to your managed domain. Users (and service accounts) can't perform LDAP simple binds if you have disabled NTLM password hash synchronization on your managed domain. For more information on disabling NTLM password hash synchronization, see [Secure your managed domain][secure-domain].
 
 1. Select the **Connection** menu option, then choose **Bind...**.
-1. Provide the credentials of a user account belonging to the *AAD DC Administrators* group, such as *contosoadmin*. Enter the user account's password, then enter your domain, such as *aaddscontoso.com*.
+1. Provide the credentials of a user account that belongs to the managed domain. Enter the user account's password, then enter your domain, such as *aaddscontoso.com*.
 1. For **Bind type**, choose the option for *Bind with credentials*.
 1. Select **OK** to bind to your managed domain.
 
@@ -267,7 +283,7 @@ To directly query a specific container, from the **View > Tree** menu, you can s
 If you added a DNS entry to the local hosts file of your computer to test connectivity for this tutorial, remove this entry and add a formal record in your DNS zone. To remove the entry from the local hosts file, complete the following steps:
 
 1. On your local machine, open *Notepad* as an administrator
-1. Browse to and open the file *C:\Windows\System32\drivers\etc*
+1. Browse to and open the file *C:\Windows\System32\drivers\etc\hosts*
 1. Delete the line for the record you added, such as `168.62.205.103    ldaps.aaddscontoso.com`
 
 ## Next steps

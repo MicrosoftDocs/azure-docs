@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zoom | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zoom.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Zoom
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate Zoom with Azure Active Directory
 * Enable your users to be automatically signed-in to Zoom with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -42,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Zoom supports **SP** initiated SSO and 
-* Zoom supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial).
+* Zoom supports [**Automated** user provisioning](./zoom-provisioning-tutorial.md).
 
 ## Adding Zoom from the gallery
 
@@ -86,6 +79,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `<companyname>.zoom.us`
 
+    c. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<companyname>.zoom.us`
+
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Zoom Client support team](https://support.zoom.us/hc/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -98,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> To learn how to configure Role in Azure AD, see [Configure the role claim issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+> To learn how to configure Role in Azure AD, see [Configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md).
 
 > [!NOTE]
 > Zoom might expect a group claim in the SAML payload. If you have created any groups, contact the [Zoom Client support team](https://support.zoom.us/hc/) with the group information so they can configure the group information on their end. You also need to provide the Object ID to [Zoom Client support team](https://support.zoom.us/hc/) so they can configure the Object ID on their end. To get the Object ID, see [Configuring Zoom with Azure](https://support.zoom.us/hc/articles/115005887566).
@@ -139,13 +135,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click the **Single Sign-On** tab.
 
-    ![Single sign-on tab](./media/zoom-tutorial/ic784700.png "Single sign-on")
+    ![Single sign-on tab](./media/zoom-tutorial/zoom-sso1.png "Single sign-on")
 
 3. Click the **Security Control** tab, and then go to the **Single Sign-On** settings.
 
 4. In the Single Sign-On section, perform the following steps:
 
-    ![Single sign-on section](./media/zoom-tutorial/ic784701.png "Single sign-on")
+    ![Single sign-on section](./media/zoom-tutorial/zoom-sso2.png "Single sign-on")
 
     a. In the **Sign-in page URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
@@ -165,14 +161,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     f. In the **Issuer** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal. 
 
-    g. Click **Save**.
+    g. Click **Save Changes**.
 
     > [!NOTE]
 	> For more information, visit the zoom documentation [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
 
 ### Create Zoom test user
 
-The objective of this section is to create a user called B.Simon in Zoom. Zoom supports automatic user provisioning, which is by default enabled. You can find more details [here](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial) on how to configure automatic user provisioning.
+The objective of this section is to create a user called B.Simon in Zoom. Zoom supports automatic user provisioning, which is by default enabled. You can find more details [here](./zoom-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 > [!NOTE]
 > If you need to create a user manually, you need to contact [Zoom Client support team](https://support.zoom.us/hc/)
@@ -181,14 +177,14 @@ The objective of this section is to create a user called B.Simon in Zoom. Zoom s
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Zoom tile in the Access Panel, you should be automatically signed in to the Zoom for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Zoom tile in the Access Panel, you should be automatically signed in to the Zoom for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Zoom with Azure AD](https://aad.portal.azure.com/)

@@ -43,7 +43,7 @@ The following Azure Firewall certifications are for global Azure:
 - GLBA (US)
 - Germany C5
 - GxP (FDA 21 CFR Part 11)
-- HIPPA
+- HIPAA
 - HITECH Act (US)
 - HITRUST
 - ISO 20000-1:2011
@@ -88,7 +88,7 @@ The following Azure Firewall certifications are for Azure Government:
 - EAR
 - FIPS 140-2
 - FedRAMP High
-- HIPPA
+- HIPAA
 - HITECH Act (US)
 - HITRUST
 - IRS 1075

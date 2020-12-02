@@ -41,9 +41,9 @@ Microsoft recommends running the ADSync service in the context of either a Virtu
 - managed service account – use a standalone or group MSA provisioned by your administrator
 - domain account – use a domain service account provisioned by your administrator
 
-![](media/concept-adsync-service-account/adsync1.png)
+![Screenshot of the Azure AD Connect Express Settings page with "Customize" or "Use express settings" option buttons.](media/concept-adsync-service-account/adsync1.png)
 
-![](media/concept-adsync-service-account/adsync2.png)
+![Screenshot of Azure AD Connect "Install required components" page with the option to use an existing Managed Service Account selected.](media/concept-adsync-service-account/adsync2.png)
 
 ## Diagnosing ADSync service account changes
 Changing the credentials for the ADSync service after installation will result in the service failing to start, losing access to the synchronization database, and failing to authenticate with your connected directories (Azure and AD DS).  Granting database access to the new ADSync service account is insufficient to recover from this issue. No synchronization will occur until the original credentials are restored.
@@ -57,7 +57,7 @@ The AdSync service encryption keys could not be found and have been recreated.  
 Troubleshooting this Issue
 The Microsoft Azure AD Sync encryption keys will become inaccessible if the AdSync service Log On credentials are changed.  If the credentials have been changed, use the Services application to change the Log On account back to its originally configured value (ex. NT SERVICE\AdSync) and restart the service.  This will immediately restore correct operation of the AdSync service.
 
-Please see the following [article](https://go.microsoft.com/fwlink/?linkid=2086764) for further information.
+Please see the following [article](./whatis-hybrid-identity.md) for further information.
 
 ### Example 2
 
@@ -67,7 +67,7 @@ could not be established.
 Troubleshooting this Issue
 The Microsoft Azure AD Sync service will lose permission to access the local database provider if the AdSync service Log On credentials are changed.  If the credentials have been changed use the Services application to change the Log On account back to its originally configured value (ex. NT SERVICE\AdSync) and restart the service.  This will immediately restore correct operation of the AdSync service.
 
-Please see the following [article](https://go.microsoft.com/fwlink/?linkid=2086764) for further information.
+Please see the following [article](./whatis-hybrid-identity.md) for further information.
 
 Additional Details
 The following error information was returned by the provider:

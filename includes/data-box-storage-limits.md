@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 05/21/2019
+ms.date: 06/08/2020
 ms.author: alkohli
 ---
 
@@ -11,9 +11,9 @@ This section describes the limits for Azure Storage service, and the required na
 
 For the latest information on Azure storage service limits and best practices for naming shares, containers, and files, go to:
 
-- [Naming and referencing containers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Naming and referencing shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [Block blobs and page blob conventions](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [Naming and referencing containers](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
+- [Naming and referencing shares](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Block blobs and page blob conventions](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
 > If there are any files or directories that exceed the Azure Storage service limits, or don't conform to Azure Files/Blob naming conventions, then these files or directories aren't ingested into the Azure Storage via the Data Box service.

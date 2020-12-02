@@ -43,18 +43,16 @@ landingContent:
         links: 
           - text: Use Visual Studio 2017 to develop and debug modules
             url: how-to-visual-studio-develop-module.md
-  - title: Provision IoT Edge devices
+  - title: Create an IoT Edge device
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Install IoT Edge on Linux
-            url: how-to-install-iot-edge-linux.md
-          - text: Install IoT Edge on Windows
-            url: how-to-install-iot-edge-windows.md
-          - text: Automatically provision Linux devices
-            url: how-to-auto-provision-simulated-device-linux.md
-          - text: Automatically provision Windows devices
-            url: how-to-auto-provision-simulated-device-windows.md
+          - text: Install the IoT Edge runtime
+            url: how-to-install-iot-edge.md
+          - text: Register and provision a single device
+            url: how-to-manual-provision-symmetric-key.md
+          - text: Register and provision devices at scale
+            url: how-to-auto-provision-symmetric-keys.md
   - title: Engage with the open-source community
     linkLists:
       - linkListType: get-started
@@ -98,11 +96,11 @@ landingContent:
           - text: Deploy and monitor at scale using the Azure CLI
             url: how-to-deploy-cli-at-scale.md
           - text: Create a CI/CD pipeline with Azure Pipelines
-            url: how-to-ci-cd.md
+            url: how-to-continuous-integration-continuous-deployment.md
       - linkListType: deploy
         links:
           - text: REST API for IoT Hub
-            url: https://docs.microsoft.com/rest/api/iothub/
+            url: /rest/api/iothub/
   - title:  Deploy AI to the edge
     linkLists: 
       - linkListType: tutorial

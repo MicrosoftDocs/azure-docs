@@ -68,7 +68,11 @@
     href: my-account-portal-privacy-page.md
   - name: View your recent sign-in activity
     href: my-account-portal-sign-ins-page.md
-- name: Security info (preview) help
+  - name: Change your portal settings
+    href: my-account-portal-settings.md
+  - name: Switch organizations
+    href: cross-tenant-switcher.md
+- name: Security info help
   items:
   - name: Add security info during sign-in
     href: security-info-setup-signin.md
@@ -104,8 +108,6 @@
   items:
   - name: Sign in and use the My Apps portal
     href: my-apps-portal-end-user-access.md
-  - name: Update your profile and account info
-    href: my-apps-portal-end-user-update-profile.md
   - name: Update your groups info
     href: my-apps-portal-end-user-groups.md
   - name: Organize apps with collections

@@ -3,14 +3,14 @@ title: "Known issues: Online migrations from PostgreSQL to Azure Database for Po
 titleSuffix: Azure Database Migration Service
 description: Learn about known issues and migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL using the Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: [seo-lt-2019, seo-dt-2019]
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
 ---
 
@@ -74,6 +74,8 @@ Known issues and limitations associated with online migrations from PostgreSQL t
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
      ```
 
+## Size limitations
+- You can migrate up to 2 TB of data from PostgreSQL to Azure DB for PostgreSQL using a single DMS service.
 ## Datatype limitations
 
   **Limitation**: If there's no primary key on tables, changes may not be synced to the target database.
@@ -87,13 +89,13 @@ When you try to perform an online migration from AWS RDS PostgreSQL to Azure Dat
 - **Error**: The Default value of column '{column}' in table '{table}' in database '{database}' is different on source and target servers. It's '{value on source}' on source and '{value on target}' on target.
 
   **Limitation**: This error occurs when the default value on a column schema is different between the source and target databases.
-  **Workaround**: Ensure that the schema on the target matches schema on the source. For detail on migrating schema, refer to the [Azure PostgreSQL online migration documentation](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Workaround**: Ensure that the schema on the target matches schema on the source. For detail on migrating schema, refer to the [Azure PostgreSQL online migration documentation](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Error**: Target database '{database}' has '{number of tables}' tables where as source database '{database}' has '{number of tables}' tables. The number of tables on source and target databases should match.
 
   **Limitation**: This error occurs when the number of tables is different between the source and target databases.
 
-  **Workaround**: Ensure that the schema on the target matches schema on the source. For detail on migrating schema, refer to the [Azure PostgreSQL online migration documentation](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Workaround**: Ensure that the schema on the target matches schema on the source. For detail on migrating schema, refer to the [Azure PostgreSQL online migration documentation](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Error:** The source database {database} is empty.
 
@@ -104,7 +106,7 @@ When you try to perform an online migration from AWS RDS PostgreSQL to Azure Dat
 - **Error:** The target database {database} is empty. Please migrate the schema.
 
   **Limitation**: This error occurs when there's no schema on the target database. Make sure schema on the target matches schema on the source.
-  **Workaround**: Ensure that the schema on the target matches schema on the source. For detail on migrating schema, refer to the [Azure PostgreSQL online migration documentation](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Workaround**: Ensure that the schema on the target matches schema on the source. For detail on migrating schema, refer to the [Azure PostgreSQL online migration documentation](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 ## Other limitations
 

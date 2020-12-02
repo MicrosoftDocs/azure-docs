@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with NS1 SSO for Azure | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and NS1 SSO for Azure.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 24a1afb6-b8b6-4787-bd4b-8fe3a32f8def
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with NS1 SSO for Azure
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate NS1 SSO for Azure with Azure Act
 * Enable your users to be automatically signed in to NS1 SSO for Azure with their Azure AD accounts.
 * Manage your accounts in one central location, the Azure portal.
 
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -41,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * NS1 SSO for Azure supports SP and IDP initiated SSO.
-* After you configure NS1 SSO for Azure, you can enforce session control. This protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* After you configure NS1 SSO for Azure, you can enforce session control. This protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 
 ## Add NS1 SSO for Azure from the gallery
@@ -169,16 +163,16 @@ In this section, you create a user called B.Simon in NS1 SSO for Azure. Work wit
 
 In this section, you test your Azure AD single sign-on configuration by using Access Panel.
 
-When you select the NS1 SSO for Azure tile in Access Panel, you should be automatically signed in to the NS1 SSO for Azure for which you set up SSO. For more information, see [Introduction to Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the NS1 SSO for Azure tile in Access Panel, you should be automatically signed in to the NS1 SSO for Azure for which you set up SSO. For more information, see [Introduction to Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try NS1 SSO for Azure with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

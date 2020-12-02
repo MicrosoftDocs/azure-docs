@@ -6,9 +6,9 @@ documentationcenter: virtual-machines
 author: mimckitt
 manager: vashan
 editor: ''
-
 ms.assetid: aa033a65-8eb8-4cae-9f91-0f80cbb55ae4
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: vm-windows

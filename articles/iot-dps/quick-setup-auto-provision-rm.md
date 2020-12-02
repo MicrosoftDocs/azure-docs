@@ -1,5 +1,5 @@
 ---
-title: Set up Azure IoT Hub Device Provisioning using Azure Resource Manager template
+title: Quickstart - Set up Azure IoT Hub Device Provisioning using Azure Resource Manager template
 description: Azure quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) using a template
 author: wesmc7777
 ms.author: wesmc
@@ -7,18 +7,18 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service with an Azure Resource Manager template
 
-You can use [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub and a new IoT Hub Device Provisioning Service, and link the two services together using an Azure Resource Manager template. This quickstart uses [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby, or other programming languages to perform these steps and deploy your template. 
+You can use [Azure Resource Manager](../azure-resource-manager/management/overview.md) to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub and a new IoT Hub Device Provisioning Service, and link the two services together using an Azure Resource Manager template. This quickstart uses [Azure CLI](../azure-resource-manager/templates/deploy-cli.md) to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the [Azure portal](../azure-resource-manager/templates/deploy-portal.md), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md), .NET, Ruby, or other programming languages to perform these steps and deploy your template. 
 
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- This quickstart requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- This quickstart requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 
 ## Sign in to Azure and create a resource group
@@ -108,7 +108,7 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
 
    ```
 
-4. To create an IoT hub, add the following lines to the **resources** collection. The JSON specifies the minimum properties required to create an IoT hub. The **name** and **location** values will be passed as parameters from another file. To learn more about the properties you can specify for an IoT hub in a template, see [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
+4. To create an IoT hub, add the following lines to the **resources** collection. The JSON specifies the minimum properties required to create an IoT hub. The **name** and **location** values will be passed as parameters from another file. To learn more about the properties you can specify for an IoT hub in a template, see [Microsoft.Devices/IotHubs template reference](/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -128,9 +128,9 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
 
    ``` 
 
-5. To create the provisioning service, add the following lines after the IoT hub specification in the **resources** collection. The **name** and **location** of the provisioning service will be passed in as parameters. The **iotHubs** collection specifies the IoT hubs to link to the provisioning service. At a minimum, you must specify the **connectionString** and **location** properties for each linked IoT hub. You can also set properties like **allocationWeight** and **applyAllocationPolicy** on each IoT hub, as well as properties like **allocationPolicy** and **authorizationPolicies** on the provisioning service itself. To learn more, see [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices).
+5. To create the provisioning service, add the following lines after the IoT hub specification in the **resources** collection. The **name** and **location** of the provisioning service will be passed in as parameters. The **iotHubs** collection specifies the IoT hubs to link to the provisioning service. At a minimum, you must specify the **connectionString** and **location** properties for each linked IoT hub. You can also set properties like **allocationWeight** and **applyAllocationPolicy** on each IoT hub, as well as properties like **allocationPolicy** and **authorizationPolicies** on the provisioning service itself. To learn more, see [Microsoft.Devices/provisioningServices template reference](/azure/templates/microsoft.devices/provisioningservices).
 
-   The **dependsOn** property is used to ensure that Resource Manager creates the IoT hub before it creates the provisioning service. The template requires the connection string of the IoT hub to specify its linkage to the provisioning service, so the hub and its keys must be created first. The template uses functions like **concat** and **listKeys** to create the connection string from parameterized variables. To learn more, see [Azure Resource Manager template functions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
+   The **dependsOn** property is used to ensure that Resource Manager creates the IoT hub before it creates the provisioning service. The template requires the connection string of the IoT hub to specify its linkage to the provisioning service, so the hub and its keys must be created first. The template uses functions like **concat** and **listKeys** to create the connection string from parameterized variables. To learn more, see [Azure Resource Manager template functions](../azure-resource-manager/templates/template-functions.md).
 
    ```json
         {
@@ -295,7 +295,7 @@ The template that you defined in the last step uses parameters to specify the na
 
 Use the following Azure CLI commands to deploy your templates and verify the deployment.
 
-1. To deploy your template, navigate to the folder containing the template and parameter files, and run the following [command to start a deployment](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+1. To deploy your template, navigate to the folder containing the template and parameter files, and run the following [command to start a deployment](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create&preserve-view=true):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -306,7 +306,7 @@ Use the following Azure CLI commands to deploy your templates and verify the dep
    ![Provisioning output](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. To verify your deployment, run the following [command to list resources](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) and look for the new provisioning service and IoT hub in the output:
+2. To verify your deployment, run the following [command to list resources](/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) and look for the new provisioning service and IoT hub in the output:
 
     ```azurecli
      az resource list -g {your resource group name}
@@ -346,13 +346,13 @@ In this quickstart, you’ve deployed an IoT hub and a Device Provisioning Servi
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-CLI-install]: https://docs.microsoft.com/cli/azure/install-az-cli2
-[lnk-login-command]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
-[lnk-az-account-command]: https://docs.microsoft.com/cli/azure/account
-[lnk-az-register-command]: https://docs.microsoft.com/cli/azure/provider
-[lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
-[lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
-[lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
+[lnk-CLI-install]: /cli/azure/install-az-cli2
+[lnk-login-command]: /cli/azure/get-started-with-az-cli2
+[lnk-az-account-command]: /cli/azure/account
+[lnk-az-register-command]: /cli/azure/provider
+[lnk-az-addcomponent-command]: /cli/azure/component
+[lnk-az-resource-command]: /cli/azure/resource
+[lnk-az-iot-command]: /cli/azure/iot
 [lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-portal]: iot-hub-create-through-portal.md 
+[lnk-portal]: iot-hub-create-through-portal.md

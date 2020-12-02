@@ -25,7 +25,7 @@ Create the new ASP.NET WebAPI backend by doing the following actions:
 >
 >To check, start Visual Studio. On the **Tools** menu, select **Extensions and Updates**. Search for **NuGet Package Manager** in your version of Visual Studio, and make sure you have the latest version. If your version is not the latest version, uninstall it, and then reinstall the NuGet Package Manager.
 
-![][B4]
+![Screenshot of the Extensions and Updates dialog box with the NuGet Package manage for Visual Studios package highlighted.][B4]
 
 > [!NOTE]
 > Make sure you have installed the Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) for website deployment.
@@ -58,7 +58,7 @@ Create the new ASP.NET WebAPI backend by doing the following actions:
 
 ## Authenticate clients to the WebAPI backend
 
-In this section, you create a new message-handler class named **AuthenticationTestHandler** for the new backend. This class is derived from [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) and added as a message handler so that it can process all requests that come into the backend.
+In this section, you create a new message-handler class named **AuthenticationTestHandler** for the new backend. This class is derived from [DelegatingHandler](/previous-versions/visualstudio/hh193679(v=vs.118)) and added as a message handler so that it can process all requests that come into the backend.
 
 1. In Solution Explorer, right-click the **AppBackend** project, select **Add**, and then select **Class**.
 2. Name the new class **AuthenticationTestHandler.cs**, and then select **Add** to generate the class. This class authenticates users by using *Basic Authentication* for simplicity. Your app can use any authentication scheme.
@@ -83,7 +83,7 @@ In this section, you create a new message-handler class named **AuthenticationTe
 
    Otherwise, the request is rejected. This authentication is not a true authentication and authorization approach. It is only a simple example for this tutorial.
 
-   If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
+   If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](/dotnet/api/system.web.httpcontext.current). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](/previous-versions/azure/azure-services/dn530749(v=azure.100)) to the notification registration request.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler
@@ -328,7 +328,7 @@ In this section, you add a new controller that exposes a way for client devices 
 
     This code sends a notification type that's based on the Platform Notification Service (PNS) `pns` parameter. The value of `to_tag` is used to set the *username* tag on the message. This tag must match a username tag of an active notification hub registration. The notification message is pulled from the body of the POST request and formatted for the target PNS.
 
-    Depending on the PNS that your supported devices use to receive notifications, the notifications are supported by a variety of formats. For example, on Windows devices, you might use a [toast notification with WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) that isn't directly supported by another PNS. In such an instance, your backend needs to format the notification into a supported notification for the PNS of devices you plan to support. Then use the appropriate send API on the [NotificationHubClient class](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx).
+    Depending on the PNS that your supported devices use to receive notifications, the notifications are supported by a variety of formats. For example, on Windows devices, you might use a [toast notification with WNS](/uwp/schemas/tiles/toastschema/schema-root) that isn't directly supported by another PNS. In such an instance, your backend needs to format the notification into a supported notification for the PNS of devices you plan to support. Then use the appropriate send API on the [NotificationHubClient class](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient).
 
     ```csharp
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)

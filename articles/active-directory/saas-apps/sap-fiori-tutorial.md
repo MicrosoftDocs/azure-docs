@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Fiori.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 77ad13bf-e56b-4063-97d0-c82a19da9d56
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate SAP Fiori with Azure Active Dire
 * Enable your users to be automatically signed-in to SAP Fiori with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -44,7 +37,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * SAP Fiori supports **SP** initiated SSO
 
 > [!NOTE]
-> For SAP Fiori initiated iFrame Authentication, we recommend using the **IsPassive** parameter in the SAML AuthnRequest for silent authentication. For more details of the **IsPassive** parameter refer to [Azure AD SAML single sign-on](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) information
+> For SAP Fiori initiated iFrame Authentication, we recommend using the **IsPassive** parameter in the SAML AuthnRequest for silent authentication. For more details of the **IsPassive** parameter refer to [Azure AD SAML single sign-on](../develop/single-sign-on-saml-protocol.md) information
 
 ## Adding SAP Fiori from the gallery
 
@@ -274,11 +267,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	1. In SAP, under **Details of NameID Format "Unspecified"**, note the details:
 
-		![The Details of NameID Format "Unspecified" dialog box in SAP](./media/sapfiori-tutorial/nameiddetails.png)
+		![Screenshot that shows the 'Details of NameID Format "Unspecified"' dialog box in S A P.](./media/sapfiori-tutorial/nameiddetails.png)
 
 	1. In the Azure portal, under **User Attributes & Claims**, note the required claims from Azure AD.
 
-		![The User Attributes & Claims dialog box in the Azure portal](./media/sapfiori-tutorial/claimsaad1.png)
+		![Screenshot that shows the "User Attributes & Claims" dialog box.](./media/sapfiori-tutorial/claimsaad1.png)
 
     **Scenario 2**: Select the SAP user ID based on the configured email address in SU01. In this case, the email ID should be configured in SU01 for each user who requires SSO.
 
@@ -320,10 +313,10 @@ In this section, you create a user named Britta Simon in SAP Fiori. Work with yo
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try SAP Fiori with Azure AD](https://aad.portal.azure.com/)

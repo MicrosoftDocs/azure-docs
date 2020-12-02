@@ -3,18 +3,18 @@ title: Patterns add accuracy - LUIS
 titleSuffix: Azure Cognitive Services
 description: Add pattern templates to improve prediction accuracy in Language Understanding (LUIS) applications.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
+
 ---
 
 # How to add patterns to improve prediction accuracy
-After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patterns.md) to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use specific [syntax](luis-concept-patterns.md#pattern-syntax) to indicate the location of: [entities](luis-concept-entity-types.md), entity [roles](luis-concept-roles.md), and optional text.
+After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patterns.md) to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use specific [syntax](luis-concept-patterns.md#pattern-syntax) to indicate the location of: [entities](luis-concept-entity-types.md), entity [roles](./luis-concept-entity-types.md), and optional text.
 
 > [!CAUTION]
 > Patterns only include machine-learning entity parents, not subentities.
@@ -32,7 +32,7 @@ After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patt
     > [!div class="mx-imgBorder"]
     > ![Screenshot of entity for pattern](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    If your entity includes a [role](luis-concept-roles.md), indicate the role with a single colon, `:`, after the entity name, such as `{Location:Origin}`. The list of roles for the entities displays in a list. Select the role, and then select Enter.
+    If your entity includes a [role](./luis-concept-entity-types.md), indicate the role with a single colon, `:`, after the entity name, such as `{Location:Origin}`. The list of roles for the entities displays in a list. Select the role, and then select Enter.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of entity with role](./media/luis-how-to-model-intent-pattern/patterns-4.png)

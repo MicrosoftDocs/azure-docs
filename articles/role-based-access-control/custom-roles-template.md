@@ -1,6 +1,6 @@
 ---
 title: Create an Azure custom role using an Azure Resource Manager template - Azure RBAC
-description: Learn how to create an Azure custom role using Azure Resource Manager templates and Azure role-based access control (Azure RBAC).
+description: Learn how to create an Azure custom role using an Azure Resource Manager template (ARM template) and Azure role-based access control (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
 manager: mtillman
@@ -15,40 +15,42 @@ ms.author: rolyon
 
 ---
 
-# Create an Azure custom role using an Azure Resource Manager template
+# Create an Azure custom role using an ARM template
 
-If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md). This article describes how to create a custom role using an Azure Resource Manager template.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md). This article describes how to create a custom role using an Azure Resource Manager template (ARM template).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+To create a custom role, you specify a role name, permissions, and where the role can be used. In this article, you create a role named _Custom Role - RG Reader_ with resource permissions that can be assigned at a subscription scope or lower.
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fcreate-role-def%2Fazuredeploy.json)
 
 ## Prerequisites
 
 To create a custom role, you must have:
 
-- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
+- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
 
-## Create a custom role
+## Review the template
 
-To create a custom role, you specify a role name, permissions, and where the role can be used. In this article, you create a role named "Custom Role - RG Reader" with resource permissions that can be assigned at a subscription scope or lower.
+The template used in this article is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/create-role-def). The template has four parameters and a resources section. The four parameters are:
 
-### Review the template
-
-The template used in this article is from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-role-def). The template has four parameters and a resources section. The four parameters are:
-
-- Array of actions with a default value of ["Microsoft.Resources/subscriptions/resourceGroups/read"]
-- Array of notActions with an empty default value
-- Role name with a default value of "Custom Role - RG Reader"
-- Role description with a default value of "Subscription Level Deployment of a Role Definition"
-
-The resource defined in the template is:
-
-- [Microsoft.Authorization/roleDefinitions](/azure/templates/Microsoft.Authorization/roleDefinitions)
+- Array of actions with a default value of `["Microsoft.Resources/subscriptions/resourceGroups/read"]`.
+- Array of `notActions` with an empty default value.
+- Role name with a default value of `Custom Role - RG Reader`.
+- Role description with a default value of `Subscription Level Deployment of a Role Definition`.
 
 The scope where this custom role can be assigned is set to the current subscription.
 
 :::code language="json" source="~/quickstart-templates/subscription-deployments/create-role-def/azuredeploy.json":::
 
-### Deploy the template
+The resource defined in the template is:
+
+- [Microsoft.Authorization/roleDefinitions](/azure/templates/Microsoft.Authorization/roleDefinitions)
+
+## Deploy the template
 
 Follow these steps to deploy the previous template.
 
@@ -58,7 +60,7 @@ Follow these steps to deploy the previous template.
 
 1. Copy and paste the following script into Cloud Shell.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
     [string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
     $actions = $actions.Split(',')
@@ -72,15 +74,15 @@ Follow these steps to deploy the previous template.
 
 1. Enter a list of actions for the custom role as a comma-separated list such as *Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read*.
 
-1. If necessary, press Enter to run the New-AzDeployment command.
+1. If necessary, press Enter to run the `New-AzDeployment` command.
 
     The [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) command deploys the template to create the custom role.
 
     You should see output similar to the following:
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     PS> New-AzDeployment -Location $location -TemplateUri $templateUri -actions $actions
-    
+
     Id                      : /subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/azuredeploy
     DeploymentName          : azuredeploy
     Location                : centralus
@@ -90,7 +92,7 @@ Follow these steps to deploy the previous template.
     TemplateLink            :
                               Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/create-role-def/azuredeploy.json
                               ContentVersion : 1.0.0.0
-    
+
     Parameters              :
                               Name               Type                       Value
                               =================  =========================  ==========
@@ -101,7 +103,7 @@ Follow these steps to deploy the previous template.
                               notActions         Array                      []
                               roleName           String                     Custom Role - RG Reader
                               roleDescription    String                     Subscription Level Deployment of a Role Definition
-    
+
     Outputs                 :
     DeploymentDebugLogLevel :
     ```
@@ -112,13 +114,13 @@ Follow these steps to verify that the custom role was created.
 
 1. Run the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) command to list the custom role.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Get-AzRoleDefinition "Custom Role - RG Reader" | ConvertTo-Json
     ```
 
     You should see output similar to the following:
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     {
       "Name": "Custom Role - RG Reader",
       "Id": "11111111-1111-1111-1111-111111111111",
@@ -139,9 +141,9 @@ Follow these steps to verify that the custom role was created.
 
 1. In the Azure portal, open your subscription.
 
-1. In the left menu, click **Access control (IAM)**.
+1. In the left menu, select **Access control (IAM)**.
 
-1. Click the **Roles** tab.
+1. Select the **Roles** tab.
 
 1. Set the **Type** list to **CustomRole**.
 
@@ -155,7 +157,7 @@ To remove the custom role, follow these steps.
 
 1. Run the following command to remove the custom role.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Get-AzRoleDefinition -Name "Custom Role - RG Reader" | Remove-AzRoleDefinition
     ```
 

@@ -52,7 +52,7 @@ You can create a variable and declare its data type and initial value - all with
 
    * To add an action under the last step, select **New step**.
 
-     ![Add action](./media/logic-apps-create-variables-store-values/add-action.png)
+     ![Screenshot that shows the "New Step" action selected on the "Logic app designer" page.](./media/logic-apps-create-variables-store-values/add-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so that the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 

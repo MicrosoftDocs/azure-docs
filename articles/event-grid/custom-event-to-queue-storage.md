@@ -1,27 +1,22 @@
 ---
 title: 'Quickstart: Send custom events to storage queue - Event Grid, Azure CLI'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A storage queue is used for the endpoint.' 
-services: event-grid 
-keywords: 
-author: spelluru
-ms.author: spelluru
-ms.date: 11/05/2019
-ms.topic: quickstart
-ms.service: event-grid
-ms.custom: seodec18
+ms.date: 07/07/2020
+ms.topic: quickstart 
+ms.custom: devx-track-azurecli
 ---
+
 # Quickstart: Route custom events to Azure Queue storage with Azure CLI and Event Grid
 
 Azure Event Grid is an eventing service for the cloud. Azure Queue storage is one of the supported event handlers. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to the Queue storage.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you are using Azure CLI or Azure PowerShell on your local machine instead of using Cloud Shell in the Azure portal, ensure that you have the following versions of Azure CLI and Azure PowerShell. 
+- This article requires version 2.0.56 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- Azure CLI version 2.0.56 or greater. For instructions on installing the latest version of Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-- Azure PowerShell version 1.1.0 or greater. Download the latest version of Azure PowerShell on your Windows machine from [Azure downloads - Command-line tools](https://azure.microsoft.com/downloads/). 
+- If you are using Azure PowerShell on your local machine instead of using Cloud Shell in the Azure portal, ensure that you have Azure PowerShell version 1.1.0 or greater. Download the latest version of Azure PowerShell on your Windows machine from [Azure downloads - Command-line tools](https://azure.microsoft.com/downloads/). 
 
 This article gives you commands for using Azure CLI. 
 

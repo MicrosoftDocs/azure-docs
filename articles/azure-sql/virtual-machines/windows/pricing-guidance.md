@@ -9,7 +9,7 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
@@ -62,7 +62,7 @@ You have two options to pay for SQL Server licensing for these editions: *pay pe
 
 **Paying the SQL Server license per usage** (also known as **pay as you go**) means that the per-second cost of running the Azure VM includes the cost of the SQL Server license. You can see the pricing for the different SQL Server editions (Web, Standard, Enterprise) in the Azure Virtual Machines pricing page for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) or [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
-The cost is the same for all versions of SQL Server (2012 SP3 to 2017). The per-second licensing cost depends on the number of VM vCPUs.
+The cost is the same for all versions of SQL Server (2012 SP3 to 2019). The per-second licensing cost depends on the number of VM vCPUs.
 
 Paying the SQL Server licensing per usage is recommended for:
 
@@ -131,7 +131,7 @@ To avoid unnecessary costs, choose an optimal virtual machine size and consider 
 
 ### <a id="machinesize"></a> Correctly size your VM
 
-The licensing cost of SQL Server is directly related to the number of vCPUs. Choose a VM size that matches your expected needs for CPU, memory, storage, and I/O bandwidth. For a complete list of machine size options, see [Windows VM sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) and [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+The licensing cost of SQL Server is directly related to the number of vCPUs. Choose a VM size that matches your expected needs for CPU, memory, storage, and I/O bandwidth. For a complete list of machine size options, see [Windows VM sizes](../../../virtual-machines/sizes.md) and [Linux VM sizes](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 There are new machine sizes that work well with certain types of SQL Server workloads. These machines sizes maintain high levels of memory, storage, and I/O bandwidth, but they have a lower virtualized core count. For example, consider the following example:
 
@@ -162,7 +162,7 @@ For other workflows, consider automatically shutting down and restarting Azure V
 
 ## Next steps
 
-For general Azure pricing guidance, see [Prevent unexpected costs with Azure billing and cost management](../../../cost-management-billing/manage/getting-started.md). For the latest Azure Virtual Machines pricing, including SQL Server, see the Azure Virtual Machines pricing page for [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+For general Azure pricing guidance, see [Prevent unexpected costs with Azure billing and cost management](../../../cost-management-billing/cost-management-billing-overview.md). For the latest Azure Virtual Machines pricing, including SQL Server, see the Azure Virtual Machines pricing page for [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 For an overview of SQL Server on Azure Virtual Machines, see the following articles:
 

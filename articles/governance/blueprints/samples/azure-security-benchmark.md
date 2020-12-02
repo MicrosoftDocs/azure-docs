@@ -1,7 +1,7 @@
 ---
 title: Azure Security Benchmark blueprint sample overview
 description: Overview of the Azure Security Benchmark blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: sample
 ---
 # Azure Security Benchmark blueprint sample
@@ -43,8 +43,8 @@ sample as a starter.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **Azure Security Benchmark** blueprint sample under _Other Samples_ and select click the
-   name to select this sample.
+1. Find the **Azure Security Benchmark** blueprint sample under _Other Samples_ and select the name
+   to select this sample.
 
 1. Enter the _Basics_ of the blueprint sample:
 
@@ -56,16 +56,16 @@ sample as a starter.
 1. Select the _Artifacts_ tab at the top of the page or **Next: Artifacts** at the bottom of the
    page.
 
-1. Review the list of artifacts that make up the blueprint sample. Many of the artifacts have
-   parameters that we'll define later. Select **Save Draft** when you've finished reviewing the
+1. Review the list of artifacts that are included in the blueprint sample. Many of the artifacts
+   have parameters that we'll define later. Select **Save Draft** when you've finished reviewing the
    blueprint sample.
 
 ### Publish the sample copy
 
 Your copy of the blueprint sample has now been created in your environment. It's created in
 **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the
-blueprint sample can be customized to your environment and needs, but that modification may move
-it away from alignment with Azure Security Benchmark recommendations.
+blueprint sample can be customized to your environment and needs, but that modification may move it
+away from alignment with Azure Security Benchmark recommendations.
 
 1. Select **All services** in the left pane. Search for and select **Blueprints**.
 

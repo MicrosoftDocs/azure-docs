@@ -1,6 +1,6 @@
 ---
 title: Connect Fortinet data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect Fortinet data to Azure Sentinel.
+description: Connect your Fortinet appliance to Azure Sentinel to view dashboards, create custom alerts, and improve investigation. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -32,12 +32,14 @@ Configure Fortinet to forward Syslog messages in CEF format to your Azure worksp
 
 1. Open the CLI on your Fortinet appliance and run the following commands:
 
-        config log syslogd setting
-        set format cef
-        set port 514
-        set server <ip_address_of_Receiver>
-        set status enable
-        end
+    ```console
+    config log syslogd setting
+    set status enable
+    set format cef
+    set port 514
+    set server <ip_address_of_Receiver>
+    end
+    ```
 
     - Replace the server **ip address** with the IP address of the agent.
     - Set the **syslog port** to **514** or the port set on the agent.

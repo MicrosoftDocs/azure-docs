@@ -13,16 +13,16 @@ ms.date: 07/24/2019
 
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
-This article describes the details of onboarding and using Service Map. For information about configuring the prerequisites for this solution, see [Enable the Azure Monitor for VMs overview](vminsights-enable-overview.md#prerequisites). To summarize, you need the following:
+This article describes the details of onboarding and using Service Map. The prerequisites of the solution are the following:
 
-* A Log Analytics workspace to enable this solution.
+* A Log Analytics workspace in a [supported region](vminsights-configure-workspace.md#supported-regions).
 
-* The Log Analytics agent installed on the Windows computer or Linux server configured to report the same workspace that you enabled the solution with.
+* The [Log Analytics agent](vminsights-enable-overview.md#agents) installed on the Windows computer or Linux server connected to the same workspace that you enabled the solution with.
 
-* The Dependency agent installed on the Windows computer or Linux server.
+* The [Dependency agent](vminsights-enable-overview.md#agents) installed on the Windows computer or Linux server.
 
 >[!NOTE]
->If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../../azure-monitor/insights/vminsights-overview.md). To learn about the differences between the Service Map solution and Azure Monitor for VMs Map feature, see the following [FAQ](../faq.md#azure-monitor-for-vms).
+>If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](./vminsights-overview.md). To learn about the differences between the Service Map solution and Azure Monitor for VMs Map feature, see the following [FAQ](../faq.md#azure-monitor-for-vms).
 
 ## Sign in to Azure
 
@@ -30,8 +30,8 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Enable Service Map
 
-1. Enable the Service Map solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](solutions.md).
-1. [Install the Dependency agent on Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) or [Install the Dependency agent on Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) on each computer where you want to get data. The Dependency Agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
+1. Enable the Service Map solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](solutions.md).
+1. [Install the Dependency agent on Windows](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) or [Install the Dependency agent on Linux](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) on each computer where you want to get data. The Dependency Agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
 
 You access Service Map in the Azure portal from your Log Analytics workspace, and select the option **Solutions** from the left pane.<br><br> ![Select Solutions option in workspace](./media/service-map/select-solution-from-workspace.png).<br> From the list of solutions, select **ServiceMap(workspaceName)** and in the Service Map solution overview page click on the Service Map summary tile.<br><br> ![Service Map summary tile](./media/service-map/service-map-summary-tile.png).
 
@@ -166,7 +166,7 @@ Certain processes serve particular roles on machines: web servers, application s
 
 Failed connections are shown in Service Map maps for processes and computers, with a dashed red line indicating that a client system is failing to reach a process or port. Failed connections are reported from any system with a deployed Service Map agent if that system is the one attempting the failed connection. Service Map measures this process by observing TCP sockets that fail to establish a connection. This failure could result from a firewall, a misconfiguration in the client or server, or a remote service being unavailable.
 
-![Failed connections](media/service-map/failed-connections.png)
+![Screenshot of one part of a Service Map highlighting a dashed red line that indicates a failed connection between the backup.pl process and Port 4475.](media/service-map/failed-connections.png)
 
 Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding. Failed connections are sometimes harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, or two application tiers being unable to talk after a cloud migration.
 
@@ -190,7 +190,7 @@ Server Port Groups are boxes that represent server ports on servers that do not 
 
 Clicking the ellipsis (...) at the top right of any server displays the context menu for that server.
 
-![Failed connections](media/service-map/context-menu.png)
+![Screenshot showing the opened context menu for a server in Service Map. The menu has the options Load Server Map and Show Self-Links.](media/service-map/context-menu.png)
 
 ### Load server map
 
@@ -238,7 +238,7 @@ Service Map integrates with Log Search to show a count of all available log even
 
 ## Service Desk integration
 
-Service Map integration with the IT Service Management Connector is automatic when both solutions are enabled and configured in your Log Analytics workspace. The integration in Service Map is labeled "Service Desk." For more information, see [Centrally manage ITSM work items using IT Service Management Connector](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+Service Map integration with the IT Service Management Connector is automatic when both solutions are enabled and configured in your Log Analytics workspace. The integration in Service Map is labeled "Service Desk." For more information, see [Centrally manage ITSM work items using IT Service Management Connector](../platform/itsmc-overview.md).
 
 The **Machine Service Desk** pane lists all IT Service Management events for the selected server in the selected time range. The server displays an icon if there are current items and the Machine Service Desk pane lists them.
 
@@ -255,7 +255,7 @@ Service Map integration with Change Tracking is automatic when both solutions ar
 
 The **Machine Change Tracking** pane lists all changes, with the most recent first, along with a link to drill down to Log Search for additional details.
 
-![Machine Change Tracking pane](media/service-map/change-tracking.png)
+![Screenshot of the Machine Change Tracking pane in Service Map.](media/service-map/change-tracking.png)
 
 The following image is a detailed view of a ConfigurationChange event that you might see after you select **Show in Log Analytics**.
 
@@ -267,7 +267,7 @@ The **Machine Performance** pane displays standard performance metrics for the s
 
 ![Machine Performance pane](media/service-map/machine-performance.png)
 
-To see performance data, you may need to [enable the appropriate Log Analytics performance counters](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  The counters you will want to enable:
+To see performance data, you may need to [enable the appropriate Log Analytics performance counters](../platform/data-sources-performance-counters.md).  The counters you will want to enable:
 
 Windows:
 - Processor(*)\\% Processor Time
@@ -297,11 +297,11 @@ Service Map integration with Update Management is automatic when both solutions 
 
 The **Machine Updates** pane displays data from the Update Management solution for the selected server. The pane lists a summary of any missing updates for the server during the selected time range.
 
-![Machine Change Tracking pane](media/service-map/machine-updates.png)
+![Screenshot of the Machine Updates pane in Service Map.](media/service-map/machine-updates.png)
 
 ## Log Analytics records
 
-Service Map computer and process inventory data is available for [search](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
+Service Map computer and process inventory data is available for [search](../log-query/log-query-overview.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Service Map. These records have the properties in the following tables. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 
 
@@ -454,43 +454,43 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 
 ### List all known machines
 
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### List the physical memory capacity of all managed computers.
 
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
 ### List computer name, DNS, IP, and OS.
 
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
 
 ### Find all processes with "sql" in the command line
 
-ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### Find a machine (most recent record) by resource name
 
-search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
+`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### Find a machine (most recent record) by IP address
 
-search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
+`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### List all known processes on a specified machine
 
-ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### List all computers running SQL
 
-ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
+`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### List all unique product versions of curl in my datacenter
 
-ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
+`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
 
 ### Create a computer group of all computers running CentOS
 
-ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
+`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
 
 ### Summarize the outbound connections from a group of machines
 
@@ -537,7 +537,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 ## REST API
 
-All the server, process, and dependency data in Service Map is available via the [Service Map REST API](https://docs.microsoft.com/rest/api/servicemap/).
+All the server, process, and dependency data in Service Map is available via the [Service Map REST API](/rest/api/servicemap/).
 
 ## Diagnostic and usage data
 
@@ -547,7 +547,7 @@ For more information about data collection and usage, see the [Microsoft Online 
 
 ## Next steps
 
-Learn more about [log searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics to retrieve data that's collected by Service Map.
+Learn more about [log searches](../log-query/log-query-overview.md) in Log Analytics to retrieve data that's collected by Service Map.
 
 ## Troubleshooting
 
@@ -597,6 +597,6 @@ If you see your machine in Service Map, but it has no process or connection data
 
 Check the `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) or `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). The last lines of the file should indicate why the kernel didn't load. For example, the kernel might not be supported on Linux if you updated your kernel.
 
-## Feedback
+## Suggestions
 
 Do you have any feedback for us about Service Map or this documentation?  Visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote up existing suggestions.

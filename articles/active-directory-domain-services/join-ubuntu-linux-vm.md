@@ -2,7 +2,7 @@
 title: Join an Ubuntu VM to Azure AD Domain Services | Microsoft Docs
 description: Learn how to configure and join an Ubuntu Linux virtual machine to an Azure AD Domain Services managed domain.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
@@ -10,8 +10,9 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/22/2020
-ms.author: iainfou
+ms.date: 07/13/2020
+ms.author: joflore
+ms.custom: fasttrack-edit
 
 ---
 # Join an Ubuntu Linux virtual machine to an Azure Active Directory Domain Services managed domain
@@ -134,10 +135,10 @@ Now that the required packages are installed on the VM and NTP is configured, jo
     Again, the managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@aaddscontoso.com` is used to initialize Kerberos. Enter your own user account that's a part of the managed domain:
 
     ```console
-    kinit contosoadmin@AADDSCONTOSO.COM
+    kinit -V contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Finally, join the machine to the managed domain using the `realm join` command. Use the same user account that's a part of the managed domain that you specified in the previous `kinit` command, such as `contosoadmin@AADDSCONTOSO.COM`:
+1. Finally, join the VM to the managed domain using the `realm join` command. Use the same user account that's a part of the managed domain that you specified in the previous `kinit` command, such as `contosoadmin@AADDSCONTOSO.COM`:
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM' --install=/
@@ -178,7 +179,7 @@ One of the packages installed in a previous step was for System Security Service
 1. To apply the change, restart the SSSD service:
 
     ```console
-    sudo service sssd restart
+    sudo systemctl restart sssd
     ```
 
 ## Configure user account and group settings

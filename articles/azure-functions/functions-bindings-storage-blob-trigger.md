@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.custom: tracking-python
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Azure Blob storage trigger for Azure Functions
@@ -15,6 +15,16 @@ The Blob storage trigger starts a function when a new or updated blob is detecte
 The Azure Blob storage trigger requires a general-purpose storage account. Storage V2 accounts with [hierarchal namespaces](../storage/blobs/data-lake-storage-namespace.md) are also supported. To use a blob-only account, or if your application has specialized needs, review the alternatives to using this trigger.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md).
+
+## Polling
+
+Polling works as a hybrid between inspecting logs and running periodic container scans. Blobs are scanned in groups of 10,000 at a time with a continuation token used between intervals.
+
+> [!WARNING]
+> In addition, [storage logs are created on a "best effort"](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. There's no guarantee that all events are captured. Under some conditions, logs may be missed.
+> 
+> If you require faster or more reliable blob processing, consider creating a [queue message](../storage/queues/storage-dotnet-how-to-use-queues.md) when you create the blob. Then use a [queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob. Another option is to use Event Grid; see the tutorial [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## Alternatives
 
@@ -296,7 +306,7 @@ Access blob data using `context.bindings.<NAME>` where `<NAME>` matches the valu
 
 # [Python](#tab/python)
 
-Access blob data via the parameter typed as [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Refer to the [trigger example](#example) for details.
+Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Refer to the [trigger example](#example) for details.
 
 # [Java](#tab/java)
 
@@ -326,7 +336,7 @@ The following example triggers only on blobs in the `input` container that start
 "path": "input/original-{name}",
 ```
 
-If the blob name is *original-Blob1.txt*, the value of the `name` variable in function code is `Blob1`.
+If the blob name is *original-Blob1.txt*, the value of the `name` variable in function code is `Blob1.txt`.
 
 ### Filter on file type
 
@@ -407,17 +417,7 @@ The blob trigger uses a queue internally, so the maximum number of concurrent fu
 
 [The Consumption plan](functions-scale.md#how-the-consumption-and-premium-plans-work) limits a function app on one virtual machine (VM) to 1.5 GB of memory. Memory is used by each concurrently executing function instance and by the Functions runtime itself. If a blob-triggered function loads the entire blob into memory, the maximum memory used by that function just for blobs is 24 * maximum blob size. For example, a function app with three blob-triggered functions and the default settings would have a maximum per-VM concurrency of 3*24 = 72 function invocations.
 
-JavaScript and Java functions load the entire blob into memory, and C# functions do that if you bind to `string`, `Byte[]`, or POCO.
-
-## Polling
-
-Polling works as a hybrid between inspecting logs and running periodic container scans. Blobs are scanned in groups of 10,000 at a time with a continuation token used between intervals.
-
-> [!WARNING]
-> In addition, [storage logs are created on a "best effort"](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. There's no guarantee that all events are captured. Under some conditions, logs may be missed.
-> 
-> If you require faster or more reliable blob processing, consider creating a [queue message](../storage/queues/storage-dotnet-how-to-use-queues.md) when you create the blob. Then use a [queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob. Another option is to use Event Grid; see the tutorial [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
->
+JavaScript and Java functions load the entire blob into memory, and C# functions do that if you bind to `string`, or `Byte[]`.
 
 ## Next steps
 

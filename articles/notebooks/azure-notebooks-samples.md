@@ -7,9 +7,9 @@ ms.date: 01/11/2019
 
 # Discover and use sample notebooks in Azure Notebooks Preview
 
-The Internet has many collections of interesting and useful Jupyter notebooks that you can easily bring into Azure Notebooks. This article provides a list of notable samples.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+The Internet has many collections of interesting and useful Jupyter notebooks that you can easily bring into Azure Notebooks. This article provides a list of notable samples.
 
 Once you've identified a notebook you'd like to explore, here are a few details you'll want to understand:
 
@@ -31,4 +31,4 @@ Once you've identified a notebook you'd like to explore, here are a few details 
 - [How to: Configure and manage projects](configure-manage-azure-notebooks-projects.md)
 - [How to: Work with data files](work-with-project-data-files.md)
 - [How to: Access data resources](access-data-resources-jupyter-notebooks.md)
-- [How to: Use Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [How to: Use Azure Machine Learning](../machine-learning/samples-notebooks.md)

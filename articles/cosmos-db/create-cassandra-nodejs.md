@@ -8,8 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
+ms.custom: devx-track-js
 ---
 # Quickstart: Build a Cassandra app with Node.js SDK and Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -164,7 +166,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-1. Use the ![Copy button](./media/create-cassandra-nodejs/copy.png) button on the right side of the screen to copy the top value, the CONTACT POINT.
+1. Use the :::image type="icon" source="./media/create-cassandra-nodejs/copy.png"::: button on the right side of the screen to copy the top value, the CONTACT POINT.
 
     :::image type="content" source="./media/create-cassandra-nodejs/keys.png" alt-text="View and copy the CONTACT POINT, USERNAME,and PASSWORD from the Azure portal, connection string page":::
 
@@ -205,11 +207,11 @@ Now go back to the Azure portal to get your connection string information and co
 > 
 > Double-click on the .crt file to open it into the certificate display. 
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="View and verify the output":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Screenshot that shows the Certificate window.":::
 >
 > Press Next on the Certificate Wizard. Select Base-64 encoded X.509 (.CER), then Next.
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="View and verify the output":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Screenshot that shows the Base-64 encoded X.509 (.CER) option.":::
 >
 > Select Browse (to locate a destination) and type in a filename.
 > Select Next then Finished.

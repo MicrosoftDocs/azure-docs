@@ -1,16 +1,16 @@
 ---
-title: "Quickstart: Get intent with REST APIs - LUIS"
+title: "Quickstart: Use cURL and REST to get intent - LUIS"
 titleSuffix: Azure Cognitive Services
-description: In this REST API quickstart, use an available public LUIS app to determine a user's intention from conversational text.
+description: In this REST API quickstart, use cURL and REST to determine a user's intention from conversational text.
 services: cognitive-services
-author: roy-har
+author: nitinme
 manager: diberry
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/19/2020
-ms.author: v-royha
+ms.author: nitinme
 #Customer intent: As an API developer familiar with REST but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---
 
