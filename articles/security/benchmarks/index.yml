@@ -91,7 +91,7 @@ landingContent:
             url: ../../hdinsight/security-baseline.md
           - text: Stream Analytics baseline
             url: ../../stream-analytics/security-baseline.md
-          - text: Synapse Analytics security baseline
+          - text: Azure Synapse Analytics security baseline
             url: ../../synapse-analytics/security-baseline.md
 
 

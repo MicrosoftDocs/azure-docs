@@ -1,6 +1,6 @@
 ---
 title: Performance tuning with result set caching 
-description: Result set caching feature overview for Synapse SQL pool in Azure Synapse Analytics 
+description: Result set caching feature overview for dedicated SQL pool in Azure Synapse Analytics 
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg 
@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Performance tuning with result set caching
 
-When result set caching is enabled, Synapse SQL automatically caches query results in the user database for repetitive use.  This allows subsequent query executions to get results directly from the persisted cache so recomputation is not needed.   Result set caching improves query performance and reduces compute resource usage.  In addition, queries using cached results set do not use any concurrency slots and thus do not count against existing concurrency limits. For security, users can only access the cached results if they have the same data access permissions as the users creating the cached results.  
+When result set caching is enabled, dedicated SQL pool automatically caches query results in the user database for repetitive use.  This allows subsequent query executions to get results directly from the persisted cache so recomputation is not needed.   Result set caching improves query performance and reduces compute resource usage.  In addition, queries using cached results set do not use any concurrency slots and thus do not count against existing concurrency limits. For security, users can only access the cached results if they have the same data access permissions as the users creating the cached results.  
 
 ## Key commands
 
@@ -42,7 +42,7 @@ Once result set caching is turned ON for a database, results are cached for all 
 > - If data in the ORDER BY columns are not unique, there's no garanteed row order for rows with the same values in the ORDER BY columns, regardless if result set caching is enabled or disabled.
 
 > [!IMPORTANT]
-> The operations to create result set cache and retrieve data from the cache happen on the control node of a Synapse SQL pool instance.
+> The operations to create result set cache and retrieve data from the cache happen on the control node of a dedicated SQL pool instance.
 > When result set caching is turned ON, running queries that return large result set (for example, >1GB) can cause high throttling on the control node and slow down the overall query response on the instance.  Those queries are commonly used during data exploration or ETL operations. To avoid stressing the control node and cause performance issue, users should turn OFF result set caching on the database before running those types of queries.  
 
 Run this query for the time taken by result set caching operations for a query:
@@ -80,7 +80,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 The maximum size of result set cache is 1 TB per database.  The cached results are automatically invalidated when the underlying query data change.  
 
-The cache eviction is managed by Synapse SQL automatically following this schedule:
+The cache eviction is managed by dedicated SQL pool automatically following this schedule:
 
 - Every 48 hours if the result set hasn't been used or has been invalidated.
 - When the result set cache approaches the maximum size.
