@@ -142,7 +142,7 @@ To set up Windows Events:
 
 6. Select **Windows Event Logs**.
 
-7. Add the missing event names from step 3 and the required event type for each.
+7. Add the missing event names from step 3 and the required event type for each, and then click the **Save** button.
 
 8. Refresh the configuration workbook and continue setting up your environment.
 
