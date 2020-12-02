@@ -32,11 +32,7 @@ Running an existing application in a Windows container on a Service Fabric clust
 
   For this article, the version (build) of Windows Server with Containers running on your cluster nodes must match that on your development machine. This is because you build the docker image on your development machine and there are compatibility constraints between versions of the container OS and the host OS on which it is deployed. For more information, see [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility). 
   
-To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine:
-
-    * If the version contains *x.x.14323.x*, then select *WindowsServer 2016-Datacenter-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md).
-    
-    * If the version contains *x.x.16299.x*, then select *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md).
+    To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine. Refer to [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility) before you [creating a cluster](service-fabric-cluster-creation-via-portal.md).
 
 * A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription.
 
