@@ -38,7 +38,7 @@ SQL server on-premises data source supports:
 
 There is only one way to set up authentication for SQL server on-premises:
 
-- SQL AUthentication
+- SQL Authentication
 
 ### SQL authentication
 
