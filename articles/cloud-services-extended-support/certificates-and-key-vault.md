@@ -19,7 +19,9 @@ To install certificates on Cloud Service roles, users need to add the certificat
 1.	Sign in to the Azure portal and navigate to the desired Key Vault. If you do not have Key Vault set up, you can opt to create one in this same window.
 
 2. Select **Access polices**
+
     :::image type="content" source="media/certs-and-key-vault-1.png" alt-text="Image shows selecting access policies from the key vault blade.":::
+
 3. Ensure the access policies include the following properties:
     - **Enable access to Azure Virtual Machines for deployment**
     - **Enable access to Azure Resource Manager for template deployment** 
@@ -27,9 +29,11 @@ To install certificates on Cloud Service roles, users need to add the certificat
     :::image type="content" source="media/certs-and-key-vault-2.png" alt-text="Image shows access policies window in the Azure portal.":::
  
 4.	Select **Certificates** 
+
     :::image type="content" source="media/certs-and-key-vault-3.png" alt-text="Image shows selecting the certificates option from the key vault blade policies window in the Azure portal.":::
 
 5. Select **Generate / Import**
+
     :::image type="content" source="media/certs-and-key-vault-4.png" alt-text="Image shows selecting the generate/ importe option":::
 
 4.	Add the certificate details associated with the role to the cscfg file.
