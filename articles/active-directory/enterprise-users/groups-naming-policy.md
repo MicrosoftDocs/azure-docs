@@ -74,7 +74,6 @@ Selected administrators can be exempted from these policies, across all group wo
 - Partner Tier 1 Support
 - Partner Tier 2 Support
 - User administrator
-- Directory writers
 
 ## Configure naming policy in Azure portal
 
