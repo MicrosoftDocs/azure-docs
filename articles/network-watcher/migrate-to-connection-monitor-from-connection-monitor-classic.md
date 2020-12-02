@@ -59,5 +59,5 @@ After the migration begins, the following changes take place:
 ## Next steps
 
 To learn more about Connection Monitor, see:
-* [Migrate from Network Performance Monitor to Connection Monitor](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)
+* [Migrate from Network Performance Monitor to Connection Monitor](./migrate-to-connection-monitor-from-network-performance-monitor.md)
 * [Create Connection Monitor by using the Azure portal](./connection-monitor-create-using-portal.md)

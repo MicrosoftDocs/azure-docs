@@ -333,6 +333,6 @@ This tutorial showed you how to add and configure an IoT Edge device in the Remo
 > [!div class="nextstepaction"]
 > [Import an IoT Edge package into your Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-import-edge-package.md)
 
-To learn more about installing the IoT Edge runtime, see [Install the Azure IoT Edge runtime on Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md).
+To learn more about installing the IoT Edge runtime, see [Install the Azure IoT Edge runtime on Linux (x64)](../iot-edge/how-to-install-iot-edge.md).
 
 To learn more about Azure Stream Analytics on Edge devices, see [Deploy Azure Stream Analytics as an IoT Edge module](../iot-edge/tutorial-deploy-stream-analytics.md).
