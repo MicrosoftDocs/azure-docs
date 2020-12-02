@@ -9,7 +9,7 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: 
 ---
-
+ 
 # Enable remote desktop for Cloud Services (extended support) instances using the Azure portal
 
 Remote desktop enables you to access a role instance running in a Cloud Service (extended support) deployment. You can use a remote desktop connection to troubleshoot and diagnose problems with your application while it is running.
