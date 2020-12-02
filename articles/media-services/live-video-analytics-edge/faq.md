@@ -33,7 +33,7 @@ No. Live Video Analytics on IoT Edge supports capturing media using RTSP video s
 
 ### Can I push media to Live Video Analytics on IoT Edge using RTMP or Smooth (like a Media Services Live Event)?
 
-* No. LVA only support RTSP for capturing video from IP cameras.
+* No. Live Video Analytics only support RTSP for capturing video from IP cameras.
 * Any camera that supports RTSP streaming over TCP/HTTP should work. 
 
 ### Can I reset or update the RTSP source URL on a graph instance?
@@ -106,9 +106,9 @@ See [pricing page](https://azure.microsoft.com/pricing/details/media-services/) 
 
 ## Design your AI model 
 
-### I have multiple AI models wrapped in a docker container. How should I use them with LVA? 
+### I have multiple AI models wrapped in a docker container. How should I use them with Live Video Analytics? 
 
-Solutions are different depending on the communication protocol used by the inferencing server to communicate with LVA. 
+Solutions are different depending on the communication protocol used by the inferencing server to communicate with Live Video Analytics. 
 
 #### HTTP protocol:
 
@@ -127,17 +127,17 @@ Solutions are different depending on the communication protocol used by the infe
    … 
    ```
 
-   And then in your LVA deployment, when you instantiate graphs, set the inference server URL for each instance as: 
+   And then in your Live Video Analytics deployment, when you instantiate graphs, set the inference server URL for each instance as: 
 
    1st instance: inference server URL=`http://lvaExtension:44000/score/face_detection`<br/>
    2nd instance: inference server URL=`http://lvaExtension:44000/score/vehicle_detection`
 * Multiple containers: 
 
-   Each container is deployed with a different name. Currently, in the LVA documentation set, we showed you how to deploy an extension with the name: **lvaExtension**. Now you can develop two different containers. Each container has the same HTTP interface (meaning same `/score` endpoint). Deploy these two containers with different names and be sure that both are listening on **different ports**. 
+   Each container is deployed with a different name. Currently, in the Live Video Analytics documentation set, we showed you how to deploy an extension with the name: **lvaExtension**. Now you can develop two different containers. Each container has the same HTTP interface (meaning same `/score` endpoint). Deploy these two containers with different names and be sure that both are listening on **different ports**. 
 
    For example, one container with the name `lvaExtension1` is listening for the port `44000`, other container with the name `lvaExtension2` is listening for the port `44001`. 
 
-   In your LVA topology, you instantiate two graphs with different inference URLs like: 
+   In your Live Video Analytics topology, you instantiate two graphs with different inference URLs like: 
 
    First instance:  inference server URL = `http://lvaExtension1:44001/score`    
    Second instance: inference server URL = `http://lvaExtension2:44001/score`
@@ -146,13 +146,13 @@ Solutions are different depending on the communication protocol used by the infe
 
 When using a GRPC protocol, the only way would be if the gRPC server exposed different AI models via different ports. In [this example](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json), there is a single port, 44000 that is exposing all the yolo models. In theory the yolo gRPC server could be rewritten to expose some models at 44000, others at 45000, … 
 
-LVA added a new property to the gRPC extension node. This property is called **extensionConfiguration** which is an optional string that can be used as a part of the gRPC contract. When you have multiple AI models packaged in a single inference server, you will not need to expose a node for every AI model. Instead, for a graph instance, the extension provider (you) can define how to select the different AI models using the **extensionConfiguration** property and during execution, LVA will pass this string to the inferencing server which can use this to invoke the desired AI model. 
+Live Video Analytics added a new property to the gRPC extension node. This property is called **extensionConfiguration** which is an optional string that can be used as a part of the gRPC contract. When you have multiple AI models packaged in a single inference server, you will not need to expose a node for every AI model. Instead, for a graph instance, the extension provider (you) can define how to select the different AI models using the **extensionConfiguration** property and during execution, Live Video Analytics will pass this string to the inferencing server which can use this to invoke the desired AI model. 
 
 ### I am building a gRPC server around an AI model, and want to be able to support being used by multiple cameras/graph instances. How should I build my server? 
 
  Firstly, be sure that your server can handle more than one requests at a time. Or be sure that your server works in parallel threads. 
 
-For example, in one of [LVA GRPC samples](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/lvaextension/server/server.py), there is a default number of parallel channels set. See: 
+For example, in one of [Live Video Analytics GRPC samples](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/lvaextension/server/server.py), there is a default number of parallel channels set. See: 
 
 ```
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=3)) 
@@ -191,19 +191,19 @@ With a gRPC extension, each session is for a single camera feed so there is no n
 
 No. Currenly, there can be at most one gRPC extension node in a graph instance, meaning for a given camera, there can only be one connection to the gRPC server.<br/>ProcessMediaStreams is called once per camera per extension node per session.  
 
-A session == end user calls stop/start on a graph instance, or perhaps there is a camera disconnect/reconnect. The goal is to persist one session if the camera is streaming video. Two cameras sending video for processing = two sessions. One camera going to a graph that has two gRPCExtension nodes == two sessions. Each session is a full duplex connection between LVA and the gRPC Server. Each session can have a different model/pipeline. 
+A session == end user calls stop/start on a graph instance, or perhaps there is a camera disconnect/reconnect. The goal is to persist one session if the camera is streaming video. Two cameras sending video for processing = two sessions. One camera going to a graph that has two gRPCExtension nodes == two sessions. Each session is a full duplex connection between Live Video Analytics and the gRPC Server. Each session can have a different model/pipeline. 
 
 > [!NOTE]
-> In case of a camera disconnect/reconnect (with camera going offline for a period beyond tolerance limits), LVA will open a new session with the gRPC Server. There is no requirement for the server to track state across these sessions. 
+> In case of a camera disconnect/reconnect (with camera going offline for a period beyond tolerance limits), Live Video Analytics will open a new session with the gRPC Server. There is no requirement for the server to track state across these sessions. 
 
-LVA also added support of multiple gRPC extensions for a single camera in a graph instance. You will be able to use these gRPC extensions to carry out AI processing sequentially or in parallel or even have a combination of both. 
+Live Video Analytics also added support of multiple gRPC extensions for a single camera in a graph instance. You will be able to use these gRPC extensions to carry out AI processing sequentially or in parallel or even have a combination of both. 
 
 > [!NOTE]
 > Having multiple extensions run in parallel will impact your hardware resources and you will have to keep this mind while choosing the hardware that will suit your computational needs. 
 
 ### What is the max # of simultaneous ProcessMediaStreams? 
 
-There is no limit that LVA applies.  
+There is no limit that Live Video Analytics applies.  
 
 ### How should I decide if my inferencing server should use CPU or GPU or any other hardware accelerator? 
 
@@ -219,9 +219,9 @@ Today, we are providing bounding box co-ordinates as inference messages only. De
 
 Any field value which is not supplied will be given a default [as specified by gRPC](https://developers.google.com/protocol-buffers/docs/proto3#default).  
 
-LVA uses proto3 version of the protocol buffer language. To ensure that the protocol definition is fully forward/backward compatible with newer/older binaries, the “required” and “optional” fields were removed by Google. 
+Live Video Analytics uses proto3 version of the protocol buffer language. To ensure that the protocol definition is fully forward/backward compatible with newer/older binaries, the “required” and “optional” fields were removed by Google. 
 
-All the proto buffer data used by LVA contracts are available in the protobuf files [defined here](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc). 
+All the proto buffer data used by Live Video Analytics contracts are available in the protobuf files [defined here](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc). 
 
 ### How should I ensure that I am using the latest protobuf files? 
 
@@ -234,9 +234,9 @@ microsoft.azure.media.live_video_analytics.extensibility.grpc.v1
 Any updates to these files, will increment the “v-value” at the end of the name. 
 
 > [!NOTE]
-> Since LVA uses proto3 version of the language, the fields are optional, and this makes it backward and forward compatible. 
+> Since Live Video Analytics uses proto3 version of the language, the fields are optional, and this makes it backward and forward compatible. 
 
-### What gRPC features are available for me to use with LVA? Which features are mandatory and which ones are optional? 
+### What gRPC features are available for me to use with Live Video Analytics? Which features are mandatory and which ones are optional? 
 
 Any server-side gRPC features may be used provided the protobuf contract is fulfilled. 
 
@@ -280,23 +280,23 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ``` 
 
-[Logging and diagnostics in gRPC on .NET](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1) providse some guidance for gathering some diagnostic logs from a gRPC server. 
+[Logging and diagnostics in gRPC on .NET](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true) providse some guidance for gathering some diagnostic logs from a gRPC server. 
 
 ### What happens when gRPC connection fails? Does it come back up automatically? 
 
-If a graph is active and streaming from a camera, the connection will be maintained by LVA. 
+If a graph is active and streaming from a camera, the connection will be maintained by Live Video Analytics. 
 
 ### What happens when CPU and GPU resources become bottlenecks? How should I monitor and ensure that I can balance the load on these resources? 
 
-LVA does not monitor or provide any hardware resource monitoring. Developers will have to use the hardware manufacturers monitoring solutions. However, if you use Kubernetes containers, you can monitor the device using the [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
+Live Video Analytics does not monitor or provide any hardware resource monitoring. Developers will have to use the hardware manufacturers monitoring solutions. However, if you use Kubernetes containers, you can monitor the device using the [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-gRPC in .NET core documents also share some valuable information on [Performance Best Practices](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1) and [Load balancing](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1#load-balancing).  
+gRPC in .NET core documents also share some valuable information on [Performance Best Practices](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1&preserve-view=true) and [Load balancing](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1#load-balancing&preserve-view=true).  
 
-### My inference server does not receive any frames, and I’m getting an “unknown” protocol error. How can I troubleshoot? 
+### My inference server does not receive any frames, and I'm getting an "unknown" protocol error. How can I troubleshoot? 
 
 There are several things you can do to get more information about the problem.  
 
-* Include the “**ediaPipeline** log category in the desired properties of the LVA module and ensure the log level is set to `Information`.  
+* Include the “**ediaPipeline** log category in the desired properties of the Live Video Analytics module and ensure the log level is set to `Information`.  
 * To test network connectivity, you can run the following command from the edge device. 
 
    ```
@@ -304,23 +304,23 @@ There are several things you can do to get more information about the problem.
    ```
 
    If the command outputs a short string of jumbled text, then telnet was successfully able to open a connection to your inference server and open a binary gRPC channel. If you do not see this, then telnet will report a network error. 
-* In your inference server you can enable additional logging in the gRPC library. This can give additional information about the gRPC channel itself. Doing this varies by language, here are instructions for [C#](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1). 
+* In your inference server you can enable additional logging in the gRPC library. This can give additional information about the gRPC channel itself. Doing this varies by language, here are instructions for [C#](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true). 
 
 ### How can we pick more images from buffer of gRPC without sending back result for first buffer? 
 
-As a part of the gRPC data transfer contract, all messages that LVA sends to the gRPC inferencing server should be acknowledged. Not acknowledging the receipt of an image frame breaks the data contract and can result in undesired situations.  
+As a part of the gRPC data transfer contract, all messages that Live Video Analytics sends to the gRPC inferencing server should be acknowledged. Not acknowledging the receipt of an image frame breaks the data contract and can result in undesired situations.  
 
-To use your gRPC server with LVA, shared memory can be used for best performance. This requires you to use Linux shared memory capabilities exposed by the programming language/environment. 
+To use your gRPC server with Live Video Analytics, shared memory can be used for best performance. This requires you to use Linux shared memory capabilities exposed by the programming language/environment. 
 
 1. Open the Linux shared memory handle.
 1. Upon receiving of a frame, access the address offset within the shared memory.
-1. Acknowledge the frame processing completion so its memory can be reclaimed by LVA.
+1. Acknowledge the frame processing completion so its memory can be reclaimed by Live Video Analytics.
 
    > [!NOTE]
-   > If you delay in acknowledging the receipt of the frame to LVA for a long time, it can result in the shared memory becoming full and causing data drops.
+   > If you delay in acknowledging the receipt of the frame to Live Video Analytics for a long time, it can result in the shared memory becoming full and causing data drops.
 1. Store each frame in a data structure of your choice (list, array, etc) on the inferencing server.
 1. You can then run your processing logic when you have the desired number of image frames.
-1. Return the inferencing result back to LVA when ready.
+1. Return the inferencing result back to Live Video Analytics when ready.
 
 ## Next steps
 
