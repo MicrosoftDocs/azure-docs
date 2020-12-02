@@ -43,8 +43,8 @@ Enter an **Offer alias**. The offer alias is the name that's used for the offer 
 
 - This name isn't used on AppSource. It is different from the offer name and other values that are shown to customers.
 - This name can't be changed after you select **Create**.
-- 
-Select **Create** to generate the offer and continue. Partner Center opens the **Offer setup** page.
+
+Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
 
 ## Alias
 
@@ -52,22 +52,20 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
 
 ## Setup details
 
-For **How do you want potential customers to interact with this listing offer?**, select the option you'd like to use: **Get it now (Free)**, **Free trial (listing)**, or **Contact me**.
+Select the **Package type** that applies to your offer:
 
-#### Get it now (free)
+- An **Add-on** app extends the experience and the existing functionality of Dynamics 365 Business Central. For details, see [Add-on apps](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
+- A **Connect** app can be used in the scenario where there must be established a point-to-point connection between Dynamics 365 Business Central and a third-party solution or service. For details, see [Connect Apps](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
 
-List your offer to customers for free.
+For **How do you want potential customers to interact with this listing offer?**, select the option you'd like to use for this offer.
 
-#### Free trial (listing)
+- **Get it now (free)** – List your offer to customers for free.
+- **Free trial (listing)** – List your offer to customers with a link to a free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
-List your offer to customers with a link to a free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+    > [!NOTE]
+    > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
 
-> [!NOTE]
-> The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
-
-#### Contact me
-
-Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
+- **Contact me** – Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
 
 ## Test drive
 
