@@ -7,15 +7,25 @@ ms.custom: devx-track-java
 ---
 # Troubleshooting Azure Monitor Application Insights Java
 
-## Configuration Issues
+## Self-diagnostic log file
 
-If you are using an old `applicationinsights.json` file, please make sure you make following changes in the configuration:
+By default, Application Insights Java 3.0 will produce a log file named `applicationinsights.log` in the same directory where the `applicationinsights-agent-3.0.0.jar` file is located.
 
-1.  Please rename `ApplicationInsights.json` to `applicationinsights.json`.
-2.  Please remove `instrumentationSettings`. All the contents inside `instrumentationSettings` are moved to the root level.  
-3.  Sub configurations like `sampling`, `jmxMetrics`, `instrumentation` and `heartbeat` are moved out of `preview` to the root level.
+This log file is the first place to check for hints to any issues you may be experiencing.
 
-For more information please go through the [docs](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config) related to different configuration options.
+## Upgrade from Application Insights Java 2.x SDK
+
+See [Upgrade from 2.x SDK](./upgrade-from-2x.md).
+
+## Upgrade from 3.0 Preview
+
+If you are upgrading from 3.0 Preview, please review all of the [configuration options](./java-standalone-config.md) carefully, as the json structure has completely changed in the 3.0 GA release.
+
+These changes include:
+
+1.  The configuration file name itself has changed from `ApplicationInsights.json` to `applicationinsights.json`.
+2.  The `instrumentationSettings` node is no longer present. All content inside of `instrumentationSettings` is moved to the root level. 
+3.  Configuration nodes like `sampling`, `jmxMetrics`, `instrumentation` and `heartbeat` are moved out of `preview` to the root level.
 
 ## SSL Certificate Issues
 
@@ -55,4 +65,3 @@ The following example is a simple command to import a SSL certificate to the key
 > You will need to repeat these steps to get the new certificate before the current certificate expires. You can find the expiration information in the "Details" tab of the Certificate popup as shown below
 
 :::image type="content" source="media/java-ipa/troubleshooting/CertificateDetails.PNG" alt-text="SSL Certificate Details":::
-
