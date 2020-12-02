@@ -97,9 +97,9 @@ Stateful logic apps use [external storage](../azure-functions/functions-scale.md
 For more information about the pricing models that apply to this new resource type, review these topics:
 
 * [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
-* [Scale up an in Azure App Service](../app-service/manage-scale-up.md)
+* [Scale up an app in Azure App Service](../app-service/manage-scale-up.md)
 * [Azure Functions pricing details](https://azure.microsoft.com/pricing/details/functions/)
-* [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/windows/)
+* [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/)
 * [Azure Storage pricing details](https://azure.microsoft.com/pricing/details/storage/)
 
 <a name="unsupported"></a>
