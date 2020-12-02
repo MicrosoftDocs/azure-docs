@@ -1,7 +1,7 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed, get a list of the properties that changed, and evaluate the diffs.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: how-to
 ---
 # Get resource changes
@@ -36,7 +36,7 @@ Monitor.
 > [!NOTE]
 > Change details in Resource Graph are for Resource Manager properties. For tracking changes inside
 > a virtual machine, see Azure Automation's
-> [Change tracking](../../../automation/change-tracking.md) or Azure Policy's
+> [Change tracking](../../../automation/change-tracking/overview.md) or Azure Policy's
 > [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]
@@ -303,7 +303,7 @@ The response looks similar to this example:
 
 **beforeSnapshot** and **afterSnapshot** each give the time the snapshot was taken and the
 properties at that time. The change happened at some point between these snapshots. Looking at the
-example above, we can see that the property that changed was **supportsHttpsTrafficOnly**.
+previous example, we can see that the property that changed was **supportsHttpsTrafficOnly**.
 
 To compare the results, either use the **changes** property in **resourceChanges** or evaluate the
 **content** portion of each snapshot in **resourceChangeDetails** to determine the difference. If

@@ -55,14 +55,14 @@ To resolve the problem, use the [troubleshooting tool for Azure Files mounting e
 
 ### Cause 1: Unencrypted communication channel
 
-For security reasons, connections to Azure file shares are blocked if the communication channel isn't encrypted and if the connection attempt isn't made from the same datacenter where the Azure file shares reside. Unencrypted connections within the same datacenter can also be blocked if the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account. An encrypted communication channel is provided only if the user's client OS supports SMB encryption.
+For security reasons, connections to Azure file shares are blocked if the communication channel isn't encrypted and if the connection attempt isn't made from the same datacenter where the Azure file shares reside. Unencrypted connections within the same datacenter can also be blocked if the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is enabled on the storage account. An encrypted communication channel is provided only if the user's client OS supports SMB encryption.
 
 To learn more, see [Prerequisites for mounting an Azure file share with Linux and the cifs-utils package](storage-how-to-use-files-linux.md#prerequisites). 
 
 ### Solution for cause 1
 
 1. Connect from a client that supports SMB encryption or connect from a virtual machine in the same datacenter as the Azure storage account that is used for the Azure file share.
-2. Verify the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account if the client does not support SMB encryption.
+2. Verify the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is disabled on the storage account if the client does not support SMB encryption.
 
 ### Cause 2: Virtual network or firewall rules are enabled on the storage account 
 
@@ -70,7 +70,7 @@ If virtual network (VNET) and firewall rules are configured on the storage accou
 
 ### Solution for cause 2
 
-Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
 
 <a id="permissiondenied"></a>
 ## "[permission denied] Disk quota exceeded" when you try to open a file
@@ -89,19 +89,19 @@ There is a quota of 2,000 open handles on a single file or directory. When you h
 
 Reduce the number of concurrent open handles by closing some handles, and then retry the operation.
 
-To view open handles for a file share, directory or file, use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet.  
+To view open handles for a file share, directory or file, use the [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet.  
 
-To close open handles for a file share, directory or file, use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet.
+To close open handles for a file share, directory or file, use the [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet.
 
 > [!Note]  
-> The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## Slow file copying to and from Azure Files in Linux
 
 - If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
 - Use the right copy method:
-    - Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
+    - Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
     - Using cp or dd with parallel could improve copy speed, the number of threads depends on your use case and workload. The following examples use six: 
     - cp example (cp will use the default block size of the file system as the chunk size): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
     - dd example (this command explicitly sets chunk size to 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
@@ -138,13 +138,13 @@ Error code: 403
 
 ### Solution for cause 1
 
-Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
 
 ### Cause 2: Your user account does not have access to the storage account
 
 ### Solution for cause 2
 
-Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Azure role-based access control (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
 ## Unable to delete a file or directory in an Azure file share
@@ -156,12 +156,12 @@ This issue typically occurs if the file or directory has an open handle.
 
 If the SMB clients have closed all open handles and the issue continues to occur, perform the following:
 
-- Use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet to view open handles.
+- Use the [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet to view open handles.
 
-- Use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet to close open handles. 
+- Use the [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet to close open handles. 
 
 > [!Note]  
-> The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## Slow performance on an Azure file share mounted on a Linux VM
@@ -186,11 +186,11 @@ You can also check whether the correct options are being used by running the  **
 //azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)
 ```
 
-If the **cache=strict** or **serverino** option is not present, unmount and mount Azure Files again by running the mount command from the [documentation](../storage-how-to-use-files-linux.md). Then, recheck that the **/etc/fstab** entry has the correct options.
+If the **cache=strict** or **serverino** option is not present, unmount and mount Azure Files again by running the mount command from the [documentation](./storage-how-to-use-files-linux.md). Then, recheck that the **/etc/fstab** entry has the correct options.
 
 ### Cause 2: Throttling
 
-It is possible you are experiencing throttling and your requests are being sent to a queue. You can verify this by leveraging [Azure Storage metrics in Azure Monitor](../common/storage-metrics-in-azure-monitor.md).
+It is possible you are experiencing throttling and your requests are being sent to a queue. You can verify this by leveraging [Azure Storage metrics in Azure Monitor](../blobs/monitor-blob-storage.md).
 
 ### Solution for cause 2
 
@@ -288,10 +288,36 @@ If you can't upgrade to the latest kernel versions, you can work around this pro
 ## "CIFS VFS: error -22 on ioctl to get interface list" when you mount an Azure file share by using SMB 3.0
 
 ### Cause
-This error is logged because Azure Files [does not currently support SMB multichannel](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+This error is logged because Azure Files [does not currently support SMB multichannel](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 ### Solution
 This error can be ignored.
+
+
+### Unable to access folders or files which name has a space or a dot at the end
+
+You are unable to access folders or files from the Azure file share while mounted on Linux, commands like du and ls and/or third-party applications may fail with a "No such file or directory" error while accessing the share, however you are able to upload files to said folders via the portal.
+
+### Cause
+
+The folders or files were uploaded from a system that encodes the characters at the end of the name to a different character, files uploaded from a Macintosh computer may have a "0xF028" or "0xF029" character instead of 0x20 (space) or 0X2E (dot).
+
+### Solution
+
+Use the mapchars option on the share while mounting the share on Linux: 
+
+instead of :
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+use:
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
+```
+
 
 ## Need help? Contact support.
 

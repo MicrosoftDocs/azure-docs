@@ -16,6 +16,11 @@ ms.custom: devx-track-js
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Node.js
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 Use this quickstart to make your first call to the Bing Visual Search API. This simple JavaScript application uploads an image to the API, and displays the information returned about it. Although this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites

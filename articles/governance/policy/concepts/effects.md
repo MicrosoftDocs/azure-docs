@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 09/15/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -128,9 +128,9 @@ resource, but it doesn't stop the request.
 
 Audit is the last effect checked by Azure Policy during the creation or update of a resource. For a
 Resource Manager mode, Azure Policy then sends the resource to the Resource Provider. Audit works
-the same for a resource request and an evaluation cycle. Azure Policy adds a
-`Microsoft.Authorization/policies/audit/action` operation to the activity log and marks the resource
-as non-compliant.
+the same for a resource request and an evaluation cycle. For new and updated resources, Azure Policy
+adds a `Microsoft.Authorization/policies/audit/action` operation to the activity log and marks the
+resource as non-compliant.
 
 ### Audit properties
 
@@ -189,10 +189,10 @@ condition, but don't have the properties specified in the **details** of the **t
 
 AuditIfNotExists runs after a Resource Provider has handled a create or update resource request and
 has returned a success status code. The audit occurs if there are no related resources or if the
-resources defined by **ExistenceCondition** don't evaluate to true. Azure Policy adds a
-`Microsoft.Authorization/policies/audit/action` operation to the activity log the same way as the
-audit effect. When triggered, the resource that satisfied the **if** condition is the resource that
-is marked as non-compliant.
+resources defined by **ExistenceCondition** don't evaluate to true. For new and updated resources,
+Azure Policy adds a `Microsoft.Authorization/policies/audit/action` operation to the activity log
+and marks the resource as non-compliant. When triggered, the resource that satisfied the **if**
+condition is the resource that is marked as non-compliant.
 
 ### AuditIfNotExists properties
 

@@ -73,8 +73,8 @@ The provided z-fighting mitigation is a best effort. There is no guarantee that 
 
 ## API documentation
 
-* [C# RemoteManager.ZFightingMitigationSettings property](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
-* [C++ RemoteManager::ZFightingMitigationSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
+* [C# RemoteManager.ZFightingMitigationSettings property](/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
+* [C++ RemoteManager::ZFightingMitigationSettings()](/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
 
 ## Next steps
 

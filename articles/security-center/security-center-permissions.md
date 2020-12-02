@@ -53,10 +53,10 @@ The following table displays roles and allowed actions in Security Center.
 >
 
 ## Next steps
-This article explained how Security Center uses RBAC to assign permissions to users and identified the allowed actions for each role. Now that you're familiar with the role assignments needed to monitor the security state of your subscription, edit security policies, and apply recommendations, learn how to:
+This article explained how Security Center uses Azure RBAC to assign permissions to users and identified the allowed actions for each role. Now that you're familiar with the role assignments needed to monitor the security state of your subscription, edit security policies, and apply recommendations, learn how to:
 
 - [Set security policies in Security Center](tutorial-security-policy.md)
 - [Manage security recommendations in Security Center](security-center-recommendations.md)
 - [Monitor the security health of your Azure resources](security-center-monitoring.md)
 - [Manage and respond to security alerts in Security Center](security-center-managing-and-responding-alerts.md)
-- [Monitor partner security solutions](security-center-partner-solutions.md)
+- [Monitor partner security solutions](./security-center-partner-integration.md)

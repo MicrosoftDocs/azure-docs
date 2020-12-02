@@ -17,7 +17,7 @@ ms.custom: how-to, devx-track-python, contperfq1
 # Tune hyperparameters for your model with Azure Machine Learning
 
 
-Automate efficient hyperparameter tuning by using Azure Machine Learning [HyperDrive package](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py&preserve-view=true). Learn how to complete the steps required to tune hyperparameters with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true):
+Automate efficient hyperparameter tuning by using Azure Machine Learning [HyperDrive package](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py). Learn how to complete the steps required to tune hyperparameters with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py):
 
 1. Define the parameter search space
 1. Specify a primary metric to optimize  
@@ -41,7 +41,7 @@ Azure Machine Learning lets you automate hyperparameter tuning and run experimen
 Tune hyperparameters by exploring the range of values defined for each hyperparameter.
 
 Hyperparameters can be discrete or continuous, and has a distribution of values described by a
-[parameter expression](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py&preserve-view=true).
+[parameter expression](/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?preserve-view=true&view=azure-ml-py).
 
 ### Discrete hyperparameters 
 
@@ -98,7 +98,7 @@ Specify the parameter sampling method to use over the hyperparameter space. Azur
 
 #### Random sampling
 
-[Random sampling](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?view=azure-ml-py&preserve-view=true) supports discrete and continuous hyperparameters. It supports early termination of low-performance runs. Some users do an initial search with random sampling and then refine the search space to improve results.
+[Random sampling](/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?preserve-view=true&view=azure-ml-py) supports discrete and continuous hyperparameters. It supports early termination of low-performance runs. Some users do an initial search with random sampling and then refine the search space to improve results.
 
 In random sampling, hyperparameter values are randomly selected from the defined search space. 
 
@@ -115,7 +115,7 @@ param_sampling = RandomParameterSampling( {
 
 #### Grid sampling
 
-[Grid sampling](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py&preserve-view=true) supports discrete hyperparameters. Use grid sampling if you can budget to exhaustively search over the search space. Supports early termination of low-performance runs.
+[Grid sampling](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?preserve-view=true&view=azure-ml-py) supports discrete hyperparameters. Use grid sampling if you can budget to exhaustively search over the search space. Supports early termination of low-performance runs.
 
 Performs a simple grid search over all possible values. Grid sampling can only be used with `choice` hyperparameters. For example, the following space has six samples:
 
@@ -131,7 +131,7 @@ param_sampling = GridParameterSampling( {
 
 #### Bayesian sampling
 
-[Bayesian sampling](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?view=azure-ml-py&preserve-view=true) is based on the Bayesian optimization algorithm. It picks samples based on how previous samples performed, so that new samples improve the primary metric.
+[Bayesian sampling](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) is based on the Bayesian optimization algorithm. It picks samples based on how previous samples performed, so that new samples improve the primary metric.
 
 Bayesian sampling is recommended if you have enough budget to explore the hyperparameter space. For best results, we recommend a maximum number of runs greater than or equal to 20 times the number of hyperparameters being tuned. 
 
@@ -153,7 +153,7 @@ param_sampling = BayesianParameterSampling( {
 
 ## <a name="specify-primary-metric-to-optimize"></a> Specify primary metric
 
-Specify the [primary metric](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py&preserve-view=true) you want hyperparameter tuning to optimize. Each training run is evaluated for the primary metric. The early termination policy uses the primary metric to identify low-performance runs.
+Specify the [primary metric](/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?preserve-view=true&view=azure-ml-py) you want hyperparameter tuning to optimize. Each training run is evaluated for the primary metric. The early termination policy uses the primary metric to identify low-performance runs.
 
 Specify the following attributes for your primary metric:
 
@@ -201,7 +201,7 @@ Azure Machine Learning supports the following early termination policies:
 
 ### Bandit policy
 
-[Bandit policy](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py&preserve-view=true#&preserve-view=truedefinition) is based on slack factor/slack amount and evaluation interval. Bandit terminates runs where the primary metric is not within the specified slack factor/slack amount compared to the best performing run.
+[Bandit policy](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) is based on slack factor/slack amount and evaluation interval. Bandit terminates runs where the primary metric is not within the specified slack factor/slack amount compared to the best performing run.
 
 > [!NOTE]
 > Bayesian sampling does not support early termination. When using Bayesian sampling, set `early_termination_policy = None`.
@@ -224,7 +224,7 @@ In this example, the early termination policy is applied at every interval when 
 
 ### Median stopping policy
 
-[Median stopping](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?view=azure-ml-py&preserve-view=true) is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs with primary metric values worse than the median of averages.
+[Median stopping](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) is an early termination policy based on running averages of primary metrics reported by the runs. This policy computes running averages across all training runs and terminates runs with primary metric values worse than the median of averages.
 
 This policy takes the following configuration parameters:
 * `evaluation_interval`: the frequency for applying the policy (optional parameter).
@@ -240,7 +240,7 @@ In this example, the early termination policy is applied at every interval start
 
 ### Truncation selection policy
 
-[Truncation selection](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?view=azure-ml-py&preserve-view=true) cancels a percentage of lowest performing runs at each evaluation interval. Runs are compared using the primary metric. 
+[Truncation selection](/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?preserve-view=true&view=azure-ml-py) cancels a percentage of lowest performing runs at each evaluation interval. Runs are compared using the primary metric. 
 
 This policy takes the following configuration parameters:
 
@@ -295,7 +295,7 @@ This code configures the hyperparameter tuning experiment to use a maximum of 20
 
 ## Configure experiment
 
-To [configure your hyperparameter tuning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py&preserve-view=true) experiment, provide the following:
+To [configure your hyperparameter tuning](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?preserve-view=true&view=azure-ml-py) experiment, provide the following:
 * The defined hyperparameter search space
 * Your early termination policy
 * The primary metric
@@ -322,7 +322,7 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## Submit experiment
 
-After you define your hyperparameter tuning configuration, [submit the experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truesubmit-config--tags-none----kwargs-):
+After you define your hyperparameter tuning configuration, [submit the experiment](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-):
 
 ```Python
 from azureml.core.experiment import Experiment
@@ -379,7 +379,7 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## Visualize experiment
 
-Use the [Notebook widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true) to visualize the progress of your training runs. The following snippet visualizes all your hyperparameter tuning runs in one place in a Jupyter notebook:
+Use the [Notebook widget](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) to visualize the progress of your training runs. The following snippet visualizes all your hyperparameter tuning runs in one place in a Jupyter notebook:
 
 ```Python
 from azureml.widgets import RunDetails

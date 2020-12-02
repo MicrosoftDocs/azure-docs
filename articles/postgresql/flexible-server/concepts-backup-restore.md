@@ -23,7 +23,7 @@ If the database is configured with high availability, daily snapshots are perfor
 > [!IMPORTANT]
 >Backups are not performed on stopped servers. However, backups are resumed when the database is either automatically started after 7 days or started by the user.
 
-The backups can only be used for restore operations within the Flexible server. If you want to export or import data to the flexible server, you use [dump and restore](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) methodology.
+The backups can only be used for restore operations within the Flexible server. If you want to export or import data to the flexible server, you use [dump and restore](../howto-migrate-using-dump-and-restore.md) methodology.
 
 
 ### Backup retention
@@ -37,7 +37,7 @@ The backup retention period governs how far back in time a point-in-time restore
 
 Flexible server provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month. For example, if you have provisioned a server with 250 GiB of storage, then you have 250 GiB of backup storage capacity at no additional charge. If the daily backup usage is 25 GiB, then you can have up to 10 days of free backup storage. Backup storage consumption exceeding 250 GiB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/).
 
-You can use the [Backup storage used](https://docs.microsoft.com/azure/postgresql/concepts-monitoring) metric in the Azure portal to monitor the backup storage consumed by a server. The Backup Storage used metric represents the sum of storage consumed by all the database backups and log backups retained based on the backup retention period set for the server.  Heavy transactional activity on the server can cause backup storage usage to increase irrespective of the total database size.
+You can use the [Backup storage used](../concepts-monitoring.md) metric in the Azure portal to monitor the backup storage consumed by a server. The Backup Storage used metric represents the sum of storage consumed by all the database backups and log backups retained based on the backup retention period set for the server.  Heavy transactional activity on the server can cause backup storage usage to increase irrespective of the total database size.
 
 The primary means of controlling the backup storage cost is by setting the appropriate backup retention period and choosing the right backup redundancy options to meet your desired recovery goals.
 
@@ -74,7 +74,7 @@ The estimated time to recover depends on several factors including database size
 
 
 > [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
 
 ## Perform post-restore tasks
 
@@ -98,4 +98,3 @@ After restoring the database, you can perform the following tasks to get your us
 -   Learn about [business continuity](./concepts-business-continuity.md)
 -   Learn about [zone redundant high availability](./concepts-high-availability.md)
 -   Learn [how to restore](./how-to-restore-server-portal.md)
-

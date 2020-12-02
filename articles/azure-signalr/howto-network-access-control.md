@@ -58,4 +58,4 @@ You can manage network access control for Azure SignalR Service through the Azur
 
 ## Next steps
 
-Learn more about [Azure Private Link](/azure/private-link/private-link-overview).
+Learn more about [Azure Private Link](../private-link/private-link-overview.md).

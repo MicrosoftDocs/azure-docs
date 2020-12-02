@@ -334,7 +334,7 @@ Next, test and run your logic app, which now looks similar to this example:
 
 ## Run your logic app
 
-To manually start your logic app, on the designer toolbar bar, select **Run**.
+To manually start your logic app, on the designer toolbar, select **Run**.
 
 * If the current travel time stays under your limit, your logic app does nothing else and waits or the next interval before checking again. 
 
@@ -361,7 +361,7 @@ Your logic app continues running until you disable or delete the app. When you n
 
 1. In the Azure portal's search box, enter the name for the resource group that you created. From the results, under **Resource Groups**, select the resource group.
 
-   This example created the resource group named `LA-TravelTime-RG`. 
+   This example created the resource group named `LA-TravelTime-RG`.
 
    ![Screenshot that shows the Azure search box with "la-travel-time-rg" entered and **LA-TravelTime-RG** selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-resource-group.png)
 
@@ -369,11 +369,11 @@ Your logic app continues running until you disable or delete the app. When you n
    > If the Azure home page shows the resource group under **Recent resources**,
    > you can select the group from the home page.
 
-1. On the resource group menu, check that **Overview** is selected. On the **Overview** pane's toolbar, select **Delete resource group**. 
+1. On the resource group menu, check that **Overview** is selected. On the **Overview** pane's toolbar, select **Delete resource group**.
 
    ![Screenshot that shows the resource group's "Overview" pane and on the pane's toolbar, "Delete resource group" is selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 
-1. In the confirmation pane, enter the resource group name, and select **Delete**.
+1. In the confirmation pane that appears, enter the resource group name, and select **Delete**.
 
 ## Next steps
 

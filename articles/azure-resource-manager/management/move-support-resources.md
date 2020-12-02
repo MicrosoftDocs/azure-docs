@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 11/06/2020
 ---
 
 # Move operation support for resources
@@ -787,7 +787,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datafactories | Yes | Yes |
-> | datafactoryschema | No | No |
 > | factories | Yes | Yes |
 
 ## Microsoft.DataLake
@@ -1411,7 +1410,7 @@ Jump to a resource provider namespace:
 > | frontdoors | No | No |
 > | ipallocations | Yes | Yes |
 > | ipgroups | Yes | Yes |
-> | loadbalancers | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
+> | loadbalancers | Yes - Basic SKU<br> Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
 > | localnetworkgateways | Yes | Yes |
 > | natgateways | No | No |
 > | networkexperimentprofiles | No | No |
@@ -1428,9 +1427,9 @@ Jump to a resource provider namespace:
 > | privatednszones / virtualnetworklinks | Yes | Yes |
 > | privatednszonesinternal | No | No |
 > | privateendpointredirectmaps | No | No |
-> | privateendpoints | Yes | Yes |
+> | privateendpoints | No | No |
 > | privatelinkservices | No | No |
-> | publicipaddresses | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
+> | publicipaddresses | Yes - Basic SKU<br>Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
 > | publicipprefixes | Yes | Yes |
 > | routefilters | No | No |
 > | routetables | Yes | Yes |

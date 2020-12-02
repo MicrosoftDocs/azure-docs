@@ -119,7 +119,7 @@ Locate the components for installing the rail kit assembly:
 3. Attach the left and right mounting rails to the front vertical rack flanges using two pairs of screws.
 4. Slide the left and right back brackets forward against the rear vertical rack flanges and attach them using two pairs of screws.
 
-    ![Install and remove tooled rails](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Install and remove tooled rails 2](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### Install the system in a rack
 
@@ -202,11 +202,11 @@ Take the following steps to cable your device for power and network.
 
     - Device with 3 PCI slots and one GPU
 
-        ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
+        ![Back plane of a cabled device 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
     - Device with 3 PCI slots and two GPU
 
-        ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
+        ![Back plane of a cabled device 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 
 2. Locate the disk slots and the power button on the front of the device.
 
@@ -223,7 +223,7 @@ Take the following steps to cable your device for power and network.
 7. Connect one or more of PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 to the datacenter network/Internet.
 
     - If connecting PORT 2, use the 1-GbE RJ-45 network cable.
-    - For the 10/25-GbE network interfaces, use the SFP+ copper cables.
+    - For the 10/25-GbE network interfaces, use the SFP+ copper cables or fiber. If using fiber, use an optical to SFP adapter.
 
 ## Next steps
 

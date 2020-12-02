@@ -44,7 +44,7 @@ At the end of these steps, you'll have relevant Azure resources deployed in your
 * Azure IoT Hub
 * Azure Storage account
 * Azure Media Services account
-* Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installed
+* Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installed
 
 ## Concepts
 
@@ -88,7 +88,7 @@ You'll need the files for these steps:
     The IoT Hub connection string lets you use Visual Studio Code to send commands to the edge modules via Azure IoT Hub.
     
 1. Next, browse to the src/edge folder and create a file named **.env**.
-1. Copy the contents from the ~/clouddrive/lva-sample/.env file. The text should look like:
+1. Copy the contents from the ~/clouddrive/lva-sample/edge-deployment/.env file. The text should look like:
 
     ```
     SUBSCRIPTION_ID="<Subscription ID>"  
@@ -155,11 +155,20 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
 
 ## Run the program 
 
-1. In Visual Studio Code, go to src/cloud-to-device-console-app/operations.json.
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. <!--In Visual Studio Code, go-->Go to src/cloud-to-device-console-app/operations.json.
 1. Under the **GraphTopologySet** node, edit the following:
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
-1. Next, under the **GraphInstanceSet** node, ensure that the value of **topologyName** matches the value of the **name** property in the previous graph topology:
+1. Next, under the **GraphInstanceSet** and **GraphTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the previous graph topology:
 
     `"topologyName" : "CVRToAMSAsset"`  
 1. Open the [topology](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) in a browser, and look at assetNamePattern. To make sure you have an asset with a unique name, you might want to change the graph instance name in the operations.json file (from the default value of Sample-Graph-1).
@@ -371,4 +380,4 @@ If you intend to try the other tutorials, hold on to the resources you created. 
 ## Next steps
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant products page](https://www.onvif.org/conformant-products/) by looking for devices that conform with profiles G, S, or T.
-* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.
+* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.

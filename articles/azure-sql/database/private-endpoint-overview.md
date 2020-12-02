@@ -17,7 +17,7 @@ ms.date: 03/09/2020
 Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list of PaaS services that support Private Link functionality, go to the [Private Link Documentation](../../private-link/index.yml) page. A private endpoint is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and subnet.
 
 > [!IMPORTANT]
-> This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics. This article does *not* apply to **Azure SQL Managed Instance**.
+> This article applies to both Azure SQL Database and Azure Synapse Analytics. For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics. This article does *not* apply to **Azure SQL Managed Instance**.
 
 ## How to set up Private Link for Azure SQL Database 
 
@@ -71,7 +71,7 @@ For this scenario, assume you've created an Azure Virtual Machine (VM) running W
 
 ### Check Connectivity using Telnet
 
-[Telnet Client](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) is a Windows feature that can be used to test connectivity. Depending on the version of the Windows OS, you may need to enable this feature explicitly. 
+[Telnet Client](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) is a Windows feature that can be used to test connectivity. Depending on the version of the Windows OS, you may need to enable this feature explicitly. 
 
 Open a Command Prompt window after you have installed Telnet. Run the Telnet command and specify the IP address and private endpoint of the database in SQL Database.
 

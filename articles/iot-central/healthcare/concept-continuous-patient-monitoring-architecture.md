@@ -28,11 +28,11 @@ Many medical wearables used in healthcare IoT solutions are BLE devices. These d
 
 ### Mobile phone gateway
 
-The mobile phone application's primary function is to collect BLE data from medical devices and communicate it to IoT Central. The app also guides patients through device setup and lets them view their personal health data. Other solutions could use a tablet gateway or a static gateway in a hospital room. An open-source sample mobile application is available for Android and iOS to use as a starting point for your application development. To learn more, see the [IoT Central Continuous Patient Monitoring mobile app](https://docs.microsoft.com/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
+The mobile phone application's primary function is to collect BLE data from medical devices and communicate it to IoT Central. The app also guides patients through device setup and lets them view their personal health data. Other solutions could use a tablet gateway or a static gateway in a hospital room. An open-source sample mobile application is available for Android and iOS to use as a starting point for your application development. To learn more, see the [IoT Central Continuous Patient Monitoring mobile app](/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
 
 ### Export to Azure API for FHIR&reg;
 
-Azure IoT Central is HIPAA-compliant and HITRUST&reg; certified. You can also send patient health data to other services using the [Azure API for FHIR](../../healthcare-apis/overview.md). Azure API for FHIR is a standards-based API for clinical health data. The [Azure IoT connector for FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-fhir-portal-quickstart) lets you use the Azure API for FHIR as a continuous data export destination from IoT Central.
+Azure IoT Central is HIPAA-compliant and HITRUST&reg; certified. You can also send patient health data to other services using the [Azure API for FHIR](../../healthcare-apis/overview.md). Azure API for FHIR is a standards-based API for clinical health data. The [Azure IoT connector for FHIR](../../healthcare-apis/iot-fhir-portal-quickstart.md) lets you use the Azure API for FHIR as a continuous data export destination from IoT Central.
 
 ### Machine learning
 

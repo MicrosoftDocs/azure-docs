@@ -1,7 +1,7 @@
 ---
 title: CI/CD pipeline with Azure DevOps Starter - Azure IoT Edge | Microsoft Docs
 description: Azure DevOps Starter makes it easy to get started on Azure. It helps you launch an Azure IoT Edge app of your choice in few quick steps.
-author: shizn
+author: kgremban
 ms.author: kgremban
 ms.date: 08/25/2020
 ms.topic: conceptual
@@ -69,14 +69,14 @@ DevOps Starter created a Git repository for your project in Azure Repos. In this
 
    ![View repository generated in Azure Repos](./media/how-to-devops-starter/view-repositories.png)
 
-> [!NOTE]
-> The following steps walk through using the web browser to make code changes. If you want to clone your repository locally instead, select **Clone** from the top right of the window. Use the provided URL to clone your Git repository in Visual Studio Code or your preferred development tool.
+   > [!NOTE]
+   > The following steps walk through using the web browser to make code changes. If you want to clone your repository locally instead, select **Clone** from the top right of the window. Use the provided URL to clone your Git repository in Visual Studio Code or your preferred development tool.
 
 2. The repository already contains code for a module called **FilterModule** based on the application language that you chose in the creation process. Open the **modules/FilterModule/module.json** file.
 
    ![Open module.json file in Azure Repos](./media/how-to-devops-starter/open-module-json.png)
 
-3. Notice that this file uses [Azure DevOps build variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) in the **version** parameter. This configuration ensures that a new version of the module will be created every time a new build runs.
+3. Notice that this file uses [Azure DevOps build variables](/azure/devops/pipelines/build/variables#build-variables) in the **version** parameter. This configuration ensures that a new version of the module will be created every time a new build runs.
 
 ## Examine the CI/CD pipeline
 

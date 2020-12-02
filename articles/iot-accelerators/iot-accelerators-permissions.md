@@ -14,7 +14,7 @@ ms.author: dobett
 
 # Use the azureiotsolutions.com site to deploy your solution accelerator
 
-You can deploy Azure IoT solution accelerators to your Azure subscription from [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com hosts both the Microsoft open source and partner solution accelerators. These solution accelerators align with the [Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture). You can use the site to quickly deploy a solution accelerator as a demo or production environment.
+You can deploy Azure IoT solution accelerators to your Azure subscription from [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com hosts both the Microsoft open source and partner solution accelerators. These solution accelerators align with the [Azure IoT Reference Architecture](/azure/architecture/reference-architectures/iot). You can use the site to quickly deploy a solution accelerator as a demo or production environment.
 
 ![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
@@ -35,7 +35,7 @@ Before you can deploy a solution accelerator, you must sign in at AzureIoTSoluti
 
 Your permissions to deploy solution accelerators, manage users, and manage Azure services depend on your role in the selected directory. Common Azure AD roles associated with the solution accelerators include:
 
-* **Global administrator**: There can be many [global administrators](../active-directory/users-groups-roles/directory-assign-admin-roles.md) per Azure AD tenant:
+* **Global administrator**: There can be many [global administrators](../active-directory/roles/permissions-reference.md) per Azure AD tenant:
 
   * When you create an Azure AD tenant, you are by default the global administrator of that tenant.
   * The global administrator can deploy basic and standard solution accelerators.

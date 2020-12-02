@@ -68,17 +68,17 @@ For daemon apps, the web APIs that you call need to be pre-approved. There's no 
 
 # [.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Daemon app - move to production](./scenario-daemon-production.md?tabs=dotnet)
+Move on to the next article in this scenario,
+[Move to production](./scenario-daemon-production.md?tabs=dotnet).
 
 # [Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Daemon app - move to production](./scenario-daemon-production.md?tabs=python)
+Move on to the next article in this scenario,
+[Move to production](./scenario-daemon-production.md?tabs=python).
 
 # [Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Daemon app - move to production](./scenario-daemon-production.md?tabs=java)
+Move on to the next article in this scenario,
+[Move to production](./scenario-daemon-production.md?tabs=java).
 
 ---

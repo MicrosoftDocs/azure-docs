@@ -1,11 +1,13 @@
 ---
-title: "Quickstart: Add questions and answer in QnA Maker portal"
-description:  This quickstart shows how to add question and answer pairs with metadata so your users can find the right answer to their question.
+title: "Add questions and answer in QnA Maker portal"
+description:  This article shows how to add question and answer pairs with metadata so your users can find the right answer to their question.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
 ---
 
-# Quickstart: Add questions and answer with QnA Maker portal
+# Add questions and answer with QnA Maker portal
 
 Once a knowledge base is created, add question and answer (QnA) pairs with metadata to filter the answer. The questions in the following table are about Azure service limits, but each has to do with a different Azure search service.
 
@@ -13,7 +15,7 @@ Once a knowledge base is created, add question and answer (QnA) pairs with metad
 
 |Pair|Questions|Answer|Metadata|
 |--|--|--|--|
-|#1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
+|#1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |#2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
 
 Once metadata is added to a QnA pair, the client application can:
@@ -30,7 +32,7 @@ Once metadata is added to a QnA pair, the client application can:
 
 1. Sign in to the [QnA Maker portal](https://www.qnamaker.ai).
 
-1. Select your existing knowledge base from the [previous quickstart](../how-to/create-knowledge-base.md).
+1. Select your existing knowledge base from the [previous quickstart](./create-publish-knowledge-base.md).
 
 ## Add additional alternatively-phrased questions
 
@@ -55,7 +57,7 @@ When this URL was imported, only one question with one answer was created. In th
 
     The correct answer is returned in markdown format:
 
-    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
+    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../concepts/azure-resources.md) for more details.`
 
     If you select **Inspect** under the returned answer, you can see more answers met the question but not with the same high level of confidence.
 

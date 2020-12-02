@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Stream Analytics?
+  - name: Welcome to Stream Analytics
     href: stream-analytics-introduction.md
   - name: Stream Analytics Cluster
     href: cluster-overview.md
@@ -189,10 +189,13 @@
       - name: Blob storage
         href: blob-output-managed-identity.md
         displayName: managed identity, identities, authenticate
+      - name: Event Hubs
+        href: event-hubs-managed-identity.md
+        displayName: managed identity, identities, authenticate
       - name: Power BI
         href: powerbi-output-managed-identity.md
         displayName: managed identity, identities, authenticate
-      - name: Azure SQL DB
+      - name: Azure SQL & Azure Synapse
         href: sql-database-output-managed-identity.md
         displayName: managed identity, identities, authenticate
     - name: Encrypt your data
@@ -224,7 +227,7 @@
       href: ../event-hubs/process-data-azure-stream-analytics.md
       maintainContext: true
     - name: Process Azure SQL Database
-      href: ../sql-database/sql-database-stream-analytics.md
+      href: ../azure-sql/database/stream-data-stream-analytics-integration.md
       maintainContext: true
     - name: Geospatial scenarios
       href: geospatial-scenarios.md
@@ -686,7 +689,7 @@
   - name: Feedback forum
     href: https://feedback.azure.com/forums/270577-azure-stream-analytics
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-stream-analytics.html
+    href: /answers/topics/azure-stream-analytics.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/stream-analytics/
   - name: Pricing calculator
@@ -701,4 +704,3 @@
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Whitepaper - Real-time event processing
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-    

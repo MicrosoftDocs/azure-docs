@@ -22,7 +22,7 @@ Both Consumption and Premium plans automatically add compute power when your cod
 
 Premium plan provides additional features, such as premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.
 
-App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales in to zero. (Requires that [Always on](#always-on) is enabled.)
+App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means it never scales in to zero. (Requires that [Always on](#always-on) is enabled.)
 
 For a detailed comparison between the various hosting plans (including Kubernetes-based hosting), see the [Hosting plans comparison section](#hosting-plans-comparison).
 
@@ -253,6 +253,6 @@ The following comparison table shows all important aspects to help the decision 
 
 ## Next steps
 
-+ [Quickstart: Create an Azure Functions project using Visual Studio Code](functions-create-first-function-vs-code.md)
++ [Quickstart: Create an Azure Functions project using Visual Studio Code](./create-first-function-vs-code-csharp.md)
 + [Deployment technologies in Azure Functions](functions-deployment-technologies.md) 
 + [Azure Functions developer guide](functions-reference.md)

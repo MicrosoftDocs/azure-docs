@@ -13,8 +13,6 @@ ms.author: cynthn
 
 Create a new VM by attaching a specialized managed disk as the OS disk. A specialized disk is a copy of a virtual hard disk (VHD) from an existing VM that contains the user accounts, applications, and other state data from your original VM. 
 
-When you use a specialized VHD to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.
-
 You have several options:
 * [Use an existing managed disk](#option-1-use-an-existing-disk). This option is useful if you have a VM that isn't working correctly. You can delete the VM and then reuse the managed disk to create a new VM. 
 * [Upload a VHD](#option-2-upload-a-specialized-vhd) 
@@ -22,7 +20,12 @@ You have several options:
 
 You can also use the Azure portal to [create a new VM from a specialized VHD](create-vm-specialized-portal.md).
 
-This article shows you how to use managed disks. If you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](sa-create-vm-specialized.md).
+This article shows you how to use managed disks. If you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized).
+
+> [!IMPORTANT]
+> 
+> When you use a specialized disk to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
+> Thus, don't use a specialized disk if you want to create multiple VMs. Instead, for larger deployments, [create an image](capture-image-resource.md) and then [use that image to create multiple VMs](create-vm-generalized-managed.md).
 
 We recommend that you limit the number of concurrent deployments to 20 VMs from a single VHD or snapshot. 
 

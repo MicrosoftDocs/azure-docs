@@ -276,7 +276,7 @@ This script uses the following commands. Each command in the table links to comm
 | [Get-AzSqlSyncAgentLinkedDatabase](/powershell/module/az.sql/Get-azSqlSyncAgentLinkedDatabase) |  Get all the information for the Sync Agent. |
 | [New-AzSqlSyncMember](/powershell/module/az.sql/New-azSqlSyncMember) |  Add a new member to the sync group. |
 | [Update-AzSqlSyncSchema](/powershell/module/az.sql/Update-azSqlSyncSchema) |  Refreshes the database schema information. |
-| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/Get-azSqlSyncSchema) |  Get the database schema information. |
+| [Get-AzSqlSyncSchema](/powershell/module/az.sql/Get-azSqlSyncSchema) |  Get the database schema information. |
 | [Update-AzSqlSyncGroup](/powershell/module/az.sql/Update-azSqlSyncGroup) |  Updates the sync group. |
 | [Start-AzSqlSyncGroupSync](/powershell/module/az.sql/Start-azSqlSyncGroupSync) | Triggers a sync. |
 | [Get-AzSqlSyncGroupLog](/powershell/module/az.sql/Get-azSqlSyncGroupLog) |  Checks the Sync Log. |
@@ -296,7 +296,7 @@ For more information about SQL Data Sync, see:
     - Use PowerShell - [Use PowerShell to sync data between a database in Azure SQL Database and SQL Server](sql-data-sync-sync-data-between-azure-onprem.md)
 - Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](../sql-data-sync-agent-overview.md)
 - Best practices - [Best practices for SQL Data Sync in Azure](../sql-data-sync-best-practices.md)
-- Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../sql-data-sync-monitor-sync.md)
+- Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../monitor-tune-overview.md)
 - Troubleshoot - [Troubleshoot issues with SQL Data Sync in Azure](../sql-data-sync-troubleshoot.md)
 - Update the sync schema
     - Use Transact-SQL - [Automate the replication of schema changes in SQL Data Sync in Azure](../sql-data-sync-update-sync-schema.md)
@@ -305,4 +305,4 @@ For more information about SQL Data Sync, see:
 For more information about SQL Database, see:
 
 - [SQL Database overview](../sql-database-paas-overview.md)
-- [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
+- [Database Lifecycle Management](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

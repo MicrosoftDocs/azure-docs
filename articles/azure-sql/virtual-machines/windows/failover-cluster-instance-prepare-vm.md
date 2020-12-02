@@ -54,6 +54,8 @@ Carefully select the VM availability option that matches your intended cluster c
 
 After you've configured your VM availability, you're ready to create your virtual machines. You can choose to use an Azure Marketplace image that does or doesn't have SQL Server already installed on it. However, if you choose an image for SQL Server on Azure VMs, you'll need to uninstall SQL Server from the virtual machine before configuring the failover cluster instance. 
 
+### Considerations
+On an Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters.
 
 Place both virtual machines:
 
@@ -67,15 +69,15 @@ You can create an Azure virtual machine by using an image [with](sql-vm-create-p
 
 ## Uninstall SQL Server
 
-As part of the FCI creation process, you'll install SQL Server as a clustered instance to the failover cluster. *If you deployed a virtual machine with an Azure Marketplace image without SQL Server, you can skip this step.* If you deployed an image with SQL Server preinstalled, you'll need to unregister the SQL Server VM from the SQL VM resource provider, and then uninstall SQL Server. 
+As part of the FCI creation process, you'll install SQL Server as a clustered instance to the failover cluster. *If you deployed a virtual machine with an Azure Marketplace image without SQL Server, you can skip this step.* If you deployed an image with SQL Server preinstalled, you'll need to unregister the SQL Server VM from the SQL IaaS Agent extension, and then uninstall SQL Server. 
 
-### Unregister from the SQL VM resource provider
+### Unregister from the SQL IaaS Agent extension
 
-SQL Server VM images from Azure Marketplace are automatically registered with the SQL VM resource provider. Before you uninstall the preinstalled SQL Server instance, you must first [unregister each SQL Server VM from the SQL VM resource provider](sql-vm-resource-provider-register.md#unregister-from-rp). 
+SQL Server VM images from Azure Marketplace are automatically registered with the SQL IaaS Agent extension. Before you uninstall the preinstalled SQL Server instance, you must first [unregister each SQL Server VM from the SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension). 
 
 ### Uninstall SQL Server
 
-After you've unregistered from the resource provider, you can uninstall SQL Server. Follow these steps on each virtual machine: 
+After you've unregistered from the extension, you can uninstall SQL Server. Follow these steps on each virtual machine: 
 
 1. Connect to the virtual machine by using RDP.
 
@@ -97,14 +99,14 @@ After you've unregistered from the resource provider, you can uninstall SQL Serv
 
 On each virtual machine, open the Windows Firewall TCP port that SQL Server uses. By default, this is port 1433. But you can change the SQL Server port on an Azure VM deployment, so open the port that SQL Server uses in your environment. This port is automatically open on SQL Server images deployed from Azure Marketplace. 
 
-If you use a [load balancer](hadr-vnn-azure-load-balancer-configure.md), you'll also need to open the port that the health probe uses. By default, this is port 59999. But it can be any TCP port that you specify when you create the load balancer. 
+If you use a [load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md), you'll also need to open the port that the health probe uses. By default, this is port 59999. But it can be any TCP port that you specify when you create the load balancer. 
 
 This table details the ports that you might need to open, depending on your FCI configuration: 
 
    | Purpose | Port | Notes
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened. </br> </br> **Used by**: All FCI configurations. |
-   | Health probe | TCP 59999 | Any open TCP port. Configure the load balancer [health probe](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) and the cluster  to use this port. </br> </br> **Used by**: FCI with load balancer. |
+   | Health probe | TCP 59999 | Any open TCP port. Configure the load balancer [health probe](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) and the cluster  to use this port. </br> </br> **Used by**: FCI with load balancer. |
    | File share | UDP 445 | Port that the file share service uses. </br> </br> **Used by**: FCI with Premium file share. |
 
 ## Join the domain

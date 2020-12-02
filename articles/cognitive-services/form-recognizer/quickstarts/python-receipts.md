@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use a prebuilt Form Recognizer model to extract my receipt data.
@@ -81,7 +81,7 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
         quit()
 ```
     
-# [v2.1-preview.1](#tab/v2-1)    
+# [v2.1-preview.2](#tab/v2-1)    
 ```python
     ########### Python Form Recognizer Async Receipt #############
 
@@ -92,7 +92,7 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
     # Endpoint URL
     endpoint = r"<Endpoint>"
     apim_key = "<subscription key>"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.2/prebuilt/receipt/analyze"
     source = r"<path to your receipt>"
     
     headers = {
@@ -140,7 +140,7 @@ https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b07
 ```
 # [v2.1-preview.1](#tab/v2-1)    
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 ---
 

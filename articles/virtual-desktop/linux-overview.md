@@ -9,7 +9,7 @@ manager: lizross
 ---
 # Linux support
 
-You can access Windows Virtual Desktop resources from your Linux devices with the following supported clients, provided by our Linux thin client partners. We are working with a number of partners to enable supported Windows Virtual Desktop clients on more Linux-based operating systems and devices. If you need Windows Virtual Desktop support on a Linux platform that is not listed here, please let us know on our [UserVoice page](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+You can access Windows Virtual Desktop resources from your Linux devices with the [web client](connect-web.md) or the following supported clients, provided by our Linux thin client partners. We're working with a number of partners to enable supported Windows Virtual Desktop clients on more Linux-based operating systems and devices. If you need Windows Virtual Desktop support on a Linux platform that isn't listed here, let us know on our [UserVoice page](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
 
 ## Connect with your Linux device
 

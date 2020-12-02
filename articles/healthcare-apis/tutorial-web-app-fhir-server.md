@@ -32,7 +32,7 @@ Before starting this set of tutorials, you will need the following items:
 ## Deploy Azure API for FHIR
 The first step in the tutorial is to get your Azure API for FHIR setup correctly.
 
-1. Deploy the [Azure API for FHIR](fhir-paas-portal-quickstart.md)
+1. If you haven't already, deploy the [Azure API for FHIR](fhir-paas-portal-quickstart.md).
 1. Once you have your Azure API for FHIR deployed, configure the [CORS](configure-cross-origin-resource-sharing.md) settings by going to your Azure API for FHIR and selecting CORS. 
     1. Set **Origins** to *
     1. Set **Headers** to *

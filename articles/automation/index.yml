@@ -39,11 +39,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: Update Management overview
-            url: update-management/update-mgmt-overview.md
+            url: update-management/overview.md
       - linkListType: get-started
         links:
           - text: Manage updates for multiple VMs
-            url: update-management/update-mgmt-manage-updates-for-vm.md
+            url: update-management/manage-updates-for-vm.md
   - title: Configure your VMs with Desired State Configuration
     linkLists:
       - linkListType: overview

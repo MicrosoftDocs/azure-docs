@@ -18,9 +18,11 @@ ms.custom: aaddev, identityplatformtop40
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Android application
 
-In this tutorial, you learn how to integrate your Android app with the Microsoft identity platform using the Microsoft Authentication Library (MSAL) for Android. You'll learn how to sign in and sign out a user, get an access token, and make a request to the Microsoft Graph API.
+In this tutorial, you build an Android app that integrates with Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API.
 
 When you've completed this tutorial, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) as well as work or school accounts from any company or organization that uses Azure Active Directory.
+
+In this tutorial: 
 
 > [!div class="checklist"]
 > * Create an Android app project in *Android Studio*
@@ -98,6 +100,7 @@ If you do not already have an Android application, follow these steps to set up 
       "client_id" : "0984a7b6-bc13-4141-8b0d-8f767e136bb7",
       "authorization_user_agent" : "DEFAULT",
       "redirect_uri" : "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D",
+      "broker_redirect_uri_registered" : true,
       "account_mode" : "SINGLE",
       "authorities" : [
         {
@@ -149,7 +152,7 @@ If you do not already have an Android application, follow these steps to set up 
         jcenter()
     }
     dependencies{
-        implementation 'com.microsoft.identity.client:msal:1.+'
+        implementation 'com.microsoft.identity.client:msal:2.+'
         implementation 'com.microsoft.graph:microsoft-graph:1.5.+'
     }
     packagingOptions{

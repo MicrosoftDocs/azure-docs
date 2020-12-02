@@ -48,6 +48,8 @@ Service Bus bills one operation for each forwarded message. For example, sending
 
 To create a subscription that is chained to another queue or topic, the creator of the subscription must have **Manage** permissions on both the source and the destination entity. Sending messages to the source topic only requires **Send** permissions on the source topic.
 
+Don't create a chain that exceeds 4 hops. Messages that exceed 4 hops are dead-lettered.
+
 ## Next steps
 
 For detailed information about autoforwarding, see the following reference topics:

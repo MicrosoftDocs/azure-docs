@@ -12,7 +12,7 @@ ms.custom: mvc
 ms.date: 09/06/2020
 ---
 
-# Use Jupyter notebooks to hunt for security threats
+# Use Jupyter Notebook to hunt for security threats
 
 The foundation of Azure Sentinel is the data store; it combines high-performance querying, dynamic schema, and scales to massive data volumes. The Azure portal and all Azure Sentinel tools use a common API to access this data store. The same API is also available for external tools such as [Jupyter](https://jupyter.org/) notebooks and Python. While many common tasks can be carried out in the portal, Jupyter extends the scope of what you can do with this data. It combines full programmability with a huge collection of libraries for machine learning, visualization, and data analysis. These attributes make Jupyter a compelling tool for security investigation and hunting.
 
@@ -135,7 +135,7 @@ We welcome feedback, whether suggestions, requests for features, contributed Not
 
 ## Next steps
 
-In this article, you learned how to get started using Jupyter notebooks in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this article, you learned how to get started using Jupyter Notebook in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
 - [Proactively hunt for threats](hunting.md)
 - [Use bookmarks to save interesting information while hunting](bookmarks.md)

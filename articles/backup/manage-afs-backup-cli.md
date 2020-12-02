@@ -9,18 +9,16 @@ ms.date: 01/15/2020
 
 The Azure CLI provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article explains how to perform tasks for managing and monitoring the Azure file shares that are backed up by [Azure Backup](./backup-overview.md). You can also perform these steps with the [Azure portal](https://portal.azure.com/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-To install and use the CLI locally, you must run the Azure CLI version 2.0.18 or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
 ## Prerequisites
 
 This article assumes you already have an Azure file share backed up by [Azure Backup](./backup-overview.md). If you don't have one, see [Back up Azure file shares with the CLI](backup-afs-cli.md) to configure backup for your file shares. For this article, you use the following resources:
-
-* **Resource group**: *azurefiles*
-* **RecoveryServicesVault**: *azurefilesvault*
-* **Storage Account**: *afsaccount*
-* **File Share**: *azurefiles*
+   -  **Resource group**: *azurefiles*
+   -  **RecoveryServicesVault**: *azurefilesvault*
+   -  **Storage Account**: *afsaccount*
+   -  **File Share**: *azurefiles*
+  
+  [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+   - This tutorial requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Monitor jobs
 

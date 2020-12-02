@@ -35,7 +35,7 @@ Each event in the Activity Log has a particular category that are described in t
 
 | Category | Description |
 |:---|:---|
-| [Administrative](#administrative-category) | Contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of Administrative events include _create virtual machine_ and _delete network security group_.<br><br>Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is _Write_, _Delete_, or _Action_, the records of both the start and success or fail of that operation are recorded in the Administrative category. Administrative events also include any changes to role-based access control in a subscription. |
+| [Administrative](#administrative-category) | Contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of Administrative events include _create virtual machine_ and _delete network security group_.<br><br>Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is _Write_, _Delete_, or _Action_, the records of both the start and success or fail of that operation are recorded in the Administrative category. Administrative events also include any changes to Azure role-based access control in a subscription. |
 | [Service Health](#service-health-category) | Contains the record of any service health incidents that have occurred in Azure. An example of a Service Health event _SQL Azure in East US is experiencing downtime_. <br><br>Service Health events come in Six varieties: _Action Required_, _Assisted Recovery_, _Incident_, _Maintenance_, _Information_, or _Security_. These events are only created if you have a resource in the subscription that would be impacted by the event.
 | [Resource Health](#resource-health-category) | Contains the record of any resource health events that have occurred to your Azure resources. An example of a Resource Health event is _Virtual Machine health status changed to unavailable_.<br><br>Resource Health events can represent one of four health statuses: _Available_, _Unavailable_, _Degraded_, and _Unknown_. Additionally, Resource Health events can be categorized as being _Platform Initiated_ or _User Initiated_. |
 | [Alert](#alert-category) | Contains the record of activations for Azure alerts. An example of an Alert event is _CPU % on myVM has been over 80 for the past 5 minutes_.|
@@ -45,7 +45,7 @@ Each event in the Activity Log has a particular category that are described in t
 | [Policy](#policy-category) | Contains records of all effect action operations performed by Azure Policy. Examples of Policy events include _Audit_ and _Deny_. Every action taken by Policy is modeled as an operation on a resource. |
 
 ## Administrative category
-This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
+This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to Azure role-based access control in a subscription.
 
 ### Sample event
 ```json
@@ -138,7 +138,7 @@ This category contains the record of all create, update, delete, and action oper
 ### Property descriptions
 | Element Name | Description |
 | --- | --- |
-| authorization |Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties. |
+| authorization |Blob of Azure RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties. |
 | caller |Email address of the user who has performed the operation, UPN claim, or SPN claim based on availability. |
 | channels |One of the following values: “Admin”, “Operation” |
 | claims |The JWT token used by Active Directory to authenticate the user or application to perform this operation in Resource Manager. |
@@ -772,7 +772,7 @@ resource.
 
 | Element Name | Description |
 | --- | --- |
-| authorization | Array of RBAC properties of the event. For new resources, this is the action and scope of the request that triggered evaluation. For existing resources, the action is "Microsoft.Resources/checkPolicyCompliance/read". |
+| authorization | Array of Azure RBAC properties of the event. For new resources, this is the action and scope of the request that triggered evaluation. For existing resources, the action is "Microsoft.Resources/checkPolicyCompliance/read". |
 | caller | For new resources, the identity that initiated a deployment. For existing resources, the GUID of the Microsoft Azure Policy Insights RP. |
 | channels | Policy events use only the "Operation" channel. |
 | claims | The JWT token used by Active Directory to authenticate the user or application to perform this operation in Resource Manager. |

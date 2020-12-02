@@ -3,13 +3,12 @@ title: Azure Key Vault security
 description: Manage access permissions for Azure Key Vault, keys, and secrets. Covers the authentication and authorization model for Key Vault, and how to secure your key vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 09/30/2020
 ms.author: mbaldwin
 #Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ---
@@ -23,7 +22,7 @@ You use Azure Key Vault to protect encryption keys and secrets like certificates
 When you create a key vault in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. Anyone trying to manage or retrieve content from a vault must be authenticated by Azure AD.
 
 - Authentication establishes the identity of the caller.
-- Authorization determines which operations the caller can perform. Authorization in Key Vault uses a combination of [Role based access control](../../role-based-access-control/overview.md) (RBAC) and Azure Key Vault access policies.
+- Authorization determines which operations the caller can perform. Authorization in Key Vault uses a combination of [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and Azure Key Vault access policies.
 
 ### Access model overview
 
@@ -32,7 +31,7 @@ Access to vaults takes place through two interfaces or planes. These planes are 
 - The *management plane* is where you manage Key Vault itself and it is the interface used to create and delete vaults. You can also read key vault properties and manage access policies.
 - The *data plane* allows you to work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
 
-To access a key vault in either plane, all callers (users or applications) must be authenticated and authorized. Both planes use Azure Active Directory (Azure AD) for authentication. For authorization, the management plane uses role-based access control (RBAC) and the data plane uses a Key Vault access policy.
+To access a key vault in either plane, all callers (users or applications) must be authenticated and authorized. Both planes use Azure Active Directory (Azure AD) for authentication. For authorization, the management plane uses Azure role-based access control (Azure RBAC) and the data plane uses a Key Vault access policy.
 
 The model of a single mechanism for authentication to both planes has several benefits:
 
@@ -48,7 +47,7 @@ When you create a key vault in a resource group, you manage access by using Azur
 - **Resource group**: An Azure role assigned at the resource group level applies to all resources in that resource group.
 - **Specific resource**: An Azure role assigned for a specific resource applies to that resource. In this case, the resource is a specific key vault.
 
-There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md).
+There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
 > If a user has `Contributor` permissions to a key vault management plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has `Contributor` role access to your key vaults. Ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
@@ -73,34 +72,20 @@ After firewall rules are in effect, users can only read data from Key Vault when
 
 For more information on Azure Key Vault network address review [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md))
 
-### TLS and HTTPS
+## TLS and HTTPS
 
 *	The Key Vault front end (data plane) is a multi-tenant server. This means that key vaults from different customers can share the same public IP address. In order to achieve isolation, each HTTP request is authenticated and authorized independently of other requests.
 *	You may identify older versions of TLS to report vulnerabilities but because the public IP address is shared, it is not possible for key vault service team to disable old versions of TLS for individual key vaults at transport level.
 *	The HTTPS protocol allows the client to participate in TLS negotiation. **Clients can enforce the most recent version of TLS**, and whenever a client does so, the entire connection will use the corresponding level protection. The fact that Key Vault still supports older TLS versions won’t impair the security of connections using newer TLS versions.
 *	Despite known vulnerabilities in TLS protocol, there is no known attack that would allow a malicious agent to extract any information from your key vault when the attacker initiates a connection with a TLS version that has vulnerabilities. The attacker would still need to authenticate and authorize itself, and as long as legitimate clients always connect with recent TLS versions, there is no way that credentials could have been leaked from vulnerabilities at old TLS versions.
 
+## Logging and monitoring
 
-## Monitoring
-
-Key Vault logging saves information about the activities performed on your vault. Key Vault logs:
-
-- All authenticated REST API requests, including failed requests
-  - Operations on the key vault itself. These operations include creation, deletion, setting access policies, and updating key vault attributes such as tags.
-  - Operations on keys and secrets in the key vault, including:
-    - Creating, modifying, or deleting these keys or secrets.
-    - Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, getting secrets, and listing keys and secrets (and their versions).
-- Unauthenticated requests that result in a 401 response. Examples are requests that don't have a bearer token, that are malformed or expired, or that have an invalid token.
-
-Logging information can be accessed within 10 minutes after the key vault operation. It's up to you to manage your logs in your storage account.
-
-- Use standard Azure access control methods to secure your logs by restricting who can access them.
-- Delete logs that you no longer want to keep in your storage account.
+Key Vault logging saves information about the activities performed on your vault. For full details, see [Key Vault logging](logging.md).
 
 For recommendation on securely managing storage accounts, review the [Azure Storage security guide](../../storage/blobs/security-recommendations.md)
 
 ## Next Steps
 
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
-- [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
-
+- [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)

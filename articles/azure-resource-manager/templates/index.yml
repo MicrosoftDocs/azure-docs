@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 07/30/2020
+  ms.date: 11/06/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -51,6 +51,8 @@ landingContent:
             url: quickstart-create-templates-use-the-portal.md
           - text: Create templates - VS Code
             url: quickstart-create-templates-use-visual-studio-code.md
+          - text: Create & deploy template specs
+            url: quickstart-create-template-specs.md
 
       - linkListType: tutorial
         links:
@@ -58,14 +60,16 @@ landingContent:
             url: template-tutorial-create-first-template.md
           - text: Deployment
             url: deployment-tutorial-local-template.md
-
+          - text: Template specs
+            url: template-specs-create-linked.md
+          - text: Advanced templates
+            url: template-tutorial-use-template-reference.md
+          - text: Deployment Manager
+            url: deployment-manager-tutorial.md
       - linkListType: learn
         links:
-          - text: Consistent infrastructure
-            url: /learn/modules/create-azure-resource-manager-template-vs-code/
-          - text: Multiple environments
-            url: /learn/modules/modify-azure-resource-manager-template-reuse/
-          
+          - text: Deploy with ARM templates
+            url: /learn/paths/deploy-manage-resource-manager-templates/
   # Card
   - title: Develop templates
     linkLists:
@@ -103,22 +107,29 @@ landingContent:
             url: deploy-rest.md
           - text: Deploy to Azure button
             url: deploy-to-azure-button.md
+          - text: Cloud Shell
+            url: deploy-cloud-shell.md
           - text: What-if deployment
             url: template-deploy-what-if.md
-          
+
   # Card
   - title: Scoped deployments
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Resource group
+            url: deploy-to-resource-group.md
           - text: Subscription
             url: deploy-to-subscription.md
           - text: Management group
             url: deploy-to-management-group.md
           - text: Tenant
             url: deploy-to-tenant.md
-          - text: Cross scope deployments
-            url: cross-scope-deployment.md
+          - text: Scoping extension resource
+            url: scope-extension-resources.md
+          - text: Template functions across scopes
+            url: scope-functions.md
+          
 
   # Card
   - title: Explore reference content

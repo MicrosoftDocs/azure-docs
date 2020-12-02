@@ -72,7 +72,7 @@ Depending on the region where the availability set that uses Managed Disks is lo
 
 You set up a private storage account for VM diagnostics.
 
-**What kind of Role-Based Access Control support is available for Managed Disks?**
+**What kind of Azure role-based access control support is available for Managed Disks?**
 
 Managed Disks supports three key default roles:
 
@@ -132,7 +132,7 @@ For managed disks you cannot rename them. However, you may rename an unmanaged d
 
 Generation 1 images can only use GPT partitioning on data disks, not OS disks. OS disks must use the MBR partition style.
 
-[Generation 2 images](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) can use GPT partitioning on the OS disk as well as the data disks.
+[Generation 2 images](./generation-2.md) can use GPT partitioning on the OS disk as well as the data disks.
 
 **What disk types support snapshots?**
 
@@ -147,7 +147,7 @@ Azure disk reservation provides the option to purchase Premium SSDs in the speci
 Reservations are made in the form of disks, not capacity. In other words, when you reserve a P80 (32 TiB) disk, you get a single P80 disk, you cannot then divide that specific reservation up into two smaller P70 (16 TiB) disks. You can, of course, reserve as many or as few disks as you like, including two separate P70 (16 TiB) disks.
 
 **How is Azure disk reservation applied?**    
-Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](./linux/prepay-reserved-vm-instances.md) for more information on VM instances.     
+Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](./prepay-reserved-vm-instances.md) for more information on VM instances.     
 
 **Can I use my data storage purchased through Azure disks reservation across multiple regions?**    
 Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.    
@@ -167,7 +167,7 @@ No, it is only supported for ultra disks and premium SSD managed disks.
 
 **What regions support shared disks?**
 
-For regional information, see our [conceptual article](./linux/disks-shared.md).
+For regional information, see our [conceptual article](disks-shared.md).
 
 **Can shared disks be used as an OS disk?**
 
@@ -175,7 +175,7 @@ No, shared disks are only supported for data disks.
 
 **What disk sizes support shared disks?**
 
-For supported sizes, see our [conceptual article](./linux/disks-shared.md).
+For supported sizes, see our [conceptual article](disks-shared.md).
 
 **If I have an existing disk, can I enable shared disks on it?**
 
@@ -237,7 +237,7 @@ No, upload can only be used during the creation of a new empty disk with the **R
 
 **How do I upload to a managed disk?**
 
-Create a managed disk with the [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) property of [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) set to "Upload", then you can upload data to it.
+Create a managed disk with the [createOption](/rest/api/compute/disks/createorupdate#diskcreateoption) property of [creationData](/rest/api/compute/disks/createorupdate#creationdata) set to "Upload", then you can upload data to it.
 
 **Can I attach a disk to a VM while it is in an upload state?**
 
@@ -423,7 +423,7 @@ You don't need to upgrade your existing Azure tools to create, attach, or resize
 
 **Are P4 and P6 disk sizes supported for unmanaged disks or page blobs?**
 
-P4 (32 GiB) and P6 (64 GiB) disk sizes are not supported as the default disk tiers for unmanaged disks and page blobs. You need to explicitly [set the Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) to P4 and P6 to have your disk mapped to these tiers. If you deploy a unmanaged disk or page blob with the disk size or content length less than 32 GiB or between 32 GiB to 64 GiB without setting the Blob Tier, you will continue to land on P10 with 500 IOPS and 100 MiB/s and the mapped pricing tier.
+P4 (32 GiB) and P6 (64 GiB) disk sizes are not supported as the default disk tiers for unmanaged disks and page blobs. You need to explicitly [set the Blob Tier](/rest/api/storageservices/set-blob-tier) to P4 and P6 to have your disk mapped to these tiers. If you deploy a unmanaged disk or page blob with the disk size or content length less than 32 GiB or between 32 GiB to 64 GiB without setting the Blob Tier, you will continue to land on P10 with 500 IOPS and 100 MiB/s and the mapped pricing tier.
 
 **If my existing premium managed disk less than 64 GiB was created before the small disk was enabled (around June 15, 2017), how is it billed?**
 
@@ -493,6 +493,6 @@ No.
 
 ## What if my question isn't answered here?
 
-If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the [Microsoft Q&A question page for Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
+If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the [Microsoft Q&A question page for Azure Storage](/answers/products/azure?product=storage).
 
 To request features, submit your requests and ideas to the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).

@@ -4,31 +4,27 @@ description: Learn about the access restriction policies available for use in Az
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
 
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/23/2020
 ms.author: apimpm
 ---
 
 # API Management access restriction policies
 
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 ## <a name="AccessRestrictionPolicies"></a> Access restriction policies
 
--   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) - Enforces existence and/or value of a HTTP Header.
--   [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.
+-   [Check HTTP header](#CheckHTTPHeader) - Enforces existence and/or value of a HTTP Header.
+-   [Limit call rate by subscription](#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.
 -   [Limit call rate by key](#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.
--   [Restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
--   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
+-   [Restrict caller IPs](#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
+-   [Set usage quota by subscription](#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
 -   [Set usage quota by key](#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
--   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
+-   [Validate JWT](#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
 
 > [!TIP]
 > You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with AAD authentication by applying the `validate-jwt` policy on the API level or you can apply it on the API operation level and use `claims` for more granular control.
@@ -380,12 +376,12 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="ValidateJWT"></a> Validate JWT
 
-The `validate-jwt` policy enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
+The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from either a specified HTTP Header or a specified query parameter.
 
 > [!IMPORTANT]
 > The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
-> The `validate-jwt` policy supports HS256 and RS256 signing algorithms. For HS256 the key must be provided inline within the policy in the base64 encoded form. For RS256 the key has to be provide via an Open ID configuration endpoint.
-> The `validate-jwt` policy supports tokens encrypted with symmetric keys using the following encryption algorithms A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
+> The `validate-jwt` policy supports HS256 and RS256 signing algorithms. For HS256 the key must be provided inline within the policy in the base64 encoded form. For RS256 the key may be provided either via an Open ID configuration endpoint, or by providing the ID of an uploaded certificate that contains the public key or modulus-exponent pair of the public key.
+> The `validate-jwt` policy supports tokens encrypted with symmetric keys using the following encryption algorithms: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
 
 ### Policy statement
 
@@ -436,6 +432,22 @@ The `validate-jwt` policy enforces existence and validity of a JWT extracted fro
 <validate-jwt header-name="Authorization" require-scheme="Bearer">
     <issuer-signing-keys>
         <key>{{jwt-signing-key}}</key>  <!-- signing key specified as a named value -->
+    </issuer-signing-keys>
+    <audiences>
+        <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
+    </audiences>
+    <issuers>
+        <issuer>http://contoso.com/</issuer>
+    </issuers>
+</validate-jwt>
+```
+
+#### Token validation with RSA certificate
+
+```xml
+<validate-jwt header-name="Authorization" require-scheme="Bearer">
+    <issuer-signing-keys>
+        <key certficate-id="my-rsa-cert" />  <!-- signing key specified as certificate ID, enclosed in double-quotes -->
     </issuer-signing-keys>
     <audiences>
         <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
@@ -515,8 +527,8 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-jwt        | Root element.                                                                                                                                                                                                                                                                                                                                         | Yes      |
 | audiences           | Contains a list of acceptable audience claims that can be present on the token. If multiple audience values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds. At least one audience must be specified.                                                                     | No       |
-| issuer-signing-keys | A list of Base64-encoded security keys used to validate signed tokens. If multiple security keys are present, then each key is tried until either all are exhausted (in which case validation fails) or until one succeeds (useful for token rollover). Key elements have an optional `id` attribute used to match against `kid` claim.               | No       |
-| decryption-keys     | A list of Base64-encoded keys used to decrypt the tokens. If multiple security keys are present, then each key is tried until either all keys are exhausted (in which case validation fails) or until a key succeeds. Key elements have an optional `id` attribute used to match against `kid` claim.                                                 | No       |
+| issuer-signing-keys | A list of Base64-encoded security keys used to validate signed tokens. If multiple security keys are present, then each key is tried until either all are exhausted (in which case validation fails) or one succeeds (useful for token rollover). Key elements have an optional `id` attribute used to match against `kid` claim. <br/><br/>Alternatively supply an issuer signing key using:<br/><br/> - `certificate-id` in format `<key certificate-id="mycertificate" />` to specify the identifier of a certificate entity [uploaded](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) to API Management<br/>- RSA modulus `n` and exponent `e` pair in format `<key n="<modulus>" e="<exponent>" />` to specify the RSA parameters in base64url-encoded format               | No       |
+| decryption-keys     | A list of Base64-encoded keys used to decrypt the tokens. If multiple security keys are present, then each key is tried until either all keys are exhausted (in which case validation fails) or a key succeeds. Key elements have an optional `id` attribute used to match against `kid` claim.<br/><br/>Alternatively supply a decryption key using:<br/><br/> - `certificate-id` in format `<key certificate-id="mycertificate" />` to specify the identifier of a certificate entity [uploaded](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) to API Management                                                 | No       |
 | issuers             | A list of acceptable principals that issued the token. If multiple issuer values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds.                                                                                                                                         | No       |
 | openid-config       | The element used for specifying a compliant Open ID configuration endpoint from which signing keys and issuer can be obtained.                                                                                                                                                                                                                        | No       |
 | required-claims     | Contains a list of claims expected to be present on the token for it to be considered valid. When the `match` attribute is set to `all` every claim value in the policy must be present in the token for validation to succeed. When the `match` attribute is set to `any` at least one claim must be present in the token for validation to succeed. | No       |
@@ -554,4 +566,4 @@ For more information working with policies, see:
 -   [Policies in API Management](api-management-howto-policies.md)
 -   [Transform APIs](transform-api.md)
 -   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
--   [Policy samples](policy-samples.md)
+-   [Policy samples](./policy-reference.md)

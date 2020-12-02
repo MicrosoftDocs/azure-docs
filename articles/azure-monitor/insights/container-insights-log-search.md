@@ -12,7 +12,7 @@ Azure Monitor for containers collects performance metrics, inventory data, and h
 
 ## Container records
 
-In the following table, details of the records collected by Azure Monitor for containers are provided. 
+In the following table, details of records collected by Azure Monitor for containers are provided. For a listing of the column descriptions, see the reference for the [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) and [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) tables.
 
 | Data | Data source | Data type | Fields |
 |------|-------------|-----------|--------|
@@ -106,5 +106,4 @@ The output shows results similar to the following example:
 
 ## Next steps
 
-Azure Monitor for containers does not include a predefined set of alerts. Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures. 
-
+Azure Monitor for containers does not include a predefined set of alerts. Review the [Create performance alerts with Azure Monitor for containers](./container-insights-log-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.

@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 02/22/2018
 ms.reviewer: jushiman
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Understand instance IDs for Azure VM scale set VMs

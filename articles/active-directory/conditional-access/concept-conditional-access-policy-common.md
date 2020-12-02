@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 More information about emergency access accounts and why they are important can be found in the following articles: 
 
-* [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
 * [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 ## Typical policies deployed by organizations
@@ -39,7 +39,7 @@ More information about emergency access accounts and why they are important can 
 
 ## Additional policies
 
-* [Sign-on risk-based Conditional Access (Requires Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Sign-in risk-based Conditional Access (Requires Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [User risk-based Conditional Access (Requires Azure AD Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Require trusted location for MFA registration](howto-conditional-access-policy-registration.md)
 * [Block access by location](howto-conditional-access-policy-location.md)

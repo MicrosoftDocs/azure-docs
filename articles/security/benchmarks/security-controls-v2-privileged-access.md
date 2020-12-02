@@ -31,11 +31,11 @@ Note: You may have other critical roles that need to be governed if you use cust
 
 You can enable just-in-time (JIT) privileged access to Azure resources and Azure AD using Azure AD Privileged Identity Management (PIM). JIT grants temporary permissions to perform privileged tasks only when users need it. PIM can also generate security alerts when there is suspicious or unsafe activity in your Azure AD organization.
 
-- [Administrator role permissions in Azure AD](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Administrator role permissions in Azure AD](../../active-directory/roles/permissions-reference.md)
 
 - [Use Azure Privileged Identity Management security alerts](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)
+- [Securing privileged access for hybrid and cloud deployments in Azure AD](../../active-directory/roles/security-planning.md)
 
 **Responsibility**: Customer
 
@@ -112,7 +112,7 @@ Note: Some Azure services support local users and roles that aren't managed thro
 To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
 You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
 
-- [Manage emergency access accounts in Azure AD](../../active-directory/users-groups-roles/directory-emergency-access.md)
+- [Manage emergency access accounts in Azure AD](../../active-directory/roles/security-emergency-access.md)
 
 **Responsibility**: Customer
 
@@ -124,7 +124,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 - [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [Security Operations (SecOps)](//azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Security Operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 ## PA-5: Automate entitlement management
 

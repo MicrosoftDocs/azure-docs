@@ -2,8 +2,8 @@
 title: Data Factory Functions and System Variables 
 description: Provides a list of Azure Data Factory functions and system variables
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
@@ -65,7 +65,7 @@ In the following sample, **sqlReaderQuery** property in a JSON file is assigned 
 }
 ```
 
-See [Custom Date and Time Format Strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx) topic that describes different formatting options you can use (for example: ay vs. yyyy). 
+See [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) topic that describes different formatting options you can use (for example: ay vs. yyyy). 
 
 ### Functions
 The following tables list all the functions in Azure Data Factory:
@@ -222,5 +222,4 @@ To read data from previous day instead of day represented by the SliceStart, use
 }
 ```
 
-See [Custom Date and Time Format Strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx) topic that describes different formatting options you can use (for example: yy vs. yyyy). 
-
+See [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) topic that describes different formatting options you can use (for example: yy vs. yyyy).

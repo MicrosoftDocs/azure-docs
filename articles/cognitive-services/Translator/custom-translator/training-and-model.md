@@ -17,7 +17,7 @@ ms.author: swmachan
 A model is the system, which provides translation for a specific language pair.
 The outcome of a successful training is a model. When training a model, three
 mutually exclusive document types are required: training, tuning, and
-testing. Dictionary document type can also be provided. Please refer to [Sentence alignment](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+testing. Dictionary document type can also be provided. Please refer to [Sentence alignment](./sentence-alignment.md#suggested-minimum-number-of-sentences).
 
 If only training data is provided when queuing a training, Custom Translator will automatically assemble tuning and testing data. It will use a random subset of sentences from your training documents, and exclude these sentences from the training data itself.
 

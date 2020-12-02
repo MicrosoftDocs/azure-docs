@@ -108,7 +108,7 @@ Create a new event source to connect to your IoT hub. Use the consumer group you
 1. Click **Create**.
 
 > [!NOTE]
-> You can [grant additional users access](../../articles/time-series-insights/time-series-insights-data-access.md#grant-data-access) to the Time Series Insights explorer.
+> You can [grant additional users access](../time-series-insights/concepts-access-policies.md#grant-data-access) to the Time Series Insights explorer.
 
 ## Start a simulation
 

@@ -136,6 +136,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |IsEnabled|bool, default is FALSE|Static|Enables/Disables DnsService. DnsService is disabled by default and this config needs to be set to enable it. |
 |PartitionPrefix|string, default is "--"|Static|Controls the partition prefix string value in DNS queries for partitioned services. The value : <ul><li>Should be RFC-compliant as it will be part of a DNS query.</li><li>Should not contain a dot, '.', as dot interferes with DNS suffix behavior.</li><li>Should not be longer than 5 characters.</li><li>Cannot be an empty string.</li><li>If the PartitionPrefix setting is overridden, then PartitionSuffix must be overridden, and vice-versa.</li></ul>For more information, see [Service Fabric DNS Service.](service-fabric-dnsservice.md).|
 |PartitionSuffix|string, default is ""|Static|Controls the partition suffix string value in DNS queries for partitioned services.The value : <ul><li>Should be RFC-compliant as it will be part of a DNS query.</li><li>Should not contain a dot, '.', as dot interferes with DNS suffix behavior.</li><li>Should not be longer than 5 characters.</li><li>If the PartitionPrefix setting is overridden, then PartitionSuffix must be overridden, and vice-versa.</li></ul>For more information, see [Service Fabric DNS Service.](service-fabric-dnsservice.md). |
+|RetryTransientFabricErrors|Bool, default is true|Static|The setting controls the retry capabilities when calling Service Fabric APIs from DnsService. When enabled, it retries up to 3 times if a transient error occurs.|
 
 ## EventStoreService
 
@@ -418,21 +419,14 @@ The following is a list of Fabric settings that you can customize, organized by 
 |AzureStorageMaxConnections | Int, default is 5000 |Dynamic|The maximum number of concurrent connections to azure storage. |
 |AzureStorageMaxWorkerThreads | Int, default is 25 |Dynamic|The maximum number of worker threads in parallel. |
 |AzureStorageOperationTimeout | Time in seconds, default is 6000 |Dynamic|Specify timespan in seconds. Time out for xstore operation to complete. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, default is FALSE |Dynamic|Enables or disables the automatic cleanup of application package on successful provision.
-
-*Best practice is to use `true`.* |
-|CleanupUnusedApplicationTypes|Bool, default is FALSE |Dynamic|This configuration if enabled, allows to automatically unregister unused application type versions skipping the latest three unused versions, thereby trimming the disk space occupied by image store. The automatic cleanup will be triggered at the end of successful provision for that specific app type and also runs periodically once a day for all the application types. Number of unused versions to skip is configurable using parameter "MaxUnusedAppTypeVersionsToKeep". 
-
-*Best practice is to use `true`.*
-|
+|CleanupApplicationPackageOnProvisionSuccess|bool, default is true |Dynamic|Enables or disables the automatic cleanup of application package on successful provision.
+|CleanupUnusedApplicationTypes|Bool, default is FALSE |Dynamic|This configuration if enabled, allows to automatically unregister unused application type versions skipping the latest three unused versions, thereby trimming the disk space occupied by image store. The automatic cleanup will be triggered at the end of successful provision for that specific app type and also runs periodically once a day for all the application types. Number of unused versions to skip is configurable using parameter "MaxUnusedAppTypeVersionsToKeep". <br/> *Best practice is to use `true`.*
 |DisableChecksumValidation | Bool, default is false |Static| This configuration allows us to enable or disable checksum validation during application provisioning. |
 |DisableServerSideCopy | Bool, default is false |Static|This configuration enables or disables server-side copy of application package on the ImageStore during application provisioning. |
 |ImageCachingEnabled | Bool, default is true |Static|This configuration allows us to enable or disable caching. |
 |ImageStoreConnectionString |SecureString |Static|Connection string to the Root for ImageStore. |
 |ImageStoreMinimumTransferBPS | Int, default is 1024 |Dynamic|The minimum transfer rate between the cluster and ImageStore. This value is used to determine the timeout when accessing the external ImageStore. Change this value only if the latency between the cluster and ImageStore is high to allow more time for the cluster to download from the external ImageStore. |
-|MaxUnusedAppTypeVersionsToKeep | Int, default is 3 |Dynamic|This configuration defines the number of unused application type versions to be skipped for cleanup. This parameter is applicable only if parameter CleanupUnusedApplicationTypes is enabled.
-
-*General best practice is to use the default (`3`).*|
+|MaxUnusedAppTypeVersionsToKeep | Int, default is 3 |Dynamic|This configuration defines the number of unused application type versions to be skipped for cleanup. This parameter is applicable only if parameter CleanupUnusedApplicationTypes is enabled. <br/>*General best practice is to use the default (`3`). Values less than 1 are not valid.*|
 
 
 ## MetricActivityThresholds
@@ -522,6 +516,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |AutoDetectAvailableResources|bool, default is TRUE|Static|This config will trigger auto detection of available resources on node (CPU and Memory) When this config is set to true - we will read real capacities and correct them if user specified bad node capacities or didn't define them at all If this config is set to false - we will trace a warning that user specified bad node capacities; but we will not correct them; meaning that user wants to have the capacities specified as > than the node really has or if capacities are undefined; it will assume unlimited capacity |
 |BalancingDelayAfterNewNode | Time in seconds, default is 120 |Dynamic|Specify timespan in seconds. Do not start balancing activities within this period after adding a new node. |
 |BalancingDelayAfterNodeDown | Time in seconds, default is 120 |Dynamic|Specify timespan in seconds. Do not start balancing activities within this period after a node down event. |
+|BlockNodeInUpgradeConstraintPriority | Int, default is 0 |Dynamic|Determines the priority of capacity constraint: 0: Hard; 1: Soft; negative: Ignore  |
 |CapacityConstraintPriority | Int, default is 0 | Dynamic|Determines the priority of capacity constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, default is 20 | Dynamic|Defines the number of consecutive times that ResourceBalancer-issued Movements are dropped before diagnostics are conducted and health warnings are emitted. Negative: No Warnings Emitted under this condition. |
 |ConstraintFixPartialDelayAfterNewNode | Time in seconds, default is 120 |Dynamic| Specify timespan in seconds. DDo not Fix FaultDomain and UpgradeDomain constraint violations within this period after adding a new node. |

@@ -180,7 +180,7 @@ need a private endpoint for the cache/log storage account in your bypass virtual
 > [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 Follow the
-[guidance for creating private storage](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint)
+[guidance for creating private storage](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint)
 to create a storage account with a private endpoint. Be sure to select **Yes** under **Integrate with
 private DNS zone**. Select an existing DNS zone or create a new one.
 

@@ -49,7 +49,7 @@ By default each Media Services account can have one active encoding task at a ti
 [Formats and codecs](media-services-media-encoder-standard-formats.md)
 
 ### Presets
-Media Encoder Standard is configured using one of the encoder presets described [here](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard is configured using one of the encoder presets described [here](./media-services-mes-presets-overview.md).
 
 ### Input and output metadata
 The encoders input metadata is described [here](media-services-input-metadata-schema.md).

@@ -23,7 +23,7 @@ Use this article to find the entity categories that can be returned by [Named En
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
-#### [Personal](#tab/personal)
+#### [PII](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
 

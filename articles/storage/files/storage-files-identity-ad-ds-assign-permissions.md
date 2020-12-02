@@ -47,7 +47,7 @@ To assign an Azure role to an Azure AD identity, using the [Azure portal](https:
 
 ### PowerShell
 
-The following PowerShell sample shows how to assign an Azure role to an Azure AD identity, based on sign-in name. For more information about assigning Azure roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+The following PowerShell sample shows how to assign an Azure role to an Azure AD identity, based on sign-in name. For more information about assigning Azure roles with PowerShell, see [Add or remove Azure role assignments using the Azure PowerShell module](../../role-based-access-control/role-assignments-powershell.md).
 
 Before you run the following sample script, replace placeholder values, including brackets, with your values.
 
@@ -62,7 +62,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### CLI
   
-The following CLI 2.0 command assigns an Azure role to an Azure AD identity, based on sign-in name. For more information about assigning Azure roles with Azure CLI, see [Manage access by using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+The following CLI 2.0 command assigns an Azure role to an Azure AD identity, based on sign-in name. For more information about assigning Azure roles with Azure CLI, see [Add or remove Azure role assignments using the Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 Before you run the following sample script, remember to replace placeholder values, including brackets, with your own values.
 

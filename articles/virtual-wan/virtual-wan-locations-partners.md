@@ -35,7 +35,7 @@ Some connectivity partners may extend the automation to include creating the Azu
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-The following partners are slated on our roadmap for the near future: 128 Technologies, Arista, Cisco Systems (Viptela), F5 Networks, Oracle SD-WAN and SharpLink.
+The following partners are slated on our roadmap based on a terms sheet signed between the companies indicating the scope of work to automate IPsec connectivity between the partner device and Azure Virtual WAN VPN Gateways : 128 Technologies, Arista, F5 Networks, Oracle SD-WAN (Talari) and SharpLink.
 
 ## Partners with integrated Virtual Hub offerings
 In addition to having automated branch office IPSec connectivity, some partners offer **Network Virtual Appliances (NVAs)** that can be integrated directly into the Azure Virtual WAN hub.  This allows the customers the option to terminate their branch connections into a compatible third-party appliance in the Virtual Hub.  
@@ -53,7 +53,7 @@ These partners have **Managed Application** offers that are available now to dep
 |Partners|Configuration/How-to/Deployment Guide|
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Barracuda CloudGen WAN Deployment Guide](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
-|[Cisco Cloud Service Router(CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| To deploy Cisco Cloud Services (CSR) WAN into the Virtual Hub please send mail to vwan_public_preview@cisco.com |
+|[Cisco Cloud Service Router(CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| During the Public Preview of Cisco Cloud Services (CSR) WAN into VWAN hub, Cisco requires the end customer to register as a Cisco EFT (Early Field Trial) customer by sending an email to vwan_public_preview@external.cisco.com and requesting the vManage Deployment Guide. |
 
 The following partners are slated to bring NVA in the Virtual Hub offers in the near future: Citrix, Versa Networks and VeloCloud.
 

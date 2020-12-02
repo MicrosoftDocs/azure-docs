@@ -56,4 +56,4 @@ Run the following command to retrieve the password:
 
 ## Next steps
 
-Try out other [scenarios](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/tree/master/scenarios)
+Try out other [scenarios](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory-domain-services/scenarios.md)

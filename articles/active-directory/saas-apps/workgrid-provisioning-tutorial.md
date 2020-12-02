@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
 ---
@@ -87,7 +87,7 @@ To configure Workgrid  for automatic user provisioning with Azure AD, you need t
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Workgrid  based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Workgrid  , following the instructions provided in the [Workgrid  Single sign-on tutorial](Workgrid-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Workgrid , following the instructions provided in the [Workgrid  Single sign-on tutorial](Workgrid-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 ### To configure automatic user provisioning for Workgrid  in Azure AD:
 

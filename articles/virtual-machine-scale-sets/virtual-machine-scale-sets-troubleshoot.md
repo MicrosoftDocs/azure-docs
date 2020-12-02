@@ -57,11 +57,11 @@ Some things to consider include:
     
     If the Insights service can’t read data from the VMs, it is supposed to send you an email. For example, you get an email if the VMs are down. Be sure to check your email, at the email address you specified when you created your Azure account.
     
-    You can also look at the data yourself. Look at the Azure storage account using a cloud explorer. For example, using the [Visual Studio Cloud Explorer](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2), log in and pick the Azure subscription you’re using. Then, look at the Diagnostics storage account name referenced in the Diagnostics extension definition in your deployment template.
+    You can also look at the data yourself. Look at the Azure storage account using a cloud explorer. For example, using [Visual Studio Cloud Explorer](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2), log in and pick the Azure subscription you’re using. Then, look at the Diagnostics storage account name referenced in the Diagnostics extension definition in your deployment template.
     
     ![Cloud Explorer][explorer]
     
-    You see a bunch of tables where the data from each VM is being stored. Taking Linux and the CPU metric as an example, look at the most recent rows. The Visual Studio cloud explorer supports a query language so you can run a query. For example, you can run a query for “Timestamp gt datetime’2016-02-02T21:20:00Z’” to make sure you get the most recent events. The timezone corresponds to UTC. Does the data you see in there correspond to the scale rules you set up? In the following example, the CPU for machine 20 started increasing to 100% over the last five minutes.
+    You see a bunch of tables where the data from each VM is being stored. Taking Linux and the CPU metric as an example, look at the most recent rows. Visual Studio Cloud Explorer supports a query language so you can run a query. For example, you can run a query for “Timestamp gt datetime’2016-02-02T21:20:00Z’” to make sure you get the most recent events. The timezone corresponds to UTC. Does the data you see in there correspond to the scale rules you set up? In the following example, the CPU for machine 20 started increasing to 100% over the last five minutes.
     
     ![Storage Tables][tables]
     

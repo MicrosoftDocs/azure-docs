@@ -31,6 +31,10 @@
     href: concepts-built-in-policy.md
   - name: Role definition artifact
     href: concepts-custom-role-definition.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Publishers
@@ -40,7 +44,7 @@
     - name: Test portal interface
       href: test-createuidefinition.md
     - name: Create an Azure application offer
-      href: ../../marketplace/partner-center-portal/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
+      href: ../../marketplace/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
     - name: Request just-in-time access
       href: request-just-in-time-access.md
     - name: Use existing virtual network
@@ -134,6 +138,10 @@
         href: microsoft-compute-sizeselector.md
       - name: UserNameTextBox
         href: microsoft-compute-usernametextbox.md
+    - name: Key Vault
+      items:
+      - name: KeyVaultCertificateSelector
+        href: microsoft-keyvault-keyvaultcertificateselector.md
     - name: Managed Identity
       items:
       - name: IdentitySelector
@@ -156,6 +164,8 @@
         href: microsoft-storage-multistorageaccountcombo.md
       - name: StorageAccountSelector
         href: microsoft-storage-storageaccountselector.md
+      - name: StorageBlobSelector
+        href: microsoft-storage-storageblobselector.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

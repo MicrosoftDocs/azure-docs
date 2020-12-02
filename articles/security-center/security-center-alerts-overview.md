@@ -8,18 +8,18 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 10/05/2020
 ms.author: memildin
 ---
 # Security alerts in Azure Security Center
 
-In Azure Security Center, there are a variety of alerts for many different resource types. Security Center generates alerts for resources deployed on Azure, and also for resources deployed on on-premises and hybrid cloud environments.
+In Security Center, there are a variety of alerts for many different resource types. Security Center generates alerts for resources deployed on Azure, and also for resources deployed on on-premises and hybrid cloud environments.
 
 Security alerts are triggered by advanced detections and are available only with Azure Defender. A free trial is available. You can upgrade from the **Pricing & settings** page. Learn more about [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Respond to today's threats <a name="respond-threats"> </a>
 
-There have been significant changes in the threat landscape over the last 20 years. In the past, companies typically only had to worry about web site defacement by individual attackers who were mostly interested in seeing "what they could do". Today's attackers are much more sophisticated and organized. They often have specific financial and strategic goals. They also have more resources available to them, as they may be funded by nation states or organized crime.
+There have been significant changes in the threat landscape over the last 20 years. In the past, companies typically only had to worry about web site defacement by individual attackers who were mostly interested in seeing "what they could do". Today's attackers are much more sophisticated and organized. They often have specific financial and strategic goals. They also have more resources available to them, as they might be funded by nation states or organized crime.
 
 These changing realities have led to an unprecedented level of professionalism in the attacker ranks. No longer are they interested in web defacement. They are now interested in stealing information, financial accounts, and private data – all of which they can use to generate cash on the open market or to leverage a particular business, political, or military position. Even more concerning than those attackers with a financial objective are the attackers who breach networks to do harm to infrastructure and people.
 
@@ -63,12 +63,12 @@ The severity is based on how confident Security Center is in the finding or the 
 
 - **High:** There is a high probability that your resource is compromised. 
 You should look into it right away. Security Center has high confidence in both the malicious intent and in the findings used to issue the alert. For example, an alert that detects the execution of a known malicious tool such as Mimikatz, a common tool used for credential theft.
-- **Medium:** This is probably a suspicious activity may indicate that a resource is compromised.
+- **Medium:** This is probably a suspicious activity might indicate that a resource is compromised.
 Security Center's confidence in the analytic or finding is medium and the confidence of the malicious intent is medium to high. These would usually be machine learning or anomaly-based detections. For example, a sign-in attempt from an anomalous location.
 - **Low:** This might be a benign positive or a blocked attack.
-   * Security Center is not confident enough that the intent is malicious and the activity may be innocent. For example, log clear is an action that may happen when an attacker tries to hide their tracks, but in many cases is a routine operation performed by admins.
+   * Security Center is not confident enough that the intent is malicious and the activity might be innocent. For example, log clear is an action that might happen when an attacker tries to hide their tracks, but in many cases is a routine operation performed by admins.
    * Security Center doesn't usually tell you when attacks were blocked, unless it's an interesting case that we suggest you look into. 
-- **Informational:** You will only see informational alerts when you drill down into a security incident, or if you use the REST API with a specific alert ID. An incident is typically made up of a number of alerts, some of which may appear on their own to be only informational, but in the context of the other alerts may be worthy of a closer look. 
+- **Informational:** You will only see informational alerts when you drill down into a security incident, or if you use the REST API with a specific alert ID. An incident is typically made up of a number of alerts, some of which might appear on their own to be only informational, but in the context of the other alerts might be worthy of a closer look. 
 
 ## Continuous monitoring and assessments
 
@@ -81,10 +81,17 @@ Azure Security Center benefits from having security research and data science te
 
 These combined efforts culminate in new and improved detections, which you can benefit from instantly – there's no action for you to take.
 
+## Export alerts
+
+You have a range of options for viewing your alerts outside of Security Center, including:
+
+- **Download CSV report** on the alerts dashboard provides a one-time export to CSV.
+- **Continuous export** from pricing & settings allows you to configure streams of security alerts and recommendations to Log Analytics workspaces and Event Hubs. [Learn more about continuous export](continuous-export.md)
+- **Azure Sentinel connector** streams security alerts from Azure Security Center into Azure Sentinel. [Learn more about connecting Azure Security Center with Sentinel](../sentinel/connect-azure-security-center.md)
+
 
 ## Next steps
 
 In this article, you learned about the different types of alerts available in Security Center. For more information, see:
 
-- **Security alerts in Azure Activity Log** - In addition to being available in the Azure portal or programmatically, Security alerts and incidents are audited as events in [Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). For more information on the event schema, see [Security Alerts in Azure Activity log](https://go.microsoft.com/fwlink/?linkid=2114113)
-
+- **Security alerts in Azure Activity Log** - In addition to being available in the Azure portal or programmatically, Security alerts and incidents are audited as events in [Azure Activity Log](../azure-monitor/platform/activity-log.md#view-the-activity-log). For more information on the event schema, see [Security Alerts in Azure Activity log](https://go.microsoft.com/fwlink/?linkid=2114113)

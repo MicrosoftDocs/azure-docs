@@ -19,9 +19,9 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:i
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app
 
-This quickstart contains a code sample that demonstrates how a native iOS or macOS application can use the Microsoft identity platform to sign in personal, work and school accounts, get an access token, and call the Microsoft Graph API.
+In this quickstart, you download and run a code sample that demonstrates how a native iOS or macOS application can sign in users and get an access token to call the Microsoft Graph API.
 
-This quickstart applies to both iOS and macOS apps. Some steps are needed only for iOS apps. Those steps call out that they are only for iOS.
+The quickstart applies to both iOS and macOS apps. Some steps are needed only for iOS apps and will be indicated as such.
 
 ## Prerequisites
 
@@ -177,7 +177,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 > |Where: | Description |
 > |---------|---------|
 > | `clientId` | The Application ID from the application registered in *portal.azure.com* |
-> | `authority` | The Microsoft identity platform endpoint. In most of cases this will be *https<span/>://login.microsoftonline.com/common* |
+> | `authority` | The Microsoft identity platform endpoint. In most of cases this will be `https://login.microsoftonline.com/common` |
 > | `redirectUri` | The redirect URI of the application. You can pass 'nil' to use the default value, or your custom redirect URI. |
 
 ### For iOS only, additional app requirements

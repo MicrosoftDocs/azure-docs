@@ -6,7 +6,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure portal so I can use Azure DNS for my name resolution.
 ---
@@ -27,6 +27,14 @@ You can also perform these steps using [Azure PowerShell](dns-getstarted-powersh
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 For all portal steps, sign in to the [Azure portal](https://portal.azure.com).
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## Sign in to the Azure portal
+
+Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create a DNS zone
 

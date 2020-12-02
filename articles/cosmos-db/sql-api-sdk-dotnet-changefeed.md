@@ -11,6 +11,7 @@ ms.author: anfeldma
 ---
 
 # .NET Change Feed Processor SDK: Download and release notes
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 >

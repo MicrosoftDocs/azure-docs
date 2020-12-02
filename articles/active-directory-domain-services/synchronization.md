@@ -2,7 +2,7 @@
 title: How synchronization works in Azure AD Domain Services | Microsoft Docs
 description: Learn how the synchronization process works for objects and credentials from an Azure AD tenant or on-premises Active Directory Domain Services environment to an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
+ms.author: joflore
 
 ---
 # How objects and credentials are synchronized in an Azure Active Directory Domain Services managed domain

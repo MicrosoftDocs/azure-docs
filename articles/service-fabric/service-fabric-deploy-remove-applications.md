@@ -95,7 +95,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 ```
 
 If the application package is large and/or has many files, you can [compress it](service-fabric-package-apps.md#compress-a-package). The compression reduces the size and the number of files.
-The side effect is that registering and un-registering the application type are faster. Upload time may be slower currently, especially if you include the time to compress the package. 
+This results in faster registering and unregistering of the application type. Upload time may be slower currently, especially if you include the time to compress the package. 
 
 To compress a package, use the same [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) command. Compression can be done separate from upload,
 by using the `SkipCopy` flag, or together with the upload operation. Applying compression on a compressed package is no-op.

@@ -2,16 +2,16 @@
 title: Working with VMs and NSGs in Azure Bastion
 description: You can use network security groups with Azure Bastion. Learn about the subnets required for this configuration.
 services: bastion
-author: charwen
+author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.author: charwen
+ms.date: 11/12/2020
+ms.author: cherylmc
 ---
 # Working with NSG access and Azure Bastion
 
-When working with Azure Bastion, you can use network security groups (NSGs). For more information, see [Security Groups](../virtual-network/security-overview.md).
+When working with Azure Bastion, you can use network security groups (NSGs). For more information, see [Security Groups](../virtual-network/network-security-groups-overview.md).
 
 :::image type="content" source="./media/bastion-nsg/figure-1.png" alt-text="NSG":::
 
@@ -35,6 +35,7 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
 
    * **Ingress Traffic from public internet:** The Azure Bastion will create a public IP that needs port 443 enabled on the public IP for ingress traffic. Port 3389/22 are NOT required to be opened on the AzureBastionSubnet.
    * **Ingress Traffic from Azure Bastion control plane:** For control plane connectivity, enable port 443 inbound from **GatewayManager** service tag. This enables the control plane, that is, Gateway Manager to be able to talk to Azure Bastion.
+   * **Ingress Traffic from Azure Load Balancer:** For health probes, enable port 443 inbound from the **AzureLoadBalancer** service tag. This enables Azure Load Balancer to detect connectivity 
 
 
    :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Screenshot shows inbound security rules for Azure Bastion connectivity.":::

@@ -21,8 +21,8 @@ robots: noindex
 > * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 > * [Spark Activity](data-factory-spark.md)
-> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio (classic) Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio (classic) Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
 > * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
@@ -36,7 +36,7 @@ You use data transformation activities in a Data Factory [pipeline](data-factory
 You can use the Stored Procedure Activity to invoke a stored procedure in one of the following data stores in your enterprise or on an Azure virtual machine (VM):
 
 - Azure SQL Database
-- Azure Synapse Analytics (formerly SQL Data Warehouse)
+- Azure Synapse Analytics
 - SQL Server Database. If you are using SQL Server, install Data Management Gateway on the same machine that hosts the database or on a separate machine that has access to the database. Data Management Gateway is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details.
 
 > [!IMPORTANT]

@@ -1,6 +1,6 @@
 ---
 title: Connect and query - Single Server PostgreSQL
-description: Links to Azure My SQL Database quickstarts showing how to connect to your server and run queries.
+description: Links to quickstarts showing how to connect to your Azure Database for PostgreSQL Single Server and run queries.
 services: postgresql
 ms.service: postgresql
 ms.topic: how-to
@@ -18,7 +18,7 @@ The following document includes links to examples showing how to connect and que
 | Quickstart | Description |
 |---|---|
 |[Pgadmin](https://www.pgadmin.org/)|You can use pgadmin to connect to the server and it simplifies the creation, maintenance and use of database objects.|
-|[psql in Azure Cloud Shell](quickstart-create-server-database-azure-cli.md#connect-to-the-azure-database-for-postgresql-server-by-using-psql)|This article shows how to run [**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to connect to your server and then run statements to query, insert, update, and delete data in the database.You can run **psql** if installed on your development environment|
+|[psql in Azure Cloud Shell](quickstart-create-server-database-azure-cli.md#connect-to-the-azure-database-for-postgresql-server-by-using-psql)|This article shows how to run [**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) in [Azure Cloud Shell](../cloud-shell/overview.md) to connect to your server and then run statements to query, insert, update, and delete data in the database.You can run **psql** if installed on your development environment|
 |[PostgreSQL with VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)|Azure Databases extension for VS Code (Preview) allows you to browse and query your PostgreSQL server both locally and in the cloud using scrapbooks with rich Intellisense. |
 |[PHP](connect-php.md)|This quickstart demonstrates how to use PHP to create a program to connect to a database and use work with database objects to query data.|
 |[Java](connect-java.md)|This quickstart demonstrates how to use Java to connect to a database and then use work with database objects to query data.|
@@ -28,23 +28,22 @@ The following document includes links to examples showing how to connect and que
 |[Python](connect-python.md)|This quickstart demonstrates how to use Python to connect to a database and use work with database objects to query data. |
 |[Ruby](connect-ruby.md)|This quickstart demonstrates how to use Ruby to create a program to connect to a database and use work with database objects to query data.|
 
-
 ## TLS considerations for database connectivity
 
-Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to databases in Azure Database for PostgreSQL. No special configuration is necessary but do enforce TLS 1.2 for newly created servers. We recommend if you are using TLS 1.0 and 1.1, then you update the TLS version for your servers. See [ How to configure TLS](howto-tls-configurations.md)
+Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to databases in Azure Database for PostgreSQL. No special configuration is necessary but do enforce TLS 1.2 for newly created servers. We recommend if you are using TLS 1.0 and 1.1, then you update the TLS version for your servers. See [How to configure TLS](howto-tls-configurations.md)
 
+## PostgreSQL extensions
 
-## PostgreSQL Extensions
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions function like built-in features.
 
-- [Postgres 11 extensions](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-11-extensions)
-- [Postgres 10 extensions](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-10-extensions)
-- [Postgres 9.6 extensions](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-96-extensions)
-- [Postgres 9.5 extensions](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-95-extensions)
+- [Postgres 11 extensions](./concepts-extensions.md#postgres-11-extensions)
+- [Postgres 10 extensions](./concepts-extensions.md#postgres-10-extensions)
+- [Postgres 9.6 extensions](./concepts-extensions.md#postgres-96-extensions)
+- [Postgres 9.5 extensions](./concepts-extensions.md#postgres-95-extensions)
 
 Fore more details, see [How to use PostgreSQL extensions on Single server](concepts-extensions.md).
 
-## Next Steps 
+## Next steps
 
 - [Migrate data using dump and restore](howto-migrate-using-dump-and-restore.md)
 - [Migrate data using import and export](howto-migrate-using-export-and-import.md)

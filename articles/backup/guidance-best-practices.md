@@ -37,13 +37,13 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 * **Malicious delete protection –** Protect against any accidental and malicious attempts for deleting your backups via soft delete of backups. The deleted backup data is stored for 14 days free of charge and allows it to be recovered from this state.
 
-* **Secure encrypted backups-** Azure Backup ensures your backup data is stored in a secure manner, leveraging built-in security capabilities of the Azure platform like RBAC and Encryption.
+* **Secure encrypted backups-** Azure Backup ensures your backup data is stored in a secure manner, leveraging built-in security capabilities of the Azure platform like Azure RBAC and Encryption.
 
 * **Backup data lifecycle management -** Azure Backup automatically cleans up older backup data to comply with the retention policies. You can also tier your data from operational storage to vault storage.
 
 ### Management plane
 
-* **Access control** – Vaults (Recovery Services and Backup vaults) provide the management capabilities and are accessible via the Azure portal, Backup Center, Vault dashboards, SDK, CLI, and even REST APIs. It's also an RBAC boundary, providing you the option to restrict access to backups only to authorized Backup Admins.
+* **Access control** – Vaults (Recovery Services and Backup vaults) provide the management capabilities and are accessible via the Azure portal, Backup Center, Vault dashboards, SDK, CLI, and even REST APIs. It's also an Azure RBAC boundary, providing you the option to restrict access to backups only to authorized Backup Admins.
 
 * **Policy management** – Azure Backup Policies within each vault define when the backups should be triggered and how long they need to be retained. You can also manage these policies and apply them across multiple items.
 

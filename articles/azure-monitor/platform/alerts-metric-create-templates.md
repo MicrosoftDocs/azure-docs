@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 7/9/2020
+ms.date: 10/7/2020
 ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
@@ -1630,7 +1630,7 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -1942,7 +1942,7 @@ Save the json below as all-vms-in-resource-group-dynamic.json for the purpose of
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2277,7 +2277,7 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2587,7 +2587,7 @@ Save the json below as all-vms-in-subscription-dynamic.json for the purpose of t
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2919,7 +2919,7 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -3232,7 +3232,7 @@ Save the json below as list-of-vms-dynamic.json for the purpose of this walk-thr
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {

@@ -186,7 +186,7 @@ Only health information is shown when connecting to a Windows VM| This error occ
 SAC does not take up the entire Serial Console area in the browser | This is a known issue with Windows and the terminal emulator. We are tracking this issue with both teams but for now there is no mitigation.
 Unable to type at SAC prompt if kernel debugging is enabled. | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP, you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk by running `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swapping the disk back.
 Pasting into PowerShell in SAC results in a third character if the original content had a repeating character. | For a workaround, run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session. This action will not delete or uninstall the module.
-Some keyboard inputs produce strange SAC output (for example, **[A**, **[3~**). | [VT100](https://aka.ms/vtsequences) escape sequences aren't supported by the SAC prompt.
+Some keyboard inputs produce strange SAC output (for example, **[A**, **[3~**). | [VT100](/windows/console/console-virtual-terminal-sequences) escape sequences aren't supported by the SAC prompt.
 Pasting long strings doesn't work. | The serial console limits the length of strings pasted into the terminal to 2048 characters to prevent overloading the serial port bandwidth.
 
 ## Frequently asked questions

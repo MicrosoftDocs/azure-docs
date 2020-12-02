@@ -1,6 +1,6 @@
 ---
 title: Set passwords for VMs in Azure Lab Services | Microsoft Docs
-description: Learn how to set and reset passwords for virtual machines (VMs) in classroom labs of Azure Lab Services. 
+description: Learn how to set and reset passwords for virtual machines (VMs) in labs of Azure Lab Services. 
 ms.topic: article
 ms.date: 06/26/2020
 ---
@@ -48,6 +48,7 @@ Similarly, you can stop one or more VMs by toggling the button in the **State** 
 > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to the user outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## Reset VMs
+
 To reset one or more VMs, select them in the list, and then select **Reset** on the toolbar. 
 
 ![Reset selected VMs](./media/how-to-set-virtual-machine-passwords/reset-vm-button.png)
@@ -55,8 +56,6 @@ To reset one or more VMs, select them in the list, and then select **Reset** on 
 On the **Reset virtual machine(s)** dialog box, select **Reset**. 
 
 ![Reset VM dialog box](./media/how-to-set-virtual-machine-passwords/reset-vms-dialog.png)
-
-
 
 ## Set password for VMs
 A lab owner (educator) can set/reset the password for VMs at the time of creating the lab (lab creation wizard) or after creating the lab on the **Template** page. 
@@ -98,4 +97,4 @@ The lab creator (educator) can connect to a student VM if the following conditio
 ## Next steps
 To learn about other student usage options you (as a lab owner) can configure, see the following article: [Configure student usage](how-to-configure-student-usage.md).
 
-To learn about how students can reset passwords for their VMs, see [Set or reset password for virtual machines in classroom labs (students)](how-to-set-virtual-machine-passwords-student.md).
+To learn about how students can reset passwords for their VMs, see [Set or reset password for virtual machines in labs (students)](how-to-set-virtual-machine-passwords-student.md).

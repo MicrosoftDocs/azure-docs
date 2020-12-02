@@ -34,7 +34,7 @@ For the DPM servers with data sources that are protected to the cloud (by using 
 
 ### Are there recommendations for configuring exclusions for antivirus software?
 
-Yes, it's recommended to configure antivirus exclusion. For exclusions for DPM, see [Run antivirus software on the DPM server](https://docs.microsoft.com/system-center/dpm/run-antivirus-server). For exclusions for MABS, see [Configure antivirus for MABS server](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
+Yes, it's recommended to configure antivirus exclusion. For exclusions for DPM, see [Run antivirus software on the DPM server](/system-center/dpm/run-antivirus-server). For exclusions for MABS, see [Configure antivirus for MABS server](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
 
 ## VMware and Hyper-V backup
 

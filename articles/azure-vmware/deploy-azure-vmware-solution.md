@@ -2,7 +2,8 @@
 title: Deploy and configure Azure VMware Solution
 description: Learn how to use the information gathered in the planning stage to deploy the Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 10/02/2020
+ms.author: tredavis
+ms.date: 11/09/2020
 ---
 
 # Deploy and configure Azure VMware Solution
@@ -23,17 +24,15 @@ Use the information you gathered in the [Planning the Azure VMware Solution depl
 
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
-
+>[!NOTE]
+>For an end-to-end overview of this step, view the [Azure VMware Solution: Deployment](https://www.youtube.com/embed/gng7JjxgayI) video.
 
 ## Create the jump box
 
 >[!IMPORTANT]
 >If you left the **Virtual Network** option blank during the initial provisioning step on the **Create a Private Cloud** screen, complete the [Configure networking for your VMware private cloud](tutorial-configure-networking.md) tutorial **before** you proceed with this section.  
 
-
-
 After deploying Azure VMware Solution, you'll create the virtual network's jump box that connects to vCenter and NSX. Once you've configured ExpressRoute circuits and ExpressRoute Global Reach, the jump box isn't needed.  But it's handy to reach vCenter and NSX in your Azure VMware Solution.  
-
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Create the Azure VMware Solution jump box" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
@@ -78,7 +77,7 @@ Follow the [Create an NSX-T network segment in Azure VMware Solution](tutorial-n
 
 Go back to the [Verify network routes advertised](#verify-network-routes-advertised) step. You'll see an additional route(s) in the list representing the network segment(s) you created in the previous step.  
 
-For virtual machines, you'll assign the segment(s) you created in the [Verify advertised NSX-T segment](#verify-advertised-nsx-t-segment) step.  
+For virtual machines, you'll assign the segment(s) you created in the [Create a network segment on Azure VMware Solution](#create-a-network-segment-on-azure-vmware-solution) step.  
 
 Because DNS is required, identify what DNS server you want to use.  
 
@@ -93,10 +92,10 @@ Because DNS is required, identify what DNS server you want to use.
 
 If you plan to use DHCP on your NSX-T segment(s), continue with this section. Otherwise, skip to the [Add a VM on the NSX-T network segment](#add-a-vm-on-the-nsx-t-network-segment) section.  
 
-Now that you've created your NSX-T network segment, you can do ONE of the following ways:
+Now that you've created your NSX-T network segment, you can create and manage DHCP in Azure VMware Solution in two ways:
 
-* Use NSX-T as the DHCP server for the segment(s) created. For this option, you want to [create a DHCP server in NSX-T](manage-dhcp.md#create-dhcp-server) and [relay to that server](manage-dhcp.md#create-dhcp-relay-service).
-* Relay DHCP requests from the NSX-T segment(s) to a DHCP server elsewhere in your environment. For this option, [only do the relay configuration](manage-dhcp.md#create-dhcp-relay-service).
+* If you're using NSX-T to host your DHCP server, you'll need to [create a DHCP server](manage-dhcp.md#create-a-dhcp-server) and [relay to that server](manage-dhcp.md#create-dhcp-relay-service). 
+* If you're using a third-party external DHCP server in your network, you'll need to [create DHCP relay service](manage-dhcp.md#create-dhcp-relay-service).  For this option, [only do the relay configuration](manage-dhcp.md#create-dhcp-relay-service).
 
 
 ## Add a VM on the NSX-T network segment

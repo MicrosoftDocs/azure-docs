@@ -15,9 +15,9 @@ ms.author: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 ---
 
-# Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
+# Tutorial: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
 
-This guide explains how a native Universal Windows Platform (UWP) application can request an access token. The application then calls the Microsoft Graph API. The guide also applies to other APIs that require access tokens from the Microsoft identity platform endpoint.
+In this tutorial, you build a native Universal Windows Platform (UWP) app that signs in users and gets an access token to call the Microsoft Graph API. 
 
 At the end of this guide, your application calls a protected API by using personal accounts. Examples are outlook.com, live.com, and others. Your application also calls work and school accounts from any company or organization that has Azure Active Directory (Azure AD).
 

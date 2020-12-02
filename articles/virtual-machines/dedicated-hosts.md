@@ -82,7 +82,6 @@ Known issues and limitations when using automatic VM placement:
 
 - You will not be able to apply Azure Hybrid Benefits on your dedicated hosts.
 - You will not be able to redeploy your VM. 
-- You will not be able to control maintenance for your dedicated hosts.
 - You will not be able to use Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts 
 
 
@@ -119,9 +118,9 @@ Not all scale-set orchestration and optimizations settings are supported by dedi
 
 The infrastructure supporting your virtual machines may occasionally be updated to improve reliability, performance, security, and to launch new features. The Azure platform tries to minimize the impact of platform maintenance whenever possible, but customers with *maintenance sensitive* workloads can't tolerate even few seconds that the VM needs to be frozen or disconnected for maintenance.
 
-**Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window.
+**Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window. Within the maintenance window, you can apply maintenance directly at the host level, in any order. Once the maintenance window is over, Microsoft will move forward and apply the pending maintenance to the hosts in an order which may not follow the user defined fault domains.
 
-For more information, see [Managing platform updates with Maintenance Control](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
+For more information, see [Managing platform updates with Maintenance Control](./maintenance-control.md).
 
 ## Capacity considerations
 
@@ -141,7 +140,7 @@ Provisioning a dedicated host will consume both dedicated host vCPU and the VM f
 
 ![Screenshot of the usage and quotas page in the portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
-For more information, see [Virtual machine vCPU quotas](/azure/virtual-machines/windows/quotas).
+For more information, see [Virtual machine vCPU quotas](./windows/quotas.md).
 
 Free trial and MSDN subscriptions do not have quota for Azure Dedicated Hosts.
 
@@ -165,6 +164,8 @@ The *type* is the hardware generation. Different hardware types for the same VM 
 
 The sizes and hardware types vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
+> [!NOTE]
+> Once a Dedicated host is provisoned, you can't change the size or type. If you need a different size of type, you will need to create a new host.  
 
 ## Host life cycle
 
@@ -181,7 +182,7 @@ Azure monitors and manages the health status of your hosts. The following states
 
 ## Next steps
 
-- You can deploy a dedicated host using [Azure PowerShell](./windows/dedicated-hosts-powershell.md), the [portal](./windows/dedicated-hosts-portal.md), and [Azure CLI](./linux/dedicated-hosts-cli.md).
+- You can deploy a dedicated host using [Azure PowerShell](./windows/dedicated-hosts-powershell.md), the [portal](./dedicated-hosts-portal.md), and [Azure CLI](./linux/dedicated-hosts-cli.md).
 
 - There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
 

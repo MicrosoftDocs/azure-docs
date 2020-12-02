@@ -25,7 +25,7 @@ In this article, you learn how to:
 
 
 > [!NOTE]
-> If you want to try out a proof-of-concept to assess a couple of servers before assessing at scale, follow our [tutorial series](tutorial-prepare-physical.md).
+> If you want to try out a proof-of-concept to assess a couple of servers before assessing at scale, follow our [tutorial series](./tutorial-discover-physical.md).
 
 ## Plan for assessment
 
@@ -59,7 +59,7 @@ Prepare Azure and physical servers for server assessment.
 2. Set up permissions for your Azure account to interact with Azure Migrate.
 3. Prepare the physical servers.
 
-Follow the instructions in [this tutorial](tutorial-prepare-physical.md) to configure these settings.
+Follow the instructions in [this tutorial](./tutorial-discover-physical.md) to configure these settings.
 
 ## Create a project
 
@@ -68,7 +68,7 @@ In accordance with your planning requirements, do the following:
 1. Create an Azure Migrate project.
 2. Add the Azure Migrate Server Assessment tool to the projects.
 
-[Learn more](how-to-add-tool-first-time.md)
+[Learn more](./create-manage-projects.md)
 
 ## Create and review an assessment
 

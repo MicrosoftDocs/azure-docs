@@ -104,7 +104,7 @@ conceptualContent:
         - url: ./servers/learn/tutorial-enable-vm-insights.md
           itemType: tutorial
           text: Monitor a hybrid machine with Azure Monitor for VMs
-        - url: ./servers/policy-samples.md
+        - url: ./servers/policy-reference.md
           itemType: learn
           text: Admission control policies using Azure Policy
         - url: ./servers/manage-vm-extensions.md
