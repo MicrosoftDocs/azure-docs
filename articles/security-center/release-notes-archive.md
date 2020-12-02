@@ -30,7 +30,7 @@ This page provides you with information about:
 
 Updates in June include:
 - [Secure score API (preview)](#secure-score-api-preview)
-- [Advanced data security for SQL machines (Azure, other clouds, and on-prem) (preview)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview)
+- [Advanced data security for SQL machines (Azure, other clouds, and on-premises) (preview)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview)
 - [Two new recommendations to deploy the Log Analytics agent to Azure Arc machines (preview)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
 - [New policies to create continuous export and workflow automation configurations at scale](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
 - [New recommendation for using NSGs to protect non-internet-facing virtual machines](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
@@ -48,7 +48,7 @@ Learn more about [secure score and security controls in Azure Security Center](s
 
 
 
-### Advanced data security for SQL machines (Azure, other clouds, and on-prem) (preview)
+### Advanced data security for SQL machines (Azure, other clouds, and on-premises) (preview)
 
 Azure Security Center's advanced data security for SQL machines now protects SQL Servers hosted in Azure, on other cloud environments, and even on-premises machines. This extends the protections for your Azure-native SQL Servers to fully support hybrid environments.
 
