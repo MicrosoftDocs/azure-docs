@@ -414,7 +414,7 @@
     {
       "path_to_root": "cosmos-dotnet-getting-started",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-getting-started",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
