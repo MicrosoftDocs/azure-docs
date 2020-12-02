@@ -49,7 +49,7 @@ These features are improvements at the IoT Hub protocol and authentication layer
 
 1. Next to **Preview mode**, select **On**. Review the warning text carefully.
 
-:::image type="content" source="media/iot-hub-preview-mode/turn-on-preview-mode-at-create.png" alt-text="Image showing where to select the preview mode option when creating a new IoT hub":::
+    :::image type="content" source="media/iot-hub-preview-mode/turn-on-preview-mode-at-create.png" alt-text="Image showing where to select the preview mode option when creating a new IoT hub":::
 
 1. Select **Next: Review + create**, then **Create**.
 

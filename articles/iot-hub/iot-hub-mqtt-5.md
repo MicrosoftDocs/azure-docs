@@ -522,7 +522,8 @@ Response (success):
     Payload: <data>
 ```
 
-**NOTE**: `status` isn't set - it's a success response.
+> [!NOTE]
+> `status` isn't set - it's a success response.
 
 Device Unavailable Response:
 
@@ -577,3 +578,7 @@ Response:
     status: 0100
     reason: "`Correlation Data` property is missing"
 ```
+## Next steps
+
+- To review the MQTT 5 preview API reference, see [IoT Hub data plane MQTT 5 API reference](iot-hub-mqtt-5-reference.md).
+- To follow a C# sample, see [GitHub sample repository](https://github.com/Azure-Samples/iot-hub-mqtt-5-preview-samples-csharp).
