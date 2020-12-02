@@ -3,7 +3,7 @@ title: Deploy Resource Manager templates by using GitHub Actions
 description: Describes how to deploy Azure Resource Manager templates by using GitHub Actions.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure
+ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
 # Deploy Azure Resource Manager templates by using GitHub Actions
@@ -107,7 +107,7 @@ The workflow file must be stored in the **.github/workflows** folder at the root
         steps:
 
           # Checkout code
-        - uses: actions/checkout@master
+        - uses: actions/checkout@main
 
           # Log into Azure
         - uses: azure/login@v1
@@ -132,10 +132,10 @@ The workflow file must be stored in the **.github/workflows** folder at the root
     The first section of the workflow file includes:
 
     - **name**: The name of the workflow.
-    - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the master branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
+    - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
 
 1. Select **Start commit**.
-1. Select **Commit directly to the master branch**.
+1. Select **Commit directly to the main branch**.
 1. Select **Commit new file** (or **Commit changes**).
 
 Because the workflow is configured to be triggered by either the workflow file or the template file being updated, the workflow starts right after you commit the changes.
@@ -147,10 +147,9 @@ Because the workflow is configured to be triggered by either the workflow file o
 1. Select **Run ARM deploy** from the menu to verify the deployment.
 
 ## Clean up resources
-
 When your resource group and repository are no longer needed, clean up the resources you deployed by deleting the resource group and your GitHub repository. 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Create your first ARM template](./template-tutorial-create-first-template.md)

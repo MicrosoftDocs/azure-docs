@@ -23,7 +23,7 @@ You can use many methods and technologies to create a pool of DSVMs. This articl
 
 A pool of interactive VMs that are shared by the whole AI/data science team allows users to log in to an available instance of the DSVM instead of having a dedicated instance for each set of users. This setup enables better availability and more effective utilization of resources.
 
-You use [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) technology to create an interactive VM pool. You can use scale sets to create and manage a group of identical, load-balanced, and autoscaling VMs.
+You use [Azure virtual machine scale sets](../../virtual-machine-scale-sets/index.yml) technology to create an interactive VM pool. You can use scale sets to create and manage a group of identical, load-balanced, and autoscaling VMs.
 
 The user logs in to the main pool's IP or DNS address. The scale set automatically routes the session to an available DSVM in the scale set. Because users want a consistent and familiar environment regardless of the VM they're logging in to, all instances of the VM in the scale set mount a shared network drive, like an Azure Files share or a Network File System (NFS) share. The user's shared workspace is normally kept on the shared file store that's mounted on each of the instances.
 
@@ -49,7 +49,7 @@ The preceding template enables the SSH and the JupyterHub port from the front-en
 
 The [script that mounts the Azure Files share](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) is also available in the Azure DataScienceVM repository in GitHub. The script mounts the Azure Files share at the specified mount point in the parameter file. The script also creates soft links to the mounted drive in the initial user's home directory. A user-specific notebook directory in the Azure Files share is soft-linked to the `$HOME/notebooks/remote` directory so that users can access, run, and save their Jupyter notebooks. You can use the same convention when you create additional users on the VM to point each user's Jupyter workspace to the Azure Files share.
 
-Virtual machine scale sets support autoscaling. You can set rules about when to create additional instances and when to scale down instances. For example, you can scale down to zero instances to save on cloud hardware usage costs when the VMs are not used at all. The documentation pages of virtual machine scale sets provide detailed steps for [autoscaling](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
+Virtual machine scale sets support autoscaling. You can set rules about when to create additional instances and when to scale down instances. For example, you can scale down to zero instances to save on cloud hardware usage costs when the VMs are not used at all. The documentation pages of virtual machine scale sets provide detailed steps for [autoscaling](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 ## Next steps
 

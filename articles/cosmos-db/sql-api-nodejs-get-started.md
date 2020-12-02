@@ -13,6 +13,7 @@ ms.custom: devx-track-js
 
 ---
 # Tutorial: Build a Node.js console app with the JavaScript SDK to manage Azure Cosmos DB SQL API data
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)

@@ -62,7 +62,7 @@ This article describes the workflow automation feature of Azure Security Center.
 1. In your new logic app, you can choose from built-in, predefined templates from the security category. Or you can define a custom flow of events to occur when this process is triggered.
 
     > [!TIP]
-    > Sometimes in a logic app, parameters are included in the connector as part of a string and not in their own field. For ean example of how to extract parameters, see step #14 of [Working with logic app parameters while building Azure Security Center workflow automations](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121).
+    > Sometimes in a logic app, parameters are included in the connector as part of a string and not in their own field. For an example of how to extract parameters, see step #14 of [Working with logic app parameters while building Azure Security Center workflow automations](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121).
 
     The logic app designer supports these Security Center triggers:
 

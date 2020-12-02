@@ -11,6 +11,7 @@ ms.date: 05/18/2020
 ms.custom: devx-track-js
 ---
 # Quickstart: Build a Cassandra app with Node.js SDK and Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)

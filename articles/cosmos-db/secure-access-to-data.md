@@ -4,12 +4,14 @@ description: Learn about access control concepts in Azure Cosmos DB, including p
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-csharp
 
 ---
 # Secure access to data in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article provides an overview of securing access to data stored in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
@@ -114,6 +116,12 @@ A permission resource is associated with a user and assigned at the container as
 > [!NOTE]
 > In order to run stored procedures the user must have the All permission on the container in which the stored procedure will be run.
 
+If you enable the [diagnostic logs on data-plane requests](cosmosdb-monitor-resource-logs.md), the following two properties corresponding to the permission are logged:
+
+* **resourceTokenPermissionId** - This property indicates the resource token permission Id that you have specified. 
+
+* **resourceTokenPermissionMode** - This property indicates the permission mode that you have set when creating the resource token. The permission mode can have values such as "all" or "read".
+
 ### Code sample to create permission
 
 The following code sample shows how to create a permission resource, read the resource token of the permission resource, and associate the permissions with the [user](#users) created above.
@@ -156,8 +164,7 @@ The entity can now read Azure Cosmos DB resources.
 
 ## Delete or export user data
 
-Azure Cosmos DB enables you to search, select, modify and delete any personal data located in database or collections. Azure Cosmos DB provides APIs to find and delete personal data however, it’s your responsibility to use the APIs and define logic required to erase the personal data. 
-Each multi-model API (SQL, MongoDB, Gremlin, Cassandra, Table) provides different language SDKs that contain methods to search and delete personal data. You can also enable the [time to live (TTL)](time-to-live.md) feature to delete data automatically after a specified period, without incurring any additional cost.
+As a database service, Azure Cosmos DB enables you to search, select, modify and delete any data located in your database or containers. It is however your responsibility to use the provided APIs and define logic required to find and erase any personal data if needed. Each multi-model API (SQL, MongoDB, Gremlin, Cassandra, Table) provides different language SDKs that contain methods to search and delete data based on custom predicates. You can also enable the [time to live (TTL)](time-to-live.md) feature to delete data automatically after a specified period, without incurring any additional cost.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

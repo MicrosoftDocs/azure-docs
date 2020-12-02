@@ -127,6 +127,21 @@ Returns a JSON document with a "status" field that can have the following values
 
 If the status is "Failure", there will be an additional "error" field with a "message" subfield containing error information. Additional logs will be uploaded to your output container.
 
+## List Conversions
+
+To get a list of all conversions for an account, use the interface:
+
+| Endpoint | Method |
+|-----------|:-----------|
+| /v1/accounts/**accountID**/conversions?skiptoken=**skipToken** | GET |
+
+| Parameter | Required |
+|-----------|:-----------|
+| accountID | Yes |
+| skiptoken | No |
+
+Returns a json document that contains an array of conversions and their details. This query returns a maximum of 50 conversions at a time. In the situation where there are more conversions to retrieve, the response will contain a **nextLink** property containing the skipToken that can be queried to retrieve the next set of results.
+
 ## Next steps
 
 - [Use Azure Blob Storage for model conversion](blob-storage.md)

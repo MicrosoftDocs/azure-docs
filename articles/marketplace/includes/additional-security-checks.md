@@ -9,4 +9,4 @@ ms.author: mingshen
 ms.date: 10/09/2020
 ---
 
-Maintain a high level of security for your solution images in the Azure Marketplace. For a checklist of security configurations and procedures, see [Security Recommendations for Azure Marketplace Images](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).
+Maintain a high level of security for your solution images in the Azure Marketplace. For a checklist of security configurations and procedures, see [Security Recommendations for Azure Marketplace Images](../../security/fundamentals/azure-marketplace-images.md).

@@ -1,6 +1,6 @@
 ---
-title: Azure Multi-Factor Authentication for your organization - Azure Active Directory
-description: Learn about the available features of Azure Multi-Factor Authentication for your organization based on your license model
+title: Azure AD Multi-Factor Authentication for your organization - Azure Active Directory
+description: Learn about the available features of Azure AD Multi-Factor Authentication for your organization based on your license model
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -8,16 +8,16 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 03/18/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: daveba
+author: daveba
 manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Overview of Azure Multi-Factor Authentication for your organization
+# Overview of Azure AD Multi-Factor Authentication for your organization
 
-There are multiple ways to enable Azure Multi-Factor Authentication for your Azure Active Directory (AD) users based on the licenses that your organization owns. 
+There are multiple ways to enable Azure AD Multi-Factor Authentication for your Azure Active Directory (AD) users based on the licenses that your organization owns. 
 
 ![Investigate signals and enforce MFA if needed](./media/concept-fundamentals-mfa-get-started/verify-signals-and-perform-mfa-if-required.png)
 
@@ -33,7 +33,7 @@ Customers who are utilizing the free benefits of Azure AD can use [security defa
 
 For customers with Microsoft 365, there are two options:
 
-* Azure Multi-Factor Authentication is either enabled or disabled for all users, for all sign-in events. There is no ability to only enable multi-factor authentication for a subset of users, or only under certain scenarios. Management is through the Office 365 portal. 
+* Azure AD Multi-Factor Authentication is either enabled or disabled for all users, for all sign-in events. There is no ability to only enable multi-factor authentication for a subset of users, or only under certain scenarios. Management is through the Office 365 portal. 
 * For an improved user experience, upgrade to Azure AD Premium P1 or P2 and use Conditional Access. For more information, see secure Microsoft 365 resources with multi-factor authentication.
 
 ## Azure AD Premium P1
@@ -59,6 +59,6 @@ Provides the strongest security position and improved user experience. Adds [ris
 
 ## Next steps
 
-To get started, see the tutorial to [secure user sign-in events with Azure Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md).
+To get started, see the tutorial to [secure user sign-in events with Azure AD Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md).
 
-For more information on licensing, see [Features and licenses for Azure Multi-Factor Authentication](../authentication/concept-mfa-licensing.md).
+For more information on licensing, see [Features and licenses for Azure AD Multi-Factor Authentication](../authentication/concept-mfa-licensing.md).

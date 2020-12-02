@@ -27,7 +27,7 @@ For more information on creating groups in Azure Active Directory using the Azur
 
 1. To run Azure CLI commands locally, install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
  
-    To run commands directly in the cloud, use the [Azure Cloud Shell](/azure/cloud-shell/overview).
+    To run commands directly in the cloud, use the [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 1. Local CLI only: sign in to Azure using `az login`:
 

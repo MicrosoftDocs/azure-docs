@@ -3,12 +3,14 @@ title: RegexMatch in Azure Cosmos DB query language
 description: Learn about the RegexMatch SQL system function in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: tisande
 ms.custom: query-reference
 ---
 # REGEXMATCH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Provides regular expression capabilities. Regular expressions are a concise and flexible notation for finding patterns of text. Azure Cosmos DB uses [PERL compatible regular expressions (PCRE)](http://www.pcre.org/). 
 

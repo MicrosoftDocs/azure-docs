@@ -2,7 +2,7 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 09/01/2020 
+ms.date: 12/01/2020 
 ms.custom: devx-track-azurecli
 ---
 
@@ -27,9 +27,12 @@ For a list that maps resource providers to Azure services, see [Resource provide
 
 ## Register resource provider
 
-Before using a resource provider, you must register the resource provider for your Azure subscription. This step configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers.
+Before using a resource provider, your Azure subscription must be registered for the resource provider. Registration configures your subscription to work with the resource provider. Some resource providers are registered by default. Other resource providers are registered automatically when you take certain actions. For example, when you create a resource through the portal, the resource provider is typically registered for you. For other scenarios, you may need to manually register a resource provider. For a list of resource providers registered by default, see [Resource providers for Azure services](azure-services-resource-providers.md).
 
 This article shows you how to check the registration status of a resource provider, and register it as needed. You must have permission to do the `/register/action` operation for the resource provider. The permission is included in the Contributor and Owner roles.
+
+> [!IMPORTANT]
+> Only register a resource provider when you're ready to use it. The registration step enables you to maintain least privileges within your subscription. A malicious user can't use resource providers that aren't registered.
 
 Your application code shouldn't block the creation of resources for a resource provider that is in the **registering** state. When you register the resource provider, the operation is done individually for each supported region. To create resources in a region, the registration only needs to be completed in that region. By not blocking resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
 
@@ -50,7 +53,7 @@ To see all resource providers, and the registration status for your subscription
 
     ![show resource providers](./media/resource-providers-and-types/show-resource-providers.png)
 
-6. To register a resource provider, select **Register**. In the previous screenshot, the **Register** link is highlighted for **Microsoft.Blueprint**.
+6. To register a resource provider, select **Register**. In the previous screenshot, the **Register** link is highlighted for **Microsoft.Blueprint**. To maintain least privileges in your subscription, only register those resource providers that you're ready to use.
 
 To see information for a particular resource provider:
 
@@ -78,8 +81,6 @@ To see information for a particular resource provider:
 
 ## Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 To see all resource providers in Azure, and the registration status for your subscription, use:
 
 ```azurepowershell-interactive
@@ -98,7 +99,13 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-To register a resource provider, use:
+To see all registered resource providers for your subscription, use:
+
+```azurepowershell-interactive
+ Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
+```
+
+To maintain least privileges in your subscription, only register those resource providers that you're ready to use. To register a resource provider, use:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -185,7 +192,7 @@ West US
 
 To see all resource providers in Azure, and the registration status for your subscription, use:
 
-```azurecli
+```azurecli-interactive
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
@@ -201,9 +208,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-To register a resource provider, use:
+To see all registered resource providers for your subscription, use:
 
-```azurecli
+```azurecli-interactive
+az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
+```
+
+To maintain least privileges in your subscription, only register those resource providers that you're ready to use. To register a resource provider, use:
+
+```azurecli-interactive
 az provider register --namespace Microsoft.Batch
 ```
 
@@ -211,7 +224,7 @@ Which returns a message that registration is on-going.
 
 To see information for a particular resource provider, use:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch
 ```
 
@@ -230,7 +243,7 @@ Which returns results similar to:
 
 To see the resource types for a resource provider, use:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
@@ -249,7 +262,7 @@ The API version corresponds to a version of REST API operations that are release
 
 To get the available API versions for a resource type, use:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
@@ -269,7 +282,7 @@ Resource Manager is supported in all regions, but the resources you deploy might
 
 To get the supported locations for a resource type, use.
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 

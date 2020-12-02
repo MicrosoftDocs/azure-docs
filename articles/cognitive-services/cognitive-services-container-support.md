@@ -54,7 +54,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 
 | Service | Supported Pricing Tier | Container | Description |
 |--|--|--|--|
-| [Anomaly detector][ad-containers] | F0, S0 | **Anomaly-Detector** ([image](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning.<br>[Request access][request-access] |
+| [Anomaly detector][ad-containers] | F0, S0 | **Anomaly-Detector** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-decision-anomaly-detector))  | The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning.<br>[Request access][request-access] |
 | [Computer Vision][cv-containers] | F0, S1 | **Read** OCR ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | The Read OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](./computer-vision/concept-recognizing-text.md).<br>[Request access][request-access] |
 | [Face][fa-containers] | F0, S0 | **Face** | Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits. |
 | [Form recognizer][fr-containers] | F0, S0 | **Form Recognizer** | Form Understanding applies machine learning technology to identify and extract key-value pairs and tables from forms. |
@@ -71,7 +71,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | [Spatial Analysis][spa-containers] | S0 | **Spatial analysis** | Analyzes real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. |
 
 <!--
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+|[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 -->
 
 In addition, some containers are supported in Cognitive Services [**All-In-One offering**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource keys. You can create one single Cognitive Services All-In-One resource and use the same billing key across supported services for the following services:
@@ -128,7 +128,7 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
+[spa-containers]: ./computer-vision/spatial-analysis-container.md
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts

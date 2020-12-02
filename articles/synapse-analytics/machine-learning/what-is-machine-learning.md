@@ -13,9 +13,7 @@ author: nelgson
 ms.author: negust
 ---
 
-# Machine Learning capabilities in Azure Synapse Analytics (workspaces preview)
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+# Machine Learning capabilities in Azure Synapse Analytics
 
 Azure Synapse Analytics offers various machine learning capabilities. This article provides an overview of how you can apply Machine Learning in the context of Azure Synapse.
 
@@ -45,11 +43,11 @@ Thanks to [Azure Data Factory](/azure/data-factory/introduction), a natively int
 
 An important part of the machine learning process is to understand the data by exploration and visualizations.
 
-Depending on where the data is stored, Synapse offers a set of different tools to explore and prepare it for analytics and machine learning. One of the quickest ways to get started with data exploration is using Apache Spark or Synapse SQL serverless pools directly over data in the data lake.
+Depending on where the data is stored, Synapse offers a set of different tools to explore and prepare it for analytics and machine learning. One of the quickest ways to get started with data exploration is using Apache Spark or serverless SQL pools directly over data in the data lake.
 
 * [Apache Spark for Azure Synapse](../spark/apache-spark-overview.md) offers capabilities to transform, prepare, and explore your data at scale. These spark pools offer tools like PySpark/Python, Scala, and .NET for data processing at scale. Using powerful visualization libraries, the data exploration experience can be enhanced to help understand the data better. [Learn more about how to explore and visualize data in Synapse using Spark](../get-started-analyze-spark.md).
 
-* [Synapse SQL serverless pools](../sql/on-demand-workspace-overview.md) offer a way to explore data using TSQL directly over the data lake. Synapse SQL serverless pools also offer some built-in visualizations in Synapse Studio. [Learn more about how to explore data with Synapse SQL serverless pools](../get-started-analyze-sql-on-demand.md).
+* [Serverless SQL pools](../sql/on-demand-workspace-overview.md) offer a way to explore data using TSQL directly over the data lake. Serverless SQL pools also offer some built-in visualizations in Synapse Studio. [Learn more about how to explore data with serverless SQL pools](../get-started-analyze-sql-on-demand.md).
 
 ### Modeling
 
@@ -78,4 +76,4 @@ Models that have been trained either in Azure Synapse or outside Azure Synapse c
 * [Get started with Azure Synapse Analytics](../get-started.md)
 * [Create a workspace](../get-started-create-workspace.md)
 * [Quickstart: Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md)
-* [Tutorial: Machine learning model scoring wizard - SQL pool](tutorial-sql-pool-model-scoring-wizard.md)
+* [Tutorial: Machine learning model scoring wizard - dedicated SQL pool](tutorial-sql-pool-model-scoring-wizard.md)

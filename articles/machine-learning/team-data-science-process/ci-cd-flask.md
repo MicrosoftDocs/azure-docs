@@ -28,9 +28,9 @@ To use the downloaded source code and tutorial, you need the following prerequis
 - The [source code repository](https://github.com/Azure/DevOps-For-AI-Apps) forked to your GitHub account
 - An [Azure DevOps Organization](/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 - [Azure CLI](/cli/azure/install-azure-cli)
-- An [Azure Container Service for Kubernetes (AKS) cluster](/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
+- An [Azure Container Service for Kubernetes (AKS) cluster](/previous-versions/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) to run commands and fetch configuration from the AKS cluster 
-- An [Azure Container Registry (ACR) account](/azure/container-registry/container-registry-get-started-portal)
+- An [Azure Container Registry (ACR) account](../../container-registry/container-registry-get-started-portal.md)
 
 ## CI/CD pipeline summary
 
@@ -56,7 +56,7 @@ The following diagram and steps describe the CI/CD pipeline architecture:
 
 ## See also
 
-- [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/)
-- [Azure Machine Learning (AML)](/azure/machine-learning/)
+- [Team Data Science Process (TDSP)](./index.yml)
+- [Azure Machine Learning (AML)](../index.yml)
 - [Azure DevOps](https://azure.microsoft.com/services/devops/)
-- [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes)
+- [Azure Kubernetes Services (AKS)](../../aks/intro-kubernetes.md)

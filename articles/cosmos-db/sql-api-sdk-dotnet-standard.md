@@ -13,6 +13,8 @@ ms.custom: devx-track-dotnet
 
 ---
 # Azure Cosmos DB .NET SDK v3 for SQL API: Download and release notes
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)

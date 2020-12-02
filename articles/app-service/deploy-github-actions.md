@@ -6,7 +6,7 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: devx-track-python, github-actions-azure
+ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
 
 ---
 
@@ -70,6 +70,9 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 1. On the **Overview** page, select **Get Publish profile**.
 
 1. Save the downloaded file. You'll use the contents of the file to create a GitHub secret.
+
+> [!NOTE]
+> As of October 2020, Linux web apps will need the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the publish profile**. This requirement will be removed in the future.
 
 # [Service principal](#tab/userlevel)
 

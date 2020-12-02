@@ -1,6 +1,6 @@
 ---
 title: Kerberos constrained delegation with Azure Active Directory
-description: Architectural guidance on achieving this authentication pattern
+description: Architectural guidance on achieving Kerberos constrained delegation with Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -48,8 +48,7 @@ There is a need to provide remote access, protect with pre-authentication, and p
 
 ## Implement Windows authentication (KCD) with Azure AD
 
-* [Kerberos Constrained Delegation for single sign-on to your apps with Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd) 
+* [Kerberos Constrained Delegation for single sign-on to your apps with Application Proxy](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) 
 
-* [Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+* [Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../manage-apps/application-proxy-add-on-premises-application.md)
 
- 

@@ -11,6 +11,7 @@ ms.custom: seodec18
 ---
 
 # Migrate your data to Azure Cosmos DB Table API account
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 This tutorial provides instructions on importing data for use with the Azure Cosmos DB [Table API](table-introduction.md). If you have data stored in Azure Table storage, you can use either the Data Migration Tool or AzCopy to import your data to Azure Cosmos DB Table API. If you have data stored in an Azure Cosmos DB Table API (preview) account, you must use the Data Migration tool to migrate your data. 
 

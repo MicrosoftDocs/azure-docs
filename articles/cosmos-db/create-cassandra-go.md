@@ -11,6 +11,7 @@ ms.date: 07/14/2020
 ---
 
 # Quickstart: Build a Go app with the `gocql` client to manage Azure Cosmos DB Cassandra API data
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)

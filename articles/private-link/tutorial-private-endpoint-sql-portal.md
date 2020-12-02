@@ -1,7 +1,7 @@
 ﻿---
 
-title: 'Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint'
-description: Use this tutorial to learn how to create a Azure SQL server with a private endpoint.
+title: 'Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - Portal'
+description: Use this tutorial to learn how to create a Azure SQL server with a private endpoint using the Azure portal.
 services: private-link
 author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
@@ -12,7 +12,7 @@ ms.author: allensu
 
 ---
 
-# Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint
+# Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - Azure portal
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
 
@@ -222,7 +222,7 @@ In this section, you'll use the virtual machine you created in the previous step
     A private IP address of **10.1.0.5** is returned for the SQL server name.  This address is in the subnet of the virtual network you created previously.
 
 
-9. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) on **myVM**.
+9. Install [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) on **myVM**.
 
 10. Open **SQL Server Management Studio**.
 

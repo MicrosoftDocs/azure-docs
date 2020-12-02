@@ -1,11 +1,11 @@
 ---
 title: Mapping data flow video tutorials
 description: A list of video tutorials explaining mapping data flow concepts
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 10/13/2020
+ms.date: 11/02/2020
 ---
 
 # Mapping data flow video tutorials
@@ -81,6 +81,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Transform hierarchical data](https://youtu.be/oAEh21NFgWQ)
 
 [Rank transformation](https://youtu.be/6XvgkbMtws0)
+
+[Cached lookup](https://www.youtube.com/watch?v=HqCn42FaRJs)
 
 ## Source and sink
 

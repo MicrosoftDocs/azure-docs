@@ -52,7 +52,7 @@ From the Azure portal, load the **Namespace** settings page. You can add, change
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 When using the Azure CLI, you must add a namespace path when you create the storage target. Read [Add a new Azure Blob storage target](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) for details.
 
@@ -78,7 +78,7 @@ This list shows the maximum number of namespace paths per configuration.
   * 6 TB cache - 10 namespace paths
   * 23 TB cache - 20 namespace paths
 
-* Up to 5 GB/s throughput:
+* Up to 4 GB/s throughput:
 
   * 6 TB cache - 10 namespace paths
   * 12 TB cache - 10 namespace paths
@@ -114,7 +114,7 @@ Fill in these values for each namespace path:
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 When using the Azure CLI, you must add at least one namespace path when you create the storage target. Read [Add a new NFS storage target](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) for details.
 

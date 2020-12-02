@@ -10,6 +10,8 @@
     href: overview-iot-central-developer.md
   - name: Recent updates
     items:
+    - name: October 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-upadates-october-2020/
     - name: September 2020 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/
     - name: August 2020 new and updated features
@@ -45,10 +47,8 @@
   items:
     - name: Connect and develop devices
       items:
-      - name: Connect a  device (Node.js)
-        href: tutorial-connect-device-nodejs.md
-      - name: Connect a  device (Python)
-        href: tutorial-connect-device-python.md
+      - name: Create and connect a device
+        href: tutorial-connect-device.md
       - name: Create a gateway device template
         href: tutorial-define-gateway-device-type.md
       - name: Connect an IoT Edge device
@@ -221,6 +221,8 @@
       href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
   - name: IoT Central API reference
     href: /rest/api/iotcentral/
+  - name: Customer data residency
+    href: iot-central-customer-data-residency.md
   - name: Customer data requests
     href: iot-central-customer-data-requests.md
   - name: Supported browsers

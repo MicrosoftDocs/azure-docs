@@ -27,7 +27,7 @@ Select one of the following Windows or Linux images as your base.
 
 ### Linux
 
-Azure offers a range of approved Linux distributions. For a current list, see [Linux on distributions endorsed by Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+Azure offers a range of approved Linux distributions. For a current list, see [Linux on distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md).
 
 ## Create VM on the Azure portal
 

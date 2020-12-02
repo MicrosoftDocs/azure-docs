@@ -3,11 +3,13 @@ title: Frequently asked questions about the Cassandra API for Azure Cosmos DB
 description: Get answers to frequently asked questions about the Cassandra API for Azure Cosmos DB.
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
 ---
 # Frequently asked questions about the Cassandra API in Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 This article describes the functionality differences between Apache Cassandra and Cassandra API in Azure Cosmos DB. It also provides answers to frequently asked questions about the Cassandra API in Azure Cosmos DB.
 
@@ -168,7 +170,7 @@ No. The Cassandra API supports [secondary indexes](cassandra-secondary-index.md)
 
 ### Can I use the new Cassandra API SDK locally with the emulator?
 
-Yes, this is supported. You can find details on how to enable this in the [Use the Azure Cosmos Emulator for local development and testing](local-emulator.md#cassandra-api) article.
+Yes, this is supported. You can find details on how to enable this in the [Use the Azure Cosmos DB Emulator for local development and testing](local-emulator.md#cassandra-api) article.
 
 
 ### How can I migrate data from Apache Cassandra clusters to Azure Cosmos DB?
