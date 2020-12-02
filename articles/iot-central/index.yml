@@ -41,7 +41,7 @@ conceptualContent:
   items: 
     - title: Connect and develop devices
       links: 
-        - url: ./core/tutorial-connect-device-nodejs.md
+        - url: ./core/tutorial-connect-device.md
           itemType: tutorial
           text: Connect device
         - url: ./core/concepts-get-connected.md

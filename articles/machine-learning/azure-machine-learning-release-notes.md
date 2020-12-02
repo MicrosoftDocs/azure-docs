@@ -38,7 +38,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Improved documentation for `OutputDatasetConfig.register_on_complete` to include the behavior of what will happen when the name already exists.
     + Specifying dataset input and output names that have the potential to collide with common environment variables will now result in a warning
     + Repurposed `grant_workspace_access` parameter when registering datastores. Set it to `True` to access data behind virtual network from Machine Learning Studio.
-      [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+      [Learn more](./how-to-enable-studio-virtual-network.md)
     + Linked service API is refined. Instead of providing resource Id, we have 3 separate parameters sub_id, rg, and name defined in configuration.
     + In order to enable customers to self-resolve token corruption issues, enable workspace token synchronization to be a public method.
     + This change allows an empty string to be used as a value for a script_param
@@ -104,8 +104,8 @@ Learn more about [image instance segmentation labeling](how-to-label-images.md).
 
 ### Azure Machine Learning Studio Notebooks Experience (October Update)
 + **New features**
-  + [Full virtual network support](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
-  + [Focus Mode](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + [Full virtual network support](./how-to-enable-studio-virtual-network.md)
+  + [Focus Mode](./how-to-run-jupyter-notebooks.md#focus-mode)
   + Save notebooks Ctrl-S
   + Line Numbers
 

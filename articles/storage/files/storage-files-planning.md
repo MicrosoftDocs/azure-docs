@@ -94,13 +94,13 @@ We recommend turning on soft delete for most file shares. If you have a workflow
 For more information about soft delete, see [Prevent accidental data deletion](./storage-files-prevent-file-share-deletion.md).
 
 ### Backup
-You can back up your Azure file share via [share snapshots](./storage-snapshots-files.md), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take these snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json). Snapshots are stored within your file share, meaning that if you delete your file share, your snapshots will also be deleted. To protect your snapshot backups from accidental deletion, ensure soft delete is enabled for your share.
+You can back up your Azure file share via [share snapshots](./storage-snapshots-files.md), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take these snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Snapshots are stored within your file share, meaning that if you delete your file share, your snapshots will also be deleted. To protect your snapshot backups from accidental deletion, ensure soft delete is enabled for your share.
 
-[Azure Backup for Azure file shares](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) handles the scheduling and retention of snapshots. Its grandfather-father-son (GFS) capabilities mean that you can take daily, weekly, monthly, and yearly snapshots, each with their own distinct retention period. Azure Backup also orchestrates the enablement of soft delete and takes a delete lock on a storage account as soon as any file share within it is configured for backup. Lastly, Azure Backup provides certain key monitoring and alerting capabilities that allow customers to have a consolidated view of their backup estate.
+[Azure Backup for Azure file shares](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) handles the scheduling and retention of snapshots. Its grandfather-father-son (GFS) capabilities mean that you can take daily, weekly, monthly, and yearly snapshots, each with their own distinct retention period. Azure Backup also orchestrates the enablement of soft delete and takes a delete lock on a storage account as soon as any file share within it is configured for backup. Lastly, Azure Backup provides certain key monitoring and alerting capabilities that allow customers to have a consolidated view of their backup estate.
 
 You can perform both item-level and share-level restores in the Azure portal using Azure Backup. All you need to do is choose the restore point (a particular snapshot), the particular file or directory if relevant, and then the location (original or alternate) you wish you restore to. The backup service handles copying the snapshot data over and shows your restore progress in the portal.
 
-For more information about backup, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
+For more information about backup, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ### Advanced Threat Protection for Azure Files (preview)
 Advanced Threat Protection (ATP) for Azure Storage provides an additional layer of security intelligence that provides alerts when it detects anomalous activity on your storage account, for example unusual attempts to access the storage account. ATP also runs malware hash reputation analysis and will alert on known malware. You can configure ATP on a subscription or storage account level via Azure Security Center. 
@@ -138,7 +138,7 @@ Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next si
 > [!TIP]
 > Baseline IOPS = 400 + 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
 >
-> Burst Limit = MAX (4,000, 3 * Baseline IOPS). (Up to a max of 100,000 IOPS).
+> Burst Limit = MAX (4,000, 3 * Baseline IOPS). (whichever limit is greater, up to a max of 100,000 IOPS).
 >
 > egress rate = 60 MiB/s + 0.06 * provisioned GiB
 >
@@ -152,9 +152,9 @@ The following table illustrates a few examples of these formulae for the provisi
 
 |Capacity (GiB) | Baseline IOPS | Burst IOPS | Egress (MiB/s) | Ingress (MiB/s) |
 |---------|---------|---------|---------|---------|
-|100         | 500     | Up to 300     | 66   | 44   |
-|500         | 900     | Up to 1,500   | 90   | 60   |
-|1,024       | 1,424   | Up to 3,072   | 122   | 81   |
+|100         | 500     | Up to 4,000     | 66   | 44   |
+|500         | 900     | Up to 4,000  | 90   | 60   |
+|1,024       | 1,424   | Up to 4,000   | 122   | 81   |
 |5,120       | 5,520   | Up to 15,360  | 368   | 245   |
 |10,240      | 10,640  | Up to 30,720  | 675   | 450   |
 |33,792      | 34,192  | Up to 100,000 | 2,088 | 1,392   |
