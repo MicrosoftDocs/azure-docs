@@ -185,7 +185,7 @@ For Azure Batch resource level monitoring,  use the Azure Batch APIs to monitor 
 
 #### Azure Policy built-in definitions
 
-[!INCLUDE [microsoft.batch-2-3](../../includes/policy/standards/asb/rp-controls/microsoft.microsoft.batch-2-3.md)]
+[!INCLUDE [microsoft.batch-2-3](../../includes/policy/standards/asb/rp-controls/microsoft.batch-2-3.md)]
 
 ### 2.4: Collect security logs from operating systems
 
