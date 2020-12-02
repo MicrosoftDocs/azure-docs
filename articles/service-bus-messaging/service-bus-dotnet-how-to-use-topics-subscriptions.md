@@ -265,5 +265,4 @@ See the following documentation and samples:
 
 - [Azure Service Bus client library for .NET - Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [.NET API reference](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus?view=azure-dotnet-preview&preserve-view=true)
-
+- [.NET API reference](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)

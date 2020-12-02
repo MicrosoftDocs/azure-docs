@@ -875,6 +875,6 @@ Env.GetClusterId()
 ## Next steps
 
 - [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Quickstart: Create an Apache Spark pool (preview) in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
+- [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

@@ -34,12 +34,6 @@ By default, the routing preference for public IP address is set to the Microsoft
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-## Register the feature for your subscription
-The Routing Preference feature is currently in preview. Register the feature for your subscription using Azure PowerShell as follows:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
-
 ## Create a public IP address with a routing preference
 1. Sign in to the [Azure portal](https://preview.portal.azure.com/).
 2. Select **Create a resource**. 

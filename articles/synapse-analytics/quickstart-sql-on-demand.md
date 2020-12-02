@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use serverless SQL pool'
-description: In this quickstart, you'll see and learn how easy is to query various types of files using serverless SQL pool (preview).
+description: In this quickstart, you'll see and learn how easy is to query various types of files using serverless SQL pool.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Use serverless SQL pool
 
-Synapse serverless SQL pool (preview) is a serverless query service that enables you to run SQL queries on files placed in Azure Storage. In this quickstart, you'll learn how to query various types of files using serverless SQL pool. Supported formats are listed in [OPENROWSET](sql/develop-openrowset.md).
+Synapse serverless SQL pool is a serverless query service that enables you to run SQL queries on files placed in Azure Storage. In this quickstart, you'll learn how to query various types of files using serverless SQL pool. Supported formats are listed in [OPENROWSET](sql/develop-openrowset.md).
 
 This quickstart shows querying: CSV, Apache Parquet, and JSON files.
 

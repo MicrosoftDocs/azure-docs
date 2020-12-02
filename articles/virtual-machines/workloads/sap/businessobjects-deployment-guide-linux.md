@@ -611,7 +611,7 @@ For other DBMS deployment for CMS database refer to [DBMS deployment guides for 
 
 File Repository Server (FRS) refers to the disk directories where contents like reports, universes, and connections are stored. It's being shared across all application servers of that system. So you must make sure that it's highly available.
 
-On Azure, you can either choose [Azure Premium Files](../../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) for file share that are designed to be highly available and highly durable in nature. For more information, see [Redundancy](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy) section for Azure Files.
+On Azure, you can either choose [Azure Premium Files](../../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) for file share that are designed to be highly available and highly durable in nature. For more information, see [Redundancy](../../../storage/files/storage-files-planning.md#redundancy) section for Azure Files.
 
 > [!NOTE]
 > SMB Protocol for Azure Files is generally available, but NFS Protocol support for Azure Files is currently in preview. For more information, see [NFS 4.1 support for Azure Files is now in preview](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
@@ -663,7 +663,7 @@ Azure Site Recovery service can be used to replicate Virtual Machines running We
 
   You can use Azure NetApp Files Cross Region Replication, which is currently in [preview](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/) that uses NetApp SnapMirror® technology. So only changed blocks are sent over the network in a compressed, efficient format. This proprietary technology minimizes the amount of data required to replicate across the regions, which saves data transfer costs. It also shortens the replication time so you can achieve a smaller Restore Point Objective (RPO). Refer to [Requirements and considerations for using cross-region replication](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md) for more information.
 
-- **Azure premium files** only support locally redundant (LRS) and zone redundant storage (ZRS). For Azure Premium Files DR strategy, you can use [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) or [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/) to copy your files to another storage account in a different region. For more information, see [Disaster recovery and storage account failover](../../../storage/common/storage-disaster-recovery-guidance.md)
+- **Azure premium files** only support locally redundant (LRS) and zone redundant storage (ZRS). For Azure Premium Files DR strategy, you can use [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) or [Azure PowerShell](/powershell/module/az.storage/) to copy your files to another storage account in a different region. For more information, see [Disaster recovery and storage account failover](../../../storage/common/storage-disaster-recovery-guidance.md)
 
 #### CMS database
 
@@ -691,4 +691,4 @@ Following is the recommendation for disaster recovery of each tier used in this 
 - [Set up disaster recovery for a multi-tier SAP app deployment](../../../site-recovery/site-recovery-sap.md)
 - [Azure Virtual Machines planning and implementation for SAP](planning-guide.md)
 - [Azure Virtual Machines deployment for SAP](deployment-guide.md)
-- [Azure Virtual Machines DBMS deployment for SAP](dbms-guide.md)
+- [Azure Virtual Machines DBMS deployment for SAP](./dbms_guide_general.md)
