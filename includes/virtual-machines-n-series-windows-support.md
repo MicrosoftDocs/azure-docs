@@ -41,4 +41,4 @@ For Windows Server 2012 R2:
 - [GRID 11.0 (451.48)](https://download.microsoft.com/download/f/7/2/f729e28b-57b8-4141-b577-38d2390973ef/451.48_grid_server2012R2_64bit_international.exe) (.exe) 
 - [GRID 10.1 (442.66)](https://download.microsoft.com/download/4/3/3/4330fd5c-c685-4ca1-abca-3b2fb3c11d2e/442.06_grid_win8_win7_64bit_international_whql.exe) (.exe)  
 
-For the complete list of all previous Nvidia GRID driver links please visit [Github](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)
+For the complete list of all previous Nvidia GRID driver links please visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)
