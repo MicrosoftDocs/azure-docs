@@ -40,9 +40,9 @@
       href: schema-cscfg-networkconfiguration.md
 - name: How To
   items:
-  - name: Enable Remote Desktop
+  - name: Enable remote desktop
     href: enable-rdp.md
-  - name: Enable Alerts
+  - name: Enable alerts
     href: enable-alerts.md
   - name: Configure scaling
     href: configure-scaling.md

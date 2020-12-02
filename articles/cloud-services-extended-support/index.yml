@@ -57,8 +57,8 @@ landingContent:
         links:
           - text: Enable Remote Desktop
             url: enable-rdp.md
-          - text: Enable monitoring
-            url: enable-monitoring.md
+          - text: Enable alerts
+            url: enable-alerts.md
           - text: Configure scaling
             url: configure-scaling.md
           - text: Swap Cloud Service deployments

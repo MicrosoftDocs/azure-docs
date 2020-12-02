@@ -32,7 +32,7 @@ Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microso
     :::image type="content" source="media/deploy-portal-1.png" alt-text="Image shows the all resources blade in the Azure portal.":::
  
 3.	In the Cloud Services (extended support) pane select **Create**.
-    :::image type="content" source="media/deploy-portal-2.png" alt-text="Image shows the all resources blade in the Azure portal.":::
+    :::image type="content" source="media/deploy-portal-2.png" alt-text="Image shows purchasing a cloud service from the marketplace.":::
 ## Configuring the Cloud Services (extended support) deployment
 
 1. Select the Subscription.
