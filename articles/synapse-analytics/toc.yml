@@ -496,7 +496,7 @@
           href: ./spark/apache-spark-version-support.md
       - name: Azure Synapse Studio notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
-      - name: Securing credentials using TokenLibrary
+      - name: Secure credentials using TokenLibrary
         href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
       - name: .NET for Apache Spark
         href: ./spark/spark-dotnet.md
