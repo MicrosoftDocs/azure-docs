@@ -22,7 +22,7 @@ This article will outline using Azure release pipeline to automate the deploymen
 
 ## Prerequisites
 
--   The workspace used for development has been configured with a Git repository in Studio, see [Source control in Synapse Studio](source-control.md).
+-   A workspace used for development that has been configured with a Git repository in Studio, see [Source control in Synapse Studio](source-control.md).
 -   An Azure DevOps project has been prepared for running release pipeline.
 
 ## Set up a release pipelines
@@ -33,7 +33,7 @@ This article will outline using Azure release pipeline to automate the deploymen
 
     ![Select Pipelines, Releases](media/create-release-1.png)
 
-1.  Select **New pipeline**, or, if you have existing pipelines, select **New** and then **New release pipeline**.
+1.  Select **New pipeline**. If you have existing pipelines, select **New** and then **New release pipeline**.
 
 1.  Select the **Empty job** template.
 
@@ -41,7 +41,7 @@ This article will outline using Azure release pipeline to automate the deploymen
 
 1.  In the **Stage name** box, enter the name of your environment.
 
-1.  Select **Add artifact**, and then select the git repository configured with your development Synapse Studio. Select the git repository you used for managing ARM template of pools and workspace. If you use GitHub as the source, you need to create a service connection for your GitHub account and pull repositories. For more information about [service connection](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) 
+1.  Select **Add artifact**, and then select the git repository configured with your development Synapse Studio. Select the git repository you used for managing ARM template of pools and workspace. If you use GitHub as the source, create a service connection for your GitHub account and pull repositories. For more information about [service connection](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) 
 
     ![Add publish branch](media/release-creation-github.png)
 
@@ -82,7 +82,7 @@ Add an Azure Resource Manager Deployment task to create or update resources, inc
     ![grant permission](media/release-creation-grant-permission.png)
 
  > [!WARNING]
-> In Complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes)
+> In complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes)
 
 ## Set up a stage task for artifacts deployment 
 
@@ -119,9 +119,9 @@ After saving all changes, you can select **Create release** to manually create a
 
 If you're using Git integration with your Synapse workspace and have a CI/CD pipeline that moves your changes from development into test and then to production, we recommend these best practices:
 
--   **Git integration**. Configure only your development Synapse workspace with Git integration. Changes to test and production workspaces are deployed via CI/CD and don't need Git integration.
--   **Prepare pools before artifacts migration**. If you have SQL script or notebook attached to pools in the development workspace, the same name of pools in different environments are expected. 
--   **Infrastructure as Code (IaC)**. Management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, use the same versioning as DevOps team uses for source code. 
+-   **Git integration**. Only configure your development Synapse workspace with Git integration. Changes to test and production workspaces are deployed via CI/CD and don't need Git integration.
+-   **Pool naming**. Use the same pool names in all environments. Otherwise, you will need to update your SQL scripts and notebooks with the correct names.
+-   **Infrastructure as Code (IaC)**. Use the same versioning as DevOps team uses for source code. Use a descriptive model of management of infrastructure (networks, virtual machines, load balancers, and connection topology). 
 -   **Others**. See [best practices for ADF artifacts](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
 
 
