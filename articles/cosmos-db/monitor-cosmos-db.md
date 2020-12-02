@@ -5,7 +5,7 @@ author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 12/01/2020
 ms.author: sngun
 ms.custom: subject-monitoring 
 ---
@@ -78,7 +78,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 Azure Cosmos DB provides a custom experience for working with metrics. You can analyze metrics for Azure Cosmos DB with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) for details on using this tool. You can also checkout how to monitor [server-side latency](monitor-server-side-latency.md), [request unit usage](monitor-request-unit-usage.md), and [normalized request unit usage](monitor-normalized-request-units.md) for your Azure Cosmos DB resources.
 
-For a list of the platform metrics collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference metrics]monitor-cosmos-db-reference.md#metrics) article.
+For a list of the platform metrics collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference metrics](monitor-cosmos-db-reference.md#metrics) article.
 
 All metrics for Azure Cosmos DB are in the namespace **Cosmos DB standard metrics**. You can use the following dimensions with these metrics when adding a filter to a chart:
 
