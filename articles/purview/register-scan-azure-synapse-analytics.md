@@ -22,7 +22,7 @@ Azure Synapse Analytics (formerly SQL DW) supports full and incremental scans to
 - You need to be an Azure Purview Data Source Admin
 - Networking access between the Purview account and Azure Synapse Analytics.
  
-## Set up authentication for a scan
+## Setting up authentication for a scan
 
 There are three ways to set up authentication for Azure blob storage:
 

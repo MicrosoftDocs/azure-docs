@@ -20,6 +20,16 @@ This article describes how you can create credentials in Azure Purview to quickl
 ## Introduction
 A Credential is authentication information that Azure Purview can use to authenticate to your registered data sources. A Credential object can be created for various types of authentication scenarios (such as Basic Authentication requiring username/password) and will capture the specific information required based on the chosen type of authentication method. Credentials use your existing Azure Key Vaults secrets for retrieving sensitive authentication information during the Credential creation process.
 
+## Using Purview managed identity to set up scans
+If you are using the Purview managed identity to set up scans, you will not have to explicitly create a credential and link your key vault to Purview to store them. For detailed instructions on adding the Purview managed identity to have access to scan your data sources, refer to the data source specific authentication sections below:
+
+- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
+- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
+- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan)
+- [Azure SQL Database](register-scan-azure-sql-database.md)
+- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
+- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
+
 ## Create Azure Key Vaults connections in your Azure Purview account
 
 Before you can create a Credential, you will first need to associate one or more of your existing Azure Key Vault instances with your Azure Purview account.
@@ -58,8 +68,7 @@ Credential type supported in Purview today:
 * SQL authentication : You will add the **password** as a secret in key vault
 * Account Key : You will add the **account key** as a secret in key vault
 
-> [!Note]
-> You can find out more information on how to add secrets to a key vault at [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault)
+Here is more information on how to add secrets to a key vault: (Insert key vault article)
 
 After storing your secrets in your key vault, Create your new Credential by selecting +New from the Credentials command bar. Provide the required information, including selecting the Authentication method and a Key Vault instance from which to select a secret from. Once all the details have been filled in, click on create.
 
@@ -75,7 +84,8 @@ Verify that your new Credential shows up in the Credential list view and is read
 
     :::image type="content" source="media/manage-credentials/search-kv.png" alt-text="Search key vault":::
 
-2. Delete one or more Key Vault connections 
+1. Delete one or more Key Vault connections
+ 
     :::image type="content" source="media/manage-credentials/delete-kv.png" alt-text="Delete key vault":::
 
 ## Manage your credentials
