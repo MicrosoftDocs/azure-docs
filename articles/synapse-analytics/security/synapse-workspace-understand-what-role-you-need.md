@@ -37,7 +37,7 @@ This article will help you understand which Synapse RBAC (role-based access cont
 
 ### Monitoring and managing execution
 - You can review the status of running notebooks and jobs in Apache Spark pools if you're a Synapse User.
-- You can review logs and cancel running jobs and pipelines if you're a Synapse Compute Operatorr at the workspace or for a specific Spark pool or pipeline.  
+- You can review logs and cancel running jobs and pipelines if you're a Synapse Compute Operator at the workspace or for a specific Spark pool or pipeline.  
 
 ### Publishing and saving your code
 
@@ -112,7 +112,7 @@ Create or remove Synapse RBAC access to code artifacts|Synapse Administrator at 
 >[!Note]
 >Guest users from another tenant are not able to review, add, or change role assignments regardless of the role they have been assigned. 
 
-## Next Steps
+## Next steps
 
 Learn [how to review Synapse RBAC role assignments](./how-to-review-synapse-rbac-role-assignments.md)
 

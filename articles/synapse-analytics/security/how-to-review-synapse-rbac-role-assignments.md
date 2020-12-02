@@ -48,7 +48,7 @@ You can filter the list by principal name or email, and selectively filter the o
 
 If you create a new workspace, you and the workspace MSI service principal are automatically given the Synapse Administrator role at workspace scope.
 
-## Next Steps
+## Next steps
 
 Learn [how to manage Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md).
 

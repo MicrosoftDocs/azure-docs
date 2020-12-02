@@ -1,5 +1,5 @@
 ---
-title: Synapse Role Based Access Control
+title: Synapse role-based access control
 description: An article that explains role-based access control in Azure Synapse Analytics
 author: billgib
 ms.service: synapse-analytics 
@@ -51,8 +51,6 @@ Synapse provides built-in roles that define collections of actions that match th
 
 [Learn more](./synapse-workspace-synapse-rbac-roles.md) about the built-in Synapse roles. 
 
-Future releases of Synapse Analytics will allow custom roles to be defined.
-
 ### Scopes
 
 A _scope_ defines the resources or artifacts that the access applies to.  Synapse supports hierarchical scopes.  Permissions granted at a higher-level scope are inherited by objects at a lower level.  In Synapse RBAC, the top-level scope is a workspace.  Assigning a role with workspace scope grants permissions to all applicable objects in the workspace.  
@@ -83,7 +81,7 @@ When a new workspace is created, the creator is automatically given the Synapse 
 
 Synapse RBAC is managed from within Synapse Studio using the Access control tools in the Manage hub. 
 
-## Next Steps
+## Next steps
 
 Understand the built-in [Synapse RBAC roles](./synapse-workspace-synapse-rbac-roles.md).
 
