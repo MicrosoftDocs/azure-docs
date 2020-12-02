@@ -54311,6 +54311,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts/curl-analyze.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts/curl-thumb.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts/curl-print-text.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/lab-services/classroom-labs/class-type-deep-learning-natural-processing.md",
       "redirect_url": "/azure/lab-services/classroom-labs/class-type-deep-learning-natural-language-processing",
       "redirect_document_id": false
