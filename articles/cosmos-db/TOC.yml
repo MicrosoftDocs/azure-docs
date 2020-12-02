@@ -266,11 +266,28 @@
           - name: User-defined functions
             displayName: functions, udf
             href: sql-query-udfs.md
-          - name: Aggregates
-            displayName: functions, aggregate, count, sum, min, minimum, max, maximum, avg, average
-            href: sql-query-aggregates.md
-          - name: System functions
-            items:
+        - name: Aggregate functions
+          items:
+            - name: Aggregate functions
+              displayName: functions, aggregate, count, sum, min, minimum, max, maximum, avg, average
+              href: sql-query-aggregate-functions.md
+            - name: Avg
+              displayName: functions, aggregate, avg, average
+              href: sql-query-aggregate-avg.md
+            - name: Count
+              displayName: functions, aggregate, count
+              href: sql-query-aggregate-count.md
+            - name: Max
+              displayName: functions, aggregate, max, maximum
+              href: sql-query-aggregate-max.md
+            - name: Min
+              displayName: functions, aggregate, min, minimum
+              href: sql-query-aggregate-min.md
+            - name: Sum
+              displayName: functions, aggregate, sum
+              href: sql-query-aggregate-sum.md
+        - name: System functions
+          items:
             - name: System functions
               displayName: functions, system functions, built-in functions
               href: sql-query-system-functions.md
