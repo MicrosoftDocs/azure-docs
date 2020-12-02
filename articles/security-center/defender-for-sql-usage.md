@@ -5,14 +5,13 @@ services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
-
 ms.assetid: ba46c460-6ba7-48b2-a6a7-ec802dd4eec2
 ms.service: security-center
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: memildin
 ---
 
@@ -26,7 +25,7 @@ You'll see alerts when there are suspicious database activities, potential vulne
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Release state:|Generally available (GA)|
 |Pricing:|**Azure Defender for SQL servers on machines** is billed as shown on [the pricing page](security-center-pricing.md)|
 |Protected SQL versions:|Azure SQL Server (all versions covered by Microsoft support)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
@@ -64,7 +63,7 @@ Both of these are described below.
 
         ![Finding your non-default workspace by title](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
-1. Set the option for **Azure Defender for SQL servers on machines (Preview)** plan to **on**. 
+1. Set the option for **Azure Defender for SQL servers on machines** plan to **on**. 
 
     ![Security Center pricing page with optional plans](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
 
@@ -75,7 +74,7 @@ Both of these are described below.
 
 
 1. Optionally, configure email notification for security alerts. 
-    You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. For more information, see [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
+    You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct sk to the alert in Azure Security Center with all the relevant details. For more information, see [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
 
 
 
