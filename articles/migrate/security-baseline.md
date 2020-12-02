@@ -141,7 +141,7 @@ Network communication between the Azure Migrate appliance and other Azure Migrat
 
 ## Identity Management
 
-*For more information, see the [Azure Security Benchmark: Identity Management](../security/benchmarks/security-controls-v2-identity-management.md).*
+*For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
 
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
@@ -175,7 +175,7 @@ their external identity.
 
 - [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
-- [Use external identity providers for application](../active-directory/external-identities/identity-providers.md) 
+- [Use external identity providers for application](/azure/active-directory/b2b/identity-providers) 
 
 - [What is the identity secure score in Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
 
@@ -258,9 +258,9 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 - [Audit activity reports in the Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md) 
 
-- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md) 
+- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
 
-- [How to identify Azure AD users flagged for risky activity](../active-directory/identity-protection/overview-identity-protection.md) 
+- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
 
 - [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md) 
 
@@ -316,7 +316,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 ## Privileged Access
 
-*For more information, see the [Azure Security Benchmark: Privileged Access](../security/benchmarks/security-controls-v2-privileged-access.md).*
+*For more information, see the [Azure Security Benchmark: Privileged Access](/azure/security/benchmarks/security-controls-v2-privileged-access).*
 
 ### PA-1: Protect and limit highly privileged users
 
@@ -381,7 +381,7 @@ Some Azure services support local users and roles which not managed through Azur
 
 You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
 
-- [Manage emergency access accounts in Azure AD](../active-directory/roles/security-emergency-access.md)
+- [Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -429,7 +429,7 @@ approval is also supported.
 
 Use built-in roles to allocate permission and only create custom role when required.
 
-- [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) 
+What is Azure role-based access control (Azure RBAC) ../role-based-access-control/overview.md 
 
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
 
@@ -455,7 +455,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 
 ## Data Protection
 
-*For more information, see the [Azure Security Benchmark: Data Protection](../security/benchmarks/security-controls-v2-data-protection.md).*
+*For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
 
 ### DP-1: Discovery, classify and label sensitive data
 
@@ -509,6 +509,9 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41179).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
+
 **Guidance**: To complement access controls, data in transit should be protected against ‘out of band’ attacks (e.g. traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
 
 Azure Migrate supports data encryption in transit with TLS v1.2 or greater.
@@ -525,7 +528,7 @@ By default, Azure provides encryption for data in transit between Azure data cen
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Shared
+**Responsibility**: Microsoft
 
 ### DP-5: Encrypt sensitive data at rest
 
@@ -546,7 +549,7 @@ The Server Migration tool in Azure Migrate replicates data from the disks of ser
 
 ## Asset Management
 
-*For more information, see the [Azure Security Benchmark: Asset Management](../security/benchmarks/security-controls-v2-asset-management.md).*
+*For more information, see the [Azure Security Benchmark: Asset Management](/azure/security/benchmarks/security-controls-v2-asset-management).*
 
 ### AM-1: Ensure security team has visibility into risks for assets
 
@@ -582,7 +585,7 @@ Azure Migrate does not allow running an application or installation of software 
 
 - [Azure Security Center asset inventory management](../security-center/asset-inventory.md) 
 
-- [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
+- [Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -696,7 +699,7 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 
 - [Enable Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Threat protection in Azure Security Center](../security-center/azure-defender.md)
+- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
 
 **Azure Security Center monitoring**: Yes
 
@@ -793,7 +796,7 @@ sources, and is not exposed to customers for configuration.
 
 ## Incident Response
 
-*For more information, see the [Azure Security Benchmark: Incident Response](../security/benchmarks/security-controls-v2-incident-response.md).*
+*For more information, see the [Azure Security Benchmark: Incident Response](/azure/security/benchmarks/security-controls-v2-incident-response).*
 
 ### IR-1: Preparation – update incident response process for Azure
 
@@ -890,7 +893,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
+- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1153,7 +1156,7 @@ applicable; Azure Migrate doesn't support any data backup.
 
 ## Governance and Strategy
 
-*For more information, see the [Azure Security Benchmark: Governance and Strategy](../security/benchmarks/security-controls-v2-governance-strategy.md).*
+*For more information, see the [Azure Security Benchmark: Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
 
 ### GS-1: Define asset management and data protection strategy 
 
@@ -1181,11 +1184,19 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Appropriate cryptographic standards
 
 For more information, see the following references:
+<<<<<<< HEAD
 - [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
 
 - [Cloud Adoption Framework - Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+=======
+- [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+
+- [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
+
+- [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+>>>>>>> "Daily restage"
 
 - [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management)
 
@@ -1354,5 +1365,5 @@ For more information, see the following references:
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
-- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)
+- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
