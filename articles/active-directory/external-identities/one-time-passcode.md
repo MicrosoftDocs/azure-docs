@@ -100,7 +100,7 @@ If you've previously opted in to the email one-time passcode public preview, the
 
 ![Enable Email one-time passcode opted in](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-However, if you'd prefer to opt out of the feature and allow it to be automatically enabled in March 2021, you can revert to the default settings by using the Microsoft Graph API [email authentication method configuration resource type](https://docs.microsoft.com/graph/api/overview). After you revert to the default settings, the following options will be available under **Email one-time passcode for guests**:
+However, if you'd prefer to opt out of the feature and allow it to be automatically enabled in March 2021, you can revert to the default settings by using the Microsoft Graph API [email authentication method configuration resource type](https://aka.ms/exid-graphemailauth). After you revert to the default settings, the following options will be available under **Email one-time passcode for guests**:
 
 - **Automatically enable email one-time passcode for guests in March 2021**. (Default) If the email one-time passcode feature is not already enabled for your tenant, it will be automatically turned on in March 2021. No further action is necessary if you want the feature enabled at that time. If you've already enabled or disabled the feature, this option will be unavailable.
 
