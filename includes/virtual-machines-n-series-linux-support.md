@@ -28,7 +28,9 @@ The GRID drivers redistributed by Azure do not work on non-NV series VMs like NC
 
 | Distribution | Driver |
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.6 to 7.8, 8.0, 8.1<br/><br/>CentOS-based 7.6, 7.7, 8.0, 8(1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 11.1, driver branch [R450](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.6 to 7.8, 8.0, 8.1<br/><br/>CentOS-based 7.6, 7.7, 8.0, 8(1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 11.2, driver branch [R450](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+
+For the complete list of all previous Nvidia GRID driver links please visit [Github](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)
 
 > [!WARNING] 
 > Installation of third-party software on Red Hat products can affect the Red Hat support terms. See the [Red Hat Knowledgebase article](https://access.redhat.com/articles/1067).
