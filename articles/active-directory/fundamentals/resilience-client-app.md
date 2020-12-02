@@ -78,7 +78,7 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 ## [React](#tab/react)
 
-```react
+```javascript
 if (msalInstance.getAccount()) {
     var tokenRequest = {
         scopes: ["user.read", "mail.send"]
