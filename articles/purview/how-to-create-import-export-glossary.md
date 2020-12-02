@@ -5,21 +5,21 @@ author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
-ms.topic: conceptual
-ms.date: 11/04/2020
+ms.topic: how-to
+ms.date: 12/02/2020
 ---
 
 # How to create, import, and export glossary terms
 
-This article describes how to create a business glossary term in Azure Purview data catalog, and import and export glossary terms in .csv files.
+This article describes how to create a business glossary term in Azure Purview data catalog, and import and export glossary terms using .csv files.
 
 ## Create a new term
 
+To create a new glossary term, do the following steps:
+
 1. Select the glossary icon in the left navigation on home page to go to term list page.
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/left-nav-icon.png" alt-text="Screenshot of the Glossary terms page, Manage term templates button.":::
-
-2. On the Term List page, select **+ New term**. A page opens with **System Default** template selected. Choose the template you want to create glossary term with and select **Continue**.
+2. On the **Glossary terms** page, select **+ New term**. A page opens with **System Default** template selected. Choose the template you want to create glossary term with and select **Continue**.
 
    :::image type="content" source="media/how-to-create-import-export-glossary/new-term-with-custom-template.png" alt-text="Screenshot of the New term creation.":::
 
