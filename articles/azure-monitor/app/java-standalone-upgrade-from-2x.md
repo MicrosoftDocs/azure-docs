@@ -9,8 +9,8 @@ ms.date: 11/25/2020
 # Upgrading from Application Insights Java 2.x SDK
 
 If you're already using Application Insights Java 2.x SDK in your application, there is no need to remove it.
-The Java 3.0 agent will detect it, and capture and correlate any custom telemetry you're sending via the Java 2.x SDK,
-while suppressing any auto-collection performed by the Java 2.x SDK to prevent duplicate telemetry.
+The Java 3.0 agent will detect it, and capture and correlate any custom telemetry you're sending via the 2.x SDK,
+while suppressing any auto-collection performed by the 2.x SDK to prevent duplicate telemetry.
 
 If you were using Application Insights 2.x agent, you need to remove the `-javaagent:` JVM arg
 that was pointing to the 2.x agent.
@@ -20,7 +20,7 @@ when upgrading from 2.x to 3.0, as well as some workarounds that you may find he
 
 ## TelemetryInitializers and TelemetryProcessors
 
-Java 2.x SDK TelemetryInitializers and TelemetryProcessors will not be run when using the 3.0 agent.
+The 2.x SDK TelemetryInitializers and TelemetryProcessors will not be run when using the 3.0 agent.
 Many of the use cases that previously required these can be solved in 3.0
 by configuring [custom dimensions](./java-standalone-config.md#custom-dimensions)
 or configuring [telemetry processors](./java-standalone-telemetry-processors.md).
@@ -46,7 +46,7 @@ to replicate the previous behavior.
 
 ### Prefix the operation name with the http method (`GET`, `POST`, etc.)
 
-In 2.x SDK, the operation names were prefixed by the http method (`GET`, `POST`, etc.), e.g
+In the 2.x SDK, the operation names were prefixed by the http method (`GET`, `POST`, etc.), e.g
 
 :::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-prefixed-by-http-method.png" alt-text="Operation names prefixed by http method":::
 
@@ -126,7 +126,7 @@ The telemetry processors perform the following actions (in order):
 
 ### Set the operation name to the full path
 
-Also, in 2.x SDK, in some cases, the operation names contained the full path, e.g.
+Also, in the 2.x SDK, in some cases, the operation names contained the full path, e.g.
 
 :::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-with-full-path.png" alt-text="Operation names with full path":::
 
@@ -234,7 +234,7 @@ techniques as above to replicate the previous behavior.
 
 ## Operation name on dependencies
 
-Previously in 2.x SDK, the operation name from the request telemetry was also set on the dependency telemetry.
+Previously in the 2.x SDK, the operation name from the request telemetry was also set on the dependency telemetry.
 Application Insights Java 3.0 no longer populates operation name on dependency telemetry.
 If you want to see the operation name for the request that is the parent of the dependency telemetry,
 you can write a Logs (Kusto) query to join from the dependency table to the request table.
