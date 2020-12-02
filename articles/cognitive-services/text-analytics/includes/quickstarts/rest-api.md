@@ -567,7 +567,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/ent
 #### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.1/keyPhrases \
+curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.3/keyPhrases \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", language:"en", text: "Hello world. This is some input text that I love."}]}'
