@@ -10,7 +10,7 @@ ms.date: 11/17/2020
 ms.author: tibasham
 
 ---
-# How to Map Azure Disks to Linux VM guest disks
+# How to map Azure Disks to Linux VM guest disks
 
 You may need to determine the Azure Disks that back a VM's guest disks. In some scenarios, you can compare the disk or volume size to the size of the attached Azure Disks. In scenarios where there are multiple Azure Disks of the same size attached to the VM you need to use the Logical Unit Number (LUN) of the data disks. 
 
@@ -34,7 +34,7 @@ Below we have listed two methods for finding the LUN of a disk in Linux.
 
 The first column listed will contain the LUN, the format is [Host:Channel:Target:**LUN**].
 
-### Listing Block Devices
+### Listing block devices
 
 1. Connect to the VM
 1. `sudo ls -l /sys/block/*/device`
