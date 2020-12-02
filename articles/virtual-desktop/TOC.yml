@@ -96,7 +96,7 @@
     href: app-attach.md
   - name: Use Microsoft Teams
     href: teams-on-wvd.md
-  - name: Set up Azure Multi-Factor Authentication
+  - name: Set up Azure AD Multi-Factor Authentication
     href: set-up-mfa.md
   - name: Configure automatic updates
     href: configure-automatic-updates.md
@@ -106,6 +106,8 @@
     href: azure-advisor.md
   - name: Resolve recommendations
     href: azure-advisor-recommendations.md
+  - name: Use Azure Monitor for Windows Virtual Desktop
+    href: azure-monitor.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
 - name: Concepts
@@ -122,7 +124,7 @@
         href: shortpath.md
       - name: Implement Quality of Service (QoS)
         href: rdp-quality-of-service-qos.md
-      - name: Safe URL list
+      - name: Required URL list
         href: safe-url-list.md
       - name: Bandwidth considerations
         href: rdp-bandwidth.md
@@ -150,6 +152,8 @@
         href: app-attach-glossary.md
       - name: FAQ
         href: app-attach-faq.md
+  - name: Azure Monitor glossary
+    href: azure-monitor-glossary.md
   - name: Data locations
     href: data-locations.md
 - name: Troubleshoot
@@ -170,6 +174,8 @@
     href: troubleshoot-powershell.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
+  - name: Azure Monitor
+    href: troubleshoot-azure-monitor.md
 - name: Reference
   items:
   - name: Security best practices

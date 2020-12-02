@@ -25,6 +25,10 @@
       displayName: Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Azure Data Share terminology
     href: terminology.md
   - name: Roles and requirements
@@ -41,7 +45,7 @@
     items:
     - name: Share from Azure Storage
       href: how-to-share-from-storage.md
-    - name: Share from Azure SQL Database or Synapse Analytics
+    - name: Share from Azure SQL Database or Azure Synapse Analytics
       href: how-to-share-from-sql.md
     - name: Share from Azure Data Explorer
       href: /azure/data-explorer/data-share

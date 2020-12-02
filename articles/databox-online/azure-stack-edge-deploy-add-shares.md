@@ -57,7 +57,7 @@ To create a share, do the following procedure:
     c. Provide a storage account where the share will reside. 
 
     > [!IMPORTANT]
-    > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge Pro or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+    > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge Pro or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](../storage/blobs/storage-blob-immutability-policies-manage.md).
     
     d. In the **Storage service** drop-down list, select **Block Blob**, **Page Blob**, or **Files**.  
     The type of service you select depends on which format you want the data to use in Azure. In this example, because we want to store the data as block blobs in Azure, we select **Block Blob**. If you select **Page Blob**, make sure that your data is 512 bytes aligned. For example, a VHDX is always 512 bytes aligned.
@@ -157,5 +157,3 @@ To learn how to transform your data by using Azure Stack Edge Pro, advance to th
 
 > [!div class="nextstepaction"]
 > [Transform data with Azure Stack Edge Pro](./azure-stack-edge-deploy-configure-compute.md)
-
-

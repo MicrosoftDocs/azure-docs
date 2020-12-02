@@ -130,7 +130,7 @@ To complete the remaining steps, make sure you have:
 1. On the **Review + create**, review the settings, and select **Create** to create the event channel. 
 
 ## Next steps
-- [Partner topics overview](partner-topics-overview.md)
+- [Partner topics overview](./partner-events-overview.md)
 - [Partner topics onboarding form](https://aka.ms/gridpartnerform)
 - [Auth0 partner topic](auth0-overview.md)
 - [How to use the Auth0 partner topic](auth0-how-to.md)

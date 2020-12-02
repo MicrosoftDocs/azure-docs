@@ -39,8 +39,6 @@
       href: storage-snapshots-files.md
     - name: Development
       items:
-      - name: Manage concurrency
-        href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: Shared key authentication
         href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
       - name: Shared access signatures (SAS)
@@ -80,7 +78,7 @@
   - name: Encryption at-rest
     href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Encryption at-rest with customer-managed keys
-    href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: FAQ
@@ -102,7 +100,7 @@
     - name: Deploy Azure File Sync
       href: storage-sync-files-deployment-guide.md
     - name: SQL Server FCI with premium file shares
-      href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json
+      href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Mount
     items:
     - name: Mount SMB file share to Windows

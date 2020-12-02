@@ -82,9 +82,9 @@ The location of the default workspace depends on your Azure region:
 - For VMs in Australia, the workspace location is Australia
 
 
-## What data is collected by the Log Analytics agent?
+## What security events are collected by the Log Analytics agent?
 
-For a full list of the applications and services monitored by the agent, see [What is monitored by Azure Monitor?](../azure-monitor/monitor-reference.md#azure-services).
+For a full list of the security events collected by the agent, see [What event types are stored for the "Common" and "Minimal" security events settings?](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal).
 
 > [!IMPORTANT]
 > Note that for some services, such as Azure Firewall, if you have enabled logging and chosen a chatty resource to log (for example, setting the log to *verbose*) you may see significant impacts on your Log Analytics workspace storage needs. 

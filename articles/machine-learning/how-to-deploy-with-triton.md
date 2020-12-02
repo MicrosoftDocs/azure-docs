@@ -10,7 +10,7 @@ author: gvashishtha
 ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
-ms.custom: deploy
+ms.custom: deploy, devx-track-azurecli
 ---
 
 # High-performance serving with Triton Inference Server (Preview) 
@@ -45,6 +45,17 @@ Before attempting to use Triton for your own model, it's important to understand
 * Inference requests use the __scoring URI__. For example, `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Normal, non-triton, deployment architecture diagram":::
+
+### Setting the number of workers
+
+To set the number of workers in your deployment, set the environment variable `WORKER_COUNT`. Given you have an [Environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) object called `env`, you can do the following:
+
+```{py}
+env.environment_variables["WORKER_COUNT"] = "1"
+```
+
+This will tell Azure ML to spin up the number of workers you specify.
+
 
 **Inference configuration deployment with Triton**
 

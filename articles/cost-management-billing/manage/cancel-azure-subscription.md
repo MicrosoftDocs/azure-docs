@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 12/01/2020
 ms.author: banders
 ---
 
@@ -33,6 +33,9 @@ If you cancel a paid Azure Support plan, you're billed for the rest of the subsc
     ![Screenshot that shows the Cancel button](./media/cancel-azure-subscription/cancel_ibiza.png)
 1. Follow prompts and finish cancellation.
 
+> [!NOTE]
+> Partners can suspend or cancel a subscription if requested by a customer or in cases of nonpayment or fraud. For more information, see [Suspend or cancel a subscription](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription).
+
 ## Who can cancel a subscription?
 
 The table below describes the permission required to cancel a subscription.
@@ -43,7 +46,7 @@ The table below describes the permission required to cancel a subscription.
 |[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Account owner and owners of the subscription       |
 |[Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g/) and [Azure plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Owners of the subscription      |
 
-## What happens after I cancel my subscription?
+## What happens after subscription cancellation?
 
 After you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation to show in the portal. If you cancel in the middle of a billing period, we send the final invoice on your typical invoice date after the period ends.
 
@@ -60,7 +63,7 @@ If you have a free trial subscription, you don't have to wait 30 days for the su
 1. Select the subscription that you want to delete.
 1. Select **Overview**, and then select **Delete subscription**.
 
-## Reactivate subscription
+## Reactivate a subscription
 
 If you cancel your subscription with Pay-As-You-Go rates accidentally, you can [reactivate it in the Accounts Center](subscription-disabled.md).
 
@@ -68,7 +71,7 @@ If your subscription isn't a subscription with Pay-As-You-Go rates, contact supp
 
 ## Why don't I see the Cancel Subscription option on the Azure portal? 
 
-You may not have the permissions required to cancel a subscription. See [Who can cancel a subscription?](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription) for a description of who can cancel various types of subscriptions.
+You may not have the permissions required to cancel a subscription. See [Who can cancel a subscription?](#who-can-cancel-a-subscription) for a description of who can cancel various types of subscriptions.
 
 ## How do I delete my Azure Account?
 
@@ -80,7 +83,7 @@ You may not have the permissions required to cancel a subscription. See [Who can
 
 ## How do I cancel a Visual Studio Professional account?
 
-See the [Renewal and Cancellation](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation) article. If you have any Visual Studio Azure subscriptions, they need to be canceled and deleted as well.
+See the [Renewal and Cancellation](/visualstudio/subscriptions/faq/admin/renewal-cancellation) article. If you have any Visual Studio Azure subscriptions, they need to be canceled and deleted as well.
 
 ## Next steps
 

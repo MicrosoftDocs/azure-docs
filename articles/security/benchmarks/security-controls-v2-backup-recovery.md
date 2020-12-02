@@ -54,7 +54,7 @@ Ensure your backups are protected against attacks. This should include encryptio
 
 For on-premises backups using Azure Backup, encryption-at-rest is provided using the passphrase you provide. For regular Azure service backups, backup data is automatically encrypted using Azure platform-managed keys. You can choose to encrypt the backups using customer managed key. In this case, ensure this customer-managed key in the key vault is also in the backup scope. 
 
-Use role-based access control in Azure Backup, Azure Key Vault, or other resources to protect backups and customer managed keys. Additionally, you can enable advanced security features to require MFA before backups can be altered or deleted.
+Use Azure role-based access control in Azure Backup, Azure Key Vault, or other resources to protect backups and customer managed keys. Additionally, you can enable advanced security features to require MFA before backups can be altered or deleted.
 
 - [Overview of security features in Azure Backup](../../backup/security-overview.md)
 

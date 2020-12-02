@@ -13,11 +13,11 @@ ms.reviewer: jrasnick
 
 # Quickstart: Bulk loading with Synapse SQL
 
-Loading data has never been easier when using the Bulk Load wizard in the Synapse Studio. This wizard will guide you through creating a T-SQL script with the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) to bulk load data. 
+Loading data is easy with the Bulk Load wizard in Synapse Studio. The Bulk Load wizard will guide you through creating a T-SQL script with the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) to bulk load data. 
 
 ## Entry points to the Bulk Load wizard
 
-You can now easily bulk load data using dedicated SQL pools with a simple right-click on the following areas within the Synapse Studio:
+You can easily bulk load data using dedicated SQL pools with a simple right-click on the following areas within the Synapse Studio:
 
 - A file or folder from an Azure storage account attached to your workspace
 ![Right-clicking on a file or folder from a storage account](./sql/media/bulk-load/bulk-load-entry-point-0.png)
@@ -35,7 +35,8 @@ You can now easily bulk load data using dedicated SQL pools with a simple right-
 
 ### Steps
 
-1. Select the storage account and the file or folder you're loading from on the Source storage location panel. The wizard will automatically attempt to detect Parquet files. If the Parquet file type cannot be confirmed, delimited text (CSV) will be used by default. 
+1. Select the storage account and the file or folder you're loading from on the Source storage location panel. The wizard will automatically attempt to detect Parquet files. If the Parquet file type cannot be confirmed, delimited text (CSV) will be used by default.
+
    ![Selecting source location](./sql/media/bulk-load/bulk-load-source-location.png)
 
 2. Select the file format settings including the storage account where you want to write rejected rows (error file). Currently only CSV and Parquet files are supported.

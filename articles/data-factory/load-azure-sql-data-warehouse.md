@@ -97,7 +97,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     a. Click **+ Create new connection** to add a connection
 
-    b. Select **Azure Synapse Analytics (formerly SQL Data Warehouse)** from the gallery, and select **Continue**. You can type "SQL" in the search box to filter the connectors.
+    b. Select **Azure Synapse Analytics** from the gallery, and select **Continue**. You can type "SQL" in the search box to filter the connectors.
 
     ![Select Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
