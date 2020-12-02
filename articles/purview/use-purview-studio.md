@@ -71,6 +71,9 @@ Each UX in Azure Purview Studio will have guided tours to give overview of the p
 
 :::image type="content" source="./media/use-purview-studio/guided-tour.png" alt-text="Screenshot of the guided tour.":::
 
+ > [!Important]
+   > *Data Source Administrator* does not have access to Purview Studio.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

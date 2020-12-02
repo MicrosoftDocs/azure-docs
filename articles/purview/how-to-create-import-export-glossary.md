@@ -31,7 +31,7 @@ This article describes how to create a business glossary term in Azure Purview d
 
 5. Set the **Status** for the term. New terms default to **Draft** status.
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/new-term-with-custom-template.png" alt-text="Screenshot of the status choices.":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/overview-tab.png" alt-text="Screenshot of the status choices.":::
 
    These status markers are metadata associated with the term. Currently you can set the following status on each term:
 
@@ -87,6 +87,8 @@ You should be able to export terms from glossary as long as the selected terms b
 1. When you are in the Glossary, by default the **Export** button is disabled. Once you select the terms you want to export, the **Export** button is enabled if the selected terms belong to same template.
 
 2. Select **Export** to download the selected terms.
+
+:::image type="content" source="media/how-to-create-import-export-glossary/select-file-for-export.png" alt-text="Screenshot of the Glossary terms page, select file for Export.":::
 
 ## Next steps
 
