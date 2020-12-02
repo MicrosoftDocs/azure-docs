@@ -85,6 +85,12 @@ It is required to get the Service Principal's application ID and secret:
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to setup your scan
 
+##### Granting the Service Principal access to your ADLS gen2 account
+
+1. Navigate to your storage account.
+1. Select **Access Control (IAM)** from the left navigation menu. 
+1. Select **+ Add**.
+1. Set the **Role** to **Storage Blob Data Reader** and enter your service principal name or object ID under **Select** input box. Then, select **Save** to give this role assignment to your service principal.
 ### Firewall settings
 
 > [!NOTE]
