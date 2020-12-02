@@ -110,8 +110,6 @@ Teachers are able to add student users to a lab and monitor their hour quotas.
 
 1. From the [Azure Lab services website](https://labs.azure.com/) click **Users** from the left-hand side of the window.
 1. At the top of the window, click on **Add users** and select **Add by email address**. 
-
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-button.png" alt-text="The 'Add users' button":::
 1. In the **Add users** pane that appears on the right, enter the students’ email addresses on separate lines or on a single line, separated by semicolons.
 1. Click **Save**.
 
