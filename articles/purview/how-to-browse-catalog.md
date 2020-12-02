@@ -25,7 +25,7 @@ A native browsing experience with hierarchical namespace is provided for each of
 
 1. You can browse data assets, by selecting the **Browse by asset type** on the homepage.
 
-    :::image type="content" source="media/how-to-browse-catalog/home.jpg" alt-text="Purview home page" border="true":::
+    :::image type="content" source="media/how-to-browse-catalog/studio-home-page.png" alt-text="Purview home page" border="true":::
 
 1. On the **Browse asset types** page, tiles are categorized by data sources. To further explore assets in each data source, select the corresponding tile.
 
