@@ -16,7 +16,7 @@ Synapse RBAC roles are used to assign permissions to users, groups, and other se
 
 This article explains how to review the current role assignments for a workspace.
 
-A user with any Synapse RBAC role can list Synapse RBAC role assignments for all scopes, including assignments objects you don't have access to. Only a Synapse Administrator can grant Synapse RBAC access.  To be assigned additional permissions, contact a Synapse Administrator.    
+With any Synapse RBAC role, you can list Synapse RBAC role assignments for all scopes, including assignments for objects you don't have access to. Only a Synapse Administrator can grant Synapse RBAC access.   
 
 ## Open Synapse Studio  
 
@@ -28,7 +28,7 @@ To review role assignments, first [open the Synapse Studio](https://web.azuresyn
 
  ![Select Access Control in Security section on left](./media/how-to-manage-synapse-rbac-role-assignments/left-nav-security-access-control.png)
 
-## Review Workspace role assignments
+## Review workspace role assignments
 
 The Access control screen lists all current role assignments for the workspace, grouped by role. Each assignment includes the principal name, principal type, role, and its scope.
 

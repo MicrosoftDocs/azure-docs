@@ -12,7 +12,7 @@ ms.reviewer: jrasnick
 
 # Synapse RBAC Roles
 
-The article describes the built-in Synapse RBAC roles, the permissions they grant, and the scopes they can be used at.  
+The article describes the built-in Synapse RBAC roles, the permissions they grant, and the scopes at which they can be used.  
 
 ## What's changed since the preview?
 For users familiar with the Synapse RBAC roles provided during the preview, the following changes apply:
