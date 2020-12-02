@@ -33,6 +33,7 @@ Updates in December include:
 
 - [Azure Defender for SQL servers on machines is generally available](#azure-defender-for-sql-servers-on-machines-is-generally-available)
 - [Azure Defender for SQL support for Azure Synapse Analytics dedicated SQL pool is generally available](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [Global Administrators can now grant themselves tenant-level permissions](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
 
 ### Azure Defender for SQL servers on machines is generally available
 
@@ -66,7 +67,7 @@ Azure Defender for SQL's support for Azure Synapse Analytics SQL pools is automa
 Learn more about [Azure Defender for SQL](defender-for-sql-introduction.md).
 
 
-## Global Administrators can now grant themselves tenant-level permissions
+### Global Administrators can now grant themselves tenant-level permissions
 
 A user with the Azure Active Directory role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Azure Security Center. 
 
