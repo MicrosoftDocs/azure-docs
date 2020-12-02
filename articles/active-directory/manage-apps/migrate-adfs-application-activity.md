@@ -37,7 +37,7 @@ The AD FS application activity data is available to users who are assigned any o
    * [Get started with setting up Azure AD Connect Health and install the AD FS agent](../hybrid/how-to-connect-health-agent-install.md)
 
 >[!IMPORTANT] 
->If you have installed Azure AD Connect Health but still you don't see all or any application.The AD FS application activity report only shows AD FS Relying Parties with user sign-ins in the last 30 days. Also, the report won't display microsoft related relying parties such as office 365.
+>There are a couple reasons you won't see all the applications you are expecting after you have installed Azure AD Connect Health. The AD FS application activity report only shows AD FS relying parties with user logins in the last 30 days. Also, the report won't display Microsoft related relying parties such as Office 365.
 
 ## Discover AD FS applications that can be migrated 
 
