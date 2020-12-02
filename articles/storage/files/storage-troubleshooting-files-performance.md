@@ -69,11 +69,12 @@ If the application that you're using is single-threaded, this setup can result i
 
 ### Cause
 
-The client virtual machine (VM) could be located in a different region than the file share.
+The client virtual machine (VM) could be located in a different region than the file share. Other reason for high latency could be due to the latency caused by the client or the network.
 
 ### Solution
 
 - Run the application from a VM that's located in the same region as the file share.
+- For your storage account, review transaction metrics **SuccessE2ELatency** and  **SuccessServerLatency** via **Azure Monitor** in Azure portal. A high difference between SuccessE2ELatency and SuccessServerLatency metrics values is an indication of latency that is likely caused by the network or the client. See [Transaction metrics](storage-files-monitoring-reference.md#transaction-metrics) in Azure Files Monitoring data reference.
 
 ## Client unable to achieve maximum throughput supported by the network
 
