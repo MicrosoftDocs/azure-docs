@@ -34,7 +34,7 @@ For this reason, there's no need to create credentials or specify them in the co
 ## Constraints
 
 - This connector works only in Scala.
-- For pySpark, see details in the [Use Python](#Use-PySpark-with-the-connector) section.
+- For pySpark, see details in the [Use Python](#use-pyspark-with-the-connector) section.
 - This Connector does not support querying SQL Views.
 
 ## Prerequisites
