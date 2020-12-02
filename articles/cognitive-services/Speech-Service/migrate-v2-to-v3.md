@@ -41,7 +41,7 @@ If the entity has additional functionality available under other paths, they are
 
 v2 transcription:
 
-```json
+```jsonc
 {
     "id": "9891c965-bb32-4880-b14b-6d44efb158f3",
     "createdDateTime": "2019-01-07T11:34:12Z",
@@ -49,13 +49,13 @@ v2 transcription:
     "status": "Succeeded",
     "locale": "en-US",
     "name": "Transcription using locale en-US",
-    ...
+    // ...
 }
 ```
 
 v3 transcription:
 
-```json
+```jsonc
 {
     "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
     "createdDateTime": "2019-01-07T11:34:12Z",
@@ -66,7 +66,7 @@ v3 transcription:
     "links": {
       "files": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files"
     },
-    ...
+    // ...
 }
 ```
 
@@ -78,13 +78,13 @@ Previously the v2 API returned all available entities in a response. To allow a 
 
 The basic shape of the response is the same for all collections:
 
-```json
+```jsonc
 {
     "values": [
     {
-      ...
+      // ...
     },
-    ...
+    // ...
     ],
     "@nextLink": "https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/{collection}?skip=100&top=100"
 }
@@ -146,7 +146,7 @@ The property names are now camel-cased and the values for channel and speaker ar
 
 Sample of a v3 transcription result. The differences are described in the comments.
 
-```json
+```jsonc
 {
   "source": "...",                      // (new in v3) was AudioFileName / AudioFileUrl
   "timestamp": "2020-06-16T09:30:21Z",  // (new in v3)
@@ -213,7 +213,7 @@ In v3, there is a property called `files` under links in case the entity exposes
 
 v2 transcription:
 
-```json
+```jsonc
 {
   "id": "9891c965-bb32-4880-b14b-6d44efb158f3",
   "status": "Succeeded",
@@ -222,19 +222,19 @@ v2 transcription:
     "channel_0": "https://contoso.com/audiofile1.wav?st=2018-02-09T18%3A07%3A00Z&se=2018-02-10T18%3A07%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=6c044930-3926-4be4-be76-f72832e6600c",
     "channel_1": "https://contoso.com/audiofile2.wav?st=2018-02-09T18%3A07%3A00Z&se=2018-02-10T18%3A07%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=3e0163f1-0029-4d4a-988d-3fba7d7c53b5"
   },
-  ...
+  // ...
 }
 ```
 
 v3 transcription:
 
-```json
+```jsonc
 {
     "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
     "links": {
       "files": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files"
     },
-    ...
+    // ...
 }
 ```
 
@@ -295,19 +295,19 @@ The name of the property `name` is renamed to `displayName`. This is aligned to 
 
 v2 transcription:
 
-```json
+```jsonc
 {
     "name": "Transcription using locale en-US",
-    ...
+    // ...
 }
 ```
 
 v3 transcription:
 
-```json
+```jsonc
 {
     "displayName": "Transcription using locale en-US",
-    ...
+    // ...
 }
 ```
 
@@ -317,7 +317,7 @@ In v2 referenced entities have always been inlined, for example the used models 
 
 v2 transcription:
 
-```json
+```jsonc
 {
   "id": "9891c965-bb32-4880-b14b-6d44efb158f3",
   "models": [
@@ -339,25 +339,25 @@ v2 transcription:
           "createdDateTime": "2019-01-07T11:34:12Z",
           "locale": "en-US",
           "name": "Language dataset",
-          ...
+          // ...
         }
       ],
-      ...
+      // ...
     },
   ],
-  ...
+  // ...
 }
 ```
 
 v3 transcription:
 
-```json
+```jsonc
 {
   "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
   "model": {
     "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/models/021a72d0-54c4-43d3-8254-27336ead9037"
   },
-  ...
+  // ...
 }
 ```
 
@@ -369,20 +369,20 @@ Version v2 of the service supported logging the responses of endpoints. To retri
 
 A successfully running v3 endpoint:
 
-```json
+```jsonc
 {
   "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6",
   "links": {
     "logs": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6/files/logs",
-    ...
+    // ...
   },
-  ...
+  // ...
 }
 ```
 
 Response of GET `$.links.logs`:
 
-```json
+```jsonc
 {
   "values": [
     {
@@ -397,7 +397,7 @@ Response of GET `$.links.logs`:
         "contentUrl": "https://customspeech-usw.blob.core.windows.net/artifacts/2019-09-20_080000_3b5f4628-e225-439d-bd27-8804f9eed13f.wav?st=2018-02-09T18%3A07%3A00Z&se=2018-02-10T18%3A07%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=e05d8d56-9675-448b-820c-4318ae64c8d5"
       }
     },
-    ...
+    // ...
   ],
   "@nextLink": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6/files/logs?top=2&SkipToken=2!188!MDAwMDk1ITZhMjhiMDllLTg0MDYtNDViMi1hMGRkLWFlNzRlOGRhZWJkNi8yMDIwLTA0LTAxLzEyNDY0M182MzI5NGRkMi1mZGYzLTRhZmEtOTA0NC1mODU5ZTcxOWJiYzYud2F2ITAwMDAyOCE5OTk5LTEyLTMxVDIzOjU5OjU5Ljk5OTk5OTlaIQ--"
 }
@@ -413,31 +413,31 @@ To separate custom properties from the optional configuration properties, all ex
 
 v2 transcription entity
 
-```json
+```jsonc
 {
   "properties": {
     "customerDefinedKey": "value",
     "diarizationEnabled": "False",
     "wordLevelTimestampsEnabled": "False",
-    ...
+    // ...
   },
-  ...
+  // ...
 }
 ```
 
 v3 transcription entity
 
-```json
+```jsonc
 {
   "properties": {
     "diarizationEnabled": false,
     "wordLevelTimestampsEnabled": false,
-    ...
+    // ...
   },
   "customProperties": {
     "customerDefinedKey": "value"
   },
-  ...
+  // ...
 }
 ```
 
