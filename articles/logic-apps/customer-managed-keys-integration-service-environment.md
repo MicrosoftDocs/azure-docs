@@ -26,7 +26,11 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * Currently, to create an ISE that supports customer-managed keys and has either managed identity type enabled, you have to call the Logic Apps REST API by using an HTTPS PUT request.
 
-* Within *30 minutes* after you send the HTTPS PUT request that creates your ISE, you must [give key vault access to your ISE's managed identity](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
+* You must [give key vault access to your ISE's managed identity](#identity-access-to-key-vault), but the timing depends on which managed identity that you use.
+
+  * **System-assigned managed identity**: Within *30 minutes after* you send the HTTPS PUT request that creates your ISE, you must [give key vault access to your ISE's managed identity](#identity-access-to-key-vault). Otherwise, ISE creation fails, and you get a permissions error.
+
+  * **User-assigned managed identity**: Before you send the HTTPS PUT request that creates your ISE, [give key vault access to your ISE's managed identity](#identity-access-to-key-vault).
 
 ## Prerequisites
 
@@ -60,7 +64,7 @@ To create your ISE by calling the Logic Apps REST API, make this HTTPS PUT reque
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
 
 > [!IMPORTANT]
-> The Logic Apps REST API 2019-05-01 version requires that you make your own HTTP PUT request for ISE connectors.
+> The Logic Apps REST API 2019-05-01 version requires that you make your own HTTPS PUT request for ISE connectors.
 
 Deployment usually takes within two hours to finish. Occasionally, deployment might take up to four hours. To check deployment status, in the [Azure portal](https://portal.azure.com), on your Azure toolbar, select the notifications icon, which opens the notifications pane.
 
@@ -208,7 +212,11 @@ This example request body shows the sample values:
 
 ## Grant access to your key vault
 
-Within *30 minutes* after you send the HTTP PUT request to create your ISE, you must add an access policy to your key vault for your ISE's system-assigned identity. Otherwise, creation for your ISE fails, and you get a permissions error. 
+Although the timing differs based on the managed identity that you use, you must [give key vault access to your ISE's managed identity](#identity-access-to-key-vault).
+
+* **System-assigned managed identity**: Within *30 minutes after* you send the HTTPS PUT request that creates your ISE, you must add an access policy to your key vault for your ISE's system-assigned managed identity. Otherwise, creation for your ISE fails, and you get a permissions error.
+
+* **User-assigned managed identity**: Before you send the HTTPS PUT request that creates your ISE, add an access policy to your key vault for your ISE's user-assigned managed identity.
 
 For this task, you can use either the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command, or you can follow these steps in the Azure portal:
 
