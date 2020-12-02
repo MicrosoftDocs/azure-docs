@@ -24,6 +24,154 @@ the Attested category and Network portion of the Instance category support VMs c
 IMDS is a REST API that's available at a well-known, non-routable IP address (`169.254.169.254`). You can only access it from within the VM. Communication between the VM and IMDS never leaves the host.
 Have your HTTP clients bypass web proxies within the VM when querying IMDS, and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
+## Usage
+
+### Access Azure Instance Metadata Service
+
+To access IMDS, create a VM from [Azure Resource Manager](/rest/api/resources/) or the [Azure portal](https://portal.azure.com), and use the following samples.
+For more examples, see [Azure Instance Metadata Samples](https://github.com/microsoft/azureimds).
+
+Here's sample code to retrieve all metadata for an instance. To access a specific data source, see [Endpoint Categories](#endpoint-categories) for an overview of all available features.
+
+**Request**
+
+> [!IMPORTANT]
+> This example bypasses proxies. You **must** bypass proxies when querying IMDS. See [Proxies](#proxies) for additional information.
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01"
+```
+
+**Response**
+
+> [!NOTE]
+> The response is a JSON string. The following example response is pretty-printed for readability.
+
+<details>
+    <summary>Expand</summary>
+
+```json
+{
+    "compute": {
+        "azEnvironment": "AZUREPUBLICCLOUD",
+        "isHostCompatibilityLayerVm": "true",
+        "licenseType":  "Windows_Client",
+        "location": "westus",
+        "name": "examplevmname",
+        "offer": "Windows",
+        "osProfile": {
+            "adminUsername": "admin",
+            "computerName": "examplevmname",
+            "disablePasswordAuthentication": "true"
+        },
+        "osType": "linux",
+        "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+        "plan": {
+            "name": "planName",
+            "product": "planProduct",
+            "publisher": "planPublisher"
+        },
+        "platformFaultDomain": "36",
+        "platformUpdateDomain": "42",
+        "publicKeys": [{
+                "keyData": "ssh-rsa 0",
+                "path": "/home/user/.ssh/authorized_keys0"
+            },
+            {
+                "keyData": "ssh-rsa 1",
+                "path": "/home/user/.ssh/authorized_keys1"
+            }
+        ],
+        "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+        "resourceGroupName": "macikgo-test-may-23",
+        "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+        "securityProfile": {
+            "secureBootEnabled": "true",
+            "virtualTpmEnabled": "false"
+        },
+        "sku": "Windows-Server-2012-R2-Datacenter",
+        "storageProfile": {
+            "dataDisks": [{
+                "caching": "None",
+                "createOption": "Empty",
+                "diskSizeGB": "1024",
+                "image": {
+                    "uri": ""
+                },
+                "lun": "0",
+                "managedDisk": {
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                    "storageAccountType": "Standard_LRS"
+                },
+                "name": "exampledatadiskname",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }],
+            "imageReference": {
+                "id": "",
+                "offer": "UbuntuServer",
+                "publisher": "Canonical",
+                "sku": "16.04.0-LTS",
+                "version": "latest"
+            },
+            "osDisk": {
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "diskSizeGB": "30",
+                "diffDiskSettings": {
+                    "option": "Local"
+                },
+                "encryptionSettings": {
+                    "enabled": "false"
+                },
+                "image": {
+                    "uri": ""
+                },
+                "managedDisk": {
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                    "storageAccountType": "Standard_LRS"
+                },
+                "name": "exampleosdiskname",
+                "osType": "Linux",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }
+        },
+        "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+        "tags": "baz:bash;foo:bar",
+        "version": "15.05.22",
+        "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+        "vmScaleSetName": "crpteste9vflji9",
+        "vmSize": "Standard_A3",
+        "zone": ""
+    },
+    "network": {
+        "interface": [{
+            "ipv4": {
+               "ipAddress": [{
+                    "privateIpAddress": "10.144.133.132",
+                    "publicIpAddress": ""
+                }],
+                "subnet": [{
+                    "address": "10.144.133.128",
+                    "prefix": "26"
+                }]
+            },
+            "ipv6": {
+                "ipAddress": [
+                 ]
+            },
+            "macAddress": "0011AAFFBB22"
+        }]
+    }
+}
+```
+</details>
+
 ## Security & Authentication
 
 The Instance Metadata Service is only accessible from within a running virtual machine instance on a non-routable IP address. VMs are limited to interacting with metadata/functionality that pertains to themselves. The API is HTTP only and never leaves the host.
@@ -42,7 +190,7 @@ Any request that does not meet **both** of these requirements will be rejected b
 IMDS is **not** intended to be used behind a proxy and doing so is unsupported. Most HTTP clients provide an option for you to disable proxies on your requests, and this functionality must be utilized when communicating with IMDS. Consult your client's documentation for details.
 
 > [!IMPORTANT]
-> Even if you don't know of any proxy configuration in your environment, **you must still override any default client proxy settings**. Proxy configurations can be automatically discovered, and failing to bypass such configurations exposes you to outrage risks should the machine's configuration be changed in the future.
+> Even if you don't know of any proxy configuration in your environment, **you still must override any default client proxy settings**. Proxy configurations can be automatically discovered, and failing to bypass such configurations exposes you to outrage risks should the machine's configuration be changed in the future.
 
 ## Rate Limiting
 
@@ -220,151 +368,6 @@ The service is **generally available** in all Azure Clouds.
 
 The root endpoint is `http://169.254.169.254/metadata`.
 
-## Usage
-
-### Access Azure Instance Metadata Service
-
-To access IMDS, create a VM from [Azure Resource Manager](/rest/api/resources/) or the [Azure portal](https://portal.azure.com), and use the following samples.
-For more examples, see [Azure Instance Metadata Samples](https://github.com/microsoft/azureimds).
-
-Here's sample code to retrieve all metadata for an instance. To access a specific data source, see [Endpoint Categories](#endpoint-categories) for an overview of all available features.
-
-**Request**
-
-```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01"
-```
-
-**Response**
-
-> [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
-
-<details>
-    <summary>Expand</summary>
-
-```json
-{
-    "compute": {
-        "azEnvironment": "AZUREPUBLICCLOUD",
-        "isHostCompatibilityLayerVm": "true",
-        "licenseType":  "Windows_Client",
-        "location": "westus",
-        "name": "examplevmname",
-        "offer": "Windows",
-        "osProfile": {
-            "adminUsername": "admin",
-            "computerName": "examplevmname",
-            "disablePasswordAuthentication": "true"
-        },
-        "osType": "linux",
-        "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
-        "plan": {
-            "name": "planName",
-            "product": "planProduct",
-            "publisher": "planPublisher"
-        },
-        "platformFaultDomain": "36",
-        "platformUpdateDomain": "42",
-        "publicKeys": [{
-                "keyData": "ssh-rsa 0",
-                "path": "/home/user/.ssh/authorized_keys0"
-            },
-            {
-                "keyData": "ssh-rsa 1",
-                "path": "/home/user/.ssh/authorized_keys1"
-            }
-        ],
-        "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
-        "resourceGroupName": "macikgo-test-may-23",
-        "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
-        "securityProfile": {
-            "secureBootEnabled": "true",
-            "virtualTpmEnabled": "false"
-        },
-        "sku": "Windows-Server-2012-R2-Datacenter",
-        "storageProfile": {
-            "dataDisks": [{
-                "caching": "None",
-                "createOption": "Empty",
-                "diskSizeGB": "1024",
-                "image": {
-                    "uri": ""
-                },
-                "lun": "0",
-                "managedDisk": {
-                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-                    "storageAccountType": "Standard_LRS"
-                },
-                "name": "exampledatadiskname",
-                "vhd": {
-                    "uri": ""
-                },
-                "writeAcceleratorEnabled": "false"
-            }],
-            "imageReference": {
-                "id": "",
-                "offer": "UbuntuServer",
-                "publisher": "Canonical",
-                "sku": "16.04.0-LTS",
-                "version": "latest"
-            },
-            "osDisk": {
-                "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "diskSizeGB": "30",
-                "diffDiskSettings": {
-                    "option": "Local"
-                },
-                "encryptionSettings": {
-                    "enabled": "false"
-                },
-                "image": {
-                    "uri": ""
-                },
-                "managedDisk": {
-                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                    "storageAccountType": "Standard_LRS"
-                },
-                "name": "exampleosdiskname",
-                "osType": "Linux",
-                "vhd": {
-                    "uri": ""
-                },
-                "writeAcceleratorEnabled": "false"
-            }
-        },
-        "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-        "tags": "baz:bash;foo:bar",
-        "version": "15.05.22",
-        "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
-        "vmScaleSetName": "crpteste9vflji9",
-        "vmSize": "Standard_A3",
-        "zone": ""
-    },
-    "network": {
-        "interface": [{
-            "ipv4": {
-               "ipAddress": [{
-                    "privateIpAddress": "10.144.133.132",
-                    "publicIpAddress": ""
-                }],
-                "subnet": [{
-                    "address": "10.144.133.128",
-                    "prefix": "26"
-                }]
-            },
-            "ipv6": {
-                "ipAddress": [
-                 ]
-            },
-            "macAddress": "0011AAFFBB22"
-        }]
-    }
-}
-```
-</details>
-
 ## Endpoint Categories
 
 The IMDS API contains multiple endpoint categories representing different data sources, each of which contains one or more endpoints. See each category for details.
@@ -407,7 +410,7 @@ None (this endpoint is unversioned).
 
 ### Get VM Metadata
 
-Instance API exposes the important metadata for the VM instances, including the VM, network, and storage. 
+Exposes the important metadata for the VM instance, including the VM, network, and storage. 
 
 ```bash
 GET /metadata/instance
