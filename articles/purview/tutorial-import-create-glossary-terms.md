@@ -175,7 +175,7 @@ In this tutorial, you learned how to:
 > * Add glossary terms to an asset.
 > * Import glossary terms.
 
-Advance to the next tutorial to learn how to navigate the home page and search for an asset.
+Advance to the next article to learn about different catalog insights.
 
 > [!div class="nextstepaction"]
-> [Use Catalog insights](starter-kit-tutorial-6.md)
+> [Understand Insights in Azure Purview](concepts-insights.md)

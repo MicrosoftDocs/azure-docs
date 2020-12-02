@@ -122,5 +122,6 @@ On the detailed labeling report, use the following methods to modify the data di
 
 ## Next steps
 
-[Tutorial on how to view Insights in Purview](starter-kit-tutorial-6.md)
-
+* [Glossary insights](glossary-insights.md)
+* [Scan insights](scan-insights.md)
+* [Classification insights](./classification-insights.md)
