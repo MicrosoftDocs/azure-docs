@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: include
 ms.date: 11/17/2020
 ms.author: hirsin
 ms.reviewer: hirsin
