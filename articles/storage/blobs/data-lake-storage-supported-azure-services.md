@@ -35,7 +35,7 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 |IoT Hub |Generally available|Yes|Yes|[Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
 |Power BI|Generally available|Yes|Yes|[Analyze data in Data Lake Storage Gen2 using Power BI](/power-query/connectors/datalakestorage)|
 |Azure Synapse Analytics (formerly SQL Data Warehouse)|Generally available|Yes|Yes|[Use with Azure Synapse Analytics](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|SQL Server Integration Services (SSIS)|Generally available|Yes|Yes|[Azure Storage connection manager](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
+|SQL Server Integration Services (SSIS)|Generally available|Yes|Yes|[Azure Storage connection manager](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
 |Azure Data Explorer|Generally available|Yes|Yes|[Query data in Azure Data Lake using Azure Data Explorer](/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|Preview|Yes|Yes|[Index and search Azure Data Lake Storage Gen2 documents (preview)](../../search/search-howto-index-azure-data-lake-storage.md)|
 |Azure Content Delivery Network|Not yet supported|Not applicable|Not applicable|[Index and search Azure Data Lake Storage Gen2 documents (preview)](../../cdn/cdn-overview.md)|
