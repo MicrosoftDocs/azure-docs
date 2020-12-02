@@ -23,7 +23,7 @@ ms.custom: devx-track-js
 > * [REST](search-get-started-rest.md)
 
 
-Use the [Javascript/Typscript SDK for Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme) to create a Node.js application in JavaScript that creates, loads, and queries a search index.
+Use the [Javascript/Typscript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme) to create a Node.js application in JavaScript that creates, loads, and queries a search index.
 
 This article demonstrates how to create the application step by step. Alternatively, you can [download the source code and data](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) and run the application from the command line.
 
@@ -76,7 +76,7 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
     ```
      Accept the default values, except for the License, which you should set to "MIT". 
 
-3. Install `@azure/search-documents`, the [Javascript/Typscript SDK for Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme).
+3. Install `@azure/search-documents`, the [Javascript/Typscript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme).
 
     ```cmd
     npm install @azure/search-documents

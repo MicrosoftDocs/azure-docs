@@ -3,7 +3,7 @@ title: What is Azure IoT Central | Microsoft Docs
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions and helps to reduce the burden and cost of IoT management operations, and development. This article provides an overview of the features of Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/10/2019
+ms.date: 11/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -132,7 +132,7 @@ IoT Central applications are fully hosted by Microsoft, which reduces the admini
 You can create IoT Central application using a 7-day free trial, or use a standard pricing plan.
 
 - Applications you create using the *free* plan are free for seven days and support up to five devices. You can convert them to use a standard pricing plan at any time before they expire.
-- Applications you create using the *standard* plan are billed on a per device basis, you can choose either **Standard 1** or **Standard 2** pricing plan with the first two devices being free. Learn more about [IoT Central pricing](https://aka.ms/iotcentral-pricing).
+- Applications you create using the *standard* plan are billed on a per device basis, you can choose either **Standard 0**, **Standard 1**, or **Standard 2** pricing plan with the first two devices being free. Learn more about [IoT Central pricing](https://aka.ms/iotcentral-pricing).
 
 ## Quotas
 
@@ -152,7 +152,7 @@ Each Azure subscription has default quotas that could impact the scope of your I
 Now that you have an overview of IoT Central, here are some suggested next steps:
 
 - Understand the available [Azure technologies and services for creating IoT solutions](../../iot-fundamentals/iot-services-and-technologies.md).
-- If you're a device developer and want to dive into some code, the suggested next step is to [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device-nodejs.md).
+- If you're a device developer and want to dive into some code, the suggested next step is to [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
 - Learn how to [Connect an Azure IoT Edge device](./tutorial-add-edge-as-leaf-device.md).

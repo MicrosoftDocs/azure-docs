@@ -121,7 +121,7 @@ landingContent:
           - text: Monitoring
             url: azure-monitor.md
           - text: Role-based access control for admins
-            url: ../active-directory/users-groups-roles/directory-assign-admin-roles.md
+            url: ../active-directory/roles/permissions-reference.md
           - text: User management
             url: manage-user-accounts-graph-api.md
           - text: Troubleshooting
