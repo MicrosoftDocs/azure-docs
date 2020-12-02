@@ -23,12 +23,12 @@ A Credential is authentication information that Azure Purview can use to authent
 ## Using Purview managed identity to set up scans
 If you are using the Purview managed identity to set up scans, you will not have to explicitly create a credential and link your key vault to Purview to store them. For detailed instructions on adding the Purview managed identity to have access to scan your data sources, refer to the data source specific authentication sections below:
 
-- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#set-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)
-- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)
+- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
+- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
+- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
-- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)
-- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md)
+- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
+- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
 
 ## Create Azure Key Vaults connections in your Azure Purview account
 
