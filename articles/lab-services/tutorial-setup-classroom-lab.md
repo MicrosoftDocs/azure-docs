@@ -117,13 +117,9 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
 ## Add users to the lab
 
 1. Select **Users** on the left menu. By default, the **Restrict access** option is enabled. When this setting is on, a user can't register with the lab even if the user has the registration link unless the user is in the list of users. Only users in the list can register with the lab by using the registration link you send. In this procedure, you add users to the list. Alternatively, you can turn off **Restrict access**, which allows users to register with the lab as long as they have the registration link. 
-2. Select **Add users** on the toolbar, and then select **Add by email address**. 
-
-    ![Add users button](./media/how-to-configure-student-usage/add-users-button.png)
+1. Select **Add users** on the toolbar, and then select **Add by email address**. 
 1. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
-
-    ![Add user email addresses](./media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
+1. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
 
     ![Users list](./media/how-to-configure-student-usage/users-list-new.png)
 
