@@ -129,7 +129,7 @@ To do delegated authentication, you must have admin user credentials, as well as
 
 1. Enter a name for your app.
 
-    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/register-new-app.png" alt-text="Image showing how to create a new Azure app registration":::
+    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/register-new-app.png" alt-text="register new app":::
 
 1. Once your app is created, select **API permissions**, and then **+ Add a permission**.
 
