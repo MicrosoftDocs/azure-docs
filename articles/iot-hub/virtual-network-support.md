@@ -5,7 +5,7 @@
  author: jlian
  ms.service: iot-fundamentals
  ms.topic: conceptual
- ms.date: 11/09/2020
+ ms.date: 12/02/2020
  ms.author: jlian
 ---
 
