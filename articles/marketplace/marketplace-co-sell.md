@@ -62,7 +62,7 @@ Start your Co-sell journey directly in Partner Center following the steps below.
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="This image shows the Listing section of the Co-sell tab.":::  
 
-1. Provide details about your offer and upload collateral in the **Documents** section. Microsoft sellers will use this information to recommend and sell your offer. *(Required: Solution/offer one-pager one-pager and Solution/offer pitch deck. Required to attain Azure IP Co-sell Incentivized status: Reference architecture diagram.)*
+1. Provide details about your offer and upload collateral in the **Documents** section. Microsoft sellers will use this information to recommend and sell your offer. *(Required: Solution/offer one-pager and Solution/offer pitch deck. Required to attain Azure IP Co-sell Incentivized status: Reference architecture diagram.)*
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="This image shows the Documents section in the Co-sell tab.":::
 
