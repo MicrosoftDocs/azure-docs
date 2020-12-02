@@ -1,14 +1,14 @@
 ---
-title: 'Tutorial: Create and import glossary terms (preview)'
+title: 'Tutorial: Create and import glossary terms in Azure Purview (preview)'
 description: This tutorial describes how to create glossary terms, add glossary terms to an asset, and import glossary terms. 
 author: hophan
 ms.author: hophan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 12/01/2020
 ---
-# Tutorial: Create and import glossary terms
+# Tutorial: Create and import glossary terms in Azure Purview (preview)
 
 > [!IMPORTANT]
 > Azure Purview is currently in public preview.
@@ -16,6 +16,8 @@ ms.date: 10/01/2020
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A glossary is an important tool for maintaining and organizing your catalog. You build your glossary by defining new terms or importing a term list and then applying those terms to your assets.
+
+This tutorial is *part 5 of a six-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 4: Explore resource sets, details, schemas, and classifications in Azure Purview (preview)](starter-kit-tutorial-3.md).
 
 In this tutorial, you learn how to:
 
@@ -25,14 +27,9 @@ In this tutorial, you learn how to:
 > * Add glossary terms to an asset.
 > * Import glossary terms.
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-
 ## Prerequisites
 
-* Complete [Tutorial: Run the starter kit and scan data](starter-kit-tutorial-1.md).
-* Complete [Tutorial: Navigate the home page and search for an asset](starter-kit-tutorial-2.md ).
-* Complete [Tutorial: Browse assets and view their lineage](starter-kit-tutorial-3.md ).
-* Complete [Tutorial: Resource sets, asset details, schemas, and classifications](starter-kit-tutorial-4.md ).
+* Complete [Tutorial: Explore resource sets, details, schemas, and classifications in Azure Purview (preview)](starter-kit-tutorial-4.md).
 
 ## Sign in to Azure
 
@@ -56,7 +53,7 @@ Here's a summary of some of the most-common fields on the **Glossary term** page
 
 Create a glossary term by following these steps:
 
-1. Go to your Azure Purview portal at `https://web.babylon.azure.com/resource/<your Azure Purview account name>`.
+1. Navigate to your Azure Purview resource in the Azure portal and select **Open Purview Studio**. You're automatically taken to your Purview Studio's home page.
 
 1. Select **Glossary** from the left pane to open the **Glossary terms** page.
 
@@ -76,9 +73,7 @@ Create a glossary term by following these steps:
 
 ## Add glossary terms to an asset
 
-To add a glossary term to an asset, follow this procedure:
-
-1. Use the steps you learned in [Tutorial: Run the starter kit and scan data](starter-kit-tutorial-1.md) to find an asset (for example, **Contoso_CashFlow_(N).tsv**).
+1. Use the steps you learned in [part 1 of this tutorial series](starter-kit-tutorial-1.md) to find an asset. For example, **Contoso_CashFlow_{N}.csv**.
 
 1. On the asset details page, select **Edit**.
 
@@ -86,7 +81,7 @@ To add a glossary term to an asset, follow this procedure:
 
    :::image type="content" source="./media/starter-kit-tutorial-5/add-glossary-term-to-asset.png" alt-text="Screenshot showing how to add a glossary term to an asset.":::
 
-1. Go to the **Glossary terms** section on the **Overview** tab and note that the term *Finance* was applied to the asset.
+1. Go to the **Glossary terms** section on the **Overview** tab and note that the term *Financial* was applied to the asset.
 
 ## Import glossary terms
 
@@ -94,7 +89,7 @@ To import terms or update existing terms in bulk, upload a pre-populated templat
 
 In this procedure, you import glossary terms via a .csv file:
 
-1. Note where you stored the file named *StarterKitTerms.csv*, which is part of the starter kit that you downloaded in [Tutorial: Run the starter kit and scan data](starter-kit-tutorial-1.md).
+1. Note where you stored the file named *StarterKitTerms.csv*, which is part of the starter kit that you downloaded in [part 1 of this tutorial series](starter-kit-tutorial-1.md).
 
    This file contains a list of pre-populated terms that are relevant to your data estate.
 
@@ -110,17 +105,11 @@ In this procedure, you import glossary terms via a .csv file:
 
    After the import is finished, the new glossary terms are displayed on the **Glossary terms** page.
 
-   :::image type="content" source="./media/starter-kit-tutorial-5/imported-glossary-terms.png" alt-text="Screenshot showing newly imported glossary terms.":::
-
 1. View each of the newly imported terms to see how they're defined.
 
-1. In the search box at the top of the page, search for **Contoso_dev**.
+## Create custom term templates
 
-1. Use the procedure that you followed in [Add glossary terms to an asset](#add-glossary-terms-to-an-asset) to apply the glossary term *Devtest* to one or more of the assets you found.
-
-## Create custom term templates and import glossary terms
-
-In this step, you will learn how to create a custom term template with custom attributes and import data using a template csv file.
+In this section, you learn how to create a custom term template with custom attributes and import data using a template csv file.
 
 There are several existing System term templates, which you can view by selecting **Glossary** > **Manage term templates** > **System**.
 
@@ -131,58 +120,52 @@ To create a new custom term template, do the following steps:
 1. Select **Glossary** from the left side menu.
 1. Select **Manage term templates** > **Custom** > **New term template**
 
-:::image type="content" source="./media/starter-kit-tutorial-5/create-new-custom-term-template.png" alt-text="screate a new custom term template.":::
+   :::image type="content" source="./media/starter-kit-tutorial-5/create-new-custom-term-template.png" alt-text="screate a new custom term template.":::
 
 On the **New term template** screen, do the following steps:
 
 1. Enter **Template name**: `Sensitivity level`.
-1. Enter your desired description, such as `Indicates the level of sensitivity for this data.`.
+1. Enter your desired description, such as `Indicates the level of sensitivity for this data.`
 1. Select **+ New attribute** to open a dialog for adding attributes.
 
-:::image type="content" source="./media/starter-kit-tutorial-5/new-term-template-screen-start.png" alt-text="new term template screen start.":::
+   :::image type="content" source="./media/starter-kit-tutorial-5/new-term-template-screen-start.png" alt-text="new term template screen start.":::
 
-On the **New attribute** screen, do the following steps:
+1. On the **New attribute** screen, enter the following parameters:
 
-1. Enter **Attribute name**: `is sensitive information`.
-1. Check **Mark as required**.
-1. In the **Field type** dropdown, select **Single choice**.
-1. Select **+Add a choice** and enter **Yes** in the textbox.
-1. Select **+Add a choice** again and enter **No** in the textbox.
-1. Select **Apply**.
+   |Setting|Suggested value|
+   |---------|-----------|
+   |Attribute name|is sensitive information|
+   |Field type|dropdown|Single choice|
+   |Mark as required|Check this box.|
+   |+ Add a choice| Add two choices. "Yes" and "No".|
 
-:::image type="content" source="./media/starter-kit-tutorial-5/add-new-attribute.png" alt-text="add a new attribute.":::
+   :::image type="content" source="./media/starter-kit-tutorial-5/add-new-attribute.png" alt-text="add a new attribute.":::
 
-Repeat the same steps to add another attribute with the name `can be shared externally`. After both attributes are added, finally select **Create**.
+1. Repeat the previous steps to add another attribute with the name `can be shared externally`. After both attributes are added, finally select **Create**.
 
-:::image type="content" source="./media/starter-kit-tutorial-5/new-term-template-screen-finish.png" alt-text="finish creating new term template.":::
+## Import terms from a template
 
-Next, you will import a new term using the **Sensitivity level** template that you have created. From the **Glossary terms** screen, select **Import terms**.
+Next, you import a new term using the **Sensitivity level** template that you have created. 
 
-:::image type="content" source="./media/starter-kit-tutorial-5/select-import-terms.png" alt-text="Select import terms.":::
+1. From the **Glossary terms** screen, select **Import terms**.
 
-Select **Sensitivity level** from the **Import terms** screen. Select **Continue**.
+1. Select **Sensitivity level** from the **Import terms** screen. Select **Continue**.
 
-:::image type="content" source="./media/starter-kit-tutorial-5/select-sensitivity-level.png" alt-text="Select sensitivity level.":::
+   :::image type="content" source="./media/starter-kit-tutorial-5/select-sensitivity-level.png" alt-text="Select sensitivity level.":::
 
-The term template for **Sensitivity level** contains default system attributes, as well as the new attributes you have added: `Sensitivity level` and `is sensitive information`. Select **Download a sample .CSV** file.
+1. The term template for **Sensitivity level** contains default system attributes, as well as the new attributes you have added: `can be shared externally` and `is sensitive information`. Select **Download a sample .CSV** file.
 
-:::image type="content" source="./media/starter-kit-tutorial-5/download-sample-csv-file.png" alt-text="Download sample csv file.":::
+   :::image type="content" source="./media/starter-kit-tutorial-5/download-sample-csv-file.png" alt-text="Download sample csv file.":::
 
-This step will download a template file that you can edit to upload your new glossary term with customer attributes. Open the CSV file that you have downloaded. Add new terms and their appropriate values as new rows in the CSV file.
+1. A a template file is downloaded for you to edit and upload new glossary term with customer attributes. Open the CSV file you have downloaded. Add new terms and their appropriate values as new rows in the CSV file.
 
-:::image type="content" source="./media/starter-kit-tutorial-5/create-term-in-csv.png" alt-text="Create term in csv file.":::
+   :::image type="content" source="./media/starter-kit-tutorial-5/create-term-in-csv.png" alt-text="Create term in csv file.":::
 
-Any terms listed in the **Related Terms** or **Synonyms** column that don't already exist will be created when the file is uploaded. They will be created using the **System default** template.
+   Any terms listed in the **Related Terms** or **Synonyms** column that don't already exist will be created when the file is uploaded. They will be created using the **System default** template.
 
-To upload the file, return to the **Import terms** screen, and select **Browse** next to the **Select the complete .CSV file to upload** box. Select your file in the dialog box that opens, and then select **OK**.
+1. To upload the file, return to the **Import terms** screen, and select **Browse** next to the **Select the complete .CSV file to upload** box. Select your file in the dialog box that opens, and then select **OK**.
 
-:::image type="content" source="./media/starter-kit-tutorial-5/upload-term-csv-file.png" alt-text="Upload term csv file.":::
-
-The new terms are now listed on the **Glossary terms** screen.
-
-:::image type="content" source="./media/starter-kit-tutorial-5/new-glossary-terms-created.png" alt-text="New glossary terms created.":::
-
-You can view details about the new terms by clicking the term name in the list.
+1. The new terms are now listed on the **Glossary terms** screen. You can view details about the new terms by clicking the term name in the list.
 
 ## Next steps
 
