@@ -1,6 +1,6 @@
 ---
-title: Azure Government Isolation Guidelines for Impact Level 5 | Microsoft Docs
-description: 'This article provides guidance for Azure Government Cloud configurations required to implement Impact Level 5 workloads for the DoD'
+title: Azure Government isolation guidelines for Impact Level 5 
+description: 'This article provides guidance for Azure Government Cloud configurations required to implement Impact Level 5 workloads for the DoD.'
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 11/14/2020
 ms.custom: references_regions
-#Customer intent: As a DoD mission owner I want to know how to implement a workload at Impact Level 5 in Microsoft Azure Government
+#Customer intent: As a DoD mission owner, I want to know how to implement a workload at Impact Level 5 in Microsoft Azure Government.
 ---
-# Isolation guidelines for Impact Level 5 Workloads
+# Isolation guidelines for Impact Level 5 workloads
 
-Azure Government supports applications in all regions that require Impact Level 5 (IL5) data, as defined in the [US Department of Defense Cloud Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html). IL5 workloads have a higher degree of impact to the US Department of Defense and must be secured to a higher standard.  When supporting these workloads on Azure Government, their isolation requirements can be met in different ways. The guidance below will address configurations and settings for the isolation required to support IL5 data.  This document will be updated as new implementations are enabled and as new services are accredited for IL5 data by DISA.
+Azure Government supports applications in all regions that require Impact Level 5 (IL5) data, as defined in the [US Department of Defense Cloud Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html). IL5 workloads have a higher degree of impact to the US Department of Defense and must be secured to a higher standard. When you deploy these workloads on Azure Government, you can meet their isolation requirements in various ways. The guidance in this document will address configurations and settings to meet the isolation required to support IL5 data. We'll update this document as new implementations are enabled and as new services are accredited for IL5 data by DISA.
 
 ## Background
 
-In January 2017, the Impact Level 5 Provisional Authorization (PA) for Azure Government was the first provided to a Hyper Scale cloud provider.  This covered two regions of Azure Government (USDoD Central and USDoD East) that were dedicated to the DoD.  Based on mission owner feedback and evolving security capabilities, Microsoft has partnered with DISA to expand the IL5 PA in December 2018 to cover all six Azure Government regions while still honoring the isolation requirements needed by the Department of Defense.
+In January 2017, the Impact Level 5 Provisional Authorization (PA) for Azure Government was the first provided to a hyperscale cloud provider. This authorization covered two regions of Azure Government (US DoD Central and US DoD East) that were dedicated to the DoD. Based on mission owner feedback and evolving security capabilities, Microsoft has partnered with DISA to expand the IL5 PA in December 2018 to cover all six Azure Government regions while still honoring the isolation requirements needed by the Department of Defense.
 
 Azure Government continues to provide more PaaS features and services to the DoD at Impact Level 5 than any other cloud provider.
 
 ## Principles and approach
 
-To include a service in Impact Level 5 scope, there are two key areas that will be addressed – Storage Isolation and Compute Isolation.  We are focusing on how these services can isolate the compute and storage of Impact Level 5 data.  The SRG allows for a shared management and network infrastructure.
+To include a service in Impact Level 5 scope, there are two key areas that will be addressed: storage isolation and compute isolation. We are focusing on how these services can isolate the compute and storage of Impact Level 5 data.  The SRG allows for a shared management and network infrastructure.
 
 ### Compute isolation
 
