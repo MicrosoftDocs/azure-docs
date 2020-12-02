@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, sopai, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 12/07/2020
 ---
 
 # Overview for Azure Logic Apps Preview

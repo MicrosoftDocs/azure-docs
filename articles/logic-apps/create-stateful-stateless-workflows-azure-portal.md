@@ -73,14 +73,13 @@ This article shows how to build a **Logic App (Preview)** resource by using the 
    | **SKU and size** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for hosting your logic app. Your choices are affected by the plan type that you previously chose. To change the default tier, select **Change size**. You can then select other pricing tiers, based on the workload that you need. <p><p>This example uses the free **F1 pricing tier** for **Dev / Test** workloads. For more information, review [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/). |
    |||||
 
-1. Next, on the **Monitoring** tab, based on your selected hosting plan and pricing tier, [Application Insights](../azure-monitor/app/app-insights-overview.md), which makes diagnostics logging and tracing capability, You can either 
+1. Next, if your selected subscription, runtime stack, OS, publish type, region, resource group, or hosting plan supports [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing capability for your logic app. On the **Monitoring** tab, under **Application Insights**, set **Enable Application Insights** to **Yes** if not already selected.
 
-1. After Azure validates your logic app's settings, on the **Review + create** tab, confirm these settings, and select **Create**.
+1. After Azure validates your logic app's settings, on the **Review + create** tab, select **Create**.
 
    For example:
 
    ![Screenshot that shows the Azure portal and new logic app resource settings.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
-
 
 ## Monitoring
 
