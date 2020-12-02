@@ -25,12 +25,31 @@ Cross-tenant management enables you to view and manage the security posture of m
 
 - Security teams of organizations with multiple tenants can view and manage their security posture from a single location.
 
-## Set up cross-tenant management
+## Configure cross-tenant management permissions for your organization
 
-Set up cross-tenant management by delegating access to resources of managed tenants to your own tenant using [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md).
+Azure delegated resource management is one of the key components of Azure Lighthouse. Set up cross-tenant management by delegating access to resources of managed tenants to your own tenant using these instructions from Azure Lighthouse's documentation: [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md).
 
-> [!NOTE]
-> Azure delegated resource management is one of the key components of Azure Lighthouse.
+
+## Enable tenant-wide permissions for yourself
+
+A user with the Azure Active Directory role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Azure Security Center. 
+
+To assign yourself tenant-level permissions:
+
+1. As a Global Administrator user without an assignment on the root management group of the tenant, open Security Center's **Overview** page and select the **tenant-wide visibility** link in the banner. 
+
+    :::image type="content" source="media/security-center-cross-tenant-management/enable-tenant-level-permissions-banner.png" alt-text="Enable tenant-level permissions in Azure Security Center":::
+
+1. Select the new Azure role to be defined. 
+
+    :::image type="content" source="media/security-center-cross-tenant-management/enable-tenant-level-permissions-form.png" alt-text="Form for defining the tenant-level permissions to be assigned to your user":::
+
+    > [!TIP]
+    > To understand the differences between the optional roles, use the table in [Roles and allowed actions](security-center-permissions.md#roles-and-allowed-actions).
+
+The organizational-wide view is achieved by granting roles on the root management group level of the tenant.  
+
+Learn more about the [Global Administrator role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles)
 
 ## How does cross-tenant management work in Security Center
 
