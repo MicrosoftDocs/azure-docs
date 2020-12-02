@@ -52,11 +52,11 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
 
 ## Setup details
 
-Select the **Package type** that applies to your offer:
+<!-- Select the **Package type** that applies to your offer: (Biz Central)
 
 - An **Add-on** app extends the experience and the existing functionality of Dynamics 365 Business Central. For details, see [Add-on apps](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
 - A **Connect** app can be used in the scenario where there must be established a point-to-point connection between Dynamics 365 Business Central and a third-party solution or service. For details, see [Connect Apps](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
-
+-->
 For **How do you want potential customers to interact with this listing offer?**, select the option you'd like to use for this offer.
 
 - **Get it now (free)** – List your offer to customers for free.
