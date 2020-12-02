@@ -29,7 +29,7 @@ The query provider supports the following scalar expressions:
     family.children[n].grade; //n is an int variable
   ```
   
-- Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](sql-query-system-functions.md).
+- Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](sql-query-aggregate-functions.md).
   
   ```
     2 * family.children[0].grade;

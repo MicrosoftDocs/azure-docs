@@ -36,7 +36,7 @@ The GROUP BY clause divides the query's results according to the values of one o
 
 ## Remarks
   
-  When a query uses a GROUP BY clause, the SELECT clause can only contain the subset of properties and system functions included in the GROUP BY clause. One exception is [aggregate system functions](sql-query-aggregates.md), which can appear in the SELECT clause without being included in the GROUP BY clause. You can also always include literal values in the SELECT clause.
+  When a query uses a GROUP BY clause, the SELECT clause can only contain the subset of properties and system functions included in the GROUP BY clause. One exception is [aggregate functions](sql-query-aggregate-functions.md), which can appear in the SELECT clause without being included in the GROUP BY clause. You can also always include literal values in the SELECT clause.
 
   The GROUP BY clause must be after the SELECT, FROM, and WHERE clause and before the OFFSET LIMIT clause. You currently cannot use GROUP BY with an ORDER BY clause but this is planned.
 
@@ -187,4 +187,4 @@ The results are:
 
 - [Getting started](sql-query-getting-started.md)
 - [SELECT clause](sql-query-select.md)
-- [Aggregate functions](sql-query-aggregates.md)
+- [Aggregate functions](sql-query-aggregate-functions.md)

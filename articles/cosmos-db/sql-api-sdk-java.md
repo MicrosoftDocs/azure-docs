@@ -170,7 +170,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 * Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
 
 ### <a name="1.9.5"></a>1.9.5
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-query-aggregates.md).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-query-aggregate-functions.md).
 * Added support for change feed.
 * Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
 * Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.
