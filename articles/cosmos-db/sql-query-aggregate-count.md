@@ -9,7 +9,7 @@ ms.date: 12/02/2020
 ms.author: tisande
 ms.custom: query-reference
 ---
-# AVG (Azure Cosmos DB)
+# COUNT (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Returns the count of the values in the expression.
