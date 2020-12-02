@@ -34,14 +34,11 @@ If you are using the default Java keystore, it will already have all of the CA r
 If you are using a custom Java keystore, you may need to import the Application Insights Endpoint SSL Certificates into it.
 
 ### Some key terminology:
-*Keystore* is basically a repository of certificates, public and private keys. Usually JDK distributions have an executable to manage them – *keytool*
+*Keystore* is a repository of certificates, public and private keys. Usually JDK distributions have an executable to manage them – `keytool`.
 
-The following example is a simple command to import a SSL certificate to the keystore:
+The following example is a simple command to import an SSL certificate to the keystore:
 
-`keytool -importcert -alias your_ssl_certificate -file “your downloaded SSL certificate name”.cer -keystore “Your KeyStore name” -storepass “Your keystore password” -noprompt`
-
-> [!NOTE]
-> If the KeyStore doesn't exist, it'll be automatically generated.
+`keytool -importcert -alias your_ssl_certificate -file "your downloaded SSL certificate name".cer -keystore "Your KeyStore name" -storepass "Your keystore password" -noprompt`
 
 ### Steps to download and add the SSL Certificate:
 
