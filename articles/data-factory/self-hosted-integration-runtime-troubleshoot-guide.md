@@ -218,7 +218,7 @@ In the following error, you can clearly see that the *System.ValueTuple* assembl
  
 "\<LogProperties>\<ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
  
-For more information about GAC, see [Global Assembly Cache](https://docs.microsoft.com/en-us/dotnet/framework/app-domains/gac).
+For more information about GAC, see [Global Assembly Cache](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
 
 
 ### Self-hosted integration runtime Authentication Key is missing
@@ -617,7 +617,7 @@ This behavior occurs when nodes can't communicate with each other.
 ### Connectivity issue between the self-hosted IR and your data factory instance or the self-hosted IR and the data source/sink
 
 To troubleshoot the network connectivity issue, you should know 
-how to collect the network trace, understand how to use it, and [analyze the Microsoft Network Monitor (Netmon) trace](#how-to-analyze-netmon-trace) before applying the Netmon Tools in real cases from the self-hosted IR.
+how to collect the network trace, understand how to use it, and [analyze the Microsoft Network Monitor (Netmon) trace](#analyze-the-netmon-trace) before applying the Netmon Tools in real cases from the self-hosted IR.
 
 #### Symptoms
 
@@ -697,15 +697,15 @@ The preceding images show that you couldn't make a TCP connection to the **8.8.8
 > 1. Select **Load Filter** > **Standard Filter** > **Addresses** > **IPv4 Addresses**.
 > 1. To apply the filter, enter **IPv4.Address == 8.8.8.8**, and then select **Apply**. You should then see the communication from the local machine to the destination **8.8.8.8**.
 
-![Screenshot showing the filter addresses.](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
+![Screenshot showing filter addresses.](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         
-![Screenshot showing the filter addresses.](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png)
+![Screenshot showing more filter addresses.](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png)
 
 Successful scenarios are shown in the following examples: 
 
 - If you can telnet **8.8.8.8 53** without any issues, there's a successful TCP 3 handshake, and the session finishes with a TCP 4 handshake.
 
-    ![Screenshot showing details of a successful connection scenario.](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png)
+    ![Screenshot showing a successful connection scenario.](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png)
      
     ![Screenshot showing details of a successful connection scenario.](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-2.png)
 
