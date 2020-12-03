@@ -67,26 +67,21 @@ To troubleshoot the runtime status of your IoT Edge device, consult the [trouble
 
 ## Test Anomaly Detector on an IoT Edge device
 
-You'll make an HTTP call to the Azure IoT Edge device that has the Azure Cognitive Services container running. The container provides REST-based endpoint APIs. Use the host, http://<<your-ipaddress>>:5000, for container APIs.
+You'll make an HTTP call to the Azure IoT Edge device that has the Azure Cognitive Services container running. The container provides REST-based endpoint APIs. Use the host, `http://<your-edge-device-ipaddress>:5000`, for module APIs.
 
 If your edge device does not already allow inbound communication on port 5000, you will need to create a new **inbound port rule**. 
 
 For an Azure VM, this can set under **Virtual Machine** > **Settings** > **Networking** > **Inbound port rule** > **Add inbound port rule**.
 
-### Query the Anomaly Detector container running on your IoT Edge device from any browser
+There are several ways to validate that the module is running. Locate the *External IP* address and exposed port of the edge device in question, and open your favorite web browser. Use the various request URLs below to validate the container is running. The example request URLs listed below are `http://<your-edge-device-ipaddress:5000`, but your specific container may vary. Keep in mind that you need to use your edge device's *External IP* address.
 
-|Request URL | Purpose|
-|:----|:---|
-|`http://<your-edge-device-ipaddress:5000/>` | The container provides a home page|
-|`http://<your-edge-device-ipaddress:5000/status>`|Requested with an HTTP GET, to validate that the container is running without causing an endpoint query.|
-|`http://<your-edge-device-ipaddress>:5000/swagger`| The container provides a full set of documentation for the endpoints and a Try it out feature.|
+| Request URL | Purpose |
+|--|--|
+| `http://<your-edge-device-ipaddress>:5000/` | The container provides a home page. |
+| ``http://<your-edge-device-ipaddress>:5000/status` | Also requested with GET, this verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes [liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
+| `http://<your-edge-device-ipaddress>:5000/swagger` | The container provides a full set of documentation for the endpoints and a **Try it out** feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required. |
 
-1. Open the browser, and go to `http://<your-edge-device-ipaddress:5000/>`.
-2. Select API Description or go to `http://<your-edge-device-ipaddress>:5000/swagger` to get a detailed description of the API.
-
-3. Select **Try it out** and then **Execute**. You can change the input value as you like. The result will show up farther down on the page.
-
-[!INCLUDE [API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
+![Container's home page](./media/cognitive-services-containers-api-documentation/container-webpage.png)
 
 ## Next steps
 
