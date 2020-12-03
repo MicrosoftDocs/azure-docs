@@ -1,10 +1,10 @@
 ---
 title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
-ms.date: 03/30/2020
+ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: "devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-full
 ---
 
 # Create a function on Linux using a custom container
@@ -109,10 +109,17 @@ Type `Y` or press Enter to confirm.
 
 Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
 ::: zone-end
+
+::: zone pivot="programming-language-customhandler"  
+```console
+func init LocalFunctionsProject --worker-runtime custom --docker
+```
+::: zone-end
+
 The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
 
 Navigate into the project folder:
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-customhandler"  
 ```console
 cd LocalFunctionsProject
 ```
@@ -123,12 +130,95 @@ cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` create a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
+Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
 
 ```console
 func new --name HttpExample --template "HTTP trigger"
 ```
-::: zone-end  
+::: zone-end
+
+::: zone pivot="programming-language-customhandler" 
+Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a subfolder matching the function name that contains a configuration file named *function.json*.
+
+```console
+func new --name HttpExample --template "HTTP trigger"
+```
+
+In a text editor, create a file in the project folder named *handler.R*. Add the following as its content.
+
+```r
+library(httpuv)
+
+PORTEnv <- Sys.getenv("FUNCTIONS_CUSTOMHANDLER_PORT")
+PORT = strtoi(PORTEnv , base = 0L)
+
+http_not_found <- list(
+  status=404,
+  body='404 Not Found'
+)
+http_method_not_allowed <- list(
+  status=405,
+  body='405 Method Not Allowed'
+)
+
+hello_handler <- list(
+  GET = function (request) list(body="Hello world")
+)
+
+routes <- list(
+  '/api/HttpExample' = hello_handler
+)
+
+router <- function (routes, request) {
+  if (!request$PATH_INFO %in% names(routes)) {
+    return(http_not_found)
+  }
+  path_handler <- routes[[request$PATH_INFO]]
+
+  if (!request$REQUEST_METHOD %in% names(path_handler)) {
+    return(http_method_not_allowed)
+  }
+  method_handler <- path_handler[[request$REQUEST_METHOD]]
+
+  return(method_handler(request))
+}
+
+app <- list(
+  call = function (request) {
+    response <- router(routes, request)
+    if (!'status' %in% names(response)) {
+      response$status <- 200
+    }
+    if (!'headers' %in% names(response)) {
+      response$headers <- list()
+    }
+    if (!'Content-Type' %in% names(response$headers)) {
+      response$headers[['Content-Type']] <- 'text/plain'
+    }
+
+    return(response)
+  }
+)
+
+cat(paste0("Server listening on :", PORT, "...\n"))
+runServer("0.0.0.0", PORT, app)
+```
+
+In *host.json*, modify the `customHandler` section to configure the custom handler's startup command.
+
+```json
+"customHandler": {
+  "description": {
+      "defaultExecutablePath": "Rscript",
+      "arguments": [
+      "handler.R"
+    ]
+  },
+  "enableForwardingHttpRequest": true
+}
+```
+::: zone-end
+
 To test the function locally, start the local Azure Functions runtime host in the root of the project folder: 
 ::: zone pivot="programming-language-csharp"  
 ```console
@@ -152,14 +242,44 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end
+::: zone pivot="programming-language-customhandler"
+```console
+R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
+func start
+```
+::: zone-end 
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
 Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
-
+::: zone-end
+::: zone pivot="programming-language-customhandler"
+Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample`. The browser should display a "Hello world" message.
+::: zone-end
 Use **Ctrl**-**C** to stop the host.
 
 ## Build the container image and test locally
 
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
 (Optional) Examine the *Dockerfile* in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux.  The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
-    
+::: zone-end
+
+::: zone pivot="programming-language-customhandler"
+Examine the *Dockerfile* in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux. Custom handler applications use the `mcr.microsoft.com/azure-functions/dotnet:3.0-appservice` image as its base.
+
+Modify the *Dockerfile* to install R. Replace the contents of *Dockerfile* with the following.
+
+```dockerfile
+FROM mcr.microsoft.com/azure-functions/dotnet:3.0-appservice 
+ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+    AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+
+RUN apt update && \
+    apt install -y r-base && \
+    R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
+
+COPY . /home/site/wwwroot
+```
+::: zone-end
+
 In the root project folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, and provide a name, `azurefunctionsimage`, and tag, `v1.0.0`. Replace `<DOCKER_ID>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
 ```console
@@ -174,7 +294,7 @@ To test the build, run the image in a local container using the [docker run](htt
 docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-customhandler"  
 Once the image is running in a local container, open a browser to `http://localhost:8080`, which should display the placeholder image shown below. The image appears at this point because your function is running in the local container, as it would in Azure, which means that it's protected by an access key as defined in *function.json* with the `"authLevel": "function"` property. The container hasn't yet been published to a function app in Azure, however, so the key isn't yet available. If you want to test against the local container, stop docker, change the authorization property to `"authLevel": "anonymous"`, rebuild the image, and restart docker. Then reset `"authLevel": "function"` in *function.json*. For more information, see [authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ![Placeholder image indicating that the container is running locally](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
@@ -434,6 +554,8 @@ SSH enables secure communication between a container and a client. With SSH enab
 
     ![Linux top command running in an SSH session](media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png)
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
+
 ## Write to an Azure Storage queue
 
 Azure Functions lets you connect your functions to other Azure services and resources without having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A *trigger* is a special type of input binding. Although a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
@@ -504,6 +626,8 @@ With the queue binding defined, you can now update your function to receive the 
 In a browser, use the same URL as before to invoke your function. The browser should display the same response as before, because you didn't modify that part of the function code. The added code, however, wrote a message using the `name` URL parameter to the `outqueue` storage queue.
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
+
+::: zone-end
 
 ## Clean up resources
 
