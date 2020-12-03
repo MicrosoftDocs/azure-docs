@@ -59,7 +59,7 @@ Collect the target workload's performance characteristics and use them to determ
 
 - Disable Azure [geo-redundant storage](../../../storage/common/storage-redundancy.md) (geo-replication) on the storage account.  
 
-## disks
+## Disks
 
 
 - Use a minimum of 2 [premium SSD disks](../../../virtual-machines/disks-types.md#premium-ssd) (1 for log file and 1 for data files). 
