@@ -2,8 +2,8 @@
 title: Use managed identities to access App Configuration
 titleSuffix: Azure App Configuration
 description: Authenticate to Azure App Configuration using managed identities
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
