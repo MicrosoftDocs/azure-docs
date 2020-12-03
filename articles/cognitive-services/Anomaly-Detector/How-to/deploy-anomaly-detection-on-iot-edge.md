@@ -12,7 +12,7 @@ ms.date: 04/01/2020
 ms.author: mbullwin
 ---
 
-# Deploy an Anomaly Detector container to Azure Container Instances
+# Deploy an Anomaly Detector module to IoT Edge
 
 Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detector-container-howto.md) module to an IoT Edge device. Once it's deployed into IoT Edge, the module runs in IoT Edge together with other modules as container instances. It exposes the exact same APIs as an Anomaly Detector container instance running in a standard docker container environment. 
 
@@ -63,7 +63,7 @@ c. Select **Find device** and find an IoT Edge device.
 
 12. Scroll down and see the modules listed. Check that the runtime status is running for your new module. 
 
-To troubleshoot the runtime status of your IoT Edge device, consult the [troubleshooting guide](https://docs.microsoft.com/en-us/azure/iot-edge/troubleshoot)
+To troubleshoot the runtime status of your IoT Edge device, consult the [troubleshooting guide](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
 
 ## Test Anomaly Detector on an IoT Edge device
 
