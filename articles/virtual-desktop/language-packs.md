@@ -3,7 +3,7 @@ title: Install language packs on Windows 10 VMs in Windows Virtual Desktop - Azu
 description: How to install language packs for Windows 10 multi-session VMs in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -41,7 +41,7 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
      
      - If you use Local Experience Pack (LXP) ISO files to localize your images, you will also need to download the appropriate LXP ISO for the best language experience
         - If you're using Windows 10, version 1903 or 1909:
-          - [Windows 10, version 1903 or 1909 LXP ISOs](https://software-download.microsoft.com/download/pr/Win_10_1903_32_64_ARM64_MultiLng_LngPkAll_LXP_ONLY.iso)
+          - [Windows 10, version 1903 or 1909 LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_1903_32_64_ARM64_MultiLng_LngPkAll_LXP_ONLY.iso)
         - If you're using Windows 10, version 2004 or 20H2, use the information in [Adding languages in Windows 10: Known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue) to figure out which of the following LXP ISOs is right for you:
           - [Windows 10, version 2004 or 20H2 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
           - [Windows 10, version 2004 or 20H2 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
