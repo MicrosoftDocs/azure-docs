@@ -134,10 +134,6 @@ items:
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
       href: how-to-link-azure-data-share.md
-  - name: Security
-    items:
-    - name: Create a private endpoint
-      href: catalog-private-end-point.md
   - name: Monitor
     items:
     - name: Monitor with Azure Monitor

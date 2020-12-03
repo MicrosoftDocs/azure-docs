@@ -10,7 +10,7 @@ ms.date: 12/03/2020
 ---
 # Azure Purview metrics in Azure Monitor
 
-This article provides an overview of Azure Purview metrics, alerts, and diagnostic settings in Azure Monitor.
+This article describes metrics, alerts, and diagnostic settings for Azure Purview using Azure Monitor.
 
 ## Monitor Azure Purview
 
@@ -18,7 +18,7 @@ Azure Purview admins can use Azure Monitor to track the operational state of Pur
 
 ## Aggregated Metrics
 
-The Metrics can be accessed from the Azure portal for a Purview account. Access to the metrics are controlled by the role assignment of Purview account. Users need to be part of the "Monitoring Reader" role in Azure Purview to see the metrics. Check out [Monitoring Reader Role permissions](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles) to learn more about the roles access levels.
+The Metrics can be accessed from the Azure portal for a Purview account. Access to the metrics are controlled by the role assignment of Purview account. Users need to be part of the "Monitoring Reader" role in Azure Purview to see the metrics. Check out [Monitoring Reader Role permissions](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles) to learn more about the roles access levels.
 
 The person who created the Purview account automatically gets permissions to view metrics. If anyone else wants to see metrics, add them to the **Monitoring Reader** role, by following these steps:
 
@@ -52,7 +52,7 @@ Azure Purview users can also access the metrics page directly from the managemen
 
 ### Available Metrics
 
-To get familiarized with how to use the metric section in the Azure portal pre read the following two documents. [Getting started with Metric Explorer](../azure-monitor/platform/metrics-getting-started.md) and [Advanced features of Metric Explorer](../azure-monitor/platform/metrics-charts).
+To get familiarized with how to use the metric section in the Azure portal pre read the following two documents. [Getting started with Metric Explorer](../azure-monitor/platform/metrics-getting-started.md) and [Advanced features of Metric Explorer](../azure-monitor/platform/metrics-charts.md).
 
 The following table contains the list of metrics available to explore in the Azure portal:
 
@@ -150,4 +150,3 @@ The Sample log for an event instance is shown in the below section.
 
 ## Next Steps
 
-[Scan Azure Data sources](portal-scan-azure-data-sources.md)
