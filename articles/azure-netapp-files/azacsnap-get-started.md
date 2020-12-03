@@ -1,9 +1,9 @@
 ---
-title: Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
-description: This article provides a guide for installing the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Get started with Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+description: Provides a guide for installing the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
-author: phjensen
+author: Phil-Jensen
 manager: ''
 editor: ''
 
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
+ms.author: phjensen
 ---
 
-# Get started with the Azure Application Consistent Snapshot Tool
+# Get started with Azure Application Consistent Snapshot Tool
 
 This article provides a guide for installing the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 
@@ -31,8 +32,8 @@ download.
 
 ### Verifying the download
 
-The installer, which is downloadable per above, has an associated PGP signature file with a .asc
-filename extension. This file can be used to verify the downloaded installer to ensure this is a
+The installer, which is downloadable per above, has an associated PGP signature file with an `.asc`
+filename extension. This file can be used to verify the downloaded installer to ensure this file is a
 Microsoft provided file. The Microsoft PGP Public Key used for signing Linux packages is available here
 (<http://packages.microsoft.com/keys/microsoft.asc>) and has been used to sign the signature file.
 
@@ -95,9 +96,7 @@ gpg: Good signature from "Microsoft (Release signing)
 <gpgsecurity@microsoft.com>" [full]
 ```
 
-More details on using GPG can be found in the online manual:
-
-- <https://www.gnupg.org/gph/en/manual/book1.html>
+For more details about using GPG, see [The GNU Privacy Handbook](https://www.gnupg.org/gph/en/manual/book1.html).
 
 ## Supported Scenarios
 
@@ -114,7 +113,7 @@ The snapshot tools can be used in the following scenarios.
 - SKU TYPE I
 - SKU TYPE II
 
-ref: <https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-supported-scenario>
+See [Supported scenarios for HANA Large Instances](/azure/virtual-machines/workloads/sap/hana-supported-scenario)
 
 ## Snapshot Support Matrix from SAP
 
@@ -130,43 +129,43 @@ are supported by SAP for Storage Snapshot Backups.
 
 ## Important things to remember
 
-- After setup of the snapshot tools, continuously monitor the storage space available and if
-    required, delete the old snapshots on a regular basis to avoid storage fill out.
+- After the setup of the snapshot tools, continuously monitor the storage space available and if
+    necessary, delete the old snapshots on a regular basis to avoid storage fill out.
 - Always use the latest snapshot tools.
 - Use the same version of the snapshot tools across the landscape.
 - Test the snapshot tools and get comfortable with the parameters required and output of the
     command before using in the production system.
 - When setting up the HANA user for backup (details below in this document), you need to
-    setup the user for each HANA instance. Create an SAP HANA user account to access HANA
+    set up the user for each HANA instance. Create an SAP HANA user account to access HANA
     instance under the SYSTEMDB (and not in the SID database) for MDC. In the single container
-    environment, it can be setup under the tenant database.
-- Customers must provide the SSH public key for storage access. This must be done once per
+    environment, it can be set up under the tenant database.
+- Customers must provide the SSH public key for storage access. This action must be done once per
     node and for each user under which the command is executed.
 - The number of snapshots per volume is limited to 250.
 - If manually editing the configuration file, always use a Linux text editor such as "vi" and not
     Windows editors like Notepad. Using Windows editor may corrupt the file format.
-  - Setup hdbuserstore for the SAP HANA user to communicate with SAP HANA.
-- For DR: The snapshot tools must be tested on DR node before DR is setup.
+  - Set up `hdbuserstore` for the SAP HANA user to communicate with SAP HANA.
+- For DR: The snapshot tools must be tested on DR node before DR is set up.
 - Monitor disk space regularly, automated log deletion is managed with the `--trim` option of the
     `azacsnap -c backup` for SAP HANA 2 and later releases.
 - **Risk of snapshots not being taken** - The snapshot tools only interact with the node of the SAP HANA
-system specified in the configuration file.  If this node becomes unavailable there is no mechanism to
+system specified in the configuration file.  If this node becomes unavailable, there is no mechanism to
 automatically start communicating with another node.  
-  - For a **SAP HANA Scale-Out with Standby** scenario it is typical to install and configure the snapshot
+  - For an **SAP HANA Scale-Out with Standby** scenario it is typical to install and configure the snapshot
  tools on the master node. But, if the master node becomes unavailable, the standby node will take over
-the master node role. In this case the implementation team should configure the snapshot tools on both
-nodes (Master and Stand-By) to avoid any missed snapshots. In the normal state the master node will take
+the master node role. In this case, the implementation team should configure the snapshot tools on both
+nodes (Master and Stand-By) to avoid any missed snapshots. In the normal state, the master node will take
 HANA snapshots initiated by crontab, but after master node failover those snapshots will have to be
-executed from another node such as the new master node (former standby). To achieve this the standby
+executed from another node such as the new master node (former standby). To achieve this outcome, the standby
 node would need the snapshot tool installed, storage communication enabled, hdbuserstore configured,
 `azacsnap.json` configured, and crontab commands staged in advance of the failover.
-  - For a **SAP HANA HSR HA** scenario, it is recommended to install, configure, and schedule the
+  - For an **SAP HANA HSR HA** scenario, it is recommended to install, configure, and schedule the
 snapshot tools on both (Primary and Secondary) nodes. Then, if the Primary node becomes unavailable,
-the Secondary node will take over with snapshots being taken on the Secondary. In the normal state the
+the Secondary node will take over with snapshots being taken on the Secondary. In the normal state, the
 Primary node will take HANA snapshots initiated by crontab and the Secondary node would attempt to take
-snapshots but fail as the Primary is functioning correctly.  But after Primary node failover those
-snapshots will be executed from the Secondary node. To achieve this the Secondary node needs the
-snapshot tool installed, storage communication enabled, hdbuserstore configured, azacsnap.json
+snapshots but fail as the Primary is functioning correctly.  But after Primary node failover, those
+snapshots will be executed from the Secondary node. To achieve this outcome, the Secondary node needs the
+snapshot tool installed, storage communication enabled, `hdbuserstore` configured, azacsnap.json
 configured, and crontab enabled in advance of the failover.
 
 ## Guidance provided in this document
@@ -179,7 +178,7 @@ The following guidance is provided to illustrate the usage of the snapshot tools
   - [Enable communication with storage](#enable-communication-with-storage)
   - [Enable communication with SAP HANA](#enable-communication-with-sap-hana)
 - [How to take snapshots manually](#1-How-to-take-snapshots-manually)
-- [How to setup automatic snapshot backup](#2-How-to-setup-automatic-snapshot-backup)
+- [How to set up automatic snapshot backup](#2-How-to-setup-automatic-snapshot-backup)
 - [How to monitor the snapshots](#3-how-to-monitor-the-snapshots)
 - [How to delete a snapshot?](#4-how-to-delete-a-snapshot)
 - [How to restore a 'hana' snapshot](#5-how-to-restore-a-hana-snapshot)
@@ -191,7 +190,7 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 ### Performing Disaster Recovery
 
 - [What are the prerequisites for DR setup](#1-what-are-the-prerequisites-for-dr-setup)
-- [How to setup a disaster recovery](#2-how-to-setup-a-disaster-recovery)
+- [How to set up a disaster recovery](#2-how-to-setup-a-disaster-recovery)
 - [How to monitor the data replication from Primary to DR site](#3-how-to-monitor-the-data-replication-from-primary-to-dr-site)
 - [How to perform a failover to DR site?](#4-how-to-perform-a-failover-to-dr-site)
 
@@ -200,6 +199,6 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 - [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
 - [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
 - [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-configuration.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-backup.md)
+- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
+- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
+- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)

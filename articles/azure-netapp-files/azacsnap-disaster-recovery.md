@@ -1,9 +1,9 @@
 ---
-title: Disaster recovery using the Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
-description: This article explains how to perform disaster recovery when using the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Disaster recovery using Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+description: Explains how to perform disaster recovery when using the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
-author: phjensen
+author: Phil-Jensen
 manager: ''
 editor: ''
 
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
+ms.author: phjensen
 ---
 
-# Disaster recovery using the Azure Application Consistent Snapshot Tool
+# Disaster recovery using Azure Application Consistent Snapshot Tool
 
 This article explains how to perform disaster recovery when using the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 
@@ -38,10 +39,9 @@ The following pre-requisites must be met before you plan the disaster recovery f
 - You have setup and configured storage snapshots at the primary location.
 - You have an HANA instance installed at the DR site for the primary with the same SID as the
     primary instance has.
-- You read and understand the DR Failover procedure located at
-    <https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure.>
+- You read and understand the DR Failover procedure described in [SAP HANA Large Instances high availability and disaster recovery on Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)
 - You have setup and configured storage snapshots at the DR location.
-- A configuration file (e.g. `DR.json`) has been created with the DR storage volumes and associated
+- A configuration file (for example, `DR.json`) has been created with the DR storage volumes and associated
     information on the DR server.
 - You completed the steps at the DR site to:
   - Enable communication with storage.
@@ -51,9 +51,9 @@ The following pre-requisites must be met before you plan the disaster recovery f
 
 Microsoft supports storage level replication for DR recovery. There are two ways to setup DR.
 
-One is **normal** and other is **multipurpose**. In the **normal** DR, you have a dedicated instance at the DR location for failover. In the **multipurpose** DR scenario, you have another QA or development HANA instance running on the HANA large instance unit at the DR site. But you also installed a pre-installed HANA instance that is dormant and has the same SID as the HANA instance you want to failover to that HANA Large Instance unit. Microsoft operations sets up the environment for you including the storage replication based on the input provided in the Service Request Form (SRF) at the time of onboarding.
+One is **normal** and other is **multipurpose**. In the **normal** DR, you have a dedicated instance at the DR location for failover. In the **multipurpose** DR scenario, you have another QA or development HANA instance running on the HANA large instance unit at the DR site. But you also installed a pre-installed HANA instance that is dormant and has the same SID as the HANA instance you want to fail over to that HANA Large Instance unit. Microsoft operations set up the environment for you including the storage replication based on the input provided in the Service Request Form (SRF) at the time of onboarding.
 
-> [!important] Ensure that all the prerequisites are met for the DR setup.
+> [!IMPORTANT] Ensure that all the prerequisites are met for the DR setup.
 
 ## Monitor data replication from Primary to DR site
 
@@ -65,18 +65,18 @@ command `azure_hana_replication_status`.
 
 Run the failover command at the DR site (`azacsnap -c restore --restore revertvolume`).
 
-> [!caution] The `azacsnap -c restore --restore revertvolume` command breaks the storage replication from the Production site to the DR site. You must reach out to the Microsoft Operations to set up replication again. Once the replication is re-enabled, all the data at DR storage for this SID will get initialized. The command that performs the failover makes available the most recently replicated storage snapshot. If you need to restore back to an older snapshot, open a support request so operations can assist to provide an earlier snapshot restored in the DR site.
+> [!IMPORTANT] The `azacsnap -c restore --restore revertvolume` command breaks the storage replication from the Production site to the DR site. You must reach out to the Microsoft Operations to set up replication again. Once the replication is re-enabled, all the data at DR storage for this SID will get initialized. The command that performs the failover makes available the most recently replicated storage snapshot. If you need to restore back to an older snapshot, open a support request so operations can assist to provide an earlier snapshot restored in the DR site.
 
 At a high level, here are the steps to follow for DR failover:
 
-- You must shut down the HANA instance at **primary** site. This is only needed if you are truly
+- You must shut down the HANA instance at **primary** site. This action is needed only if you are truly
     doing the failover to DR site so you don't have data inconsistencies.
-- Shutdown the HANA instance on the DR node for the production SID.
+- Shut down the HANA instance on the DR node for the production SID.
 - Execute the command `azacsnap -c restore --restore revertvolume` on the DR node with the SID to be recovered
   - The command breaks the storage replication link from the Primary to the DR site
   - The command restores the /data and /logbackups volume only, /shared volume is NOT recovered, but rather it uses the existing /shared for SID at the DR location.
   - Mount the /data and /logbackups volume – ensure to add it to the fstab file
-- Restore the HANA SYSTEMDB snapshot. Please note, HANA studio only shows you the latest HANA snapshot available under the storage snapshot restored as part of the command `azacsnap -c restore --restore revertvolume` execution.
+- Restore the HANA SYSTEMDB snapshot. HANA studio only shows you the latest HANA snapshot available under the storage snapshot restored as part of the command `azacsnap -c restore --restore revertvolume` execution.
 - Recover the tenant database.
 - Start the HANA instance on the DR site for the Production SID (Example: H80 in this case).
 - Perform testing.
@@ -115,9 +115,9 @@ tmpfs 76G 0 76G 0% /run/user/0
 172.18.20.241:/hana_log_backups_h80_t020_xdp 512G 15G 498G 3% /hana/logbackups/H80_T250
 ```
 
-#### Step 2: Shutdown HANA on the Primary site
+#### Step 2: Shut down HANA on the Primary site
 
-If performing a complete failover of production workloads, and it is possible to connect to the Primary production site, then shutdown the SAP HANA instance(s) being failed over to DR.
+If performing a complete failover of production workloads, and it is possible to connect to the Primary production site, then shut down the SAP HANA instance(s) being failed over to DR.
 
 For example, if logged in as root the following example shows how SAP HANA can be shut down.  Replace <sid> with your SAP HANA SID.
 
@@ -126,9 +126,9 @@ For example, if logged in as root the following example shows how SAP HANA can b
 > HDB stop
 ```
 
-#### Step 3: Shutdown HANA on DR site
+#### Step 3: Shut down HANA on DR site
 
-It is important to shutdown SAP HANA on the DR site before restoring the volumes.
+It is important to shut down SAP HANA on the DR site before restoring the volumes.
 
 For example, if logged in as root the following example shows how SAP HANA can be shut down.  Replace <sid> with your SAP HANA SID.
 
@@ -191,13 +191,13 @@ Displaying Mount Points by Volume as follows:
 
 #### Step 5: Unmount uncessary filesystems
 
-Execute the command `umount` to unmount the filesystems/volumes which are not needed.
+Execute the command `umount` to unmount the filesystems/volumes that are not needed.
 
 ```bash
 # umount <Mount point>
 ```
 
-Unmount the data and logbackup mountpoints. Please note, you may have multiple data mountpoint in the scale-out scenario.
+Unmount the data and logbackup mountpoints. You may have multiple data mountpoint in the scale-out scenario.
 
 #### Step 6: Configure the mount points
 
@@ -257,7 +257,7 @@ tmpfs 76G 0 76G 0% /run/user/0
 
 #### Step 8: Recover the SYSTEMDB
 
-From the HANA Studio, right click SYSTEMDB instance and chose "Backup and Recovery", and then "Recover System Database"
+From the HANA Studio, right-click SYSTEMDB instance and chose "Backup and Recovery", and then "Recover System Database"
 
 > [!NOTE] Refer to the guide to recover a database from a snapshot, specifically the SYSTEMDB.
 
@@ -269,7 +269,7 @@ From the HANA Studio, right click SYSTEMDB instance and chose "Backup and Recove
 
 ### Run `azacsnap -c backup` at the DR site
 
-If running snapshot based backups at the DR site then the HANA Server Name configured in the `azacsnap` configuration file at the DR site should be the same as the production server name.
+If running snapshot-based backups at the DR site then the HANA Server Name configured in the `azacsnap` configuration file at the DR site should be the same as the production server name.
 
 > <font color="red">**CAUTION**</font>
 <font color="red">Running the `azacsnap -c backup` can create storage snapshots at the DR site, these
@@ -283,6 +283,6 @@ better understand returning any files or data back to the original production si
 - [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
 - [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
 - [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-configuration.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-backup.md)
+- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
+- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
+- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)

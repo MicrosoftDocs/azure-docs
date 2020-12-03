@@ -1,9 +1,9 @@
 ---
-title: Tips and tricks for using the Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
-description: This article provides tips and tricks for using the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Tips and tricks for using Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+description: Provides tips and tricks for using the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
-author: phjensen
+author: Phil-Jensen
 manager: ''
 editor: ''
 
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
+ms.author: phjensen
 ---
 
-# Tips and tricks for using the Azure Application Consistent Snapshot Tool
+# Tips and tricks for using Azure Application Consistent Snapshot Tool
 
 This article provides tips and tricks that might be helpful when you use AzAcSnap.
 
@@ -27,7 +28,7 @@ Before executing any backup commands (`azacsnap -c backup`), check the configura
 - `azacsnap -c test --test hana`
 - `azacsnap -c test --test storage`
 
-Then to take a manual database snapshot backup run the following:
+Then to take a manual database snapshot backup, run the following command:
 
 ```bash
 > azacsnap -c backup --volume data --prefix hana_TEST --retention=1
@@ -40,7 +41,7 @@ system. The standard practice for the snapshot tools is to setup the user's `cro
 
 An example of a `crontab` for the user `azacsnap` to automate snapshots is below.
 
-> [!caution] Output of `crontab -l` command wrapped at maximum of 80 characters per line. Ensure
+> [!NOTE] Output of `crontab -l` command wrapped at maximum of 80 characters per line. Ensure
 all the crontab entries are on a single line, otherwise crontab will error when trying to save.
 
 ```bash
@@ -59,11 +60,11 @@ Explanation of the above crontab.
 
 - MAILTO="" : by having an empty value this prevents cron from automatically trying to email the user when executing the crontab entry as it would likely end up in the local user's mail file.
 - Shorthand version of timing for crontab entries are fairly self-explanatory
-  - @monthly = Run once a month, ie. "0 0 1 * *".
-  - @weekly  = Run once a week, ie.  "0 0 * * 0".
-  - @daily   = Run once a day, ie.   "0 0 * * *".
-  - @hourly  = Run once an hour, ie. "0 * * * *".
-- The first 5 columns are used to designate times, refer to column examples below:
+  - @monthly = Run once a month, that is, "0 0 1 * *".
+  - @weekly  = Run once a week, that is,  "0 0 * * 0".
+  - @daily   = Run once a day, that is,   "0 0 * * *".
+  - @hourly  = Run once an hour, that is, "0 * * * *".
+- The first five columns are used to designate times, refer to column examples below:
   - `0,15,30,45`: Every 15 minutes
   - `0-23`: Every hour
   - `*` : Every day
@@ -78,12 +79,12 @@ Explanation of the above crontab.
 
 Further explanation of cron and the format of the crontab file here: <https://en.wikipedia.org/wiki/Cron>
 
-> [!caution] Customers are responsible for monitoring the cron jobs to ensure snapshots are being
+> [!NOTE] Users are responsible for monitoring the cron jobs to ensure snapshots are being
 generated successfully.
 
 ## Monitor the snapshots
 
-The following should be monitored to ensure a healthy system:
+The following conditions should be monitored to ensure a healthy system:
 
 1. Available disk space. Snapshots will slowly consume disk space as keeping older disk blocks
     are retained in the snapshot.
@@ -93,22 +94,22 @@ The following should be monitored to ensure a healthy system:
     1. Check `/var/log/messages` for output from the `azacsnap` command.
 1. Consistency of the snapshots by restoring then to another system periodically.
 
-> [!tip] To list  snapshot details, execute the command `azacsnap -c details`.
+> [!NOTE] To list  snapshot details, execute the command `azacsnap -c details`.
 
 ## Delete a snapshot
 
 To delete a snapshot, execute the command `azacsnap -c delete`. It's not possible to delete
 snapshots from the OS level. You must use the correct command (`azacsnap -c delete`) to delete the storage snapshots.
 
-> [!caution] Be vigilant while deleting a snapshot. Once deleted, it is **IMPOSSIBLE** to recover
+> [!IMPORTANT] Be vigilant when you delete a snapshot. Once deleted, it is **IMPOSSIBLE** to recover
 the deleted snapshots.
 
 
 ## Restore a 'hana' snapshot
 
-A storage volume snapshot can be restored to a new volume (`-c restore --restore snaptovol`).  For Azure Large Instance the volume can be reverted to a snapshot (`-c restore --restore revertvolume`).
+A storage volume snapshot can be restored to a new volume (`-c restore --restore snaptovol`).  For Azure Large Instance, the volume can be reverted to a snapshot (`-c restore --restore revertvolume`).
 
-> [!note] There is **NO** database recovery command provided.
+> [!NOTE] There is **NO** database recovery command provided.
 
 A snapshot can be copied back to the SAP HANA data area, but SAP HANA must not be running when a
 copy is made (`cp /hana/data/H80/mnt00001/.snapshot/hana_hourly.2020-06-17T113043.1586971Z/*`).
@@ -119,9 +120,9 @@ If you decide to perform the disaster recovery failover, the `azacsnap -c restor
 
 ## Set up snapshots for 'boot' volumes only
 
-> [!important] **Azure Large Instance ony**
+> [!IMPORTANT] This operation applies only to Azure Large Instance. 
 
-In some cases customer's already have tools to protect SAP HANA and only want to configure 'boot' volume snapshots.  In this case the task is simplified and the following steps should be taken.
+In some cases, customer's already have tools to protect SAP HANA and only want to configure 'boot' volume snapshots.  In this case, the task is simplified and the following steps should be taken.
 
 1. Complete steps 1-4 of the pre-requisites for installation.
 1. Enable communication with storage.
@@ -134,17 +135,17 @@ In some cases customer's already have tools to protect SAP HANA and only want to
     Add comment to config file (blank entry to exit adding comments):<span style="color:red">Boot only config file.</span>
     Add comment to config file (blank entry to exit adding comments):
     Add database to config? (y/n) [n]: <span style="color:red">y</span>
-    HANA SID (e.g. H80): <span style="color:red">X</span>
-    HANA Instance Number (e.g. 00): <span style="color:red">X</span>
-    HANA HDB User Store Key (e.g. `hdbuserstore List`): <span style="color:red">X</span>
+    HANA SID (for example, H80): <span style="color:red">X</span>
+    HANA Instance Number (for example, 00): <span style="color:red">X</span>
+    HANA HDB User Store Key (for example, `hdbuserstore List`): <span style="color:red">X</span>
     HANA Server's Address (hostname or IP address): <span style="color:red">X</span>
     Add ANF Storage to database section? (y/n) [n]:
     Add HLI Storage to database section? (y/n) [n]: <span style="color:red">y</span>
     Add DATA Volume to HLI Storage section of Database section? (y/n) [n]:
     Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]: <span style="color:red">y</span>
-    Storage User Name (e.g. clbackup25): <span style="color:red">shoasnap</span>
-    Storage IP Address (e.g. 192.168.1.30): <span style="color:red">10.1.1.10</span>
-    Storage Volume Name (e.g. hana_data_soldub41_t250_vol): <span style="color:red">t210_sles_boot_azsollabbl20a31_vol</span>
+    Storage User Name (for example, clbackup25): <span style="color:red">shoasnap</span>
+    Storage IP Address (for example, 192.168.1.30): <span style="color:red">10.1.1.10</span>
+    Storage Volume Name (for example, hana_data_soldub41_t250_vol): <span style="color:red">t210_sles_boot_azsollabbl20a31_vol</span>
     Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]:
     Add HLI Storage to database section? (y/n) [n]:
     Add database to config? (y/n) [n]:
@@ -207,18 +208,18 @@ In some cases customer's already have tools to protect SAP HANA and only want to
 
 1. Now setup automatic snapshot backup.
 
-> [!note] Any setup for communication with SAP HANA is not required.
+> [!NOTE] Setting up communication with SAP HANA is not required.
 
 ## Restore a 'boot' snapshot
 
-> [!important] **Azure Large Instance ony**
-
-> [!caution] the Server will be restored to the point when the Snapshot was taken.
+> [!IMPORTANT] 
+> This operation is for Azure Large Instance ony.
+> The Server will be restored to the point when the Snapshot was taken.
 
 A 'boot' snapshot can be recovered as follows:
 
 1. The customer will need to shut down the server.
-1. After the Server is shut down, the customer will need to open a service request which contains the Machine ID and Snapshot to restore.
+1. After the Server is shut down, the customer will need to open a service request that contains the Machine ID and Snapshot to restore.
     > Customers can open a service request from the Azure Portal: <https://portal.azure.com.>
 1. Microsoft will restore the Operating System LUN using the specified Machine ID and Snapshot, and then boot the Server.
 1. The customer will then need to confirm Server is booted and healthy.
@@ -243,8 +244,8 @@ Key attributes of storage volume snapshots:
 - **Snapshot name:** The snapshot name includes the prefix label provided by the customer.
 - **Size of the snapshot:** Depends upon the size/changes on the database level.
 - **Log file location:** Log files generated by the commands are output into folders as
-    defined in the JSON configuration file, which by default is a sub-folder under where the command
-    is run (e.g. `./logs`)..
+    defined in the JSON configuration file, which by default is a subfolder under where the command
+    is run (for example, `./logs`)..
 
 
 ## Next steps
@@ -252,6 +253,6 @@ Key attributes of storage volume snapshots:
 - [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
 - [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
 - [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-configuration.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-backup.md)
+- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
+- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
+- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)

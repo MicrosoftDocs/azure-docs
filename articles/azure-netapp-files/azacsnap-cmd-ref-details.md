@@ -1,9 +1,9 @@
 ---
-title: Obtain details using the Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
-description: This article provides a guide for running the details command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Obtain details using Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+description: Provides a guide for running the details command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
-author: phjensen
+author: Phil-Jensen
 manager: ''
 editor: ''
 
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
+ms.author: phjensen
 ---
 
-# Obtain details using the Azure Application Consistent Snapshot Tool
+# Obtain details using Azure Application Consistent Snapshot Tool
 
 This article provides a guide for running the details command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 
@@ -30,7 +31,7 @@ This command lists the details of the snapshots (volume name, snapshot name, cre
 snapshot size) stored on all the volumes in the configuration file.  The console output can be
 pasted into a spreadsheet for further analysis.
 
-Due to information stored at the back-end systems, the ouput of the command is slightly different
+Due to information stored at the back-end systems, the output of the command is slightly different
 when run on **Azure Large Instance** versus **Azure NetApp Files**.
 
 ## Output of the `azacsnap -c details --details snapshots` command
@@ -98,15 +99,15 @@ hana_log_backups_h80_t250_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-
 The following example has broken replication status and, in this scenario, activating DR would likely
 result in incomplete data at the DR site.
 
-> [!CAUTION] Note the warning in the following example about replication broken off for two of the
+> [!NOTE] Note the warning in the following example about replication broken off for two of the
 volumes.
 
 <pre>
 > azacsnap -c details --details replication
 Getting replication details for HLI systems
 <font color="blue">Volume, Link status, Current Replication Activity, Latest Snapshot Replicated, Size of Latest Snapshot Replicated, Current Lag Time between snapshots (HH:MM:SS)</font>
-hana_data_h80_sapprdhdb80_mnt00001_t020_xdp, <font color="red">Broken-Off - Please contact Microsoft Operations immediately!</font>, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036523.2020-03-12_052000, 2.47MB, 99h 99m 99s  WARNING: replication has not occurred for more than 30 minutes!
-hana_log_backups_h80_sapprdhdb80_t020_xdp, <font color="red">Broken-Off - Please contact Microsoft Operations immediately!</font>, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036539.2020-03-12_052400, 196.7KB, 99h 99m 99s  WARNING: replication has not occurred for more than 30 minutes!
+hana_data_h80_sapprdhdb80_mnt00001_t020_xdp, <font color="red">Broken-Off - Contact Microsoft Operations immediately!</font>, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036523.2020-03-12_052000, 2.47MB, 99h 99m 99s  WARNING: replication has not occurred for more than 30 minutes!
+hana_log_backups_h80_sapprdhdb80_t020_xdp, <font color="red">Broken-Off - Contact Microsoft Operations immediately!</font>, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036539.2020-03-12_052400, 196.7KB, 99h 99m 99s  WARNING: replication has not occurred for more than 30 minutes!
 hana_shared_h80_sapprdhdb80_t020_xdp, <font color="green">Active</font>, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036524.2020-04-02_020000, 2.94MB, 00h 04m 55s
 </pre>
 
@@ -127,6 +128,6 @@ hana_shared_h80_sapprdhdb80_t020_xdp, <font color="green">Active</font>, Idle, s
 - [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
 - [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
 - [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-configuration.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-backup.md)
+- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
+- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
+- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)

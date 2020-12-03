@@ -1,9 +1,9 @@
 ---
-title: Configure the Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
-description: This article provides a guide for running the configure command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Configure Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+description: Provides a guide for running the configure command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
-author: phjensen
+author: Phil-Jensen
 manager: ''
 editor: ''
 
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
+ms.author: phjensen
 ---
 
-# Configure the Azure Application Consistent Snapshot Tool
+# Configure Azure Application Consistent Snapshot Tool
 
 This article provides a guide for running the configure command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 
@@ -26,7 +27,7 @@ The configuration file can be created or edited by using the `azacsnap -c config
 
 ## Configuration file for snapshot tools
 
-A configuration file can be created by running `azacsnap -c configure --configuration new`.  By default the configuration filename is `azacsnap.json`.  A custom file name can be used with the `--configfile=` parameter (e.g. `--configfile=<customname>.json`)
+A configuration file can be created by running `azacsnap -c configure --configuration new`.  By default the configuration filename is `azacsnap.json`.  A custom file name can be used with the `--configfile=` parameter (for example, `--configfile=<customname>.json`)
 The following example is for Azure Large Instance configuration:
 
 ```bash
@@ -35,16 +36,16 @@ Building new config file
 Add comment to config file (blank entry to exit adding comments):This is a new config file for `azacsnap`
 Add comment to config file (blank entry to exit adding comments):
 Add database to config? (y/n) [n]: y
-HANA SID (e.g. H80): H80
-HANA Instance Number (e.g. 00): 00
-HANA HDB User Store Key (e.g. `hdbuserstore List`): AZACSNAP
+HANA SID (for example, H80): H80
+HANA Instance Number (for example, 00): 00
+HANA HDB User Store Key (for example, `hdbuserstore List`): AZACSNAP
 HANA Server's Address (hostname or IP address): testing01
 Add ANF Storage to database section? (y/n) [n]:
 Add HLI Storage to database section? (y/n) [n]: y
 Add DATA Volume to HLI Storage section of Database section? (y/n) [n]: y
-Storage User Name (e.g. clbackup25): clt1h80backup
-Storage IP Address (e.g. 192.168.1.30): 172.18.18.11
-Storage Volume Name (e.g. hana_data_h80_testing01_mnt00001_t250_vol): hana_data_h80_testing01_mnt00001_t020_vol
+Storage User Name (for example, clbackup25): clt1h80backup
+Storage IP Address (for example, 192.168.1.30): 172.18.18.11
+Storage Volume Name (for example, hana_data_h80_testing01_mnt00001_t250_vol): hana_data_h80_testing01_mnt00001_t020_vol
 Add DATA Volume to HLI Storage section of Database section? (y/n) [n]:
 Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]:
 Add HLI Storage to database section? (y/n) [n]:
@@ -54,7 +55,7 @@ Editing configuration complete, writing output to 'azacsnap.json'
 
 ## SAP HANA values
 
-When adding a *database* to the configuration the following values are required:
+When adding a *database* to the configuration, the following values are required:
 
 - **HANA Server's Address** = The SAP HANA server hostname or IP address.
 - **HANA SID** = The SAP HANA System ID.
@@ -70,11 +71,11 @@ When adding a *database* to the configuration the following values are required:
 
 ## Azure Large Instance (HLI) storage values
 
-When adding *HLI Storage* to a database section the following values are required:
+When adding *HLI Storage* to a database section, the following values are required:
 
-- **Storage User Name** = This is the user name used to establish the SSH connection to the Storage.
+- **Storage User Name** = This value is the user name used to establish the SSH connection to the Storage.
 - **Storage IP Address** = The address of the Storage system.
-- **Storage Volume Name** = the volume name to snapshot.  These can be determined multiple ways, perhaps the 
+- **Storage Volume Name** = the volume name to snapshot.  This value can be determined multiple ways, perhaps the 
    simplest is to try the following shell command:
 
     ```bash
@@ -87,20 +88,20 @@ When adding *HLI Storage* to a database section the following values are require
 
 ## Azure NetApp Files (ANF) storage values
 
-When adding *ANF Storage* to a database section the following values are required:
+When adding *ANF Storage* to a database section, the following values are required:
 
 - **Service Principal Authentication filename** = this is the `authfile.json` file generated in the Cloud Shell when configuring
     communication with Azure NetApp Files storage.
-- **Full ANF Storage Volume Resource ID** = the full Resource ID of the Volume being snapshot.  This can be retrieved from the
+- **Full ANF Storage Volume Resource ID** = the full Resource ID of the Volume being snapshot.  This can be retrieved from: 
     Azure Portal –> ANF –> Volume –> Settings/Properties –> Resource ID
 
 ## Config file `azacsnap.json`
 
-In the following screen, the `azacsnap.json` is configured with the one SIDs.
+In the following screen, the `azacsnap.json` is configured with the one SID.
 
 The parameter values must be set to the customer's specific SAP HANA environment.
 For **Azure Large Instance** system, this information is provided by Microsoft Service Management during the onboarding/handover call, and
-is made available in an Excel file which is provided during handover. Please open a service request if you
+is made available in an Excel file that is provided during handover. Open a service request if you
 need to be provided this information again.
 
 ** The following is an example only, update all the values accordingly.
@@ -151,13 +152,14 @@ need to be provided this information again.
 ```
 
 > **Note** For a DR scenario where backups are to be run at the DR site, then the HANA Server Name
-configured in the DR configuration file (e.g. `DR.json`) at the DR site should be the same as
+configured in the DR configuration file (for example, `DR.json`) at the DR site should be the same as
 the production server name.
 
 > **Note** For Azure Large Instance your storage IP address must be in the same subnet as your server pool. For example, in
 this case, our server pool subnet is 172. 18. 18 .0/24 and our assigned storage IP is 172.18.18.11.
 
 ## Configure the database
+
 This section explains how to configure the data base.
 
 ### SAP HANA Configuration
@@ -168,7 +170,7 @@ their files to the `$(DIR_INSTANCE)/backup/log` directory, and it is unlikely th
 which `azacsnap` is configured to snapshot these files will not be protected with storage snapshots.
 
 The following `hdbsql` command examples are intended to demonstrate setting the log and catalog
-paths to locations which are on storage volumes which can be snapshot by `azacsnap`. Be sure to check the
+paths to locations which are on storage volumes that can be snapshot by `azacsnap`. Be sure to check the
 values on the command line match the local SAP HANA configuration.
 
 ### Configure log backup location
@@ -213,8 +215,8 @@ SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence',
 
 ### Check log and catalog backup locations
 
-After making the changes above, confirm these are set correctly with the following command.
-In this example, the settings which have been set following the guidance above will display as
+After making the changes above, confirm that the settings are correct with the following command.
+In this example, the settings that have been set following the guidance above will display as
 SYSTEM settings.
 
 > This query also returns the DEFAULT settings for comparison.
@@ -237,8 +239,8 @@ global.ini,SYSTEM,,,persistence,basepath_logvolumes,/hana/log/H80
 ### Configure log backup timeout
 
 The default setting for SAP HANA to perform a log backup is 900 seconds (15 minutes). It's
-recommended to reduce this to 300 seconds (i.e. 5 minutes).  Then it is possible to run very regular
-backups (e.g. every 10 minutes) by adding the log_backups volume into the OTHER volume section of the
+recommended to reduce this value to 300 seconds (that is, 5 minutes).  Then it is possible to run regular
+backups (for example, every 10 minutes) by adding the log_backups volume into the OTHER volume section of the
 configuration file.
 
 ```bash
@@ -250,7 +252,7 @@ SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence',
 #### Check log backup timeout
 
 After making the change to the log backup timeout, check to ensure this has been set as follows.
-In this example, the settings which have just been set will display as the SYSTEM settings, but this
+In this example, the settings that have been set will display as the SYSTEM settings, but this
 query also returns the DEFAULT settings for comparison.
 
 ```bash
@@ -260,13 +262,11 @@ global.ini,DEFAULT,,,persistence,log_backup_timeout_s,900
 global.ini,SYSTEM,,,persistence,log_backup_timeout_s,300
 ```
 
-
-
 ## Next steps
 
 - [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
 - [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
 - [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-configuration.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-backup.md)
+- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
+- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
+- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)

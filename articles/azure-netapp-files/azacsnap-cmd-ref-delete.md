@@ -1,9 +1,9 @@
 ---
-title: Perform deletes using the Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
-description: This article provides a guide for running the delete command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Delete using Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+description: Provides a guide for running the delete command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
-author: phjensen
+author: Phil-Jensen
 manager: ''
 editor: ''
 
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
+ms.author: phjensen
 ---
 
-# Perform deletes using the Azure Application Consistent Snapshot Tool
+# Delete using Azure Application Consistent Snapshot Tool
 
 This article provides a guide for running the delete command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
 
@@ -28,12 +29,12 @@ It is possible to delete volume snapshots and database catalog entries with the 
 
 This command deletes snapshots from the volumes.
 
-Snapshots created less than 10 minutes prior to running this command should not be deleted due to the
+Snapshots created less than 10 minutes before running this command should not be deleted due to the
 potential for interference with snapshot replication.
 
 This command takes the following arguments:
 
-- `--delete=` type of delete operation ('sync', 'storage', 'hana').
+- `--delete=` type of delete operation (`sync`, `storage`, `hana`).
   - `sync` type deletion tries to link the SAP HANA backup ID to the volume snapshot name in order to
        remove both the SAP HANA backup ID from the catalog and the snapshot from the storage volume.
   - `storage` type deletion removes the snapshot from each of the volumes in the configuration file.
@@ -42,7 +43,7 @@ This command takes the following arguments:
 - `--snapshot=` (optional) The snapshot name to be permanently removed.
 - `--hanasid=` (optional) SAP HANA database SID containing the backup ID to be deleted.
 - `--hanabackupid=` (optional) SAP HANA backup ID to be deleted from SAP HANA backup catalog.
-- `--force` (optional) **use with caution** this will force deletion without prompting for confirmation.
+- `--force` (optional) *Use with caution*.  This operation will force deletion without prompting for confirmation.
 
 ### Delete a snapshot using `sync` option`
 
@@ -102,6 +103,6 @@ Snapshot deletion completed
 - [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
 - [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
 - [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-configuration.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-backup.md)
+- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
+- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
+- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)

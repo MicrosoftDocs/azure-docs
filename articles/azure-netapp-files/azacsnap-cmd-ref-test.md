@@ -1,9 +1,9 @@
 ---
-title: Test the Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
-description: This article explains how to run the test command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Test Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+description: Explains how to run the test command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
-author: phjensen
+author: Phil-Jensen
 manager: ''
 editor: ''
 
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
+ms.author: phjensen
 ---
 
-# Test the Azure Application Consistent Snapshot Tool
+# Test Azure Application Consistent Snapshot Tool
 
 This article explains how to run the test command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 
@@ -73,7 +74,7 @@ snapshots (see the line starting with `Action:` output).
 SID1   : Generation 4
 Storage: ams07-a700s-saphan-1-01v250-client25-nprod
 HLI SKU: S96
-Action : Please configure the 'boot' snapshots on ALL the servers.
+Action : Configure the 'boot' snapshots on ALL the servers.
 
 ```
 
@@ -83,6 +84,6 @@ Action : Please configure the 'boot' snapshots on ALL the servers.
 - [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
 - [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
 - [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-configuration.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-backup.md)
+- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
+- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
+- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)

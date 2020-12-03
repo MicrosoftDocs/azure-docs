@@ -1,9 +1,9 @@
 ---
 title: Install the Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
-description: This article provides a guide for installation of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+description: Provides a guide for installation of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
-author: phjensen
+author: Phil-Jensen
 manager: ''
 editor: ''
 
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
+ms.author: phjensen
 ---
 
-# Install the Azure Application Consistent Snapshot Tool
+# Install Azure Application Consistent Snapshot Tool
 
 This article provides a guide for installation of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 
 ## Introduction
 
-The downloadable self-installer is designed to make the snapshot tools easy to setup and run with non-root user privileges (e.g. azacsnap). The installer will setup the user and put the snapshot tools into the users `$HOME/bin` subdirectory (default = `/home/azacsnap/bin`).
-The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user performing the installation (e.g. root). If the pre-requisite steps (Enable communication with storage and SAP HANA) were run as root, then the installation will copy the private key and the hdbuserstore to the backup user’s location. However, it is possible for the steps which enable communication with the storage back-end and SAP HANA to be manually done by a knowledgeable administrator after the installation.
+The downloadable self-installer is designed to make the snapshot tools easy to set up and run with non-root user privileges (for example, azacsnap). The installer will set up the user and put the snapshot tools into the users `$HOME/bin` subdirectory (default = `/home/azacsnap/bin`).
+The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user performing the installation (for example, root). If the pre-requisite steps (Enable communication with storage and SAP HANA) were run as root, then the installation will copy the private key and `hdbuserstore` to the backup user’s location. However, it is possible for the steps that enable communication with the storage back-end and SAP HANA to be manually done by a knowledgeable administrator after the installation.
 
 ## Prerequisites for installation
 
-Please follow the guidelines to setup and execute the snapshots and disaster recovery commands. It
+Follow the guidelines to set up and execute the snapshots and disaster recovery commands. It
 is recommended the following steps are completed as root before installing and using the snapshot
 tools.
 
-1. **OS is patched** : Please refer for patching and SMT setup <https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-installation#setting-up-smt-server-for-suse-linux>
+1. **OS is patched** : See patching and SMT setup in [How to install and configure SAP HANA (Large Instances) on Azure](/azure/virtual-machines/workloads/sap/hana-installation#setting-up-smt-server-for-suse-linux).
 1. **Time Synchronization is setup**. The customer will need to provide a NTP compatible time
     server, and configure the OS accordingly.
-1. **HANA is installed** : Please refer for HANA installation instructions:
-    <https://blogs.msdn.microsoft.com/saponsqlserver/2017/11/21/sap-netweaver-installation-on-hana-database/>.
+1. **HANA is installed** : See HANA installation instructions in [SAP NetWeaver Installation on HANA database](https://blogs.msdn.microsoft.com/saponsqlserver/2017/11/21/sap-netweaver-installation-on-hana-database/).
 1. **[Enable communication with storage](#enable-communication-with-storage)** (refer separate section for more details) : Customer must
-    setup SSH with a private/public key pair, and provide the public key for each node where the
+    set up SSH with a private/public key pair, and provide the public key for each node where the
     snapshot tools are planned to be executed to Microsoft Operations for setup on the storage
     back-end.
    1. **For Azure NetApp Files (refer separate section for details)**: Customer must generate the
       service principal authentication file.
-   1. **For Azure Large Instance (refer separate section for details)**: Customer must setup SSH with a
+   1. **For Azure Large Instance (refer separate section for details)**: Customer must set up SSH with a
       private/public key pair, and provide the public key for each node where the snapshot tools are
       planned to be executed to Microsoft Operations for setup on the storage back-end.
 
-      Test this by using SSH to connect to one of the nodes (e.g. `ssh -l <Storage UserName> <Storage IP Address>`).
+      Test this by using SSH to connect to one of the nodes (for example, `ssh -l <Storage UserName> <Storage IP Address>`).
       Type `exit` to logout of the storage prompt.
 
       Microsoft  operations will  provide  the  storage  user  and  storage  IP at  the  time  of provisioning.
   
 1. **[Enable communication with SAP HANA](#enable-communication-with-sap-hana)** (refer separate section for more details) : Customer must
-    setup an appropriate SAP HANA user with the required privileges to perform the snapshot.
-   1. This can be tested from the command line as follows using the text in `grey`
+    set up an appropriate SAP HANA user with the required privileges to perform the snapshot.
+   1. This setting can be tested from the command line as follows using the text in `grey`
       1. HANAv1
 
             `hdbsql -n <HANA IP address> -i <HANA instance> -U <HANA user> "\s"`
@@ -78,7 +78,7 @@ Create RBAC Service Principal
   Cloud Shell User@Azure> az account show
   ```
 
-1. If this is not the correct subscription, use
+1. If the subscription is not correct, use
 
     ```bash
     Cloud Shelluser@Azure> az account set -s <subscription name or id>
@@ -90,7 +90,7 @@ Create RBAC Service Principal
     Cloud Shell User@Azure> az ad sp create-for-rbac --sdk-auth
     ```
 
-    1. This should generate an output like the following:
+    1. This should generate an output like the following example: 
 
         ```bash
         {
@@ -166,7 +166,7 @@ example steps are to provide guidance on setup of SSH for this communication.
 1. Send the public key to Microsoft Operations
 
     Send the output of the `cat /root/.ssh/id_rsa.pub` command (example below) to Microsoft Operations
-    to enable the snapshot tools to communicate with the storage sub-system.
+    to enable the snapshot tools to communicate with the storage subsystem.
 
     ```bash
     > cat /root/.ssh/id_rsa.pub
@@ -181,11 +181,11 @@ example steps are to provide guidance on setup of SSH for this communication.
 ## Enable communication with SAP HANA
 
 The snapshot tools communicate with SAP HANA and need a user with appropriate permissions to
-initiate and release the database save-point. The following provides an example on setup of the SAP
-HANA v2 user and the hdbuserstore for communication to the SAP HANA database.
+initiate and release the database save-point. The following example shows the setup of the SAP
+HANA v2 user and the `hdbuserstore` for communication to the SAP HANA database.
 
-The following example commands setup a user (AZACSNAP) in the SYSTEMDB on SAP HANA 2.
-database, change the IP address, usernames and passwords as appropriate:
+The following example commands set up a user (AZACSNAP) in the SYSTEMDB on SAP HANA 2.
+database, change the IP address, usernames, and passwords as appropriate:
 
 1. Connect to the SYSTEMDB to create the user
 
@@ -219,8 +219,7 @@ database, change the IP address, usernames and passwords as appropriate:
 
 1. *OPTIONAL* - Prevent user's password from expiring
 
-  > [!CAUTION]
-  > Recommend checking with corporate policy before making this change.
+  > [!NOTE] Check with corporate policy before making this change.
 
    This example disables the password expiration for the AZACSNAP user, without this change the user's password will expire preventing snapshots to be taken correctly.  
 
@@ -229,15 +228,15 @@ database, change the IP address, usernames and passwords as appropriate:
    ```
 
 1. Setup the SAP HANA Secure User Store (change the password)
-    This example uses the hdbuserstore command from the Linux shell to setup the SAP HANA Secure User store.
+    This example uses the `hdbuserstore` command from the Linux shell to set up the SAP HANA Secure User store.
 
     ```bash
     > hdbuserstore Set AZACSNAP <IP_address_of_host>:30013 AZACSNAP <AZACSNAP_PASSWORD_CHANGE_ME>
     ```
 
 1. Check the SAP HANA Secure User Store
-    To check if the secure user store is setup correctly, use the hdbuserstore command to list the
-    output which should be similar to the following. More details on using hdbuserstore are available
+    To check if the secure user store is set up correctly, use the `hdbuserstore` command to list the
+    output similar to the following example. More details on using `hdbuserstore` are available
     on the SAP website.
 
     ```bash
@@ -253,9 +252,9 @@ database, change the IP address, usernames and passwords as appropriate:
 
 ### Additional instructions for using the log trimmer (SAP HANA 2.0 and later)
 
-If using the log trimmer, then the following example commands setup a user (AZACSNAP) in the
+If using the log trimmer, then the following example commands set up a user (AZACSNAP) in the
 TENANT database(s) on a SAP HANA 2.0 database system. Remember to change the IP address,
-usernames and passwords as appropriate:
+usernames, and passwords as appropriate:
 
 1. Connect to the TENANT database to create the user, tenant specific details are `<IP_address_of_host>` and `<SYSTEM_USER_PASSWORD>`.  Also, note the port (`30015`) required to communicate with the TENANT database.
 
@@ -290,8 +289,7 @@ usernames and passwords as appropriate:
 
 1. *OPTIONAL* - Prevent user's password from expiring
 
-  > [!CAUTION]
-  > Recommend checking with corporate policy before making this change.
+  > [!NOTE] Check with corporate policy before making this change.
 
    This example disables the password expiration for the AZACSNAP user, without this change the user's password will expire preventing snapshots to be taken correctly.  
 
@@ -331,15 +329,15 @@ The following are always used when using the `azacsnap --ssl` option:
 
 SSL communication also requires Key Store and Trust Store files.  While it is possible for
 these files to be stored in default locations on a Linux installation, to ensure the
-correct key material is being used for the various SAP HANA systems (i.e. in the cases where
+correct key material is being used for the various SAP HANA systems (that is, in the cases where
 different key-store and trust-store files are used for each SAP HANA system) `azacsnap`
 expects the key-store and trust-store files to be stored in the `securityPath` location
 as specified in the `azacsnap` configuration file.
 
 #### Key Store files
 
-- If using multiple SIDs with the same key material it's easier to create links into
-    the securityPath location as defined in the `azacsnap` config file.  Ensure these exist
+- If using multiple SIDs with the same key material, it's easier to create links into
+    the securityPath location as defined in the `azacsnap` config file.  Ensure these values exist
     for every SID using SSL.
   - For openssl:
     - `ln $HOME/.ssl/key.pem <securityPath>/<SID>_keystore`
@@ -353,13 +351,13 @@ as specified in the `azacsnap` configuration file.
   - For commoncrypto:
     - `mv sapcli.pse <securityPath>/<SID>_keystore`
 
-When `azacsnap` calls `hdbsql` it will add `-sslkeystore=<securityPath>/<SID>_keystore`
+When `azacsnap` calls `hdbsql`, it will add `-sslkeystore=<securityPath>/<SID>_keystore`
 to the command line.
 
 #### Trust Store files
 
 - If using multiple SIDs with the same key material create hard-links into the securityPath
-    location as defined in the `azacsnap` config file.  Ensure these exist for every SID
+    location as defined in the `azacsnap` config file.  Ensure these values exist for every SID
     using SSL.
   - For openssl:
     - `ln $HOME/.ssl/trust.pem <securityPath>/<SID>_truststore`
@@ -372,11 +370,10 @@ to the command line.
   - For commoncrypto:
     - `mv sapcli.pse <securityPath>/<SID>_truststore`
 
-> [!NOTE]
-> The `<SID>` component of the file names must be the SAP HANA System Identifier
-all in upper case (e.g. `H80`, `PR1`, etc.)
+> [!NOTE] The `<SID>` component of the file names must be the SAP HANA System Identifier
+all in upper case (for example, `H80`, `PR1`, etc.)
 
-When `azacsnap` calls `hdbsql` it will add `-ssltruststore=<securityPath>/<SID>_truststore`
+When `azacsnap` calls `hdbsql`, it will add `-ssltruststore=<securityPath>/<SID>_truststore`
 to the command line.
 
 Therefore, running `azacsnap -c test --test hana --ssl openssl` where the `SID` is `H80`
@@ -393,25 +390,23 @@ hdbsql \
     "sql statement"
 ```
 
-> [!NOTE]
-> The `\` character is a command line line-wrap to improve clarity of the
+> [!NOTE] The `\` character is a command line line-wrap to improve clarity of the
 multiple parameters passed on the command line.
 
 ## Installing the snapshot tools
 
-The downloadable self-installer is designed to make the snapshot tools easy to setup and run with
-non-root user privileges (e.g. azacsnap). The installer will setup the user and put the snapshot tools
+The downloadable self-installer is designed to make the snapshot tools easy to set up and run with
+non-root user privileges (for example, azacsnap). The installer will set up the user and put the snapshot tools
 into the users `$HOME/bin` subdirectory (default = `/home/azacsnap/bin`).
 
 The self-installer tries to determine the correct settings and paths for all the files based on the
-configuration of the user performing the installation (e.g. root). If the previous setup steps (Enable
+configuration of the user performing the installation (for example, root). If the previous setup steps (Enable
 communication with storage and SAP HANA) were run as root, then the installation will copy the
-private key and the hdbuserstore to the backup user's location. However, it is possible for the steps
+private key and the `hdbuserstore` to the backup user's location. However, it is possible for the steps
 which enable communication with the storage back-end and SAP HANA to be manually done by a
 knowledgeable administrator after the installation.
 
-> [!NOTE]
-> For earlier SAP HANA on Azure Large Instance installations, the directory of pre-installed
+> [!NOTE] For earlier SAP HANA on Azure Large Instance installations, the directory of pre-installed
 snapshot tools was `/hana/shared/<SID>/exe/linuxx86_64/hdb`.
 
 With the [pre-requisite steps](#pre-requisite-steps-for-installation) completed, it’s now possible to install the snapshot tools using the self-installer as follows:
@@ -442,8 +437,7 @@ Switches enclosed in [] are optional for each command line.
 Examples of a target directory are ./tmp or /usr/local/bin
 ```
 
-> [!NOTE]
-> The self-installer has an option to extract (-X) the snapshot tools from the bundle without
+> [!NOTE] The self-installer has an option to extract (-X) the snapshot tools from the bundle without
 performing any user creation and setup. This allows an experienced administrator to
 complete the setup steps manually, or to copy the commands to upgrade an existing
 installation.
@@ -451,7 +445,7 @@ installation.
 ### Easy installation of snapshot tools (default)
 
 The installer has been designed to quickly install the snapshot tools for SAP HANA on Azure. By default, if the
-installer is run with only the -I option, it will do the following:
+installer is run with only the -I option, it will do the following steps:
 
 1. Create Snapshot user 'azacsnap', home directory, and set group membership.
 1. Configure the azacsnap user's login `~/.profile`.
@@ -497,7 +491,7 @@ installation option.
 
 1. Change into the snapshot user account.....
      su - azacsnap
-2. Setup the HANA Secure User Store..... (command format below)
+2. Set up the HANA Secure User Store..... (command format below)
      hdbuserstore Set <ADMIN_USER> <HOSTNAME>:<PORT> <admin_user> <password>
 3. Change to location of commands.....
      cd /home/azacsnap/bin/
@@ -514,7 +508,7 @@ installation option.
      azacsnap -c backup --volume=data --prefix=hana_test --frequency=15min --retention=1
 ```
 
-### Uninstallation of the snapshot tools
+### Uninstall the snapshot tools
 
 If the snapshot tools have been installed using the default settings, uninstallation only requires
 removing the user the commands have been installed for (default = azacsnap).
@@ -555,7 +549,7 @@ As the root superuser, a manual installation can be achieved as follows:
     ```
 
 1. Search filesystem for directories to add to azacsnap's $PATH, these are typically the paths to
-    the SAP HANA tools, such as hdbsql and hdbuserstore.
+    the SAP HANA tools, such as `hdbsql` and `hdbuserstore`.
 
     ```bash
     # HDBSQL_PATH=`find -L /hana/shared/[A-z0-9][A-z0-9][A-z0-9]/HDB*/exe /usr/sap/hdbclient -name hdbsql -exec dirname {} + 2> /dev/null | sort | uniq | tr '\n' ':'`
@@ -619,7 +613,7 @@ As the root superuser, a manual installation can be achieved as follows:
     # cp -pr ~/.hdb /home/azacsnap/.
     ```
 
-1. Set the user permissions correctly for the hdbuserstore files
+1. Set the user permissions correctly for the `hdbuserstore` files
 
     ```bash
     # chown -R azacsnap.sapsys /home/azacsnap/.hdb
@@ -643,7 +637,7 @@ As the root superuser, a manual installation can be achieved as follows:
     # chown -R azacsnap.sapsys /home/azacsnap/*
     ```
 
-### Completing setup of snapshot tools
+### Complete the setup of snapshot tools
 
 The installer provides steps to complete after the installation of the snapshot tools has been done.
 Follow these steps to configure and test the snapshot tools.  After successful testing, then perform the first database
@@ -653,7 +647,7 @@ The following output shows the steps to complete after running the installer wit
 
 1. Change into the snapshot user account
     1. `su - azacsnap`
-1. Setup the HANA Secure User Store
+1. Set up the HANA Secure User Store
    1. `hdbuserstore Set <ADMIN_USER> <HOSTNAME>:<PORT> <admin_user> <password>`
 1. Change to location of commands
    1. `cd /home/azacsnap/bin/`
@@ -672,14 +666,13 @@ The following output shows the steps to complete after running the installer wit
 Step 2 will be necessary if "[Enable communication with SAP HANA](#enable-communication-with-sap-hana)" was not done before the
 installation.
 
-> [!CAUTION]
-> The test commands should execute correctly otherwise the commands may fail.
+> [!NOTE] The test commands should execute correctly. Otherwise, the commands may fail.
 
 ## Next steps
 
 - [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
 - [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
 - [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-configuration.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-backup.md)
+- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
+- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
+- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)

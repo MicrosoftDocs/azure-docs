@@ -1,9 +1,9 @@
 ---
-title: Troubleshoot the Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
-description: This article provides troubleshooting content for using the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+title: Troubleshoot Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+description: Provides troubleshooting content for using the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
-author: phjensen
+author: Phil-Jensen
 manager: ''
 editor: ''
 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/14/2020
+ms.author: phjensen
 ---
 
-# Troubleshoot the Azure Application Consistent Snapshot Tool
+# Troubleshoot Azure Application Consistent Snapshot Tool
 
 This article provides troubleshooting content for using the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 
-The following are common issues that you may encounter while running the commands. Please follow the resolution instructions mentioned to fix the issue. If you still encounter an issue, please open a Service Request from Azure portal and assign the request into the SAP HANA Large Instance queue for Microsoft Support to respond.
+The following are common issues that you may encounter while running the commands. Follow the resolution instructions mentioned to fix the issue. If you still encounter an issue, open a Service Request from Azure portal and assign the request into the SAP HANA Large Instance queue for Microsoft Support to respond.
 
 ## Failed communication with SAP HANA
 
@@ -36,7 +37,7 @@ CRITICAL: Command 'test' failed with error:
 
 **Solution:**
 
-1. Check the configuration file (e.g. `azacsnap.json`) for each HANA instance to ensure the SAP HANA database values are correct.
+1. Check the configuration file (for example, `azacsnap.json`) for each HANA instance to ensure the SAP HANA database values are correct.
 1. Try to run the command below to verify if the `hdbsql` command is in the path and it can connect to the SAP HANA Server. The following example shows the correct running of the command and its output.
 
     ```bash
@@ -62,7 +63,7 @@ CRITICAL: Command 'test' failed with error:
     cnf hdbsql</font>
     </pre>
 
-    In this example, the `hdbsql` command is temporarily added to the user's `$PATH`, but when run shows the connection key hasn't been setup correctly with the `hdbuserstore Set` command (refer
+    In this example, the `hdbsql` command is temporarily added to the user's `$PATH`, but when run shows the connection key hasn't been set up correctly with the `hdbuserstore Set` command (refer
     to Getting Started guide for details):
 
     ```bash
@@ -74,11 +75,11 @@ CRITICAL: Command 'test' failed with error:
     <font color=red>* -10104: Invalid value for KEY (SCADMIN)</font>
     </pre>
 
-    > [!TIP] To permanently add to the user's `$PATH`, update the user's `$HOME/.profile` file
+    > [!NOTE] To permanently add to the user's `$PATH`, update the user's `$HOME/.profile` file
 
 ## The `hdbuserstore` location
 
-When setting up communication with SAP HANA the `hdbuserstore` program is used to create the secure communication settings.  The `hdbuserstore` program is usually found under `/usr/sap/<SID>/SYS/exe/hdb/` or `/usr/sap/hdbclient`.  Normally the installer adds the correct location to the `azacsnap` user's `$PATH`.
+When setting up communication with SAP HANA, the `hdbuserstore` program is used to create the secure communication settings.  The `hdbuserstore` program is usually found under `/usr/sap/<SID>/SYS/exe/hdb/` or `/usr/sap/hdbclient`.  Normally the installer adds the correct location to the `azacsnap` user's `$PATH`.
 
 ## Failed test with storage
 
@@ -124,8 +125,8 @@ ECDSA key fingerprint is SHA256:cONAr0lpafb7gY4l31AdWTzM3s9LnKDtpMdPA+cxT7Y.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
-**Solution:** Do not select Yes. Please ensure that your storage IP address is correct. If there is still an
-issue, please confirm the storage IP address with Microsoft operations team.
+**Solution:** Do not select Yes. Ensure that your storage IP address is correct. If there is still an
+issue, confirm the storage IP address with Microsoft operations team.
 
 ### Azure NetApp Files
 
@@ -142,13 +143,13 @@ ERROR: Could not create StorageANF object [authFile = 'azureauth.json']
 **Solution:** 
 
 1. Check for the existence of the Service Principal file, `azureauth.json`, as set in the `azacsnap.json` configuration file.
-1. Check the log file (e.g. `logs/azacsnap-test-azacsnap.log`) to see if the Service Principal (`azureauth.json`) has the correct content.  Example from log as follows:
+1. Check the log file (for example, `logs/azacsnap-test-azacsnap.log`) to see if the Service Principal (`azureauth.json`) has the correct content.  Example from log as follows:
 
       ```bash
       [19/Nov/2020:18:39:49 +13:00] DEBUG: [PID:0020080:StorageANF:659] [1] Innerexception: Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException AADSTS7000215: Invalid client secret is provided.
       ```
 
-1. Check the log file (e.g. `logs/azacsnap-test-azacsnap.log`) to see if the Service Principal (`azureauth.json`) has expired.  Example from log as follows:
+1. Check the log file (for example, `logs/azacsnap-test-azacsnap.log`) to see if the Service Principal (`azureauth.json`) has expired. Example from log as follows:
 
       ```bash
       [19/Nov/2020:18:41:10 +13:00] DEBUG: [PID:0020257:StorageANF:659] [1] Innerexception: Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException AADSTS7000222: The provided client secret keys are expired. Visit the Azure Portal to create new keys for your app, or consider using certificate credentials for added security: https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials
@@ -161,6 +162,6 @@ ERROR: Could not create StorageANF object [authFile = 'azureauth.json']
 - [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
 - [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
 - [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-configuration.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-backup.md)
+- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
+- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
+- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)
