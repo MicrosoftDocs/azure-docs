@@ -30,7 +30,7 @@ You'll need to create an App ID and a service ID in the Apple Developer portal.
 ![Configuring a new app identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_configureapp.jpg)
 5. Review the app registration information and select **Register**.
 6. Again, on the **Identifiers** tab, select the **(+)** button.
-[Creating a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_newapp.jpg) 
+![Creating a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_newapp.jpg) 
 7. On the **Register a New Identifier** page, choose **Services IDs** and select **Continue**.
 ![Registering a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_registerservice.jpg)
 8. On the **Register a Services ID** page, provide a description and an identifier. The description is what will be shown to the user on the consent screen. The identifier will be your client ID used in configuring the Apple provider with your app service. Then select **Configure**.
