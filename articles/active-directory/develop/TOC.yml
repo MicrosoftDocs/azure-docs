@@ -323,7 +323,8 @@
         - name: Web browser considerations
           href: msal-net-web-browsers.md
         - name: Handle errors and exceptions
-          href: msal-handling-exceptions.md?tabs=dotnet
+          href: msal-error-handling-dotnet.md
+          displayName: handling, exceptions, catch
         - name: Logging
           href: msal-logging.md?tabs=dotnet
         - name: Acquire a token from the cache
@@ -364,7 +365,8 @@
           - name: Known issues - IE and Microsoft Edge
             href: msal-js-known-issues-ie-edge-browsers.md
           - name: Handle errors and exceptions
-            href: msal-handling-exceptions.md?tabs=javascript
+            href: msal-error-handling-js.md
+            displayName: handling, exceptions, catch
           - name: Logging
             href: msal-logging.md?tabs=javascript
       - name: MSAL for iOS and macOS
@@ -393,7 +395,8 @@
           - name: Troubleshoot SSL issues (MSAL iOS/macOS)
             href: ssl-issues.md
           - name: Handle errors and exceptions
-            href: msal-handling-exceptions.md?tabs=iosmacos
+            href: msal-error-handling-ios.md
+            displayName: handling, exceptions, catch
           - name: Logging
             href: msal-logging.md?tabs=swift
       - name: MSAL for Python
@@ -405,7 +408,8 @@
           - name: ADFS support in MSAL for Python
             href: msal-python-adfs-support.md
           - name: Handle errors and exceptions
-            href: msal-handling-exceptions.md?tabs=python
+            href: msal-error-handling-python.md
+            displayName: handling, exceptions, catch
           - name: Logging
             href: msal-logging.md?tabs=python
       - name: MSAL for Java
@@ -419,7 +423,8 @@
           - name: ADFS support in MSAL for Java
             href: msal-java-adfs-support.md
           - name: Handle errors and exceptions
-            href: msal-handling-exceptions.md?tabs=java
+            href: msal-error-handling-java.md
+            displayName: handling, exceptions, catch
           - name: Logging
             href: msal-logging.md?tabs=java
       - name: MSAL for Android
