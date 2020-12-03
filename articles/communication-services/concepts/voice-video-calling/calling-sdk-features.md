@@ -82,7 +82,7 @@ If you want to use an iframe to host part of the app from a different domain, yo
 
 For example, this iframe allows both camera and microphone access:
 
-```html|
+```html
 <iframe allow="camera *; microphone *">
 ```
 
