@@ -112,6 +112,8 @@ docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCR
 > [!WARNING]
 > You cannot use your computer's microphone when you run Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
 
+<!-- Need to troubleshoot issues with docker pull image
+
 ### Optional: Create a command line shortcut
 
 If you're running the the Speech CLI from a Docker container on Linux or macOS you can create a shortcut. 
@@ -142,7 +144,7 @@ Follow these instructions to create a shortcut:
 
 > [!WARNING]
 > If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
-
+--->
 ***
 
 ## Create subscription config
