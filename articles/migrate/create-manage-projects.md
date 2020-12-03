@@ -51,8 +51,7 @@ In the portal, you can select the geography in which you want to create the proj
 
 ```rest
 PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"
-``````
-
+```
 
 ## Create additional projects
 

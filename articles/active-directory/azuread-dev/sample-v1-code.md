@@ -65,7 +65,7 @@ Platform | Sample |
 
 ## Desktop and mobile public client applications calling Microsoft Graph or a Web API
 
-The following samples illustrate public client applications (deskto/pmobile applications) that access the Microsoft Graph or a Web API in the name of a user. Depending on the devices and platforms, applications can sign in users in different ways (flows/grants):
+The following samples illustrate public client applications (desktop/mobile applications) that access the Microsoft Graph or a Web API in the name of a user. Depending on the devices and platforms, applications can sign in users in different ways (flows/grants):
 
 - Interactively
 - Silently (with Integrated Windows Authentication on Windows, or username/password)

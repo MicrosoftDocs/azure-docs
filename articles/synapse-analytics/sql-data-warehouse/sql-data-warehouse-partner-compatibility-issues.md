@@ -38,7 +38,6 @@ Customers seeing this particular issue when using Tableau connected to Azure Syn
 The example below shows a Tableau TDC file that passes the FMTONLY=YES parameter to the SQL connection string:
 
 ```json
-
 <connection-customization class='azure_sql_dw' enabled='true' version='18.1'>
 	<vendor name='azure_sql_dw' />
 	<driver name='azure_sql_dw' />

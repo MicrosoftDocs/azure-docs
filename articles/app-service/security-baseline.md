@@ -46,7 +46,7 @@ Consider implementing an Azure Firewall to centrally create, enforce, and log ap
 
 - [Open Web Application Security Project (OWASP) Top 10 vulnerabilities protection](https://owasp.org/www-project-top-ten/)
 
-- [Network security groups](/azure/virtual-network/security-overview)
+- [Network security groups](../virtual-network/network-security-groups-overview.md)
 
 - [Integrate your app with an Azure virtual network](web-sites-integrate-with-vnet.md)
 
@@ -70,7 +70,7 @@ Use Azure Firewall to send traffic and centrally create, enforce, and log applic
 
 - [Understand Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [How to Enable Monitoring and Protection of App Service](/azure/security-center/security-center-app-services)
+- [How to Enable Monitoring and Protection of App Service](/azure/security-center/defender-for-app-service-intro)
 
 **Azure Security Center monitoring**: Yes
 
@@ -167,7 +167,7 @@ Review the referenced links for additional information.
 
 - [How to configure end-to-end TLS by using Application Gateway with the portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Secure the ASE as described in Locking down an App Service](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [Secure the ASE as described in Locking down an App Service](/azure/app-service/environment/firewall-integration)
 
 **Azure Security Center monitoring**: Yes
 
@@ -204,7 +204,7 @@ Review the referenced links for additional information.
 
 - [How to configure end-to-end TLS by using Application Gateway with the portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Secure the ASE as described in Locking down an App Service](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [Secure the ASE as described in Locking down an App Service](/azure/app-service/environment/firewall-integration)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -218,9 +218,9 @@ Specify business need, duration, and so on, with the "Description" field for any
 
 Apply any of the built-in Azure Policy definitions related to tagging effects, such as "Require tag and its value", to ensure that all resources are created with tags and to notify you of any existing untagged resources. Use Azure PowerShell or Azure CLI to look up or perform actions on resources based on their tags.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure App Service Access Restrictions](/azure/app-service/app-service-ip-restriction)
+- [Azure App Service Access Restrictions](/azure/app-service/app-service-ip-restrictions)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -240,7 +240,7 @@ Review detailed security alerts and recommendations in Security Center, at the p
 
 It is recommended that you create a process with automated tools to monitor network resource configurations and quickly detect changes.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -280,7 +280,7 @@ The "what, who, and when" for any write operations (PUT, POST, DELETE) performed
 
 Additionally, Azure Key Vault provides centralized secret management with access policies and audit history. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
 - [How to enable Diagnostic Settings for Azure App Service](troubleshoot-diagnostic-logs.md)
 
@@ -309,7 +309,7 @@ If you have deployed a Web Application Firewall (WAF), you can monitor attacks a
 
 Use Azure Sentinel, a scalable and cloud-native security information event management (SIEM), to integrate with various data sources and connectors, as per requirements. Optionally, enable and on-board data to a third-party  security information event management solution in the Azure Marketplace.
 
-- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
 - [How to enable Application Insights](../azure-monitor/app/app-insights-overview.md)
 
@@ -343,7 +343,7 @@ Monitor attacks against your App Service apps by using a real-time Web Applicati
 
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and query-able. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 - [How to use managed identities for App Service and Azure Functions](overview-managed-identity.md?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
 
@@ -422,7 +422,7 @@ When you enable authentication and authorization with one of these providers, it
 
 Implement multifactor authentication for Azure AD. Administrators need to ensure that the subscription accounts in the portal are protected. The subscription is vulnerable to attacks because it manages the resources that you created. 
 
-- [Azure Security MFA](/azure/security/develop/secure-aad-app)
+- [Azure Security MFA](/previous-versions/azure/security/develop/secure-aad-app)
 
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -454,9 +454,9 @@ Threat protection in Security Center provides comprehensive defenses for your en
 
 - [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Understand Azure AD risk detections](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Understand Azure AD risk detections](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Threat protection for Azure compute resources](/azure/security-center/threat-protection)
+- [Threat protection for Azure compute resources](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -488,7 +488,7 @@ Threat protection in Security Center provides comprehensive defenses for your en
 
 **Guidance**: Discover stale accounts with the logs provided by Azure Active Directory (Azure AD). Use Azure Identity Access Reviews to efficiently manage group memberships and access to enterprise applications, as well as role assignments. Review user access periodically to make sure only the intended users have continued access. 
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -504,7 +504,7 @@ Access to Azure AD sign in activity, audit, and risk event log sources allow you
 
 - [How to configure your Azure App Service apps to use Azure AD login](configure-authentication-provider-aad.md)
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -520,7 +520,7 @@ Use Azure AD Identity Protection to configure automated responses to detected su
 
 - [How to configure your Azure App Service app to use Azure AD login](configure-authentication-provider-aad.md)
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -546,7 +546,7 @@ Use Azure AD Identity Protection to configure automated responses to detected su
 
 **Guidance**: Use tags to assist in tracking App Service resources that store or process sensitive information.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -628,7 +628,7 @@ Customer supplied secrets are encrypted at rest while stored in App Service conf
 
 Note that while locally attached disks can be used optionally by websites as temporary storage, (for example, D:\local and %TMP%), they are not encrypted at rest.
 
-- [Understand data protection controls for Azure App Service](app-service-security-controls.md)
+- [Understand data protection controls for Azure App Service]()
 
 - [Understand Azure Storage encryption at rest](../storage/common/storage-service-encryption.md)
 
@@ -656,9 +656,9 @@ Note that while locally attached disks can be used optionally by websites as tem
 
 Review and follow recommendations from Security Center for securing your App Service apps.
 
-- [How to add continuous security validation to your CI/CD pipeline](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops&amp;preserve-view=true)
+- [How to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?preserve-view=true&view=azure-devops)
 
-- [How to implement Azure Security Center vulnerability assessment recommendations](/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -686,7 +686,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -698,7 +698,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Apply tags to Azure resources using metadata to logically organize them into a taxonomy.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -715,11 +715,11 @@ Choose Azure Policy to put restrictions on the type of resources that can be cre
 
 Review the referenced links for additional information.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -893,7 +893,7 @@ Apply built-in policy definitions such as:
 
 It is recommended that you document the process to apply the built-in policy definitions for standardized usage.   
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -919,9 +919,9 @@ It is recommended that you document the process to apply the built-in policy def
 
 Use your existing Continuous Integration (CI) and Continuous Delivery (CD) pipeline to deploy a known-secure configuration.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos Documentation](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -953,11 +953,11 @@ Apply Azure Policy [audit], [deny], and [deploy if not exist], effects to automa
 
 **Guidance**: Use Managed Identities to provide your App Service apps with an automatically managed identity in Azure Active Directory (Azure AD). Managed Identities enable your apps to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code. Ensure soft delete is enabled in Azure Key Vault.
 
-- [How to enable soft delete in Azure Key Vault](/azure/key-vault/key-vault-soft-delete-powershell)
+- [How to enable soft delete in Azure Key Vault](../key-vault/general/key-vault-recovery.md)
 
 - [How to use managed identities for App Service](overview-managed-identity.md)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to provide Key Vault authentication with a managed identity](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -969,7 +969,7 @@ Apply Azure Policy [audit], [deny], and [deploy if not exist], effects to automa
 
 - [How to use managed identities for App Service](overview-managed-identity.md)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to provide Key Vault authentication with a managed identity](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1002,7 +1002,7 @@ Ensure that regular and automated back-ups are occurring at a frequency as defin
 
 - [Understand Azure App Service backup capability](manage-backup.md)
 
-- [Customer-managed keys for Azure Storage encryption](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-overview?toc=/azure/storage/blobs/toc.json)
+- [Customer-managed keys for Azure Storage encryption](../storage/common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1056,7 +1056,7 @@ By default, data in a storage account is encrypted with Microsoft-managed keys. 
 
 - [Understand Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md)
 
-- [How to enable soft delete in Azure Key Vault](/azure/key-vault/key-vault-soft-delete-powershell)
+- [How to enable soft delete in Azure Key Vault](../key-vault/general/key-vault-recovery.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1152,5 +1152,5 @@ You can find more information on Microsoft’s strategy and execution of Red Tea
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)
