@@ -59,9 +59,9 @@ Perform the necessary steps to have [Live Video Analytics  module deployed and w
 
 When collocating on the same node, shared memory can be used for best performance. This requires you to use Linux shared memory capabilities exposed by the programming language/environment.
 
-    1. Open the Linux shared memory handle.
-    1. Upon receiving of a frame, access the address offset within the shared memory.
-    1. Acknowledge the frame processing completion so its memory can be reclaimed by Live Video Analytics.
+1. Open the Linux shared memory handle.
+1. Upon receiving of a frame, access the address offset within the shared memory.
+1. Acknowledge the frame processing completion so its memory can be reclaimed by Live Video Analytics.
 
 ## Create a gRPC inference server
 
@@ -79,7 +79,7 @@ This gRPC inference server is a .NET Core console application built handle the [
 
     :::image type="content" source="./media/develop-deploy-grpc-inference-srv-how-to/grpc-external-srv.png" alt-text="Create a gRPC inference server":::
 
-The video frames can be transferred either through [shared memory]() or they can be embedded within the [protobuf]() message. The data transfer mode can be configured in the LVA graph topology to determine how frames will be transferred. This is achieved by configuring the dataTransfer element of the MediaGraphGrpcExtension property as shown below:
+The video frames can be transferred either through [shared memory]() or they can be embedded within the [protobuf]() message. The data transfer mode can be configured in the LVA graph topology to determine how frames will be transferred. This is achieved by configuring the **dataTransfer** element of the MediaGraphGrpcExtension property as shown below:
 
 Embedded:
 
@@ -96,7 +96,7 @@ Shared memory:
 ```
 
 > [!NOTE]
-> When communicating over shared memory, the value of IpcMode should be set to shareable and in the gRPC server module set the value of IpcMode to container:{CONTAINER_NAME}. These settings are to be made in the deployment manifest file that is used for deploying the modules to the Azure IoT Hub. Below is a sample of the container options to use when setting up the IoT Edge modules.
+> When communicating over shared memory, the value of IpcMode should be set to **shareabl**e and in the gRPC server module set the value of IpcMode to **container:{CONTAINER_NAME}**. These settings are to be made in the deployment manifest file that is used for deploying the modules to the Azure IoT Hub. Below is a sample of the container options to use when setting up the IoT Edge modules.
 
 Live Video Analytics module:
 
@@ -168,9 +168,9 @@ Now that we have configured and initialized the gRPC server port connections, le
         }
         ```
 
-        * In our server implementation, the method ProcessMediaStreamDescriptor will validate the MediaStreamDescriptor’s MediaDescriptor property for a Video file and then will setup the data transfer mode (which is either using shared memory or using embedded frame transfer mode) depending on what you specify in the topology and the deployment template file used. 
+        * In our server implementation, the method `ProcessMediaStreamDescriptor` will validate the MediaStreamDescriptor’s MediaDescriptor property for a Video file and then will setup the data transfer mode (which is either using shared memory or using embedded frame transfer mode) depending on what you specify in the topology and the deployment template file used. 
         * Upon receiving the message and successfully setting up the data transfer mode, the gRPC server then returns the MediaStreamDescriptor message back to the client as an acknowledgement and thus establishing a connection between the server and the client.    
-        * After Live Video Analytics receives the acknowledgement, it will start transferring media stream to the gRPC server. In our server implementation, the method ProcessMediaStream will process the incoming MediaStreamMessage. The MediaStreamMessage is also defined in the [extension.proto]().
+        * After Live Video Analytics receives the acknowledgement, it will start transferring media stream to the gRPC server. In our server implementation, the method `ProcessMediaStream` will process the incoming MediaStreamMessage. The MediaStreamMessage is also defined in the [extension.proto]().
 
         ```
         message MediaStreamMessage {
@@ -188,12 +188,12 @@ Now that we have configured and initialized the gRPC server port connections, le
         * Depending on the value of batchSize in the Appconfig.json, our server will keep receiving the messages and will store the video frames in a List. Once the batchSize limit is reached, the function will call the function or the file which will process the image. In our case, the method calls a file called BatchImageProcessor.cs
     1. **Processors\BatchImageProcessor.cs**: This class is responsible for processing the image(s). We have used an image classification model in this sample. For every image that will be processed, the algorithm used is the following:
 
-        1. Convert the image in a byte array for processing. See method: GetBytes(Bitmap image)
+        1. Convert the image in a byte array for processing. See method: `GetBytes(Bitmap image)`
         
-            The sample processor we're using only supports JPG encoded image frame and None as pixel format. In case your custom processor supports a different encoding and/or format, update the IsMediaFormatSupported method of the processor class.
-        1. Using the [ColorMatrix class](), convert the image to gray scale. See method: ToGrayScale(Image source)
+            The sample processor we're using only supports JPG encoded image frame and None as pixel format. In case your custom processor supports a different encoding and/or format, update the `IsMediaFormatSupported` method of the processor class.
+        1. Using the [ColorMatrix class](), convert the image to gray scale. See method: `ToGrayScale(Image source)`.
         1. Once we get the gray scale image, we then calculate the average of the gray scale bytes.
-        1. If the average value < 127, then we classify the image as “dark”, else we will classify them as “light” with confidence value as 1.0. See method: ProcessImage(List<Image> images)
+        1. If the average value < 127, then we classify the image as “dark”, else we will classify them as “light” with confidence value as 1.0. See method: `ProcessImage(List<Image> images)`.
 
     You can add your own processor logic by either modifying this class or by adding a new class and implementing the method:
 
@@ -210,14 +210,14 @@ Now that you have created your gRPC extension module, we will now create and dep
 1. Using Visual Studio Code, follow [these instructions]() to sign in to Docker.
 1. In Visual Studio Code, go to src/edge. You see your .env file and a few deployment template files.
 
-The deployment template refers to the deployment manifest for the edge device. It includes some placeholder values. The .env file includes the values for those variables.
-
-Then select Build and Push IoT Edge Solution. Use src/edge/deployment.grpc.template.json for this step.
+    The deployment template refers to the deployment manifest for the edge device. It includes some placeholder values. The .env file includes the values for those variables.
     
+    Then select Build and Push IoT Edge Solution. Use src/edge/deployment.grpc.template.json for this step.
+        
     :::image type="content" source="./media/develop-deploy-grpc-inference-srv-how-to/build-push-iot-edge-solution.png" alt-text="Connect with Live Video Analytics module":::
-
-This action builds the grpc server module and pushes the image to your Azure Container Registry.
-Check that you have the environment variables CONTAINER_REGISTRY_USERNAME_myacr and CONTAINER_REGISTRY_PASSWORD_myacr defined in the .env file.
+    
+    This action builds the grpc server module and pushes the image to your Azure Container Registry.
+    Check that you have the environment variables CONTAINER_REGISTRY_USERNAME_myacr and CONTAINER_REGISTRY_PASSWORD_myacr defined in the .env file.
 1. Go to the src/cloud-to-device-console-app folder. Here you see your appsettings.json file and a few other files:
 
     * c2d-console-app.csproj - The project file for Visual Studio Code.
@@ -291,15 +291,17 @@ Check that you have the environment variables CONTAINER_REGISTRY_USERNAME_myacr 
 ## Generate and deploy the IoT Edge deployment manifest
 
 The deployment manifest defines what modules are deployed to an edge device and the configuration settings for those modules. Follow these steps to generate a manifest from the template file, and then deploy it to the edge device.
-This step creates the IoT Edge deployment manifest at src/edge/config/deployment.grpc.amd64.json. Right-click that file and select Create Deployment for Single Device.
+This step creates the IoT Edge deployment manifest at src/edge/config/deployment.grpc.amd64.json. Right-click that file and select **Create Deployment for Single Device**.
 
 :::image type="content" source="./media/develop-deploy-grpc-inference-srv-how-to/create-deployment-single-device.png" alt-text="Generate and deploy the IoT Edge deployment manifest":::
 
 Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Edge device, which should be lva-sample-device.
 At this stage, the deployment of edge modules to your IoT Edge device has started. In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual Studio Code. You should see that a new module got deployed named lvaExtension.
- 
+
+:::image type="content" source="./media/develop-deploy-grpc-inference-srv-how-to/devices.png" alt-text="A new module got deployed named lvaExtension":::
+
 ## Next steps
 
-Follow the Prepare to monitor events steps mentioned in the [Analyze live video with your model]() quickstart to run the sample and interpret the results. 
-Also, check out our sample gRPC topologies: [gRPCExtension](), [CVRWithGrpcExtension](), [EVRtoAssetsByGrpcExtension]() and [EVROnMotionPlusGrpcExtension]().
+Follow the **Prepare to monitor events** steps mentioned in the [Analyze live video with your model](use-your-model-quickstart.md) quickstart to run the sample and interpret the results. 
+Also, check out our sample gRPC topologies: [gRPCExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-grpcExtension-assets/topology.json) and [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json).
 
