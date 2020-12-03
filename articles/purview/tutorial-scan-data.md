@@ -141,7 +141,7 @@ After the catalog configuration is complete, run the following scripts in the Po
 
    When you run the command, a pop-up window may appear for you to sign in using your Azure Active Directory credentials.
 
-1. Use the following command to run the starter kit. Replace the `CatalogName`, `TenantID`, `SubscriptionID`, `NewResourceGroupName`, and `CatalogResourceGroupName` placeholders. For `NewResourceGroupName`, use a unique name for the resource group that will contain the data estate.
+1. Use the following command to run the starter kit. Replace the `CatalogName`, `TenantID`, `SubscriptionID`, `NewResourceGroupName`, and `CatalogResourceGroupName` placeholders. For `NewResourceGroupName`, use a unique name (with lowercase alphanumeric characters only) for the resource group that will contain the data estate.
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`
