@@ -46,7 +46,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > 1. Set the **Redirect URI** value to `http://localhost:3000/redirect`.
 > 1. Select **Register**. 
 > 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
-> 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.  Leave the description blank and default expiration, and then click **Add**.
+> 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.  Leave the description blank and default expiration, and then select **Add**.
 > 1. Note the **Value** of the **Client Secret** for later use.
 
 #### Step 2: Download the project
