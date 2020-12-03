@@ -84,11 +84,11 @@ You can also export your existing list of contacts of an offer, and then make ch
     | *:::no-loc text="Partner technical sales":::* | Supports technical architecture and deployment considerations during the sales cycle, the post-sales integration, and deployment periods. |
     | *:::no-loc text="Partner customer success manager":::* | Typically supports customers post-deployment, to help them get the most out of your offer and grow its footprint within the customer's organization. |
 
-* *Countries/Regions (Required):*  When filling out the template, use the [two letter country/region codes as listed](./commercial-marketplace-co-sell-countries.md). If the contact covers all Countries/Regions, use the three letter code "OOO". If a contact covers more than one Country/Region, enter each of the two letter codes separated by a comma (for example, enter "US, CA, FR" without quotation marks into the template).
+* *Countries/Regions (Required):*  When filling out the template, use the [two letter country/region codes as listed](commercial-marketplace-co-sell-countries.md). If the contact covers all Countries/Regions, use the three letter code "OOO". If a contact covers more than one Country/Region, enter each of the two letter codes separated by a comma (for example, enter "US, CA, FR" without quotation marks into the template).
 
     The countries/regions should reflect each contact's territory. Microsoft sales teams and channel resellers will utilize this information for requesting information or collaborating on sales within the specific Country/Region.
 
-* *States/Provinces (Optional):*  When filling out the template, use the XX-XX format as listed in the [States/Provinces table](./commercial-marketplace-co-sell-states.md).
+* *States/Provinces (Optional):*  When filling out the template, use the XX-XX format as listed in the [States/Provinces table](commercial-marketplace-co-sell-states.md).
 
 ## Reference architecture diagram
 
@@ -108,7 +108,7 @@ A helpful starting point for building reference architecture diagrams is to leve
 
 ### Example reference architecture diagram
 
-:::image type="content" source="media/co-sell-arch-diagram.png" alt-text="This image is an example Co-sell architecture diagram.":::
+:::image type="content" source="./media/co-sell/co-sell-arch-diagram.png" alt-text="This image is an example Co-sell architecture diagram.":::
 
 (The example reference architecture diagram above is for a vertical industry chatbot that can be integrated with intranet sites to help with forecast demand scenarios via a Machine Learning algorithm using supply chain and manufacturing schedule data from different ERP systems. The bot is designed to address questions about when a sales person can commit on possible delivery dates for an order.)
 
