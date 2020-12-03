@@ -34,23 +34,6 @@ landingContent:
 
 
   # Card 
-  - title: Always Encrypted with secure enclaves tutorials
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Getting started with Always Encrypted with secure enclaves in SQL Server
-            url: /sql/relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves
-          - text: Getting started with Always Encrypted with secure enclaves in Azure SQL Database
-            url: always-encrypted-enclaves-getting-started.md
-          - text: Create and use indexes on enclave-enabled columns using randomized encryption 
-            url: /sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption
-          - text: Develop a .NET application using Always Encrypted with secure enclaves
-            url: /sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps
-          - text: Develop a .NET Framework application using Always Encrypted with secure enclaves
-            url: /sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps
-
-
-  # Card 
   - title: Set up in Azure SQL Database
     linkLists:
       - linkListType: concept
@@ -76,6 +59,23 @@ landingContent:
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-register
           - text: Configure the secure enclave in SQL Server
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-configure-enclave-type
+
+
+  # Card 
+  - title: Always Encrypted with secure enclaves tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Getting started with Always Encrypted with secure enclaves in SQL Server
+            url: /sql/relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves
+          - text: Getting started with Always Encrypted with secure enclaves in Azure SQL Database
+            url: always-encrypted-enclaves-getting-started.md
+          - text: Create and use indexes on enclave-enabled columns using randomized encryption 
+            url: /sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption
+          - text: Develop a .NET application using Always Encrypted with secure enclaves
+            url: /sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps
+          - text: Develop a .NET Framework application using Always Encrypted with secure enclaves
+            url: /sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps
 
 
   # Card

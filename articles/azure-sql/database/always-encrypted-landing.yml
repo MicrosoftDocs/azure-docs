@@ -65,7 +65,7 @@ landingContent:
 
 
   # Card
-  - title: Managed Always Encrypted keys
+  - title: Manage Always Encrypted keys
     linkLists:
       - linkListType: how-to-guide
         links:
