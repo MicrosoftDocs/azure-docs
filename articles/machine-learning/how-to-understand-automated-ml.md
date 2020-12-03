@@ -15,7 +15,7 @@ ms.custom: how-to, contperfq2, automl
 
 # Evaluate automated machine learning experiment results
 
-In this article, learn how to evaluate and compare models trained during by your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment many runs will be created, each run training a model and then generating evaluation metrics and charts that help you measure the model's performance. 
+In this article, learn how to evaluate and compare models trained during your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment many runs will be created, each run training a model and then generating evaluation metrics and charts that help you measure the model's performance. 
 
 ## Prerequisites
 
