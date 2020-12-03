@@ -44,16 +44,16 @@ The following example is a simple command to import an SSL certificate to the ke
 
 1.	Open your favorite browser and go to the `IngestionEndpoint` url present in the Connection String used to instrument your application as shown below
 
-    :::image type="content" source="media/java-ipa/troubleshooting/IngestionEndpointUrl.PNG" alt-text="Application Insights Connection String":::
+    :::image type="content" source="media/java-ipa/troubleshooting/ingestion-endpoint-url.png" alt-text="Application Insights Connection String":::
 
 2.	Click on the 'View site information' (lock) icon on the browser and click on 'Certificate' option as show below
 
-    :::image type="content" source="media/java-ipa/troubleshooting/CertificateIconCapture.PNG" alt-text="SSL Certificate Capture":::
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="SSL Certificate Capture":::
 
 3.	Go to details tab and click copy to file.
 4.	Click the next button and select “Base-64 encoded X.509 (.CER)” format and select next.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/CertificateExportWizard.PNG" alt-text="SSL Certificate ExportWizard":::
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="SSL Certificate ExportWizard":::
 
 5.	Specify the file you want to save the SSL certificate to. Finally click next and finish. You should see "The export was successful" message.
 6.	Once you have the certificate its time to import the certificate into a Java keystore. Use the above [command](#some-key-terminology) to import certificates.
@@ -61,4 +61,4 @@ The following example is a simple command to import an SSL certificate to the ke
 > [!WARNING]
 > You will need to repeat these steps to get the new certificate before the current certificate expires. You can find the expiration information in the "Details" tab of the Certificate popup as shown below
 
-:::image type="content" source="media/java-ipa/troubleshooting/CertificateDetails.PNG" alt-text="SSL Certificate Details":::
+:::image type="content" source="media/java-ipa/troubleshooting/certificate-details.png" alt-text="SSL Certificate Details":::
