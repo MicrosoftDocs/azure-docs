@@ -15,7 +15,7 @@ ms.author: thvankra
 
 Cassandra API is a compatibility layer, which provides [wire protocol support](cassandra-support.md) for the popular open-source Apache Cassandra database, and is powered by [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction). As a fully managed cloud-native service, Azure Cosmos DB provides guarantees on availability, throughput, and consistency for Cassandra API, which are not possible in legacy implementations of Apache Cassandra. It also facilitates zero-maintenance platform operations, and zero-downtime patching. As such, many of its backend operations are different from Apache Cassandra, so we recommend particular settings and approaches to avoid common errors. 
 
-The following article describes common errors and solutions for applications consuming Azure Cosmos DB Cassandra API.
+The following article describes common errors and solutions for applications consuming Cassandra API.
 
 ## Common errors and solutions
 
