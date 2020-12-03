@@ -73,7 +73,7 @@
       - name: Teams interoperability
         href: concepts/voice-video-calling/teams-interop.md
     - name: UI Framework
-    items:
+      items:
       - name: UI Framework overview
         href: concepts/ui-framework/ui-sdk-overview.md
       - name: UI Framework capabilities
