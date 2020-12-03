@@ -151,7 +151,7 @@ To gather the relevant logs that should be added to the ticket, follow the instr
            ```
 
     1. Attach the *debugLogs.zip* file to the support ticket.
-1. Run the [support bundle command](#Use-the-support-bundle-command), collect the logs and attach to the support ticket.
+1. Run the [support bundle command](#use-the-support-bundle-command), collect the logs and attach to the support ticket.
 
 ### Configure Live Video Analytics module to collect Verbose Logs
 Configure your Live Video Analytics module to collect Verbose logs by setting the `logLevel` and `logCategories` as follows:
