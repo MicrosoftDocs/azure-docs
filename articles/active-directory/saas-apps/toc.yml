@@ -648,6 +648,8 @@
         href: formcom-tutorial.md
       - name: Fortes Change Cloud
         href: fortes-change-cloud-tutorial.md
+      - name: FortiWeb Web Application Firewall
+        href: fortiweb-web-application-firewall-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk

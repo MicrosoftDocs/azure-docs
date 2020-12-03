@@ -39,7 +39,6 @@ Before you begin this tutorial, you should:
 5. Go to the already created project or [create a new project](https://docs.microsoft.com/azure/migrate/create-manage-projects)
 6. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
-
 ## Download and install the provider
 
 For migrating Hyper-V VMs, Azure Migrate:Server Migration installs software providers (Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent) on Hyper-V Hosts or cluster nodes. Note that the [Azure Migrate appliance](migrate-appliance.md) isn't used for Hyper-V migration.

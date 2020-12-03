@@ -58,15 +58,15 @@ landingContent:
     - linkListType: how-to-guide
       links:
       - text: Summary dashboard
-        url: ./partner-center-portal/summary-dashboard.md
+        url: ./summary-dashboard.md
       - text: Marketplace Insights dashboard
-        url: ./partner-center-portal/insights-dashboard.md
+        url: ./insights-dashboard.md
       - text: Usage dashboard
-        url: ./partner-center-portal/usage-dashboard.md
+        url: ./usage-dashboard.md
       - text: Customer dashboard
-        url: ./partner-center-portal/customer-dashboard.md
+        url: ./customer-dashboard.md
       - text: Orders dashboard
-        url: ./partner-center-portal/orders-dashboard.md
+        url: ./orders-dashboard.md
       - text: Downloads dashboard
         url: ./partner-center-portal/downloads-dashboard.md
       - text: Ratings and reviews dashboard

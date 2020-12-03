@@ -52,7 +52,7 @@ For more information on using Azure CLI with Event Grid, see [Route storage even
 
 When EventGrid receives an error for an event delivery attempt, EventGrid decides whether it should retry the delivery or dead-letter or drop the event based on the type of the error. 
 
-If the error returned by the subscribed endpoint is configuration related error which can't be fixed with retries (for example, if the endpoint is deleted), EventGrid it either performs dead lettering event or drops the event if dead letter is not configured.
+If the error returned by the subscribed endpoint is configuration related error which can't be fixed with retries (for example, if the endpoint is deleted), EventGrid will either perform dead lettering the event or drop the event if dead letter is not configured.
 
 Following are the types of endpoints for which retry doesn't happen:
 

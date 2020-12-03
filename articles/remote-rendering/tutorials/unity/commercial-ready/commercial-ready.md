@@ -49,7 +49,7 @@ To achieve this, Azure offers a service called resource tagging, which associate
 
 For more information on resource naming and tagging, a good place to start is:
 
-* [Resource Naming and Tagging Decision Guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
+* [Resource Naming and Tagging Decision Guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 ### Diagnostics
 
