@@ -206,13 +206,13 @@ To import:
 
 1. Select **Import Settings** from the **Import Windows Configuration** dialog box.
 
- :::image type="content" source="media/how-to-work-with-asset-inventory-information/image156.png" alt-text="Import Windows Configuration":::
+ :::image type="content" source="media/how-to-work-with-asset-inventory-information/import-windows-configuration.png" alt-text="Import your Windows configurations.":::
 
 2. Select **Add**, and then select all the files (Ctrl=A).
 
 3. Select **Close.** The device registry information will be imported. if there is a problem uploading one of the files you will be informed which file upload failed.
 
- :::image type="content" source="media/how-to-work-with-asset-inventory-information/add- new-file.png" alt-text="Add new files.":::
+ :::image type="content" source="media/how-to-work-with-asset-inventory-information/add-new-file.png" alt-text="Add new files upload successful.":::
 
 ## Export device inventory information
 
