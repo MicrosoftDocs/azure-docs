@@ -2,7 +2,7 @@
 title: Support for Azure VMware Solution deployment or provisioning failure
 description: Get information from your Azure VMware Solution private cloud to file a service request for an Azure VMware Solution deployment or provisioning failure.
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 10/28/2020
 ---
 
 # Open a support request for an Azure VMware Solution deployment or provisioning failure

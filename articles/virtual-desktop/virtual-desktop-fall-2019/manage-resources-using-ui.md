@@ -30,7 +30,7 @@ To following browsers are compatible with the management tool:
 
 Before deploying the management tool, you'll need an Azure Active Directory (Azure AD) user to create an app registration and deploy the management UI. This user must:
 
-- Have Azure Multi-Factor Authentication (MFA) disabled
+- Have Azure AD Multi-Factor Authentication (MFA) disabled
 - Have permission to create resources in your Azure subscription
 - Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 

@@ -1,5 +1,5 @@
 ---
-title: Customizing Azure AD attribute mappings | Microsoft Docs
+title: Tutorial - Customize Azure Active Directory attribute mappings
 description: Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs.
 services: active-directory
 author: kenwith
@@ -7,12 +7,12 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
-ms.date: 10/26/2020
+ms.topic: tutorial
+ms.date: 11/10/2020
 ms.author: kenwith
 ---
 
-# Customizing user provisioning attribute-mappings for SaaS applications in Azure Active Directory
+# Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory
 
 Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, G Suite and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
 
@@ -197,7 +197,7 @@ Use the steps below to provision roles for a user to your application. Note that
   - **Things to consider**
     - Ensure that multiple roles are not assigned to a user. We cannot guarantee which role will be provisioned.
     
-  - **Example output** 
+  - **Example request (POST)** 
 
    ```json
     {
@@ -221,6 +221,21 @@ Use the steps below to provision roles for a user to your application. Note that
    }
    ```
   
+  - **Example output (PATCH)** 
+    
+   ```
+   "Operations": [
+   {
+   "op": "Add",
+   "path": "roles",
+   "value": [
+   {
+   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+   }
+   ]
+   ```  
+The request format in the PATCH and POST differ. To ensure that POST and PATCH are sent in the same format, you can use the feature flag described [here](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
+
 - **AppRoleAssignmentsComplex** 
   - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 
   - **How to configure:** Edit the list of supported attributes as described above to include a new attribute for roles: 

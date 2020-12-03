@@ -70,27 +70,26 @@ To get started, see [configure a DNN listener](availability-group-distributed-ne
 
 There are multiple options for deploying an availability group to SQL Server on Azure VMs, some with more automation than others. 
 
-The following table provides a comparison of the options available: 
+The following table provides a comparison of the options available:
 
-| |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](./availability-group-az-commandline-configure.md)**|**[Quickstart Templates](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Azure portal | Azure CLI / PowerShell | Quickstart Templates | Manual |
+|---------|---------|---------|---------|---------|
 |**SQL Server version** |2016 + |2016 +|2016 +|2012 +|
 |**SQL Server edition** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|**Windows Server version**| 2016 + | 2016 + | 2016 + | All| 
+|**Windows Server version**| 2016 + | 2016 + | 2016 + | All|
 |**Creates the cluster for you**|Yes|Yes | Yes |No|
 |**Creates the availability group for you** |Yes |No|No|No|
 |**Creates listener and load balancer independently** |No|No|No|Yes|
 |**Possible to create DNN listener using this method?**|No|No|No|Yes|
-|**WSFC quorum configuratio**n|Cloud witness|Cloud witness|Cloud witness|All|
+|**WSFC quorum configuration**|Cloud witness|Cloud witness|Cloud witness|All|
 |**DR with multiple regions** |No|No|No|Yes|
 |**Multisubnet support** |Yes|Yes|Yes|Yes|
 |**Support for an existing AD**|Yes|Yes|Yes|Yes|
 |**DR with multizone in the same region**|Yes|Yes|Yes|Yes|
 |**Distributed AG with no AD**|No|No|No|Yes|
 |**Distributed AG with no cluster** |No|No|No|Yes|
-||||||
 
-
+For more information, see [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md), and [Manual](availability-group-manually-configure-prerequisites-tutorial.md).
 
 ## Considerations 
 

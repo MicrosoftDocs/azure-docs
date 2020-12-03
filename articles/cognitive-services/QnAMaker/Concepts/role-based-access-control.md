@@ -37,11 +37,11 @@ The following diagram shows the flow, from the author's perspective, for signing
 |3|QnA Maker API validates the token.|
 |4 |QnA Maker API calls QnAMaker Service.|
 
-If you intend to call the [authoring APIs](../How-To/collaborate-knowledge-base.md), learn more about how to set up authentication.
+If you intend to call the [authoring APIs](../index.yml), learn more about how to set up authentication.
 
 ## Authenticate by QnA Maker portal
 
-If you author and collaborate using the QnA Maker portal, after you [add the appropriate role to the resource for a collaborator](../How-To/collaborate-knowledge-base.md), the QnA Maker portal manages all the access permissions.
+If you author and collaborate using the QnA Maker portal, after you [add the appropriate role to the resource for a collaborator](../index.yml), the QnA Maker portal manages all the access permissions.
 
 ## Authenticate by QnA Maker APIs and SDKs
 
@@ -49,4 +49,4 @@ If you author and collaborate using the APIs, either through REST or the SDKs, y
 
 ## Next step
 
-* Design a knowledge base for [languages](design-language-culture.md) and for [client applications](integration-with-other-applications.md)
+* Design a knowledge base for [languages](../index.yml) and for [client applications](../index.yml)

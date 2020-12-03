@@ -1,7 +1,7 @@
 ---
 title: Deploy ml models to Azure Functions Apps (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to use Azure Machine Learning to deploy a model to an Azure Functions App.
+description: Learn how to use Azure Machine Learning to package and deploy a model as a Web Service in an Azure Functions App.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -273,7 +273,7 @@ Once the image has loaded and the app is available, use the following steps to t
     }
     ```
 
-3. To view the output produced by the function, use the following command to list the output files generated. Replace `<triggerConnectionString>` with the connection string returned earlier. In this example, `output` is the name of the output container created earlier. If you used a different name, replace this value::
+3. To view the output produced by the function, use the following command to list the output files generated. Replace `<triggerConnectionString>` with the connection string returned earlier. In this example, `output` is the name of the output container created earlier. If you used a different name, replace this value:
 
     ```azurecli-interactive
     az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv

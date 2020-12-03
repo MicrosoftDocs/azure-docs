@@ -27,9 +27,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this guide, you must have the following resources.
 * A key vault. You can use an existing key vault, or create a new one by following the steps in one of these quickstarts:
-   - [Create a key vault with the Azure CLI](../secrets/quick-create-cli.md)
-   - [Create a key vault with Azure PowerShell](../secrets/quick-create-powershell.md)
-   - [Create a key vault with the Azure portal](../secrets/quick-create-portal.md).
+   - [Create a key vault with the Azure CLI](../general/quick-create-cli.md)
+   - [Create a key vault with Azure PowerShell](../general/quick-create-powershell.md)
+   - [Create a key vault with the Azure portal](../general/quick-create-portal.md).
 *	You need to activate DigiCert CertCentral account. [Sign up](https://www.digicert.com/account/signup/) for your CertCentral account.
 *	Administrator level permissions in your accounts.
 
@@ -105,7 +105,7 @@ $org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCer
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 ```
 
-4. Set **Issuer**. This will add Digicert as a Certificate Authority in the key vault. To learn more about the parameters, [read here](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
+4. Set **Issuer**. This will add Digicert as a Certificate Authority in the key vault. To learn more about the parameters, [read here](/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
 ```azurepowershell-interactive
 Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```

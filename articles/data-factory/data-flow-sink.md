@@ -4,11 +4,10 @@ description: Learn how to configure a sink transformation in mapping data flow.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 ---
 
 # Sink transformation in mapping data flow
@@ -64,10 +63,6 @@ The following video explains a number of different sink options for text-delimit
 
 **Validate schema**: If validate schema is selected, the data flow will fail if any column of the incoming source schema isn't found in the source projection, or if the data types don't match. Use this setting to enforce that the source data meets the contract of your defined projection. It's useful in database source scenarios to signal that column names or types have changed.
 
-**Use TempDB:** By default, Data Factory will use a global temporary table to store data as part of the loading process. You can alternatively uncheck the "Use TempDB" option and instead, ask Data Factory to store the temporary holding table in a user database that is located in the database that is being used for this Sink.
-
-![Use Temp DB](media/data-flow/tempdb.png "Use Temp DB")
-
 ## Cache sink
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
@@ -100,13 +95,22 @@ By default, data is written to multiple sinks in a nondeterministic order. The e
 ![Screenshot that shows Custom sink ordering.](media/data-flow/custom-sink-ordering.png "Screenshot that shows Custom sink ordering.")
 
 > [!NOTE]
-> When utilizing [cached lookups](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup), make sure that your sink ordering has the cached sinks set to 0.
+> When utilizing [cached lookups](./concepts-data-flow-expression-builder.md#cached-lookup), make sure that your sink ordering has the cached sinks set to 1, the lowest (or first) in ordering.
 
 ![Custom sink ordering](media/data-flow/cache-2.png "Custom sink ordering")
+
+## Error row handling
+
+When writing to databases, certain rows of data may fail due to constraints set by the destination. By default, a data flow run will fail on the first error it gets. In certain connectors, you can choose to **Continue on error** that allows your data flow to complete even if individual rows have errors. Currently, this capability is only available in Azure SQL Database. For more information, see [error row handling in Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
+
+Below is a video tutorial on how to use database error row handling automatically in your sink transformation.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
 
 ## Data preview in sink
 
 When fetching a data preview on a debug cluster, no data will be written to your sink. A snapshot of what the data looks like will be returned, but nothing will be written to your destination. To test writing data into your sink, run a pipeline debug from the pipeline canvas.
 
 ## Next steps
+
 Now that you've created your data flow, add a [data flow activity to your pipeline](concepts-data-flow-overview.md).

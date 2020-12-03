@@ -19,7 +19,7 @@ This article describes how to debug when you see errors while building Custom Co
 ## Errors when creating an application
 Custom Commands also creates an application in [LUIS](https://www.luis.ai/) when creating a Custom Commands application. 
 
-[LUIS limits 500 applications per authoring resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). Creation of LUIS application could fail if you are using an authoring resource that already has 500 applications. 
+[LUIS limits 500 applications per authoring resource](../luis/luis-limits.md). Creation of LUIS application could fail if you are using an authoring resource that already has 500 applications. 
 
 Make sure the selected LUIS authoring resource has less than 500 applications. If not, you can create new LUIS authoring resource, switch to another one, or try to clean up your LUIS applications.  
 
@@ -58,7 +58,7 @@ Custom Commands does not allow common sample sentences shared among different co
 
 Make sure you don't have common sample sentences shared among different commands. 
 
-For best practice of balancing your sample sentences across different commands, refer [LUIS best practice](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+For best practice of balancing your sample sentences across different commands, refer [LUIS best practice](../luis/luis-concept-best-practices.md).
 
 ### Empty sample sentences
 You need to have at least one sample sentence for each Command.
@@ -79,7 +79,7 @@ For example, you can define a parameter {vehicle} for the example sentences belo
 | Book a flight | Book a {vehicle} |
 | Book a taxi | Book a {vehicle} |
 
-For best practice of LUIS training, refer [LUIS best practice](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+For best practice of LUIS training, refer [LUIS best practice](../luis/luis-concept-best-practices.md).
 
 ## Can't update LUIS key
 ### Reassign to E0 authoring resource

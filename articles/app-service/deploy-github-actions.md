@@ -6,7 +6,7 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: devx-track-python, github-actions-azure
+ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
 
 ---
 

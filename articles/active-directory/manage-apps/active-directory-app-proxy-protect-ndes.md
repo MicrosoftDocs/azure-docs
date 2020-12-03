@@ -21,7 +21,7 @@ Azure Active Directory (AD) Application Proxy lets you publish applications insi
 
 If you're new to Azure AD Application Proxy and want to learn more, see [Remote access to on-premises applications through Azure AD Application Proxy](application-proxy.md).
 
-Azure AD Application Proxy is built on Azure. It gives you a massive amount of network bandwidth and server infrastructure for better protection against distributed denial-of-service (DDOS) attacks and superb availability. Furthermore, there's no need to open external firewall ports to your on-premises network and no DMZ server is required. All traffic is originated inbound. For a complete list of outbound ports, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+Azure AD Application Proxy is built on Azure. It gives you a massive amount of network bandwidth and server infrastructure for better protection against distributed denial-of-service (DDOS) attacks and superb availability. Furthermore, there's no need to open external firewall ports to your on-premises network and no DMZ server is required. All traffic is originated inbound. For a complete list of outbound ports, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 > Azure AD Application Proxy is a feature that is available only if you are using the Premium or Basic editions of Azure Active Directory. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/). 
 > If you have Enterprise Mobility Suite (EMS) licenses, you are eligible to use this solution.
@@ -91,4 +91,4 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 
 ## Next steps
 
-With the Azure AD Application Proxy integrated with NDES, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
+With the Azure AD Application Proxy integrated with NDES, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](./application-proxy-add-on-premises-application.md).

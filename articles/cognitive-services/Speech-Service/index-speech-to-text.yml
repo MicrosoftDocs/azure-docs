@@ -22,6 +22,8 @@ landingContent:
         url: speech-to-text.md
       - text: What is batch speech-to-text?
         url: batch-transcription.md
+      - text: What is Custom Speech?
+        url: custom-speech-overview.md
       - text: Use the Speech CLI for speech-to-text with no code
         url: spx-overview.md
     - linkListType: quickstart
@@ -33,11 +35,11 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Choose speech recognition mode
-          url: how-to-choose-recognition-mode.md
+          url: ./get-started-speech-to-text.md
         - text: Change speech recognition source language
           url: how-to-specify-source-language.md
         - text: Improve accuracy with Custom Speech
-          url: how-to-custom-speech.md
+          url: ./custom-speech-overview.md
         - text: Use compressed audio input formats
           url: how-to-use-codec-compressed-audio-input-streams.md
     - linkListType: tutorial

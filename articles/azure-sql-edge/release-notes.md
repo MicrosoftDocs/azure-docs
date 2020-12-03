@@ -9,11 +9,26 @@ ms.subservice:
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/22/2020
+ms.date: 11/24/2020
 ---
 # Azure SQL Edge release notes 
 
 This article describes what is new and what has changed with every new build of Azure SQL Edge.
+
+## Azure SQL Edge - 1.0.1
+
+### SQL Engine build number - 15.0.2000.1553
+
+### What's new?
+
+- Allow Datebucket expression defined in computed columns
+
+### Fixes
+
+- Retention Policy fix for dropping table with retention policy enabled with infinite timeout
+- Support in DacFx Deployment for Streaming and Retention Policy features 
+- DacFx Deployment Fix to enable deployment from nested folder in SAS URL 
+- PREDICT fix to support long column names in error messages
 
 ## Azure SQL Edge - 1.0.0 (RTM)
 

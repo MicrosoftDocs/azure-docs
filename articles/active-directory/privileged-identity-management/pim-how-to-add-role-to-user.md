@@ -142,7 +142,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. Now that the user is eligible for the role, let them know that they can activate it according to the instructions in [Activate my Azure AD roles in Privileged Identity Management](pim-how-to-activate-role.md).
 
-    Eligible administrators are asked to register for Azure Multi-Factor Authentication during activation. If a user cannot register for MFA, or is using a Microsoft account (such as @outlook.com), you need to make them permanent in all their roles.
+    Eligible administrators are asked to register for Azure AD Multi-Factor Authentication during activation. If a user cannot register for MFA, or is using a Microsoft account (such as @outlook.com), you need to make them permanent in all their roles.
 
 ## Make a role assignment permanent
 

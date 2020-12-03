@@ -10,9 +10,24 @@
           "**/*.yml"
         ],
         "exclude": [
+          "iot-edge/**",
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-iot-edge",
+        "src": "articles/iot-edge",
+        "dest": "./iot-edge/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
         ]
       },
       {
@@ -26,11 +41,30 @@
             "**/_themes/**",
             "**/includes/**",
             "**/obj/**"
-          ]
+        ]
       }
     ],
     "resource": [
       {
+        "src": "articles",
+        "dest": ".",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "iot-edge/**",
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-iot-edge",
+        "src": "articles/iot-edge",
+        "dest": "./iot-edge/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -41,9 +75,7 @@
         "exclude": [
           "**/_themes/**",
           "**/obj/**"
-        ],
-        "src": "articles",
-        "dest": "."
+        ]
       },
       {
         "src": null,
@@ -56,11 +88,17 @@
           "includes/**/*.svg"
         ],
         "exclude": [
-            "**/_themes/**",
-            "**/obj/**"
-          ]
+          "**/_themes/**",
+          "**/obj/**"
+        ]
       }
     ],
+    "groups": {
+      "grp-iot-edge": {
+        "dest": "destiotedge",
+        "moniker_range": ">=iotedge-2018-06"
+      }
+    },
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
@@ -378,6 +416,7 @@
         "articles/postgresql/**/*.md": "https://feedback.azure.com/forums/597976-azure-database-for-postgresql",
         "articles/power-bi-embedded/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/power-bi-workspace-collections/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "articles/purview/**/*.md": "https://feedback.azure.com/forums/932437-azure-purview",
         "articles/resiliency/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/scheduler/**/*.md": "https://feedback.azure.com/forums/230896-scheduler",
         "articles/search/**/*.md": "https://feedback.azure.com/forums/263029-azure-search",
@@ -555,6 +594,8 @@
         "articles/cdn/*.yml": "networking",
         "articles/bastion/*.md": "networking",
         "articles/bastion/*.yml": "networking",
+        "articles/ddos-protection/*.md": "networking",
+        "articles/ddos-protection/*.yml": "networking",      
         "articles/dns/*.md": "networking",
         "articles/dns/*.yml": "networking",
         "articles/expressroute/*.md": "networking",
@@ -685,6 +726,9 @@
         "articles/media-services/previous/*.md": "rest-v2",
         "articles/media-services/video-indexer/*.md": "video-indexer"
       },
+      "monikerRange": {
+        "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
+      },
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
         "includes/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]"
@@ -812,6 +856,8 @@
         "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge",
         "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer",
         "articles/migrate/**/*.md": "Azure Migrate",
+        "articles/purview/**/*.md": "Azure Purview",
+        "articles/purview/**/*.yml": "Azure Purview",
         "articles/remote-rendering/**/*.md": "Azure Remote Rendering",
         "articles/remote-rendering/**/*.yml": "Azure Remote Rendering",
         "articles/scheduler/*.md": "Azure Scheduler",
@@ -842,13 +888,27 @@
       "docs.html"
     ],
     "dest": "azure",
+
     "rules": {
       "sensitive-language": {
         "exclude": [
           "articles/governance/blueprints/**/*.md",
-          "articles/governance/policy/**/*.md"
+          "articles/governance/policy/**/*.md",
+          "articles/role-based-access-control/resource-provider-operations.md",
+          "articles/site-recovery/**/*.md",
+          "articles/virtual-machines/workloads/sap/dbms-guide-ha-ibm.md",
+          "articles/virtual-machines/workloads/sap/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
+          "articles/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw.md",
+          "articles/virtual-machines/workloads/sap/high-availability-guide-suse-nfs.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability-rhel.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md"
         ]
       }
     }
+
   }
 }

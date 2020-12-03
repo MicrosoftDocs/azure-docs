@@ -96,8 +96,8 @@ Instead of using live data, you can use sample data from a local file to test yo
 
 1.	Time policy is not supported in portal testing:
 
-   * Out-of-order: all incoming events will be ordered.
-   * Late arrival: There will not be late arrival event since Stream Analytics can only use existing data for testing.
+    * Out-of-order: all incoming events will be ordered.
+    * Late arrival: There will not be late arrival event since Stream Analytics can only use existing data for testing.
    
 2.	C# UDF is not supported.
 
@@ -106,6 +106,20 @@ Instead of using live data, you can use sample data from a local file to test yo
 4.	The timeout size is one minute. So any query with a window size greater than one minute cannot get any data.
 
 5.	Machine learning is not supported.
+
+6. The sample data API is throttled after five requests in a 15-minute window. After the end of the 15-minute window, you can do more sample data requests. This limitation is applied at the subscription level.
+
+## Troubleshooting
+
+1.	If you get this error “There was a network connectivity issue when fetching the results. Please check your network and firewall settings.”, follow the steps below:
+
+  * To check the connection to the service, open [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) in a browser. If you cannot open this link, then update your firewall settings.
+  
+2. If you get this error "The request size is too big. Please reduce the input data size and try again.", follow the steps below:
+
+  * Reduce input size – Test your query with smaller size sample file or with a smaller time range.
+  * Reduce query size – To test a selection of query, select a portion of query then click **Test selected query**.
+
 
 ## Next steps
 * [Build an IoT solution by using Stream Analytics](./stream-analytics-build-an-iot-solution-using-stream-analytics.md): this tutorial will guide you to build an end-to-end solution with a data generator that will simulate traffic at a toll booth.

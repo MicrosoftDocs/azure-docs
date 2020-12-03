@@ -17,6 +17,8 @@ This article builds on several Azure Cosmos DB concepts like [data modeling](mod
 
 If you usually work with relational databases, you have probably built habits and intuitions on how to design a data model. Because of the specific constraints, but also the unique strengths of Azure Cosmos DB, most of these best practices don't translate well and may drag you into suboptimal solutions. The goal of this article is to guide you through the complete process of modeling a real-world use-case on Azure Cosmos DB, from item modeling to entity colocation and container partitioning.
 
+[Download or view a community-generated source code](https://github.com/jwidmer/AzureCosmosDbBlogExample) that illustrates the concepts from this article. This code sample was contributed by a community contributor and Azure Cosmos DB team doesn't support its maintenance.
+
 ## The scenario
 
 For this exercise, we are going to consider the domain of a blogging platform where *users* can create *posts*. Users can also *like* and add *comments* to those posts.

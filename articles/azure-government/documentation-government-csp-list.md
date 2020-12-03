@@ -252,7 +252,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[OpsPro](https://opspro.com/)|
 |[Orion Communications, Inc.](https://www.orioncom.com)|
 |[Outlook Insight, LLC](http://outlookinsight.com/)|
-|[Pangea Group Inc.](https://grouppangea.com)|
+|[Pangea Group Inc.](http://www.pangea-group.com)|
 |[Paragon Software Solutions, Inc.](http://www.paragonhq.com/)|
 |[Patrocinium Systems, Inc.](https://www.patrocinium.com)|
 |[PCM](https://www.pcm.com/)|
@@ -346,7 +346,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[UDRI - SSG](https://udayton.edu/udri/_resources/docs/ssg_v8.pdf)|
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
-|[Universal EVoIP Transitions](https://universalevoiptransitions.com/contact)|
+|[Universal EVoIP Transitions]|
 |[VALCOM COMPUTER CENTER](https://www.vlcmtech.com/)|
 |[Vana Solutions LLC](https://vanasolutions.com)|
 |[Vazata - Horizon Data Center Solutions LLC](https://www.vazata.com/)|

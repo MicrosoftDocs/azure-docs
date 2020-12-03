@@ -137,7 +137,7 @@ To enable Azure AD DS security audit events using Azure PowerShell, complete the
 Log Analytic workspaces let you view and analyze the security audit events using Azure Monitor and the Kusto query language. This query language is designed for read-only use that boasts power analytic capabilities with an easy-to-read syntax. For more information to get started with Kusto query languages, see the following articles:
 
 * [Azure Monitor documentation](../azure-monitor/index.yml)
-* [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 * [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Create and share dashboards of Log Analytics data](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

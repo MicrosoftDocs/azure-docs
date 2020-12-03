@@ -9,16 +9,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/11/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: "seodec18, devx-track-dotnet"
 ---
 # Quickstart: Extract text using the Computer Vision 2.0 REST API OCR operation and C#
 
 > [!IMPORTANT]
-> If you're extracting text in English, Dutch, French, German, Italian, Portuguese, Spanish, or Simplified Chinese (preview), we recommend you use the newer [Read operation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). A [C# quickstart](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) is available. 
+> If you're extracting text in English, Dutch, French, German, Italian, Portuguese, Spanish, or Simplified Chinese (preview), we recommend you use the newer [Read operation](../concept-recognizing-text.md). A [C# quickstart](./csharp-hand-text.md) is available. 
 
-In this quickstart, you'll extract printed text from an image using the Computer Vision REST API [OCR operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) feature. With this operation, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
+In this quickstart, you'll extract printed text from an image using the Computer Vision REST API [OCR operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) feature. With this operation, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ In this quickstart, you'll extract printed text from an image using the Computer
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
+* [Create environment variables](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ## Create and run the sample application
 

@@ -96,7 +96,7 @@
     href: app-attach.md
   - name: Use Microsoft Teams
     href: teams-on-wvd.md
-  - name: Set up Azure Multi-Factor Authentication
+  - name: Set up Azure AD Multi-Factor Authentication
     href: set-up-mfa.md
   - name: Configure automatic updates
     href: configure-automatic-updates.md
@@ -106,18 +106,30 @@
     href: azure-advisor.md
   - name: Resolve recommendations
     href: azure-advisor-recommendations.md
+  - name: Use Azure Monitor for Windows Virtual Desktop
+    href: azure-monitor.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
 - name: Concepts
   items:
   - name: Authentication
     href: authentication.md
-  - name: Safe URL list
-    href: safe-url-list.md
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
-  - name: Determine user connection latency
-    href: connection-latency.md
+  - name: Network connectivity
+    items:
+      - name: Understanding network connectivity
+        href: network-connectivity.md
+      - name: RDP Shortpath
+        href: shortpath.md
+      - name: Implement Quality of Service (QoS)
+        href: rdp-quality-of-service-qos.md
+      - name: Required URL list
+        href: safe-url-list.md
+      - name: Bandwidth considerations
+        href: rdp-bandwidth.md
+      - name: Determine user connection latency
+        href: connection-latency.md
   - name: Delegated access in Windows Virtual Desktop
     href: delegated-access-virtual-desktop.md
   - name: Host pool load-balancing methods
@@ -140,6 +152,8 @@
         href: app-attach-glossary.md
       - name: FAQ
         href: app-attach-faq.md
+  - name: Azure Monitor glossary
+    href: azure-monitor-glossary.md
   - name: Data locations
     href: data-locations.md
 - name: Troubleshoot
@@ -160,6 +174,8 @@
     href: troubleshoot-powershell.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
+  - name: Azure Monitor
+    href: troubleshoot-azure-monitor.md
 - name: Reference
   items:
   - name: Security best practices
@@ -168,8 +184,6 @@
     href: linux-overview.md
   - name: Supported RDP file settings
     href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
-  - name: Network guidance
-    href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Azure command-line interface (CLI)

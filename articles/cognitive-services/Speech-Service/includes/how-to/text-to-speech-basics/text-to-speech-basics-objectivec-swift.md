@@ -22,4 +22,4 @@ The [Cognitive Services Speech SDK](https://github.com/Azure-Samples/cognitive-s
 * [Synthesize speech in Swift on iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios/text-to-speech)
 * [Additional samples for Objective-C on iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios)
 
-We also provide an online [Speech SDK for Objective-C Reference](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+We also provide an online [Speech SDK for Objective-C Reference](/objectivec/cognitive-services/speech/).

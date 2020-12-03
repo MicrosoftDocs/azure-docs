@@ -75,4 +75,4 @@ To learn more about Azure compliance certifications, see the following articles:
 
 * For FedRAMP compliance information, see [Azure services by FedRAMP and DoD CC SRG audit scope](../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
-* For DoD compliance information, see [DoD Compliance Offerings](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide).
+* For DoD compliance information, see [DoD Compliance Offerings](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5).

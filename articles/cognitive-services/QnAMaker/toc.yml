@@ -67,6 +67,8 @@
     items:
     - name: Edit QnA pair
       href: How-To/edit-knowledge-base.md
+    - name: Add metadata tags 
+      href: Quickstarts/add-question-metadata-portal.md
     - name: Add follow-up prompts
       href: How-To/multiturn-conversation.md
       displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
@@ -119,18 +121,16 @@
     href: qna-maker-encryption-of-data-at-rest.md
   - name: REST API Reference
     items:
-    - name: Authoring APIs
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
-    - name: GenerateAnswer API
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer
-    - name: Train API
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train
+    - name: QnA Maker 4.0
+      href: /rest/api/cognitiveservices/qnamaker4.0/alterations
+    - name: QnA Maker 5.0 Preview 1
+      href: /rest/api/cognitiveservices/qnamakerv5.0-preview.1/alterations
   - name: SDKs
     items:
     - name: C#
       items:
       - name: Reference Documentation
-        href: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+        href: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
       - name: NuGet package
         href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/
       - name: Samples
@@ -146,7 +146,7 @@
     - name: JavaScript
       items:
       - name: Reference Documentation
-        href: https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest
+        href: /javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest
       - name: NPM - Authoring
         href: https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker
       - name: NPM - Query runtime
@@ -156,7 +156,7 @@
     - name: Python
       items:
       - name: Reference Documentation
-        href: https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python
+        href: /python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python
       - name: Pip
         href: https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/
       - name: Samples
@@ -178,7 +178,7 @@
   - name: Pricing and limits
     href: https://aka.ms/qnamaker-pricing
   - name: Search
-    href: https://docs.microsoft.com/search/index?search=QnAMaker
+    href: /search/index?search=QnAMaker
   - name: Blog
     href: https://blog.botframework.com/category/QnAMaker/
 - name: QnA Maker portal
