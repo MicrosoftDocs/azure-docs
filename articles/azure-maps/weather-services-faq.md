@@ -48,7 +48,7 @@ AccuWeather has real-time weather and environmental information available anywhe
 
 Tens of thousands of surface observations, along with other data, are incorporated to create and influence the current conditions made available to users. This includes not only freely available standard datasets, but also unique observations obtained from national meteorological services in many countries/regions including India, Brazil, and Canada and other proprietary inputs. These unique datasets increase the spatial and temporal resolution of current condition data for our users. 
 
-These datasets are reviewed in real-time for accuracy for the Digital Forecast System, which utilizes AccuWeather’s proprietary artificial intelligence algorithms to continuously modify the forecasts, ensuring they always incorporate the latest data and thereby maximizing their continual accuracy.
+These datasets are reviewed in real time for accuracy for the Digital Forecast System, which utilizes AccuWeather’s proprietary artificial intelligence algorithms to continuously modify the forecasts, ensuring they always incorporate the latest data and thereby maximizing their continual accuracy.
 
 ### What models create weather forecast data?
 
