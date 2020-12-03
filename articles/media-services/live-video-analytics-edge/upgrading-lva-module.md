@@ -95,7 +95,7 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
         One use case of this property is when you have multiple AI models packaged in a single inference server. With this property you will not need to expose a node for every AI model. Instead, for a graph instance, as an extension provider, you can define how to select the different AI models using the **`extensionConfiguration`** property and during execution, LVA will pass this string to the inferencing server,  which can use this to invoke the desired AI model.  
 
     * **AI Composition**
-        * Live Video Analytics 2.0 now supports using more than one media graph extension processor within a topology. You can pass the media frames from the RTSP camera to different AI models either sequentially, in parallel or in a combination of both. Please see a sample topology showing [two AI models being used sequentially](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/ai-composition/2.0/topology.json).
+        * Live Video Analytics 2.0 now supports using more than one media graph extension processor within a topology. You can pass the media frames from the RTSP camera to different AI models either sequentially, in parallel or in a combination of both. Please see a sample topology showing two AI models being used sequentially.
 
 
 * In your File sink node, you can now specify how much disk space the Live Video Analytics on IoT Edge module can use to store the processed images. To do so, add the **`maximumSizeMiB`** field to the FileSink node. A sample File Sink node is as follows:
