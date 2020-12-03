@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/10/2020
+ms.date: 12/02/2020
 
 ---
 
@@ -19,18 +19,19 @@ The [Cloud Monitoring Guide](https://docs.microsoft.com/azure/cloud-adoption-fra
 ## Quick comparison
 For a complete comparison between Azure Monitor and Operations Manager, see [Cloud monitoring guide: Monitoring platforms overview](/azure/cloud-adoption-framework/manage/monitor/platform-overview). That article describes specific feature differences between to the two to help you understand some of the recommendations made here. 
 
-**Azure Monitor** is a SaaS offering with minimal infrastructure and configuration requirements. You pay only for the features you use and data you collect. While Azure Monitor runs completely in the Azure cloud, it can monitor applications and virtual machines in other clouds and on-premises. Azure Monitor doesn't allow granular control over monitoring, and most features require little or no configuration. 
+**Azure Monitor** is a Software as a Service (SaaS) offering with minimal infrastructure and configuration requirements. You pay only for the features you use and data you collect. While Azure Monitor runs completely in the Azure cloud, it can monitor applications and virtual machines in other clouds and on-premises. Azure Monitor doesn't allow granular control over monitoring, and most features require little or no configuration. 
 
 **Operations Manager** was primarily designed to monitor virtual machines and has significant infrastructure and maintenance requirements. While management packs in Operations Manager provide very granular control over monitoring scenarios, they can be complex to build and maintain. Because of its maturity though, there is an extensive library of management packs with predefined logic for a variety of applications.
 
 ## Workloads to monitor
-The following diagram illustrates the different category of workloads that need to be monitored in a typical environment. This includes a high level recommendation for the method used to monitor the workload in a hybrid monitoring strategy. The rest of the article describes these recommendations in more details.
+The following diagram illustrates the different category of workloads that need to be monitored in a typical environment. Platform as a Service (PaaS) workloads are applications and services running in Azure. 
+Infrastructure as a Service (IaaS) workloads may be running in virtual machines in Azure, another cloud, or on-premises. [Azure Arc](azure/azure-arc/servers/) is required for virtual machines outside of Azure, but other than this requirement, they are monitored the same as Azure virtual machines.
 
 ![Workload summary](media/azure-monitor-scom/workloads.png)
 
+The diagram includes a high level recommendation for the method used to monitor the workload in a hybrid monitoring strategy. The rest of the article describes these recommendations in more details.
 
-
-## Monitor Azure services (PaaS)
+## Azure services (PaaS)
 Azure services actually require Azure Monitor to collect telemetry, and it's enabled the moment that you create an Azure subscription. The [Activity log](platform/activity-log.md) is automatically collected for the subscription, and [platform metrics](platform/data-platform-metrics.md) are automatically collected from any Azure resources you create. Add a [diagnostic setting](platform/diagnostic-settings.md) for each resource to send [resource logs](platform/resource-logs.md) to a Log Analytics workspace.
 
 [Insights](monitor-reference.md) analyze and present this data to provide a customized experience for different services, similar to the function of a management pack in Operations Manager. The typically don't have the granularity of a management pack, but they require minimal configuration and maintenance. Azure Monitor also includes tools to perform interactive analysis and trending of telemetry collected from Azure resources. Use [Metrics explorer](platform/metrics-getting-started.md) to analyze platform metrics and [Log Analytics](log-query/log-analytics-overview.md) to analyze log and performance data. 
@@ -43,8 +44,8 @@ Operations Manager can discover Azure resources and monitor their health based o
 **Install Azure management pack to see Azure resources in the Operations Console.** If you want to integrate alerting for critical Azure services into your Operations Manager environment, then install and configure the Azure management pack. This will be limited to simple thresholds based on metric data, but it will allow you to view your Azure resources in the Operations Console. You'll most likely still refer to Azure Monitor for other details about these resources.
 
 
-## Monitor packaged workloads (IaaS)
-IaaS packaged workloads include services running in virtual machines that support your custom applications  in addition to the guest operating system they rely on. This includes such applications as Internet Information Services (IIS), SQL Server, or Microsoft Exchange.
+## Packaged applications (IaaS)
+Infrastructure as a Service (IaaS) workloads are services running in virtual machines that support your custom applications in addition to the guest operating system they rely on. This includes such applications as Internet Information Services (IIS), SQL Server, or Microsoft Exchange.
 
 Operations Manager was designed for workloads running on virtual machines, and an extensive collection of management packs is available to monitor various applications. Each includes predefined logic to discover different components of the application, measure their health, and generate alerts when issues are detected. You may have also have considerable investment in tuning existing management packs and even developing your own to your specific requirements and in developing custom management packs for any custom requirements.
 
@@ -52,7 +53,7 @@ Operations Manager was designed for workloads running on virtual machines, and a
 
 A new [guest health feature for Azure Monitor for VMs](insights/vminsights-health-overview.md) is now in public preview and does alert based on the health state of a set of performance metrics. This is currently limited though to a specific set of performance counters related to the guest operating system and not applications or other workloads running in the virtual machine.
 
-Azure Monitor for VMs does provides additional features that augment monitoring in Operations Manager including the following:
+Azure Monitor for VMs may be sufficient for some virtual machines in your environment that only require basic monitoring. Continue to use Operations Manager for virtual machines that require management packs, but consider also using Azure Monitor for VMs. This does add complexity for those virtual machines, but it provides additional features including the following:
 
 - View aggregated performance data across multiple virtual machines in interactive charts and workbooks.
 - Use [log queries](log-query/log-query-overview.md) to interactively analyze collected performance data, and event data if you configure it.
@@ -62,23 +63,26 @@ Azure Monitor for VMs does provides additional features that augment monitoring 
 
 ### Recommendations
 
-**Continue using management packs for IaaS workloads.** Keep using management packs the monitor your IaaS workloads since Azure Monitor cannot yet collect the same data and doesn't include the rich set of alerting rules. Management packs also measure and alert on the health of workloads which is  currently in limited preview for Azure Monitor.
+**Configure Azure Monitor for VMs.** Configure Azure Monitor for VMs and onboard a representative set of virtual machines. [Azure Arc](azure/azure-arc/servers/) is required for virtual machines outside of Azure. Determine the following:
 
-**Configure Azure Monitor for VMs.** Configure Azure Monitor for VMs and onboard your virtual machines to gain additional monitoring features and to start an eventual transition to Azure Monitor. 
+- Which virtual machines can be monitored with Azure Monitor for VMs without management packs.
+- Which virtual machines still require management packs.
+- For those virtual machines that require management packs, whether the additional functionality of Azure Monitor for VMs justifies the additional complexity of using both platforms.
 
 **Remove select virtual machines from Operations Manager.** Azure Monitor may be sufficient to monitor some of your virtual machines that don't require detailed workload monitoring. If this level of monitoring is sufficient, then remove those agents from your Operations Manager management group and allow them to be monitored with Azure Monitor. Continue to perform this evaluation as features are added to Azure Monitor.
 
 **Create policy to enable Azure Monitor for VMs.** Once you've determined the virtual machines that you'll monitor with both management packs and Azure Monitor for VMs, [create an Azure Policy](deploy-scale.md#azure-monitor-for-vms) to deploy the agent to existing and new virtual machines. 
 
-## Monitor custom applications (IaaS and PaaS)
-You typically require custom management packs to monitor applications in your IaaS environment with Operations Manager, leveraging agents installed on each virtual machine. Application Insights in Azure Monitor monitors any web based application regardless of its environment, so you can use it for your applications hosted on either IaaS or PaaS. Application Insights provides the following benefits over custom management packs:
+## Custom applications and app services (IaaS and PaaS)
+You typically require custom management packs to monitor applications in your IaaS environment with Operations Manager, leveraging agents installed on each virtual machine. Application Insights in Azure Monitor monitors both IaaS and PaaS web based applications in Azure, other clouds, or on-premises. Application Insights provides the following benefits over custom management packs:
 
-- Automatically discover and monitor all components of the application.
+- Automatically discover and monitor application components.
 - Collect detailed application usage and performance data such as response time, failure rates, and request rates.
 - Collect browser data such as page views and load performance.
 - Detect exceptions and drill into stack trace and related requests.
-- Use [log queries]() to interactively analyze collected telemetry together with data collected for Azure services and Azure Monitor for VMs.
-- Use [metrics explorer]() to interactively analyze performance data using a graphical interface.
+- Perform advanced analysis using features such as [distributed tracing](app/distributed-tracing.md) and [smart detection](app/proactive-diagnostics.md).
+- Use [log queries](log-query/log-query-overview.md) to interactively analyze collected telemetry together with data collected for Azure services and Azure Monitor for VMs.
+- Use [metrics explorer](platform/metrics-getting-started.md) to interactively analyze performance data using a graphical interface.
 
 ### Recommendations
 
