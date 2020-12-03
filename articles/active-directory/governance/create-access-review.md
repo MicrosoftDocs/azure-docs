@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 11/18/2020
+ms.date: 12/03/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -73,11 +73,12 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     > If you selected All Microsoft 365 groups with guest users in Step 2, then your only option is to review Guest users in Step 3
 
 8. Click on Next: Reviews
-9. In the **Select reviewers** section, select either one or more people to perform the access reviews. You can choose amongst
+9. In the **Select reviewers** section, select either one or more people to perform the access reviews. You can choose from:
     - **Group owner(s)** (Only available when performing a review on a Team or M365 group)
     - **Selected user(s) or groups(s)**
     - **Users review own access**
-    - **(Preview) Managers of users.** If you select this option, you will also have the option to specify a fallback review. A fallback reviewer is only asked to do a review when the user has no manager specified in the directory. This can happen especially in the case of Azure AD B2B guest users who don’t have managers listed in their user properties. 
+    - **(Preview) Managers of users.**
+    If you choose either **Managers of users** or **Group owners**  you also have the option to specify a fallback reviewer. Fallback reviewers are asked to do a review when the user has no manager specified in the directory or the group does not have an owner.
 
     ![new access review](./media/create-access-review/new-access-review.png)
 
@@ -108,6 +109,8 @@ To learn more about best practices for removing guest users who no longer have a
 
    >[!NOTE]
    >Action to apply on denied users only works if you previously scoped a review to Guest users only.
+   >[!IMPORTANT]
+   > This option is unavailable for the **All M365 groups with guest users** review type, and default to "Remove user's membership..." to prevent accidental mass deletion of guest users.
 
 13.	In the **Enable review decision helpers** choose whether you would like your reviewer to receive recommendations during the review process.
 
