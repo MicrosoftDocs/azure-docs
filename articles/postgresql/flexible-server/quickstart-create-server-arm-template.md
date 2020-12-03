@@ -50,14 +50,11 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
     "serverEdition": {
       "type": "String"
     },
-    "vCores": {
-      "type": "Int"
-    },
     "storageSizeMB": {
       "type": "Int"
     },
-    "standbyCount": {
-      "type": "Int"
+    "haEnabled": {
+      "type": "string"
     },
     "availabilityZone": {
       "type": "String"
@@ -86,7 +83,7 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
     "firewallRules": "[parameters('firewallRules').rules]",
     "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
     "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",
-    "finalVnetData": "[json(concat('{ \"DelegatedVnetID\": \"', variables('vnetDataSet').vnetId, '\", \"DelegatedVnetName\": \"', variables('vnetDataSet').vnetName, '\", \"DelegatedVnetResourceGroup\": \"', variables('vnetDataSet').vnetResourceGroup, '\", \"DelegatedSubnetName\": \"', variables('vnetDataSet').subnetName, '\"}'))]"
+    "finalVnetData": "[json(concat('{ \"subnetArmResourceId\": \"', variables('vnetDataSet').subnetArmResourceId, '\"}'))]"
   },
   "resources": [
     {
