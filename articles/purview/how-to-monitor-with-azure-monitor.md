@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/03/2020
 ---
 # Azure Purview metrics in Azure Monitor
 
@@ -14,34 +14,35 @@ This article provides an overview of Azure Purview metrics, alerts, and diagnost
 
 ## Monitor Azure Purview
 
-Azure Purview admins can use Azure Monitor to track the operational state of Purview account. The metrics will provide data points for customers to track potential problems, troubleshoot, and improve the reliability of the Purview account. The telemetry is sent to Azure monitor for events occurring in Azure Purview.  
+Azure Purview admins can use Azure Monitor to track the operational state of Purview account. Metrics are collected to provide data points for you to track potential problems, troubleshoot, and improve the reliability of the Purview account. The metrics are sent to Azure monitor for events occurring in Azure Purview.
 
-## Aggregated Metrics 
+## Aggregated Metrics
 
-The Metrics can be accessed from the Azure portal for a Purview account. Access to the metrics are controlled by the role assignment of Purview account. Users need to be part of the "Monitoring Reader" role in Azure Purview to see the metrics. Check out [Monitoring Reader Role permissions](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles) to learn more about the roles access levels. 
+The Metrics can be accessed from the Azure portal for a Purview account. Access to the metrics are controlled by the role assignment of Purview account. Users need to be part of the "Monitoring Reader" role in Azure Purview to see the metrics. Check out [Monitoring Reader Role permissions](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles) to learn more about the roles access levels.
 
-The person who created the Purview account will automatically get permissions to view metrics but if anyone else wants to see metrics then they must be in the Monitoring Reader role. In order to add someone to the Monitoring Reader role the owner of Purview account or the Subscription owner must follow below steps
+The person who created the Purview account automatically gets permissions to view metrics. If anyone else wants to see metrics, add them to the **Monitoring Reader** role, by following these steps:
 
-1. Go to the Azure portal https://portal.azure.com and search for the Azure Purview account name.  
+### Add a user to the Monitoring Reader role
 
-1. Select Access control (IAM)  
+To add a user to the Monitoring Reader role, the owner of Purview account or the Subscription owner can follow these steps:
+
+1. Go to the [Azure portal](https://portal.azure.com) and search for the Azure Purview account name.
+
+2. Select Access control (IAM)
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/access-iam.png" alt-text="Screenshot showing how to access IAM." lightbox="./media/how-to-monitor-with-azure-monitor/access-iam.png":::
 
-2. Select Add a role assignment  
+3. Select Add a role assignment  
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/add-role-assignment.png" alt-text="Screenshot showing how to add role assignment." lightbox="./media/how-to-monitor-with-azure-monitor/add-role-assignment.png":::
 
-
-3. Select Role as “Monitoring Reader” and assign  access to Azure AD user. And assign the AAD account to access the metrics.  
+4. Select Role as "Monitoring Reader" and assign  access to Azure AD user. And assign the AAD account to access the metrics.  
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/add-monitoring-reader.png" alt-text="Screenshot showing how to add monitoring reader role." lightbox="./media/how-to-monitor-with-azure-monitor/add-monitoring-reader.png":::
 
+## Metrics visualization
 
-
-## Metrics visualization 
-
-Users with a role assigned as “Monitoring Reader” on Azure Purview can see the aggregated metrics and diagnostic logs sent to Azure Monitor.  The metrics are listed in the Azure portal for the corresponding Purview account. In the Azure portal, select the Metrics section to see the list of all available metrics.  
+Users in the **Monitoring Reader** role can see the aggregated metrics and diagnostic logs sent to Azure Monitor. The metrics are listed in the Azure portal for the corresponding Purview account. In the Azure portal, select the Metrics section to see the list of all available metrics.
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/purview-metrics.png" alt-text="Screenshot showing available Purview metrics section." lightbox="./media/how-to-monitor-with-azure-monitor/purview-metrics.png":::
 
@@ -51,9 +52,9 @@ Azure Purview users can also access the metrics page directly from the managemen
 
 ### Available Metrics
 
-To get familiarized with how to use the metric section in the Azure portal pre read the following two documents. [Getting started with Metric Explorer](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-getting-started)(3 min read) and [Advanced features of Metric Explorer](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-charts)(5 min read) 
+To get familiarized with how to use the metric section in the Azure portal pre read the following two documents. [Getting started with Metric Explorer](../azure-monitor/platform/metrics-getting-started.md) and [Advanced features of Metric Explorer](../azure-monitor/platform/metrics-charts).
 
-Below table contains the list of metrics available to explore in the Azure portal 
+The following table contains the list of metrics available to explore in the Azure portal:
 
 | Metric Name | Metric Namespace | Aggregation type | Description |
 | ------------------- | ------------------- | ------------------- | ----------------- |
@@ -62,29 +63,25 @@ Below table contains the list of metrics available to explore in the Azure porta
 | Scan Failed | Automated scan | Sum <br> Count | Aggregate the failed data source scans over time period |
 | Scan time taken | Automated scan | Min <br> Max <br> Sum <br> Avg | Aggregate the total time taken by scans over time period |
 
+## Diagnostic Logs to Azure Storage account
 
-
-## Diagnostic Logs to Azure Storage account 
-
-Raw telemetry events are emitted to Azure Monitor. Events can be logged to a customer storage account of choice for further analysis. Exporting of logs is done via the Diagnostic settings for the Purview account on the Azure portal. 
+Raw telemetry events are emitted to Azure Monitor. Events can be logged to a customer storage account of choice for further analysis. Exporting of logs is done via the Diagnostic settings for the Purview account on the Azure portal.
 
 Follow the steps to create a Diagnostic setting for your Azure Purview account.
 
-
-1. Create a new diagnostic setting to collect platform logs and metrics -> https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-settings (select the destination only as Azure storage account)
+1. Create a new diagnostic setting to collect platform logs and metrics by following this article: [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/platform/diagnostic-settings.md). Select the destination only as Azure storage account.
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/stepone-diagnostic-setting.png" alt-text="Screenshot showing creating diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/stepone-diagnostic-setting.png":::
 
-1. Log the events to a storage account. A dedicated storage account is recommended for archiving the  diagnostic logs. Create a new Azure Storage account by following steps -> https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal 
- 
+2. Log the events to a storage account. A dedicated storage account is recommended for archiving the diagnostic logs. Following this article to [Create a storage account](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/steptwo-diagnostic-setting.png" alt-text="Screenshot showing assigning storage account for diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/steptwo-diagnostic-setting.png":::
 
-Allow up to 15 minutes to start receiving logs in the newly created storage account. [See data retention and schema of resource logs in Azure Storage account](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/resource-logs-collect-storage#data-retention). Once the diagnostic logs are configured, the events flow to the storage account.
-
+Allow up to 15 minutes to start receiving logs in the newly created storage account. [See data retention and schema of resource logs in Azure Storage account](../azure-monitor/platform/resource-logs-collect-storage.md). Once the diagnostic logs are configured, the events flow to the storage account.
 
 ### ScanStatusLogEvent
-The event tracks the scan life cycle. A scan operation follows progress through a sequence of states, from Queued, Running and finally a terminal state of Succeeded | Failed | Canceled. An event is logged for each state transition and the schema of the event will have the following properties. 
 
+The event tracks the scan life cycle. A scan operation follows progress through a sequence of states, from Queued, Running and finally a terminal state of Succeeded | Failed | Canceled. An event is logged for each state transition and the schema of the event will have the following properties.
 
 ```JSON
 {
@@ -116,7 +113,7 @@ The event tracks the scan life cycle. A scan operation follows progress through 
   "resultDescription": "<This will have an error message if the resultType is Failed. >",
   "durationMs": "<Not used for ScanStatusLogEvent category. >",
   "level": "<The log severity level. Possible values are:
-            |Informational 
+            |Informational
             |Error >",
   "location": "<The location of the Azure Purview account>",
 }
@@ -150,7 +147,7 @@ The Sample log for an event instance is shown in the below section.
   "location": "eastus",
 }
 ```
+
 ## Next Steps
 
-> [!div class="nextstepaction"]
-> [Scan Azure Data sources](portal-scan-azure-data-sources.md)
+[Scan Azure Data sources](portal-scan-azure-data-sources.md)
