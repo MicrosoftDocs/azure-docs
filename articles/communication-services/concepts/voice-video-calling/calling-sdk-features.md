@@ -69,13 +69,13 @@ The following table represents the set of supported browsers and versions which 
 ## Calling client - browser security model
 
 ### User WebRTC over https
-WebRTC APIs, such as `getUserMedia` requires that the app calling these APIs must be served over HTTPS.
-For purpose of local development, you can use `http://localhost`.
+WebRTC APIs like `getUserMedia` require that the app calling these APIs is served over HTTPS.
+For local development, you can use `http://localhost`.
 
-### Embeding ACS Calling SDK within iframe
-[New `Permissions Policy` (also known as `Feature policy`)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) is being adopted in the industry by various browsers - it affects calling scenarios by controlling how applications can access camera and microphone through a cross origin iframe.
-If you want to use `iframe` to host part of the app from different domain, you need to add the `allow` attribute to your iframe with a correct value.
-Example: allow both camera and microphone
+### Embedding the Communication Services Calling SDK within an iframe
+[A new `permissions policy` (also known as `feature policy`)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) is being adopted by various browsers. This policy affects calling scenarios by controlling how applications can access a device's camera and microphone through a cross-origin iframe.
+If you want to use an `iframe` to host part of the app from different domain, you need to add the `allow` attribute to your iframe with a correct value.
+For example, this iframe allows both camera and microphone access:
 ```html|
 <iframe allow="camera *;microphone *"
 ```
