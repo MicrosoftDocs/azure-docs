@@ -256,7 +256,7 @@ If you made the call to the asynchronous `/analyze` or `/health` endpoints, chec
 
 4. The response will be a single JSON document, with an item for each document ID provided in the request.
 
-Please note that for both asynchronous `/analyze` or `/health` operations, the results from the GET request in step 2 above are available for **24 hours** from the time the job was created.  This time is indicated by the `expirationDateTime` value in the GET response.  After this time period, the results are purged and are no longer available for retrieval.    
+Please note that for both asynchronous `/analyze` or `/health` operations, the results from the GET request in step 2 above are available for 24 hours from the time the job was created.  This time is indicated by the `expirationDateTime` value in the GET response.  After this time period, the results are purged and are no longer available for retrieval.    
 
 ## Example API responses
  
