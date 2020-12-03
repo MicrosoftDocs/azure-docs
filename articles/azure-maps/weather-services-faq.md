@@ -65,13 +65,13 @@ Weather service coverage varies by country/region. All features are not availabl
 
 ### How often is Current Conditions data updated?
 
-Current Conditions data is approximately updated at least once an hour, but can be updated more frequently with rapidly changing conditions – such as large temperature changes, sky conditions changes, precipitation changes, etc. Most observation stations around the world report many times per hour as conditions change. However, a few areas will still only update once, twice, or four times an hour at scheduled intervals.  
+Current Conditions data is approximately updated at least once an hour, but can be updated more frequently with rapidly changing conditions – such as large temperature changes, sky conditions changes, precipitation changes, and so on. Most observation stations around the world report many times per hour as conditions change. However, a few areas will still only update once, twice, or four times an hour at scheduled intervals.  
  
 Azure Maps caches the Current Conditions data for up to 10 minutes to help capture the near real-time update frequency of the data as it occurs. To see when the cached response expires and avoid displaying outdated data, you can leverage the Expires Header information in the HTTP header of the Azure Maps API response. 
 
 ### How often is Daily and Hourly Forecast data updated?
 
-Daily and Hourly Forecast data is updated multiple times per day, as updated observations are received.  For example, if a forecasted high/low temperature is surpassed, our Forecast data will adjust at the next update cycle. This can happen at different intervals but typically happens within an  hour. Many sudden weather conditions can cause a forecast data change. For example, on a hot summer afternoon, an isolated thunderstorm can suddenly emerge, bringing heavy cloud coverage and rain. The isolated storm can effectively drop temperature by as much as 10 degrees. This new temperature value will impact the Hourly and Daily Forecasts for the remainder of the day, and therefore, will be updated in our datasets.
+Daily and Hourly Forecast data is updated multiple times per day, as updated observations are received.  For example, if a forecasted high/low temperature is surpassed, our Forecast data will adjust at the next update cycle. This can happen at different intervals but typically happens within an  hour. Many sudden weather conditions can cause a forecast data change. For example, on a hot summer afternoon, an isolated thunderstorm can suddenly emerge, bringing heavy cloud coverage and rain. The isolated storm can effectively drop temperature by as much as 10 degrees. This new temperature value will impact the Hourly and Daily Forecasts for the remainder of the day, and as such, will be updated in our datasets.
 
 Azure Maps Forecast APIs are cached for up to 30 mins. To see when the cached response expires and avoid displaying outdated data, you can leverage the Expires Header information in the HTTP header of the Azure Maps API response. We recommend updating as necessary based on a specific product use case and UI (user interface).
 
