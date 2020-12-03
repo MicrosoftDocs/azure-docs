@@ -91,7 +91,7 @@ A `*` symbol will appear next to the application name if a collaborator has a pr
 A `*` symbol will appear next to the application name if you have a prediction resource assigned to an application. After migration, your prediction resource will still be assigned to these applications even though you will no longer have access to author these apps. If you want to break the assignment between your prediction resource and the application, you will need to go to Azure portal and [regenerate the keys](./luis-how-to-azure-subscription.md#regenerate-an-azure-key).
 
    > [!div class="mx-imgBorder"]
-   > ![Export your applications.](./media/migrate-authoring-key/notify-azure-migration-collabs.png)
+   > ![Export your applications.](./media/migrate-authoring-key/migration-export-apps.png)
 
 
 4. In the window for migrating regions, you will be asked to migrate your applications to an Azure resource in the same region they were authored in. LUIS has three authoring regions, and previously had [different authoring portals](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions). The window will show the regions where your owned applications were authored.
