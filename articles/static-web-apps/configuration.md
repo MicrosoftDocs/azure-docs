@@ -48,7 +48,7 @@ Routes are defined in the _staticwebapps.config.json_ file as an array of rules 
 | `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role [`anonymous`](./authentication-authorization.md) applies to all unauthenticated users.<li>The built-in role [`authenticated`](./authentication-authorization.md) applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis. If a user is in any of the listed roles, then access is granted.<li>Individual users are associated to roles through [invitations](authentication-authorization.md).</ul> |
 | `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) associated with the request.<ul><li>Takes precedence over [`globalHeaders`](#global-headers)</ul> |
 | `statusCode`   | No       | 200           | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) response for the request. |
-| `methods` | No | n/a | An array of HTTP methods.<ul><li>GET<li>POST<li>PUT<li>PATCH<li>DELETE</ul> |
+| `methods` | No | n/a | An array of HTTP methods.<ul><li>`GET`<li>`POST`<li>`PUT`<li>`PATCH`<li>`DELETE`</ul> |
 
 ## Securing routes with roles
 
@@ -227,12 +227,12 @@ Based on the above configuration, review the following scenarios.
 | _/api/admin_ | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a 401 error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrators_ role are sent to the API. Authenticated users not in the _administrators_ role and unauthenticated users are served a 401 error. |
 | _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error<sup>1</sup>. Unauthenticated users redirected to _/login_. |
 | _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
-| _/.auth/login/twitter_ | Authorization with Twitter is disabled. The server responds with a 404 error. |
+| _/.auth/login/twitter_ | Authorization with Twitter is disabled. The server responds with a 404 error, which falls back to serving _/index.html_ with a `200` status code. |
 | _/logout_ | Users are logged out of any authentication provider. |
 | _/calendar/2021/01_ | The browser is served the _/calendar.html_ file. |
-| _/specials_ | The browser is redirected to _/deals_. |
-| _/unknown-folder_ | The _/index.html_ file is served. |
-| Files with the `.json` extension | File served with the `text/json` MIME type |
+| _/specials_ | The browser is permanently redirected to _/deals_. |
+| _/unknown-folder_ | The _/index.html_ file is served with a `200` status code. |
+| _/data.json_ | The file served with the `text/json` MIME type. |
 
 <sup>1</sup> You can provide a custom error page by using a [response override rule](#response-overrides).
 
