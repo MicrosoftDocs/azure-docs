@@ -51,12 +51,12 @@ See the other articles in this series:
 
 Some of the studio's features are disabled by default in a virtual network. You must enable managed identity for storage accounts you intend to use in the studio. 
 
-Failing to enable managed identity will result in the following error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile`. You will be unable to perform the following operations:
+You must enable managed identity to perform the following operations in a virtual network:
 
 * Preview data in the studio.
 * Visualize data in the designer.
-* Deploy a model in the designer.
-* Submit an AutoML experiment.
+* Deploy a model in the designer ([default storage account](#enable-managed-identity-authentication-for-default-storage-accounts)).
+* Submit an AutoML experiment ([default storage account](#enable-managed-identity-authentication-for-default-storage-accounts)).
 * Start a labeling project.
 
 The studio supports reading data from the following datastore types in a virtual network:
@@ -86,14 +86,15 @@ These steps add the workspace-managed identity as a __Reader__ to the storage se
 
 ### Enable managed identity authentication for default storage accounts
 
-Each Azure Machine Learning workspace comes with two default storage accounts, which are defined when you create your workspace. The studio uses these default storage accounts to store experiment and model artifacts, which are critical to certain features.
+Each Azure Machine Learning workspace comes with two default storage accounts, which are defined when you create your workspace. The studio uses the default storage accounts to store experiment and model artifacts, which are critical to certain features in the studio.
 
-The following table describes why you must enable managed identity authentication for the default storage accounts.
+The following table describes why you must enable managed identity authentication for your workspace default storage accounts.
 
 |Storage account  | Notes  |
 |---------|---------|
-|Workspace default blob storage| Stores model assets from the designer. Enable managed identity authentication to deploy models in the designer.|
-|Workspace default file store| Stores AutoML experiment assets. Enable managed identity authentication to submit AutoML experiments. |
+|Workspace default blob storage| Stores model assets from the designer. You must enable managed identity authentication on this storage account to deploy models in the designer. <br> <br> If your pipeline uses a non-default datastore that has been configured to use managed identity, you can visualize and run a designer pipeline without enabling managed identity on your default blob storage. However, if you try to deploy a trained model without managed identity enabled on the default datastore, deployment will fail regardless of any other datastores in use.|
+|Workspace default file store| Stores AutoML experiment assets. You must enable managed identity authentication on this storage account to submit AutoML experiments. |
+
 
 ![Screenshot showing where default datastores can be found](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
@@ -138,7 +139,7 @@ To access data stored in an Azure SQL Database using managed identity, you must 
 
 After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
-### Azure Machine Learning designer default datastore
+### Azure Machine Learning designer intermediate module output
 
 You can specify the output location for any module in the designer. Use this to store intermediate datasets in separate location for security, logging, or auditing purposes. To specify output:
 
