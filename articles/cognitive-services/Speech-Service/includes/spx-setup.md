@@ -94,13 +94,12 @@ On Windows, your commands will start like this:
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
-On Linux or macOS, your commands will look like the sample below. If you run this command before setting your key and region, you will get an error telling you to set your key and region:
+On Linux or macOS, your commands will look like the sample below. Replace `/ABSOLUTE_PATH` with the absolute path shown by the `pwd` command in the section above. 
+
+If you run this command before setting your key and region, you will get an error telling you to set your key and region:
 ```shell   
 sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
 ```
-
-> [!NOTE]
-> Replace `/ABSOLUTE_PATH` with the absolute path shown by the `pwd` command in the section above.
 
 To use the `spx` command installed in a container, always enter the full command shown above, followed by the parameters of your request.
 For example, on Windows, this command sets your key:
