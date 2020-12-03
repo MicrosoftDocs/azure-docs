@@ -2,7 +2,7 @@
 title: Zone-redundant registry for high availability
 description: Learn about enabling zone redundancy in Azure Container Registry by creating a container registry or geo-replica in an Azure availability zone. Zone redundancy is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 11/24/2020
+ms.date: 12/03/2020
 ---
 
 # Enable zone redundancy in Azure Container Registry for resiliency and high availability
@@ -13,19 +13,19 @@ This article shows how to set up a zone-redundant container registry or zone-red
 
 Zone redundancy is a **preview** feature of the Premium container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
-## Limitations
+## Preview limitations
 
-The following are current limitations of zone redundancy in Azure Container Registry:
-
-* Supported only in the following regions: East US, East US 2, and West US 2.
-* Can only be enabled in a registry or a regional replica when you create the resource.
-* Can't be disabled after it's enabled. You can't migrate a zone-redundant registry or replica to a non-zone-redundant state, nor the other way around. You also can't downgrade the registry to a different service tier.
-* [ACR Tasks](container-registry-tasks-overview.md) configured for this registry aren't zone resilient.
-* Can only be enabled by using an Azure Resource Manager template. The feature roadmap includes additional tooling.
+* Currently supported in the following regions: East US, East US 2, and West US 2.
+* Region conversions to availability zones aren't currently supported. To enable availability zone support in a region, the registry must either be created in the desired region, with availability zone support enabled, or a replicated region must be added with availability zone support enabled.
+* Zone redundancy can't be disabled in a region.
+* [ACR Tasks](container-registry-tasks-overview.md) doesn't yet support availability zones.
+* Currently supported through Azure Resource Manager templates or the Azure portal. Azure CLI support will be enabled in a future release.
 
 ## About zone redundancy
 
-Use Azure [availability zones](../availability-zones/az-overview.md) to create a resilient and high availability Azure container registry (or geo-replication) in a specific Azure region. For example, organizations can set up a zone-redundant Azure container registry with other [supported Azure resources](../availability-zones/az-region.md) to meet data residency or other compliance requirements while providing high availability.
+Use Azure [availability zones](../availability-zones/az-overview.md) to create a resilient and high availability Azure container registry within an Azure region. For example, organizations can set up a zone-redundant Azure container registry with other [supported Azure resources](../availability-zones/az-region.md) to meet data residency or other compliance requirements while providing high availability within a region.
+
+Azure Container Registry also supports [geo-replication](container-registry-geo-replication.md), which replicates the service across multiple regions, enabling redundancy and locality to compute resources in other locations. The combination of availability zones for redundancy within a region, and geo-replication across multiple regions, enhances both the reliability and performance of a registry.
 
 Availability zones are unique physical locations within an Azure region. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. Each zone has one or more datacenters equipped with independent power, cooling, and networking. When configured for zone redundancy, a registry (or a registry replica in a different region) is replicated across all availability zones in the region, keeping it available in the event of datacenter failures.
 
@@ -57,13 +57,6 @@ Copy the following contents to a new file and save it using a filename such as `
         "maxLength": 50,
         "metadata": {
           "description": "Globally unique name of your Azure Container Registry"
-        }
-      },
-      "acrAdminUserEnabled": {
-        "type": "bool",
-        "defaultValue": false,
-        "metadata": {
-          "description": "Enable admin user that has push / pull permission to the registry."
         }
       },
       "location": {
@@ -155,7 +148,7 @@ Run the following [az deployment group create](/cli/az/deployment#az_group_deplo
 az deployment group create \
   --resource-group <resource-group-name> \
   --template-file registryZone.json \
-  --parameters registryName=<registry-name> acrReplicaLocation=<replica-location>
+  --parameters acrName=<registry-name> acrReplicaLocation=<replica-location>
 ```
 
 In the command output, note the `zoneRedundancy` property for the registry and the replica. When enabled, each resource is zone redundant:
