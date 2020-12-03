@@ -54,7 +54,7 @@ Next, create some environment variables for the names and location of the resour
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 RESOURCE_GROUP=<value>
 EVENT_HUB_NAMESPACE=<value>
 EVENT_HUB_NAME=<value>
@@ -341,7 +341,7 @@ If you used Cloud Shell to create your resources, then you won't be connected to
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 RESOURCE_GROUP=<value>
 FUNCTION_APP=<value>
 ```
@@ -361,7 +361,7 @@ Use the following Maven command to create a functions project and add the requir
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 mvn archetype:generate --batch-mode \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype \
@@ -397,7 +397,7 @@ To avoid compilation errors, you'll need to delete the test files. Run the follo
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 cd telemetry-functions
 rm -r src/test
 ```
@@ -417,7 +417,7 @@ For local testing, your function project will need the connection strings that y
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 func azure functionapp fetch-app-settings $FUNCTION_APP
 ```
 
@@ -575,7 +575,7 @@ Use the following Maven commands to build and run the functions:
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 mvn clean package
 mvn azure-functions:run
 ```
@@ -614,7 +614,7 @@ Deploy your project to Azure using the following command:
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 mvn azure-functions:deploy
 ```
 
