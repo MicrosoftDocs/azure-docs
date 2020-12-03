@@ -6,7 +6,7 @@
     href: automation-intro.md
   - name: FAQ
     href: automation-faq.md
-  - What's new
+  - name: What's new
     href: whats-new.md
 - name: Quickstarts
   items:
