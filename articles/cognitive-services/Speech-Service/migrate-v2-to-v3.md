@@ -35,7 +35,7 @@ The host names have changed from {region}.cris.ai to {region}.api.cognitive.micr
 
 ### Identity of an entity
 
-The property `id` was replaced with `self`. In v2, an API user had to know how our paths on the API are being created. This was non-extensible and required unnecessary work from the user. The property `id` (uuid) is replaced by `self` (string), which is location of the entity (url). The value is still unique between all your entities. If `id` is stored as a string in your code, a simple rename is enough to support the new schema. You can now use the `self` content as url for all your REST calls for your entity (GET, PATCH, DELETE).
+The property `id` was replaced with `self`. In v2, an API user had to know how our paths on the API are being created. This was non-extensible and required unnecessary work from the user. The property `id` (uuid) is replaced by `self` (string), which is location of the entity (URL). The value is still unique between all your entities. If `id` is stored as a string in your code, a simple rename is enough to support the new schema. You can now use the `self` content as URL for all your REST calls for your entity (GET, PATCH, DELETE).
 
 If the entity has additional functionality available under other paths, they are listed under `links`. A good example is a transcription, which has a separate method to `GET` the content of the transcription.
 
@@ -48,8 +48,7 @@ v2 transcription:
     "lastActionDateTime": "2019-01-07T11:36:07Z",
     "status": "Succeeded",
     "locale": "en-US",
-    "name": "Transcription using locale en-US",
-    
+    "name": "Transcription using locale en-US"
 }
 ```
 
@@ -65,12 +64,11 @@ v3 transcription:
     "displayName": "Transcription using locale en-US",
     "links": {
       "files": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files"
-    },
-    
+    }
 }
 ```
 
-Depending on your client implementation, it may not be enough to rename the property. We recommend to take advantage of using the returned values of `self` and `links` as the target urls of your rest calls, and not to generate the paths in your client. By using the returned urls, you can be sure that future changes in paths will not break your client code.
+Depending on your client implementation, it may not be enough to rename the property. We recommend to take advantage of using the returned values of `self` and `links` as the target urls of your rest calls, and not to generate the paths in your client. By using the returned URLs, you can be sure that future changes in paths will not break your client code.
 
 ### Working with collections of entities
 
@@ -81,10 +79,8 @@ The basic shape of the response is the same for all collections:
 ```json
 {
     "values": [
-    {
-      
-    },
-    
+        {     
+        }
     ],
     "@nextLink": "https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/{collection}?skip=100&top=100"
 }
@@ -99,7 +95,7 @@ This change requires calling the `GET` for the collection in a loop until all el
 A detailed description on how to create transcription can be found in [Batch transcription How-to](./batch-transcription.md).
 
 The creation of transcriptions has been changed in v3 to enable setting specific transcription options explicitly. All (optional) configuration properties can now be set in the `properties` property.
-Also version v3 now supports multiple input files and therefore requires a list of urls and not a single url as required by v2. The property name was renamed from `recordingsUrl` to `contentUrls`. The functionality of analyzing sentiment in transcriptions has been removed on v3. We recommend to use the Microsoft Cognitive Service "[Text Analysis](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/)" instead.
+Also version v3 now supports multiple input files and therefore requires a list of URLs and not a single URL as required by v2. The property name was renamed from `recordingsUrl` to `contentUrls`. The functionality of analyzing sentiment in transcriptions has been removed on v3. We recommend to use the Microsoft Cognitive Service [Text Analysis](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) instead.
 
 The new property `timeToLive` under `properties` can help to prune the existing completed entities. The `timeToLive` specifies a duration after which a completed entity will be automatically deleted. Set it to a high value (for example `PT12H`) when the entities are continuously tracked, consumed, and deleted and therefore usually processed long before 12 hours passed.
 
@@ -134,7 +130,7 @@ v3 transcription POST request body:
     "wordLevelTimestampsEnabled": false,
     "punctuationMode": "DictatedAndAutomatic",
     "profanityFilterMode": "Masked"
-  },
+  }
 }
 ```
 
@@ -209,7 +205,8 @@ Sample of a v3 transcription result. The differences are described in the commen
 
 In v2, the links to the input or result files have been inlined with the rest of the entity metadata. As an improvement in v3, there is a clear separation between entity metadata, which is returned by a GET on `$.self` and the details and credentials to access the result files. This separation helps protecting customer data and allows fine control over the duration of validity of the credentials.
 
-In v3, there is a property called `files` under links in case the entity exposes data (datasets, transcriptions, endpoints, evaluations). A GET on `$.links.files` will return a list of files and SAS url to access the content of each file. To control the validity duration of the SAS urls, the query parameter `sasValidityInSeconds` can be used to specify the lifetime.
+In v3, there is a property called `files` under links in case the entity exposes data (datasets, transcriptions, endpoints, evaluations). A GET on `$.links.files` will return a list of files and SAS URL
+to access the content of each file. To control the validity duration of the SAS URLs, the query parameter `sasValidityInSeconds` can be used to specify the lifetime.
 
 v2 transcription:
 
@@ -221,8 +218,7 @@ v2 transcription:
   "resultsUrls": {
     "channel_0": "https://contoso.com/audiofile1.wav?st=2018-02-09T18%3A07%3A00Z&se=2018-02-10T18%3A07%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=6c044930-3926-4be4-be76-f72832e6600c",
     "channel_1": "https://contoso.com/audiofile2.wav?st=2018-02-09T18%3A07%3A00Z&se=2018-02-10T18%3A07%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=3e0163f1-0029-4d4a-988d-3fba7d7c53b5"
-  },
-  
+  }
 }
 ```
 
@@ -233,8 +229,7 @@ v3 transcription:
     "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
     "links": {
       "files": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3/files"
-    },
-    
+    } 
 }
 ```
 
@@ -297,8 +292,7 @@ v2 transcription:
 
 ```json
 {
-    "name": "Transcription using locale en-US",
-    
+    "name": "Transcription using locale en-US"
 }
 ```
 
@@ -306,14 +300,13 @@ v3 transcription:
 
 ```json
 {
-    "displayName": "Transcription using locale en-US",
-    
+    "displayName": "Transcription using locale en-US"
 }
 ```
 
 ### Accessing referenced entities
 
-In v2 referenced entities have always been inlined, for example the used models of an endpoint. The nesting of entities resulted in large responses and consumers rarely consumed the nested content. To shrink the response size and improve performance for all API users, the referenced entities are no longer inlined in the response. Instead a reference to the other entity is being used, which can directly be used. This reference can be used for a subsequent `GET` (it's a url as well), following the same pattern as the `self` link.
+In v2 referenced entities have always been inlined, for example the used models of an endpoint. The nesting of entities resulted in large responses and consumers rarely consumed the nested content. To shrink the response size and improve performance for all API users, the referenced entities are no longer inlined in the response. Instead a reference to the other entity is being used, which can directly be used. This reference can be used for a subsequent `GET` (it's a URL as well), following the same pattern as the `self` link.
 
 v2 transcription:
 
@@ -341,11 +334,9 @@ v2 transcription:
           "name": "Language dataset",
           
         }
-      ],
-      
+      ]
     },
-  ],
-  
+  ]
 }
 ```
 
@@ -356,8 +347,7 @@ v3 transcription:
   "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/9891c965-bb32-4880-b14b-6d44efb158f3",
   "model": {
     "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/models/021a72d0-54c4-43d3-8254-27336ead9037"
-  },
-  
+  }
 }
 ```
 
@@ -373,10 +363,8 @@ A successfully running v3 endpoint:
 {
   "self": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6",
   "links": {
-    "logs": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6/files/logs",
-    
-  },
-  
+    "logs": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6/files/logs" 
+  }
 }
 ```
 
@@ -396,8 +384,7 @@ Response of GET `$.links.logs`:
       "links": {
         "contentUrl": "https://customspeech-usw.blob.core.windows.net/artifacts/2019-09-20_080000_3b5f4628-e225-439d-bd27-8804f9eed13f.wav?st=2018-02-09T18%3A07%3A00Z&se=2018-02-10T18%3A07%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=e05d8d56-9675-448b-820c-4318ae64c8d5"
       }
-    },
-    
+    }    
   ],
   "@nextLink": "https://westus.api.cognitive.microsoft.com/speechtotext/v3.0/endpoints/afa0669c-a01e-4693-ae3a-93baf40f26d6/files/logs?top=2&SkipToken=2!188!MDAwMDk1ITZhMjhiMDllLTg0MDYtNDViMi1hMGRkLWFlNzRlOGRhZWJkNi8yMDIwLTA0LTAxLzEyNDY0M182MzI5NGRkMi1mZGYzLTRhZmEtOTA0NC1mODU5ZTcxOWJiYzYud2F2ITAwMDAyOCE5OTk5LTEyLTMxVDIzOjU5OjU5Ljk5OTk5OTlaIQ--"
 }
@@ -418,10 +405,8 @@ v2 transcription entity
   "properties": {
     "customerDefinedKey": "value",
     "diarizationEnabled": "False",
-    "wordLevelTimestampsEnabled": "False",
-    
-  },
-  
+    "wordLevelTimestampsEnabled": "False"
+  }
 }
 ```
 
@@ -431,13 +416,11 @@ v3 transcription entity
 {
   "properties": {
     "diarizationEnabled": false,
-    "wordLevelTimestampsEnabled": false,
-    
+    "wordLevelTimestampsEnabled": false 
   },
   "customProperties": {
     "customerDefinedKey": "value"
-  },
-  
+  }
 }
 ```
 
