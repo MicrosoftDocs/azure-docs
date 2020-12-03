@@ -1105,7 +1105,7 @@ HTTP status code | Reason
 `429 Too Many Requests` | API [Rate Limits](#rate-limiting) has been exceeded
 `500 Service Error`     | Retry after some time
 
-### Frequently asked questions
+## Frequently asked questions
 
 **I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?**
 
