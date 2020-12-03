@@ -148,6 +148,6 @@ The Sample log for an event instance is shown in the below section.
 }
 ```
 
-## Next Steps
+## Next steps
 
 [View Asset insights](asset-insights.md)
