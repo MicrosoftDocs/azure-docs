@@ -1,6 +1,6 @@
 ---
-title: Install software
-description: 
+title: Defender for IoT installation
+description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -10,65 +10,65 @@ ms.service: azure
 ms.topic: how-to
 ---
 
-# About the Defender for IoT Installation
+# Defender for IoT installation
 
-This article describes how to install the:
+This article describes how to install the following elements of Azure Defender for IoT:
 
-- **Defender for IoT sensor:** Defender for IoT sensors collects ICS network traffic using passive (agentless) monitoring. Passive and non-intrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, device inventory, and an extensive range of reports. For example risk assessment reports, data mining queries and attack vectors. Read more about sensor capabilities in the [***Defender for IoT Sensor User Guide***](https://aka.ms/AzureDefenderforIoTUserGuide).
+- **Sensor**: Defender for IoT sensors collects ICS network traffic by using passive (agentless) monitoring. Passive and nonintrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections appear in the sensor console. There, you can view, investigate, and analyze them in a network map, device inventory, and an extensive range of reports. Examples include risk assessment reports, data mining queries, and attack vectors. Read more about sensor capabilities in the [Defender for IoT Sensor User Guide (direct download)](https://aka.ms/AzureDefenderforIoTUserGuide).
 
- -  **Defender for IoT on-premises management console:** The on-premises management console lets you carry out device management, risk, and vulnerability management, as well as threat monitoring and incident response across your enterprise. It provides a unified view of all network devices, key IoT, and OT risk indicators and alerts detected in facilities where sensors are deployed. Use the on-premises management console to view and manage sensors in air-gapped networks.
+- **On-premises management console**: The on-premises management console lets you carry out device management, risk management, and vulnerability management. You can also use it to carry out threat monitoring and incident response across your enterprise. It provides a unified view of all network devices, key IoT, and OT risk indicators and alerts detected in facilities where sensors are deployed. Use the on-premises management console to view and manage sensors in air-gapped networks.
 
-The following installation information is covered:
+This article covers the following installation information:
 
-  - **Hardware:** Dell and HPE physical appliance details
+  - **Hardware:** Dell and HPE physical appliance details.
 
-  - **Software:** Sensor and on-premises management console software installation
+  - **Software:** Sensor and on-premises management console software installation.
 
-  - **Virtual Appliances:** virtual machine details and software installation
+  - **Virtual Appliances:** Virtual machine details and software installation.
 
 After installation, connect your sensor to your network.
 
-# About Defender for IoT appliances 
+## About Defender for IoT appliances 
 
-This article covers information about Defender for IoT sensor appliances and the appliance for the Defender for IoT on-premises management console.
+The following sections provide information about Defender for IoT sensor appliances and the appliance for the Defender for IoT on-premises management console.
 
 ### Physical appliances
 
-The Defender for IoT appliance sensor connects to a SPAN port or network TAP and immediately begins collecting ICS network traffic using passive (agentless) monitoring. This process has zero impact on OT networks and devices because it is not placed in the data path and does not actively scan OT devices.
+The Defender for IoT appliance sensor connects to a SPAN port or network TAP and immediately begins collecting ICS network traffic by using passive (agentless) monitoring. This process has zero impact on OT networks and devices because it isn't placed in the data path and doesn't actively scan OT devices.
 
 The following rack mount appliances are available:
 
-| **Deployment Type** | **Corporate** | **Enterprise** | **SMB** |  |
+| **Deployment type** | **Corporate** | **Enterprise** | **SMB** |  |
 |--|--|--|--|--|
 | **Model** | HPE ProLiant DL360 | Dell PowerEdge R340 XL | HPE ProLiant DL20 | HPE ProLiant DL20 |
 | **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 9 RJ45 or 6 OPT | up to 8 RJ45 or 6 OPT | 4 RJ45 |
 | **Max Bandwidth\*** | 3 Gb/Sec | 1 Gb/Sec | 1 Gb/Sec | 100 Mb/Sec |
 | **Max Protected Devices** | 30,000 | 10,000 | 15,000 | 1,000 |
 
-*Max Bandwidth capacity may vary depending on protocol distribution
+*Maximum bandwidth capacity might vary depending on protocol distribution.
 
 ### Virtual appliances
 
 The following virtual appliances are available:
 
-| **Deployment Type** | **Enterprise** | **SMB** | **Line** |
+| **Deployment type** | **Enterprise** | **SMB** | **Line** |
 |--|--|--|--|
 | **Description** | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
-| **Max Bandwidth\*** | 150 Mb/Sec | 15 Mb/Sec | 3 Mb/Sec |
+| **Max Bandwidth\*** | 150 Mb/sec | 15 Mb/sec | 3 Mb/sec |
 | **Max protected devices** | 3,000 | 300 | 100 |
 | **Deployment Type** | Enterprise | SMB | Line |
 | **Description** | Virtual appliance for enterprise deployments | Virtual appliance for SMB deployments | Virtual appliance for line deployments |
 
-*Max Bandwidth capacity may vary depending on protocol distribution
+*Maximum bandwidth capacity might vary depending on protocol distribution.
 
-### On-premises management console hardware specifications
+### Hardware specifications for the on-premises management console
 
  | Item | Description |
  |----|--|
- **Description** | In a multi-tier architecture, the on-premises management console delivers visibility and control across geographically distributed sites. It integrates with SOC security stacks including SIEMs, ticketing systems, next generation firewalls, secure remote access platforms, and the Defender for IoT ICS malware sandbox. |
+ **Description** | In a multitier architecture, the on-premises management console delivers visibility and control across geographically distributed sites. It integrates with SOC security stacks, including SIEMs, ticketing systems, next-generation firewalls, secure remote access platforms, and the Defender for IoT ICS malware sandbox. |
  **Deployment type** | Enterprise |
- **Appliance Type**  | Dell R340, VM |
- **Number of Managed Sensors** | Unlimited |
+ **Appliance type**  | Dell R340, VM |
+ **Number of managed sensors** | Unlimited |
 
 ## Prepare for the installation
 
@@ -86,40 +86,31 @@ To access the file:
 
 Before the installation, ensure you have:
 
-- a portable DVD drive with the USB connector.
+- A portable DVD drive with the USB connector.
 
-- ISO installer image.
+- An ISO installer image.
 
 **To install:**
 
-1. Burn the image to a DVD or prepare a disk on a key.
+1. Burn the image to a DVD or prepare a disk on a key. Connect a portable DVD drive to your computer, right-click the ISO image, and select **Burn to disk**.
 
 1. Connect the DVD or disk on a key and configure the appliance to boot from DVD or disk on a key.
-
-> [!NOTE]
-> Burn the ISO image to the DVD as image. Connect a portable DVD drive into your computer and right click on the ISO Image and choose “Burn to disk”.
 
 ### Install from disk on a key
 
 Before the installation, ensure you have:
 
-  - A disk on key with the USB version 3.0 and later. The minimum size is 4 GB.
+  - Rufus installed.
+  
+  - A disk on key with USB version 3.0 and later. The minimum size is 4 GB.
 
-  - ISO installer image file
-
-Before you begin:
-
-1.  Download RUFUS.
-
-2.  Download ISO image.
-
-3.  A USB disk on a k ey that you want to use. The minimum size is 4 GB.
+  - An ISO installer image file.
 
 The disk on a key will be erased in this process.
 
 To prepare a disk on a key:
 
-1. Run Rufus and select SENSOR ISO.
+1. Run Rufus and select **SENSOR ISO**.
 
 2. Connect the disk on a key to the front panel.
 
@@ -127,13 +118,9 @@ To prepare a disk on a key:
 
 ## Dell PowerEdgeR340XL installation
 
-This article provides the Dell PowerEdge R340XL installation procedure.
+Before installing the software on the Dell appliance, you need to adjust the appliance's BIOS configuration:
 
-Before installing the software on the Dell appliance, you need to adjust the appliance BIOS configuration.
-
-This article contains covers:
-
-  - [Dell PowerEdge R340 Front Panel](#dell-poweredge-r340-front-panel) and [Dell PowerEdge R340 Back Panel](#dell-poweredge-r340-back-panel) contains front and back panels description, and information required for installation, such as drivers and ports.
+  - [Dell PowerEdge R340 Front Panel](#dell-poweredge-r340-front-panel) and [Dell PowerEdge R340 Back Panel](#dell-poweredge-r340-back-panel) contains the description of front and back panels, along with information required for installation, such as drivers and ports.
 
   - [Dell BIOS Configuration](#dell-bios-configuration) provides information about how to connect to the Dell appliance management interface and configure the BIOS.
 
@@ -141,21 +128,21 @@ This article contains covers:
 
 ### Dell PowerEdge R340XL requirements 
 
-This article describes the requirements for installing the Dell PowerEdge R340XL appliance.
+To install the Dell PowerEdge R340XL appliance, you need:
 
-- Enterprise license for iDrac
+- Enterprise license for Dell Remote Access Controller (iDrac)
 
 - BIOS configuration XML
 
-- Servers firmware versions:
+- Server firmware versions:
 
-  - Bios Version – 2.1.6
+  - BIOS version 2.1.6
 
-  - iDrac version - 3.23.23.23
+  - iDrac version 3.23.23.23
 
 ### Dell PowerEdge R340 front panel
 
-:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg" alt-text="Dell PowerEdge R340 front panel":::
+:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg" alt-text="Dell PowerEdge R340 front panel.":::
 
  1. Left control panel 
  2. Optical drive (optional) 
@@ -165,13 +152,13 @@ This article describes the requirements for installing the Dell PowerEdge R340XL
 
 ### Dell PowerEdge R340 back panel
 
-:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Dell PowerEdge R340 back panel":::
+:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Dell PowerEdge R340 back panel.":::
 
 1. Serial port 
 2. NIC port (Gb 1) 
 3. NIC port (Gb 1) 
 4. Half-height PCIe 
-5. Full-height PCIe expansion card slot expansion card slot 
+5. Full-height PCIe expansion card slot 
 6. Power supply unit 1 
 7. Power supply unit 2 
 8. System identification 
@@ -179,119 +166,113 @@ This article describes the requirements for installing the Dell PowerEdge R340XL
 10. USB 3.0 port (2) 
 11. iDRAC9 dedicated network port 
 12. VGA port 
+
 ### Dell BIOS configuration
 
 Dell BIOS configuration is required to adjust the Dell appliance to work with the software.
 
-The BIOS configuration is performed using a pre-defined configuration. The file is accessible from the [Help Center](https://help.cyberx-labs.com/).
+The BIOS configuration is performed through a predefined configuration. The file is accessible from the [Help Center](https://help.cyberx-labs.com/).
 
-Import the configuration file to the Dell appliance.
+Import the configuration file to the Dell appliance. Before using the configuration file, you need to establish the communication between the Dell appliance and the management computer.
 
-Before using the configuration file, you will need to establish the communication between the Dell appliance and the management computer.
+The Dell appliance is managed by an integrated iDRAC with Lifecycle Controller (LC). The LC is embedded in every Dell PowerEdge server and provides functionality that helps you deploy, update, monitor, and maintain your Dell PowerEdge appliances.
 
-The Dell appliance is managed by an integrated Dell Remote Access Controller (iDRAC) with Lifecycle Controller (LC). The LC is embedded in every Dell PowerEdge server and provides functionality that helps you deploy, update, monitor, and maintain your Dell PowerEdge appliances.
-
-To establish the communication between the Dell appliance and the management computer, you need to define the iDRAC IP address and management computer IP address on the same subnet.
+To establish the communication between the Dell appliance and the management computer, you need to define the iDRAC IP address and the management computer's IP address on the same subnet.
 
 When the connection is established, the BIOS is configurable.
 
 To configure Dell BIOS:
 
-1. [Configure iDRAC IP address](#configure-idrac-ip)
+1. [Configure the iDRAC IP address](#configure-idrac-ip)
 
-2. [Import the BIOS Configuration File](#import-the-bios-configuration-file)
+2. [Import the BIOS configuration file](#import-the-bios-configuration-file)
 
 #### Configure iDRAC IP address
 
 1. Power up the sensor.
 
-2. If the OS is already installed, Select on F2 to enter the BIOS configuration.
+2. If the OS is already installed, select the F2 key to enter the BIOS configuration.
 
 3. Select **iDRAC Settings**.
 
 4. Select **Network**.
 
    > [!NOTE]
-   > During the installation you must configure the default iDRAC IP address and password mentioned in the following steps. After the installation, you change these definitions.
+   > During the installation, you must configure the default iDRAC IP address and password mentioned in the following steps. After the installation, you change these definitions.
 
-5. Change the static IPv4 address to 10.100.100.250.
+5. Change the static IPv4 address to **10.100.100.250**.
 
-6. Change the static subnet mask to 255.255.255.0.
+6. Change the static subnet mask to **255.255.255.0**.
 
-   :::image type="content" source="media/tutorial-install-components/idrac-network-settings-screen.png" alt-text="Static subnet mask":::
+   :::image type="content" source="media/tutorial-install-components/idrac-network-settings-screen.png" alt-text="Screenshot that shows the static subnet mask.":::
 
-7. Select **Back** and **Finish**.
+7. Select **Back** > **Finish**.
 
 #### Import the BIOS configuration file
 
-This article describes how to configure the BIOS using the configuration file.
+This article describes how to configure the BIOS by using the configuration file.
 
-1. Plug in a PC with a static preconfigured IP address **10.100.100.200** to **iDRAC** port.
+1. Plug in a PC with a static preconfigured IP address **10.100.100.200** to the **iDRAC** port.
 
-   :::image type="content" source="media/tutorial-install-components/idrac-port.png" alt-text="preconfigured IP address port":::
+   :::image type="content" source="media/tutorial-install-components/idrac-port.png" alt-text="Screenshot of the preconfigured IP address port.":::
 
-2. Open a browser and type **10.100.100.250** to connect to iDRAC web interface.
+2. Open a browser and enter **10.100.100.250** to connect to iDRAC web interface.
 
 3. Sign in with Dell default administrator privileges:
 
-   - Username: root
+   - Username: **root**
 
-   - Password: calvin
+   - Password: **calvin**
 
-4. Appliance's credentials are:
+4. The appliance's credentials are:
 
-   - Username: cyberx
+   - Username: **cyberx**
 
-   - Password: xhxvhttju,@4338
+   - Password: **xhxvhttju,@4338**
 
      The import server profile operation is initiated.
 
      > [!NOTE]
-     > Before importing the file make sure:
-     > -You are the only user that is currently connected to iDRAC.
-     > -The system is not in the BIOS menu.
+     > Before you import the file, make sure:
+     > - You're the only user who is currently connected to iDRAC.
+     > - The system is not in the BIOS menu.
 
-5. Go to **Configuration** > **Server Configuration Profile**. And set the following parameters:
+5. Go to **Configuration** > **Server Configuration Profile**. Set the following parameters:
 
-   :::image type="content" source="media/tutorial-install-components/configuration-screen.png" alt-text="Configure your server profile":::
+   :::image type="content" source="media/tutorial-install-components/configuration-screen.png" alt-text="Screenshot that shows the configuration of your server profile.":::
 
    | Parameter | Configuration |
    |--|--|
-   | Location Type | Select **Local** |
-   | File Path | Select **Choose File** and add the configuration XML file |
-   | Import Components | Select **BIOS, NIC, RAID** |
-   | Maximum wait time | Select **20 minutes** |
+   | Location Type | Select **Local**. |
+   | File Path | Select **Choose File** and add the configuration XML file. |
+   | Import Components | Select **BIOS, NIC, RAID**. |
+   | Maximum wait time | Select **20 minutes**. |
 
 6. Select **Import**.
 
-7. To monitor the process, go to **Maintenance** > **Job Queue**:
+7. To monitor the process, go to **Maintenance** > **Job Queue**.
 
-   :::image type="content" source="media/tutorial-install-components/view-the-job-queue.png" alt-text="Job queue":::
+   :::image type="content" source="media/tutorial-install-components/view-the-job-queue.png" alt-text="Screenshot that shows Job Queue.":::
 
 #### Manually configuring BIOS 
 
-This article describes how to manually configure the appliance BIOS. You will need to manually configure if:
+You need to manually configure the appliance BIOS if:
 
-- You did not purchase your appliance from Arrow
+- You did not purchase your appliance from Arrow.
 
-- You have an appliance, but do not have access to the XML configuration file
+- You have an appliance, but do not have access to the XML configuration file.
 
 After you access the BIOS, go to **Device Settings**.
 
 To manually configure:
 
-1. Access the appliance BIOS 
-   - directly using a keyboard and screen.
+1. Access the appliance BIOS directly by using a keyboard and screen, or use iDRAC.
 
-   or
+   - If the appliance is not a Defender for IoT appliance, open a browser and go to the IP address that was configured before. Sign in with the Dell default administrator privileges. Use **root** for the username and **calvin** for the password.
 
-    - using iDRAC.
+   - If the appliance is a Defender for IoT appliance, sign in by using **cyberx** for the username and **xhxvhttju,@4338** for the password.
 
-   1. If the appliance is not a Defender for IoT appliance, open a browser and go to the IP address that was configured before. Sign in with the Dell default administrator privileges: Username: root, Password: calvin.
-
-   2. If the appliance is a Defender for IoT appliance, log in with the following credentials: Username: cyberx, Password: xhxvhttju,@4338
-
-2. Once you access the BIOS, go to **Device Settings**.
+2. After you access the BIOS, go to **Device Settings**.
 
 3. Choose the RAID-controlled configuration by selecting **Integrated RAID controller 1: Dell PERC\<PERC H330 Adapter\> Configuration Utility**.
 
@@ -305,9 +286,9 @@ To manually configure:
 
 8. Select **Ok**.
 
-9. Scroll down the screen and select **Create Virtual Disk**.
+9. Scroll down and select **Create Virtual Disk**.
 
-10. Select the **Confirm** checkbox and select **Yes**.
+10. Select the **Confirm** check box and select **Yes**.
 
 11. Select **OK**.
 
@@ -317,19 +298,19 @@ To manually configure:
 
 14. For the **Boot Mode** option, select **BIOS**.
 
-15. Select **Back** and then select **Finish** to exit the BIOS settings.
+15. Select **Back**, and then select **Finish** to exit the BIOS settings.
 
 ### Software installation (Dell R340)
 
-The installation process takes approximately 20 minutes. After the installation, the system is restarted several times.
+The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
 **To install:**
 
 1. Verify that the version media is mounted to the appliance in one of the following ways:
 
-   1. Connect the external CD or disk on a key with the release.
+   - Connect the external CD or disk on a key with the release.
 
-   2. Mount the ISO image using the iDRAC: After signing in to iDRAC, select the virtual console, and then select **Virtual Media**.
+   - Mount the ISO image by using iDRAC. After signing in to iDRAC, select the virtual console, and then select **Virtual Media**.
 
 2. In the **Map CD/DVD** section, select **Choose File**.
 
@@ -337,123 +318,123 @@ The installation process takes approximately 20 minutes. After the installation,
 
 4. Select the **Map Device** button.
 
-   :::image type="content" source="media/tutorial-install-components/mapped-device-on-virtual-media-screen.png" alt-text="Mapped device":::
+   :::image type="content" source="media/tutorial-install-components/mapped-device-on-virtual-media-screen.png" alt-text="Screenshot that shows a mapped device.":::
 
 5. The media is mounted. Select **Close**.
 
-6. Boot the appliance. When using iDRAC, rebooting the servers can be done by selecting on the **Consul Control** button, on the **Keyboard Macros** select on the **Apply** button, which will initiate the Ctrl-Alt-Del sequence.
+6. Start the appliance. When you're using iDRAC, you can restart the servers by selecting the **Consul Control** button. Then, on the **Keyboard Macros**, select the **Apply** button, which will start the Ctrl+Alt+Delete sequence.
 
 7. Select **English**.
 
-8. Select **SENSOR-RELEASE-\<version\> Enterprise…**
+8. Select **SENSOR-RELEASE-\<version\> Enterprise**.
 
-   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen.png" alt-text="Version select":::   
+   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen.png" alt-text="Screenshot that shows version selection.":::   
 
 9. Define the appliance profile and network properties:
 
-   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen.png" alt-text="appliance profile":::   
+   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen.png" alt-text="Screenshot that shows the appliance profile.":::   
 
    | Parameter | Configuration |
    |--|--|
-   | **Hardware profile** | enterprise |
-   | **Management interface** | eno1 |
+   | **Hardware profile** | **enterprise** |
+   | **Management interface** | **eno1** |
    | **Network parameters (usually provided by the customer)** | - |
    |**management network IP address:** | - |
    | **subnet mask:** | - |
    | **appliance hostname:** | - |
    | **DNS:** | - |
    | **default gateway IP address:** | - |
-   | **input interfaces:** |  The list of input interfaces is generated for you by the system\.  To mirror the input interfaces, copy all the items presented in the list with a comma separator\. NOTE: There is no need to configure the bridge interface, this option is used for special use cases only\. |
+   | **input interfaces:** |  The system generates the list of input interfaces for you. To mirror the input interfaces, copy all the items presented in the list with a comma separator. Note that there's no need to configure the bridge interface. This option is used for special use cases only. |
 
-10. After approximately 10 minutes, the two sets of credentials appear. One for a *Defender for IoT* user and one for a *Support* user.  
+10. After about 10 minutes, the two sets of credentials appear. One is for a **Defender for IoT** user, and one is for a **Support** user.  
 
-11. Save the Appliance ID and passwords. You will need these credentials to access the platform the first time you use it.
+11. Save the appliance ID and passwords. You'll need these credentials to access the platform the first time you use it.
 
 12. Select **Enter** to continue.
 
-## HPE ProLiant DL20 Installation
+## HPE ProLiant DL20 installation
 
 This article describes the HPE ProLiant DL20 installation process, which includes the following steps:
 
-  - Enable R\remote access and update the default administrator password.
+  - Enable remote access and update the default administrator password.
   - Configure BIOS and RAID settings.
   - Install the software.
 
 ### About the installation
 
-  - Enterprise and SMB appliances can be installed. The install process is identical for both appliance types, except for the array configuration.
-  - A default administrative user is provided. We recommended you change the password during the network configuration process.
-  - During the network configuration, you will configure the iLO port on network port 1.
-  - The installation process takes approximately 20 minutes. After the installation, the system is restarted several times.
+  - Enterprise and SMB appliances can be installed. The installation process is identical for both appliance types, except for the array configuration.
+  - A default administrative user is provided. We recommend that you change the password during the network configuration process.
+  - During the network configuration process, you'll configure the iLO port on network port 1.
+  - The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
 ### HPE ProLiant DL20 front panel
 
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-front-panel.png" alt-text="HPE Proliant DL20 front panel":::
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-front-panel.png" alt-text="HPE ProLiant DL20 front panel.":::
 
 ### HPE ProLiant DL20 back panel
 
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel.png" alt-text="HPE Proliant DL20 back panel":::
-![HPE ProLiant DL20 back panel](media/tutorial-install-components/image34.png)
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel.png" alt-text="HPE ProLiant DL20 back panel.":::
+![HPE ProLiant DL20 back panel.](media/tutorial-install-components/image34.png)
 
-### Enable remote access and update password
+### Enable remote access and update the password
 
-This article describes how to set up network options and update the default password.
+Use the following procedure to set up network options and update the default password.
 
 **To enable and update the password:**
 
-1. Connect a screen and a keyboard to the HP appliance and power the appliance and Press **F9**.
+1. Connect a screen and a keyboard to the HP appliance, turn on the appliance, and press **F9**.
 
-    :::image type="content" source="media/tutorial-install-components/hpe-proliant-screen.png" alt-text="HPE ProLiant window":::
+    :::image type="content" source="media/tutorial-install-components/hpe-proliant-screen.png" alt-text="Screenshot that shows the HPE ProLiant window.":::
 
-2. Go to **System Utilities >** **System Configuration > iLO 5 Configuration Utility > Network Options**.
+2. Go to **System Utilities** > **System Configuration** > **iLO 5 Configuration Utility** > **Network Options**.
 
-    :::image type="content" source="media/tutorial-install-components/system-configuration-window.png" alt-text="System configuration window":::
+    :::image type="content" source="media/tutorial-install-components/system-configuration-window.png" alt-text="Screenshot that shows the System Configuration window.":::
 
     1.  Select **Shared Network Port-LOM** from the **Network Interface Adapter** field.
     
-    2.  Disable DHCP.
+    1.  Disable DHCP.
     
-    3.  Enter the IP address, subnet mask, and gateway IP address.
+    1.  Enter the IP address, subnet mask, and gateway IP address.
 
-3. select **F10: Save**.
+3. Select **F10: Save**.
 
-4. Select **Esc** to get back to the **iLO 5 Configuration Utility** and select **User Management**
+4. Select **Esc** to get back to the **iLO 5 Configuration Utility**, and then select **User Management**.
 
-5. Select **User Management**, **Edit/Remove User**. The administrator is the only default user defined. Change the default password.
+5. Select **Edit/Remove User**. The administrator is the only default user defined. 
 
 6. Change the default password and select **F10: Save**.
 
 ### Configure the HPE BIOS
 
-This article describes how to configure the HPE BIOS for the Enterprise and SMB appliances.
+The following procedure describes how to configure the HPE BIOS for the enterprise and SMB appliances.
 
-**To configure:**
+**To configure the HPE BIOS:**
 
-1. Select **System Utilities >** **System Configuration > BIOS/Platform Configuration (RBSU)**.
+1. Select **System Utilities** > **System Configuration** > **BIOS/Platform Configuration (RBSU)**.
 
 2. In the **BIOS/Platform Configuration (RBSU)** form, select **Boot Options**.
 
-3. Change the **Boot Mode** to **Legacy BIOS Mode** and select **F10: Save**.
+3. Change **Boot Mode** to **Legacy BIOS Mode**, and then select **F10: Save**.
 
-4. Select **Esc** twice to the System Configuration form.
+4. Select **Esc** twice to close the **System Configuration** form.
 
 #### For the enterprise appliance
 
-1. Select **Embedded RAID 1: HPE Smart Array P408i-a SR Gen 10 > Array Configuration > Create Array**.
+1. Select **Embedded RAID 1: HPE Smart Array P408i-a SR Gen 10** > **Array Configuration** > **Create Array**.
 
-2. In the **Create Array** form, select all the options. Three options are available for the *Enterprise* appliance.
+2. In the **Create Array** form, select all the options. Three options are available for the **Enterprise** appliance.
 
 #### For the SMB appliance
 
-1. Select **Embedded RAID 1: HPE Smart Array P208i-a SR Gen 10 > Array Configuration > Create Array**.
+1. Select **Embedded RAID 1: HPE Smart Array P208i-a SR Gen 10** > **Array Configuration** > **Create Array**.
 
 2. Select **Proceed to Next Form**.
 
-3. In the **Set RAID Level** form, set the level to **RAID 5** for enterprise deployments and **RAID 1** for SMB **deployments**.
+3. In the **Set RAID Level** form, set the level to **RAID 5** for enterprise deployments and **RAID 1** for SMB deployments.
 
 4. Select **Proceed to Next Form**.
 
-5. In the **Logical Drive Label** form, type **Logical Drive 1**.
+5. In the **Logical Drive Label** form, enter **Logical Drive 1**.
 
 6. Select **Submit Changes**.
 
@@ -465,166 +446,166 @@ This article describes how to configure the HPE BIOS for the Enterprise and SMB 
 
 10. In the **One-Time Boot Menu** form, select **Legacy BIOS One-Time Boot Menu**.
 
-11. The Booting in Legacy and Boot override windows appear. Choose a boot override option, for example to a CD-ROM, USB, HDD, or UEFI Shell.
+11. The **Booting in Legacy** and **Boot Override** windows appear. Choose a boot override option; for example, to a CD-ROM, USB, HDD, or UEFI shell.
 
-    :::image type="content" source="media/tutorial-install-components/boot-override-window-one.png" alt-text="The boot override window screen number one":::
+    :::image type="content" source="media/tutorial-install-components/boot-override-window-one.png" alt-text="Screenshot that shows the first Boot Override window.":::
 
-    :::image type="content" source="media/tutorial-install-components/boot-override-window-two.png" alt-text="The boot override window screen number two":::
+    :::image type="content" source="media/tutorial-install-components/boot-override-window-two.png" alt-text="Screenshot that shows the second Boot Override window.":::
 ### Software installation (HPE ProLiant DL20 appliance)
 
-The installation process takes approximately 20 minutes. After the installation, the system is restarted several times.
+The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
-**To install:**
+**To install the software:**
 
-1. Connect screen and keyboard to the appliance and then connect to the CLI.
+1. Connect the screen and keyboard to the appliance, and then connect to the CLI.
 
-2. Connect external CD or disk on key with the ISO image you downloaded from the **Azure Defender for IoT** portal, **Updates** page.
+2. Connect an external CD or disk on the key with the ISO image that you downloaded from the **Updates** page in the Defender for IoT portal.
 
-3. Boot the appliance.
+3. Start the appliance.
 
 4. Select **English**.
 
-    :::image type="content" source="media/tutorial-install-components/select-english-screen.png" alt-text="CLI window select english":::
+    :::image type="content" source="media/tutorial-install-components/select-english-screen.png" alt-text="Selection of English in the CLI window.":::
 
-5. Select **SENSOR -RELEASE**-<version> Enterprise.
+5. Select **SENSOR-RELEASE-<version> Enterprise**.
 
-    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen.png" alt-text="Select version screen":::
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen.png" alt-text="Screenshot of the screen for selecting a version.":::
 
-6. In the installation Wizard, define the appliance profile and network properties:
+6. In the Installation Wizard, define the appliance profile and network properties:
 
-    :::image type="content" source="media/tutorial-install-components/installation-wizard-screen.png" alt-text="Installation wizard":::
+    :::image type="content" source="media/tutorial-install-components/installation-wizard-screen.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
     | Parameter | Configuration |
     | ----------| ------------- |
-    | **Hardware profile** | Select Enterprise or office for SMB deployments. |
-    | **Management interface** | eno2 |
-    | **Default network parameters (usually the parameters are provided by the customer)** | **management network IP address:** <br /> <br />**appliance hostname:** <br />**DNS:** <br />**the default gateway IP address:**|
-    | **input interfaces:** | The list of input interfaces is generated for you by the system.<br /><br />To mirror the input interfaces, copy all the items presented in the list with a comma separator: **eno5, eno3, eno1, eno6, eno4**<br /><br />**For HPE DL20: Do not list eno1, enp1s0f4u4 (iLo interfaces)**<br /><br />**BRIDGE**: There is no need to configure the bridge interface, this option is used for special use cases only. Press enter to continue. |
+    | **Hardware profile** | Select **Enterprise** or **Office** for SMB deployments. |
+    | **Management interface** | **eno2** |
+    | **Default network parameters (usually the parameters are provided by the customer)** | **management network IP address:** <br/> <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
+    | **input interfaces:** | The system generates the list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator: **eno5, eno3, eno1, eno6, eno4**<br/><br/>**For HPE DL20: Do not list eno1, enp1s0f4u4 (iLo interfaces)**<br/><br/>**BRIDGE**: There's no need to configure the bridge interface. This option is used for special use cases only. Press **Enter** to continue. |
 
-7. After approximately 10 minutes, the two sets of credentials appear. One for a **Defender for IoT** user and one for a **support** user.
+7. After about 10 minutes, the two sets of credentials appear. One is for a **Defender for IoT** user, and one is for a **Support** user.
 
-8. Save the appliance's ID and passwords. You will need the credentials to access the platform for the first time.*
+8. Save the appliance's ID and passwords. You'll need the credentials to access the platform for the first time.
 
 9. Select **Enter** to continue.
 
 ## HPE ProLiant DL360 installation
 
-  - A default administrative user is provided. It is recommended that you change the password during the network configuration.
+  - A default administrative user is provided. We recommend that you change the password during the network configuration.
 
-  - During the network configuration, you will configure the iLO port.
+  - During the network configuration, you'll configure the iLO port.
 
-  - The installation process takes approximately 20 minutes. After the installation, the system is restarted several times.
+  - The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
 ### HPE ProLiant DL360 front panel
 
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl360-front-panel.png" alt-text="HPE ProLiant DL360 front panel":::
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl360-front-panel.png" alt-text="HPE ProLiant DL360 front panel.":::
 
 ### HPE ProLiant DL360 back panel
 
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl360-back-panel.png" alt-text="HPE Proliant DL360 back panel":::
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl360-back-panel.png" alt-text="HPE ProLiant DL360 back panel.":::
 
-### Enable remote access and update password
+### Enable remote access and update the password
 
-Refer to the following sections in ***HPE ProLiant DL20 Installation***:
+Refer to the preceding sections for HPE ProLiant DL20 installation:
 
-  - **Enable remote access and update password**
+  - "Enable remote access and update the password"
 
-  - **Configure the HPE BIOS**
+  - "Configure the HPE BIOS"
 
 The enterprise configuration is identical.
 
 > [!Note]
 > In the array form, verify that you select all the options.
 
-### iLO remote install (from virtual drive)
+### iLO remote installation (from a virtual drive)
 
-This article describes the iLO installation from a virtual drive.
-
-**To Install:**
-
-1. Sign in to the iLO console, right-click on the servers’ screen
-
-2. Choose HTML5 Console, the following console will appear:
-
-3. Select the CD icon, and choose the CD/DVD option
-
-4. Select **Local ISO file**.
-
-5. In the dialog box, choose the relevant ISO file
-
-6. Go the left Icon, choose **Power**, and select on **Reset**
-
-7. The appliance will reboot and run the sensor installation process
-
-### Software installation (HPE DL360)
-
-The installation process takes approximately 20 minutes. After the installation, the system is restarted several times.
+This procedure describes the iLO installation from a virtual drive.
 
 **To install:**
 
-1. Connect screen and keyboard to the appliance and then connect to the CLI.
+1. Sign in to the iLO console, and then right-click the servers' screen.
 
-2. Connect external CD or disk on a key with the ISO image you downloaded from the **Azure Defender for IoT** portal, **Updates** page.
+2. Select **HTML5 Console**.
 
-3. Boot the appliance.
+3. In the console, select the CD icon, and choose the CD/DVD option.
+
+4. Select **Local ISO file**.
+
+5. In the dialog box, choose the relevant ISO file.
+
+6. Go to the left icon, select **Power**, and the select **Reset**.
+
+7. The appliance will restart and run the sensor installation process.
+
+### Software installation (HPE DL360)
+
+The installation process takes about 20 minutes. After the installation, the system is restarted several times.
+
+**To install:**
+
+1. Connect the screen and keyboard to the appliance, and then connect to the CLI.
+
+2. Connect an external CD or disk on a key with the ISO image that you downloaded from the **Updates** page in the Defender for IoT portal.
+
+3. Start the appliance.
 
 4. Select **English**.
 
-5. Select **SENSOR-RELEASE**-<version> Enterprise.
+5. Select **SENSOR-RELEASE-<version> Enterprise**.
 
-    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen.png" alt-text="Select version screen":::
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen.png" alt-text="Screenshot that shows selecting the version.":::
 
-6. In the installation Wizard, define the appliance profile and network properties:
+6. In the Installation Wizard, define the appliance profile and network properties.
 
-    :::image type="content" source="media/tutorial-install-components/installation-wizard-screen.png" alt-text="Installation wizard":::
+    :::image type="content" source="media/tutorial-install-components/installation-wizard-screen.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
     | Parameter | Configuration |
     | ----------| ------------- |
-    | **Hardware profile** | Select corporate. |
-    | **Management interface** | eno2 |
-    | **Default network parameters (usually provided by the customer)** | **management network IP address:** <br />**subnet mask:** <br />**appliance hostname:** <br />**DNS:** <br />**the default gateway IP address:**|
-    | **input interfaces:**  | The list of input interfaces is generated for you by the system.<br /><br />To mirror the input interfaces, copy all the items presented in the list with a comma separator.<br /><br />**Note:** There is no need to configure the bridge interface, this option is used for special use cases only. |
+    | **Hardware profile** | Select **corporate**. |
+    | **Management interface** | **eno2** |
+    | **Default network parameters (usually provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
+    | **input interfaces:**  | The system generates a list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator.<br/><br/>Note that there's no need to configure the bridge interface. This option is used for special use cases only. |
 
-7. After approximately 10 minutes, the two sets of credentials appear. One for a **Defender for IoT** user and one for a **support** user.
+7. After about 10 minutes, the two sets of credentials appear. One is for a **Defender for IoT** user, and one is for a **support** user.
 
-8. Save the appliance's ID and passwords. You will need these credentials to access the platform for the first time.
+8. Save the appliance's ID and passwords. You'll need these credentials to access the platform for the first time.
 
 9. Select **Enter** to continue.
 
-## Virtual appliance - sensor installation
+## Sensor installation for the virtual appliance
 
-The Defender for IoT sensor virtual machine can be deployed in the following architectures:
+You can deploy the virtual machine for the Defender for IoT sensor in the following architectures:
 
 
 | Architecture | Specifications | Usage | Comments |
 |---|---|---|---|
 | **Enterprise** | CPU: 8<br/>Memory: 32G RAM<br/>HDD: 1800 GB | Production environment | Default and most common |
-| **Small Business** | CPU: 4 <br />Memory: 8G RAM<br />HDD: 500 GB | Test or small production environments | -  |
-| **Office** | CPU: 4<br />Memory: 8G RAM<br />HDD: 100 GB | Small Test environments | -  |
+| **Small Business** | CPU: 4 <br/>Memory: 8G RAM<br/>HDD: 500 GB | Test or small production environments | -  |
+| **Office** | CPU: 4<br/>Memory: 8G RAM<br/>HDD: 100 GB | Small test environments | -  |
 
 ### Prerequisites
 
 The on-premises management console supports both VMware and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
 
-  - VMware (ESXi 5.5 or later) or Hyper-V hypervisor (Windows 10 Pro or Enterprise) is installed and operational
+  - VMware (ESXi 5.5 or later) or Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational
 
-  - Available hardware resources for the Virtual Machine
+  - Available hardware resources for the virtual machine
 
-  - Azure Defender for IoT Sensor – ISO Installation file
+  - ISO installation file for the Azure Defender for IoT sensor
 
 Make sure the hypervisor is running.
 
 ### Create the virtual machine (ESXi)
 
-1. Sign in to the ESXi, choose the relevant **datastore** and select on **Datastore Browser**
+1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
-2. **Upload** the image and select **Close**
+2. **Upload** the image and select **Close**.
 
-3. Go to **Virtual Machines**. Select **Create/Register VM**
+3. Go to **Virtual Machines**, and then select **Create/Register VM**.
 
-4. Choose **Create new virtual machine** and select on **Next**
+4. Select **Create new virtual machine**, and then select **Next**.
 
-5. Add a sensor name and choose
+5. Add a sensor name and choose:
 
    - Compatibility: **&lt;latest ESXi version&gt;**
 
@@ -632,41 +613,41 @@ Make sure the hypervisor is running.
 
    - Guest OS version: **Ubuntu Linux (64-bit)**
 
-6. select **Next**
+6. Select **Next**.
 
-7. Choose the relevant datastore and select **Next**
+7. Choose the relevant datastore and select **Next**.
 
 8. Change the virtual hardware parameters according to the required architecture.
 
-9. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier
+9. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
 
-10. select on **Next** and **Finish**
+10. Select **Next** > **Finish**.
 
 ### Create the virtual machine (Hyper-V)
 
-This article describes how to create a virtual machine using Hyper-V.
+This procedure describes how to create a virtual machine by using Hyper-V.
 
 **To create a virtual machine:**
 
-1. Create a virtual disk in Hyper-V manager​.
+1. Create a virtual disk in Hyper-V Manager.
 
-2. Select format = *VHDX.*
+2. Select **format = VHDX**.
 
-3. Select type = *Dynamic Expanding.*
+3. Select **type = Dynamic Expanding**.
 
 4. Enter the name and location for the VHD.
 
-5. Enter the required size (according to architecture).   
+5. Enter the required size (according to the architecture).   
 
 6. Review the summary and select **Finish**.
 
-7. In the **Actions** menu, create a new virtual machine.
+7. On the **Actions** menu, create a new virtual machine.
 
 8. Enter a name for the virtual machine.
 
 9. Select **Specify Generation** > **Generation 1**.
 
-10. Specify the memory allocation (according to architecture) and select the checkbox for dynamic memory.
+10. Specify the memory allocation (according to the architecture) and select the check box for dynamic memory.
 
 11. Configure the network adaptor according to your server network topology.
 
@@ -674,92 +655,90 @@ This article describes how to create a virtual machine using Hyper-V.
 
 13. Review the summary and select **Finish**.
 
-14. Right click on the new virtual machine and select **Settings**.
+14. Right-click the new virtual machine and select **Settings**.
 
 15. Select **Add Hardware** and add a new network adapter.
 
 16. Select the virtual switch that will connect to the sensor management network.
 
-17. Allocate CPU resources (according to architecture).
+17. Allocate CPU resources (according to the architecture).
 
-18. Connect the management console ISO image to a virtual DVD drive.
+18. Connect the management console's ISO image to a virtual DVD drive.
 
 19. Start the virtual machine.
 
-20. In the **Actions** menu, select **Connect…** to continue the software installation
+20. On the **Actions** menu, select **Connect** to continue the software installation.
 
 ### Software installation (ESXi and Hyper-V)
 
-This article describes the ESXi and Hyper-V software installation.
+This section describes the ESXi and Hyper-V software installation.
 
 **To install:**
 
 1. Open the virtual machine console.
 
-2. The VM will boot from the ISO image, and the language selection screen will be shown. Select *English*.
+2. The VM will start from the ISO image, and the language selection screen will appear. Select **English**.
 
-3. Select the required architecture
+3. Select the required architecture.
 
 4. Define the appliance profile and network properties:
 
     | Parameter | Configuration |
     | ----------| ------------- |
     | **Hardware profile** | &lt;required architecture&gt; |
-    | **Management interface** | ens192 |
-    | **DNetwork parameters (usually provided by the customer)** | **management network IP address:** <br />**subnet mask:** <br />**appliance hostname:** <br />**DNS:** <br />**default gateway:** <br />**input interfaces:**|
-    | **bridge interfaces:** | No need to configure the bridge interface, this option is for special use cases only |
+    | **Management interface** | **ens192** |
+    | **Network parameters (usually provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**default gateway:** <br/>**input interfaces:**|
+    | **bridge interfaces:** | There's no need to configure the bridge interface. This option is for special use cases only. |
 
-5. Type *Y* to accept the settings
+5. Enter **Y** to accept the settings.
 
-6. Sign in credentials is automatically generated and presented. Copy the username and passwords in a safe place as they are required to Sign in and administration.
+6. Sign-in credentials are automatically generated and presented. Copy the username and password in a safe place, because they're required for sign-in and administration.
 
-   - **Support** – the administrative user for user management
+   - **Support**: The administrative user for user management.
 
-   - **Defender for IoT** – the equivalent of root for accessing the appliance
+   - **Defender for IoT**: The equivalent of root for accessing the appliance.
 
-7. The appliance will reboot.
+7. The appliance restarts.
 
-8. Access the management console via the IP address previously configured `https://ip_address`
+8. Access the management console via the IP address previously configured: `https://ip_address`.
 
-    :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Access to management console":::
+    :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to the management console.":::
 
-## Virtual appliance - on-premises management console installation
+## Virtual appliance: On-premises management console installation
 
-The on-premises management console VM supports the following architectures.
+The on-premises management console VM supports the following architectures:
 
 | Architecture | Specifications | Usage | 
 |--|--|--|
-| Enterprise <br />(Default and most common) | CPU: 8 <br />Memory: 32G RAM<br /> HDD: 1.8 TB | Large production environments | 
-| Enterprise | CPU: 4 <br /> Memory: 8G RAM<br /> HDD: 500 GB | Large production environments |
-| Enterprise | CPU: 4 <br />Memory: 8G RAM <br /> HDD: 100 GB | Small test environment | 
+| Enterprise <br/>(Default and most common) | CPU: 8 <br/>Memory: 32G RAM<br/> HDD: 1.8 TB | Large production environments | 
+| Enterprise | CPU: 4 <br/> Memory: 8G RAM<br/> HDD: 500 GB | Large production environments |
+| Enterprise | CPU: 4 <br/>Memory: 8G RAM <br/> HDD: 100 GB | Small test environments | 
    
 ### Prerequisites
 
-The on-premises management console supports both VMware and Hyper-V Deployment options. Before you begin the installation, verify the following:
+The on-premises management console supports both VMware and Hyper-V deployment options. Before you begin the installation, verify the following:
 
-- VMware (ESXi 5.5 or later) or Hyper-V hypervisor (Windows 10 Pro or Enterprise) is installed and operational
+- VMware (ESXi 5.5 or later) or Hyper-V hypervisor (Windows 10 Pro or Enterprise) is installed and operational.
 
-- The available hardware resources for the virtual Machine
+- The hardware resources are available for the virtual machine.
 
-- On-premise management console – ISO installation file
+- You have the ISO installation file for the on-premises management console.
     
-- Make sure the Hypervisor is running 
+- The hypervisor is running.
 
 ### Create the virtual machine (ESXi)
 
-This article describes how to a create virtual machine (ESXi).
+**To a create virtual machine (ESXi):**
 
-**To create:**
+1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
-1. Sign in to the ESXi, and choose the relevant **datastore** and select **Datastore Browser**
-
-2. **Upload** the image and select **Close**.
+2. Upload the image and select **Close**.
 
 3. Go to **Virtual Machines**.
 
 4. Select **Create/Register VM**.
 
-5. Choose **Create new virtual machine** and select **Next**.
+5. Select **Create new virtual machine** and select **Next**.
 
 6. Add a sensor name and choose:
 
@@ -775,24 +754,21 @@ This article describes how to a create virtual machine (ESXi).
 
 9. Change the virtual hardware parameters according to the required architecture.
 
-10. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier
+10. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
 
-11. Select **Next** and **Finish**.
+11. Select **Next** > **Finish**.
 
 ### Create the virtual machine (Hyper-V)
 
-This article describes how to create a virtual machine using Hyper-V.
+**To create a virtual machine by using Hyper-V:**
 
-**To create:**
+1. Create a virtual disk in Hyper-V Manager.
 
-1. Create a virtual disk in Hyper-V manager​.
-
-2. Select format **VHDX**.
-
+2. Select the format **VHDX**.
 
 3. Select **Next**.
 
-4. Select type **Dynamic expanding**.
+4. Select the type **Dynamic expanding**.
 
 5. Select **Next**.
 
@@ -800,13 +776,13 @@ This article describes how to create a virtual machine using Hyper-V.
 
 7. Select **Next**.
 
-8. Enter the required size (according to architecture)
+8. Enter the required size (according to the architecture).
 
 9. Select **Next**.
 
 10. Review the summary and select **Finish**.
 
-11. In the **Actions** menu, create a new virtual machine*
+11. On the **Actions** menu, create a new virtual machine.
 
 12. Select **Next**.
 
@@ -814,11 +790,11 @@ This article describes how to create a virtual machine using Hyper-V.
 
 14. Select **Next**.
 
-15. Select Generation and set it to **Generation 1**.
+15. Select **Generation** and set it to **Generation 1**.
 
 16. Select **Next**.
 
-17. Specify the memory allocation (according to architecture) and select the checkbox for dynamic memory.
+17. Specify the memory allocation (according to the architecture) and select the check box for dynamic memory.
 
 18. Select **Next**.
 
@@ -832,232 +808,241 @@ This article describes how to create a virtual machine using Hyper-V.
 
 23. Review the summary and select **Finish**.
 
-24. Right-click the new virtual machine, and select **Settings**.
+24. Right-click the new virtual machine, and then select **Settings**.
 
-25. Select **Add Hardware** and add a new **Network Adapter**.
+25. Select **Add Hardware** and add a new adapter for **Network Adapter**.
 
-26. Select the **Virtual Switch, which will connect to the sensor management network.
+26. For **Virtual Switch**, select the switch that will connect to the sensor management network.
 
-27. Allocate CPU resources (according to architecture)
+27. Allocate CPU resources (according to the architecture).
 
-28. Connect the management console ISO image to a virtual DVD drive
+28. Connect the management console's ISO image to a virtual DVD drive.
 
 29. Start the virtual machine.
 
-30. In the **Actions** menu, select **Connect…** to continue the software installation.
+30. On the **Actions** menu, select **Connect** to continue the software installation.
 
 ### Software installation (ESXi and Hyper-V)
 
-Booting the virtual machine will start the installation process from the ISO image.
+Starting the virtual machine will start the installation process from the ISO image.
 
-**To install:**
+**To install the software:**
 
 1. Select **English**.
 
-2. Select the required architecture for your deployment
+2. Select the required architecture for your deployment.
 
-3. Define the network interface for the sensor management network – *interface, IP, subnet, DNS server, and Default Gateway:*
+3. Define the network interface for the sensor management network: interface, IP, subnet, DNS server, and default gateway.
 
-4. Sign in credentials is automatically generated and presented. Copy these credentials in a safe place as they are required to Sign in and administration.
+4. Sign-in credentials are automatically generated and presented. Keep these credentials in a safe place, because they're required for sign-in and administration.
 
-  - **Support** – the administrative user for user management
+  - **Support**: The administrative user for user management.
 
-  - **Defender for IoT** – the equivalent of root for accessing the appliance
+  - **Defender for IoT**: The equivalent of root for accessing the appliance.
 
-5. The appliance will reboot
+5. The appliance restarts.
 
-6. Access the management console via the IP address previously configured <https://ip_address>
+6. Access the management console via the IP address previously configured: `<https://ip_address>`.
 
-    :::image type="content" source="media/tutorial-install-components/defender-for-iot-management-console-sign-in-screen.png" alt-text="Management console sign in screen":::
+    :::image type="content" source="media/tutorial-install-components/defender-for-iot-management-console-sign-in-screen.png" alt-text="Screenshot that shows the management console's sign-in screen.":::
 
-## Post install validation
+## Post-installation validation
 
-To validate the installation of a physical appliance, it is required to perform a number of tests. The same validation process applies to all the appliance types.
+To validate the installation of a physical appliance, you need to perform a number of tests. The same validation process applies to all the appliance types.
 
-The validation is done using the GUI or the CLI and it is available to user *Support* and user *Defender for IoT*.
+Perform the validation by using the GUI or the CLI. The validation is available to the user **Support** and the user **Defender for IoT**.
 
-Post install validation must include the following tests:
+Post-installation validation must include the following tests:
 
-  - **Sanity test:** Verify the system is up and running.
+  - **Sanity test**: Verify that the system is running.
 
-  - **Version:** Verify the version is correct.
+  - **Version**: Verify that the version is correct.
 
-  - **ifconfig:** Verify all the input interfaces configured during the installation process are up and running.
+  - **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
 
-### Checking system health using the GUI
+### Checking system health by using the GUI
 
-:::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="System Health check":::
+:::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
 
 #### Sanity
 
-- **Appliance: Runs the appliance sanity check. The same check you can perform using the CLI command system-sanity.
+- **Appliance**: Runs the appliance sanity check. You can perform the same check by using the CLI command `system-sanity`.
 
-- **Version: Displays the appliance version.
+- **Version**: Displays the appliance version.
 
-- **Network Properties: Displays the sensor network parameters.
+- **Network Properties**: Displays the sensor network parameters.
 
 #### Redis
 
-- **Memory: Provides the overall picture of memory usage, such as how much memory was used and how much remained.
+- **Memory**: Provides the overall picture of memory usage, such as how much memory was used and how much remained.
 
-- **Longest Key: Displays the longest keys that might cause extensive memory usage.
+- **Longest Key**: Displays the longest keys that might cause extensive memory usage.
 
 #### System
 
-- **Core Log: Provides the last 500 rows of the core log, enabling to view the recent log rows without exporting the entire system log.
+- **Core Log**: Provides the last 500 rows of the core log, enabling you to view the recent log rows without exporting the entire system log.
 
-- **Task Manager: Translates the tasks that appear in the Table of Processes to the following layers: 
-  - persistent layer (Redis) 
-  - cash layer (SQL)
+- **Task Manager**: Translates the tasks that appear in the table of processes to the following layers: 
+  
+  - Persistent layer (Redis) 
+  - Cash layer (SQL)
 
-- **Network Statistics: Displays your network statistics.
+- **Network Statistics**: Displays your network statistics.
 
-- **TOP: TOP (table of processes) is a Linux command that shows the processes. It provides a dynamic real-time view of the running system.
+- **TOP**: Shows the table of processes. It's a Linux command that provides a dynamic real-time view of the running system.
 
-- **Backup Memory Check: Provides the status of the backup memory, checking the following:
+- **Backup Memory Check**: Provides the status of the backup memory, checking the following:
   - The location of the backup folder 
   - The size of the backup folder
   - The limitations of the backup folder
-  - When was the last backup
+  - When the last backup happened
   - How much space there is for the additional backup files
 
-- **ifconfig: Displays the appliance physical interfaces’ parameters.
+- **ifconfig**: Displays the parameters for the appliance's physical interfaces.
 
-- **CyberX nload: Displays network traffic and bandwidth using the six second-tests.
+- **CyberX nload**: Displays network traffic and bandwidth by using the six-second tests.
 
 - **Errors from Core, log**: Displays errors from the core log file.
 
 **To access the tool:**
 
-1. Sign in to the sensor with the support user credentials.
+1. Sign in to the sensor with the **Support** user credentials.
 
 2. Select **System Statistics** from the **System Settings** window.
 
     :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
 
-### Checking system health using the CLI
+### Checking system health by using the CLI
 
-**Test 1: Sanity – verify the system is up and running:**
+**Test 1: Sanity**
 
-1. Connect to CLI with Linux terminal (for example, putty) user **support**
+Verify that the system is up and running:
 
-2. Type `system sanity`
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
 
-3. Check that all the services are green, up and running
+2. Enter `system sanity`.
 
-    :::image type="content" source="media/tutorial-install-components/support-screen.png" alt-text="Support":::
+3. Check that all the services are green (running).
 
-4. Verify that *System is UP! (prod)* is displayed at the bottom
+    :::image type="content" source="media/tutorial-install-components/support-screen.png" alt-text="Screenshot that shows running services.":::
 
-**Test 2: Version Check – verify that the correct version is used:**
+4. Verify that **System is UP! (prod)** appears at the bottom.
 
-1. Connect to CLI with Linux terminal (for example, putty) with user **support**.
+**Test 2: Version check**
 
-2. Type `system version`.
+Verify that the correct version is used:
 
-3. Check that the correct version is displayed.
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
 
-**Test 3: Network Validation - verify all the input interfaces configured during the installation process are up and running:**
+2. Enter `system version`.
 
-1. Connect to CLI with Linux terminal (for example, putty) user **support**.
+3. Check that the correct version appears.
 
-2. Type `network list` (the equivalent of the Linux command ifconfig).
+**Test 3: Network validation**
+
+Verify that all the input interfaces configured during the installation process are running:
+
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
+
+2. Enter `network list` (the equivalent of the Linux command `ifconfig`).
 
 3. Validate that the required input interfaces appear. For example, if two quad Copper NICs are installed, there should be 10 interfaces in the list.
 
-    :::image type="content" source="media/tutorial-install-components/interface-list-screen.png" alt-text="List of interfaces screen":::
+    :::image type="content" source="media/tutorial-install-components/interface-list-screen.png" alt-text="Screenshot that shows the list of interfaces.":::
 
-**Test 4: Management access to UI – verify that you can access the Console Web GUI:**
+**Test 4: Management access to the UI**
 
-1. Connect a laptop with an ethernet cable to the management port (**Gb1**).
+Verify that you can access the console web GUI:
+
+1. Connect a laptop with an Ethernet cable to the management port (**Gb1**).
 
 2. Define the laptop NIC address to be in the same range as the appliance.
 
-    :::image type="content" source="media/tutorial-install-components/access-to-ui.png" alt-text="Management access to UI":::
+    :::image type="content" source="media/tutorial-install-components/access-to-ui.png" alt-text="Screenshot that shows management access to the UI.":::
 
-3. Ping to \<appliance IP> from the laptop to verify connectivity (default: 10.100.10.1).
+3. Ping the appliance's IP address from the laptop to verify connectivity (default: 10.100.10.1).
 
-4. Open the Chrome browser in the laptop and type the \<appliance IP>.
+4. Open the Chrome browser in the laptop and enter the appliance's IP address.
 
 5. In the **Your connection is not private** window, select **Advanced** and proceed.
 
 6. The test is successful when the Defender for IoT sign-in screen appears.
 
-   :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Access to management console":::
+   :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to management console.":::
 
 ## Troubleshooting
 
-### Cannot connect using a web interface
+### You can't connect by using a web interface
 
-1. Verify that the computer that you are trying to connect is on the same network as the appliance.
+1. Verify that the computer that you're trying to connect is on the same network as the appliance.
 
 2. Verify that the GUI network is connected to the management port.
 
-3. Ping the appliance IP address. If there is no Ping:
+3. Ping the appliance's IP address. If there is no ping:
 
-   - Connect a monitor and a keyboard to the appliance.
+   1. Connect a monitor and a keyboard to the appliance.
 
-   - Use the **support** user and password to Sign in.
+   1. Use the **Support** user and password to sign in.
 
-   - Use the command **network list** to see the current IP address.
+   1. Use the command `network list` to see the current IP address.
 
-      :::image type="content" source="media/tutorial-install-components/network-list.png" alt-text="Network list":::
+      :::image type="content" source="media/tutorial-install-components/network-list.png" alt-text="Screenshot that shows the network list.":::
 
-4. In case the network parameters are misconfigured, use the following procedure to change it:
+4. If the network parameters are misconfigured, use the following procedure to change them:
 
-   - Use the command network edit-settings
+   1. Use the command `network edit-settings`.
 
-   - To change the management network IP address, select **Y**.
+   1. To change the management network IP address, select **Y**.
 
-   - To change the subnet mask, select **Y**.
+   1. To change the subnet mask, select **Y**.
 
-   - To change the DNS, select **Y**.
+   1. To change the DNS, select **Y**.
 
-   - To change the default gateway IP address, select **Y**.
+   1. To change the default gateway IP address, select **Y**.
 
-   - (for sensor only) For the input interface change, select **N**.
+   1. For the input interface change (sensor only), select **N**.
 
-   - To apply the settings, select **Y**.
+   1. To apply the settings, select **Y**.
 
-5. After reboot, connect with the support user credentials and use the network list command to verify that the parameters were changed.
+5. After restart, connect with the support user credentials and use the `network list` command to verify that the parameters were changed.
 
-6. Try to ping and connect from GUI again.
+6. Try to ping and connect from the GUI again.
 
-### The appliance is not responding
+### The appliance isn't responding
 
-1. Connect with a monitor and keyboard to the appliance or use putty to connect remotely to the CLI.
+1. Connect a monitor and keyboard to the appliance, or use PuTTY to connect remotely to the CLI.
 
-2. Use the support user's credentials to sign in.
+2. Use the **Support** user's credentials to sign in.
 
-3. Use the system sanity command and check that all processes are up and running.
+3. Use the `system sanity` command and check that all processes are running.
 
-    :::image type="content" source="media/tutorial-install-components/system-sanity-screen.png" alt-text="System sanity":::
+    :::image type="content" source="media/tutorial-install-components/system-sanity-screen.png" alt-text="Screenshot that shows the system sanity command.":::
 
-For any other issues, contact [support.microsoft.com](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+For any other issues, contact [Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
 ## Appendix A: Mirroring port on vSwitch (ESXi)
 
-### Configure a SPAN port on existing vSwitch
+### Configure a SPAN port on an existing vSwitch
 
-A vSwitch does not have mirroring capabilities, but a simple workaround can be used to implement SPAN port.
+A vSwitch does not have mirroring capabilities, but you can use a simple workaround to implement a SPAN port.
 
 **To configure a SPAN port:**
 
-1. Open vSwitch Properties:
+1. Open vSwitch properties.
 
-2. select **Add…**
+2. Select **Add**.
 
-3. Select **Virtual Machine** and select **Next**.
+3. Select **Virtual Machine** > **Next**.
 
-4. Insert a network Label **SPAN Network**, select **VLAN ID**, **All**, and select **Next**.
+4. Insert a network label **SPAN Network**, select **VLAN ID** > **All**, and then select **Next**.
 
 5. Select **Finish**.
 
-6. Select **SPAN Network** and select **Edit…**
+6. Select **SPAN Network** > **Edit*.
 
-7. Select **Security**, and verify that **Promiscuous Mode** policy is set to **Accept** mode.
+7. Select **Security**, and verify that the **Promiscuous Mode** policy is set to **Accept** mode.
 
-8. select **OK** and **Close** the vSwitch properties.
+8. Select **OK**, and then select **Close** to close the vSwitch properties.
 
 9. Open the **XSense VM** properties.
 
@@ -1069,22 +1054,20 @@ A vSwitch does not have mirroring capabilities, but a simple workaround can be u
 
 ## Appendix B: Access sensors from the on-premises management console
 
-You can enhance system security by preventing user  directly to the sensor. Instead leverage proxy tunneling to let users access the sensor directly from the on-premises management console with a single firewall rule. This narrows the possibility of unauthorized access to the network environment beyond the sensor.
+You can enhance system security by preventing direct user access to the sensor. Instead, use proxy tunneling to let users access the sensor from the on-premises management console with a single firewall rule. This technique narrows the possibility of unauthorized access to the network environment beyond the sensor. The user's experience when signing in to the sensor remains the same.
 
-However, The user's experience when signing in to the sensor remains the same.
-
-:::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Sensor":::
+:::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Screenshot that shows access to the sensor.":::
 
 **To enable tunneling:**
 
-1. Sign in to the on-premises management console CLI with Defender for Iot or support user credentials.
+1. Sign in to the on-premises management console's CLI with Defender for IoT or **Support** user credentials.
 
-2. Type: `sudo cyberx-management-tunnel-enable`.
+2. Enter `sudo cyberx-management-tunnel-enable`.
 
 3. Select **Enter**.
 
-4. Type `--port 10000`.
+4. Enter `--port 10000`.
 
-### Next Steps
+### Next steps
 
 [Set up your network](how-to-set-up-your-network.md)
