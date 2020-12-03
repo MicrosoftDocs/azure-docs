@@ -1,3 +1,15 @@
+---
+title: Create your Own UI Framework Component
+titleSuffix: An Azure Communication Services quickstart
+description: In this quickstart, you'll learn how to join an Teams meeting with the Azure Communication Calling SDK
+author: ddematheu2
+ms.author: dademath
+ms.date: 11/16/2020
+ms.topic: quickstart
+ms.service: azure-communication-services
+
+---
+
 # UI Framework Capabilities
 
 UI Framework is a client-side solution for developers to build communication
@@ -9,13 +21,13 @@ state interface for developers to build their own Components on top of.
 
 | Composite               | Description                                               | Web   | Android | iOS   |
 |-------------------------|-----------------------------------------------------------|-------|---------|-------|
-| Teams Meeting Composite | An experience built to support developers looking to enable scenarios where a user on a client device join a Teams Meeting experience using Azure Communication Services. This composite had the look and feel of a Teams client along all the features you would expect to have in a Teams Meeting. This composite supports other Teams related scenarios such as Teams Live Events and calling a Teams user from the tenant. | React | Java    | Swift |
+| Meeting Composite | An experience built to support developers looking to enable scenarios where a user on a client device join a Teams Meeting experience using Azure Communication Services. This composite had the look and feel of a Teams client along all the features you would expect to have in a Teams Meeting. This composite supports other Teams related scenarios such as Teams Live Events and calling a Teams user from the tenant. | Angular | Java    | Swift |
 | Group Calling Composite | Light-weight voice and video outbound calling experience for Azure Communication Services calling using Fluent UI design assets. Supports group calling using Azure Communication Services Group ID. The composite allows for one-to-one calling to be used by referencing an Azure Communication Services identity or a phone number for PSTN using a procured phone number through Azure.                                    | React | N/A     | N/A   |
 | Group Chat Composite    | Light-weight chat experience for Azure Communication Services using Fluent UI design assets. This experience concentrates on delivering a simple chat client that can connect to Azure Communication Services threads. It allows users to send messages and see received messages with typing indicators and read receipts. It scales from 1:1 to group chat scenarios. Supports a single chat thread.                         | React | N/A     | N/A   |
 
 ## UI Framework Composites Capabilities
 
-|                                                                     | Teams Meeting Composite | Group Calling Composite | Group Chat Composite |
+|                                                                     | Meeting Composite | Group Calling Composite | Group Chat Composite |
 |---------------------------------------------------------------------|-------------------------|-------------------------|----------------------|
 | Join Teams Meeting                                                  | X                       |                         |                      |
 | Join Teams Live Event                                               | X                       |                         |                      |
@@ -36,6 +48,9 @@ state interface for developers to build their own Components on top of.
 | Receive chat message                                                | X (Teams)               |                         | X (ACS Thread)       |
 | Typing Indicators                                                   | X                       |                         | X                    |
 | Read Receipt                                                        | X                       |                         | X                    |
+| Together Mode                                                       | X                       |                         |                      |
+| Blur Background                                                     | X                       |                         |                      |
+| Raised Hand                                                         | X                       |                         |                      |
 
 ## UI Framework Base Components
 
@@ -54,8 +69,10 @@ state interface for developers to build their own Components on top of.
 
 |            | Themes | Layout                                                          | Sizing                      | Data Models |
 |------------|--------|-----------------------------------------------------------------|-----------------------------|-------------|
-| Composites | TBD    | N/A                                                             | Composite fills space given | TBD         |
-| Components | TBD    | Components can be organized any layout desired by the developer | Components fill space given | TBD         |
+| Composites | Fluent Themes*    | N/A                                                  | Composite fills space given | TBD         |
+| Components | Fluent Themes    | Components can be organized any layout desired by the developer | Components fill space given | TBD   |
+
+\*Note that Meeting Composite doesn't currently support Fluent Themes. 
 
 ## Platform Support
 

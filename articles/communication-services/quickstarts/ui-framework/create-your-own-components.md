@@ -1,5 +1,5 @@
 ---
-title: Getting started with UI Framework Composites
+title: Create your Own UI Framework Component
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to join an Teams meeting with the Azure Communication Calling SDK
 author: ddematheu2
@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 ---
 
-# Quickstart: Getting started with UI Framework Composites
+# Quickstart: Create your Own UI Framework Component
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 

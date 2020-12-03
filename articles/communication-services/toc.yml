@@ -36,6 +36,12 @@
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
+  - name: UI Framework
+    items:
+    - name: Create your own UI Framework component
+    href: quickstarts/ui-framework/create-your-own-components.md
+    - name: Getting started with components
+    href: quickstarts/ui-framework/getting-started-with-components.md
 - name: Tutorials
   expanded: false
   items:
@@ -66,6 +72,14 @@
         href: concepts/voice-video-calling/about-call-types.md
       - name: Teams interoperability
         href: concepts/voice-video-calling/teams-interop.md
+    - name: UI Framework
+    items:
+      - name: UI Framework overview
+      href: concepts/ui-framework/ui-sdk-overview.md
+      - name: UI Framework capabilities
+      href: concepts/ui-framework/ui-sdk-features.md
+      - name: UI Framework Meetings
+      href: concepts/ui-framework/meetings.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
   - name: Call flows
