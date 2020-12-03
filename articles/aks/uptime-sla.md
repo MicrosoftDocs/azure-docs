@@ -24,12 +24,7 @@ Uptime SLA is available in public regions and Azure Government regions where [AK
 
 ## Limitations
 
-Private clusters are only supported in the following regions:
- *  East US
- *  West US
- *  West US2
- *  North Central US
- *  West Central US
+Once enabled, customers will not be able to remove uptime sla themselves.  In this scenario please open a support ticket for Microsoft to remove uptime sla on the backend.
 
 ## SLA terms and conditions
 
