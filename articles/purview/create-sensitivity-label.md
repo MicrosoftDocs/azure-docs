@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
+ms.date: 12/03/2020
 ---
 
 # Automatically label your data in Azure Purview
@@ -31,13 +31,7 @@ Purview uses the same classifications, also known as sensitive information types
 > While classifications are matched directly (a social security number has a classification of **Social Security Number**), sensitivity labels are applied when one or more classifications and scenarios are found together. 
 > 
 
-Sensitivity labels in Azure Purview can be used to:
-
-- **Automatically apply labels** to files and database columns
-
-- **Control** who can and cannot access your data
-
-- **Enforce protection settings**, such as encryption, on labeled data
+Sensitivity labels in Azure Purview can be used to automatically apply labels to files and database columns.
 
 For more information, see:
 
