@@ -1,6 +1,6 @@
 ---
 title: Monitors in Durable Functions (Python) - Azure
-description: Learn how to implement a status monitor using the Durable Functions extension for Azure Functions. (Python only).
+description: Learn how to implement a status monitor using the Durable Functions extension for Azure Functions (Python).
 author: dajusto
 ms.topic: conceptual
 ms.date: 12/02/2020
