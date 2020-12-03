@@ -108,7 +108,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 | &lt;SP_AzureGatewayIpAddress&gt; |This information specific to your virtual network and is located in the Management Portal as **Gateway IP address**. |
 | &lt;SP_PresharedKey&gt; |This information is specific to your virtual network and is located in the Management Portal as Manage Key. |
 
-## <a name="ipsec"></a>IPsec/IKE parameters and defaults
+## <a name="ipsec"></a>Default IPsec/IKE parameters
 
 The tables below contain the combinations of algorithms and parameters Azure VPN gateways use in default configuration (**Default policies**). For route-based VPN gateways created using the Azure Resource Management deployment model, you can specify a custom policy on each individual connection. Please refer to [Configure IPsec/IKE policy](vpn-gateway-ipsecikepolicy-rm-powershell.md) for detailed instructions.
 
