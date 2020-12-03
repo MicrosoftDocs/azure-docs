@@ -80,8 +80,9 @@ The following tables provide links to code samples for leveraging web APIs in yo
 | [Experian](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-experian-identity-verification) | This sample shows how to verify a user identity as part of your sign-up flows by using an API connector to integrate with Experian. |
 
 
-### Community samples
+### Other
 
 | Sample                                                                                                            | Description                                                                                                                          |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [Invitation code](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-invitation-code) | This sample demonstrates how to limit sign up to specific audiences by using invitation codes.|
 | [API connector community samples](https://github.com/azure-ad-b2c/api-connector-samples) | This repository has community maintained samples of scenarios enabled by API connectors.|
