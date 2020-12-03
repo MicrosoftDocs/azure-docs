@@ -71,11 +71,11 @@ Follow the steps to create a Diagnostic setting for your Azure Purview account.
 
 1. Create a new diagnostic setting to collect platform logs and metrics by following this article: [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/platform/diagnostic-settings.md). Select the destination only as Azure storage account.
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/stepone-diagnostic-setting.png" alt-text="Screenshot showing creating diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/stepone-diagnostic-setting.png":::
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Screenshot showing creating diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
 
 2. Log the events to a storage account. A dedicated storage account is recommended for archiving the diagnostic logs. Following this article to [Create a storage account](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
-   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/steptwo-diagnostic-setting.png" alt-text="Screenshot showing assigning storage account for diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/steptwo-diagnostic-setting.png":::
+   :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="Screenshot showing assigning storage account for diagnostic log." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
 
 Allow up to 15 minutes to start receiving logs in the newly created storage account. [See data retention and schema of resource logs in Azure Storage account](../azure-monitor/platform/resource-logs-collect-storage.md). Once the diagnostic logs are configured, the events flow to the storage account.
 
