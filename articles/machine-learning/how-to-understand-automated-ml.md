@@ -1,5 +1,5 @@
 ---
-title: Evaluate automated machine learning experiment results
+title: Evaluate AutoML experiment results
 titleSuffix: Azure Machine Learning
 description: Learn how to view and evaluate charts and metrics for each of your automated machine learning experiment runs. 
 services: machine-learning
@@ -15,7 +15,7 @@ ms.custom: how-to, contperfq2, automl
 
 # Evaluate automated machine learning experiment results
 
-In this article, learn how to evaluate and compare models trained during your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment many runs will be created, each run training a model and then generating evaluation metrics and charts that help you measure the model's performance. 
+In this article, learn how to evaluate and compare models trained by your automated machine learning (automated ML) experiment. Over the course of an automated ML experiment many runs are created. Each run trains a model and then generates evaluation metrics and charts that help you measure the model's performance. 
 
 ## Prerequisites
 
@@ -84,7 +84,8 @@ Automated ML supports model evaluation metrics and charts for classification, re
 
 ## Classification metrics
 
-> Note: Groups of classification metrics may differ only in how the classes are weighted. Please see the section on [class averaged metrics](#class-averaged-metrics) to learn more.
+> [!NOTE]
+> Groups of classification metrics may differ only in how the classes are weighted. Please see the section on [class averaged metrics](#class-averaged-metrics) to learn more.
 
 ### AUC
 
@@ -180,7 +181,8 @@ For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass a
 
 ## Classification charts
 
-> Note: Each of the line charts produced for automated ML models can be used to evaluate the model per-class or averaged over all classes. You can switch between these different views by clicking on class labels in the legend to the right of the chart. Please see the section on [class averaged metrics](#class-averaged-metrics) to learn more about averaging methods.
+> [!NOTE]
+> Each of the line charts produced for automated ML models can be used to evaluate the model per-class or averaged over all classes. You can switch between these different views by clicking on class labels in the legend to the right of the chart. Please see the section on [class averaged metrics](#class-averaged-metrics) to learn more about averaging methods.
 
 
 ### Confusion matrix
@@ -257,7 +259,8 @@ The calibration curve plots a model's confidence in its predictions against the 
 
 An over-confident model will over-predict probabilities close to zero and one, rarely being uncertain about the class of each sample and the calibration curve will look similar to backward "S". An under-confident model will assign a lower probability on average to the class it predicts and the associated calibration curve will look similar to an "S". The calibration curve does not depict a model's ability to classify correctly, but instead its ability to correctly assign confidence to its predictions. A bad model can still have a good calibration curve if the model correctly assigns low confidence and high uncertainty.
 
-> Note: the calibration curve is sensitive to the number of samples, so a small validation set can produce noisy results that can be hard to interpret. This does not necessarily mean 
+> [!NOTE]
+> The calibration curve is sensitive to the number of samples, so a small validation set can produce noisy results that can be hard to interpret. This does not necessarily mean that that the model is not well-calibrated.
 
 #### Calibration curve for a good model
 ![Calibration curve for a good model](./media/how-to-understand-automated-ml/chart-calibration-curve-good.png)
@@ -267,7 +270,8 @@ An over-confident model will over-predict probabilities close to zero and one, r
 
 ## Regression/forecasting metrics
 
-> Note: Pairs of regression/forecasting metrics may differ only in the normalization. Please see the section on [metric normalization](#metric-normalization) to learn more.
+> [!NOTE]
+> Pairs of regression/forecasting metrics may differ only in the normalization. Please see the section on [metric normalization](#metric-normalization) to learn more.
 
 ### Explained variance
 
@@ -376,4 +380,5 @@ To view the interpretability dashboard in the studio:
 
 For more information, see the documentation on [responsible AI offerings in automated ML](how-to-machine-learning-interpretability-automl.md).
 
-> Note: The ForecastTCN model is not currently supported by automated ML explanations and other forecasting models may have limited access to interpretability tools.
+> [!NOTE]
+> The ForecastTCN model is not currently supported by automated ML explanations and other forecasting models may have limited access to interpretability tools.
