@@ -29,7 +29,7 @@ Text Analytics for health is a feature of the Text Analytics API service that ex
 
 Text Analytics for health performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking on English-language text to uncover insights in unstructured clinical and biomedical text.
 
-> [!VIDEO https://www.youtube.com/watch?v=6vX3Us1TOw8]
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
 ### [Named Entity Recognition](#tab/ner)
 
