@@ -1468,7 +1468,7 @@
 - name: Security
   items:
   - name: Azure Security center
-    href: ../security-center/security-center-introduction
+    href: ../security-center/security-center-introduction.ms
   - name: Security baselines
     items:
     - name: Linux
@@ -1673,7 +1673,7 @@
   - name: Back up VMs
     items: 
     - name: Overview
-      href: ../backup/backup-azure-vms-introduction
+      href: ../backup/backup-azure-vms-introduction.md
     - name: Quickstarts
       items: 
       - name: CLI
