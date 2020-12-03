@@ -1,11 +1,11 @@
 ---
-title: Create automation workflows (preview) in Visual Studio Code
-description: Create stateless or stateful automation workflows with the Azure Logic Apps (Preview) extension in Visual Studio Code to integrate apps, data, cloud services, and on-premises systems
+title: Preview - Create stateful or stateless workflows with Visual Studio Code
+description: Build and run stateless or stateful automation integration workflows with the Azure Logic Apps (Preview) extension in Visual Studio Code
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 12/07/2020
 ---
 
 # Create stateful or stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -16,7 +16,7 @@ ms.date: 11/11/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create logic app workflows that integrate across apps, data, cloud services, and systems, you can use Visual Studio Code and the Azure Logic Apps (Preview) extension to build and locally run [*stateful* and *stateless* logic app workflows](logic-apps-overview-preview.md#stateful-stateless) in your development environment.
+To create logic app workflows that integrate across apps, data, cloud services, and systems, you can use Visual Studio Code and the Azure Logic Apps (Preview) extension to build and locally run [*stateful* and *stateless* logic app workflows](logic-apps-overview-preview.md#stateful-stateless) in your development environment. To build and run these workflows in the Azure portal, see [Create stateful or stateless workflows with Azure Logic Apps (Preview) - Azure portal](create-stateful-stateless-workflows-azure-portal.md).
 
 ![Screenshot that shows Visual Studio Code and logic app workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
@@ -344,7 +344,7 @@ The logic app workflow in this example uses this trigger and these actions:
 
 1. On the designer, under the trigger that you added, select **New step**.
 
-   The **Choose an operation** prompt appears on the designer, and the **Add an action pane** reopens so that you can select the next action.
+   The **Choose an operation** prompt appears on the designer, and the **Add an action** pane reopens so that you can select the next action.
 
 1. On the **Add an action** pane, under the **Choose an operation** search box, select **Azure** so that you can find and select an action for a managed connector that's deployed in Azure.
 
@@ -355,11 +355,6 @@ The logic app workflow in this example uses this trigger and these actions:
 1. In the action's details pane, select **Sign in** so that you can create a connection to your email account.
 
    ![Screenshot that shows Logic App Designer and **Send an email (V2)** pane with "Sign in" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-sign-in.png)
-
-   > [!NOTE]
-   > If you get the error, `Failed to create connection...`, you might have chosen a currently unsupported region for your logic app. 
-   > Updates to add more regions are underway. Meanwhile, for the currently supported regions, review the preview extension's 
-   > [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
 
 1. When Visual Studio Code prompts you for consent to access your email account, select **Open**.
 
@@ -398,10 +393,9 @@ The logic app workflow in this example uses this trigger and these actions:
    ||||
 
    > [!NOTE]
-   > If you want to make any changes in the details pane on the **Settings**, **Run After**, 
-   > or **Static Result** tab, make sure that you select **Done** to commit those changes 
-   > before you switch tabs or change focus to the designer. Otherwise, Visual Studio Code 
-   > won't keep your changes. For more information, review the preview extension's 
+   > If you want to make any changes in the details pane on the **Settings**, **Static Result**, or **Run After** tab, 
+   > make sure that you select **Done** to commit those changes before you switch tabs or change focus to the designer. 
+   > Otherwise, Visual Studio Code won't keep your changes. For more information, review the preview extension's 
    > [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 1. On the designer, select **Save**.

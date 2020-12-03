@@ -1,6 +1,6 @@
 ---
-title: Create stateful or stateless workflows (preview) in the Azure portal 
-description: Create stateless or stateful automated integration workflows with Azure Logic Apps (Preview) in the Azure portal
+title: Preview - Create stateful or stateless workflows in Azure portal 
+description: Build and run stateless or stateful automation integration workflows with Azure Logic Apps (Preview) in the Azure portal
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, sopai, logicappspm
@@ -20,7 +20,7 @@ To create logic app workflows that integrate across apps, data, cloud services, 
 
 Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in the Azure portal. The experiences to create the new resource type are separate and different from the original resource type, but you can have both the **Logic Apps** and **Logic App (Preview)** resource types in your Azure subscription. You can view and access all the deployed logic apps in your subscription, but they appear and are kept separately in their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps (Preview)](logic-apps-overview-preview.md#whats-new).
 
-This article shows how to build a **Logic App (Preview)** resource by using the Azure portal.
+This article shows how to build a **Logic App (Preview)** resource by using the Azure portal. To build this resource in Visual Studio Code, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md).
 
 ## Prerequisites
 
@@ -81,6 +81,246 @@ This article shows how to build a **Logic App (Preview)** resource by using the 
 
    ![Screenshot that shows the Azure portal and new logic app resource settings.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
 
-## Monitoring
+   After Azure finishes deploying the resource, the logic app is automatically live and running but doesn't do anything yet because no workflows exist.
 
+1. On the deployment completion page, select **Go to resource** so that you can start building a workflow.
+
+   ![Screenshot that shows the Azure portal and finished logic app deployment.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-completed-deployment.png)
+
+<a name="add-workflow"></a>
+
+## Add a blank workflow
+
+1. After Azure opens the resource, on your logic app's menu, select **Workflows**. On the **Workflows** toolbar, select **Add**.
+
+   ![Screenshot that shows the logic app resource menu with "Workflows" selected, and then hen on the toolbar, "Add" is selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-add-blank-workflow.png)
+
+1. After the **New workflow** pane opens, provide a name for your workflow, and choose either the [**Stateful** or **Stateless**](logic-apps-overview-preview.md#stateful-stateless) workflow type. When you're done, select **Create**.
+
+   This example adds a blank stateful workflow named `Fabrikam-Stateful-Workflow`. By default, the workflow is enabled but doesn't do anything yet until you add a trigger and actions.
+
+   ![Screenshot that shows the newly added blank stateful workflow "Fabrikam-Stateful-Workflow".](./media/create-stateful-stateless-workflows-azure-portal/logic-app-blank-workflow-created.png)
+
+1. Next, open the blank workflow in the designer so that you can add a trigger and actions.
+
+   1. From the workflow list, select the blank workflow.
+
+   1. On the workflow menu, under **Developer**, select **Designer**.
+
+      On the open designer surface, the **Choose an operation** prompt already appears and is selected by default so that the **Add a trigger** pane also appears open.
+
+      ![Screenshot that shows the opened workflow designer with "Choose an operation" selected on the designer surface.](./media/create-stateful-stateless-workflows-azure-portal/opened-logic-app-designer-blank-workflow.png)
+
+<a name="add-trigger-actions"></a>
+
+## Add a trigger and actions
+
+This example builds a workflow that has these steps:
+
+* The built-in [Request trigger](../connectors/connectors-native-reqres.md), **When a HTTP request is received**, which receives inbound calls or requests and creates an endpoint that other services or logic apps can call.
+
+* The [Office 365 Outlook action](../connectors/connectors-create-api-office365-outlook.md), **Send an email**.
+
+* The built-in [Response action](../connectors/connectors-native-reqres.md), which you use to send a reply and return data back to the caller.
+
+### Add the Request trigger
+
+Before you can add a trigger to a blank workflow, make sure that the workflow designer is open and that the **Choose an operation** prompt is selected on the designer surface.
+
+1. Next to the designer surface, in the **Add a trigger** pane, under the **Choose an operation** search box, check that the **Built-in** tab is selected. This tab shows triggers that run natively in Azure Logic Apps.
+
+1. In the **Choose an operation** search box, enter `when a http request`, and select the built-in Request trigger that's named **When a HTTP request is received**.
+
+   ![Screenshot that shows the designer and **Add a trigger** pane with "When a HTTP request is received" trigger selected.](./media/create-stateful-stateless-workflows-azure-portal/find-request-trigger.png)
+
+   When the trigger appears on the designer, the trigger's details pane opens to show the trigger's properties, settings, and other actions.
+
+   ![Screenshot that shows the designer with the "When a HTTP request is received" trigger selected and trigger details pane open.](./media/create-stateful-stateless-workflows-azure-portal/request-trigger-added-to-designer.png)
+
+   > [!TIP]
+   > If the details pane doesn't appear, makes sure that the trigger is selected on the designer.
+
+1. If you have to delete an item on the designer, follow these steps:
+
+   1. On the designer, select the item, which opens the item's details pane to the right side.
+
+   1. Expand your browser window widely enough so that next to the trigger or action name, the ellipses (**...**) button appears in the upper right corner.
+
+   1. Open the ellipses (**...**) menu, and select **Delete**. To confirm the deletion, select **OK**.
+
+      ![Screenshot that shows selected item on designer with open details pane and with selected ellipses button and "Delete" option.](./media/create-stateful-stateless-workflows-azure-portal/delete-item-from-designer.png)
+
+1. To save your work, on the designer toolbar, select **Save**.
+
+   When you save a workflow for the first time, and that workflow starts with a Request trigger, the Logic Apps service automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
+
+### Add the Office 365 Outlook action
+
+1. On the designer, under the trigger that you added, select **New step**.
+
+   The **Choose an operation** prompt appears on the designer, and the **Add an action** pane reopens so that you can select the next action.
+
+   > [!NOTE]
+   > If the **Add an action** pane shows the error message, 'Cannot read property 'filter' of undefined`, 
+   > save your workflow, reload the page, reopen your workflow, and try again.
+
+1. In the **Add an action** pane, under the **Choose an operation** search box, select **Azure**. This tab shows the managed connectors that are available and deployed in Azure.
+
+   > [!NOTE]
+   > If the **Add an action** pane shows the error message, `The access token expiry UTC time '{token-expiration-date-time}' is earlier than current UTC time '{current-date-time}'`, 
+   > save your workflow, reload the page, reopen your workflow, and try adding the action again.
+
+   This example uses the Office 365 Outlook action named **Send an email (V2)**.
+
+   ![Screenshot that shows the designer and the **Add an action** pane with the Office 365 Outlook "Send an email" action selected.](./media/create-stateful-stateless-workflows-azure-portal/find-send-email-action.png)
+
+1. In the action's details pane, on the **Create Connection** tab, select **Sign in** so that you can create a connection to your email account.
+
+   ![Screenshot that shows the designer and the "Send an email (V2)" details pane with "Sign in" selected.](./media/create-stateful-stateless-workflows-azure-portal/send-email-action-sign-in.png)
+
+1. When you're prompted for consent to access your email account, sign in with your account credentials.
+
+   > [!NOTE]
+   > If you get the error message, `Failed with error: 'The browser is closed.'. Please sign in again`, 
+   > check whether your browser blocks third-party cookies. If these cookies are blocked, 
+   > try adding `https://portal.azure.com` to the list of sites that can use cookies. 
+   > If you're using incognito mode, make sure that third-party cookies aren't blocked while working in that mode.
+   > 
+   > If necessary, reload the page, open your workflow, add the email action again, and try creating the connection.
+
+   After Azure creates the connection, the **Send an email** action appears on the designer and is selected by default. If the action isn't selected, select the action so that its details pane is also open.
+
+1. In the action's details pane, on the **Parameters** tab, provide the required information for the action, for example:
+
+   ![Screenshot that shows the designer and the "Send an email" details pane with the "Parameters" tab selected.](./media/create-stateful-stateless-workflows-azure-portal/send-email-action-details.png)
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **To** | Yes | <*your-email-address*> | The email recipient, which can be your email address for test purposes. This example uses the fictitious email, `sophiaowen@fabrikam.com`. |
+   | **Subject** | Yes | `An email from your example workflow` | The email subject |
+   | **Body** | Yes | `Hello from your example workflow!` | The email body content |
+   ||||
+
+   > [!NOTE]
+   > When making any changes in the details pane on the **Settings**, **Static Result**, or **Run After** tabs, 
+   > make sure that you select **Done** to commit those changes before you switch tabs or change focus to the designer. 
+   > Otherwise, the designer won't keep your changes.
+
+1. Save your work. On the designer toolbar, select **Save**.
+
+Next, to test your workflow, manually trigger a run.
+
+## Trigger the workflow
+
+In this example, the workflow runs when the Request trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, the Logic Apps service automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
+
+1. On the workflow designer, select the Request trigger that's named **When a HTTP request is received**.
+
+1. After the details pane opens, on the **Parameters** tab, find the **HTTP POST URL** property. To copy the generated URL, select the **Copy Url** (copy file icon), and save the URL somewhere else for now. The URL follows this format:
+
+   `http://<logic-app-name>.azurewebsites.net:443/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
+
+   ![Screenshot that shows the designer with the Request trigger and endpoint URL in the "HTTP POST URL" property.](./media/create-stateful-stateless-workflows-azure-portal/find-request-trigger-url.png)
+
+   For this example, the URL looks like this:
+
+   `https://fabrikam-workflows.azurewebsites.net:443/api/Fabrikam-Stateful-Workflow/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxxxxXXXXxxxxxXXXXxxxXXXXxxxxXXXX`
+
+   > [!TIP]
+   > You can also find the endpoint URL on your logic app's **Overview** pane in the **Workflow URL** property.
+   >
+   > 1. On the resource menu, select **Overview**.
+   > 1. On the **Overview** pane, find the **Workflow URL** property.
+   > 1. To copy the endpoint URL, move your pointer over the end of the endpoint URL text, 
+   >    and select **Copy to clipboard** (copy file icon).
+
+1. To test the URL by sending a request, open [Postman](https://www.postman.com/downloads/) or your preferred tool for creating and sending requests.
+
+   This example continues by using Postman. For more information, see [Postman Getting Started](https://learning.postman.com/docs/getting-started/introduction/).
+
+   1. On the Postman toolbar, select **New**.
+
+      ![Screenshot that shows Postman with New button selected](./media/create-stateful-stateless-workflows-azure-portal/postman-create-request.png)
+
+   1. On the **Create New** pane, under **Building Blocks**, select **Request**.
+
+   1. In the **Save Request** window, under **Request name**, provide a name for the request, for example, `Test workflow trigger`.
+
+   1. Under **Select a collection or folder to save to**, select **Create Collection**.
+
+   1. Under **All Collections**, provide a name for the collection to create for organizing your requests, press Enter, and select **Save to <*collection-name*>**. This example uses `Logic Apps requests` as the collection name.
+
+      Postman's request pane opens so that you can send a request to the endpoint URL for the Request trigger.
+
+      ![Screenshot that shows Postman with the opened request pane](./media/create-stateful-stateless-workflows-azure-portal/postman-request-pane.png)
+
+   1. On the request pane, in the address box that's next to the method list, which currently shows **GET** as the default request method, paste the URL that you previously copied, and select **Send**.
+
+      ![Screenshot that shows Postman and endpoint URL in the address box with Send button selected](./media/create-stateful-stateless-workflows-azure-portal/postman-test-endpoint-url.png)
+
+      When the trigger fires, the example workflow runs and sends an email that appears similar to this example:
+
+      ![Screenshot that shows Outlook email as described in the example](./media/create-stateful-stateless-workflows-azure-portal/workflow-app-result-email.png)
+
+## Review run history
+
+For a stateful workflow, after each workflow run, you can view the run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs.
+
+1. In the Azure portal, on your workflow's menu, select **Monitor**.
+
+   The **Monitor** pane shows the run history for that workflow.
+
+   ![Screenshot that shows the workflow's "Monitor" pane and run history.](./media/create-stateful-stateless-workflows-azure-portal/find-run-history.png)
+
+   > [!TIP]
+   > If the most recent run status doesn't appear, on the **Monitor** pane toolbar, select **Refresh**. 
+   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
+
+   | Run status | Description |
+   |------------|-------------|
+   | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | **Cancelled** | The run was triggered and started but received a cancellation request. |
+   | **Failed** | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
+   | **Running** | The run was triggered and is in progress, but this status can also appear for a run that is throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Tip**: If you set up [diagnostics logging](monitor-logic-apps-log-analytics.md), you can get information about any throttle events that happen. |
+   | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
+   | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <p><p>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
+   | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
+   |||
+
+1. To review the status for each step in a run, select the run that you want to review.
+
+   The run details view opens and shows the status for each step in the run.
+
+   ![Screenshot that shows the run details view with the status for each step in the workflow.](./media/create-stateful-stateless-workflows-azure-portal/review-run-details.png)
+
+   Here are the possible statuses that each step in the workflow can have:
+
+   | Action status | Icon | Description |
+   |---------------|------|-------------|
+   | Aborted | ![Icon for "Aborted" action status][aborted-icon] | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | Cancelled | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a cancellation request. |
+   | Failed | ![Icon for "Failed" action status][failed-icon] | The action failed. |
+   | Running | ![Icon for "Running" action status][running-icon] | The action is currently running. |
+   | Skipped | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
+   | Succeeded | ![Icon for "Succeeded" action status][succeeded-icon] | The action succeeded. |
+   | Succeeded with retries | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
+   | Timed out | ![Icon for "Timed out" action status][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
+   | Waiting | ![Icon for "Waiting" action status][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
+   ||||
+
+   [aborted-icon]: ./media/create-stateful-stateless-workflows-azure-portal/aborted.png
+   [cancelled-icon]: ./media/create-stateful-stateless-workflows-azure-portal/cancelled.png
+   [failed-icon]: ./media/create-stateful-stateless-workflows-azure-portal/failed.png
+   [running-icon]: ./media/create-stateful-stateless-workflows-azure-portal/running.png
+   [skipped-icon]: ./media/create-stateful-stateless-workflows-azure-portal/skipped.png
+   [succeeded-icon]: ./media/create-stateful-stateless-workflows-azure-portal/succeeded.png
+   [succeeded-with-retries-icon]: ./media/create-stateful-stateless-workflows-azure-portal/succeeded-with-retries.png
+   [timed-out-icon]: ./media/create-stateful-stateless-workflows-azure-portal/timed-out.png
+   [waiting-icon]: ./media/create-stateful-stateless-workflows-azure-portal/waiting.png
+
+1. To review the inputs and outputs for a specific step, select that step.
+
+   ![Screenshot that shows the inputs and outputs in the selected "Send an email" action.](./media/create-stateful-stateless-workflows-azure-portal/review-step-inputs-outputs.png)
+
+1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
 

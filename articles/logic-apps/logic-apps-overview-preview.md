@@ -70,11 +70,10 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
   * Create and deploy logic apps that can run anywhere because the Azure Logic Apps service generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. The Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy to Azure.
 
     > [!NOTE]
-    > By default, a **Logic App (Preview)** resource has its 
-    > [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
-    > automatically enabled to authenticate connections at runtime. 
-    > This identity differs from the authentication credentials or connection string that you use 
-    > when you create a connection. If you disable this identity, connections won't work at runtime.
+    > By default, a **Logic App (Preview)** resource has its [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
+    > automatically enabled to authenticate connections at runtime. This identity differs from the authentication 
+    > credentials or connection string that you use when you create a connection. If you disable this identity, 
+    > connections won't work at runtime. To view this setting, on your logic app's menu, under **Settings**, select **Identity**.
 
 * Create stateless logic apps that run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](logic-apps-overview-preview.md#stateful-stateless).
 
@@ -107,10 +106,6 @@ For more information about the pricing models that apply to this new resource ty
 ## Unavailable or unsupported capabilities
 
 For this public preview, these capabilities are not available or not supported:
-
-* Support for creating the new **Logic App (Preview)** resource is currently unavailable on macOS.
-
-* Not all Azure regions are supported yet. For currently available regions, check the [regions list](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
 
 * To start your workflow, use the [built-in Request, HTTP, Event Hubs, or Service Bus trigger](../connectors/apis-list.md), which run natively with the Logic Apps runtime. Currently, [enterprise connectors](../connectors/apis-list.md#enterprise-connectors), [on-premises data gateway triggers](../connectors/apis-list.md#on-premises-connectors), webhook-based triggers, Sliding Window trigger, [custom connectors](../connectors/apis-list.md#custom-apis-and-connectors), integration accounts, their artifacts, and [their connectors](../connectors/apis-list.md#integration-account-connectors) aren't supported in this preview. The "call an Azure function" capability is unavailable, so for now, use the HTTP *action* to call the request URL for the Azure function.
 
