@@ -44,16 +44,15 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter your application's registration information:
->      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ASPNET-Quickstart`.
->      - Add `https://localhost:44368/` in **Redirect URI**, and click **Register**.
->      - From the left navigation pane under the Manage section, select **Authentication**
->          - Under the **Implicit Grant** sub-section, select **ID tokens**.
->          - And then select **Save**.
+> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application, for example `ASPNET-Quickstart`. Users of your app might see this name, and you can change it later.
+> 1. Add `https://localhost:44368/` in **Redirect URI**, and click **Register**.
+> 1. From the left navigation pane under the Manage section, select **Authentication**
+> 1. Under the **Implicit Grant** sub-section, select **ID tokens**.
+> 1. Select **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
