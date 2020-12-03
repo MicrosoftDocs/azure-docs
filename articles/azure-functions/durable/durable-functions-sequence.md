@@ -82,7 +82,7 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 
 Here is the orchestrator function:
 
-[!code-javascript[Main](~/samples-durable-functions/samples/python/E1_HelloSequence/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions/samples/python/E1_HelloSequence/\_\_init\_\_.py)]
 
 All Python orchestration functions must include the [`durable-functions` package](https://pypi.org/project/azure-functions-durable). It's a library that enables you to write Durable Functions in Python. There are two significant differences between an orchestrator function and other Python functions:
 
