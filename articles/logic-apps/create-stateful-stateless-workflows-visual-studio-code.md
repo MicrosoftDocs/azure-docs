@@ -21,7 +21,7 @@ To create logic app workflows that integrate across apps, data, cloud services, 
 
 The logic apps that you create with the public preview extension use the new **Logic App (Preview)** resource type and are powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime in your local environment. This new resource type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions.
 
-Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code. The experiences to create the new resource type are separate and different from the original resource type, but yuo can have both the **Logic Apps** and **Logic App (Preview)** resource types in your Azure subscription. You can view and access all the deployed logic apps in your Azure subscription, but they appear and are kept separately in their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps (Preview)](logic-apps-overview-preview.md#whats-new).
+Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code. The experiences to create the new resource type are separate and different from the original resource type, but you can have both the **Logic Apps** and **Logic App (Preview)** resource types in your Azure subscription. You can view and access all the deployed logic apps in your Azure subscription, but they appear and are kept separately in their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps (Preview)](logic-apps-overview-preview.md#whats-new).
 
 This article shows how to build a **Logic App (Preview)** resource by using Visual Studio Code:
 
@@ -65,7 +65,7 @@ This article shows how to build a **Logic App (Preview)** resource by using Visu
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your logic app.
 
-  * [Azure Functions Core Tools](../azure-functions/functions-run-local.md), either version [3.0.2931](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.2931) or [2.7.2936](https://github.com/Azure/azure-functions-core-tools/releases/tag/2.7.2936), through the Microsoft Installer (MSI). These tools includes a version of the same runtime that powers the Azure Functions runtime that runs in Visual Studio Code.
+  * [Azure Functions Core Tools](../azure-functions/functions-run-local.md), either version [3.0.2931](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.2931) or [2.7.2936](https://github.com/Azure/azure-functions-core-tools/releases/tag/2.7.2936), through the Microsoft Installer (MSI). These tools include a version of the same runtime that powers the Azure Functions runtime that runs in Visual Studio Code.
 
     > [!IMPORTANT]
     > If you have an installation that's earlier than these versions, uninstall that version first, 
@@ -213,7 +213,7 @@ Before you can create your logic app, create a local project so that you can man
 
 ## Open the workflow definition file in the designer
 
-1. Check the versions that are installed on your computer by running the this command:
+1. Check the versions that are installed on your computer by running this command:
 
    `..\Users\{yourUserName}\dotnet --list-sdks`
 
@@ -374,7 +374,7 @@ The logic app workflow in this example uses this trigger and these actions:
    > [!TIP]
    > To prevent future prompts, select **Don't ask again for this extension**.
 
-   After Visual Studio Code creates your connection, some connectors show the message that `The connection will be valid for {n} days only.` This time limit applies only to the duration while you author your logic app in Visual Studio Code. After deployment, this limit no longer applies because your logic app can authenticate at runtime by using its automatically enabled [system-assigned managed identity](../logic-apps/create-managed-service-identity.md). This managed identity differs from the authentication credentials or connection string that you use when you create a connection. If you disable this system-assigned managed identity, connections won't work at runtime.
+   After Visual Studio Code creates your connection, some connectors show the message that `The connection will be valid for {n} days only`. This time limit applies only to the duration while you author your logic app in Visual Studio Code. After deployment, this limit no longer applies because your logic app can authenticate at runtime by using its automatically enabled [system-assigned managed identity](../logic-apps/create-managed-service-identity.md). This managed identity differs from the authentication credentials or connection string that you use when you create a connection. If you disable this system-assigned managed identity, connections won't work at runtime.
 
 1. On the designer, if the **Send an email** action doesn't appear selected, select that action.
 
