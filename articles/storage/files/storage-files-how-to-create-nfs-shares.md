@@ -59,7 +59,7 @@ az feature register --name AllowNfsFileShares \
 az provider register --namespace Microsoft.Storage
 ```
 
-## Verify that the feature is registered
+## Verify feature registration
 
 Registration approval can take up to an hour. To verify that the registration is complete, use the following commands:
 
@@ -74,6 +74,29 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNfs
 ```azurecli
 az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscription <yourSubscriptionIDHere>
 ```
+
+## Verify storage account kind
+
+Currently, only FileStorage accounts can create NFS shares. 
+
+### PowerShell
+To verify you have a FileStorage account, you can use the following command:
+
+```azurepowershell
+$accountKind=Get-AzStorageAccount -ResourceGroupName "yourResourceGroup" -Name "yourStorageAccountName"
+$accountKind.Kind
+```
+
+The output should be **FileStorage**, if it is not, then your storage account is the incorrect type. To create a **FileStorage** account, see [How to create an Azure premium file share](storage-how-to-create-premium-fileshare.md).
+
+### Azure CLI
+To verify you have a FileStorage account, you can use the following command:
+
+```azurecli
+az storage account show -g yourResourceGroup -n yourStorageAccountName
+```
+
+The output should contain **FileStorage**, if it is not, then your storage account is the incorrect type. To create a **FileStorage** account, see [How to create an Azure premium file share](storage-how-to-create-premium-fileshare.md).
 
 ## Create an NFS share
 

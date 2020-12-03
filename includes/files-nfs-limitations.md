@@ -18,6 +18,8 @@ While in preview, NFS has the following limitations:
 - AzCopy is not currently supported.
 - Only available for the premium tier.
 - Currently only available with locally redundant storage (LRS).
+- NFS shares only accept numeric UID/GID. To avoid your clients sending alphanumeric UID/GID, you can disable idmapping.
+- Shares can only be mounted from one storage account on an individual VM, when using private links. Attempting to mount shares from other storage accounts will fail.
 
 ### Azure Storage features not yet supported
 
