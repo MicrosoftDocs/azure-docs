@@ -1,6 +1,6 @@
 ---
-title: Access data in Jupyter notebooks - Azure Notebooks Preview
-description: Learn how to access files, REST APIs, databases, and different Azure Storage resources from a Jupyter notebook.
+title: Access data in Jupyter Notebooks - Azure Notebooks Preview
+description: Learn how to access files, REST APIs, databases, and different Azure Storage resources from a Jupyter Notebook.
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.custom: devx-track-python
@@ -9,7 +9,7 @@ ms.custom: devx-track-python
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Doing interesting work in a Jupyter notebook requires data. Data, indeed, is the lifeblood of notebooks.
+Doing interesting work in a Jupyter Notebook requires data. Data, indeed, is the lifeblood of notebooks.
 
 You can certainly [import data files into a project](work-with-project-data-files.md), even using commands like `curl` from within a notebook to download a file directly. It's likely, however, that you need to work with much more extensive data that's available from non-file sources such as REST APIs, relational databases, and cloud storage such as Azure tables.
 
