@@ -61,7 +61,7 @@ When your code is running in the development environment, authentication may be 
 
 Other development tools may prompt you to login via a web browser.
 
-## .NET code example
+## [Pending SDK] .NET code example
 
 TODO: Add code example
 
