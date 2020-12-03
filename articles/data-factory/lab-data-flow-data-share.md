@@ -1,8 +1,8 @@
 ---
 title: Data integration using Azure Data Factory and Azure Data Share
 description: Copy, transform, and share data using Azure Data Factory and Azure Data Share
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019

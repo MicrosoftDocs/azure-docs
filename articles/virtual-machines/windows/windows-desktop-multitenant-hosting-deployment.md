@@ -31,9 +31,11 @@ For PowerShell, CLI and Azure Resource Manager template deployments, the Windows
 ## Qualify for Multi-tenant hosting rights 
 To qualify for multi-tenant hosting rights and to run Windows 10 images on Azure users must have one of the following subscriptions: 
 
--	Microsoft 365 E3/E5/F3/A3/A5
--	Windows 10 Enterprise E3/E5 
--	Windows 10 Education A3/A5
+-	Microsoft 365 E3/E5 
+-	Microsoft 365 F3 
+-	Microsoft 365 A3/A5 
+-	Windows 10 Enterprise E3/E5
+-	Windows 10 Education A3/A5 
 -	Windows VDA E3/E5
 
 
