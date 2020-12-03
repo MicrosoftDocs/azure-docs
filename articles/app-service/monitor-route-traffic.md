@@ -15,18 +15,18 @@ App Service makes it easy to automatically scale your apps when traffic increase
 
 This article uses the Azure Portal to work with Health Check. Health Check allows you to specify a path to ping on your App Service web app. If an instance fails to respond to the ping, the system determines it's unhealthy and removes it from the load balancer rotation. This increases the app average availability and resiliency.
 
-**HC SCREENSHOT1**
+![Health check success diagram][1]
  If the path responds with an error HTTP status code or does not respond, then the instance is determined to be unhealthy and it is removed from the load balancer rotation. This prevents the load balancer from routing requests to the unhealthy instances.
 
 
-**HC SCREENSHOT2**
+![Health check failure diagram][1]
 When the instance is unhealthy and removed from the load balancer, the service continues to ping it. If it begins responding with successful response codes then the instance is returned to the load balancer. If it continues to respond unsuccessfully, App Service will restart the underlying VM in an effort to return the instance to a healthy state. Health Check integrates with App Service’s authentication and authorization features, so the system will reach the endpoint even if these security features are enabled. If you are using your own authentication system, the health check path must allow anonymous access.
 
 
 ## Enable Health Check
 
 
-**SCREENSHOT**
+**NEED SCREENSHOT and remove Jason's contact info from it**
 
 Open the Portal to your App Service, then select **Health check** under **Monitoring**. Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`. Click **Save**.
 
@@ -64,3 +64,7 @@ After providing your application's health check path, you can monitor the health
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+
+
+[1]: ./media/app-service-monitor-health-check/health-check-success-diagram.png
+[2]: ./media/app-service-monitor-health-check/health-check-failure-diagram.png
