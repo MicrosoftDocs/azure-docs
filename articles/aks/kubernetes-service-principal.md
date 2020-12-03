@@ -119,7 +119,7 @@ You may need to access existing Disk resources in another resource group. Assign
 - Create a [custom role][rbac-custom-role] and define the following role permissions:
   - *Microsoft.Compute/disks/read*
   - *Microsoft.Compute/disks/write*
-- Or, assign the [Storage Account Contributor][rbac-storage-contributor] built-in role on the resource group
+- Or, assign the [Virtual Machine Contributor][rbac-disk-contributor] built-in role on the resource group
 
 ### Azure Container Instances
 
@@ -182,7 +182,7 @@ For information on how to update the credentials, see [Update or rotate the cred
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
-[rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
+[rbac-disk-contributor]: ../role-based-access-control/built-in-roles.md#virtual-machine-contributor
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
