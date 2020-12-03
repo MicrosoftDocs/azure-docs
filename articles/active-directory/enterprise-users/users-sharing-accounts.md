@@ -10,7 +10,6 @@ editor: ''
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: curtand
