@@ -48,7 +48,7 @@ The following commands trust the Microsoft PGP Public Key:
 
 1. List the keys in the store.
 2. Edit the Microsoft key.
-3. Check the fingerprint with fpr
+3. Check the fingerprint with `fpr`
 4. Sign the key to trust it.
 
 ```bash
@@ -181,8 +181,8 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 - [How to set up automatic snapshot backup](#2-How-to-setup-automatic-snapshot-backup)
 - [How to monitor the snapshots](#3-how-to-monitor-the-snapshots)
 - [How to delete a snapshot?](#4-how-to-delete-a-snapshot)
-- [How to restore a 'hana' snapshot](#5-how-to-restore-a-hana-snapshot)
-- [How to restore a 'boot' snapshot](#6-how-to-restore-a-boot-snapshot)
+- [How to restore a `hana` snapshot](#5-how-to-restore-a-hana-snapshot)
+- [How to restore a `boot` snapshot](#6-how-to-restore-a-boot-snapshot)
 - [What are key facts to know about the snapshots](#7-what-are-key-facts-to-know-about-the-snapshots)
 
 > Snapshots are tested for both single SID and multi SID.

@@ -24,7 +24,7 @@ This article provides a guide for installation of the Azure Application Consiste
 ## Introduction
 
 The downloadable self-installer is designed to make the snapshot tools easy to set up and run with non-root user privileges (for example, azacsnap). The installer will set up the user and put the snapshot tools into the users `$HOME/bin` subdirectory (default = `/home/azacsnap/bin`).
-The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user performing the installation (for example, root). If the pre-requisite steps (Enable communication with storage and SAP HANA) were run as root, then the installation will copy the private key and `hdbuserstore` to the backup user’s location. However, it is possible for the steps that enable communication with the storage back-end and SAP HANA to be manually done by a knowledgeable administrator after the installation.
+The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user performing the installation (for example, root). If the pre-requisite steps (enable communication with storage and SAP HANA) were run as root, then the installation will copy the private key and `hdbuserstore` to the backup user’s location. However, it is possible for the steps that enable communication with the storage back-end and SAP HANA to be manually done by a knowledgeable administrator after the installation.
 
 ## Prerequisites for installation
 
@@ -32,11 +32,11 @@ Follow the guidelines to set up and execute the snapshots and disaster recovery 
 is recommended the following steps are completed as root before installing and using the snapshot
 tools.
 
-1. **OS is patched** : See patching and SMT setup in [How to install and configure SAP HANA (Large Instances) on Azure](/azure/virtual-machines/workloads/sap/hana-installation#setting-up-smt-server-for-suse-linux).
-1. **Time Synchronization is setup**. The customer will need to provide a NTP compatible time
+1. **OS is patched**: See patching and SMT setup in [How to install and configure SAP HANA (Large Instances) on Azure](/azure/virtual-machines/workloads/sap/hana-installation#setting-up-smt-server-for-suse-linux).
+1. **Time Synchronization is set up**. The customer will need to provide an NTP compatible time
     server, and configure the OS accordingly.
 1. **HANA is installed** : See HANA installation instructions in [SAP NetWeaver Installation on HANA database](https://blogs.msdn.microsoft.com/saponsqlserver/2017/11/21/sap-netweaver-installation-on-hana-database/).
-1. **[Enable communication with storage](#enable-communication-with-storage)** (refer separate section for more details) : Customer must
+1. **[Enable communication with storage](#enable-communication-with-storage)** (refer separate section for more details): Customer must
     set up SSH with a private/public key pair, and provide the public key for each node where the
     snapshot tools are planned to be executed to Microsoft Operations for setup on the storage
     back-end.
@@ -51,7 +51,7 @@ tools.
 
       Microsoft  operations will  provide  the  storage  user  and  storage  IP at  the  time  of provisioning.
   
-1. **[Enable communication with SAP HANA](#enable-communication-with-sap-hana)** (refer separate section for more details) : Customer must
+1. **[Enable communication with SAP HANA](#enable-communication-with-sap-hana)** (refer separate section for more details): Customer must
     set up an appropriate SAP HANA user with the required privileges to perform the snapshot.
    1. This setting can be tested from the command line as follows using the text in `grey`
       1. HANAv1
@@ -228,7 +228,7 @@ database, change the IP address, usernames, and passwords as appropriate:
    hdbsql SYSTEMDB=> ALTER USER AZACSNAP DISABLE PASSWORD LIFETIME;
    ```
 
-1. Setup the SAP HANA Secure User Store (change the password)
+1. Set up the SAP HANA Secure User Store (change the password)
     This example uses the `hdbuserstore` command from the Linux shell to set up the SAP HANA Secure User store.
 
     ```bash
@@ -254,10 +254,10 @@ database, change the IP address, usernames, and passwords as appropriate:
 ### Additional instructions for using the log trimmer (SAP HANA 2.0 and later)
 
 If using the log trimmer, then the following example commands set up a user (AZACSNAP) in the
-TENANT database(s) on a SAP HANA 2.0 database system. Remember to change the IP address,
+TENANT database(s) on an SAP HANA 2.0 database system. Remember to change the IP address,
 usernames, and passwords as appropriate:
 
-1. Connect to the TENANT database to create the user, tenant specific details are `<IP_address_of_host>` and `<SYSTEM_USER_PASSWORD>`.  Also, note the port (`30015`) required to communicate with the TENANT database.
+1. Connect to the TENANT database to create the user, tenant-specific details are `<IP_address_of_host>` and `<SYSTEM_USER_PASSWORD>`.  Also, note the port (`30015`) required to communicate with the TENANT database.
 
     ```bash
     > hdbsql -n <IP_address_of_host>:30015 - i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>

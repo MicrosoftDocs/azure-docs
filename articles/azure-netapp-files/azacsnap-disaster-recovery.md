@@ -37,11 +37,11 @@ The following pre-requisites must be met before you plan the disaster recovery f
 - You have storage replication working. The Microsoft operations team performs the storage
     replication setup at the time of DR provisioning automatically. You can monitor the storage
     replication using the command `azacsnap -c details --details replication` at the DR site.
-- You have setup and configured storage snapshots at the primary location.
+- You have set up and configured storage snapshots at the primary location.
 - You have an HANA instance installed at the DR site for the primary with the same SID as the
     primary instance has.
 - You read and understand the DR Failover procedure described in [SAP HANA Large Instances high availability and disaster recovery on Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)
-- You have setup and configured storage snapshots at the DR location.
+- You have set up and configured storage snapshots at the DR location.
 - A configuration file (for example, `DR.json`) has been created with the DR storage volumes and associated
     information on the DR server.
 - You completed the steps at the DR site to:
@@ -50,7 +50,7 @@ The following pre-requisites must be met before you plan the disaster recovery f
 
 ## Set up disaster recovery
 
-Microsoft supports storage level replication for DR recovery. There are two ways to setup DR.
+Microsoft supports storage level replication for DR recovery. There are two ways to set up DR.
 
 One is **normal** and other is **multipurpose**. In the **normal** DR, you have a dedicated instance at the DR location for failover. In the **multipurpose** DR scenario, you have another QA or development HANA instance running on the HANA large instance unit at the DR site. But you also installed a pre-installed HANA instance that is dormant and has the same SID as the HANA instance you want to fail over to that HANA Large Instance unit. Microsoft operations set up the environment for you including the storage replication based on the input provided in the Service Request Form (SRF) at the time of onboarding.
 
@@ -90,7 +90,7 @@ This subsection describes the detailed steps for a failover to the Disaster Reco
 
 #### Step 1: Get the volume details of the DR node
 
-Eexecute the command `df –h` to list the filesystems and associated volumes to refer to after the failover.
+Execute the command `df –h` to list the filesystems and associated volumes to refer to after the failover.
 
 ```bash
 # df -h
@@ -202,11 +202,11 @@ Execute the command `umount` to unmount the filesystems/volumes that are not nee
 # umount <Mount point>
 ```
 
-Unmount the data and logbackup mountpoints. You may have multiple data mountpoint in the scale-out scenario.
+Unmount the data and log backup mountpoints. You may have multiple data mountpoint in the scale-out scenario.
 
 #### Step 6: Configure the mount points
 
-Modify the file `/etc/fstab` to comment out the data and logbackups entries for the primary SID (In this example, SID=H80) and add the new mount point entries created from the Primary site DR volumes. The new mount point entries are provided in the command output.
+Modify the file `/etc/fstab` to comment out the data and log backups entries for the primary SID (In this example, SID=H80) and add the new mount point entries created from the Primary site DR volumes. The new mount point entries are provided in the command output.
 
 - Comment out the existing mount points running on the DR site with the `#` character:
 
@@ -268,13 +268,13 @@ See the guide to recover a database from a snapshot, specifically the SYSTEMDB.
 
 #### Step 9: Recover the Tenant database
 
-From the HANA Studio, right click SYSTEMDB instance and chose "Backup and Recovery", and then "Recover Tenant Database".
+From the HANA Studio, right-click SYSTEMDB instance and chose "Backup and Recovery", and then "Recover Tenant Database".
 
 See the guide to recover a database from a snapshot, specifically the TENANT database(s).
 
 ### Run `azacsnap -c backup` at the DR site
 
-If running snapshot-based backups at the DR site then the HANA Server Name configured in the `azacsnap` configuration file at the DR site should be the same as the production server name.
+If you are running snapshot-based backups at the DR site, then the HANA Server Name configured in the `azacsnap` configuration file at the DR site should be the same as the production server name.
 
 > <font color="red">**CAUTION**</font>
 <font color="red">Running the `azacsnap -c backup` can create storage snapshots at the DR site, these
