@@ -96,7 +96,7 @@ $credential = $Host.ui.PromptForCredential("Need credential",
               "",
               "")
 
-# create a new sync group with private link (make sure to manually approve)
+# create a new sync group (if you use private link, make sure to manually approve it)
 Write-Host "Creating Sync Group "$syncGroupName"..."
 New-AzSqlSyncGroup -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Name $syncGroupName `
     -SyncDatabaseName $syncDatabaseName -SyncDatabaseServerName $syncDatabaseServerName -SyncDatabaseResourceGroupName $syncDatabaseResourceGroupName `
@@ -112,9 +112,8 @@ $credential = $Host.ui.PromptForCredential("Need credential",
               "",
               "")
 
-# add a new sync member
+# add a new sync member (if you use private link, make sure to manually approve it)
 Write-Host "Adding member"$syncMemberName" to the sync group..."
-
 New-AzSqlSyncMember -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
     -SyncGroupName $syncGroupName -Name $syncMemberName -MemberDatabaseType $memberDatabaseType -SyncAgentResourceGroupName $syncAgentResourceGroupName `
     -SyncAgentServerName $syncAgentServerName -SyncAgentName $syncAgentName  -SyncDirection $syncDirection -SqlServerDatabaseID  $syncAgentInfo.DatabaseId `
