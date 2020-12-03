@@ -33,7 +33,13 @@ Before you can use managed identities for Azure Resources to authorize access to
 
 When an Azure AD security principal attempts to access an API, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob or queue data in Azure Storage. For information about assigning permissions via Azure RBAC.
 
-TODO: add examples in portal + commandline
+#### Azure Portal
+
+1. Go to the azure portal
+1. Go to the Azure Communication Service resource
+1. Navigate to Access Control (IAM) menu
+1. Click + Add
+
 
 ## Authenticate with the Azure Identity library
 
