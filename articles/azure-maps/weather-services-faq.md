@@ -4,7 +4,7 @@ description: Find answer to common questions about Azure Maps Weather services d
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/03/2019
-ms.topic: concept
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
