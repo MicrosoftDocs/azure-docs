@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-i
 - [AWS](../saas-apps/amazon-web-service-tutorial.md)
 - [Slack](../saas-apps/slack-tutorial.md)
 
-In addition you can [integrate applications not in the gallery](../manage-apps/view-applications-portal.md), including any application that already exists in your organization, or any third-party application from a vendor who is not already part of the Azure AD gallery. You can also [add your app to the gallery](../azuread-dev/howto-app-gallery-listing.md) if it is not there.
+In addition you can [integrate applications not in the gallery](../manage-apps/view-applications-portal.md), including any application that already exists in your organization, or any third-party application from a vendor who is not already part of the Azure AD gallery. You can also [add your app to the gallery](../develop/v2-howto-app-gallery-listing.md) if it is not there.
 
 Finally, you can also integrate the apps you develop in-house. This is covered in step five of this guide.
 

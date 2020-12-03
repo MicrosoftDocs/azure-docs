@@ -34,6 +34,9 @@ articles/best-practices-availability-paired-regions.md @martinekuan @syntaxc4 @s
 # Governance
 articles/governance/ @DCtheGeek
 
+# Purview
+articles/purview/ @hrasheed-msft
+
 # Security baselines
 articles/**/*security-baseline.md @msmbaldwin @mgblythe
 articles/security/benchmarks/ @msmbaldwin @mgblythe

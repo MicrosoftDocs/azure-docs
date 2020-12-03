@@ -76,7 +76,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Azure Database for MySQL](../../mysql/concept-reserved-pricing.md)
 - [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
 - [Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md)
-- [Virtual machines](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Virtual machines](../../virtual-machines/prepay-reserved-vm-instances.md)
 
 ## Buy reservations with monthly payments
 

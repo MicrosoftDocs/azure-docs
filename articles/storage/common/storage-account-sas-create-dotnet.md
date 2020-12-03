@@ -64,8 +64,6 @@ To use the account SAS to access service-level APIs for the Blob service, constr
 
 ### [\.NET v12](#tab/dotnet)
 
-
-
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_UseAccountSAS":::
 
 ### [\.NET v11](#tab/dotnetv11)

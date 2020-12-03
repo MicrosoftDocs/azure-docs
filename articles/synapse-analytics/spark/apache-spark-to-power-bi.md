@@ -64,9 +64,12 @@ In this example, you will use Apache Spark to perform some analysis on taxi trip
                                     & (filtered_df.paymentType.isin({"1", "2"})))
     ```
 4. Finally, we will save our dataframe using the Apache Spark ```saveAsTable``` method. This will allow you to later query and connect to the same table using serverless SQL pools.
+  ```python
+     taxi_df.write.mode("overwrite").saveAsTable("NycTlcTutorial.nyctaxi")
+  ```
    
 ## Query data using serverless SQL pools
-Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its serverless Apache Spark pools (preview) and serverless SQL pool (preview). This is powered through the Synapse [shared metadata management](../metadata/overview.md) capability. As a result, the Spark created databases and their parquet-backed tables become visible in the workspace serverless SQL pool.
+Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its serverless Apache Spark pools and serverless SQL pool. This is powered through the Synapse [shared metadata management](../metadata/overview.md) capability. As a result, the Spark created databases and their parquet-backed tables become visible in the workspace serverless SQL pool.
 
 To query your Apache Spark table using your serverless SQL pool:
    1. Once you have saved your Apache Spark table, switch over to the **data** tab.

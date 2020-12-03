@@ -20,12 +20,12 @@ For Azure Synapse workspace, continuous integration and delivery (CI/CD) move al
 
 This article will outline using Azure release pipeline to automate the deployment of a Synapse workspace to multiple environments.
 
-## Pre-requirements
+## Prerequisites
 
 -   The workspace used for development has been configured with a Git repository in Studio, see [Source control in Synapse Studio](source-control.md).
 -   An Azure DevOps project has been prepared for running release pipeline.
 
-## Set up a Release Pipelines
+## Set up a release pipelines
 
 1.  In [Azure DevOps](https://dev.azure.com/), open the project created for the release.
 
@@ -77,7 +77,7 @@ Add an Azure Resource Manager Deployment task to create or update resources, inc
     
     ![workspace and pools deploy](media/pools-resource-deploy.png)
 
-1. (Optional) Add **Azure PowerShell** for the grant and update workspace role assignment. If you use release pipeline to create a Synapse workspace, the pipeline’s service principal is required to be added as default workspace admin. You can run PowerShell to grant other accounts access to the workspace. 
+1. (Optional) Add **Azure PowerShell** for the grant and update workspace role assignment. If you use release pipeline to create a Synapse workspace, the pipeline’s service principal is added as default workspace admin. You can run PowerShell to grant other accounts access to the workspace. 
     
     ![grant permission](media/release-creation-grant-permission.png)
 
@@ -86,15 +86,25 @@ Add an Azure Resource Manager Deployment task to create or update resources, inc
 
 ## Set up a stage task for artifacts deployment 
 
-Use [Synapse workspaces Build & Release](https://marketplace.visualstudio.com/items?itemName=PraveenMathamsetty.synapsecicd-deploy) task to deploy other items in Synapse workspace, like dataset, SQL script, notebook, spark job definition, dataflow, pipeline,linked service, credentials and IR (Integration Runtime).  
+Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) extension to deploy other items in Synapse workspace, like dataset, SQL script, notebook, spark job definition, dataflow, pipeline,linked service, credentials and IR (Integration Runtime).  
+
+1. Search and get the extension from **Azure DevOps marketplace**(https://marketplace.visualstudio.com/azuredevops) 
+
+     ![Get extension](media/get-extension-from-market.png)
+
+1. Select an organization to install extension. 
+
+     ![Install extension](media/install-extension.png)
 
 1. Make sure Azure DevOps pipeline’s service principle has been granted the permission of subscription and also assigned as workspace admin for target workspace. 
 
-1. Create a new task. Search for **Synapse workspaces Build & Release**, and then select **Add**.
+1. Create a new task. Search for **Synapse workspace deployment**, and then select **Add**.
+
+     ![Add extension](media/add-extension-task.png)
 
 1.  In the task, provide related git repository information of **workspace_publish** , and select resource group, region, name, and Cloud environment for the target workspace. Provide parameters and values if you need.
 
-    ![synapse workspace deploy](media/create-release-artifacts-deployment.png)
+    ![Synapse workspace deploy](media/create-release-artifacts-deployment.png)
 
 > [!IMPORTANT]
 > In CI/CD scenarios, the integration runtime (IR) type in different environments must be the same. For example, if you have a self-hosted IR in the development environment, the same IR must also be of type self-hosted in other environments, such as test and production. Similarly, if you're sharing integration runtimes across multiple stages, you have to configure the integration runtimes as linked self-hosted in all environments, such as development, test, and production.
@@ -110,12 +120,8 @@ After saving all changes, you can select **Create release** to manually create a
 If you're using Git integration with your Synapse workspace and have a CI/CD pipeline that moves your changes from development into test and then to production, we recommend these best practices:
 
 -   **Git integration**. Configure only your development Synapse workspace with Git integration. Changes to test and production workspaces are deployed via CI/CD and don't need Git integration.
--   **Prepare pools before artifacts migration**. If you attach pools to your SQL script or notebook in the development workspace, the same name of pools in different environments are expected. 
--   **Others**. See [Other best practices](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
+-   **Prepare pools before artifacts migration**. If you have SQL script or notebook attached to pools in the development workspace, the same name of pools in different environments are expected. 
+-   **Infrastructure as Code (IaC)**. Management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, use the same versioning as DevOps team uses for source code. 
+-   **Others**. See [best practices for ADF artifacts](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
 
-## Unsupported features
-
-- Synapse Studio doesn't allow cherry-picking of commits or selective publishing of resources. 
-- Synapse Studio doesn't support customize commit message.
-- By design, delete action will be committed to git directly
 

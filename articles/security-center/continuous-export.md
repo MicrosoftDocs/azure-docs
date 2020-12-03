@@ -12,7 +12,7 @@ ms.author: memildin
 ---
 # Continuously export Security Center data
 
-Azure Security Center generates detailed security alerts and recommendations. You can view them in the portal or through programmatic tools. You may also need to export some or all of this information for tracking with other monitoring tools in your environment. 
+Azure Security Center generates detailed security alerts and recommendations. You can view them in the portal or through programmatic tools. You might also need to export some or all of this information for tracking with other monitoring tools in your environment. 
 
 **Continuous export** lets you fully customize *what* will be exported, and *where* it will go. For example, you can configure it so that:
 
@@ -56,8 +56,11 @@ The steps below are necessary whether you're setting up a continuous export to L
 1. From Security Center's sidebar, select **Pricing & settings**.
 1. Select the specific subscription for which you want to configure the data export.
 1. From the sidebar of the settings page for that subscription, select **Continuous Export**.
-    [![Export options in Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox)
+
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Export options in Azure Security Center":::
+
     Here you see the export options. There's a tab for each available export target. 
+
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
 1. Optionally, if your selection includes one of these four recommendations, you can include the vulnerability assessment findings together with them:
     - Vulnerability Assessment findings on your SQL databases should be remediated
@@ -159,7 +162,7 @@ To view the event schemas of the exported data types, visit the [Log Analytics t
 
 ##  View exported alerts and recommendations in Azure Monitor
 
-In some cases, you may choose to view the exported Security Alerts and/or recommendations in [Azure Monitor](../azure-monitor/platform/alerts-overview.md). 
+You might also choose to view exported Security Alerts and/or recommendations in [Azure Monitor](../azure-monitor/platform/alerts-overview.md). 
 
 Azure Monitor provides a unified alerting experience for a variety of Azure alerts including Diagnostic Log, Metric alerts, and custom alerts based on Log Analytics workspace queries.
 
