@@ -173,6 +173,8 @@ Many classification metrics are defined for binary classification on two classes
 
 While each averaging method has its benefits, one common consideration when selecting the appropriate method is class imbalance. If classes have different numbers of samples, it might be more informative to use a macro average where minority classes are given equal weighting to majority classes.
 
+For more information, see the scikit-learn documentation for metrics that support class averaging like [AUC](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html).
+
 ## Binary vs. multiclass classification metrics
 
 Automated ML doesn't differentiate between binary and multiclass metrics. The same validation metrics are reported whether a dataset has two classes or more than two classes. However, some metrics are intended for multiclass classification. When applied to a binary dataset, these metrics won't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`.
