@@ -3,6 +3,7 @@ title: Route traffic to healthy instances in Azure App Service
 description: Learn how to route traffic to healthy instances on your App Service app.
 keywords: azure app service, web app, health check, route traffic, healthy instances, path, monitoring,
 author: msangapu-msft
+
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
