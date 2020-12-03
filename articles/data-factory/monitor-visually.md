@@ -3,8 +3,8 @@ title: Visually monitor Azure Data Factory
 description: Learn how to visually monitor Azure data factories
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
