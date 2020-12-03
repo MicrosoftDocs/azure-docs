@@ -4,7 +4,7 @@ description: In this quickstart, you create a storage account and a container in
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 11/14/2018
+ms.date: 12/03/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -21,9 +21,9 @@ In this quickstart, you learn how to use Ruby to upload, download, and list bloc
 Make sure you have the following additional prerequisites installed:
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
-* [Azure Storage library for Ruby](), using the rubygem package: 
+* [Azure Storage library for Ruby](https://github.com/azure/azure-storage-ruby), using the rubygem package: 
 
-    ```
+    ```console
     gem install azure-storage-blob
     ```
     
