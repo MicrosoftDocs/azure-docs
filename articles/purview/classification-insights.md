@@ -41,7 +41,7 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
 
 **To view classification insights:**
 
-1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/babylonportal) and select your Purview account.
+1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/purviewportal) and select your Purview account.
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview account** tile.
 

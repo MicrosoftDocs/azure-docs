@@ -6,10 +6,10 @@ summary: Learn how to use Azure Purview so your organization can find, understan
 metadata:
   title: Azure Purview documentation
   description: Learn how to use Azure Purview where your organization can find, understand, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
-  ms.service: data-catalog
+  ms.service: purview
   ms.topic: landing-page
-  author: jasonwhowell
-  ms.author: jasonh
+  author: hrasheed-msft
+  ms.author: hrasheed
   ms.date: 11/29/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -43,22 +43,22 @@ landingContent:
         links:
           - text: Download Starter kit
             url: https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip
-          - text: 1 - Run starter kit and scan data 
+          - text: Run starter kit and scan data 
             url: tutorial-scan-data.md
-          - text: 2 - Home page and search
+          - text: Navigate Purview home page and search
             url: tutorial-asset-search.md
-          - text: 3 - Browse and lineage 
+          - text: Browse assets and view lineage 
             url: tutorial-browse-and-view-lineage.md
-          - text: 4 - Resource sets, assets, schemas, classifications 
+          - text: Explore resource sets, assets, schemas, classifications 
             url: tutorial-schemas-and-classifications.md
-          - text: 5 - Glossary terms
+          - text: Create glossary terms
             url: tutorial-import-create-glossary-terms.md
   # Card
   - title: Scan Azure data sources
     linkLists:
       - linkListType: tutorial
         links:
-          - text: 1 - Run starter kit and scan data 
+          - text: Run starter kit and scan data 
             url: tutorial-scan-data.md
       - linkListType: how-to-guide
         links:
@@ -95,9 +95,9 @@ landingContent:
     linkLists:
     - linkListType: tutorial
       links:
-        - text: 4 - Resource sets, assets, schemas, classifications
+        - text: Resource sets, assets, schemas, classifications
           url: tutorial-schemas-and-classifications.md
-        - text: 5 - Glossary terms
+        - text: Glossary terms
           url: tutorial-import-create-glossary-terms.md
     - linkListType: how-to-guide
       links:
@@ -109,7 +109,7 @@ landingContent:
     linkLists:
     - linkListType: tutorial
       links:
-        - text: 3 - Browse and lineage
+        - text: Browse and lineage
           url: tutorial-browse-and-view-lineage.md
     - linkListType: how-to-guide
       links:

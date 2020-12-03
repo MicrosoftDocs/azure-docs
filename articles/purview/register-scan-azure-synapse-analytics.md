@@ -35,17 +35,17 @@ There are three ways to set up authentication for Azure blob storage:
 
 ### Managed Identity (Recommended) 
    
-Your Purview account has its own Managed Identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure Synapse Analytics (formerly SQL DW) with the exact Babylon's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
+Your Purview account has its own Managed Identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure Synapse Analytics (formerly SQL DW) with the exact Purview's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
 
 Example SQL syntax to create user and grant permission:
 
-      ```sql
-      CREATE USER [BabylonManagedIdentity] FROM EXTERNAL PROVIDER
-      GO
+```sql
+CREATE USER [PurviewManagedIdentity] FROM EXTERNAL PROVIDER
+GO
 
-      EXEC sp_addrolemember 'db_owner', [BabylonManagedIdentity]
-      GO
-      ```
+EXEC sp_addrolemember 'db_owner', [PurviewManagedIdentity]
+GO
+```
 
 The authentication must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification. The recommendation is to assign `db_owner` permission to the identity.
 
@@ -79,18 +79,18 @@ It is required to get the Service Principal's application ID and secret:
 
 In addition, you must also create an Azure AD user in Azure Synapse Analytics by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
 
-      ```sql
-      CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
-      GO
+```sql
+CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
+GO
 
-      EXEC sp_addrolemember 'db_owner', [ServicePrincipalName]
-      GO
-      ```
+EXEC sp_addrolemember 'db_owner', [ServicePrincipalName]
+GO
+```
 
-      > [!Note]
-      > Purview will need the **Application (client) ID** and the **client secret** in order to scan.
+> [!Note]
+> Purview will need the **Application (client) ID** and the **client secret** in order to scan.
 
-### SQL authentication 
+### SQL authentication
 
 You can follow the instructions in [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure Synapse Analytics (formerly SQL DW) if you don't already have one.
 

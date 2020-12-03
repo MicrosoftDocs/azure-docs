@@ -1,5 +1,5 @@
 ---
-title: Scan storage accounts behind a firewall in Azure Purview
+title: Scan Azure SQL DB behind a firewall
 description: Learn how to scan resources behind a firewall using the Azure Purview portal.
 author: sudhandkumar
 ms.author: kumarsud
@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/16/2020
 ---
-# Scan Storage Accounts behind a Firewall in Azure Purview
+# Scan Azure SQL DB behind a firewall in Azure Purview
 
 In this article, you learn how to use Azure Purview to scan a resource behind a firewall.
 
@@ -24,25 +24,17 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Set up SQL storage behind a firewall
 
-The first step is to add the catalog's MSI to an Azure SQL DB via the [Scan Azure Data Sources with Purview Portal](https://github.com/Azure/Babylon/blob/master/docs/scan-azure-data-sources-portal.md)
+The first step is to add the catalog's MSI to an Azure SQL DB via the [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md).
 
-## Scan storage from Babylon
+## Scan SQL DB from Purview
 
-1. Browse to [https://ms.web.babylon.azure.com/](https://ms.web.babylon.azure.com/) and select the **Purview Account**.
+1. Browse to the Purview home page.
 
-   :::image type="content" source="./media/scan-resource-firewall/launch-babylon-account.png" alt-text="Screenshot of the selection to launch the Azure Purview account catalog.":::
-  
-1. On the Purview landing page, select **Management Center** (last icon on the left).
+1. Select **Management Center** on the left navigation.
 
-   :::image type="content" source="./media/scan-resource-firewall/landing-babylon.png" alt-text="Screenshot of the selection to launch the Azure Purview Management Center.":::
+1. Select **Data Sources** under **Sources and Scanning**.
 
-1. Select **Data Sources** from **Sources and Scanning**.
-
-   :::image type="content" source="./media/scan-resource-firewall/scan-management-center.png" alt-text="Screenshot to select data sources":::
-
-1. Select **New** to add the Data Source.
-
-   :::image type="content" source="./media/scan-resource-firewall/scan-add-datasource.png" alt-text="Screenshot of the selection to add new Data Source":::
+1. Select **+ New** to add the Data Source.
 
 1. Select **Azure SQL Database**.
 
