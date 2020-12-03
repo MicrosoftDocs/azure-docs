@@ -59,7 +59,7 @@ This section guides you through the steps to configure 8x8 to support provisioni
 
 ## Step 3. Add 8x8 from the Azure AD application gallery
 
-Add 8x8 from the Azure AD application gallery to start managing provisioning to 8x8. If you have previously setup 8x8 for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
+Add 8x8 from the Azure AD application gallery to start managing provisioning to 8x8. If you have previously setup 8x8 for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
 
 ## Step 4. Define who will be in scope for provisioning
 
