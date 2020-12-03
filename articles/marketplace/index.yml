@@ -43,7 +43,7 @@ landingContent:
       - text: Customer leads from your marketplace offer
         url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
       - text: Co-sell option in Partner Center
-        url: ./partner-center-portal/commercial-marketplace-co-sell.md
+        url: commercial-marketplace-co-sell.md
       - text: Co-sell partner engagement
         url: ./marketplace-co-sell.md
       - text: Make solutions available in Microsoft AppSource and within Office
