@@ -18,7 +18,7 @@ Administration and SMS APIs support Azure Active Directory (Azure AD) authentica
 
 This article shows how to authorize access to Administration and SMS APIs from an Azure VM using managed identities for Azure Resources. It also describes how to test your code in the development environment.
 
-## Enable managed identities on an Azure Function
+## Enable managed identities on an VM or App service
 
 Before you can use managed identities for Azure Resources to authorize access to blobs and queues from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure Resources, see one of these articles:
 
@@ -28,9 +28,7 @@ Before you can use managed identities for Azure Resources to authorize access to
 - [Azure Resource Manager template](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure Resource Manager client libraries](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-For more information about managed identities, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
-
-TODO: add azure function example
+- [App services](../../app-service/overview-managed-identity.md)
 
 ### Assign Azure roles for access to data
 
