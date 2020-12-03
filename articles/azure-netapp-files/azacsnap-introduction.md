@@ -38,7 +38,7 @@ AzAcSnap leverages the volume snapshot and replication functionalities in Azure 
 
 AzAcSnap is a single binary.  It does not need additional agents or plug-ins to interact with the database or the storage (Azure NetApp Files via Azure Resource Manager, and Azure Large Instance via SSH).  AzAcSnap must be installed on a system that has connectivity to the database and the storage.  However, the flexibility of installation and configuration allows for either a single centralized installation or a fully distributed installation with copies installed on each database installation.
 
-## Architecture Overview
+## Architecture overview
 
 AzAcSnap can be installed on the same host as the database (SAP HANA), or it can be installed on a centralized system.  But, there must be network connectivity to the database servers and the storage back-end (Azure Resource Manager for Azure NetApp Files or SSH for Azure Large Instance).
 
