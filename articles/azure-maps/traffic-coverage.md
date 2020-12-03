@@ -131,4 +131,4 @@ However, Maps doesn't have the same level of information and accuracy for all co
 
 ## Next steps
 
-For more information about Azure Maps traffic data, see the [Traffic](https://docs.microsoft.com/rest/api/maps/traffic) reference pages.
+For more information about Azure Maps traffic data, see the [Traffic](/rest/api/maps/traffic) reference pages.

@@ -5,11 +5,66 @@ ms.subservice:
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 07/08/2020
+ms.date: 11/11/2020
 ---
 # What's new in Azure Monitor documentation?
 
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
+
+## October 2020
+
+### General
+- [Azure Monitor API retirement](platform/operationalinsights-api-retirement.md) - New article.
+
+### Agents
+- [What is monitored by Azure Monitor](monitor-reference.md) - Added section on agents.
+
+### Alerts
+- [Create and manage action groups in the Azure portal](platform/action-groups.md) - Added section on service tag.
+- [Resource Manager template samples for metric alerts](samples/resource-manager-alerts-metric.md) - Added content match parameter and test locations.
+- [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added best practice for rule configuration.
+
+### Application Insights
+- [Angular plugin for Application Insights JavaScript SDK](app/javascript-angular-plugin.md) - New article.
+- [Azure Application Insights for ASP.NET Core applications](app/asp-net-core.md) - Added FAQ about ILogger logs.
+- [Configure monitoring for ASP.NET with Azure Application Insights](app/asp-net.md) - Article rewritten.
+- [Log-based and pre-aggregated metrics in Azure Application Insights](app/pre-aggregated-metrics-log-metrics.md) - Added tables with pre-aggregated metrics.
+- [Monitor availability and responsiveness of any web site](app/monitor-web-app-availability.md) - Added section on location population tags.
+- [Monitor Java applications anywhere - Azure Monitor Application Insights](app/java-standalone-config.md) - Added configuration example.
+- [Monitor Java applications anywhere - Azure Monitor Application Insights](app/java-standalone-telemetry-processors.md) - New article.
+- [Use Application Change Analysis in Azure Monitor to find web-app issues](app/change-analysis.md) - Added sections on virtual machines and Activity log.
+  
+### Autoscale
+- [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on moving Autoscale to different region.
+
+### Containers
+- [Configure PV monitoring with Azure Monitor for containers](insights/container-insights-persistent-volumes.md) - New article.
+- [How to manage the Azure Monitor for containers agent](insights/container-insights-manage-agent.md) -  Added support for Azure Arc enabled Kubernetes cluster.
+- [Metric alerts from Azure Monitor for containers](insights/container-insights-metric-alerts.md) -  Added support for Azure Arc enabled Kubernetes cluster.
+
+### Insights and solutions
+- [IT Service Management Connector - Secure Export in Azure Monitor](platform/it-service-management-connector-secure-webhook-connections.md) - Added section on ServiceNow.
+
+### Logs
+- [Archive data from Log Analytics workspace to Azure storage using Logic App](platform/logs-export-logic-app.md) - New article.
+- [Log Analytics workspace data export in Azure Monitor (preview)](platform/logs-data-export.md) - Added sample body for REST request for event hub.
+- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Added information on relation between Azure Monitor Logs and Azure Security Center billing. Added query for node counts if using the Per Node pricing tier. 
+- [Monitor health of Log Analytics workspace in Azure Monitor](platform/monitor-workspace.md) - New article.
+- [Query data in Azure Monitor using Azure Data Explorer (preview)](platform/azure-data-explorer-monitor-proxy.md) - New article.
+- [Query exported data from Azure Monitor using Azure Data Explorer (preview)](platform/azure-data-explorer-query-storage.md) - New article.
+
+### Networks
+- [Azure Monitor for Networks Preview](insights/network-insights-overview.md) - Added troubleshooting section. Added section on connectivity.
+
+### Platform logs
+- [Azure Activity Log event schema](platform/activity-log-schema.md) - Added description of severity levels.
+
+### Virtual machines
+- [Change analysis in Azure Monitor for VMs](insights/vminsights-change-analysis.md) - New article.
+- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Added supported regions.
+- [How to update Azure Monitor for containers for metrics](insights/container-insights-update-metrics.md) -  Added support for Azure Arc enabled Kubernetes cluster.
+
+
 
 ## September 2020
 
@@ -58,7 +113,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Standard columns in Azure Monitor log records](platform/log-standard-columns.md) - Updates to include workspace-based applications.
 - [Azure Monitor service limits](service-limits.md) - Updated limits for user query throttling.
 - [Using customer-managed storage accounts in Azure Monitor Log Analytics](platform/private-storage.md) - Article rewritten.
-- [Viewing and analyzing data in Azure Log Analytics](log-query/logs-structure.md) - Updates to include workspace-based applications.
+- [Viewing and analyzing data in Azure Log Analytics](./platform/data-platform-logs.md) - Updates to include workspace-based applications.
 
 
 ### Platform logs
@@ -151,7 +206,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 ### Alerts
 - [Action rules for Azure Monitor alerts](platform/alerts-action-rules.md) - Added CLI processes.
 - [Create and manage action groups in the Azure portal](platform/action-groups.md) - Updated to reflect changes in UI.
-- [Saved queries in Azure Monitor Log Analytics](log-query/saved-queries.md) - New article.
+- [Example queries in Azure Monitor Log Analytics](log-query/example-queries.md) - New article.
 - [Troubleshoot log alerts in Azure Monitor](platform/alerts-troubleshoot-log.md) - Added section on alert rule quota.
 - [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added section on alert rule on a custom metric that isn't emitted yet.
 - [Understand how metric alerts work in Azure Monitor.](platform/alerts-metric-overview.md) - Added recommendation for selecting aggregation granularity.
@@ -169,7 +224,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Added error message and section CMK configuration for queries.
 - [Azure Monitor HTTP Data Collector API](platform/data-collector-api.md) - Added Python 3 sample.
 - [Optimize log queries in Azure Monitor](log-query/query-optimization.md) - Added section on avoiding multiple data scans when using subqueries.
-- [Tutorial: Get started with Log Analytics queries](log-query/get-started-portal.md) - Added video.
+- [Tutorial: Get started with Log Analytics queries](./log-query/log-analytics-tutorial.md) - Added video.
 
 ### Platform logs
 - [Create diagnostic settings to send platform logs and metrics to different destinations](platform/diagnostic-settings.md) - Added video.
@@ -188,11 +243,11 @@ New and updated articles from restructure of Azure Monitor for VMs content
 - [Connect Linux computers to Azure Monitor](platform/agent-linux.md)
 - [Enable Azure Monitor for a hybrid environment](insights/vminsights-enable-hybrid.md)
 - [Enable Azure Monitor for single virtual machine or virtual machine scale set in the Azure portal](insights/vminsights-enable-portal.md)
-- [Enable Azure Monitor for VMs by using Azure Policy](insights/vminsights-enable-at-scale-policy.md)
+- [Enable Azure Monitor for VMs by using Azure Policy](./insights/vminsights-enable-policy.md)
 - [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md)
 - [Enable Azure Monitor for VMs using PowerShell](insights/vminsights-enable-powershell.md)
 - [Enable Azure Monitor for VMs using Resource Manager templates](insights/vminsights-enable-resource-manager.md)
-- [Enable Azure Monitor for VMs with PowerShell or templates](insights/vminsights-enable-at-scale-powershell.md)
+- [Enable Azure Monitor for VMs with PowerShell or templates](./insights/vminsights-enable-powershell.md)
 
 
 ### Visualizations
@@ -235,7 +290,7 @@ New and updated articles from restructure of Azure Monitor for VMs content
 
 ### Logs
 - [Delete and recover Azure Log Analytics workspace](platform/delete-workspace.md) - Added PowerShell command. Updated troubleshooting.
-- [Manage Log Analytics workspaces in Azure Monitor](platform/manage-access.md) - Added example for unallowed tables in RBAC section.
+- [Manage Log Analytics workspaces in Azure Monitor](platform/manage-access.md) - Added example for unallowed tables in Azure RBAC section.
 - [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Additional detail on calculation of data size. Updated configuring data volume alerts. Details about security data collected by Azure Sentinel. Clarification on data cap.
 - [Use Azure Monitor Logs with Azure Logic Apps and Power Automate](platform/logicapp-flow-connector.md) - Added connector limits.
 
@@ -286,7 +341,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 - [Azure Monitor FAQ](faq.md) - Added section for Metrics.
 - [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Various changes in preparation for general availability.
-- [Built-in policy definitions for Azure Monitor](samples/policy-samples.md) - New article.
+- [Built-in policy definitions for Azure Monitor](./samples/policy-reference.md) - New article.
 - [Customer-owned storage accounts for log ingestion](platform/private-storage.md) - New article.
 - [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Added cluster proportional billing.
 - [Use Azure Private Link to securely connect networks to Azure Monitor](platform/private-link-security.md) - New article.
@@ -324,8 +379,8 @@ New and updated articles from restructure and consolidation of platform log cont
 - [app() expression in Azure Monitor log queries](log-query/app-expression.md)
 - [Log query scope in Azure Monitor Log Analytics](log-query/scope.md)
 - [Query across resources with Azure Monitor](log-query/cross-workspace-query.md)
-- [Standard properties in Azure Monitor log records](platform/log-standard-properties.md)
-- [Structure of Azure Monitor Logs](log-query/logs-structure.md)
+- [Standard properties in Azure Monitor log records](./platform/log-standard-columns.md)
+- [Structure of Azure Monitor Logs](./platform/data-platform-logs.md)
 
 
 
@@ -347,7 +402,7 @@ New and updated articles from restructure and consolidation of platform log cont
 - [Create a Log Analytics workspace using Azure CLI](learn/quick-create-workspace-cli.md) - Added troubleshooting section.
 - [Delete and recover Azure Log Analytics workspace](platform/delete-workspace.md) - Updated information on recovering a deleted workspace.
 - [Functions in Azure Monitor log queries](log-query/functions.md) - Removed note about functions not containing other functions.
-- [Structure of Azure Monitor Logs](log-query/logs-structure.md) - Clarified property descriptions for Application Insights table.
+- [Structure of Azure Monitor Logs](./platform/data-platform-logs.md) - Clarified property descriptions for Application Insights table.
 - [Use Azure Monitor Logs with Azure Logic Apps and Power Automate](platform/logicapp-flow-connector.md) - Added limits section.
 - [Use PowerShell to Create and Configure a Log Analytics Workspace](platform/powershell-workspace-configuration.md) - Added troubleshooting section.
 
@@ -510,7 +565,7 @@ Multiple updates as part of rewrite of diagnostics extension content.
 
 #### Azure Monitor for Containers
 
-- [Integrate Azure Active Directory with Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) - Added note for creating a client application to support RBAC-enabled cluster to support Azure Monitor for containers.
+- [Integrate Azure Active Directory with Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) - Added note for creating a client application to support Kubernetes RBAC-enabled cluster to support Azure Monitor for containers.
 
 #### Azure Monitor for VMs
 
@@ -572,7 +627,7 @@ Multiple New articles for view designer to workbooks conversion guide.
 #### Azure Monitor for Containers
 
 - [Configure Azure Monitor for containers agent data collection](insights/container-insights-agent-config.md) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
-- [Create performance alerts for Azure Monitor for containers](insights/container-insights-alerts.md) - Revised information and updated steps for creating an alert on performance data stored in workspace using workspace-context alerts.
+- [Create performance alerts for Azure Monitor for containers](./insights/container-insights-log-alerts.md) - Revised information and updated steps for creating an alert on performance data stored in workspace using workspace-context alerts.
 - [Kubernetes monitoring with Azure Monitor for containers](insights/container-insights-analyze.md) - Updated both the overview article and the analyze article regarding support of Windows Kubernetes clusters.
 - [Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers](insights/container-insights-azure-redhat-setup.md) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
 - [Configure Hybrid Kubernetes clusters with Azure Monitor for containers](insights/container-insights-hybrid-setup.md) - Updated to reflect added support for secure port:10250 with the Kubelet's cAdvisor.
@@ -592,7 +647,7 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 - [Manage Log Analytics workspaces in Azure Monitor](platform/manage-access.md) - Updates to Not actions.
 - [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Added clarification on calculation of data volume in the Pricing Model section.
-- [Use Azure Resource Manager templates to Create and Configure a Log Analytics Workspace](platform/template-workspace-configuration.md) - Updated template with new pricing tiers.
+- [Use Azure Resource Manager templates to Create and Configure a Log Analytics Workspace](./samples/resource-manager-workspace.md) - Updated template with new pricing tiers.
 
 ### Platform logs
 
@@ -662,9 +717,9 @@ Multiple articles updated as part of restructure of content for platform logs ba
 - [Azure Monitor service limits](service-limits.md)
 - [Collect and analyze Azure activity logs in Log Analytics workspace](./platform/activity-log.md)
 - [Collect Azure Activity log with diagnostic settings (preview) - Azure Monitor](./platform/activity-log.md)
-- [Collect Azure Activity logs into a Log Analytics workspace across Azure tenants](platform/activity-log-collect-tenants.md)
+- [Collect Azure Activity logs into a Log Analytics workspace across Azure tenants](./platform/activity-log.md)
 - [Collect Azure resource logs in Log Analytics workspace](./platform/resource-logs.md#send-to-log-analytics-workspace)
-- [Create diagnostic setting in Azure using Resource Manager template](platform/diagnostic-settings-template.md)
+- [Create diagnostic setting in Azure using Resource Manager template](./samples/resource-manager-diagnostic-settings.md)
 - [Create diagnostic setting to collect logs and metrics in Azure](platform/diagnostic-settings.md)
 - [Export the Azure Activity Log](./platform/activity-log.md#legacy-collection-methods)
 - [Overview of Azure platform logs](platform/platform-logs-overview.md)

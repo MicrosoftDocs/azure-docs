@@ -1,7 +1,7 @@
 ---
 title: Create a data labeling project
 titleSuffix: Azure Machine Learning
-description: Learn how to create and run labeling projects to tag data for machine learning.  The tools include ml assisted labeling, or human in the loop labeling to aid with the task.
+description: Learn how to create and run labeling projects to tag data for machine learning.  Use ML assisted labeling, or human in the loop labeling, to aid with the task.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -247,7 +247,7 @@ Use these steps to add one or more labels to a project:
 
 ## Export the labels
 
-You can export the label data for Machine Learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. Use the **Export** button on the **Project details** page of your labeling project.
+You can export the label data for Machine Learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). Use the **Export** button on the **Project details** page of your labeling project.
 
 The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *export/coco*. You can access the exported Azure Machine Learning dataset in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
 
@@ -257,4 +257,4 @@ The COCO file is created in the default blob store of the Azure Machine Learning
 
 * [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
 * Label images for [image classification or object detection](how-to-label-images.md)
-* Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](compare-azure-ml-to-studio-classic.md)
+* Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)

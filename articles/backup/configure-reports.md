@@ -12,7 +12,7 @@ A common requirement for backup admins is to obtain insights on backups based on
 - Auditing of backups and restores.
 - Identifying key trends at different levels of granularity.
 
-Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/log-query/get-started-portal.md) and [Azure workbooks](../azure-monitor/platform/workbooks-overview.md). These resources help you get rich insights on your backups across your entire backup estate. This article explains how to configure and view Azure Backup reports.
+Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/log-query/log-analytics-tutorial.md) and [Azure workbooks](../azure-monitor/platform/workbooks-overview.md). These resources help you get rich insights on your backups across your entire backup estate. This article explains how to configure and view Azure Backup reports.
 
 ## Supported scenarios
 
@@ -24,6 +24,8 @@ Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs]
 - If you're an [Azure Lighthouse](../lighthouse/index.yml) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
 - Currently, data can be viewed in Backup Reports across a maximum of 100 Log Analytics Workspaces (across tenants).
 - Data for log backup jobs currently isn't displayed in the reports.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## Get started
 

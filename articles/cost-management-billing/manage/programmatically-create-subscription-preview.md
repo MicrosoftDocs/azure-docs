@@ -5,21 +5,29 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Programmatically create Azure subscriptions with preview APIs
 
-This article helps you programmatically create Azure subscriptions using our older preview API. We released a [newer API version](programmatically-create-subscription.md). You can use the information in this article if you don't want to use the latest version. In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
+This article helps you programmatically create Azure subscriptions using our older preview API. In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
+
+We have new articles for the latest API version for use with different Azure agreement subscription types:
+
+- [Create EA subscriptions programmatically with latest API](programmatically-create-subscription-enterprise-agreement.md)
+- [Create MCA subscriptions programmatically with latest API](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Create MPA subscriptions programmatically with latest API](Programmatically-create-subscription-microsoft-customer-agreement.md)
+
+However, you can still use the information in this article if you don't want to use the latest API version.
 
 Azure customers with a billing account for the following agreement types can create subscriptions programmatically:
 
-- [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [Microsoft Customer Agreement (MCA)](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
-- [Microsoft Partner Agreement (MPA)](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement)
+- Enterprise Agreement
+- Microsoft Customer Agreement (MCA)
+- Microsoft Partner Agreement (MPA)
 
 When you create an Azure subscription programmatically, the subscription is governed by the agreement under which you obtained Azure services from Microsoft or an authorized reseller. For more information, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
@@ -98,7 +106,7 @@ Use the `principalName` property to identify the account that you want subscript
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) command to list all enrollment accounts you have access to.
+Use the [az billing enrollment-account list](/cli/azure/billing) command to list all enrollment accounts you have access to.
 
 ```azurecli-interactive
 az billing enrollment-account list
@@ -207,7 +215,7 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 ### Limitations of Azure Enterprise subscription creation API
 
 - Only Azure Enterprise subscriptions can be created using the API.
-- There's a limit of 2000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account.
+- There's a limit of 2000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account. Canceled, deleted, and transferred subscriptions count toward the 2000 limit.
 - Users who aren't Account Owners, but were added to an enrollment account with Azure RBAC, can't create subscriptions in the Azure portal.
 - You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

@@ -1,7 +1,7 @@
 ---
 title: High-performance model serving with Triton (preview)
 titleSuffix: Azure Machine Learning
-description: 'Learn to deploy a model with Triton Inference Server in Azure Machine Learning'
+description: 'Learn to deploy your model with NVIDIA Triton Inference Server in Azure Machine Learning.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ author: gvashishtha
 ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
-ms.custom: deploy
+ms.custom: deploy, devx-track-azurecli
 ---
 
 # High-performance serving with Triton Inference Server (Preview) 
@@ -25,13 +25,13 @@ Triton is a framework that is *optimized for inference*. It provides better util
 > Using Triton for deployment from Azure Machine Learning is currently in __preview__. Preview functionality may not be covered by customer support. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 > [!TIP]
-> The code snippets in this document are for illustrative purposes and may not show a complete solution. For working example code, see the [end-to-end samples of Triton in Azure Machine Learning](https://aka.ms/aml-triton-sample).
+> The code snippets in this document are for illustrative purposes and may not show a complete solution. For working example code, see the [end-to-end samples of Triton in Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/tutorials).
 
 ## Prerequisites
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 * Familiarity with [how and where to deploy a model](how-to-deploy-and-where.md) with Azure Machine Learning.
-* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) **or** the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) and [machine learning extension](reference-azure-machine-learning-cli.md).
+* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py) **or** the [Azure CLI](/cli/azure/?view=azure-cli-latest) and [machine learning extension](reference-azure-machine-learning-cli.md).
 * A working installation of Docker for local testing. For information on installing and validating Docker, see [Orientation and setup](https://docs.docker.com/get-started/) in the docker documentation.
 
 ## Architectural overview
@@ -45,6 +45,17 @@ Before attempting to use Triton for your own model, it's important to understand
 * Inference requests use the __scoring URI__. For example, `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Normal, non-triton, deployment architecture diagram":::
+
+### Setting the number of workers
+
+To set the number of workers in your deployment, set the environment variable `WORKER_COUNT`. Given you have an [Environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) object called `env`, you can do the following:
+
+```{py}
+env.environment_variables["WORKER_COUNT"] = "1"
+```
+
+This will tell Azure ML to spin up the number of workers you specify.
+
 
 **Inference configuration deployment with Triton**
 
@@ -61,7 +72,11 @@ The workflow to use Triton for your model deployment is:
 1. Verify you can send requests to your Triton-deployed model.
 1. Incorporate your Triton-specific code into your AML deployment.
 
-## (Optional) Define a model config file
+## Verify that Triton can serve your model
+
+First, follow the steps below to verify that the Triton Inference Server can serve your model.
+
+### (Optional) Define a model config file
 
 The model configuration file tells Triton how many inputs to expects and of what dimensions those inputs will be. For more information on creating the configuration file, see [Model configuration](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html) in the NVIDIA documentation.
 
@@ -70,7 +85,7 @@ The model configuration file tells Triton how many inputs to expects and of what
 > 
 > For more information on this option, see [Generated model configuration](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html#generated-model-configuration) in the NVIDIA documentation.
 
-## Directory structure
+### Use the correct directory structure
 
 When registering a model with Azure Machine Learning, you can register either individual files or a directory structure. To use Triton, the model registration must be for a directory structure that contains a directory named `triton`. The general structure of this directory is:
 
@@ -88,7 +103,7 @@ models
 > [!IMPORTANT]
 > This directory structure is a Triton Model Repository and is required for your model(s) to work with Triton. For more information, see [Triton Model Repositories](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) in the NVIDIA documentation.
 
-## Test with Triton and Docker
+### Test with Triton and Docker
 
 To test your model to make sure it runs with Triton, you can use Docker. The following commands pull the Triton container to your local computer, and then start the Triton Server:
 
@@ -141,7 +156,7 @@ Beyond a basic health check, you can create a client to send data to Triton for 
 
 For more information on running Triton using Docker, see [Running Triton on a system with a GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-with-a-gpu) and [Running Triton on a system without a GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-without-a-gpu).
 
-## Register your model
+### Register your model
 
 Now that you've verified that your model works with Triton, register it with Azure Machine Learning. Model registration stores your model files in the Azure Machine Learning workspace, and are used when deploying with the Python SDK and Azure CLI.
 
@@ -171,9 +186,9 @@ az ml model register --model-path='triton' \
 
 <a id="processing"></a>
 
-## Add pre and post-processing
+## Verify you can call into your model
 
-After verifying that the web service is working, you can add pre and post-processing code by defining an _entry script_. This file is named `score.py`. For more information on entry scripts, see [Define an entry script](how-to-deploy-and-where.md#define-an-entry-script).
+After verifying that the Triton is able to serve your model, you can add pre and post-processing code by defining an _entry script_. This file is named `score.py`. For more information on entry scripts, see [Define an entry script](how-to-deploy-and-where.md#define-an-entry-script).
 
 The two main steps are to initialize a Triton HTTP client in your `init()` method, and to call into that client in your `run()` function.
 
@@ -223,7 +238,7 @@ An inference configuration allows you use an entry script, as well as the Azure 
 > [!IMPORTANT]
 > You must specify the `AzureML-Triton` [curated environment](./resource-curated-environments.md).
 >
-> The Python code example clones `AzureML-Triton` into another environment called `My-Triton`. The Azure CLI code also uses this environment. For more information on cloning an environment, see the [Environment.Clone()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#clone-new-name-) reference.
+> The Python code example clones `AzureML-Triton` into another environment called `My-Triton`. The Azure CLI code also uses this environment. For more information on cloning an environment, see the [Environment.Clone()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) reference.
 
 # [Python](#tab/python)
 
@@ -278,7 +293,7 @@ az ml model deploy -n triton-densenet-onnx \
 
 ---
 
-After deployment completes, the scoring URI is displayed. For this local deployment, it will be `http://localhost:6789/score`. If you deploy to the cloud, you can use the [az ml service show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI command to get the scoring URI.
+After deployment completes, the scoring URI is displayed. For this local deployment, it will be `http://localhost:6789/score`. If you deploy to the cloud, you can use the [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI command to get the scoring URI.
 
 For information on how to create a client that sends inference requests to the scoring URI, see [consume a model deployed as a web service](how-to-consume-web-service.md).
 

@@ -18,7 +18,7 @@ ms.date: 09/01/2020
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-By using Azure Private Link, you can connect to various platform as a service (PaaS) deployments in Azure via a private endpoint. A private endpoint is a private IP address within a specific virtual network and subnet. For a list of PaaS deployments that support Private Link functionality, see [Private Link documentation](https://docs.microsoft.com/azure/private-link/). 
+By using Azure Private Link, you can connect to various platforms as a service (PaaS) deployments in Azure via a private endpoint. A private endpoint is a private IP address within a specific virtual network and subnet. For a list of PaaS deployments that support Private Link functionality, see [Private Link documentation](../private-link/index.yml). 
 
 ## Secure communication between customer networks and Azure Data Factory 
 You can set up an Azure virtual network as a logical representation of your network in the cloud. Doing so provides the following benefits:
@@ -54,7 +54,7 @@ Enabling the Private Link service for each of the preceding communication channe
    - The command communications between the self-hosted integration runtime and the Azure Data Factory service can be performed securely in a private network environment. The traffic between the self-hosted integration runtime and the Azure Data Factory service goes through Private Link. 
 - **Not currently supported**:
    - Interactive authoring that uses a self-hosted integration runtime, such as test connection, browse folder list and table list, get schema, and preview data, goes through Private Link.
-   - The new version of the self-hosted integration runtime can be automatically downloaded from Microsoft Download Center if you enable AutoUpdate.
+   - The new version of the self-hosted integration runtime can be automatically downloaded from Microsoft Download Center if you enable Auto-Update.
 
    > [!NOTE]
    > For functionality that's not currently supported, you still need to configure the previously mentioned domain and port in the virtual network or your corporate firewall. 
@@ -62,8 +62,35 @@ Enabling the Private Link service for each of the preceding communication channe
 > [!WARNING]
 > When you create a linked service, make sure that your credentials are stored in an Azure key vault. Otherwise, the credentials won't work when you enable Private Link in Azure Data Factory.
 
+## DNS changes for Private Endpoints
+When you create a private endpoint, the DNS CNAME resource record for the Data Factory is updated to an alias in a subdomain with the prefix 'privatelink'. By default, we also create a [private DNS zone](https://docs.microsoft.com/azure/dns/private-dns-overview), corresponding to the 'privatelink' subdomain, with the DNS A resource records for the private endpoints.
+
+When you resolve the data factory endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the data factory service. When resolved from the VNet hosting the private endpoint, the storage endpoint URL resolves to the private endpoint's IP address.
+
+For the illustrated example above, the DNS resource records for the Data Factory 'DataFactoryA', when resolved from outside the VNet hosting the private endpoint, will be:
+
+| Name | Type | Value |
+| ---------- | -------- | --------------- |
+| DataFactoryA.{region}.datafactory.azure.net |	CNAME	| DataFactoryA.{region}.privatelink.datafactory.azure.net |
+| DataFactoryA.{region}.privatelink.datafactory.azure.net |	CNAME	| < data factory service public endpoint > |
+| < data factory service public endpoint >	| A | < data factory service public IP address > |
+
+The DNS resource records for DataFactoryA, when resolved in the VNet hosting the private endpoint, will be:
+
+| Name | Type | Value |
+| ---------- | -------- | --------------- |
+| DataFactoryA.{region}.datafactory.azure.net | CNAME	| DataFactoryA.{region}.privatelink.datafactory.azure.net |
+| DataFactoryA.{region}.privatelink.datafactory.azure.net	| A | < private endpoint IP address > |
+
+If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Data Factory endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for ' DataFactoryA.{region}.privatelink.datafactory.azure.net' with the private endpoint IP address.
+
+For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
+- [Name resolution for resources in Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+
+
 ## Set up Private Link for Azure Data Factory
-You can create private endpoints by using [the Azure portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal), PowerShell, or the Azure CLI.
+You can create private endpoints by using [the Azure portal](../private-link/create-private-endpoint-portal.md).
 
 You can also go to your Azure data factory in the Azure portal and create a private endpoint, as shown here:
 
@@ -85,4 +112,3 @@ If you want to block public access to the Azure data factory and allow access on
 - [Create a data factory by using the Azure Data Factory UI](quickstart-create-data-factory-portal.md)
 - [Introduction to Azure Data Factory](introduction.md)
 - [Visual authoring in Azure Data Factory](author-visually.md)
-

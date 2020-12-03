@@ -22,7 +22,7 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
 > [!NOTE]
 > 
-> Azure Storage automatically encrypts data when it is persisted. You can use your own keys for the encryption. For more information, see [Customer-managed keys with Azure Key Vault](/azure/storage/common/storage-service-encryption).
+> Azure Storage automatically encrypts data when it is persisted. You can use your own keys for the encryption. For more information, see [Customer-managed keys with Azure Key Vault](../storage/common/storage-service-encryption.md).
 > 
 > 
 
@@ -57,7 +57,7 @@ Persistence writes Redis data into an Azure Storage account that you own and man
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Backup Frequency** | Drop-down and select a backup interval, choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. | This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated. | 
-   | **Storage Account** | Drop-down and select your storage account. | You must choose a storage account in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput.  | 
+   | **Storage Account** | Drop-down and select your storage account. | You must choose a storage account in the same region and subscription as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput.  | 
    | **Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
 
     The first backup is initiated once the backup frequency interval elapses.
@@ -66,9 +66,9 @@ Persistence writes Redis data into an Azure Storage account that you own and man
    
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **First Storage Account** | Drop-down and select your storage account. | This storage account must be in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. | 
+   | **First Storage Account** | Drop-down and select your storage account. | This storage account must be in the same region and subscription as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. | 
    | **First Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
-   | **Second Storage Account** | (Optional) Drop-down and choose either the **Primary key** or **Secondary key** to use. | You can optionally configure an additional storage account. If a second storage account is configured, the writes to the replica cache are written to this second storage account. | 
+   | **Second Storage Account** | (Optional) Drop-down and select your secondary storage account. | You can optionally configure an additional storage account. If a second storage account is configured, the writes to the replica cache are written to this second storage account. | 
    | **Second Storage Key** | (Optional) Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
 
     When AOF persistence is enabled, write operations to the cache are saved to the designated storage account (or accounts if you have configured a second storage account). In the event of a catastrophic failure that takes down both the primary and replica cache, the stored AOF log is used to rebuild the cache.
@@ -90,6 +90,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 * [Can I enable AOF and RDB persistence at the same time?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
 * [Which persistence model should I choose?](#which-persistence-model-should-i-choose)
 * [What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+* [Can I use the same storage account for persistence across two different caches?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
 
 
 ### RDB persistence
@@ -129,6 +130,9 @@ For both RDB and AOF persistence:
 * If you have scaled to a larger size, there is no impact.
 * If you have scaled to a smaller size, and you have a custom [databases](cache-configure.md#databases) setting that is greater than the [databases limit](cache-configure.md#databases) for your new size, data in those databases isn't restored. For more information, see [Is my custom databases setting affected during scaling?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
 * If you have scaled to a smaller size, and there isn't enough room in the smaller size to hold all of the data from the last backup, keys will be evicted during the restore process, typically using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
+
+### Can I use the same storage account for persistence across two different caches?
+Yes, you can use the same storage account for persistence across two different caches
 
 ### Can I change the RDB backup frequency after I create the cache?
 Yes, you can change the backup frequency for RDB persistence on the **Data persistence** blade. For instructions, see Configure Redis persistence.

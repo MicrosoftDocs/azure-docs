@@ -232,7 +232,7 @@ For more information about SQL Data Sync, see:
         -  [Use PowerShell to sync between multiple databases in Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Use PowerShell to sync between a database in SQL Database and a database in a SQL Server instance](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-data-sync-agent-overview.md)
--   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](sql-data-sync-monitor-sync.md)
+-   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](./monitor-tune-overview.md)
 -   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](sql-data-sync-troubleshoot.md)
 -   Update the sync schema
     -   With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](sql-data-sync-update-sync-schema.md)
@@ -241,4 +241,4 @@ For more information about SQL Data Sync, see:
 For more information about SQL Database, see:
 
 -   [SQL Database overview](sql-database-paas-overview.md)
--   [Database lifecycle management](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Database lifecycle management](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Fivetran and data warehouse" 
-description: Get started with Fivetran and an Azure Synapse Analytics data warehouse.  
+title: "Quickstart: Fivetran and dedicated SQL pool (formerly SQL DW)" 
+description: Get started with Fivetran and dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.  
 services: synapse-analytics
 author: mlee3gsd 
 manager: craigg
@@ -13,15 +13,15 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Quickstart: Fivetran with data warehouse 
+# Quickstart: Fivetran with dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
 
-This quickstart describes how to set up a new Fivetran user to work with an Azure Synapse Analytics data warehouse provisioned with a SQL pool. The article assumes that you have an existing data warehouse.
+This quickstart describes how to set up a new Fivetran user to work with a dedicated SQL pool (formerly SQL DW). The article assumes that you have an existing dedicated SQL pool (formerly SQL DW).
 
 ## Set up a connection
 
-1. Find the fully qualified server name and database name that you use to connect to your data warehouse.
+1. Find the fully qualified server name and database name that you use to connect to your dedicated SQL pool (formerly SQL DW).
     
-    If you need help finding this information, see [Connect to your data warehouse](../sql/connect-overview.md).
+    If you need help finding this information, see [Connect to your dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-connection-strings.md).
 
 2. In the setup wizard, choose whether to connect your database directly or by using an SSH tunnel.
 
@@ -29,13 +29,13 @@ This quickstart describes how to set up a new Fivetran user to work with an Azur
 
    If you choose to connect using an SSH tunnel, Fivetran connects to a separate server on your network. The server provides an SSH tunnel to your database. You must use this method if your database is in an inaccessible subnet on a virtual network.
 
-3. Add the IP address **52.0.2.4** to your server-level firewall to allow incoming connections to your data warehouse instance from Fivetran.
+3. Add the IP address **52.0.2.4** to your server-level firewall to allow incoming connections to your dedicated SQL pool (formerly SQL DW) instance from Fivetran.
 
    For more information, see [Create a server-level firewall rule](create-data-warehouse-portal.md#create-a-server-level-firewall-rule).
 
 ## Set up user credentials
 
-1. Connect to your data warehouse by using SQL Server Management Studio (SSMS) or the tool that you prefer. Sign in as a server admin user. Then, run the following SQL commands to create a user for Fivetran:
+1. Connect to your dedicated SQL pool (formerly SQL DW) by using SQL Server Management Studio (SSMS) or the tool that you prefer. Sign in as a server admin user. Then, run the following SQL commands to create a user for Fivetran:
 
     - In the master database: 
     
@@ -43,7 +43,7 @@ This quickstart describes how to set up a new Fivetran user to work with an Azur
       CREATE LOGIN fivetran WITH PASSWORD = '<password>'; 
       ```
 
-    - In the data warehouse database:
+    - In the dedicated SQL pool (formerly SQL DW) database:
 
       ```sql
       CREATE USER fivetran_user_without_login without login;
@@ -51,7 +51,7 @@ This quickstart describes how to set up a new Fivetran user to work with an Azur
       GRANT IMPERSONATE on USER::fivetran_user_without_login to fivetran;
       ```
 
-2. Grant the Fivetran user the following permissions to your data warehouse:
+2. Grant the Fivetran user the following permissions to your dedicated SQL pool (formerly SQL DW):
 
     ```sql
     GRANT CONTROL to fivetran;
@@ -72,7 +72,7 @@ This quickstart describes how to set up a new Fivetran user to work with an Azur
 
 ## Connect from Fivetran
 
-To connect to your data warehouse from your Fivetran account, enter the credentials that you use to access your data warehouse: 
+To connect to your dedicated SQL pool (formerly SQL DW) from your Fivetran account, enter the credentials that you use to access your dedicated SQL pool (formerly SQL DW): 
 
 * Host (your server name).
 * Port.

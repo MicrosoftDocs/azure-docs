@@ -31,13 +31,13 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* You need the latest version of the command-line interface (CLI). For more information, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* You need the latest version of the command-line interface (CLI). For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 * Review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 * You must have an active ExpressRoute circuit. 
   * Follow the instructions to [create an ExpressRoute circuit](howto-circuit-cli.md) and have the circuit enabled by your connectivity provider. 
   * Ensure that you have Azure private peering configured for your circuit. See the [configure routing](howto-routing-cli.md) article for routing instructions. 
   * Ensure that Azure private peering is configured. The BGP peering between your network and Microsoft must be established so that you can enable end-to-end connectivity.
-  * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [Configure a virtual network gateway for ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Be sure to use `--gateway-type ExpressRoute`.
+  * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [Configure a virtual network gateway for ExpressRoute](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md). Be sure to use `--gateway-type ExpressRoute`.
 * You can link up to 10 virtual networks to a standard ExpressRoute circuit. All virtual networks must be in the same geopolitical region when using a standard ExpressRoute circuit. 
 * A single VNet can be linked to up to four ExpressRoute circuits. Use the following process to create a new connection object for each ExpressRoute circuit you're connecting to. The ExpressRoute circuits can be in the same subscription, different subscriptions, or a mix of both.
 * If you enable the ExpressRoute premium add-on, you can link virtual networks outside of the geopolitical region of the ExpressRoute circuit. The premium add-on will also allow you to connect more than 10 virtual networks to your ExpressRoute circuit depending on the bandwidth chosen. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.

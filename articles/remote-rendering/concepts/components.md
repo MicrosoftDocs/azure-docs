@@ -58,12 +58,12 @@ The Unity integration has additional extension functions for interacting with co
 
 ## API documentation
 
-* [C# ComponentBase](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.componentbase)
-* [C# RemoteManager.CreateComponent()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createcomponent)
-* [C# Entity.FindComponentOfType()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity.findcomponentoftype)
-* [C++ ComponentBase](https://docs.microsoft.com/cpp/api/remote-rendering/componentbase)
-* [C++ RemoteManager::CreateComponent()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createcomponent)
-* [C++ Entity::FindComponentOfType()](https://docs.microsoft.com/cpp/api/remote-rendering/entity#findcomponentoftype)
+* [C# ComponentBase](/dotnet/api/microsoft.azure.remoterendering.componentbase)
+* [C# RemoteManager.CreateComponent()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.createcomponent)
+* [C# Entity.FindComponentOfType()](/dotnet/api/microsoft.azure.remoterendering.entity.findcomponentoftype)
+* [C++ ComponentBase](/cpp/api/remote-rendering/componentbase)
+* [C++ RemoteManager::CreateComponent()](/cpp/api/remote-rendering/remotemanager#createcomponent)
+* [C++ Entity::FindComponentOfType()](/cpp/api/remote-rendering/entity#findcomponentoftype)
 
 ## Next steps
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 11/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -34,10 +34,7 @@ If your environment is ready to block legacy authentication to improve your tena
 
 ## Prerequisites
 
-This article assumes that you are familiar with: 
-
-- The [basic concepts](overview.md) of Azure AD Conditional Access 
-- The [best practices](best-practices.md) for configuring Conditional Access policies in the Azure portal
+This article assumes that you are familiar with the [basic concepts](overview.md) of Azure AD Conditional Access.
 
 ## Scenario description
 
@@ -60,7 +57,7 @@ This section explains how to configure a Conditional Access policy to block lega
 
 The following options are considered legacy authentication protocols
 
-- Authenticated SMTP - Used by POP and IMAP client's to send email messages.
+- Authenticated SMTP - Used by POP and IMAP clients to send email messages.
 - Autodiscover - Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.
 - Exchange ActiveSync (EAS) - Used to connect to mailboxes in Exchange Online.
 - Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
@@ -116,6 +113,10 @@ Configuring a policy for **Other clients** blocks the entire organization from c
 It can take up to 24 hours for the policy to go into effect.
 
 You can select all available grant controls for the **Other clients** condition; however, the end-user experience is always the same - blocked access.
+
+### SharePoint Online and B2B guest users
+
+To block B2B user access via legacy authentication to SharePoint Online, organizations must disable legacy authentication on SharePoint using the `Set-SPOTenant` PowerShell command and setting the `-LegacyAuthProtocolsEnabled` parameter to `$false`. More information about setting this parameter can be found in the SharePoint PowerShell reference document regarding [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)
 
 ## Next steps
 

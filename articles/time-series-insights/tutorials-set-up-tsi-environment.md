@@ -34,7 +34,7 @@ Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if yo
 
 ## Prerequisites
 
-* At minimum, you must have the **Contributor** role for the Azure subscription. For more information, read [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+* At minimum, you must have the **Contributor** role for the Azure subscription. For more information, read [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Create a device simulation
 
@@ -87,7 +87,7 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
     | **Resource group** | Select an existing resource group or create a new resource group for the Azure Time Series Insights Gen2 environment resource. A resource group is a container for Azure resources. A best practice is to use the same resource group as the other IoT resources that are created by the device simulator. |
     | **Location** | Select a data center region for your Azure Time Series Insights Gen2 environment. To avoid additional latency, it's best to create your Azure Time Series Insights Gen2 environment in the same region as your IoT hub created by the device simulator. |
     | **Tier** |  Select **Gen2(L1)**. This is the SKU for the Azure Time Series Insights Gen2 product. |
-    | **Time Series ID property name** | Enter a name of a property that contains values that uniquely identify your time series instances. The value you enter in the **Property name** box as Time Series ID cannot be changed later. For this tutorial, enter ***iothub-connection-device-id***. To learn more about Time Series ID including composite Time Series ID, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
+    | **Time Series ID property name** | Enter a name of a property that contains values that uniquely identify your time series instances. The value you enter in the **Property name** box as Time Series ID cannot be changed later. For this tutorial, enter ***iothub-connection-device-id***. To learn more about Time Series ID including composite Time Series ID, read [Best practices for choosing a Time Series ID](./how-to-select-tsid.md). |
     | **Storage account name** | Enter a globally unique name for a new storage account.|
     | **Storage account kind** | Select the storage kind for a new storage account. We recommend StorageV2|
     | **Storage account replication** | Select the storage kind for a new storage account. Based on your location selection, you can choose from LRS, GRS and ZRS. For this tutorial, you can select LRS|
@@ -139,7 +139,7 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
 
    1. Verify that your credentials are listed:
 
-      If your credentials aren't listed, you must grant yourself permission to access the environment by selecting Add and searching for your credentials. To learn more about setting permissions, read [Grant data access](./time-series-insights-data-access.md).
+      If your credentials aren't listed, you must grant yourself permission to access the environment by selecting Add and searching for your credentials. To learn more about setting permissions, read [Grant data access](./concepts-access-policies.md).
 
 ## Stream data
 
@@ -173,7 +173,7 @@ Now that you've deployed your Azure Time Series Insights Gen2 environment, begin
 
 ## Analyze data
 
-In this section, you perform basic analytics on your time series data by using the [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
+In this section, you perform basic analytics on your time series data by using the [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
 
 1. Go to your Azure Time Series Insights Gen2 Explorer by selecting the URL from the resource page in the [Azure portal](https://portal.azure.com/).
 

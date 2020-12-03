@@ -44,6 +44,8 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [NCv3-series](ncv3-series.md)
 * [ND-series](nd-series.md)
 * [NVv3-series](nvv3-series.md)
+* [NVv4-series](nvv4-series.md)
+* [NCasT4_v3-series](nct4-v3-series.md)
 
 <sup>1</sup> Mv2-series does not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](mv2-series.md) for details.
 
@@ -96,7 +98,8 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
 | Shared image gallery              | :heavy_check_mark: | :heavy_check_mark: |
-| Azure disk encryption             | :heavy_check_mark: | :x:                |
+| [Azure disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Server-side encryption](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## Creating a generation 2 VM
 

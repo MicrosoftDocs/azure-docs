@@ -31,7 +31,7 @@ To restore a dropped Azure Database for MySQL server, you need following:
    
  3. Double Click on the Delete MySQL Server event and click on the JSON tab and note the "resourceId" and "submissionTimestamp" attributes in JSON output. The resourceId is in the following format: /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforMySQL/servers/deletedserver.
  
- 4. Go to [Create Server REST API Page](https://docs.microsoft.com/rest/api/mysql/servers/create) and click on "Try It" tab highlighted in green and login in with your Azure account.
+ 4. Go to [Create Server REST API Page](/rest/api/mysql/servers/create) and click on "Try It" tab highlighted in green and login in with your Azure account.
  
  5. Provide the resourceGroupName, serverName (deleted server name), subscriptionId, derived from resourceId attribute captured in Step 3, while api-version is pre-populated as shown in image.
  

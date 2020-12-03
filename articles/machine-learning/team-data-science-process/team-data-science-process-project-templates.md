@@ -25,7 +25,7 @@ The lifecycle outlines the major stages that projects typically execute, often i
 - Deployment
 - Customer Acceptance
 
-For descriptions of each of these stages, see [The Team Data Science Process lifecycle](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
+For descriptions of each of these stages, see [The Team Data Science Process lifecycle](./lifecycle.md).
 
  
 ## Microsoft Project template
@@ -56,5 +56,4 @@ Use this [project template repository](https://github.com/Azure/Azure-TDSP-Proje
 
 [Agile development of data science projects](agile-development.md) This document describes a data science project in a systematic, version controlled, and collaborative way by using the Team Data Science Process.
 
-Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
-
+Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.

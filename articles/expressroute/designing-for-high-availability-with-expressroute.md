@@ -90,12 +90,8 @@ For design considerations to build geo-redundant network connectivity to Microso
 
 
 <!--Link References-->
-[zone redundant vgw]: https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways
-[conf zone redundant vgw]: https://docs.microsoft.com/azure/vpn-gateway/create-zone-redundant-vnet-gateway
-[Configure Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach
-[BFD]: https://docs.microsoft.com/azure/expressroute/expressroute-bfd
-[DR]: https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering
-
-
-
-
+[zone redundant vgw]: ../vpn-gateway/about-zone-redundant-vnet-gateways.md
+[conf zone redundant vgw]: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+[Configure Global Reach]: ./expressroute-howto-set-global-reach.md
+[BFD]: ./expressroute-bfd.md
+[DR]: ./designing-for-disaster-recovery-with-expressroute-privatepeering.md

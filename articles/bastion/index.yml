@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 08/29/2019
+  ms.date: 10/20/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -32,6 +32,10 @@ landingContent:
   # Card
   - title: Get started
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Configure Bastion and connect to a VM
+            url: quickstart-host-portal.md
       - linkListType: how-to-guide
         links:
           - text: Create a Bastion host

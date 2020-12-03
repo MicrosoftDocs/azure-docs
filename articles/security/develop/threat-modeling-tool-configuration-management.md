@@ -84,7 +84,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [ASP.NET Debugging Overview](https://msdn.microsoft.com/library/ms227556.aspx), [ASP.NET Tracing Overview](https://msdn.microsoft.com/library/bb386420.aspx), [How to: Enable Tracing for an ASP.NET Application](https://msdn.microsoft.com/library/0x5wc973.aspx), [How to: Enable Debugging for ASP.NET Applications](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **References**              | [ASP.NET Debugging Overview](/previous-versions/ms227556(v=vs.140)), [ASP.NET Tracing Overview](/previous-versions/bb386420(v=vs.140)), [How to: Enable Tracing for an ASP.NET Application](/previous-versions/0x5wc973(v=vs.140)), [How to: Enable Debugging for ASP.NET Applications](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Steps** | When tracing is enabled for the page, every browser requesting it also obtains the trace information that contains data about internal server state and workflow. That information could be security sensitive. When debugging is enabled for the page, errors happening on the server result in a full stack trace data presented to the browser. That data may expose security-sensitive information about the server's workflow. |
 
 ## <a id="js-trusted"></a>Access third-party javascripts from trusted sources only
@@ -106,7 +106,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [OWASP click-jacking Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html), [IE Internals - Combating click-jacking With X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
+| **References**              | [OWASP click-jacking Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html), [IE Internals - Combating click-jacking With X-Frame-Options](/archive/blogs/ieinternals/combating-clickjacking-with-x-frame-options) |
 | **Steps** | <p>click-jacking, also known as a "UI redress attack", is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the top-level page.</p><p>This layering is achieved by crafting a malicious page with an iframe, which loads the victim's page. Thus, the attacker is "hijacking" clicks meant for their page and routing them to another page, most likely owned by another application, domain, or both. To prevent click-jacking attacks, set the proper X-Frame-Options HTTP response headers that instruct the browser to not allow framing from other domains</p>|
 
 ### Example
@@ -209,7 +209,7 @@ Please note that Request Validation feature is not supported, and is not part of
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [IE8 Security Part V: Comprehensive Protection](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection), [MIME type](https://en.wikipedia.org/wiki/Mime_type) |
+| **References**              | [IE8 Security Part V: Comprehensive Protection](/archive/blogs/ie/ie8-security-part-v-comprehensive-protection), [MIME type](https://en.wikipedia.org/wiki/Mime_type) |
 | **Steps** | The X-Content-Type-Options header is an HTTP header that allows developers to specify that their content should not be MIME-sniffed. This header is designed to mitigate MIME-Sniffing attacks. For each page that could contain user controllable content, you must use the HTTP Header X-Content-Type-Options:nosniff. To enable the required header globally for all pages in the application, you can do one of the following|
 
 ### Example
@@ -285,7 +285,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | SQL Azure, OnPrem |
 | **Attributes**              | N/A, SQL Version - V12 |
-| **References**              | [How to configure an Azure SQL Database firewall](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configure a Windows Firewall for Database Engine Access](https://msdn.microsoft.com/library/ms175043) |
+| **References**              | [How to configure an Azure SQL Database firewall](../../azure-sql/database/firewall-configure.md), [Configure a Windows Firewall for Database Engine Access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) |
 | **Steps** | Firewall systems help prevent unauthorized access to computer resources. To access an instance of the SQL Server Database Engine through a firewall, you must configure the firewall on the computer running SQL Server to allow access |
 
 ## <a id="cors-api"></a>Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web API
@@ -296,7 +296,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC 5 |
 | **Attributes**              | N/A  |
-| **References**              | [Enabling Cross-Origin Requests in ASP.NET Web API 2](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.NET Web API - CORS Support in ASP.NET Web API 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
+| **References**              | [Enabling Cross-Origin Requests in ASP.NET Web API 2](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.NET Web API - CORS Support in ASP.NET Web API 2](/archive/msdn-magazine/2013/december/asp-net-web-api-cors-support-in-asp-net-web-api-2) |
 | **Steps** | <p>Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the same-origin policy, and prevents a malicious site from reading sensitive data from another site. However, sometimes it might be required to expose APIs securely which other sites can consume. Cross Origin Resource Sharing (CORS) is a W3C standard that allows a server to relax the same-origin policy.</p><p>Using CORS, a server can explicitly allow some cross-origin requests while rejecting others. CORS is safer and more flexible than earlier techniques such as JSONP.</p>|
 
 ### Example
@@ -486,7 +486,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Specifying a Protected Configuration Provider](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Using Azure Key Vault to protect application secrets](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **References**              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI](/previous-versions/msp-n-p/ff647398(v=pandp.10)), [Specifying a Protected Configuration Provider](/previous-versions/68ze1hb2(v=vs.140)), [Using Azure Key Vault to protect application secrets](/azure/architecture/multitenant-identity/web-api) |
 | **Steps** | Configuration files such as the Web.config, appsettings.json are often used to hold sensitive information, including user names, passwords, database connection strings, and encryption keys. If you do not protect this information, your application is vulnerable to attackers or malicious users obtaining sensitive information such as account user names and passwords, database names and server names. Based on the deployment type (azure/on-prem), encrypt the sensitive sections of config files using DPAPI or services like Azure Key Vault. |
 
 ## <a id="admin-strong"></a>Ensure that all admin interfaces are secured with strong credentials
@@ -508,7 +508,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/securebootandbitlocker) |
+| **References**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](/windows/iot-core/secure-your-device/securebootandbitlocker) |
 | **Steps** | UEFI Secure Boot restricts the system to only allow execution of binaries signed by a specified authority. This feature prevents unknown code from being executed on the platform and potentially weakening the security posture of it. Enable UEFI Secure Boot and restrict the list of certificate authorities that are trusted for signing code. Sign all code that is deployed on the device using one of the trusted authorities. |
 
 ## <a id="partition-iot"></a>Encrypt OS and additional partitions of IoT Device with bit-locker
@@ -563,7 +563,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Gateway choice - Azure IoT Hub |
-| **References**              | [IoT Hub Device Management Overview](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware](../../iot-hub/tutorial-firmware-update.md) |
+| **References**              | [IoT Hub Device Management Overview](../../iot-hub/iot-hub-device-management-overview.md), [How to update Device Firmware](../../iot-hub/tutorial-firmware-update.md) |
 | **Steps** | LWM2M is a protocol from the Open Mobile Alliance for IoT Device Management. Azure IoT device management allows to interact with physical devices using device jobs. Ensure that the Cloud Gateway implements a process to routinely keep the device and other configuration data up to date using Azure IoT Hub Device Management. |
 
 ## <a id="controls-policies"></a>Ensure that devices have end-point security controls configured as per organizational policies
@@ -585,7 +585,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Azure Storage security guide - Managing Your Storage Account Keys](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_managing-your-storage-account-keys) |
+| **References**              | [Azure Storage security guide - Managing Your Storage Account Keys](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Steps** | <p>Key Storage: It is recommended to store the Azure Storage access keys in Azure Key Vault as a secret and have the applications retrieve the key from key vault. This is recommended due to the following reasons:</p><ul><li>The application will never have the storage key hardcoded in a configuration file, which removes that avenue of somebody getting access to the keys without specific permission</li><li>Access to the keys can be controlled using Azure Active Directory. This means an account owner can grant access to the handful of applications that need to retrieve the keys from Azure Key Vault. Other applications will not be able to access the keys without granting them permission specifically</li><li>Key Regeneration: It is recommended to have a process in place to regenerate Azure storage access keys for security reasons. Details on why and how to plan for key regeneration are documented in the Azure Storage Security Guide reference article</li></ul>|
 
 ## <a id="cors-storage"></a>Ensure that only trusted origins are allowed if CORS is enabled on Azure storage
@@ -596,7 +596,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [CORS Support for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dn535601.aspx) |
+| **References**              | [CORS Support for the Azure Storage Services](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services) |
 | **Steps** | Azure Storage allows you to enable CORS – Cross Origin Resource Sharing. For each storage account, you can specify domains that can access the resources in that storage account. By default, CORS is disabled on all services. You can enable CORS by using the REST API or the storage client library to call one of the methods to set the service policies. |
 
 ## <a id="throttling"></a>Enable WCF's service throttling feature
@@ -607,7 +607,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
+| **References**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Steps** | <p>Not placing a limit on the use of system resources could result in resource exhaustion and ultimately a denial of service.</p><ul><li>**EXPLANATION:** Windows Communication Foundation (WCF) offers the ability to throttle service requests. Allowing too many client requests can flood a system and exhaust its resources. On the other hand, allowing only a small number of requests to a service can prevent legitimate users from using the service. Each service should be individually tuned to and configured to allow the appropriate amount of resources.</li><li>**RECOMMENDATIONS** Enable WCF's service throttling feature and set limits appropriate for your application.</li></ul>|
 
 ### Example
@@ -630,7 +630,7 @@ The following is an example configuration with throttling enabled:
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
+| **References**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Steps** | Metadata can help attackers learn about the system and plan a form of attack. WCF services can be configured to expose metadata. Metadata gives detailed service description information and should not be broadcast in production environments. The `HttpGetEnabled` / `HttpsGetEnabled` properties of the ServiceMetaData class defines whether a service will expose the metadata | 
 
 ### Example

@@ -133,13 +133,13 @@ The following sample uses an aggregate expression. The code calculates a count b
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [DataSource class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)
+> [DataSource class](/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
-> [DataSourceOptions object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions)
+> [DataSourceOptions object](/javascript/api/azure-maps-control/atlas.datasourceoptions)
 
 > [!div class="nextstepaction"]
-> [atlas.math namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)
+> [atlas.math namespace](/javascript/api/azure-maps-control/atlas.math)
 
 See code examples to add functionality to your app:
 

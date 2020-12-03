@@ -25,7 +25,7 @@ By monitoring the activities and configuration settings related to identity, you
 
 Azure Security Center has two dedicated security controls for ensuring you're meeting your organization's identity and security requirements: 
 
- - **Manage access and permissions** - We encourage you to adopt the [least privilege access model](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and ensure you grant your users only the access necessary for them to do their jobs. This control also includes recommendations for implementing [role-based access control (RBAC)](../role-based-access-control/overview.md) to control access to your resources.
+ - **Manage access and permissions** - We encourage you to adopt the [least privilege access model](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and ensure you grant your users only the access necessary for them to do their jobs. This control also includes recommendations for implementing [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) to control access to your resources.
  
  - **Enable MFA** - With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on.
 
@@ -47,11 +47,11 @@ There are some limitations to Security Center's identity and access protections:
 
 - Identity recommendations aren't available for subscriptions with more than 600 accounts. In such cases, these recommendations will be listed under "unavailable assessments".
 - Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
-- Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you may see inaccurate results in the **Manage access and permissions** control.
+- Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
 
 ## Multi-factor authentication (MFA) and Azure Active Directory 
 
-Enabling MFA requires [Azure Active Directory (AD) tenant permissions](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Enabling MFA requires [Azure Active Directory (AD) tenant permissions](../active-directory/roles/permissions-reference.md).
 
 - If you have a premium edition of AD, enable MFA using [Conditional Access](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 - If you're using AD free edition, enable **security defaults** as described in [Azure Active Directory documentation](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
@@ -79,7 +79,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
     > The accounts are shown as object IDs rather than account names to protect the privacy of the account holders.
 
 > [!TIP]
-> Alternatively, you can use Security Center's REST API method [Assessments - Get](https://docs.microsoft.com/rest/api/securitycenter/assessments/get).
+> Alternatively, you can use Security Center's REST API method [Assessments - Get](/rest/api/securitycenter/assessments/get).
 
 
 ## Next steps

@@ -56,7 +56,7 @@ Azure IoT Central uses Azure IoT Hub as a cloud gateway that enables device conn
 - Device management.
 - Secure device connectivity.
 
-To learn more about IoT Hub, see [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
+To learn more about IoT Hub, see [Azure IoT Hub](../../iot-hub/index.yml).
 
 **Where can I learn more about the Device Provisioning Service (DPS)?**
 

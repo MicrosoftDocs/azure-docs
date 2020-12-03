@@ -43,8 +43,8 @@ The score, or predicted value, can be in many different formats, depending on th
 
 ## Publish scores as a web service
 
-A common use of scoring is to return the output as part of a predictive web service. For more information, see [this tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) on how to deploy a real-time endpoint based on a pipeline in Azure Machine Learning designer.
+A common use of scoring is to return the output as part of a predictive web service. For more information, see [this tutorial](../tutorial-designer-automobile-price-deploy.md) on how to deploy a real-time endpoint based on a pipeline in Azure Machine Learning designer.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

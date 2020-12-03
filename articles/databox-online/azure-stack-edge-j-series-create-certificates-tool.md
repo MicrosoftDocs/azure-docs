@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 11/17/2020
 ms.author: alkohli
 ---
 
@@ -38,7 +38,7 @@ You can use the Azure Stack Hub Readiness Checker tool (AzsReadinessChecker) to 
 To create CSRs for Azure Stack Edge Pro device deployment, make sure that: 
 
 - You've a client running Windows 10 or Windows Server 2016 or later. 
-- You've downloaded the Microsoft Azure Stack Hub Readiness Checker tool 1.2002.1133.85 [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker) on this system. You may need to search for this package. Only this version of the tool can create certificates for Azure Stack Edge Pro devices.
+- You've downloaded the Microsoft Azure Stack Hub Readiness Checker tool [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker) on this system.
 - You have the following information for the certificates:
   - Device name
   - Node serial number
@@ -52,7 +52,7 @@ Use these steps to prepare the Azure Stack Edge Pro device certificates:
 2. Install the Azure Stack Hub Readiness Checker tool. At the PowerShell prompt, type: 
 
     ```azurepowershell
-    Install-Module -Name Microsoft.AzureStack.ReadinessChecker -RequiredVersion 1.2002.1133.85 -Force
+    Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
     To verify the installed version, type:  

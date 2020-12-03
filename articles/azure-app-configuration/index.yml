@@ -142,4 +142,4 @@ landingContent:
         - text: Azure SDK for JavaScript
           url: https://go.microsoft.com/fwlink/?linkid=2103664
         - text: REST
-          url: https://go.microsoft.com/fwlink/?linkid=2078296
+          url: rest-api.md

@@ -130,36 +130,6 @@ Make sure VMware servers and VMs comply with requirements for migration to Azure
 > [!NOTE]
 > Agent-based migration with Azure Migrate Server Migration is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
 
-
-
-## Add the Azure Migrate:Server Migration tool
-
-If you don't already have an Azure Migrate project, [set that up](how-to-add-tool-first-time.md) now, and add the Server Migration tool.
-
-If you have a project, add the tool as follows:
-
-1. In the Azure portal > **All services**, search for **Azure Migrate**.
-2. Under **Services**, select **Azure Migrate**.
-
-    ![Set up Azure Migrate](./media/tutorial-migrate-vmware-agent/azure-migrate-search.png)
-
-3. In **Overview**, click **Assess and migrate servers**.
-4. Under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
-
-    ![Discover and assess servers](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
-
-1. In **Discover, assess and migrate servers**, click **Add tools**.
-2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
-3. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
-
-    ![Create an Azure Migrate project](./media/tutorial-migrate-vmware-agent/migrate-project.png)
-
-
-4. In **Select assessment tool**, select **Skip adding an assessment tool for now** > **Next**.
-5. In **Select migration tool**, select **Azure Migrate: Server Migration** > **Next**.
-6. In **Review + add tools**, review the settings, and click **Add tools**
-7. After adding the tool, it appears in the Azure Migrate project > **Servers** > **Migration tools**.
-
 ## Set up the replication appliance
 
 This procedure describes how to set up the appliance with a downloaded Open Virtualization Application (OVA) template. If you can't use this method, you can set up the appliance [using a script](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance). 
@@ -387,7 +357,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
     - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
-    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/security-overview.md).
+    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:

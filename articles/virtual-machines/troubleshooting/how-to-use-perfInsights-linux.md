@@ -129,7 +129,7 @@ Information about the Linux virtual machine, operating system, block devices, hi
     |----------------------------|-------------------------------------------------|
     | Oracle Linux Server        | 6.10 [`*`], 7.3, 7.6, 7.5 |
     | CentOS                     | 6.5 [`*`], 7.6                                    |
-    | RHEL                       | 7.2, 7.5, 8.0 [`*`]                               |
+    | RHEL                       | 7.6, 7.7, 7.8, 7.9                                |
     | Ubuntu                     | 14.04, 16.04, 18.04, 20.04                               |
     | Debian                     | 8, 9, 10 [`*`]                                    |
     | SLES                       | 12 SP4 [`*`]                                      |

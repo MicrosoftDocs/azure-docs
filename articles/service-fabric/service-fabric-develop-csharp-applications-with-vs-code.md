@@ -87,7 +87,7 @@ To set a breakpoint and debug, complete the following steps:
 
 2. Select **.NET Core Attach** from the debug configuration menu.
 
-   ![Debug Icon in VS Code Workspace](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
+   ![Screenshot that shows .NET Core Attach selected in the debug configuration menu.](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
 3. Open Service Fabric Explorer in a browser: http:\//localhost:19080/Explorer. Click **Applications** and drill down to determine the primary node that the CounterService is running on. In the image below the primary node for the CounterService is Node 0.
 

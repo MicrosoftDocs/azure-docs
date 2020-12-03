@@ -49,7 +49,7 @@ Use the information in the following table to complete the **Custom deployment**
 | Admin Username | *AzureUser* |
 | Admin Password | Enter a password. Make a note of the password in the *scratchpad.txt* file, you use it later. |
 | Scope ID | The **Scope ID** you made a note of in the *scratchpad.txt* file in the previous tutorial when you added the gateway device. |
-| Device ID | *lva-gateway-001* - the gateway device you created in the previous tutorial. |
+| Device ID | *gateway-001* - the gateway device you created in the previous tutorial. |
 | Device Key | The device primary key you made a note of in the *scratchpad.txt* file in the previous tutorial when you added the gateway device. |
 | Iot Central App Host | The **Application URL** you made a note of in the *scratchpad.txt* file in the previous tutorial. For example, *traders.azureiotcentral.com*. |
 | Iot Central App Api Token | The operator API token you made a note of in the previous tutorial. |
@@ -88,7 +88,7 @@ The deployment configured the following five IoT Edge modules to run:
 
 The deployment created a custom IoT Edge environment with the required modules for live video analytics. The deployment updated the default **config.yaml** to ensure the IoT Edge runtime used the IoT Device Provisioning Service to connect to IoT Central. The deployment also created a file called **state.json** in the **/data/storage** folder to provide additional configuration data to the modules. For more information, see the [Create an IoT Edge instance for video analytics (Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md) tutorial.
 
-To troubleshoot the IoT Edge device, see [Troubleshoot your IoT Edge device](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
+To troubleshoot the IoT Edge device, see [Troubleshoot your IoT Edge device](../../iot-edge/troubleshoot.md)
 
 ## Use the RTSP simulator
 

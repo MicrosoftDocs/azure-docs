@@ -67,6 +67,9 @@ These attributes are now available through the Microsoft Graph API, by using [Mi
 >
 > For more information, see [Microsoft Graph: Use query parameters](/graph/query-parameters#select-parameter).
 
+>[!NOTE]
+> It is not supported to sync attribute values from AADConnect to extension attributes that are not created by AADConnect. Doing so may produce performance issues and unexpected results. Only extension attributes that are created as shown in the above are supported for synchronization.
+
 ## Use the attributes in dynamic groups
 
 One of the more useful scenarios is to use these attributes in dynamic security or Microsoft 365 groups.

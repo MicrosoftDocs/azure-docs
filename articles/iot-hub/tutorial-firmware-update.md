@@ -8,7 +8,7 @@ ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/28/2019
-ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js]
+ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
 
 #Customer intent: As a developer, I want to implement a device firmware update process that can be triggered from a back-end application connected to my IoT hub
 ---
@@ -17,7 +17,7 @@ ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track
 
 You may need to update the firmware on the devices connected to your IoT hub. For example, you might want to add new features to the firmware or apply security patches. In many IoT scenarios, it's impractical to physically visit and then manually apply firmware updates to your devices. This tutorial shows how you can start and monitor the firmware update process remotely through a back-end application connected to your hub.
 
-To create and monitor the firmware update process, the back-end application in this tutorial creates a _configuration_ in your IoT hub. IoT Hub [automatic device management](iot-hub-auto-device-config.md) uses this configuration to update a set of _device twin desired properties_ on all your chiller devices. The desired properties specify the details of the firmware update that's required. While the chiller devices are running the firmware update process, they report their status to the back-end application using _device twin reported properties_. The back-end application can use the configuration to monitor the reported properties sent from the device and track the firmware update process to completion:
+To create and monitor the firmware update process, the back-end application in this tutorial creates a _configuration_ in your IoT hub. IoT Hub [automatic device management](./iot-hub-automatic-device-management.md) uses this configuration to update a set of _device twin desired properties_ on all your chiller devices. The desired properties specify the details of the firmware update that's required. While the chiller devices are running the firmware update process, they report their status to the back-end application using _device twin reported properties_. The back-end application can use the configuration to monitor the reported properties sent from the device and track the firmware update process to completion:
 
 ![Firmware update process](media/tutorial-firmware-update/Process.png)
 

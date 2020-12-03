@@ -4,7 +4,7 @@ description: Learn about Azure Analysis Services, a fully managed platform as a 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 09/08/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -66,7 +66,7 @@ This tier is for mission-critical production applications that require elastic u
 |S9v2 <sup>[1](#naar)</sup>    |    1280    |    400     |
 
 <a name="naar">1</a> - Not available in all regions.   
-<a name="rec">2</a> - v2 is recommended.
+<a name="rec">2</a> - S8 and S9 are [deprecated](https://azure.microsoft.com/updates/azure-s8-and-s9-analysis-services-skus-retiring-on-31-august-2023/). v2 is recommended. 
 
 ## Availability by region
 
@@ -80,7 +80,7 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |Canada Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |East US 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|East US 2     |     S8, S9, S8v2, S9v2   |    1    |
+|East US 2     |     S8v2, S9v2   |    1    |
 |North Central US     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |North Central US     |     S8v2, S9v2    |    1     |
 |Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -88,9 +88,9 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |South Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |West Central US   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |West US     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|West US     |    S8, S9, S8v2, S9v2   |    2  |
+|West US     |    S8v2, S9v2   |    2  |
 |West US2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|West US2    |    S8, S9, S8v2, S9v2  |    1     |
+|West US2    |    S8v2, S9v2  |    1     |
 
 ### Europe
 
@@ -100,17 +100,18 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |North Europe     |    S8v2, S9v2      |    3     |
 |UK South     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |West Europe     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|West Europe    |   S8, S9, S8v2, S9v2  |  1  |
+|West Europe    |   S8v2, S9v2  |  1  |
 
 ### Asia Pacific 
 
 |Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |Australia East     |    B1, B2, S0, S1, S2, S4     |    3     |
-|Australia East     |    S8, S9, S8v2, S9v2    |    1     |
+|Australia East     |    S8v2, S9v2    |    1     |
 |Australia Southeast     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japan East     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Southeast Asia     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
+|Southeast Asia     |     S8v2, S9v2     |   1      |
 |West India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## Scale to your needs
@@ -139,7 +140,7 @@ Tabular models in both in-memory and DirectQuery modes are supported. In-memory 
 
 Partitioning enables incremental loads, increases parallelization, and reduces memory consumption. Other advanced data modeling features like calculated tables, and all DAX functions are supported. In-memory models must be refreshed (processed) to update cached data from data sources. With Azure service principal support, unattended refresh operations using PowerShell, TOM, TMSL, and REST offer flexibility in making sure your model data is always up to date. 
 
-DirectQuery mode* leverages the backend relational database for storage and query execution. Extremely large data sets in single SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), Oracle, and Teradata data sources are supported. Backend data sets can exceed available server resource memory. Complex data model refresh scenarios aren't needed. There are also some restrictions, such as limited data source types, DAX formula limitations, and some advanced data modeling features aren't supported. Before determining the best mode for you, see [Direct Query mode](/analysis-services/tabular-models/directquery-mode-ssas-tabular).
+DirectQuery mode* leverages the backend relational database for storage and query execution. Extremely large data sets in single SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics, Oracle, and Teradata data sources are supported. Backend data sets can exceed available server resource memory. Complex data model refresh scenarios aren't needed. There are also some restrictions, such as limited data source types, DAX formula limitations, and some advanced data modeling features aren't supported. Before determining the best mode for you, see [Direct Query mode](/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
 \* Feature availability depends on tier.
 
@@ -154,7 +155,7 @@ Compatibility level refers to release-specific behaviors in the Analysis Service
 
 ## Your data is secure
 
-Azure Analysis Services provides security for your sensitive data at multiple levels. As an Azure service, Analysis Services provides **Basic** level of Distributed denial of service (DDoS) attacks automatically enabled as part of the Azure platform. To learn more, see [Azure DDoS Protection Standard overview](../virtual-network/ddos-protection-overview.md). 
+Azure Analysis Services provides security for your sensitive data at multiple levels. As an Azure service, Analysis Services provides **Basic** level of Distributed denial of service (DDoS) attacks automatically enabled as part of the Azure platform. To learn more, see [Azure DDoS Protection Standard overview](../ddos-protection/ddos-protection-overview.md). 
 
 At the server level, Analysis Services provides firewall, Azure authentication, server administrator roles, and Server-Side Encryption. At the data model level, user roles, row-level, and object-level security ensure your data is safe and gets seen by only those users who are meant to see it.
 
@@ -238,7 +239,7 @@ Azure Analysis Services also supports using [Dynamic Management Views (DMVs)](/a
 
 Documentation specific to Azure Analysis Services is included here. Use the table of contents on the left side of your browser screen to find articles. 
 
-Because tabular models in Azure Analysis Services are much the same as tabular models in SQL Server Analysis Services and Power BI Premium datasets, there's an extensive library of shared data modeling tutorials, conceptual, procedural, developer, and reference articles in [Analysis Services documentation](/analysis-services/?view=azure-analysis-services-current). Articles in the shared Analysis Services documentation show if they also apply to Azure Analysis Services by an APPLIES TO banner beneath the title. You can also use the Version selector above the table of contents to see only those articles that apply to the platform you're using.
+Because tabular models in Azure Analysis Services are much the same as tabular models in SQL Server Analysis Services and Power BI Premium datasets, there's an extensive library of shared data modeling tutorials, conceptual, procedural, developer, and reference articles in [Analysis Services documentation](/analysis-services/?view=azure-analysis-services-current&preserve-view=true). Articles in the shared Analysis Services documentation show if they also apply to Azure Analysis Services by an APPLIES TO banner beneath the title. You can also use the Version selector above the table of contents to see only those articles that apply to the platform you're using.
 
 ![Shared documentation](./media/analysis-services-overview/aas-overview-applies-to.png)
 

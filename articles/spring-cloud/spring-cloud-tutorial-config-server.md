@@ -77,6 +77,9 @@ All configurable properties used to set up private Git repository with SSH are l
 | `host-key-algorithm`       | No     | The host key algorithm, should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. *Required* only if `host-key` exists. |
 | `strict-host-key-checking` | No     | Indicates whether the Config Server instance will fail to start when leveraging the private `host-key`. Should be *true* (default value) or *false*. |
 
+> [!NOTE]
+> Config Server takes `master` (om Git itself) as default label if not specified. But GitHub has changed the default branch from `master` to `main` recently. To avoid Azure Spring Cloud Config Server failure, please pay attention for the default label when setting up Config Server with GitHub, especially for new created repositories.
+
 -----
 
 ### Private repository with basic authentication
@@ -125,13 +128,25 @@ Now that your configuration files are saved in a repository, you need to connect
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Go to your Azure Spring Cloud **Overview** page.
+2. Go to your Azure Spring Cloud **Overview** page.
 
-1. Select the service to configure.
+3. Select **Config Server** in the left navigation pane.
 
-1. In the left pane of the service page, under **Settings**, select the **Config Server** tab.
+4. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics-config".
 
-![The Config Server window](media/spring-cloud-tutorial-config-server/portal-config-server.png)
+5. Click **Validate**.
+
+    ![Navigate to config server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+6. When validation is complete, click **Apply** to save your changes.
+
+    ![Validating config server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+7. Updating the configuration can take a few minutes.
+ 
+    ![Updating config server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+8. You should get a notification when the configuration is complete.
 
 ### Enter repository information directly to the Azure portal
 

@@ -1,4 +1,4 @@
-- name: Azure Private Link Documentation
+- name: Private Link Documentation
   href: index.yml
 - name: Overview
   items:
@@ -24,12 +24,23 @@
   - name: Create a Private Link service - ARM template
     displayName: Resource Manager
     href: create-private-link-service-template.md
+  expanded: true
 - name: Tutorials
   items: 
   - name: Connect to a storage account
     href: tutorial-private-endpoint-storage-portal.md
   - name: Connect to a Cosmos DB account
     href: tutorial-private-endpoint-cosmosdb-portal.md
+  - name: Connect to a web app
+    href: tutorial-private-endpoint-webapp-portal.md
+  - name: SQL
+    items:
+    - name: Connect to a SQL server - Portal
+      href: tutorial-private-endpoint-sql-portal.md
+    - name: Connect to a SQL server - PowerShell
+      href: tutorial-private-endpoint-sql-powershell.md
+    - name: Connect to a SQL server - Azure CLI
+      href: tutorial-private-endpoint-sql-cli.md
 - name: Concepts
   items:
   - name: Private Endpoint
@@ -43,10 +54,8 @@
     - name: Security baseline
       href: security-baseline.md
 
-- name: How to
+- name: How-to
   items:
-  - name: Connect privately to a web app
-    href: create-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
     href: disable-private-endpoint-network-policy.md
   - name: Disable network policies for a Private Link Service
@@ -74,7 +83,7 @@
   - name: Java
     href: /java/api/
   - name: Node.js
-    href: https://docs.microsoft.com/javascript/azure#azure-sdk
+    href: /javascript/azure#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: REST
@@ -92,7 +101,7 @@
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Microsoft Q&A question page for Networking
-    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
+    href: /answers/topics/azure-virtual-network.html
   - name: Networking feedback
     href: https://feedback.azure.com/forums/217313-networking?category_id=77469
   - name: Pricing

@@ -54,7 +54,7 @@ While all regions associated with your Cosmos DB database account can serve read
 [3]: ./media/cosmos-db-tutorial-global-distribution-portal/azure-cosmos-db-manual-failover-2.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
+[bcdr]: ../articles/best-practices-availability-paired-regions.md
 [consistency]: ../articles/cosmos-db/consistency-levels.md
 [azureregions]: https://azure.microsoft.com/regions/#services
 [offers]: https://azure.microsoft.com/pricing/details/cosmos-db/

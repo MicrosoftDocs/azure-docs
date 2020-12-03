@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/14/2020
 ---
 
 # Service limits in Azure Cognitive Search
@@ -97,10 +97,9 @@ Maximum running times exist to provide balance and stability to the service as a
 > [!NOTE]
 > As stated in the [Index limits](#index-limits), indexers will also enforce the upper limit of 3000 elements across all complex collections per document starting with the latest GA API version that supports complex types (`2019-05-06`) onwards. This means that if you've created your indexer with a prior API version, you will not be subject to this limit. To preserve maximum compatibility, an indexer that was created with a prior API version and then updated with an API version `2019-05-06` or later, will still be **excluded** from the limits. Customers should be aware of the adverse impact of having very large complex collections (as stated previously) and we highly recommend creating any new indexers with the latest GA API version.
 
-### Shared private link resource limits
+## Shared private link resource limits
 
-> [!NOTE]
-> Indexers can access resources securely over private endpoints managed via the [shared private link resource API](/rest/api/searchmanagement/sharedprivatelinkresources) as described in [this how-to guide](search-indexer-howto-access-private.md)
+Indexers can access other Azure resources [over private endpoints](search-indexer-howto-access-private.md) managed via the [shared private link resource API](/rest/api/searchmanagement/sharedprivatelinkresources). This section describes the limits associated with this capability.
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -109,7 +108,7 @@ Maximum running times exist to provide balance and stability to the service as a
 | Maximum private endpoints | N/A | 10 or 30 | 100 | 400 | 400 | N/A | 20 | 20 |
 | Maximum distinct resource types<sup>2</sup> | N/A | 4 | 7 | 15 | 15 | N/A | 4 | 4 |
 
-<sup>1</sup> AI enrichment and image analysis are computationally intensive and consume disproportionate amounts of available processing power, and therefore for lower search service tiers setting them to run in the private environment might have adverse impact on performance and stability of the search service.
+<sup>1</sup> AI enrichment and image analysis are computationally intensive and consume disproportionate amounts of available processing power. For this reason, private connections are disabled on lower tiers to avoid an adverse impact on the performance and stability of the search service itself.
 
 <sup>2</sup> The number of distinct resource types are computed as the number of unique `groupId` values used across all shared private link resources for a given search service, irrespective of the status of the resource.
 

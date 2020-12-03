@@ -11,7 +11,7 @@ ms.date: 05/06/2020
 
 You can interact with Kubernetes clusters using the `kubectl` tool. The Azure CLI provides an easy way to get the access credentials and configuration information to connect to your AKS clusters using `kubectl`. To limit who can get that Kubernetes configuration (*kubeconfig*) information and to limit the permissions they then have, you can use Azure role-based access control (Azure RBAC).
 
-This article shows you how to assign RBAC roles that limit who can get the configuration information for an AKS cluster.
+This article shows you how to assign Azure roles that limit who can get the configuration information for an AKS cluster.
 
 ## Before you begin
 
@@ -34,7 +34,7 @@ The two built-in roles are:
   * Allows access to *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API call. This API call [lists the cluster user credentials][api-cluster-user].
   * Downloads *kubeconfig* for *clusterUser* role.
 
-These RBAC roles can be applied to an Azure Active Directory (AD) user or group.
+These Azure roles can be applied to an Azure Active Directory (AD) user or group.
 
 > [!NOTE]
 > On clusters that use Azure AD, users with the *clusterUser* role have an empty *kubeconfig* file that prompts a log in. Once logged in, users have access based on their Azure AD user or group settings. Users with the *clusterAdmin* role have admin access.
@@ -88,7 +88,7 @@ The following example output shows the role assignment has been successfully cre
 
 ## Get and verify the configuration information
 
-With RBAC roles assigned, use the [az aks get-credentials][az-aks-get-credentials] command to get the *kubeconfig* definition for your AKS cluster. The following example gets the *--admin* credentials, which work correctly if the user has been granted the *Cluster Admin Role*:
+With Azure roles assigned, use the [az aks get-credentials][az-aks-get-credentials] command to get the *kubeconfig* definition for your AKS cluster. The following example gets the *--admin* credentials, which work correctly if the user has been granted the *Cluster Admin Role*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin

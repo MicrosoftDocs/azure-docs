@@ -12,9 +12,6 @@ services: iot-edge
 
 # Tutorial: Generate simulated device data
 
-> [!NOTE]
-> This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. If you have arrived at this article directly, we encourage you to begin with the [first article](tutorial-machine-learning-edge-01-intro.md) in the series for the best results.
-
 In this article, we use machine learning training data to simulate a device sending telemetry to Azure IoT Hub. As stated in the introduction, this tutorial uses the [Turbofan engine degradation simulation data set](https://c3.nasa.gov/dashlink/resources/139/) to simulate data from a set of airplane engines for training and testing.
 
 In our experimental scenario, we know that:
@@ -40,6 +37,10 @@ The DeviceHarness project is a .NET core project written in C# consisting of fou
 The tasks described in this article should take about 20 minutes to complete.
 
 The real-world equivalent to the work in this step would likely be performed by device developers and cloud developers.
+
+## Prerequisites
+
+This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.
 
 ## Configure Visual Studio Code and build DeviceHarness project
 

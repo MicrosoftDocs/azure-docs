@@ -3,8 +3,9 @@ title: Troubleshooting known issues with HPC and GPU VMs - Azure Virtual Machine
 description: Learn about troubleshooting known issues with HPC and GPU VM sizes in Azure. 
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
 
@@ -35,10 +36,10 @@ This 'duplicate MAC with cloud-init on Ubuntu" is a known issue. The workaround 
     ```console
     sudo bash -c "cat > /etc/netplan/50-cloud-init.yaml" <<'EOF'
     network:
-        ethernets:
+      ethernets:
         eth0:
-            dhcp4: true
-        version: 2
+          dhcp4: true
+      version: 2
     EOF
     ```
 

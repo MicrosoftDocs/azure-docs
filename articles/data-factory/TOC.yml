@@ -203,6 +203,8 @@
     href: concepts-roles-permissions.md
   - name: Naming rules
     href: naming-rules.md
+  - name: Data redundancy
+    href: concepts-data-redundancy.md
 - name: How-to guides
   items:
   - name: Author
@@ -257,7 +259,7 @@
       href: connector-azure-sql-database.md
     - name: Azure SQL Managed Instance
       href: connector-azure-sql-managed-instance.md
-    - name: Azure Synapse Analytics (formerly SQL Data Warehouse)
+    - name: Azure Synapse Analytics
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
@@ -449,6 +451,8 @@
       href: copy-activity-fault-tolerance.md
     - name: Data consistency verification
       href: copy-activity-data-consistency.md
+    - name: Copy activity log
+      href: copy-activity-log.md
     - name: Format and compression support (legacy)
       href: supported-file-formats-and-compression-codecs-legacy.md
   - name: Transform data
@@ -704,7 +708,7 @@
         href: how-to-data-flow-error-rows.md
       - name: Azure SQL DB to Azure Cosmos DB
         href: how-to-sqldb-to-cosmosdb.md
-      - name: Dedupe and NULL check with snippets
+      - name: Dedupe and null check with snippets
         href: how-to-data-flow-dedupe-nulls-snippets.md
     - name: SSIS migration from on-premises
       items:
@@ -748,8 +752,10 @@
       href: connector-troubleshoot-guide.md
     - name: Data Flows
       href: data-flow-troubleshoot-guide.md
-    - name: Copy Data tool
-      href: copy-data-tool-troubleshoot-guide.md
+    - name: Continuous Integration and Deployment 
+      href: ci-cd-github-troubleshoot-guide.md      
+    - name: Security and access control
+      href: security-and-access-control-troubleshoot-guide.md
     - name: Self-hosted Integration Runtimes
       href: self-hosted-integration-runtime-troubleshoot-guide.md
     - name: Azure-SSIS Integration Runtime
@@ -783,7 +789,7 @@
   - name: Blog
     href: https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#
   - name: Ask a question - Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-data-factory.html
+    href: /answers/topics/azure-data-factory.html
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature

@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, subject-armqs
+ms.custom: mimckitt, subject-armqs, devx-track-azurecli
 
 ---
 
