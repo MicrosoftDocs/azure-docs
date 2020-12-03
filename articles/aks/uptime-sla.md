@@ -24,7 +24,7 @@ Uptime SLA is available in public regions and Azure Government regions where [AK
 
 ## Limitations
 
-Once enabled, customers will not be able to remove uptime sla themselves.  In this scenario please open a support ticket for Microsoft to remove uptime sla on the backend.
+Once enabled, customers will not be able to remove Uptime SLA themselves.  In this scenario please open a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) for Microsoft to remove Uptime SLA on the backend. 
 
 ## SLA terms and conditions
 
