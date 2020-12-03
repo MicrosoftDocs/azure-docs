@@ -27,7 +27,7 @@ Named Entity Recognition (NER) is the ability to identify different entities in 
 
 ## Personally Identifiable Information (PII)
 
-The PII feature is part of NER and it can identify and redact sensitive entities in text that are associated with an individual person such as: phone number, email address, mailing address, passport number.  
+The PII feature is part of NER and it can identify and redact sensitive entities in text that are associated with an individual person such as: phone number, email address, mailing address, passport number.
 
 ## Named Entity Recognition features and versions
 
