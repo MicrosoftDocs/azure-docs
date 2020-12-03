@@ -42,7 +42,7 @@ Ensure the following prerequisites are met:
 > [!NOTE]
 > 
 > - ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
-> - In order to use custom [templates](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) as a part of the actions the parameter "ProjectionType" in the SCSM template should be mapped to "IncidentManagement!System.WorkItem.Incident.ProjectionType"
+> - In order to use custom [templates](./itsmc-overview.md#template-definitions) as a part of the actions the parameter "ProjectionType" in the SCSM template should be mapped to "IncidentManagement!System.WorkItem.Incident.ProjectionType"
 
 ### Connection procedure
 
@@ -432,4 +432,3 @@ To generate the client ID/key for Cherwell, use the following procedure:
 
 ## Next steps
  - [Create ITSM work items from Azure alerts](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
-

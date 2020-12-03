@@ -1305,7 +1305,7 @@
         href: tutorial-setup-ci-cd.md
       - name: Use Azure Storage Explorer
         href: storage-explorer.md
-      - name: Use Azure Cosmos explorer
+      - name: Use Azure Cosmos DB Explorer
         href: data-explorer.md
     - name: Analytics and BI with Azure Synapse Link
       items:
@@ -1315,7 +1315,7 @@
         href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Query with Azure Synapse Spark
         href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-      - name: Query with Synapse SQL serverless
+      - name: Query with serverless SQL pool
         href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Use Power BI with Synapse Link
         href: synapse-link-power-bi.md     
@@ -1329,7 +1329,7 @@
       - name: Configure access from private endpoints
         href: how-to-configure-private-endpoints.md
       - name: Connect privately to a Cosmos DB account
-        href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        href: ../private-link/tutorial-private-endpoint-cosmosdb-portal.md?bc=%2fazure%2fcosmos-db%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcosmos-db%2ftoc.json
       - name: Use Azure Key Vault to access data
         href: access-secrets-from-keyvault.md
       - name: Restrict user access to data operations only

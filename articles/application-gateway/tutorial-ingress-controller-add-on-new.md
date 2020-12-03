@@ -29,7 +29,10 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+ - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. If using Azure CLI, you have to install the preview extension on CLI using the following command, if not already:
+    ```azurecli-interactive
+    az extension add --name aks-preview
+    ```
 
  - Register the *AKS-IngressApplicationGatewayAddon* feature flag by using the [az feature register](/cli/azure/feature#az-feature-register) command as shown in the following example. You'll need to do this only once per subscription while the add-on is still in preview.
     ```azurecli-interactive

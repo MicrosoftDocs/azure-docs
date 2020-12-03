@@ -7,7 +7,7 @@ ms.date: 10/29/2020
 ms.author: baanders
 ---
 
-To work with Azure Digital Twins in this article, you first need to set up an Azure Digital Twins instance and the required permissions for using it. If you already have an Azure Digital Twins instance set up from previous work, you can use that instance.
+To work with Azure Digital Twins in this article, you first need to **set up an Azure Digital Twins instance** and the required permissions for using it. If you already have an Azure Digital Twins instance set up from previous work, you can use that instance.
 
 Otherwise, follow the instructions in [Set up an instance and authentication](../articles/digital-twins/how-to-set-up-instance-portal.md). The instructions also contain steps to verify that you've completed each step successfully and are ready to move on to using your new instance.
 

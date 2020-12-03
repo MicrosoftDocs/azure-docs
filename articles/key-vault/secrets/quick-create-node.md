@@ -65,7 +65,7 @@ npm install @azure/identity
 Create an access policy for your key vault that grants secret permission to your user account.
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
 ```
 
 #### Set environment variables

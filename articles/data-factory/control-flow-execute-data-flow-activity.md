@@ -83,7 +83,7 @@ For pipeline executions, the cluster is a job cluster, which takes several minut
 
 ### PolyBase
 
-If you're using an Azure Synapse Analytics (formerly SQL Data Warehouse) as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into Azure Synapse Analytics.
+If you're using an Azure Synapse Analytics as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into Azure Synapse Analytics.
 
 ## Logging level
 

@@ -27,9 +27,9 @@ Complete the following steps to get Azure Defender for IoT up and running.
 
 ## 1. Set up Azure
 
-- Set up an Azure Account. For more information, see [Create an Azure account](https://docs.microsoft.com/learn/modules/create-an-azure-account/).
+- Set up an Azure Account. For more information, see [Create an Azure account](/learn/modules/create-an-azure-account/).
 
-- Firewall or proxy: If you have a firewall or similar intervening network device that is configured to allow specific connections verify that either *.azure-devices.net:443 is opened to the firewall or proxy. If wildcards are not supported or you want more control, the specific IoT Hub FQDN should be opened in your FW or proxy. For more information, see [Reference - IoT Hub endpoints](/azure/iot-hub/iot-hub-devguide-endpoints).
+- Firewall or proxy: If you have a firewall or similar intervening network device that is configured to allow specific connections verify that either *.azure-devices.net:443 is opened to the firewall or proxy. If wildcards are not supported or you want more control, the specific IoT Hub FQDN should be opened in your FW or proxy. For more information, see [Reference - IoT Hub endpoints](../iot-hub/iot-hub-devguide-endpoints.md).
 
 ## 2. Deploy hardware, software, and onboard to sensor
 
