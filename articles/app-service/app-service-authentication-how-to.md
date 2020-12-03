@@ -495,7 +495,7 @@ You can change the runtime version used by your app. The new runtime version sho
 
 #### View the current runtime version
 
-You can view the current version of the platform authentication middleware either using the Azure CLI or via one of the built0-in version HTTP endpoints in your app.
+You can view the current version of the platform authentication middleware either using the Azure CLI or via one of the built-in version HTTP endpoints in your app.
 
 ##### From the Azure CLI
 
