@@ -7,7 +7,7 @@ manager: rkarlin
 
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/22/2020
+ms.date: 12/03/2020
 ms.author: memildin
 ---
 
@@ -97,7 +97,7 @@ Below is an example of a custom policy including the metadata/securityCenter pro
 	"description": "Audit required resource groups lock",
 	"metadata": {
 		"securityCenter": {
-			"remediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
+			"RemediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
 			"severity": "High"
 		}
 	},
