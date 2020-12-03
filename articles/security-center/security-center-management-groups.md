@@ -22,7 +22,6 @@ This article explains how to manage your organization’s security posture at sc
 To get visibility into the security posture of all subscriptions registered in the Azure AD tenant, an Azure role with sufficient read permissions is required to be assigned on the root management group.
 
 
-
 ## Grant tenant-wide permissions to yourself
 
 A user with the Azure Active Directory role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Azure Security Center. 
