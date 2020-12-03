@@ -15,7 +15,7 @@ ms.author: Zhchia
 
 # Tutorial: Configure 8x8 for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both 8x8 and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [8x8](https://www.8x8.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both 8x8 Admin Console and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [8x8](https://www.8x8.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## Capabilities supported
 > [!div class="checklist"]
@@ -59,7 +59,7 @@ This section guides you through the steps to configure 8x8 to support provisioni
 
 ## Step 3. Add 8x8 from the Azure AD application gallery
 
-Add 8x8 from the Azure AD application gallery to start managing provisioning to 8x8. If you have previously setup 8x8 for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
+Add 8x8 from the Azure AD application gallery to start managing provisioning to 8x8. If you have previously setup 8x8 for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
 
 ## Step 4. Define who will be in scope for provisioning
 
