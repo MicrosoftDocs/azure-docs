@@ -23,86 +23,114 @@ ms.author: yelevin
 
 The following is a list of entity enrichments that are the products of Azure Sentinel's entity behavior analytics. They can be used to focus and sharpen your investigation of security incidents.
 
-## Entity behavior enrichments table
+## Entity behavior enrichments tables
+
+### User insights
 
 | Enrichment Name<br>*(in Behavior Analytics table)* | Duration (days) | Description | Possible Output |
 | --- | --- | --- | --- |
 | **Account display name**<br>*(AccountDisplayName)* | - | The account display name of the user. | Admin, Harry Potter |
 | **Account domain**<br>*(AccountDomain)* | - | The account domain name of the user. | ? |
 | **Account object ID**<br>*(AccountObjectID)* | - | The account object ID of the user. | a58df659-5cab-446c-9dd0-5a3af20ce1c2 |
-| **Action uncommonly performed by user**<br>*(ActionUncommonlyPerformedByUser)* | ? | The action is not commonly performed by the user. | True, False |
-| **Action uncommonly performed in tenant**<br>*(ActionUncommonlyPerformedInTenant)* | 180 | The action is not commonly performed in the organization. | True, False |
-| **Action uncommonly performed among peers**<br>*(ActionUncommonlyPerformedAmongPeers)* | 180 | The action is not commonly performed among user's peers. | True, False |
-| **App uncommonly used among peers**<br>*(AppUncommonlyUsedAmongPeers)* | 180 | The app is not commonly used among user's peers. | True, False |
-| **App uncommonly used by user**<br>*(AppUncommonlyUsedByUser)* | ? | The app is not commonly used by the user. | True, False |
-| **App uncommonly used in tenant**<br>*(AppUncommonlyUsedInTenant)* | 180 | The app is not commonly used in the organization. | True, False |
 | **Blast radius**<br>*(BlastRadius)* | - | The blast radius is calculated based on several factors: the position of the user in the org tree, and the user's Azure Active Directory roles and permissions. | Low, Medium, High |
-| **Browser**<br>*(Browser)* | - | The browser used in the action. | ? |
-| **Browser uncommonly used among peers**<br>*(BrowserUncommonlyUsedAmongPeers)* | 30 | The browser is not commonly used among user's peers. | True, False |
-| **Browser uncommonly used by user**<br>*(BrowserUncommonlyUsedByUser)* |  |  |  |
-| **Browser uncommonly used in tenant**<br>*(BrowserUncommonlyUsedInTenant)* | 30 | The browser is not commonly used in the organization. | True, False |
-| **Country uncommonly connected from among peers**<br>*(CountryUncommonlyConnectedFromAmongPeers)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from among user's peers. | True, False |
-| **Country uncommonly connected from by user**<br>*(CountryUncommonlyConnectedFromByUser)* |  |  |  |
-| **Country uncommonly connected from in tenant**<br>*(CountryUncommonlyConnectedFromInTenant)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from in the organization. | True, False |
-| **Device family**<br>*(DeviceFamily)* | - | The device family used in the action. | ? |
-| **Device family uncommonly used in tenant**<br>*(DeviceFamilyUncommonlyUsedInTenant)* | 30 | The device family is not commonly used in the organization. | True, False |
-| **Device type**<br>*(DeviceType)* | - | The client (?) device type used in the action | Desktop |
-| **Device uncommonly used among peers**<br>*(DeviceUncommonlyUsedAmongPeers)* | 180 | The device is not commonly used among user's peers. | True, False |
-| **Device uncommonly used by user**<br>*(DeviceUncommonlyUsedByUser)* |  |  |  |
-| **Device uncommonly used in tenant**<br>*(DeviceUncommonlyUsedInTenant)* | 180 | The device is not commonly used in the organization. | True, False |
-| **First time action performed in tenant**<br>*(FirstTimeActionPerformedInTenant)* | 180 | The action was performed for the first time by anyone in the organization. | True, False |
-| **First time app observed in tenant**<br>*(FirstTimeAppObservedInTenant)* | 180 | The app was observed for the first time in the organization. | True, False |
-| **First time browser observed in tenant**<br>*(FirstTimeBrowserObservedInTenant)* | 30 | The browser was observed for the first time in the organization. | True, False |
-| **First time connection from country observed in tenant**<br>*(FirstTimeConnectionFromCountryObservedInTenant)* | 90 | The country was connected from for the first time by anyone in the organization. | True, False |
-| **First time connection via ISP in tenant**<br>*(FirstTimeConnectionViaISPInTenant)* | 30 | The ISP was observed for the first time in the organization. | True, False |
-| **First time device observed in tenant**<br>*(FirstTimeDeviceObservedInTenant)* | 30 | The device was observed for the first time in the organization. | True, False |
-| **First time OS observed in tenant**<br>*(FirstTimeOSObservedInTenant)* | ? | The OS was observed for the first time in the organization. | True, False |
-| **First time resource accessed in tenant**<br>*(FirstTimeResourceAccessedInTenant)* | 180 | The resource was accessed for the first time by anyone in the organization. | True, False |
-| **First time user accessed resource**<br>*(FirstTimeUserAccessedResource)* | 180 | The resource was accessed for the first time by the user. | True, False |
-| **First time user connected from country**<br>*(FirstTimeUserConnectedFromCountry)* | 90 | The geo location, as resolved from the IP address, was connected from for the first time by the user. | True, False |
-| **First time user connected from device**<br>*(FirstTimeUserConnectedFromDevice)* | 30 | The source device was connected from for the first time by the user. | True, False |
-| **First time user connected via browser**<br>*(FirstTimeUserConnectedViaBrowser)* | 30 | The browser was observed for the first time by the user. | True, False |
-| **First time user connected via ISP**<br>*(FirstTimeUserConnectedViaISP)* | 30 | The ISP was observed for the first time by the user. | True, False |
-| **First time user logged on to device**<br>*(FirstTimeUserLoggedOnToDevice)* | 180 | The destination device was connected to for the first time by the user. | True, False |
-| **First time user performed action**<br>*(FirstTimeUserPerformedAction)* | 180 | The action was performed for the first time by the user. | True, False |
-| **First time user used app**<br>*(FirstTimeUserUsedApp)* | 180 | The app was used for the first time by the user. | True, False |
-| **First time user used OS**<br>*(FirstTimeUserUsedOS)* | ? | The OS was used for the first time by the user. | True, False |
 | **Is dormant account**<br>*(IsDormantAccount)* | 180 | The account has not been used for the past 180 days. | True, False |
 | **Is local admin**<br>*(IsLocalAdmin)* | - | The account has local administrator privileges. | True, False |
 | **Is new account**<br>*(IsNewAccount)* | 30 | The account was created within the past 30 days. | True, False |
-| **ISP**<br>*(ISP)* | - | The internet service provider used in the action. | ? |
-| **ISP uncommonly used among peers**<br>*(ISPUncommonlyUsedAmongPeers)* | 30 | The ISP is not commonly used among user's peers. | True, False |
-| **ISP uncommonly used by user**<br>*(ISPUncommonlyUsedByUser)* |  |  |  |
-| **ISP uncommonly used in tenant**<br>*(ISPUncommonlyUsedInTenant)* | 30 | The ISP is not commonly used in the organization. | True, False |
-| **Last time user performed action**<br>*(LastTimeUserPerformedAction)* | 180 | Last time the user performed the same action. | <Timestamp> |
 | **On premises SID**<br>*(OnPremisesSID)* | - | The on-premises SID of the user related to the action. | S-1-5-21-1112946627-1321165628-2437342228-1103 |
+|
+
+### Device insights
+
+| Enrichment Name<br>*(in Behavior Analytics table)* | Duration (days) | Description | Possible Output |
+| --- | --- | --- | --- |
+| **Browser**<br>*(Browser)* | - | The browser used in the action. | ? |
+| **Device family**<br>*(DeviceFamily)* | - | The device family used in the action. | ? |
+| **Device type**<br>*(DeviceType)* | - | The client (?) device type used in the action | Desktop |
+| **ISP**<br>*(ISP)* | - | The internet service provider used in the action. | ? |
 | **Operating system**<br>*(OperatingSystem)* | - | The operating system used in the action. | Windows 10 |
-| **OS uncommonly used among peers**<br>*(OSUncommonlyUsedAmongPeers)* | ? | The OS is not commonly used among user's peers. | True, False |
-| **OS uncommonly used by user**<br>*(OSUncommonlyUsedByUser)* |  |  |  |
-| **OS uncommonly used in tenant**<br>*(OSUncommonlyUsedInTenant)* | ? | The ISP is not commonly used in the organization. | True, False |
-| **Resource uncommonly accessed among peers**<br>*(ResourceUncommonlyAccessedAmongPeers)* | 180 | The resource is not commonly accessed among user's peers. | True, False |
-| **Resource uncommonly accessed by user**<br>*(ResourceUncommonlyAccessedByUser)* |  |  |  |
-| **Resource uncommonly accessed in tenant**<br>*(ResourceUncommonlyAccessedInTenant)* | 180 | The resource is not commonly accessed in the organization. | True, False |
-| **Similar action wasn't performed in the past**<br>*(SimilarActionWasn'tPerformedInThePast )* | 30 | No action in the same resource provider was performed by the user. | True, False |
-| **Source IP location**<br>*(SourceIPLocation)* | - | The country resolved from the source IP of the action. | [Surrey, England] |
 | **Threat intel indicator description**<br>*(ThreatIntelIndicatorDescription)* | - | Description of the observed threat indicator resolved from the IP address used in the action. | Host is member of botnet: azorult |
 | **Threat intel indicator type**<br>*(ThreatIntelIndicatorType)* | - | The type of the threat indicator resolved from the IP address used in the action. | Botnet, C2, CryptoMining, Darknet, Ddos, MaliciousUrl, Malware, Phishing, Proxy, PUA, Watchlist |
+| **User agent**<br>*(UserAgent )* | - | The user agent used in the action. | Microsoft Azure Graph Client Library 1.0,<br>​Swagger-Codegen/1.4.0.0/csharp,<br>EvoSTS |
+| **User agent family**<br>*(UserAgentFamily)* | - | The user agent family used in the action. | Chrome, Edge, Firefox |
+|
+
+### Activity insights
+
+| Enrichment Name<br>*(in Behavior Analytics table)* | Duration (days) | Description | Possible Output |
+| --- | --- | --- | --- |
+|
+| **Action uncommonly performed by user**<br>*(ActionUncommonlyPerformedByUser)* | ? | The action is not commonly performed by the user. | True, False |
+| **Action uncommonly performed among peers**<br>*(ActionUncommonlyPerformedAmongPeers)* | 180 | The action is not commonly performed among user's peers. | True, False |
+| **Action uncommonly performed in tenant**<br>*(ActionUncommonlyPerformedInTenant)* | 180 | The action is not commonly performed in the organization. | True, False |
+|
+| **App uncommonly used by user**<br>*(AppUncommonlyUsedByUser)* | ? | The app is not commonly used by the user. | True, False |
+| **App uncommonly used among peers**<br>*(AppUncommonlyUsedAmongPeers)* | 180 | The app is not commonly used among user's peers. | True, False |
+| **App uncommonly used in tenant**<br>*(AppUncommonlyUsedInTenant)* | 180 | The app is not commonly used in the organization. | True, False |
+|
+| **Auth type uncommonly used by user**<br>*(AuthTypeUncommonlyUsedByUser)* | -new- |  | |
+| **Auth type uncommonly used among peers**<br>*(AuthTypeUncommonlyUsedAmongPeers)* | -new- |  | |
+| **Auth type uncommonly used in tenant**<br>*(AuthTypeUncommonlyUsedInTenant)* | -new- |  | |
+|
+| **Browser uncommonly used by user**<br>*(BrowserUncommonlyUsedByUser)* |  |  |  |
+| **Browser uncommonly used among peers**<br>*(BrowserUncommonlyUsedAmongPeers)* | 30 | The browser is not commonly used among user's peers. | True, False |
+| **Browser uncommonly used in tenant**<br>*(BrowserUncommonlyUsedInTenant)* | 30 | The browser is not commonly used in the organization. | True, False |
+|
+| **Country uncommonly connected from by user**<br>*(CountryUncommonlyConnectedFromByUser)* |  |  |  |
+| **Country uncommonly connected from among peers**<br>*(CountryUncommonlyConnectedFromAmongPeers)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from among user's peers. | True, False |
+| **Country uncommonly connected from in tenant**<br>*(CountryUncommonlyConnectedFromInTenant)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from in the organization. | True, False |
+|
+| **Device uncommonly used by user**<br>*(DeviceUncommonlyUsedByUser)* |  |  |  |
+| **Device uncommonly used among peers**<br>*(DeviceUncommonlyUsedAmongPeers)* | 180 | The device is not commonly used among user's peers. | True, False |
+| **Device uncommonly used in tenant**<br>*(DeviceUncommonlyUsedInTenant)* | 180 | The device is not commonly used in the organization. | True, False |
+|
+| **Device family uncommonly used in tenant**<br>*(DeviceFamilyUncommonlyUsedInTenant)* | 30 | The device family is not commonly used in the organization. | True, False |
+|
+| **ISP uncommonly used by user**<br>*(ISPUncommonlyUsedByUser)* |  |  |  |
+| **ISP uncommonly used among peers**<br>*(ISPUncommonlyUsedAmongPeers)* | 30 | The ISP is not commonly used among user's peers. | True, False |
+| **ISP uncommonly used in tenant**<br>*(ISPUncommonlyUsedInTenant)* | 30 | The ISP is not commonly used in the organization. | True, False |
+|
+| **OS uncommonly used by user**<br>*(OSUncommonlyUsedByUser)* |  |  |  |
+| **OS uncommonly used among peers**<br>*(OSUncommonlyUsedAmongPeers)* | ? | The OS is not commonly used among user's peers. | True, False |
+| **OS uncommonly used in tenant**<br>*(OSUncommonlyUsedInTenant)* | ? | The ISP is not commonly used in the organization. | True, False |
+|
+| **Resource uncommonly accessed by user**<br>*(ResourceUncommonlyAccessedByUser)* |  |  |  |
+| **Resource uncommonly accessed among peers**<br>*(ResourceUncommonlyAccessedAmongPeers)* | 180 | The resource is not commonly accessed among user's peers. | True, False |
+| **Resource uncommonly accessed in tenant**<br>*(ResourceUncommonlyAccessedInTenant)* | 180 | The resource is not commonly accessed in the organization. | True, False |
+|
+| **First time action performed in tenant**<br>*(FirstTimeActionPerformedInTenant)* | 180 | The action was performed for the first time by anyone in the organization. | True, False |
+| **First time app observed in tenant**<br>*(FirstTimeAppObservedInTenant)* | 180 | The app was observed for the first time in the organization. | True, False |
+| **First time auth type used in tenant**<br>*(FirstTimeAuthTypeUsedInTenant)* | -new- |  | |
+| **First time browser observed in tenant**<br>*(FirstTimeBrowserObservedInTenant)* | 30 | The browser was observed for the first time in the organization. | True, False |
+| **First time connection from country observed in tenant**<br>*(FirstTimeConnectionFromCountryObservedInTenant)* | 90 | The country was connected from for the first time by anyone in the organization. | True, False |
+| **First time device observed in tenant**<br>*(FirstTimeDeviceObservedInTenant)* | 30 | The device was observed for the first time in the organization. | True, False |
+| **First time connection via ISP in tenant**<br>*(FirstTimeConnectionViaISPInTenant)* | 30 | The ISP was observed for the first time in the organization. | True, False |
+| **First time OS observed in tenant**<br>*(FirstTimeOSObservedInTenant)* | ? | The OS was observed for the first time in the organization. | True, False |
+| **First time resource accessed in tenant**<br>*(FirstTimeResourceAccessedInTenant)* | 180 | The resource was accessed for the first time by anyone in the organization. | True, False |
+|
+| **First time user performed action**<br>*(FirstTimeUserPerformedAction)* | 180 | The action was performed for the first time by the user. | True, False |
+| **First time user used app**<br>*(FirstTimeUserUsedApp)* | 180 | The app was used for the first time by the user. | True, False |
+| **First time user used auth type**<br>*(FirstTimeUserUsedAuthType)* | -new- | An uncommon authentication type used by a user can be an indication for the user being compromised. | |
+| **First time user connected via browser**<br>*(FirstTimeUserConnectedViaBrowser)* | 30 | The browser was observed for the first time by the user. | True, False |
+| **First time user connected from country**<br>*(FirstTimeUserConnectedFromCountry)* | 90 | The geo location, as resolved from the IP address, was connected from for the first time by the user. | True, False |
+| **First time user connected from device**<br>*(FirstTimeUserConnectedFromDevice)* | 30 | The source device was connected from for the first time by the user. | True, False |
+| **First time user logged on to device**<br>*(FirstTimeUserLoggedOnToDevice)* | 180 | The destination device was connected to for the first time by the user. | True, False |
+| **First time user connected via ISP**<br>*(FirstTimeUserConnectedViaISP)* | 30 | The ISP was observed for the first time by the user. | True, False |
+| **First time user used OS**<br>*(FirstTimeUserUsedOS)* | ? | The OS was used for the first time by the user. | True, False |
+| **First time user accessed resource**<br>*(FirstTimeUserAccessedResource)* | 180 | The resource was accessed for the first time by the user. | True, False |
+|
+| **Last time user performed action**<br>*(LastTimeUserPerformedAction)* | 180 | Last time the user performed the same action. | <Timestamp> |
+| **Similar action wasn't performed in the past**<br>*(SimilarActionWasn'tPerformedInThePast )* | 30 | No action in the same resource provider was performed by the user. | True, False |
+| **Source IP location**<br>*(SourceIPLocation)* | - | The country resolved from the source IP of the action. | [Surrey, England] |
 | **Uncommon high volume of operations**<br>*(UncommonHighVolumeOfOperations)* | 7 | A user performed a burst of similar operations within the same provider | True, False |
 | **Unusual number of AAD conditional access failures**<br>*(UnusualNumberOfAADConditionalAccessFailures)* | 5 | An unusual number of users failed to authenticate due to conditional access | True, False |
 | **Unusual number of devices added**<br>*(UnusualNumberOfDevicesAdded)* | 5 | A user added an unusual number of devices. | True, False |
 | **Unusual number of devices deleted**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | A user deleted an unusual number of devices. | True, False |
 | **Unusual number of users added to group**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | A user added an unusual number of users to a group. | True, False |
 | **Unusual number of users failed sign-in from IP address**<br>*(UnusualNumberOfUsersFailedSign-inFromIPAddress)* | ? | An unusual number of users failed to authenticate from a single IP address | True, False |
-| **User agent**<br>*(UserAgent )* | - | The user agent used in the action. | Microsoft Azure Graph Client Library 1.0,<br>​Swagger-Codegen/1.4.0.0/csharp,<br>EvoSTS |
-| **User agent family**<br>*(UserAgentFamily)* | - | The user agent family used in the action. | Chrome, Edge, Firefox |
-| | | | |
+|
+|
 | **Uncommon high volume of actions**<br>*(UncommonHighVolumeOfActions)* | -new- | Adversaries may repeat multiple similar actions for various reasons, mostly to cause impact. | For example - adversaries may destroy data and files on specific systems or in large numbers on a network to interrupt availability to systems, services, and network resources. |
 | **Uncommon high volume of same action across users**<br>*(UncommonHighVolumeOfSameActionAcrossUsers)* | -new- | The same operation being performed by the different users in a short timeframe can be an indication for a suspicious activity. | For example - multiple users logging of altogether can be an activity of an attacker trying to deny access of those users to a certain system. LockerGoga has been observed changing account passwords and logging off current users. |
 | **Uncommon session duration by user**<br>*(UncommonSessionDurationByUser)* | -new- | Adversaries may leverage external-facing remote services to initially access and/or persist within a network. Access to remote services may be used as a redundant or persistent access mechanism during an operation. | Remote services such as VPNs, Citrix, and other access mechanisms allow users to connect to internal enterprise network resources from external locations. |
 | **Uncommon session duration in tenant**<br>*(UncommonSessionDurationInTenant)* | -new- | | |
-| **First time user used auth type**<br>*(FirstTimeUserUsedAuthType)* | -new- | An uncommon authentication type used by a user can be an indication for the user being compromised. | |
-| **First time auth type used in tenant**<br>*(FirstTimeAuthTypeUsedInTenant)* | -new- |  | |
-| **Auth type uncommonly used by user**<br>*(AuthTypeUncommonlyUsedByUser)* | -new- |  | |
-| **Auth type uncommonly used among peers**<br>*(AuthTypeUncommonlyUsedAmongPeers)* | -new- |  | |
-| **Auth type uncommonly used in tenant**<br>*(AuthTypeUncommonlyUsedInTenant)* | -new- |  | |
 |
