@@ -48,7 +48,7 @@ Routes are defined in the _staticwebapps.config.json_ file as an array of rules 
 | `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role [`anonymous`](./authentication-authorization.md) applies to all unauthenticated users.<li>The built-in role [`authenticated`](./authentication-authorization.md) applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis. If a user is in any of the listed roles, then access is granted.<li>Individual users are associated to roles through [invitations](authentication-authorization.md).</ul> |
 | `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) associated with the request.<ul><li>Takes precedence over [`globalHeaders`](#global-headers)</ul> |
 | `statusCode`   | No       | 200           | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) response for the request. |
-| `methods` | No | n/a | An array of HTTP methods.<ul><li>`GET`<li>`POST`<li>`PUT`<li>`PATCH`<li>`DELETE`</ul> |
+| `methods` | No | n/a | An array of HTTP methods.<ul><li>`GET`<li>`HEAD`<li>`POST`<li>`PUT`<li>`DELETE`<li>`CONNECT`<li>`OPTIONS`<li>`TRACE`<li>`PATCH`</ul> |
 
 ## Securing routes with roles
 
@@ -111,12 +111,12 @@ The `responseOverrides` section provides a set of HTTP response codes that allow
 
 The following HTTP codes are available to override:
 
-- [200](https://developer.mozilla.org/docs/Web/HTTP/Status/200)
-- [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400)
-- [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401)
-- [402](https://developer.mozilla.org/docs/Web/HTTP/Status/402)
-- [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403)
-- [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404)
+| Status Code | Meaning | Cause |
+| --- | --- | --- |
+| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Bad request |	<li>Invalid invitation link |
+| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Unauthorized | <li>Request to restricted pages while unauthenticated<li>Request to  intermediate auth endpoint without the valid cookie/query string information |
+| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Forbidden |	<li>User is logged in but doesn't have the roles required to view the page<li>User is logged in but the runtime cannot get the user details from their  identity claims<li>There are too many users logged in to the site with custom roles, therefore the runtime can't let this user login. |
+| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | Not found | <li>File not found |
 
 ## Fallback routes
 
