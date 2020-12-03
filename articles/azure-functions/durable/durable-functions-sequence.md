@@ -141,7 +141,7 @@ The implementation of `E1_SayHello` is a relatively trivial string formatting op
 
 #### E1_SayHello/\_\_init\_\_.py
 
-[!code-javascript[Main](~/samples-durable-functions/samples/python/E1_SayHello/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions/samples/python/E1_SayHello/\_\_init\_\_.py)]
 
 Unlike the orchestrator function, an activity function needs no special setup. The input passed to it by the orchestrator function is directly accessible as the parameter to the function.
 
