@@ -10,6 +10,7 @@ ms.author: dech
 ms.custom: devx-track-js
 ---
 # Node.js examples to manage data in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)

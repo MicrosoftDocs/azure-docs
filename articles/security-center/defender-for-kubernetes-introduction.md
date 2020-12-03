@@ -110,5 +110,5 @@ In this article, you learned about Security Center's Kubernetes protection inclu
 For related material, see the following articles: 
 
 - [Enable Azure Defender](security-center-pricing.md)
-- [Export alerts to a Azure Sentinel or a third-party SIEM](continuous-export.md)
+- [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md)
 - [Reference table of alerts](alerts-reference.md)

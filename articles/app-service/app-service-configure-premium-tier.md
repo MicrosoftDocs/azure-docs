@@ -5,7 +5,7 @@ keywords: app service, azure app service, scale, scalable, app service plan, app
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 
@@ -94,7 +94,7 @@ You can automate app creation in the **PremiumV3** tier with scripts, using the 
 
 ### Azure CLI
 
-The following command creates an App Service plan in _P1V2_. You can run it in the Cloud Shell. The options for `--sku` are P1V3, _P2V3_, and _P3V3_.
+The following command creates an App Service plan in _P1V3_. You can run it in the Cloud Shell. The options for `--sku` are P1V3, _P2V3_, and _P3V3_.
 
 ```azurecli-interactive
 az appservice plan create \

@@ -492,7 +492,7 @@ Returns a sanitized proxyAddress attribute where all duplicate values have been 
 Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Description:**
-Replaces values within a string. It works differently depending on the parameters provided:
+Replaces values within a string in a case-sensitive manner. The function behaves differently depending on the parameters provided:
 
 * When **oldValue** and **replacementValue** are provided:
   
@@ -721,7 +721,7 @@ Split([extensionAttribute5], ",")
 
 **Sample input/output:** 
 
-* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **INPUT** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
 * **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
 
 ### Output date as a string in a certain format

@@ -1,7 +1,7 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them. 
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.custom: contperfq1
 ---
@@ -252,7 +252,14 @@ There are limitations that exist when using custom roles on management groups.
    to reduce any risks.
  - The Azure Resource Manager doesn't validate the management group's existence in the role
    definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
-   role definition will still be created.  
+   role definition will still be created.
+
+> [!IMPORTANT]
+> Adding a management group to `AssignableScopes` is currently in preview. This preview version is
+> provided without a service level agreement, and it's not recommended for production workloads.
+> Certain features might not be supported or might have constrained capabilities. For more
+> information, see
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Moving management groups and subscriptions 
 

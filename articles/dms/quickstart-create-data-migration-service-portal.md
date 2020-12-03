@@ -57,7 +57,7 @@ Register the Microsoft.DataMigration resource provider before you create your fi
 
         The virtual network provides Azure Database Migration Service with access to the source database and target environment.
 
-        For more information on how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/vnet).
+        For more information on how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
     - Select Basic: 1 vCore for the **Pricing tier**.
 

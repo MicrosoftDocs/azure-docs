@@ -16,7 +16,11 @@ ms.reviewer: jesakowi
 
 # Publisher verification
 
-Publisher verification helps admins and end users understand the authenticity of application developers integrating with the Microsoft identity platform. When an application is marked as publisher verified, it means that the publisher has verified their identity using a [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process and has associated this MPN account with their application registration. 
+Publisher verification helps admins and end users understand the authenticity of application developers integrating with the Microsoft identity platform. 
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
+
+When an application is marked as publisher verified, it means that the publisher has verified their identity using a [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process and has associated this MPN account with their application registration. 
 
 A blue "verified" badge appears on the Azure AD consent prompt and other screens:
 ![Consent prompt](./media/publisher-verification-overview/consent-prompt.png)

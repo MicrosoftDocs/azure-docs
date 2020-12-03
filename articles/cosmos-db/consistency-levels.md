@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ---
 # Consistency levels in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Distributed databases that rely on replication for high availability, low latency, or both, must make a fundamental tradeoff between the read consistency, availability, latency, and throughput as defined by the [PACLC theorem](https://en.wikipedia.org/wiki/PACELC_theorem). The linearizability of the strong consistency model is the gold standard of data programmability. But it adds a steep price from higher write latencies due to data having to replicate and commit across large distances. Strong consistency may also suffer from reduced availability (during failures) because data cannot replicate and commit in every region. Eventual consistency offers higher availability and better performance, but its more difficult to program applications because data may not be completely consistent across all regions.
 
@@ -185,8 +186,6 @@ To learn more about consistency concepts, read the following articles:
 
 To learn more about consistency levels in Azure Cosmos DB, read the following articles:
 
-- [Choose the right consistency level for your application]()
-- [Consistency levels across Azure Cosmos DB APIs]()
 - [Configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level)
 - [Override the default consistency level](how-to-manage-consistency.md#override-the-default-consistency-level)
 - [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

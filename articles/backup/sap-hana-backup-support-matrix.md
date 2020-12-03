@@ -25,7 +25,7 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 | **HANA Instances**         | A single SAP HANA instance on a  single Azure VM – scale up only | Multiple SAP HANA instances on a  single VM                  |
 | **HANA database types**    | Single Database Container (SDC)  ON 1.x, Multi-Database Container (MDC) on 2.x | MDC in HANA 1.x                                              |
 | **HANA database size**     | HANA databases of size <= 2 TB  (this isn't the memory size of the HANA system)               |                                                              |
-| **Backup types**           | Full, Differential, and Log backups                          | Incremental, Snapshots                                       |
+| **Backup types**           | Full, Differential, Incremental (Preview) and Log backups                          |  Snapshots                                       |
 | **Restore types**          | Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn about the supported restore types |                                                              |
 | **Backup limits**          | Up to 2 TB of full backup size per SAP HANA instance (soft limit)         |                                                              |
 | **Special configurations** |                                                              | SAP HANA + Dynamic Tiering <br>  Cloning through LaMa        |

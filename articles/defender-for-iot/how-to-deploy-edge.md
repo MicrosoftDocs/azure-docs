@@ -30,7 +30,7 @@ Use the following steps to deploy an Defender for IoT security module for IoT Ed
 
 ### Prerequisites
 
-1. In your IoT Hub, make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-manual-provision-symmetric-key#register-a-new-device).
+1. In your IoT Hub, make sure your device is [registered as an IoT Edge device](../iot-edge/how-to-manual-provision-symmetric-key.md#register-a-new-device).
 
 1. Defender for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
 
@@ -53,7 +53,7 @@ Use the following steps to deploy an Defender for IoT security module for IoT Ed
 
 1. Click **Create** to configure the deployment.
 
-1. Choose the Azure **Subscription** of your IoT Hub, then select your **IoT Hub**.<br>Select **Deploy to a device** to target a single device or select **Deploy at Scale** to target multiple devices, and click **Create**. For more information about deploying at scale, see [How to deploy](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor).
+1. Choose the Azure **Subscription** of your IoT Hub, then select your **IoT Hub**.<br>Select **Deploy to a device** to target a single device or select **Deploy at Scale** to target multiple devices, and click **Create**. For more information about deploying at scale, see [How to deploy](../iot-edge/how-to-deploy-at-scale.md).
 
     >[!Note]
     >If you selected **Deploy at Scale**, add the device name and details before continuing to the **Add Modules** tab in the following instructions.
@@ -101,7 +101,7 @@ Complete each step to complete your IoT Edge deployment for Defender for IoT.
      }
    ```
     
-   For more information about configuring the agent, see [Configure security agents](https://docs.microsoft.com/azure/defender-for-iot/how-to-agent-configuration).
+   For more information about configuring the agent, see [Configure security agents](./how-to-agent-configuration.md).
 
 1. Select **Update**.
 

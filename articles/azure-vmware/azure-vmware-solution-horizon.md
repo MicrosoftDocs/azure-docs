@@ -124,22 +124,17 @@ The same principles apply if you deploy two Horizon pods in the same region.  Ma
 
 Horizon's sizing methodology on a host running in Azure VMware Solution is simpler than Horizon on-premises.  That's because the Azure VMware Solution host is standardized.  Exact host sizing helps determine the number of hosts needed to support your VDI requirements.  It's central to determining the cost-per-desktop.
 
-### Azure VMware Solution host instance
+### Sizing tables
 
-* PowerEdge R640 Server - DSS RESTRICTED
+The tables show the common workloads for Login VSI Knowledge Worker workloads and Power Worker workloads.
 
-* 36 cores \@2.3GHz
+#### Knowledge worker workloads
 
-* 576-GB RAM
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="Table of common VDI profiles for VMware Horizon for login VSI Knowledge worker workloads" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
 
-* HBA330 12 Gbps SAS HBA Controller (NON-RAID)
+#### Power worker workloads
 
-* 1.92 TB SSD SATA Mix Use 6 Gbps 512 2.5in Hot-plug AG Drive, 3 DWPD, 10512 TBW
-
-* Intel 1.6 TB, NVMe, Mixed Use Express Flash, 2.5 SFF Drive, U.2, P4600 with
-Carrier
-
-* 2 vSAN Disk Groups: 1.6 x 4(1.92 TB)
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Table of common VDI profiles for VMware Horizon for login VSI Power worker workloads" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
 
 ### Horizon sizing inputs
 
@@ -208,3 +203,6 @@ Based on the standard deployment architecture, Horizon infrastructure VMs are ma
 | Windows file share               | D4sv3          |         | *Optional*                               |
 
 The infrastructure VM cost amounts to \$0.36 per user per month for the 2,000-desktop deployment in the example above. This example uses US East Azure instance June 2020 pricing. Your pricing may vary depending on region, options selected, and timing.
+
+## Next steps
+To learn more about VMware Horizon on Azure VMware Solution, read the [VMware Horizon FAQ](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf).

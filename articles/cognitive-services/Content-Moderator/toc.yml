@@ -6,6 +6,8 @@
   - name: What is Content Moderator?
     href: overview.md
     expanded: true
+  - name: What's new
+    href: whats-new.md
 - name: Quickstarts
   items:
   - name: Try Content Moderator on web
@@ -87,13 +89,13 @@
   - name: SDKs
     items:
     - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
     - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-contentmoderator/?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-contentmoderator/?view=azure-node-latest
     - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python
+      href: /python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
 - name: Resources
@@ -111,7 +113,7 @@
     - name: REST API samples in C#
       href: samples-rest.md
     - name: Other Azure samples
-      href: https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator
+      href: /samples/browse/?products=azure&term=content-moderator
   - name: Azure webinar series
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: Pricing and limits

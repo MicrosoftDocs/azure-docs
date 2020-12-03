@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/16/2020
 ---
 
@@ -22,7 +22,7 @@ Before executing any of the code samples in this article, have an understanding 
 
 Other prerequisites for the samples in this article include the following items:
 
-* If you're using PowerShell, you'll need to install the [AZ Module](https://docs.microsoft.com/powershell/azure/).
+* If you're using PowerShell, you'll need to install the [AZ Module](/powershell/azure/).
 * If you want to use Azure CLI and haven't yet installed it, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
@@ -372,6 +372,6 @@ After completing these steps, you can connect to resources in the virtual networ
 * For configuring Apache HBase geo-replication, see [Set up Apache HBase cluster replication in Azure virtual networks](hbase/apache-hbase-replication.md).
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
-* For more information on network security groups, see [Network security groups](../virtual-network/security-overview.md).
+* For more information on network security groups, see [Network security groups](../virtual-network/network-security-groups-overview.md).
 
 * For more information on user-defined routes, see [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).

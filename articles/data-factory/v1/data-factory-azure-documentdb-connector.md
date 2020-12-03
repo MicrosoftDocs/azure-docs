@@ -492,7 +492,7 @@ Azure Cosmos DB is a NoSQL store for JSON documents, where nested structures are
     **Answer:**
     If records have an "ID" field and the copy operation tries to insert a record with the same ID, the copy operation throws an error.
 3. **Question:**
-    Does Data Factory support [range or hash-based data partitioning](../../cosmos-db/sql-api-partition-data.md)?
+    Does Data Factory support [range or hash-based data partitioning](../../cosmos-db/partitioning-overview.md)?
 
     **Answer:**
     No.

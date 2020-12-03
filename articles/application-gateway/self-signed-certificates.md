@@ -128,7 +128,7 @@ In your web server, configure TLS using the fabrikam.crt and fabrikam.key files.
 
 For instructions on how to import certificate and upload them as server certificate on IIS, see [HOW TO: Install Imported Certificates on a Web Server in Windows Server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
-For TLS binding instructions, see [How to Set Up SSL on IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
+For TLS binding instructions, see [How to Set Up SSL on IIS 7](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 
 ### Apache
 
@@ -268,4 +268,3 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 ## Next steps
 
 To learn more about SSL\TLS in Application Gateway, see [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md).
-

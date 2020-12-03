@@ -9,6 +9,7 @@ ms.author: mjbrown
 ---
 
 # Create an Azure Cosmos DB account with IP Firewall
+[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

@@ -1,16 +1,16 @@
 ---
-title: Use Java and JDBC with Azure Database for PostgreSQL
-description: Learn how to use Java and JDBC with an Azure Database for PostgreSQL.
+title: 'Quickstart: Use Java and JDBC with Azure Database for PostgreSQL'
+description: In this quickstart, you learn how to use Java and JDBC with an Azure Database for PostgreSQL.
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
 ---
 
-# Use Java and JDBC with Azure Database for PostgreSQL
+# Quickstart: Use Java and JDBC with Azure Database for PostgreSQL
 
 This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for PostgreSQL](./index.yml).
 
@@ -480,7 +480,7 @@ Executing the main class should now produce the following output:
 [INFO   ] Closing database connection 
 ```
 
-## Conclusion and resources clean up
+## Clean up resources
 
 Congratulations! You've created a Java application that uses JDBC to store and retrieve data from Azure Database for PostgreSQL.
 

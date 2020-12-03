@@ -3,6 +3,15 @@
   topicHref: /azure/index
   items:
   - name: Active Directory
+    tocHref: /azure/active-directory/enterprise-users/
+    topicHref: /azure/active-directory/enterprise-users/index
+    items:
+  
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Active Directory
     tocHref: /azure/active-directory/fundamentals/
     topicHref: /azure/active-directory/index
     items:

@@ -16,7 +16,7 @@ In the previous tutorial, you deployed and set up your Azure API for FHIR. Now t
 
 1. Navigate to Azure Active Directory
 1. Select **App Registration** --> **New Registration**
-1. Name your application and se
+1. Name your application
 1. Select **Public client/native (mobile & desktop)** and set the redirect URI to https://www.getpostman.com/oauth2/callback.
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Screenshot of the Register an application pane, and an example application name and redirect URL.":::

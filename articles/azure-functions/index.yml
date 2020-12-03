@@ -38,15 +38,17 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create your first function (C#)
-            url: functions-create-your-first-function-visual-studio.md
+            url: create-first-function-vs-code-csharp.md
           - text: Create your first function (Java)
-            url: functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java
+            url: create-first-function-vs-code-java.md
           - text: Create your first function (JavaScript)
-            url: functions-create-first-function-vs-code.md?pivots=programming-language-javascript
+            url: create-first-function-vs-code-node.md
           - text: Create your first function (PowerShell)
-            url: functions-create-first-function-vs-code.md?pivots=programming-language-powershell
+            url: create-first-function-vs-code-powershell.md
           - text: Create your first function (Python)
-            url: functions-create-first-function-vs-code.md?pivots=programming-language-python
+            url: create-first-function-vs-code-python.md
+          - text: Create your first function (TypeScript)
+            url: create-first-function-vs-code-typescript.md
       - linkListType: learn
         links:
           - text: Create serverless logic

@@ -39,7 +39,7 @@ ms.date: 05/29/2020
 
 ## Install Visual Studio Code
 
-Make sure you have installed the latest [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For guidance on installing the mssql extension, see [Install Visual Studio Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) and [mssql for Visual Studio Code
+Make sure you have installed the latest [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For guidance on installing the mssql extension, see [Install Visual Studio Code](/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) and [mssql for Visual Studio Code
 ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
 ## Configure Visual Studio Code
@@ -116,7 +116,7 @@ Use Visual Studio Code to establish a connection to your server.
 
 ## Query data
 
-Run the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement to query for the top 20 products by category.
+Run the following [SELECT](/sql/t-sql/queries/select-transact-sql) Transact-SQL statement to query for the top 20 products by category.
 
 1. In the editor window, paste the following SQL query.
 
@@ -133,7 +133,7 @@ Run the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Tra
 
 ## Insert data
 
-Run the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to add a new product into the `SalesLT.Product` table.
+Run the following [INSERT](/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement to add a new product into the `SalesLT.Product` table.
 
 1. Replace the previous query with this one.
 
@@ -161,7 +161,7 @@ Run the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
 
 ## Update data
 
-Run the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update the added product.
+Run the following [UPDATE](/sql/t-sql/queries/update-transact-sql) Transact-SQL statement to update the added product.
 
 1. Replace the previous query with this one:
 
@@ -175,7 +175,7 @@ Run the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
 
 ## Delete data
 
-Run the following [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement to remove the new product.
+Run the following [DELETE](/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement to remove the new product.
 
 1. Replace the previous query with this one:
 
@@ -190,4 +190,4 @@ Run the following [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delet
 
 - To connect and query using SQL Server Management Studio, see [Quickstart: Use SQL Server Management Studio to connect to a database in Azure SQL Database and query data](connect-query-ssms.md).
 - To connect and query using the Azure portal, see [Quickstart: Use the SQL Query editor in the Azure portal to connect and query data](connect-query-portal.md).
-- For an MSDN magazine article on using Visual Studio Code, see [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115).
+- For an MSDN magazine article on using Visual Studio Code, see [Create a database IDE with MSSQL extension blog post](/archive/msdn-magazine/2017/june/data-points-visual-studio-code-create-a-database-ide-with-mssql-extension).

@@ -18,7 +18,7 @@ This article provides the steps for you to secure outbound traffic from your HDI
 
 HDInsight clusters are normally deployed in a virtual network. The cluster has dependencies on services outside of that virtual network.
 
-The inbound management traffic can't be sent through a firewall. You can use NSG service tags for the inbound traffic as documented [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags). 
+The inbound management traffic can't be sent through a firewall. You can use NSG service tags for the inbound traffic as documented [here](./hdinsight-service-tags.md). 
 
 The HDInsight outbound traffic dependencies are almost entirely defined with FQDNs. Which don't have static IP addresses behind them. The lack of static addresses means Network Security Groups (NSGs) can't lock down outbound traffic from a cluster. The IP addresses change often enough one can't set up rules based on the current name resolution and use.
 
@@ -155,7 +155,7 @@ If your applications have other dependencies, they need to be added to your Azur
 
 ## Logging and scale
 
-Azure Firewall can send logs to a few different storage systems. For instructions on configuring logging for your firewall, follow the steps in [Tutorial: Monitor Azure Firewall logs and metrics](../firewall/tutorial-diagnostics.md).
+Azure Firewall can send logs to a few different storage systems. For instructions on configuring logging for your firewall, follow the steps in [Tutorial: Monitor Azure Firewall logs and metrics](../firewall/firewall-diagnostics.md).
 
 Once you've completed the logging setup, if you're using Log Analytics, you can view blocked traffic with a query such as:
 

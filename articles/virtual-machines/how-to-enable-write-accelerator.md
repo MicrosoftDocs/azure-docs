@@ -52,7 +52,7 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by W
 | M16ms, M16s | 2 | 2500 |
 | M8ms, M8s | 1 | 1250 |
 
-The IOPS limits are per VM and *not* per disk. All Write Accelerator disks share the same IOPS limit per VM.
+The IOPS limits are per VM and *not* per disk. All Write Accelerator disks share the same IOPS limit per VM. Attached disks cannot exceed the write accelerator IOPS limit for a VM. For an example, even though the attached disks can do 30,000 IOPS, the system does not allow the disks to go above 20,000 IOPS for M416ms_v2.
 
 ## Enabling Write Accelerator on a specific disk
 

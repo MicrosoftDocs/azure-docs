@@ -1,6 +1,6 @@
 ---
-title: Sign-in event details for Azure Multi-Factor Authentication - Azure Active Directory
-description: Learn how to view sign-in activity for Azure Multi-Factor Authentication events and status messages.
+title: Sign-in event details for Azure AD Multi-Factor Authentication - Azure Active Directory
+description: Learn how to view sign-in activity for Azure AD Multi-Factor Authentication events and status messages.
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -16,9 +16,9 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
 ---
-# Use the sign-ins report to review Azure Multi-Factor Authentication events
+# Use the sign-ins report to review Azure AD Multi-Factor Authentication events
 
-To review and understand Azure Multi-Factor Authentication events, you can use the Azure Active Directory (Azure AD) sign-ins report. This report shows authentication details for events when a user is prompted for multi-factor authentication, and if any Conditional Access policies were in use. For detailed information on the sign-ins report, see the [overview of sign-in activity reports in Azure AD](../reports-monitoring/concept-sign-ins.md).
+To review and understand Azure AD Multi-Factor Authentication events, you can use the Azure Active Directory (Azure AD) sign-ins report. This report shows authentication details for events when a user is prompted for multi-factor authentication, and if any Conditional Access policies were in use. For detailed information on the sign-ins report, see the [overview of sign-in activity reports in Azure AD](../reports-monitoring/concept-sign-ins.md).
 
 This article shows you how to view the Azure AD sign-ins report in the Azure portal, and then the MSOnline V1 PowerShell module.
 

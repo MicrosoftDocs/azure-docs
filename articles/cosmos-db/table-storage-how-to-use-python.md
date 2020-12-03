@@ -12,6 +12,7 @@ ms.reviewer: sngun
 ms.custom: devx-track-python
 ---
 # Get started with Azure Table storage and the Azure Cosmos DB Table API using Python
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]

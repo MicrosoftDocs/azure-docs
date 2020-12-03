@@ -49,7 +49,7 @@ Note that this role is different from...
 
 If you do not have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the *Azure Digital Twins Data Owner* role on the **Azure Digital Twins instance**. 
 
-If you are an Owner on the subscription, you can run this command yourself. If you are not, contact an Owner to run this command on your behalf.
+If you're an Owner on the subscription, you can run this command yourself. If you're not, contact an Owner to run this command on your behalf.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"

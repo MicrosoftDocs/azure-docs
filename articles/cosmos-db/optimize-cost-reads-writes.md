@@ -9,6 +9,7 @@ ms.date: 10/14/2020
 ---
 
 # Optimize request cost in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article describes how read and write requests translate into [Request Units](request-units.md) and how to optimize the cost of these requests. Read operations include point reads and queries. Write operations include insert, replace, delete, and upsert of items.
 

@@ -30,7 +30,7 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 | [Azure (classic deployment model)](/powershell/azure) commands |`Add-AzureAccount -Environment AzureGermanCloud` |
 | [Azure (Resource Manager deployment model)](/powershell/azure) commands |`Connect-AzAccount -EnvironmentName AzureGermanCloud` |
 | [Azure Active Directory (classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands |`Connect-MsolService -AzureEnvironment AzureGermanyCloud` |
-| [Azure Active Directory (Resource Manager deployment model)](/azure/azure-resource-manager/management/deployment-models) commands |`Connect-AzureAD -AzureEnvironmentName AzureGermanyCloud` |
+| [Azure Active Directory (Resource Manager deployment model)](../azure-resource-manager/management/deployment-models.md) commands |`Connect-AzureAD -AzureEnvironmentName AzureGermanyCloud` |
 
 You can also use the `Environment` switch when connecting to a storage account by using `New-AzStorageContext`, and then specify `AzureGermanCloud`.
 
@@ -69,7 +69,3 @@ For more information about connecting to Azure Germany, see the following resour
 * [Connect to Azure Germany by using Azure CLI](./germany-get-started-connect-with-cli.md)
 * [Connect to Azure Germany by using Visual Studio](./germany-get-started-connect-with-vs.md)
 * [Connect to Azure Germany by using the Azure portal](./germany-get-started-connect-with-portal.md)
-
-
-
-

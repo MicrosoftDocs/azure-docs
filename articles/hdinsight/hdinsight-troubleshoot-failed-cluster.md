@@ -86,8 +86,8 @@ HDInsight relies on several Azure services. It runs virtual servers on Azure HDI
 
 #### Check Azure service usage limits
 
-If you are launching a large cluster, or have launched many clusters simultaneously, a cluster can fail if  you have exceeded an Azure service limit. Service limits vary, depending on your Azure subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-You can request that Microsoft increase the number of HDInsight resources available (such as VM cores and VM instances) with a [Resource Manager core quota increase request](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+If you are launching a large cluster, or have launched many clusters simultaneously, a cluster can fail if  you have exceeded an Azure service limit. Service limits vary, depending on your Azure subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
+You can request that Microsoft increase the number of HDInsight resources available (such as VM cores and VM instances) with a [Resource Manager core quota increase request](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 #### Check the release version
 
@@ -259,7 +259,7 @@ To help diagnose the source of a cluster error, start a new cluster with the sam
 ## Next steps
 
 * [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
-* [Analyze HDInsight Logs](hdinsight-debug-jobs.md)
+* [Analyze HDInsight Logs](./hdinsight-troubleshoot-guide.md)
 * [Access Apache Hadoop YARN application sign in Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Enable heap dumps for Apache Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Known Issues for Apache Spark cluster on HDInsight](hdinsight-apache-spark-known-issues.md)
+* [Known Issues for Apache Spark cluster on HDInsight](./spark/apache-spark-known-issues.md)

@@ -381,7 +381,6 @@ Azure Backup Server v3 only accepts storage volumes. When you add a volume, Azur
 
 1. Select **OK** to format these volumes to ReFS so that Azure Backup Server can use Modern Backup Storage benefits.
 
-![Add available volumes](../backup/media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
 ## Next steps
 

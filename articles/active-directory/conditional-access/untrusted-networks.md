@@ -51,11 +51,11 @@ Instead of trying to define what all locations are that are not trusted, you can
 
 - Include any location 
 
-   ![Conditional Access](./media/untrusted-networks/02.png)
+   :::image type="content" source="./media/untrusted-networks/02.png" alt-text="Screenshot of the Azure A D Locations pane, with Configure set to Yes, the Include tab visible, and the Any location option selected and highlighted." border="false":::
 
 - Exclude all trusted locations 
 
-   ![Conditional Access](./media/untrusted-networks/01.png)
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Screenshot of the Azure A D Locations pane, with Configure set to Yes, the Exclude tab visible, and the All trusted locations option selected." border="false":::
 
 ## Policy deployment
 
