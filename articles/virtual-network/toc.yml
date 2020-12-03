@@ -71,10 +71,10 @@
       href: ../expressroute/cross-network-connectivity.md?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Peering
       href: virtual-network-peering-overview.md
-  - name: Integration for Azure services
+  - name: Integrate Azure services
     items:
     - name: Overview
-      href: virtual-network-integration-for-azure-services.md
+      href: integrate-azure-services-with-virtual-networks.md
     - name: Deploy a dedicated service
       href: virtual-network-for-azure-services.md
     - name: Private Link

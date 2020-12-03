@@ -1,5 +1,5 @@
 ---
-title: Virtual Network integration of Azure services for network isolation
+title: Virtual network integration of Azure services for network isolation
 titlesuffix: Azure Virtual Network
 description: This article describes different methods of integrating an Azure service to a virtual network that enables you to securely access the Azure service.
 services: virtual-network
@@ -14,9 +14,9 @@ ms.date: 12/01/2020
 ms.author: kumud
 ---
 
-# Virtual network integration of Azure services for network isolation
+# Integrate Azure services with virtual networks for network isolation
 
-Virtual network (VNet) integration enables you to lock down access to an Azure service instance from within your virtual network infrastructure. This includes traffic originating from peered virtual networks or on-premises networks. 
+Virtual network (VNet) integration enables you to lock down access to an Azure service instance from within your virtual network infrastructure. This includes traffic originating from peered virtual networks or on-premises networks.
 
 Azure services achieve network isolation by onie or more of the following methods:
 - [Deploying dedicated instances of the service into a virtual network](virtual-network-service-endpoints-overview.md). The services can then be privately accessed within the virtual network and from on-premises networks.
