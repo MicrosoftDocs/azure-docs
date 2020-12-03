@@ -124,10 +124,7 @@ The **My Apps** list shows the apps migrated to the new authoring resource. Befo
 > ![select subscription and authoring resource](./media/migrate-authoring-key/select-sub-and-resource.png)
 
 
-If you plan to edit your apps programmatically, you'll need the authoring key values. These values are displayed on the **Manage** > **Azure Resources** page in the LUIS portal. They're also available in the Azure portal on the resource's **Keys** page. You can also create more authoring resources and assign them from the same page.
-
-> [!div class="mx-imgBorder"]
-> ![Page for managing authoring resources](./media/migrate-authoring-key/manage-authoring-resource-2.png)
+If you plan to edit your apps programmatically, you'll need the authoring key values. These values are displayed by clicking **Manage** at the top of the screen in the LUIS portal, and then selecting **Azure Resources**. They're also available in the Azure portal on the resource's **Key and endpoints** page. You can also create more authoring resources and assign them from the same page.
 
 ## Adding contributors to authoring resources
 
