@@ -109,35 +109,35 @@ Finally, get credentials to access the cluster:
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
-## Update an existing service principal based AKS cluster to managed identities (Preview)
+## Update an AKS cluster to managed identities (Preview)
 
-You can now update an AKS cluster with managed identities by using the following CLI commands.
+You can now update an AKS cluster currently working with Service Principals to work with managed identities by using the following CLI commands.
 
-First, register the Feature Flag for System Assigned Identity:
+First, register the Feature Flag for System-Assigned Identity:
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview
 ```
 
-Then, update the System Assigned Identity:
+Then, update the System-Assigned Identity:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 
-Then, Update the User Assigned Identity:
+Then, Update the User-Assigned Identity:
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
 ```
 
-Then, update the User Assigned Identity:
+Then, update the User-Assigned Identity:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Once the System Assigned or User Assigned identities have been updated to managed identity, perform an `az nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
+> Once the System-Assigned or User-Assigned identities have been updated to managed identity, perform an `az nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
 
 ## Bring your own control plane MI (Preview)
 A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This enables scenarios such as using an custom VNET or outboundType of UDR with a managed identity.
