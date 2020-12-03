@@ -4187,6 +4187,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/sql-query-aggregates.md",
+      "redirect_url": "/azure/cosmos-db/sql-query-aggregate-functions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/firewall-support.md",
       "redirect_url": "/azure/cosmos-db/how-to-configure-firewall",
       "redirect_document_id": false
