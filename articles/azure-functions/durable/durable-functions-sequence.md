@@ -80,7 +80,7 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 
 #### \_\_init\_\_.py
 
-Here is the function:
+Here is the orchestrator function:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/python/E1_HelloSequence/\_\_init\_\_.py)]
 
