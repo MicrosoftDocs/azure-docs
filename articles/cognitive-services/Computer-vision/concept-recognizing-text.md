@@ -129,7 +129,7 @@ See the following example of a successful JSON response:
 ### Read 3.2 preview adds text line style (Latin languages only)
 The [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) outputs an **appearance** object classifying whether each text line is print or handwriting style, along with a confidence score. This feature is supported only for Latin languages.
 
-Get started with the [Computer Vision Read OCR SDK quickstarts](./quickstarts-sdk/client-library.md) and the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) to start integrating OCR capabilities into your applications.
+Get started with the [Computer Vision REST API or client library quickstarts](./quickstarts-sdk/client-library.md) to start integrating OCR capabilities into your applications.
 
 ## Supported languages for print text
 The [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages.
@@ -193,7 +193,6 @@ As with all the cognitive services, developers using the Read/OCR services shoul
 
 ## Next steps
 
-- Get started with the [Computer Vision Read SDK quickstarts](./quickstarts-sdk/client-library.md) in C#, Java, JavaScript, or Python.
-- Use the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) in C#, Java, JavaScript, or Python to learn how to use the REST APIs.
+- Get started with the [Computer Vision REST API or client library quickstarts](./quickstarts-sdk/client-library.md).
 - Learn about the [Read REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
 - Learn about the [Read 3.2 public preview REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) with added support for Simplified Chinese and Japanese.

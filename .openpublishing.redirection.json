@@ -4187,6 +4187,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/sql-query-aggregates.md",
+      "redirect_url": "/azure/cosmos-db/sql-query-aggregate-functions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/firewall-support.md",
       "redirect_url": "/azure/cosmos-db/how-to-configure-firewall",
       "redirect_document_id": false
@@ -54308,6 +54313,21 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk.md",
       "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts/curl-analyze.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts/curl-thumb.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts/curl-print-text.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-rest-api",
       "redirect_document_id": false
     },
     {
