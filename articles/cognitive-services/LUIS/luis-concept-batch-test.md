@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 12/02/2020
 
 ---
 
@@ -25,9 +25,11 @@ It is important that utterances used for batch testing are new to LUIS. If you h
 
 LUIS lets you batch test using the LUIS portal and REST API. The endpoints for the REST API are listed below. For information on batch testing using the LUIS portal, see [Tutorial: batch test data sets](luis-tutorial-batch-testing.md). Use the complete URLs below, replacing the placeholder values with your own LUIS Prediction key and endpoint. 
 
+Remember to add your LUIS key to `Apim-Subscription-Id` in the header, and set `Content-Type` to `application/json`.
+
 ### Start a batch test
 
-Start a batch test using either an app version ID or a publishing slot. Send a **POST** request to one of the following endpoint format:
+Start a batch test using either an app version ID or a publishing slot. Send a **POST** request to one of the following endpoint formats. Include your batch file in the body of the request.
 
 Publishing slot
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
@@ -35,9 +37,7 @@ Publishing slot
 App version ID
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
 
-These endpoints will return an operation ID that you will use to check the status, and get results.
-
-Add your LUIS key to `Apim-Subscription-Id` in the header. Set `Content-Type` to `application/json`.
+These endpoints will return an operation ID that you will use to check the status, and get results. 
 
 
 ### Get the status of an ongoing batch test
@@ -137,9 +137,9 @@ There are several objects returned by the API:
 
 * Information about the intents and entities models, such as precision, recall and F-score.
 * Information about the entities models, such as precision, recall and F-score) for each entity 
-  * Using the verbose flag, you can get more information about the entity, such as `entityTextFScore` and `entityTypeFScore`.
+  * Using the `verbose` flag, you can get more information about the entity, such as `entityTextFScore` and `entityTypeFScore`.
 * Provided utterances with the predicted and labeled intent names
-* A list of false positive entities, and a list of false negative entities.
+* A list of false positive entities, and a list of false negative entities..
 
 ## Errors in the results
 
