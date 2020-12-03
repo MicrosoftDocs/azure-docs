@@ -162,7 +162,7 @@ Configure your Live Video Analytics module to collect Verbose logs by setting th
 
 You can do this in either:
 * In **Azure portal**, by updating the Module Identity Twin properties of the Live Video Analytics module
-    [ ![Module Identity Twin Properies.](media/troubleshoot-how-to/module_twin.png) ](media/troubleshoot-how-to/module_twin.png#lightbox)    
+    [ ![Module Identity Twin Properies.](media/troubleshoot-how-to/module-twin.png) ](media/troubleshoot-how-to/module-twin.png#lightbox)    
 * Or in your **deployment manifest** file, you can add these entries in the properties node of the Live Video Analytics module
 ### Use the support-bundle command
 
