@@ -34,7 +34,7 @@ AccuWeather has real-time weather and environmental information available anywhe
 
 * High-resolution radar data for over 40 countries/regions
 
-* Best-in-class real time global lightning data
+* Best-in-class real-time global lightning data
 
 * Government-issued weather warnings for over 60 countries/regions and territories
 
@@ -48,7 +48,7 @@ AccuWeather has real-time weather and environmental information available anywhe
 
 Tens of thousands of surface observations, along with other data, are incorporated to create and influence the current conditions made available to users. This includes not only freely available standard datasets, but also unique observations obtained from national meteorological services in many countries/regions including India, Brazil, and Canada and other proprietary inputs. These unique datasets increase the spatial and temporal resolution of current condition data for our users. 
 
-These datasets are reviewed in real time for accuracy for the Digital Forecast System, which utilizes AccuWeather’s proprietary artificial intelligence algorithms to continuously modify the forecasts, ensuring they always incorporate the latest data and thereby maximizing their continual accuracy.
+These datasets are reviewed in real-time for accuracy for the Digital Forecast System, which utilizes AccuWeather’s proprietary artificial intelligence algorithms to continuously modify the forecasts, ensuring they always incorporate the latest data and thereby maximizing their continual accuracy.
 
 ### What models create weather forecast data?
 
@@ -67,7 +67,7 @@ Weather service coverage varies by country/region. All features are not availabl
 
 Current Conditions data is approximately updated at least once an hour, but can be updated more frequently with rapidly changing conditions – such as large temperature changes, sky conditions changes, precipitation changes, etc. Most observation stations around the world report many times per hour as conditions change. However, a few areas will still only update once, twice, or four times an hour at scheduled intervals.  
  
-Azure Maps caches the Current Conditions data for up to 10 minutes to help capture the near real time update frequency of the data as it occurs. To see when the cached response expires and avoid displaying outdated data, you can leverage the Expires Header information in the HTTP header of the Azure Maps API response. 
+Azure Maps caches the Current Conditions data for up to 10 minutes to help capture the near real-time update frequency of the data as it occurs. To see when the cached response expires and avoid displaying outdated data, you can leverage the Expires Header information in the HTTP header of the Azure Maps API response. 
 
 ### How often is Daily and Hourly Forecast data updated?
 
@@ -99,7 +99,7 @@ The Azure Maps [Weather concept article](https://docs.microsoft.com/azure/azure-
  
 ### Can I create radar and satellite tile animations? 
 
-Yes. In addition to real time radar and satellite tiles, Azure Maps customers can request past and future tiles to enhance data visualizations with map overlays. This can be done by directly calling [Get Map Tile v2 API](https://aka.ms/AsureMapsWeatherTiles) or by requesting tiles via Azure Maps web SDK. Radar tiles are provided for up to 1.5 hours in the past, and for up to 2 hours in the future. The tiles and are available in 5-minute intervals. Infrared tiles are provided for up to 3 hours in the past, and are available in 10-minute intervals. For more information, see the open-source Weather Tile Animation [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer).  
+Yes. In addition to real-time radar and satellite tiles, Azure Maps customers can request past and future tiles to enhance data visualizations with map overlays. This can be done by directly calling [Get Map Tile v2 API](https://aka.ms/AsureMapsWeatherTiles) or by requesting tiles via Azure Maps web SDK. Radar tiles are provided for up to 1.5 hours in the past, and for up to 2 hours in the future. The tiles and are available in 5-minute intervals. Infrared tiles are provided for up to 3 hours in the past, and are available in 10-minute intervals. For more information, see the open-source Weather Tile Animation [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer).  
 
 
 ### Do you offer icons for different weather conditions?
@@ -118,7 +118,7 @@ If this FAQ doesn’t answer your question, you can contact us through the follo
 
 * [Azure Maps UserVoice](https://feedback.azure.com/forums/909172-azure-maps) to submit feature requests.
 
-Learn how to request real time and forecasted weather data using Azure Maps Weather services:
+Learn how to request real-time and forecasted weather data using Azure Maps Weather services:
 > [!div class="nextstepaction"]
 > [Request Real-time weather data ](how-to-request-weather-data.md)
 
