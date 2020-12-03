@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 9/30/2020
+ms.date: 12/3/2020
 ms.subservice: alerts
 ---
 
@@ -80,7 +80,8 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Network/applicationGateways | Yes | No | [Application Gateways](./metrics-supported.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/azurefirewalls | Yes | No | [Firewalls](./metrics-supported.md#microsoftnetworkazurefirewalls) |
 |Microsoft.Network/dnsZones | No | No | [DNS Zones](./metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft.Network/expressRouteCircuits | N/A | No |[Express Route Circuits](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRouteCircuits | Yes | No |[ExpressRoute Circuits](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRoutePorts | Yes | No |[ExpressRoute Direct](./metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft.Network/loadBalancers (only for Standard SKUs)| Yes| No | [Load Balancers](./metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/natGateways| No | No | |
 |Microsoft.Network/privateEndpoints| No | No | |
@@ -102,6 +103,9 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.StorageCache/caches | Yes | No | |
 |Microsoft.StorageSync/storageSyncServices | Yes | No | [Storage Sync Services](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | Yes | No | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
+|Microsoft.Synapse/workspaces | Yes | No | [Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspaces) |
+|Microsoft.Synapse/workspaces/bigDataPools | Yes | No | [Synapse Analytics Apache Spark Pools](./metrics-supported.md#microsoftsynapseworkspacesbigdatapools) |
+|Microsoft.Synapse/workspaces/sqlPools | Yes | No | [Synapse Analytics SQL Pools](./metrics-supported.md#microsoftsynapseworkspacessqlpools) |
 |Microsoft.VMWareCloudSimple/virtualMachines | Yes | No | [CloudSimple Virtual Machines](./metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
 |Microsoft.Web/hostingEnvironments/multiRolePools | Yes | No | [App Service Environment Multi-Role Pools](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Yes | No | [App Service Environment Worker Pools](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
