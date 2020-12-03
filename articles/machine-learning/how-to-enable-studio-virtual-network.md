@@ -49,9 +49,9 @@ See the other articles in this series:
 
 ## Configure data access in the studio
 
-Some of the studio's features are disabled by default in a virtual network. You must enable managed identity for storage accounts you intend to use in the studio. 
+Some of the studio's features are disabled by default in a virtual network. To re-enable these features, you must enable managed identity for storage accounts you intend to use in the studio. 
 
-You must enable managed identity to perform the following operations in a virtual network:
+The following operations are disabled by default in a virtual network:
 
 * Preview data in the studio.
 * Visualize data in the designer.
