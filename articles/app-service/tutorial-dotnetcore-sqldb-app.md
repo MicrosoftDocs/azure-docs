@@ -463,7 +463,7 @@ The sample project already follows the guidance at [ASP.NET Core Logging in Azur
 To set the ASP.NET Core [log level](/aspnet/core/fundamentals/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) command in the Cloud Shell.
 
 ```azurecli-interactive
-az webapp log config --name <mywebppname> --resource-group <myresourcegroupname> --application-logging filesystem --level information
+az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
 ```
 
 > [!NOTE]
