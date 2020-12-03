@@ -249,14 +249,8 @@ In scenarios with pre-populated backend pools, use IP and virtual network.
 All backend pool management is done directly on the backend pool object as highlighted in the examples below.
 
   >[!IMPORTANT] 
-  >This feature is currently in preview. Please see [limitation](#limitations) for current limits of this feature.
-  >* Standard load balancer only
-  >* Limit of 100 IP addresses in the backend pool
-  >* The backend resources must be in the same virtual network as the load balancer
-  >* This feature is not currently supported in the Azure portal
-  >* ACI containers are not currently supported by this feature
-  >* Load balancers or services fronted by load balancers cannot be placed in the backend pool of the load balancer
-  
+  >This feature is currently in preview. Please see the [limitations section](#limitations) for current limits of this feature.
+
 ### PowerShell
 Create new backend pool:
 
