@@ -4,7 +4,7 @@ description: Improve alert and incident workflows
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/01/2020
+ms.date: 12/02/2020
 ms.service: azure
 ms.topic: how-to
 ---

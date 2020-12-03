@@ -1,24 +1,23 @@
 ---
-title: Forward alert information to partners
+title: Forward alert information
 description: You can send alert information to partner systems by working with Forwarding Rules.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/01/2020
+ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
-# Forward alert information to partners
+# Forward alert information
 
-You can send alert information to partner systems by working with Forwarding Rules. For example, forward alert information to an email server, SYSLOG server, or Webhook server. Working with Forwarding Rules lets you monitor and respond to alerts from a single-pane-of-glass.
+You can send alert information to partners integrating with Defender for IoT, to SYSLOG servers, email addresses and more. Working with Forwarding rules lets you quickly deliver alert information to security stakeholders.  
 
-SYSLOG and other default forwarding actions are delivered with your system. In addition, other forwarding actions may become available when you integrate with partner vendors, such as Microsoft Sentinel, ServiceNow, or Splunk.
+SYSLOG and other default forwarding actions are delivered with your system. In addition, other forwarding actions may become available when you integrate with partner vendors, such as Microsoft Sentinel, ServiceNow or Splunk.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alert-information-screen.png" alt-text="Alert information.":::
 
-> [!NOTE] 
-> **Administrators** may perform the procedures described in this section.
+Defender for IoT Administrators have permission to use Forwarding rules.
 
 ## About alert information forwarded
 
@@ -68,11 +67,11 @@ Define criteria by which to trigger a forwarding rule. Working with forwarding r
 
 ### Forwarding rule actions
 
-Forwarding rule actions instruct the sensor to forward alert information to partner vendors or systems. You can create multiple actions for each Forwarding rule.
+Forwarding rule actions instruct the sensor to forward alert information to partner vendors or servers. You can create multiple actions for each Forwarding rule.
 
-In addition to the Forwarding actions delivered with your system, other actions may become available when you integrate with partner vendors. See [Integrated Vendor Actions](#integrated-vendor-actions) for details.
+In addition to the Forwarding actions delivered with your system, other actions may become available when you integrate with partner vendors. 
 
-## Email address action
+#### Email address action
 
 Send mail that includes the alert information. You can enter one email address per rule.
 
@@ -82,7 +81,7 @@ To define to the Forwarding rule:
 
 2. Enter the timezone. The time stamp for the alert detection at the SIEM.
 
-### SYSLOG server actions
+#### SYSLOG server actions
 
 The following formats are supported:
 
@@ -108,7 +107,6 @@ Enter the following parameters:
     
 :::image type="content" source="media/how-to-work-with-alerts-sensor/configure-encryption.png" alt-text="Configure your encryption for your forwarding rule.":::
 
-
 | SYSLOG text message output fields | Description |
 |--|--|
 | Date and time | Date and time the syslog server machine received the information. |
@@ -133,7 +131,6 @@ Enter the following parameters:
 | Hostname | Sensor IP address |
 | Message | CEF:0 <br />Azure Defender for IoT <br />Sensor name – the name of the sensor appliance <br />Sensor version <br />Alert title – the title of the alert <br />msg – the message of the alert <br />protocol – the protocol of the alert <br />severity – Warning, Minor, Major, or Critical <br />type – Protocol Violation, Policy Violation, Malware, Anomaly, or Operational <br /> start – the time the alert was detected <br />May vary from the time of the syslog server machine, depends on the Forwarding rule timezone configuration. <br />src_ip – source device IP address  <br />dst_ip – destination device IP address<br />cat - The alert group associated with the alert.  |
 
-
 | SYSLOG LEEF output format | Description |
 |--|--|
 | Date and time |	Date and time the syslog server machine received the information |  
@@ -143,7 +140,7 @@ Enter the following parameters:
 
 3. Select **Submit**.
 
-### Netwitness action
+#### Netwitness action
 
 Send alert information to a NetWitness server.
 
@@ -157,7 +154,7 @@ To define NetWitness Forwarding parameters:
 
 3. Select **Submit**.
 
-### Integrated vendor actions
+#### Integrated vendor actions
 
 You may have integrated your system with a security, device management, or other industry vendor. These integrations let you:
 
@@ -171,9 +168,7 @@ Integrations help bridge previously siloed security solutions, enhance device vi
 
 Use the actions section to enter the credentials and other information required to communicate with integrated vendors.
 
-Refer to the relevant integration guides on the [TBD](TBD) for details about setting up Forwarding rules for the integrations.
-
-Refer to the On-premises Management Console User Guide for details about forwarding alert details to a Webhook server.
+Refer to the relevant partner integration articles for details about setting up Forwarding rules for the integrations.
 
 ### Test forwarding rules
 
@@ -204,3 +199,7 @@ To remove a forwarding rule:
 Alert exclusion rules may also have been defined by the administrator. These rules help administrators achieve more granular control over alert triggering by instructing the sensor to ignore alert events based on various parameters. For example device addresses, alert names, or specific sensors.
 
 This means the Forwarding Rules you define may be ignored based on Exclusion Rules created by your administrator. Exclusion Rules are defined in the on-premises management console.
+
+## See also
+
+[Integrations](concept-integrations.md)

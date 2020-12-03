@@ -62,50 +62,6 @@ For example,
 
   - Malware events detected on network devices are reported in Risk Assessment reports. When alerts about malware events are *muted*, devices impacted will not be calculated in the Risk Assessment report.
 
-## Accessing alerts
-
-This article describes how to access and search for alerts in the Alerts window. Alerts are also accessible from the Dashboard. 
-
-**To view alerts triggered for your sensor:**
-
-1. Select **Alerts** from the side-menu. The Alert window displays the alerts detected by your sensor.
-
-:::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-screen.png" alt-text="View of the Alerts screen.":::
-
-## Alert window options
-
-Alert messages provide the following actions:
-
-  - Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/acknowledge-an-alert-icon.png" border="false"::: to acknowledge an alert.
-
-  - Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/unacknowledge-an-alert-icon.png" border="false"::: to unacknowledge an alert.
-
-  - Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/pin-an-alert-icon.png" border="false"::: to pin an alert.
-
-  - Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/unpin-an-alert-icon.png" border="false"::: to unpin an alert.
-
-  - Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/acknowledge-all-alerts-icon.png" border="false"::: to acknowledge all alerts
-
-  - Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: to learn and acknowledge all the alerts
-
-  - Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: to export the alert list to a CSV file and select the export option. Choose Alert Export for the regular export to CSV option or Extended Alert Export for the possibility to add a separate row for each additional info about an alert in the alert export CSV file.
-
-  - Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-pdf.png" border="false"::: icon to download an alert report as a PDF file.
-
-  - Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/download-pcap.png" border="false"::: icon to download the PCAP file. The file is viewable with Wireshark, the free network protocol analyzer.
-
-  - Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/download-filtered-pcap.png" border="false"::: to download a filtered PCAP file that contains only the alert relevant packets, thereby reducing output file size and allowing a more focused analysis. You can view it using Wireshark.
-
-  - Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/show-alert-in-timeline.png" border="false"::: icon to show the Alert in the Event Timeline.
-
-  - Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/pin-an-alert-icon.png" border="false"::: icon to pin the alert.
-
-  - Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/unpin-an-alert-icon.png" border="false"::: icon to unpin the alert.
-
-  - Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-icon.png" border="false"::: to  approve the traffic (Security Analysts and Administrators only)
-
-  - Select a device to display it in the Device Map.
-
 ## See also
 
 [Manage the alert event](how-to-manage-the-alert-event.md)
