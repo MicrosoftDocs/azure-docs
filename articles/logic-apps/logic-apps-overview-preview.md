@@ -115,6 +115,14 @@ For this public preview, these capabilities are not available or not supported:
 
 * Whether you create a new **Logic App (Preview)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the [Premium or App Service hosting plan in Azure](#publish-azure). **Consumption** hosting plans aren't supported nor available for deploying this resource type. You can deploy from Visual Studio Code to a [Docker container](#deploy-docker), but not [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
+* Currently, you can't add parallel branches through the new designer experience. However, you can still add these branches through the original designer experience and have them appear in the new designer.
+
+  1. At the bottom of the designer, disable the new designer by selecting the **New Canvas** control.
+
+  1. Add the parallel branches to your workflow.
+
+  1. Enable the new designer by selecting the **New Canvas** control again.
+
 <a name="nested-behavior"></a>
 
 ## Nested behavior differences between stateful and stateless logic apps
