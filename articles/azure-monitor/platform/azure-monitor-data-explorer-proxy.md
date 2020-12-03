@@ -66,9 +66,3 @@ Kusto Explorer automatically signs you into the tenant to which the user account
 * [Write Queries](https://docs.microsoft.com/azure/data-explorer/write-queries)
 * [Query data in Azure Monitor using Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)
 * [Perform cross-resource log queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query)
-
-
-
-
-
-
