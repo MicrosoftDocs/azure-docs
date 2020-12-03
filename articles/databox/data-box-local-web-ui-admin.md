@@ -258,7 +258,7 @@ To enable transfer of ACLs for Azure files:
 
 By default, Azure Data Box uses Transport Layer Security (TLS) 1.2 for encryption as it is more secure than TSL 1.1. However, if you or your clients are using a browser to access data that does not support TLS 1.2, you may enable TLS 1.1.
 
-For more information related to TLS, see [Azure Data Box Gateway security](../databox-online/data-box-gateway-security.md).
+For more information related to TLS, see [Azure Data Box Gateway security](../databox-gateway/data-box-gateway-security.md).
 
 To enable TLS 1.1 in your Azure device:
 
