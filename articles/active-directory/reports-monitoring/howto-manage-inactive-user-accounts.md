@@ -69,7 +69,7 @@ You can access this property in all editions of Azure AD.
 To read this property, you need to grant the following rights: 
 
 - AuditLogs.Read.All
-- Organisation.Read.All  
+- Organization.Read.All  
 
 
 ### When does Azure AD update the property?
