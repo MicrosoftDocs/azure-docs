@@ -1,16 +1,16 @@
 ---
 title: Configure apps in the portal
-description: Learn to configure common settings for an App Service app in the Azure portal. App settings, app config, connection strings, platform, language stack, container
+description: Learn to configure common settings for an App Service app in the Azure portal. App settings, connection strings, platform, language stack, container, etc.
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 12/01/2019
+ms.date: 08/13/2019
 ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
 
 ---
 # Configure an App Service app in the Azure portal
 
-This article explains how to configure common settings for web apps, mobile back end, or API app using the [Azure portal].
+This topic explains how to configure common settings for web apps, mobile back end, or API app using the [Azure portal].
 
 ## Configure app settings
 
@@ -63,21 +63,21 @@ To add or edit app settings in bulk, click the **Advanced edit** button. When fi
 
 App settings have the following JSON formatting:
 
-    ```json
-    [
-      {
-        "name": "<key-1>",
-        "value": "<value-1>",
-        "slotSetting": false
-      },
-      {
-        "name": "<key-2>",
-        "value": "<value-2>",
-        "slotSetting": false
-      },
-      ...
-    ]
-    ```
+```json
+[
+  {
+    "name": "<key-1>",
+    "value": "<value-1>",
+    "slotSetting": false
+  },
+  {
+    "name": "<key-2>",
+    "value": "<value-2>",
+    "slotSetting": false
+  },
+  ...
+]
+```
 
 ### Automate app settings with the Azure CLI
 
@@ -88,10 +88,8 @@ You can use the Azure CLI to create and manage settings from the command line.
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
     ```
-
-- Create the setting if it does not exist:
-
-Replace `<setting-name>` with the name of the setting, and `<value>` with the value to assign to it. 
+        
+    Replace `<setting-name>` with the name of the setting, and `<value>` with the value to assign to it. This command creates the setting if it doesn't already exist.
     
 - Show all settings and their values with [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list):
     
@@ -115,9 +113,7 @@ In the [Azure portal], search for and select **App Services**, and then select y
 
 For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL Database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
 
-For other language stacks, it is better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. The exception here is where certain Azure database types are backed up along with the app _if_ the connection strings are configured in your app. 
-
-For more information, see [What gets backed up](manage-backup.md#what-gets-backed-up). If you don't need this automated backup, then use the app settings.
+For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. Here's one exception, however: certain Azure database types are backed up along with the app if you configure their connection strings in your app. For more information, see [What gets backed up](manage-backup.md#what-gets-backed-up). If you don't need this automated backup, then use app settings.
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
@@ -246,7 +242,7 @@ Each app has the default root path (`/`) mapped to `D:\home\site\wwwroot`, where
 
 From the **Path mappings** tab, click **New virtual application or directory**. 
 
-- To configure virtual applications and directories, leave the **Directory** checkbox selected and specify each virtual directory and its corresponding relative (physical) path to the website root (`D:\home`). 
+- To configure virtual applications and directories,leave the **Directory** checkbox selected and specify each virtual directory and its corresponding physical path relative to the website root (`D:\home`). 
 - To mark a virtual _directory_ as an **application**, de-select the **Directory** checkbox.
 
 ![Path mappings](./media/configure-common/directory-checkbox.png)
