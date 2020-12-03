@@ -453,7 +453,7 @@
       href: ./linux/docker-machine.md
     - name: Use Docker Compose
       href: ./linux/docker-compose-quickstart.md
-  - Visual Studio 
+  - name: Visual Studio 
     href: ./windows/using-visual-studio-vm.md
   - name: Extensions
     items:
@@ -914,6 +914,12 @@
   items:
   - name: Overview
     href: ./linux/imaging.md
+  - name: Marketplace images
+    items:
+    - name: Find Azure Marketplace images
+      href: ./windows/cli-ps-findimage.md
+    - name: Windows client images
+      href: ./windows/client-images.md
   - name: Linux provisioning
     href: ./linux/provisioning.md
   - name: Linux distribution specific requirements
