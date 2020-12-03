@@ -40,7 +40,7 @@ You'll need to create an App ID and a service ID in the Apple Developer portal.
 10. Review the service registration information and select **Save**.
 
 ## <a name="generateClientSecret"> </a>Generate the client secret
-Apple requires app developers to create and sign a JWT token as the client secret value. To generate this secret, first generate and download an elliptic curve private key from the Apple Developer portal. Then, use that key to [sign a JWT](#signing-the-client-secret-jwt) with a [specific payload](#structuring-the-client-secret-jwt).
+Apple requires app developers to create and sign a JWT token as the client secret value. To generate this secret, first generate and download an elliptic curve private key from the Apple Developer portal. Then, use that key to [sign a JWT](#sign-the-client-secret-jwt) with a [specific payload](#structure-the-client-secret-jwt).
 
 ### Create and download the private key
 1. On the **Keys** tab in the Apple Developer portal, choose **Create a key** or select the **(+)** button.
