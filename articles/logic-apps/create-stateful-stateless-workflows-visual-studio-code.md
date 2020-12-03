@@ -310,6 +310,9 @@ The logic app workflow in this example uses this trigger and these actions:
 
 * The built-in [Response action](../connectors/connectors-native-reqres.md), which you use to send a reply and return data back to the caller.
 
+> [!NOTE]
+> For HTTP webhook 
+
 ### Add the Request trigger
 
 1. Next to the designer, in the **Add a trigger** pane, under the **Choose an operation** search box, make sure that **Built-in** is selected so that you can select a trigger that runs natively.
