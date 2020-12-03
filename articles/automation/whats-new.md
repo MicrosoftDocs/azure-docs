@@ -16,9 +16,11 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 - Known issues
 - Bug fixes
 
+This page is updated monthly, so revisit it regularly.
+
 ## January 2020 to December 2020
 
-### New
+The following is a rollup of all the changes performed on Azure Automation and its features over the current year. Included are new features, changed features, and deprecated functionality.
 
 - Support for Impact Level 5 (IL5) compute isolation in Azure Government cloud.
 - Updated runbooks used by Start/Stop VMs during off-hours to use Azure Az modules
@@ -52,7 +54,7 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 - Automation diagnostic logs schema update.
 - Hybrid Runbook Worker support for Windows Server 2008 R2.
 - Retired support of Azure Classic PowerShell cmdlets.
-- Native support for Azure Lighthouse in Update Management.
+- Introduced native support for Azure Lighthouse in Update Management.
 
 ## Next steps
 
