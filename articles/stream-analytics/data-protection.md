@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/03/2020
 ---
 
 # Data protection in Azure Stream Analytics 
@@ -50,8 +50,6 @@ Encrypt your storage account to secure all of your data and explicitly choose th
 
 To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
-
-
 Use the following steps to configure your storage account for private data assets. This configuration is made from your Stream Analytics job, not from your storage account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -64,9 +62,15 @@ Use the following steps to configure your storage account for private data asset
 
 1. Select the check box that says *Secure all private data assets needed by this job in my Storage account*.
 
-1. Select a storage account from your subscription. Note that this setting cannot be modified throughout the life cycle of the job. 
+1. Select a storage account from your subscription. Note that this setting cannot be modified throughout the life cycle of the job. You also cannot add this option once the job is created.
+
+1. To authenticate with a connection string, select **Connection string** from the Authentication mode dropdown. The storage account key is automatically populated from your subscription.
 
    ![Private data storage account settings](./media/data-protection/storage-account-create.png)
+
+1. To authenticate with Managed Identity, select **Managed Identity** from the Authentication mode dropdown. If you choose Managed Identity, you need to add your Stream Analytics job to the storage account's access control list. If you do not give your job access, the job will not be able to perform any operations. For more information on how to grant access, see [Use Azure RBAC to assign a managed identity access to another resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
+
+   :::image type="content" source="media/data-protection/storage-account-create-msi.png" alt-text="Private data storage account settings with managed identity authentication":::
 
 ## Private data assets that are stored by Stream Analytics
 
