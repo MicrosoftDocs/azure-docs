@@ -50,7 +50,7 @@ Apple requires app developers to create and sign a JWT token, which is used as t
 5. On the **Download Your Key** page, download the key. It will download as a `.p8` (PKCS#8) file - you'll use the file contents to sign your client secret JWT.
 
 ### Structuring the client secret JWT
-Apple requires the JWT token, which will be used as your client secret to have a payload structured like this example:
+Apple requires the client secret be the base64-encoding of a JWT token. The decoded JWT token should have a payload structured like this example:
 ```json
 {
   "alg": "ES256",
@@ -68,6 +68,9 @@ Apple requires the JWT token, which will be used as your client secret to have a
 - **aud**: Apple is receiving the token, so they're the audience
 - **exp**: No more than six months after **nbf**
 
+The base64-encoded version of the above payload looks like this: 
+```eyJhbGciOiJFUzI1NiIsImtpZCI6IlVSS0VZSUQwMDEifQ.eyJzdWIiOiJjb20ueW91cmNvbXBhbnkuYXBwMSIsIm5iZiI6MTU2MDIwMzIwNywiZXhwIjoxNTYwMjg5NjA3LCJpc3MiOiJBQkMxMjNERUZHIiwiYXVkIjoiaHR0cHM6Ly9hcHBsZWlkLmFwcGxlLmNvbSJ9.ABSXELWuTbgqfrIUz7bLi6nXvkXAz5O8vt0jB2dSHTQTib1x1DSP4__4UrlKI-pdzNg1sgeocolPNTmDKazO8-BHAZCsdeeTNlgFEzBytIpMKFfVEQbEtGRkam5IeclUK7S9oOva4EK4jV4VmgDrr-LGWWO3TaAxAvy3_ZoKohvFFkVG```
+
 _Note: Apple doesn't accept client secret JWTs with an expiration date more than six months after the creation (or nbf) date. That means you'll need to rotate your client secret, at minimum, every six months._
 
 More information about generating and validating tokens can be found in [Apple's developer documentation](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens). 
@@ -75,7 +78,7 @@ More information about generating and validating tokens can be found in [Apple's
 ### Signing the client secret JWT
 You'll use the `.p8` file you downloaded previously to sign the client secret JWT. This file is a [PCKS#8 file](https://en.wikipedia.org/wiki/PKCS_8) that contains the private signing key in PEM format. There are many libraries that can create and sign the JWT for you. 
 
-One way of doing generating the client secret is by running a small amount of .NET code shown below.
+There are a variety of open source libraries available online for creating and signing JWT tokens. See jwt.io for more information. For example, one way of generating the client secret is by importing the [Microsoft.IdentityModel.Tokens nuget package](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/) and running a small amount of C# code shown below.
 
 ```csharp
 using Microsoft.IdentityModel.Tokens;
