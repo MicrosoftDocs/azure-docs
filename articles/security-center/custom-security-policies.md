@@ -82,7 +82,7 @@ The metadata should be added to the policy definition for a policy that is part 
  "metadata": {
 	"securityCenter": {
 		"RemediationDescription": "Custom description goes here",
-		"Severity": "High",
+		"Severity": "High"
     },
 ```
 
@@ -98,7 +98,7 @@ Below is an example of a custom policy including the metadata/securityCenter pro
 	"metadata": {
 		"securityCenter": {
 			"RemediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
-			"severity": "High"
+			"Severity": "High"
 		}
 	},
 	"parameters": {
