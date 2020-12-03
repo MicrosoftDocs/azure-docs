@@ -6,7 +6,7 @@ ms.date: 11/19/2020
 ms.reviewer: mikarmar
 ---
 
-# Configure your App Service or Azure Functions app to login using an Apple provider (Preview)
+# Configure your App Service or Azure Functions app to login using a Sign-in with Apple provider (Preview)
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
