@@ -1,15 +1,15 @@
 ---
-title: Create a Dynamics 365 Business Central offer - Microsoft commercial marketplace 
-description: Learn the steps and considerations for creating a new Dynamics 365 Business Central offer in the Microsoft commercial marketplace in Partner Center. You can list or sell your offer in Azure Marketplace or through the Cloud Solution Provider (CSP) program.
+title: Create a Dynamics 365 Business Central offer in Microsoft AppSource
+description: How to create a Dynamics 365 for Business Central offer in Microsoft AppSource. List or sell your offer in AppSource or through the Cloud Solution Provider (CSP) program.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: navits09
 ms.author: navits
-ms.date: 08/07/2020
+ms.date: 12/02/2020
 ---
 
-# Create a Dynamics 365 Business Central offer
+# Create a Dynamics 365 for Business Central offer
 
 This article describes how to create a new Dynamics 365 Business Central offer. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) is an enterprise resource planning (ERP) service that handles a wide range of business processes, including finance, operations, supply chain, CRM, and project management and electronic commerce. Premium packages also support classic deployment model and manufacturing. All offers for Dynamics 365 Business Central must go through our certification process.
 
@@ -26,17 +26,14 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](cre
 
     ![Illustrates the left-navigation menu.](./media/new-offer-dynamics-365-business-central.png)
 
-> [!NOTE]
-> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
-
 ## New offer
 
 Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
 - This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
 - The Offer ID combined with the Publisher ID must be under 40 characters in length.
-- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces. For example, if your Publisher ID is testpublisherid and you enter **test-offer-1** here, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
-- The Offer ID can't be changed after you select **Create**.
+- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
+- THis ID can't be changed after you select **Create**.
 
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
@@ -47,9 +44,9 @@ Select **Create** to generate the offer and continue.
 
 ## Offer setup
 
-## Alias
+### Alias
 
-Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, go to the [Offer Listing](#offer-listing) page.
+Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. This name (pre-populated with what your entered when you created the offer) won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, go to the [Offer Listing](#offer-listing) page.
 
 ### Setup details
 
@@ -97,7 +94,7 @@ See the full list of categories and subcategories in [Offer Listing Best Practic
 
 ### Industries
 
-[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+[!INCLUDE [Industry Taxonomy](includes/industry-taxonomy.md)]
 
 ### App version
 
@@ -111,7 +108,7 @@ Select **Save draft** before continuing.
 
 ## Offer listing
 
-This is where you define details for your offer such as name, description, and images.
+This page lets you define offer details such as offer name, description, links, and contacts.
 
 > [!NOTE]
 > Provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful link URL* to offer content in a language other than the one used in the Offer listing content.
@@ -157,7 +154,7 @@ Enter the **Privacy policy link** (URL) to your organization's privacy policy. Y
 
 ### Contact information
 
-Provide the name, email, and phone number for a **Support contact** and an **Engineering contact**. This information is not shown to customers, but will be available to Microsoft, and may be provided to CSP partners.
+Provide the name, email, and phone number for a **Support contact** and an **Engineering contact**. This information is not shown to customers, but will be available to Microsoft and may be provided to CSP partners.
 
 In the **Support contact** section, provide the **Support URL** where CSP partners can find support for your offer. Your Support URL cannot be the same as your Help URL.
 
@@ -167,7 +164,7 @@ Provide at least one (and up to three) related marketing documents here, such as
 
 ### Marketplace media
 
-Provide logos and images that will be used when showing your offer to customer. All images must be in PNG format.
+Provide logos and images that will be used when showing your offer to customers. All images must be in PNG format.
 
 [!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
@@ -176,10 +173,7 @@ Provide logos and images that will be used when showing your offer to customer. 
 
 #### Logos
 
-Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** logo. You can optionally replace this with a different image later.
-
-- **Large** (from 216 x 216 to 350 x 350 px, required)
-- **Small** (48 x 48 px, optional)
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create other required sizes. You can optionally replace this with a different image later.
 
 These logos are used in different places in the listing:
 
@@ -189,11 +183,11 @@ These logos are used in different places in the listing:
 
 #### Screenshots
 
-Add screenshots that show how your offer works. At least one screenshot is required, and you can add up to five. All screenshots must be 1280 x 720 pixels and in PNG format.
+Add screenshots that show how your offer works. At least three screenshots are required, and you can add up to five. All screenshots must be 1280 x 720 pixels and in PNG format.
 
 #### Videos
 
-You can optionally add up to four videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its address, and a thumbnail image of the video (1280 x 720 pixels).
+You can optionally add up to four videos that demonstrate your offer. Videos must be hosted on an external site. For each one, enter the video's name, its address, and a thumbnail image of the video (1280 x 720 pixels).
 
 For additional marketplace listing resources, see [Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md).
 
@@ -205,11 +199,11 @@ This page lets you define where and how to make your offer available.
 
 ### Markets
 
-Specify the markets in which your offer should be available. To do so, select **Edit markets** to display the **Market selection** popup window.
+To specify the markets where your offer should be available, select **Edit markets** to display the **Market selection** popup window.
 
 Select at least one market. Choose **Select all** to make your offer available in every possible market, or select only the specific markets you want. When you're finished, select **Save**.
 
-Your selections here apply only to new acquisitions; if someone already has your app in a certain market, and you later remove that market, the people who already have the offer in that market can continue to use it, but no new customers in that market will be able to get your offer.
+Your selections here apply only to new acquisitions; if someone already has your app in a certain market and you later remove that market, the people who already have the offer in that market can continue to use it, but no new customers in that market will be able to get your offer.
 
 > [!IMPORTANT]
 > It is your responsibility to meet any local legal requirements, even if those requirements aren't listed here or in Partner Center. Even if you select all markets, local laws, restrictions, or other factors may prevent certain offers from being listed in some countries and regions.
@@ -228,36 +222,32 @@ This page defines the technical details used to connect to your offer. This conn
 
 ### File upload
 
-If you selected **Add On** above, where you'll upload your offer's package file, along with the package files for any extension on which it has dependencies.
+If you previously selected **Add On**, where you'll upload your offer's package file, along with the package files for any extension on which it has dependencies.
 
-#### Extensions package file
+#### Extension package file
 
 Upload the extension package file (.app) file for your offer.
 
-#### Library package file
+#### Library extension package file
 
 Required if your offer must be installed along with another extension that will not be published to the marketplace. If so upload its .app file here.
 
 >[!NOTE]
->The dependency package file is no longer used. Upload a library package file instead.
-
-### URL to app installation
-
-If you selected **Connect** above, provide the address for your app installation here. For connected services that don’t require installation, provide the address for your service landing page or sign-up page.
+>The dependency package file is no longer used. Upload a library extension package file instead.
 
 Select **Save draft** before continuing.
 
-## Test drive technical configuration
+<!-- ## Test drive technical configuration
 
 This page lets you set up a demonstration ("test drive") that allows customers to try your offer before purchasing it. Learn more in [What is test drive](../what-is-test-drive.md).
 
 To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.
 
 When you've finished setting up your test drive, select **Save draft** before continuing.
-
+-->
 ## Supplemental content
 
-This page lets you provide additional information about your offer to help us validate your offer. This information is not shown to customers or published to the marketplace.
+This page lets you provide additional information to help us validate your offer. This information is not shown to customers or published to the marketplace.
 
 ### Target release
 
@@ -290,11 +280,11 @@ After completing all required sections of the offer, select **Review and publish
 If it's your first time publishing this offer, you can:
 
 - See the completion status for each section of the offer.
-    - *Not started* - Section has not been touched and needs to be completed.
-    - *Incomplete* - Section has errors that need to be fixed or requires more information. Go back to the section(s) and update it.
-    - *Complete* - Section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+    - **Not started** - Section has not been touched and needs to be completed.
+    - **Incomplete** - Section has errors that need to be fixed or requires more information. Go back to the section(s) and update it.
+    - **Complete** - Section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
-- Submit the offer for publishing by selecting **Submit**. We will email you when a preview version of the offer is available to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public.
+- Submit the offer for publishing by selecting **Submit**. We will email you when a preview version of the offer is available to review and approve. Return to Partner Center and select **Go-live** to publish your offer to the public.
 
 ## Next steps
 
