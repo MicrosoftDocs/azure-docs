@@ -22,9 +22,9 @@ For recommendations on how to implement a tagging strategy, see [Resource naming
 
 There are two ways to get the required access to tag resources.
 
-1. You can have write access to the **Microsoft.Resources/tags** resource type. This access lets you tag any resource, even if you don't have access to the resource itself. The [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) role grants this access. Currently, the tag contributor role can't apply tags to resources or resource groups through the portal. It can apply tags to subscriptions through the portal. It supports all tag operations through PowerShell and REST API.  
+- You can have write access to the **Microsoft.Resources/tags** resource type. This access lets you tag any resource, even if you don't have access to the resource itself. The [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) role grants this access. Currently, the tag contributor role can't apply tags to resources or resource groups through the portal. It can apply tags to subscriptions through the portal. It supports all tag operations through PowerShell and REST API.  
 
-1. You can have write access to the resource itself. The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- You can have write access to the resource itself. The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## PowerShell
 
