@@ -103,6 +103,59 @@ Once the Azure roles have been assigned to the users, the tenant administrator s
 
 4. To save your setting, select **Save**.
 
+
+
+## Organize your subscriptions into management groups
+
+### Introduction to management groups
+
+Azure management groups provide the ability to efficiently manage access, policies, and reporting on groups of subscriptions, as well as effectively manage the entire Azure estate by performing actions on the root management group. You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. 
+
+Each Azure AD tenant is given a single top-level management group called the **root management group**. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This group allows global policies and Azure role assignments to be applied at the directory level. 
+
+The root management group is created automatically when you do any of the following actions: 
+- Open **Management Groups** in the [Azure portal](https://portal.azure.com).
+- Create a management group with an API call.
+- Create a management group with PowerShell. For PowerShell instructions, see [Create management groups for resource and organization management](../governance/management-groups/create-management-group-portal.md).
+
+Management groups aren't required to onboard Security Center, but we recommend that you create at least one so that the root management group gets created. After the group is created, all subscriptions under your Azure AD tenant will be linked to it. 
+
+
+For a detailed overview of management groups, see the [Organize your resources with Azure management groups](../governance/management-groups/overview.md) article.
+
+### View and create management groups in the Azure portal
+
+1. From the [Azure portal](https://portal.azure.com), use the search box in the top bar to find and open **Management Groups**.
+
+    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Accessing your management groups":::
+
+    The list of your management groups appears.
+
+1. To create a management group, select **Add management group**, enter the relevant details, and select **Save**.
+
+    :::image type="content" source="media/security-center-management-groups/add-management-group.png" alt-text="Adding a management group to Azure":::
+
+    - The **Management Group ID** is the directory unique identifier that is used to submit commands on this management group. This identifier isn't editable after creation as it is used throughout the Azure system to identify this group. 
+    - The display name field is the name that is displayed within the Azure portal. A separate display name is an optional field when creating the management group and can be changed at any time.  
+
+
+### Add subscriptions to a management group
+You can add subscriptions to the management group that you created.
+
+1. Under **Management Groups**, select the management group for your subscription.
+
+    :::image type="content" source="./media/security-center-management-groups/management-group-subscriptions.png" alt-text="Select a management group for your subscription":::
+
+1. When the group's page opens, select **Details**
+
+    :::image type="content" source="./media/security-center-management-groups/management-group-details-page.png" alt-text="Opening the details page of a management group":::
+
+1. From the group's details page, select **Add subscription**, then select your subscriptions and select **Save**. Repeat until you've added all the subscriptions in the scope.
+
+    :::image type="content" source="./media/security-center-management-groups/management-group-add-subscriptions.png" alt-text="Adding a subscription to a management group":::
+   > [!IMPORTANT]
+   > Management groups can contain both subscriptions and child management  groups. When you assign a user an Azure role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children. 
+
 ## Next steps
 In this article, you learned how to gain tenant-wide visibility for Azure Security Center. For related information, see:
 
