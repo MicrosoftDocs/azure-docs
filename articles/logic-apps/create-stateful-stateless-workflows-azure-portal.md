@@ -1,5 +1,5 @@
 ---
-title: Preview - Create stateful or stateless workflows in Azure portal 
+title: Create stateful or stateless workflows in the Azure portal
 description: Build and run stateless or stateful automation integration workflows with Azure Logic Apps (Preview) in the Azure portal
 services: logic-apps
 ms.suite: integration
@@ -324,3 +324,36 @@ For a stateful workflow, after each workflow run, you can view the run history, 
 
 1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
 
+
+<a name="enable-run-history-stateless"></a>
+
+## Enable run history for stateless workflows
+
+To more easily debug a stateless workflow, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for the Azure portal, or if you're working in Visual Studio Code, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
+
+1. In the [Azure portal](https://portal.azure.com), find and open your **Logic App (Preview)** resource.
+
+1. On the logic app's menu, under **Settings**, select **Configuration**.
+
+1. On the **Application Settings** tab, select **New application setting**.
+
+1. On the **Add/Edit application setting** pane, in the **Name** box, enter this operation option name: 
+
+   `Workflows.{yourWorkflowName}.OperationOptions`
+
+1. In the **Value** box, enter the following value: `WithStatelessRunHistory`
+
+   For example:
+
+   ![Screenshot that shows the Azure portal and Logic App (Preview) resource with the "Configuration" > "New application setting" < "Add/Edit application setting" pane open and the "Workflows.{yourWorkflowName}.OperationOptions" option set to "WithStatelessRunHistory".](./media/create-stateful-stateless-workflows-azure-portal/stateless-operation-options-run-history.png)
+
+1. To finish this task, select **OK**. On the **Configuration** pane toolbar, select **Save**.
+
+1. To disable the run history when you're done, either set the `Workflows.{yourWorkflowName}.OperationOptions`property to `None`, or delete the property and its value.
+
+## Next steps
+
+We'd like to hear from you about your experiences with this public preview!
+
+* For bugs or problems, [create your issues in GitHub](https://github.com/Azure/logicapps/issues).
+* For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/lafeedback).

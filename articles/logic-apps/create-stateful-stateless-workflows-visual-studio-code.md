@@ -1,6 +1,6 @@
 ---
-title: Preview - Create stateful or stateless workflows with Visual Studio Code
-description: Build and run stateless or stateful automation integration workflows with the Azure Logic Apps (Preview) extension in Visual Studio Code
+title: Create stateful or stateless workflows in Visual Studio Code
+description: Build and run stateless or stateful automation integration workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
@@ -408,7 +408,7 @@ Next, run and debug your workflow locally in Visual Studio Code.
 
 To test your logic app, follow these steps to start a debugging session and find the URL for the endpoint that's created by the Request trigger. You need this URL so that you can later send a request to that endpoint.
 
-1. To help you more easily debug a stateless logic app workflow, you can [enable the run history for that workflow](#run-history).
+1. To help you more easily debug a stateless workflow, you can [enable the run history for that workflow](#enable-run-history-stateless).
 
 1. On the Visual Studio Code toolbar, open the **Run** menu, and select **Start Debugging** (F5).
 
@@ -677,7 +677,7 @@ Next, you can learn how to perform these tasks:
 
 * [Find your deployed logic app in the Azure portal](#find-manage-deployed-workflows-portal) or [in Visual Studio Code](#find-manage-deployed-workflows-vs-code).
 
-* [Enable run history on stateless logic app workflows](#run-history).
+* [Enable run history on stateless workflows](#enable-run-history-stateless).
 
 * [Enable monitoring on a deployed **Logic App (Preview)** resource](#enable-monitoring).
 
@@ -780,15 +780,11 @@ Through the Azure portal, you can add blank workflows to a **Logic App (Preview)
 
    ![Screenshot that shows the Logic App Designer and a blank workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-blank-workflow-designer.png)
 
-<a name="run-history"></a>
+<a name="enable-run-history-stateless"></a>
 
-## Run history for stateless logic app workflows
+## Enable run history for stateless workflows
 
-To more easily debug a stateless logic app workflow, you can enable the run history for that workflow in either Visual Studio Code or in the Azure portal, and then disable the run history when you're done.
-
-### For a stateless logic app workflow in Visual Studio Code
-
-If you are working on and running the stateless logic app workflow locally in Visual Studio Code, follow these steps:
+To more easily debug a stateless workflow, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create stateful or stateless workflows in the Azure portal](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
 
 1. In your project, find and expand the **workflow-designtime** folder. Find and open the **local.settings.json** file.
 
@@ -805,31 +801,7 @@ If you are working on and running the stateless logic app workflow locally in Vi
    }
    ```
 
-1. To disable the run history when you're done, either delete the `Workflows.{yourWorkflowName}.OperationOptions` property and its value, or set the property to `None`.
-
-### For a stateless logic app workflow in the Azure portal
-
-If you already deployed your project to the Azure portal, follow these steps:
-
-1. In the [Azure portal](https://portal.azure.com), find and open your **Logic App (Preview)** resource.
-
-1. On the logic app's menu, under **Settings**, select **Configuration**.
-
-1. On the **Application Settings** tab, select **New application setting**.
-
-1. On the **Add/Edit application setting** pane, in the **Name** box, enter this operation option name: 
-
-   `Workflows.{yourWorkflowName}.OperationOptions`
-
-1. In the **Value** box, enter the following value: `WithStatelessRunHistory`
-
-   For example:
-
-   ![Screenshot that shows the Azure portal and Logic App (Preview) resource with the "Configuration" > "New application setting" < "Add/Edit application setting" pane open and the "Workflows.{yourWorkflowName}.OperationOptions" option set to "WithStatelessRunHistory".](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
-
-1. When you're done, select **OK**. On the **Configuration** pane, select **Save**.
-
-To enable monitoring on your deployed Logic App (Preview) resource, continue to the next section.
+1. To disable the run history when you're done, either set the `Workflows.{yourWorkflowName}.OperationOptions`property to `None`, or delete the property and its value.
 
 <a name="enable-monitoring"></a>
 

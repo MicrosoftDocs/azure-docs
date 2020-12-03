@@ -1,6 +1,6 @@
 ---
 title: Overview for Azure Logic Apps (Preview)
-description: Overview about building stateless or stateful automation workflows with Azure Logic Apps (Preview) that help you integrate apps, data, cloud services, and on-premises systems
+description: Learn about building stateless and stateful automation workflows by using Azure Logic Apps (Preview)
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, sopai, jonfan, logicappspm
@@ -16,23 +16,28 @@ ms.date: 12/07/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create logic app workflows that integrate across apps, data, cloud services, and systems, you can build and run [*stateful* and *stateless* logic app workflows](#stateful-stateless)either in the Azure portal or in Visual Studio Code with the new Azure Logic Apps (Preview) extension. When you use Visual Studio Code, you can locally build and run these workflows in your development environment. The logic apps that you create with the new **Logic App (Preview)** resource type, which is powered by [Azure Functions](../azure-functions/functions-overview.md). This new resource type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions.
+To create logic apps that integrate across apps, data, cloud services, and systems, you can build and run [*stateful* and *stateless* workflows](#stateful-stateless) by using the new **Logic App (Preview)** resource type. This new logic app type is powered by [Azure Functions](../azure-functions/functions-overview.md), can include multiple workflows, and is similar in some ways to the **Function App** resource type, which can include multiple functions. You can create this new logic app type either by using the Azure portal or by using Visual Studio Code with the new Azure Logic Apps (Preview) extension. When you use Visual Studio Code, you can locally build and run these workflows in your development environment.
 
-This article provides an overview about how [stateful and stateless](#stateful-stateless) logic apps differ from each other, [what's new in this public preview](#whats-new), how the [pricing model](#pricing-model) works, and various aspects about the **Logic App (Preview)** resource type.
+This article provides an overview about how [stateful and stateless](#stateful-stateless) workflows differ from each other, [what's new in this public preview](#whats-new), how the [pricing model](#pricing-model) works, and various other aspects about the **Logic App (Preview)** resource type.
 
 <a name="stateful-stateless"></a>
 
-## Stateful versus stateless
+## Stateful versus stateless workflows
 
 * *Stateful*
 
-  Create stateful logic apps when you need to keep, review, or reference data from previous events. These logic apps keep the input and output for each action and their workflow states in external storage, which makes reviewing the run details and history possible after each run finishes. Stateful logic apps provide high resiliency if or when outages happen. After services and systems are restored, you can reconstruct interrupted logic app runs from the saved state and rerun the logic apps to completion. Stateful workflows can continue running for up to a year.
+  Create stateful workflows when you need to keep, review, or reference data from previous events. These workflows save the inputs and outputs for each action and their states in external storage, which makes reviewing the run details and history possible after each run finishes. Stateful workflows provide high resiliency if outages happen. After services and systems are restored, you can reconstruct interrupted runs from the saved state and rerun the workflows to completion. Stateful workflows can continue running for up to a year.
 
 * *Stateless*
 
-  Create stateless logic apps when you don't need to save, review, or reference data from previous events in external storage for later review. These logic apps keep the input and output for each action and their workflow states only in memory, rather than transfer this information to external storage. As a result, stateless logic apps have shorter runs that are usually no longer than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't kept in external storage. However, if or when outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. These logic apps can only run synchronously and for easier debugging, you can [enable run history in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#run-history), which has some impact on performance.
+  Create stateless workflows when you don't need to save, review, or reference data from previous events in external storage for later review. These workflows save the inputs and outputs for each action and their states *only in memory*, rather than transferring this data to external storage. As a result, stateless workflows have shorter runs that are usually no longer than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't kept in external storage. However, if outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. These workflows can only run synchronously.
 
-  Stateless workflows currently support only *actions* for [managed connectors](../connectors/apis-list.md#managed-api-connectors), which are deployed in Azure, and not triggers. To start your workflow, select the [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins), which run natively with the Logic Apps runtime. For more information about unsupported triggers, actions, and connectors, see [Unsupported or unavailable capabilities](#unsupported).
+  For easier debugging, you can enable run history for a stateless workflow, which has some impact on performance, and then disable the run history when you're done. For more information, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create stateful or stateless workflows in the Azure portal](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
+
+  > [!NOTE]
+  > Stateless workflows currently support only *actions* for [managed connectors](../connectors/apis-list.md#managed-api-connectors), 
+  > which are deployed in Azure, and not triggers. To start your workflow, select the [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins), 
+  > which run natively with the Logic Apps runtime. For more information about unsupported triggers, actions, and connectors, see [Unsupported or unavailable capabilities](#unsupported).
 
 For information about how nested logic apps behave differently between stateful and stateless logic apps, see [Nested behavior differences between stateful and stateless logic apps](#nested-behavior).
 
@@ -77,13 +82,10 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
 
 * Create stateless logic apps that run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](logic-apps-overview-preview.md#stateful-stateless).
 
-* Run and debug your logic apps locally in the Visual Studio Code development environment.
-
-* Publish and deploy your logic apps from Visual Studio Code directly to various hosting environments, such as [Azure App Service](../app-service/environment/intro.md) and [Docker containers](/dotnet/core/docker/introduction).
+* Run and debug your logic apps locally in the Visual Studio Code development environment. Publish and deploy your logic apps from Visual Studio Code directly to various hosting environments, such as [Azure App Service](../app-service/environment/intro.md) and [Docker containers](/dotnet/core/docker/introduction). For more information, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md).
 
 > [!NOTE]
-> For information about current known issues, review the preview extension's 
-> [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+> For information about current known issues, review the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 <a name="pricing-model"></a>
 
@@ -107,7 +109,7 @@ For more information about the pricing models that apply to this new resource ty
 
 For this public preview, these capabilities are not available or not supported:
 
-* To start your workflow, use the [built-in Request, HTTP, Event Hubs, or Service Bus trigger](../connectors/apis-list.md), which run natively with the Logic Apps runtime. Currently, [enterprise connectors](../connectors/apis-list.md#enterprise-connectors), [on-premises data gateway triggers](../connectors/apis-list.md#on-premises-connectors), webhook-based triggers, Sliding Window trigger, [custom connectors](../connectors/apis-list.md#custom-apis-and-connectors), integration accounts, their artifacts, and [their connectors](../connectors/apis-list.md#integration-account-connectors) aren't supported in this preview. The "call an Azure function" capability is unavailable, so for now, use the HTTP *action* to call the request URL for the Azure function.
+* To start your workflow, use the [built-in Request, HTTP, Event Hubs, or Service Bus trigger](../connectors/apis-list.md), which run natively with the Logic Apps runtime. Currently, [enterprise connectors](../connectors/apis-list.md#enterprise-connectors), [on-premises data gateway triggers](../connectors/apis-list.md#on-premises-connectors), Sliding Window trigger, [custom connectors](../connectors/apis-list.md#custom-apis-and-connectors), integration accounts, their artifacts, and [their connectors](../connectors/apis-list.md#integration-account-connectors) aren't supported in this preview. The "call an Azure function" capability is unavailable, so for now, use the HTTP *action* to call the request URL for the Azure function.
 
   Except for the previously specified triggers, *stateful* workflows can use both triggers and actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), which are deployed in Azure versus built-in triggers and actions that run natively with the Logic Apps runtime. However, *stateless* workflows currently support only *actions* for managed connectors, not triggers. Although you can enable connectors in Azure for your stateless workflow, the designer doesn't show any managed connector triggers for you to select.
 
