@@ -193,7 +193,7 @@ Now that we have configured and initialized the gRPC server port connections, le
         1. Convert the image in a byte array for processing. See method: `GetBytes(Bitmap image)`
         
             The sample processor we're using only supports JPG encoded image frame and None as pixel format. In case your custom processor supports a different encoding and/or format, update the `IsMediaFormatSupported` method of the processor class.
-        1. Using the [ColorMatrix class](https://docs.microsoft.com/dotnet/api/system.drawing.imaging.colormatrix?redirectedfrom=MSDN&view=dotnet-plat-ext-3.1), convert the image to gray scale. See method: `ToGrayScale(Image source)`.
+        1. Using the [ColorMatrix class](https://docs.microsoft.com/dotnet/api/system.drawing.imaging.colormatrix?redirectedfrom=MSDN&view=dotnet-plat-ext-3.1&preserve-view=true), convert the image to gray scale. See method: `ToGrayScale(Image source)`.
         1. Once we get the gray scale image, we then calculate the average of the gray scale bytes.
         1. If the average value < 127, then we classify the image as “dark”, else we will classify them as “light” with confidence value as 1.0. See method: `ProcessImage(List<Image> images)`.
 
