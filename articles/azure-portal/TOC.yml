@@ -14,6 +14,8 @@
     href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
   - name: Create a dashboard
     items:
+    - name: Azure CLI
+      href: quickstart-portal-dashboard-azure-cli.md
     - name: Azure PowerShell
       href: quickstart-portal-dashboard-powershell.md
     - name: ARM template
