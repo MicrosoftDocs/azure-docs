@@ -21,21 +21,21 @@ The workaround to this issue is to always use UTF-8 collation when reading UTF-8
 
 -	In many cases, you just need to set UTF8 collation on the database (metadata operation).
 
-```sql
-alter database MyDB
-      COLLATE Latin1_General_100_BIN2_UTF8;
-```
+      ```sql
+      alter database MyDB
+            COLLATE Latin1_General_100_BIN2_UTF8;
+      ```
 
 - You can explicitly define collation on VARCHAR column in OPENROWSET or external table:
 
-```sql
-select geo_id, cases = sum(cases)
-from openrowset(
-        bulk 'latest/ecdc_cases.parquet', data_source = 'covid', format = 'parquet'
-    ) with ( cases int,
-             geo_id VARCHAR(6) COLLATE Latin1_General_100_BIN2_UTF8 ) as rows
-group by geo_id
-```
+      ```sql
+      select geo_id, cases = sum(cases)
+      from openrowset(
+              bulk 'latest/ecdc_cases.parquet', data_source = 'covid', format = 'parquet'
+          ) with ( cases int,
+                   geo_id VARCHAR(6) COLLATE Latin1_General_100_BIN2_UTF8 ) as rows
+      group by geo_id
+      ```
 -	If you did not specify UTF8 collation on external tables that read UTF8 data, you need to re-create impacted external tables and set UTF8 collation on VARCHAR columns (metadata operation).
 
 
