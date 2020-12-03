@@ -102,6 +102,8 @@
     href: troubleshoot-how-to.md
   - name: Upgrading
     href: upgrading-lva-module.md
+  - name: Develop and deploy a gRPC inference srv
+    href: develop-deploy-grpc-inference-srv-how-to.md
 - name: Reference
   items:
   - name: HTTP extension protocol
