@@ -38,11 +38,9 @@ When an Azure AD security principal attempts to access an API, that security pri
 1. Go to the azure portal
 1. Go to the Azure Communication Service resource
 1. Navigate to Access Control (IAM) menu -> + Add -> Add role assignment
-![Managed identity role pt.1](media/communication-auth-aad-msi-assign-1.png)
 1. Select the role "Contributor" (the only one supported at the moment)
-![Managed identity role pt.1](media/communication-auth-aad-msi-assign-2.png)
 1. In the Assign access to field select "User assigned managed identity" then select the desired identity then save
-![Managed identity role pt.1](media/communication-auth-aad-msi-assign-3.png)
+![Managed identity role](media/communication-auth-aad-msi-assign.png)
 
 
 ## Authenticate with the Azure Identity library
