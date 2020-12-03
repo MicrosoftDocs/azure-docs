@@ -13,7 +13,7 @@ ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperfq1
 
 ---
 # Register SQL Server VM with SQL IaaS Agent Extension
