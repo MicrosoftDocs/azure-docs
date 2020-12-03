@@ -68,7 +68,7 @@ The following tables provide links to code samples for leveraging web APIs in yo
 ### Automated fraud protection services & CAPTCHA
 | Sample                                                                                                            | Description                                                                                                                          |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| [Arkose Labs fraud and abuse protection](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose) | This sample shows how to protect your user sign-ups using using an Arkose Labs fraud and abuse protection. |
+| [Arkose Labs fraud and abuse protection](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose) | This sample shows how to protect your user sign-ups using using the Arkose Labs fraud and abuse protection service. |
 | [reCAPTCHA](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-captcha) | This sample shows how to protect your user sign-ups using using a reCAPTCHA challenge to prevent automated abuse. |
 
 
