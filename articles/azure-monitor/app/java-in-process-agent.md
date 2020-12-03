@@ -231,6 +231,7 @@ try {
 } finally {
     long endTime = System.currentTimeMillis();
     RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setSuccess(success);
     telemetry.setTimestamp(new Date(startTime));
     telemetry.setDuration(new Duration(endTime - startTime));
     telemetryClient.trackDependency(telemetry);
