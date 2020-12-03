@@ -27,14 +27,18 @@ An Azure AD group can be created within your organization's Azure Active Directo
 > Make sure the user list is empty. If there are existing users inside a lab that you added manually or through importing a CSV file, the option to sync the lab to an existing group will not appear. 
 
 1. Sign in to the [Azure Lab Services website](https://labs.azure.com/).
+1. Select the lab you want to work with.
 1. In the left pane, select **Users**. 
 1. Click **Sync from group**. 
 
     :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Add users by syncing from an Azure AD group":::
+    
 1. You will be prompted to pick an existing Azure AD group to sync your lab to. 
+    
+    If you don't see an Azure AD group in the list, could be because of the following reasons:
 
-    > [!NOTE]
-    > Azure AD groups created through Teams will not show up in this list. You can add the Azure Lab Services app inside Teams to create and manage labs directly from within it. See more information about [managing a lab’s user list from within Teams](how-to-manage-user-lists-within-teams.md). 
+    -	If you are a guest user for an Azure Active Directory (usually if you're outside the organization that owns the Azure AD), and you are not able to to search for groups inside the Azure AD. In this case, you won’t be able to add an Azure AD group to the lab in this case. 
+    -	Azure AD groups created through Teams do not show up in this list. You can add the Azure Lab Services app inside Teams to create and manage labs directly from within it. See more information about [managing a lab’s user list from within Teams](how-to-manage-user-lists-within-teams.md). 
 1. Once you picked the Aure AD group to sync your lab to, click **Add**.
 1. Once a lab is synced, it will pull everyone inside the Azure AD group into the lab as users, and you will see the user list updated. Only the people in this Azure AD group will have access to your lab. The user list will refresh every 24 hours to match the latest membership of the Azure AD group. You can also click on the Sync button in the Users tab to manually sync to the latest changes in the Azure AD group.
 1. Invite the users to your lab by clicking on the **Invite All** button, which will send an email to all users with the registration link to the lab. 
