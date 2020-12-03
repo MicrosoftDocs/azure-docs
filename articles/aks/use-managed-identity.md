@@ -113,31 +113,31 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 
 You can now update an AKS cluster currently working with service principals to work with managed identities by using the following CLI commands.
 
-First, Register the Feature Flag for system-assigned Identity:
+First, Register the Feature Flag for system-assigned identity:
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview
 ```
 
-Update the system-assigned Identity:
+Update the system-assigned identity:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 
-Update the user-assigned Identity:
+Update the user-assigned identity:
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
 ```
 
-Update the user-assigned Identity:
+Update the user-assigned identity:
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Once the system-Assigned or user-Assigned identities have been updated to managed identity, perform an `az nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
+> Once the system-assigned or user-assigned identities have been updated to managed identity, perform an `az nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
 
 ## Bring your own control plane MI (Preview)
 A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This enables scenarios such as using an custom VNET or outboundType of UDR with a managed identity.
