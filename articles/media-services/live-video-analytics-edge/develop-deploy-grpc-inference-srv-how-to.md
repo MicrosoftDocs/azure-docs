@@ -14,17 +14,17 @@ This article shows you how you can wrap AI model(s) of your choice within a gRPC
 
 ## Suggested pre-reading
 
-* [Media Graph extensions]()
-* [gRPC extension protocol]()
-* [Inference Metadata schema]()
-* [Introduction to gRPC]()
-* [proto3 Language guide]()
+* [Media Graph extensions](media-graph-extension-concept.md)
+* [gRPC extension protocol](grpc-extension-protocol.md)
+* [Inference Metadata schema](inference-metadata-schema.md)
+* [Introduction to gRPC](https://www.grpc.io/docs/what-is-grpc/introduction/)
+* [proto3 Language guide](https://developers.google.com/protocol-buffers/docs/proto3)
 
 ## Prerequisites
 
-* An x86-64 or an ARM64 device running one of the [supported Linux operating systems]() or a Windows machine.
-* [Install Docker]() on your machine.
-* Install [IoT Edge runtime]().
+* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](https://docs.microsoft.com/azure/iot-edge/support#operating-systems) or a Windows machine.
+* [Install Docker](https://docs.docker.com/desktop/#download-and-install) on your machine.
+* Install [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?tabs=linux).
 
 ## gRPC implementation steps
 
@@ -32,21 +32,21 @@ To create a gRPC inference server and implement it as an extension with Live Vid
 
 ### Setup:
 
-Perform the necessary steps to have [Live Video Analytics  module deployed and working on an IoT Edge device]().
+Perform the necessary steps to have [Live Video Analytics  module deployed and working on an IoT Edge device](deploy-iot-edge-device.md).
 
 ### High level Implementation Steps:
 
 1. Choose one of the many languages that are supported by gRPC: C#, C++, Dart, Go, Java, Node, Objective-C, PHP, Python, Ruby.
-1. Implement a gRPC Server that will communicate with Live Video Analytics using [the proto3 files]().
+1. Implement a gRPC Server that will communicate with Live Video Analytics using [the proto3 files](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc).
 
     :::image type="content" source="./media/develop-deploy-grpc-inference-srv-how-to/inference-srv-container-process.png" alt-text="gRPC Server that will communicate with Live Video Analytics using the proto3 files":::
 
     Within this service:
     1. Handle session description message exchange between the server and the client.
-    1. Handle [media sample messages]() and return results.
+    1. Handle [media sample messages](https://github.com/Azure/live-video-analytics/blob/master/contracts/grpc/extension.proto) and return results.
 
         1. Invoke your inferencing engine that uses a trained model to make inferences on the incoming messages.
-        1. Receive inferencing results from the engine, package them back as a media sample and submit back to Live Video Analytics using the [inferencing.proto]() file.
+        1. Receive inferencing results from the engine, package them back as a media sample and submit back to Live Video Analytics using the [inferencing.proto](https://github.com/Azure/live-video-analytics/blob/master/contracts/grpc/inferencing.proto) file.
 
             Alternatively, invoke any media transformation function to the media sample.
 1. Deploy the gRPC server implementation. There are two ways of doing this:
@@ -65,21 +65,21 @@ When collocating on the same node, shared memory can be used for best performanc
 
 ## Create a gRPC inference server
 
-Now you will build an IoT Edge module (External AI) that accepts video frames from Live Video Analytics using [protobuf]() messages via shared memory, classify the frames as “dark” or “light” and return inference results back to the IoT Hub Message Sink in Live Video Analytics using the [inference metadata schema]().
+Now you will build an IoT Edge module (External AI) that accepts video frames from Live Video Analytics using [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) messages via shared memory, classify the frames as “dark” or “light” and return inference results back to the IoT Hub Message Sink in Live Video Analytics using the [inference metadata schema](inference-metadata-schema.md).
 
 :::image type="content" source="./media/develop-deploy-grpc-inference-srv-how-to/external-ai.png" alt-text="build an IoT Edge module (External AI)":::
 
-This gRPC inference server is a .NET Core console application built handle the [protobuf]() messages sent between Live Video Analytics and your custom AI. Following is the flow of messages between Live Video Analytics and the gRPC inference server:
+This gRPC inference server is a .NET Core console application built handle the [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) messages sent between Live Video Analytics and your custom AI. Following is the flow of messages between Live Video Analytics and the gRPC inference server:
 
-1. Live Video Analytics sends a media stream descriptor (see [extension.proto]()) which defines the media stream information that will be sent followed by video frames to the server as a [protobuf]() message over the gRPC stream session. 
+1. Live Video Analytics sends a media stream descriptor (see [extension.proto](https://github.com/Azure/live-video-analytics/blob/master/contracts/grpc/extension.proto)) which defines the media stream information that will be sent followed by video frames to the server as a [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) message over the gRPC stream session. 
 1. The server validates and acknowledges the stream descriptor and sets up the desired data transfer method.
 1. Live Video Analytics then starts sending the MediaSample files which contain the video frames.
 1. The server analyses the video frames as it receives and starts processing them using an Image Processor defined by you.
-1. The server then returns inference results as protobuf messages as soon as they are available. 
+1. The server then returns inference results as [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) messages as soon as they are available. 
 
     :::image type="content" source="./media/develop-deploy-grpc-inference-srv-how-to/grpc-external-srv.png" alt-text="Create a gRPC inference server":::
 
-The video frames can be transferred either through [shared memory]() or they can be embedded within the [protobuf]() message. The data transfer mode can be configured in the LVA graph topology to determine how frames will be transferred. This is achieved by configuring the **dataTransfer** element of the MediaGraphGrpcExtension property as shown below:
+The video frames can be transferred either through [shared memory](https://en.wikipedia.org/wiki/Shared_memory#:~:text=In%20computer%20science%2C%20shared%20memory,of%20passing%20data%20between%20programs.) or they can be embedded within the protobuf message. The data transfer mode can be configured in the LVA graph topology to determine how frames will be transferred. This is achieved by configuring the **dataTransfer** element of the MediaGraphGrpcExtension property as shown below:
 
 Embedded:
 
@@ -137,7 +137,7 @@ gRPC extension module:
 
 To understand the details of how gRPC server is developed, let’s go through our code sample.
 
-1. Clone the repo from the GitHub link https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp.
+1. Clone the repo from the GitHub link [https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp).
 1. Launch VSCode and navigate to the /src/edge/modules/grpcExtension folder.
 1. Let's do a quick walkthrough of the files:
 
@@ -145,13 +145,13 @@ To understand the details of how gRPC server is developed, let’s go through ou
     
     ```json    
     {
-        "grpcBinding": "tcp://0.0.0.0:50012"
+      "grpcBinding": "tcp://0.0.0.0:5001"
     }
     ```
-    1. **Services\MediaGraphExtensionService.cs**: This class is responsible for handling the [protobuf]() messages. It will read the frame in the message, invoke the ImageProcessor and write the inference results.
+    1. **Services\MediaGraphExtensionService.cs**: This class is responsible for handling the [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) messages. It will read the frame in the message, invoke the ImageProcessor and write the inference results.
 Now that we have configured and initialized the gRPC server port connections, let’s look into how we can process the incoming gRPC messages.
 
-        * Once a gRPC session is established, the very first message that the gRPC server will receive from the client (Live Video Analytics) is a MediaStreamDescriptor which is defined in the [extension.proto]() file. 
+        * Once a gRPC session is established, the very first message that the gRPC server will receive from the client (Live Video Analytics) is a MediaStreamDescriptor which is defined in the [extension.proto](https://github.com/Azure/live-video-analytics/blob/master/contracts/grpc/extension.proto) file. 
 
         ```
         message MediaStreamDescriptor {
@@ -170,7 +170,7 @@ Now that we have configured and initialized the gRPC server port connections, le
 
         * In our server implementation, the method `ProcessMediaStreamDescriptor` will validate the MediaStreamDescriptor’s MediaDescriptor property for a Video file and then will setup the data transfer mode (which is either using shared memory or using embedded frame transfer mode) depending on what you specify in the topology and the deployment template file used. 
         * Upon receiving the message and successfully setting up the data transfer mode, the gRPC server then returns the MediaStreamDescriptor message back to the client as an acknowledgement and thus establishing a connection between the server and the client.    
-        * After Live Video Analytics receives the acknowledgement, it will start transferring media stream to the gRPC server. In our server implementation, the method `ProcessMediaStream` will process the incoming MediaStreamMessage. The MediaStreamMessage is also defined in the [extension.proto]().
+        * After Live Video Analytics receives the acknowledgement, it will start transferring media stream to the gRPC server. In our server implementation, the method `ProcessMediaStream` will process the incoming MediaStreamMessage. The MediaStreamMessage is also defined in the [extension.proto](https://github.com/Azure/live-video-analytics/blob/master/contracts/grpc/extension.proto).
 
         ```
         message MediaStreamMessage {
@@ -191,7 +191,7 @@ Now that we have configured and initialized the gRPC server port connections, le
         1. Convert the image in a byte array for processing. See method: `GetBytes(Bitmap image)`
         
             The sample processor we're using only supports JPG encoded image frame and None as pixel format. In case your custom processor supports a different encoding and/or format, update the `IsMediaFormatSupported` method of the processor class.
-        1. Using the [ColorMatrix class](), convert the image to gray scale. See method: `ToGrayScale(Image source)`.
+        1. Using the [ColorMatrix class](https://docs.microsoft.com/dotnet/api/system.drawing.imaging.colormatrix?redirectedfrom=MSDN&view=dotnet-plat-ext-3.1), convert the image to gray scale. See method: `ToGrayScale(Image source)`.
         1. Once we get the gray scale image, we then calculate the average of the gray scale bytes.
         1. If the average value < 127, then we classify the image as “dark”, else we will classify them as “light” with confidence value as 1.0. See method: `ProcessImage(List<Image> images)`.
 
@@ -207,7 +207,7 @@ Now that we have configured and initialized the gRPC server port connections, le
 
 Now that you have created your gRPC extension module, we will now create and deploy the media graph topology.
 
-1. Using Visual Studio Code, follow [these instructions]() to sign in to Docker.
+1. Using Visual Studio Code, follow [these instructions](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux#build-and-push-your-solution) to sign in to Docker.
 1. In Visual Studio Code, go to src/edge. You see your .env file and a few deployment template files.
 
     The deployment template refers to the deployment manifest for the edge device. It includes some placeholder values. The .env file includes the values for those variables.
@@ -225,7 +225,7 @@ Now that you have created your gRPC extension module, we will now create and dep
     * Program.cs - The sample program code. This code:
 
         * Loads the app settings.
-        * Invokes direct methods that the Live Video Analytics on IoT Edge module exposes. You can use the module to analyze live video streams by invoking its direct methods.
+        * Invokes direct methods that the Live Video Analytics on IoT Edge module exposes. You can use the module to analyze live video streams by invoking its [direct methods](direct-methods.md).
         * Pauses so that you can examine the program's output in the TERMINAL window and examine the events that were generated by the module in the OUTPUT window.
         * Invokes direct methods to clean up resources.
 1. Edit the operations.json file:
