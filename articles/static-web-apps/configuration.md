@@ -114,7 +114,7 @@ The following HTTP codes are available to override:
 | Status Code | Meaning | Cause |
 | --- | --- | --- |
 | [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Bad request |	<li>Invalid invitation link |
-| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Unauthorized | <li>Request to restricted pages while unauthenticated<li>Request to  intermediate auth endpoint without the valid cookie/query string information |
+| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Unauthorized | <li>Request to restricted pages while unauthenticated |
 | [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Forbidden |	<li>User is logged in but doesn't have the roles required to view the page<li>User is logged in but the runtime cannot get the user details from their  identity claims<li>There are too many users logged in to the site with custom roles, therefore the runtime can't let this user login. |
 | [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | Not found | <li>File not found |
 
