@@ -99,7 +99,7 @@ Shared memory:
 ```
 
 > [!NOTE]
-> When communicating over shared memory, the value of IpcMode should be set to **shareabl**e and in the gRPC server module set the value of IpcMode to **container:{CONTAINER_NAME}**. These settings are to be made in the deployment manifest file that is used for deploying the modules to the Azure IoT Hub. Below is a sample of the container options to use when setting up the IoT Edge modules.
+> When communicating over shared memory, the value of IpcMode should be set to **shareable** and in the gRPC server module set the value of IpcMode to **container:{CONTAINER_NAME}**. These settings are to be made in the deployment manifest file that is used for deploying the modules to the Azure IoT Hub. Below is a sample of the container options to use when setting up the IoT Edge modules.
 
 Live Video Analytics module:
 
