@@ -121,7 +121,7 @@ You can begin ingesting data into Azure Time Series Insights Gen2 without having
 * The type name can be either the model name or the display name.
 * The model description becomes the type's description.
 * At least one type variable is created for each telemetry with a numeric schema.
-  * Only numeric data types can be used for variables, but if a value is sent as another type that can be converted, `"0"` for example, you can use a [conversion](/rest/api/time-series-insights/reference-time-series-expression-syntax.md#conversion-functions) function such as `toDouble`.
+  * Only numeric data types can be used for variables, but if a value is sent as another type that can be converted, `"0"` for example, you can use a [conversion](/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) function such as `toDouble`.
 * The variable name can be either the telemetry name or the display name.
 * When you define the variable Time Series Expression, refer to the telemetry's name on the wire, and it's data type.
 
@@ -135,7 +135,7 @@ You can begin ingesting data into Azure Time Series Insights Gen2 without having
 ![DTDL to Time Series Model Type](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
 
 > [!NOTE]
-> This example shows three variables, but each type can have up to 100. Different variables can reference the same telemetry value to perform different calculations as needed. For the full list of filters, aggregates, and scalar functions see [Time Series Insights Gen2 Time Series Expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax.md).
+> This example shows three variables, but each type can have up to 100. Different variables can reference the same telemetry value to perform different calculations as needed. For the full list of filters, aggregates, and scalar functions see [Time Series Insights Gen2 Time Series Expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 Open a text editor and save the following JSON to your local drive:
 
@@ -223,4 +223,4 @@ Navigate back to the charting pane and expand **Device Fleet > your device**. Se
 
 * For an in-depth overview of your environment's Time Series Model, see [Time Series Model in Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md) article.
 
-* To dive into the query APIs and the Time Series Expression syntax, see [Azure Time Series Insights Gen2 Query APIs](/rest/api/time-series-insights/reference-query-apis.md).
+* To dive into the query APIs and the Time Series Expression syntax, see [Azure Time Series Insights Gen2 Query APIs](/rest/api/time-series-insights/reference-query-apis).

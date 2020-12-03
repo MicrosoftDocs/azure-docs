@@ -97,6 +97,20 @@ It is required to get the service principal's application ID and secret:
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to setup your scan
 
+### Firewall settings
+
+Your database server must allow Azure connections to be enabled. This will allow Azure Purview to reach and connect the server. You can follow the How-to guide for [Connections from inside Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
+
+1. Navigate to your database account
+1. Select the server name in the **Overview** page
+1. Select **Security > Firewalls and virtual networks**
+1. Select **Yes** for **Allow Azure services and resources to access this server**
+
+    :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="register sources options" border="true":::
+    
+> [!Note]
+> Currently Azure Purview does not support VNET configuration. Therefore you cannot do IP-based firewall settings.
+
 ## Register an Azure SQL Database Managed Instance data source
 
 1. Navigate to your Purview account
