@@ -53,7 +53,7 @@ This article shows how to build a **Logic App (Preview)** resource by using Visu
 1. To run the emulator, you need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
    > [!IMPORTANT]
-   > Before you open the Logic App Designer to create your logic app workflow, make sure that you start the emulator. 
+   > Before you open the designer to build your workflow, make sure that you start the emulator. 
    > Otherwise, you get a message that the `Workflow design time could not be started`.
    >
    > ![Screenshot that shows the Azure Storage Emulator running.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
@@ -212,7 +212,7 @@ Before you can create your logic app, create a local project so that you can man
 
 <a name="open-workflow-definition-designer"></a>
 
-## Open the workflow definition file in Logic App Designer
+## Open the workflow definition file in the designer
 
 1. Check the versions that are installed on your computer by running the this command:
 
@@ -280,24 +280,19 @@ Before you can create your logic app, create a local project so that you can man
 
    ![Screenshot that shows Explorer pane and resource group name box.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
-1. From the locations list, find and select a [supported Azure region](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) to use for creating your resource group and resources. This example uses **West Central US**.
-
-   > [!IMPORTANT]
-   > Not all regions are currently supported, but updates to add more regions are underway. Selecting an unsupported region might result in problems, 
-   > such as creating connections. For the currently supported regions, review the preview extension's 
-   > [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
+1. From the locations list, find and select the Azure region to use when creating your resource group and resources. This example uses **West Central US**.
 
    ![Screenshot that shows Explorer pane with locations list and "West Central US" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/select-azure-region.png)
 
-   After you perform this step, Visual Studio Code opens the Logic App Designer.
+   After you perform this step, Visual Studio Code opens the workflow designer.
 
    > [!NOTE]
    > When Visual Studio Code starts the workflow design-time API, a message appears that 
    > startup might take a few seconds. You can ignore this message or select **OK**.
 
-   After the Logic App Designer appears, the **Choose an operation** prompt appears on the designer and is selected by default, which shows the **Add an action** pane.
+   After the designer appears, the **Choose an operation** prompt appears on the designer and is selected by default, which shows the **Add an action** pane.
 
-   ![Screenshot that shows Logic App Designer.](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-app-designer.png)
+   ![Screenshot that shows the workflow designer.](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-app-designer.png)
 
 1. Next, [add a trigger and actions](#add-trigger-actions) to your workflow.
 
@@ -305,7 +300,7 @@ Before you can create your logic app, create a local project so that you can man
 
 ## Add a trigger and actions
 
-After you open the Logic App Designer from your **workflow.json** file's shortcut menu, the **Choose an operation** prompt appears on the designer and is selected by default. You can now start creating your workflow by adding a trigger and actions.
+After you open the designer from your **workflow.json** file's shortcut menu, the **Choose an operation** prompt appears on the designer and is selected by default. You can now start creating your workflow by adding a trigger and actions.
 
 The logic app workflow in this example uses this trigger and these actions:
 
@@ -321,11 +316,11 @@ The logic app workflow in this example uses this trigger and these actions:
 
 1. In the **Choose an operation** search box, enter `when a http request`, and select the built-in Request trigger that's named **When a HTTP request is received**.
 
-   ![Screenshot that shows Logic App Designer and **Add a trigger** pane with "When a HTTP request is received" trigger selected.](./media/create-stateful-stateless-workflows-visual-studio-code/add-request-trigger.png)
+   ![Screenshot that shows the workflow designer and **Add a trigger** pane with "When a HTTP request is received" trigger selected.](./media/create-stateful-stateless-workflows-visual-studio-code/add-request-trigger.png)
 
    When the trigger appears on the designer, the trigger's details pane opens to show the trigger's properties, settings, and other actions.
 
-   ![Screenshot that shows Logic App Designer with the "When a HTTP request is received" trigger selected and trigger details pane open.](./media/create-stateful-stateless-workflows-visual-studio-code/request-trigger-added-to-designer.png)
+   ![Screenshot that shows the workflow designer with the "When a HTTP request is received" trigger selected and trigger details pane open.](./media/create-stateful-stateless-workflows-visual-studio-code/request-trigger-added-to-designer.png)
 
    > [!TIP]
    > If the details pane doesn't appear, makes sure that the trigger is selected on the designer.
@@ -350,11 +345,11 @@ The logic app workflow in this example uses this trigger and these actions:
 
    This example selects and uses the Office 365 Outlook action, **Send an email (V2)**.
 
-   ![Screenshot that shows Logic App Designer and **Add an action** pane with Office 365 Outlook "Send an email" action selected.](./media/create-stateful-stateless-workflows-visual-studio-code/add-send-email-action.png)
+   ![Screenshot that shows the workflow designer and **Add an action** pane with Office 365 Outlook "Send an email" action selected.](./media/create-stateful-stateless-workflows-visual-studio-code/add-send-email-action.png)
 
 1. In the action's details pane, select **Sign in** so that you can create a connection to your email account.
 
-   ![Screenshot that shows Logic App Designer and **Send an email (V2)** pane with "Sign in" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-sign-in.png)
+   ![Screenshot that shows the workflow designer and **Send an email (V2)** pane with "Sign in" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-sign-in.png)
 
 1. When Visual Studio Code prompts you for consent to access your email account, select **Open**.
 
@@ -383,7 +378,7 @@ The logic app workflow in this example uses this trigger and these actions:
 
 1. On the action's details pane, on the **Parameters** tab, provide the required information for the action, for example:
 
-   ![Screenshot that shows Logic App Designer with details for Office 365 Outlook "Send an email" action.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-details.png)
+   ![Screenshot that shows the workflow designer with details for Office 365 Outlook "Send an email" action.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-details.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -526,17 +521,17 @@ To test your logic app, follow these steps to start a debugging session and find
 
 To return a response back to the caller that sent a request to your logic app, you can use the built-in [Response action](../connectors/connectors-native-reqres.md) for a workflow that starts with the Request trigger.
 
-1. On the Logic App Designer, under the **Send an email** action, select **New step**.
+1. On the workflow designer, under the **Send an email** action, select **New step**.
 
    The **Choose an operation** prompt appears on the designer, and the **Add an action pane** reopens so that you can select the next action.
 
 1. On the **Add an action** pane, under the **Choose an action** search box, make sure that **Built-in** is selected. In the search box, enter `response`, and select the **Response** action.
 
-   ![Screenshot that shows Logic App Designer with the Response action selected.](./media/create-stateful-stateless-workflows-visual-studio-code/add-response-action.png)
+   ![Screenshot that shows the workflow designer with the Response action selected.](./media/create-stateful-stateless-workflows-visual-studio-code/add-response-action.png)
 
    When the **Response** action appears on the designer, the action's details pane automatically opens.
 
-   ![Screenshot that shows Logic App Designer with the "Response" action's details pane open and the "Body" property set to the "Send an email" action's "Body" property value.](./media/create-stateful-stateless-workflows-visual-studio-code/response-action-details.png)
+   ![Screenshot that shows the workflow designer with the "Response" action's details pane open and the "Body" property set to the "Send an email" action's "Body" property value.](./media/create-stateful-stateless-workflows-visual-studio-code/response-action-details.png)
 
 1. On the **Parameters** tab, provide the required information for the function that you want to call.
 
@@ -701,7 +696,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    To edit the workflow, you have these options:
 
-   * In Visual Studio Code, open your project's **workflow.json** file in the Logic App Designer, make your edits, and redeploy your logic app to Azure.
+   * In Visual Studio Code, open your project's **workflow.json** file in the workflow designer, make your edits, and redeploy your logic app to Azure.
 
    * In the Azure portal, [find and open your logic app](#find-manage-deployed-workflows-portal). Find, edit, and save the workflow.
 
@@ -754,9 +749,9 @@ To find logic apps that have the **Logic App (Preview)** resource type, follow t
 
    ![Screenshot that shows the selected workflow's "Overview" pane, while the workflow menu shows the selected "Designer" command.](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-select-designer.png)
 
-   The Logic App Designer opens and shows the workflow that you built in Visual Studio Code. You can now make changes to this workflow in the Azure portal.
+   The workflow designer opens and shows the workflow that you built in Visual Studio Code. You can now make changes to this workflow in the Azure portal.
 
-   ![Screenshot that shows the Logic App Designer and workflow deployed from Visual Studio Code.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-workflow-designer.png)
+   ![Screenshot that shows the workflow designer and workflow deployed from Visual Studio Code.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-workflow-designer.png)
 
 <a name="add-workflows"></a>
 
@@ -766,19 +761,19 @@ Through the Azure portal, you can add blank workflows to a **Logic App (Preview)
 
 1. In the [Azure portal](https://portal.azure.com), find and select your deployed **Logic App (Preview)** resource.
 
-1. On the logic app's menu, select **Workflows**. On the **Workflows** pane, select **Add**.
+1. On the logic app menu, select **Workflows**. On the **Workflows** pane, select **Add**.
 
    ![Screenshot that shows the selected logic app's "Workflows" pane and toolbar with "Add" command selected.](./media/create-stateful-stateless-workflows-visual-studio-code/add-new-workflow.png)
 
 1. In the **New workflow** pane, provide name for the workflow. Select either **Stateful** or **Stateless** **>** **Create**.
 
-   After Azure deploys your new workflow, which appears on the **Workflows** pane, select that workflow to perform management and other tasks, such as opening the Logic App Designer or code view.
+   After Azure deploys your new workflow, which appears on the **Workflows** pane, select that workflow so that you can manage and perform other tasks, such as opening the designer or code view.
 
    ![Screenshot that shows the selected workflow with management and review options.](./media/create-stateful-stateless-workflows-visual-studio-code/view-new-workflow.png)
 
    For example, opening the designer for a new workflow shows a blank canvas. You can now build this workflow in the Azure portal.
 
-   ![Screenshot that shows the Logic App Designer and a blank workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-blank-workflow-designer.png)
+   ![Screenshot that shows the workflow designer and a blank workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-blank-workflow-designer.png)
 
 <a name="enable-run-history-stateless"></a>
 

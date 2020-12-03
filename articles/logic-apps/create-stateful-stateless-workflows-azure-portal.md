@@ -38,6 +38,8 @@ This article shows how to build a **Logic App (Preview)** resource by using the 
 
 * To test the example logic app that you create in this article, you need a tool that can send calls to the Request trigger, which is the first step in example logic app. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
 
+* For easier diagnostics logging and tracing capability, you can add and use an [Application Insights](../azure-monitor/app/app-insights-overview.md) resource. You can create this resource in advance or when you create your logic app.
+
 ## Create the logic app resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
@@ -53,10 +55,10 @@ This article shows how to build a **Logic App (Preview)** resource by using the 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your logic app. |
-   | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you create your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens ( **-** ), underscores ( **_** ), parentheses ( **()** ), and periods ( **.** ). <p><p>This example creates a resource group named `Fabrikam-Workflows-RG`. |
+   | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you create your logic app and related resources. This resource name must be unique across regions and can contain only letters, numbers, hyphens ( **-** ), underscores ( **_** ), parentheses ( **()** ), and periods ( **.** ). <p><p>This example creates a resource group named `Fabrikam-Workflows-RG`. |
    | **Logic app name** | Yes | <*logic-app-name*> | The name to use for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens ( **-** ), underscores ( **_** ), parentheses ( **()** ), and periods ( **.** ). <p><p>This example creates a logic app named `Fabrikam-Workflows`. <p><p>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Preview)** resource is powered by Azure Functions, which uses the same app naming convention. |
    | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. You can deploy to Azure by selecting **Workflow** or to a Docker container. <p><p>This example uses **Workflow**. |
-   | **Region** | Yes | <*Azure-region*> | The Azure region where to store information about your app. <p><p>This example uses **West US**. |
+   | **Region** | Yes | <*Azure-region*> | The Azure region to use when creating your resource group and resources. <p><p>This example uses **West US**. |
    |||||
 
    Here's an example:
@@ -81,11 +83,11 @@ This article shows how to build a **Logic App (Preview)** resource by using the 
 
    ![Screenshot that shows the Azure portal and new logic app resource settings.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
 
-   After Azure finishes deploying the resource, the logic app is automatically live and running but doesn't do anything yet because no workflows exist.
+   After Azure finishes deployment, your logic app is automatically live and running but doesn't do anything yet because no workflows exist.
 
 1. On the deployment completion page, select **Go to resource** so that you can start building a workflow.
 
-   ![Screenshot that shows the Azure portal and finished logic app deployment.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-completed-deployment.png)
+   ![Screenshot that shows the Azure portal and the finished deployment.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-completed-deployment.png)
 
 <a name="add-workflow"></a>
 
@@ -107,7 +109,7 @@ This article shows how to build a **Logic App (Preview)** resource by using the 
 
    1. On the workflow menu, under **Developer**, select **Designer**.
 
-      On the open designer surface, the **Choose an operation** prompt already appears and is selected by default so that the **Add a trigger** pane also appears open.
+      On the designer surface, the **Choose an operation** prompt already appears and is selected by default so that the **Add a trigger** pane also appears open.
 
       ![Screenshot that shows the opened workflow designer with "Choose an operation" selected on the designer surface.](./media/create-stateful-stateless-workflows-azure-portal/opened-logic-app-designer-blank-workflow.png)
 
@@ -323,7 +325,6 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    ![Screenshot that shows the inputs and outputs in the selected "Send an email" action.](./media/create-stateful-stateless-workflows-azure-portal/review-step-inputs-outputs.png)
 
 1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
-
 
 <a name="enable-run-history-stateless"></a>
 
