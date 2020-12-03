@@ -269,7 +269,7 @@ If you want to add your application to list in the gallery by using password SSO
 
 ![Listing a password SSO application in the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
-If you are implementing a [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 endpoint for user provisioning, select the option as shown. 
+If you are implementing a [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 endpoint for user provisioning, select the option as shown. When providing the schema in the onboarding request, please follow the directions [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) to download your schema. We will use the schema you configured when testing the non-gallery application to build the gallery application. 
 
    ![Request for user provisioning](./media/howto-app-gallery-listing/user-provisioning.png)
 

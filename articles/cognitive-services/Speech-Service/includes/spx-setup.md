@@ -94,11 +94,11 @@ On Windows, your commands will start like this:
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
-On Linux or macOS, your commands will look like the sample below. Replace `/ABSOLUTE_PATH` with the absolute path shown by the `pwd` command in the section above. 
+On Linux or macOS, your commands will look like the sample below. Replace `ABSOLUTE_PATH` with the absolute path for your mounted directory. This path was returned by the `pwd` command in the previous section. 
 
 If you run this command before setting your key and region, you will get an error telling you to set your key and region:
 ```shell   
-sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 ```
 
 To use the `spx` command installed in a container, always enter the full command shown above, followed by the parameters of your request.
@@ -125,14 +125,14 @@ Follow these instructions to create a shortcut:
 2. Next, add this function to your `.bash_profile`. Make sure you update this function with the correct path to your mounted directory:
    ```shell   
    spx(){
-       sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+       sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
    }
    ```
 3. Source your profile:
    ```shell
    source ~/.bash_profile
    ```
-4. Now instead of running `sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`, you can just type `spx` followed by arguments. For example: 
+4. Now instead of running `sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx`, you can just type `spx` followed by arguments. For example: 
    ```shell
    // Get some help
    spx help recognize
