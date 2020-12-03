@@ -84,7 +84,7 @@ Here is the orchestrator function:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/python/E1_HelloSequence/\_\_init\_\_.py)]
 
-All Python orchestration functions must include the [`durable-functions` package](https://pypi.org/project/azure-functions-durable). It's a library that enables you to write Durable Functions in Python. There are two significant differences between an orchestration function and other Python functions:
+All Python orchestration functions must include the [`durable-functions` package](https://pypi.org/project/azure-functions-durable). It's a library that enables you to write Durable Functions in Python. There are two significant differences between an orchestrator function and other Python functions:
 
 1. The function is a [generator function.](https://wiki.python.org/moin/Generators).
 2. The _file_ should register the orchestrator function as an orchestrator by stating `main = df.Orchestrator.create(<orchestrator function name>)` at the end of the file. This helps distinguish it from other, helper, functions declared in the file.
