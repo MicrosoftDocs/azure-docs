@@ -10,7 +10,7 @@ ms.reviewer: mikarmar
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This article shows you how to configure Azure App Service or Azure Functions to use Apple as an authentication provider. 
+This article shows you how to configure Azure App Service or Azure Functions to use Sign in with Apple as an authentication provider. 
 
 To complete the procedure in this topic, you must have enrolled in the Apple developer program. To enroll in the Apple developer program, go to [developer.apple.com/programs/enroll](https://developer.apple.com/programs/enroll/).
 
