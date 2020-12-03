@@ -69,6 +69,8 @@ Analyzers determine how terms are tokenized in an index. Since analyzers are ass
 },
 ```
 
+<a name="set-an-analyzer"></a>
+
 ## 2 - Set an analyzer
 
 When choosing an analyzer that produces whole-term tokens, the following analyzers are common choices:
@@ -223,7 +225,7 @@ The previous sections explained the logic. This section steps through each API y
 
 + [Load Documents](/rest/api/searchservice/addupdate-or-delete-documents) imports documents having the same structure as your index, as well as searchable content. After this step, your index is ready to query or test.
 
-+ [Test Analyzer](/rest/api/searchservice/test-analyzer) was introduced in [Choose an analyzer](#choose-an-analyzer). Test some of the strings in your index using a variety of analyzers to understand how terms are tokenized.
++ [Test Analyzer](/rest/api/searchservice/test-analyzer) was introduced in [Set an analyzer](#set-an-analyzer). Test some of the strings in your index using a variety of analyzers to understand how terms are tokenized.
 
 + [Search Documents](/rest/api/searchservice/search-documents) explains how to construct a query request, using either [simple syntax](query-simple-syntax.md) or [full Lucene syntax](query-lucene-syntax.md) for wildcard and regular expressions.
 
