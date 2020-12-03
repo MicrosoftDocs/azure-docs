@@ -126,12 +126,6 @@ Using the analytics pipeline, Defender for IoT combines all of the streams of in
 
 Defender for IoT recommendations and alerts (analytics pipeline output) is written to the Log Analytics workspace of each customer. Including the raw events in the workspace as well as the alerts and recommendations enables deep dive investigations and queries using the exact details of the suspicious activities detected.
 
-## Next steps
+## See also
 
-In this article, you learned about the basic architecture and workflow of Defender for IoT solution. To learn more about prerequisites, how to get started and enable your security solution in IoT hub, see the following articles:
-
-- [Getting started](getting-started.md)
-- [Configure your solution](quickstart-configure-your-solution.md)
-- [Enable security in IoT hub](quickstart-onboard-iot-hub.md)
-- [Defender for IoT FAQ](resources-frequently-asked-questions.md)
-- [Defender for IoT security alerts](concept-security-alerts.md)
+ [Defender for IoT FAQ](resources-frequently-asked-questions.md)

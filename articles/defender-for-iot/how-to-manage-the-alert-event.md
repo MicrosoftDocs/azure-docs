@@ -1,10 +1,10 @@
 ---
 title: Manage the alert event
-description: 
+description: Manage alert events detected in your network. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/01/2020
+ms.date: 12/02/2020
 ms.topic: article
 ms.service: azure
 ms.topic: how-to
@@ -92,12 +92,18 @@ When muted, the event is ignored anytime the source sends an HTTP header with il
 
   - The sensor will recalculate devices when generating Risk Assessment reports, Attack Vectors, and other reports. For example, if you muted an alert that detected malicious traffic on a device, that device will not be calculated in the Risk Assessment report.
 
-To mute and unmute an alert:*
+To mute and unmute an alert:
 
 1. Select the mute icon on the alert.
 
-To view muted alerts:*
+To view muted alerts:
 
 1. Select the acknowledged option form the Alerts main screen.
 
 2. Hover over an alert to see if it muted.  
+
+## See also
+
+[Generate reports](how-to-generate-reports.md)
+
+[Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)

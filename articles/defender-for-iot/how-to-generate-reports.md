@@ -118,7 +118,7 @@ Working with the attack vector lets you evaluate the effect of mitigation activi
 
    :::image type="content" source="media/how-to-generate-reports/image266.png" alt-text="vectors":::
 
-### Data mining 
+### Data mining
 
 Data Mining tools let you generate comprehensive and granular information about your network assets at various layers, for example, based on:
 
