@@ -71,6 +71,7 @@ Purview uses the same classifications, also known as sensitive information types
    |**Top labels applied on tables**     | Shows the top sensitivity labels applied to database tables in your data. |   
    |  **Labeling activity**  |  Displays separate graphs for files and tables, each showing the number of files or tables labeled over the selected time frame. <br>**Default**: 30 days<br>Select the **Time** filter above the graphs to select a different time frame to display.    |
    |    |    |
+
 ## Sensitivity labeling insights drilldown
 
 In any of the following **Sensitivity labeling insights** graphs, select the **View more** link to drill down for more details:
@@ -94,6 +95,7 @@ Do any of the following to learn more:
 |**Drill down further**     | To drill down to a specific label, select a name in the **Sensitivity label** column to view the **Label by source** report. <br><br>This report displays data for the selected label, including the source name, source type, subscription ID, and the numbers of classified files and tables.      |
 |**Browse assets**     |  To browse through the assets found with a specific label or source, select one or more labels or sources, depending on the report you're viewing, and then select **Browse assets** :::image type="icon" source="media/insights/ico-browse-assets.png" border="false"::: above the filters. <br><br>The search results display all of the labeled assets found for the selected filter.  For more information, see [Search the Azure Purview Data Catalog](how-to-search-catalog.md).       |
 | | |
+
 ## Sensitivity label integration with Microsoft 365 compliance
 
 Close integration with [Microsoft Information Protection](/microsoft-365/compliance/information-protection) offered in Microsoft 365 means that Purview enables direct ways to extend visibility into your data estate, and classify and label your data.
@@ -104,15 +106,9 @@ For more information, see [Automatically label your data in Azure Purview](creat
 
 ## Next steps
 
-Learn more about Azure Purview insight reports
-> [!div class="nextstepaction"]
-> [Glossary insights](glossary-insights.md)
+Learn more about these Azure Purview insight reports:
 
-> [!div class="nextstepaction"]
-> [Scan insights](scan-insights.md)
-
-> [!div class="nextstepaction"]
-> [Classification insights](./classification-insights.md)
-
-> [!div class="nextstepaction"]
-> [File extension insights](file-extension-insights.md)
+- [Glossary insights](glossary-insights.md)
+- [Scan insights](scan-insights.md)
+- [Classification insights](./classification-insights.md)
+- [File extension insights](file-extension-insights.md)
