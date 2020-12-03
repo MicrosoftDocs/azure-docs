@@ -156,7 +156,7 @@ This section will walk you through updating the configuration to include your ne
     
     b. Within the registration object, set `clientSecretSettingName` to the name of the application setting where you stored the client secret.
     
-    c. Within the login object, you may choose to set the scopes array to include a list of scopes used when authenticating with apple (i.e. "name", "email"). If scopes are configured, they will be explicitly requested on the consent screen when users signin for the first time.
+    c. Within the login object, you may choose to set the `scopes` array to include a list of scopes used when authenticating with apple (i.e. "name", "email"). If scopes are configured, they will be explicitly requested on the consent screen when users signin for the first time.
 
 Once this configuration has been set, you're ready to use your Apple provider for authentication in your app.
 
