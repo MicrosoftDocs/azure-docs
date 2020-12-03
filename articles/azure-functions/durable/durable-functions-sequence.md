@@ -86,7 +86,7 @@ Here is the orchestrator function:
 
 All Python orchestration functions must include the [`durable-functions` package](https://pypi.org/project/azure-functions-durable). It's a library that enables you to write Durable Functions in Python. There are two significant differences between an orchestrator function and other Python functions:
 
-1. The function is a [generator function.](https://wiki.python.org/moin/Generators).
+1. The orchestrator function is a [generator function](https://wiki.python.org/moin/Generators).
 2. The _file_ should register the orchestrator function as an orchestrator by stating `main = df.Orchestrator.create(<orchestrator function name>)` at the end of the file. This helps distinguish it from other, helper, functions declared in the file.
 
 The `context` object lets you call other *activity* functions and pass input parameters using its `call_activity` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is returned at the end of the function.
