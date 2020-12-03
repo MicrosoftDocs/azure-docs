@@ -36,6 +36,7 @@ The workaround to this issue is to always use UTF-8 collation when reading UTF-8
                    geo_id VARCHAR(6) COLLATE Latin1_General_100_BIN2_UTF8 ) as rows
       group by geo_id
       ```
+      
 -	If you did not specify UTF8 collation on external tables that read UTF8 data, you need to re-create impacted external tables and set UTF8 collation on VARCHAR columns (metadata operation).
 
 
