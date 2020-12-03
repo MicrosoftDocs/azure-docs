@@ -13,6 +13,11 @@ author: skandil
 
 # Sign in to LUIS portal
 
+Use this article to get started with the LUIS portal, and create an authoring resource. After completing the steps in this article, you will be able to create and publish LUIS apps.
+
+## Access the portal
+
+
 1. To get started with LUIS, go to the [LUIS Portal](https://www.luis.ai). If you do not already have a subscription, you will be prompted to go create a [free account](https://azure.microsoft.com//free/cognitive-services/) and return back to the portal.
 2. Refresh the page to update it with your newly created subscription
 3. Select your subscription from the dropdown list
@@ -47,4 +52,3 @@ author: skandil
 ## Next steps
 
 * Learn how to [start a new app](luis-how-to-start-new-app.md)
-
