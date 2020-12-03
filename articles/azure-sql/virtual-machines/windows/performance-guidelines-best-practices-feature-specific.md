@@ -1,6 +1,6 @@
 ---
-title: "Feature specific: Performance best practices for SQL Server on Azure VMs"
-description: Provides guidelines for optimizing SQL Server performance in Microsoft Azure Virtual Machines.
+title: "Feature specific: Performance best practices & guidance"
+description: Provides SQL Server and Azure specific feature configuration guidelines to optimize the performance of your SQL Server on Azure Virtual Machine (VM).
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -16,19 +16,14 @@ ms.date: 11/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ---
-# Feature specific: Performance best practices for SQL Server on Azure Virtual Machines
+# Feature specific: Performance best practices for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article provides SQL Server and Azure feature specific guidance as a series of performance best practices and guideline for SQL Server on Azure VMs. 
+This article provides SQL Server and Azure feature specific guidance a series of best practices and guidelines to optimize performance for your SQL Server on Azure Virtual Machines (VMs).
 
-To learn more, see the other articles in this series:
-- [Quick checklist](performance-guidelines-best-practices-checklist.md)
-- [VM size](performance-guidelines-best-practices-vm-size.md)
-- [Storage, disks & IO](performance-guidelines-best-practices-storage-disks-io.md)
-- [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
+To learn more, see the other articles in this series: [Quick checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Storage, disks & IO](performance-guidelines-best-practices-storage-disks-io.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
 
 ## Overview
-
 
 Some deployments may achieve additional performance benefits using more advanced configuration techniques. The following list highlights some SQL Server features that can help you to achieve better performance:
 

@@ -1,6 +1,6 @@
 ---
-title: "VM size: Performance best practices for SQL Server on Azure VMs"
-description: Provides guidelines for optimizing SQL Server performance in Microsoft Azure Virtual Machines.
+title: "VM size: Performance best practices & guidelines"
+description: Provides VM size guidelines and best practices to optimize the performance of your SQL Server on Azure Virtual Machine (VM).
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -15,16 +15,12 @@ ms.date: 11/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ---
-# VM Size: Performance best practices for SQL Server on Azure Virtual Machines
+# VM Size: Performance best practices for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article provides VM size guidance as a series of performance best practices and guideline for SQL Server on Azure VMs. 
+This article provides VM size guidance a series of best practices and guidelines to optimize performance for your SQL Server on Azure Virtual Machines (VMs).
 
-To learn more, see the other articles in this series:
-- [Quick checklist](performance-guidelines-best-practices-checklist.md)
-- [Storage, disks & IO](performance-guidelines-best-practices-storage-disks-io.md)
-- [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md)
-- [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
+To learn more, see the other articles in this series: [Quick checklist](performance-guidelines-best-practices-checklist.md), [Storage, disks & IO](performance-guidelines-best-practices-storage-disks-io.md), [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
 
 
 ## Getting started

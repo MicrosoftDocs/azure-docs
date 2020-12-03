@@ -1054,8 +1054,6 @@
           href: virtual-machines/windows/failover-cluster-instance-overview.md
       - name: Best practices
         items:
-        - name: Performance
-          href: virtual-machines/windows/performance-guidelines-best-practices.md
         - name: Security 
           href: virtual-machines/windows/security-considerations-best-practices.md
         - name: Cluster configuration
