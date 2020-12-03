@@ -528,7 +528,7 @@
     - name: Azure Monitor
       items:
       - name: Azure Monitor agent
-        href: ../azure-monitor/platform/azure-monitor-agent-overview.md?#install-the-azure-monitor-agent
+        href: ../azure-monitor/platform/azure-monitor-agent-install.md
       - name: Diagnostics extension
         items:
         - name: Linux
@@ -1278,7 +1278,7 @@
   - name: Backup and disaster recovery for disks
     href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: Disk performance tiers
-    href: ../disks-change-performance.md
+    href: disks-change-performance.md
   - name: Ephemeral OS disks
     href: ephemeral-os-disks.md
   - name: Swap the OS disk
@@ -1450,7 +1450,11 @@
   - name: Assign public IP address
     href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md
   - name: Use multiple NICs
-    href: multiple-nics.md
+    items:
+    - name: Linux using CLI
+      href: ./linux/multiple-nics.md
+    - name: Windows using PowerShell
+      href: ./windows/multiple-nics.md
   - name: Use accelerated networking
     href: ../virtual-network/create-vm-accelerated-networking-cli.md
   - name: Assign public DNS name
@@ -1463,12 +1467,14 @@
     href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
 - name: Security
   items:
-  - name: Security baseline for Azure Security Benchmark
-    href: security-baseline.md
-  - name: Built-in security controls
-    href: virtual-machines-windows-security-controls.md
-  - name: Azure security overview
-    href: tutorial-azure-security.md
+  - name: Azure Security center
+    href: ../security-center/security-center-introduction
+  - name: Security baselines
+    items:
+    - name: Linux
+      href: ./linux/security-baseline.md
+    - name: Windows
+      href: ./windows/security-baseline.md
   - name: Recommendations
     href: security-recommendations.md
   - name: Just-in-time access
@@ -1488,8 +1494,6 @@
         href: ./linux/policy.md
       - name: Windows
         href: ./windows/policy.md
-  - name: Azure Disk Encryption
-    href: disk-encryption-overview.md
   - name: Bastion
     items:
     - name: Overview
@@ -1666,12 +1670,10 @@
   items:
   - name: Overview
     href: backup-recovery.md
-  - name: Service disks-enable-double-encryption-at-rest-portal.md
-    href: virtual-machines-disaster-recovery-guidance.md
   - name: Back up VMs
     items: 
-    - name: Backup service overview
-      href: ../backup/backup-overview.md
+    - name: Overview
+      href: ../backup/backup-azure-vms-introduction
     - name: Quickstarts
       items: 
       - name: CLI
@@ -1684,11 +1686,15 @@
         href: ../backup/quick-backup-vm-template.md
     - name: Back up multiple VMs
       href: ../backup/tutorial-backup-vm-at-scale.md
-    - name: Restore a disk       
-      href: ../backup/tutorial-store-disk.md
-    - name: Restore individual files
-      href: ../backup/tutorial-restore-files
-  - name: Set up disaster covery for VMs
+    - name: Restore options       
+      href: /backup/backup-azure-arm-restore-vms.md
+    - name: Support matrix 
+      href: ../backup/backup-support-matrix-iaas.md
+    - name: Pricing
+      href: ../backup/azure-backup-pricing.md
+    - name: FAQ
+      href: ../backup/backup-azure-vm-backup-faq.md
+  - name: Disaster recovery
     items:
     - name: Overview
       href: ../site-recovery/site-recovery-overview.md
