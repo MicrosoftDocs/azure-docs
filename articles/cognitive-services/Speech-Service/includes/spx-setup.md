@@ -94,7 +94,7 @@ On Windows, your commands will start like this:
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
-On Linux or macOS, your commands will start similar to this:
+On Linux or macOS, your commands will start similar to this. If you run this command before setting your key and region, you will get an error telling you to set your key and region:
 ```shell   
 sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
 ```
