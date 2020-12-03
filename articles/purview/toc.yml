@@ -36,7 +36,7 @@ items:
   - name: Deployment best practices
     href: deployment-best-practices.md
   - name: Azure Purview limits
-    href: how-to-manage-quotas.md 
+    href: how-to-manage-quotas.md
   - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
   - name: Understanding resource sets
@@ -48,13 +48,13 @@ items:
   - name: Catalog permissions
     href: catalog-permissions.md
   - name: Catalog search
-    href: concept-search.md   
+    href: concept-search.md
   - name: Business glossary
     href: concept-business-glossary.md 
   - name: Data insights
     href: concept-insights.md
   - name: Frequently asked questions
-    href: frequently-asked-questions.md    
+    href: frequently-asked-questions.md
 - name: How-to guides
   items:
   - name: Register & scan
@@ -67,7 +67,7 @@ items:
     - name: Manage integration runtimes
       href: manage-integration-runtimes.md
     - name: Troubleshoot connection issues
-      href: troubleshoot-connections.md        
+      href: troubleshoot-connections.md
     - name: Sources
       items:
       - name: Manage data sources
@@ -123,9 +123,9 @@ items:
   - name: Search & browse
     items:
     - name: Browse Data Catalog
-      href: how-to-browse-catalog.md  
+      href: how-to-browse-catalog.md
     - name: Search Data Catalog
-      href: how-to-search-catalog.md  
+      href: how-to-search-catalog.md
   - name: Lineage 
     items:
     - name: Lineage user guide
@@ -134,14 +134,22 @@ items:
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
       href: how-to-link-azure-data-share.md
+  - name: Security
+    items:
+    - name: Create a private endpoint
+      href: catalog-private-end-point.md
+  - name: Monitor
+    items:
+    - name: Monitor with Azure Monitor
+      href: how-to-monitor-with-azure-monitor.md
   - name: Insights
     items:
     - name: View asset insights
-      href: asset-insights.md       
+      href: asset-insights.md
     - name: View glossary insights
-      href: glossary-insights.md 
+      href: glossary-insights.md
     - name: View scan insights
-      href: scan-insights.md 
+      href: scan-insights.md
     - name: View classification insights
       href: classification-insights.md
     - name: View sensitivity label insights
