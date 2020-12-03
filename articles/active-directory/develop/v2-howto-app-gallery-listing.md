@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 12/02/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
@@ -163,14 +163,25 @@ To learn more about WS-Fed in ASP.NET Core, see [Authenticate users with WS-Fede
 
 Create a web application that has an HTML sign-in page. Make sure that your application supports form authentication so that password vaulting can be done to get single sign-on to work as expected.
 
+## Step 3 - Implement SCIM user provisioning in your app
+Supporting [SCIM](https://aka.ms/scimoverview) provisioning is an optional, but highly recommended, step in building your application. Supporting the SCIM standard is easy to do and allows customers to automatically create and update user accounts in your app, without relying on manual processes such as uploading CSV files. In addition, customers can automate removing users and keeping group memberships in sync, which can't be accomplished with a solution such as SAML JIT. 
 
-## Step 3 - Create your Azure tenant and test your app
+### Learn about SCIM
+To learn more about the SCIM standards and benefits for your customers, see [provisioning with SCIM - getting started](https://aka.ms/scimoverview).
+
+### Understand the Azure AD SCIM implementation
+To learn more about the Azure AD SCIM implementation, see [build a SCIM endpoint and configure user provisioning with Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
+
+### Implement SCIM
+Azure AD provides [reference code](https://aka.ms/scimoverview) to help you build a SCIM endpoint. There are also many third party libraries / references that you can find on github.  
+
+## Step 4 - Create your Azure tenant and test your app
 
 You will need an Azure AD tenant in order to test your app. To set up your development environment, see [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
 
 Alternatively, an Azure AD tenant comes with every Microsoft 365 subscription. To set up a free Microsoft 365 development environment, see [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
-Once you have a tenant, you need to enable and test single-sign on access. 
+Once you have a tenant, you need to test single-sign on and [provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 **For OIDC or Oath applications**, [Register your application](quickstart-register-app.md) as a multi-tenant application. ‎Select the Accounts in any organizational directory and personal Microsoft accounts option in Supported Account types.
 
@@ -179,7 +190,7 @@ Once you have a tenant, you need to enable and test single-sign on access.
 You can also [convert a single-tenant application to multi-tenant](howto-convert-app-to-be-multi-tenant.md) if necessary.
 
 
-## Step 4 - Create and publish documentation
+## Step 5 - Create and publish documentation
 
 ### Documentation on your site
 
@@ -201,13 +212,14 @@ We recommend that your documentation on your site at a minimum include the follo
 * Testing steps for pilot users
 * Troubleshooting information, including error codes and messages
 * Support mechanisms for customers
+* Details about your SCIM endpoint, including the resources and attributes supported
 
 ### Documentation on the Microsoft Site
 
 When you list your application with the Azure Active Directory Application Gallery, which also publishes your application in the Azure Marketplace, Microsoft will generate documentation for our mutual customers explaining the step-by-step process. You can see an example [here](../saas-apps/tutorial-list.md). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
 
 
-## Step 5 - Submit your app
+## Step 6 - Submit your app
 
 After you've tested that your application integration works with Azure AD, submit your application request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
@@ -257,7 +269,7 @@ If you want to add your application to list in the gallery by using password SSO
 
 ![Listing a password SSO application in the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
-If you are implementing a [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 endpoint for user provisioning, select the option as shown. 
+If you are implementing a [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 endpoint for user provisioning, select the option as shown. When providing the schema in the onboarding request, please follow the directions [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) to download your schema. We will use the schema you configured when testing the non-gallery application to build the gallery application. 
 
    ![Request for user provisioning](./media/howto-app-gallery-listing/user-provisioning.png)
 
@@ -296,7 +308,7 @@ The timeline for the process of listing an OpenID Connect application in the gal
 For any escalations, send email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com), and we'll respond as soon as possible.
 
 
-## Step 6 - Join the Microsoft partner network
+## Step 7 - Join the Microsoft partner network
 The Microsoft Partner Network provides instant access to exclusive resources, programs, tools, and connections. To join the network and create your go to market plan, see [Reach commercial customers](https://partner.microsoft.com/explore/commercial#gtm).
 
 

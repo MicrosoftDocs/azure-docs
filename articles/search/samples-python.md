@@ -21,7 +21,7 @@ Learn about the Python code samples that demonstrate the features and functional
 | [Azure-Samples/azure-search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples) | Code samples that accompany how-to articles, including [Quickstart: Create a search index in Python](search-get-started-python.md).|
 
 > [!Tip]
-> Try the [Samples browser](/samples/browse/?languages=csharp&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+> Try the [Samples browser](/samples/browse/?languages=python&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
 
 ## Python SDK samples
 

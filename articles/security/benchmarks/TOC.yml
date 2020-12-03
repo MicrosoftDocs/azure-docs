@@ -130,6 +130,8 @@
     href: ../../load-balancer/security-baseline.md
   - name: Azure Machine Learning security baseline
     href: ../../machine-learning/security-baseline.md
+  - name: Azure Managed Applications security baseline
+    href: ../../azure-resource-manager/managed-applications/security-baseline.md
   - name: Azure Monitor security baseline
     href: ../../azure-monitor/security-baseline.md
   - name: Azure Migrate Learning security baseline
