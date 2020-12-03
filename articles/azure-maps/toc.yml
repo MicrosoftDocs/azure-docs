@@ -91,6 +91,8 @@
     href: mobility-service-data-structure.md
   - name: Weather Service concepts
     href: weather-services-concepts.md
+  - name: Weather Service faq
+    href: weather-services-faq.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
