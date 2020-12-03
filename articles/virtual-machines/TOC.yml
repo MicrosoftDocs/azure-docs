@@ -750,6 +750,8 @@
         href: ./linux/spot-cli.md
       - name: Portal
         href: spot-portal.md
+      - name: PowerShell
+        href: ./windows/spot-powershell.md
       - name: ARM template
         displayName: template ARM
         href: ./linux/spot-template.md
@@ -1053,8 +1055,12 @@
       href: ./linux/image-builder-overview.md
     - name: Use Azure CLI
       href: ./linux/image-builder.md
-    - name: Use a VNET - CLI
-      href: ./linux/image-builder-vnet.md
+    - name: Use a VNET
+      items:
+      - name: CLI
+        href: ./linux/image-builder-vnet.md
+      - name: PowerShell
+        href: ./windows/image-builder-vnet.md
     - name: Networking options
       href: ./linux/image-builder-networking.md
     - name: Configure permissions
@@ -1790,6 +1796,10 @@
       href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
   - name: Common CLI commands
     href: ./linux/cli-manage.md
+  - name: Common PowerShell commands
+    href: ./windows/ps-common-ref.md
+  - name: Common networking PowerShell commands
+    href: ./windows/ps-common-network-ref.md
   - name: Classic deployments
     items:
     - name: Linux VMs using classic deployment
