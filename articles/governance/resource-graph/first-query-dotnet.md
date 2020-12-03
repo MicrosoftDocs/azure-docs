@@ -1,8 +1,9 @@
 ---
 title: "Quickstart: Your first .NET Core query"
 description: In this quickstart, you follow the steps to enable the Resource Graph NuGet packages for .NET Core and run your first query.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ---
 # Quickstart: Run your first Resource Graph query using .NET Core
 

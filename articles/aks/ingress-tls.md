@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller that uses Let's Encrypt for automatic TLS certificate generation in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 08/17/2020
 
 
 #Customer intent: As a cluster operator or developer, I want to use an ingress controller to handle the flow of incoming traffic and secure my apps using automatically generated TLS certificates
@@ -30,7 +30,7 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 This article also assumes you have [a custom domain][custom-domain] with a [DNS Zone][dns-zone] in the same resource group as your AKS cluster.
 
-This article uses [Helm 3][helm] to install the NGINX ingress controller and cert-manager. Make sure that you are using the latest release of Helm. For upgrade instructions, see the [Helm install docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
+This article uses [Helm 3][helm] to install the NGINX ingress controller and cert-manager. Make sure that you are using the latest release of Helm and have access to the *ingress-nginx* and *jetstack* Helm repositories. For upgrade instructions, see the [Helm install docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
 
 This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -50,11 +50,11 @@ The ingress controller also needs to be scheduled on a Linux node. Windows Serve
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
 
-# Add the official stable repo
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+# Add the ingress-nginx repository
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
 # Use Helm to deploy an NGINX ingress controller
-helm install nginx stable/nginx-ingress \
+helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
@@ -66,11 +66,10 @@ During the installation, an Azure public IP address is created for the ingress c
 To get the public IP address, use the `kubectl get service` command. It takes a few minutes for the IP address to be assigned to the service.
 
 ```
-$ kubectl get service -l app=nginx-ingress --namespace ingress-basic
+$ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 
-NAME                                             TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
-nginx-ingress-controller                         LoadBalancer   10.0.182.160   MY_EXTERNAL_IP  80:30920/TCP,443:30426/TCP   20m
-nginx-ingress-default-backend                    ClusterIP      10.0.255.77    <none>          80/TCP                       20m
+NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
+nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
 No ingress rules have been created yet. If you browse to the public IP address, the NGINX ingress controller's default 404 page is displayed.
@@ -83,7 +82,7 @@ Add an *A* record to your DNS zone with the external IP address of the NGINX ser
 az network dns record-set a add-record \
     --resource-group myResourceGroup \
     --zone-name MY_CUSTOM_DOMAIN \
-    --record-set-name '*' \
+    --record-set-name * \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
@@ -114,9 +113,6 @@ The NGINX ingress controller supports TLS termination. There are several ways to
 To install the cert-manager controller:
 
 ```console
-# Install the CustomResourceDefinition resources separately
-kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.13/deploy/manifests/00-crds.yaml
-
 # Label the ingress-basic namespace to disable resource validation
 kubectl label namespace ingress-basic cert-manager.io/disable-validation=true
 
@@ -130,7 +126,9 @@ helm repo update
 helm install \
   cert-manager \
   --namespace ingress-basic \
-  --version v0.13.0 \
+  --version v0.16.1 \
+  --set installCRDs=true \
+  --set nodeSelector."beta\.kubernetes\.io/os"=linux \
   jetstack/cert-manager
 ```
 
@@ -157,6 +155,10 @@ spec:
     - http01:
         ingress:
           class: nginx
+          podTemplate:
+            spec:
+              nodeSelector:
+                "kubernetes.io/os": linux
 ```
 
 To create the issuer, use the `kubectl apply` command.
@@ -190,7 +192,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld-one
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -228,7 +230,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld-two
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -266,13 +268,14 @@ In the following example, traffic to the address *hello-world-ingress.MY_CUSTOM_
 Create a file named `hello-world-ingress.yaml` using below example YAML. Update the *hosts* and *host* to the DNS name you created in a previous step.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/use-regex: "true"
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:
@@ -286,19 +289,24 @@ spec:
       - backend:
           serviceName: aks-helloworld-one
           servicePort: 80
-        path: /(.*)
+        path: /hello-world-one(/|$)(.*)
       - backend:
           serviceName: aks-helloworld-two
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
+      - backend:
+          serviceName: aks-helloworld-one
+          servicePort: 80
+        path: /(.*)
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /static/$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:
@@ -417,7 +425,7 @@ You can also:
 [custom-domain]: ../app-service/manage-custom-dns-buy-domain.md#buy-the-domain
 [dns-zone]: ../dns/dns-getstarted-cli.md
 [helm]: https://helm.sh/
-[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
+[helm-cli]: ./kubernetes-helm.md
 [cert-manager]: https://github.com/jetstack/cert-manager
 [cert-manager-certificates]: https://cert-manager.readthedocs.io/en/latest/reference/certificates.html
 [ingress-shim]: https://docs.cert-manager.io/en/latest/tasks/issuing-certificates/ingress-shim.html

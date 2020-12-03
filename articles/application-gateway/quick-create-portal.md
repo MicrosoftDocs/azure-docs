@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Direct web traffic using the portal'
 titleSuffix: Azure Application Gateway
-description: Learn how to use the Azure portal to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
+description: In this quickstart, you learn how to use the Azure portal to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 05/21/2020
+ms.date: 11/24/2020
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -20,8 +20,6 @@ The application gateway directs application web traffic to specific resources in
 You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md) or [Azure CLI](quick-create-cli.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-
 
 ## Prerequisites
 
@@ -49,6 +47,9 @@ You'll create the application gateway using the tabs on the **Create an applicat
      ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2. For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
+
+    > [!NOTE]
+    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 
     Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
 
@@ -152,7 +153,7 @@ To do this, you'll:
 4. Accept the other defaults and then select **Next: Disks**.  
 5. Accept the **Disks** tab defaults and then select **Next: Networking**.
 6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
-7. On the **Management** tab, set **Boot diagnostics** to **Off**. Accept the other defaults and then select **Review + create**.
+7. On the **Management** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
 8. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
 9. Wait for the virtual machine creation to complete before continuing.
 
@@ -166,7 +167,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 2. Run the following command to install IIS on the virtual machine. Change the *Location* parameter if necessary: 
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
@@ -191,7 +192,6 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 4. Under **Backend targets**, **Target type**, select **Virtual machine** from the drop-down list.
 
 5. Under **Target**, select the **myVM** and **myVM2** virtual machines and their associated network interfaces from the drop-down lists.
-
 
    > [!div class="mx-imgBorder"]
    > ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)

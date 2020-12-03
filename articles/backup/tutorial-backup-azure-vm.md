@@ -3,7 +3,7 @@ title: 'Tutorial: Multiple Azure VM backup with PowerShell'
 description: This tutorial details backing up multiple Azure VMs to a Recovery Services vault using Azure PowerShell.
 ms.topic: tutorial
 ms.date: 03/05/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 # Back up Azure VMs with PowerShell
 
@@ -22,7 +22,7 @@ In this tutorial you learn how to:
 Before you can back up (or protect) a virtual machine, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs.
 
 > [!IMPORTANT]
-> This tutorial assumes you have already created a resource group and an Azure virtual machine.
+> This tutorial assumes you've already created a resource group and an Azure virtual machine.
 
 ## Sign in and register
 
@@ -43,7 +43,7 @@ Before you can back up (or protect) a virtual machine, you must complete the [pr
 A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is a logical container that stores backup data for protected resources, such as Azure VMs. When a backup job runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
 * In this tutorial, you create the vault in the same resource group and location as the VM you want to back up.
-* Azure Backup automatically handles storage for backed up data. By default the vault uses [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy-grs.md). Geo-redundancy ensures that backed up data is replicated to a secondary Azure region, hundreds of miles away from the primary region.
+* Azure Backup automatically handles storage for backed up data. By default the vault uses [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Geo-redundancy ensures that backed up data is replicated to a secondary Azure region, hundreds of miles away from the primary region.
 
 Create the vault as follows:
 
@@ -53,7 +53,7 @@ Create the vault as follows:
     New-AzRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
     ```
 
-2. Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
+2. Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it's convenient to store the Backup Recovery Services vault object in a variable.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault –Name myRSVault

@@ -1,6 +1,8 @@
 ---
 title: Label entity example utterance
 description: Learn how to label a machine-learning entity with subentities in an example utterance in an intent detail page of the LUIS portal.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
 #Customer intent: As a new user, I want to label a machine-learning entity in an example utterance.
@@ -49,7 +51,7 @@ The entity palette offers an alternative to the previous labeling experience. It
 3. In the example utterance, _paint_ the entity with the cursor.
 
     > [!div class="mx-imgBorder"]
-    > ![Entity palette for machine-learning entity](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+    > ![Screenshot shows the entity painted with the cursor.](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
 ## Adding entity as a feature from the Entity Palette
 

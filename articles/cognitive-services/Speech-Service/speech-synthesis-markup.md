@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Improve synthesis with Speech Synthesis Markup Language (SSML)
@@ -124,7 +125,7 @@ speechConfig->SetProperty(
 
 # [Java](#tab/java)
 
-For more information, see <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information, see <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```java
 speechConfig.setProperty(
@@ -142,7 +143,7 @@ speech_config.set_property_by_name(
 
 # [JavaScript](#tab/javascript)
 
-For more information, see <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information, see <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```javascript
 speechConfig.setProperty(
@@ -186,41 +187,131 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > The adjustment of speaking styles will only work with neural voices.
 
-By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm, or optimize the voice for different scenarios like custom service, newscasting and voice assistant, using the <mstts:express-as> element. This is an optional element unique to the Speech service.
+By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm, or optimize the voice for different scenarios like customer service, newscasting and voice assistant, using the `mstts:express-as` element. This is an optional element unique to the Speech service.
 
 Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-AriaNeural`
+* `en-US-JennyNeural`
+* `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunxiNeural` (Preview)
+* `zh-CN-XiaohanNeural` (Preview)
+* `zh-CN-XiaomoNeural` (Preview)
+* `zh-CN-XiaoxuanNeural` (Preview)
+* `zh-CN-XiaoruiNeural` (Preview)
 
-Changes are applied at the sentence level, and style vary by voice. If a style isn't supported, the service will return speech in the default neutral speaking style.
+The intensity of speaking style can be further changed to better fit your use case. You can specify a stronger or softer style with `styledegree` to make the speech more expressive or subdued. 
+
+Currently, speaking style adjustments are supported for these neural voices:
+* `zh-CN-XiaoxiaoNeural`
+
+Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice will imitate a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice.
+
+Currently, role-play adjustments are supported for these neural voices:
+* `zh-CN-XiaomoNeural`
+* `zh-CN-XiaoxuanNeural`
+
+Above changes are applied at the sentence level, and styles and role-plays vary by voice. If a style or role-play isn't supported, the service will return speech in the default neutral speaking way. You can see what styles and role-play are supported for each voice through the [voice list API](rest-text-to-speech.md#get-a-list-of-voices) or through the code-free [Audio Content Creation](https://aka.ms/audiocontentcreation) platform.
 
 **Syntax**
 
 ```xml
 <mstts:express-as style="string"></mstts:express-as>
 ```
+```xml
+<mstts:express-as style="string" styledegree="value"></mstts:express-as>
+```
+```xml
+<mstts:express-as role="string" style="string"></mstts:express-as>
+```
+> [!NOTE]
+> At the moment, `styledegree` only supports zh-CN-XiaoxiaoNeural. `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.
 
 **Attributes**
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `style` | Specifies the speaking style. Currently, speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then style must be provided. If an invalid value is provided, this element will be ignored. |
+| `styledegree` | Specifies the intensity of speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1 which means the predefined style intensity. The minimum unit is 0.01 which results in a slightly tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional (At the moment, `styledegree` only supports zh-CN-XiaoxiaoNeural.)|
+| `role` | Specifies the speaking role-play. The voice will act as a different age and gender.  | Optional (At the moment, `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.)|
 
 Use this table to determine which speaking styles are supported for each neural voice.
 
 | Voice                   | Style                     | Description                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-AriaNeural`      | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
+| `en-US-AriaNeural`      | `style="newscast-formal"` | Expresses a formal, confident and authoritative tone for news delivery |
+|                         | `style="newscast-casual"` | Expresses a versatile and casual tone for general news delivery        |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
 |                         | `style="chat"`            | Expresses a casual and relaxed tone                         |
 |                         | `style="cheerful"`        | Expresses a positive and happy tone                         |
 |                         | `style="empathetic"`      | Expresses a sense of caring and understanding               |
+| `en-US-JennyNeural`     | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
+|                         | `style="chat"`            | Expresses a casual and relaxed tone                         |
+|                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
+|                         | `style="newscast"`        | Expresses a versatile and casual tone for general news delivery   |
+| `en-US-GuyNeural`       | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
 |                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
+|                         | `style="chat"`            | Expresses a casual and relaxed tone for chit-chat           |
+|                         | `style="calm"`            | Expresses a cool, collected, and composed attitude when speaking. Tone, pitch, prosody is much more uniform compared to other types of speech.                                |
+|                         | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
+|                         | `style="sad"`             | Expresses a sorrowful tone, with higher pitch, less intensity, and lower vocal energy. Common indicators of this emotion would be whimpers or crying during speech.            |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
+|                         | `style="disgruntled"`     | Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.              |
+|                         | `style="serious"`         | Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.          |
+|                         | `style="affectionate"`    | Expresses a warm and affectionate tone, with higher pitch and vocal energy. The speaker is in a state of attracting the attention of the listener. The “personality” of the speaker is often endearing in nature.          |     
+|                         | `style="gentle"`          | Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy         |   
 |                         | `style="lyrical"`         | Expresses emotions in a melodic and sentimental way         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  | 
+| `zh-CN-YunxiNeural`    | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
+|                         | `style="sad"`             | Expresses a sorrowful tone, with higher pitch, less intensity, and lower vocal energy. Common indicators of this emotion would be whimpers or crying during speech.            |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
+|                         | `style="disgruntled"`     | Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.              |
+|                         | `style="serious"`         | Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.    |
+|                         | `style="depressed"`       | Expresses a melancholic and despondent tone with lower pitch and energy    |
+|                         | `style="embarrassed"`     | Expresses an uncertain and hesitant tone when the speaker is feeling uncomfortable   |
+| `zh-CN-XiaohanNeural`   | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
+|                         | `style="sad"`             | Expresses a sorrowful tone, with higher pitch, less intensity, and lower vocal energy. Common indicators of this emotion would be whimpers or crying during speech.            |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
+|                         | `style="disgruntled"`     | Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.              |
+|                         | `style="serious"`         | Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.    |
+|                         | `style="embarrassed"`     | Expresses an uncertain and hesitant tone when the speaker is feeling uncomfortable   |
+|                         | `style="affectionate"`    | Expresses a warm and affectionate tone, with higher pitch and vocal energy. The speaker is in a state of attracting the attention of the listener. The “personality” of the speaker is often endearing in nature.          |     
+|                         | `style="gentle"`          | Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy         |   
+| `zh-CN-XiaomoNeural`    | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
+|                         | `style="disgruntled"`     | Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.              |
+|                         | `style="serious"`         | Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.    |
+|                         | `style="depressed"`       | Expresses a melancholic and despondent tone with lower pitch and energy    |
+|                         | `style="gentle"`          | Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy         |  
+| `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
+|                         | `style="disgruntled"`     | Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.              |
+|                         | `style="serious"`         | Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.    |
+|                         | `style="depressed"`       | Expresses a melancholic and despondent tone with lower pitch and energy    |
+|                         | `style="gentle"`          | Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy         |   
+| `zh-CN-XiaoruiNeural`    | `style="sad"`             | Expresses a sorrowful tone, with higher pitch, less intensity, and lower vocal energy. Common indicators of this emotion would be whimpers or crying during speech.            |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
+
+Use this table to determine which roles are supported for each neural voice.
+
+| Voice                   | Role                       | Description                                                 |
+|-------------------------|----------------------------|-------------------------------------------------------------|
+| `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | The voice imitates to a young adult female.                 |
+|                         | `role="OlderAdultMale"`    | The voice imitates to an older adult male.                   |
+|                         | `role="Girl"`              | The voice imitates to a girl.                               |
+|                         | `role="Boy"`               | The voice imitates to a boy.                                |
+| `zh-CN-XiaoxuanNeural`  | `role="YoungAdultFemale"`  | The voice imitates to a young adult female.                 |
+|                         | `role="OlderAdultFemale"`  | The voice imitates to an older adult female.                 |
+|                         | `role="OlderAdultMale"`    | The voice imitates to an older adult male.                   |
 
 **Example**
 
@@ -232,6 +323,35 @@ This SSML snippet illustrates how the `<mstts:express-as>` element is used to ch
     <voice name="en-US-AriaNeural">
         <mstts:express-as style="cheerful">
             That'd be just amazing!
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
+This SSML snippet illustrates how the `styledegree` attribute is used to change the intensity of speaking style for XiaoxiaoNeural.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaoxiaoNeural">
+        <mstts:express-as style="sad" styledegree="2">
+            快走吧，路上一定要注意安全，早去早回。
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
+This SSML snippet illustrates how the `role` attribute is used to change the role-play for XiaomoNeural.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaomoNeural">
+        女儿看见父亲走了进来，问道：
+        <mstts:express-as role="YoungAdultFemale" style="calm">
+            “您来的挺快的，怎么过来的？”
+        </mstts:express-as>
+        父亲放下手提包，说：
+        <mstts:express-as role="OlderAdultMale" style="calm">
+            “刚打车过来的，路上还挺顺畅。”
         </mstts:express-as>
     </voice>
 </speak>
@@ -256,7 +376,7 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `strength` | Specifies the relative duration of a pause using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
-| `time` | Specifies the absolute duration of a pause in seconds or milliseconds. Examples of valid values are `2s` and `500` | Optional |
+| `time` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000ms. Examples of valid values are `2s` and `500ms` | Optional |
 
 | Strength                      | Description |
 |-------------------------------|-------------|
@@ -275,6 +395,38 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
+```
+## Add silence
+
+Use the `mstts:silence` element to insert pauses before or after text, or between the 2 adjacent sentences. 
+
+> [!NOTE]
+>The difference between `mstts:silence` and `break` is that `break` can be added to any place in the text, but silence only works at the beginning or end of input text, or at the boundary of 2 adjacent sentences.  
+
+
+**Syntax**
+
+```xml
+<mstts:silence  type="string"  value="string"/>
+```
+
+**Attributes**
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| `type` | Specifies the location of silence be added: <ul><li>Leading – at the beginning of text </li><li>Tailing – in the end of text </li><li>Sentenceboundary – between adjacent sentences </li></ul> | Required |
+| `Value` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000ms. Examples of valid values are `2s` and `500ms` | Required |
+
+**Example**
+In this example, `mtts:silence` is used to add 200 ms of silence between two sentences.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">  
+<voice name="en-US-AriaNeural"> 
+<mstts:silence  type="Sentenceboundary" value="200ms"/> 
+If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way. 
+A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time. 
+</voice> 
+</speak> 
 ```
 
 ## Specify paragraphs and sentences
@@ -314,6 +466,9 @@ The `s` element may contain text and the following elements: `audio`, `break`, `
 The `ph` element is used to for phonetic pronunciation in SSML documents. The `ph` element can only contain text, no other elements. Always provide human-readable speech as a fallback.
 
 Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter may represent multiple spoken sounds. Consider the different pronunciations of the letter "c" in the words "candy" and "cease", or the different pronunciations of the letter combination "th" in the words "thing" and "those".
+
+> [!NOTE]
+> Phonemes tag is not supported for these 5 voices (et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural and mt-MT-GarceNeural) at the moment.
 
 **Syntax**
 
@@ -361,6 +516,10 @@ Sometimes the text-to-speech service cannot accurately pronounce a word. For exa
 > [!NOTE]
 > Custom lexicon currently supports UTF-8 encoding. 
 
+> [!NOTE]
+> Custom lexicon is not supported for these 5 voices (et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural and mt-MT-GarceNeural) at the moment.
+
+
 **Syntax**
 
 ```XML
@@ -398,7 +557,7 @@ To define how multiple entities are read, you can create a custom lexicon, which
 
 The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span></a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced.
 
-It's important to note, that you cannot directly set the pronunciation of a word using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
+It's important to note, that you cannot directly set the pronunciation of a phrase using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
 
 ```xml
   <lexeme>
@@ -411,12 +570,20 @@ It's important to note, that you cannot directly set the pronunciation of a word
   </lexeme>
 ```
 
+You could also directly provide your expected `alias` for the acronym or abbreviated term. For example:
+```xml
+  <lexeme>
+    <grapheme>Scotland MV</grapheme> 
+    <alias>Scotland Media Wave</alias> 
+  </lexeme>
+```
+
 > [!IMPORTANT]
 > The `phoneme` element cannot contain white spaces when using IPA.
 
 For more information about custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/).
 
-Next, publish your custom lexicon file. While we don't have restrictions on where this file can be stored, we do recommend using [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+Next, publish your custom lexicon file. While we don't have restrictions on where this file can be stored, we do recommend using [Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md).
 
 After you've published your custom lexicon, you can reference it from your SSML.
 
@@ -486,11 +653,11 @@ Because prosodic attribute values can vary over a wide range, the speech recogni
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `pitch` | Indicates the baseline pitch for the text. You may express the pitch as:<ul><li>An absolute value, expressed as a number followed by "Hz" (Hertz). For example, 600 Hz.</li><li>A relative value, expressed as a number preceded by "+" or "-" and followed by "Hz" or "st", that specifies an amount to change the pitch. For example: +80 Hz or -2st. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.</li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul>. | Optional |
+| `pitch` | Indicates the baseline pitch for the text. You may express the pitch as:<ul><li>An absolute value, expressed as a number followed by "Hz" (Hertz). For example, `<prosody pitch="600Hz">some text</prosody>`.</li><li>A relative value, expressed as a number preceded by "+" or "-" and followed by "Hz" or "st", that specifies an amount to change the pitch. For example: `<prosody pitch="+80Hz">some text</prosody>` or `<prosody pitch="-2st">some text</prosody>`. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.</li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul> | Optional |
 | `contour` |Contour now supports both neural and standard voices. Contour represents changes in pitch. These changes are represented as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch, using a relative value or an enumeration value for pitch (see `pitch`). | Optional |
 | `range` | A value that represents the range of pitch for the text. You may express `range` using the same absolute values, relative values, or enumeration values used to describe `pitch`. | Optional |
 | `rate` | Indicates the speaking rate of the text. You may express `rate` as:<ul><li>A relative value, expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the rate. A value of *0.5* results in a halving of the rate. A value of *3* results in a tripling of the rate.</li><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Optional |
-| `duration` | The period of time that should elapse while the speech synthesis (TTS) service reads the text, in seconds or milliseconds. For example, *2s* or *1800ms*. | Optional |
+| `duration` | The period of time that should elapse while the speech synthesis (TTS) service reads the text, in seconds or milliseconds. For example, *2s* or *1800ms*. Duration  supports standard voices only.| Optional |
 | `volume` | Indicates the volume level of the speaking voice. You may express the volume as:<ul><li>An absolute value, expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. For example, 75. The default is 100.0.</li><li>A relative value, expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. For example, +10 or -5.5.</li><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
 
 ### Change speaking rate

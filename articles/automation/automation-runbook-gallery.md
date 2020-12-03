@@ -33,7 +33,7 @@ The list below contains a few runbooks that support common scenarios. For a full
    * [Update-ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) - Imports the latest version of all modules in an Automation account from PowerShell Gallery.
    * [Enable-AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) - Configures Azure Diagnostics and Log Analytics to receive Azure Automation logs containing job status and job streams.
    * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) - Copies a remote file from a Windows Azure virtual machine.
-   * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) - Copies a local file to an Azure virtual machine.
+   * [Copy-ItemToAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) - Copies a local file to an Azure virtual machine.
 
 ## Import a PowerShell runbook from the runbook gallery with the Azure portal
 

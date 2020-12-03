@@ -2,6 +2,8 @@
 title: "Tutorial: Reviewing endpoint utterances - LUIS"
 description: In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity.
 services: cognitive-services
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/02/2020
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances.

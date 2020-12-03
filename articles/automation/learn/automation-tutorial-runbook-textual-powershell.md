@@ -9,7 +9,7 @@ ms.topic: tutorial
 ---
 # Tutorial: Create a PowerShell runbook
 
-This tutorial walks you through the creation of a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation. PowerShell runbooks are based on Windows PowerShell. You directly edit the code of the runbook using the text editor in the Azure portal.
+This tutorial walks you through the creation of a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation. PowerShell runbooks are based on Windows PowerShell. You can directly edit the code of the runbook using the text editor in the Azure portal.
 
 > [!div class="checklist"]
 > * Create a simple PowerShell runbook
@@ -138,15 +138,15 @@ As shown in the example below, the Run As connection is made with the [Connect-A
 
    # Wrap authentication in retry logic for transient network failures
    $logonAttempt = 0
-   while(!($connectionResult) -And ($logonAttempt -le 10))
+   while(!($connectionResult) -and ($logonAttempt -le 10))
    {
        $LogonAttempt++
        # Logging in to Azure...
-       $connectionResult =    Connect-AzAccount `
-                                  -ServicePrincipal `
-                                  -Tenant $connection.TenantID `
-                                  -ApplicationId $connection.ApplicationID `
-                                  -CertificateThumbprint $connection.CertificateThumbprint
+       $connectionResult = Connect-AzAccount `
+                               -ServicePrincipal `
+                               -Tenant $connection.TenantID `
+                               -ApplicationId $connection.ApplicationID `
+                               -CertificateThumbprint $connection.CertificateThumbprint
 
        Start-Sleep -Seconds 30
    }
@@ -168,15 +168,15 @@ As shown in the example below, the Run As connection is made with the [Connect-A
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
 
-   while(!($connectionResult) -And ($logonAttempt -le 10))
+   while(!($connectionResult) -and ($logonAttempt -le 10))
    {
        $LogonAttempt++
        # Logging in to Azure...
-       $connectionResult =    Connect-AzAccount `
-                                  -ServicePrincipal `
-                                  -Tenant $connection.TenantID `
-                                  -ApplicationId $connection.ApplicationID `
-                                  -CertificateThumbprint $connection.CertificateThumbprint
+       $connectionResult = Connect-AzAccount `
+                               -ServicePrincipal `
+                               -Tenant $connection.TenantID `
+                               -ApplicationId $connection.ApplicationID `
+                               -CertificateThumbprint $connection.CertificateThumbprint
 
        Start-Sleep -Seconds 30
    }
@@ -199,15 +199,15 @@ Now that your runbook is authenticating to your Azure subscription, you can mana
    Disable-AzContextAutosave –Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
-   while(!($connectionResult) -And ($logonAttempt -le 10))
+   while(!($connectionResult) -and ($logonAttempt -le 10))
    {
        $LogonAttempt++
        # Logging in to Azure...
-       $connectionResult =    Connect-AzAccount `
-                                  -ServicePrincipal `
-                                  -Tenant $connection.TenantID `
-                                  -ApplicationId $connection.ApplicationID `
-                                  -CertificateThumbprint $connection.CertificateThumbprint
+       $connectionResult = Connect-AzAccount `
+                               -ServicePrincipal `
+                               -Tenant $connection.TenantID `
+                               -ApplicationId $connection.ApplicationID `
+                               -CertificateThumbprint $connection.CertificateThumbprint
 
        Start-Sleep -Seconds 30
    }
@@ -234,15 +234,15 @@ Your runbook currently starts the virtual machine that you hard-coded in the run
    Disable-AzContextAutosave –Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
-   while(!($connectionResult) -And ($logonAttempt -le 10))
+   while(!($connectionResult) -and ($logonAttempt -le 10))
    {
        $LogonAttempt++
        # Logging in to Azure...
-       $connectionResult =    Connect-AzAccount `
-                                  -ServicePrincipal `
-                                  -Tenant $connection.TenantID `
-                                  -ApplicationId $connection.ApplicationID `
-                                  -CertificateThumbprint $connection.CertificateThumbprint
+       $connectionResult = Connect-AzAccount `
+                               -ServicePrincipal `
+                               -Tenant $connection.TenantID `
+                               -ApplicationId $connection.ApplicationID `
+                               -CertificateThumbprint $connection.CertificateThumbprint
 
        Start-Sleep -Seconds 30
    }

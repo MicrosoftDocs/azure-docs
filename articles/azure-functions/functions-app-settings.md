@@ -13,9 +13,12 @@ App settings in a function app contain global configuration options that affect 
 
 There are other global configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-run-local.md#local-settings-file) file.
 
+> [!NOTE]  
+> You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values).  
+
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
-The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`. For more information, see [Monitor Azure Functions](functions-monitoring.md). 
+The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`. When Application Insights runs in a sovereign cloud, use `APPLICATIONINSIGHTS_CONNECTION_STRING`. For more information, see [How to configure monitoring for Azure Functions](configure-monitoring.md). 
 
 |Key|Sample value|
 |---|------------|
@@ -23,7 +26,12 @@ The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_I
 
 ## APPLICATIONINSIGHTS_CONNECTION_STRING
 
-The connection string for Application Insights. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead of `APPINSIGHTS_INSTRUMENTATIONKEY` when your function app requires the added customizations supported by using the connection string. For more information, see [Connection strings](../azure-monitor/app/sdk-connection-string.md). 
+The connection string for Application Insights. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead of `APPINSIGHTS_INSTRUMENTATIONKEY` in the following cases:
+
++ When your function app requires the added customizations supported by using the connection string. 
++ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint.
+
+For more information, see [Connection strings](../azure-monitor/app/sdk-connection-string.md). 
 
 |Key|Sample value|
 |---|------------|
@@ -122,7 +130,7 @@ Specifies the repository or provider to use for key storage. Currently, the supp
 
 ## AzureWebJobsStorage
 
-The Azure Functions runtime uses this storage account connection string for all functions except for HTTP triggered functions. The storage account must be a general-purpose one that supports blobs, queues, and tables. See [Storage account](functions-infrastructure-as-code.md#storage-account) and [Storage account requirements](storage-considerations.md#storage-account-requirements).
+The Azure Functions runtime uses this storage account connection string for normal operation. Some uses of this storage account include key management, timer trigger management, and Event Hubs checkpoints. The storage account must be a general-purpose one that supports blobs, queues, and tables. See [Storage account](functions-infrastructure-as-code.md#storage-account) and [Storage account requirements](storage-considerations.md#storage-account-requirements).
 
 |Key|Sample value|
 |---|------------|
@@ -196,7 +204,7 @@ To learn more, see [Custom dependencies](functions-reference-python.md#remote-bu
 
 _This setting is currently in preview._  
 
-This setting controls logging from the Azure Functions scale controller. For more information, see [Scale controller logs](functions-monitoring.md#scale-controller-logs-preview).
+This setting controls logging from the Azure Functions scale controller. For more information, see [Scale controller logs](functions-monitoring.md#scale-controller-logs).
 
 |Key|Sample value|
 |-|-|
@@ -214,6 +222,14 @@ For Consumption & Premium plans only. Connection string for storage account wher
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
+## WEBSITE\_CONTENTOVERVNET
+
+For Premium plans only. A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. To learn more, see [Restrict your storage account to a virtual network](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE_CONTENTOVERVNET|1|
+
 ## WEBSITE\_CONTENTSHARE
 
 For Consumption & Premium plans only. The file path to the function app code and configuration. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
@@ -226,8 +242,8 @@ For Consumption & Premium plans only. The file path to the function app code and
 
 The maximum number of instances that the function app can scale out to. Default is no limit.
 
-> [!NOTE]
-> This setting is a preview feature - and only reliable if set to a value <= 5
+> [!IMPORTANT]
+> This setting is in preview.  An [app property for function max scale out](./functions-scale.md#limit-scale-out) has been added and is the recommended way to limit scale out.
 
 |Key|Sample value|
 |---|------------|

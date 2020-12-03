@@ -1,6 +1,6 @@
 ---
 title: SSO sessions in Azure Active Directory B2C | Microsoft Docs
-description: Configure session behavior in Azure Active Directory B2C.
+description: An overview of configuring session behavior in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg

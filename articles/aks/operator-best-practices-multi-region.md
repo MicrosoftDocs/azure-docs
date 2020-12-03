@@ -11,7 +11,7 @@ ms.custom: fasttrack-edit
 ---
 # Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)
 
-As you manage clusters in Azure Kubernetes Service (AKS), application uptime becomes important. By default, AKS provides high availability by using multiple nodes in a [Virtual Machine Scale Set (VMSS)](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). But these multiple nodes don’t protect your system from a region failure. To maximize your uptime, plan ahead to maintain business continuity and prepare for disaster recovery.
+As you manage clusters in Azure Kubernetes Service (AKS), application uptime becomes important. By default, AKS provides high availability by using multiple nodes in a [Virtual Machine Scale Set (VMSS)](../virtual-machine-scale-sets/overview.md). But these multiple nodes don’t protect your system from a region failure. To maximize your uptime, plan ahead to maintain business continuity and prepare for disaster recovery.
 
 This article focuses on how to plan for business continuity and disaster recovery in AKS. You learn how to:
 
@@ -28,8 +28,8 @@ This article focuses on how to plan for business continuity and disaster recover
 
 An AKS cluster is deployed into a single region. To protect your system from region failure, deploy your application into multiple AKS clusters across different regions. When you plan where to deploy your AKS cluster, consider:
 
-* [**AKS region availability**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): Choose regions close to your users. AKS continually expands into new regions.
-* [**Azure paired regions**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions):
+* [**AKS region availability**](./quotas-skus-regions.md#region-availability): Choose regions close to your users. AKS continually expands into new regions.
+* [**Azure paired regions**](../best-practices-availability-paired-regions.md):
 For your geographic area, choose two regions that are paired with each other. Paired regions coordinate platform updates and prioritize recovery efforts where needed.
 * **Service availability**: Decide whether your paired regions should be hot/hot, hot/warm, or hot/cold. Do you want to run both regions at the same time, with one region *ready* to start serving traffic? Or do you want one region to have time to get ready to serve traffic?
 
@@ -41,7 +41,7 @@ When you deploy your application, add another step to your CI/CD pipeline to dep
 
 **Best practice**: Azure Traffic Manager can direct customers to their closest AKS cluster and application instance. For the best performance and redundancy, direct all application traffic through Traffic Manager before it goes to your AKS cluster.
 
-If you have multiple AKS clusters in different regions, use Traffic Manager to control how traffic flows to the applications that run in each cluster. [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) is a DNS-based traffic load balancer that can distribute network traffic across regions. Use Traffic Manager to route users based on cluster response time or based on geography.
+If you have multiple AKS clusters in different regions, use Traffic Manager to control how traffic flows to the applications that run in each cluster. [Azure Traffic Manager](../traffic-manager/index.yml) is a DNS-based traffic load balancer that can distribute network traffic across regions. Use Traffic Manager to route users based on cluster response time or based on geography.
 
 ![AKS with Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
@@ -51,15 +51,15 @@ Customers who have a single AKS cluster typically connect to the service IP or D
 
 Traffic Manager performs DNS lookups and returns a user's most appropriate endpoint. Nested profiles can prioritize a primary location. For example, users should generally connect to their closest geographic region. If that region has a problem, Traffic Manager instead directs the users to a secondary region. This approach ensures that customers can connect to an application instance even if their closest geographic region is unavailable.
 
-For information on how to set up endpoints and routing, see [Configure the geographic traffic routing method by using Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+For information on how to set up endpoints and routing, see [Configure the geographic traffic routing method by using Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
-### Layer 7 application routing with Azure Front Door Service
+### Application routing with Azure Front Door Service
 
-Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Azure Front Door Service include TLS termination, custom domain, web application firewall, URL Rewrite, and session affinity. Review the needs of your application traffic to understand which solution is the most suitable.
+Using split TCP-based anycast protocol, [Azure Front Door Service](../frontdoor/front-door-overview.md) ensures that your end users promptly connect to the nearest Front Door POP (Point of Presence). Additional features of Azure Front Door Service include TLS termination, custom domain, web application firewall, URL Rewrite, and session affinity. Review the needs of your application traffic to understand which solution is the most suitable.
 
 ### Interconnect regions with global virtual network peering
 
-If the clusters need to talk to each other, connecting both virtual networks to each other can be achieved through [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). This technology interconnects virtual networks to each other providing high bandwidth across Microsoft's backbone network, even across different geographic regions.
+If the clusters need to talk to each other, connecting both virtual networks to each other can be achieved through [virtual network peering](../virtual-network/virtual-network-peering-overview.md). This technology interconnects virtual networks to each other providing high bandwidth across Microsoft's backbone network, even across different geographic regions.
 
 A prerequisite to peer the virtual networks where AKS clusters are running is to use the standard Load Balancer in your AKS cluster, so that Kubernetes services are reachable across the virtual network peering.
 
@@ -79,7 +79,7 @@ When you use Container Registry geo-replication to pull images from the same reg
 * **More reliable**: If a region is unavailable, your AKS cluster pulls the images from an available container registry.
 * **Cheaper**: There's no network egress charge between datacenters.
 
-Geo-replication is a feature of *Premium* SKU container registries. For information on how to configure geo-replication, see [Container Registry geo-replication](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
+Geo-replication is a feature of *Premium* SKU container registries. For information on how to configure geo-replication, see [Container Registry geo-replication](../container-registry/container-registry-geo-replication.md).
 
 ## Remove service state from inside containers
 
@@ -89,12 +89,12 @@ Geo-replication is a feature of *Premium* SKU container registries. For informat
 
 State can be either externalized or colocated with the code that manipulates the state. Typically, you externalize state by using a database or other data store that runs on different machines over the network or that runs out of process on the same machine.
 
-Containers and microservices are most resilient when the processes that run inside them don't retain state. Because applications almost always contain some state, use a PaaS solution such as Azure Database for MySQL, Azure Database for PostgreSQL, or Azure SQL Database.
+Containers and microservices are most resilient when the processes that run inside them don't retain state. Because applications almost always contain some state, use a PaaS solution such as Azure Cosmos DB, Azure Database for PostgreSQL, Azure Database for MySQL or Azure SQL Database.
 
 To build portable applications, see the following guidelines:
 
 * [The 12-factor app methodology](https://12factor.net/)
-* [Run a web application in multiple Azure regions](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+* [Run a web application in multiple Azure regions](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
 
 ## Create a storage migration plan
 
@@ -118,7 +118,7 @@ The typical strategy is to provide a common storage point where applications can
 If you use Azure Managed Disks, you can choose replication and DR solutions such as these:
 
 * [Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
+* [Azure Backup](../backup/backup-overview.md)
 
 ### Application-based asynchronous replication
 

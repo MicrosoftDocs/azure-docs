@@ -4,10 +4,11 @@ description: Describes Azure EA transfers
 author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 11/11/2020
 ms.author: banders
-
+ms.custom: contperfq1
 ---
 
 # Azure Enterprise transfers
@@ -88,13 +89,17 @@ Azure Prepayment isn't transferrable between enrollments. Azure Prepayment balan
 
 There's no downtime during an account or enrollment transfer. It can be completed on the same day of your request if all requisite information is provided.
 
-## Change account owner
+## Transfer an Enterprise subscription to a Pay-As-You-Go subscription
 
-The Azure EA portal can transfer subscriptions from one account owner to another. For more information, see [Change account owner](ea-portal-get-started.md#change-account-owner).
+To transfer an Enterprise subscription to an individual subscription with Pay-As-You-Go rates, you must create a new support request in the Azure Enterprise portal. To create a support request, select **+ New support request** in the **Help and Support** area.
+
+## Change Azure subscription or account ownership
+
+The Azure EA portal can transfer subscriptions from one account owner to another. For more information, see [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 ## Subscription transfer effects
 
-When an Azure subscription is transferred to an account in the same Azure Active Directory tenant, then all users, groups, and service principals that had [role-based access control (RBAC)](../../role-based-access-control/overview.md) to manage resources keep their access.
+When an Azure subscription is transferred to an account in the same Azure Active Directory tenant, then all users, groups, and service principals that had [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to manage resources keep their access.
 
 To view users with RBAC access to the subscription:
 

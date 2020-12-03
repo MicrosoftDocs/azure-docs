@@ -1,7 +1,7 @@
 ---
 title: Introduction to Blob (object) storage
 titleSuffix: Azure Storage
-description: Azure Blob storage stores massive amounts of unstructured object data, such as text or binary data. Azure Blob storage is highly scalable and available. Clients can access data objects in Blob storage from PowerShell or Azure CLI, programmatically via Azure Storage client libraries, or using REST.  
+description: Use Azure Blob storage to store massive amounts of unstructured object data, such as text or binary data. Azure Blob storage is highly scalable and available.
 services: storage
 author: tamram
 
@@ -70,5 +70,5 @@ A number of solutions exist for migrating existing data to Blob storage:
 
 ## Next steps
 
-- [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Create a storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Scalability and performance targets for Blob storage](scalability-targets.md)

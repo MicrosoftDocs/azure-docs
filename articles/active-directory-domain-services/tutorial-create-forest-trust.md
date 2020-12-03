@@ -2,7 +2,7 @@
 title: Tutorial - Create a forest trust in Azure AD Domain Services | Microsoft Docs
 description: Learn how to create a one-way outbound forest to an on-premises AD DS domain in the Azure portal for Azure AD Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
+ms.author: joflore
 
 #Customer intent: As an identity administrator, I want to create a one-way outbound forest from an Azure Active Directory Domain Services resource forest to an on-premises Active Directory Domain Services forest to provide authentication and resource access between forests.
 ---
 
-# Tutorial: Create an outbound forest trust to an on-premises domain in Azure Active Directory Domain Services (preview)
+# Tutorial: Create an outbound forest trust to an on-premises domain in Azure Active Directory Domain Services
 
-In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so they don't know their password, you can use a resource forest in Azure Active Directory Domain Services (Azure AD DS). A resource forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. Azure AD DS resource forests are currently in preview.
+In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so they don't know their password, you can use a resource forest in Azure Active Directory Domain Services (Azure AD DS). A resource forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. In a resource forest, on-premises password hashes are never synchronized.
 
 ![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
@@ -126,7 +126,7 @@ The following common scenarios let you validate that forest trust correctly auth
 
 You should have Windows Server virtual machine joined to the managed domain. Use this virtual machine to test your on-premises user can authenticate on a virtual machine. If needed, [create a Windows VM and join it to the managed domain][join-windows-vm].
 
-1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) and your Azure AD DS administrator credentials.
+1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using [Azure Bastion](../bastion/bastion-overview.md) and your Azure AD DS administrator credentials.
 1. Open a command prompt and use the `whoami` command to show the distinguished name of the currently authenticated user:
 
     ```console
@@ -148,7 +148,7 @@ Using the Windows Server VM joined to the Azure AD DS resource forest, you can t
 
 #### Enable file and printer sharing
 
-1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) and your Azure AD DS administrator credentials.
+1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using [Azure Bastion](../bastion/bastion-overview.md) and your Azure AD DS administrator credentials.
 
 1. Open **Windows Settings**, then search for and select **Network and Sharing Center**.
 1. Choose the option for **Change advanced sharing** settings.

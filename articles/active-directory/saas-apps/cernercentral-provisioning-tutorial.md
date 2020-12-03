@@ -2,20 +2,14 @@
 title: 'Tutorial: User provisioning for Cerner Central - Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision users to a roster in Cerner Central.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Cerner Central for automatic user provisioning
@@ -130,4 +124,4 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md).

@@ -5,7 +5,7 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 ms.date: 03/30/2018
 
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to use Azure Cache for Redis to improve performance and reduce back-end database load.
@@ -13,7 +13,7 @@ ms.date: 03/30/2018
 ---
 # Tutorial: Create a cache-aside leaderboard on ASP.NET
 
-In this tutorial you will update the *ContosoTeamStats* ASP.NET web app, created in the [ASP.NET quickstart for Azure Cache for Redis](cache-web-app-howto.md), to include a leaderboard that uses the [cache-aside pattern](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) with Azure Cache for Redis. The sample application displays a list of team statistics from a database and demonstrates different ways to use Azure Cache for Redis to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Cache for Redis, and hosted in Azure.
+In this tutorial you will update the *ContosoTeamStats* ASP.NET web app, created in the [ASP.NET quickstart for Azure Cache for Redis](cache-web-app-howto.md), to include a leaderboard that uses the [cache-aside pattern](/azure/architecture/patterns/cache-aside) with Azure Cache for Redis. The sample application displays a list of team statistics from a database and demonstrates different ways to use Azure Cache for Redis to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Cache for Redis, and hosted in Azure.
 
 In this tutorial, you learn how to:
 
@@ -651,7 +651,7 @@ In this section, you will provision a new database in SQL Database for the app t
 
    | Setting       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Database name** | *ContosoTeamsDatabase* | For valid database names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Database name** | *ContosoTeamsDatabase* | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). |
    | **Subscription** | *Your subscription*  | Select the same subscription you used to create the cache and host the App Service. |
    | **Resource group**  | *TestResourceGroup* | Click **Use existing** and use the same resource group where you placed your cache and App Service. |
    | **Select source** | **Blank database** | Start with a blank database. |
@@ -661,7 +661,7 @@ In this section, you will provision a new database in SQL Database for the app t
    | Setting       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
-   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). |
    | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
    | **Location** | *East US* | Select the same region where you created the cache and App Service. |
 

@@ -15,7 +15,7 @@ In this guide, we're going to learn how to send messages from RabbitMQ to Azure 
 
 Here's a few scenarios in which we can make use of these capabilities:
 
-- **Edge Setups**: We have an edge setup where we're sending messages to RabbitMQ, but we want to forward those messages to [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) for further processing, so we can use many of the [Azure Big Data capabilities](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/big-data).
+- **Edge Setups**: We have an edge setup where we're sending messages to RabbitMQ, but we want to forward those messages to [Azure Service Bus](./service-bus-messaging-overview.md) for further processing, so we can use many of the [Azure Big Data capabilities](/azure/architecture/guide/architecture-styles/big-data).
 - **Hybrid Cloud**: Your company just acquired a third party that uses RabbitMQ for their messaging needs. They are on a different cloud. While they transition to Azure you can already start sharing data by bridging RabbitMQ with Azure Service Bus.
 - **Third-Party Integration**: A third party uses RabbitMQ as a broker, and wants to send their data to us, but they are outside our organization. We can provide them with SAS Key giving them access to a limited set of Azure Service Bus queues where they can forward their messages to.
 
@@ -23,7 +23,7 @@ The list goes on, but we can solve most of these use cases by bridging RabbitMQ 
 
 First you need to create a free Azure account by signing up [here](https://azure.microsoft.com/free/)
 
-Once you're signed in to your account, go to the [Azure portal](https://portal.azure.com/) and create a new Azure Service Bus [namespace](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal). Namespaces are the scoping containers where our messaging components will live, like queues and topics.
+Once you're signed in to your account, go to the [Azure portal](https://portal.azure.com/) and create a new Azure Service Bus [namespace](./service-bus-create-namespace-portal.md). Namespaces are the scoping containers where our messaging components will live, like queues and topics.
 
 ## Adding a new Azure Service Bus Namespace
 
@@ -35,7 +35,7 @@ Then select Integration and click on Azure Service Bus to create a messaging nam
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Select Azure Service bus":::
 
-You'll be prompted to enter the namespace information. Select the Azure subscription you want to use. If you don't have a [resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal), you can create a new one.
+You'll be prompted to enter the namespace information. Select the Azure subscription you want to use. If you don't have a [resource group](../azure-resource-manager/management/manage-resource-groups-portal.md), you can create a new one.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Create namespace":::
 
@@ -71,7 +71,7 @@ Now is time to get the credentials required for connecting RabbitMQ to Azure.
 
 ## Connecting RabbitMQ to Azure Service Bus
 
-You'll need to create a [Shared Access Policy](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) (SAS) for your queue, so RabbitMQ can publish messages to it. A SAS Policy let's you specify what external party is allowed to do with your resource. The idea is that RabbitMQ is able to send messages, but not listen or manage the queue.
+You'll need to create a [Shared Access Policy](../storage/common/storage-sas-overview.md) (SAS) for your queue, so RabbitMQ can publish messages to it. A SAS Policy let's you specify what external party is allowed to do with your resource. The idea is that RabbitMQ is able to send messages, but not listen or manage the queue.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Add SAS Policy":::
 
@@ -85,7 +85,7 @@ Before you can use that connection string, you'll need to convert it to RabbitMQ
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Convert connection string":::
 
-Now open the RabbitMQ management plugin in our browsers [http://localhost:15672/#/dynamic-shovels](http://localhost:15672/#/dynamic-shovels) and go to `Admin -> Shovel Management`, where you can add your new shovel that will take care of sending messages from a RabbitMQ queue to your Azure Service Bus queue.
+Now open the RabbitMQ management plugin in our browsers `http://localhost:15672/#/dynamic-shovels` and go to `Admin -> Shovel Management`, where you can add your new shovel that will take care of sending messages from a RabbitMQ queue to your Azure Service Bus queue.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Add RabbitMQ Shovel":::
 
@@ -107,7 +107,7 @@ In the RabbitMQ Management interface we can go to `Queues`, select the `azure` q
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Publish first message":::
 
-Go back to Azure and inspect your queue. Click `Service Bus Explorer` in the left panel. If all went well, you'll see your queue now has one message. Yay, congrats!
+Go back to Azure and inspect your queue. Click `Service Bus Explorer` in the left panel, and then click the _Peek_ button. If all went well, you'll see your queue now has one message. Yay, congrats!
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Azure Service Bus Queue":::
 
@@ -131,3 +131,8 @@ Congrats! You achieved a lot! You managed to get your messages from RabbitMQ to 
 By following the previous steps, you integrated areas of your org that were outside Azure. The Shovel plugin allowed you to ship messages from RabbitMQ to Azure Service Bus. This has enormous advantages since you can now allow trusted third parties to connect their apps with your Azure deployment.
 
 In the end, messaging is about enabling connections, and with this technique we just opened a new one.
+
+## Next steps
+
+- Learn more about [Azure Service Bus](./service-bus-messaging-overview.md)
+- Learn more about [AMQP 1.0 support in Service Bus](./service-bus-amqp-overview.md)

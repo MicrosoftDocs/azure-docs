@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with IntelligenceBank | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and IntelligenceBank.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7479c06a-e1fb-4f1d-81f8-9f255ff1b9fc
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with IntelligenceBank
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate IntelligenceBank with Azure Acti
 * Enable your users to be automatically signed-in to IntelligenceBank with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -42,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * IntelligenceBank supports **SP** initiated SSO
 
-* Once you configure IntelligenceBank you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure IntelligenceBank you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding IntelligenceBank from the gallery
 
@@ -140,11 +134,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Authenticator** and click on **Add New**
 
-    ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/authenticator.PNG)
+    ![Screenshot shows the Administrator tab selected and the Add New icon.](./media/intelligencebank-tutorial/authenticator.PNG)
 
 1. Perform the following steps:
 
-    ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/urls.PNG)
+    ![Screenshot shows the fields where you enter the information in this step.](./media/intelligencebank-tutorial/urls.PNG)
 
     a. In the **Name** textbox, enter the name for example like `azureadsso`.
 
@@ -168,28 +162,28 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to **Admin** -> **Users** and select **Add New User Icon** to add the **User**.
 
-    ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/creating-user.PNG)
+    ![Screenshot shows the Users icon selected in the Users tab.](./media/intelligencebank-tutorial/creating-user.PNG)
 
 1. Fill the necessary fields as per your organization requirements and click **Save**.
 
-    ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/creating-user-1.PNG)
+    ![Screenshot show the Add New User page where you enter user information.](./media/intelligencebank-tutorial/creating-user-1.PNG)
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the IntelligenceBank tile in the Access Panel, you should be automatically signed in to the IntelligenceBank for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the IntelligenceBank tile in the Access Panel, you should be automatically signed in to the IntelligenceBank for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try IntelligenceBank with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect IntelligenceBank with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect IntelligenceBank with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

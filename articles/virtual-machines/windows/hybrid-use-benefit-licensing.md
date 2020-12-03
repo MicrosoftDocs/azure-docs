@@ -1,6 +1,6 @@
 ---
 title: Azure Hybrid Benefit for Windows Server 
-description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure
+description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure.
 author: xujing-ms
 ms.service: virtual-machines-windows
 ms.topic: how-to
@@ -61,7 +61,7 @@ az vm create \
 ```
 
 ### Template
-Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md)
+Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md)
 ```json
 "properties": {
     "licenseType": "Windows_Server",
@@ -185,7 +185,7 @@ You can also learn more about how to [Modify a virtual machine scale set](../../
 ## Next steps
 - Read more about [How to save money with the Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 - Read more about [Frequently asked questions for Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
-- Learn more about [Azure Hybrid Benefit for Windows Server licensing detailed guidance](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
+- Learn more about [Azure Hybrid Benefit for Windows Server licensing detailed guidance](/windows-server/get-started/azure-hybrid-benefit)
 - Learn more about [Azure Hybrid Benefit for Windows Server and Azure Site Recovery make migrating applications to Azure even more cost-effective](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
-- Learn more about [Windows 10 on Azure with Multitenant Hosting Right](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+- Learn more about [Windows 10 on Azure with Multitenant Hosting Right](./windows-desktop-multitenant-hosting-deployment.md)
 - Learn more about [Using Resource Manager templates](../../azure-resource-manager/management/overview.md)

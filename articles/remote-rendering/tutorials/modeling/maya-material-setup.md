@@ -1,8 +1,8 @@
 ---
 title: Set up physically based rendering materials in Maya
 description: Explains how to set up physically based rendering materials in Maya and export them into FBX format.
-author: muxanickms
-ms.author: misams
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
 ---
@@ -73,7 +73,7 @@ In Maya, the process of instancing is simple.
 1. In the **Duplicate Special Options** dialog box, for **Geometry type** select the **Instance** option. 
 1. Select **Duplicate Special**.
 
-   ![Instancing](media/instancing.jpg)
+   ![Screenshot shows a Maya window with the Duplicate Special Options dialog box open and the Duplicate Special selected.](media/instancing.jpg)
 
 This action creates an instance of your object. You can move, rotate, or scale it independently of its parent and of other instances of that parent. 
 

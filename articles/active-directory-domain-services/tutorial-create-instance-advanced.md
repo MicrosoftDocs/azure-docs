@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Create an Azure Active Directory Domain Services managed domain | Microsoft Docs
-description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services managed domain and specify advanced configuration options using the Azure portal.
-author: iainfoulds
+title: Tutorial - Create a customized Azure Active Directory Domain Services managed domain | Microsoft Docs
+description: In this tutorial, you learn how to create and configure a customized Azure Active Directory Domain Services managed domain and specify advanced configuration options using the Azure portal.
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
@@ -9,7 +9,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
+ms.author: joflore
 
 #Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services managed domain and define advanced configuration options so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
 ---
@@ -98,7 +98,7 @@ Complete the fields in the *Basics* window of the Azure portal to create a manag
     For this tutorial, select the *Standard* SKU.
 1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. By default, a managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment.
 
-    A *Resource* forest only synchronizes users and groups created directly in Azure AD. Resource forests are currently in preview. For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].
+    A *Resource* forest only synchronizes users and groups created directly in Azure AD. Password hashes for on-premises users are never synchronized into a managed domain when you create a resource forest. For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].
 
     For this tutorial, choose to create a *User* forest.
 
@@ -129,7 +129,7 @@ Complete the fields in the *Network* window as follows:
     1. If you choose to create a virtual network, enter a name for the virtual network, such as *myVnet*, then provide an address range, such as *10.0.1.0/24*.
     1. Create a dedicated subnet with a clear name, such as *DomainServices*. Provide an address range, such as *10.0.1.0/24*.
 
-    [![](./media/tutorial-create-instance-advanced/create-vnet.png "Create a virtual network and subnet for use with Azure AD Domain Services")](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
+    [ ![Create a virtual network and subnet for use with Azure AD Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
 
     Make sure to pick an address range that is within your private IP address range. IP address ranges you don't own that are in the public address space cause errors within Azure AD DS.
 
@@ -157,7 +157,7 @@ The wizard automatically creates the *AAD DC Administrators* group in your Azure
 
 ## Configure synchronization
 
-Azure AD DS lets you synchronize *all* users and groups available in Azure AD, or a *scoped* synchronization of only specific groups. If you choose to synchronize *all* users and groups, you can't later choose to only perform a scoped synchronization. For more information about scoped synchronization, see [Azure AD Domain Services scoped synchronization][scoped-sync].
+Azure AD DS lets you synchronize *all* users and groups available in Azure AD, or a *scoped* synchronization of only specific groups. You can change the synchronize scope now, or once the managed domain is deployed. For more information, see [Azure AD Domain Services scoped synchronization][scoped-sync].
 
 1. For this tutorial, choose to synchronize **All** users and groups. This synchronization choice is the default option.
 

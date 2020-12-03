@@ -17,17 +17,17 @@ If you have been creating generalized custom images, using cloud-init to do prov
 
 Some examples, of issues with provisioning:
 - VM gets stuck at 'creating' for 40 minutes, and the VM creation is marked as failed
-- CustomData does not get processed
+- `CustomData` does not get processed
 - The ephemeral disk fails to mount
 - Users do not get created, or there are user access issues
 - Networking is not set up correctly
 - Swap file or partition failures
 
-This article steps you through how to troubleshoot cloud-init. For more in-depth details, see [cloud-init deep dive](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive).
+This article steps you through how to troubleshoot cloud-init. For more in-depth details, see [cloud-init deep dive](./cloud-init-deep-dive.md).
 
-## Step 1: Test the deployment without customData
+## Step 1: Test the deployment without `customData`
 
-Cloud-init can accept customData, that is passed to it, when the VM is created. First you should ensure this is not causing any issues with deployments. Try to provisioning the VM without passing in any configuration. If you find the VM fails to provision, continue with the steps below, if you find the configuration you are passing is not being applied go [step 4](). 
+Cloud-init can accept `customData`, that is passed to it, when the VM is created. First you should ensure this is not causing any issues with deployments. Try to provisioning the VM without passing in any configuration. If you find the VM fails to provision, continue with the steps below, if you find the configuration you are passing is not being applied go [step 4](). 
 
 ## Step 2: Review image requirements
 The primary cause of VM provisioning failure is the OS image doesn't satisfy the prerequisites for running on Azure. Make sure your images are properly prepared before attempting to provision them in Azure. 
@@ -35,15 +35,16 @@ The primary cause of VM provisioning failure is the OS image doesn't satisfy the
 
 The following articles illustrate the steps to prepare various linux distributions that are supported in Azure:
 
-- [CentOS-based Distributions](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Others: Non-Endorsed Distributions](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [CentOS-based Distributions](create-upload-centos.md)
+- [Debian Linux](debian-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
+- [Oracle Linux](oracle-create-upload-vhd.md)
+- [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
+- [SLES & openSUSE](suse-create-upload-vhd.md)
+- [Ubuntu](create-upload-ubuntu.md)
+- [Others: Non-Endorsed Distributions](create-upload-generic.md)
 
-For the [supported Azure cloud-init images](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init), the Linux distributions already have all the required packages and configurations in place to correctly provision the image in Azure. If you find your VM is failing to create from your own curated image, try a supported Azure Marketplace image that already is configured for cloud-init, with your optional customData. If the customData works correctly with an Azure Marketplace image, then there is probably an issue with your curated image.
+For the [supported Azure cloud-init images](./using-cloud-init.md), the Linux distributions already have all the required packages and configurations in place to correctly provision the image in Azure. If you find your VM is failing to create from your own curated image, try a supported Azure Marketplace image that already is configured for cloud-init, with your optional `customData`. If the `customData` works correctly with an Azure Marketplace image, then there is probably an issue with your curated image.
 
 ## Step 3: Collect & review VM logs
 
@@ -51,11 +52,11 @@ When the VM fails to provision, Azure will show 'creating' status, for 20 minute
 
 While the VM is running, you will need the logs from the VM to understand why provisioning failed.  To understand why VM provisioning failed, do not stop the VM. Keep the VM running. You will need to keep the failed VM in a running state in order to collect logs. To collect the logs, use one of the following methods:
 
-- [Serial Console](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+- [Serial Console](../troubleshooting/serial-console-grub-single-user-mode.md)
 
-- [Enable Boot Diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) before creating the VM and then [View](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) them during the boot.
+- [Enable Boot Diagnostics](./tutorial-monitor.md#enable-boot-diagnostics) before creating the VM and then [View](./tutorial-monitor.md#view-boot-diagnostics) them during the boot.
 
-- [Run AZ VM Repair](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands) to attach and mount the OS disk, which will allow you to collect these logs:
+- [Run AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) to attach and mount the OS disk, which will allow you to collect these logs:
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -103,7 +104,7 @@ Once you have found an error or warning, read backwards in the cloud-init log to
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-If you have access to the [Serial Console](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode), you can try to rerun the command that cloud-init was trying to run.
+If you have access to the [Serial Console](../troubleshooting/serial-console-grub-single-user-mode.md), you can try to rerun the command that cloud-init was trying to run.
 
 The logging for `/var/log/cloud-init.log` can also be reconfigured within /etc/cloud/cloud.cfg.d/05_logging.cfg. For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
@@ -128,4 +129,4 @@ Not every failure in cloud-init results in a fatal provisioning failure. For exa
 
 ## Next steps
 
-If you still cannot isolate why cloud-init did not run the configuration, you need to look more closely at what happens in each cloud-init stage, and when modules run. See [Diving deeper into cloud-init configuration](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive) for more information. 
+If you still cannot isolate why cloud-init did not run the configuration, you need to look more closely at what happens in each cloud-init stage, and when modules run. See [Diving deeper into cloud-init configuration](./cloud-init-deep-dive.md) for more information. 

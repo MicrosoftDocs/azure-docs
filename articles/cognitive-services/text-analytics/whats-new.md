@@ -8,19 +8,110 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/19/2020
 ms.author: aahi
+ms.custom: references_regions 
 ---
 
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
-## July 2020
+## November 2020
 
-### Text Analytics for Health Container Public gated preview
+* A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) with Text Analytics API v3.1-preview.3 for the new asynchronous [Analyze API](how-tos/text-analytics-how-to-call-api.md?tabs=analyze), which supports batch processing for NER, PII, and key phrase extraction operations.
+* A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) with Text Analytics API v3.1-preview.3 for the new asynchronous [Text Analytics for health](how-tos/text-analytics-for-health.md) hosted API with support for batch processing.
+* Both new features listed above are only available in the following regions: `West US 2`, `East US 2`, `Central US`, `North Europe` and `West Europe` regions.
+* Portuguese (Brazil) `pt-BR` is now supported in [Sentiment Analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) v3.x, starting with model version `2020-04-01`. It adds to the existing `pt-PT` support for Portuguese.
+* Updated client libraries, which include asynchronous Analyze, and Text Analytics for health operations. You can find examples on GitHub:
 
-The Text Analytics for Health container is now in public gated preview, which lets you extract information from unstructured English-language text in clinical documents such as: patient intake forms, doctor's notes, research papers and discharge summaries. Currently, you will not be billed for Text Analytics for Health container usage. 
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+
+
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3.1-Preview.3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
+
+## October 2020
+
+* Hindi support for Sentiment Analysis v3.x, starting with model version `2020-04-01`. 
+* Model version `2020-09-01` for the v3 /languages endpoint, which adds increased language detection and accuracy improvements.
+* v3 availability in Central India and UAE North.
+
+## September 2020
+
+### General API updates
+
+* Release of a new URL for the Text Analytics v3.1 public preview to support updates to the following Named Entity Recognition v3 endpoints: 
+    * `/pii` endpoint now includes the new `redactedText` property in the response JSON where detected PII entities in the input text are replaced by an `*` for each character of those entities.
+    * `/linking` endpoint now includes the `bingID` property in the response JSON for linked entities.
+* The following Text Analytics preview API endpoints were retired on September 4th, 2020:
+    * v2.1-preview
+    * v3.0-preview
+    * v3.0-preview.1
+    
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3.1-Preview.2](quickstarts/text-analytics-sdk.md)
+
+### Text Analytics for health container updates
+
+The following updates are specific to the September release of the Text Analytics for health container only.
+* A new container image with tag `1.1.013530001-amd64-preview` with the new model-version `2020-09-03` has been released to the containerpreview repository. 
+* This model version provides improvements in entity recognition, abbreviation detection, and latency enhancements.
+
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics for health](how-tos/text-analytics-for-health.md)
+
+## August 2020
+
+### General API updates
+
+* Model version `2020-07-01` for the v3 `/keyphrases`, `/pii` and `/languages` endpoints, which adds:
+    * Additional government and country specific [entity categories](named-entity-types.md?tabs=personal) for Named Entity Recognition.
+    * Norwegian and Turkish support in Sentiment Analysis v3.
+* An HTTP 400 error will now be returned for v3 API requests that exceed the published [data limits](concepts/data-limits.md). 
+* Endpoints that return an offset now support the optional `stringIndexType` parameter, which adjusts the returned `offset` and `length` values to match a supported [string index scheme](concepts/text-offsets.md).
+
+### Text Analytics for health container updates
+
+The following updates are specific to the August release of the Text Analytics for health container only.
+
+* New model-version for Text Analytics for health: `2020-07-24`
+* New URL for sending Text Analytics for health requests: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` (Please note that a browser cache clearing will be needed in order to use the demo web app included in this new container image)
+
+The following properties in the JSON response have changed:
+
+* `type` has been renamed to `category` 
+* `score` has been renamed to `confidenceScore`
+* Entities in the `category` field of the JSON output are now in pascal case. The following entities have been renamed:
+    * `EXAMINATION_RELATION` has been renamed to `RelationalOperator`.
+    * `EXAMINATION_UNIT` has been renamed to `MeasurementUnit`.
+    * `EXAMINATION_VALUE` has been renamed to `MeasurementValue`.
+    * `ROUTE_OR_MODE` has been renamed `MedicationRoute`.
+    * The relational entity `ROUTE_OR_MODE_OF_MEDICATION` has been renamed to `RouteOfMedication`.
+
+The following entities have been added:
+
+* NER
+    * `AdministrativeEvent`
+    * `CareEnvironment`
+    * `HealthcareProfession`
+    * `MedicationForm` 
+
+* Relation extraction
+    * `DirectionOfCondition`
+    * `DirectionOfExamination`
+    * `DirectionOfTreatment`
+
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics for health container](how-tos/text-analytics-for-health.md)
+
+## July 2020 
+
+### Text Analytics for health container - Public gated preview
+
+The Text Analytics for health container is now in public gated preview, which lets you extract information from unstructured English-language text in clinical documents such as: patient intake forms, doctor's notes, research papers and discharge summaries. Currently, you will not be billed for Text Analytics for health container usage.
 
 The container offers the following features:
 
@@ -28,10 +119,6 @@ The container offers the following features:
 * Relation extraction
 * Entity linking
 * Negation
-
-
-> [!div class="nextstepaction"]
-> [Learn more about Text Analytics for Health container](how-tos/text-analytics-for-health.md)
 
 ## May 2020
 
@@ -72,7 +159,7 @@ The names of the following properties in the JSON response have been changed, wh
 
 ### Text Analytics API v3.1 Public Preview
    * New Sentiment Analysis feature - [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
-   * New [Personal (`PII`) domain filter](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) for protected health information (`PHI`).
+   * New Personal (`PII`) domain filter for protected health information (`PHI`).
 
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3.1 Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
@@ -82,13 +169,13 @@ The names of the following properties in the JSON response have been changed, wh
 ### SDK support for Text Analytics API v3 Public Preview
 
 As part of the [unified Azure SDK release](https://techcommunity.microsoft.com/t5/azure-sdk/january-2020-unified-azure-sdk-release/ba-p/1097290), the Text Analytics API v3 SDK is now available as a public preview for the following programming languages:
-   * [C#](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-csharp)
-   * [Python](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-python)
-   * [JavaScript (Node.js)](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript)
-   * [Java](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-java)
+   * [C#](./quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp&tabs=version-3)
+   * [Python](./quickstarts/text-analytics-sdk.md?pivots=programming-language-python&tabs=version-3)
+   * [JavaScript (Node.js)](./quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript&tabs=version-3)
+   * [Java](./quickstarts/text-analytics-sdk.md?pivots=programming-language-java&tabs=version-3)
    
-   > [!div class="nextstepaction"]
-> [Learn more about Text Analytics API v3 SDK](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3)
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3 SDK](./quickstarts/text-analytics-sdk.md?tabs=version-3)
 
 ### Named Entity Recognition v3 public preview
 
@@ -111,16 +198,13 @@ Additional entity types are now available in the Named Entity Recognition (NER) 
     * URL
     * IP Address
 
-> [!div class="nextstepaction"]
-> [Learn more about Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
-
 ### October 2019
 
 #### Named Entity Recognition (NER)
 
-* A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) for recognizing personal information entity types (English only)
+* A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii) for recognizing personal information entity types (English only)
 
-* Separate endpoints for [entity recognition](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) and [entity linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
+* Separate endpoints for [entity recognition](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral) and [entity linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking).
 
 * [Model version](concepts/model-versioning.md) `2019-10-01`, which includes:
     * Expanded detection and categorization of entities found in text. 
@@ -132,7 +216,7 @@ Entity linking supports English and Spanish. NER language support varies by the 
 
 #### Sentiment Analysis v3 public preview
 
-* A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) for analyzing sentiment.
+* A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Sentiment) for analyzing sentiment.
 * [Model version](concepts/model-versioning.md) `2019-10-01`, which includes:
 
     * Significant improvements in the accuracy and detail of the API's text categorization and scoring.

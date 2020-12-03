@@ -49,7 +49,7 @@ In that case, you may want to tell the indexer to ignore errors. Do that by sett
 
 ## Tip 4: Use Debug sessions to identify and resolve issues with your skillset 
 
-Debug sessions is a visual editor that works with an existing skillset in the Azure portal. Within a debug session you can identify and resolve errors, validate changes, and commit changes to a production skillset in the AI enrichment pipeline. This is a preview feature [read the documentation](https://docs.microsoft.com/azure/search/cognitive-search-debug-session). For more information about concepts and getting started, see [Debug sessions](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions).
+Debug sessions is a visual editor that works with an existing skillset in the Azure portal. Within a debug session you can identify and resolve errors, validate changes, and commit changes to a production skillset in the AI enrichment pipeline. This is a preview feature [read the documentation](./cognitive-search-debug-session.md). For more information about concepts and getting started, see [Debug sessions](./cognitive-search-tutorial-debug-sessions.md).
 
 Debug sessions work on a single document are a great way for you to iteratively build more complex enrichment pipelines.
 
@@ -105,12 +105,11 @@ For portal-based indexing (as described in the quickstart), choosing the "run on
 ## Tip 8: Increase indexing throughput
 
 For [parallel indexing](search-howto-large-index.md), place your data into multiple containers or multiple virtual folders inside the same container. Then create multiple datasource and indexer pairs. All indexers can use the same skillset and write into the same target search index, so your search app doesn’t need to be aware of this partitioning.
-For more information, see [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## See also
+
 + [Quickstart: Create an AI enrichment pipeline in the portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Learn AI enrichment REST APIs](cognitive-search-tutorial-blob.md)
 + [Specifying data source credentials](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
-+ [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to map enriched fields to an index](cognitive-search-output-field-mapping.md)

@@ -35,7 +35,7 @@ Completed [Tutorial: Configure availability groups for SQL Server on RHEL virtua
 
 ## Create the load balancer in the Azure portal
 
-The following instructions take you through steps 1 through 4 from the [Create and configure the load balancer in the Azure portal](../windows/availability-group-load-balancer-portal-configure.md#create-and-configure-the-load-balancer-in-the-azure-portal) section of the [Load balancer - Azure portal](../windows/availability-group-load-balancer-portal-configure.md) article.
+The following instructions take you through steps 1 through 4 from the [Create and configure the load balancer in the Azure portal](../windows/availability-group-load-balancer-portal-configure.md#create--configure-load-balancer) section of the [Load balancer - Azure portal](../windows/availability-group-load-balancer-portal-configure.md) article.
 
 ### Create the load balancer
 

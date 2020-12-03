@@ -13,9 +13,9 @@ ms.reviewer: jagaveer
 # Deploy Spot VMs using Azure PowerShell
 
 
-Using [Spot VMs](spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs. Therefore, Spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
+Using [Spot VMs](../spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs. Therefore, Spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
-Pricing for Spot VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). For more information about setting the max price, see [Spot VMs - Pricing](spot-vms.md#pricing).
+Pricing for Spot VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). For more information about setting the max price, see [Spot VMs - Pricing](../spot-vms.md#pricing).
 
 You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a Spot VM can be set in US dollars (USD), using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for spot or the price for a standard VM, which ever is less, as long as there is capacity and quota available.
 
@@ -68,8 +68,25 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
    Select-Object Name,@{Name="maxPrice"; Expression={$_.BillingProfile.MaxPrice}}
 ```
 
+## Simulate an eviction
+
+You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of a Spot VM, to testing how well your application will repond to a sudden eviction. 
+
+Replace the following with your information: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 ## Next steps
 
-You can also create a Spot VM using the [Azure CLI](../linux/spot-cli.md), [portal](spot-portal.md) or a [template](../linux/spot-template.md).
+You can also create a Spot VM using the [Azure CLI](../linux/spot-cli.md), [portal](../spot-portal.md) or a [template](../linux/spot-template.md).
+
+Query current pricing information using the [Azure retail prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) for information about Spot pricing. The `meterName` and `skuName` will both contain `Spot`.
 
 If you encounter an error, see [Error codes](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

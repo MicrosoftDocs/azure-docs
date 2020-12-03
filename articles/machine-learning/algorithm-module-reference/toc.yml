@@ -68,10 +68,14 @@
         href: boosted-decision-tree-regression.md
       - name: Decision Forest Regression
         href: decision-forest-regression.md
+      - name: Fast Forest Quantile Regression
+        href: fast-forest-quantile-regression.md
       - name: Linear Regression
         href: linear-regression.md
       - name: Neural Network Regression
         href: neural-network-regression.md
+      - name: Poisson Regression
+        href: poisson-regression.md
   - name: Clustering
     items: 
     - name: K-Means Clustering
@@ -88,6 +92,8 @@
       href: multiclass-neural-network.md
     - name: One vs. All Multiclass
       href: one-vs-all-multiclass.md
+    - name: One vs. One Multiclass
+      href: one-vs-one-multiclass.md
     - name: Two-Class Averaged Perceptron
       href: two-class-averaged-perceptron.md
     - name: Two-Class Boosted Decision Tree
@@ -188,5 +194,6 @@
     href: web-service-input-output.md
 - name: Module errors & troubleshooting
   href: designer-error-codes.md
-  
+- name: Graph search query syntax
+  href: graph-search-syntax.md
 

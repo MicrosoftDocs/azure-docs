@@ -1,7 +1,7 @@
 ---
 title: Create and manage group policy in Azure AD Domain Services | Microsoft Docs
 description: Learn how to edit the built-in group policy objects (GPOs) and create your own custom policies in an Azure Active Directory Domain Services managed domain.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
+ms.author: joflore
 
 ---
 # Administer Group Policy in an Azure Active Directory Domain Services managed domain
@@ -86,7 +86,7 @@ There are two built-in Group Policy Objects (GPOs) in a managed domain - one for
 
 1. The Group Policy Management Editor tool opens to let you customize the GPO, such as *Account Policies*:
 
-    ![Customize GPO to configure settings as required](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![Screenshot of the Group Policy Management Editor.](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
     When done, choose **File > Save** to save the policy. Computers refresh Group Policy by default every 90 minutes and apply the changes you made.
 

@@ -6,12 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
-ms.date: 04/17/2020
+ms.date: 10/28/2020
+ms.custom: contperfq1, contperfq2
 ---
 # Use the Apache Beeline client with Apache Hive
 
-Learn how to use [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) to run Apache Hive queries on HDInsight.
+This article describes how to use the command-line [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) client to create and execute Apache Hive queries over an SSH connection.
+
+## Background
 
 Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. To connect to the Beeline client installed on your HDInsight cluster, or install Beeline locally, see [Connect to or install Apache Beeline](connect-install-beeline.md). Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following examples provide the most common connection strings used to connect to HDInsight from Beeline.
 
@@ -21,9 +23,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 * Notice the URI scheme for your cluster's primary storage. For example,  `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2, or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI is `wasbs://`. For more information, see [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 
-* Option 1: An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Most of the steps in this document assume that you're using Beeline from an SSH session to the cluster.
-
-* Option 2:  A local Beeline client.
+* An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Most of the steps in this document assume that you're using Beeline from an SSH session to the cluster. You can also use a local Beeline client, but those steps are not covered in this article.
 
 ## Run a Hive query
 
@@ -60,21 +60,23 @@ This example is based on using the Beeline client from an SSH connection.
 
     This command returns the following information:
 
-        +-----------------------+------------+----------+--+
-        |       col_name        | data_type  | comment  |
-        +-----------------------+------------+----------+--+
-        | clientid              | string     |          |
-        | querytime             | string     |          |
-        | market                | string     |          |
-        | deviceplatform        | string     |          |
-        | devicemake            | string     |          |
-        | devicemodel           | string     |          |
-        | state                 | string     |          |
-        | country               | string     |          |
-        | querydwelltime        | double     |          |
-        | sessionid             | bigint     |          |
-        | sessionpagevieworder  | bigint     |          |
-        +-----------------------+------------+----------+--+
+    ```output
+    +-----------------------+------------+----------+--+
+    |       col_name        | data_type  | comment  |
+    +-----------------------+------------+----------+--+
+    | clientid              | string     |          |
+    | querytime             | string     |          |
+    | market                | string     |          |
+    | deviceplatform        | string     |          |
+    | devicemake            | string     |          |
+    | devicemodel           | string     |          |
+    | state                 | string     |          |
+    | country               | string     |          |
+    | querydwelltime        | double     |          |
+    | sessionid             | bigint     |          |
+    | sessionpagevieworder  | bigint     |          |
+    +-----------------------+------------+----------+--+
+    ```
 
     This information describes the columns in the table.
 
@@ -115,27 +117,29 @@ This example is based on using the Beeline client from an SSH connection.
 
     The output of this command is similar to the following text:
 
-        INFO  : Tez session hasn't been created yet. Opening session
-        INFO  :
+    ```output
+    INFO  : Tez session hasn't been created yet. Opening session
+    INFO  :
 
-        INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
+    INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
 
-        INFO  : Map 1: -/-      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-        INFO  : Map 1: 1/1      Reducer 2: 0/1
-        INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
-        INFO  : Map 1: 1/1      Reducer 2: 1/1
-        +----------+--------+--+
-        |   sev    | count  |
-        +----------+--------+--+
-        | [ERROR]  | 3      |
-        +----------+--------+--+
-        1 row selected (47.351 seconds)
+    INFO  : Map 1: -/-      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+    INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+    INFO  : Map 1: 1/1      Reducer 2: 0/1
+    INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
+    INFO  : Map 1: 1/1      Reducer 2: 1/1
+    +----------+--------+--+
+    |   sev    | count  |
+    +----------+--------+--+
+    | [ERROR]  | 3      |
+    +----------+--------+--+
+    1 row selected (47.351 seconds)
+    ```
 
 6. Exit Beeline:
 
@@ -190,14 +194,16 @@ This example is a continuation from the prior example. Use the following steps t
 
     Three rows of data should be returned, all containing **[ERROR]** in column t4:
 
-        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
-        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        | 2012-02-03    | 18:35:34      | SampleClass0  | [ERROR]       | incorrect     | id            |               |
-        | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
-        | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
-        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        3 rows selected (0.813 seconds)
+    ```output
+    +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+    | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
+    +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+    | 2012-02-03    | 18:35:34      | SampleClass0  | [ERROR]       | incorrect     | id            |               |
+    | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
+    | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
+    +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+    3 rows selected (0.813 seconds)
+    ```
 
 ## Next steps
 

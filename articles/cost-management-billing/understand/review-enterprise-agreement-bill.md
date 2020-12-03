@@ -5,8 +5,9 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: tutorial
-ms.date: 05/07/2020
+ms.date: 08/20/2020
 ms.author: banders
 
 ---
@@ -430,7 +431,7 @@ For issues with Power BI, log a ticket with the [Power BI support team](https://
 
 ### Why don't my resource tags show on my reports
 
-Resource tags are managed on the Azure portal. You can contact the Azure subscription team in the [Azure portal](https://portal.azure.com). Follow the steps in the [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) article.
+Resource tags are managed on the Azure portal. You can contact the Azure subscription team in the [Azure portal](https://portal.azure.com). Follow the steps in the [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) article.
 
 ### Why does my resource rate change every day?
 

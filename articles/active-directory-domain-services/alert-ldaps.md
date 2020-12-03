@@ -2,7 +2,7 @@
 title: Resolve secure LDAP alerts in Azure AD Domain Services | Microsoft Docs
 description: Learn how to troubleshoot and resolve common alerts with secure LDAP for Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/18/2019
-ms.author: iainfou
+ms.date: 07/09/2020
+ms.author: joflore
 
 ---
 # Known issues: Secure LDAP alerts in Azure Active Directory Domain Services
@@ -32,7 +32,7 @@ When you enable secure LDAP, it's recommended to create additional rules that re
 
 1. In the Azure portal, search for and select **Network security groups**.
 1. Choose the network security group associated with your managed domain, such as *AADDS-contoso.com-NSG*, then select **Inbound security rules**
-1. **+ Add** a rule for TCP port 636. If needed, select **Advanced** in the window to create a rule.
+1. Select **+ Add** to create a rule for TCP port 636. If needed, select **Advanced** in the window to create a rule.
 1. For the **Source**, choose *IP Addresses* from the drop-down menu. Enter the source IP addresses that you want to grant access for secure LDAP traffic.
 1. Choose *Any* as the **Destination**, then enter *636* for **Destination port ranges**.
 1. Set the **Protocol** as *TCP* and the **Action** to *Allow*.

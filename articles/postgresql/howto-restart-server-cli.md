@@ -1,11 +1,12 @@
 ---
 title: Restart server - Azure CLI - Azure Database for PostgreSQL - Single Server
 description: This article describes how you can restart an Azure Database for PostgreSQL - Single Server using the Azure CLI
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 5/6/2019
+ms.date: 5/6/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Restart Azure Database for PostgreSQL - Single Server using the Azure CLI
@@ -16,14 +17,12 @@ The server restart will be blocked if the service is busy. For example, the serv
 The time required to complete a restart depends on the PostgreSQL recovery process. To decrease the restart time, we recommend you minimize the amount of activity occurring on the server prior to the restart.
 
 ## Prerequisites
-To complete this how-to guide, you need:
-- An [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md)
+To complete this how-to guide:
+- Create an [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
-
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Restart the server
 

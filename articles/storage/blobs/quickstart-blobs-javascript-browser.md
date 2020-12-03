@@ -4,10 +4,12 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 04/18/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.custom: devx-track-js
+
 ---
 
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
@@ -16,10 +18,12 @@ ms.topic: quickstart
 
 Azure Blob storage is optimized for storing large amounts of unstructured data. Blobs are objects that can hold text or binary data, including images, documents, streaming media, and archive data. In this quickstart, you learn to manage blobs by using JavaScript in a browser. You'll upload and list blobs, and you'll create and delete containers.
 
-[API reference documentation](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+Additional resources:
 
-> [!NOTE]
-> To get started with the previous SDK version, see [Quickstart: Manage blobs with JavaScript v10 SDK in Node.js](storage-quickstart-blobs-nodejs-legacy.md).
+* [API reference documentation](/javascript/api/@azure/storage-blob)
+* [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
+* [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob)
+* [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 
@@ -59,7 +63,7 @@ This section walks you through preparing a project to work with the Azure Blob s
 
 ### Create a CORS rule
 
-Before your web application can access blob storage from the client, you must configure your account to enable [cross-origin resource sharing](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), or CORS.
+Before your web application can access blob storage from the client, you must configure your account to enable [cross-origin resource sharing](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), or CORS.
 
 In the Azure portal, select your storage account. To define a new CORS rule, navigate to the **Settings** section and select **CORS**. For this quickstart, you create an open CORS rule:
 

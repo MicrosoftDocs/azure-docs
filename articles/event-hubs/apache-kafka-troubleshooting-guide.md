@@ -9,7 +9,7 @@ ms.date: 06/23/2020
 This article provides troubleshooting tips for issues that you may run into when using Event Hubs for Apache Kafka. 
 
 ## Server Busy exception
-You may receive Server Busy exception due to Kafka throttling. With AMQP clients, Event Hubs immediately returns a **Server Busy** exception upon service throttling. It's equivalent to a "try again later" message. In Kafka, messages are delayed before being completed. The delay length is returned in milliseconds as `throttle_time_ms` in the produce/fetch response. In most cases, these delayed requests aren't logged as ServerBusy exceptions on Event Hubs dashboards. Instead, the response's `throttle_time_ms` value should be used as an indicator that throughput has exceeded the provisioned quota.
+You may receive Server Busy exception because of Kafka throttling. With AMQP clients, Event Hubs immediately returns a **server busy** exception upon service throttling. It's equivalent to a "try again later" message. In Kafka, messages are delayed before being completed. The delay length is returned in milliseconds as `throttle_time_ms` in the produce/fetch response. In most cases, these delayed requests aren't logged as server busy exceptions on Event Hubs dashboards. Instead, the response's `throttle_time_ms` value should be used as an indicator that throughput has exceeded the provisioned quota.
 
 If the traffic is excessive, the service has the following behavior:
 
@@ -44,17 +44,17 @@ Check the following items if you see issues when using Kafka on Event Hubs.
 - **Firewall blocking traffic** - Make sure that port **9093** isn't blocked by your firewall.
 - **TopicAuthorizationException** - The most common causes of this exception are:
     - A typo in the connection string in your configuration file, or
-    - Trying to use Event Hubs for Kafka on a Basic tier namespace. Event Hubs for Kafka is [only supported for Standard and Dedicated tier namespaces](https://azure.microsoft.com/pricing/details/event-hubs/).
+    - Trying to use Event Hubs for Kafka on a Basic tier namespace. The Event Hubs for Kafka feature is [only supported for Standard and Dedicated tier namespaces](https://azure.microsoft.com/pricing/details/event-hubs/).
 - **Kafka version mismatch** - Event Hubs for Kafka Ecosystems supports Kafka versions 1.0 and later. Some applications using Kafka version 0.10 and later could occasionally work because of the Kafka protocol's backwards compatibility, but we strongly recommend against using old API versions. Kafka versions 0.9 and earlier don't support the required SASL protocols and can't connect to Event Hubs.
 - **Strange encodings on AMQP headers when consuming with Kafka** - when sending events to an event hub over AMQP, any AMQP payload headers are serialized in AMQP encoding. Kafka consumers don't deserialize the headers from AMQP. To read header values, manually decode the AMQP headers. Alternatively, you can avoid using AMQP headers if you know that you'll be consuming via Kafka protocol. For more information, see [this GitHub issue](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
 - **SASL authentication** - Getting your framework to cooperate with the SASL authentication protocol required by Event Hubs can be more difficult than meets the eye. See if you can troubleshoot the configuration using your framework's resources on SASL authentication. 
 
 ## Limits
-Apache Kafka vs. Event Hubs Kafka. For the most part, the Event Hubs for Kafka Ecosystems has the same defaults, properties, error codes, and general behavior that Apache Kafka does. The instances where these two explicitly differ (or where Event Hubs imposes a limit that Kafka doesn't) are listed below:
+Apache Kafka vs. Event Hubs Kafka. For the most part, Azure Event Hubs' Kafka interface has the same defaults, properties, error codes, and general behavior that Apache Kafka does. The instances that these two explicitly differ (or where Event Hubs imposes a limit that Kafka doesn't) are listed below:
 
 - The max length of the `group.id` property is 256 characters
 - The max size of `offset.metadata.max.bytes` is 1024 bytes
-- Offset commits are throttled at 4 calls/second per partition with a max internal log size of 1 MB
+- Offset commits are throttled to 4 calls/second per partition with a maximum internal log size of 1 MB
 
 
 ## Next steps
@@ -63,4 +63,4 @@ To learn more about Event Hubs and Event Hubs for Kafka, see the following artic
 - [Apache Kafka developer guide for Event Hubs](apache-kafka-developer-guide.md)
 - [Apache Kafka migration guide for Event Hubs](apache-kafka-migration-guide.md)
 - [Frequently asked questions - Event Hubs for Apache Kafka](apache-kafka-frequently-asked-questions.md)
-- [Recommended configurations](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+- [Recommended configurations](apache-kafka-configurations.md)

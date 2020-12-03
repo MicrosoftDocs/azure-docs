@@ -142,7 +142,7 @@ catch (Exception $e)
 
 As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses from Your Own Web Site](#howto_provide_twiml_responses).
 
-* **Note**: To troubleshoot TLS/SSL certificate validation errors, see [http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
+* **Note**: To troubleshoot TLS/SSL certificate validation errors, see [https://www.twilio.com/docs/api/errors][ssl_validation] 
 
 ## <a id="howto_send_sms"></a>How to: Send an SMS message
 The following shows how to send an SMS message using the **Services_Twilio** class. The **From** number is provided by Twilio for trial accounts to send SMS messages. The **To** number must be verified for your Twilio account prior to running the code.
@@ -258,7 +258,7 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 [howto_phonecall_php]: partner-twilio-php-make-phone-call.md
 [twilio_voice_request]: https://www.twilio.com/docs/api/twiml/twilio_request
 [twilio_sms_request]: https://www.twilio.com/docs/api/twiml/sms/twilio_request
-[misc_role_config_settings]: https://msdn.microsoft.com/library/windowsazure/hh690945.aspx
+[misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message
 [twimlet_message_url_hello_world]: https://twimlets.com/message?Message%5B0%5D=Hello%20World
 [twiml_reference]: https://www.twilio.com/docs/api/twiml

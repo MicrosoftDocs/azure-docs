@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Predictix Assortment Planning | Microsoft Docs'
 description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Predictix Assortment Planning.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 37e686ff-f8e5-40b1-9d7e-f64b076917b7
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Predictix Assortment Planning
 
@@ -27,7 +21,7 @@ This integration provides these benefits:
 * You can enable your users to be automatically signed in to Predictix Assortment Planning (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you start.
 
@@ -196,12 +190,12 @@ Next, you need to create a user named Britta Simon in Predictix Assortment Plann
 
 Now you need to test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you select the Predictix Assortment Planning tile in the Access Panel, you should be automatically signed in to the Predictix Assortment Planning instance for which you set up SSO. For more information, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Predictix Assortment Planning tile in the Access Panel, you should be automatically signed in to the Predictix Assortment Planning instance for which you set up SSO. For more information, see [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

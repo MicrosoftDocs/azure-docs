@@ -1,27 +1,27 @@
 ---
 title: Install Jupyter locally and connect to Spark in Azure HDInsight
-description: Learn how to install Jupyter notebook locally on your computer and connect it to an Apache Spark cluster.
+description: Learn how to install Jupyter Notebook locally on your computer and connect it to an Apache Spark cluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020, tracking-python
+ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
 ---
 
-# Install Jupyter notebook on your computer and connect to Apache Spark on HDInsight
+# Install Jupyter Notebook on your computer and connect to Apache Spark on HDInsight
 
-In this article, you learn how to install Jupyter notebook with the custom PySpark (for Python) and Apache Spark (for Scala) kernels with Spark magic. You then connect the notebook to an HDInsight cluster.
+In this article, you learn how to install Jupyter Notebook with the custom PySpark (for Python) and Apache Spark (for Scala) kernels with Spark magic. You then connect the notebook to an HDInsight cluster.
 
 There are four key steps involved in installing Jupyter and connecting to Apache Spark on HDInsight.
 
 * Configure Spark cluster.
-* Install Jupyter notebook.
+* Install Jupyter Notebook.
 * Install the PySpark and Spark kernels with the Spark magic.
 * Configure Spark magic to access Spark cluster on HDInsight.
 
-For more information about custom kernels and Spark magic, see [Kernels available for Jupyter notebooks with Apache Spark Linux clusters on HDInsight](apache-spark-jupyter-notebook-kernels.md).
+For more information about custom kernels and Spark magic, see [Kernels available for Jupyter Notebooks with Apache Spark Linux clusters on HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
 ## Prerequisites
 
@@ -29,9 +29,9 @@ For more information about custom kernels and Spark magic, see [Kernels availabl
 
 * Familiarity with using Jupyter Notebooks with Spark on HDInsight.
 
-## Install Jupyter notebook on your computer
+## Install Jupyter Notebook on your computer
 
-Install Python before you install Jupyter notebooks. The [Anaconda distribution](https://www.anaconda.com/download/) will install both, Python, and Jupyter Notebook.
+Install Python before you install Jupyter Notebooks. The [Anaconda distribution](https://www.anaconda.com/download/) will install both, Python, and Jupyter Notebook.
 
 Download the [Anaconda installer](https://www.anaconda.com/download/) for your platform and run the setup. While running the setup wizard, make sure you select the option to add Anaconda to your PATH variable.  See also, [Installing Jupyter using Anaconda](https://jupyter.readthedocs.io/en/latest/install.html).
 
@@ -145,7 +145,7 @@ In this section, you configure the Spark magic that you installed earlier to con
 
     a. Create a new notebook. From the right-hand corner, select **New**. You should see the default kernel **Python 2** or **Python 3** and the kernels you installed. The actual values may vary depending on your installation choices.  Select **PySpark**.
 
-    ![Available kernels in Jupyter notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels in Jupyter notebook")
+    ![Available kernels in Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels in Jupyter Notebook")
 
     > [!IMPORTANT]  
     > After selecting **New** review your shell for any errors.  If you see the error `TypeError: __init__() got an unexpected keyword argument 'io_loop'` you may be experiencing a known issue with certain versions of Tornado.  If so, stop the kernel and then downgrade your Tornado installation with the following command: `pip install tornado==4.5.3`.
@@ -165,7 +165,7 @@ In this section, you configure the Spark magic that you installed earlier to con
 
 Reasons to install Jupyter on your computer and then connect it to an Apache Spark cluster on HDInsight:
 
-* Provides you the option to create your notebooks locally, test your application against a running cluster, and then upload the notebooks to the cluster. To upload the notebooks to the cluster, you can either upload them using the Jupyter notebook that is running or the cluster, or save them to the `/HdiNotebooks` folder in the storage account associated with the cluster. For more information on how notebooks are stored on the cluster, see [Where are Jupyter notebooks stored](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
+* Provides you the option to create your notebooks locally, test your application against a running cluster, and then upload the notebooks to the cluster. To upload the notebooks to the cluster, you can either upload them using the Jupyter Notebook that is running or the cluster, or save them to the `/HdiNotebooks` folder in the storage account associated with the cluster. For more information on how notebooks are stored on the cluster, see [Where are Jupyter Notebooks stored](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
 * With the notebooks available locally, you can connect to different Spark clusters based on your application requirement.
 * You can use GitHub to implement a source control system and have version control for the notebooks. You can also have a collaborative environment where multiple users can work with the same notebook.
 * You can work with notebooks locally without even having a cluster up. You only need a cluster to test your notebooks against, not to manually manage your notebooks or a development environment.
@@ -177,5 +177,5 @@ Reasons to install Jupyter on your computer and then connect it to an Apache Spa
 ## Next steps
 
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
-* [Kernels for Jupyter notebook on Apache Spark](apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks in Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels for Jupyter Notebook on Apache Spark](apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter Notebooks in Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)

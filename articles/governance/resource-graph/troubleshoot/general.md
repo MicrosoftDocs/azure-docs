@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues with the various SDKs while querying Azure resources with Azure Resource Graph.
-ms.date: 05/20/2020
+ms.date: 10/14/2020
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Resource Graph

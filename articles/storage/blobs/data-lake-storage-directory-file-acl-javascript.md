@@ -8,6 +8,8 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
+ms.custom: devx-track-js
+
 ---
 
 # Use JavaScript to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
@@ -20,7 +22,7 @@ This article shows you how to use JavaScript to create and manage directories, f
 
 > [!div class="checklist"]
 > * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
+> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
 > * If you are using this package in a Node.js application, you'll need Node.js 8.0.0 or higher.
 
 ## Set up your project
@@ -160,59 +162,7 @@ async function DeleteDirectory(fileSystemClient) {
 }
 ```
 
-## Manage a directory ACL
 
-This example gets and then sets the ACL of a directory named `my-directory`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.
-
-> [!NOTE]
-> If your application authorizes access by using Azure Active Directory (Azure AD), then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
-
-```javascript
-async function ManageDirectoryACLs(fileSystemClient) {
-
-    const directoryClient = fileSystemClient.getDirectoryClient("my-directory"); 
-    const permissions = await directoryClient.getAccessControl();
-
-    console.log(permissions.acl);
-
-    const acl = [
-    {
-      accessControlType: "user",
-      entityId: "",
-      defaultScope: false,
-      permissions: {
-        read: true,
-        write: true,
-        execute: true
-      }
-    },
-    {
-      accessControlType: "group",
-      entityId: "",
-      defaultScope: false,
-      permissions: {
-        read: true,
-        write: false,
-        execute: true
-      }
-    },
-    {
-      accessControlType: "other",
-      entityId: "",
-      defaultScope: false,
-      permissions: {
-        read: true,
-        write: true,
-        execute: false
-      }
-
-    }
-
-  ];
-
-  await directoryClient.setAccessControl(acl);
-}
-```
 
 ## Upload a file to a directory
 
@@ -239,60 +189,6 @@ async function UploadFile(fileSystemClient) {
   await fileClient.append(content, 0, content.length);
   await fileClient.flush(content.length);
 
-}
-```
-
-## Manage a file ACL
-
-This example gets and then sets the ACL of a file named `upload-file.txt`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.
-
-> [!NOTE]
-> If your application authorizes access by using Azure Active Directory (Azure AD), then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
-
-```javascript
-async function ManageFileACLs(fileSystemClient) {
-
-  const fileClient = fileSystemClient.getFileClient("my-directory/uploaded-file.txt"); 
-  const permissions = await fileClient.getAccessControl();
-
-  console.log(permissions.acl);
-
-  const acl = [
-  {
-    accessControlType: "user",
-    entityId: "",
-    defaultScope: false,
-    permissions: {
-      read: true,
-      write: true,
-      execute: true
-    }
-  },
-  {
-    accessControlType: "group",
-    entityId: "",
-    defaultScope: false,
-    permissions: {
-      read: true,
-      write: false,
-      execute: true
-    }
-  },
-  {
-    accessControlType: "other",
-    entityId: "",
-    defaultScope: false,
-    permissions: {
-      read: true,
-      write: true,
-      execute: false
-    }
-
-  }
-
-];
-
-await fileClient.setAccessControl(acl);        
 }
 ```
 
@@ -350,6 +246,123 @@ async function ListFilesInDirectory(fileSystemClient) {
     console.log(`Path ${i++}: ${path.name}, is directory: ${path.isDirectory}`);
   }
 
+}
+```
+
+## Manage access control lists (ACLs)
+
+You can get, set, and update access permissions of directories and files.
+
+> [!NOTE]
+> If you're using Azure Active Directory (Azure AD) to authorize access, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
+
+### Manage a directory ACL
+
+This example gets and then sets the ACL of a directory named `my-directory`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.
+
+> [!NOTE]
+> If your application authorizes access by using Azure Active Directory (Azure AD), then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
+
+```javascript
+async function ManageDirectoryACLs(fileSystemClient) {
+
+    const directoryClient = fileSystemClient.getDirectoryClient("my-directory"); 
+    const permissions = await directoryClient.getAccessControl();
+
+    console.log(permissions.acl);
+
+    const acl = [
+    {
+      accessControlType: "user",
+      entityId: "",
+      defaultScope: false,
+      permissions: {
+        read: true,
+        write: true,
+        execute: true
+      }
+    },
+    {
+      accessControlType: "group",
+      entityId: "",
+      defaultScope: false,
+      permissions: {
+        read: true,
+        write: false,
+        execute: true
+      }
+    },
+    {
+      accessControlType: "other",
+      entityId: "",
+      defaultScope: false,
+      permissions: {
+        read: true,
+        write: true,
+        execute: false
+      }
+
+    }
+
+  ];
+
+  await directoryClient.setAccessControl(acl);
+}
+```
+
+You can also get and set the ACL of the root directory of a container. To get the root directory, pass an empty string (`/`) into the **DataLakeFileSystemClient.getDirectoryClient** method.
+
+### Manage a file ACL
+
+This example gets and then sets the ACL of a file named `upload-file.txt`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.
+
+> [!NOTE]
+> If your application authorizes access by using Azure Active Directory (Azure AD), then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
+
+```javascript
+async function ManageFileACLs(fileSystemClient) {
+
+  const fileClient = fileSystemClient.getFileClient("my-directory/uploaded-file.txt"); 
+  const permissions = await fileClient.getAccessControl();
+
+  console.log(permissions.acl);
+
+  const acl = [
+  {
+    accessControlType: "user",
+    entityId: "",
+    defaultScope: false,
+    permissions: {
+      read: true,
+      write: true,
+      execute: true
+    }
+  },
+  {
+    accessControlType: "group",
+    entityId: "",
+    defaultScope: false,
+    permissions: {
+      read: true,
+      write: false,
+      execute: true
+    }
+  },
+  {
+    accessControlType: "other",
+    entityId: "",
+    defaultScope: false,
+    permissions: {
+      read: true,
+      write: true,
+      execute: false
+    }
+
+  }
+
+];
+
+await fileClient.setAccessControl(acl);        
 }
 ```
 

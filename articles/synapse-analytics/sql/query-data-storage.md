@@ -1,29 +1,29 @@
 ---
-title: Overview - Query data in storage using SQL on-demand (preview) 
-description: This article describes how to query Azure storage using the SQL on-demand (preview) resource within Azure Synapse Analytics.
+title: Query data storage with serverless SQL pool 
+description: This article describes how to query Azure storage using the serverless SQL pool resource within Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.author: stefanazaric
+ms.reviewer: jrasnick 
 ---
-# Query storage files using SQL on-demand (preview) resources within Synapse SQL
+# Query storage files with serverless SQL pool in Azure Synapse Analytics
 
-SQL on-demand (preview) enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries. For querying, the following T-SQL aspects are supported:
+Serverless SQL pool enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries. For querying, the following T-SQL aspects are supported:
 
 - Full [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) surface area, including majority of [SQL functions and operators](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) creates an [external table](develop-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
 
-For more information on what is vs. what isn't currently supported, read the [SQL on-demand overview](on-demand-workspace-overview.md) article, or the following articles:
+For more information on what is vs. what isn't currently supported, read the [serverless SQL pool overview](on-demand-workspace-overview.md) article, or the following articles:
 - [Develop storage access](develop-storage-files-overview.md) where you can learn how to use [External table](develop-tables-external-tables.md) and [OPENROWSET](develop-openrowset.md) function to read data from storage.
 - [Control storage access](develop-storage-files-storage-access-control.md) where you can learn how to enable Synapse SQL to access storage using SAS authentication, or Managed Identity of the workspace.
 
 ## Overview
 
-To support a smooth experience for in place querying of data that's located in Azure Storage files, SQL on-demand uses the [OPENROWSET](develop-openrowset.md) function with additional capabilities:
+To support a smooth experience for in place querying of data that's located in Azure Storage files, serverless SQL pool uses the [OPENROWSET](develop-openrowset.md) function with additional capabilities:
 
 - [Query multiple files or folders](#query-multiple-files-or-folders)
 - [PARQUET file format](#query-parquet-files)
@@ -40,20 +40,20 @@ To query Parquet source data, use FORMAT = 'PARQUET'
 
 ```syntaxsql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Review the [Query Parquet files](query-parquet-files.md) article for usage examples.
 
 ## Query CSV files
 
-To query Parquet source data, use FORMAT = 'CSV'. You can specify schema of the CSV file as part of `OPENROWSET` function when you query CSV files:
+To query CSV source data, use FORMAT = 'CSV'. You can specify schema of the CSV file as part of `OPENROWSET` function when you query CSV files:
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 There are some additional options that can be used to adjust parsing rules to custom CSv format:
@@ -78,16 +78,16 @@ To specify columns that you want to read, you can provide an optional WITH claus
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 WITH (
       C1 int, 
       C2 varchar(20),
-      C3 as varchar(max)
+      C3 varchar(max)
 ) as rows
 ```
 
 For every column, you need to specify column name and type in `WITH` clause.
-For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#returning-subset-of-columns).
+For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#return-a-subset-of-columns).
 
 ## Schema inference
 
@@ -98,7 +98,7 @@ By omitting the WITH clause from the `OPENROWSET` statement, you can instruct th
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 ```
 
 Make sure [appropriate inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) are used for optimal performance. 
@@ -115,7 +115,7 @@ The following rules apply:
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.parquet', FORMAT = 'PARQUET' ) as rows
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/myroot/*/mysubfolder/*.parquet', FORMAT = 'PARQUET' ) as rows
 ```
 
 Refer to [Query folders and multiple files](query-folders-multiple-csv-files.md) for usage examples.
@@ -143,7 +143,7 @@ Return data type is nvarchar(1024). For optimal performance, always cast result 
 
 ## Work with complex types and nested or repeated data structures
 
-To enable a smooth experience with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, SQL on-demand has added the extensions that follow.
+To enable a smooth experience with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, serverless SQL pool has added the extensions that follow.
 
 #### Project nested or repeated data
 
@@ -183,7 +183,7 @@ By default, the `OPENROWSET` function matches the source field name and path wit
 - If the property can't be found at the specified column_name, the function returns an error.
 - If the property can't be found at the specified column_path, depending on [Path mode](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), the function returns an error when in strict mode or null when in lax mode.
 
-For query samples, review the Access elements from nested columns section in the [Query Parquet nested types](query-parquet-nested-types.md#access-elements-from-nested-columns) article.
+For query samples, review the Access elements from nested columns section in the [Query Parquet nested types](query-parquet-nested-types.md#read-properties-from-nested-object-columns) article.
 
 #### Access elements from repeated columns
 
@@ -219,13 +219,13 @@ You can learn more about querying various types of data using the sample queries
 ### Tools
 
 The tools you need to issue queries:
-    - Azure Synapse Studio (preview)
+    - Azure Synapse Studio 
     - Azure Data Studio
     - SQL Server Management Studio
 
 ### Demo setup
 
-Your first step is to **create a database** where you will execute the queries. Then you'll initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. 
+Your first step is to **create a database** where you'll execute the queries. Then you'll initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. 
 
 This setup script will create the data sources, database scoped credentials, and external file formats that are used to read data in these samples.
 

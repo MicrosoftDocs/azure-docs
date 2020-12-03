@@ -1,6 +1,7 @@
 ---
-title: Microsoft identity platform Java web app quickstart | Azure
-description: Learn how to implement Microsoft Sign-In on a Java web app using OpenID Connect
+title: "Quickstart: Add sign-in with Microsoft to a Java web app | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, learn how to implement Microsoft sign-in in a Java web application using OpenID Connect.
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -11,14 +12,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
-ms.custom: aaddev, scenarios:getting-started, languages:Java
+ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
 ---
 
 # Quickstart: Add sign-in with Microsoft to a Java web app
 
-In this quickstart, you'll learn how to integrate a Java web application with the Microsoft identity platform. Your app will sign in a user, get an access token to call the Microsoft Graph API, and make a request to the Microsoft Graph API.
+In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
 
-When you've completed this quickstart, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory. (See [How the sample works](#how-the-sample-works) for an illustration.)
+ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
@@ -94,7 +95,7 @@ To run this sample you will need:
 >   ```
 >   Put the generated keystore file in the "resources" folder.
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -189,15 +190,16 @@ If you would like to deploy the web sample to Tomcat, you will need to make a co
 3.   Tomcat's default HTTP port is 8080, though an HTTPS connection over port 8443 is needed. To configure this:
         - Go to tomcat/conf/server.xml
         - Search for the `<connector>` tag, and replace the existing connector with:
-        ```
+
+        ```xml
         <Connector
                    protocol="org.apache.coyote.http11.Http11NioProtocol"
                    port="8443" maxThreads="200"
                    scheme="https" secure="true" SSLEnabled="true"
                    keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
                    clientAuth="false" sslProtocol="TLS"/>
-        ``` 
-       
+        ```
+
 4. Open a command prompt, go to the root folder of this sample (where the pom.xml file is located), and run `mvn package` to build the project
     - This will generate a `msal-web-sample-0.1.0.war` file in your /targets directory.
     - Rename this file to `msal4jsample.war`
@@ -208,7 +210,7 @@ If you would like to deploy the web sample to Tomcat, you will need to make a co
 
 
 > [!IMPORTANT]
-> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [Certificate credentials for application authentication](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
+> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [Certificate credentials for application authentication](./active-directory-certificate-credentials.md).
 
 ## More information
 
@@ -245,16 +247,11 @@ Add a reference to MSAL for Java by adding the following code to the top of the 
 import com.microsoft.aad.msal4j.*;
 ```
 
-## Next Steps
-
-Learn more about permissions and consent:
-
-> [!div class="nextstepaction"]
-> [Permissions and Consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
-
-To know more about the auth flow for this scenario, see the Oauth 2.0 authorization code flow:
-
-> [!div class="nextstepaction"]
-> [Authorization Code Oauth flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
-
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## Next steps
+
+For a more in-depth discussion of building web apps that sign in users on the Microsoft identity platform, move on to our multi-part scenario series:
+
+> [!div class="nextstepaction"]
+> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md?tabs=java)

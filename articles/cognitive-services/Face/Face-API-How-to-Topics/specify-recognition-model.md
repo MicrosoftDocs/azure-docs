@@ -10,6 +10,7 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
+ms.custom: devx-track-csharp
 ---
 
 # Specify a face recognition model
@@ -29,10 +30,11 @@ Read on to learn how to specify a selected model in different Face operations wh
 
 ## Prerequisites
 
-You should be familiar with the concepts of AI face detection and identification. If you aren't, see these how-to guides first:
+You should be familiar with the concepts of AI face detection and identification. If you aren't, see these guides first:
 
+* [Face detection concepts](../concepts/face-detection.md)
+* [Face recognition concepts](../concepts/face-recognition.md)
 * [How to detect faces in an image](HowtoDetectFacesinImage.md)
-* [How to identify faces in an image](HowtoIdentifyFacesinImage.md)
 
 ## Detect faces with specified model
 
@@ -110,9 +112,9 @@ If you normally specify a confidence threshold (a value between zero and one tha
 
 In this article, you learned how to specify the recognition model to use with different Face service APIs. Next, follow a quickstart to get started using face detection.
 
-* [Face .NET SDK](../Quickstarts/csharp-sdk.md)
-* [Face Python SDK](../Quickstarts/python-sdk.md)
-* [Face Go SDK](../Quickstarts/go-sdk.md)
+* [Face .NET SDK](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
+* [Face Python SDK](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [Face Go SDK](../quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go)
 
 [Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

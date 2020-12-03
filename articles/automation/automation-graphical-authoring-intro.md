@@ -55,7 +55,7 @@ Select an activity on the canvas to configure its properties and parameters in t
 
 A parameter set defines the mandatory and optional parameters that accept values for a particular cmdlet. All cmdlets have at least one parameter set, and some have several sets. If a cmdlet has multiple parameter sets, you must select the one to use before you can configure parameters. You can change the parameter set used by an activity by selecting **Parameter Set** and choosing another set. In this case, any parameter values that you have already configured are lost.
 
-In the following example, the [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) cmdlet has three parameter sets. The example uses one set called **ListVirtualMachineInResourceGroupParamSet**, with a single optional parameter, for returning all virtual machines in a resource group. The example also uses the **GetVirtualMachineInResourceGroupParamSet** parameter set for specifying the virtual machine to return. This set has two mandatory parameters and one optional parameter.
+In the following example, the [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) cmdlet has three parameter sets. The example uses one set called **ListVirtualMachineInResourceGroupParamSet**, with a single optional parameter, for returning all virtual machines in a resource group. The example also uses the **GetVirtualMachineInResourceGroupParamSet** parameter set for specifying the virtual machine to return. This set has two mandatory parameters and one optional parameter.
 
 ![Parameter set](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -85,11 +85,11 @@ Retry functionality for an activity allows it to be run multiple times until a p
 
 When you enable retry for an activity, you can set a delay and a condition. The delay is the time (measured in seconds or minutes) that the runbook waits before it runs the activity again. If you don't specify a delay, the activity runs again immediately after it completes.
 
-![Activity retry delay](media/automation-graphical-authoring-intro/retry-delay.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-delay.png" alt-text="Screenshot of the Enable retry feature settings.":::
 
 The retry condition is a PowerShell expression that is evaluated after each time that the activity runs. If the expression resolves to True, the activity runs again. If the expression resolves to False, the activity does not run again and the runbook moves on to the next activity.
 
-![Activity retry delay](media/automation-graphical-authoring-intro/retry-condition.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Screenshot showing the Retry until this condition is true field and examples of PowerShell expressions that can be used in the retry condition.":::
 
 The retry condition can use a variable named `RetryData` that provides access to information about the activity retries. This variable has the properties in the following table:
 
@@ -429,4 +429,4 @@ You have the option to revert to the Published version of a runbook. This operat
 * To get started with graphical runbooks, see [Tutorial: Create a graphical runbook](learn/automation-tutorial-runbook-graphical.md).
 * To know more about runbook types and their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md).
 * To understand how to authenticate using the Automation Run As account, see [Run As account](automation-security-overview.md#run-as-account).
-* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

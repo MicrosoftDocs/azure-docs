@@ -1,7 +1,7 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options in Azure Blueprints to protect resources when assigning a blueprint.
-ms.date: 03/25/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
 ---
 # Understand resource locking in Azure Blueprints
@@ -31,13 +31,13 @@ Locked** state. The following table can be used to determine the state of a reso
 |-|-|-|-|
 |Don't Lock|*|Not Locked|Resources aren't protected by Azure Blueprints. This state is also used for resources added to a **Read Only** or **Do Not Delete** resource group artifact from outside a blueprint assignment.|
 |Read Only|Resource group|Cannot Edit / Delete|The resource group is read only and tags on the resource group can't be modified. **Not Locked** resources can be added, moved, changed, or deleted from this resource group.|
-|Read Only|Non-resource group|Read Only|The resource can't be altered in any way -- no changes and it can't be deleted.|
+|Read Only|Non-resource group|Read Only|The resource can't be altered in any way. No changes and it can't be deleted.|
 |Do Not Delete|*|Cannot Delete|The resources can be altered, but can't be deleted. **Not Locked** resources can be added, moved, changed, or deleted from this resource group.|
 
 ## Overriding locking states
 
-It's typically possible for someone with appropriate [role-based access
-control](../../../role-based-access-control/overview.md) (RBAC) on the subscription, such as the
+It's typically possible for someone with appropriate [Azure role-based access
+control (Azure RBAC)](../../../role-based-access-control/overview.md) on the subscription, such as the
 'Owner' role, to be allowed to alter or delete any resource. This access isn't the case when Azure
 Blueprints applies locking as part of a deployed assignment. If the assignment was set with the
 **Read Only** or **Do Not Delete** option, not even the subscription owner can perform the blocked
@@ -48,7 +48,7 @@ designed to create from accidental or programmatic deletion or alteration.
 
 ### Assign at management group
 
-An additional option to prevent subscription owners from removing a blueprint assignment is to
+The only option to prevent subscription owners from removing a blueprint assignment is to
 assign the blueprint to a management group. In this scenario, only **Owners** of the management
 group have the permissions needed to remove the blueprint assignment.
 
@@ -121,14 +121,14 @@ resource is left behind and would need to be deleted through normal means.
 
 ## How blueprint locks work
 
-An RBAC [deny assignments](../../../role-based-access-control/deny-assignments.md) deny action is
+An Azure RBAC [deny assignments](../../../role-based-access-control/deny-assignments.md) deny action is
 applied to artifact resources during assignment of a blueprint if the assignment selected the **Read
 Only** or **Do Not Delete** option. The deny action is added by the managed identity of the
 blueprint assignment and can only be removed from the artifact resources by the same managed
 identity. This security measure enforces the locking mechanism and prevents removing the blueprint
 lock outside Azure Blueprints.
 
-:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Blueprint deny assignment on resource group" border="false":::
+:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Screenshot of the Access control (I A M) page and the Deny assignments tab for a resource group." border="false":::
 
 The
 [deny assignment properties](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties)
@@ -136,8 +136,8 @@ of each mode are as follows:
 
 |Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Read Only |**\*** |**\*/read** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
-|Do Not Delete |**\*/delete** | |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
+|Read Only |**\*** |**\*/read**<br />**Microsoft.Authorization/locks/delete**<br />**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
+|Do Not Delete |**\*/delete** | **Microsoft.Authorization/locks/delete**<br />**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, deny
@@ -199,7 +199,7 @@ definition is an example of a request body that includes **excludedPrincipals**:
 Similar to [excluding a principal](#exclude-a-principal-from-a-deny-assignment) on a
 [deny assignment](../../../role-based-access-control/deny-assignments.md) in a blueprint assignment,
 you can exclude specific
-[RBAC operations](../../../role-based-access-control/resource-provider-operations.md). Within the
+[Azure resource provider operations](../../../role-based-access-control/resource-provider-operations.md). Within the
 **properties.locks** block, in the same place that **excludedPrincipals** is, an **excludedActions**
 can be added:
 
@@ -218,13 +218,14 @@ can be added:
 ```
 
 While **excludedPrincipals** must be explicit, **excludedActions** entries can make use of `*` for
-wildcard matching of RBAC operations.
+wildcard matching of resource provider operations.
 
 ## Next steps
 
 - Follow the [protect new resources](../tutorials/protect-new-resources.md) tutorial.
-- Learn about the [blueprint lifecycle](lifecycle.md).
-- Understand how to use [static and dynamic parameters](parameters.md).
-- Learn to customize the [blueprint sequencing order](sequencing-order.md).
+- Learn about the [blueprint lifecycle](./lifecycle.md).
+- Understand how to use [static and dynamic parameters](./parameters.md).
+- Learn to customize the [blueprint sequencing order](./sequencing-order.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

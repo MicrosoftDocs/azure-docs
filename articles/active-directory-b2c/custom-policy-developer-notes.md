@@ -10,6 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 05/19/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -61,7 +62,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Feature | Development | Preview | GA | Notes |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OAuth2 authorization code](authorization-code-flow.md) |  |  | X |  |
-| OAuth2 authorization code with PKCE |  |  | X | Mobile applications only  |
+| OAuth2 authorization code with PKCE |  |  | X | [Public clients and single-page applications](authorization-code-flow.md)  |
 | [OAuth2 implicit flow](implicit-flow-single-page-application.md) |  |  | X |  |
 | [OAuth2 resource owner password credentials](ropc-custom.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |
@@ -93,7 +94,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Phone factor authentication](phone-factor-technical-profile.md) |  |  | X |  |
-| [Azure MFA authentication](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [One-time password](one-time-password-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) as local directory |  |  | X |  |
 | Azure email subsystem for email verification |  |  | X |  |
@@ -102,16 +103,6 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [Predicate validations](predicates.md) |  |  | X | For example, password complexity. |
 | [Display controls](display-controls.md) |  |X  |  |  |
 
-
-### Page layout versions
-
-| Feature | Development | Preview | GA | Notes |
-| ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md#200) |  | X |  |  |
-| [1.2.0](page-layout.md#120) |  | X |  |  |
-| [1.1.0](page-layout.md#110) |  |  | X |  |
-| [1.0.0](page-layout.md#100) |  |  | X |  |
-| [JavaScript support](javascript-samples.md) |  | X |  |  |
 
 ### App-IEF integration
 
@@ -122,6 +113,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Insert JSON into user journey via `client_assertion` | X |  |  | Will be deprecated. |
 | Insert JSON into user journey as `id_token_hint` |  | X |  | Go-forward approach to pass JSON. |
 | [Pass identity provider token to the application](idp-pass-through-custom.md) |  | X |  | For example, from Facebook to app. |
+
 
 ### Session Management
 

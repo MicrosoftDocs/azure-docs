@@ -2,7 +2,7 @@
 title: Management concepts for Azure AD Domain Services | Microsoft Docs
 description: Learn about how to administer an Azure Active Directory Domain Services managed domain and the behavior of user accounts and passwords
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.author: iainfou
+ms.author: joflore
 
 ---
 
@@ -67,7 +67,7 @@ In Azure AD DS, the forest only contains one domain. On-premises AD DS forests o
 
 By default, a managed domain is created as a *user* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. User accounts can directly authenticate against the managed domain, such as to sign in to a domain-joined VM. A user forest works when the password hashes can be synchronized and users aren't using exclusive sign-in methods like smart card authentication.
 
-In an Azure AD DS *resource* forest, users authenticate over a one-way forest *trust* from their on-premises AD DS. With this approach, the user objects and password hashes aren't synchronized to Azure AD DS. The user objects and credentials only exist in the on-premises AD DS. This approach lets enterprises host resources and application platforms in Azure that depend on classic authentication such LDAPS, Kerberos, or NTLM, but any authentication issues or concerns are removed. Azure AD DS resource forests are currently in preview.
+In an Azure AD DS *resource* forest, users authenticate over a one-way forest *trust* from their on-premises AD DS. With this approach, the user objects and password hashes aren't synchronized to Azure AD DS. The user objects and credentials only exist in the on-premises AD DS. This approach lets enterprises host resources and application platforms in Azure that depend on classic authentication such LDAPS, Kerberos, or NTLM, but any authentication issues or concerns are removed.
 
 For more information about forest types in Azure AD DS, see [What are resource forests?][concepts-forest] and [How do forest trusts work in Azure AD DS?][concepts-trust]
 
@@ -99,7 +99,7 @@ As the SKU level increases, the frequency of those backup snapshots increases. R
 
 ### Outbound forest trusts
 
-The previous section detailed one-way outbound forest trusts from a managed domain to an on-premises AD DS environment (currently in preview). The SKU determines the maximum number of forest trusts you can create for a managed domain. Review your business and application requirements to determine how many trusts you actually need, and pick the appropriate Azure AD DS SKU. Again, if your business requirements change and you need to create additional forest trusts, you can switch to a different SKU.
+The previous section detailed one-way outbound forest trusts from a managed domain to an on-premises AD DS environment. The SKU determines the maximum number of forest trusts you can create for a managed domain. Review your business and application requirements to determine how many trusts you actually need, and pick the appropriate Azure AD DS SKU. Again, if your business requirements change and you need to create additional forest trusts, you can switch to a different SKU.
 
 ## Next steps
 

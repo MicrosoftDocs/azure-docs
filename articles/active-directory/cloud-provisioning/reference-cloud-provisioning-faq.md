@@ -12,7 +12,7 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Connect FAQ
+# Azure Active Directory Connect cloud provisioning FAQ
 
 Read about frequently asked questions for Azure Active Directory (Azure AD) Connect cloud provisioning.
 
@@ -68,7 +68,7 @@ When you delete the configuration, cloud provisioning does not automatically rem
 
 **Q:  What does it mean that Exchange hybrid is not supported?**
 
-The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Office 365. Azure AD Connect is synchronizing a specific set of attributes from Azure AD back into your on-premises directory.  The cloud provisioning agent currently does not synchronize these attributes back into your on-premises directory and thus it is not supported as a replacement for Azure AD Connect.
+The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Microsoft 365. Azure AD Connect is synchronizing a specific set of attributes from Azure AD back into your on-premises directory.  The cloud provisioning agent currently does not synchronize these attributes back into your on-premises directory and thus it is not supported as a replacement for Azure AD Connect.
 
 **Q:  Can I install the cloud provisioning agent on Windows Server Core?**
 
@@ -77,6 +77,18 @@ No, installing the agent on server core is not supported.
 **Q:  Can I use a staging server with the cloud provisioning agent?**
 
 No, staging servers are not supported.
+
+**Q:  Can I synchronize Guest user accounts?**
+
+No, synchronizing guest user accounts is not supported.
+
+**Q:  If I move a user from an OU that is scoped for cloud provisioning to an OU that is scoped for Azure AD Connect, what happens?**
+
+The user will be deleted and re-created.  Moving a user from an OU that is scoped for cloud provisioning will be viewed as a delete operation.  If the user is moved to an OU that is managed by Azure AD Connect, it will be re-provisioned to Azure AD and a new user created.
+
+**Q:  If I rename or move the OU that is in scope for the cloud provisioning filter, what happens to the user that were created in Azure AD?**
+
+Nothing.  The users will not be deleted if the OU is renamed or moved.
 
 ## Next steps 
 

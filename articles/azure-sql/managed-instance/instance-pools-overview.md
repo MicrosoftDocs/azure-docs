@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/05/2019
 ---
 # What is an Azure SQL Managed Instance pool (preview)?
@@ -55,7 +55,7 @@ The following list provides the main use cases where instance pools should be co
 
 Instance pools have a similar architecture to regular (*single*) managed instances. To support [deployments within Azure virtual networks](../../virtual-network/virtual-network-for-azure-services.md) and to provide isolation and security for customers, instance pools also rely on [virtual clusters](connectivity-architecture-overview.md#high-level-connectivity-architecture). Virtual clusters represent a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet.
 
-The main difference between the two deployment models is that instance pools allow multiple SQL Server process deployments on the same virtual machine node, which are resource governed using [Windows job objects](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), while single instances are always alone on a virtual machine node.
+The main difference between the two deployment models is that instance pools allow multiple SQL Server process deployments on the same virtual machine node, which are resource governed using [Windows job objects](/windows/desktop/ProcThread/job-objects), while single instances are always alone on a virtual machine node.
 
 The following diagram shows an instance pool and two individual instances deployed in the same subnet and illustrates the main architectural details for both deployment models:
 
@@ -73,6 +73,7 @@ There are several resource limitations regarding instance pools and instances in
 - In addition to instance-level limits, there are also two limits imposed *at the instance pool level*:
   - Total storage size per pool (8 TB).
   - Total number of databases per pool (100).
+- AAD Admin cannot be set for the instances deployed inside the instance pool therefore AAD Authentication can't be used.
 
 Total storage allocation and number of databases across all instances must be lower than or equal to the limits exposed by instance pools.
 

@@ -97,7 +97,7 @@ az group create -n $imageResourceGroup -l $location
 ```
 
 ## Create a user-assigned identity and set permissions on the resource group
-Image Builder will use the [user-identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) provided to inject the image into the resource group. In this example, you will create an Azure role definition that has the granular actions to perform distributing the image. The role definition will then be assigned to the user-identity.
+Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the resource group. In this example, you will create an Azure role definition that has the granular actions to perform distributing the image. The role definition will then be assigned to the user-identity.
 
 ## Create user-assigned managed identity and grant permissions 
 ```bash
@@ -156,7 +156,7 @@ vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> For the source image, you must always [specify a version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), you cannot use `latest`.
+> For the source image, you must always [specify a version](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version), you cannot use `latest`.
 > If you add or change the resource group where the image is distributed to, you must make the [permissions are set](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) on the resource group.
  
 ## Create the image
@@ -180,7 +180,7 @@ In the background, Image Builder will also create a staging resource group in yo
 > You must not delete the staging resource group directly. First delete the image template artifact, this will cause the staging resource group to be deleted.
 
 If the service reports a failure during the image configuration template submission:
--  Review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) steps. 
+-  Review these [troubleshooting](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors) steps. 
 - You will need to delete the template, using the following snippet, before you retry submission.
 
 ```azurecli-interactive
@@ -203,7 +203,7 @@ az resource invoke-action \
 
 Wait until the build is complete. This can take about 15 minutes.
 
-If you encounter any errors, please review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) steps.
+If you encounter any errors, please review these [troubleshooting](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) steps.
 
 
 ## Create the VM

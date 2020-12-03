@@ -1,20 +1,21 @@
 ---
-title: Synapse Analytics security baseline for Azure Security Benchmark
+title: Azure security baseline for Azure Synapse Analytics
 description: The Synapse Analytics security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: synapse-analytics
+ms.subservice: security
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
 ---
 
-# Synapse Analytics security baseline for Azure Security Benchmark
+# Azure security baseline for Azure Synapse Analytics
 
-The Azure Security Baseline for Synapse Analytics contains recommendations that will help you improve the security posture of your deployment.
+The Azure Security Baseline for Azure Synapse Analytics contains recommendations that will help you improve the security posture of your deployment.
 
 The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
@@ -26,9 +27,9 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 
 ### 1.1: Protect Azure resources within virtual networks
 
-**Guidance**: Secure Azure SQL Database to a virtual network via Private Link. Azure Private Link enables you to access Azure PaaS services over a private endpoint in your virtual network. Traffic between your virtual network and the service travels the Microsoft backbone network.
+**Guidance**: Secure your Azure SQL Server to a virtual network via Private Link. Azure Private Link enables you to access Azure PaaS services over a private endpoint in your virtual network. Traffic between your virtual network and the service travels the Microsoft backbone network.
 
-Alternatively, when connecting to your Synapse SQL pool, narrow down the scope of the outgoing connection to SQL Database by using a network security group. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to OFF. Ensure no public IP addresses are allowed in the firewall rules.
+Alternatively, when connecting to your Synapse SQL pool, narrow down the scope of the outgoing connection to the SQL database by using a network security group. Disable all Azure service traffic to the SQL database via the public endpoint by setting Allow Azure Services to OFF. Ensure no public IP addresses are allowed in the firewall rules.
 
 * [Understand Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
@@ -42,9 +43,9 @@ Alternatively, when connecting to your Synapse SQL pool, narrow down the scope o
 
 **Responsibility**: Customer
 
-### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
+### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
 
-**Guidance**: When connecting to your Azure Synapse SQL pool, and you have enabled network security group (NSG) flow logs, send logs into an Azure Storage Account for traffic auditing.
+**Guidance**: When connecting to your dedicated SQL pool, and you have enabled network security group (NSG) flow logs, logs are sent into an Azure Storage Account for traffic auditing.
 
 You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
@@ -68,7 +69,7 @@ You may also send NSG flow logs to a Log Analytics workspace and use Traffic Ana
 
 **Responsibility**: Not applicable
 
-### 1.4: Deny communications with known malicious IP addresses
+### 1.4: Deny communications with known-malicious IP addresses
 
 **Guidance**: Use Advanced Threat Protection (ATP) for Azure Synapse SQL. ATP detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases and it can trigger various alerts, such as, "Potential SQL injection," and, "Access from unusual location." ATP is part of the Advanced data security (ADS) offering and can be accessed and managed via the central SQL ADS portal.
 
@@ -90,7 +91,7 @@ Enable DDoS Protection Standard on the Virtual Networks associated with Azure Sy
 
 ### 1.5: Record network packets
 
-**Guidance**: When connecting to your Azure Synapse SQL pool, and you have enabled network security group (NSG) flow logs, send logs into an Azure Storage Account for traffic auditing. You can also send flow logs to a Log Analytics workspace or stream them to Event Hubs. If required for investigating anomalous activity, enable Network Watcher packet capture.
+**Guidance**: When connecting to your dedicated SQL pool, and you have enabled network security group (NSG) flow logs, send logs into an Azure Storage Account for traffic auditing. You can also send flow logs to a Log Analytics workspace or stream them to Event Hubs. If required for investigating anomalous activity, enable Network Watcher packet capture.
 
 * [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
@@ -122,7 +123,7 @@ Enable DDoS Protection Standard on the Virtual Networks associated with Azure Sy
 
 **Guidance**: Use virtual network service tags to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-When using a service endpoint for your Azure Synapse SQL pool, outbound to Azure SQL Database Public IP addresses is required: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG service tags for Azure SQL Database.
+When using a service endpoint for your dedicated SQL pool, outbound to Azure SQL database Public IP addresses is required: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG service tags for Azure SQL Database.
 
 * [Understand service tags with service endpoints for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
 
@@ -134,9 +135,9 @@ When using a service endpoint for your Azure Synapse SQL pool, outbound to Azure
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: Define and implement network security configurations for resources related to your SQL pool with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions or use any of the built-in policy definitions designed for Azure SQL Database/server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be: "SQL Server should use a virtual network service endpoint".
+**Guidance**: Define and implement network security configurations for resources related to your dedicated SQL pool with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions or use any of the built-in policy definitions designed for Azure SQL database/server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be: "SQL Server should use a virtual network service endpoint".
 
-Use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Management templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+Use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Management templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -162,7 +163,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
-**Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Synapse SQL pool. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
+**Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your dedicated SQL pool. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
 * [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
 
@@ -206,7 +207,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 ### 2.3: Enable audit logging for Azure resources
 
-**Guidance**: Enable auditing on the Azure SQL server-level for your Synapse SQL pool and choose a storage location for the audit logs (Azure Storage, Log Analytics, or Event Hubs).
+**Guidance**: Enable auditing on the Azure SQL server-level for your dedicated SQL pool and choose a storage location for the audit logs (Azure Storage, Log Analytics, or Event Hubs).
 
 Auditing can be enabled both on the database or server level, and is suggested to be only enabled on the server-level, unless you require configuring a separate data sink or retention for a specific database.
 
@@ -230,7 +231,7 @@ Auditing can be enabled both on the database or server level, and is suggested t
 
 ### 2.5: Configure security log storage retention
 
-**Guidance**: When storing logs related to your Synapse SQL pool in a Storage Account, Log Analytics workspace, or event hubs, set log retention period according to your organization's compliance regulations.
+**Guidance**: When storing logs related to your dedicated SQL pool in a Storage Account, Log Analytics workspace, or event hubs, set log retention period according to your organization's compliance regulations.
 
 * [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
 
@@ -242,7 +243,7 @@ Auditing can be enabled both on the database or server level, and is suggested t
 
 **Responsibility**: Customer
 
-### 2.6: Monitor and review Logs
+### 2.6: Monitor and review logs
 
 **Guidance**: Analyze and monitor logs for anomalous behaviors and regularly review results. Use Advanced Threat Protection for Azure SQL Database in conjunction with Azure Security Center to alert on unusual activity related to your SQL database. Alternatively, configure alerts based on metric values or Azure Activity Log entries related to your SQL database.
 
@@ -252,7 +253,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to enable Advanced Data Security for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
-* [How to configure custom alerts for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal?view=azps-1.4.0)
+* [How to configure custom alerts for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal?view=azps-1.4.0&preserve-view=true)
 
 * [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
@@ -280,7 +281,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 ### 2.8: Centralize anti-malware logging
 
-**Guidance**: Not applicable; for resources related to your Synapse SQL pool, the anti-malware solution is managed by Microsoft on the underlying platform.
+**Guidance**: Not applicable; for resources related to your dedicated SQL pool, the anti-malware solution is managed by Microsoft on the underlying platform.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -288,7 +289,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 ### 2.9: Enable DNS query logging
 
-**Guidance**: Not applicable; no DNS logs are produced by resources related to your Synapse SQL pool.
+**Guidance**: Not applicable; no DNS logs are produced by resources related to your dedicated SQL pool.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -312,7 +313,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 When you first deploy Azure SQL, you specify an admin login and an associated password for that login. This administrative account is called Server admin. You can identify the administrator accounts for a database by opening the Azure portal and navigating to the properties tab of your server or managed instance. You can also configure an Azure AD admin account with full administrative permissions, this is required if you want to enable Azure Active Directory authentication.
 
-For management operations, use the built-in Azure role-based access control (Azure RBAC) roles which must be explicitly assigned. Use the Azure AD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
+For management operations, use the Azure built-in roles which must be explicitly assigned. Use the Azure AD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
 
 * [Authentication for SQL Database](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
 
@@ -320,13 +321,13 @@ For management operations, use the built-in Azure role-based access control (Azu
 
 * [Use an Azure Active Directory account for authentication](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-additional-logins-and-users-having-administrative-permissions)
 
-* [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true)
 
-* [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true)
 
 * [How to manage existing logins and admin accounts in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-* [Azure RBAC built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Azure built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -334,7 +335,7 @@ For management operations, use the built-in Azure role-based access control (Azu
 
 ### 3.2: Change default passwords where applicable
 
-**Guidance**: Azure Active Directory does not have the concept of default passwords. When provisioning an Azure Synapse SQL pool, it is recommended that you choose to integrate authentication with Azure Active Directory. With this authentication method, the user submits a user account name and requests that the service use the credential information stored in Azure Active Directory (Azure AD).
+**Guidance**: Azure Active Directory does not have the concept of default passwords. When provisioning an dedicated SQL pool, it is recommended that you choose to integrate authentication with Azure Active Directory. With this authentication method, the user submits a user account name and requests that the service use the credential information stored in Azure Active Directory (Azure AD).
 
 * [How to configure and manage Azure Active Directory authentication with Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#active-directory-password-authentication)
 
@@ -358,7 +359,7 @@ To identify the administrator accounts for a database, open the Azure portal, an
 
 **Responsibility**: Customer
 
-### 3.4: Use single sign-on (SSO) with Azure Active Directory
+### 3.4: Use Azure Active Directory single sign-on (SSO)
 
 **Guidance**: Use an Azure app registration (service principal) to retrieve a token that can be used to interact with your data warehouse at the control plane (Azure portal) via API calls.
 
@@ -372,7 +373,7 @@ To identify the administrator accounts for a database, open the Azure portal, an
 
 **Responsibility**: Customer
 
-### 3.5: Use multi-factor authentication for all Azure Active Directory based access
+### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
 
 **Guidance**: Enable Azure Active Directory (AD) Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations.
 
@@ -386,7 +387,7 @@ To identify the administrator accounts for a database, open the Azure portal, an
 
 **Responsibility**: Customer
 
-### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
+### 3.6: Use secure, Azure-managed workstations for administrative tasks
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
@@ -414,7 +415,7 @@ SQL Server audit lets you create server audits, which can contain server audit s
 
 * [Understand logins and user accounts in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
 
-* [Understand SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15)
+* [Understand SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15&preserve-view=true)
 
 **Azure Security Center monitoring**: Yes
 
@@ -432,7 +433,7 @@ SQL Server audit lets you create server audits, which can contain server audit s
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Create an Azure Active Directory (AD) administrator for the Azure SQL Database server in your Synapse SQL pool.
+**Guidance**: Create an Azure Active Directory (AD) administrator for the Azure SQL Database server in your dedicated SQL pool.
 
 * [How to configure and manage Azure AD authentication with Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
 
@@ -474,7 +475,7 @@ When using SQL authentication, create contained database users in the database. 
 
 **Responsibility**: Customer
 
-### 3.12: Alert on account login behavior deviation
+### 3.12: Alert on account sign-in behavior deviation
 
 **Guidance**: Use Azure Active Directory (Azure AD) Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. Additionally, you can on-board and ingest data into Azure Sentinel for further investigation.
 
@@ -494,7 +495,7 @@ When using SQL authentication, create contained database users in the database. 
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
-**Guidance**: In support scenarios where Microsoft needs to access data related to the Azure SQL Database in your Synapse SQL pool, Azure Customer Lockbox provides an interface for you to review and approve or reject data access requests.
+**Guidance**: In support scenarios where Microsoft needs to access data related to the Azure SQL Database in your dedicated SQL pool, Azure Customer Lockbox provides an interface for you to review and approve or reject data access requests.
 
 * [Understand Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -538,7 +539,7 @@ Data Discovery &amp; Classification is built into Azure Synapse SQL. It provides
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
-**Guidance**: For any Azure SQL Database in your Synapse SQL pool storing or processing sensitive information, mark the database and related resources as sensitive using tags. Configure Private Link in conjunction with network security group (NSG) service tags on your Azure SQL Database instances to prevent the exfiltration of sensitive information.
+**Guidance**: For any Azure SQL Database in your dedicated SQL pool storing or processing sensitive information, mark the database and related resources as sensitive using tags. Configure Private Link in conjunction with network security group (NSG) service tags on your Azure SQL Database instances to prevent the exfiltration of sensitive information.
 
 Additionally, Advanced Threat Protection for Azure SQL Database, Azure SQL Managed Instance and Azure Synapse detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
@@ -580,9 +581,9 @@ Additionally, you can set up a dynamic data masking (DDM) policy in the Azure po
 
 **Responsibility**: Customer
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure role-based access control (RBAC) to manage access to Azure SQL Database in your Synapse SQL pool.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to manage access to Azure SQL databases in your dedicated SQL pool.
 
 Authorization is controlled by your user account's database role memberships and object-level permissions. As a best practice, you should grant users the least privileges necessary.
 
@@ -640,9 +641,9 @@ Additionally, you can set up alerts for databases in your SQL Synapse pool using
 
 ### 5.1: Run automated vulnerability scanning tools
 
-**Guidance**: Enable Advanced Data Security and follow recommendations from Azure Security Center on performing vulnerability assessments on SQL Database.
+**Guidance**: Enable Advanced Data Security and follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure SQL databases.
 
-* [How to run vulnerability assessments on Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [How to run vulnerability assessments on your Azure SQL databases](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [How to enable Advanced Data Security](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
@@ -696,15 +697,15 @@ Data Discovery &amp; Classification is built into Azure Synapse SQL. It provides
 
 *For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
-### 6.1: Use automated Asset Discovery solution
+### 6.1: Use automated asset discovery solution
 
-**Guidance**: Use Azure Resource Graph to query and discover all resources related to your Synapse SQL pool within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
+**Guidance**: Use Azure Resource Graph to query and discover all resources related to your dedicated SQL pool within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 Although classic Azure resources may be discovered via Azure Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
 * [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-* [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true)
 
 * [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
@@ -736,9 +737,9 @@ Although classic Azure resources may be discovered via Azure Resource Graph, it 
 
 **Responsibility**: Customer
 
-### 6.4: Define and Maintain an inventory of approved Azure resources
+### 6.4: Define and maintain inventory of approved Azure resources
 
-**Guidance**: Define a list of approved Azure resources related to your Synapse SQL pool.
+**Guidance**: Define a list of approved Azure resources related to your dedicated SQL pool.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -828,7 +829,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 6.13: Physically or logically segregate high risk applications
 
-**Guidance**: Any resource related to your Synapse SQL pool that is required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual machine and/or virtual network and sufficiently secured with either an Azure Firewall or Network Security Group.
+**Guidance**: Any resource related to your dedicated SQL pool that is required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual machine and/or virtual network and sufficiently secured with either an Azure Firewall or Network Security Group.
 
 * [How to create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
@@ -844,12 +845,11 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.1: Establish secure configurations for all Azure resources
 
-**Guidance**: Use Azure Policy aliases in the "Microsoft.Sql" namespace to create custom policies to audit or enforce the configuration of resources related to your Synapse SQL pool. You may also make use of built-in policy definitions for Azure Databases, such as:
-
+**Guidance**: Use Azure Policy aliases in the "Microsoft.Sql" namespace to create custom policies to audit or enforce the configuration of resources related to your dedicated SQL pool. You may also make use of built-in policy definitions for Azure Database/Server, such as:
 - Deploy Threat Detection on SQL servers
 - SQL Server should use a virtual network service endpoint
 
-* [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true)
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -889,9 +889,9 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-* [Azure Repos documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Azure Repos documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -923,7 +923,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
-**Guidance**: Leverage Azure Security Center to perform baseline scans for any resources related to your Synapse SQL pool.
+**Guidance**: Leverage Azure Security Center to perform baseline scans for any resources related to your dedicated SQL pool.
 
 * [How to remediate recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
@@ -977,7 +977,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 *For more information, see [Security control: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
-### 8.1: Use centrally managed anti-malware software
+### 8.1: Use centrally-managed anti-malware software
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft handles anti-malware for underlying platform.
 
@@ -1009,11 +1009,11 @@ Pre-scan any content being uploaded to non-compute Azure resources, such as App 
 
 *For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
-### 9.1: Ensure regular automated back ups
+### 9.1: Ensure regular automated back-ups
 
-**Guidance**: Snapshots of your Synapse SQL pool are automatically taken throughout the day creating restore points that are available for seven days. This retention period cannot be changed. SQL pool supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days. Note that you can also manually trigger snapshots if necessary.
+**Guidance**: Snapshots of your dedicated SQL pool are automatically taken throughout the day creating restore points that are available for seven days. This retention period cannot be changed. Dedicated SQL pool supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days. Note that you can also manually trigger snapshots if necessary.
 
-* [Backup and restore in Azure Synapse SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Backup and restore in dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1021,13 +1021,13 @@ Pre-scan any content being uploaded to non-compute Azure resources, such as App 
 
 ### 9.2: Perform complete system backups and backup any customer-managed keys
 
-**Guidance**: Snapshots of your data warehouse are automatically taken throughout the day creating restore points that are available for seven days. This retention period cannot be changed. SQL pool supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days. Note that you can also manually trigger snapshots if necessary.
+**Guidance**: Snapshots of your data warehouse are automatically taken throughout the day creating restore points that are available for seven days. This retention period cannot be changed. Dedicated SQL pool supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days. Note that you can also manually trigger snapshots if necessary.
 
 If you are using a customer-managed key to encrypt your Database Encryption Key, ensure your key is being backed up.
 
-* [Backup and restore in Azure Synapse SQL pool](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Backup and restore in dedicated SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
-* [How to backup Azure Key Vault keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [How to backup Azure Key Vault keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1035,13 +1035,13 @@ If you are using a customer-managed key to encrypt your Database Encryption Key,
 
 ### 9.3: Validate all backups including customer-managed keys
 
-**Guidance**: Periodically test your restore points to ensure your snapshots are valid. To restore an existing SQL pool from a restore point, you can use either the Azure portal or PowerShell. Test restoration of backed up customer-managed keys.
+**Guidance**: Periodically test your restore points to ensure your snapshots are valid. To restore an existing dedicated SQL pool from a restore point, you can use either the Azure portal or PowerShell. Test restoration of backed up customer-managed keys.
 
-* [How to restore Azure Key Vault keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [How to restore Azure Key Vault keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
 
-* [Backup and restore in Azure Synapse SQL pool](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Backup and restore in dedicated SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
-* [How to restore an existing SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw)
+* [How to restore an existing dedicated SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw)
 
 **Azure Security Center monitoring**: Not applicable
 

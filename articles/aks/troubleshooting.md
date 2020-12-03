@@ -17,7 +17,7 @@ There's also a [troubleshooting guide](https://github.com/feiskyer/kubernetes-ha
 
 ## I'm getting a "quota exceeded" error during creation or upgrade. What should I do? 
 
- [Request more cores](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [Request more cores](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 ## What is the maximum pods-per-node setting for AKS?
 
@@ -29,7 +29,7 @@ The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster
 This error indicates a subnet in use for a cluster no longer has available IPs within its CIDR for successful resource assignment. For Kubenet clusters, the requirement is sufficient IP space for each node in the cluster. For Azure CNI clusters, the requirement is sufficient IP space for each node and pod in the cluster.
 Read more about the [design of Azure CNI to assign IPs to pods](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-These errors are also surfaced in [AKS Diagnostics](https://docs.microsoft.com/azure/aks/concepts-diagnostics) which proactively surfaces issues such as an insufficient subnet size.
+These errors are also surfaced in [AKS Diagnostics](./concepts-diagnostics.md) which proactively surfaces issues such as an insufficient subnet size.
 
 The following three (3) cases cause an insufficient subnet size error:
 
@@ -41,7 +41,7 @@ The following three (3) cases cause an insufficient subnet size error:
    1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** than the `number of buffer nodes needed to upgrade`.
    1. If using Azure CNI, this occurs when the `number of free IPs in the subnet` is **less than** the `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value`.
    
-   By default AKS clusters set a max surge (upgrade buffer) value of one (1), but this upgrade behavior can be customized by setting the [max surge value of a node pool](upgrade-cluster.md#customize-node-surge-upgrade-preview) which will increase the number of available IPs needed to complete an upgrade.
+   By default AKS clusters set a max surge (upgrade buffer) value of one (1), but this upgrade behavior can be customized by setting the [max surge value of a node pool](upgrade-cluster.md#customize-node-surge-upgrade) which will increase the number of available IPs needed to complete an upgrade.
 
 1. AKS create or AKS Nodepool add
    1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** than the `number of nodes requested for the node pool`.
@@ -75,19 +75,27 @@ AKS has HA control planes that scale vertically according to the number of cores
     - https://github.com/helm/helm/issues/4821
     - https://github.com/helm/helm/issues/3500
     - https://github.com/helm/helm/issues/4543
+- **[Is internal traffic between nodes being blocked?](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)**
 
+## I'm receiving `TCP timeouts`, such as `dial tcp <Node_IP>:10250: i/o timeout`
 
-## I'm trying to enable Role-Based Access Control (RBAC) on an existing cluster. How can I do that?
+These timeouts may be related to internal traffic between nodes being blocked. Verify that this traffic is not being blocked, such as by [network security groups](concepts-security.md#azure-network-security-groups) on the subnet for your cluster's nodes.
 
-Enabling role-based access control (RBAC) on existing clusters isn't supported at this time, it must be set when creating new clusters. RBAC is enabled by default when using CLI, Portal, or an API version later than `2020-03-01`.
+## I'm trying to enable Kubernetes role-based access control (Kubernetes RBAC) on an existing cluster. How can I do that?
 
-## I created a cluster with RBAC enabled and now I see many warnings on the Kubernetes dashboard. The dashboard used to work without any warnings. What should I do?
+Enabling Kubernetes role-based access control (Kubernetes RBAC) on existing clusters isn't supported at this time, it must be set when creating new clusters. Kubernetes RBAC is enabled by default when using CLI, Portal, or an API version later than `2020-03-01`.
 
-The reason for the warnings is the cluster has RBAC enabled and access to the dashboard is now restricted by default. In general, this approach is good practice because the default exposure of the dashboard to all users of the cluster can lead to security threats. If you still want to enable the dashboard, follow the steps in [this blog post](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+## I created a cluster with Kubernetes RBAC enabled and now I see many warnings on the Kubernetes dashboard. The dashboard used to work without any warnings. What should I do?
+
+The reason for the warnings is the cluster has Kubernetes RBAC enabled and access to the dashboard is now restricted by default. In general, this approach is good practice because the default exposure of the dashboard to all users of the cluster can lead to security threats. If you still want to enable the dashboard, follow the steps in [this blog post](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## I can't get logs by using kubectl logs or I can't connect to the API server. I'm getting "Error from server: error dialing backend: dial tcp…". What should I do?
 
 Ensure ports 22, 9000 and 1194 are open to connect to the API server. Check whether the `tunnelfront` or `aks-link` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
+
+## I'm getting `"tls: client offered only unsupported versions"` from my client when connecting to AKS API. What should I do?
+
+The minimum supported TLS version in AKS is TLS 1.2.
 
 ## I'm trying to upgrade or scale and am getting a `"Changing property 'imageReference' is not allowed"` error. How do I fix this problem?
 
@@ -167,15 +175,46 @@ Use the following workarounds for this issue:
 * If using automation scripts, add time delays between service principal creation and AKS cluster creation.
 * If using Azure portal, return to the cluster settings during create and retry the validation page after a few minutes.
 
+## I'm getting `"AADSTS7000215: Invalid client secret is provided."` when using AKS API. What should I do?
 
+This is generally due to expiry of service principal credentials. [Update the credentials for an AKS cluster.](update-credentials.md)
 
+## I can't access my cluster API from my automation/dev machine/tooling when using API server authorized IP ranges. How do I fix this problem?
 
+This requires `--api-server-authorized-ip-ranges` to include the IP(s) or IP range(s) of automation/dev/tooling systems being used. Refer section 'How to find my IP' in [Secure access to the API server using authorized IP address ranges](api-server-authorized-ip-ranges.md).
+
+## I'm unable to view resources in Kubernetes resource viewer in Azure portal for my cluster configured with API server authorized IP ranges. How do I fix this problem?
+
+The [Kubernetes resource viewer](kubernetes-portal.md) requires `--api-server-authorized-ip-ranges` to include access for the local client computer or IP address range (from which the portal is being browsed). Refer section 'How to find my IP' in [Secure access to the API server using authorized IP address ranges](api-server-authorized-ip-ranges.md).
 
 ## I'm receiving errors after restricting egress traffic
 
 When restricting egress traffic from an AKS cluster, there are [required and optional recommended](limit-egress-traffic.md) outbound ports / network rules and FQDN / application rules for AKS. If your settings are in conflict with any of these rules, certain `kubectl` commands won't work correctly. You may also see errors when creating an AKS cluster.
 
 Verify that your settings aren't conflicting with any of the required or optional recommended outbound ports / network rules and FQDN / application rules.
+
+## I'm receiving "429 - Too Many Requests" errors
+
+When a kubernetes cluster on Azure (AKS or no) does a frequent scale up/down or uses the cluster autoscaler (CA), those operations can result in a large number of HTTP calls that in turn exceed the assigned subscription quota leading to failure. The errors will look like
+
+```
+Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
+```
+
+These throttling errors are described in detail [here](../azure-resource-manager/management/request-limits-and-throttling.md) and [here](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)
+
+The recommandation from AKS Engineering Team is to ensure you are running version at least 1.18.x which contains many improvements. More details can be found on these improvements [here](https://github.com/Azure/AKS/issues/1413) and [here](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
+
+Given these throttling errors are measured at the subscription level, they might still happen if:
+- There are 3rd party applications making GET requests (eg. monitoring applications, etc...). The recommendation is to reduce the frequency of these calls.
+- There is a lot of AKS clusters / nodepools in the VMSS. The usual recommendation is to have less than 20-30 clusters in a given subscription.
+
+## My cluster's provisioning status changed from Ready to Failed with or without me performing an operation. What should I do?
+
+If your cluster's provisioning status changes from *Ready* to *Failed* with or without you performing any operations, but the applications on your cluster are continuing to run, this issue may be resolved automatically by the service and your applications should not be affected.
+
+If your cluster's provisioning status remains as *Failed* or the applications on your cluster stop working, [submit a support request](https://azure.microsoft.com/support/options/#submit).
+
 
 ## Azure Storage and AKS Troubleshooting
 
@@ -433,6 +472,21 @@ This error is because of an upstream cluster autoscaler race condition. In such 
 ### Slow disk attachment, GetAzureDiskLun takes 10 to 15 minutes and you receive an error
 
 On Kubernetes versions **older than 1.15.0**, you may receive an error such as **Error WaitForAttach Cannot find Lun for disk**.  The workaround for this issue is to wait approximately 15 minutes and retry.
+
+
+### Why do upgrades to Kubernetes 1.16 fail when using node labels with a kubernetes.io prefix
+
+As of Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [only a defined subset of labels with the kubernetes.io prefix](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) can be applied by the kubelet to nodes. AKS cannot remove active labels on your behalf without consent, as it may cause downtime to impacted workloads.
+
+As a result, to mitigate this you can:
+
+1. Upgrade your cluster control plane to 1.16 or higher
+2. Add a new nodepoool on 1.16 or higher without the unsupported kubernetes.io labels
+3. Delete the older nodepool
+
+AKS is investigating the capability to mutate active labels on a nodepool to improve this mitigation.
+
+
 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md

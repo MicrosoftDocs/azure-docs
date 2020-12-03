@@ -42,11 +42,13 @@ There are two files, `moviedb.txt` and `user-ratings.txt`. The `user-ratings.txt
 
 The data contained in `user-ratings.txt` has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which indicates how highly each user rated a movie. Here is an example of the data:
 
+```output
     196    242    3    881250949
     186    302    3    891717742
     22     377    1    878887116
     244    51     2    880606923
     166    346    1    886397596
+```
 
 ## Run the analysis
 

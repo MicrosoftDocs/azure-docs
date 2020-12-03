@@ -3,9 +3,9 @@ title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster using an Azure Resource Manager template and deploy an application in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: quickstart
-ms.date: 04/19/2019
+ms.date: 09/11/2020
 
-ms.custom: mvc,subject-armqs
+ms.custom: mvc,subject-armqs, devx-track-azurecli
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -24,15 +24,13 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.61 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Prerequisites
+- This article requires version 2.0.61 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-To create an AKS cluster using a Resource Manager template, you provide an SSH public key and Azure Active Directory service principal. Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for permissions. If you need either of these resources, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
+- To create an AKS cluster using a Resource Manager template, you provide an SSH public key and Azure Active Directory service principal. Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for permissions. If you need either of these resources, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
 
 ### Create an SSH key pair
 
@@ -74,7 +72,7 @@ Make a note of the *appId* and *password*. These values are used in the followin
 
 The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-aks/).
 
-:::code language="json" source="~/quickstart-templates/101-aks/azuredeploy.json" range="1-126" highlight="86-118":::
+:::code language="json" source="~/quickstart-templates/101-aks/azuredeploy.json":::
 
 For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
 
@@ -140,9 +138,6 @@ aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 
 A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. In this quickstart, a manifest is used to create all objects needed to run the Azure Vote application. This manifest includes two [Kubernetes deployments][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] are also created - an internal service for the Redis instance, and an external service to access the Azure Vote application from the internet.
 
-> [!TIP]
-> In this quickstart, you manually create and deploy your application manifests to the AKS cluster. In more real-world scenarios, you can use [Azure Dev Spaces][azure-dev-spaces] to rapidly iterate and debug your code directly in the AKS cluster. You can use Dev Spaces across OS platforms and development environments, and work together with others on your team.
-
 Create a file named `azure-vote.yaml` and copy in the following YAML definition. If you use the Azure Cloud Shell, this file can be created using `vi` or `nano` as if working on a virtual or physical system:
 
 ```yaml
@@ -164,7 +159,10 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-back
-        image: redis
+        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
         resources:
           requests:
             cpu: 100m
@@ -204,7 +202,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m
@@ -303,12 +301,12 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[azure-dev-spaces]: ../dev-spaces/index.yml
 [aks-quickstart-templates]: https://azure.microsoft.com/resources/templates/?term=Azure+Kubernetes+Service
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: https://aka.ms/coingfonboarding
+[aks-monitor]: ../azure-monitor/insights/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az-aks-browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

@@ -30,7 +30,8 @@ In this use case, you can record video clips only when there is motion detected 
 
 The diagram below shows a graphical representation of a media graph that addresses this use case. The JSON representation of the graph topology of such a media graph can be found [here](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-motion-assets/topology.json).
 
-![Video recording based on motion detection](./media/event-based-video-recording/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/motion-detection.svg" alt-text="Video recording based on motion detection":::
 
 In the diagram, the RTSP source node captures the live video feed from the camera and delivers it to a [motion detection processor](media-graph-concept.md#motion-detection-processor) node. Upon detecting motion in the live video, the motion detection processor node generates event which go to the [signal gate processor](media-graph-concept.md#signal-gate-processor) node, as well as to the IoT Hub message sink node. The latter node sends the events to the IoT Edge Hub, from where they can be routed to other destinations to trigger alerts. 
 
@@ -40,7 +41,8 @@ An event from the motion detector node will trigger the signal gate processor no
 
 In this use case, signals from another IoT sensor can be used to trigger recording of video. The diagram below shows a graphical representation of a media graph that addresses this use case. The JSON representation of the graph topology of such a media graph can be found [here](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-files/topology.json).
 
-![Video recording based on events from other sources](./media/event-based-video-recording/other-sources.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Video recording based on events from other sources":::
 
 In the diagram, the external sensor sends events to the IoT Edge Hub. The events are then routed to the signal gate processor node via the [IoT Hub message source](media-graph-concept.md#iot-hub-message-source) node. The behavior of the signal gate processor node is the same as with the previous use case - it will open and let the live video feed flow through from the RTSP source node to the file sink node (or asset sink node) when it is triggered by the external event. 
 
@@ -50,7 +52,8 @@ If you use a file sink node the video will be recorded to the local file system 
 
 In this use case, you can record video clips based on a signal from an external logic system. An example of such a use case could be recording a video clip only when a truck is detected in the video feed of traffic on a highway. The diagram below shows a graphical representation of a media graph that addresses this use case. The JSON representation of the graph topology of such a media graph can be found [here](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json).
 
-![Video recording based on an external inferencing module](./media/event-based-video-recording/external-inferencing-module.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Video recording based on an external inferencing module":::
 
 In the diagram, the RTSP source node captures the live video feed from the camera and delivers it to two branches: one has a [signal gate processor](media-graph-concept.md#signal-gate-processor) node, and the other uses an [HTTP extension](media-graph-concept.md) node to send data to an external logic module. The HTTP extension node allows the media graph to send image frames (in JPEG, BMP, or PNG formats) to an external inference service over REST. This signal path can typically only support low frame rates (<5fps). You can use the [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node to lower the frame rate of the video going to the HTTP extension node.
 

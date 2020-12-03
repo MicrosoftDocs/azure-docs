@@ -2,7 +2,7 @@
 title: ARM template frequently asked questions
 description: Frequently asked questions (FAQ) about Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 05/30/2020
+ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -43,7 +43,7 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
   To learn about the new template language, [sign up for notifications](https://aka.ms/armLangUpdates).
 
-  For the preview of template specs, [join the wait list](https://aka.ms/templateSpecsWaitlist).
+  To learn about template specs, see [Azure Resource Manager template specs (Preview)](template-specs.md).
 
 ## Creating and testing templates
 
@@ -59,11 +59,11 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **Can I create a resource group in an ARM template and deploy resources to it?**
 
-  Yes, you can create a resource group in a template when you deploy the template at the level of your Azure subscription. For an example of creating a resource group and deploying resources, see [Resource group and resources](deploy-to-subscription.md#resource-group-and-resources).
+  Yes, you can create a resource group in a template when you deploy the template at the level of your Azure subscription. For an example of creating a resource group and deploying resources, see [Resource group and resources](deploy-to-subscription.md#resource-groups).
 
 * **Can I create a subscription in an ARM template?**
 
-  Not yet, but we're working on it.
+  Yes, for more information, see [Programmatically create Azure subscriptions with the latest APIs](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md).
 
 * **How can I test my template before deploying it?**
 
@@ -83,7 +83,7 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **I've heard you're working on a new template language. Where can I find out more about it?**
 
-  To learn about the new template language, [sign up for notifications](https://aka.ms/armLangUpdates).
+  To preview the new language, see [Project Bicep repository](https://github.com/Azure/bicep). To stay informed about the new language, [sign up for notifications](https://aka.ms/armLangUpdates).
 
 * **Is there a plan to support creating templates in YAML?**
 
@@ -99,13 +99,13 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 ## Template Specs
 
-* **How can I get involved in the preview release of Template Specs?**
+* **How can I get started with the preview release of Template Specs?**
 
-  [Join the wait list](https://aka.ms/templateSpecsWaitlist) for template specs.
+  Install the latest version of PowerShell or Azure CLI. For Azure PowerShell, use [version 5.0.0 or later](/powershell/azure/install-az-ps). For Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 * **How are template specs and Azure Blueprints related?**
 
-  Azure Blueprints will use template specs in its implementation by replacing the `blueprint definition` resource with a `template spec` resource. We will provide a migration path to convert the blueprint definition into a template spec, but the blueprint definition APIs will still be supported. There are no changes to the `blueprint assignment` resource. Blueprints will remain a user-experience to compose a governed environment in Azure.
+  Azure Blueprints will use template specs in its implementation by replacing the `blueprint definition` resource with a `template spec` resource. We'll provide a migration path to convert the blueprint definition into a template spec, but the blueprint definition APIs will still be supported. There are no changes to the `blueprint assignment` resource. Blueprints will remain a user-experience to compose a governed environment in Azure.
 
 * **Do template specs replace linked templates?**
 
@@ -123,7 +123,7 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **Can I still use custom script extensions and desired state configuration (DSC)?**
 
-  Those options are still available and haven't changed. Deployment scripts are designed to perform actions that are not related to the VM guest. If you need to run a script on a host operating system in a VM, then the custom script extension and/or DSC would be a better choice. However, deployment scripts have advantages, such as setting the timeout duration.
+  Those options are still available and haven't changed. Deployment scripts are designed to perform actions that aren't related to the VM guest. If you need to run a script on a host operating system in a VM, then the custom script extension and/or DSC would be a better choice. However, deployment scripts have advantages, such as setting the timeout duration.
 
 * **Are deployment scripts supported in Azure Government?**
 

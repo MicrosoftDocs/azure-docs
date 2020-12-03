@@ -33,15 +33,11 @@ Before you begin, you must have the following:
 + [Python 3.8 (64-bit)](https://www.python.org/downloads/release/python-382/), [Python 3.7 (64-bit)](https://www.python.org/downloads/release/python-375/), [Python 3.6 (64-bit)](https://www.python.org/downloads/release/python-368/), which are supported by Azure Functions. 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-+ [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
-
-+ The [.NET Core SDK 2.2+](https://www.microsoft.com/net/download)
++ The [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8.
++ The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11. 
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
-> [!IMPORTANT]
-> The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
 ::: zone-end

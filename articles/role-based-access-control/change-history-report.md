@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2020
+ms.date: 07/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ---
 # View activity logs for Azure RBAC changes
 
@@ -43,7 +43,7 @@ The activity log in the portal has several filters. Here are the Azure RBAC-rela
 | Event category | <ul><li>Administrative</li></ul> |
 | Operation | <ul><li>Create role assignment</li><li>Delete role assignment</li><li>Create or update custom role definition</li><li>Delete custom role definition</li></ul> |
 
-For more information about activity logs, see [View activity logs to monitor actions on resources](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+For more information about activity logs, see [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## Azure PowerShell
 
@@ -76,6 +76,7 @@ $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              :
                           statusCode     : Created
                           serviceRequestId: 11111111-1111-1111-1111-111111111111
+                          eventCategory  : Administrative
 
 Caller                  : alain@example.com
 EventTimestamp          : 2/27/2020 9:18:05 PM
@@ -84,6 +85,18 @@ Properties              :
                           requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
                           /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"}}
 
+```
+
+If you are using a service principal to create role assignments, the Caller property will be an object ID. You can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) to get information about the service principal.
+
+```Example
+Caller                  : 44444444-4444-4444-4444-444444444444
+EventTimestamp          : 6/4/2020 9:43:08 PM
+$_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
+Properties              : 
+                          statusCode     : Created
+                          serviceRequestId: 55555555-5555-5555-5555-555555555555
+                          category       : Administrative
 ```
 
 ## Azure CLI
@@ -104,7 +117,7 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 ## Azure Monitor logs
 
-[Azure Monitor logs](../log-analytics/log-analytics-overview.md) is another tool you can use to collect and analyze Azure RBAC changes for all your Azure resources. Azure Monitor logs has the following benefits:
+[Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md) is another tool you can use to collect and analyze Azure RBAC changes for all your Azure resources. Azure Monitor logs has the following benefits:
 
 - Write complex queries and logic
 - Integrate with alerts, Power BI, and other tools
@@ -115,13 +128,13 @@ Here are the basic steps to get started:
 
 1. [Create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Configure the Activity Log Analytics solution](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) for your workspace.
+1. [Configure the Activity Log Analytics solution](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution) for your workspace.
 
-1. [View the activity logs](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). A quick way to navigate to the Activity Log Analytics solution Overview page is to click the **Logs** option.
+1. [View the activity logs](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution). A quick way to navigate to the Activity Log Analytics solution Overview page is to click the **Logs** option.
 
    ![Azure Monitor logs option in portal](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Optionally use the [Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md) to query and view the logs. For more information, see [Get started with Azure Monitor log queries](../azure-monitor/log-query/get-started-queries.md).
+1. Optionally use the [Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) to query and view the logs. For more information, see [Get started with Azure Monitor log queries](../azure-monitor/log-query/get-started-queries.md).
 
 Here's a query that returns new role assignments organized by target resource provider:
 
@@ -144,5 +157,5 @@ AzureActivity
 ![Activity logs using the Advanced Analytics portal - screenshot](./media/change-history-report/azure-log-analytics.png)
 
 ## Next steps
-* [View events in activity log](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Monitor Subscription Activity with the Azure Activity Log](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
+* [View events in activity log](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+* [Monitor Subscription Activity with the Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md)

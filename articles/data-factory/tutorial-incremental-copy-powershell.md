@@ -1,6 +1,6 @@
 ---
 title: Incrementally copy a table using PowerShell
-description: 'In this tutorial, you create an Azure data factory pipeline that copies data incrementally from an Azure SQL database to Azure Blob storage.'
+description: In this tutorial, you create an Azure data factory pipeline that incrementally copies data from an Azure SQL database to Azure Blob storage.'
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -58,7 +58,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL Database**. You use the database as the source data store. If you don't have a database in Azure SQL Database, see [Create a dataqbase in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one.
+* **Azure SQL Database**. You use the database as the source data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one.
 * **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-account-create.md) for steps to create one. Create a container named adftutorial. 
 * **Azure PowerShell**. Follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 

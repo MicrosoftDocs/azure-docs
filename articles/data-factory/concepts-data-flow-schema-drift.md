@@ -55,7 +55,7 @@ If schema drift is enabled, make sure the **Auto-mapping** slider in the Mapping
 When your data flow has drifted columns, you can access them in your transformations with the following methods:
 
 * Use the `byPosition` and `byName` expressions to explicitly reference a column by name or position number.
-* Add a column pattern in a Derived Column or Aggregate transformation to match on any combination of name, stream, position, or type
+* Add a column pattern in a Derived Column or Aggregate transformation to match on any combination of name, stream, position, origin, or type
 * Add rule-based mapping in a Select or Sink transformation to match drifted columns to columns aliases via a pattern
 
 For more information on how to implement column patterns, see [Column patterns in mapping data flow](concepts-data-flow-column-pattern.md).
@@ -64,11 +64,11 @@ For more information on how to implement column patterns, see [Column patterns i
 
 To explicitly reference drifted columns, you can quickly generate mappings for these columns via a data preview quick action. Once [debug mode](concepts-data-flow-debug-mode.md) is on, go to the Data Preview tab and click **Refresh** to fetch a data preview. If data factory detects that drifted columns exist, you can click **Map Drifted** and generate a derived column that allows you to reference all drifted columns in schema views downstream.
 
-![Map drifted](media/data-flow/mapdrifted1.png "Map drifted")
+![Screenshot shows the Data Preview tab with Map drifted called out.](media/data-flow/mapdrifted1.png "Map drifted")
 
 In the generated Derived Column transformation, each drifted column is mapped to its detected name and data type. In the above data preview, the column 'movieId' is detected as an integer. After **Map Drifted** is clicked, movieId is defined in the Derived Column as `toInteger(byName('movieId'))` and included in schema views in downstream transformations.
 
-![Map drifted](media/data-flow/mapdrifted2.png "Map drifted")
+![Screenshot shows the Derived Column's Settings tab.](media/data-flow/mapdrifted2.png "Map drifted")
 
 ## Next steps
 In the [Data Flow Expression Language](data-flow-expression-functions.md), you'll find additional facilities for column patterns and schema drift including "byName" and "byPosition".

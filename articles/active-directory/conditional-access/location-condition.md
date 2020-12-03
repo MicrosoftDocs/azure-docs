@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 11/24/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -62,13 +62,13 @@ This option can factor in to Conditional Access policies where you may, for exam
 Some organizations may choose to define entire countries or regions IP boundaries as named locations for Conditional Access policies. They may use these locations when blocking unnecessary traffic when they know valid users will never come from a location such as North Korea. These mappings of IP address to country are updated periodically. 
 
 > [!NOTE]
-> Countries do not include IPv6 address ranges, only known IPv4 address ranges, and cannot be marked as trusted.
+> IPv6 address ranges cannot be mapped to countries. Only IPv4 addresses map to countries.
 
 ![Create a new country or region-based location in the Azure portal](./media/location-condition/new-named-location-country-region.png)
 
 #### Include unknown areas
 
-Some IP addresses are not mapped to a specific country or region. To capture these IP locations, check the box **Include unknown areas** when defining a location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
+Some IP addresses are not mapped to a specific country or region, including all IPv6 addresses. To capture these IP locations, check the box **Include unknown areas** when defining a location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
 ### Configure MFA trusted IPs
 
@@ -112,7 +112,7 @@ With the preview, there are now two create options:
 - **IP ranges location**
 
 > [!NOTE]
-> Countries do not include IPv6 address ranges, only known IPv4 address ranges, and cannot be marked as trusted.
+> IPv6 address ranges cannot be mapped to countries. Only IPv4 addresses map to countries.
 
 ![Named locations preview interface](./media/location-condition/named-location-preview.png)
 
@@ -155,7 +155,7 @@ Most of the IPv6 traffic that gets proxied to Azure AD comes from Microsoft Exch
 These are the most common reasons you may need to configure IPv6 ranges in your named locations. In addition, if you are using Azure VNets, you will have traffic coming from an IPv6 address. If you have VNet traffic blocked by a Conditional Access policy, check your Azure AD sign-in log. Once you’ve identified the traffic, you can get the IPv6 address being used and exclude it from your policy. 
 
 > [!NOTE]
-> If you want to specify an IP CIDR range for a single address, apply the /32 bit mask. If you say the IPv6 address 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a and wanted to exclude that single address as a range, you would use 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/32.
+> If you want to specify an IP CIDR range for a single address, apply the /128 bit mask. If you say the IPv6 address 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a and wanted to exclude that single address as a range, you would use 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/128.
 
 ### Identifying IPv6 traffic in the Azure AD Sign-in activity reports
 
@@ -188,11 +188,11 @@ When you create or update named locations, for bulk updates, you can upload or d
 
 When you use a cloud hosted proxy or VPN solution, the IP address Azure AD uses while evaluating a policy is the IP address of the proxy. The X-Forwarded-For (XFF) header that contains the user’s public IP address is not used because there is no validation that it comes from a trusted source, so would present a method for faking an IP address.
 
-When a cloud proxy is in place, a policy that is used to require a domain joined device can be used, or the inside corpnet claim from AD FS.
+When a cloud proxy is in place, a policy that is used to require a hybrid Azure AD joined device can be used, or the inside corpnet claim from AD FS.
 
 ### API support and PowerShell
 
-API and PowerShell is not yet supported for named locations.
+A preview version of the Graph API for named locations is available, for more information see the [namedLocation API](/graph/api/resources/namedlocation?view=graph-rest-beta).
 
 ## Next steps
 

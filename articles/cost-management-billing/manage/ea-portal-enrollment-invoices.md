@@ -3,15 +3,97 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
+ms.custom: contperfq1
 ---
 
 # Azure Enterprise enrollment invoices
 
 This article explains how to manage and act on your Azure Enterprise Agreement (Azure EA) invoice. Your invoice is a representation of your bill. Review it for accuracy. You should also get familiar with other tasks that might be needed to manage your invoice.
+
+## View usage summary and download reports
+
+Enterprise administrators can view a summary of their usage data, Azure Prepayment consumed, and charges associated with additional usage in the Azure Enterprise portal. Charges are presented at the summary level across all accounts and subscriptions.
+
+To view detailed usage for specific accounts, download the usage detail report:
+
+1. Sign in to the Azure Enterprise portal.
+1. Select **Reports**.
+1. Select the **Download Usage** tab.
+1. In the list of reports, select **Download** for the monthly report that want to get.
+
+   > [!NOTE]
+   > The usage detail report doesn't include any applicable taxes.
+   >
+   > There may be a latency of up to eight hours from the time usage was incurred to when it's reflected on the report.
+
+To view the usage summary reports and graphs:
+
+1. Sign in to the Azure Enterprise portal.
+
+1. Select a Prepayment term.
+
+   To change the date range for **Usage Summary**, you can toggle from **M** (Monthly) to **C** (Custom) on the top right of the page and then enter custom start and end dates.
+
+   ![Create and view usage summary and download reports in custom view](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. To view additional details, you can select a period or month on the graph.
+
+   - The graph shows month-over-month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and Azure Marketplace charges.
+   - For the selected month, you can use the fields below the graph to filter by departments, accounts, and subscriptions.
+   - You can toggle between **Charge by Services** and **Charge by Hierarchy**.
+   - View details from **Azure Service**, **Charges Billed Separately**, and **Azure Marketplace** by expanding the relevant sections.
+
+View this video to see how to view usage:
+
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+
+### Download CSV reports
+
+Enterprise administrators use the Monthly Report Download page to download the following reports as CSV files:
+
+- Balance and charge
+- Usage detail
+- Azure Marketplace charges
+- Price sheet
+
+To download reports:
+
+1. In the Azure Enterprise portal, select **Reports**.
+2. Select **Download Usage** at the top of the page.
+3. Select **Download** next to the month's report.
+
+   > [!NOTE]
+   > There may be a latency of up to five days between the incurred usage date and when usage is shown in the reports.
+   >
+   > Users downloading CSV files with Safari to Excel may experience formatting errors. To avoid errors, open the file using a text editor.
+
+![Example showing Download Usage page](./media/ea-portal-enrollment-invoices/create-ea-download-csv-reports.png)
+
+View this video to see how to download usage information:
+
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+
+### Advanced report download
+
+You can use the advance report download to get reports that cover specific date ranges or accounts. The output file is in the CSV format to accommodate large record sets.
+
+1. In the Azure Enterprise portal, select **Advanced Report Download**.
+1. Select an appropriate date range and the appropriate accounts.
+1. Select **Request Usage Data**.
+1. Select the **Refresh** button until the report status updates to **Download**.
+1. Download the report.
+
+### Download usage reports and billing information for a prior enrollment
+
+You can download usage reports and billing information for a prior enrollment after an enrollment transfer has taken place. Historical reporting is available in both the Azure Enterprise portal and cost management.
+
+The Azure Enterprise portal filters inactive enrollments out of view. You'll need to uncheck the **Active** box to view inactive transferred enrollments.  
+
+![Unchecking the active box allows user to see inactive enrollments](./media/ea-portal-enrollment-invoices/unchecked-active-box.png)
 
 ## Change a PO number for an upcoming overage invoice
 
@@ -157,20 +239,6 @@ Refer to [Azure services](https://azure.microsoft.com/services/) and [Azure pric
 
 The units of measure for Enterprise Agreements are often different than seen in our other programs such as the Microsoft Online Services Agreement program (MOSA). This disparity means that, for a number of services, the unit of measure is aggregated to provide the normalized pricing. The unit of measure shown in the Azure Enterprise portal's Usage Summary view is always the Enterprise measure. A full list of current units of measure and conversions for each service is provided in the [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) Excel file.
 
-### Rounding rules
-
-The Azure Enterprise portal follows the IEEE standard Banker Rounding or Gaussian Rounding logic. This logic rounds numbers to the nearest even digit for half digit values. The more typical Half Round Up rounding logic always rounds half digits up to the next highest digit. This Azure Enterprise portal method actually provides a more accurate total sum over the group when compared to the standard Excel logic.
-
-To illustrate: when the first dropped digit is a 5 and there are no following digits or the following digits are zeros, round off to the nearest even digit. For example: both 2.315 and 2.325 rounded to the nearest 100th become 2.32.
-
-For reference, the following table shows Excel formulas you can use to model the Azure Enterprise portal rules for rounding and conversion:
-
-| Scenario | Banker Logic Formula |
-| --- | --- |
-| Rounding Usage | =MROUND({_source_}, 0.0002) |
-| Rounding Pricing (2 decimals) | =MROUND({_source_}, 0.02) |
-| Rounding Pricing (0 decimals) | =MROUND({_source_}, 2) |
-
 ### Conversion between usage detail report and the usage summary page
 
 In the download usage data report, you can see raw resource usage up to six decimal places. However, usage data shown in the Azure Enterprise portal is rounded to four decimal places for Prepayment units and truncated to zero decimals for overage units. Raw usage data is first rounded to four digits prior to conversion to units used in the Azure Enterprise portal. Then, the converted Enterprise units are rounded again to four digits. You can only see the actual consumed hours before conversion in the download usage report and not within the Azure Enterprise portal.
@@ -223,7 +291,7 @@ There are no charges for data egress between services housed within the same dat
 
 ### Azure Prepayment and unbilled usage
 
-Azure Azure Prepayment is an amount paid up front for Azure services. The Azure Prepayment is consumed as services are used. First-party Azure services are billed against the Azure Prepayment. However, some charges are billed separately, and Azure Marketplace services don't consume Azure Prepayment.
+Azure Prepayment is an amount paid up front for Azure services. The Azure Prepayment is consumed as services are used. First-party Azure services are billed against the Azure Prepayment. However, some charges are billed separately, and Azure Marketplace services don't consume Azure Prepayment.
 
 ### Charges billed separately
 

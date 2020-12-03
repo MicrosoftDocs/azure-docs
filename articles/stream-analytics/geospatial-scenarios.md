@@ -120,4 +120,4 @@ The image below illustrates the output of the query to Power BI dashboard.
 ## Next steps
 
 * [Introduction to Stream Analytics geospatial functions](stream-analytics-geospatial-functions.md)
-* [GeoSpatial Functions (Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/geospatial-functions)
+* [GeoSpatial Functions (Azure Stream Analytics)](/stream-analytics-query/geospatial-functions)

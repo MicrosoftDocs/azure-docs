@@ -1,6 +1,6 @@
 ---
-title: Monitor your SQL pool workload using DMVs 
-description: Learn how to monitor your Azure Synapse Analytics SQL pool workload and query execution using DMVs.
+title: Monitor your dedicated SQL pool workload using DMVs 
+description: Learn how to monitor your Azure Synapse Analytics dedicated SQL pool workload and query execution using DMVs.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: synapse-analytics
 ---
 
-# Monitor your Azure Synapse Analytics SQL pool workload using DMVs
+# Monitor your Azure Synapse Analytics dedicated SQL pool workload using DMVs
 
 This article describes how to use Dynamic Management Views (DMVs) to monitor your workload including investigating query execution in SQL pool.
 
@@ -97,8 +97,8 @@ When a DSQL plan is taking longer than expected, the cause can be a complex plan
 
 To investigate further details about a single step, the *operation_type* column of the long-running query step and note the **Step Index**:
 
-* Proceed with Step 3a for **SQL operations**: OnOperation, RemoteOperation, ReturnOperation.
-* Proceed with Step 3b for **Data Movement operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+* Proceed with Step 3 for **SQL operations**: OnOperation, RemoteOperation, ReturnOperation.
+* Proceed with Step 4 for **Data Movement operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 ### STEP 3: Investigate SQL on the distributed databases
 
@@ -134,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * Check the *total_elapsed_time* column to see if a particular distribution is taking significantly longer than others for data movement.
-* For the long-running distribution, check the *rows_processed* column to see if the number of rows being moved from that distribution is significantly larger than others. If so, this finding might indicate skew of your underlying data.
+* For the long-running distribution, check the *rows_processed* column to see if the number of rows being moved from that distribution is significantly larger than others. If so, this finding might indicate skew of your underlying data. One cause for data skew is distributing on a column with many NULL values (whose rows will all land in the same distribution). Prevent slow queries by avoiding distribution on these types of columns or filtering your query to eliminate NULLs when possible. 
 
 If the query is running, you can use [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve the SQL Server estimated plan from the SQL Server plan cache for the currently running SQL Step within a particular distribution.
 

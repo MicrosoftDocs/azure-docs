@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: [mvc, mqtt]
+ms.custom: [mvc, mqtt, devx-track-java, devx-track-azurecli]
 ms.date: 06/21/2019
 ms.author: wesmc
 # As a developer new to IoT Hub, I need to use a service application written for Android to control devices connected to the hub.
@@ -33,15 +33,7 @@ In this quickstart, you use a direct method to control a simulated device connec
 
 * Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### Add Azure IoT Extension
-
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -133,7 +125,7 @@ This app needs to be left running on a physical device or emulator while you exe
 
 ## Read the telemetry from your hub
 
-In this section, you will use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) to monitor the messages that are sent by the Android device.
+In this section, you will use the Azure Cloud Shell with the [IoT extension](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) to monitor the messages that are sent by the Android device.
 
 1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
 

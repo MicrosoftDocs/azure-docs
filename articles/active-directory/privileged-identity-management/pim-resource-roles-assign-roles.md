@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -28,13 +28,13 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can manag
 - Security Manager
 
 > [!NOTE]
-> Users or members of a group assigned to the Owner or User Access Administrator subscription roles, and Azure AD Global administrators that enable subscription management in Azure AD have Resource administrator permissions by default. These administrators can assign roles, configure role settings, and review access using Privileged Identity Management for Azure resources. A user can't manage Privileged Identity Management for Resources without Resource administrator permissions. View the list of [built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
+> Users or members of a group assigned to the Owner or User Access Administrator subscription roles, and Azure AD Global administrators that enable subscription management in Azure AD have Resource administrator permissions by default. These administrators can assign roles, configure role settings, and review access using Privileged Identity Management for Azure resources. A user can't manage Privileged Identity Management for Resources without Resource administrator permissions. View the list of [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ## Assign a role
 
 Follow these steps to make a user eligible for an Azure resource role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
+1. Sign in to [Azure portal](https://portal.azure.com/) with Owner or User Access Administrator role permissions.
 
     For information about how to grant another administrator access to manage Privileged Identity Management, see [Grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 

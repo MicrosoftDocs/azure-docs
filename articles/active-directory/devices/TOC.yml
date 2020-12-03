@@ -75,6 +75,8 @@
       href: enterprise-state-roaming-faqs.md
 - name: Reference
   items:
+  - name: Enforce TLS 1.2
+    href: reference-device-registration-tls-1-2.md
   - name: Enterprise state roaming GPO settings
     href: enterprise-state-roaming-group-policy-settings.md
   - name: Enterprise state roaming Windows settings
@@ -88,7 +90,7 @@
   - name: Azure feedback forum
     href: https://feedback.azure.com/forums/169401-azure-active-directory
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-active-directory.html
+    href: /answers/topics/azure-active-directory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/active-directory/
   - name: Service updates

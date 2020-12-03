@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 4/17/2020
+ms.date: 8/11/2020
 ms.author: swmachan
 ---
 
@@ -142,11 +142,11 @@ An authentication token is valid for 10 minutes. The token should be reused when
 
 ## Virtual Network support
 
-Translator service is now available with Virtual Network capabilities in limited regions (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `CentralUSEUAP`, `global`). To enable Virtual Network, please see [Configuring Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, please see [Configuring Azure Cognitive Services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal). 
 
 Once you turn on this capability, you must use the custom endpoint to call the Translator. You cannot use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you cannot authenticate with an access token.
 
-You can find the custom endpoint once you create the [translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+You can find the custom endpoint after you create a [translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) and allow access from selected networks and private endpoints.
 
 |Headers|Description|
 |:-----|:----|
@@ -225,7 +225,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 503000| Service is temporarily unavailable. Please retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 
 ## Metrics 
-Metrics allow you to view the translator usage and availability information in Azure portal, under metrics section as shown in the below screenshot. For more information, see [Data and platform metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Metrics allow you to view the translator usage and availability information in Azure portal, under metrics section as shown in the below screenshot. For more information, see [Data and platform metrics](../../../azure-monitor/platform/data-platform-metrics.md).
 
 ![Translator Metrics](../media/translatormetrics.png)
 

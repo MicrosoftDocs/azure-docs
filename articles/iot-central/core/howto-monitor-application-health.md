@@ -13,6 +13,9 @@ services: iot-central
 
 # Monitor the overall health of the devices connected to an IoT Central application
 
+> [!NOTE]
+> Metrics are only available for version 3 IoT Central applications. To learn how to check your application version, see [About your application](./howto-get-app-info.md).
+
 *This article applies to operators and administrators.*
 
 In this article, you learn how to use the set of metrics provided by IoT Central to assess the overall health of the devices connected to your IoT Central application.
@@ -25,12 +28,14 @@ Applications that use the free trial plan don't have an associated Azure subscri
 
 ## View metrics in the Azure portal
 
-The following steps assume you have an [IoT Central application](./quick-deploy-iot-central.md) with some [connected devices](./tutorial-connect-device-nodejs.md).
+The following steps assume you have an [IoT Central application](./quick-deploy-iot-central.md) with some [connected devices](./tutorial-connect-device.md).
 
 To view IoT Central metrics in the portal:
 
 1. Navigate to your IoT Central application resource in the portal. By default, IoT Central resources are located in a resource group called **IOTC**.
 1. To create a chart from your application's metrics, select **Metrics** in the **Monitoring** section.
+
+![Azure Metrics](media/howto-monitor-application-health/metrics.png)
 
 ### Azure portal permissions
 
@@ -38,19 +43,7 @@ Access to metrics in the Azure portal is managed by [Azure role based access con
 
 ## IoT Central metrics
 
-The following table describes the metrics that are currently available for IoT Central:
-
-| Metric | Metric display name | Unit | Aggregation type | Description |
-|--------|---------------------|------|------------------|-------------|
-| connectedDeviceCount         | Total Connected Devices                              | Count  | Total             | Number of devices connected to IoT Central                               |
-| c2d.property.read.success    | Successful Device Property Reads from IoT Central    | Count  | Total             | The count of all successful property reads initiated from IoT Central    |
-| c2d.property.read.failure    | Failed Device Property Reads from IoT Central        | Count  | Total             | The count of all failed property reads initiated from IoT Central        |
-| d2c.property.read.success    | Successful Device Property Reads from Devices        | Count  | Total             | The count of all successful property reads initiated from devices        |
-| d2c.property.read.failure    | Failed Device Property Reads from Devices            | Count  | Total             | The count of all failed property reads initiated from devices            |
-| c2d.property.update.success  | Successful Device Property Updates from IoT Central  | Count  | Total             | The count of all successful property updates initiated from IoT Central  |
-| c2d.property.update.failure  | Failed Device Property Updates from IoT Central      | Count  | Total             | The count of all failed property updates initiated from IoT Central      |
-| d2c.property.update.success  | Successful Device Property Updates from Devices      | Count  | Total             | The count of all successful property updates initiated from devices      |
-| d2c.property.update.failure  | Failed Device Property Updates from Devices          | Count  | Total             | The count of all failed property updates initiated from devices          |
+For a list of of the metrics that are currently available for IoT Central, see [Supported metrics with Azure Monitor](../../azure-monitor/platform/metrics-supported.md#microsoftiotcentraliotapps).
 
 ### Metrics and invoices
 

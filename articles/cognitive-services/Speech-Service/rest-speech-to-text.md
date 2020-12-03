@@ -3,25 +3,29 @@ title: Speech-to-text API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the speech-to-text REST API. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
-author: yinhew
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.author: yinhew
+ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # Speech-to-text REST API
 
 As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use. The REST API is very limited, and it should only be used in cases were the [Speech SDK](speech-sdk.md) cannot.
 
-Before using the speech-to-text REST API, understand:
+Before using the speech-to-text REST API, consider the following:
 
 * Requests that use the REST API and transmit audio directly can only contain up to 60 seconds of audio.
 * The speech-to-text REST API only returns final results. Partial results are not provided.
 
 If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or a file-based REST API, like [batch transcription](batch-transcription.md).
+
+> [!TIP]
+> See the  Azure government [documentation](../../azure-government/compare-azure-government-global-azure.md) for government cloud (FairFax) endpoints.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -49,7 +53,7 @@ These parameters may be included in the query string of the REST request.
 | `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include four different representations of display text. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
-| `cid` | When using the [Custom Speech portal](how-to-custom-speech.md) to create custom models, you can use custom models via their **Endpoint ID** found on the **Deployment** page. Use the **Endpoint ID** as the argument to the `cid` query string parameter. | Optional |
+| `cid` | When using the [Custom Speech portal](./custom-speech-overview.md) to create custom models, you can use custom models via their **Endpoint ID** found on the **Deployment** page. Use the **Endpoint ID** as the argument to the `cid` query string parameter. | Optional |
 
 ## Request headers
 
@@ -81,10 +85,10 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 
 This table lists required and optional parameters for pronunciation assessment.
 
-| Parameter | Description | Required / Optional |
+| Parameter | Description | Required? |
 |-----------|-------------|---------------------|
 | ReferenceText | The text that the pronunciation will be evaluated against. | Required |
-| GradingSystem | The point system for score calibration. Accepted values are `FivePoint` and `HundredMark`. The default setting is `FivePoint`. | Optional |
+| GradingSystem | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | Optional |
 | Granularity | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on the full text, word and phoneme level, `Word`, which shows the score on the full text and word level, `FullText`, which shows the score on the full text level only. The default setting is `Phoneme`. | Optional |
 | Dimension | Defines the output criteria. Accepted values are `Basic`, which shows the accuracy score only, `Comprehensive` shows scores on more dimensions (e.g. fluency score and completeness score on the full text level, error type on word level). Check [Response parameters](#response-parameters) to see definitions of different score dimensions and word error types. The default setting is `Basic`. | Optional |
 | EnableMiscue | Enables miscue calculation. With this enabled, the pronounced words will be compared to the reference text, and will be marked with omission/insertion based on the comparison. Accepted values are `False` and `True`. The default setting is `False`. | Optional |
@@ -218,10 +222,10 @@ The object in the `NBest` list can include:
 | `ITN` | The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied. |
 | `MaskedITN` | The ITN form with profanity masking applied, if requested. |
 | `Display` | The display form of the recognized text, with punctuation and capitalization added. This parameter is the same as `DisplayText` provided when format is set to `simple`. |
-| `AccuracyScore` | The score indicating the pronunciation accuracy of the given speech. |
-| `FluencyScore` | The score indicating the fluency of the given speech. |
-| `CompletenessScore` | The score indicating the completeness of the given speech by calculating the ratio of pronounced words towards entire input. |
-| `PronScore` | The overall score indicating the pronunciation quality of the given speech. This is calculated from `AccuracyScore`, `FluencyScore` and `CompletenessScore` with weight. |
+| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Word and full text level accuracy score is aggregated from phoneme level accuracy score. |
+| `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |
+| `CompletenessScore` | Completeness of the speech, determined by calculating the ratio of pronounced words to reference text input. |
+| `PronScore` | Overall score indicating the pronunciation quality of the given speech. This is aggregated from `AccuracyScore`, `FluencyScore` and `CompletenessScore` with weight. |
 | `ErrorType` | This value indicates whether a word is omitted, inserted or badly pronounced, compared to `ReferenceText`. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion` and `Mispronunciation`. |
 
 ## Sample responses
@@ -297,6 +301,6 @@ A typical response for recognition with pronunciation assessment:
 
 ## Next steps
 
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
+- [Customize acoustic models](./how-to-custom-speech-train-model.md)
+- [Customize language models](./how-to-custom-speech-train-model.md)

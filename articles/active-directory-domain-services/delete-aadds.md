@@ -2,7 +2,7 @@
 title: Delete Azure Active Directory Domain Services | Microsoft Docs
 description: Learn how to disable, or delete, an Azure Active Directory Domain Services managed domain using the Azure portal
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
+ms.author: joflore
 
 ---
 # Delete an Azure Active Directory Domain Services managed domain using the Azure portal
@@ -46,5 +46,5 @@ Consider [sharing feedback][feedback] for the features that you would like to se
 If you want to get started with Azure AD DS again, see [Create and configure an Azure Active Directory Domain Services managed domain][create-instance].
 
 <!-- INTERNAL LINKS -->
-[feedback]: contact-us.md
+[feedback]: https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593%3fcategory_id%3d160593
 [create-instance]: tutorial-create-instance.md

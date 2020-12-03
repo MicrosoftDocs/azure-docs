@@ -3,6 +3,7 @@ title: Use built-in notebook commands and features in Azure Cosmos DB Python not
 description: Learn how to use built-in commands and features to do common operations using Azure Cosmos DB's built-in Python notebooks.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
@@ -10,6 +11,7 @@ ms.author: dech
 ---
 
 # Use built-in notebook commands and features in Azure Cosmos DB Python notebooks (preview)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to use built-in notebook commands and features to do common operations in Python notebooks.
 
@@ -48,7 +50,7 @@ Run ```%%sql?``` in a cell to see the help documentation for the sql magic comma
 
 ## Run a SQL query and output to a Pandas DataFrame
 
-You can output the results of a ``%%sql`` query into a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe). Use the syntax: 
+You can output the results of a ``%%sql`` query into a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame). Use the syntax: 
 
 ```python
 %%sql --database {database_id} --container {container_id} --output {outputDataFrameVar}
@@ -165,7 +167,7 @@ See [Python SDK samples](https://github.com/Azure/azure-sdk-for-python/tree/mast
 ## Create a custom instance of ``cosmos_client``
 For more flexibility, you can create a custom instance of ``cosmos_client`` in order to:
 
-- Customize the [connection policy](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview)
+- Customize the [connection policy](/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?preserve-view=true&view=azure-python-preview)
 - Run operations against a different Azure Cosmos account than the one you are in
 
 You can access the connection string and primary key of the current account via the [environment variables](#access-the-account-endpoint-and-primary-key-env-variables). 

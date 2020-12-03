@@ -153,4 +153,4 @@ You can optionally modify the Azure CI/CD pipeline to meet the needs of your tea
 To learn more about Service Fabric and microservices, see:
 
 > [!div class="nextstepaction"]
-> [Use a microservices approach for building applications](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Use a microservices approach for building applications](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

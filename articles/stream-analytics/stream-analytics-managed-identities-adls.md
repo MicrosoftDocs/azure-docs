@@ -170,6 +170,10 @@ This article shows you three ways to enable managed identity for an Azure Stream
 
    To learn more about the above PowerShell command, refer to the [Set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentation.
 
+## Remove Managed Identity
+
+The Managed Identity created for a Stream Analytics job is deleted only when the job is deleted. There is no way to delete the Managed Identity without deleting the job. If you no longer want to use the Managed Identity, you can change the authentication method for the output. The Managed Identity will continue to exist until the job is deleted, and will be used if you decide to used Managed Identity authentication again.
+
 ## Limitations
 This feature doesn’t support the following:
 

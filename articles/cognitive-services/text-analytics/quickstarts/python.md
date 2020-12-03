@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Using Python to call the Text Analytics API"
 titleSuffix: Azure Cognitive Services
-description: This quickstart shows how to get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
+description: This quickstart shows how to use Python to get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/06/2020
+ms.date: 07/20/2020
 ms.author: aahi
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Quickstart: Using the Python REST API to call the Text Analytics Cognitive Service 
@@ -298,7 +298,7 @@ To identify well-known entities (people, places, and things) in text documents, 
     `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
     
 ```python
-entities_url = endpoint + "/text/analytics/v3.0/entities/recognition/general/recognition/general"
+entities_url = endpoint + "/text/analytics/v3.0/entities/recognition/general"
 ```
 
 Create a collection of documents, like in the previous examples. 

@@ -128,13 +128,13 @@ To view the device template:
 
 1. Click on **Device templates** from the left pane of your application in IoT Central. 
 
-    ![Device Template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
+    ![Screenshot showing the list of device templates in the application](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
 2. In the Device templates list, you will see **Connected Waste Bin**. Open by clicking on the name.
 
 3. Familiarize with the device template capabilities. You can see it defines sensors like *Fill level*, *Odor meter*, *weight*, *location*, and others.
 
-   ![Device Template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
+   ![Screenshot showing the details of the connected waste bin device template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
    
 
@@ -195,7 +195,7 @@ The **Connected waste management** application has two simulated devices mapped 
 
 ## Explore and configure rules
 
-In Azure IoT Central, you can create rules to automatically monitor on device telemetry, and trigger actions when one or more conditions are met. The actions may include sending email notifications, triggering a Microsoft Flow action, or a webhook action to send data to other services.
+In Azure IoT Central, you can create rules to automatically monitor on device telemetry, and trigger actions when one or more conditions are met. The actions may include sending email notifications, triggering a Power Automate action, or a webhook action to send data to other services.
 
 The **Connected waste management** application has four sample rules.
 
@@ -263,8 +263,9 @@ If you're not going to continue to use this application, delete your application
 1. Open the Administration tab from the left pane of your IoT Central application.
 2. Select Application settings and click Delete button at the bottom of the page.
 
-  
-
 ## Next steps
 
-* Learn about more about [Connected waste management concepts](./concepts-connectedwastemanagement-architecture.md)
+* Learn about more about
+ 
+> [!div class="nextstepaction"]
+> [Connected waste management concepts](./concepts-connectedwastemanagement-architecture.md)

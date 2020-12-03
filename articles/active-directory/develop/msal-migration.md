@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/16/2020
+ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -48,16 +48,19 @@ The following articles can help you migrate to MSAL:
 ## Frequently asked questions (FAQ)
 
 __Q: Is ADAL being deprecated?__  
-A: Yes. Starting June 30th, 2020, we will no longer add new features to ADAL. We'll continue adding critical security fixes to ADAL until June 30th, 2022.
+A: Yes. Starting June 30th, 2020, we will no longer add new features to ADAL. We'll continue adding critical security fixes to ADAL until June 30th, 2022. After this date, your apps using ADAL will continue to work, but we recommend upgrading to MSAL to take advantage of the latest features and to stay secure.
+
+__Q: Will my existing ADAL apps stop working?__  
+A: No. Your existing apps will continue working without modification. If you're planning to keep them beyond June 30th, 2022, you should consider updating your apps to MSAL to keep them secure, but migrating to MSAL isn't required to maintain existing functionality.
 
 __Q: How do I know which of my apps are using ADAL?__  
-A: If you have the source code for the application, you can reference the above migration guides to help determine which library the app uses and how to migrate it to MSAL. If you don't have access to your application's source code, you can [open a support request](developer-support-help-options.md#open-a-support-request) to obtain a list of your registered applications and the library each application uses.
-
-__Q: Will my existing ADAL apps continue to work?__  
-A: Your existing apps will continue to work without modification. If you're planning to keep them beyond June 30th, 2022, you should consider updating them to MSAL to keep them secure, but migrating to MSAL isn't required to maintain existing functionality.
+A: If you have the source code for the application, you can reference the above migration guides to help determine which library the app uses and how to migrate it to MSAL. If you partnered with an ISV, we suggest you reach out to them directly to understand their migration journey to MSAL.
 
 __Q: Why should I invest in moving to MSAL?__  
 A: MSAL contains new features not in ADAL including incremental consent, single sign-on, and token cache management. Also, unlike ADAL, MSAL will continue to receive security patches beyond June 30th, 2022. [Learn more](msal-overview.md).
+
+__Q: Will Microsoft update its own apps to MSAL?__  
+Yes. Microsoft is in the process of migrating its applications to MSAL by the end-of-support deadline, ensuring they'll benefit from MSAL's ongoing security and feature improvements.
 
 __Q: Will you release a tool that helps me move my apps from ADAL to MSAL?__  
 A: No. Differences between the libraries would require dedicating resources to development and maintenance of the tool that would otherwise be spent improving MSAL. However, we do provide the preceding set of migration guides to help you make the required changes in your application.
@@ -71,5 +74,5 @@ A: See the [Migration guidance](#migration-guidance) section of this article. If
 ## Next steps
 
 - [Update your applications to use Microsoft Authentication Library and Microsoft Graph API](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
-- [Learn more about Microsoft identity platform (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
-- [Review our MSAL code samples](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)
+- [Overview of the Microsoft identity platform](v2-overview.md)
+- [Review our MSAL code samples](sample-v2-code.md)

@@ -28,6 +28,9 @@ Before using this API, understand:
 
 * The text-to-speech REST API requires an Authorization header. This means that you need to complete a token exchange to access the service. For more information, see [Authentication](#authentication).
 
+> [!TIP]
+> See the  Azure government [documentation](../../azure-government/compare-azure-government-global-azure.md) for government cloud (FairFax) endpoints.
+
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## Get a list of voices
@@ -173,18 +176,19 @@ This table lists required and optional headers for text-to-speech requests.
 
 This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech service supports 24 kHz, 16 kHz, and 8 kHz audio outputs.
 
-|||
-|-|-|
-| `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
-| `riff-8khz-8bit-mono-alaw` | `riff-8khz-8bit-mono-mulaw` |
-| `riff-16khz-16bit-mono-pcm` | `audio-16khz-128kbitrate-mono-mp3` |
-| `audio-16khz-64kbitrate-mono-mp3` | `audio-16khz-32kbitrate-mono-mp3` |
-| `raw-24khz-16bit-mono-pcm` | `riff-24khz-16bit-mono-pcm` |
-| `audio-24khz-160kbitrate-mono-mp3` | `audio-24khz-96kbitrate-mono-mp3` |
-| `audio-24khz-48kbitrate-mono-mp3` | |
+```output
+raw-16khz-16bit-mono-pcm            raw-8khz-8bit-mono-mulaw
+riff-8khz-8bit-mono-alaw            riff-8khz-8bit-mono-mulaw
+riff-16khz-16bit-mono-pcm           audio-16khz-128kbitrate-mono-mp3
+audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
+raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
+audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
+audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
+```
 
 > [!NOTE]
-> If your selected voice and output format have different bit rates, the audio is resampled as necessary. However, 24 kHz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats.
+> If your selected voice and output format have different bit rates, the audio is resampled as necessary. 
+> ogg-24khz-16bit-mono-opus can be decoded with [opus codec](https://opus-codec.org/downloads/)
 
 ### Request body
 
@@ -214,9 +218,9 @@ Authorization: Bearer [Base64 access_token]
 
 See our quickstarts for language-specific examples:
 
-* [.NET Core, C#](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
-* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Node.js](quickstart-nodejs-text-to-speech.md)
+* [.NET Core, C#](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [Python](./get-started-text-to-speech.md?pivots=programming-language-python)
+* [Node.js](./get-started-text-to-speech.md)
 
 ### HTTP status codes
 
@@ -236,6 +240,6 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 
 ## Next steps
 
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services)
-- [Asynchronous synthesis for long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
+- [Asynchronous synthesis for long-form audio](./long-audio-api.md)
 - [Get started with Custom Voice](how-to-custom-voice.md)

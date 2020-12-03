@@ -2,7 +2,8 @@
 title: 'Quickstart: Send custom events with Event Grid and Azure CLI'
 description: 'Quickstart Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
 ms.date: 07/07/2020
-ms.topic: quickstart
+ms.topic: quickstart 
+ms.custom: devx-track-azurecli
 ---
 # Quickstart: Route custom events to web endpoint with Azure CLI and Event Grid
 
@@ -16,11 +17,9 @@ When you're finished, you see that the event data has been sent to the web app.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.70 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-If you aren't using Cloud Shell, you must first sign in using `az login`.
+- This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 

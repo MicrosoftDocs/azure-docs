@@ -21,9 +21,21 @@ You might move VMs for the following reasons:
 - You already deployed in one region, and a new region support was added which is closer to the end users of your application or service. In this scenario, you'd want to move your VMs as is to the new region to reduce latency. Use the same approach if you want to consolidate subscriptions or if there are governance or organization rules that require you to move.
 - Your VM was deployed as a single-instance VM or as part of an availability set. If you want to increase the availability SLAs, you can move your VMs into an Availability Zone.
 
-## Steps to move Azure VMs
+## Move VMs with Resource Mover
 
-Moving VMs involves the following steps:
+You can now move VMs to another region with [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md). Resource Mover is in public preview and provides:
+- A single hub for moving resources across regions.
+- Reduced move time and complexity. Everything you need is in a single location.
+- A simple and consistent experience for moving different types of Azure resources.
+- An easy way to identify dependencies across resources you want to move. This helps you to move related resources together, so that everything works as expected in the target region, after the move.
+- Automatic cleanup of resources in the source region, if you want to delete them after the move.
+- Testing. You can try out a move, and then discard it if you don't want to do a full move.
+
+
+
+## Move VMs with Site Recovery
+
+Moving VMs with Site Recovery involves the following steps:
 
 1. Verify prerequisites.
 2. Prepare the source VMs.
@@ -44,7 +56,7 @@ This section describes the most common deployment architectures for a multi-tier
 
 * **Single-instance VMs deployed across various tiers**: Each VM in a tier is configured as a single-instance VM and is connected by load balancers to the other tiers. This configuration is the simplest to adopt.
 
-     ![Single-instance VM deployment across tiers](media/move-vm-overview/regular-deployment.png)
+     ![Selection to move single-instance VM deployment across tiers](media/move-vm-overview/regular-deployment.png)
 
 * **VMs in each tier deployed across availability sets**: Each VM in a tier is configured in an availability set. [Availability sets](../virtual-machines/windows/tutorial-availability-sets.md) ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. This ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are affected, and your overall solution remains available and operational.
 
@@ -59,16 +71,8 @@ This section describes the most common deployment architectures for a multi-tier
 Based on the [architectures](#typical-architectures-for-a-multi-tier-deployment) mentioned earlier, here's what the deployments will look like after you perform the move as is to the target region.
 
 * **Single-instance VMs deployed across various tiers**
-
-     ![Single-instance VM deployment across tiers](media/move-vm-overview/single-zone.png)
-
 * **VMs in each tier deployed across availability sets**
-
-     ![Cross region availability sets](media/move-vm-overview/crossregionaset.png)
-
 * **VMs in each tier deployed across Availability Zones**
-
-     ![VM deployment across Availability Zones](media/move-vm-overview/azonecross.png)
 
 ## Move VMs to increase availability
 

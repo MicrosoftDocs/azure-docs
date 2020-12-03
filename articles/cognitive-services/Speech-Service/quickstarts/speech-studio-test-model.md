@@ -1,24 +1,24 @@
 ---
-title: "Quickstart: Test a model using audio files - Speech Studio"
+title: "Test a model using audio files - Speech Studio"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll use Speech Studio to test recognition of speech in an audio file.
+description: In this how-to, you use Speech Studio to test recognition of speech in an audio file.
 services: cognitive-services
 author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 09/04/2020
 ms.author: v-demjoh
 ---
 
-# Quickstart: Test a model using an audio file in Speech Studio
+# Test a model using an audio file in Speech Studio
 
-In this quickstart, you use Speech Studio to convert speech from an audio file to text. Speech Studio lets you test, compare, improve, and deploy speech recognition models using related text, audio with human-labeled transcripts, and pronunciation guidance you provide.
+In this how-to, you use Speech Studio to convert speech from an audio file to text. Speech Studio lets you test, compare, improve, and deploy speech recognition models using related text, audio with human-labeled transcripts, and pronunciation guidance you provide.
 
 ## Prerequisites
 
-Before you use Speech Portal, [follow these instructions to create an Azure account and subscribe to the Speech service](../how-to-custom-speech.md#set-up-your-azure-account). This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the Custom Speech portal.
+Before you use Speech Portal, [follow these instructions to create an Azure account and subscribe to the Speech service](../custom-speech-overview.md#set-up-your-azure-account). This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the Custom Speech portal.
 
 ## Download an audio file
 

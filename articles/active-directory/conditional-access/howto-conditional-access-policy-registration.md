@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Securing security info registration
 
-Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want to use conditions like trusted network location to restrict access to register for Azure Multi-Factor Authentication and self-service password reset (SSPR). For more information about usable conditions, see the article [Conditional Access: Conditions](concept-conditional-access-conditions.md).
+Securing when and how users register for Azure AD Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want to use conditions like trusted network location to restrict access to register for Azure AD Multi-Factor Authentication and self-service password reset (SSPR). For more information about usable conditions, see the article [Conditional Access: Conditions](concept-conditional-access-conditions.md).
 
 ## Create a policy to require registration from a trusted location
 
@@ -64,6 +64,6 @@ Some may choose to use device state instead of location in step 6 above:
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
 
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
+[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

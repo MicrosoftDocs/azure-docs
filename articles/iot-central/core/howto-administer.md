@@ -34,13 +34,13 @@ If your administrator creates a custom theme for your application, this page inc
 Use the **Delete** button to permanently delete your IoT Central application. This action permanently deletes all data that's associated with the application.
 
 > [!Note]
-> To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+> To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
 ## Manage programmatically
 
 IoT Central Azure Resource Manager SDK packages are available for Node, Python, C#, Ruby, Java, and Go. You can use these packages to create, list, update, or delete IoT Central applications. The packages include helpers to manage authentication and error handling.
 
-You can find examples of how to use the Azure Resource Manager SDKs at [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples).
+You can find examples of how to use the Azure Resource Manager SDKs at [https://github.com/Azure-Samples/azure-iot-central-arm-sdk-samples](https://github.com/Azure-Samples/azure-iot-central-arm-sdk-samples).
 
 To learn more, see the following GitHub repositories and packages:
 

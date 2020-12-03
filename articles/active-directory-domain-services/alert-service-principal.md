@@ -2,7 +2,7 @@
 title: Resolve service principal alerts in Azure AD Domain Services | Microsoft Docs
 description: Learn how to troubleshoot service principal configuration alerts for Azure Active Directory Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/20/2019
-ms.author: iainfou
+ms.date: 07/09/2020
+ms.author: joflore
 
 ---
 # Known issues: Service principal alerts in Azure Active Directory Domain Services
@@ -30,11 +30,11 @@ If a required service principal is deleted, the Azure platform can't perform aut
 
 ### Check for missing service principals
 
-To check which service principal is missing and needs to be recreated, complete the following steps:
+To check which service principal is missing and must be recreated, complete the following steps:
 
 1. In the Azure portal, select **Azure Active Directory** from the left-hand navigation menu.
 1. Select **Enterprise applications**. Choose *All applications* from the **Application Type** drop-down menu, then select **Apply**.
-1. Search for each of the application IDs. If no existing application is found, follow the *Resolution* steps to create the service principal or re-register the namespace.
+1. Search for each of the following application IDs. If no existing application is found, follow the *Resolution* steps to create the service principal or re-register the namespace.
 
     | Application ID | Resolution |
     | :--- | :--- |
@@ -45,9 +45,9 @@ To check which service principal is missing and needs to be recreated, complete 
 
 ### Recreate a missing Service Principal
 
-If application ID *2565bd9d-da50-47d4-8b85-4c97f669dc36* is missing from your Azure AD directory, use Azure AD PowerShell to complete the following steps. For more information, see [install Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
+If application ID *2565bd9d-da50-47d4-8b85-4c97f669dc36* is missing from your Azure AD directory, use Azure AD PowerShell to complete the following steps. For more information, see [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Install the Azure AD PowerShell module and import it as follows:
+1. If needed, install the Azure AD PowerShell module and import it as follows:
 
     ```powershell
     Install-Module AzureAD
@@ -77,7 +77,7 @@ The managed domain's health automatically updates itself within two hours and re
 
 ### Alert message
 
-*The service principal with the application ID “d87dcbc6-a371-462e-88e3-28ad15ec4e64” was deleted and then recreated. The recreation leaves behind inconsistent permissions on Azure AD Domain Services resources needed to service your managed domain. Synchronization of passwords on your managed domain could be affected.*
+*The service principal with the application ID "d87dcbc6-a371-462e-88e3-28ad15ec4e64" was deleted and then recreated. The recreation leaves behind inconsistent permissions on Azure AD Domain Services resources needed to service your managed domain. Synchronization of passwords on your managed domain could be affected.*
 
 Azure AD DS automatically synchronizes user accounts and credentials from Azure AD. If there's a problem with the Azure AD application used for this process, credential synchronization between Azure AD DS and Azure AD fails.
 
@@ -85,7 +85,7 @@ Azure AD DS automatically synchronizes user accounts and credentials from Azure 
 
 To recreate the Azure AD application used for credential synchronization, use Azure AD PowerShell to complete the following steps. For more information, see [install Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Install the Azure AD PowerShell module and import it as follows:
+1. If needed, install the Azure AD PowerShell module and import it as follows:
 
     ```powershell
     Install-Module AzureAD

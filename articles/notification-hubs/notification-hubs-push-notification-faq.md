@@ -134,7 +134,7 @@ Registrations from the app backend are useful when you have to authenticate clie
 
 ### What is the push notification delivery security model?
 
-Azure Notification Hubs uses a [shared access signature](../storage/common/storage-dotnet-shared-access-signature-part-1.md)-based security model. You can use the shared access signature tokens at the root namespace level or at the granular notification hub level. Shared access signature tokens can be set to follow different authorization rules, for example, to send message permissions or to listen for notification permissions. For more information, see the [Notification Hubs security model] document.
+Azure Notification Hubs uses a [shared access signature](../storage/common/storage-sas-overview.md)-based security model. You can use the shared access signature tokens at the root namespace level or at the granular notification hub level. Shared access signature tokens can be set to follow different authorization rules, for example, to send message permissions or to listen for notification permissions. For more information, see the [Notification Hubs security model] document.
 
 ### How should I handle sensitive payload in push notifications?
 
@@ -155,15 +155,12 @@ We provide metadata disaster recovery coverage on our end (the Notification Hubs
 
 1. Create a secondary notifications hub in a different data center. We recommend creating one from the beginning to shield you from a disaster recovery event that might affect your management capabilities. You can also create one at the time of the disaster recovery event.
 
-2. Populate the secondary notification hub with the registrations from your primary notification hub. We don't recommend trying to maintain registrations on both hubs and keep them in sync as registrations come in. This practice doesn’t work well because of the inherent tendency of registrations to expire on the PNS side. Notification Hubs cleans them up as it receives PNS feedback about expired or invalid registrations.  
+2. Keep the secondary notification hub in sync with the primary notification hub using one of the following options:
 
-We have two recommendations for app backends:
+   * Use an app backend that simultaneously creates and updates installations in both notification hubs. Installations allow you to specify your own unique device identifier, making it more suitable for the replication scenario. For more information, see this [sample code](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample).
+   * Use an app backend that gets a regular dump of registrations from the primary notification hub as a backup. It can then perform a bulk insert into the secondary notification hub.
 
-* Use an app backend that maintains a given set of registrations at its end. It can then perform a bulk insert into the secondary notification hub.
-* Use an app backend that gets a regular dump of registrations from the primary notification hub as a backup. It can then perform a bulk insert into the secondary notification hub.
-
-> [!NOTE]
-> Registrations Export/Import functionality available in the Standard tier is described in the [Registrations Export/Import] document.
+The secondary notification hub may end up with expired installations/registrations. When the push is made to an expired handle, Notification Hubs automatically cleans the associated installation/registration record based on the response received from the PNS server. To clean expired records from a secondary notification hub, add custom logic that processes feedback from each send. Then, expire installation/registration in the secondary notification hub.
 
 If you don’t have a backend, when the app starts on target devices, they perform a new registration in the secondary notification hub. Eventually the secondary notification hub will have all the active devices registered.
 
@@ -199,15 +196,15 @@ You can also programmatically access metrics. For more information, see the foll
 [Azure portal]: https://portal.azure.com
 [Notification Hubs Pricing]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Notification Hubs REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
+[Notification Hubs REST APIs]: /previous-versions/azure/reference/dn530746(v=azure.100)
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
-[Backend Registration guidance]: https://msdn.microsoft.com/library/azure/dn743807.aspx
-[Backend Registration guidance 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[Notification Hubs security model]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Notification Hubs Secure Push tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Notification Hubs troubleshooting]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Backend Registration guidance]: /previous-versions/azure/azure-services/dn743807(v=azure.100)
+[Backend Registration guidance 2]: /previous-versions/azure/azure-services/dn530747(v=azure.100)
+[Notification Hubs security model]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
+[Notification Hubs Secure Push tutorial]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
+[Notification Hubs troubleshooting]: ./notification-hubs-push-notification-fixer.md
 [Notification Hubs Metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Registrations Export/Import]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
+[Registrations Export/Import]: ./export-modify-registrations-bulk.md
 [Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

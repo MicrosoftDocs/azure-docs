@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 09/16/2020
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with Web Application Firewall so I can protect my applications.
 ---
@@ -27,6 +27,8 @@ In this tutorial, you learn how to:
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 <!---If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) or [Azure CLI](tutorial-restrict-web-traffic-cli.md).--->
+
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -165,7 +167,7 @@ To do this, you'll:
 
 In this example, you install IIS on the virtual machines only to verify Azure created the application gateway successfully.
 
-1. Open [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). To do so, select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
+1. Open [Azure PowerShell](../../cloud-shell/quickstart-powershell.md). To do so, select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
 
     ![Install custom extension](../media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 

@@ -3,19 +3,21 @@ title: Quotas and limits in Azure Media Services
 description: This topic describes quotas and limits in Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/01/2020
-ms.author: juliako
+ms.date: 10/23/2020
+ms.author: inhenkel
 ---
 
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # Azure Media Services quotas and limits
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article lists some of the most common Microsoft Azure Media Services limits, which are also sometimes called quotas.
 
@@ -24,14 +26,14 @@ This article lists some of the most common Microsoft Azure Media Services limits
 
 ## Account limits
 
-| Resource | Default Limit | 
-| --- | --- | 
-| [Media Services accounts](media-services-account-concept.md) in a single subscription | 25 (fixed) |
+| Resource | Default Limit |
+| --- | --- |
+| [Media Services accounts](media-services-account-concept.md) in a single subscription | 100 (fixed) |
 
 ## Asset limits
 
-| Resource | Default Limit | 
-| --- | --- | 
+| Resource | Default Limit |
+| --- | --- |
 | [Assets](assets-concept.md) per Media Services account | 1,000,000|
 
 ## Storage limits
@@ -82,22 +84,23 @@ Any Job record in your account older than 90 days will be automatically deleted,
 
 ## Packaging & delivery limits
 
-| Resource | Default Limit | 
-| --- | --- | 
-| [Streaming Endpoints](streaming-endpoint-concept.md) (stopped or running) per Media Services account|2 |
+| Resource | Default Limit |
+| --- | --- |
+| [Streaming Endpoints](streaming-endpoint-concept.md) (stopped or running) per Media Services account | 2 |
+| Premium streaming units | 10 |
 | [Dynamic Manifest Filters](filters-dynamic-manifest-overview.md)|100|
 | [Streaming Policies](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | Unique [Streaming Locators](streaming-locators-concept.md) associated with an Asset at one time | 100<sup>(7)</sup> (fixed) |
 
-<sup>6</sup> When using a custom [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. You should not be creating a new Streaming Policy for each Streaming Locator.
+<sup>6</sup> When using a custom [Streaming Policy](/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. You should not be creating a new Streaming Policy for each Streaming Locator.
 
 <sup>7</sup> Streaming Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions.
 
 ## Protection limits
 
-| Resource | Default Limit | 
-| --- | --- | 
-| Options per [Content Key Policy](content-key-policy-concept.md) |30 | 
+| Resource | Default Limit |
+| --- | --- |
+| Options per [Content Key Policy](content-key-policy-concept.md) |30 |
 | Licenses per month for each of the DRM types on Media Services key delivery service per account|1,000,000|
 
 ## Support ticket

@@ -1,5 +1,7 @@
 ---
 title: V3 API query string parameters
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/30/2020
 ---

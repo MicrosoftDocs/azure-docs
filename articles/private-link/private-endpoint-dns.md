@@ -19,19 +19,24 @@ You can use the following options to configure your DNS settings for private end
 - **Use the host file (only recommended for testing)**. You can use the host file on a virtual machine to override the DNS.  
 - **Use a private DNS zone**. You can use [private DNS zones](../dns/private-dns-privatednszone.md) to override the DNS resolution for a particular private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains.
 - **Use your DNS forwarder (optional)**. You can use your DNS forwarder to override the DNS resolution for a particular private link resource. If your [DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
- 
+
 > [!IMPORTANT]
-> We don't recommend that you override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below. 
+> Is not recommended to override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below. 
+
+
 
 ## Azure services DNS zone configuration
 Azure services will create a canonical name DNS record (CNAME) on the public DNS service to redirect the resolution to the suggested private domain name. You can override the resolution with the private IP address of your private endpoints. 
  
 Your applications don't need to change the connection URL. When trying to resolve using a public DNS service, the DNS server will now resolve to your private endpoints. The process does not affect your existing applications. 
 
+> [!IMPORTANT]
+> Private networks already using the private DNS zone for a given type, can only connect to public resources if they don't have any private endpoint connections, otherwise a corresponding DNS configuration is required on the private DNS zone in order to complete the DNS resolution sequence. 
+
 For Azure services, use the recommended zone names as described in the following table:
 
 | Private link resource type / Subresource |Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
+|---|---|---|
 | Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
 | Azure SQL Database (Microsoft.Sql/servers) / SQL Server | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft.Sql/servers) / SQL Server  | privatelink.database.windows.net | database.windows.net |
@@ -65,8 +70,11 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / workspace | privatelink.api.azureml.ms | api.azureml.ms |
 | IoT Hub (Microsoft.Devices/IotHubs) / IotHub | privatelink.azure-devices.net | azure-devices.net |
 | SignalR (Microsoft.SignalRService/SignalR ) / signalR | privatelink.service.signalr.net | service.signalr.net |
-| Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com | monitor.azure.com |
+| Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
+| Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.afs.azure.net  |  afs.azure.net  |
+| Azure Data Factory (Microsoft.DataFactory/factories ) / dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
+| Azure Data Factory (Microsoft.DataFactory/factories ) / portal |  privatelink.azure.com  |  azure.com  |
 
  
 ## DNS configuration scenarios
@@ -81,6 +89,8 @@ Based on your preferences, the following scenarios are available with DNS resolu
 - [On-premises workloads using a DNS forwarder](#on-premises-workloads-using-a-dns-forwarder)
 - [Virtual network and on-premises workloads using a DNS forwarder](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder)
 
+> [!NOTE]
+> [Azure Firewall DNS proxy](../firewall/dns-settings.md#dns-proxy) can be used as DNS forwarder for [On-premises workloads](#on-premises-workloads-using-a-dns-forwarder) and [Virtual network workloads using a DNS forwarder](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
 
 ## Virtual network workloads without custom DNS server
 
@@ -107,9 +117,9 @@ This model can be extended to multiple peered virtual networks that are associat
 > A single private DNS zone is required for this configuration. Creating multiple zones with the same name for different virtual networks would need manual operations to merge the DNS records.
 
 > [!IMPORTANT]
-> if you're using using a private endpoint in a hub-and-spoke model from a different subscription, reuse the same private DNS zone on the hub.
+> if you're using a private endpoint in a hub-and-spoke model from a different subscription, reuse the same private DNS zone on the hub.
 
-In this scenario, there's a [hub and spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) networking topology with the spoke networks sharing a common private endpoint, and all the spoke virtual networks are linked to the same private DNS zone. 
+In this scenario, there's a [hub and spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) networking topology with the spoke networks sharing a common private endpoint, and all the spoke virtual networks are linked to the same private DNS zone. 
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hub and spoke with Azure-provided DNS":::
 
@@ -125,7 +135,7 @@ The following scenario is appropriate for an on-premises network that has
 To configure properly, you need the following resources:
 
 - On-premises network
-- Virtual network [connected to on-premises](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Virtual network [connected to on-premises](/azure/architecture/reference-architectures/hybrid-networking/)
 - DNS forwarder deployed in Azure 
 - Private DNS zones [privatelink.database.windows.net](../dns/private-dns-privatednszone.md) with [type A record](../dns/dns-zones-records.md#record-types)
 - Private endpoint information (FQDN record name and private IP address)
@@ -143,7 +153,7 @@ The on-premises DNS solution needs to be configured to forward DNS traf
 To configure properly, you need the following resources:
 
 - On-premises network with a custom DNS solution in place 
-- Virtual network [connected to on-premises](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Virtual network [connected to on-premises](/azure/architecture/reference-architectures/hybrid-networking/)
 - DNS forwarder deployed in Azure
 - Private DNS zones [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)  with [type A record](../dns/dns-zones-records.md#record-types)
 - Private endpoint information (FQDN record name and private IP address)
@@ -172,7 +182,7 @@ This DNS forwarder is responsible for resolving all the DNS queries via a server
 To configure properly, you need the following resources:
 
 - On-premises network
-- Virtual network [connected to on-premises](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Virtual network [connected to on-premises](/azure/architecture/reference-architectures/hybrid-networking/)
 - [Peered virtual network](../virtual-network/virtual-network-peering-overview.md) 
 - DNS forwarder deployed in Azure
 - Private DNS zones [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)  with [type A record](../dns/dns-zones-records.md#record-types)

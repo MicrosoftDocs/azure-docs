@@ -1,12 +1,13 @@
 ---
 title: Planning for an Azure File Sync deployment | Microsoft Docs
-description: Learn what to consider when planning for an Azure Files deployment.
+description: Plan for a deployment with Azure File Sync, a service that allows you to cache a number of Azure file shares on an on-premises Windows Server or cloud VM.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
+ms.custom: references_regions
 ---
 
 # Planning for an Azure File Sync deployment
@@ -109,7 +110,7 @@ In the following table, we have provided both the size of the namespace as well 
 ### Evaluation cmdlet
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation cmdlet. This cmdlet checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported operating system version. Its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
 
-The evaluation cmdlet can be installed by installing the Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+The evaluation cmdlet can be installed by installing the Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 #### Usage  
 You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 
@@ -130,9 +131,8 @@ Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name> -SkipNamesp
  
 To display the results in CSV:
 ```powershell
-$errors = Invoke-AzStorageSyncCompatibilityCheck […]
-$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path
-    C:\results.csv -Encoding utf8
+$validation = Invoke-AzStorageSyncCompatibilityCheck C:\DATA
+$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path C:\results.csv -Encoding utf8
 ```
 
 ### File system compatibility
@@ -195,7 +195,7 @@ Azure File Sync does not support Data Deduplication and cloud tiering on the sam
 - If Data Deduplication is enabled on a volume after cloud tiering is enabled, the initial Deduplication optimization job will optimize files on the volume that are not already tiered and will have the following impact on cloud tiering:
     - Free space policy will continue to tier files as per the free space on the volume by using the heatmap.
     - Date policy will skip tiering of files that may have been otherwise eligible for tiering due to the Deduplication optimization job accessing the files.
-- For ongoing Deduplication optimization jobs, cloud tiering with date policy will get delayed by the Data Deduplication [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) setting, if the file is not already tiered. 
+- For ongoing Deduplication optimization jobs, cloud tiering with date policy will get delayed by the Data Deduplication [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps) setting, if the file is not already tiered. 
     - Example: If the MinimumFileAgeDays setting is seven days and cloud tiering date policy is 30 days, the date policy will tier files after 37 days.
     - Note: Once a file is tiered by Azure File Sync, the Deduplication optimization job will skip the file.
 - If a server running Windows Server 2012 R2 with the Azure File Sync agent installed is upgraded to Windows Server 2016 or Windows Server 2019, the following steps must be performed to support Data Deduplication and cloud tiering on the same volume:  
@@ -208,7 +208,7 @@ Azure File Sync does not support Data Deduplication and cloud tiering on the sam
 ### Distributed File System (DFS)
 Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R).
 
-**DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the server endpoints and the cloud endpoint. For more information, see [DFS Namespaces overview](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the server endpoints and the cloud endpoint. For more information, see [DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview).
  
 **DFS Replication (DFS-R)**: Since DFS-R and Azure File Sync are both replication solutions, in most cases, we recommend replacing DFS-R with Azure File Sync. There are however several scenarios where you would want to use DFS-R and Azure File Sync together:
 
@@ -221,7 +221,7 @@ For Azure File Sync and DFS-R to work side by side:
 1. Azure File Sync cloud tiering must be disabled on volumes with DFS-R replicated folders.
 2. Server endpoints should not be configured on DFS-R read-only replication folders.
 
-For more information, see [DFS Replication overview](https://technet.microsoft.com/library/jj127250).
+For more information, see [DFS Replication overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)).
 
 ### Sysprep
 Using sysprep on a server that has the Azure File Sync agent installed is not supported and can lead to unexpected results. Agent installation and server registration should occur after deploying the server image and completing sysprep mini-setup.
@@ -258,7 +258,7 @@ When using Azure File Sync, there are three different layers of encryption to co
 ### Windows Server encryption at rest 
 There are two strategies for encrypting data on Windows Server that work generally with Azure File Sync: encryption beneath the file system such that the file system and all of the data written to it is encrypted, and encryption within the file format itself. These methods are not mutually exclusive; they can be used together if desired since the purpose of encryption is different.
 
-To provide encryption beneath the file system, Windows Server provides BitLocker inbox. BitLocker is fully transparent to Azure File Sync. The primary reason to use an encryption mechanism like BitLocker is to prevent physical exfiltration of data from your on-premises datacenter by someone stealing the disks and to prevent sideloading an unauthorized OS to perform unauthorized reads/writes to your data. To learn more about BitLocker, see [BitLocker overview](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview).
+To provide encryption beneath the file system, Windows Server provides BitLocker inbox. BitLocker is fully transparent to Azure File Sync. The primary reason to use an encryption mechanism like BitLocker is to prevent physical exfiltration of data from your on-premises datacenter by someone stealing the disks and to prevent sideloading an unauthorized OS to perform unauthorized reads/writes to your data. To learn more about BitLocker, see [BitLocker overview](/windows/security/information-protection/bitlocker/bitlocker-overview).
 
 Third-party products that work similarly to BitLocker, in that they sit beneath the NTFS volume, should similarly work fully transparently with Azure File Sync. 
 
@@ -355,7 +355,7 @@ It is also possible to use Data Box to migrate data into an Azure File Sync depl
 A common mistake customers make when migrating data into their new Azure File Sync deployment is to copy data directly into the Azure file share, rather than on their Windows file servers. Although Azure File Sync will identify all of the new files on the Azure file share, and sync them back to your Windows file shares, this is generally considerably slower than loading data through the Windows file server. When using Azure copy tools, such as AzCopy, it is important to use the latest version. Check the [file copy tools table](storage-files-migration-overview.md#file-copy-tools) to get an overview of Azure copy tools to ensure you can copy all of the important metadata of a file such as timestamps and ACLs.
 
 ## Antivirus
-Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. In versions 4.0 and above of the Azure File Sync agent, tiered files have the secure Windows attribute FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS set. We recommend consulting with your software vendor to learn how to configure their solution to skip reading files with this attribute set (many do it automatically). 
+Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files, resulting in high egress charges. In versions 4.0 and above of the Azure File Sync agent, tiered files have the secure Windows attribute FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS set. We recommend consulting with your software vendor to learn how to configure their solution to skip reading files with this attribute set (many do it automatically). 
 
 Microsoft's in-house antivirus solutions, Windows Defender and System Center Endpoint Protection (SCEP), both automatically skip reading files that have this attribute set. We have tested them and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files will remain on the new server and will not be tiered since they do not meet the tiering size requirement (>64kb).
 
@@ -363,15 +363,15 @@ Microsoft's in-house antivirus solutions, Windows Defender and System Center End
 > Antivirus vendors can check compatibility between their product and Azure File Sync using the [Azure File Sync Antivirus Compatibility Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), which is available for download on the Microsoft Download Center.
 
 ## Backup 
-Like antivirus solutions, backup solutions might cause the recall of tiered files. We recommend using a cloud backup solution to back up the Azure file share instead of an on-premises backup product.
+If cloud tiering is enabled, solutions that directly back up the server endpoint or a VM on which the server endpoint is located should not be used. Cloud tiering causes only a subset of your data to be stored on the server endpoint, with the full dataset residing in your Azure file share. Depending on the backup solution used, tiered files will either be skipped and not backed up (because they have the FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attribute set), or they will be recalled to disk, resulting in high egress charges. We recommend using a cloud backup solution to back up the Azure file share directly. For more information, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) or contact your backup provider to see if they support backing up Azure file shares.
 
-If you are using an on-premises backup solution, backups should be performed on a server in the sync group that has cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.  Volume-level restores will not replace newer file versions in the Azure file share or other server endpoints.
+If you prefer to use an on-premises backup solution, backups should be performed on a server in the sync group that has cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.  Volume-level restores will not replace newer file versions in the Azure file share or other server endpoints.
 
 > [!Note]  
 > Bare-metal (BMR) restore can cause unexpected results and is not currently supported.
 
 > [!Note]  
-> With Version 9 of the Azure File Sync agent, VSS snapshots (including Previous Versions tab) are now supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](storage-files-deployment-guide.md).
+> With Version 9 of the Azure File Sync agent, VSS snapshots (including Previous Versions tab) are now supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
 ## Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

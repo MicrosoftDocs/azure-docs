@@ -1,15 +1,20 @@
 ---
 title: Move VMs to an Azure region with availability zones using Azure Site Recovery 
+description: Learn how to move VMs to an availability zone in a different region with Site Recovery
 services: site-recovery
-author: rajani-janaki-ram
+author: sideeksh
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.author: rajanaki
+ms.author: sideeksh
 ms.custom: MVC
 ---
 
 # Move Azure VMs into Availability Zones
+
+This articles describes how to move Azure VMs to an availability zone in a different region. If you want to move to a different zone in the same region, [review this article](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+
+
 Availability Zones in Azure help protect your applications and data from datacenter failures. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region helps protect applications and data from datacenter failures. With Availability Zones, Azure offers a service-level agreement (SLA) of 99.99% for uptime of virtual machines (VMs). Availability Zones are supported in select regions, as mentioned in [Regions that support Availability Zones](../availability-zones/az-region.md).
 
 In a scenario where your VMs are deployed as *single instance* into a specific region, and you want to improve your availability by moving these VMs into an Availability Zone, you can do so by using Azure Site Recovery. This action can further be categorized into:
@@ -18,7 +23,15 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
 - Move VMs in an availability set into Availability Zones in a target region
 
 > [!IMPORTANT]
-> Currently, Azure Site Recovery supports moving VMs from one region to another. It only supports moving across zones within a region in a few regions. [Learn more](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+> To move Azure VMs to an availability zone in a different region, we now recommend using [Azure Resource Mover](../resource-mover/move-region-availability-zone.md). Resource Mover is in public preview and provides:
+> - A single hub for moving resources across regions.
+> - Reduced move time and complexity. Everything you need is in a single location.
+> - A simple and consistent experience for moving different types of Azure resources.
+> - An easy way to identify dependencies across resources you want to move. This helps you to move related resources together, so that everything works as expected in the target region, after the move.
+> - Automatic cleanup of resources in the source region, if you want to delete them after the move.
+> - Testing. You can try out a move, and then discard it if you don't want to do a full move.
+
+
 
 ## Check prerequisites
 
@@ -44,7 +57,7 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
 4. For Linux VMs, follow the guidance provided by your Linux distributor to get the latest trusted root certificates and certificate revocation list on the VM.
 5. Make sure you don't use an authentication proxy to control network connectivity for VMs that you want to move.
 
-6. If the VM you're trying to move doesn't have access to the internet and uses a firewall proxy to control outbound access, check the requirements at [Configure outbound network connectivity](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+6. Verify [outbound connectivity requirements for VMs](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 7. Identify the source networking layout and the resources you currently use for verification, including load balancers, NSGs, and public IP.
 
@@ -81,16 +94,12 @@ The following steps will guide you when using Azure Site Recovery to enable repl
 1. In the Azure portal, select **Virtual machines**, and select the VM you want to move into Availability Zones.
 2. In **Operations**, select **Disaster recovery**.
 3. In **Configure disaster recovery** > **Target region**, select the target region to which you'll replicate. Ensure this region [supports](../availability-zones/az-region.md) Availability Zones.
-
-    ![Selection of target region](media/azure-vms-to-zones/enable-rep-1.PNG)
-
 4. Select **Next: Advanced settings**.
 5. Choose the appropriate values for the target subscription, target VM resource group, and virtual network.
 6. In the **Availability** section, choose the Availability Zone into which you want to move the VM. 
    > [!NOTE]
    > If you don’t see the option for availability set or Availabilty Zone, ensure that the [prerequisites](#prepare-the-source-vms) are met and the [preparation](#prepare-the-source-vms) of source VMs is complete.
   
-    ![Selections for choosing an Availability Zone](media/azure-vms-to-zones/enable-rep-2.PNG)
 
 7. Select **Enable Replication**. This action starts a job to enable replication for the VM.
 
@@ -101,7 +110,6 @@ After the replication job has finished, you can check the replication status, mo
 1. In the VM menu, select **Disaster recovery**.
 2. You can check replication health, the recovery points that have been created and the source, and target regions on the map.
 
-   ![Replication status](media/azure-to-azure-quickstart/replication-status.png)
 
 ## Test the configuration
 

@@ -18,7 +18,7 @@ This article describes how to create an Azure VM assessment for on-premises VMwa
 
 ## Before you start
 
-- Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
+- Make sure you've [created](./create-manage-projects.md) an Azure Migrate project.
 - If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool.
 - To create an assessment, you need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. [Learn more](migrate-appliance.md).
 
@@ -40,7 +40,7 @@ Run an assessment as follows:
 1. Review the [best practices](best-practices-assessment.md) for creating assessments.
 2. In the **Servers** tab, in **Azure Migrate: Server Assessment** tile, click **Assess**.
 
-    ![Assess](./media/how-to-create-assessment/assess.png)
+    ![Screenshot shows Azure Migrate Servers with Assess selected under Assessment tools.](./media/how-to-create-assessment/assess.png)
 
 3. In **Assess servers**, select the assessment type as "Azure VM", select the discovery source and specify the assessment name.
 

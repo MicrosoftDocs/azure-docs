@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 
 ---
@@ -30,7 +30,7 @@ You must create a point-to-site configuration and edit the virtual hub assignmen
 
 To remove the profile, run the following command:
 
-![Cleanup](./media/howto-always-on-device-tunnel/cleanup.png)
+![Screenshot shows a PowerShell window that runs the command Remove-VpnConnection -Name MachineCertTest.](./media/howto-always-on-device-tunnel/cleanup.png)
 
 ## Next steps
 

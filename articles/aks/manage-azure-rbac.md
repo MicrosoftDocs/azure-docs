@@ -1,10 +1,10 @@
 ---
-title: Manage RBAC in Kubernetes From Azure
+title: Manage Azure RBAC in Kubernetes From Azure
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure RBAC for Kubernetes Authorization with Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
 
@@ -14,45 +14,36 @@ author: palma21
 # Use Azure RBAC for Kubernetes Authorization (preview)
 
 Today you can already leverage [integrated authentication between Azure Active Directory (Azure AD) and AKS](managed-aad.md). When enabled, this integration allows customers to use Azure AD users, groups, or service principals as subjects in Kubernetes RBAC, see more [here](azure-ad-rbac.md).
-This feature frees you from having to separately manage user identities and credentials for Kubernetes. However, you still have to set up and manage Azure RBAC and Kubernetes RBAC separately. For more details on authentication, authorization and RBAC on AKS see [here](concepts-identity.md).
+This feature frees you from having to separately manage user identities and credentials for Kubernetes. However, you still have to set up and manage Azure RBAC and Kubernetes RBAC separately. For more details on authentication and authorization with RBAC on AKS, see [here](concepts-identity.md).
 
 This document covers a new approach that allows for the unified management and access control across Azure Resources, AKS, and Kubernetes resources.
 
 ## Before you begin
 
-The ability to manage RBAC for Kubernetes resources from Azure gives you the choice to manage RBAC for the cluster resources either using Azure or native Kubernetes mechanisms. When enabled, Azure AD principals will be validated exclusively by Azure RBAC while regular Kubernetes users and service accounts are exclusively validated by Kubernetes RBAC. For more details on authentication, authorization and RBAC on AKS see [here](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
+The ability to manage RBAC for Kubernetes resources from Azure gives you the choice to manage RBAC for the cluster resources either using Azure or native Kubernetes mechanisms. When enabled, Azure AD principals will be validated exclusively by Azure RBAC while regular Kubernetes users and service accounts are exclusively validated by Kubernetes RBAC. For more details on authentication and authorization with RBAC on AKS, see [here](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
-> [!IMPORTANT]
-> AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
->
-> - [AKS Support Policies](support-policies.md)
-> - [Azure Support FAQ](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### Prerequisites 
-- Sign up for the preview <https://aka.ms/aad-rbac-sign-up-form>.
+- Ensure you have the Azure CLI version 2.9.0 or later
 - Ensure you have the `EnableAzureRBACPreview` feature flag enabled.
-- Ensure you have the `AAD-V2` feature flag enabled.
-- Ensure you have the `aks-preview` CLI extension v0.4.55 or higher installed
+- Ensure you have the `aks-preview` [CLI extension][az-extension-add] v0.4.55 or higher installed
 - Ensure you have installed [kubectl v1.18.3+][az-aks-install-cli].
 
-#### Register `EnableAzureRBACPreview` and `AAD-V2` preview features
+#### Register `EnableAzureRBACPreview` preview feature
 
-To create an AKS cluster that uses Azure RBAC for Kubernetes Authorization, you must enable the `EnableAzureRBACPreview` and `AAD-V2` feature flags on your subscription.
+To create an AKS cluster that uses Azure RBAC for Kubernetes Authorization, you must enable the `EnableAzureRBACPreview` feature flag on your subscription.
 
 Register the `EnableAzureRBACPreview` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
-
-az feature register --namespace "Microsoft.ContainerService"  --name "AAD-V2"
 ```
 
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
+ You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
-
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
@@ -63,7 +54,7 @@ az provider register --namespace Microsoft.ContainerService
 
 #### Install aks-preview CLI extension
 
-To create an AKS cluster that uses Azure RBAC, you need the *aks-preview* CLI extension version 0.4.55 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
+To create an AKS cluster that uses Azure RBAC, you need the *aks-preview* CLI extension version 0.4.55 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, or install any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -78,9 +69,9 @@ az extension update --name aks-preview
 - Requires [Managed Azure AD integration](managed-aad.md).
 - You can't integrate Azure RBAC for Kubernetes authorization into existing clusters during preview, but you will be able to at General Availability (GA).
 - Use [kubectl v1.18.3+][az-aks-install-cli].
-- During preview, you can only add *Namespace level* permissions via the Azure CLI.
 - If you have CRDs and are making custom role definitions, the only way to cover CRDs today is to provide `Microsoft.ContainerService/managedClusters/*/read`. AKS is working on providing more granular permissions for CRDs. For the remaining objects you can use the specific API Groups, for example: `Microsoft.ContainerService/apps/deployments/read`.
 - New role assignments can take up to 5min to propagate and be updated by the authorization server.
+- Requires the Azure AD tenant configured for authentication to be the same as the tenant for the subscription that holds the AKS cluster. 
 
 ## Create a new cluster using Azure RBAC and managed Azure AD integration
 
@@ -212,7 +203,7 @@ az aks get-credentials -g MyResourceGroup -n MyManagedCluster
 ```
 
 > [!IMPORTANT]
-> You'll need the [Azure Kubernetes Service Cluster User](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) built-in role to perform the step above.
+> You'll need the [Azure Kubernetes Service Cluster User](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) built-in role to perform the step above.
 
 Now, you can use kubectl to, for example,  list the nodes in the cluster. The first time you run it you'll need to sign in, and subsequent commands will use the respective access token.
 
@@ -278,9 +269,9 @@ az group delete -n MyResourceGroup
 
 ## Next steps
 
-- Read more about AKS Authentication, Authorization, and RBAC [here](concepts-identity.md).
+- Read more about AKS Authentication, Authorization, Kubernetes RBAC, and Azure RBAC [here](concepts-identity.md).
 - Read more about Azure RBAC [here](../role-based-access-control/overview.md).
-- Read more about the all the actions you can use to granularly define custom Azure RBAC roles for Kubernetes authorization [here](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
+- Read more about the all the actions you can use to granularly define custom Azure roles for Kubernetes authorization [here](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
 
 
 <!-- LINKS - Internal -->
@@ -290,4 +281,4 @@ az group delete -n MyResourceGroup
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true

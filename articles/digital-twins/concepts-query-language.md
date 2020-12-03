@@ -2,12 +2,13 @@
 # Mandatory fields.
 title: Query language
 titleSuffix: Azure Digital Twins
-description: Understand the basics of the Azure Digital Twins Query Store language.
+description: Understand the basics of the Azure Digital Twins query language.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/26/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
+ms.custom: contperfq2
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,25 +18,71 @@ ms.service: digital-twins
 
 # About the query language for Azure Digital Twins
 
-Recall that the center of Azure Digital Twins is the [**twin graph**](concepts-twins-graph.md), constructed from **digital twins** and **relationships**. This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language called **Azure Digital Twins Query Store language**.
+Recall that the center of Azure Digital Twins is the [twin graph](concepts-twins-graph.md), constructed from digital twins and relationships. 
 
-To submit a query to the service from a client app, you will use the Azure Digital Twins **Query API**. This lets developers write queries and apply filters to find sets of digital twins in the twin graph, and other information about the Azure Digital Twins scenario.
+This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language, referred to as the **Azure Digital Twins query language**. This is similar to the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) with many comparable features.
 
-## Query language features
+This article describes the basics of the query language and its capabilities. For more detailed examples of query syntax and how to run query requests, see [*How-to: Query the twin graph*](how-to-query-graph.md).
 
-Azure Digital Twins provides extensive query capabilities against the twin graph. Queries are described using SQL-like syntax, in a query language similar to the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) with many comparable features.
+## About the queries
 
-Here are the operations available in Azure Digital Twins Query Store language:
-* Get twins by digital twins' properties.
-* Get twins by digital twins' interfaces.
-* Get twins by relationship properties.
-* Get twins over multiple relationship types (`JOIN` queries). There are limitations on the number of `JOIN`s allowed (one level for public preview).
-* Use custom function `IS_OF_MODEL(twinCollection, twinTypeName)`, which allows filtering based on the twin's [model](concepts-models.md). It supports inheritance.
-* Use scalar functions: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`.
-* Use query comparison operators: `IN`/`NIN`, `=`, `!=`, `<`, `>`, `<=`, `>=`.
-* Use any combination (`AND`, `OR`, `NOT` operator) of the above.
-* Use continuation: The query object is instantiated with a page size (up to 100). You can retrieve the digital twins one page at a time by providing the continuation token in subsequent calls to the API.
+You can use the Azure Digital Twins query language to retrieve digital twins according to their...
+* properties (including [tag properties](how-to-use-tags.md))
+* models
+* relationships
+  - properties of the relationships
+
+To submit a query to the service from a client app, you will use the Azure Digital Twins [**Query API**](/rest/api/digital-twins/dataplane/query). One way to use the API is through one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) for Azure Digital Twins.
+
+## Reference: Expressions and conditions
+
+This section describes the operators and functions that are available to write Azure Digital Twins queries. For example queries that illustrate use of these features, see [*How-to: Query the twin graph*](how-to-query-graph.md).
+
+> [!NOTE]
+> All Azure Digital Twins query operations are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
+
+### Operators
+
+The following operators are supported:
+
+| Family | Operators |
+| --- | --- |
+| Logical |`AND`, `OR`, `NOT` |
+| Comparison | `=`, `!=`, `<`, `>`, `<=`, `>=` |
+| Contains | `IN`, `NIN` |
+
+### Functions
+
+The following type checking and casting functions are supported:
+
+| Function | Description |
+| -------- | ----------- |
+| `IS_DEFINED` | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. `DateTime`, object types, and arrays are not supported. |
+| `IS_OF_MODEL` | Returns a Boolean value indicating if the specified twin matches the specified model type |
+| `IS_BOOL` | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
+| `IS_NUMBER` | Returns a Boolean value indicating if the type of the specified expression is a number. |
+| `IS_STRING` | Returns a Boolean value indicating if the type of the specified expression is a string. |
+| `IS_NULL` | Returns a Boolean value indicating if the type of the specified expression is null. |
+| `IS_PRIMITIVE` | Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or `null`). |
+| `IS_OBJECT` | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |
+
+The following string functions are supported:
+
+| Function | Description |
+| -------- | ----------- |
+| `STARTSWITH(x, y)` | Returns a Boolean indicating whether the first string expression starts with the second. |
+| `ENDSWITH(x, y)` | Returns a Boolean indicating whether the first string expression ends with the second. |
+
+## Query limitations
+
+This section describes limitations of the query language.
+
+* Timing: There may be a delay of up to 10 seconds before changes in your instance are reflected in queries. For example, if you complete an operation like creating or deleting twins with the DigitalTwins API, the result may not be immediately reflected in Query API requests. Waiting for a short period should be sufficient to resolve.
+* No subqueries are supported within the `FROM` statement.
+* `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
+* Graph traversal depth is restricted to five `JOIN` levels per query.
+* The source for `JOIN` operations is restricted: the query must declare the twins where the query begins.
 
 ## Next steps
 
-Learn how to write queries and see client code examples in [How-to: Query the twin graph](how-to-query-graph.md).
+Learn how to write queries and see client code examples in [*How-to: Query the twin graph*](how-to-query-graph.md).

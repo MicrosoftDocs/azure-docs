@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: [mvc, seo-java-august2019, seo-java-september2019, mqtt]
+ms.custom: [mvc, seo-java-august2019, seo-java-september2019, mqtt, devx-track-java, devx-track-azurecli]
 ms.date: 05/26/2020
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
@@ -23,35 +23,27 @@ In this quickstart, you send telemetry to Azure IoT Hub and read it with a Java 
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
+* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
+
+    You can verify the current version of Java on your development machine using the following command:
+
+    ```cmd/sh
+    java -version
+    ```
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
+
+    You can verify the current version of Maven on your development machine using the following command:
+
+    ```cmd/sh
+    mvn --version
+    ```
 
 * [A sample Java project](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip).
 
 * Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-You can verify the current version of Java on your development machine using the following command:
-
-```cmd/sh
-java -version
-```
-
-You can verify the current version of Maven on your development machine using the following command:
-
-```cmd/sh
-mvn --version
-```
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### Add Azure IoT Extension
-
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 

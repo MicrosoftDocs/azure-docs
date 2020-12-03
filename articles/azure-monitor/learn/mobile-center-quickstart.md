@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Start analyzing your mobile app with App Center and Application Insights
 
-This quickstart guides you through connecting your app's App Center instance to Application Insights. With Application Insights, you can query, segment, filter, and analyze your telemetry with more powerful tools than are available from the [Analytics](https://docs.microsoft.com/mobile-center/analytics/) service of App Center.
+This quickstart guides you through connecting your app's App Center instance to Application Insights. With Application Insights, you can query, segment, filter, and analyze your telemetry with more powerful tools than are available from the [Analytics](/mobile-center/analytics/) service of App Center.
 
 ## Prerequisites
 
@@ -29,27 +29,27 @@ To begin, create an account and [sign up with App Center](https://appcenter.ms/s
 
 ## Onboard to App Center
 
-Before you can use Application Insights with your mobile app, you need to onboard your app to [App Center](https://docs.microsoft.com/mobile-center/). Application Insights does not receive telemetry from your mobile app directly. Instead, your app sends custom event telemetry to App Center. Then, App Center continuously exports copies of these custom events into Application Insights as the events are received. (This does not apply to the [Application Insights JS SDK](https://github.com/Microsoft/ApplicationInsights-JS) or the [React Native plugin](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-native) where telemetry is sent directly to Application Insights.)
+Before you can use Application Insights with your mobile app, you need to onboard your app to [App Center](/mobile-center/). Application Insights does not receive telemetry from your mobile app directly. Instead, your app sends custom event telemetry to App Center. Then, App Center continuously exports copies of these custom events into Application Insights as the events are received. (This does not apply to the [Application Insights JS SDK](https://github.com/Microsoft/ApplicationInsights-JS) or the [React Native plugin](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-native) where telemetry is sent directly to Application Insights.)
 
 To onboard your app, follow the App Center quickstart for each platform your app supports. Create separate App Center instances for each platform:
 
-* [iOS](https://docs.microsoft.com/mobile-center/sdk/getting-started/ios).
-* [Android](https://docs.microsoft.com/mobile-center/sdk/getting-started/android).
-* [Xamarin](https://docs.microsoft.com/mobile-center/sdk/getting-started/xamarin).
-* [Universal Windows](https://docs.microsoft.com/mobile-center/sdk/getting-started/uwp).
-* [React Native](https://docs.microsoft.com/mobile-center/sdk/getting-started/react-native).
+* [iOS](/mobile-center/sdk/getting-started/ios).
+* [Android](/mobile-center/sdk/getting-started/android).
+* [Xamarin](/mobile-center/sdk/getting-started/xamarin).
+* [Universal Windows](/mobile-center/sdk/getting-started/uwp).
+* [React Native](/mobile-center/sdk/getting-started/react-native).
 
 ## Track events in your app
 
 After your app is onboarded to App Center, it needs to be modified to send custom event telemetry using the App Center SDK. Custom events are the only type of App Center telemetry that is exported to Application Insights.
 
-To send custom events from iOS apps, use the `trackEvent` or `trackEvent:withProperties` methods in the App Center SDK. [Learn more about tracking events from iOS apps.](https://docs.microsoft.com/mobile-center/sdk/analytics/ios)
+To send custom events from iOS apps, use the `trackEvent` or `trackEvent:withProperties` methods in the App Center SDK. [Learn more about tracking events from iOS apps.](/mobile-center/sdk/analytics/ios)
 
 ```Swift
 MSAnalytics.trackEvent("Video clicked")
 ```
 
-To send custom events from Android apps, use the `trackEvent` method in the App Center SDK. [Learn more about tracking events from Android apps.](https://docs.microsoft.com/mobile-center/sdk/analytics/android)
+To send custom events from Android apps, use the `trackEvent` method in the App Center SDK. [Learn more about tracking events from Android apps.](/mobile-center/sdk/analytics/android)
 
 ```Java
 Analytics.trackEvent("Video clicked")
@@ -67,7 +67,7 @@ Once your app is sending custom events and these events are being received by Ap
 2. Select **Create a resource** > **Developer tools** > **Application Insights**.
 
     > [!NOTE]
-    > If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc.
+    > If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](../app/create-new-resource.md) doc.
 
     A configuration box will appear. Use the table below to fill out the input fields.
 
@@ -94,7 +94,7 @@ In the [App Center](https://appcenter.ms/) instance for your app:
 
 Remember to repeat this process for each platform your app supports.
 
-Once [export](https://docs.microsoft.com/mobile-center/analytics/export) is set up, each custom event received by App Center is copied into Application Insights. It can take several minutes for events to reach Application Insights, so if they don't show up immediately, wait a bit before diagnosing further.
+Once [export](/mobile-center/analytics/export) is set up, each custom event received by App Center is copied into Application Insights. It can take several minutes for events to reach Application Insights, so if they don't show up immediately, wait a bit before diagnosing further.
 
 To give you more data when you first connect, the most recent 48 hours of custom events in App Center are automatically exported to Application Insights.
 
@@ -120,7 +120,7 @@ Application Insights can query, segment, filter, and analyze the custom event te
    1. Select the query by clicking anywhere on the query in the text editor.
    2. Then click **Go** to run the query. 
 
-   Learn more about [Application Insights Analytics](../../azure-monitor/app/analytics.md) and the [Log Analytics query language](https://aka.ms/LogAnalyticsLanguageReference).
+   Learn more about [Application Insights Analytics](../log-query/log-query-overview.md) and the [Log Analytics query language](/azure/data-explorer/kusto/query/).
 
 
 2. **Segment and filter your custom event telemetry.** From the Application Insights **Overview** page, choose **Users** in the table of contents.
@@ -163,4 +163,4 @@ To delete the Application Insights resource:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Understand how customers are using your app](../../azure-monitor/app/usage-overview.md)
+> [Understand how customers are using your app](../app/usage-overview.md)
