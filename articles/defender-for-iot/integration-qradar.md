@@ -27,11 +27,11 @@ You can change the platform name at any time. The change takes effect immediatel
 
 When building sites and assigning appliances to zones in the Central Manager, it is important for more efficient usage that each CyberX appliance has a significant name. For example, “Motorcycles PL Unit 2” means that this appliance is protecting unit #2 in the Motorcycles production line.
 
-![Screenshot of Changing CyberX Appliance Name view](media/integration-qradar/image2.png)
+:::image type="content" source="media/integration-qradar/image2.png" alt-text="Screenshot of Changing CyberX Appliance Name view":::
 
 **To change the appliance name:**
 1. In the bottom of the side menu, click on the current appliance name. The **Edit CyberX Platform Configuration** dialog box appears.
-   ![Screenshot of Edit CyberX Platform Configuration view](media/integration-qradar/image3.png)
+   :::image type="content" source="media/integration-qradar/image3.png" alt-text="Screenshot of Edit CyberX Platform Configuration view":::
 1. In the **CyberX Platform Name** text box, type the new appliance name and click **Save**.
 1. The **Edit CyberX Platform Configuration** dialog box closes, and the new name appears in the left pane.
 
@@ -40,11 +40,11 @@ When building sites and assigning appliances to zones in the Central Manager, it
 **To configure the Syslog listener to work with QRadar:**
 1. Login to QRadar.
 1. From the left pane select **Admin > Data Sources**, the **Data Sources** window appears.
-   ![Screenshot of  view](media/integration-qradar/image4.png)
+   :::image type="content" source="media/integration-qradar/image4.png" alt-text="Screenshot of  view":::
 1. In the **Data Sources** window, click **Log Sources.** The **Modal** window appears.
-   ![Screenshot of Data Sources view](media/integration-qradar/image5.png)
+   :::image type="content" source="media/integration-qradar/image5.png" alt-text="Screenshot of Data Sources view":::
 1. In the **Modal** window, click **Add**. The **Add a log source** dialog box appears.
-   ![Screenshot of Modal view](media/integration-qradar/image6.png)
+   :::image type="content" source="media/integration-qradar/image6.png" alt-text="Screenshot of Modal view":::
 1. In the **Add a log source** dialog box, set the following parameters:
    - **Log Source Name**: `<XSense Name>`
    - **Log Source Description**: `<XSense Name>`
@@ -56,7 +56,7 @@ When building sites and assigning appliances to zones in the Central Manager, it
 1. Click **Save**, the **Add a log source** dialog box closes.
 1. Click **Deploy Changes**.
 
-![Screenshot of Deploy Changes view](media/integration-qradar/image7.png)
+:::image type="content" source="media/integration-qradar/image7.png" alt-text="Screenshot of Deploy Changes view":::
 
 ## Deploying CyberX platform QID
 
@@ -74,7 +74,7 @@ QRadar forwarding rule must be configured in the CyberX appliance and mapped in 
 
 **To define QRadar notifications in the CyberX appliance:**
 1. In the From the side menu, select **Forwarding**. The **Forwarding** window appears.
-   ![Screenshot of Forwarding view](media/integration-qradar/image8.png)
+   :::image type="content" source="media/integration-qradar/image8.png" alt-text="Screenshot of Forwarding view":::
 1. Set the Action to QRadar.
 1. Configure the QRadar IP address and the timezone.
 1. Click **Submit**.

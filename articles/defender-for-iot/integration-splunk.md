@@ -9,9 +9,9 @@ ms.topic: article
 ms.service: azure
 ---
 
-# CyberX IIoT & ICS threat monitoring app for Splunk
+# CyberX IoT & ICS threat monitoring app for Splunk
 
-CyberX mitigates IIoT and ICS/SCADA risk with patented, ICS-aware self-learning engines that deliver immediate insights about ICS assets, vulnerabilities, and threats — in less than animage hour and without relying on agents, rules or signatures, specialized skills, or prior knowledge of the environment.
+CyberX mitigates IIoT and ICS/SCADA risk with patented, ICS-aware self-learning engines that deliver immediate insights about ICS assets, vulnerabilities, and threats — in less than an image hour and without relying on agents, rules or signatures, specialized skills, or prior knowledge of the environment.
 
 To address a lack of visibility into the security and resiliency of OT networks, CyberX developed the CyberX IIoT & ICS Threat Monitoring App for Splunk — a native integration between CyberX and Splunk that enables a unified approach to IT and OT security.
 

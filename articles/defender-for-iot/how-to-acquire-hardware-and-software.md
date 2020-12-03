@@ -41,7 +41,7 @@ This article provides an overview of physical sensor models available. You can p
 
 | Deployment Type | Corporate | Enterprise | SMB |
 |--|--|--|--|
-| **Image** | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png" alt-text="Corporate](media/how-to-prepare-your-network/corporate-hpe-proliant-dl360.png) | ![Enterprise](media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png) | ![SMB"::: |
+| **Image** | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png" alt-text="Corporate](media/how-to-prepare-your-network/corporate-hpe-proliant-dl360.png) | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png" alt-text="Enterprise"::: | ![SMB"::: |
 | **Model** | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 |
 | **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 8 RJ45 or 6 OPT | 4 RJ45 |
 | **Max Bandwidth<sup>1</sup>** | 3 Gb/Sec | 1 Gb/Sec | 200 Mb/Sec |
