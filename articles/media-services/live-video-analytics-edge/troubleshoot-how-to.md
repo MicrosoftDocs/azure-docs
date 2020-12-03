@@ -96,7 +96,7 @@ Live Video Analytics via the media graph extension processors can extend the med
 * Check to see whether the hub that media graph is publishing to and the hub you're examining are the same. As you create multiple deployments, you might end up with multiple hubs and mistakenly check the wrong hub for events.
 * In Azure portal, check to see whether the external module is deployed and running. In the example image here, rtspsim, yolov3, tinyyolov3 and logAnalyticsAgent are IoT Edge modules running external to the lvaEdge module.
 
-    ![Screenshot that displays the running status of modules in Azure IoT Hub.](./media/troubleshoot-how-to/iot-hub-azure.png)
+    [ ![Screenshot that displays the running status of modules in Azure IoT Hub.](./media/troubleshoot-how-to/iot-hub-azure.png) ](./media/troubleshoot-how-to/iot-hub-azure.png#lightbox)
 
 * Check to see whether you're sending events to the correct URL endpoint. The external AI container exposes a URL and a port through which it receives and returns the data from POST requests. This URL is specified as an `endpoint: url` property for the HTTP extension processor. As seen in the [topology URL](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/2.0/topology.json), the endpoint is set to the inferencing URL parameter. Ensure that the default value for the parameter or the passed-in value is accurate. You can test to see whether it's working by using Client URL (cURL).  
 
@@ -162,7 +162,7 @@ Configure your Live Video Analytics module to collect Verbose logs by setting th
 
 You can do this in either:
 * In **Azure portal**, by updating the Module Identity Twin properties of the Live Video Analytics module
-    ![Module Identity Twin Properies.](media/troubleshoot-how-to/module_twin.png)    
+    [ ![Module Identity Twin Properies.](media/troubleshoot-how-to/module_twin.png) ](media/troubleshoot-how-to/module_twin.png#lightbox)    
 * Or in your **deployment manifest** file, you can add these entries in the properties node of the Live Video Analytics module
 ### Use the support-bundle command
 
@@ -170,7 +170,7 @@ When you need to gather logs from an IoT Edge device, the easiest way is to use 
 
 - Module logs
 - IoT Edge security manager and container engine logs
-- Iotedge check JSON output
+- IoT Edge check JSON output
 - Useful debug information
 
 1. Run the `support-bundle` command with the *--since* flag to specify how much time you want your logs to cover. For example, 2h will get logs for the last two hours. You can change the value of this flag to include logs for different periods.
