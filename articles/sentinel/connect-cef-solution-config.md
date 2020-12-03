@@ -51,18 +51,18 @@ If a connector does not exist for your specific security solution, use the follo
 
 1. To search for CEF events in Log Analytics, enter `CommonSecurityLog` in the query window.
 
-    > [!NOTE]
-    >
-    > By default, the Log Analytics agent populates the *TimeGenerated* field in the schema with the time the agent received the event from the Syslog daemon. As a result, the time at which the event was generated on the source system is not recorded in Azure Sentinel.
-    >
-    > You can, however, run the following command, which will download and run the `TimeGenerated.py` script. This script configures the Log Analytics agent to populate the *TimeGenerated* field with the event's original time on its source system, instead of the time it was received by the agent.
-    >
-    > ```bash
-    > wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/
-    >         master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
-    > ```
-
 1. Continue to STEP 3: [validate connectivity](connect-cef-verify.md).
+
+> [!NOTE]
+> **Changing the source of the TimeGenerated field**
+>
+> - By default, the Log Analytics agent populates the *TimeGenerated* field in the schema with the time the agent received the event from the Syslog daemon. As a result, the time at which the event was generated on the source system is not recorded in Azure Sentinel.
+>
+> - You can, however, run the following command, which will download and run the `TimeGenerated.py` script. This script configures the Log Analytics agent to populate the *TimeGenerated* field with the event's original time on its source system, instead of the time it was received by the agent.
+>
+>    ```bash
+>    wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
+>    ```
 
 ## Next steps
 
