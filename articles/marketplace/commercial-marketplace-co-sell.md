@@ -6,28 +6,22 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 10/28/2020
+ms.date: 12/03/2020
 ---
 
 # Co-sell option in Partner Center
 
-Providing information on the Co-sell tab is entirely optional. It is required to achieve Co-sell Ready and IP Co-sell Incentivized status. The information you provide will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [sell through Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+Providing information on the Co-sell tab is entirely optional. It is required to achieve [Co-sell Ready and IP Co-sell Incentivized status](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status). The information you provide will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [Co-sell with Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
-The Co-sell option in Partner Center is currently available for some offer types. Support for additional offer types will be made available over time.
+The Co-sell option in Partner Center is currently available the following offer types.
 
-| **Offer Type** | **Co-sell Page available in Partner Center** |
-|    -----------------------    |    -----------------------------  |
-| Software as a Service  (SaaS) |      Available now      |
-| Dynamics 365 for Customer Engagement & PowerApps      |     Available now      |
-| Dynamics 365 for Operations     |     Available now       |
-| Dynamics 365 Business Central      |   Available now     |
-| Azure Application     |      Available now     |
-| Azure Virtual Machine      |     To be announced       |
-| Azure Container     |     To be announced       |
-| Consulting Service      |     To be announced       |
-| IoT Edge Module      |     To be announced       |
-| Power BI Service App     |     To be announced       |
-|  |
+- Azure Application
+- Dynamics 365 for Customer Engagement & PowerApps
+- Dynamics 365 for Operations
+- Dynamics 365 Business Central
+- Software as a Service (SaaS)
+
+Support for additional offer types will be made available over time.
 
 ## Listing
 
