@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/01/2020
+ms.date: 12/03/2020
 ms.author: alkohli
 ---
 
@@ -27,7 +27,7 @@ If you experience any device issues, you can create a Support package from the s
 
     A memory dump is the contents of your device's memory, saved after a system failure.
 
-    You shouldn't include a memory dump unless Support asks for one. It takes a long time to gather a support package that includes a memory dump, and sensitive data is included. The data will be deleted from the Azure storage account after 30 days.<!--Has a 30-day delete policy been implemented or is this in discussion?-->
+    You shouldn't select the **Include memory dump** option unless Support asks for one. It takes a long time to gather a support package that includes a memory dump, and sensitive data is included.
 
     ![Create Support package 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
@@ -39,9 +39,7 @@ If you experience any device issues, you can create a Support package from the s
 
     ![Create Support package 3](media/data-box-local-web-ui-admin/create-support-package-3.png)
 
-3. The support package is downloaded to the Downloads folder. Open the folder to view the contents.
-
-    If you included a memory dump, you should store the downloaded files in a location that requires Customer Lockbox access. For more information, see [How to use Customer Lockbox](./data-box-customer-lockbox.md).  
+3. Browse and choose the download location. Open the folder to view the contents.
 
     ![Create Support package 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
