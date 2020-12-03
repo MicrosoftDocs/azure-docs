@@ -22,7 +22,8 @@ The _staticwebapp.config.json_ file may be placed in any location under the _app
 
 See the [example configuration](#example-configuration-file) file for details.
 
-> [!IMPORTANT] The [_routes.json_](./routes.md) file is ignored if a _staticwebapp.config.json_ exists.
+> [!IMPORTANT]
+> The [_routes.json_](./routes.md) file is ignored if a _staticwebapp.config.json_ exists.
 
 ## Routes
 
@@ -201,6 +202,7 @@ The following HTTP codes are available to override:
 ### Example scenarios
 
 | Requests to... | Results in... |
+| --- | --- |
 | _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users redirected to _/login_. |
 | _/admin/reports_ | Authenticated users in the _administrators_ role are served the _/admin/reports/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>1</sup>. Unauthenticated users redirected to _/login_. |
 | _/api/admin_ | Requests from authenticated users in the _administrators_ role are sent to the API. Authenticated users not in the _administrators_ role and unauthenticated users are served a 401 error. |
