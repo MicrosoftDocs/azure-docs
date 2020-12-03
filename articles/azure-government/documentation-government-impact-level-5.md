@@ -26,147 +26,147 @@ Azure Government continues to provide more PaaS features and services to the DoD
 
 ## Principles and approach
 
-To include a service in Impact Level 5 scope, there are two key areas that will be addressed: storage isolation and compute isolation. We are focusing on how these services can isolate the compute and storage of Impact Level 5 data.  The SRG allows for a shared management and network infrastructure.
+Two key areas need to be addressed for services in Impact Level 5 scope: storage isolation and compute isolation. We'll focus on how these services can isolate the compute and storage of Impact Level 5 data.  The SRG allows for a shared management and network infrastructure.
 
 ### Compute isolation
 
-The SRG focuses on segmentation of compute when 'processing' data for Impact Level 5. This means ensuring that a virtual machine that compromises the physical host cannot impact a DoD workload.  To remove the risk of runtime attacks and ensure long running workloads are not compromised from other workloads on the same host, all Impact Level 5 virtual machines should be isolated using Azure Dedicated Hosts which provides a dedicated physical server to host your Azure VMs for Windows and Linux. 
+The SRG focuses on the segmentation of compute during "processing" of data for Impact Level 5. This segmentation ensures that a virtual machine that compromises the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, all Impact Level 5 virtual machines should be isolated via Azure Dedicated Host. Doing so provides a dedicated physical server to host your Azure VMs for Windows and Linux. 
 
-For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data; isolation will be accomplished by focusing on the data being processed and how it is stored and retained. This approach ensures that the data in question is stored in protected mediums and not present on these services for extended periods unless also encrypted as necessary.
+For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data, you should accomplish isolation by focusing on the data being processed and how it's stored and retained. This approach ensures that the data is stored in protected mediums and not present on these services for extended periods unless it's encrypted as needed.
 
 ### Storage isolation
 
-In the most recent PA for Azure Government, DISA has approved logical separation of IL5 from other data using cryptographic means.  In Azure this means encryption using keys that are maintained in Azure Key Vault.  The keys are owned and managed by the L5 system owner.
+In the most recent PA for Azure Government, DISA approved logical separation of IL5 from other data via cryptographic means. In Azure, this approach involves encryption via keys that are maintained in Azure Key Vault. The keys are owned and managed by the IL5 system owner.
 
-When applying this to services, the following evaluation is applied:
+To apply this approach to services:
 
-- If a service only hosts IL5 data, then the service can control the key on behalf of the end users but must use a dedicated key to protect IL5 data from all other data in the cloud.
-- If a service will host IL5 and non-DoD data, then the service must expose the option to use their own key for encryption. That key will be stored in Azure Key Vault.  This implementation gives consumers of the service the ability to implement cryptographic separation as needed.
+- If a service hosts only IL5 data, the service can control the key on behalf of end users. But it must use a dedicated key to protect IL5 data from all other data in the cloud.
+- If a service will host IL5 and non-DoD data, the service must expose the option to for end users to use their own keys for encryption. Those keys are stored in Azure Key Vault. This implementation gives consumers of the service the ability to implement cryptographic separation as needed.
 
-This will ensure all key material for decrypting data is stored separately of the data itself and done so with a hardware key management solution.
+This approach ensures all key material for decrypting data is stored separately of the data itself and done so with a hardware key-management solution.
 
 ## Applying this guidance
 
-Impact Level 5 guidelines require workloads to be deployed with a high degree of security, isolation, and control. The below configurations are required in **addition** to any other configurations or controls needed to meet Impact Level 5. Network isolation, access controls, and other necessary security measures are not necessarily addressed in the guidance below.
+Impact Level 5 guidelines require workloads to be deployed with a high degree of security, isolation, and control. The following configurations are required in *addition* to any other configurations or controls needed to meet Impact Level 5. Network isolation, access controls, and other necessary security measures aren't necessarily addressed in the guidance here.
 
-Make sure to review the entry for each service you are utilizing and ensure that all isolation requirements have been implemented.
+Be sure to review the entry for each service you're using and ensure that all isolation requirements are implemented.
 
-## AI + Machine Learning
+## AI + machine learning
 
 ### [Azure Bot Service](/azure/bot-service/)
 
-Azure Bot Service can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Azure Bot Service supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Bot Service** | X | X | X |  |  |
 
 ### [Azure Cognitive Search](https://azure.microsoft.com/services/search/)
 
-Azure Cognitive Search can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Azure Cognitive Search supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure Cognitive Search using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
+- Configure encryption at rest of content in Azure Cognitive Search by [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Cognitive Search** | X | X | X |  |  |
 
 ### [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
 
-Azure Machine Learning can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Azure Machine Learning supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure Machine Learning using customer-managed keys in Azure Key Vault. Azure Machine Learning stores snapshots, output, and logs in the Azure Blob storage account that's tied to the Azure Machine Learning workspace and customer subscription. All the data stored in Azure Blob storage is encrypted at rest with Microsoft-managed keys. (https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#data-encryption).  Customers can use their own keys for data stored in Azure Blob storage, refer to Azure Storage encryption with customer-managed keys in Azure Key Vault.
+- Configure encryption at rest of content in Azure Machine Learning by using customer-managed keys in Azure Key Vault. Azure Machine Learning stores snapshots, output, and logs in the Azure Blob Storage account that's associated with the Azure Machine Learning workspace and customer subscription. All the data stored in Azure Blob Storage is [encrypted at rest with Microsoft-managed keys](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#data-encryption). Customers can use their own keys for data stored in Azure Blob Storage. See [Configure encryption with customer-managed keys stored in Azure Key Vault](/azure/storage/common/customer-managed-keys-configure-key-vault).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Machine Learning** | X | X | X |  |  |
 
 ### [Cognitive Services: Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) 
 
-Computer Vision can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Computer Vision supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Computer Vision** | X | X | X |  |  |
 
 ### [Cognitive Services: Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/)
 
-Cognitive Services - Content Moderator can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+The Azure Cognitive Services Content Moderator service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services - Content Moderator using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/cognitive-services/content-moderator/content-moderator-encryption-of-data-at-rest)
+- Configure encryption at rest of content in the Content Moderator service by [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/cognitive-services/content-moderator/content-moderator-encryption-of-data-at-rest).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Content Moderator** | X | X | X |  |  |
 
 ### [Cognitive Services: Face](https://azure.microsoft.com/services/cognitive-services/face/)
 
-Azure Cognitive Services – Face can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+The Cognitive Services Face service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services – Face using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/cognitive-services/face/face-encryption-of-data-at-rest)
+- Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/cognitive-services/face/face-encryption-of-data-at-rest).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Face** | X | X | X |  |  |
 
 ### [Cognitive Services: Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
 
-Cognitive Services – Language Understanding can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+The Cognitive Services Language Understanding service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services – Language Understanding using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest)
+- Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Language Understanding** | X | X | X |  |  |
 
 ### [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
 
-Text Analytics can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Text Analytics supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Text Analytics** | X | X | X |  |  |
 
 ### [Cognitive Services: Translator](https://azure.microsoft.com/services/cognitive-services/translator/)
 
-Cognitive Services – Translator can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+The Cognitive Services Translator service supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services – Translator using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/cognitive-services/translator/translator-encryption-of-data-at-rest)
+- Configure encryption at rest of content in the Translator service by [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/cognitive-services/translator/translator-encryption-of-data-at-rest).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Translator** | X | X | X |  |  |
 
 
-### [Cognitive Services: Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services/)
+### [Cognitive Services: Speech Services](https://azure.microsoft.com/services/cognitive-services/speech-services/)
 
-Cognitive Services - Speech Service can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Cognitive Services Speech Services supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure Speech Service using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-encryption-of-data-at-rest)
+- Configure encryption at rest of content in Speech Services by [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-encryption-of-data-at-rest).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
-| **Speech Service** | X | X | X |  |  |
+| **Speech Services** | X | X | X |  |  |
 
 ## Analytics services
 
 ### [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)
 
-Azure Data Explorer can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Azure Data Explorer supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For additional control over encryption keys, you can supply customer-managed keys to use for data encryption and manage encryption of your data at the storage level with your own keys.(https://docs.microsoft.com/azure/data-explorer/security#data-encryption)
+- Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For additional control over encryption keys, you can supply customer-managed keys to use for data encryption and manage [encryption of your data](https://docs.microsoft.com/azure/data-explorer/security#data-encryption) at the storage level with your own keys.
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Data Explorer** | X | X | X | X | X | 
 
 ### [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
 
-Azure Data Factory can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Azure Data Factory supports Impact Level 5 workloads in Azure Government with this configuration:
 
-Secure data store credentials by storing encrypted credentials in an Azure Data Factory managed store. Data Factory helps protect your data store credentials by encrypting them with certificates managed by Microsoft. For more information about Azure Storage security, see Azure Storage security overview. You can also store the data store's credential in Azure Key Vault. Data Factory retrieves the credential during the execution of an activity. For more information, see Store credential in Azure Key Vault (https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+- Secure data store credentials by storing encrypted credentials in a Data Factory managed store. Data Factory helps protect your data store credentials by encrypting them with certificates managed by Microsoft. For more information about Azure Storage security, see [Azure Storage security overview](azure/storage/common/security-baseline). You can also store the data store's credentials in Azure Key Vault. Data Factory retrieves the credentials during the execution of an activity. For more information, see [Store credentials in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Data Factory** | X | X | X |  |  |
 
