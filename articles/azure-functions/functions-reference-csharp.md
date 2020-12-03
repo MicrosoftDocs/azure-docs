@@ -352,8 +352,17 @@ The following assemblies are automatically added by the Azure Functions hosting 
 
 The following assemblies may be referenced by simple-name (for example, `#r "AssemblyName"`):
 
+Functions V2 and V3:
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
+
+Functions V1:
+* `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
+* `Microsoft.AspNet.WebHooks.Receivers`
+* `Microsoft.AspNet.WebHooks.Common`
+* `Microsoft.Azure.NotificationHubs`
 
 ## Referencing custom assemblies
 
