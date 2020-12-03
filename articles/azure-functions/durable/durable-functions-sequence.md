@@ -64,7 +64,7 @@ The `context` object contains a `df` durable orchestration context object that l
 # [Python](#tab/python)
 
 > [!NOTE]
-> Python Durable Functions are available for the Functions 2.0 runtime only.
+> Python Durable Functions are available for the Functions 3.0 runtime only.
 
 
 #### function.json
