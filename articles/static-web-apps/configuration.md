@@ -42,10 +42,12 @@ Routes are defined in the _routes.json_ file as an array of rules on the `routes
 | Rule property  | Required | Default value | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
 | `route`        | Yes      | n/a          | The route pattern requested by the caller.<ul><li>[Wildcards](#wildcards) are supported at the end of route paths. For instance, the route _admin/\*_ matches any route under the _admin_ path.<li>A route serves the folder's _index.html_ file by default.</ul>|
-| `redirect`        | No       | n/a          | Defines the file or path destination for a new request.<ul><li>Redirect rules change the brower's location<li>Default response code is [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302), but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) redirect<li>Querystring parameters are not supported</ul> |
-| `rewrite`        | No       | n/a          | Defines the file or path returned from the request.<ul><li>Rewrite rules do not change the brower's location<li>Values must point to actual files.<li>Querystring parameters are not supported</ul>  |
+| `rewrite`        | No       | n/a          | Defines the file or path returned from the request.<ul><li>Is mutually exclusive to a `redirect` rule<li>Rewrite rules do not change the brower's location<li>Values must point to actual files.<li>Querystring parameters are not supported</ul>  |
+| `redirect`        | No       | n/a          | Defines the file or path destination for a new request.<ul><li>Is mutually exclusive to a `rewrite` rule<li>Redirect rules change the brower's location<li>Default response code is [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302), but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) redirect<li>Querystring parameters are not supported</ul> |
 | `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role [`anonymous`](./authentication-authorization.md) applies to all unauthenticated users.<li>The built-in role [`authenticated`](./authentication-authorization.md) applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis. If a user is in any of the listed roles, then access is granted.<li>Individual users are associated to roles through [invitations](authentication-authorization.md).</ul> |
+| `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) associated with the request.<ul><li>Takes precedence over [`globalHeaders`](#global-headers)<li></ul> |
 | `statusCode`   | No       | 200           | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) response for the request. |
+| `methods` | No | n/a | An array of HTTP methods.<ul><li>GET<li>POST<li>PUT<li>PATCH<li>DELETE</ul> |
 
 ## Securing routes with roles
 
@@ -76,9 +78,9 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 
 ## Wildcards
 
-Wildcard rules match all requests under a given route pattern. Both `rewrite` and `redirect` rules support wildcards.
+Wildcard rules match all requests under `rewrite` and `redirect` route patterns, and are only supported at the end of a path. See the [example route file](#example-route-file) for usage examples.
 
-For instance, to implement routes for a calendar application, you can redirect all URLs that fall under the _calendar_ route to serve a single file.
+For instance, to implement routes for a calendar application, you can rewrite all URLs that fall under the _calendar_ route to serve a single file.
 
 ```json
 {
@@ -102,19 +104,103 @@ You can also secure routes with wildcards. In the following example, any file re
 }
 ```
 
-## Wildcard routes
-
 - Auth rules
 - Caching rules (images, CSS)
 - Map to methods
 
 ## Global headers
 
-Used to be default headers
+The `globalHeaders` section provides a set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) applied to each request, unless overridden by a [route header](#route-headers) rule. See the [example route file](#example-route-file) for usage examples.
 
 ## Response overrides
 
+The `responseOverrides` sections provides a set of HTTP response codes that allow you to serve custom files or paths. See the [example route file](#example-route-file) for usage examples.
+
+Available HTTP codes:
+
+- 200
+- 400
+- 404
+- 401
+- 402
+- 403
+
 ## Example configuration file
+
+```json
+{
+    "routes": [
+        {
+            "route": "/profile",
+            "allowedRoles": ["authenticated"]
+        },
+        {
+            "route": "/admin/*",
+            "allowedRoles": ["administrator"]
+        },
+        {
+            "route": "/images/*",
+            "headers": {
+                "cache-control": "must-revalidate, max-age=15770000"
+            }
+        },
+        {
+            "route": "/api/*",
+            "methods": [ "PUT", "POST", "PATCH", "DELETE" ],
+            "allowedRoles": ["administrator"]
+        },
+        {
+            "route": "/api/*",
+            "methods": [ "GET" ],
+            "allowedRoles": ["registereduser"]
+        },
+        {
+            "route": "/api/*",
+            "allowedRoles": ["authenticated"]
+        },
+        {
+            "route": "/customers/contoso",
+            "allowedRoles": ["administrator", "customers_contoso"]
+        },
+        {
+            "route": "/login",
+            "rewrite": "/.auth/login/github"
+        },
+        {
+            "route": "/logout",
+            "redirect": "/.auth/logout"
+        },
+        {
+            "route": "/calendar/*",
+            "rewrite": "/calendar.html"
+        },
+        {
+            "route": "/specials",
+            "redirect": "/deals",
+            "statusCode": 301
+        }
+    ],
+    "responseOverrides": {
+        "404": {
+            "rewrite": "/index.html",
+            "statusCode": 200
+        },
+        "401": {
+            "statusCode": 302,
+            "redirect": "/login"
+        },
+        "403": {
+            "rewrite": "/custom-forbidden-page.html"
+        }
+    },
+    "globalHeaders": {
+        "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
+    },
+    "mimeTypes": {
+        ".json": "text/json"
+    },
+}
+```
 
 ## Next steps
 
