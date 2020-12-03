@@ -38,7 +38,7 @@ The routing concerns significantly overlap with authentication and authorization
 
 ## Defining routes
 
-Routes are defined in the _routes.json_ file as an array of rules on the `routes` property. Each rule is composed of a route pattern, along with one or more of the optional rule properties. See the [example route file](#example-configuration-file) for usage examples.
+Routes are defined in the _staticwebapps.config.json_ file as an array of rules on the `routes` property. Each rule is composed of a route pattern, along with one or more of the optional rule properties. See the [example route file](#example-configuration-file) for usage examples.
 
 | Rule property  | Required | Default value | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
@@ -133,7 +133,7 @@ The following HTTP codes are available to override:
         },
         {
             "route": "/admin/*",
-            "allowedRoles": ["administrator"]
+            "allowedRoles": ["administrators"]
         },
         {
             "route": "/images/*",
@@ -143,13 +143,13 @@ The following HTTP codes are available to override:
         },
         {
             "route": "/api/*",
-            "methods": [ "PUT", "POST", "PATCH", "DELETE" ],
-            "allowedRoles": ["administrator"]
+            "methods": [ "GET" ],
+            "allowedRoles": ["registeredusers"]
         },
         {
             "route": "/api/*",
-            "methods": [ "GET" ],
-            "allowedRoles": ["registereduser"]
+            "methods": [ "PUT", "POST", "PATCH", "DELETE" ],
+            "allowedRoles": ["administrators"]
         },
         {
             "route": "/api/*",
@@ -157,11 +157,15 @@ The following HTTP codes are available to override:
         },
         {
             "route": "/customers/contoso",
-            "allowedRoles": ["administrator", "customers_contoso"]
+            "allowedRoles": ["administrators", "customers_contoso"]
         },
         {
             "route": "/login",
             "rewrite": "/.auth/login/github"
+        },
+        {
+            "route": "/.auth/login/twitter",
+            "statusCode": 404,
         },
         {
             "route": "/logout",
@@ -199,21 +203,22 @@ The following HTTP codes are available to override:
 }
 ```
 
-### Example scenarios
+Based on the above configuration, review the following scenarios.
 
 | Requests to... | Results in... |
 | --- | --- |
 | _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users redirected to _/login_. |
-| _/admin/reports_ | Authenticated users in the _administrators_ role are served the _/admin/reports/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>1</sup>. Unauthenticated users redirected to _/login_. |
-| _/api/admin_ | Requests from authenticated users in the _administrators_ role are sent to the API. Authenticated users not in the _administrators_ role and unauthenticated users are served a 401 error. |
+| _/admin/_ | Authenticated users in the _administrators_ role are served the _/admin/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>1</sup>. Unauthenticated users redirected to _/login_. |
+| _/logo.png_ | Serves the image with a custom cache rule where the max age is a little over 182 days (15,770,000 seconds) |
+| _/api/admin_ | GET requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a 401 error.<br/><br/>POST, PUT, PATCH, and DELETE requests from authenticated users in the _administrators_ role are sent to the API. Authenticated users not in the _administrators_ role and unauthenticated users are served a 401 error. |
 | _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file<sup>1</sup>. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error. Unauthenticated users redirected to _/login_. |
 | _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
 | _/.auth/login/twitter_ | Authorization with Twitter is disabled. The server responds with a 404 error. |
 | _/logout_ | Users are logged out of any authentication provider. |
-| _/calendar/2020/01_ | The browser is served the _/calendar.html_ file. |
+| _/calendar/2021/01_ | The browser is served the _/calendar.html_ file. |
 | _/specials_ | The browser is redirected to _/deals_. |
-| _/unknown-folder_ | The _/custom-404.html_ file is served. |
-| Files with the `.custom` extension | Are served with the `text/html` MIME type |
+| _/unknown-folder_ | The _/index.html_ file is served. |
+| Files with the `.json` extension | Are served with the `text/json` MIME type |
 
 <sup>1</sup> You can provide a custom error page by using a [response override rule](#response-overrides).
 
