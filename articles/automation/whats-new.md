@@ -7,7 +7,8 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 12/03/2020
 ---
-# What's new in Azure Monitor documentation?
+
+# What's new in Azure Automation?
 
 Azure Automation receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
