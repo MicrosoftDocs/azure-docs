@@ -32,7 +32,7 @@ Offers that attain **Azure IP Co-sell incentivized** status gain these additiona
 
 ## Co-sell publishing steps and requirements
 
-The table below lists the steps and requirements to get your marketplace offer Co-sell ready or Co-sell incentivized. Not all commercial marketplace offer types are configurable for Co-sell yet in Partner Center. You can refer to [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) for the latest information.
+This table lists the steps and requirements to get your marketplace offer Co-sell ready or Co-sell incentivized. Not all commercial marketplace offer types are configurable for Co-sell yet in Partner Center. For the latest list of offer types that support co-sell, see [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md). 
 
 |Step    |Offer type    |Requirements    |Co-sell status    |
 |----    |-------------    |------------    |---------------   |
@@ -43,6 +43,8 @@ The table below lists the steps and requirements to get your marketplace offer C
 |<ol start=3><li>Qualify for IP Co-sell incentives</li>|Azure Applications, Azure Containers, IoT Edge Modules, SaaS, VMs|After achieving Co-sell ready, there are two additional requirements: <ul> Requirement 1: achieve either:<ul><li>*At the organization level:* meet or exceed $100,000 USD of Azure Consumed Revenue over the trailing 12 months.</li><li>*At the offer level:* cumulative marketplace billed revenue of $100,000 USD.</li></ul><br>Requirement 2: more than 50% of your offer's infrastructure must run on Azure:<ul><li>IP offers *with* [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md): upload an architecture diagram with your Co-sell documents in Partner Center for review.</li><li>IP offers *without* [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md): upload an architecture diagram to OCP GTM.|Azure IP Co-sell incentivized|
 ||Dynamics|<ul><li>You have an active enrollment in ISV Connect premium tier.</li></ul>|Business Applications Co-sell incentivized|
 |||
+
+For more information about the requirements for co-sell solution offers, see [3000 Requirements for co-sell status](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status).
 
 ## How to submit Co-sell materials in Partner Center
 
