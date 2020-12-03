@@ -54021,6 +54021,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api",
       "redirect_document_id": true

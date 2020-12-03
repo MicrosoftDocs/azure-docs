@@ -1062,6 +1062,18 @@
           href: virtual-machines/windows/hadr-cluster-best-practices.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
+        - name: Performance
+          items: 
+          - name: Quick checklist
+            href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
+          - name: VM size
+            href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
+          - name: Storage, disks & IO
+            href: virtual-machines/windows/performance-guidelines-best-practices-storage-disks-io.md
+          - name: SQL & Azure feature specific
+            href: virtual-machines/windows/performance-guidelines-best-practices-feature-specific.md
+          - name: Collect baseline 
+            href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
       - name: Management
         items:
         - name: SQL IaaS Agent extension
