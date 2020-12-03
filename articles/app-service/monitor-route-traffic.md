@@ -1,4 +1,12 @@
-# Route traffic to healthy instances (App Service)
+---
+title: Route traffic to healthy instances in Azure App Service
+description: Learn how to route traffic to healthy instances on your App Service app.
+ms.topic: article
+ms.date: 12/03/2020
+ms.author: msangapu
+
+---
+# Route traffic to healthy instances
 
 When you are scaled out to multiple instances, App Service can perform health checks on your instances to route traffic only to the healthy instances. To do so, open the Portal to your App Service, then select **Health check** under **Monitoring**. Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`. Click **Save**.
 
