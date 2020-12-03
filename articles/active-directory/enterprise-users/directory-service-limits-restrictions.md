@@ -8,7 +8,6 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.subservice: enterprise-users
 ms.topic: reference
 ms.workload: identity
 ms.date: 11/15/2019

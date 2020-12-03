@@ -139,7 +139,7 @@ Specify the policy settings as follows:
 1. In **Policy name**, enter a name for the new policy.
 
    ![Enter policy name](./media/backup-azure-sap-hana-database/policy-name.png)
-2. In **Full Backup policy**, select a **Backup Frequency**, choose **Daily** or **Weekly**.
+1. In **Full Backup policy**, select a **Backup Frequency**, choose **Daily** or **Weekly**.
    * **Daily**: Select the hour and time zone in which the backup job begins.
        * You must run a full backup. You can't turn off this option.
        * Select **Full Backup** to view the policy.
@@ -148,16 +148,16 @@ Specify the policy settings as follows:
 
    ![Select backup frequency](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
-3. In **Retention Range**, configure retention settings for the full backup.
+1. In **Retention Range**, configure retention settings for the full backup.
     * By default all options are selected. Clear any retention range limits you don't want to use, and set those that you do.
     * The minimum retention period for any type of backup (full/differential/log) is seven days.
     * Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered each day.
     * The backup for a specific day is tagged and retained based on the weekly retention range and setting.
     * The monthly and yearly retention ranges behave in a similar way.
 
-4. In the **Full Backup policy** menu, select **OK** to accept the settings.
-5. Select **Differential Backup** to add a differential policy.
-6. In **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
+1. In the **Full Backup policy** menu, select **OK** to accept the settings.
+1. Select **Differential Backup** to add a differential policy.
+1. In **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
     * At most, you can trigger one differential backup per day.
     * Differential backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.
 
@@ -165,22 +165,22 @@ Specify the policy settings as follows:
 
     > [!NOTE]
     > Incremental backups are now supported in public preview. You can choose either a differential or an incremental as a daily backup but not both.
-7. In **Incremental Backup policy**, select **Enable** to open the frequency and retention controls.
+1. In **Incremental Backup policy**, select **Enable** to open the frequency and retention controls.
     * At most, you can trigger one incremental backup per day.
     * Incremental backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.
 
     ![Incremental backup policy](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
 
-7. Select **OK** to save the policy and return to the main **Backup policy** menu.
-8. Select **Log Backup** to add a transactional log backup policy,
+1. Select **OK** to save the policy and return to the main **Backup policy** menu.
+1. Select **Log Backup** to add a transactional log backup policy,
     * In **Log Backup**, select **Enable**.  This can't be disabled, since SAP HANA manages all log backups.
     * Set the frequency and retention controls.
 
     > [!NOTE]
     > Log backups only begin to flow after a successful full backup is completed.
 
-9. Select **OK** to save the policy and return to the main **Backup policy** menu.
-10. After you finish defining the backup policy, select **OK**.
+1. Select **OK** to save the policy and return to the main **Backup policy** menu.
+1. After you finish defining the backup policy, select **OK**.
 
 > [!NOTE]
 > Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.

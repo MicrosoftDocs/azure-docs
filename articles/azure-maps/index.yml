@@ -25,7 +25,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Azure Maps Coverage
-            url: render-coverage.md
+            url: geographic-coverage.md
           - text: Localization support
             url: supported-languages.md
           - text: Supported map styles

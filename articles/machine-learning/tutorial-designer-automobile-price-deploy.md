@@ -3,13 +3,13 @@ title: 'Tutorial: Deploy ML models with the designer'
 titleSuffix: Azure Machine Learning
 description: Build a predictive analytics solution in Azure Machine Learning designer. Train, score, and deploy a machine learning model using drag-and-drop modules.
 
-author: peterclu
-ms.author: peterlu
+author: likebupt
+ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/13/2020
+ms.date: 11/25/2020
 ms.custom: designer
 ---
 

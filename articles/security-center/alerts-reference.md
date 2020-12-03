@@ -1,5 +1,5 @@
 ---
-title: Reference table for all Azure Defender alerts in Azure Security Center
+title: Reference table for all security alerts in Azure Security Center
 description: This article lists the security alerts visible in Azure Security Center's Azure Defender dashboard.
 services: security-center
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.author: memildin
 
 ---
 
 # Security alerts - a reference guide
 
-This article lists the security alerts you might get from Azure Defender. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
+This article lists the security alerts you might get from Azure Security Center and any Azure Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
 
 To learn how to respond to these alerts, see [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 
@@ -156,6 +156,9 @@ At the bottom of this page, there's a table describing the Azure Security Center
 |**Exploitation of Xorg vulnerability [seen multiple times]**|Analysis of host data on %{Compromised Host} detected the user of Xorg with suspicious arguments. Attackers may use this technique in privilege escalation attempts. This behavior was seen [x] times today on the following machines: [Machine names]|-|Medium|
 |**Exposed Docker daemon detected**|Machine logs indicate that your Docker daemon (dockerd) exposes a TCP socket. By default, Docker configuration, does not use encryption or authentication when a TCP socket is enabled. This enables full access to the Docker daemon, by anyone with access to the relevant port.|-|Medium|
 |**Failed SSH brute force attack**|Failed brute force attacks were detected from the following attackers: %{Attackers}. Attackers were trying to access the host with the following user names: %{Accounts used on failed sign in to host attempts}.|-|Medium|
+| **Fileless Attack Behavior Detected**<br>(AppServices_FilelessAttackBehaviorDetection)| The memory of the process specified below contains behaviors commonly used by fileless attacks.<br>Specific behaviors include: {list of observed behaviors}                                                                                                                                                                                                                                                                                                                             | Execution                             | Medium   |
+| **Fileless Attack Technique Detected**<br>(VM_FilelessAttackTechnique.Linux)| The memory of the process specified below contains evidence of a fileless attack technique. Fileless attacks are used by attackers to execute code while evading detection by security software.<br>Specific behaviors include: {list of observed behaviors}                                                                                                                                                                                                                            | Execution                             | High     |
+| **Fileless Attack Toolkit Detected**<br>(VM_FilelessAttackToolkit.Linux)| The memory of the process specified below contains a fileless attack toolkit: {ToolKitName}. Fileless attack toolkits typically do not have a presence on the filesystem, making detection by traditional anti-virus software difficult.<br>Specific behaviors include: {list of observed behaviors}                                                                                                                                                                                    | DefenseEvasion, Execution             | High     |
 |**Hidden file execution detected**|Analysis of host data indicates that a hidden file was executed by %{user name}. This activity could either be legitimate activity, or an indication of a compromised host.|-|Informational|
 |**Indicators associated with DDOS toolkit detected [seen multiple times]**|Analysis of host data on %{Compromised Host} detected file names that are part of a toolkit associated with malware capable of launching DDoS attacks, opening ports and services and taking full control over the infected system. This could also possibly be legitimate activity. This behavior was seen [x] times today on the following machines: [Machine names]|-|Medium|
 |**Indicators associated with DDOS toolkit detected**|Analysis of host data on %{Compromised Host} detected file names that are part of a toolkit associated with malware capable of launching DDoS attacks, opening ports and services and taking full control over the infected system. This could also possibly be legitimate activity.|-|Medium|

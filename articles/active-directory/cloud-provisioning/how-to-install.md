@@ -20,9 +20,19 @@ This document walks you through the installation process for the Azure Active Di
 >The following installation instructions assume that all of the [Prerequisites](how-to-prerequisites.md) have been met.
 
 Installing and configuring Azure AD Connect provisioning is accomplished in the following steps:
-	
+
+- [Group Managed Service Accounts](#group-managed-service-accounts)	
 - [Install the agent](#install-the-agent)
 - [Verify agent installation](#verify-agent-installation)
+
+
+## Group Managed Service Accounts
+A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management,the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and recommends the use of a group Managed Service Account for running the agent.  For more information on a gMSA, see [Group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+
+
+### Upgrading an existing agent to use the gMSA account
+To upgrade an existing agent to use the gMSA account created during installation, simply update the agent service to the latest version by running the AADConnectProvisioningAgent.msi.  This will upgrade the service to the latest version.  Now run through the installation wizard again and provide the credentials to create the account when prompted.
+
 
 
 ## Install the agent
@@ -38,16 +48,17 @@ To install the agent, follow these steps.
  7. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms and select **Install**.
    ![Microsoft Azure AD Connect Provisioning Agent Package screen](media/how-to-install/install-1.png)</br>
  8. After this operation finishes, the configuration wizard starts. Sign in with your Azure AD global administrator account.
- 9. On the **Connect Active Directory** screen, select **Add Directory**. Then sign in with your Active Directory administrator account. This operation adds your on-premises directory. 
- 10. Optionally, you can manage the preference of domain controllers the agent will use by selecting **Select domain controller priority** and ordering the list of domain controllers.   Click **OK**.
-  ![Order domain controlllers](media/how-to-install/install-2a.png)</br>
- 11. Select **Next**.
-  ![Connect Active Directory screen](media/how-to-install/install-3.png)</br>
- 12. On the **Configure Service Account screen** enter the domain admin credentials to create the group Managed Service account that will be used to run the agent service.  This account will be named provAgentgMSA$.
-   ![Create gMSA](media/how-to-install/install-10.png)</br>
- 13.  On the **Agent Installation** screen confirm settings and the account that will be created and click **Confirm**.
-  ![Confirm settngs](media/how-to-install/install-11.png)</br>
- 14. After this operation finishes, you should see **Your agent installation is complete.** Select **Exit**.
+ 9. On the **Configure Service Account screen** select either **create gMSA** or **Use custom gMSA**.  If you allow the agent to create the account it will be named provAgentgMSA$. If you specify **Use custom gMSA** you will be prompted to provide this account.
+ 10. Enter the domain admin credentials to create the group Managed Service account that will be used to run the agent service. Click **Next**.  
+   ![Create gMSA](media/how-to-install/install-12.png)</br>
+ 11. On the **Connect Active Directory** screen, select **Add Directory**. Then sign in with your Active Directory administrator account. This operation adds your on-premises directory. 
+ 12. Optionally, you can manage the preference of domain controllers the agent will use by selecting **Select domain controller priority** and ordering the list of domain controllers.   Click **OK**.
+  ![Order domain controllers](media/how-to-install/install-2a.png)</br>
+ 13. Select **Next**.
+  ![Connect Active Directory screen](media/how-to-install/install-3a.png)</br>
+ 14.  On the **Agent Installation** screen confirm settings and the account that will be created and click **Confirm**.
+  ![Confirm settings](media/how-to-install/install-11.png)</br>
+ 15. After this operation finishes, you should see **Your agent installation is complete.** Select **Exit**.
   ![Configuration complete screen](media/how-to-install/install-4a.png)</br>
 1. If you still see the initial **Microsoft Azure AD Connect Provisioning Agent Package** screen, select **Close**.
 
@@ -84,13 +95,6 @@ To verify that the agent is running, follow these steps.
 >[!IMPORTANT]
 >The agent has been installed but it must be configured and enabled before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Azure AD Connect cloud-based provisioning](how-to-configure.md).
 
-## Group Managed Service Accounts
-A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management,the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and recommends the use of a group Managed Service Account for running the agent.  For more information on a gMSA, see [Group Managed Service Accounts](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
-
-
-### Upgrading an existing agent to use the gMSA account
-To upgrade an existing agent to use the gMSA account created during installation, simply update the agent service to the latest version by running the AADConnectProvisioningAgent.msi.  This will upgrade the service to the latest version.  Now run through the installation wizard again and provide the credentials to create the account when prompted.
-
 
 
 
@@ -98,4 +102,3 @@ To upgrade an existing agent to use the gMSA account created during installation
 
 - [What is provisioning?](what-is-provisioning.md)
 - [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
- 

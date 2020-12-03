@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: "monitoring, devx-track-csharp"
+ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli"
 ---
 
 # Monitoring Azure Files
@@ -39,7 +39,7 @@ Azure Files collects the same kinds of monitoring data as other Azure resources,
 
 See [Azure File monitoring data reference](storage-files-monitoring-reference.md) for detailed information on the metrics and logs metrics created by Azure Files.
 
-Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. See [Migrate to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. See [Migrate to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 ## Collection and routing
 

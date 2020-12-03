@@ -173,7 +173,7 @@ The [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) h
 
 * Multi-factor authentication via a push notification or verification code
 
-* Act as an Authentication Broker on iOS and Android devices to provide single sign-on for applications that use [Brokered authentication](../develop/brokered-auth.md)
+* Act as an Authentication Broker on iOS and Android devices to provide single sign-on for applications that use [Brokered authentication](../develop/msal-android-single-sign-on.md)
 
 * Device registration (also known as Workplace Join) to Azure AD, which is a requirement for other features like Intune App Protection and Device Enrolment/Management,
 

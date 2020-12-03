@@ -22,7 +22,7 @@ Your Azure Active Directory (Azure AD) B2C directory user profile comes with a b
 
 You can also integrate with external systems. For example, you can use Azure AD B2C for authentication, but delegate to an external customer relationship management (CRM) or customer loyalty database as the authoritative source of customer data. For more information, see the [remote profile](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) solution.
 
-The table below lists the [user resource type](https://docs.microsoft.com/graph/api/resources/user) attributes that are supported by the Azure AD B2C directory user profile. It gives the following information about each attribute:
+The table below lists the [user resource type](/graph/api/resources/user) attributes that are supported by the Azure AD B2C directory user profile. It gives the following information about each attribute:
 
 - Attribute name used by Azure AD B2C (followed by the Microsoft Graph name in parentheses, if different)
 - Attribute data type
@@ -90,7 +90,7 @@ You'll often need to create your own attributes, as in the following cases:
 - An identity provider has a unique user identifier like **uniqueUserGUID** that must be saved.
 - A custom user journey needs to persist for a state of a user, like **migrationStatus**.
 
-Azure AD B2C extends the set of attributes stored on each user account. Extension attributes [extend the schema](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions) of the user objects in the directory. The extension attributes can only be registered on an application object, even though they might contain data for a user. The extension attribute is attached to the application called b2c-extensions-app. Do not modify this application, as it's used by Azure AD B2C for storing user data. You can find this application under Azure Active Directory App registrations.
+Azure AD B2C extends the set of attributes stored on each user account. Extension attributes [extend the schema](/graph/extensibility-overview#schema-extensions) of the user objects in the directory. The extension attributes can only be registered on an application object, even though they might contain data for a user. The extension attribute is attached to the application called b2c-extensions-app. Do not modify this application, as it's used by Azure AD B2C for storing user data. You can find this application under Azure Active Directory App registrations.
 
 > [!NOTE]
 > - Up to 100 extension attributes can be written to any user account.
@@ -109,6 +109,6 @@ The following data types are supported when defining a property in a schema exte
 
 ## Next steps
 Learn more about extension attributes:
-- [Schema extensions](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions)
+- [Schema extensions](/graph/extensibility-overview#schema-extensions)
 - [Define custom attributes with user flow](user-flow-custom-attributes.md)
 - [Define custom attributes with custom policy](custom-policy-custom-attributes.md)

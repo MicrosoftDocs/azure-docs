@@ -839,9 +839,9 @@
         - name: Azure Event Hubs and Azure Storage
           href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
         - name: Use Spring Boot Starter
-          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: Spring Data developer guide
-          href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+          href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: ODBC driver
           href: odbc-driver.md
     - name: Reference
@@ -882,6 +882,8 @@
         href: /rest/api/cosmos-db/
       - name: REST (Management plane)
         href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
+      - name: PowerShell
+        href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true     
       - name: Resource Manager template
         href: /azure/templates/microsoft.documentdb/allversions
         displayName: ARM
@@ -945,6 +947,8 @@
           href: oracle-migrate-cosmos-db-blitzz.md
         - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
           href: cassandra-migrate-cosmos-db-blitzz.md
+        - name: Migrate - Apache Cassandra to Cassandra API using Databricks
+          href: cassandra-migrate-cosmos-db-databricks.md          
       - name: Change feed
         href: cassandra-change-feed.md
       - name: Create a container - Cassandra API
@@ -956,7 +960,7 @@
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge-cassandra.md
       - name: Store and manage Spring Data 
-        href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+        href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
       - name: Cassandra and Spark
         items:
         - name: Introduction
@@ -990,6 +994,8 @@
       items:
       - name: REST resource provider
         href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
+      - name: PowerShell
+        href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true     
       - name: Resource Manager template
         href: /azure/templates/microsoft.documentdb/allversions
   - name: MongoDB API
@@ -1092,7 +1098,7 @@
       - name: Troubleshoot query performance
         href: mongodb-troubleshoot-query.md
       - name: Store and manage Spring Data
-        href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+        href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
       - name: MongoDB extension commands
         href: mongodb-custom-commands.md
         displayName: custom commands
@@ -1109,6 +1115,8 @@
       items:
       - name: REST resource provider
         href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
+      - name: PowerShell
+        href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true     
       - name: Resource Manager template
         href: /azure/templates/microsoft.documentdb/allversions
   - name: Gremlin API
@@ -1173,7 +1181,7 @@
       - name: Visualize graph data
         href: graph-visualization.md
       - name: Store and manage Spring Data
-        href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+        href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
       - name: Manage using Resource Manager templates
         href: templates-samples-gremlin.md
         displayName: ARM
@@ -1185,6 +1193,8 @@
       items:
       - name: Response Headers
         href: gremlin-headers.md
+      - name: PowerShell
+        href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true     
       - name: REST resource provider
         href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
       - name: Resource Manager template
@@ -1269,6 +1279,8 @@
           href: table-sdk-nodejs.md
         - name: Python
           href: table-sdk-python.md
+        - name: PowerShell
+          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true     
         - name: Table storage REST APIs
           href: /rest/api/storageservices/table-service-rest-api
   - name: How-to guides
@@ -1293,7 +1305,7 @@
         href: tutorial-setup-ci-cd.md
       - name: Use Azure Storage Explorer
         href: storage-explorer.md
-      - name: Use Azure Cosmos explorer
+      - name: Use Azure Cosmos DB Explorer
         href: data-explorer.md
     - name: Analytics and BI with Azure Synapse Link
       items:
@@ -1303,7 +1315,7 @@
         href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Query with Azure Synapse Spark
         href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-      - name: Query with Synapse SQL serverless
+      - name: Query with serverless SQL pool
         href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Use Power BI with Synapse Link
         href: synapse-link-power-bi.md     
@@ -1317,7 +1329,7 @@
       - name: Configure access from private endpoints
         href: how-to-configure-private-endpoints.md
       - name: Connect privately to a Cosmos DB account
-        href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        href: ../private-link/tutorial-private-endpoint-cosmosdb-portal.md?bc=%2fazure%2fcosmos-db%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcosmos-db%2ftoc.json
       - name: Use Azure Key Vault to access data
         href: access-secrets-from-keyvault.md
       - name: Restrict user access to data operations only

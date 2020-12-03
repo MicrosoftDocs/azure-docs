@@ -6,7 +6,6 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: enterprise-users
 ms.topic: overview
 ms.date: 11/15/2020
 ms.author: curtand

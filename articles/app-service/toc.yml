@@ -11,9 +11,9 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: .NET Core
+  - name: ASP.NET Core
     href: quickstart-dotnetcore.md
-  - name: .NET Framework
+  - name: ASP.NET
     href: quickstart-dotnet-framework.md
   - name: Node.js
     href: quickstart-nodejs.md
@@ -52,9 +52,9 @@
       href: scenario-secure-app-clean-up-resources.md
   - name: App with DB
     items:
-    - name: .NET Core with SQL DB
+    - name: ASP.NET Core with SQL DB
       href: tutorial-dotnetcore-sqldb-app.md
-    - name: .NET Framework with SQL DB
+    - name: ASP.NET with SQL DB
       href: app-service-web-tutorial-dotnet-sqldatabase.md
     - name: PHP with MySQL
       href: tutorial-php-mysql-app.md
@@ -114,8 +114,8 @@
       href: overview-authentication-authorization.md
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
-    - name: Built-in security controls
-      href: app-service-security-controls.md
+    - name: Security baseline
+      href: security-baseline.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md

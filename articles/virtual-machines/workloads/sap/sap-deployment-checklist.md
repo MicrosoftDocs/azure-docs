@@ -8,9 +8,8 @@ manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -240,8 +239,8 @@ In this phase, collect what you experienced and learned during your non-producti
 	- Azure Premium Storage is used for latency-sensitive disks or where the [single-VM SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) is required.
 	- Azure Write Accelerator is deployed correctly.
 		- Make sure that, within the VMs, storage spaces, or stripe sets were built correctly across disks that need Write Accelerator.
-		- Check the [configuration of software RAID on Linux](../../linux/configure-raid.md).
-		- Check the [configuration of LVM on Linux VMs in Azure](../../linux/configure-lvm.md).
+		- Check the [configuration of software RAID on Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
+		- Check the [configuration of LVM on Linux VMs in Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm).
 	- [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) are used exclusively.
 	- VMs were deployed into the correct availability sets and Availability Zones.
 	- [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VMs used in the SAP application layer and the SAP DBMS layer.

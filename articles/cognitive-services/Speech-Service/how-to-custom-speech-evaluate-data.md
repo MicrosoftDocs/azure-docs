@@ -132,5 +132,5 @@ The following table shows voice recognition scenarios and lists source materials
 
 ## Additional resources
 
-* [Prepare and test your data](how-to-custom-speech-test-data.md)
+* [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
 * [Inspect your data](how-to-custom-speech-inspect-data.md)

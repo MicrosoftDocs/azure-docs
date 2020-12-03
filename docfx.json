@@ -593,6 +593,8 @@
         "articles/cdn/*.yml": "networking",
         "articles/bastion/*.md": "networking",
         "articles/bastion/*.yml": "networking",
+        "articles/ddos-protection/*.md": "networking",
+        "articles/ddos-protection/*.yml": "networking",      
         "articles/dns/*.md": "networking",
         "articles/dns/*.yml": "networking",
         "articles/expressroute/*.md": "networking",
@@ -883,13 +885,27 @@
       "docs.html"
     ],
     "dest": "azure",
+
     "rules": {
       "sensitive-language": {
         "exclude": [
           "articles/governance/blueprints/**/*.md",
-          "articles/governance/policy/**/*.md"
+          "articles/governance/policy/**/*.md",
+          "articles/role-based-access-control/resource-provider-operations.md",
+          "articles/site-recovery/**/*.md",
+          "articles/virtual-machines/workloads/sap/dbms-guide-ha-ibm.md",
+          "articles/virtual-machines/workloads/sap/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
+          "articles/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw.md",
+          "articles/virtual-machines/workloads/sap/high-availability-guide-suse-nfs.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability-rhel.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md"
         ]
       }
     }
+
   }
 }
