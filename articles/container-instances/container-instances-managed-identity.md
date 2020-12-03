@@ -40,9 +40,9 @@ To use a managed identity, the identity must be granted access to one or more Az
 * Currently you can't use a managed identity in a container group deployed to a virtual network.
 * You can't use a managed identity to pull an image from Azure Container Registry when creating a container group. The identity is only available within a running container.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.49 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+- This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create an Azure key vault
 

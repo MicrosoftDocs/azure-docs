@@ -44,7 +44,8 @@ Each consortium member deployment includes:
 * VNet Gateway (optional) for allowing VPN connections across private VNets
 
 By default, the RPC and peering endpoints are accessible over public IP to enable simplified connectivity across
-subscriptions and clouds. For application level access-controls, you can use Parity's permissioning contracts. Networks deployed behind VPNs, which leverage VNet gateways for cross-subscription connectivity are supported. Since VPN and VNet deployments are more complex, you may want to start with a public IP model when prototyping a solution.
+
+subscriptions and clouds. For application level access-controls, you can use [Parity's permissioning contracts](https://openethereum.github.io/Permissioning.html). Networks deployed behind VPNs, which leverage VNet gateways for cross-subscription connectivity are supported. Since VPN and VNet deployments are more complex, you may want to start with a public IP model when prototyping a solution.
 
 Docker containers are used for reliability and modularity. Azure Container Registry is used to host and serve versioned images as part of each deployment. The container images consist of:
 
@@ -685,7 +686,7 @@ Now that your smart contract is deployed, you can send a transaction to call a f
 
 ## WebAssembly (WASM) support
 
-WebAssembly support is already enabled for you on newly deployed PoA networks. It allows for smart-contract development in any language that transpiles to Web-Assembly (Rust, C, C++). For more information, see [Tutorial from Parity Tech](https://github.com/paritytech/pwasm-tutorial).
+WebAssembly support is already enabled for you on newly deployed PoA networks. It allows for smart-contract development in any language that transpiles to Web-Assembly (Rust, C, C++). For more information, see: [Parity Overview of WebAssembly](https://openethereum.github.io/WebAssembly-Home.html) and [Tutorial from Parity Tech](https://github.com/paritytech/pwasm-tutorial)
 
 ## FAQ
 

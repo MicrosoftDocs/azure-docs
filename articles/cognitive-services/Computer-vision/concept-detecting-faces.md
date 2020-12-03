@@ -19,7 +19,7 @@ ms.custom: seodec18
 Computer Vision can detect human faces within an image and generate the age, gender, and rectangle for each detected face. 
 
 > [!NOTE]
-> This feature is also offered by the Azure [Face](/azure/cognitive-services/face/) service. See this alternative for more detailed face analysis, including face identification and pose detection. 
+> This feature is also offered by the Azure [Face](../face/index.yml) service. See this alternative for more detailed face analysis, including face identification and pose detection. 
 
 ## Face detection examples
 
@@ -111,5 +111,4 @@ The next example demonstrates the JSON response returned for an image containing
 
 The face detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Faces` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"faces"` section.
 
-* [Quickstart: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)
+* [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

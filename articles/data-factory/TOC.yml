@@ -259,7 +259,7 @@
       href: connector-azure-sql-database.md
     - name: Azure SQL Managed Instance
       href: connector-azure-sql-managed-instance.md
-    - name: Azure Synapse Analytics (formerly SQL Data Warehouse)
+    - name: Azure Synapse Analytics
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
@@ -752,6 +752,10 @@
       href: connector-troubleshoot-guide.md
     - name: Data Flows
       href: data-flow-troubleshoot-guide.md
+    - name: Continuous Integration and Deployment 
+      href: ci-cd-github-troubleshoot-guide.md      
+    - name: Security and access control
+      href: security-and-access-control-troubleshoot-guide.md
     - name: Self-hosted Integration Runtimes
       href: self-hosted-integration-runtime-troubleshoot-guide.md
     - name: Azure-SSIS Integration Runtime

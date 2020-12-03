@@ -40,7 +40,7 @@ The following list contains the fully qualified domain names (FQDN) used by your
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
+* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
 * If you create a compute instance, you must also add an entry for `<instance-name>.<region>.instances.azureml.ms` with the private IP of the workspace private endpoint.
 
     > [!NOTE]

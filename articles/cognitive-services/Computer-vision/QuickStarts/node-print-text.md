@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
 ---
@@ -17,7 +17,7 @@ ms.custom: seodec18, devx-track-js
 # Quickstart: Extract printed text (OCR) using the Computer Vision REST API and Node.js
 
 > [!NOTE]
-> If you're extracting English language text, consider using the new [Read operation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text).
+> If you're extracting English language text, consider using the new [Read operation](../concept-recognizing-text.md).
 
 In this quickstart, you'll extract printed text with optical character recognition (OCR) from an image using the Computer Vision REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
@@ -29,7 +29,7 @@ In this quickstart, you'll extract printed text with optical character recogniti
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
+* [Create environment variables](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ## Create and run the sample
 

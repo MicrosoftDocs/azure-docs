@@ -40,13 +40,13 @@ When the installation finishes, you see the following message:
     * To install the Connected Machine agent on the target machine that can directly communicate to Azure, run:
 
         ```azurepowershell
-        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region>
         ```
     
     * To install the Connected Machine agent on the target machine that communicates through a proxy server, run:
         
         ```azurepowershell
-        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -Proxy http://<proxyURL>:<proxyport>
         ```
 
 If the agent fails to start after setup is finished, check the logs for detailed error information. On Windows, check this file: *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*. On Linux, check this file: */var/opt/azcmagent/log/himds.log*.
@@ -59,20 +59,20 @@ Here's how to configure one or more Windows servers with servers enabled with Az
 
 2. Sign in to Azure by running the command `Connect-AzAccount`.
 
-3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-Name`, `-ResourceGroupName`, and `-Location` parameters. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign-in.
+3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-ResourceGroupName`, and `-Location` parameters. The Azure resource names will automatically use the hostname of each server. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign-in.
 
     * To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command:
     
         ```azurepowershell
-        $session = Connect-PSSession -ComputerName myMachineName
-        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        $sessions = New-PSSession -ComputerName myMachineName
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Location <region> -PSSession $sessions
         ```
     
     * To install the Connected Machine agent on multiple remote machines at the same time, add a list of remote machine names, each separated by a comma.
 
         ```azurepowershell
-        $session = Connect-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
-        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        $sessions = New-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Location <region> -PSSession $sessions
         ```
 
     The following example shows the results of the command targeting a single machine:

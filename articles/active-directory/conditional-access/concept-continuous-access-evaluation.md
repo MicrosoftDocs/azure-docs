@@ -23,7 +23,9 @@ Customers have expressed concerns about the lag between when conditions change f
 
 Timely response to policy violations or security issues really requires a “conversation” between the token issuer, like Azure AD, and the relying party, like Exchange Online. This two-way conversation gives us two important capabilities. The relying party can notice when things have changed, like a client coming from a new location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user due to account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE). The goal is for response to be near real time, but in some cases latency of up to 15 minutes may be observed due to event propagation time.
 
-The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online. 
+The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
+
+To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](/develop/app-resilience-continuous-access-evaluation.md).
 
 ### Key benefits
 

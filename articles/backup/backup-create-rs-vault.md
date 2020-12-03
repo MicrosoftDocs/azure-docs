@@ -60,7 +60,7 @@ Since this process is at the storage level, there are [pricing implications](htt
 >Before you begin:
 >
 >- Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
->- The Cross Region Restore (CRR) feature is now previewed in all Azure public regions and sovereign clouds.
+>- The Cross Region Restore (CRR) feature is now previewed in all Azure public regions.
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
 >- After opting-in, it might take up to 48 hours for the backup items to be available in secondary regions.
 >- Currently CRR for Azure VMs is supported only for Azure Resource Manger Azure VMs. Classic Azure VMs won't be supported.  When additional management types support CRR, then they'll be **automatically** enrolled.

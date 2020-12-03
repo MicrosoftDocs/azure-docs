@@ -469,7 +469,7 @@ If all images that are taken from Azure Marketplace are to be reused, the operat
 
 * For **Windows**, you generalize Windows images by using `sysreptool`.
 
-  For more information about the `sysreptool` tool, see [System preparation (Sysprep) overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+  For more information about the `sysreptool` tool, see [System preparation (Sysprep) overview](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 ## DataDisk errors
 

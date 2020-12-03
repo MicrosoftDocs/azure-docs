@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure IoT Central application | Microsoft Docs
 description: Quickstart - Create a new Azure IoT Central application. Create the application using either the free pricing plan or one of the standard pricing plans.
 author: viv-liu
 ms.author: viviali
-ms.date: 11/16/2020
+ms.date: 11/23/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -24,7 +24,7 @@ To create a new Azure IoT Central application from the **Custom application** te
 
 1. Navigate to the **Build** page:
 
-    ![Build your IoT application page](media/quick-deploy-iot-central/iotcentralcreate-new-application.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-new-application.png" alt-text="Build your IoT application page":::
 
 1. Choose **Custom apps** and make sure that the **Custom application** template is selected.
 
@@ -32,9 +32,9 @@ To create a new Azure IoT Central application from the **Custom application** te
 
 1. Azure IoT Central also generates a unique **application URL** prefix for you, based on the application name. You use this URL to access your application. Change this URL prefix to something more memorable if you'd like.
 
-    ![Azure IoT Central Create an application page](media/quick-deploy-iot-central/iotcentralcreate-custom.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-custom.png" alt-text="Azure IoT Central Create an application page":::
 
-    ![Azure IoT Central billing info](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png" alt-text="Azure IoT Central billing info":::
 
     > [!NOTE]
     > If you chose **Custom app** on the previous page, you will see an **Application template** dropdown. The dropdown might show other templates that have been made available to you by your organization.
@@ -45,14 +45,14 @@ To create a new Azure IoT Central application from the **Custom application** te
 1. Choose to create this application using the 7-day free trial pricing plan, or one of the standard pricing plans:
 
     - Applications you create using the *free* plan are free for seven days and support up to five devices. You can convert them to use a standard pricing plan at any time before they expire.
-    - Applications you create using a *standard* plan are billed on a per device basis, you can choose either **Standard 1** or **Standard 2** pricing plan with the first two devices being free. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/). If you create an application using a standard pricing plan, you need to select your *Directory*, *Azure Subscription*, and *Location*:
+    - Applications you create using a *standard* plan are billed on a per device basis, you can choose either **Standard 0**, **Standard 1**, or **Standard 2** pricing plan with the first two devices being free. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/). If you create an application using a standard pricing plan, you need to select your *Directory*, *Azure Subscription*, and *Location*:
         - *Directory* is the Azure Active Directory in which you create your application. An Azure Active Directory contains user identities, credentials, and other organizational information. If you don't have an Azure Active Directory, one is created for you when you create an Azure subscription.
         - An *Azure Subscription* enables you to create instances of Azure services. IoT Central provisions resources in your subscription. If you don't have an Azure subscription, you can create one for free on the [Azure sign-up page](https://aka.ms/createazuresubscription). After you create the Azure subscription, navigate back to the **New application** page. Your new subscription now appears in the **Azure Subscription** drop-down.
         - *Location* is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Once you choose a location, you can't later move your application to a different location.
 
 1. Review the Terms and Conditions, and select **Create** at the bottom of the page. After a few minutes, you IoT Central application is ready to use:
 
-    ![Azure IoT Central application](media/quick-deploy-iot-central/iotcentral-application.png)
+    :::image type="content" source="media/quick-deploy-iot-central/iotcentral-application.png" alt-text="Azure IoT Central application":::
 
 ## Next steps
 
@@ -63,4 +63,4 @@ In this quickstart, you created an IoT Central application. Here's the suggested
 
 If you're a device developer and want to dive into some code, the suggested next step is to:
 > [!div class="nextstepaction"]
-> [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device-nodejs.md)
+> [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md)

@@ -24,9 +24,6 @@
   - name: Managed Service offers in Azure Marketplace
     displayName: azure marketplace, marketplace, managed service, private, plan
     href: ./concepts/managed-services-offers.md
-  - name: Recommended security practices
-    displayName: mfa, authentication, secure, group
-    href: ./concepts/recommended-security-practices.md
   - name: Cloud Solution Provider program considerations
     displayName: csp, aobo, partner
     href: ./concepts/cloud-solution-provider.md
@@ -38,6 +35,9 @@
     href: ./concepts/managed-applications.md
   - name: Security
     items:
+    - name: Recommended security practices
+      displayName: mfa, authentication, secure, group
+      href: ./concepts/recommended-security-practices.md
     - name: Security baseline
       href: security-baseline.md
 - name: How-to guides

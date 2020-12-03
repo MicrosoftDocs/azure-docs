@@ -135,7 +135,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.vmware
+            url: /powershell/module/az.vmware
           - text: FAQ
             url: faq.md
 

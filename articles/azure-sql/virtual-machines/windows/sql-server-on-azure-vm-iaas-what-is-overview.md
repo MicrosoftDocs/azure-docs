@@ -142,7 +142,7 @@ The Customer Experience Improvement Program (CEIP) is enabled by default. This p
 ### Networking
 * [Virtual Network overview](../../../virtual-network/virtual-networks-overview.md)
 * [IP addresses in Azure](../../../virtual-network/public-ip-addresses.md)
-* [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/linux/portal-create-fqdn.md)
+* [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/create-fqdn.md)
 
 ### SQL
 * [SQL Server documentation](/sql/index)

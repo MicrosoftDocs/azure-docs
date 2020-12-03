@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/16/2019
+ms.date: 11/26/2020
 ---
 
 # Copy data to and from Azure Database for PostgreSQL by using Azure Data Factory
@@ -131,7 +131,7 @@ To copy data from Azure Database for PostgreSQL, set the source type in the copy
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **AzurePostgreSqlSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"` | No (if the tableName property in the dataset is specified) |
+| query | Use the custom SQL query to read data. For example: `SELECT * FROM mytable` or `SELECT * FROM "MyTable"`. Note in PostgreSQL, the entity name is treated as case-insensitive if not quoted. | No (if the tableName property in the dataset is specified) |
 
 **Example**:
 
@@ -155,7 +155,7 @@ To copy data from Azure Database for PostgreSQL, set the source type in the copy
         "typeProperties": {
             "source": {
                 "type": "AzurePostgreSqlSource",
-                "query": "<custom query e.g. SELECT * FROM MyTable>"
+                "query": "<custom query e.g. SELECT * FROM mytable>"
             },
             "sink": {
                 "type": "<sink type>"

@@ -6,7 +6,7 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
-ms.custom: H1Hack27Feb2017, mvc
+ms.custom: contperfq2
 ---
 
 # Introduction to Azure Functions
@@ -33,12 +33,12 @@ The following are a common, _but by no means exhaustive_, set of scenarios for A
 | --- | --- |
 | **Build a web API** | Implement an endpoint for your web applications using the [HTTP trigger](./functions-bindings-http-webhook.md) |
 | **Process file uploads** | Run code when a file is uploaded or changed in [blob storage](./functions-bindings-storage-blob.md) |
-| **Build a serverless workflow** | Chain a series of functions together using [durable functions](./durable-functions-overview.md) |
+| **Build a serverless workflow** | Chain a series of functions together using [durable functions](./durable/durable-functions-overview.md) |
 | **Respond to database changes** | Run custom logic when a document is created or updated in [Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
 | **Run scheduled tasks** | Execute code at [set times](./functions-bindings-timer.md) |
 | **Create reliable message queue systems** | Process message queues using [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md), or [Event Hubs](./functions-bindings-event-hubs.md) |
 | **Analyze IoT data streams** | Collect and process [data from IoT devices](./functions-bindings-event-iot.md) |
-| **Process data in real time** | Use [Functions and Signal R](./functions-bindings-signalr-service.md) to respond to data in the moment |
+| **Process data in real time** | Use [Functions and SignalR](./functions-bindings-signalr-service.md) to respond to data in the moment |
 
 As you build your functions, you have the following options and resources available:
 
