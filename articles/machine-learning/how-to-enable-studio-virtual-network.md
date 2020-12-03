@@ -92,7 +92,7 @@ The following table describes why you must enable managed identity authenticatio
 
 |Storage account  | Notes  |
 |---------|---------|
-|Workspace default blob storage| Stores model assets from the designer. You must enable managed identity authentication on this storage account to deploy models in the designer. <br> <br> If your pipeline uses a non-default datastore that has been configured to use managed identity, you can visualize and run a designer pipeline without enabling managed identity on your default blob storage. However, if you try to deploy a trained model without managed identity enabled on the default datastore, deployment will fail regardless of any other datastores in use.|
+|Workspace default blob storage| Stores model assets from the designer. You must enable managed identity authentication on this storage account to deploy models in the designer. <br> <br> You can visualize and run a designer pipeline if it uses a non-default datastore that has been configured to use managed identity. However, if you try to deploy a trained model without managed identity enabled on the default datastore, deployment will fail regardless of any other datastores in use.|
 |Workspace default file store| Stores AutoML experiment assets. You must enable managed identity authentication on this storage account to submit AutoML experiments. |
 
 
