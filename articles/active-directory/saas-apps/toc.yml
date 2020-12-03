@@ -648,6 +648,8 @@
         href: formcom-tutorial.md
       - name: Fortes Change Cloud
         href: fortes-change-cloud-tutorial.md
+      - name: FortiWeb Web Application Firewall
+        href: fortiweb-web-application-firewall-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
@@ -826,6 +828,8 @@
         href: infor-cloud-suite-tutorial.md
       - name: Infor Retail - Information Management
         href: inforretailinformationmanagement-tutorial.md
+      - name: InformaCast
+        href: informacast-tutorial.md
       - name: Inkling
         href: inkling-tutorial.md
       - name: Innotas
@@ -1336,6 +1340,8 @@
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
+      - name: ProProfs Knowledge Base
+        href: proprofs-knowledge-base-tutorial.md
       - name: Proto.io
         href: proto.io-tutorial.md
       - name: Proxyclick
@@ -1390,6 +1396,8 @@
         href: resource-central-tutorial.md
       - name: Retail Zipline
         href: retail-zipline-tutorial.md
+      - name: RetrieverMediaDatabase
+        href: retrievermediadatabase-tutorial.md
       - name: Reviewsnap
         href: reviewsnap-tutorial.md
       - name: Reward Gateway
@@ -1398,6 +1406,8 @@
         href: rfpio-tutorial.md
       - name: RightAnswers
         href: rightanswers-tutorial.md
+      - name: RightCrowd Workforce Management
+        href: rightcrowd-workforce-management-tutorial.md
       - name: Rightscale
         href: rightscale-tutorial.md
       - name: RingCentral

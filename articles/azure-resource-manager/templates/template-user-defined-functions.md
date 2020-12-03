@@ -97,8 +97,7 @@ When defining a user function, there are some restrictions:
 * The function can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions.
 * Parameters for the function can't have default values.
 
-
 ## Next steps
 
-* To learn about the available properties for user-defined functions, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
-* For a list of the available template functions, see [Azure Resource Manager template functions](template-functions.md).
+* To learn about the available properties for user-defined functions, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a list of the available template functions, see [ARM template functions](template-functions.md).

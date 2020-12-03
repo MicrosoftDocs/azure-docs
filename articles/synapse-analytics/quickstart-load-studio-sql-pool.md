@@ -13,11 +13,11 @@ ms.reviewer: jrasnick
 
 # Quickstart: Bulk loading with Synapse SQL
 
-Loading data has never been easier when using the Bulk Load wizard in the Synapse Studio. This wizard will guide you through creating a T-SQL script with the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) to bulk load data. 
+Loading data is easy with the Bulk Load wizard in Synapse Studio. The Bulk Load wizard will guide you through creating a T-SQL script with the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) to bulk load data. 
 
 ## Entry points to the Bulk Load wizard
 
-You can now easily bulk load data using dedicated SQL pools with a simple right-click on the following areas within the Synapse Studio:
+You can easily bulk load data using dedicated SQL pools with a simple right-click on the following areas within the Synapse Studio:
 
 - A file or folder from an Azure storage account attached to your workspace
 ![Right-clicking on a file or folder from a storage account](./sql/media/bulk-load/bulk-load-entry-point-0.png)
