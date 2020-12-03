@@ -211,7 +211,7 @@ Based on the above configuration, review the following scenarios.
 | _/admin/_ | Authenticated users in the _administrators_ role are served the _/admin/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>1</sup>. Unauthenticated users redirected to _/login_. |
 | _/logo.png_ | Serves the image with a custom cache rule where the max age is a little over 182 days (15,770,000 seconds) |
 | _/api/admin_ | GET requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a 401 error.<br/><br/>POST, PUT, PATCH, and DELETE requests from authenticated users in the _administrators_ role are sent to the API. Authenticated users not in the _administrators_ role and unauthenticated users are served a 401 error. |
-| _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file<sup>1</sup>. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error. Unauthenticated users redirected to _/login_. |
+| _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error<sup>1</sup>. Unauthenticated users redirected to _/login_. |
 | _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
 | _/.auth/login/twitter_ | Authorization with Twitter is disabled. The server responds with a 404 error. |
 | _/logout_ | Users are logged out of any authentication provider. |
@@ -222,11 +222,12 @@ Based on the above configuration, review the following scenarios.
 
 <sup>1</sup> You can provide a custom error page by using a [response override rule](#response-overrides).
 
-
 ## Restrictions
 
-- The _routes.json_ file cannot be more than 100 KB
-- The _routes.json_ file supports a maximum of 50 distinct roles
+The following restrictions exisit for the _staticwebapps.config.json_ file.
+
+- The file cannot be more than 100 KB in size
+- A maximum of 50 distinct roles are supported
 
 See the [Quotas article](quotas.md) for general restrictions and limitations.
 
