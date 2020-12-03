@@ -67,11 +67,11 @@ If you're not using a client library to make HTTP requests to the Azure Communic
 
 User access tokens let your client applications authenticate directly against Azure Communication Services. To achieve this you should set up a trusted service that authenticates your application users and issues user access tokens with the Administration client library. Visit the [client and server architecture](./client-and-server-architecture.md) conceptual documentation to learn more about our architectural considerations.
 
-The `CommunicationClientCredential` class contains the logic for providing user access token credentials to the client libraries and managing their lifecycle.
+The `CommunicationUserCredential` class contains the logic for providing user access token credentials to the client libraries and managing their lifecycle.
 
 ### Initialize the client libraries
 
-To initialize Azure Communication Services client libraries that require user access token authentication, you first create an instance of the `CommunicationClientCredential` class, and then use it to initialize an API client.
+To initialize Azure Communication Services client libraries that require user access token authentication, you first create an instance of the `CommunicationUserCredential` class, and then use it to initialize an API client.
 
 The following snippets show you how to initialize the chat client library with a user access token:
 

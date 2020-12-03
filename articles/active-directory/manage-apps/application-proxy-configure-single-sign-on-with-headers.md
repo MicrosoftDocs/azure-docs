@@ -80,7 +80,7 @@ Before you get started with single sign-on for header-based applications, you sh
 ## Test your app 
 
 When you've completed all these steps, your app should be running and available. To test the app: 
-1. Open a browser and navigate to the **External URL** from the Application Proxy settings. 
+1. Open a new browser or private browser window to make sure previously cached headers are cleared. Then navigate to the **External URL** from the Application Proxy settings.
 2. Sign in with the test account that you assigned to the app. If you can load and sign into the application using SSO, then you're good! 
 
 

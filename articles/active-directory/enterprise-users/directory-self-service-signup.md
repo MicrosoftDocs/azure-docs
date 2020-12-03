@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
@@ -72,6 +72,12 @@ These two parameters can be used in conjunction to define more precise control o
 The following flowchart explains the different combinations for these parameters and the resulting conditions for the directory and self-service sign-up.
 
 ![flowchart of self-service sign-up controls](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+
+The details of this setting can be retrieved by the following powershell cmdlet Get-MsolCompanyInformation. For more infromation on this, see [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation?view=azureadps-1.0).
+
+```powershell
+    Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions
+```
 
 For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 

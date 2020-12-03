@@ -36,7 +36,7 @@ Before you begin, you must have the following:
 + The [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8 or 11. 
++ The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11. 
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 

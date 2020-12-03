@@ -173,7 +173,7 @@ The following is not supported and should not be chosen as an implementation:
 > 
 
 ## Define multi-factor authentication strategy
-In this task you will define the multi-factor authentication strategy to use.  Azure Multi-Factor Authentication comes in two different versions.  One is a cloud-based and the other is on-premises based using the Azure MFA Server.  Based on the evaluation you did above you can determine which solution is the correct one for your strategy.  Use the table below to determine which design option best fulfills your company’s security requirement:
+In this task you will define the multi-factor authentication strategy to use.  Azure AD Multi-Factor Authentication comes in two different versions.  One is a cloud-based and the other is on-premises based using the Azure MFA Server.  Based on the evaluation you did above you can determine which solution is the correct one for your strategy.  Use the table below to determine which design option best fulfills your company’s security requirement:
 
 Multi-factor design options:
 

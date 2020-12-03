@@ -33,7 +33,7 @@ The architecture has the following main components:
 
 - **On-premises site:** Customer on-premises datacenter(s) connected to Azure through an ExpressRoute connection.
 
-- **Azure VMware Solution private cloud:** Azure VMware Solution SDDC formed by one or more vSphere clusters, each one with a maximum of 16 nodes.
+- **Azure VMware Solution private cloud:** Azure VMware Solution SDDC formed by one or more vSphere clusters, each one with a maximum of 16 hosts.
 
 - **ExpressRoute gateway:** Enables the communication between Azure VMware Solution private cloud, shared services on Hub virtual network, and workloads running on Spoke virtual networks.
 

@@ -6,12 +6,12 @@
     - name: What is Azure Spring Cloud?
       href: spring-cloud-overview.md
 - name: Quickstarts
-  expanded: true 
+  expanded: true
   items:
     - name: Launch your first app
       href: spring-cloud-quickstart.md
     - name: Build and run Microservices
-      expanded: true 
+      expanded: true
       items:
       - name: Introduction to the sample app
         href: spring-cloud-quickstart-sample-app-introduction.md
@@ -25,10 +25,6 @@
         href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Tutorials
   items:
-    - name: Manually scale an app
-      href: spring-cloud-tutorial-scale-manual.md
-    - name: Autoscale an app
-      href: spring-cloud-tutorial-setup-autoscale.md
     - name: Alerts and action groups
       href: spring-cloud-tutorial-alerts-action-groups.md
     - name: Circuit Breaker Dashboard
@@ -42,7 +38,7 @@
     - name: Use managed identity to invoke Azure Functions from an Azure Spring Cloud app
       href: spring-cloud-tutorial-managed-identities-functions.md
 - name: Concepts
-  items: 
+  items:
     - name: Understand app and deployment
       href: spring-cloud-concept-understand-app-and-deployment.md
     - name: Understand quotas and limits
@@ -62,7 +58,7 @@
     - name: Develop
       items:
         - name: Prepare a Java Spring app for deployment
-          href: spring-cloud-tutorial-prepare-app-deployment.md 
+          href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: Set up a Config Server
           href: spring-cloud-tutorial-config-server.md
         - name: Enable Service Registration
@@ -74,13 +70,21 @@
         - name: Launch Java app from source code
           href: spring-cloud-howto-launch-from-source.md
         - name: Use IntelliJ to deploy apps
-          href: spring-cloud-tutorial-intellij-deploy-apps.md  
+          href: spring-cloud-tutorial-intellij-deploy-apps.md
+        - name: Deploy Azure Spring Cloud with Azure PowerShell
+          href: spring-cloud-howto-deploy-powershell.md
     - name: Configure
       items:
         - name: Start, stop, and delete an app
           href: spring-cloud-howto-start-stop-delete.md
         - name: Use persistent storage
           href: spring-cloud-howto-persistent-storage.md
+    - name: Scale
+      items: 
+        - name: Manually scale an app
+          href: spring-cloud-tutorial-scale-manual.md
+        - name: Autoscale an app
+          href: spring-cloud-tutorial-setup-autoscale.md
         - name: Identify outbound public IP addresses
           href: spring-cloud-howto-outbound-public-ip.md
     - name: Monitor
@@ -126,13 +130,25 @@
     - name: Migrate
       items:
         - name: Spring Cloud
-          href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud
+          href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud
         - name: Spring Boot
-          href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
+          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+- name: DevOps Deployment
+  items:
+  - name: CI/CD with Azure DevOps
+    href: spring-cloud-howto-cicd.md
+  - name: CI/CD with GitHub Actions
+    href: spring-cloud-howto-github-actions.md
+  - name: Auth with Key Vault in GitHub Actions
+    href: spring-cloud-github-actions-key-vault.md
+- name: Troubleshoot
+  items:
+  - name: Troubleshooting Guide
+    href: spring-cloud-troubleshoot.md
 - name: Reference
-  items: 
+  items:
   - name: Azure CLI Plugin
     href: /cli/azure/ext/spring-cloud/spring-cloud
   - name: Azure PowerShell

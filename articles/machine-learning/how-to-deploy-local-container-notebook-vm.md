@@ -35,7 +35,7 @@ An example notebook that demonstrates local deployments is included on your comp
 
 1. From [Azure Machine Learning studio](https://ml.azure.com), select your Azure Machine Learning compute instances.
 
-1. Open the `samples-*` subdirectory, and then open `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Once open, run the notebook.
+1. Open the `samples-*` subdirectory, and then open `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb`. Once open, run the notebook.
 
     ![Screenshot of the running local service on notebook](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 

@@ -54,7 +54,7 @@ Welcome to what's new in Azure Active Directory application provisioning documen
 
 
 ### Updated articles
-- [Configure provisioning using Microsoft Graph APIs](application-provisioning-configure-api.md)
+- [Configure provisioning using Microsoft Graph APIs](/graph/application-provisioning-configure-api)
 - [Known issues and resolutions with SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](application-provisioning-config-problem-scim-compatibility.md)
 
 ## July 2020
