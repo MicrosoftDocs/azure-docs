@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Manage credentials in Azure Automation
 
-An Automation credential asset holds an object that contains security credentials, such as a user name and a password. Runbooks and DSC configurations use cmdlets that accept a [PSCredential](/dotnet/api/system.management.automation.pscredential) object for authentication. Alternatively, they can extract the user name and password of the `PSCredential` object to provide to some application or service requiring authentication. 
+An Automation credential asset holds an object that contains security credentials, such as a user name and a password. Runbooks and DSC configurations use cmdlets that accept a [PSCredential](/dotnet/api/system.management.automation.pscredential) object for authentication. Alternatively, they can extract the user name and password of the `PSCredential` object to provide to some application or service requiring authentication.
 
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. Azure Automation stores the key in the system-managed Key Vault. Before storing a secure asset, Automation loads the key from Key Vault and then uses it to encrypt the asset. 
@@ -39,7 +39,7 @@ The cmdlets in the following table are used to access credentials in your runboo
 
 To retrieve `PSCredential` objects in your code, you must import the `Orchestrator.AssetManagement.Cmdlets` module. For more information, see [Manage modules in Azure Automation](modules.md).
 
-```azurepowershell
+```powershell
 Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 ```
 
@@ -64,15 +64,15 @@ You can create a new credential asset using the Azure portal or using Windows Po
 ### Create a new credential asset with the Azure portal
 
 1. From your Automation account, on the left-hand pane select **Credentials** under **Shared Resources**.
-1. On the **Credentials** page, select **Add a credential**.
-2. In the New Credential pane, enter an appropriate credential name following your naming standards.
-3. Type your access ID in the **User name** field.
-4. For both password fields, enter your secret access key.
+2. On the **Credentials** page, select **Add a credential**.
+3. In the New Credential pane, enter an appropriate credential name following your naming standards.
+4. Type your access ID in the **User name** field.
+5. For both password fields, enter your secret access key.
 
     ![Create new credential](../media/credentials/credential-create.png)
 
-5. If the multi-factor authentication box is checked, uncheck it.
-6. Click **Create** to save the new credential asset.
+6. If the multi-factor authentication box is checked, uncheck it.
+7. Click **Create** to save the new credential asset.
 
 > [!NOTE]
 > Azure Automation does not support user accounts that use multi-factor authentication.
@@ -101,8 +101,7 @@ Alternatively, you can use the [GetNetworkCredential](/dotnet/api/system.managem
 
 The following example shows how to use a PowerShell credential in a runbook. It retrieves the credential and assigns its user name and password to variables.
 
-
-```azurepowershell
+```powershell
 $myCredential = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCredential.UserName
 $securePassword = $myCredential.Password
@@ -111,8 +110,7 @@ $password = $myCredential.GetNetworkCredential().Password
 
 You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Under most circumstances, you should use a [Run As account](../manage-runas-account.md) and retrieve the connection with [Get-AzAutomationConnection](../automation-connections.md).
 
-
-```azurepowershell
+```powershell
 $myCred = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCred.UserName
 $securePassword = $myCred.Password
@@ -140,7 +138,6 @@ While DSC configurations in Azure Automation can work with credential assets usi
 ## Use credentials in a Python 2 runbook
 
 The following example shows an example of accessing credentials in Python 2 runbooks.
-
 
 ```python
 import automationassets
