@@ -137,7 +137,9 @@ Test the validation response function by pasting the sample event into the test 
 
 When you click Run, the Output should be 200 OK and `{"validationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` in the body:
 
-![validation response](./media/receive-events/validation-response.png)
+:::image type="content" source="./media/receive-events/validation-request.png" alt-text="Validation request":::
+
+:::image type="content" source="./media/receive-events/validation-output.png" alt-text="Validation output":::
 
 ## Handle Blob storage events
 

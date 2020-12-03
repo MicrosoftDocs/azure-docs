@@ -10,7 +10,7 @@ ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics IP firewall rules (preview)
+# Azure Synapse Analytics IP firewall rules
 
 This article will explain IP firewall rules and teach you how to configure them in Azure Synapse Analytics.
 

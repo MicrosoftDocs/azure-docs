@@ -48,7 +48,7 @@ Get started with Azure Attestation by using Azure CLI to set up attestation.
 
 ## Create and manage an attestation provider
 
-Follow this procedure to create and manage an attestation provider.
+Here are commands you can use to create and manage the attestation provider:
 
 1. Run the [az attestation create](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_create) command to create an attestation provider:
 

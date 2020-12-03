@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 #Customer intent: As a cURL developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---

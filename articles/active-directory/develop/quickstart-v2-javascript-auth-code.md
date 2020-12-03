@@ -18,7 +18,7 @@ ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-j
 
 # Quickstart: Sign in users and get an access token in a JavaScript SPA using the auth code flow
 
-In this quickstart, you download and run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow. The code sample demonstrates how to obtain an access token to call the Microsoft Graph API or any web API. 
+In this quickstart, you download and run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API. 
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 

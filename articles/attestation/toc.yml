@@ -35,6 +35,8 @@
         href: claim-sets.md
   - name: Workflow
     href: workflow.md
+  - name: View audit logs
+    href: audit-logs.md
 - name: References
   items:
   - name: FAQ

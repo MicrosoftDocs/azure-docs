@@ -261,6 +261,21 @@ groups:
     title: REST
   - id: programmer-tool-spx
     title: CLI
+- id: programming-languages-set-twenty-six
+# Owner: dobett
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
@@ -314,6 +329,22 @@ groups:
     title: Java
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-rest-api
+    title: REST API
+- id: programming-languages-computer-vision
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Go
   - id: programming-language-rest-api
     title: REST API
 - id: programming-languages-set-diberry-3core
