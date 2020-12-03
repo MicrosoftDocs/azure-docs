@@ -19,7 +19,7 @@ The Azure Storage blob inventory feature provides an overview of your blob data 
 
 ## Availability
 
-Blob inventory is supported for both general purpose version 2 (GPv2) and premium block blob storage accounts. This feature is supported with or without the hierarchical namespace feature enabled.
+Blob inventory is supported for both general purpose version 2 (GPv2) and premium block blob storage accounts. This feature is supported with or without the [hierarchical namespace](data-lake-storage-namespace.md) feature enabled.
 
 ### Preview regions
 
