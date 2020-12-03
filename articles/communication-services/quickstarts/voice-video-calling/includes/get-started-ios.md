@@ -27,23 +27,23 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
 
-### Install the package
+### Install the package and dependencies with CocoaPods
 
-Add the Azure Communication Services Calling client library and its dependencies (AzureCore.framework and AzureCommunication.framework) to your project.
+1. Create a Podfile for your application, like this:
 
-> [!NOTE]
-> With the release of AzureCommunicationCalling SDK you will find a bash script `BuildAzurePackages.sh`. 
-The script when run `sh ./BuildAzurePackages.sh` will give you the path to the generated framework packages which needs to be imported in the sample app in the next step. Note that you will need to set up Xcode Command Line Tools if you have not done so before you run the script: Start Xcode, select "Preferences -> Locations". Pick your Xcode version for the Command Line Tools. **BuildAzurePackages.sh script works only with Xcode 11.5 and above**
+   ```
+   platform :ios, '13.0'
+   use_frameworks!
 
-1. [Download](https://github.com/Azure/Communication/releases) the Azure Communication Services Calling client library for iOS.
-2. In Xcode, click on your project file to and select the build target to open the project settings editor.
-3. Under the **General** tab, scroll to the **Frameworks, Libraries, and Embedded Content** section and click the **"+"** icon.
-4. In the bottom left of the dialog, use the drop-down chose **Add Files**, navigate to the **AzureCommunicationCalling.framework** directory of the unzipped client library package.
-    1. Repeat the last step for adding **AzureCore.framework** and **AzureCommunication.framework**.
-5. Open the **Build Settings** tab of the project settings editor and scroll to the **Search Paths** section. Add a new **Framework Search Paths** entry for the directory containing the **AzureCommunicationCalling.framework**.
-    1. Add another Framework Search Paths entry pointing to the folder containing the dependencies.
+   target 'AzureCommunicationCallingSample' do
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.5'
+     pod 'AzureCommunication', '~> 1.0.0-beta.5'
+     pod 'AzureCore', '~> 1.0.0-beta.5'
+   end
+   ```
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot showing updating the framework search paths within XCode.":::
+2. Run `pod install`.
+3. Open the `.xcworkspace` with Xcode.
 
 ### Request access to the microphone
 
@@ -70,9 +70,9 @@ Replace the implementation of the `ContentView` struct with some simple UI contr
 ```swift
 struct ContentView: View {
     @State var callee: String = ""
-    @State var callClient: ACSCallClient?
-    @State var callAgent: ACSCallAgent?
-    @State var call: ACSCall?
+    @State var callClient: CallClient?
+    @State var callAgent: CallAgent?
+    @State var call: Call?
 
     var body: some View {
         NavigationView {
@@ -132,7 +132,7 @@ do {
     return
 }
 
-self.callClient = ACSCallClient()
+self.callClient = CallClient()
 
 // Creates the call agent
 self.callClient?.createCallAgent(userCredential) { (agent, error) in
@@ -161,13 +161,13 @@ func startCall()
         if granted {
             // start call logic
             let callees:[CommunicationIdentifier] = [CommunicationUser(identifier: self.callee)]
-            self.call = self.callAgent?.call(callees, options: ACSStartCallOptions())
+            self.call = self.callAgent?.call(callees, options: StartCallOptions())
         }
     }
 }
 ```
 
-You also can use the properties in `ACSStartCallOptions` to set the initial options for the call (i.e. it allows starting the call with the microphone muted).
+You also can use the properties in `StartCallOptions` to set the initial options for the call (i.e. it allows starting the call with the microphone muted).
 
 ## End a call
 
@@ -176,7 +176,7 @@ Implement the `endCall` method to end the current call when the *End Call* butto
 ```swift
 func endCall()
 {    
-    self.call!.hangup(ACSHangupOptions()) { (error) in
+    self.call!.hangup(HangupOptions()) { (error) in
         if (error != nil) {
             print("ERROR: It was not possible to hangup the call.")
         }
@@ -197,4 +197,4 @@ You can make an outbound VOIP call by providing a user ID in the text field and 
 
 ## Sample Code
 
-You can download the sample app from [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/iOS/Swift)
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling)

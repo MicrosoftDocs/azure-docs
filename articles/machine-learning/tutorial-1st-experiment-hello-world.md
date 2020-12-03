@@ -94,7 +94,7 @@ Here's a description of how the control script works:
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) connects to your Azure Machine Learning workspace, so that you can communicate with your Azure Machine Learning resources.
+      [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) connects to your Azure Machine Learning workspace, so that you can communicate with your Azure Machine Learning resources.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -102,7 +102,7 @@ Here's a description of how the control script works:
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) provides a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs.
+      [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) provides a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -110,7 +110,7 @@ Here's a description of how the control script works:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. It also specifies what compute target the script will run on. In this code, the target is the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. It also specifies what compute target the script will run on. In this code, the target is the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -118,7 +118,7 @@ Here's a description of how the control script works:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Submits your script. This submission is called a [run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true). A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics, and more.
+       Submits your script. This submission is called a [run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py). A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics, and more.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -134,9 +134,20 @@ Here's a description of how the control script works:
 
 Run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
 
+The very first run will take 5-10 minutes to complete. This is because the following occurs:
+
+* A docker image is built in the cloud
+* The compute cluster is resized from 0 to 1 node
+* The docker image is downloaded to the compute. 
+
+Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute - you can test this by resubmitting the code below after the first run has completed.
+
 ```bash
 python 03-run-hello.py
 ```
+
+> [!TIP]
+> If running this code gives you an error that you do not have access to the subscription, see [Connect to a workspace](how-to-manage-workspace.md?tab=python#connect-multi-tenant) for information on authentication options.
 
 ## Monitor your code in the cloud by using the studio
 

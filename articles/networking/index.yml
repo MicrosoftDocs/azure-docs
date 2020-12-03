@@ -285,17 +285,17 @@ conceptualContent:
 
     - title: DDoS Protection
       links: 
-        - url: ../virtual-network/ddos-protection-overview.md
+        - url: ../ddos-protection/ddos-protection-overview.md
           itemType: overview
           text:  What is Azure DDoS Protection Standard?
-        - url: ../virtual-network/manage-ddos-protection.md
+        - url: ../ddos-protection/manage-ddos-protection.md
           itemType: how-to-guide
           text:  Manage DDoS Protection
-        - url: ../virtual-network/ddos-protection-partner-onboarding.md
+        - url: ../ddos-protection/ddos-protection-partner-onboarding.md
           itemType: concept
           text:  Onboarding partners
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices
+        url: ../ddos-protection/index.yml
         text: See more
 
     - title: Content delivery network

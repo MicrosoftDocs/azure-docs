@@ -1,8 +1,8 @@
 ---
 title: Firewall rules - Azure Database for MySQL
 description: Learn about using firewall rules to enable connections to your Azure Database for MySQL server.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020

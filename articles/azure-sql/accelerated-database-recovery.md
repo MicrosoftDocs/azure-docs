@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=4
 ms.devlang: 
 ms.topic: conceptual
-author: mashamsft
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: 
 ms.date: 05/19/2020
 ---
 # Accelerated Database Recovery in Azure SQL 

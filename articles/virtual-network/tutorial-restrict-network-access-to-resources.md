@@ -191,13 +191,13 @@ By default, storage accounts accept network connections from clients in any netw
     |Virtual networks|Select **myVirtualNetwork**, under **Virtual networks**|
     |Subnets| Select **Private**, under **Subnets**|
 
-    ![Firewalls and virtual networks](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
+    ![Screenshot shows the Add networks pane where you can enter the specified values.](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
 
 5. Select **Save**.
 6. Close the **Firewalls and virtual networks** box.
 7. Under **SETTINGS** for the storage account, select **Access keys**, as shown in the following picture:
 
-      ![Firewalls and virtual networks](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
+      ![Screenshot shows Access keys selected from Settings where you can obtain a key.](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
 
 8. Note the **Key** value, as you'll have to manually enter it in a later step when mapping the file share to a drive letter in a VM.
 

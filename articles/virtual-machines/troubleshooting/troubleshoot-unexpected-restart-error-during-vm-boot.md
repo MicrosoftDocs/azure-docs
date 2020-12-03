@@ -33,31 +33,27 @@ When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of
 
 ## Cause
 
-The machine is attempting to do an initial boot of a [generalized image](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), but encounters trouble due to a custom answer file (unattend.xml) being processed. Custom answer files are not supported in Azure. 
+The machine is attempting to do an initial boot of a [generalized image](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), but encounters trouble due to a custom answer file (Unattend.xml) being processed. **Custom answer files are not supported in Azure**. 
 
 The answer file is a special XML file that contains setting definitions and values for the configuration settings you want to automate during the installation of a Windows Server operating system installation. The configuration options include instructions on how to partition disks, where to find the Windows image to be installed, product keys to apply, and other commands you would like to run.
 
-In Azure, custom answer files are not supported. If you specified a custom **Unattend.xml** file by using the `sysprep /unattend:<your file’s name>` option, this error can occur.
+Again, custom answer files are not supported in Azure. Thus, this situation occurs when an image was prepared for use in Azure, but you specified a custom Unattend.xml file by using **SYSPREP** with a flag similar to the following command:
 
-In Azure, use the **Enter System Out-of-Box Experience (OOBE)** option in **Sysprep.exe**, or use `sysprep /oobe` rather than the Unattend.xml file.
+`sysprep /oobe /generalize /unattend:<your file’s name> /shutdown`
 
-This issue is most often created while you are using **Sysprep.exe** with an on-premises VM to upload a generalized VM to Azure. In this situation, you may also be interested in how to properly upload a generalized VM.
+In Azure, use the **Enter System Out-of-Box Experience (OOBE)** option in **System Preparation tool GUI**, or use `sysprep /oobe` rather than the Unattend.xml file.
+
+This issue is most often created while you are using sysprep with an on-premises VM to upload a generalized VM to Azure. In this situation, you may also be interested in how to properly upload a generalized VM.
 
 ## Solution
 
-### Replace Unattended Answer File Option
+### Do not use Unattend.xml
 
-This situation occurs when an image was prepared for use in Azure, but it used a custom answer file, which is not supported in Azure, and you have used **SYSPREP** with a flag similar to the following command:
-
-`sysprep /oobe /generalize /unattend:<NameOfYourAnswerFile.XML> /shutdown`
-
-- In the previous command, replace `<NameOfYourAnswerFile.XML>` with the name of your file.
-
-To fix this issue, follow [the Azure guidance on preparing/capturing an image](../windows/upload-generalized-managed.md) and prepare a new generalized image. During sysprep, do not use `/unattend:<answerfile>` flag. Instead, use only the flags below:
+To fix this issue, follow [the Azure guidance on preparing/capturing an image](../windows/upload-generalized-managed.md) and prepare a new generalized image. During sysprep, **do not use `/unattend:<your file’s name>` flag**. Instead, use only the flags below:
 
 `sysprep /oobe /generalize /shutdown`
 
-- **Out-of-box-experience** (OOBE) is the supported setting for Azure VMs.
+- Out-of-box-experience (OOBE) is the supported setting for Azure VMs.
 
 You may also use the **System Preparation tool GUI** to accomplish the same task as the command above by selecting the options shown below:
 

@@ -3,7 +3,7 @@ title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
 services: container-service
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 11/17/2020
 
 ---
 
@@ -47,7 +47,7 @@ If no upgrade is available, you will get:
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-## Customize node surge upgrade (Preview)
+## Customize node surge upgrade
 
 > [!Important]
 > Node surges require subscription quota for the requested max surge count for each upgrade operation. For example, a cluster that has 5 node pools, each with a count of 4 nodes, has a total of 20 nodes. If each node pool has a max surge value of 50%, additional compute and IP quota of 10 nodes (2 nodes * 5 pools) is required to complete the upgrade.
@@ -62,21 +62,7 @@ AKS accepts both integer values and a percentage value for max surge. An integer
 
 During an upgrade, the max surge value can be a minimum of 1 and a maximum value equal to the number of nodes in your node pool. You can set larger values, but the maximum number of nodes used for max surge won't be higher than the number of nodes in the pool at the time of upgrade.
 
-### Set up the preview feature for customizing node surge upgrade
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
-```
-
-It will take several minutes for the registration. Use the below command to verify the feature is registered:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
-```
-
-During preview, you need the *aks-preview* CLI extension to use max surge. Use the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
+Until CLI version 2.16.0+ you'll need the *aks-preview* CLI extension to use max surge. Use the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -103,7 +89,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## Upgrade an AKS cluster
 
-With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new node to the cluster that runs the specified Kubernetes version, then carefully [cordon and drains][kubernetes-drain] one of the old nodes to minimize disruption to running applications. When the new node is confirmed as running application pods, the old node is deleted. This process repeats until all nodes in the cluster have been upgraded.
+With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new buffer node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version. Then it will [cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications (if you're using max surge it will [cordon and drain][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified). When the old node is fully drained, it will be reimaged to receive the new version and it will become the buffer node for the following node to be upgraded. This process repeats until all nodes in the cluster have been upgraded. At the end of the process, the last drained node will be deleted, maintaining the existing agent node count.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -115,7 +101,7 @@ az aks upgrade \
 It takes a few minutes to upgrade the cluster, depending on how many nodes you have.
 
 > [!NOTE]
-> There is a total allowed time for a cluster upgrade to complete. This time is calculated by taking the product of `10 minutes * total number of nodes in the cluster`. For example in a 20 node cluster, upgrade operations must succeed in 200 minutes or AKS will fail the operation to avoid an unrecoverable cluster state. To recover on upgrade failure,  retry the upgrade operation after the timeout has been hit.
+> There is a total allowed time for a cluster upgrade to complete. This time is calculated by taking the product of `10 minutes * total number of nodes in the cluster`. For example in a 20 node cluster, upgrade operations must succeed in 200 minutes or AKS will fail the operation to avoid an unrecoverable cluster state. To recover on upgrade failure, retry the upgrade operation after the timeout has been hit.
 
 To confirm that the upgrade was successful, use the [az aks show][az-aks-show] command:
 
@@ -129,6 +115,64 @@ The following example output shows that the cluster now runs *1.13.10*:
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
 myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+```
+
+## Set auto-upgrade channel (preview)
+
+In addition to manually upgrading a cluster, you can set an auto-upgrade channel on your cluster. The following upgrade channels are available:
+
+* *none*, which disables auto-upgrades and keeps the cluster at its current version of Kubernetes. This is the default and is used if no option is specified.
+* *patch*, which will automatically upgrade the cluster to the latest supported patch version when it becomes available while keeping the minor version the same. For example, if a cluster is running version *1.17.7* and versions *1.17.9*, *1.18.4*, *1.18.6*, and *1.19.1* are available, your cluster is upgraded to *1.17.9*.
+* *stable*, which will automatically upgrade the cluster to the latest supported patch release on minor version *N-1*, where *N* is the latest supported minor version. For example, if a cluster is running version *1.17.7* and versions *1.17.9*, *1.18.4*, *1.18.6*, and *1.19.1* are available, your cluster is upgraded to *1.18.6*.
+* *rapid*, which will automatically upgrade the cluster to the latest supported patch release on the latest supported minor version. In cases where the cluster is at a version of Kubernetes that is at an *N-2* minor version where *N* is the latest supported minor version, the cluster first upgrades to the latest supported patch version on *N-1* minor version. For example, if a cluster is running version *1.17.7* and versions *1.17.9*, *1.18.4*, *1.18.6*, and *1.19.1* are available, your cluster first is upgraded to *1.18.6*, then is upgraded to *1.19.1*.
+
+> [!NOTE]
+> Cluster auto-upgrade only updates to GA versions of Kubernetes and will not update to preview versions.
+
+Automatically upgrading a cluster follows the same process as manually upgrading a cluster. For more details see [Upgrade an AKS cluster][upgrade-cluster].
+
+The cluster auto-upgrade for AKS clusters is a preview feature.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Register the `AutoUpgradePreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Use the [az extension add][az-extension-add] command to the install the *aks-preview* extension, and then check for any available updates using the [az extension update][az-extension-update] command:
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+To set the auto-upgrade channel when creating a cluster, use the *auto-upgrade-channel* parameter, similar to the following example.
+
+```azurecli-interactive
+az aks create --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable --generate-ssh-keys
+```
+
+To set the auto-upgrade channel on existing cluster, update the *auto-upgrade-channel* parameter, similar to the following example.
+
+```azurecli-interactive
+az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
 ```
 
 ## Next steps
@@ -147,6 +191,10 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[upgrade-cluster]:  #upgrade-an-aks-cluster

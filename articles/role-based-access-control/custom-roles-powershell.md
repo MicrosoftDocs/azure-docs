@@ -58,7 +58,7 @@ API Management Service Contributor                   False
 The following example lists just the custom roles that are available for assignment in the selected subscription.
 
 ```azurepowershell
-Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+Get-AzRoleDefinition -Custom | FT Name, IsCustom
 ```
 
 ```Example

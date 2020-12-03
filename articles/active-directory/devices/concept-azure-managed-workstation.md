@@ -93,12 +93,15 @@ Essential to a secured workstation is a supply chain solution where you use a tr
 
 For this solution, root of trust will be deployed using [Microsoft Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) technology with hardware that meets the modern technical requirements. To secure a workstation, Autopilot lets you leverage Microsoft OEM-optimized Windows 10 devices. These devices come in a known good state from the manufacturer. Instead of reimaging a potentially insecure device, Autopilot can transform a Windows device into a “business-ready” state. It applies settings and policies, installs apps, and even changes the edition of Windows 10. For example, Autopilot might change a device's Windows installation from Windows 10 Pro to Windows 10 Enterprise so that it can use advanced features.
 
-![Secure workstation Levels](./media/concept-azure-managed-workstation/supplychain.png)
+:::image type="complex" source="./media/concept-azure-managed-workstation/supplychain.png" alt-text="Diagram showing the life cycle of a secure workstation." border="false":::
+Near the top of the diagram, a device vendor is pictured. Arrows point from that vendor to a customer who purchased the workstation and to a truck that is labeled Fulfill and deliver. From the truck, an arrow points to an image labeled Deploy that pictures a person using a workstation. An arrow labeled Self service experience extends from that person to a screen labeled Ready for business. Underneath that screen, icons that are labeled Managed secured are pictured. An arrow labeled Steady state usage, Manage and keep current points from the screen to an end of life icon and to a break-fix reset icon. A final arrow loops back from the break-fix icon to the Ready for business screen.
+:::image-end:::
 
 ## Device roles and profiles
 
 This guidance references several security profiles and roles that can help you create more secure solutions for users, developers, and IT personnel. These profiles balance usability and risks for common users that can benefit from an enhanced or secure workstation. The settings configurations provided here are based on industry accepted standards. This guidance shows how to harden Windows 10 and reduce the risks associated with device or user compromise. To take advantage of the modern hardware technology and root of trust device, we will use [Device Health Attestation](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643), which is enabled starting at the **High Security** profile. This capability is present to ensure the attackers cannot be persistent during the early boot of a device. It does so by using policy and technology to help manage security features and risks.
-![Secure workstation Levels](./media/concept-azure-managed-workstation/seccon-levels.png)
+
+:::image type="content" source="./media/concept-azure-managed-workstation/seccon-levels.png" alt-text="Table listing roles, such as users and developers, profiles, such as basic and enhanced, and security controls like apps, actions, and features." border="false":::
 
 * **Basic Security** – A managed, standard workstation provides a good starting point for most home and small business use. These devices are registered in Azure AD and managed with Intune. This profile permits users to run any applications and browse any website. An anti-malware solution like [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) should be enabled.
 

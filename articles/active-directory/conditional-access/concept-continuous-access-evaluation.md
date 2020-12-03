@@ -23,7 +23,9 @@ Customers have expressed concerns about the lag between when conditions change f
 
 Timely response to policy violations or security issues really requires a “conversation” between the token issuer, like Azure AD, and the relying party, like Exchange Online. This two-way conversation gives us two important capabilities. The relying party can notice when things have changed, like a client coming from a new location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user due to account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE). The goal is for response to be near real time, but in some cases latency of up to 15 minutes may be observed due to event propagation time.
 
-The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online. 
+The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
+
+To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](/develop/app-resilience-continuous-access-evaluation.md).
 
 ### Key benefits
 
@@ -137,7 +139,7 @@ From this page, you can optionally limit the users and groups that will be subje
 For CAE, we only have insights into named IP-based named locations. We have no insights into other location settings like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country-based locations. When user comes from an MFA trusted IP or trusted locations that include MFA Trusted IPs or country location, CAE will not be enforced after user move to a different location. In those cases, we will issue a 1-hour CAE token without instant IP enforcement check.
 
 > [!IMPORTANT]
-> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md#preview-features) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure Multi-Factor Authentication's service settings page.
+> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md#preview-features) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
 
 ### IP address configuration
 

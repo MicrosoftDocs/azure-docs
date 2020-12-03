@@ -48,6 +48,24 @@
         href: how-to-choose-offer.md   
       - name: Choose between provisioned throughput and serverless
         href: throughput-serverless.md
+    - name: Security
+      items:
+        - name: Security overview
+          href: database-security.md
+        - name: Data encryption
+          href: database-encryption-at-rest.md
+        - name: Service tags
+          href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Azure role-based access control
+          displayName: rbac
+          href: role-based-access-control.md
+        - name: Azure Policy support
+          href: policy.md
+        - name: Security controls by Azure Policy
+          displayName: regulatory, compliance, standards, domains
+          href: ./security-controls-policy.md
+        - name: Security baseline
+          href: security-baseline.md
     - name: Analytics with Azure Synapse Link
       items:
       - name: Azure Synapse Link for Cosmos DB
@@ -94,6 +112,8 @@
       href: concepts-limits.md
     - name: Enterprise readiness - Compliance
       href: compliance.md
+    - name: Automatic recommendations
+      href: automated-recommendations.md
   - name: SQL/Core API
     expanded: true
     items:
@@ -131,9 +151,9 @@
           - name: .NET
             href: sql-api-get-started.md
           - name: Java
-            href: sql-api-java-get-started.md
+            href: ./create-sql-api-java.md
           - name: Async Java
-            href: sql-api-async-java-get-started.md
+            href: ./create-sql-api-java.md
           - name: Node.js
             href: sql-api-nodejs-get-started.md
         - name: Build a web app
@@ -182,11 +202,14 @@
         href: templates-samples-sql.md
     - name: Concepts
       items:
-      - name: Model document data
-        displayName: document
-        href: modeling-data.md
-      - name: Partitioning
+      - name: Modeling and partitioning
         items:
+        - name: Model document data 
+          displayName: document
+          href: modeling-data.md
+        - name: Modeling and partitioning - a real-world example
+          displayName: model, partition, example
+          href: how-to-model-partition-example.md
         - name: Synthetic partition key
           href: synthetic-partition-keys.md
       - name: SQL query
@@ -243,11 +266,28 @@
           - name: User-defined functions
             displayName: functions, udf
             href: sql-query-udfs.md
-          - name: Aggregates
-            displayName: functions, aggregate, count, sum, min, minimum, max, maximum, avg, average
-            href: sql-query-aggregates.md
-          - name: System functions
-            items:
+        - name: Aggregate functions
+          items:
+            - name: Aggregate functions
+              displayName: functions, aggregate, count, sum, min, minimum, max, maximum, avg, average
+              href: sql-query-aggregate-functions.md
+            - name: Avg
+              displayName: functions, aggregate, avg, average
+              href: sql-query-aggregate-avg.md
+            - name: Count
+              displayName: functions, aggregate, count
+              href: sql-query-aggregate-count.md
+            - name: Max
+              displayName: functions, aggregate, max, maximum
+              href: sql-query-aggregate-max.md
+            - name: Min
+              displayName: functions, aggregate, min, minimum
+              href: sql-query-aggregate-min.md
+            - name: Sum
+              displayName: functions, aggregate, sum
+              href: sql-query-aggregate-sum.md
+        - name: System functions
+          items:
             - name: System functions
               displayName: functions, system functions, built-in functions
               href: sql-query-system-functions.md
@@ -534,14 +574,9 @@
           href: sql-query-linq-to-sql.md
       - name: Containers and items
         items:
-        - name: Indexing
-          items:
-          - name: Indexing overview
-            displayName: range, spatial
-            href: index-overview.md
-          - name: Indexing policies
-            displayName: consistent, none
-            href: index-policy.md
+        - name: Indexing overview
+          displayName: range, spatial
+          href: index-overview.md
         - name: Time to live
           displayName: delete, delete data, ttl
           href: time-to-live.md
@@ -572,31 +607,13 @@
             href: javascript-query-api.md
       - name: Security
         items:
-          - name: Security overview
-            href: database-security.md
-          - name: Data encryption
-            href: database-encryption-at-rest.md
           - name: Secure access to data
             displayName: primary key, resource token, users, roles
             href: secure-access-to-data.md
-          - name: Service tags
-            href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-          - name: Role-based access control
-            displayName: rbac
-            href: role-based-access-control.md
-          - href: cosmos-db-advanced-threat-protection.md
-            name: Advanced threat protection
-          - name: Security controls by Azure Policy
-            displayName: regulatory, compliance, standards, domains
-            href: ./security-controls-policy.md
-          - name: Security baseline
-            href: security-baseline.md
-          - name: Azure Policy support
-            href: policy.md
+          - name: Advanced threat protection
+            href: cosmos-db-advanced-threat-protection.md
       - name: Connectivity modes
         href: sql-sdk-connection-modes.md
-      - name: Automatic recommendations
-        href: automated-recommendations.md
     - name: How-to guides
       items:
       - name: Manage Azure Cosmos DB resources
@@ -629,13 +646,13 @@
         items:
         - name: Provisioned throughput
           items:
-          - name: Provision standard (manual) throughput on a container
+          - name: Provision standard (manual) throughput - container
             displayName: request units, RUs, RU, collection level
             href: how-to-provision-container-throughput.md
-          - name: Provision standard (manual) throughput on a database
+          - name: Provision standard (manual) throughput - database
             displayName: request units, RUs, RU, shared throughput, database level
             href: how-to-provision-database-throughput.md
-          - name: Provision autoscale throughput on a database or container
+          - name: Provision autoscale throughput - database or container
             displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
             href: how-to-provision-autoscale-throughput.md
           - name: Estimate RU/s with Cosmos capacity planner
@@ -655,18 +672,15 @@
           href: large-partition-keys.md
         - name: Query a container
           href: how-to-query-container.md
-        - name: Data modeling and partitioning - a real-world example
-          displayName: model, partition, example
-          href: how-to-model-partition-example.md
         - name: Migrate to partitioned containers
           href: migrate-containers-partitioned-to-nonpartitioned.md
         - name: Configure time to live
           displayName: delete, delete data, ttl
           href: how-to-time-to-live.md
-        - name: Manage indexing policies
-          href: how-to-manage-indexing-policy.md
         - name: Define unique keys
           href: how-to-define-unique-keys.md
+        - name: Perform transactional batch operations
+          href: transactional-batch.md
       - name: Performance
         items:
         - name: Query
@@ -675,6 +689,13 @@
             href: profile-sql-api-query.md
           - name: Tune query performance
             href: sql-api-query-metrics.md
+        - name: Indexing
+          items:
+          - name: Indexing policies
+            displayName: consistent, none, indexing, policy
+            href: index-policy.md
+          - name: Manage indexing policies
+            href: how-to-manage-indexing-policy.md
         - name: .NET
           items: 
           - name: Performance tips for .NET SDK v3
@@ -699,6 +720,8 @@
           href: migrate-java-v4-sdk.md
         - name: Migrate to .NET V3 SDK
           href: migrate-dotnet-v3.md
+        - name: Migrate to .NET V2 SDK
+          href: migrate-dotnet-v2.md
       - name: Troubleshooting
         items:
         - name: Common errors
@@ -729,6 +752,10 @@
           items: 
           - name: Troubleshoot Java SDK v4
             href: troubleshoot-java-sdk-v4-sql.md  
+          - name: Troubleshoot request timeout
+            href: troubleshoot-request-timeout-java-sdk-v4-sql.md
+          - name: Troubleshoot service unavailable
+            href: troubleshoot-service-unavailable-java-sdk-v4-sql.md
           - name: Troubleshoot- Async Java SDK v2
             href: troubleshoot-java-async-sdk.md
       - name: Change feed
@@ -799,15 +826,6 @@
           href: dynamo-to-cosmos.md
       - name: Security
         items:
-        - name: Configure IP firewall
-          href: how-to-configure-firewall.md
-        - name: Configure access from virtual networks
-          displayName: service endpoints
-          href: how-to-configure-vnet-service-endpoint.md
-        - name: Configure access from private endpoints
-          href: how-to-configure-private-endpoints.md
-        - name: Connect privately to a Cosmos DB account
-          href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Configure Cross Origin Resource Sharing(CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Use managed identities to access data
@@ -815,12 +833,6 @@
           displayName: msi, managed service identity, aad, azure active directory, identity 
         - name: Use certificates to access data
           href: certificate-based-authentication.md
-        - name: Use Azure Key Vault to access data
-          href: access-secrets-from-keyvault.md
-        - name: Restrict user access to data operations only
-          href: how-to-restrict-user-data.md
-        - name: Configure customer-managed keys
-          href: how-to-setup-cmk.md
       - name: Integrate with other Azure services
         items:
         - name: Change feed Ecommerce solution
@@ -844,9 +856,9 @@
         - name: Azure Event Hubs and Azure Storage
           href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
         - name: Use Spring Boot Starter
-          href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: Spring Data developer guide
-          href: https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=/azure/cosmos-db/context/context
+          href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: ODBC driver
           href: odbc-driver.md
     - name: Reference
@@ -887,11 +899,11 @@
         href: /rest/api/cosmos-db/
       - name: REST (Management plane)
         href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
+      - name: PowerShell
+        href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true     
       - name: Resource Manager template
         href: /azure/templates/microsoft.documentdb/allversions
         displayName: ARM
-      - name: Emulator release notes
-        href: local-emulator-release-notes.md
       - name: Azure Policy built-ins
         displayName: samples, policies, definitions
         href: ./policy-reference.md
@@ -952,6 +964,8 @@
           href: oracle-migrate-cosmos-db-blitzz.md
         - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
           href: cassandra-migrate-cosmos-db-blitzz.md
+        - name: Migrate - Apache Cassandra to Cassandra API using Databricks
+          href: cassandra-migrate-cosmos-db-databricks.md          
       - name: Change feed
         href: cassandra-change-feed.md
       - name: Create a container - Cassandra API
@@ -963,7 +977,7 @@
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge-cassandra.md
       - name: Store and manage Spring Data 
-        href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context
+        href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
       - name: Cassandra and Spark
         items:
         - name: Introduction
@@ -997,6 +1011,8 @@
       items:
       - name: REST resource provider
         href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
+      - name: PowerShell
+        href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true     
       - name: Resource Manager template
         href: /azure/templates/microsoft.documentdb/allversions
   - name: MongoDB API
@@ -1099,7 +1115,7 @@
       - name: Troubleshoot query performance
         href: mongodb-troubleshoot-query.md
       - name: Store and manage Spring Data
-        href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context
+        href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
       - name: MongoDB extension commands
         href: mongodb-custom-commands.md
         displayName: custom commands
@@ -1116,6 +1132,8 @@
       items:
       - name: REST resource provider
         href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
+      - name: PowerShell
+        href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true     
       - name: Resource Manager template
         href: /azure/templates/microsoft.documentdb/allversions
   - name: Gremlin API
@@ -1180,7 +1198,7 @@
       - name: Visualize graph data
         href: graph-visualization.md
       - name: Store and manage Spring Data
-        href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context
+        href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
       - name: Manage using Resource Manager templates
         href: templates-samples-gremlin.md
         displayName: ARM
@@ -1192,8 +1210,8 @@
       items:
       - name: Response Headers
         href: gremlin-headers.md
-      - name: Limits
-        href: gremlin-limits.md
+      - name: PowerShell
+        href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true     
       - name: REST resource provider
         href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
       - name: Resource Manager template
@@ -1213,7 +1231,7 @@
       - name: Node.js
         href: create-table-nodejs.md
       - name: Python
-        href: create-table-python.md
+        href: ./table-storage-how-to-use-python.md
     - name: Tutorials
       items:
       - name: 1 - Create and manage data
@@ -1228,7 +1246,7 @@
     - name: Samples
       items:
       - name: .NET
-        href: table-storage-how-to-use-dotnet.md
+        href: ./tutorial-develop-table-dotnet.md
       - name: Java
         href: table-storage-how-to-use-java.md
       - name: Node.js
@@ -1278,6 +1296,8 @@
           href: table-sdk-nodejs.md
         - name: Python
           href: table-sdk-python.md
+        - name: PowerShell
+          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true     
         - name: Table storage REST APIs
           href: /rest/api/storageservices/table-service-rest-api
   - name: How-to guides
@@ -1294,13 +1314,15 @@
           href: emulator-command-line-parameters.md
         - name: Emulator troubleshooting
           href: troubleshoot-local-emulator.md
+        - name: Emulator release notes
+          href: local-emulator-release-notes.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
       - name: Set up Azure DevOps CI/CD pipeline
         href: tutorial-setup-ci-cd.md
       - name: Use Azure Storage Explorer
         href: storage-explorer.md
-      - name: Use Azure Cosmos explorer
+      - name: Use Azure Cosmos DB Explorer
         href: data-explorer.md
     - name: Analytics and BI with Azure Synapse Link
       items:
@@ -1310,10 +1332,27 @@
         href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Query with Azure Synapse Spark
         href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-      - name: Query with Synapse SQL serverless
+      - name: Query with serverless SQL pool
         href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Use Power BI with Synapse Link
-        href: synapse-link-power-bi.md           
+        href: synapse-link-power-bi.md     
+    - name: Security
+      items:
+      - name: Configure IP firewall
+        href: how-to-configure-firewall.md
+      - name: Configure access from virtual networks
+        displayName: service endpoints
+        href: how-to-configure-vnet-service-endpoint.md
+      - name: Configure access from private endpoints
+        href: how-to-configure-private-endpoints.md
+      - name: Connect privately to a Cosmos DB account
+        href: ../private-link/tutorial-private-endpoint-cosmosdb-portal.md?bc=%2fazure%2fcosmos-db%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcosmos-db%2ftoc.json
+      - name: Use Azure Key Vault to access data
+        href: access-secrets-from-keyvault.md
+      - name: Restrict user access to data operations only
+        href: how-to-restrict-user-data.md
+      - name: Configure customer-managed keys
+        href: how-to-setup-cmk.md      
     - name: Enterprise readiness
       items:
       - name: Online backup and on-demand restore
@@ -1369,7 +1408,7 @@
     - name: Partners
       href: partners-migration-cosmosdb.md
     - name: Microsoft Q&A question page
-      href: https://docs.microsoft.com/answers/topics/azure-cosmos-db.html
+      href: /answers/topics/azure-cosmos-db.html
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
     - name: Azure Roadmap

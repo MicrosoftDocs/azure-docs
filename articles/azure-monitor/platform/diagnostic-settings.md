@@ -47,7 +47,7 @@ Platform logs and metrics can be sent to the destinations in the following table
 
 ### Destination requirements
 
-Any destinations for the diagnostic setting must be created before creating the diagnostic settings. The destination does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions. The following table provides unique requirements for each destination including any regional restrictions.
+Any destinations for the diagnostic setting must be created before creating the diagnostic settings. The destination does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate Azure RBAC access to both subscriptions. The following table provides unique requirements for each destination including any regional restrictions.
 
 | Destination | Requirements |
 |:---|:---|
@@ -58,6 +58,8 @@ Any destinations for the diagnostic setting must be created before creating the 
 > [!NOTE]
 > Azure Data Lake Storage Gen2 accounts are not currently supported as a destination for diagnostic settings even though they may be listed as a valid option in the Azure portal.
 
+> [!NOTE]
+> Azure Monitor (Diagnostic Settings) can't access Event Hubs resources when virtual networks are enabled. You have to enable the Allow trusted Microsoft services to bypass this firewall setting in Event Hub, so that Azure Monitor (Diagnostic Settings) service is granted access to your Event Hubs resources. 
 
 
 ## Create in Azure portal
@@ -92,7 +94,7 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
 4. **Category details (what to route)** - Check the box for each category of data you want to send to destinations specified later. The list of categories varies for each Azure service.
 
-     - **AllMetrics** routes a resource's platform metrics into the Azure Logs store, but in log form. These metrics are usually sent only to the Azure Monitor metrics time-series database. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) you to integrate them into queries which search across other logs. This option may not be available for all resource types. When it is supported, [Azure Monitor supported metrics](metrics-supported.md) lists what metrics are collected for what resource types.
+     - **AllMetrics** routes a resource's platform metrics into the Azure Logs store, but in log form. These metrics are usually sent only to the Azure Monitor metrics time-series database. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) helps you to integrate them into queries which search across other logs. This option may not be available for all resource types. When it is supported, [Azure Monitor supported metrics](metrics-supported.md) lists what metrics are collected for what resource types.
 
        > [!NOTE]
        > See limitation for routing metrics to Azure Monitor Logs earlier in this article.  

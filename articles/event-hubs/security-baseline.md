@@ -69,7 +69,7 @@ Understanding Network Security provided by Azure Security Center:
 
 **Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your event hubs to guard against distributed denial-of-service (DDoS) attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.​
 
-How to configure DDoS protection:​ [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)
+How to configure DDoS protection:​ [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../ddos-protection/manage-ddos-protection.md)
 
 For more information about the Azure Security Center Integrated Threat Intelligence: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
@@ -394,7 +394,7 @@ How to configure Named Locations in Azure: https://docs.microsoft.com/azure/acti
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for Azure resources such as Event Hubs. This allows for role-based access control (RBAC) to administrative sensitive resources.
+**Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for Azure resources such as Event Hubs. This allows for Azure role-based access control (Azure RBAC) to administrative sensitive resources.
 
  How to create and configure an Azure AD instance: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
@@ -536,9 +536,9 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Azure Event Hubs supports using Azure Active Directory (AD) to authorize requests to Event Hubs resources. With Azure AD, you can use role-based access control (RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
+**Guidance**: Azure Event Hubs supports using Azure Active Directory (AD) to authorize requests to Event Hubs resources. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
 
-Understand Azure AD RBAC and available roles for Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+Understand Azure RBAC and available roles for Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Azure Security Center monitoring**: Not applicable
 

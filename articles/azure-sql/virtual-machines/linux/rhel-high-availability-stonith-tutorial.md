@@ -236,7 +236,7 @@ You should get the following results once the command completes:
     done
     ```
 
-The above command creates the VMs, and creates a default VNet for those VMs. For more information on the different configurations, see the [az vm create](https://docs.microsoft.com/cli/azure/vm) article.
+The above command creates the VMs, and creates a default VNet for those VMs. For more information on the different configurations, see the [az vm create](/cli/azure/vm) article.
 
 You should get results similar to the following once the command completes for each VM:
 
@@ -257,7 +257,7 @@ You should get results similar to the following once the command completes for e
 > [!IMPORTANT]
 > The default image that is created with the above command creates a 32GB OS disk by default. You could potentially run out of space with this default installation. You can use the following parameter added to the above `az vm create` command to create an OS disk with 128GB as an example: `--os-disk-size-gb 128`.
 >
-> You can then [configure Logical Volume Manager (LVM)](../../../virtual-machines/linux/configure-lvm.md) if you need to expand appropriate folder volumes to accomodate your installation.
+> You can then [configure Logical Volume Manager (LVM)](/previous-versions/azure/virtual-machines/linux/configure-lvm) if you need to expand appropriate folder volumes to accomodate your installation.
 
 ### Test connection to the created VMs
 
@@ -1126,6 +1126,34 @@ To ensure that the configuration has succeeded so far, we will test a failover. 
     sudo pcs resource move ag_cluster-clone <VM2> --master
     ```
 
+   You can also specify an additional option so that the temporary constraint that's created to move the resource to a desired node is disabled automatically, and you do not have to perform steps 2 and 3 below.
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master lifetime=30S
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master lifetime=30S
+    ```
+
+   Another alternative to automate steps 2 and 3 below which clear the temporary constraint in the resource move command itself is by combining multiple commands in a single line. 
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master && sleep 30 && pcs resource clear ag_cluster-master
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master && sleep 30 && pcs resource clear ag_cluster-clone
+    ```
+    
 2. If you check your constraints again, you'll see that another constraint was added because of the manual failover:
     
     **RHEL 7**

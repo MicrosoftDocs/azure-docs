@@ -93,9 +93,9 @@
     - name: Software plans
       href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SQL Database
-      href: ../../azure-sql/database/reserved-capacity-overview.md?toc=%252fazure%252fcost-management-billing%252freservations%252ftoc.json
+      href: ../../azure-sql/database/reserved-capacity-overview.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
     - name: Virtual machines
-      href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
   - name: View, Manage and Optimize after purchase
     items:
     - name: View reservations and utilization
@@ -123,7 +123,13 @@
     - name: No eligible subscriptions
       href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Troubleshoot reservation utilization
-      href: troubleshoot-reservation-utilization.md??toc=/azure/cost-management-billing/reservations/toc.json
+      href: troubleshoot-reservation-utilization.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Troubleshoot reservation recommendations
+      href: troubleshoot-reservation-recommendation.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Troubleshoot reservation not available
+      href: troubleshoot-product-not-available.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Troubleshoot download usage details
+      href: troubleshoot-download-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Reference
   items:
   - name: Reservations REST API

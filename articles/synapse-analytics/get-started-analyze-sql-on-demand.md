@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Get started analyze data with serverles SQL' 
-description: In this tutorial, you'll learn how to analyze data with SQL on-demand using data located in Spark databases.
+title: 'Tutorial: Get started analyze data with serverless SQL pool' 
+description: In this tutorial, you'll learn how to analyze data with a serverless SQL pool using data located in Spark databases.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/20/2020 
 ---
 
-# Analyze data with SQL on-demand
+# Analyze data with serverless SQL pool in Azure Synapse Analytics
 
-In this tutorial, you'll learn how to analyze data with serverless SQL using an on-demand SQL pool using data located in Spark databases. 
+In this tutorial, you'll learn how to analyze data with serverless SQL pool using data located in Spark databases. 
 
-## Analyze NYC Taxi data in blob storage using SQL on-demand pool
+## Analyze NYC Taxi data in blob storage using serverless SQL pool
 
 1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** and select **SELECT TOP 100 rows**
 1. This will create a new SQL script with the following code:
@@ -32,12 +32,12 @@ In this tutorial, you'll learn how to analyze data with serverless SQL using an 
     ```
 1. Click **Run**
 
-## Analyze NYC Taxi data in Spark databases using SQL on-demand
+## Analyze NYC Taxi data in Spark databases using serverless SQL pool
 
-Tables in Spark databases are automatically visible, and they can be queried by SQL on-demand.
+Tables in Spark databases are automatically visible, and they can be queried by serverless SQL pool.
 
 1. In Synapse Studio, go to the **Develop** hub and create a new SQL script.
-1. Set **Connect to** to **SQL on-demand**.
+1. Set **Connect to** to **serverless SQL pool**.
 1. Paste the following text into the script and run the script.
 
     ```sql
@@ -46,7 +46,7 @@ Tables in Spark databases are automatically visible, and they can be queried by 
     ```
 
     > [!NOTE]
-    > The first time you run a query that uses SQL on-demand, it takes about 10 seconds for SQL on-demand to gather the SQL resources needed to run your queries. Subsequent queries will be much faster.
+    > The first time you run a query that uses serverless SQL pool, it takes about 10 seconds for serverless SQL pool to gather the SQL resources needed to run your queries. Subsequent queries will be much faster.
   
 
 

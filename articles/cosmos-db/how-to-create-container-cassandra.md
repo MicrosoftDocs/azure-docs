@@ -11,6 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-csharp
 ---
 
 # Create a container in Azure Cosmos DB Cassandra API
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 This article explains the different ways to create a container in Azure Cosmos DB Cassandra API. It shows how to create a container using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 
@@ -63,5 +64,4 @@ If you encounter timeout exception when creating a collection, do a read operati
 * [Partitioning in Azure Cosmos DB](partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](request-units.md)
 * [Provision throughput on containers and databases](set-throughput.md)
-* [Work with Azure Cosmos account](account-overview.md)
-
+* [Work with Azure Cosmos account](./account-databases-containers-items.md)

@@ -199,7 +199,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
         - text: Set up a CI/CD pipeline with Visual Studio Code
-          url: setup-cicd-vs-code.md
+          url: ./cicd-overview.md
         - text: Set up a CI/CD pipeline with Visual Studio
           url: stream-analytics-tools-for-visual-studio-cicd.md
         - text: Use REST APIs to set up CI/CD for IoT Edge jobs
@@ -216,5 +216,4 @@ landingContent:
             url: stream-analytics-scale-jobs.md
           - text: Optimize processing by repartitioning
             url: repartition.md
-          
           

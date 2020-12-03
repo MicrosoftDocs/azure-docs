@@ -17,9 +17,17 @@ ms.service: digital-twins
 
 # Manage Azure Digital Twins models
 
-You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinsModels APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
+You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinModels APIs**](/rest/api/digital-twins/dataplane/models), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
 
 Management operations include upload, validation, retrieval, and deletion of models. 
+
+## Prerequisites
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## Ways to manage models
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## Create models
 
@@ -70,17 +78,7 @@ Following this method, you can go on to define models for the hospital's wards, 
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## Manage models with APIs
-
-The following sections show how to complete different model management operations using the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
-
-> [!NOTE]
-> The examples below do not include error handling for brevity. However, it's strongly recommended within your projects to wrap service calls in try/catch blocks.
-
-> [!TIP] 
-> Remember that all SDK methods come in synchronous and asynchronous versions. For paging calls, the async methods return `AsyncPageable<T>` while the synchronous versions return `Pageable<T>`.
-
-### Upload models
+## Upload models
 
 Once models are created, you can upload them to the Azure Digital Twins instance.
 
@@ -133,15 +131,14 @@ Model files can contain more than a single model. In this case, the models need 
  
 On upload, model files are validated by the service.
 
-### Retrieve models
+## Retrieve models
 
 You can list and retrieve models stored on your Azure Digital Twins instance. 
 
 Here are your options for this:
-* Retrieve all models
 * Retrieve a single model
-* Retrieve a single model with dependencies
-* Retrieve metadata for models
+* Retrieve all models
+* Retrieve metadata and dependencies for models
 
 Here are some example calls:
 
@@ -149,31 +146,28 @@ Here are some example calls:
 // 'client' is a valid DigitalTwinsClient object
 
 // Get a single model, metadata and data
-ModelData md1 = client.GetModel(id);
+DigitalTwinsModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
-Pageable<ModelData> pmd2 = client.GetModels();
-
-// Get a list of metadata and full model definitions
-Pageable<ModelData> pmd3 = client.GetModels(null, true);
+Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
 
 // Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(new GetModelsOptions { IncludeModelDefinition = true });
 ```
 
-The API calls to retrieve models all return `ModelData` objects. `ModelData` contains metadata about the model stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the model. The `ModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
+The API calls to retrieve models all return `DigitalTwinsModelData` objects. `DigitalTwinsModelData` contains metadata about the model stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the model. The `DigitalTwinsModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
 
 The `RetrieveModelWithDependencies` call returns not only the requested model, but also all models that the requested model depends on.
 
 Models are not necessarily returned in exactly the document form they were uploaded in. Azure Digital Twins only guarantees that the return form will be semantically equivalent. 
 
-### Update models
+## Update models
 
 Once a model is uploaded to your Azure Digital Twins instance, the entire model interface is immutable. This means there is no traditional "editing" of models. Azure Digital Twins also does not allow re-upload of the same model.
 
 Instead, if you want to make changes to a model—such as updating `displayName` or `description`—the way to do this is to upload a **newer version** of the model. 
 
-#### Model versioning
+### Model versioning
 
 To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you would like to change.
 
@@ -195,7 +189,7 @@ Then, upload the new version of the model to your instance.
 
 This version of the model will then be available in your instance to use for digital twins. It **does not** overwrite earlier versions of the model, so multiple versions of the model will coexist in your instance until you [remove them](#remove-models).
 
-#### Impact on twins
+### Impact on twins
 
 When you create a new twin, since the new model version and the old model version coexist, the new twin can use either the new version of the model or the older version.
 
@@ -203,7 +197,7 @@ This also means that uploading a new version of a model does not automatically a
 
 You can update these existing twins to the new model version by patching them, as described in the [*Update a digital twin's model*](how-to-manage-twin.md#update-a-digital-twins-model) section of *How-to: Manage digital twins*. Within the same patch, you must update both the **model ID** (to the new version) and **any fields that must be altered on the twin to make it conform to the new model**.
 
-### Remove models
+## Remove models
 
 Models can also be removed from the service, in one of two ways:
 * **Decommissioning** : Once a model is decommissioned, you can no longer use it to create new digital twins. Existing digital twins that already use this model aren't affected, so you can still update them with things like property changes and adding or deleting relationships.
@@ -211,7 +205,7 @@ Models can also be removed from the service, in one of two ways:
 
 These are separate features and they do not impact each other, although they may be used together to remove a model gradually. 
 
-#### Decommissioning
+### Decommissioning
 
 Here is the code to decommission a model:
 
@@ -224,7 +218,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 A model's decommissioning status is included in the `ModelData` records returned by the model retrieval APIs.
 
-#### Deletion
+### Deletion
 
 You can delete all models in your instance at once, or you can do it on an individual basis.
 
@@ -232,7 +226,7 @@ For an example of how to delete all models, download the sample app used in the 
 
 The rest of this section breaks down model deletion into closer detail, and shows how to do it for an individual model.
 
-##### Before deletion: Deletion requirements
+#### Before deletion: Deletion requirements
 
 Generally, models can be deleted at any time.
 
@@ -240,7 +234,7 @@ The exception is models that other models depend on, either with an `extends` re
 
 You can do this by updating the dependent model to remove the dependencies, or deleting the dependent model completely.
 
-##### During deletion: Deletion process
+#### During deletion: Deletion process
 
 Even if a model meets the requirements to delete it immediately, you may want to go through a few steps first to avoid unintended consequences for the twins left behind. Here are some steps that can help you manage the process:
 1. First, decommission the model
@@ -256,7 +250,7 @@ To delete a model, use this call:
 await client.DeleteModelAsync(IDToDelete);
 ```
 
-##### After deletion: Twins without models
+#### After deletion: Twins without models
 
 Once a model is deleted, any digital twins that were using the model are now considered to be without a model. Note that there is no query that can give you a list of all the twins in this state—although you *can* still query the twins by the deleted model to know what twins are affected.
 
@@ -275,19 +269,13 @@ Things you **can't** do:
 * Edit outgoing relationships (as in, relationships *from* this twin to other twins)
 * Edit properties
 
-##### After deletion: Re-uploading a model
+#### After deletion: Re-uploading a model
 
 After a model has been deleted, you may decide later to upload a new model with the same ID as the one you deleted. Here's what happens in that case.
 * From the solution store's perspective, this is the same as uploading a completely new model. The service doesn't remember the old one was ever uploaded.   
 * If there are any remaining twins in the graph referencing the deleted model, they are no longer orphaned; this model ID is valid again with the new definition. However, if the new definition for the model is different than the model definition that was deleted, these twins may have properties and relationships that match the deleted definition and are not valid with the new one.
 
 Azure Digital Twins does not prevent this state, so be careful to patch twins appropriately in order to make sure they remain valid through the model definition switch.
-
-## Manage models with CLI
-
-Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## Next steps
 

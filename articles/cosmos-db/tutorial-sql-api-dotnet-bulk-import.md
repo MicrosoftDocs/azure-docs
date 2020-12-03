@@ -4,12 +4,14 @@ description: Learn how to import or ingest data to Azure Cosmos DB by building a
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
 # Bulk import data to Azure Cosmos DB SQL API account by using the .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This tutorial shows how to build a .NET console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB. 
 In this article, you will read data from a sample data source and import it into an Azure Cosmos container.
@@ -168,7 +170,7 @@ In order to run the sample, you can do it simply by the `dotnet` command:
 
 If you didn't have time to complete the steps in this tutorial, or just want to download the code samples, you can get it from [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer).
 
-After cloning the project, make sure to update the desired credentials inside [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/master/src/Program.cs#L25).
+After cloning the project, make sure to update the desired credentials inside [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/main/src/Program.cs#L25).
 
 The sample can be run by changing to the repository directory and using `dotnet`:
 

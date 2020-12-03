@@ -72,7 +72,7 @@ Prepare Azure for migration with Azure Migrate: Server Migration tool.
 
 **Task** | **Details**
 --- | ---
-**Create an Azure Migrate project** | Your Azure account needs Contributer or Owner permissions to create a project.
+**Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to [create a new project](https://docs.microsoft.com/azure/migrate/create-manage-projects).
 **Verify permissions for your Azure account** | Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
 ### Assign permissions to create project
@@ -120,30 +120,6 @@ Prepare for appliance deployment as follows:
 
 - The replication appliance uses MySQL. Review the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
 - Review the Azure URLs required for the replication appliance to access [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
-
-## Add the Server Migration tool
-
-Set up an Azure Migrate project, and then add the Server Migration tool to it.
-
-1. In the Azure portal > **All services**, search for **Azure Migrate**.
-2. Under **Services**, select **Azure Migrate**.
-3. In **Overview**, click **Assess and migrate servers**.
-4. Under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
-
-    ![Discover and assess servers](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. In **Discover, assess and migrate servers**, click **Add tools**.
-6. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
-7. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
-    - The project geography is used only to store the metadata gathered from AWS machines.
-    - You can select any target region when you run a migration.
-
-    ![Create an Azure Migrate project](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. In **Select assessment tool**, select **Skip adding an assessment tool for now** > **Next**.
-9. In **Select migration tool**, select **Azure Migrate: Server Migration** > **Next**.
-10. In **Review + add tools**, review the settings, and click **Add tools**
-11. After adding the tool, it appears in the Azure Migrate project > **Servers** > **Migration tools**.
 
 ## Set up the replication appliance
 

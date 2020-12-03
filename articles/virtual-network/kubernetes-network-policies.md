@@ -153,7 +153,7 @@ Besides viewing the workbook (pictures below), you can also directly query the P
 | where TimeGenerated > ago(5h)
 | where Name contains "npm_"
 
-You can also query Log Analytics directly for the metrics. Learn more about it with Getting Started with Log Analytics Queries](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-log-search) 
+You can also query Log Analytics directly for the metrics. Learn more about it with [Getting Started with Log Analytics Queries](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-log-search) 
 
 #### Viewing in Grafana Dashboard
 Set up your Grafana Server and configure a Log Analytics Data Source as described [here](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource). Then, import [Grafana Dashboard with a Log Analytics backend](https://grafana.com/grafana/dashboards/10956) into your Grafana Labs.

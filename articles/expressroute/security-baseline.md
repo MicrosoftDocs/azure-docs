@@ -54,9 +54,9 @@ For more information, see the [Azure security baselines overview](../security/be
 
 **Guidance**: Not applicable; each customer's ExpressRoutes are contained within their own routing domains and tunneled into their own virtual network. While ExpressRoutes are isolated, for extra protection of other resources sharing the same virtual network, you may enable DDoS Protection Standard to guard against DDoS attacks.
 
-* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
+* [Understand security controls for Azure ExpressRoute]()
 
-* [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -74,7 +74,7 @@ For more information, see the [Azure security baselines overview](../security/be
 
 **Guidance**: Not applicable; each customer's ExpressRoutes are contained within their own routing domains and tunneled into their own virtual network.
 
-* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
+* [Understand security controls for Azure ExpressRoute]()
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -240,7 +240,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure Azure role-based access control (Azure RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.
 
-Additionally, partners using the ExpressRoute Partner Resource Manager API can apply Role-Based Access Control to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
+Additionally, partners using the ExpressRoute Partner Resource Manager API can apply role-based access control to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
 
 * [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -297,11 +297,11 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
-**Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Sentinel-related resources.
+**Guidance**: Use a Privileged Access Workstation (PAW) with Azure AD Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Sentinel-related resources.
 
 * [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Planning a cloud-based Azure Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -445,7 +445,7 @@ How to configure Site to Site IPSEC over ExpressRoute: https://docs.microsoft.co
 
 **Guidance**: Not applicable; Azure ExpressRoute does not store customer data.
 
-* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
+* [Understand security controls for Azure ExpressRoute]()
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -457,7 +457,7 @@ How to configure Site to Site IPSEC over ExpressRoute: https://docs.microsoft.co
 
 Azure ExpressRoute also has circuit owner and circuit user roles. Circuit users are owners of virtual network gateways that are not within the same subscription as the ExpressRoute circuit. The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked. Circuit users can redeem authorizations (one authorization per virtual network).
 
-Additionally, partners using the ExpressRoute Partner Resource Manager API can apply Role-Based Access Control to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
+Additionally, partners using the ExpressRoute Partner Resource Manager API can apply role-based access control to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
 
 * [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -859,7 +859,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Not applicable; Azure ExpressRoute does not store customer data.
 
-* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
+* [Understand security controls for Azure ExpressRoute]()
 
 **Azure Security Center monitoring**: Not applicable
 

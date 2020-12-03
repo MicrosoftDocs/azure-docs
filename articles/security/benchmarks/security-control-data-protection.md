@@ -22,7 +22,7 @@ Data protection recommendations focus on addressing issues related to encryption
 
 Use Tags to assist in tracking Azure resources that store or process sensitive information.
 
-- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
 ## 4.2: Isolate systems storing or processing sensitive information
 
@@ -32,11 +32,11 @@ Use Tags to assist in tracking Azure resources that store or process sensitive i
 
 Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure role-based access control (Azure RBAC). 
 
-- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [How to create Management Groups](../../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../../azure-resource-manager/management/tag-resources.md)
 
 ## 4.3: Monitor and block unauthorized transfer of sensitive information
 
@@ -48,7 +48,7 @@ Leverage a third-party solution from Azure Marketplace on network perimeters tha
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../fundamentals/protection-customer-data.md)
 
 ## 4.4: Encrypt all sensitive information in transit
 
@@ -60,7 +60,7 @@ Encrypt all sensitive information in transit. Ensure that any clients connecting
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Understand encryption in transit with Azure](../fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 ## 4.5: Use an active discovery tool to identify sensitive data
 
@@ -74,11 +74,11 @@ Use Azure Information Protection for identifying sensitive information within Mi
 
 Use Azure SQL Information Protection to assist in the classification and labeling of information stored in Azure SQL Database.
 
-- [How to implement Azure SQL Data Discovery](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
+- [How to implement Azure SQL Data Discovery](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-- [How to implement Azure Information Protection](https://docs.microsoft.com/azure/information-protection/deployment-roadmap)
+- [How to implement Azure Information Protection](/azure/information-protection/deployment-roadmap)
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../fundamentals/protection-customer-data.md)
 
 ## 4.6: Use Azure RBAC to control access to resources
 
@@ -88,7 +88,7 @@ Use Azure SQL Information Protection to assist in the classification and labelin
 
 Use Azure role-based access control (Azure RBAC) to control access to data and resources, otherwise use service specific access control methods.
 
-- [How to configure Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [How to configure Azure RBAC](../../role-based-access-control/role-assignments-portal.md)
 
 ## 4.7: Use host-based data loss prevention to enforce access control
 
@@ -100,7 +100,7 @@ If required for compliance on compute resources, implement a third-party tool, s
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../fundamentals/protection-customer-data.md)
 
 ## 4.8: Encrypt sensitive information at rest
 
@@ -110,9 +110,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 Use  encryption at rest on all Azure resources. Microsoft recommends allowing Azure to manage your encryption keys, however there is the option for you to manage your own keys in some instances. 
 
-- [Understand encryption at rest in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Understand encryption at rest in Azure](../fundamentals/encryption-atrest.md)
 
-- [How to configure customer managed encryption keys](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal)
+- [How to configure customer managed encryption keys](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 ## 4.9: Log and alert on changes to critical Azure resources
 
@@ -122,7 +122,7 @@ Use  encryption at rest on all Azure resources. Microsoft recommends allowing Az
 
 Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources.
 
-- [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md)
 
 
 ## Next steps

@@ -64,7 +64,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     ```
 
     >[!TIP]
-    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
+    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) page on Docker Hub.
 
 
 

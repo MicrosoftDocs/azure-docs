@@ -15,7 +15,7 @@ ms.date: 04/01/2020
 
 This article explains how to get a query response that comes back with a total count of matching documents, paginated results, sorted results, and hit-highlighted terms.
 
-The structure of a response is determined by parameters in the query: [Search Document](/rest/api/searchservice/Search-Documents) in the REST API, or [DocumentSearchResult Class](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) in the .NET SDK.
+The structure of a response is determined by parameters in the query: [Search Document](/rest/api/searchservice/Search-Documents) in the REST API, or [SearchResults Class](/dotnet/api/azure.search.documents.models.searchresults-1) in the .NET SDK.
 
 ## Result composition
 

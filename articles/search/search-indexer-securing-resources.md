@@ -42,7 +42,7 @@ Customers can secure these resources via several network isolation mechanisms of
 | Azure Functions | Supported | Supported, only for certain tiers of Azure functions |
 
 > [!NOTE]
-> In addition to the options listed above, for network-secured Azure Storage accounts, customers can leverage the fact that Azure Cognitive Search is a [trusted Microsoft service](../storage/common/storage-network-security.md#trusted-microsoft-services). This means that a specific search service can bypass virtual network or IP restrictions on the storage account and can access data in the storage account, if the appropriate role based access control is enabled on the storage account. For more information, see [Indexer connections using the trusted service exception](search-indexer-howto-access-trusted-service-exception.md). This option can be utilized instead of the IP restriction route, in case either the storage account or the search service cannot be moved to a different region.
+> In addition to the options listed above, for network-secured Azure Storage accounts, customers can leverage the fact that Azure Cognitive Search is a [trusted Microsoft service](../storage/common/storage-network-security.md#trusted-microsoft-services). This means that a specific search service can bypass virtual network or IP restrictions on the storage account and can access data in the storage account, if the appropriate role-based access control is enabled on the storage account. For more information, see [Indexer connections using the trusted service exception](search-indexer-howto-access-trusted-service-exception.md). This option can be utilized instead of the IP restriction route, in case either the storage account or the search service cannot be moved to a different region.
 
 When choosing which secure access mechanism that an indexer should use, consider the following constraints:
 
@@ -83,7 +83,7 @@ This functionality is only available in billable search services, with limits on
 
 Customers should call the search management operation, [CreateOrUpdate API](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) on a **shared private link resource**,  in order to create a private endpoint connection to their secure resource (for example, a storage account). Traffic that goes over this (outbound) private endpoint connection will originate only from the virtual network that's in the search service specific "private" indexer execution environment.
 
-Azure Cognitive Search will validate that callers of this API have RBAC permissions to approve private endpoint connection requests to the secure resource. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
+Azure Cognitive Search will validate that callers of this API have Azure RBAC permissions to approve private endpoint connection requests to the secure resource. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
 
 ### Step 2: Approve the private endpoint connection
 

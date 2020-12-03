@@ -185,7 +185,7 @@ In this scenario, the Azure Machine Learning Studio (classic) Web service makes 
 }
 ```
 ### Scenario 2: Experiments using Reader/Writer Modules to refer to data in various storages
-Another common scenario when creating Azure Machine Learning Studio (classic) experiments is to use Import Data and Output Data modules. The Import Data module is used to load data into an experiment and the Output Data module is to save data from your experiments. For details about Import Data and Output Data modules, see [Import Data](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Output Data](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library.
+Another common scenario when creating Azure Machine Learning Studio (classic) experiments is to use Import Data and Output Data modules. The Import Data module is used to load data into an experiment and the Output Data module is to save data from your experiments. For details about Import Data and Output Data modules, see [Import Data](/azure/machine-learning/studio-module-reference/import-data) and [Output Data](/azure/machine-learning/studio-module-reference/export-data) topics on MSDN Library.
 
 When using the Import Data and Output Data modules, it is good practice to use a Web service parameter for each property of these modules. These web parameters enable you to configure the values during runtime. For example, you could create an experiment with an Import Data module that uses an Azure SQL Database: XXX.database.windows.net. After the web service has been deployed, you want to enable the consumers of the web service to specify another logical SQL server called `YYY.database.windows.net`. You can use a Web service parameter to allow this value to be configured.
 

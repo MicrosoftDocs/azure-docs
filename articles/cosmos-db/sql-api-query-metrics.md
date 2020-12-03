@@ -11,8 +11,9 @@ ms.custom: devx-track-csharp
 
 ---
 # Tuning query performance with Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB provides a [SQL API for querying data](how-to-sql-query.md), without requiring schema or secondary indexes. This article provides the following information for developers:
+Azure Cosmos DB provides a [SQL API for querying data](./sql-query-getting-started.md), without requiring schema or secondary indexes. This article provides the following information for developers:
 
 * High-level details on how Azure Cosmos DB's SQL query execution works
 * Details on query request and response headers, and client SDK options
@@ -270,6 +271,4 @@ Here are some sample queries, and how to interpret some of the metrics returned 
 ## Next steps
 * To learn about the supported SQL query operators and keywords, see [SQL query](sql-query-getting-started.md). 
 * To learn about request units, see [request units](request-units.md).
-* To learn about indexing policy, see [indexing policy](index-policy.md) 
-
-
+* To learn about indexing policy, see [indexing policy](index-policy.md)

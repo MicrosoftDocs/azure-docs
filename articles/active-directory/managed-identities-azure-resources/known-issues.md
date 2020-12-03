@@ -13,10 +13,10 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 08/06/2020
+ms.date: 12/01/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-azurecli
 ---
 
 # FAQs and known issues with managed identities for Azure resources
@@ -70,7 +70,7 @@ The security boundary of the identity is the resource to which it is attached to
 
 No. If you move a subscription to another directory, you will have to manually re-create them and grant Azure role assignments again.
 - For system assigned managed identities: disable and re-enable. 
-- For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. virtual machines)
+- For user assigned managed identities: delete, re-create, and attach them again to the necessary resources (for example, virtual machines)
 
 ### Can I use a managed identity to access a resource in a different directory/tenant?
 
@@ -81,6 +81,46 @@ No. Managed identities do not currently support cross-directory scenarios.
 - System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. This action is included in resource specific built-in roles like [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 - User-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. In addition to [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignment over the managed identity.
 
+### How do I prevent the creation of user-assigned managed identities?
+
+You can keep your users from creating user-assigned managed identities using [Azure Policy](../../governance/policy/overview.md)
+
+- Navigate to the [Azure portal](https://portal.azure.com) and go to **Policy**.
+- Choose **Definitions**
+- Select **+ Policy definition** and enter the necessary information.
+- In the policy rule section paste
+
+```json
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "field": "type",
+      "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}
+
+```
+
+After creating the policy assign it to the resource group that you would like to use.
+
+- Navigate to resource groups.
+- Find the resource group that you are using for testing.
+- Choose **Policies** from the left menu.
+- Select **Assign policy**
+- In the **Basics** section provide:
+    - **Scope** The resource group that we are using for testing
+    - **Policy definition**: The policy that we created earlier.
+- Leave all other settings at their defaults and choose **Review + Create**
+
+At this point any attempt to create a user-assigned managed identity in the resource group will fail.
+
+  ![Policy violation](./media/known-issues/policy-violation.png)
 
 ## Known issues
 
@@ -123,7 +163,7 @@ Managed identities do not get updated when a subscription is moved/transferred t
 Workaround for managed identities in a subscription that has been moved to another directory:
 
  - For system assigned managed identities: disable and re-enable. 
- - For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. virtual machines)
+ - For user assigned managed identities: delete, re-create, and attach them again to the necessary resources (for example, virtual machines)
 
 For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 

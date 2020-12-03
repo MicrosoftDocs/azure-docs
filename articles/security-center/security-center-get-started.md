@@ -43,7 +43,7 @@ To enable Azure Defender on a subscription, you must be assigned the role of Sub
 
 You can view and filter the list of subscriptions by selecting the **Subscriptions** menu item. Security Center will adjust the display to reflect the security posture of the selected subscriptions. 
 
-Within minutes of launching Security Center the first time, you may see:
+Within minutes of launching Security Center the first time, you might see:
 
 - **Recommendations** for ways to improve the security of your connected resources.
 - An inventory of your resources that are now being assessed by Security Center, along with the security posture of each.
@@ -101,7 +101,7 @@ In this quickstart you enabled Azure Defender and provisioned the Log Analytics 
 Want to optimize and save on your cloud spending?
 
 > [!div class="nextstepaction"]
-> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/10/2020 
+ms.date: 11/05/2020 
 ms.custom: devx-track-azurecli
 ---
 
@@ -22,14 +22,16 @@ To configure the right level of logging, use the Azure replication support param
 * **Replica** - More verbose than **Off**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This setting is the default on most servers.
 * **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical decoding to work. Read replicas also work at this setting.
 
-The server needs to be restarted after a change of this parameter. Internally, this parameter sets the Postgres parameters `wal_level`, `max_replication_slots`, and `max_wal_senders`.
+
+> [!NOTE]
+> When deploying read replicas for persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica.
 
 ## Azure CLI
 You can create and manage read replicas using the Azure CLI.
 
 ### Prerequisites
 
-- [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Install Azure CLI 2.0](/cli/azure/install-azure-cli)
 - An [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md) to be the primary server.
 
 
@@ -55,7 +57,7 @@ You can create and manage read replicas using the Azure CLI.
 
 ### Create a read replica
 
-The [az postgres server replica create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) command requires the following parameters:
+The [az postgres server replica create](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) command requires the following parameters:
 
 | Setting | Example value | Description  |
 | --- | --- | --- |
@@ -86,14 +88,14 @@ If you haven't set the `azure.replication_support` parameter to **REPLICA** on a
 > Before a primary server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
 
 ### List replicas
-You can view the list of replicas of a primary server by using [az postgres server replica list](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) command.
+You can view the list of replicas of a primary server by using [az postgres server replica list](/cli/azure/postgres/server/replica#az-postgres-server-replica-list) command.
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### Stop replication to a replica server
-You can stop replication between a primary server and a read replica by using [az postgres server replica stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) command.
+You can stop replication between a primary server and a read replica by using [az postgres server replica stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop) command.
 
 After you stop replication to a primary server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
 
@@ -102,7 +104,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ### Delete a primary or replica server
-To delete a primary or replica server, you use the [az postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) command.
+To delete a primary or replica server, you use the [az postgres server delete](/cli/azure/postgres/server#az-postgres-server-delete) command.
 
 When you delete a primary server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
 

@@ -5,16 +5,23 @@ author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
-ms.date: 08/19/2020
+ms.date: 10/30/2020
 ---
 # Quickstart: Share data using Azure Data Share in the Azure portal
 
-In this quickstart, you will learn how to set up a new Azure Data Share using the Azure portal.
+In this quickstart, you will learn how to set up a new Azure Data Share to share data from storage account using the Azure portal.
 
 ## Prerequisites
 
-Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Your recipient's Azure login e-mail address (using their e-mail alias won't work).
+* If the source Azure data store is in a different Azure subscription than the one you will use to create Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located. 
 
+### Share from a storage account
+
+* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](../storage/common/storage-account-create.md)
+* Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the **Contributor** role.
+* Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the **Owner** role. 
 
 ## Create a Data Share Account
 
@@ -61,7 +68,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
    ![Add Datasets to your share](./media/datasets.png "Datasets")
 
-1. Select the dataset type that you would like to add. You will see a different list of dataset types depending on the share type (snapshot or in-place) you have selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics, you will be prompted for some SQL credentials. Authenticate using the user you created as part of the prerequisites.
+1. Select the dataset type that you would like to add. You will see a different list of dataset types depending on the share type (snapshot or in-place) you have selected in the previous step. 
 
    ![AddDatasets](./media/add-datasets.png "Add Datasets")    
 

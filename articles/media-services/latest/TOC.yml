@@ -44,7 +44,11 @@
     - name: Use portal to upload, encode, and stream content 
       href: manage-assets-quickstart.md
     - name: Use portal to encrypt content
-      href: encrypt-content-quickstart.md       
+      href: encrypt-content-quickstart.md
+  - name: Use an ARM template
+    items:
+    - name: Create an account with ARM
+      href: quickstart-arm-template-account.md     
 - name: Tutorials
   items:
   - name: .NET
@@ -63,12 +67,13 @@
       href: protect-with-drm.md
     - name: Content protection with Azure AD
       href: azure-ad-content-protection.md
+      displayName: AAD, Active Directory
   - name: REST
     items:
     - name: Encode and stream a remote file REST
       href: stream-files-tutorial-with-rest.md
-    - name: Customer-managed keys with Media Services
-      href: tutorial-byok.md
+    - name: Customer managed keys with REST API
+      href: tutorial-byok-postman.md
   - name: CLI
     items:
     - name: Encode and stream a remote file CLI
@@ -79,6 +84,8 @@
       href: stream-files-nodejs-quickstart.md
   - name: Azure portal
     items:
+    - name: Customer managed keys or BYOK tutorial
+      href: tutorial-byok-portal.md
     - name: Store AMS events in Azure Log Analytics
       href: tutorial-events-log-analytics.md
 - name: Samples
@@ -101,6 +108,11 @@
     - name: Storage account
       href: storage-account-concept.md  
       displayName: Storage side encryption
+    - name: Managed identities and media services
+      displayName: content protection
+      href: concept-managed-identities.md
+    - name: Customer managed keys
+      href: concept-use-customer-managed-keys-byok.md
   - name: Assets
     items: 
     - name: Assets
@@ -129,8 +141,8 @@
     - name: Overview
       href: analyzing-video-audio-files-concept.md
       displayName: analyze, analyzing, presets, jobs
-    - name: Transforms and jobs
-      href: transforms-jobs-concept.md    
+  - name: Transforms and jobs
+    href: transforms-jobs-concept.md    
   - name: Live streaming 
     items:
     - name: Overview
@@ -177,8 +189,6 @@
     - name: Dynamic encryption and key delivery
       displayName: content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom  
       href: content-protection-overview.md  
-    - name: Customer managed keys
-      href: concept-use-customer-managed-keys-byok.md
     - name: Design of multi-DRM system 
       displayName: drm, access control
       href: design-multi-drm-system-with-access-control.md  
@@ -215,7 +225,7 @@
       displayName: accessing, long-running, sdk, invalid character, name, naming, file name
     - name: Page, filter, order entities
       href: entities-overview.md 
-    - name: RBAC
+    - name: Azure RBAC
       href: rbac-overview.md
     - name: Error codes
       items:
@@ -230,6 +240,9 @@
     - name: Video on Demand
       displayName: failover, bcdr, HA, high availability
       href: media-services-high-availability-encoding.md
+  - name: Media Services architectures
+    displayName: architectures
+    href: architectures-concept.md
   - name: Troubleshooting
     items:
     - name: Frequently asked questions
@@ -264,7 +277,13 @@
   - name: Create transforms and jobs
     items:
     - name: Create transforms
-      href: cli-create-transform.md
+      href: how-to-create-transform.md
+    - name: Create a basic audio transform with REST
+      href: how-to-create-basic-audio-transform.md
+    - name: Create a copyAllBitrateNonInterleaved transform with REST
+      href: how-to-create-copyallbitratenoninterleaved-transform.md
+    - name: Copy videos without encoding with REST
+      href: how-to-create-copy-video-audio-transform.md
     - name: Create jobs
       href: cli-create-jobs.md
     - name: Create job input with a local file and .NET
@@ -434,5 +453,7 @@
     href: limits-quotas-constraints.md       
   - name: Azure clouds and regions
     href: azure-clouds-regions.md
+  - name: Regional code names and endpoints
+    href: azure-regions-code-names.md
   - name: Documentation updates
     href: docs-release-notes.md

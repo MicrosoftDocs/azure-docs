@@ -24,11 +24,16 @@ You may occasionally see replication cycles failing for a VM. These failures can
 Use the following steps to monitor the replication status for your virtual machines:
 
   1. Go to the Servers page in Azure Migrate on the Azure portal.
-  2. Navigate to the "Replicating machines" page by clicking on "Replicating servers" in the Server Migration tile.
-  3. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The health column indicates the current replication health of the VM. A 'Critical' or 'Warning' value in the health column typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select "Error Details." The Error Details page contains information on the error and additional details on how to troubleshoot. You'll also see a "Recent Events" link that can be used to navigate to the events page for the VM.
-  4. Click "Recent Events" to see the previous replication cycle failures for the VM. In the events page, look for the most recent event of type "Replication cycle failed" or "Replication cycle failed for disk" for the VM.
-  5. Click on the event to understand the possible causes of the error and recommended remediation steps. Use the information provided to troubleshoot and remediate the error.
-    
+  ![Image 1](./media/troubleshoot-changed-block-tracking-replication/image0.png)
+  1. Navigate to the "Replicating machines" page by clicking on "Replicating servers" in the Server Migration tile.
+  ![Image 2](./media/troubleshoot-changed-block-tracking-replication/image1.png)
+  1. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The health column indicates the current replication health of the VM. A 'Critical' or 'Warning' value in the health column typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select "Error Details." The Error Details page contains information on the error and additional details on how to troubleshoot. You'll also see a "Recent Events" link that can be used to navigate to the events page for the VM.
+  ![Image 3](./media/troubleshoot-changed-block-tracking-replication/image2.png)
+  1. Click "Recent Events" to see the previous replication cycle failures for the VM. In the events page, look for the most recent event of type "Replication cycle failed" or "Replication cycle failed for disk" for the VM.
+  ![Image 4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
+  1. Click on the event to understand the possible causes of the error and recommended remediation steps. Use the information provided to troubleshoot and remediate the error.
+ ![Image 5](./media/troubleshoot-changed-block-tracking-replication/image4.png)
+
 ## Common Replication Errors
 
 This section describes some of the common errors, and how you can troubleshoot them.

@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
 ---
@@ -29,7 +29,7 @@ This tutorial describes the steps you need to perform in both 8x8 Configuration 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * An 8x8 X series subscription of any level.
 * An 8x8 user account with administrator permission in [Configuration Manager](https://vo-cm.8x8.com).
 * [Single Sign-On with Azure AD](./8x8virtualoffice-tutorial.md) has already been configured.
@@ -45,17 +45,17 @@ This section guides you through the steps to configure 8x8 to support provisioni
 
 ### To configure a user provisioning access token in 8x8 Configuration Manager:
 
-1. Sign in to [Configuration Manager](https://vo-cm.8x8.com). Select **Identity Management**.
+1. Sign in to [Admin Console](https://admin.8x8.com). Select **Identity Management**.
 
-   ![Identity Management](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
+   ![Admin](./media/8x8-provisioning-tutorial/8x8-identity-management.png)
 
 2. Click the **Show user provisioning information** link to generate a token.
 
-   ![Show User Provisioning](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
+   ![Show](./media/8x8-provisioning-tutorial/8x8-show-user-provisioning.png)
 
 3. Copy the **8x8 URL** and **8x8 API Token** values. These values will be entered in the **Tenant URL** and **Secret Token** fields respectively in the Provisioning tab of your 8x8  application in the Azure portal.
 
-   ![Copy URL and Token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
+   ![Token](./media/8x8-provisioning-tutorial/8x8-copy-url-token.png)
 
 ## Step 3. Add 8x8 from the Azure AD application gallery
 

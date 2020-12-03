@@ -162,9 +162,9 @@ In this example, the WAF policy is applied to **FrontendEndpoints[0]**. You can 
 Before you begin to configure an IP restriction policy, set up your PowerShell environment and create an Azure Front Door profile.
 
 #### Set up your PowerShell environment
-Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) model for managing Azure resources.
+Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing Azure resources.
 
-You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page to sign in to PowerShell by using your Azure credentials, and then install the Az module.
+You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page to sign in to PowerShell by using your Azure credentials, and then install the Az module.
 
 1. Connect to Azure by using the following command, and then use an interactive dialog to sign in.
     ```

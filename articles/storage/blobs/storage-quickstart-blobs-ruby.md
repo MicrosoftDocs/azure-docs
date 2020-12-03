@@ -21,7 +21,7 @@ In this quickstart, you learn how to use Ruby to upload, download, and list bloc
 Make sure you have the following additional prerequisites installed:
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
-* [Azure Storage library for Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage), using the rubygem package: 
+* [Azure Storage library for Ruby](), using the rubygem package: 
 
     ```
     gem install azure-storage-blob
@@ -86,7 +86,7 @@ The first thing to do is create the references to the objects used to access and
 Once you have the Cloud Blob container, you can create the **Block** blob object that points to the specific blob in which you are interested, and perform operations such as upload, download, and copy.
 
 > [!IMPORTANT]
-> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
+> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
 
 In this section, you set up an instance of Azure storage client, instantiate the blob service object, create a new container, and then set permissions on the container so the blobs are public. The container is called **quickstartblobs**. 
 
@@ -185,7 +185,7 @@ See these additional resources for Ruby development with Blob storage:
 In this quickstart, you learned how to transfer files between a local disk and Azure blob storage using Ruby. To learn more about working with blob storage, continue to the Blob storage How-to.
 
 > [!div class="nextstepaction"]
-> [Blob Storage Operations How-To](./storage-ruby-how-to-use-blob-storage.md)
+> [Blob Storage Operations How-To]()
 
 
 For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

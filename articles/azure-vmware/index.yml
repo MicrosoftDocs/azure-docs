@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: dikamath 
   ms.author: dikamath 
-  ms.date: 10/19/2020 
+  ms.date: 11/19/2020 
 
 # card 1
 landingContent:
@@ -30,8 +30,10 @@ landingContent:
             url: concepts-storage.md
           - text: Access and identity for private clouds
             url: concepts-identity.md
-          - text: Role-based access control 
+          - text: vSphere role-based access control 
             url: concepts-role-based-access-control.md
+          - text: Monitor and repair private clouds
+            url: concepts-monitor-repair-private-cloud.md
           - text: Private cloud upgrades
             url: concepts-upgrades.md
 
@@ -40,7 +42,7 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: Plan the deployment
+          - text: 0 - Plan the deployment
             url: production-ready-deployment-steps.md
           - text: 1 - Deploy Azure VMware Solution
             url: deploy-azure-vmware-solution.md
@@ -98,6 +100,8 @@ landingContent:
             url: concepts-api-management.md
           - text: Hub and spoke
             url: concepts-hub-and-spoke.md
+          - text: Azure Security Center
+            url: azure-security-integration.md
           - text: Azure Backup Server
             url: set-up-backup-server-for-azure-vmware-solution.md
           - text: Lifecycle management on VMs
@@ -131,9 +135,14 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.vmware
-          - text: Get help with deployment or provisioning failures
-            url: fix-deployment-provisioning-failures.md
+            url: /powershell/module/az.vmware
           - text: FAQ
             url: faq.md
-          
+
+# card 8
+  - title: Troubleshooting
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Open a support request for deployment failures
+            url: fix-deployment-provisioning-failures.md

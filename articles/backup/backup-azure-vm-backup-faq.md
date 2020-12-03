@@ -71,17 +71,21 @@ If you lock the resource group created by the Azure Backup Service, backups will
 
 Remove the lock, and clear the restore point collection from that resource group to make the future backups successful. [Follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
+### I have a lock at the resource group level that contains all the resources related to my virtual machine. Will my backup work?
+
+Azure Backup creates a separate resource group in the format `AzureBackupRG_<geo>_<number>` to store ResourcePointCollections objects. Since this resource group is service owned, locking it will cause backups to fail. Locks can be only applied to customer-created resource groups.
+
 ### Does Azure Backup support standard SSD-managed disks?
 
-Yes, Azure Backup supports [standard SSD managed disks](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
+Yes, Azure Backup supports [standard SSD managed disks](../virtual-machines/disks-types.md#standard-ssd).
 
 ### Can we back up a VM with a Write Accelerator (WA)-enabled disk?
 
-Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup service can exclude the WA-enabled disk from backup.
+Snapshots can be taken on only data disks which are WA enabled and not OS disks. So only data disks which are WA enabled can be protected.
 
 ### I have a VM with Write Accelerator (WA) disks and SAP HANA installed. How do I back up?
 
-Azure Backup can't back up the WA-enabled disk but can exclude it from backup. However, the backup won't provide database consistency because information on the WA-enabled disk isn't backed up. You can back up disks with this configuration if you want operating system disk backup, and backup of disks that aren't WA-enabled.
+Azure Backup can back up the WA-enabled data disk. However, the backup won't provide database consistency.
 
 Azure Backup provides a streaming backup solution for SAP HANA databases with an RPO of 15 minutes. It's Backint certified by SAP to provide a native backup support leveraging SAP HANA’s native APIs. Learn more [about backing up SAP HANA databases in Azure VMs](./sap-hana-db-about.md).
 
