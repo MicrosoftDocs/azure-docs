@@ -108,7 +108,7 @@ A helpful starting point for building reference architecture diagrams is to leve
 
 ### Example reference architecture diagram
 
-:::image type="content" source="./media/co-sell/co-sell-arch-diagram.png" alt-text="This image is an example Co-sell architecture diagram.":::
+[![This image is an example Co-sell architecture diagram.](./media/co-sell/co-sell-arch-diagram.png)](./media/co-sell/co-sell-arch-diagram.png#lightbox)
 
 (The example reference architecture diagram above is for a vertical industry chatbot that can be integrated with intranet sites to help with forecast demand scenarios via a Machine Learning algorithm using supply chain and manufacturing schedule data from different ERP systems. The bot is designed to address questions about when a sales person can commit on possible delivery dates for an order.)
 
