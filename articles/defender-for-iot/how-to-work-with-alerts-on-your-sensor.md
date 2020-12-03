@@ -5,12 +5,11 @@ author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.date: 11/30/2020
-ms.topic: article
-ms.service: azure
 ms.topic: how-to
+ms.service: azure
 ---
 
-# Overview
+# Work with alerts on your sensor
 
 Work with alerts to help you enhance the security and operation of your network. Alerts provide you with information about:
 
@@ -28,7 +27,7 @@ Alert management options let users:
 
 - Acknowledge reviewing the alert.
 
-- Instruct sensors to mute events detected with identical assets and comparable traffic.
+- Instruct sensors to mute events detected with identical devices and comparable traffic.
 
 Additional tools are available that help you enhance and expedite the alert investigation. For example,
 

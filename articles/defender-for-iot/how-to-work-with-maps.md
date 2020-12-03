@@ -4,58 +4,58 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/04/2020
-ms.topic: article
+ms.date: 12/3/2020
+ms.topic: how-to
 ms.service: azure
 ---
 
-# Overview
+# Work with maps
 
 ## Investigate sensor detections in the map
 
-### The asset map
+### The device map
 
-The Asset Map provides a graphical representation of network assets detected. Use the map to:
+The device map provides a graphical representation of network devices detected. Use the map to:
 
-  - Retrieve, analyze and manage asset information.
+  - Retrieve, analyze and manage device information.
 
   - Analyze network slices, for example specific groups of interest or Purdue layers.
 
-  - Generate reports, for example export asset details and summaries.
+  - Generate reports, for example export device details and summaries.
 
-:::image type="content" source="media/how-to-work-with-maps/image44.png" alt-text="asset map":::
+:::image type="content" source="media/how-to-work-with-maps/device-map.png" alt-text="Screenshot of the device map.":::
 
 To access the map:
 
-  - Select **Asset Map** from the Console main screen.
+  - Select **Device Map** from the console main screen.
 
 ### Map search and layout tools
 
 The following tools are used to working in the map.
 
-Your user role determines which tools are available in the Asset Map window. See [Manage Users](./manage-users.md) for details about user roles.
+Your user role determines which tools are available in the Device Map window. See [Create and manage users](how-to-create-and-manage-users.md) for details about user roles.
 
 | Symbol | Description |
 |---|---|
-| <img alt="Search" src="media/how-to-work-with-maps/image45.png" style="width:2.02604in;height:0.33099in" /> | Search by IP or MAC address for a specific asset. Enter IP/MAC in the text box. The map displays the asset that you searched for with assets connected to it. |
-| Group Highlight and Filters <br /> <img alt="Default and custom asset groups" src="media/how-to-work-with-maps/image47.png" style="width:1.55206in;height:1.40566in" />| Filter or highlight the map based on default and custom asset groups. See <a href="#viewhighlight-asset-groups">View/Highlight Asset Groups</a> and <a href="#define-custom-groups">Define Custom Groups</a> for details.<br /> |
-| <img alt="Collapse view" src="media/how-to-work-with-maps/image48.png" style="width:0.29688in;height:0.34635in" /> | <em> IT Collapse</em> view, to enable a focused view on OT assets, and group IT assets. See <a href="#view-ot-elements-only">View OT Elements Only</a> for details. |
-| <img alt="Asset Management" src="media/how-to-work-with-maps/image49.png" style="width:0.27083in;height:0.30208in" /> | Maintain current asset arrangement in the map. For example, if you drag assets to new locations on the map, the assets will remain in these locations when exiting the map. |
-| <img alt="Fit to screen" src="media/how-to-work-with-maps/image50.png" style="width:0.22918in;height:0.22918in" /> | Fit to screen |
-| <img alt="Layer" src="media/how-to-work-with-maps/image51.png" style="width:0.38537in;height:0.41661in" /> <br /><img alt="Layouts" src="media/how-to-work-with-maps/image52.png" style="width:1.72083in;height:0.65069in" /> | - View the Purdue layer identified for this asset, including Automatic, Process Control, Supervisory and Enterprise <br /> - View connections between assets.|
-| <img alt="Broadcast" src="media/how-to-work-with-maps/image53.png" style="width:0.26786in;height:0.20833in" /> | Show/hide between Broadcast/Multicast. |
-| <img alt="Time" src="media/how-to-work-with-maps/image54.png" style="width:0.18751in;height:0.23612in" /> | Filter the assets on the map according to the time they last communicating with other assets. |
-| <img alt="notifications" src="media/how-to-work-with-maps/image55.png" style="width:0.29168in;height:0.25001in" /> | View notifications about an asset. For example, if a new IP was detected for an asset using an existing MAC address See <a herf="./working-with-asset-inventory-filters.md">Working with Asset</a> Notifications for details. |
-| <img alt="Export" src="media/how-to-work-with-maps/image56.png" style="width:0.16668in;height:0.20834in" /> | Export/Import asset information. |
-| <img alt="properties" src="media/how-to-work-with-maps/image57.png" style="width:0.18751in;height:0.22918in" /> | View basic asset properties for selected assets. |
-| <img alt="Zoom In" src="media/how-to-work-with-maps/image58.png" style="width:0.20833in;height:0.22135in" /> or <img alt="Zoom Out" src="media/how-to-work-with-maps/image59.png" style="width:0.20833in;height:0.20833in" /> | Zoom in or out of assets in the map. See <a href="map-zoom-views.md">Map Zoom Views</a> for details about map view options. |
+| :::image type="icon" source="media/how-to-work-with-maps/search-bar-icon.png" border="false":::| Search by IP address or MAC address for a specific device. Enter the IP address or MAC address in the text box. The map displays the device that you searched for with devices connected to it. |
+| Group Highlight and Filters <br /> :::image type="content" source="media/how-to-work-with-maps/group-highlight-and-filters.png" alt-text="Screenshot of the group highlights and filters."::: | Filter or highlight the map based on default and custom device groups. |
+| :::image type="icon" source="media/how-to-work-with-maps/collapse-view-icon.png" border="false"::: | IT Collapse view, to enable a focused view on OT devices, and group IT devices.  |
+| :::image type="icon" source="media/how-to-work-with-maps/device-management-icon.png" border="false"::: | Maintain current device arrangement in the map. For example, if you drag devices to new locations on the map, the devices will remain in these locations when exiting the map. |
+| :::image type="icon" source="media/how-to-work-with-maps/fit-to-screen-icon.png" border="false"::: | Fit to screen |
+| :::image type="icon" source="media/how-to-work-with-maps/layer-icon.png" border="false"::: :::image type="icon" source="media/how-to-work-with-maps/layouts-icon.png" border="false"::: | - View the Purdue layer identified for this device, including automatic, process control, supervisory and enterprise <br /> - View connections between devices.|
+| :::image type="icon" source="media/how-to-work-with-maps/broadcast-icon.png" border="false"::: | Show or hide between broadcast and multicast. |
+| :::image type="icon" source="media/how-to-work-with-maps/time-icon.png" border="false"::: | Filter the devices on the map according to the time they last communicating with other devices. |
+| <img alt="notifications" src="media/how-to-work-with-maps/image55.png" style="width:0.29168in;height:0.25001in" /> | View notifications about a device. For example, if a new IP was detected for a device using an existing MAC address See <a herf="./working-with-device-inventory-filters.md">Working with Device</a> Notifications for details. |
+| <img alt="Export" src="media/how-to-work-with-maps/image56.png" style="width:0.16668in;height:0.20834in" /> | Export/Import device information. |
+| <img alt="properties" src="media/how-to-work-with-maps/image57.png" style="width:0.18751in;height:0.22918in" /> | View basic device properties for selected devices. |
+| <img alt="Zoom In" src="media/how-to-work-with-maps/image58.png" style="width:0.20833in;height:0.22135in" /> or <img alt="Zoom Out" src="media/how-to-work-with-maps/image59.png" style="width:0.20833in;height:0.20833in" /> | Zoom in or out of devices in the map. See <a href="map-zoom-views.md">Map Zoom Views</a> for details about map view options. |
 
 
 #### View OT elements only
 
-By default, IT assets are automatically aggregated by subnet, so that the map view is focused on OT/ICS networks. The presentation of the IT network elements is collapsed to a minimum, which reduces the total number of the assets presented on the map and provides a clear picture of the OT/ICS network elements.
+By default, IT devices are automatically aggregated by subnet, so that the map view is focused on OT/ICS networks. The presentation of the IT network elements is collapsed to a minimum, which reduces the total number of the devices presented on the map and provides a clear picture of the OT/ICS network elements.
 
-Each subnet is presented as a single entity on the Asset map, including an interactive collapsing/expanding capability to “drill down” into an IT subnet and back.
+Each subnet is presented as a single entity on the Device map, including an interactive collapsing/expanding capability to “drill down” into an IT subnet and back.
 
 The figure below shows a collapsed IT subnet with 27 IT network elements.
 
@@ -76,11 +76,11 @@ To expand an IT subnet:
 
    :::image type="content" source="media/how-to-work-with-maps/image62.png" alt-text="Subnets Configuration":::
 
-2. In the **Edit Subnets Configuration** window, clear **ICS Subnet** for each subnet that you want to define as an IT subnet. The IT subnets appear collapsed in the **Asset** map with the notifications for ICS Assets, such as a Controller or PLC, in IT networks.
+2. In the **Edit Subnets Configuration** window, clear **ICS Subnet** for each subnet that you want to define as an IT subnet. The IT subnets appear collapsed in the **Device** map with the notifications for ICS Devices, such as a Controller or PLC, in IT networks.
 
    :::image type="content" source="media/how-to-work-with-maps/image63.png" alt-text="Edit Subnets Configuration":::
 
-3. To expand the IT network on the map, in the **Assets** window, right-click it and select **Expand Network**.
+3. To expand the IT network on the map, in the **Devices** window, right-click it and select **Expand Network**.
 
    :::image type="content" source="media/how-to-work-with-maps/image64.png" alt-text="Expand Network":::
 
@@ -94,11 +94,11 @@ To expand an IT subnet:
 
 To collapse an IT subnet:
 
-1.  From the left pane, select **Assets**.
+1.  From the left pane, select **Devices**.
 
-2. In the **Assets** window, select :::image type="content" source="media/how-to-work-with-maps/image67.png)(the number in red indicates how many expanded IT subnets currently appear on the map" alt-text="indicate":::.
+2. In the **Devices** window, select :::image type="content" source="media/how-to-work-with-maps/image67.png)(the number in red indicates how many expanded IT subnets currently appear on the map" alt-text="indicate":::.
 
-   :::image type="content" source="media/how-to-work-with-maps/image68.png" alt-text="Asset window":::
+   :::image type="content" source="media/how-to-work-with-maps/image68.png" alt-text="Device window":::
 
 3. Select the subnet(s) that you want to collapse or select **Collapse All**. The selected subnet appears collapsed on the map.
 
@@ -106,15 +106,15 @@ To collapse an IT subnet:
 
    The :::image type="content" source="media/how-to-work-with-maps/image70.png" alt-text="icon"::: icon is displayed with the updated number of expanded IT subnets.
 
-#### View/highlight asset groups
+#### View/highlight device groups
 
-You can customize the map display based on asset *Groups,* for example groups of assets associated with a specific VLAN or subnet. Predefined groups are available and custom Groups can be created.
+You can customize the map display based on device *Groups,* for example groups of devices associated with a specific VLAN or subnet. Predefined groups are available and custom Groups can be created.
 
 View groups by:
 
-  - **Highlighting:** Highlight the assets that belong to a specific group in blue.
+  - **Highlighting:** Highlight the devices that belong to a specific group in blue.
 
-  - **Filtering:** Only display assets on the map only that belong to a specific group.
+  - **Filtering:** Only display devices on the map only that belong to a specific group.
 
 :::image type="content" source="media/how-to-work-with-maps/image71.png" alt-text="Standard Port":::
 
@@ -122,40 +122,40 @@ The following predefined groups are available:
 
                                                   |  |
 --------------------------------------------------|--|
- **Known Applications/Non Standrad Ports/ (default)** | Assets that use reserved ports, such as TCP. Assets that use non-standard ports or ports that have not be assigned an alias. See [Customize Port Names](./customize-port-names.md) for details. |
- **OT Protocols (default)**                           | Assets that handle the OT traffic. |
- **Authorization (default)**                          | Assets that were discovered in the network during the learning process or were officially added to the network |
- **Asset Inventory Filters**                          | Assets grouped according to the filters save in the Asset Inventory table, refer to [Working with Asset Inventory Filters](./working-with-asset-inventory-filters.md) |
- **Polling Intervals**                                | Assets grouped by polling intervals. The polling intervals are generated automatically according to cyclic channels, or periods. For example, 15.0 seconds, 3.0 seconds, 1.5 seconds, Any interval. Reviewing this information helps you learn if systems are polling too quickly or slowly. |
+ **Known Applications/Non Standrad Ports/ (default)** | Devices that use reserved ports, such as TCP. Devices that use non-standard ports or ports that have not be assigned an alias. See [Customize Port Names](./customize-port-names.md) for details. |
+ **OT Protocols (default)**                           | Devices that handle the OT traffic. |
+ **Authorization (default)**                          | Devices that were discovered in the network during the learning process or were officially added to the network |
+ **Device Inventory Filters**                          | Devices grouped according to the filters save in the Device Inventory table, refer to [Working with Device Inventory Filters](./working-with-device-inventory-filters.md) |
+ **Polling Intervals**                                | Devices grouped by polling intervals. The polling intervals are generated automatically according to cyclic channels, or periods. For example, 15.0 seconds, 3.0 seconds, 1.5 seconds, Any interval. Reviewing this information helps you learn if systems are polling too quickly or slowly. |
  **Programming**                                      | Engineering Stations and Programmed Controllers |
- **Subnets**                                          | Assets that belong to a specific subnet. |
- **VLAN**                                             | Assets associated with a specific VLAN ID. |
- **Connection between subnets**                       | Assets associated with cross subnet connection. |
- **Pinned Alerts**                                    | Assets for which the user has pinned an alert. |
- **Attack Vector Simulations**                        | Vulnerable assets detected in Attack Vector reports. In order to view these assets on the map, select the **Display on Asset Map** checkbox when generating the Attack Vector.  :::image type="content" source="media/how-to-work-with-maps/image72.png" alt-text="Add Attack Vector Simulations"::: |
- **Last Seen**                                        | Assets grouped by the time frame they were last seen, for example: 1 hour, 6 hours, 1 day, 7 days. |
- **Not In Active Directory**                          | All non-PLC assets that are not communicating with the Active Directory. |
+ **Subnets**                                          | Devices that belong to a specific subnet. |
+ **VLAN**                                             | Devices associated with a specific VLAN ID. |
+ **Connection between subnets**                       | Devices associated with cross subnet connection. |
+ **Pinned Alerts**                                    | Devices for which the user has pinned an alert. |
+ **Attack Vector Simulations**                        | Vulnerable devices detected in Attack Vector reports. In order to view these devices on the map, select the **Display on Device Map** checkbox when generating the Attack Vector.  :::image type="content" source="media/how-to-work-with-maps/image72.png" alt-text="Add Attack Vector Simulations"::: |
+ **Last Seen**                                        | Devices grouped by the time frame they were last seen, for example: 1 hour, 6 hours, 1 day, 7 days. |
+ **Not In Active Directory**                          | All non-PLC devices that are not communicating with the Active Directory. |
 
-To highlight/filter assets:
+To highlight/filter devices:
 
-1. Select **Asset Map** on the side menu.
+1. Select **Device Map** on the side menu.
 
 2. Select :::image type="content" source="media/how-to-work-with-maps/image73.png" alt-text="Menu":::.
 
-3. From the **Groups** pane, select the group you want to highlight/filter assets.
+3. From the **Groups** pane, select the group you want to highlight/filter devices.
 
 4. Select **Highlight**/**Filter**.
 
 ### Define custom groups
 
-In addition to viewing predefined groups, you can define custom groups. The groups appear in the Asset Map, Asset Inventory and Data Mining Reports.
+In addition to viewing predefined groups, you can define custom groups. The groups appear in the Device Map, Device Inventory and Data Mining Reports.
 
 > [!NOTE]
-> You can also create groups from the Asset Inventory.
+> You can also create groups from the Device Inventory.
 
 To create a group:
 
-1. Select **Assets** on the side menu. The Asset Map is displayed.
+1. Select **Devices** on the side menu. The Device Map is displayed.
 
 2. Select :::image type="content" source="media/how-to-work-with-maps/image73.png" alt-text="Group Setting"::: to display the Groups settings.
 
@@ -165,18 +165,18 @@ To create a group:
 
 4. Add the name of the group, use up to 30 characters.
 
-5. Select the relevant assets, as follows:
+5. Select the relevant devices, as follows:
 
-   - Add the assets from this menu by selecting them from the list (select on the arrow button),<br /> Or, <br /> 
-   - Add the assets from this menu by copying them from a selected group (select on the arrow button)
+   - Add the devices from this menu by selecting them from the list (select on the arrow button),<br /> Or, <br /> 
+   - Add the devices from this menu by copying them from a selected group (select on the arrow button)
 
 6. Select **Add group**.
 
-#### Add assets to a custom group
+#### Add devices to a custom group
 
-You can add assets to a custom group or create a new custom group and the asset.
+You can add devices to a custom group or create a new custom group and the device.
 
-1. Right-click an asset/s on the map.
+1. Right-click a device/s on the map.
 
 2. Select **Add to group**.
 
@@ -184,49 +184,49 @@ You can add assets to a custom group or create a new custom group and the asset.
 
    :::image type="content" source="media/how-to-work-with-maps/image77.png" alt-text="Group name":::
 
-4. Add assets to a group by repeating steps 1-3.
+4. Add devices to a group by repeating steps 1-3.
 
 ### Map zoom views
 
 Working with map views help expedite forensics when analyzing large networks.
 
-Three asset detail views can be displayed:
+Three device detail views can be displayed:
 
   - [Bird’s-eye View](#birds-eye-view)
 
-  - [Asset Type/Connection View](#asset-typeconnection-view)
+  - [Device Type/Connection View](#device-typeconnection-view)
 
   - [Detailed View](#detailed-view)
 
 #### Bird’s-eye view
 
-This view provides an at-a-glance view of assets represented as follows:
+This view provides an at-a-glance view of devices represented as follows:
 
-  - Red dots indicate assets with alert(s)
+  - Red dots indicate devices with alert(s)
 
-  - Starred dots indicate assets marked as important
+  - Starred dots indicate devices marked as important
 
-  - Black dots indicate assets with no alerts
+  - Black dots indicate devices with no alerts
 
 :::image type="content" source="media/how-to-work-with-maps/image78.png" alt-text="Bird eye view":::
 
-#### Asset type/connection view 
+#### Device type/connection view 
 
-This view presents assets represented as icons on the map in order to highlight assets with alerts, asset types and connected assets.
+This view presents devices represented as icons on the map in order to highlight devices with alerts, device types and connected devices.
 
-  - Assets with alerts are displayed with a red ring
+  - Devices with alerts are displayed with a red ring
 
-  - Assets without alerts are displayed with a grey ring
+  - Devices without alerts are displayed with a grey ring
 
-  - Assets displayed as a star were marked as important
+  - Devices displayed as a star were marked as important
 
-The asset type icon is shown with connected assets.
+The device type icon is shown with connected devices.
 
 :::image type="content" source="media/how-to-work-with-maps/image79.png" alt-text="connection view":::
 
 #### Detailed view 
 
-The detailed view presents assets and asset labels and indicators with the following information:
+The detailed view presents devices and device labels and indicators with the following information:
 
 :::image type="content" source="media/how-to-work-with-maps/image44.png" alt-text="Detailed view":::
 
@@ -238,7 +238,7 @@ The map view displayed depends on the map zoom-level. Switching between the map 
 
 #### Enabling simplified zoom views
 
-Administrators who want Security Analysts and Read Only users to access Brid’s-eye and Asset /Type Connection views, should enable the Simplified view option.
+Administrators who want Security Analysts and Read Only users to access Brid’s-eye and Device /Type Connection views, should enable the Simplified view option.
 
 To enable simplified map views:
 
@@ -246,53 +246,53 @@ To enable simplified map views:
 
 :::image type="content" source="media/how-to-work-with-maps/image81.png" alt-text="zoom views":::
 
-### Learn more about assets
+### Learn more about devices
 
-An extensive range of tools are available to learn more about assets form the Asset Map:
+An extensive range of tools are available to learn more about devices form the Device Map:
 
-- [Asset Labels and Indicators](#asset-labels-and-indicators)
+- [Device Labels and Indicators](#device-labels-and-indicators)
 
-- [Asset Quick Views](#asset-quick-views)
+- [Device Quick Views](#device-quick-views)
 
-- [View and Manage Asset Properties](#view-and-manage-asset-properties)
+- [View and Manage Device Properties](#view-and-manage-device-properties)
 
-- [View Asset Types](#view-asset-types)
+- [View Device Types](#view-device-types)
 
 - [Backplane](#backplane-properties)
 
-- [View a Timeline of Events for the Asset](#view-a-timeline-of-events-for-the-asset)
+- [View a Timeline of Events for the Device](#view-a-timeline-of-events-for-the-device)
 
 - [Analyze Programming Details and Changes](#analyze-programming-details-and-changes)
 
-- [Working with Asset Notifications](#working-with-asset-notifications)
+- [Working with Device Notifications](#working-with-device-notifications)
 
-#### Asset labels and indicators
+#### Device labels and indicators
 
-The following labels and indicators may appear on assets on the map:
+The following labels and indicators may appear on devices on the map:
 
                                  |  |
  --------------------------------|--|
  :::image type="content" source="media/how-to-work-with-maps/image82.png" alt-text="IP host":::          | IP host name and IP address, or subnet addresses |
- :::image type="content" source="media/how-to-work-with-maps/image83.png" alt-text="Number of alerts":::          | Number of alerts associated with the asset |
- :::image type="content" source="#view-and-manage-asset-properties" alt-text="Asset type icon](media/how-to-work-with-maps/image84.png)          | Asset type icon, for example Storage, PLC or Historian. See [View and Manage Asset Properties"::: for details about asset types detected and how to manually assign types. |
- :::image type="content" source="media/how-to-work-with-maps/image85.png" alt-text="assets grouped":::          | Number of assets grouped in a subnet in an IT network. In this example 8. |
- :::image type="content" source="media/how-to-work-with-maps/image86.png" alt-text="asset Learning period":::          | An asset that was detected after the Learning period and was not authorized as a network asset. |
- Solid line | Logical connection between assets |
- :::image type="content" source="media/how-to-work-with-maps/image87.png" alt-text="New asset":::          | New asset discovered after Learning is complete. |
+ :::image type="content" source="media/how-to-work-with-maps/image83.png" alt-text="Number of alerts":::          | Number of alerts associated with the device |
+ :::image type="content" source="#view-and-manage-device-properties" alt-text="Device type icon](media/how-to-work-with-maps/image84.png)          | Device type icon, for example Storage, PLC or Historian. See [View and Manage Device Properties"::: for details about device types detected and how to manually assign types. |
+ :::image type="content" source="media/how-to-work-with-maps/image85.png" alt-text="devices grouped":::          | Number of devices grouped in a subnet in an IT network. In this example 8. |
+ :::image type="content" source="media/how-to-work-with-maps/image86.png" alt-text="device Learning period":::          | An device that was detected after the Learning period and was not authorized as a network device. |
+ Solid line | Logical connection between devices |
+ :::image type="content" source="media/how-to-work-with-maps/image87.png" alt-text="New device":::          | New device discovered after Learning is complete. |
 
-#### Asset quick views
+#### Device quick views
 
-Access asset properties and connections from the map.
+Access device properties and connections from the map.
 
 To open the quick properties menu:
 
   - Select the quick properties menu :::image type="content" source="media/how-to-work-with-maps/image88.png" alt-text="quick properties menu":::.
 
-##### Quick asset properties
+##### Quick device properties
 
-Select an asset or multiple assets while the Quick Properties screen is open to see the highlights of those assets:
+Select a device or multiple devices while the Quick Properties screen is open to see the highlights of those devices:
 
-:::image type="content" source="media/how-to-work-with-maps/image89.png" alt-text="Quick Asset Properties":::
+:::image type="content" source="media/how-to-work-with-maps/image89.png" alt-text="Quick Device Properties":::
 
 ##### Quick connection properties
 
@@ -300,11 +300,11 @@ Select a connection while the Quick Properties screen is open to see the protoco
 
 :::image type="content" source="media/how-to-work-with-maps/image90.png" alt-text="Quick connection properties":::
 
-#### View and manage asset properties
+#### View and manage device properties
 
-You can view asset proprieties for each asset displayed on the map. For example, the asset name, type or operating system, or the firmware or vendor.
+You can view device proprieties for each device displayed on the map. For example, the device name, type or operating system, or the firmware or vendor.
 
-:::image type="content" source="media/how-to-work-with-maps/image91.png" alt-text="View and manage asset properties":::
+:::image type="content" source="media/how-to-work-with-maps/image91.png" alt-text="View and manage device properties":::
 
 The following information can be updated manually. Information manually entered will override information discovered by Defender for IoT.
 
@@ -321,75 +321,75 @@ The following information can be updated manually. Information manually entered 
 | Item | Description |
 |--|--|
 | Basic Information |  |
-| Name | The asset name. <br /> By default, the sensor discovers the asset name as it defined in the network. For example, a name defined in the DNS server. <br /> If no such names were defined, the asset IP address appears in this field. <br /> You can change an asset name manually. It is recommended to give your assets meaningful names that reflect their functionality. |
-| Type | The asset type detected by the sensor. <br /> See View Asset Types. |
-| Vendor | The asset vendor. |
-| Operating System | The asset operating system. |
-| Purdue Layer | The Purdue layer identified by the sensor for this asset, including: <br /> - Automatic <br /> - Process Control <br /> - Supervisory <br /> - Enterprise |
-| Description | A free text field. <br /> Add more information about the asset. |
-| Attributes | Any additional information that was discovered about the asset during the learning period and does not belong to other categories, appears in the Attributes section. <br /> The information is read-only. |
-| Settings | You can manually change asset settings to prevent false positives: <br /> - **Authorized Asset**: During the learning period, all the assets discovered in the network are identified as authorized assets. When an asset is discovered after the learning period, it appears as an Unauthorized asset by default. You can change this definition manually. <br /> - **Known as Scanner**: Enable this option if you know that this asset is known as scanner and there is no need to alert you about it. <br /> - **Programming Asset**: Enable this option if you know that this asset is known as a programming asset and there is no need to alert you about it. |
-| Custom Groups | The custom groups in the Asset map in which this asset participates. |
-| State | The security and the authorization status of the asset: <br /> - The status is **Secured** when there are no alerts <br /> - When there are alerts about the asset, the number of alerts is displayed <br /> - The status **Unauthorized** is displayed for assets that were added to the network after the learning period. You can manually define the asset as **Authorized Asset** in the Settings area <br /> - In case the address of this asset is defined as a dynamic address, **DHCP** is added to the status. For more information about dynamic addresses, refer to Configure DHCP Address RangesConfigure DHCP Address Ranges. |
+| Name | The device name. <br /> By default, the sensor discovers the device name as it defined in the network. For example, a name defined in the DNS server. <br /> If no such names were defined, the device IP address appears in this field. <br /> You can change a device name manually. It is recommended to give your devices meaningful names that reflect their functionality. |
+| Type | The device type detected by the sensor. <br /> See View Device Types. |
+| Vendor | The device vendor. |
+| Operating System | The device operating system. |
+| Purdue Layer | The Purdue layer identified by the sensor for this device, including: <br /> - Automatic <br /> - Process Control <br /> - Supervisory <br /> - Enterprise |
+| Description | A free text field. <br /> Add more information about the device. |
+| Attributes | Any additional information that was discovered about the device during the learning period and does not belong to other categories, appears in the Attributes section. <br /> The information is read-only. |
+| Settings | You can manually change device settings to prevent false positives: <br /> - **Authorized Device**: During the learning period, all the devices discovered in the network are identified as authorized devices. When a device is discovered after the learning period, it appears as an Unauthorized device by default. You can change this definition manually. <br /> - **Known as Scanner**: Enable this option if you know that this device is known as scanner and there is no need to alert you about it. <br /> - **Programming Device**: Enable this option if you know that this device is known as a programming device and there is no need to alert you about it. |
+| Custom Groups | The custom groups in the Device map in which this device participates. |
+| State | The security and the authorization status of the device: <br /> - The status is **Secured** when there are no alerts <br /> - When there are alerts about the device, the number of alerts is displayed <br /> - The status **Unauthorized** is displayed for devices that were added to the network after the learning period. You can manually define the device as **Authorized Device** in the Settings area <br /> - In case the address of this device is defined as a dynamic address, **DHCP** is added to the status. For more information about dynamic addresses, refer to Configure DHCP Address RangesConfigure DHCP Address Ranges. |
 
 
 | Network |  |
 |--|--|
-| Interfaces | The asset interfaces. A read-only field. |
-| Protocols | The protocols used by the asset. A read-only field. |
+| Interfaces | The device interfaces. A read-only field. |
+| Protocols | The protocols used by the device. A read-only field. |
 | Firmware | If Backplane information is available, firmware information will not be displayed. |
-| Address | The asset IP address. |
-| Serial | The asset serial number. |
-| Module Address | The asset model/slot number or ID. |
-| Model | The asset model number. |
+| Address | The device IP address. |
+| Serial | The device serial number. |
+| Module Address | The device model/slot number or ID. |
+| Model | The device model number. |
 | Firmware Version | The firmware version number. |
 
-To view the asset information:
+To view the device information:
 
-1. Select **Assets** on the side menu.
+1. Select **Devices** on the side menu.
 
-2. Right-click an asset and select **View Properties**. The **Asset Properties** window is displayed.
+2. Right-click a device and select **View Properties**. The **Device Properties** window is displayed.
 
-3. Select on the required alert at the bottom of this window to view detailed information about alerts for this asset.
+3. Select on the required alert at the bottom of this window to view detailed information about alerts for this device.
 
-#### View asset types
+#### View device types
 
-The Asset Type is automatically identified by the sensor during the asset discovery process. You can change the type manually.
+The Device Type is automatically identified by the sensor during the device discovery process. You can change the type manually.
 
-:::image type="content" source="media/how-to-work-with-maps/image92.png" alt-text="View Asset Types":::
+:::image type="content" source="media/how-to-work-with-maps/image92.png" alt-text="View Device Types":::
 
 The following table presents all the types in the system:
 
-| Category | Asset Type |
+| Category | Device Type |
 |--|--|
 | ICS | Engineering Station <br /> PLC <br />Historian <br />HMI <br />IED <br />DCS Controller <br />RTU <br />Industrial Packaging System <br />Industrial Scale <br />Industrial Robot <br />Slot <br />Meter <br />Variable Frequency Drive  <br />Robot Controller <br />Servo Drive <br />Pneumatic Device <br />Marquee |
 | IT | Domain Controller <br />DB Server <br />Workstation <br />Server <br />Terminal Station <br />Storage <br />Smart Phone <br />Tablet <br />Backup Server |
 | IoT | IP Camera <br />Printer  <br />Punch Clock <br />ATM <br />Smart TV <br />Game console <br />DVR <br />Door Control Panel <br />HVAC <br />Thermostat <br />Fire Alarm <br />Smart Light <br />Smart Switch <br />Fire Detector <br />IP Telephone <br />Alarm System <br />Alarm Siren <br />Motion Detector <br />Elevator <br />Humidity Sensor <br />Barcode Scanner <br />Uninterruptable Power Supply <br />People Counter System <br />Intercom <br />Turnstile |
 | Network | Wireless Access Point <br />Router <br />Switch <br />Firewall <br />VPN Gateway <br />NTP Server <br />Wifi Pineapple <br />Physical Location <br />I/O Adapter <br /> Protocol Converter |
 
-To view the asset information:
+To view the device information:
 
-1.  Select **Assets** on the side menu.
+1.  Select **Devices** on the side menu.
 
-2. Right-click an asset and select **View Properties**. The **Asset Properties** window is displayed.
+2. Right-click a device and select **View Properties**. The **Device Properties** window is displayed.
 
-3. Select on the required alert at the bottom of this window to view detailed information about alerts for this asset.
+3. Select on the required alert at the bottom of this window to view detailed information about alerts for this device.
 
 #### Backplane properties
 
 If a PLC contains multiple modules separated into racks and slots, the characteristics might vary between the module cards. For example, if the IP and the MAC are the same, the firmware might be different.
 
-You can use the Backplane option to review multiple controllers/cards and their nested assets as one entity with a variety of definitions. Each slot in the Backplane view represents the underlying assets – the assets that were discovered behind it.
+You can use the Backplane option to review multiple controllers/cards and their nested devices as one entity with a variety of definitions. Each slot in the Backplane view represents the underlying devices – the devices that were discovered behind it.
 
 :::image type="content" source="media/how-to-work-with-maps/image93.png" alt-text="Backplane Properties":::
 
-:::image type="content" source="media/how-to-work-with-maps/image94.png" alt-text="Backplane Asset Properties":::
+:::image type="content" source="media/how-to-work-with-maps/image94.png" alt-text="Backplane Device Properties":::
 
-A backplane can contain up to 30 controller cards and up to 30 rack units. The total number of assets included in the multiple levels can be up to 200 assets.
+A backplane can contain up to 30 controller cards and up to 30 rack units. The total number of devices included in the multiple levels can be up to 200 devices.
 
-The Backplane pane is shown in the Asset Properties window when Backplane details are detected.
+The Backplane pane is shown in the Device Properties window when Backplane details are detected.
 
-Each slot appears with the number of underlying assets and the icon that shows the module type.
+Each slot appears with the number of underlying devices and the icon that shows the module type.
 
 | Icon | Module Type |
 |--|--|
@@ -405,35 +405,35 @@ When you select a slot, the slot details appear:
 
 :::image type="content" source="media/how-to-work-with-maps/image102.png" alt-text="select a slot":::
 
-To view the underlying assets behind the slot, select VIEW ON MAP. The slot is presented in the Asset map with all the underlying modules and assets connected to it.
+To view the underlying devices behind the slot, select VIEW ON MAP. The slot is presented in the Device map with all the underlying modules and devices connected to it.
 
 :::image type="content" source="media/how-to-work-with-maps/image103.png" alt-text="VIEW ON MAP":::
 
-#### View a timeline of events for the asset
+#### View a timeline of events for the device
 
-View a timeline of events associated with an asset.
+View a timeline of events associated with a device.
 
 To view the timeline:
 
-1. Right-click an asset from the map.
+1. Right-click a device from the map.
 
-2. Select **Show Events**. The Event Timeline window opens with information about events detected for the selected asset.
+2. Select **Show Events**. The Event Timeline window opens with information about events detected for the selected device.
 
 See [Event Timeline](#event-timeline) for details.
 
 ### Analyze programming details and changes
 
-Enhance forensics by displaying programming events carried out on your network assets and analyzing code changes. This information helps you discover suspicious programming activity, for example:
+Enhance forensics by displaying programming events carried out on your network devices and analyzing code changes. This information helps you discover suspicious programming activity, for example:
 
   - Human Error: An engineer is programming the wrong device.
 
   - Corrupted programming automation: Programming is erroneously carried out because of automation failure.
 
-  - Hacked systems: Unauthorized users logged into a programming asset.
+  - Hacked systems: Unauthorized users logged into a programming device.
 
-You can display a programmed asset and scroll through various programming changes carried out on it by other assets.
+You can display a programmed device and scroll through various programming changes carried out on it by other devices.
 
-View code that was added, changed, removed or unchanged by the programming asset. Search for programming changes based on file types or dates/times of interest.
+View code that was added, changed, removed or unchanged by the programming device. Search for programming changes based on file types or dates/times of interest.
 
 #### When to review programming activity 
 
@@ -455,7 +455,7 @@ Additional options let you:
 
 #### About authorized vs unauthorized programming events 
 
-*Unauthorized* programming events are carried out by assets that have not been learned or manually defined as programming assets. *Authorized* programming events are carried out by assets that were resolved or manually defined as programming assets.
+*Unauthorized* programming events are carried out by devices that have not been learned or manually defined as programming devices. *Authorized* programming events are carried out by devices that were resolved or manually defined as programming devices.
 
 The Programming Analysis Window displays both authorized and unauthorized programming events.
 
@@ -475,16 +475,16 @@ Use the Event Timeline to display a timeline of events in which programming chan
 
 #### Unauthorized programming alerts
 
-Alerts are triggered when unauthorized programming assets carry out programming activities.
+Alerts are triggered when unauthorized programming devices carry out programming activities.
 
 :::image type="content" source="media/how-to-work-with-maps/image106.png" alt-text="Unauthorized programming alerts":::
 
 > [!NOTE]
-> You can also view basic programming information in the Device Properties window and Asset Inventory. See [Asset Programming Information: Additional Locations](#asset-programming-information-additional-locations) for details.
+> You can also view basic programming information in the Device Properties window and Device Inventory. See [Device Programming Information: Additional Locations](#device-programming-information-additional-locations) for details.
 
 #### Working in the programming timeline window
 
-This section describes how to view programming files and compare versions. Search for specific files sent to a programmed asset. Search for files based on:
+This section describes how to view programming files and compare versions. Search for specific files sent to a programmed device. Search for files based on:
 
   - Date
 
@@ -494,12 +494,12 @@ This section describes how to view programming files and compare versions. Searc
 
 |The Programming Timeline includes the following information.| |
 |--|--|
-| Programmed Asset | Provides details about the asset that was programmed, including the hostname and file. |
+| Programmed Device | Provides details about the device that was programmed, including the hostname and file. |
 | Recent Events | Displays the 50 most recent events detected by the sensor. <br />To highlight an event, hover over it and click the star. <img alt ="star" src="media/how-to-work-with-maps/image108.png" style="width:0.21667in;height:0.20764in" /> <br /> The last 50 events can be viewed. |
-| Files | Displays the files detected for the chosen date and the file size on the programmed asset. <br /> By default, the maximum number of files available for display per asset is 300. <br /> By default, the maximum file size for each file is 15MB. |
-| File status <img alt="File status" src="media/how-to-work-with-maps/image109.png" style="width:1.63542in;height:0.72917in" /> | File labels indicate the status of the file on the asset, including: <br /> **Added**: the file was added to the endpoint on the date/time selected. <br /> **Updated**: The file was updated on the date/time selected.. <br /> **Deleted**: This file was removed. <br /> **No label**: The file was not changed.   |
-| Programming Asset | The asset that made the programming change. Multiple assets may have carried out programming changes on one programmed asset. The hostname, date/time of change and logged in user are displayed. |
-| <img alt="Current" src="media/how-to-work-with-maps/image110.png" style="width:0.52077in;height:0.21872in" /> | Displays the current file installed on the programmed asset. |
+| Files | Displays the files detected for the chosen date and the file size on the programmed device. <br /> By default, the maximum number of files available for display per device is 300. <br /> By default, the maximum file size for each file is 15MB. |
+| File status <img alt="File status" src="media/how-to-work-with-maps/image109.png" style="width:1.63542in;height:0.72917in" /> | File labels indicate the status of the file on the device, including: <br /> **Added**: the file was added to the endpoint on the date/time selected. <br /> **Updated**: The file was updated on the date/time selected.. <br /> **Deleted**: This file was removed. <br /> **No label**: The file was not changed.   |
+| Programming Device | The device that made the programming change. Multiple devices may have carried out programming changes on one programmed device. The hostname, date/time of change and logged in user are displayed. |
+| <img alt="Current" src="media/how-to-work-with-maps/image110.png" style="width:0.52077in;height:0.21872in" /> | Displays the current file installed on the programmed device. |
 | <img alt="Download text" src="media/how-to-work-with-maps/image111.png" style="width:0.24997in;height:0.36454in" /> | Download a text file of the code displayed. |
 | <img alt="compare" src="media/how-to-work-with-maps/image112.png" style="width:0.66658in;height:0.52077in" /> | Compare the current file with the file detected on a selected date. |
 
@@ -529,7 +529,7 @@ To compare:
 
    :::image type="content" source="media/how-to-work-with-maps/image112.png" alt-text="Compare indicator":::
 
-   The window displays all dates the selected file was detected on the programmed asset. The file may have been updated on the programmed asset by multiple programming assets.
+   The window displays all dates the selected file was detected on the programmed device. The file may have been updated on the programmed device by multiple programming devices.
 
    The number of differences detected appears in the upper right-hand corner of the window. You may need to scroll down to view differences.
 
@@ -543,52 +543,52 @@ To compare:
 
 5. The file selected from the **Recent Events /Files** pane always appears on the right.
 
-#### Asset programming information: additional locations
+#### Device programming information: additional locations
 
-In addition to reviewing details in the Programming Timeline, you can access programming information in the Asset Properties window and the Asset Inventory.
+In addition to reviewing details in the Programming Timeline, you can access programming information in the Device Properties window and the Device Inventory.
 
                      |  |
 ---------------------|--|
- Asset Properties    | The Asset Properties window provides information on the last programming event detected on the asset\. :::image type="content" source="media/how-to-work-with-maps/image116.png" alt-text="Asset Properties"::: |
- The Asset Inventory | The Asset Inventory indicates if the asset is a programming asset\.                                    :::image type="content" source="media/how-to-work-with-maps/image117.png" alt-text="The Asset Inventory"::: |
+ Device Properties    | The Device Properties window provides information on the last programming event detected on the device\. :::image type="content" source="media/how-to-work-with-maps/image116.png" alt-text="Device Properties"::: |
+ The Device Inventory | The Device Inventory indicates if the device is a programming device\.                                    :::image type="content" source="media/how-to-work-with-maps/image117.png" alt-text="The Device Inventory"::: |
 
-## Manage asset information from the map
+## Manage device information from the map
 
-The sensor does not update or impact assets directly on the network. Changes made here only impact how analyzes the asset.
+The sensor does not update or impact devices directly on the network. Changes made here only impact how analyzes the device.
 
-### Delete assets
+### Delete devices
 
-You may want to delete an asset if the information learned is not relevant. For example,
+You may want to delete a device if the information learned is not relevant. For example,
 
   - A third-party contractor at an engineering workstation connects to perform configuration updates. After the task is completed, the device should no longer be monitored.
 
   - Due to changes in the network, some devices are no longer connected.
 
-If you do not delete the asset, the sensor will continue monitoring it. After 60 days, a notification will appear, recommending that you delete.
+If you do not delete the device, the sensor will continue monitoring it. After 60 days, a notification will appear, recommending that you delete.
 
-You may receive an alert indicating that the asset is unresponsive if another device tries to access it. In this case, your network may be misconfigured.
+You may receive an alert indicating that the device is unresponsive if another device tries to access it. In this case, your network may be misconfigured.
 
-The asset will be removed from the Asset Map, Asset Inventory and Data Mining reports. Other information, for example: information stored in Widgets will be maintained.
+The device will be removed from the Device Map, Device Inventory and Data Mining reports. Other information, for example: information stored in Widgets will be maintained.
 
-The asset must be active for at least 10 minutes to delete it.
+The device must be active for at least 10 minutes to delete it.
 
-To delete an asset from the asset map:
+To delete a device from the device map:
 
-1. Select **Assets** on the side menu.
+1. Select **Devices** on the side menu.
 
-2. Right-click an asset and select **Delete**.
+2. Right-click a device and select **Delete**.
 
-### Merge assets
+### Merge devices
 
-Under certain circumstances you may need to *merge* assets. This may be required if the sensor discovered separate network entities which are one unique asset. For example,
+Under certain circumstances you may need to *merge* devices. This may be required if the sensor discovered separate network entities which are one unique device. For example,
 
   - A PLC with 4 network cards
 
   - A Laptop with WIFI and physical card  
 
-When merging you instruct The sensor to combine the asset properties of two assets into one. When you do this, the Asset Properties window and sensor reports will be updated with the new asset property details.
+When merging you instruct The sensor to combine the device properties of two devices into one. When you do this, the Device Properties window and sensor reports will be updated with the new device property details.
 
-For example, if you merge two assets with an IP, both IPs will appear as separate interfaces in the Device Properties window. You can only merge authorized assets.
+For example, if you merge two devices with an IP, both IPs will appear as separate interfaces in the Device Properties window. You can only merge authorized devices.
 
 :::image type="content" source="media/how-to-work-with-maps/image131.png" alt-text="Device Properties window":::
 
@@ -596,73 +596,73 @@ The Event Timeline presents the merge event.
 
 :::image type="content" source="media/how-to-work-with-maps/image132.png" alt-text="Event Timeline":::
 
-You cannot undo an asset merge. If you mistakenly merged two assets, delete the asset and wait for The sensor to rediscover both.
+You cannot undo a device merge. If you mistakenly merged two devices, delete the device and wait for The sensor to rediscover both.
 
-To merge assets:
+To merge devices:
 
-1. Select 2 assets and right-click one of them.
+1. Select 2 devices and right-click one of them.
 
-2. Select **Merge** to merge the assets. It can take up to 2 minutes complete the merge.
+2. Select **Merge** to merge the devices. It can take up to 2 minutes complete the merge.
 
-3. In the Set merge device attributes dialog box choose an asset name.
+3. In the Set merge device attributes dialog box choose a device name.
 
    :::image type="content" source="media/how-to-work-with-maps/image133.png" alt-text="attributes dialog box":::
 
 4. Select **Save**.
 
-### Authorize/unauthorize assets
+### Authorize/unauthorize devices
 
-During the Learning period, all the assets discovered in the network are identified as authorized assets. The **Authorized** label does not appear on these assts in the Asset Map.
+During the Learning period, all the devices discovered in the network are identified as authorized devices. The **Authorized** label does not appear on these assts in the Device Map.
 
-When an asset is discovered after the Learning period it appears as an **Unauthorized** asset. In addition to seeing unauthorized assets in the map you can also see them in the Asset Inventory.
+When a device is discovered after the Learning period it appears as an **Unauthorized** device. In addition to seeing unauthorized devices in the map you can also see them in the Device Inventory.
 
-:::image type="content" source="media/how-to-work-with-maps/image134.png" alt-text="Asset Inventory":::
+:::image type="content" source="media/how-to-work-with-maps/image134.png" alt-text="Device Inventory":::
 
-**New Asset vs Unauthorized**
+**New Device vs Unauthorized**
 
-New assets detected after the Learning period will appear with **New** and **Unauthorized** label.
+New devices detected after the Learning period will appear with **New** and **Unauthorized** label.
 
-If you move an asset on the map or manually change the asset properties, the **New** label is removed from the asset icon.
+If you move a device on the map or manually change the device properties, the **New** label is removed from the device icon.
 
-#### Unauthorized assets - attack vectors and risk assessment reports
+#### Unauthorized devices - attack vectors and risk assessment reports
 
-Unauthorized assets are calculated included in Risk Assessment reports and Attack Vectors reports.
+Unauthorized devices are calculated included in Risk Assessment reports and Attack Vectors reports.
 
-- **Attack Vector Reports:** Assets marked as *Unauthorized* are resolved in the Attack Vector as suspected rogue devices that might be a threat to the network.
+- **Attack Vector Reports:** Devices marked as *Unauthorized* are resolved in the Attack Vector as suspected rogue devices that might be a threat to the network.
 
    :::image type="content" source="media/how-to-work-with-maps/image135.png" alt-text="Attack Vector Reports":::
 
-- **Risk Assessment Reports:** Assets marked as *Unauthorized* are:
+- **Risk Assessment Reports:** Devices marked as *Unauthorized* are:
 
   - Identified in Risk Assessment Reports
 
-To authorize/Unauthorize assets manually:
+To authorize/Unauthorize devices manually:
 
-1. Right-click the asset on the map and select **Unauthorize**
+1. Right-click the device on the map and select **Unauthorize**
 
-### Mark assets as important
+### Mark devices as important
 
-You can mark significant network assets as *Important*, for example business critical servers. These assets are marked with a star on the map. The star varies according to the Map zoom level.
+You can mark significant network devices as *Important*, for example business critical servers. These devices are marked with a star on the map. The star varies according to the Map zoom level.
 
 :::image type="content" source="media/how-to-work-with-maps/image138.png" alt-text="Map zoom](media/how-to-work-with-maps/image136.png) ![Star](media/how-to-work-with-maps/image137.png) ![Map":::
 
-#### Important assets - attack vectors and risk assessment reports
+#### Important devices - attack vectors and risk assessment reports
 
-Important assets are calculated when generating Risk Assessment reports and Attack Vectors reports.
+Important devices are calculated when generating Risk Assessment reports and Attack Vectors reports.
 
-  - Attack Vector Reports Assets marked as *Important* are resolved in the Attack Vector as Attack Targets. See [Attack Vectors](./attack-vectors.md) for details about the report.
+  - Attack Vector Reports Devices marked as *Important* are resolved in the Attack Vector as Attack Targets. See [Attack Vectors](./attack-vectors.md) for details about the report.
 
-  - Risk Assessment Reports: Assets marked as *Important* are calculated when providing the security score in the Risk Assessment report.
+  - Risk Assessment Reports: Devices marked as *Important* are calculated when providing the security score in the Risk Assessment report.
 
 ## Generate reports from the map
 
 ### Activity reports
 
-Generate an activity report for a selected asset over the 1,6,12 or 24 hours. The following information is available:
+Generate an activity report for a selected device over the 1,6,12 or 24 hours. The following information is available:
 
   - Category: Basic detection information based on traffic scenarios.
 
-  - Source/Destination assets
+  - Source/Destination devices
 
   - Data: Additional information defected.
 
@@ -672,9 +672,9 @@ You can save the report as a Microsoft Excel or Word file.
 
 :::image type="content" source="media/how-to-work-with-maps/image139.png" alt-text="Recent activity":::
 
-To generate an activity report for an asset:
+To generate an activity report for a device:
 
-1. Right-click an asset from the Map.
+1. Right-click a device from the Map.
 
 2. Select an Activity Report.
 
@@ -682,27 +682,27 @@ To generate an activity report for an asset:
 
 ### Attack vector reports
 
-Simulate an Attack Vector report to learn if an asset on the map you select is a vulnerable attack target.
+Simulate an Attack Vector report to learn if a device on the map you select is a vulnerable attack target.
 
-Attack Vector reports provide a graphical representation of a vulnerability chain of exploitable assets. These vulnerabilities can give an attacker access to key network assets. The Attack Vector simulator calculates attack vectors in real-time and analyzes all attack vectors per a specific target. See [Attack Vectors](./attack-Vectors.md) for details about Attack Vector reports.
+Attack Vector reports provide a graphical representation of a vulnerability chain of exploitable devices. These vulnerabilities can give an attacker access to key network devices. The Attack Vector simulator calculates attack vectors in real-time and analyzes all attack vectors per a specific target. See [Attack Vectors](./attack-Vectors.md) for details about Attack Vector reports.
 
-To view an asset in an Attack Vector reports:
+To view a device in an Attack Vector reports:
 
-1. Right-click an asset from the map.
+1. Right-click a device from the map.
 
-2. Select **Simulate Attack Vectors**. The Attack Vector dialog box opens with the asset you select as the attack target.
+2. Select **Simulate Attack Vectors**. The Attack Vector dialog box opens with the device you select as the attack target.
 
    :::image type="content" source="media/how-to-work-with-maps/image141.png" alt-text="Add attack vector simulation":::
 
 3. Add the remaining parameters to the dialog box and select **Add Simulation**.
 
-### Export asset information
+### Export device information
 
-Export the following asset information from the Map.
+Export the following device information from the Map.
 
-  - Asset details (Microsoft Excel)
+  - Device details (Microsoft Excel)
 
-  - An asset summary (Microsoft Excel)
+  - An device summary (Microsoft Excel)
 
   - A word file with groups (Microsoft Word)
 
@@ -718,7 +718,7 @@ To export:
 
 With CyberX Central Manager you can plan how to achieve full security coverage by dividing your network into geographical and logical segments that reflect your business typology.
 
-- **Geographical Facility Level:** A **Site** is a number of assets grouped according to geographical location presented on the map. By default, CyberX provides you with a world map. You can change it to the map relevant to your organization: a country map, a city map and so on. The map is empty by default. You need to add sites to the map to reflect your company structure.
+- **Geographical Facility Level:** A **Site** is a number of devices grouped according to geographical location presented on the map. By default, CyberX provides you with a world map. You can change it to the map relevant to your organization: a country map, a city map and so on. The map is empty by default. You need to add sites to the map to reflect your company structure.
 
   For example, there is a company with five physical sites, Toronto, New York, Berlin, Moscow, and Florence. All five sites were added to the map by the CyberX admin. When the site color changes on the map, it provides the SOC team with indication of critical system status at a glance.
 
@@ -734,7 +734,7 @@ With CyberX Central Manager you can plan how to achieve full security coverage b
 
 - **Local Logical Segment Level:** A **Zone** is a logical section within a site defined according to user-defined characteristics such as functional areas/production lines/controller types, to allow enforcement of security policies relevant to the zone definition. For example, the Toronto site contains 5 production lines that can be defined as 5 zones. The 3 glass production lines are 3 zones related to the glass business unit, the plastic production line is a zone within the plastic business unit and the truck engine production line is a zone within the automobile business unit.
 
-- **Local View Level:** A single CyberX installation that provides insight into the operational and security status of the assets connected CyberX.
+- **Local View Level:** A single CyberX installation that provides insight into the operational and security status of the devices connected CyberX.
 
 ### Understanding the Map Views
 

@@ -5,9 +5,8 @@ author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.date: 12/02/2020
-ms.topic: article
-ms.service: azure
 ms.topic: how-to
+ms.service: azure
 ---
 
 # View alerts

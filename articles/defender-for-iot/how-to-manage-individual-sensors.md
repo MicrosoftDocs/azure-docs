@@ -17,7 +17,7 @@ Your sensor was onboarded with the Defender for IoT from the Azure portal. Each 
 
 A unique activation file should have been uploaded to each sensor you deploy. 
 
-See [Upload new activation files](#upload-new-activation files) for information regarding when and how to use a new file.
+See [Upload new activation files](#upload-new-activation-files) for information regarding when and how to use a new file.
 
 See [Activation file upload troubleshooting](#activation-file-upload-troubleshooting) if you cannot upload the file.
 
@@ -37,11 +37,11 @@ Sensors that are cloud connected are associated with the Defender for IoT hu
 
 You may need to upload a new activation file for an onboarded sensor when: 
 
-    - An activation file expires on a locally connected sensor. 
+- An activation file expires on a locally connected sensor. 
 
-    - You want to work in a different sensor management mode. 
+- You want to work in a different sensor management mode. 
 
-    - You want to assign a new Defender for Iot hub to a cloud connected sensor.  
+ - You want to assign a new Defender for Iot hub to a cloud connected sensor.  
 
 To add a new activation file:
 
