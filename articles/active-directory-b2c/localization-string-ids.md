@@ -60,7 +60,7 @@ The following IDs are used for a content definition with an ID of `api.signupors
 
 The following example shows the use of some of the user interface elements in the sign-up or sign-in page:
 
-![Sign-up or sign-in page UX elements](./media/localization-string-ids/localization-susi-2.png)
+:::image type="content" source="./media/localization-string-ids/localization-susi-2.png" alt-text="Screenshot that shows sign-up or sign-in page U X elements.":::
 
 ### Sign-up or sign-in identity providers
 

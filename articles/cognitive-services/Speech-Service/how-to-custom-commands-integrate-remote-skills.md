@@ -18,9 +18,9 @@ In this article, you will learn how to export a Custom Commands application as a
 
 ## Prerequisites
 > [!div class="checklist"]
-> * [Understanding of Bot Framework Skill](https://aka.ms/speech/cc-skill-overview)
+> * [Understanding of Bot Framework Skill](/azure/bot-service/skills-conceptual)
 > * [Understanding of Skill Manifest](https://aka.ms/speech/cc-skill-manifest)
-> * [How to invoke a skill from a Bot Framework Bot](https://aka.ms/speech/cc-skill-consumer)
+> * [How to invoke a skill from a Bot Framework Bot](/azure/bot-service/skills-about-skill-consumers)
 > * An exisiting Custom Commands application. In case you don't have any Custom Commands application, try out with - [Quickstart: Create a voice assistant using Custom Commands](quickstart-custom-commands-application.md)
 
 ## Custom Commands as remote skills

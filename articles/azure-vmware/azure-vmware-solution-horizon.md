@@ -136,23 +136,6 @@ The tables show the common workloads for Login VSI Knowledge Worker workloads an
 
 :::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Table of common VDI profiles for VMware Horizon for login VSI Power worker workloads" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
 
-### Azure VMware Solution host instance
-
-* PowerEdge R640 Server - DSS RESTRICTED
-
-* 36 cores \@2.3GHz
-
-* 576-GB RAM
-
-* HBA330 12 Gbps SAS HBA Controller (NON-RAID)
-
-* 1.92 TB SSD SATA Mix Use 6 Gbps 512 2.5in Hot-plug AG Drive, 3 DWPD, 10512 TBW
-
-* Intel 1.6 TB, NVMe, Mixed Use Express Flash, 2.5 SFF Drive, U.2, P4600 with
-Carrier
-
-* 2 vSAN Disk Groups: 1.6 x 4(1.92 TB)
-
 ### Horizon sizing inputs
 
 Here's what you'll need to gather for your planned workload:

@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using [DisplayControls](display-controls.md) (currently in preview) and the third-party email provider Mailjet, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
 
-Custom email verification requires the use of a third-party email provider like [Mailjet](https://Mailjet.com), [SendGrid](custom-email.md), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses Mailjet.
+Custom email verification requires the use of a third-party email provider like [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses Mailjet.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 

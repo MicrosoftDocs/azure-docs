@@ -177,17 +177,7 @@ The following shows an example of the output when you assign the [Virtual Machin
     
 ## Add role assignment examples
 
-### Add role assignment for a specific blob container resource scope
-
-Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at a resource scope for a blob container named *blob-container-01*.
-
-```azurecli
-az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
---role "Storage Blob Data Contributor" \
---scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
-```
-
-### Add role assignment for all blob containers in a storage account resource scope
+#### Add role assignment for all blob containers in a storage account resource scope
 
 Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at a resource scope for a storage account named *storage12345*.
 
@@ -197,7 +187,17 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
 ```
 
-### Add role assignment for a group in a specific virtual network resource scope
+#### Add role assignment for a specific blob container resource scope
+
+Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at a resource scope for a blob container named *blob-container-01*.
+
+```azurecli
+az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
+--role "Storage Blob Data Contributor" \
+--scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
+```
+
+#### Add role assignment for a group in a specific virtual network resource scope
 
 Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a resource scope for a virtual network named *pharma-sales-project-network*.
 
@@ -207,7 +207,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network"
 ```
 
-### Add role assignment for a user at a resource group scope
+#### Add role assignment for a user at a resource group scope
 
 Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to *patlong\@contoso.com* user at the *pharma-sales* resource group scope.
 
@@ -217,7 +217,7 @@ az role assignment create --assignee "patlong@contoso.com" \
 --resource-group "pharma-sales"
 ```
 
-### Add role assignment for a user using the unique role ID at a resource group scope
+#### Add role assignment for a user using the unique role ID at a resource group scope
 
 There are a couple of times when a role name might change, for example:
 
@@ -234,7 +234,7 @@ az role assignment create --assignee "patlong@contoso.com" \
 --resource-group "pharma-sales"
 ```
 
-### Add role assignment for all blob containers at a resource group scope
+#### Add role assignment for all blob containers at a resource group scope
 
 Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at the *Example-Storage-rg* resource group scope.
 
@@ -252,7 +252,7 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg"
 ```
 
-### Add role assignment for an application at a resource group scope
+#### Add role assignment for an application at a resource group scope
 
 Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to an application with service principal object ID 44444444-4444-4444-4444-444444444444 at the *pharma-sales* resource group scope.
 
@@ -262,7 +262,7 @@ az role assignment create --assignee "44444444-4444-4444-4444-444444444444" \
 --resource-group "pharma-sales"
 ```
 
-### Add role assignment for a new service principal at a resource group scope
+#### Add role assignment for a new service principal at a resource group scope
 
 If you create a new service principal and immediately try to assign a role to that service principal, that role assignment can fail in some cases. For example, if you use a script to create a new managed identity and then try to assign a role to that service principal, the role assignment might fail. The reason for this failure is likely a replication delay. The service principal is created in one region; however, the role assignment might occur in a different region that hasn't replicated the service principal yet. To address this scenario, you should specify the principal type when creating the role assignment.
 
@@ -285,7 +285,7 @@ az role assignment create --assignee-object-id "33333333-3333-3333-3333-33333333
 --resource-group "pharma-sales"
 ```
 
-### Add role assignment for a user at a subscription scope
+#### Add role assignment for a user at a subscription scope
 
 Assigns the [Reader](built-in-roles.md#reader) role to the *annm\@example.com* user at a subscription scope.
 
@@ -295,7 +295,7 @@ az role assignment create --assignee "annm@example.com" \
 --subscription "00000000-0000-0000-0000-000000000000"
 ```
 
-### Add role assignment for a group at a subscription scope
+#### Add role assignment for a group at a subscription scope
 
 Assigns the [Reader](built-in-roles.md#reader) role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a subscription scope.
 
@@ -305,7 +305,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 --subscription "00000000-0000-0000-0000-000000000000"
 ```
 
-### Add role assignment for all blob containers at a subscription scope
+#### Add role assignment for all blob containers at a subscription scope
 
 Assigns the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role to the *alain\@example.com* user at a subscription scope.
 
@@ -315,7 +315,7 @@ az role assignment create --assignee "alain@example.com" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
-### Add role assignment for a user at a management group scope
+#### Add role assignment for a user at a management group scope
 
 Assigns the [Billing Reader](built-in-roles.md#billing-reader) role to the *alain\@example.com* user at a management group scope.
 
@@ -325,7 +325,7 @@ az role assignment create --assignee "alain@example.com" \
 --scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
-## Remove role assignment
+## Remove a role assignment
 
 In Azure RBAC, to remove access, you remove a role assignment by using [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete).
 

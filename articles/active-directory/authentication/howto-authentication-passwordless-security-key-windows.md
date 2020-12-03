@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/30/2020
+ms.date: 11/24/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -131,7 +131,7 @@ For **hybrid Azure AD joined devices**, organizations can configure the followin
 - Setting this policy to **Enabled** allows users to sign in with security keys.
 - Setting this policy to **Disabled** or **Not Configured** stops users from signing in with security keys.
 
-This Group Policy setting requires an updated version of the `credentialprovider.admx` Group Policy template. This new template is available with the next version of Windows Server and with Windows 10 20H1. This setting can be managed with a device running one of these newer versions of Windows or centrally by following the guidance in the support topic, [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+This Group Policy setting requires an updated version of the `CredentialProviders.admx` Group Policy template. This new template is available with the next version of Windows Server and with Windows 10 20H1. This setting can be managed with a device running one of these newer versions of Windows or centrally by following the guidance in the support topic, [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## Sign in with FIDO2 security key
 

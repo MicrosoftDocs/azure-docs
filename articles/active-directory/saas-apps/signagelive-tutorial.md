@@ -100,7 +100,7 @@ To configure Azure AD single sign-on with Signagelive, take the following steps:
     `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual sign-on URL. To get the value, contact the [Signagelive Client support team](mailto:support@signagelive.com) . You can also refer to the patterns that are shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual sign-on URL. To get the value, contact the [Signagelive Client support team](mailto:support@signagelive.com). You can also refer to the patterns that are shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Certificate (Raw)** from the given options per your requirement. Then save it on your computer.
 

@@ -76,7 +76,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
     - [Learn more](./migrate-appliance.md#appliance---vmware) about required Azure roles and permissions.
 - Error 60039, "The appliance might not be registered successfully to the Azure Migrate project" can occur if registration fails because the Azure Migrate project used to the register the appliance can't be found.
     - In the Azure portal and check whether the project exists in the resource group.
-    - If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) create a new project.
+    - If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](./create-manage-projects.md#create-a-project-for-the-first-time) create a new project.
 
 ## Error 60030/60031: Key Vault management operation failed
 

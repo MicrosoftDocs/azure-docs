@@ -29,4 +29,4 @@ In Azure, the feature that enables storing customer data in a single region is c
 
 ## Next steps
 
-* Read an overview of [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview).
+* Read an overview of [Network Watcher](./network-watcher-monitoring-overview.md).

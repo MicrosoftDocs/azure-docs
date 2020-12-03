@@ -37,11 +37,12 @@ Ensure the following prerequisites are met:
 - Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connection).
 - Supported versions of Service Manager:  2012 R2 or 2016.
 - User role:  [Advanced operator](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+- Today the alerts that are sent from Azure Monitor can create in System Center Service Manager Incidents.
 
 > [!NOTE]
 > 
 > - ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
-> - In order to use custom [templates](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) as a part of the actions the parameter "ProjectionType" in the SCSM template should be mapped to "IncidentManagement!System.WorkItem.Incident.ProjectionType"
+> - In order to use custom [templates](./itsmc-overview.md#template-definitions) as a part of the actions the parameter "ProjectionType" in the SCSM template should be mapped to "IncidentManagement!System.WorkItem.Incident.ProjectionType"
 
 ### Connection procedure
 
@@ -182,7 +183,7 @@ The following sections provide details about how to connect your ServiceNow prod
 Ensure the following prerequisites are met:
 - ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
 - ServiceNow supported versions: Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
-- Today the alerts that are sent from Azure Monitor can create in ServiceNow one of teh following elements: Events, Incedents or Alerts.
+- Today the alerts that are sent from Azure Monitor can create in ServiceNow one of the following elements: Events, Incidents or Alerts.
 > [!NOTE]
 > ITSMC supports only the official SaaS offering from Service Now. Private deployments of Service Now are not supported. 
 
@@ -431,4 +432,3 @@ To generate the client ID/key for Cherwell, use the following procedure:
 
 ## Next steps
  - [Create ITSM work items from Azure alerts](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
-
