@@ -42,7 +42,7 @@ The health check path should check the critical components of your application. 
 
 ### Security
 
-Development teams at large enterprises often need to adhere to security requirements for their exposed APIs. To secure the healthcheck endpoint, you should first use features such as [IP restrictions](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict access to the application. You can secure the healthcheck endpoint itself by requiring that the `User-Agent` of the incoming request matches `ReadyForRequest/1.0`. The User-Agent cannot be spoofed since the request was already secured by the prior security features.
+Development teams at large enterprises often need to adhere to security requirements for their exposed APIs. To secure the healthcheck endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict access to the application. You can secure the healthcheck endpoint itself by requiring that the `User-Agent` of the incoming request matches `ReadyForRequest/1.0`. The User-Agent cannot be spoofed since the request was already secured by the prior security features.
 
 ## Behavior
 
@@ -57,7 +57,7 @@ If an instance remains unhealthy for one hour, it will be replaced with new inst
 
 ## Monitoring
 
-After providing your application's health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, click the **Metrics** in the top toolbar. This will open a new blade where you can see the site's historical health status and create a new alert rule. For more information on monitoring your sites, [see the guide on Azure Monitor](../../app-service/web-sites-monitor.md).
+After providing your application's health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, click the **Metrics** in the top toolbar. This will open a new blade where you can see the site's historical health status and create a new alert rule. For more information on monitoring your sites, [see the guide on Azure Monitor](web-sites-monitor.md).
 
 
 
