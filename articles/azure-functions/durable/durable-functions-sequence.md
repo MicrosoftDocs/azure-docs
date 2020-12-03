@@ -34,7 +34,7 @@ The code calls `E1_SayHello` three times in sequence with different parameter va
 # [JavaScript](#tab/javascript)
 
 > [!NOTE]
-> JavaScript Durable Functions are available for the Functions 2.0 runtime only.
+> JavaScript Durable Functions are available for the Functions 3.0 runtime only.
 
 #### function.json
 
@@ -49,13 +49,13 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 
 #### index.js
 
-Here is the function:
+Here is the orchestrator function:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). It's a library that enables you to write Durable Functions in JavaScript. There are three significant differences between an orchestration function and other JavaScript functions:
+All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). It's a library that enables you to write Durable Functions in JavaScript. There are three significant differences between an orchestrator function and other JavaScript functions:
 
-1. The function is a [generator function.](/scripting/javascript/advanced/iterators-and-generators-javascript).
+1. The orchestrator function is a [generator function](/scripting/javascript/advanced/iterators-and-generators-javascript).
 2. The function is wrapped in a call to the `durable-functions` module's `orchestrator` method (here `df`).
 3. The function must be synchronous. Because the 'orchestrator' method handles calling 'context.done', the function should simply 'return'.
 
@@ -124,7 +124,7 @@ The implementation of `E1_SayHello` is a relatively trivial string formatting op
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-Unlike a JavaScript orchestration function, an activity function needs no special setup. The input passed to it by the orchestrator function is located on the `context.bindings` object under the name of the `activityTrigger` binding - in this case, `context.bindings.name`. The binding name can be set as a parameter of the exported function and accessed directly, which is what the sample code does.
+Unlike the orchestration function, an activity function needs no special setup. The input passed to it by the orchestrator function is located on the `context.bindings` object under the name of the `activityTrigger` binding - in this case, `context.bindings.name`. The binding name can be set as a parameter of the exported function and accessed directly, which is what the sample code does.
 
 # [Python](#tab/python)
 
