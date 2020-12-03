@@ -41,7 +41,8 @@ system. The standard practice for the snapshot tools is to setup the user's `cro
 
 An example of a `crontab` for the user `azacsnap` to automate snapshots is below.
 
-> [!NOTE] Output of `crontab -l` command wrapped at maximum of 80 characters per line. Ensure
+> [!NOTE] 
+> Output of `crontab -l` command wrapped at maximum of 80 characters per line. Ensure
 all the crontab entries are on a single line, otherwise crontab will error when trying to save.
 
 ```bash
@@ -79,7 +80,8 @@ Explanation of the above crontab.
 
 Further explanation of cron and the format of the crontab file here: <https://en.wikipedia.org/wiki/Cron>
 
-> [!NOTE] Users are responsible for monitoring the cron jobs to ensure snapshots are being
+> [!NOTE] 
+> Users are responsible for monitoring the cron jobs to ensure snapshots are being
 generated successfully.
 
 ## Monitor the snapshots
@@ -94,14 +96,16 @@ The following conditions should be monitored to ensure a healthy system:
     1. Check `/var/log/messages` for output from the `azacsnap` command.
 1. Consistency of the snapshots by restoring then to another system periodically.
 
-> [!NOTE] To list  snapshot details, execute the command `azacsnap -c details`.
+> [!NOTE] 
+> To list  snapshot details, execute the command `azacsnap -c details`.
 
 ## Delete a snapshot
 
 To delete a snapshot, execute the command `azacsnap -c delete`. It's not possible to delete
 snapshots from the OS level. You must use the correct command (`azacsnap -c delete`) to delete the storage snapshots.
 
-> [!IMPORTANT] Be vigilant when you delete a snapshot. Once deleted, it is **IMPOSSIBLE** to recover
+> [!IMPORTANT] 
+> Be vigilant when you delete a snapshot. Once deleted, it is **IMPOSSIBLE** to recover
 the deleted snapshots.
 
 
@@ -109,7 +113,8 @@ the deleted snapshots.
 
 A storage volume snapshot can be restored to a new volume (`-c restore --restore snaptovol`).  For Azure Large Instance, the volume can be reverted to a snapshot (`-c restore --restore revertvolume`).
 
-> [!NOTE] There is **NO** database recovery command provided.
+> [!NOTE] 
+> There is **NO** database recovery command provided.
 
 A snapshot can be copied back to the SAP HANA data area, but SAP HANA must not be running when a
 copy is made (`cp /hana/data/H80/mnt00001/.snapshot/hana_hourly.2020-06-17T113043.1586971Z/*`).
@@ -120,7 +125,8 @@ If you decide to perform the disaster recovery failover, the `azacsnap -c restor
 
 ## Set up snapshots for 'boot' volumes only
 
-> [!IMPORTANT] This operation applies only to Azure Large Instance. 
+> [!IMPORTANT] 
+> This operation applies only to Azure Large Instance. 
 
 In some cases, customer's already have tools to protect SAP HANA and only want to configure 'boot' volume snapshots.  In this case, the task is simplified and the following steps should be taken.
 
@@ -208,7 +214,8 @@ In some cases, customer's already have tools to protect SAP HANA and only want t
 
 1. Now setup automatic snapshot backup.
 
-> [!NOTE] Setting up communication with SAP HANA is not required.
+> [!NOTE] 
+> Setting up communication with SAP HANA is not required.
 
 ## Restore a 'boot' snapshot
 

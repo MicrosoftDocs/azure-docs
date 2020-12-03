@@ -75,7 +75,8 @@ CRITICAL: Command 'test' failed with error:
     <font color=red>* -10104: Invalid value for KEY (SCADMIN)</font>
     </pre>
 
-    > [!NOTE] To permanently add to the user's `$PATH`, update the user's `$HOME/.profile` file
+    > [!NOTE] 
+    > To permanently add to the user's `$PATH`, update the user's `$HOME/.profile` file
 
 ## The `hdbuserstore` location
 

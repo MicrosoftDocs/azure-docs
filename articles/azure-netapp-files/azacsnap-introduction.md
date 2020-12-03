@@ -76,7 +76,10 @@ The command options are as follows:
     snapshots. You can use either the SAP HANA Backup ID as found in HANA Studio or the storage snapshot name. The Backup ID is only tied to the `hana` snapshots, which are created for the data and shared volumes. Otherwise, if the snapshot name is entered, it searches for all snapshots that match the entered snapshot name.
 - **`-c restore --restore snaptovol`** Creates a new volume based on the latest snapshot on the target volume. This command creates a new "cloned" volume based on the configured target volume, using the latest volume snapshot as the base to create the new volume.  This command does not interrupt the storage replication from primary to secondary. Instead clones of the latest available snapshot are created at the DR site and recommended filesystem mountpoints of the cloned volumes are presented. This command should be run on the Azure Large Instance system **in the DR region** (that is, the target fail-over system).
 - **`-c restore --restore revertvolume`** Reverts the target volume to a prior state based on the most recent snapshot.  Using this command as part of DR Failover into the paired DR region. This command **stops** storage replication from the primary site to the secondary site, and reverts the target DR volume(s) to their latest available snapshot on the DR volumes along with recommended filesystem mountpoints for the reverted DR volumes. This command should be run on the Azure Large Instance system **in the DR region** (that is, the target fail-over system).
-  > [!NOTE] This sub-command (`--restore revertvolume`) is not available for Azure NetApp Files.
+
+    > [!NOTE] 
+    > This sub-command (`--restore revertvolume`) is not available for Azure NetApp Files.
+
 - **`azacsnap.json`** the JSON configuration file.  The name can be customized by using the `--configfile` command-line option and passing the config filename as a parameter (e.g `--configfile H80.json`)
   - Create a *new* `azacsnap.json` config using `azacsnap -c configure --configuration new` or *edit* an existing config file using  `azacsnap -c configure --configuration edit`
 

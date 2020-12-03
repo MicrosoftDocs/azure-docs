@@ -219,7 +219,8 @@ database, change the IP address, usernames, and passwords as appropriate:
 
 1. *OPTIONAL* - Prevent user's password from expiring
 
-  > [!NOTE] Check with corporate policy before making this change.
+    > [!NOTE] 
+    > Check with corporate policy before making this change.
 
    This example disables the password expiration for the AZACSNAP user, without this change the user's password will expire preventing snapshots to be taken correctly.  
 
@@ -289,7 +290,8 @@ usernames, and passwords as appropriate:
 
 1. *OPTIONAL* - Prevent user's password from expiring
 
-  > [!NOTE] Check with corporate policy before making this change.
+    > [!NOTE] 
+    > Check with corporate policy before making this change.
 
    This example disables the password expiration for the AZACSNAP user, without this change the user's password will expire preventing snapshots to be taken correctly.  
 
@@ -370,7 +372,8 @@ to the command line.
   - For commoncrypto:
     - `mv sapcli.pse <securityPath>/<SID>_truststore`
 
-> [!NOTE] The `<SID>` component of the file names must be the SAP HANA System Identifier
+> [!NOTE] 
+> The `<SID>` component of the file names must be the SAP HANA System Identifier
 all in upper case (for example, `H80`, `PR1`, etc.)
 
 When `azacsnap` calls `hdbsql`, it will add `-ssltruststore=<securityPath>/<SID>_truststore`
@@ -390,7 +393,8 @@ hdbsql \
     "sql statement"
 ```
 
-> [!NOTE] The `\` character is a command line line-wrap to improve clarity of the
+> [!NOTE] 
+> The `\` character is a command line line-wrap to improve clarity of the
 multiple parameters passed on the command line.
 
 ## Installing the snapshot tools
@@ -406,7 +410,8 @@ private key and the `hdbuserstore` to the backup user's location. However, it is
 which enable communication with the storage back-end and SAP HANA to be manually done by a
 knowledgeable administrator after the installation.
 
-> [!NOTE] For earlier SAP HANA on Azure Large Instance installations, the directory of pre-installed
+> [!NOTE] 
+> For earlier SAP HANA on Azure Large Instance installations, the directory of pre-installed
 snapshot tools was `/hana/shared/<SID>/exe/linuxx86_64/hdb`.
 
 With the [pre-requisite steps](#pre-requisite-steps-for-installation) completed, it’s now possible to install the snapshot tools using the self-installer as follows:
@@ -437,7 +442,8 @@ Switches enclosed in [] are optional for each command line.
 Examples of a target directory are ./tmp or /usr/local/bin
 ```
 
-> [!NOTE] The self-installer has an option to extract (-X) the snapshot tools from the bundle without
+> [!NOTE]
+> The self-installer has an option to extract (-X) the snapshot tools from the bundle without
 performing any user creation and setup. This allows an experienced administrator to
 complete the setup steps manually, or to copy the commands to upgrade an existing
 installation.
@@ -666,7 +672,8 @@ The following output shows the steps to complete after running the installer wit
 Step 2 will be necessary if "[Enable communication with SAP HANA](#enable-communication-with-sap-hana)" was not done before the
 installation.
 
-> [!NOTE] The test commands should execute correctly. Otherwise, the commands may fail.
+> [!NOTE] 
+> The test commands should execute correctly. Otherwise, the commands may fail.
 
 ## Next steps
 

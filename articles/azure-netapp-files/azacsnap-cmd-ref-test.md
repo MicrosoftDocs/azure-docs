@@ -66,7 +66,8 @@ END   : Storage tests complete
 END   : Test process complete for 'storage'
 </pre>
 
-> [!NOTE] For Azure Large Instance, `azacsnap -c test --test storage` command extrapolates the storage
+> [!NOTE]
+> For Azure Large Instance, `azacsnap -c test --test storage` command extrapolates the storage
 generation and HLI SKU.  Based on this information it then provides guidance on configuring 'boot'
 snapshots (see the line starting with `Action:` output).
 

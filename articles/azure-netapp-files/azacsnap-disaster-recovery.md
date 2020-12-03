@@ -21,7 +21,8 @@ ms.author: phjensen
 
 This article explains how to perform disaster recovery when using the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 
-> [!IMPORTANT] This operation applies to **Azure Large Instance** only.
+> [!IMPORTANT]
+> This operation applies to **Azure Large Instance** only.
 
 ## Introduction
 
@@ -53,7 +54,8 @@ Microsoft supports storage level replication for DR recovery. There are two ways
 
 One is **normal** and other is **multipurpose**. In the **normal** DR, you have a dedicated instance at the DR location for failover. In the **multipurpose** DR scenario, you have another QA or development HANA instance running on the HANA large instance unit at the DR site. But you also installed a pre-installed HANA instance that is dormant and has the same SID as the HANA instance you want to fail over to that HANA Large Instance unit. Microsoft operations set up the environment for you including the storage replication based on the input provided in the Service Request Form (SRF) at the time of onboarding.
 
-> [!IMPORTANT] Ensure that all the prerequisites are met for the DR setup.
+> [!IMPORTANT] 
+> Ensure that all the prerequisites are met for the DR setup.
 
 ## Monitor data replication from Primary to DR site
 
@@ -65,7 +67,8 @@ command `azure_hana_replication_status`.
 
 Run the failover command at the DR site (`azacsnap -c restore --restore revertvolume`).
 
-> [!IMPORTANT] The `azacsnap -c restore --restore revertvolume` command breaks the storage replication from the Production site to the DR site. You must reach out to the Microsoft Operations to set up replication again. Once the replication is re-enabled, all the data at DR storage for this SID will get initialized. The command that performs the failover makes available the most recently replicated storage snapshot. If you need to restore back to an older snapshot, open a support request so operations can assist to provide an earlier snapshot restored in the DR site.
+> [!IMPORTANT] 
+> The `azacsnap -c restore --restore revertvolume` command breaks the storage replication from the Production site to the DR site. You must reach out to the Microsoft Operations to set up replication again. Once the replication is re-enabled, all the data at DR storage for this SID will get initialized. The command that performs the failover makes available the most recently replicated storage snapshot. If you need to restore back to an older snapshot, open a support request so operations can assist to provide an earlier snapshot restored in the DR site.
 
 At a high level, here are the steps to follow for DR failover:
 
@@ -137,7 +140,8 @@ For example, if logged in as root the following example shows how SAP HANA can b
 > HDB stop
 ```
 
-> [!IMPORTANT] Make sure the HANA instances on the DR site are off-line before restogin any volumes.
+> [!IMPORTANT] 
+> Make sure the HANA instances on the DR site are off-line before restogin any volumes.
 
 #### Step 4: Restore the volumes
 
@@ -187,7 +191,8 @@ Displaying Mount Points by Volume as follows:
 ********************************************************************************
 ```
 
-> [!NOTE] The steps at the end of the console display need to be actioned to complete the storage preparation for a DR failover.
+> [!NOTE]
+> The steps at the end of the console display need to be taken to complete the storage preparation for a DR failover.
 
 #### Step 5: Unmount uncessary filesystems
 
@@ -259,13 +264,13 @@ tmpfs 76G 0 76G 0% /run/user/0
 
 From the HANA Studio, right-click SYSTEMDB instance and chose "Backup and Recovery", and then "Recover System Database"
 
-> [!NOTE] Refer to the guide to recover a database from a snapshot, specifically the SYSTEMDB.
+See the guide to recover a database from a snapshot, specifically the SYSTEMDB.
 
 #### Step 9: Recover the Tenant database
 
 From the HANA Studio, right click SYSTEMDB instance and chose "Backup and Recovery", and then "Recover Tenant Database".
 
-> [!NOTE] Refer to the guide to recover a database from a snapshot, specifically the TENANT database(s).
+See the guide to recover a database from a snapshot, specifically the TENANT database(s).
 
 ### Run `azacsnap -c backup` at the DR site
 

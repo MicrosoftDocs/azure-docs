@@ -34,14 +34,20 @@ This command takes the following arguments:
 
 - `--volume=` type of volume to snapshot, this parameter may contain `data` or `other`
   - `data` snapshots the volumes within the dataVolume stanza of the configuration file.
-  - `other` snapshots the volumes within the otherVolume stanza of the configuration file.
-    > [!NOTE] By creating a separate config file with the boot volume as the otherVolume, it's possible for
+  - `other` snapshots the volumes within the otherVolume stanza of the configuration file. 
+  - 
+  > [!NOTE] 
+  > By creating a separate config file with the boot volume as the otherVolume, it's possible for
       `boot` snapshots to be taken on an entirely different schedule (for example, daily).
+
 - `--prefix=` the customer snapshot prefix for the snapshot name. This parameter has two purposes. The
     first purpose is to provide a unique name for grouping of snapshots. The second purpose is
     for the command to determine the `--retention` number of storage snapshots that are
     kept for the specified `--prefix`.
-  > [!IMPORTANT]  Only alpha numeric ("A-Z,a-z,0-9"), underscore ("_") and dash ("-") characters are allowed.
+
+    > [!IMPORTANT] 
+    > Only alpha numeric ("A-Z,a-z,0-9"), underscore ("_") and dash ("-") characters are allowed.
+
 - `--retention` the number of snapshots of the defined `--prefix` to be kept. Any additional
     snapshots are removed after a new snapshot is taken for this `--prefix`.
 - `--trim` available for SAP HANA v2 and later, this option maintains the backup catalog and
@@ -51,7 +57,8 @@ This command takes the following arguments:
     entries that are older than the oldest non-logbackup entry. This operations helps to prevent the log
     backups from using up all available disk space.
 
-  > [!NOTE] The following example command will keep 9 storage snapshots and ensure the
+  > [!NOTE] 
+  > The following example command will keep 9 storage snapshots and ensure the
     backup catalog is continuously trimmed to match the 9 storage snapshots being
     retained.
 
@@ -85,7 +92,8 @@ In the example configuration above (for **Azure Large Instance**), snapshots for
 two volumes took less than 5 seconds to complete. For **Azure NetApp Files**, snapshots for the two volumes
 would take about 60 seconds.
 
-> [!NOTE] If the `--retention` is significantly reduced from the previous time `azacsnap` is run
+> [!NOTE] 
+> If the `--retention` is significantly reduced from the previous time `azacsnap` is run
 (for example, from `--retention 50` to `--retention 5`), then the time taken will increase as `azacsnap`
 needs to remove the extra snapshots.
 
@@ -140,7 +148,8 @@ a log filename for a `-c backup` run with a default config filename `azacsnap-ba
 
 ## Example with `other` parameter (to backup host OS)
 
-> [!NOTE] The use of another configuration file (`--configfile bootVol.json`) which contains only
+> [!NOTE] 
+> The use of another configuration file (`--configfile bootVol.json`) which contains only
 the boot volumes.
 
 ```bash
@@ -152,7 +161,8 @@ to a result file or `/var/log/messages`.
 
 The *log file* name in this example is `azacsnap-backup-bootVol.log`.
 
-> [!NOTE] The log file name is made up of the "(command name-(the `-c` option)-(the config filename)".  For example, if using the `-c backup` option with a log file name of `h80.json`, then the log file will be called `azacsnap-backup-h80.log`.  Or if using the `-c test` option with the same configuration file then the log file will be called `azacsnap-test-h80.log`.
+> [!NOTE] 
+> The log file name is made up of the "(command name-(the `-c` option)-(the config filename)".  For example, if using the `-c backup` option with a log file name of `h80.json`, then the log file will be called `azacsnap-backup-h80.log`.  Or if using the `-c test` option with the same configuration file then the log file will be called `azacsnap-test-h80.log`.
 
 - HANA Large Instance Type: There are two valid values with `TYPEI` or `TYPEII` dependent on
     the HANA Large Instance Unit.

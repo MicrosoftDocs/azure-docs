@@ -25,7 +25,8 @@ This article provides a guide for running the restore command of the Azure Appli
 
 Doing a volume restore from a snapshot is done using the `azacsnap -c restore` command.
 
-> [!NOTE] This does not perform a database recovery , only a restore of a volume as described for each of the options below.
+> [!NOTE] 
+> This does not perform a database recovery , only a restore of a volume as described for each of the options below.
 
 ## Perform a test DR failover `azacsnap -c restore --restore snaptovol`
 
@@ -37,7 +38,8 @@ each with their own restoration point.
 - The clone is designated by the time-stamp at when the command was executed and represents the most recent data and other snapshot
 available when run.
 
-> [!IMPORTANT] This operation applies only to Azure Large Instance.
+> [!IMPORTANT] 
+> This operation applies only to Azure Large Instance.
 >
 > - When the this command is executed it requires the contact email for operations to liaise with prior to the deletion of the clones after 4 weeks.
 > - Each execution of the this command will creates a new clone that must be deleted by Microsoft Operations when the test is concluded.
@@ -92,7 +94,8 @@ Displaying Mount Points by Volume as follows:
 ********************************************************************************
 </pre>
 
-> [!IMPORTANT] The "Displaying Mount Points by Volume" output is different for the various scenarios.
+> [!IMPORTANT]
+> The "Displaying Mount Points by Volume" output is different for the various scenarios.
 
 
 ## Perform full DR failover `azacsnap -c restore --restore revertvolume`
@@ -104,7 +107,8 @@ This command MUST be executed on the DR server using a configuration file (for e
 Perform a failover to DR site, by executing the command `azacsnap -c restore --restore revertvolume`.  This command requires a SID to be added as a parameter. This is the SID of the HANA instance,
 which needs to be recovered at the DR site.
 
-> [!IMPORTANT] Only run this command if you are planning to perform the DR exercise or a test. This command breaks the replication. You must contact Microsoft Operations to re-enable replication.
+> [!IMPORTANT] 
+> Only run this command if you are planning to perform the DR exercise or a test. This command breaks the replication. You must contact Microsoft Operations to re-enable replication.
 
 At the high level, here are the steps for executing a DR failover:
 

@@ -76,7 +76,8 @@ List snapshot details called with snapshotFilter ''
 , hana_log_backups_h31_azsollabbl20a31_t210_vol, , , Size used by Snapshots, 1.49MB
 ```
 
-> [!NOTE] This example shows output for snapshots run using the previous version (v4.3) as well as snapshots taken with the latest version (5.0).
+> [!NOTE] 
+> This example shows output for snapshots run using the previous version (v4.3) as well as snapshots taken with the latest version (5.0).
 
 ## Output of the `azacsnap -c details --details replication` command
 
@@ -84,7 +85,8 @@ List snapshot details called with snapshotFilter ''
 This command checks the storage replication status from the primary site to DR location and *must*
 be executed on the **DR site server**. This command checks **only** the volumes in the configuration file.
 
-> [!NOTE] This option is only available on **Azure Large Instance** (HLI) systems.
+> [!NOTE] 
+> This option is only available on **Azure Large Instance** (HLI) systems.
 
 ```bash
 > azacsnap -c details --details replication
@@ -99,7 +101,8 @@ hana_log_backups_h80_t250_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-
 The following example has broken replication status and, in this scenario, activating DR would likely
 result in incomplete data at the DR site.
 
-> [!NOTE] Note the warning in the following example about replication broken off for two of the
+> [!NOTE] 
+> Note the warning in the following example about replication broken off for two of the
 volumes.
 
 <pre>
