@@ -28,7 +28,8 @@ items:
       href: tutorial-import-create-glossary-terms.md
   - name: Register and scan an on-prem SQL server
     href: register-scan-on-premises-sql-server.md
-#- name: Samples
+  - name: Tutorial on calling the REST APIs for the catalog
+    href: tutorial-using-rest-apis.md
 - name: Concepts
   items:
   - name: Use Purview Studio
