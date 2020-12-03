@@ -25,18 +25,18 @@ You'll need to create an App ID and a service ID in the Apple Developer portal.
 1. On the Apple Developer portal, go to **Certificates, Identifiers, & Profiles**.
 2. On the **Identifiers** tab, select the **(+)** button.
 3. On the **Register a New Identifier** page, choose **App IDs** and select **Continue**. (App IDs include one or more Service IDs.)
-![Registering a new app identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_registerapp.jpg)
+![Registering a new app identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple-register-app.jpg)
 4. On the **Register an App ID** page, provide a description and a bundle ID, and select **Sign in with Apple** from the capabilities list. Then select **Continue**. Take note of your **App ID Prefix (Team ID)** from this step, you'll need it later.
-![Configuring a new app identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_configureapp.jpg)
+![Configuring a new app identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple-configure-app.jpg)
 5. Review the app registration information and select **Register**.
 6. Again, on the **Identifiers** tab, select the **(+)** button.
-![Creating a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_newapp.jpg) 
+![Creating a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple-new-app.jpg) 
 7. On the **Register a New Identifier** page, choose **Services IDs** and select **Continue**.
-![Registering a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_registerservice.jpg)
+![Registering a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple-register-service.jpg)
 8. On the **Register a Services ID** page, provide a description and an identifier. The description is what will be shown to the user on the consent screen. The identifier will be your client ID used in configuring the Apple provider with your app service. Then select **Configure**.
-![Providing a description and an identifier](media/configure-authentication-provider-apple/apple_configureservice1.jpg)
+![Providing a description and an identifier](media/configure-authentication-provider-apple/apple-configure-service-1.jpg)
 9. On the pop-up window, set the Primary App Id to the App Id you created earlier. Specify your application's domain in the domain section. For the return URL, use the URL `<app-url>/.auth/login/apple/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/apple/callback`. Then select **Add** and **Save**.
-![Specifying the domain and return URL for the registration](media/configure-authentication-provider-apple/apple_configureservice2.jpg)
+![Specifying the domain and return URL for the registration](media/configure-authentication-provider-apple/apple-configure-service-2.jpg)
 10. Review the service registration information and select **Save**.
 
 ## <a name="generateClientSecret"> </a>Generate the client secret
