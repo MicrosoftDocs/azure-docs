@@ -73,10 +73,16 @@
       href: virtual-network-peering-overview.md
   - name: Integration for Azure services
     items:
+    - name: Overview
+      href: virtual-network-integration-for-azure-services.md
+    - name: Deploy a dedicated service
+      href: virtual-network-for-azure-services.md
+    - name: Private Link
+      href: ../private-link/private-link-overview.md
     - name: Service endpoints
       href: virtual-network-service-endpoints-overview.md
-    - name: Deploy a dedicated service
-      href: virtual-network-for-azure-services.md 
+    - name: Service tags
+      href: service-tags-overview.md
   - name: IP services
     items:
     - name: Public IPs
@@ -99,6 +105,8 @@
       href: security-baseline.md
     - name: Virtual network NAT security baseline
       href: nat-security-baseline.md
+    - name: Network isolation of Azure services
+      href: virtual-network-integration-for-azure-services.md
     - name: Network security groups
       items:
       - name: Overview
