@@ -78,12 +78,12 @@ For local development, you can use `http://localhost`.
 
 A new [permissions policy (also called a feature policy)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) is being adopted by various browsers. This policy affects calling scenarios by controlling how applications can access a device's camera and microphone through a cross-origin iframe element.
 
-If you want to use an iframe to host part of the app from a different domain, you need to add the `allow` attribute with the correct value to your iframe.
+If you want to use an iframe to host part of the app from a different domain, you must add the `allow` attribute with the correct value to your iframe.
 
 For example, this iframe allows both camera and microphone access:
 
 ```html|
-<iframe allow="camera *;microphone *">
+<iframe allow="camera *; microphone *">
 ```
 
 ## Next steps
