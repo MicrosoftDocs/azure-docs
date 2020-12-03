@@ -16,7 +16,7 @@ The Azure Monitor cross service flow:
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Azure monitor and Azure Data Explorer cross service flow.":::
 
 >[!NOTE]
->* Azure Monitor proxy is in private preview - AllowListing is required.
+>* Azure Monitor cross service query is in private preview - AllowListing is required.
 >* Contact the [Service Team](mailto:ADXProxy@microsoft.com) with any questions.
 ## Cross query your Log Analytics or Application Insights resources and Azure Data Explorer
 
