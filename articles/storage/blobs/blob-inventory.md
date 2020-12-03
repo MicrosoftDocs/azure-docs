@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.service: storage
-ms.date: 11/04/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
@@ -19,7 +19,7 @@ The Azure Storage blob inventory feature provides an overview of your blob data 
 
 ## Availability
 
-Blob inventory is supported for general purpose version 2 (GPv2), premium block blob storage, and Azure DataLake Storage Gen2 (ADLS Gen2) accounts.
+Blob inventory is supported for both general purpose version2 (GPv2) and premium block blob storage accounts. This feature is supported whether or not you choose to enable Azure Data Lake Storage Gen2 capabilities on the account via the hierarchical namespace setting.
 
 ### Preview regions
 
