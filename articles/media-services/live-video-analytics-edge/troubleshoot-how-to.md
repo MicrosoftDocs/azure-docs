@@ -134,8 +134,8 @@ When self-guided troubleshooting steps don't resolve your problem, go the Azure 
 > The logs may contain personally identifiable information (PII) such as your IP address. All local copies of the logs will be deleted as soon as we complete examining them and close the support ticket.  
 
 To gather the relevant logs that should be added to the ticket, follow the instructions below in order and upload the log files in the **Details** pane of the support request.  
-1. [Configure the Live Video Analytics module to collect Verbose Logs](#Configure-Live-Video-Analytics-module-to-collect-Verbose-Logs)
-1. [Turn on Debug Logs](#live-video-Analytics-debug-logs)
+1. [Configure the Live Video Analytics module to collect Verbose Logs](#configure-live-video-analytics-module-to-collect-verbose-logs)
+1. [Turn on Debug Logs](#live-video-analytics-debug-logs)
 1. Reproduce the issue
 1. Connect to the virtual machine from the **IoT Hub** page in the portal
     1. Zip all the files in the *debugLogs* folder.
