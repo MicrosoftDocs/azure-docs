@@ -26,7 +26,9 @@ In this tutorial, you learn how to:
 > * Add application settings to the function app.
 > * Enable continuous deployment.
 > * Enable SSH connections to the container.
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
 > * Add a Queue storage output binding. 
+::: zone-end
 
 You can follow this tutorial on any computer running Windows, macOS, or Linux. 
 
