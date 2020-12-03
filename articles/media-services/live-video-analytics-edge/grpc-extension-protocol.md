@@ -89,7 +89,7 @@ The custom extension would, in response, send the following message to indicate 
 Now that both sides have exchanged media descriptors, Live Video Analytics will start transmitting frames to the extension.
 
 > [!NOTE]
-> The gRPC server side implementation can be done in any programming language of choice.
+> The gRPC server side implementation can be done in the programming language of your choice.
 ### Sequence numbers
 
 Both the gRPC extension node and the custom extension maintain a separate set of sequence numbers, which are assigned to their messages. These sequence numbers should monotonically increase starting from 1. `ack_sequence_number` can be ignored if no message is being acknowledged, which may occur when the first message sent.
