@@ -140,9 +140,9 @@ v3 transcription POST request body:
 
 ### Format of v3 transcription results
 
-The schema of transcription results has been slightly changed to align with the transcriptions created by real-time endpoints. An in-depth description of the new format can be found in the [Batch transcription How-to](./batch-transcription.md). The schema of the result is published on our [GitHub sample](https://aka.ms/csspeech/samples) under "samples/batch/transcriptionresult_v3.schema.json".
+The schema of transcription results has been slightly changed to align with the transcriptions created by real-time endpoints. An in-depth description of the new format can be found in the [Batch transcription How-to](./batch-transcription.md). The schema of the result is published in our [GitHub sample repository](https://aka.ms/csspeech/samples) under `samples/batch/transcriptionresult_v3.schema.json`.
 
-The property names are now camel-cased and the values for channel and speaker are using integer types. To align the format of durations with Azure, it is now in formatted as described in ISO 8601.
+The property names are now camel-cased and the values for channel and speaker are using integer types. To align the format of durations with other Azure APIs, it is now in formatted as described in ISO 8601.
 
 Sample of a v3 transcription result. The differences are described in the comments.
 
