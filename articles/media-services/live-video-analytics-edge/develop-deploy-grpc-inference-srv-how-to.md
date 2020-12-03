@@ -87,8 +87,11 @@ Embedded:
 "dataTransfer": {
               "mode": "Embedded"
             }
+```
 
 Shared memory:
+
+```
 "dataTransfer": {
               "mode": "sharedMemory",
               "SharedMemorySizeMiB": "20"
@@ -141,51 +144,50 @@ To understand the details of how gRPC server is developed, let’s go through ou
 1. Launch VSCode and navigate to the /src/edge/modules/grpcExtension folder.
 1. Let's do a quick walkthrough of the files:
 
-    * **Program.cs**: this is the entry point of the application. It is responsible for initializing and managing the gRPC server which will act as a host. In our sample, the port to listen for incoming gRPC messages from a gRPC client (such as Live Video Analytics) on is specified by the grpcBindings configuration element in the AppConfig.json.
+    1. **Program.cs**: this is the entry point of the application. It is responsible for initializing and managing the gRPC server, which will act as a host. In our sample, the port to listen for incoming gRPC messages from a gRPC client (such as Live Video Analytics) on is specified by the grpcBindings configuration element in the AppConfig.json.
     
-    ```json    
-    {
-      "grpcBinding": "tcp://0.0.0.0:5001"
-    }
-    ```
+        ```json    
+        {
+          "grpcBinding": "tcp://0.0.0.0:5001"
+        }
+        ```
     1. **Services\MediaGraphExtensionService.cs**: This class is responsible for handling the [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) messages. It will read the frame in the message, invoke the ImageProcessor and write the inference results.
 Now that we have configured and initialized the gRPC server port connections, let’s look into how we can process the incoming gRPC messages.
 
         * Once a gRPC session is established, the very first message that the gRPC server will receive from the client (Live Video Analytics) is a MediaStreamDescriptor which is defined in the [extension.proto](https://github.com/Azure/live-video-analytics/blob/master/contracts/grpc/extension.proto) file. 
 
-        ```
-        message MediaStreamDescriptor {
-          oneof stream_identifier {
-            GraphIdentifier graph_identifier = 1;     // Media Stream graph identifier
-            string extension_identifier = 2;          // Media Stream extension identifier
-          }
-          MediaDescriptor media_descriptor = 5;       // Session media information.
-          // Additional data transfer properties. If none is set, it is assumed
-          // that all content will be transferred through messages (embedded transfer).
-          oneof data_transfer_properties {
-            SharedMemoryBufferTransferProperties shared_memory_buffer_transfer_properties = 10;
-          }
-        }
-        ```
-
+            ```
+            message MediaStreamDescriptor {
+              oneof stream_identifier {
+                GraphIdentifier graph_identifier = 1;     // Media Stream graph identifier
+                string extension_identifier = 2;          // Media Stream extension identifier
+              }
+              MediaDescriptor media_descriptor = 5;       // Session media information.
+              // Additional data transfer properties. If none is set, it is assumed
+              // that all content will be transferred through messages (embedded transfer).
+              oneof data_transfer_properties {
+                SharedMemoryBufferTransferProperties shared_memory_buffer_transfer_properties = 10;
+              }
+            }
+            ```
         * In our server implementation, the method `ProcessMediaStreamDescriptor` will validate the MediaStreamDescriptor’s MediaDescriptor property for a Video file and then will setup the data transfer mode (which is either using shared memory or using embedded frame transfer mode) depending on what you specify in the topology and the deployment template file used. 
-        * Upon receiving the message and successfully setting up the data transfer mode, the gRPC server then returns the MediaStreamDescriptor message back to the client as an acknowledgement and thus establishing a connection between the server and the client.    
-        * After Live Video Analytics receives the acknowledgement, it will start transferring media stream to the gRPC server. In our server implementation, the method `ProcessMediaStream` will process the incoming MediaStreamMessage. The MediaStreamMessage is also defined in the [extension.proto](https://github.com/Azure/live-video-analytics/blob/master/contracts/grpc/extension.proto).
+        * Upon receiving the message and successfully setting up the data transfer mode, the gRPC server then returns the MediaStreamDescriptor message back to the client as an acknowledgment and thus establishing a connection between the server and the client.    
+        * After Live Video Analytics receives the acknowledgment, it will start transferring media stream to the gRPC server. In our server implementation, the method `ProcessMediaStream` will process the incoming MediaStreamMessage. The MediaStreamMessage is also defined in the [extension.proto](https://github.com/Azure/live-video-analytics/blob/master/contracts/grpc/extension.proto).
 
-        ```
-        message MediaStreamMessage {
-          uint64 sequence_number = 1;       // Monotonically increasing directional message identifier starting from 1 when the gRPC connection is created
-          uint64 ack_sequence_number = 2;   // 0 if this message is not referencing any sent message.
-        
-        
-          // Possible payloads are strongly defined by the contract below
-          oneof payload {
-            MediaStreamDescriptor media_stream_descriptor = 5;
-            MediaSample media_sample = 6;
-          }
-        }
-        ```
-        * Depending on the value of batchSize in the Appconfig.json, our server will keep receiving the messages and will store the video frames in a List. Once the batchSize limit is reached, the function will call the function or the file which will process the image. In our case, the method calls a file called BatchImageProcessor.cs
+            ```
+            message MediaStreamMessage {
+              uint64 sequence_number = 1;       // Monotonically increasing directional message identifier starting from 1 when the gRPC connection is created
+              uint64 ack_sequence_number = 2;   // 0 if this message is not referencing any sent message.
+            
+            
+              // Possible payloads are strongly defined by the contract below
+              oneof payload {
+                MediaStreamDescriptor media_stream_descriptor = 5;
+                MediaSample media_sample = 6;
+              }
+            }
+            ```
+        * Depending on the value of batchSize in the Appconfig.json, our server will keep receiving the messages and will store the video frames in a List. Once the batchSize limit is reached, the function will call the function or the file that will process the image. In our case, the method calls a file called BatchImageProcessor.cs
     1. **Processors\BatchImageProcessor.cs**: This class is responsible for processing the image(s). We have used an image classification model in this sample. For every image that will be processed, the algorithm used is the following:
 
         1. Convert the image in a byte array for processing. See method: `GetBytes(Bitmap image)`
@@ -239,55 +241,55 @@ Now that you have created your gRPC extension module, we will now create and dep
             The topology (for example, `https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json`) must define an extension address:
     * Extension address Parameter
 
-    ```
-    {
-        "name": "grpcExtensionAddress",
-        "type": "String",
-        "description": "gRPC LVA Extension Address",
-        "default": "https://<REPLACE-WITH-IP-OR-CONTAINER-NAME>/score"
-    },
-    ```
+        ```
+        {
+            "name": "grpcExtensionAddress",
+            "type": "String",
+            "description": "gRPC LVA Extension Address",
+            "default": "https://<REPLACE-WITH-IP-OR-CONTAINER-NAME>/score"
+        },
+        ```
     * Configuration
 
-    ```
-    {
-    	"@apiVersion": "1.0",
-    	"name": "TopologyName",
-    	"properties": {
-        "processors": [
-          {
-            "@type": "#Microsoft.Media.MediaGraphGrpcExtension",
-            "name": "grpcExtension",
-            "endpoint": {
-              "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
-              "url": "${grpcExtensionAddress}",
-              "credentials": {
-                "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
-                "username": "${grpcExtensionUserName}",
-                "password": "${grpcExtensionPassword}"
-              }
-            },
-            "dataTransfer": {
-            		"mode": "sharedMemory",
-            		"SharedMemorySizeMiB": "5"
-        	},
-            "image": {
-              "scale": {
-                "mode": "${imageScaleMode}",
-                "width": "${frameWidth}",
-                "height": "${frameHeight}"
-              },
-              "format": {
-                "@type": "#Microsoft.Media.MediaGraphImageFormatEncoded",
-                "encoding": "${imageEncoding}",
-                "quality": "${imageQuality}"
-              }
-            }
-        ]
-      }
-    }
-    ```
-
+        ```
+        {
+        	"@apiVersion": "1.0",
+        	"name": "TopologyName",
+        	"properties": {
+            "processors": [
+              {
+                "@type": "#Microsoft.Media.MediaGraphGrpcExtension",
+                "name": "grpcExtension",
+                "endpoint": {
+                  "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+                  "url": "${grpcExtensionAddress}",
+                  "credentials": {
+                    "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+                    "username": "${grpcExtensionUserName}",
+                    "password": "${grpcExtensionPassword}"
+                  }
+                },
+                "dataTransfer": {
+                		"mode": "sharedMemory",
+                		"SharedMemorySizeMiB": "5"
+            	},
+                "image": {
+                  "scale": {
+                    "mode": "${imageScaleMode}",
+                    "width": "${frameWidth}",
+                    "height": "${frameHeight}"
+                  },
+                  "format": {
+                    "@type": "#Microsoft.Media.MediaGraphImageFormatEncoded",
+                    "encoding": "${imageEncoding}",
+                    "quality": "${imageQuality}"
+                  }
+                }
+            ]
+          }
+        }
+        ```
+    
 ## Generate and deploy the IoT Edge deployment manifest
 
 The deployment manifest defines what modules are deployed to an edge device and the configuration settings for those modules. Follow these steps to generate a manifest from the template file, and then deploy it to the edge device.
@@ -303,5 +305,5 @@ At this stage, the deployment of edge modules to your IoT Edge device has starte
 ## Next steps
 
 Follow the **Prepare to monitor events** steps mentioned in the [Analyze live video with your model](use-your-model-quickstart.md) quickstart to run the sample and interpret the results. 
-Also, check out our sample gRPC topologies: [gRPCExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-grpcExtension-assets/topology.json) and [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json).
+Also, check out our sample gRPC topologies: [gRPCExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension, and [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json).
 
