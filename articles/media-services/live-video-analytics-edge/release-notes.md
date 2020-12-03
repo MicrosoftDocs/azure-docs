@@ -26,7 +26,7 @@ This release is the public preview refresh release of Live Video Analytics on Io
 ```
 ### Module updates
 * Added support for using more than one HTTP extension processor and gRPC extension processor per graph topology.
-* Added support for File Sink Disk space management.
+* Added support for Disk space management for sink nodes.
 * `MediaGraphGrpcExtension` node now supports [extensionConfiguration](grpc-extension-protocol.md) property for using multiple AI models within a single gRPC server.
 * Frame Rate Filter processor is **deprecated**.  
     * Frame rate management is now available within the graph extension processor nodes itself.

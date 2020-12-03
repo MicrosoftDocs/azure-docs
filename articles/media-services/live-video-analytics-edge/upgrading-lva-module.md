@@ -1,5 +1,5 @@
 ---
-title: Upgrading Live Video Analytics on IoT Edge
+title: Upgrading Live Video Analytics on IoT Edge from 1.0 to 2.0
 description: This article covers the differences and the different things to consider when upgrading the Live Video Analytics (LVA) on Azure IoT Edge module.
 author: naiteeks
 ms.topic: how-to
@@ -8,11 +8,11 @@ ms.date: 12/14/2020
 
 ---
 
-# Upgrading Live Video Analytics on IoT Edge
+# Upgrading Live Video Analytics on IoT Edge from 1.0 to 2.0
 
 This article covers the differences and the different things to consider when upgrading the Live Video Analytics (LVA) on Azure IoT Edge module.
 
-## Feature List
+## Change List
 
 > [!div class="mx-tdCol4BreakAll"]
 > |Title|Live Video Analytics 1.0|Live Video Analytics 2.0|Description|
@@ -20,8 +20,10 @@ This article covers the differences and the different things to consider when up
 > |Release Tag|mcr.microsoft.com/media/live-video-analytics:1.0.0|mcr.microsoft.com/media/live-video-analytics:2.0.0|Microsoft Published docker images for Live Video Analytics on Azure IoT Edge|
 > |**MediaGraph nodes** |    |   |   |
 > |Sources|:::image type="icon" source="./././media/upgrading-lva/check.png"::: RTSP Source </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: IoT Hub Message Source |:::image type="icon" source="./././media/upgrading-lva/check.png"::: RTSP Source </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: IoT Hub Message Source | MediaGraph nodes that act as sources for media ingestion and messages.|
-> |Processors|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion detection processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Frame rate filter processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Http extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Grpc extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Signal gate processor |:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion detection processor </br>:::image type="icon" source="./././media/upgrading-lva/remove.png"::: Frame rate filter processor</br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Http extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Grpc extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Signal gate processor | MediaGraph nodes that enable you to format the media before sending to AI inference servers.|
+> |Processors|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion detection processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Frame rate filter processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Http extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Grpc extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Signal gate processor |:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion detection processor </br>:::image type="icon" source="./././media/upgrading-lva/remove.png"::: **Frame rate filter processor**</br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Http extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Grpc extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Signal gate processor | MediaGraph nodes that enable you to format the media before sending to AI inference servers.|
 > |Sinks|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Asset Sink </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: File Sink </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: IoT Hub message sink|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Asset Sink </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: File Sink </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: IoT Hub message sink| MediaGraph nodes that enable you to store the processed media.|
+> |**Supported MediaGraphs** |    |   |   |
+> |Topologies|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Continuous Video Recording </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion Analysis and Continuous Video Recording </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: External Analysis and Continuous Video Recording </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Event-based Recording on Motion </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Event-based Recording on AI</br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Event-based Recording on External Event </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion Analysis </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion Analysis followed by AI inferencing |:::image type="icon" source="./././media/upgrading-lva/check.png"::: Continuous Video Recording </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion Analysis and Continuous Video Recording </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: External Analysis and Continuous Video Recording </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Event-based Recording on Motion </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Event-based Recording on AI</br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Event-based Recording on External Event </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion Analysis </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion Analysis followed by AI inferencing </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: **AI Composition** </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: **Audio and Video Recording** </br>  | MediaGraph topologies that enable you to define the blueprint of a graph, with parameters as placeholders for values.|
 
 ## Upgrading the Live Video Analytics on IoT Edge module from 1.0 to 2.0
 When upgrading the Live Video Analytics on IoT Edge module, make sure you update the following information.
@@ -39,7 +41,7 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
 ### MediaGraph node changes
 
 
-* Audio from your camera source can now be passed downstream along with video. You can pass **audio-only** or **video-only** or **audio and video both** with the help of `outputSelectors` to any graph node. For example, if you want to select video only from the RTSP source and pass it downstream, then add the following to the RTSP source node:
+* Audio from your camera source can now be passed downstream along with video. You can pass **audio-only** or **video-only** or **audio and video both** with the help of **`outputSelectors`** to any graph node. For example, if you want to select video only from the RTSP source and pass it downstream, then add the following to the RTSP source node:
     ```
     "outputSelectors": [
                 {
@@ -48,11 +50,13 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
                   "value": "video"
                 }
     ```
+>[!NOTE]
+>The **`outputSelectors`** is an optional property. If this is not used, then the media graph will pass the audio (if enabled) and video from the RTSP camera downstream. 
 
 * In `MediaGraphHttpExtension` and `MediaGraphGrpcExtension` processors, note the following changes:  
     * **Image properties**
         * `MediaGraphImageFormatEncoded` is no longer supported. 
-        * Instead, use `MediaGraphImageFormatBmp` or `MediaGraphImageFormatJpeg` or `MediaGraphImageFormatPng`. For example,
+        * Instead, use **`MediaGraphImageFormatBmp`** or **`MediaGraphImageFormatJpeg`** or **`MediaGraphImageFormatPng`**. For example,
         ```
         "image": {
                 "scale": 
@@ -67,7 +71,7 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
                 }
             }
         ```
-        * If you want to use RAW images, use `MediaGraphImageFormatRaw`. To use this, update the image node as:
+        * If you want to use RAW images, use **`MediaGraphImageFormatRaw`**. To use this, update the image node as:
         ```
         "image": {
                 "scale": 
@@ -87,9 +91,14 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
         > Possible values include: `yuv420p`,`rgb565be`, `rgb565le`, `rgb555be`, `rgb555le`, `rgb24`, `bgr24`, `argb`, `rgba`, `abgr`, `bgra`  
 
     * **extensionConfiguration for Grpc extension processor**  
-        * In `MediaGraphGrpcExtension` processor, a new property called `extensionConfiguration` is available, which is an optional string that can be used as a part of the gRPC contract. When you have multiple AI models packaged in a single inference server, you will not need to expose a node for every AI model. Instead, for a graph instance, as an extension provider, you can define how to select the different AI models using the `extensionConfiguration` property and during execution, LVA will pass this string to the inferencing server,  which can use this to invoke the desired AI model.
+        * In `MediaGraphGrpcExtension` processor, a new property called **`extensionConfiguration`** is available, which is an optional string that can be used as a part of the gRPC contract. This field can be used to pass any data to the inference server and you can define how the inference server uses that data.  
+        One use case of this property is when you have multiple AI models packaged in a single inference server. With this property you will not need to expose a node for every AI model. Instead, for a graph instance, as an extension provider, you can define how to select the different AI models using the **`extensionConfiguration`** property and during execution, LVA will pass this string to the inferencing server,  which can use this to invoke the desired AI model.  
 
-* In your File sink node, you can now specify how much disk space the Live Video Analytics on IoT Edge module can use to store the processed images. To do so, add the **`maximumSizeMiB`** field to the FileSink node. A sample FileSink node is as follows:
+    * **AI Composition**
+        * Live Video Analytics 2.0 now supports using more than one media graph extension processor within a topology. You can pass the media frames from the RTSP camera to different AI models either sequentially, in parallel or in a combination of both. Please see a sample topology showing [two AI models being used sequentially](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/ai-composition/2.0/topology.json).
+
+
+* In your File sink node, you can now specify how much disk space the Live Video Analytics on IoT Edge module can use to store the processed images. To do so, add the **`maximumSizeMiB`** field to the FileSink node. A sample File Sink node is as follows:
     ```
     "sinks": [
       {
@@ -113,9 +122,33 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
       }
     ]
     ```
+* In your Asset sink node, you can specify how much disk space the Live Video Analytics on IoT Edge module can use to store the processed images. To do so, add the **`localMediaCacheMaximumSizeMiB`** field to the Asset Sink node. A sample Asset Sink node is as follows:
+    ```
+    "sinks": [
+      {
+        "@type": "#Microsoft.Media.MediaGraphAssetSink",
+        "name": "AssetSink",
+        "inputs": [
+          {
+            "nodeName": "signalGateProcessor",
+            "outputSelectors": [
+              {
+                "property": "mediaType",
+                "operator": "is",
+                "value": "video"
+              }
+            ]
+          }
+        ],
+        "assetNamePattern": "sampleAsset-${System.GraphInstanceName}",
+        "localMediaCacheMaximumSizeMiB":"200",
+        "baseDirectoryPath":"/var/media"
+      }
+    ]
+    ```
 
 * **`MediaGraphFrameRateFilterProcessor`** is deprecated in **Live Video Analytics on IoT Edge 2.0** module.
-    * To sample the incoming video for processing, add the following node to the MediaGraph extension processors (`MediaGraphHttpExtension` or `MediaGraphGrpcExtension`)  
+    * To sample the incoming video for processing, add the **`samplingOptions`** property to the MediaGraph extension processors (`MediaGraphHttpExtension` or `MediaGraphGrpcExtension`)  
      ```
           "samplingOptions": 
           {
