@@ -103,7 +103,7 @@ The reference architecture diagram is a model that represents the infrastructure
 
 The document can be created via multiple tools. We recommend Microsoft Visio, as it has multiple stencils that depict Azure architecture models.
 
-A helpful starting point for building reference architecture diagrams is to leverage the [Azure Architecture models](https://docs.microsoft.com/azure/architecture/browse/).
+A helpful starting point for building reference architecture diagrams is to leverage the [Azure Architecture models](/azure/architecture/browse/).
 
 ### Typical components of a reference architecture diagram
 - Cloud services that host and interact with your offer, including those generating Azure consumption

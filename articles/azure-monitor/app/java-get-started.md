@@ -12,7 +12,7 @@ ms.date: 11/22/2020
 
 
 > [!CAUTION]
-> As of November 2020, for monitoring Java applications we recommend auto-instrumentation using the Azure Monitor Application Insights 3.0 agent. For more information on how to get started, see [Application Insights Java 3.0 agent](./java-in-process-agent.md).
+> As of November 2020, for monitoring Java applications we recommend auto-instrumentation using the Azure Monitor Application Insights Java 3.0 agent. For more information on how to get started, see [Application Insights Java 3.0 agent](./java-in-process-agent.md).
 
 In this quickstart, you use Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 

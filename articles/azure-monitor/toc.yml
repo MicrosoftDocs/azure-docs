@@ -676,6 +676,8 @@
               href: app/java-standalone-telemetry-processors.md
             - name: JVM arguments setup
               href: app/java-standalone-arguments.md
+            - name: Upgrade from 2.x
+              href: app/java-standalone-upgrade-from-2x.md
       - name: On-Premises servers
         items:
         - name: ASP.NET
@@ -1141,6 +1143,8 @@
         href: platform/workbooks-tree-visualizations.md
       - name: Graph
         href: platform/workbooks-graph-visualizations.md
+      - name: Map
+        href: platform/workbooks-map-visualizations.md
       - name: Honey comb
         href: platform/workbooks-honey-comb.md
       - name: Composite bar

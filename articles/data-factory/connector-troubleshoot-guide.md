@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 12/02/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
@@ -202,7 +202,7 @@ busy to handle requests, it returns an HTTP error 503.
 - **Resolution**: Rerun the copy activity after several minutes.
 			      
 
-## Azure Synapse Analytics (formerly SQL Data Warehouse)/Azure SQL Database/SQL Server
+## Azure Synapse Analytics/Azure SQL Database/SQL Server
 
 ### Error code:  SqlFailedToConnect
 
@@ -485,7 +485,28 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Recommendation**:  Rerun the pipeline. If keep failing, try to reduce the parallelism. If still fail, please contact dynamics support.
 
+## Excel Format
 
+### Timeout or slow performance when parsing large Excel file
+
+- **Symptoms**:
+
+    1. When you create Excel dataset and import schema from connection/store, preview data, list or refresh worksheets, you may hit timeout error if the excel file is large in size.
+    2. When you use copy activity to copy data from large Excel file (>= 100MB) into other data store, you may experience slow performance or OOM issue.
+
+- **Cause**: 
+
+    1. For operations like importing schema, previewing data and listing worksheets on excel dataset, the timeout is 100s and static. For large Excel file, these operations may not finish within the timeout value.
+
+    2. ADF copy activity reads the whole Excel file into memory then locate the specified worksheet and cells to read data. This behavior is due to the underlying SDK ADF uses.
+
+- **Resolution**: 
+
+    1. For importing schema, you can generate a smaller sample file which is a subset of original file, and choose "import schema from sample file" instead of "import schema from connection/store".
+
+    2. For listing workseet, in the worksheet dropdown, you can click "Edit" and input the sheet name/index instead.
+
+    3. To copy large excel file (>100MB) into other store, you can use Data Flow Excel source which sport streaming read and perform better.
 
 ## JSON Format
 

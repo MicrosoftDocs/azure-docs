@@ -308,7 +308,7 @@ The following Azure Advisor recommendation **features are not currently availabl
 - Performance
     - Improve App Service performance and reliability
     - Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
-    - Improve Azure Synapse Analytics (formerly SQL Data Warehouse) performance
+    - Improve Azure Synapse Analytics performance
     - Use Premium Storage
     - Migrate your Storage Account to Azure Resource Manager
 - Cost

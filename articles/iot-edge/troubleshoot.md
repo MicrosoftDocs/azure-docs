@@ -76,7 +76,7 @@ For instructions on how to update your device, see [Update the IoT Edge security
 
 ## Verify the installation of IoT Edge on your devices
 
-You can verify the installation of IoT Edge on your devices by [monitoring the edgeAgent module twin](https://docs.microsoft.com/azure/iot-edge/how-to-monitor-module-twins).
+You can verify the installation of IoT Edge on your devices by [monitoring the edgeAgent module twin](./how-to-monitor-module-twins.md).
 
 To get the latest edgeAgent module twin, run the following command from [Azure Cloud Shell](https://shell.azure.com/):
 
@@ -84,7 +84,7 @@ To get the latest edgeAgent module twin, run the following command from [Azure C
    az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
    ```
 
-This command will output all the edgeAgent [reported properties](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub). Here are some helpful ones monitor the status of the device:
+This command will output all the edgeAgent [reported properties](./module-edgeagent-edgehub.md). Here are some helpful ones monitor the status of the device:
 
 * runtime status
 * runtime start time
