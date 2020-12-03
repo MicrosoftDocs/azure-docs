@@ -49,7 +49,7 @@ To back up an on-premises domain controller, you need to back up the server's Sy
 
 Active Directory data can be restored in one of two modes: **authoritative** or **nonauthoritative**. In an authoritative restore, the restored Active Directory data will override the data found on the other domain controllers in the forest.
 
-However, in our scenario we're rebuilding a domain controller in an existing domain, so a **nonauthoritative** restore should be performed.
+However, in this scenario we're rebuilding a domain controller in an existing domain, so a **nonauthoritative** restore should be performed.
 
 During the restore, the server will be started in Directory Services Restore Mode (DSRM). You'll need to provide the Administrator password for Directory Services Restore Mode.
 
@@ -58,9 +58,13 @@ During the restore, the server will be started in Directory Services Restore Mod
 
 ### Restoring Azure VM domain controllers
 
-To restore an Azure VM domain controller, see [How to restore Azure VM data in Azure portal](backup-azure-arm-restore-vms.md).
+To restore an Azure VM domain controller, see [Restore domain controller VMs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 
 If you're restoring a single domain controller VM or multiple domain controller VMs in a single domain, restore them like any other VM. Directory Services Restore Mode (DSRM) is also available, so all Active Directory recovery scenarios are viable.
+
+If you need to restore a single domain controller VM in a multiple domain configuration, restore the disks and create a VM [by using PowerShell](backup-azure-vms-automation.md#restore-the-disks).
+
+If you're restoring the last remaining domain controller in the domain, or restoring multiple domains in one forest, we recommend a [forest recovery](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 
 >[!NOTE]
 > Virtualized domain controllers, from Windows 2012 onwards use [virtualization based safeguards](https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100#virtualization-based-safeguards). With these safeguards, Active directory understands if the VM restored is a domain controller, and performs the necessary steps to restore the Active Directory data.
