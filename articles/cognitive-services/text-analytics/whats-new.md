@@ -17,6 +17,10 @@ ms.custom: references_regions
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## December 2020
+
+* [Updated pricing](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) details for the Text Analytics API
+
 ## November 2020
 
 * A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) with Text Analytics API v3.1-preview.3 for the new asynchronous [Analyze API](how-tos/text-analytics-how-to-call-api.md?tabs=analyze), which supports batch processing for NER, PII, and key phrase extraction operations.
