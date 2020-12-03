@@ -1,16 +1,16 @@
 ---
 title: Configure apps in the portal
-description: Learn to configure common settings for an App Service app in the Azure portal. App settings, connection strings, platform, language stack, container, etc.
+description: Learn to configure common settings for an App Service app in the Azure portal. App settings, app config, connection strings, platform, language stack, container, etc.
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 12/03/2020
 ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
 
 ---
 # Configure an App Service app in the Azure portal
 
-This topic explains how to configure common settings for web apps, mobile back end, or API app using the [Azure portal].
+This article explains how to configure common settings for web apps, mobile back end, or API app using the [Azure portal].
 
 ## Configure app settings
 
@@ -113,7 +113,10 @@ In the [Azure portal], search for and select **App Services**, and then select y
 
 For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL Database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
 
-For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. Here's one exception, however: certain Azure database types are backed up along with the app if you configure their connection strings in your app. For more information, see [What gets backed up](manage-backup.md#what-gets-backed-up). If you don't need this automated backup, then use app settings.
+For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. 
+
+> [!NOTE]
+> There is one case where you may want to use connection strings for non-.NET languages: certain Azure database types are backed up along with the app _only_ if you configure their connection strings in your app. For more information, see [What gets backed up](manage-backup.md#what-gets-backed-up). If you don't need this automated backup, then use app settings.
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
@@ -223,21 +226,27 @@ In the [Azure portal], search for and select **App Services**, and then select y
 
 ![Path mappings](./media/configure-common/open-path.png)
 
-The **Path mappings** page shows you different things based on the OS type.
+> [!NOTE] 
+> The **Path mappings** tab may display OS-specific settings that differ from the example shown here.
 
 ### Windows apps (uncontainerized)
 
 For Windows apps, you can customize the IIS handler mappings and virtual applications and directories.
 
-Handler mappings let you add custom script processors to handle requests for specific file extensions. To add a custom handler, click **New handler**. Configure the handler as follows:
+Handler mappings let you add custom script processors to handle requests for specific file extensions. To add a custom handler, click **New handler mapping**. Configure the handler as follows:
 
 - **Extension**. The file extension you want to handle, such as *\*.php* or *handler.fcgi*.
 - **Script processor**. The absolute path of the script processor to you. Requests to files that match the file extension are processed by the script processor. Use the path `D:\home\site\wwwroot` to refer to your app's root directory.
 - **Arguments**. Optional command-line arguments for the script processor.
 
-Each app has the default root path (`/`) mapped to `D:\home\site\wwwroot`, where your code is deployed by default. If your app root is in a different folder, or if your repository has more than one application, you can edit or add virtual applications and directories here. Click **New virtual application or directory**.
+Each app has the default root path (`/`) mapped to `D:\home\site\wwwroot`, where your code is deployed by default. If your app root is in a different folder, or if your repository has more than one application, you can edit or add virtual applications and directories here. 
 
-To configure virtual applications and directories, specify each virtual directory and its corresponding physical path relative to the website root (`D:\home`). Optionally, you can select the **Application** checkbox to mark a virtual directory as an application.
+From the **Path mappings** tab, click **New virtual application or directory**. 
+
+- To configure virtual applications and directories, leave the **Directory** checkbox selected and specify each virtual directory and its corresponding relative (physical) path to the website root (`D:\home`). 
+- To mark a virtual _directory_ as an **application**, clear the **Directory** checkbox.
+  
+  ![Directory checkbox](./media/configure-common/directory-checkbox.png)
 
 ### Containerized apps
 
