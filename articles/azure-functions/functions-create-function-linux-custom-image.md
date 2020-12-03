@@ -17,6 +17,7 @@ You can also use a default Azure App Service container as described on [Create y
 
 In this tutorial, you learn how to:
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
 > [!div class="checklist"]
 > * Create a function app and Dockerfile using the Azure Functions Core Tools.
 > * Build a custom image using Docker.
@@ -26,8 +27,18 @@ In this tutorial, you learn how to:
 > * Add application settings to the function app.
 > * Enable continuous deployment.
 > * Enable SSH connections to the container.
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
 > * Add a Queue storage output binding. 
+::: zone-end
+::: zone pivot="programming-language-customhandler"
+> [!div class="checklist"]
+> * Create a function app and Dockerfile using the Azure Functions Core Tools.
+> * Build a custom image using Docker.
+> * Publish a custom image to a container registry.
+> * Create supporting resources in Azure for the function app
+> * Deploy a function app from Docker Hub.
+> * Add application settings to the function app.
+> * Enable continuous deployment.
+> * Enable SSH connections to the container.
 ::: zone-end
 
 You can follow this tutorial on any computer running Windows, macOS, or Linux. 
