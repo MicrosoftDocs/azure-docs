@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/20/2020
+ms.date: 12/2/2020
 ---
 
 # Co-sell partner engagement
@@ -19,7 +19,7 @@ The Co-sell program is available for **software built with your intellectual pro
 
     ![Diagram showing how Co-sell happens when sales leads are shared, accepted, and won against Microsoft-managed customers.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
 
-- **Co-sell incentivized** IP solutions can earn incentives for Microsoft field sellers when they are sold in collaboration with Microsoft sales teams, in addition to the marketplace benefits listed below.</li></ul>
+- **Co-sell incentivized** IP offers can earn incentives for Microsoft field sellers when they are sold in collaboration with Microsoft sales teams, in addition to the marketplace benefits listed below.</li></ul>
 
 ## Marketplace benefits for incentivized offers
 
@@ -62,7 +62,7 @@ Start your Co-sell journey directly in Partner Center following the steps below.
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="This image shows the Listing section of the Co-sell tab.":::  
 
-1. Provide details about your offer and upload collateral in the **Documents** section. Microsoft sellers will use this information to recommend and sell your offer. (*Required: Customer one-pager and Customer presentation deck.*)
+1. Provide details about your offer and upload collateral in the **Documents** section. Microsoft sellers will use this information to recommend and sell your offer. *(Required: Solution/offer one-pager and Solution/offer pitch deck. Required to attain Azure IP Co-sell incentivized status: Reference architecture diagram.)*
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="This image shows the Documents section in the Co-sell tab.":::
 

@@ -31,9 +31,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Run the Jupyter notebook
+## Run the Jupyter Notebook
 
-You can run this quickstart as a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the button below. Then follow the instructions in the notebook.
+You can run this quickstart as a Jupyter Notebook on [MyBinder](https://mybinder.org). To launch Binder, select the button below. Then follow the instructions in the notebook.
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
 

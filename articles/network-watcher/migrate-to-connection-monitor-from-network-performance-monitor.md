@@ -69,5 +69,5 @@ After the migration, be sure to:
 ## Next steps
 
 To learn more about Connection Monitor, see:
-* [Migrate from Connection Monitor to Connection Monitor](/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic)
+* [Migrate from Connection Monitor to Connection Monitor](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
 * [Create Connection Monitor by using the Azure portal](./connection-monitor-create-using-portal.md)

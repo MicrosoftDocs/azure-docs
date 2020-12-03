@@ -21,7 +21,7 @@ Learn about the JavaScript code samples that demonstrate the features and functi
 | [Azure-Samples/azure-search-javascript-samples](https://github.com/Azure-Samples/azure-search-javascript-samples) | Code samples that accompany how-to articles, including [Quickstart: Create a search index in JavaScript](search-get-started-javascript.md).|
 
 > [!Tip]
-> Try the [Samples browser](/samples/browse/?languages=csharp&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+> Try the [Samples browser](/samples/browse/?languages=javascript&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
 
 ## JavaScript SDK samples
 
@@ -51,7 +51,7 @@ The SDK also provides TypeScript examples, listed here for your convenience.
 
 ## Documentation samples
 
-The following samples have an associated article in [Azure Cognitive Search documentation](https://docs.microsoft.com/azure/search/).
+The following samples have an associated article in [Azure Cognitive Search documentation](./index.yml).
 
 | Samples | Description | 
 |---------|-------------|

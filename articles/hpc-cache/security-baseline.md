@@ -20,7 +20,7 @@ To see how Azure HPC Cache completely maps to the Azure Security Benchmark, see 
 
 ## Network Security
 
-*For more information, see the [Azure Security Benchmark: Network Security](/azure/security/benchmarks/security-controls-v2-network-security).*
+*For more information, see the [Azure Security Benchmark: Network Security](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### NS-1: Implement security for internal traffic
 
@@ -102,9 +102,9 @@ Azure includes native capabilities for this protection:
 
 Azure HPC Cache is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks that target web applications.
 
-- [Azure Firewall Documentation](/azure/firewall/) 
+- [Azure Firewall Documentation](../firewall/index.yml) 
 
-- [Manage Azure DDoS Protection Standard using the Azure portal](/azure/virtual-network/manage-ddos-protection) 
+- [Manage Azure DDoS Protection Standard using the Azure portal](../ddos-protection/manage-ddos-protection.md) 
 
 - [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-network)
 
@@ -168,7 +168,7 @@ If configuring your own DNS server, make sure to follow these security guideline
 
 ## Identity Management
 
-*For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*For more information, see the [Azure Security Benchmark: Identity Management](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
@@ -188,7 +188,7 @@ Note: Azure AD supports external identity that allows users without a Microsoft 
 
 - [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
-- [Use external identity providers for an application](/azure/active-directory/b2b/identity-providers) 
+- [Use external identity providers for an application](../active-directory/external-identities/identity-providers.md) 
 
 - [What is the identity secure score in Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
 
@@ -271,9 +271,9 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 - [Audit activity reports in Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
+- [How to identify Azure AD users flagged for risky activity](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -297,7 +297,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 ## Privileged Access
 
-*For more information, see the [Azure Security Benchmark: Privileged Access](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*For more information, see the [Azure Security Benchmark: Privileged Access](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### PA-2: Restrict administrative access to business-critical systems
 
@@ -349,7 +349,7 @@ When using NFS storage targets, you will need to work with your network administ
 
 You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
 
-- [Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Manage emergency access accounts in Azure AD](../active-directory/roles/security-emergency-access.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -389,7 +389,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 
 ## Data Protection
 
-*For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data Protection](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### DP-1: Discover, classify, and label sensitive data 
 
@@ -451,11 +451,11 @@ All data stored in Azure, including on the cache disks, is encrypted at rest usi
 
 If required for compliance on compute resources, implement a third-party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to data even when data is copied off a system.
 
-- [How to use customer-managed encryption keys with Azure HPC Cache](https://docs.microsoft.com/azure/hpc-cache/hpc-cache-create?tabs=azure-portal#enable-azure-key-vault-encryption-optional)
+- [How to use customer-managed encryption keys with Azure HPC Cache](./hpc-cache-create.md?tabs=azure-portal#enable-azure-key-vault-encryption-optional)
 
 - [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
 
-- [How to configure customer-managed encryption keys](/azure/storage/common/storage-encryption-keys-portal) 
+- [How to configure customer-managed encryption keys](../storage/common/customer-managed-keys-configure-key-vault.md) 
 
 - [Encryption Model and key management table](../security/fundamentals/encryption-atrest.md)
 
@@ -469,7 +469,7 @@ If required for compliance on compute resources, implement a third-party tool, s
 
 ## Asset Management
 
-*For more information, see the [Azure Security Benchmark: Asset Management](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*For more information, see the [Azure Security Benchmark: Asset Management](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### AM-1: Ensure security team has visibility into risks for assets
 
@@ -502,7 +502,7 @@ HPC Cache does not allow running an application or installation of software on i
 
 - [Azure Security Center asset inventory management](../security-center/asset-inventory.md) 
 
-- [Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json) 
+- [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json) 
 
 - [How to enable Azure virtual machine inventory](../automation/automation-tutorial-installed-software.md)
 
@@ -516,7 +516,7 @@ HPC Cache does not allow running an application or installation of software on i
 
 - [Configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types) 
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md) 
 
 - [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
@@ -544,7 +544,7 @@ It is recommended that the customer create a process to capture the attribute an
 
 Forward any logs from HPC Cache to your SIEM which can be used to set up custom threat detections. Ensure you are monitoring different types of Azure assets for potential threats and anomalies. Focus on getting high-quality alerts to reduce false positives for analysts to sort through. Alerts can be sourced from log data, agents, or other data.
 
-- [Threat protection in Azure Security Center](/azure/security-center/threat-protection) 
+- [Threat protection in Azure Security Center](../security-center/azure-defender.md) 
 
 - [Azure Security Center security alerts reference guide](../security-center/alerts-reference.md) 
 
@@ -573,7 +573,7 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 
 - [Enable Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
+- [Threat protection in Azure Security Center](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -641,7 +641,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 ## Incident Response
 
-*For more information, see the [Azure Security Benchmark: Incident Response](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident Response](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### IR-1: Preparation – update incident response process for Azure
 
@@ -723,7 +723,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -777,7 +777,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ## Backup and Recovery
 
-*For more information, see the [Azure Security Benchmark: Backup and Recovery](/azure/security/benchmarks/security-controls-v2-backup-recovery).*
+*For more information, see the [Azure Security Benchmark: Backup and Recovery](../security/benchmarks/security-controls-v2-backup-recovery.md).*
 
 ### BR-1: Ensure regular automated backups
 
@@ -813,7 +813,7 @@ Use role-based access control in Azure Backup, Azure Key Vault, or other resourc
 
 - [Encryption of backup data using customer-managed keys](../backup/encryption-at-rest-with-cmk.md)  
 
-- [How to back up Key Vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-5.1.0&amp;preserve-view=true)
+- [How to back up Key Vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-5.1.0)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -823,7 +823,7 @@ Use role-based access control in Azure Backup, Azure Key Vault, or other resourc
 
 **Guidance**: Periodically ensure that you can restore backed-up customer-managed keys.
 
-- [How to restore Key Vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-5.1.0&amp;preserve-view=true)
+- [How to restore Key Vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-5.1.0)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -833,7 +833,7 @@ Use role-based access control in Azure Backup, Azure Key Vault, or other resourc
 
 **Guidance**: Ensure you have measures in place to prevent and recover from loss of keys. Enable soft delete and purge protection in Azure Key Vault to protect keys against accidental or malicious deletion.
 
-- [How to enable soft delete and purge protection in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [How to enable soft delete and purge protection in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -841,7 +841,7 @@ Use role-based access control in Azure Backup, Azure Key Vault, or other resourc
 
 ## Governance and Strategy
 
-*For more information, see the [Azure Security Benchmark: Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*For more information, see the [Azure Security Benchmark: Governance and Strategy](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### GS-1: Define asset management and data protection strategy 
 
@@ -866,11 +866,11 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Appropriate cryptographic standards
 
 For more information, see the following references:
-- [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework - Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-controls-v2-asset-management)
 
@@ -1021,5 +1021,5 @@ For more information, see the following references:
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)
