@@ -128,7 +128,7 @@ Update-AzSqlSyncMember `
 Update-AzSqlSyncGroup `
     -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Name $syncGroupName -UsePrivateLinkConnection $false
 
-# run the following Get-AzSqlSyncGroup/ Get-AzSqlSyncMember commands to confirm that a private link has been setup for Data Sync. 
+# run the following Get-AzSqlSyncGroup/ Get-AzSqlSyncMember commands to confirm that a private link has been setup for Data Sync, if you decide to use private link. 
 # Get-AzSqlSyncMember returns information about one or more Azure SQL Database Sync Members. Specify the name of a sync member to see information for only that sync member.
 Get-AzSqlSyncMember `
     -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -SyncGroupName $syncGroupName -Name $syncMemberName ` | Format-List
@@ -136,7 +136,7 @@ Get-AzSqlSyncMember `
 Get-AzSqlSyncGroup `
     -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName ` | Format-List
     
-# approve private endpoint connection
+# approve private endpoint connection, if you decide to use private link
 Approve-AzPrivateEndpointConnection `
     -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService
 
