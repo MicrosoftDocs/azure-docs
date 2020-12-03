@@ -7,7 +7,7 @@ ms.date: 09/01/2020
 
 # Obtain Insights using Backup Center
 
-For analyzing historical trends and gaining deeper insights on your backups, Backup Center provides an interface to [Backup Reports](configure-reports.md), which uses [Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) and [Azure Workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Backup Reports offers the following capabilities:
+For analyzing historical trends and gaining deeper insights on your backups, Backup Center provides an interface to [Backup Reports](configure-reports.md), which uses [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md) and [Azure Workbooks](../azure-monitor/platform/workbooks-overview.md). Backup Reports offers the following capabilities:
 
 - Allocating and forecasting of cloud storage consumed.
 
@@ -27,7 +27,7 @@ For analyzing historical trends and gaining deeper insights on your backups, Bac
 
 ### Configure your vaults to send data to a Log Analytics workspace
 
-[Learn how to configure diagnostics settings at scale for your vaults](https://docs.microsoft.com/azure/backup/configure-reports#get-started)
+[Learn how to configure diagnostics settings at scale for your vaults](./configure-reports.md#get-started)
 
 ### View Backup Reports in the Backup Center portal
 
@@ -37,17 +37,17 @@ Selecting the **Backup Reports** menu item in Backup Center opens up the reports
 
 Following are the views available:
 
-1. **Summary** - Use this tab to get a high-level overview of your backup estate. [Learn more](https://docs.microsoft.com/azure/backup/configure-reports#summary)
+1. **Summary** - Use this tab to get a high-level overview of your backup estate. [Learn more](./configure-reports.md#summary)
 
-1. **Backup Items** - Use this tab to see information and trends on cloud storage consumed at a Backup-item level. [Learn more](https://docs.microsoft.com/azure/backup/configure-reports#backup-items)
+1. **Backup Items** - Use this tab to see information and trends on cloud storage consumed at a Backup-item level. [Learn more](./configure-reports.md#backup-items)
 
-1. **Usage** - Use this tab to view key billing parameters for your backups. [Learn more](https://docs.microsoft.com/azure/backup/configure-reports#usage)
+1. **Usage** - Use this tab to view key billing parameters for your backups. [Learn more](./configure-reports.md#usage)
 
-1. **Jobs** - Use this tab to view long-running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. [Learn more](https://docs.microsoft.com/azure/backup/configure-reports#jobs)
+1. **Jobs** - Use this tab to view long-running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. [Learn more](./configure-reports.md#jobs)
 
-1. **Policies** - Use this tab to view information on all of your active policies, such as the number of associated items and the total cloud storage consumed by items backed up under a given policy. [Learn more](https://docs.microsoft.com/azure/backup/configure-reports#policies)
+1. **Policies** - Use this tab to view information on all of your active policies, such as the number of associated items and the total cloud storage consumed by items backed up under a given policy. [Learn more](./configure-reports.md#policies)
 
-1. **Optimize** - Use this tab to gain visibility into potential cost-optimization opportunities for your backups. [Learn more](https://docs.microsoft.com/azure/backup/configure-reports#optimize)
+1. **Optimize** - Use this tab to gain visibility into potential cost-optimization opportunities for your backups. [Learn more](./configure-reports.md#optimize)
 
 ## Next steps
 

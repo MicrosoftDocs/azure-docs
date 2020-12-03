@@ -83,10 +83,10 @@ Use the following instructions to install and configure the Azure Application Ga
 1. In the Azure portal, navigate to the Application Gateway resource to monitor.
 2. Select *Diagnostics logs* to open the following page.
 
-   ![image of Azure Application Gateway resource](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
+   ![Screenshot of the Diagnostics logs page for an Application Gateway resource showing the option to Turn on diagnostics.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
 3. Click *Turn on diagnostics* to open the following page.
 
-   ![image of Azure Application Gateway resource](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
+   ![Screenshot of the page for configuring Diagnostics settings. The option for Send to Log Analytics is selected as are three Log types and a Metric.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
 4. To turn on diagnostics, click *On* under *Status*.
 5. Click the checkbox for *Send to Log Analytics*.
 6. Select an existing Log Analytics workspace, or create a workspace.
@@ -119,9 +119,9 @@ After you click the **Azure Application Gateway analytics** tile on the Overview
   * Host health for Application Gateway
   * Maximum and 95th percentile for Application Gateway failed requests
 
-![image of Azure Application Gateway analytics dashboard](media/azure-networking-analytics/log-analytics-appgateway01.png)
+![Screenshot of the Application Gateway Access logs dashboard showing tiles with data for Gateway Errors, Requests, and Failed Requests.](media/azure-networking-analytics/log-analytics-appgateway01.png)
 
-![image of Azure Application Gateway analytics dashboard](media/azure-networking-analytics/log-analytics-appgateway02.png)
+![Screenshot of the Application Gateway Access logs dashboard showing tiles with data for Errors by User Agent, Host Health, and Failed Requests.](media/azure-networking-analytics/log-analytics-appgateway02.png)
 
 On the **Azure Application Gateway analytics** dashboard, review the summary information in one of the blades, and then click one to view detailed information on the log search page.
 
@@ -154,10 +154,10 @@ Use the following instructions to install and configure the Azure Networking Ana
 1. In the Azure portal, navigate to the Network Security Group resource to monitor
 2. Select *Diagnostics logs* to open the following page
 
-   ![image of Azure Network Security Group resource](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
+   ![Screenshot of the Diagnostics logs page for a Network Security Group resource showing the option to Turn on diagnostics.](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
 3. Click *Turn on diagnostics* to open the following page
 
-   ![image of Azure Network Security Group resource](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
+   ![Screenshot of the page for configuring Diagnostics settings. Status is set to On, Send to Log Analytics is selected and two Log types are selected.](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
 4. To turn on diagnostics, click *On* under *Status*
 5. Click the checkbox for *Send to Log Analytics*
 6. Select an existing Log Analytics workspace, or create a workspace
@@ -185,9 +185,9 @@ After you click the **Azure Network Security Group analytics** tile on the Overv
   * Network security group rules with allowed flows
   * MAC addresses with allowed flows
 
-![image of Azure Network Security Group analytics dashboard](media/azure-networking-analytics/log-analytics-nsg01.png)
+![Screenshot of tiles with data for Network security group blocked flows, including Rules with blocked flows and MAC addresses with blocked flows.](media/azure-networking-analytics/log-analytics-nsg01.png)
 
-![image of Azure Network Security Group analytics dashboard](media/azure-networking-analytics/log-analytics-nsg02.png)
+![Screenshot of tiles with data for Network security group allowed flows, including Rules with allowed flows and MAC addresses with allowed flows.](media/azure-networking-analytics/log-analytics-nsg02.png)
 
 On the **Azure Network Security Group analytics** dashboard, review the summary information in one of the blades, and then click one to view detailed information on the log search page.
 

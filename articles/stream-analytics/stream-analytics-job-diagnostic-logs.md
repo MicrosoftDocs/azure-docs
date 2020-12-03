@@ -6,6 +6,7 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
+ms.custom: contperfq1
 ms.date: 06/18/2020
 ---
 # Troubleshoot Azure Stream Analytics by using resource logs
@@ -41,7 +42,7 @@ Activity logs are on by default and give high-level insights into operations per
 
    ![Stream Analytics activity log operation summary](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Scroll down to the **Properties** section of the JSON, which provides details of the error that caused the failed operation. In this example, the failure was due to a runtime error from out of bound latitude values. Discrepancy in the data that is processed by a Stream Analytics job causes a data error. You can learn about different [input and output data errors and why they occur](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+4. Scroll down to the **Properties** section of the JSON, which provides details of the error that caused the failed operation. In this example, the failure was due to a runtime error from out of bound latitude values. Discrepancy in the data that is processed by a Stream Analytics job causes a data error. You can learn about different [input and output data errors and why they occur](./data-errors.md).
 
    ![JSON error details](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -65,11 +66,11 @@ Turning on resource logs and sending them to Azure Monitor logs is highly recomm
 
 3. When your Stream Analytics job starts, resource logs are routed to your Log Analytics workspace. To view resource logs for your job, select **Logs** under the **Monitoring** section.
 
-   ![Resource Logs under Monitoring](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
+   ![Screenshot shows the General menu with Logs selected.](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
 4. Stream Analytics provides pre-defined queries that allows you to easily search for the logs that you are interested in. You can select any pre-defined queries on the left pane and then select **Run**. You will see the results of the query in the bottom pane. 
 
-   ![Resource Logs under Monitoring](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
+   ![Screenshot shows Logs for a Stream Analytics job.](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
 ## Resource log categories
 
@@ -104,7 +105,7 @@ Execution logs have information about events that happened during Stream Analyti
 
 ### Data errors
 
-Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs do not include connectivity errors. Connectivity errors are treated as generic events. You can learn more about the cause of various different [input and output data errors](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs do not include connectivity errors. Connectivity errors are treated as generic events. You can learn more about the cause of various different [input and output data errors](./data-errors.md).
 
 Name | Description
 ------- | -------
@@ -136,5 +137,5 @@ Correlation ID | GUID that uniquely identifies the job execution. All execution 
 
 ## Next steps
 
-* [Stream Analytics data errors](https://docs.microsoft.com/azure/stream-analytics/data-errors)
-* [Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Stream Analytics data errors](./data-errors.md)
+* [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)

@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 08/12/2020
+ms.date: 09/25/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Manage blob properties and metadata with .NET
 
-In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 ## About properties and metadata
 
@@ -122,7 +122,7 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
 ---
 
-Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. [Base64-encode](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) or [URL-encode](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode) metadata values containing non-ASCII characters.
+Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. [Base64-encode](/dotnet/api/system.convert.tobase64string) or [URL-encode](/dotnet/api/system.web.httputility.urlencode) metadata values containing non-ASCII characters.
 
 The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names maintain the case used when they were created, but are case-insensitive when set or read. If two or more metadata headers using the same name are submitted for a resource, Azure Blob storage returns HTTP error code 400 (Bad Request).
 
@@ -164,7 +164,7 @@ The following code example reads the metadata on a blob.
 
 # [.NET v12](#tab/dotnet)
 
-To retrieve metadata, call the [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) or [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) method on your blob or container to populate the [Metadata](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) collection, then read the values, as shown in the example below.
+To retrieve metadata, call the [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) or [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) method on your blob or container to populate the [Metadata](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) collection, then read the values, as shown in the example below. The **GetProperties** methods retrieve blob properties and metadata in a single call. This is different from the REST APIs which require separate calls to [Get Blob Properties](/rest/api/storageservices/get-blob-properties) and [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 

@@ -1,5 +1,5 @@
 ---
-title: Scale compute for Synapse SQL pool (Azure PowerShell)
+title: 'Quickstart: Scale compute for Synapse SQL pool (Azure PowerShell)'
 description: You can scale compute for Synapse SQL pool (data warehouse) using Azure PowerShell.
 services: synapse-analytics
 author: Antvgski

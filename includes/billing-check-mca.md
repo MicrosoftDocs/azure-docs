@@ -8,7 +8,7 @@ ms.author: amberb
  
 Check the agreement type to determine whether you have access to a billing account for a Microsoft Customer Agreement.
  
-1. Go to the [Azure portal](https://portal.azure.com) to check for billing account access. Search for and select **Cost Management + Billing**.
+1. Go to the Azure portal to check for billing account access. Search for and select **Cost Management + Billing**.
 
    ![Screenshot that shows an Azure portal search for Cost Management + Billing.](./media/billing-check-mca/billing-search-cost-management-billing.png)
  

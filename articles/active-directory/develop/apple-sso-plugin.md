@@ -18,10 +18,8 @@ ms.custom: aaddev
 
 # Microsoft Enterprise SSO plug-in for Apple devices (Preview)
 
-> [!NOTE]
-> This feature is in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> This feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 The *Microsoft Enterprise SSO plug-in for Apple devices* provides single sign-on (SSO) for Azure Active Directory (Azure AD) accounts across all applications that support Apple's [Enterprise Single Sign-On](https://developer.apple.com/documentation/authenticationservices) feature. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection that Apple and Microsoft can provide.
 
@@ -89,7 +87,7 @@ You don't need to add applications that use MSAL or ASWebAuthenticationSession t
 
 By default, the Microsoft Enterprise SSO plug-in provides SSO for authorized apps only when the SSO plug-in already has a shared credential. The Microsoft Enterprise SSO plug-in can acquire a shared credential when it is called by another ADAL or MSAL-based application during token acquisition. Most of the Microsoft apps use Microsoft Authenticator or SSO plug-in. That means that by default SSO outside of native app flows is best effort.  
 
-Enabling `browser_sso_interaction_enabled` flag enables non-MSAL apps and Safari browser to do the initial bootstrapping and get a shared credential. If the Microsoft Enterprise SSO plug-in doesn’t have a shared credential yet, it will try to get one whenever a sign-in is requested from an Azure AD URL inside Safari browser, ASWebAuthenticationSession, SafariViewController, or another whitelisted native application.  
+Enabling `browser_sso_interaction_enabled` flag enables non-MSAL apps and Safari browser to do the initial bootstrapping and get a shared credential. If the Microsoft Enterprise SSO plug-in doesn’t have a shared credential yet, it will try to get one whenever a sign-in is requested from an Azure AD URL inside Safari browser, ASWebAuthenticationSession, SafariViewController, or another permitted native application.  
 
 - **Key**: `browser_sso_interaction_enabled`
 - **Type**: `Integer`

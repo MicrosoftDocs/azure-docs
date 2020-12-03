@@ -2,12 +2,12 @@
 title: Set up agent-based dependency analysis in Azure Migrate Server Assessment
 description: This article describes how to set up agent-based dependency analysis in Azure Migrate Server Assessment.
 ms.topic: how-to
-ms.date: 6/09/2020
+ms.date: 11/25/2020
 ---
 
 # Set up dependency visualization
 
-This article describes how to set up agentless dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
+This article describes how to set up agent-based dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
 ## Before you start
 
@@ -16,7 +16,7 @@ This article describes how to set up agentless dependency analysis in Azure Migr
     - [Physical servers](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
     - [Hyper-V VMs](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - Make sure you:
-    - Have an Azure Migrate project. If you don't, [create](how-to-add-tool-first-time.md) one now.
+    - Have an Azure Migrate project. If you don't, [create](./create-manage-projects.md) one now.
     - Check that you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool to the project.
     - Set up an [Azure Migrate appliance](migrate-appliance.md) to discover on-premises machines. The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment. Set up an appliance for:
         - [VMware](how-to-set-up-appliance-vmware.md) VMs.
@@ -78,7 +78,7 @@ To install the agent on a Windows machine:
 
 You can install the agent from the command line or using an automated method such as Configuration Manager or [Intigua](https://www.intigua.com/intigua-for-azure-migration).
 - [Learn more](../azure-monitor/platform/log-analytics-agent.md#installation-options) about using these methods to install the MMA agent.
-- The MMA agent can also be installed using this [script](https://go.microsoft.com/fwlink/?linkid=2104394).
+- The MMA agent can also be installed using this [script](https://github.com/brianbar-MSFT/Install-MMA).
 - [Learn more](../azure-monitor/platform/agents-overview.md#supported-operating-systems) about the Windows operating systems supported by MMA.
 
 ### Install MMA on a Linux machine
@@ -142,7 +142,7 @@ After creating the group, we recommend that you install agents on all the machin
 You can query dependency data captured by Service Map in the Log Analytics workspace associated with the Azure Migrate project. Log Analytics is used to write and run Azure Monitor log queries.
 
 - [Learn how to](../azure-monitor/insights/service-map.md#log-analytics-records) search for Service Map data in Log Analytics.
-- [Get an overview](../azure-monitor/log-query/get-started-queries.md)  of writing log queries in [Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- [Get an overview](../azure-monitor/log-query/get-started-queries.md)  of writing log queries in [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Run a query for dependency data as follows:
 

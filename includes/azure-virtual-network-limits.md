@@ -50,6 +50,7 @@ The following limits apply only for networking resources managed through **Azure
 | Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
 | Static Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
 | Standard Public IP addresses<sup>1</sup> | 10 | Contact support. |
+| [Public IP addresses per Resource Group](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Contact support. | 
 | Public IP Prefixes | limited by number of Standard Public IPs in a subscription | Contact support. |
 | Public IP prefix length | /28 | Contact support. |
 
@@ -70,7 +71,7 @@ The following limits apply only for networking resources managed through Azure R
 | Backend resources per Load Balancer <sup>1<sup> | 150                   |
 | High-availability ports                 | 1 per internal frontend       |
 | Outbound rules per Load Balancer        | 600                           |
-| [TCP idle timeout](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutes/30 minutes          |
+| Load Balancers per VM                   | 2 (1 Public and 1 internal)   |
 
 <sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set placement groups.
 
@@ -83,7 +84,8 @@ The following limits apply only for networking resources managed through Azure R
 | Rules per NIC (across all IPs on a NIC) | 300                          |
 | Frontend IP configurations              | 200                          |
 | Backend pool size                       | 300 IP configurations, single availability set |
-| Availability sets per Load Balancer     | 150                          |
+| Availability sets per Load Balancer     | 1                            |
+| Load Balancers per VM                   | 2 (1 Public and 1 internal)  |
 
 <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
@@ -100,6 +102,6 @@ The following limits apply only for networking resources managed through Azure R
 | User-defined routes per route table |400 |400 |
 | Public IP addresses (dynamic) |500 |500 |
 | Reserved public IP addresses |500 |500 |
-| Public VIP per deployment |5 |Contact support |
-| Private VIP (internal load balancing) per deployment |1 |1 |
+| Public IP per deployment |5 |Contact support |
+| Private IP (internal load balancing) per deployment |1 |1 |
 | Endpoint access control lists (ACLs) |50 |50 |

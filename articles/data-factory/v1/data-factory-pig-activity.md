@@ -1,10 +1,10 @@
 ---
 title: Transform data using Pig Activity in Azure Data Factory 
-description: Learn how you can use the Pig Activity in an Azure data factory v1 to run Pig scripts on an on-demand/your own HDInsight cluster.
+description: Learn how you can use the Pig Activity in Azure Data Factory v1 to run Pig scripts on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
@@ -21,8 +21,8 @@ ms.date: 01/10/2018
 > * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 > * [Spark Activity](data-factory-spark.md)
-> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio (classic) Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio (classic) Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
 > * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)

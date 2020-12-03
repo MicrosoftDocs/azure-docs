@@ -102,7 +102,7 @@ Azure AD B2C code in a browser uses a modern and standard approach to load custo
 
 Download Git Bash and follow the steps below:
 
-1. Follow the instructions to [create a web app](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php), up until the message “Congratulations! You've deployed your first PHP app to App Service” displays.
+1. Follow the instructions to [create a web app](../app-service/quickstart-php.md), up until the message “Congratulations! You've deployed your first PHP app to App Service” displays.
 
 2. Open your local folder and rename the **index.php** file to **verify-token.php**.
 

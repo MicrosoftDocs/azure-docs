@@ -3,8 +3,8 @@ title:  Azure Database for PostgreSQL documentation
 summary: "Azure Database for PostgreSQL is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability."
 metadata:
   description: "Azure Database for PostgreSQL is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine."
-  author: rachel-msft
-  ms.author: raagyema
+  author: sunilagarwal
+  ms.author: sunila
   ms.date: 09/21/2020
   ms.service: postgresql
   ms.topic: landing-page
@@ -133,7 +133,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Design a Database on Single Server
-            url: /tutorial-design-database-using-azure-portal.md               -
+            url: tutorial-design-database-using-azure-portal.md
           - text: Design a multi-tenant database using Hyperscale
             url: tutorial-design-database-hyperscale-multi-tenant.md
           - text: Design a real-time database using Hyperscale
@@ -149,7 +149,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Azure CLI scripts for common tasks
-            url: /azure/postgresql/sample-scripts-azure-cli
+            url: ./sample-scripts-azure-cli.md
           - text: Azure Resource Manager templates
             url: /azure/templates/microsoft.dbforpostgresql/allversions
       - linkListType: reference
@@ -158,4 +158,3 @@ landingContent:
             url: /rest/api/postgresql/
           - text: REST API developer reference
             url: /cli/azure/postgres
-

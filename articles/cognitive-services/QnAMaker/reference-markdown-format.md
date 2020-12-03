@@ -1,6 +1,8 @@
 ---
 title: Markdown format - QnA Maker
 description: Following is the list of markdown formats that you can use in QnA Maker's answer text.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 03/19/2020
 ---
@@ -15,7 +17,7 @@ Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutori
 
 [Rich-text editing](How-To/edit-knowledge-base.md#add-an-editorial-qna-set) of answers allows you, as the author, to use a formatting toolbar to quickly select and format text.
 
-Markdown is a better tool when you need to autogenerate content to create knowledge bases to be imported as part of a CI/CD pipeline or for [batch testing](Quickstarts/batch-testing.md).
+Markdown is a better tool when you need to autogenerate content to create knowledge bases to be imported as part of a CI/CD pipeline or for [batch testing](./index.yml).
 
 ## Supported markdown format
 

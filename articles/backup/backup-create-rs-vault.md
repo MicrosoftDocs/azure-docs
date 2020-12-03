@@ -30,7 +30,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
    - We recommend that if you're using Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting.
    - If you don't use Azure as a primary backup storage endpoint, then choose **Locally redundant**, which reduces the Azure storage costs.
    - Learn more about [geo](../storage/common/storage-redundancy.md#geo-redundant-storage) and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
-   - If you need data availability without downtime in a region, guaranteeing data residency, then choose [zone-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
+   - If you need data availability without downtime in a region, guaranteeing data residency, then choose [zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 >[!NOTE]
 >The Storage Replication settings for the vault aren't relevant for Azure file share backup as the current solution is snapshot based and there's no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.

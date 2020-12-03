@@ -24,7 +24,7 @@
 - name: Concepts
   items:
   - name: What is password hash sync?
-    href: ../hybrid/whatis-phs.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
+    href: ../hybrid/whatis-phs.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
   - name: Understanding the Azure AD schema, attributes, and expressions
     href: concept-attributes.md
   - name: Writing Expressions for Attribute Mappings in Azure Active Directory
@@ -42,6 +42,10 @@
       href: how-to-install.md
     - name: Cloud provisioning configuration
       href: how-to-configure.md
+    - name: On-demand provisioning
+      href: how-to-on-demand-provision.md
+    - name: Attribute mapping
+      href: how-to-attribute-mapping.md 
     - name: Use Single Sign-On
       href: how-to-sso.md
   - name: Plan and design
@@ -70,11 +74,13 @@
     
 - name: Reference
   items:
-  - name: Azure AD Connect cloud provisioning agent version history
-    href: ../app-provisioning/provisioning-agent-release-version-history.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+  - name: Azure AD Connect Cloud Sync agent version history
+    href: reference-version-history.md
   - name: Azure AD Connect cloud provisioning FAQ
     href: reference-cloud-provisioning-faq.md
+  - name: AADCloudSyncTools PowerShell Module 
+    href: reference-powershell.md
   - name: Attributes that are synchronized
-    href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+    href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
   - name: Basic Active Directory and Azure AD environment
     href: tutorial-basic-ad-azure.md

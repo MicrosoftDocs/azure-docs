@@ -28,7 +28,6 @@ The contents of the file should satisfy the following json schema:
         "scaling" : { "type" : "number", "exclusiveMinimum" : 0, "default" : 1.0 },
         "recenterToOrigin" : { "type" : "boolean", "default" : false },
         "opaqueMaterialDefaultSidedness" : { "type" : "string", "enum" : [ "SingleSided", "DoubleSided" ], "default" : "DoubleSided" },
-        "material-override" : { "type" : "string", "default" : "" },
         "gammaToLinearMaterial" : { "type" : "boolean", "default" : false },
         "gammaToLinearVertex" : { "type" : "boolean", "default" : false },
         "sceneGraphMode": { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic" },
@@ -80,10 +79,6 @@ Centering the model can help in this situation.
 
 * `opaqueMaterialDefaultSidedness` - The rendering engine assumes that opaque materials are double-sided.
 if that assumption isn't true of a particular model, this parameter should be set to "SingleSided". For more information, see [:::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
-
-### Material overrides
-
-* `material-override` - This parameter allows the processing of materials to be [customized during conversion](override-materials.md).
 
 ### Material de-duplication
 
@@ -258,7 +253,7 @@ As discussed in the [best practices for component format changes](configure-mode
 ### Texture sizes
 
 Depending on the type of scenario, the amount of texture data may outweigh the memory used for mesh data. Photogrammetry models are candidates.
-The conversion configuration does not provide a way to automatically scale down textures. If necessary, texture scaling has to be done as a client-side pre-processing step. The conversion step however does pick a suitable [texture compression format](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
+The conversion configuration does not provide a way to automatically scale down textures. If necessary, texture scaling has to be done as a client-side pre-processing step. The conversion step however does pick a suitable [texture compression format](/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
 
 * `BC1` for opaque color textures
 * `BC7` for source color textures with alpha channel
@@ -300,6 +295,9 @@ In these use cases, the models often have very high detail within a small volume
 
 Providing settings using the non-model-specific filename `conversionSettings.json` is still supported but deprecated.
 Please use the model-specific filename `<modelName>.ConversionSettings.json` instead.
+
+The use of a `material-override` setting to identify a [Material Override file](override-materials.md) in the conversion settings file is still supported but deprecated. 
+Please use the model-specific filename `<modelName>.MaterialOverrides.json` instead.
 
 ## Next steps
 

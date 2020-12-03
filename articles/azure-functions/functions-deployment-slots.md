@@ -51,7 +51,38 @@ Keep in mind the following points:
 
 ## Manage settings
 
-[!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
+Some configuration settings are slot-specific. The following lists detail which settings change when you swap slots, and which remain the same.
+
+**Slot-specific settings**:
+
+* Publishing endpoints
+* Custom domain names
+* Non-public certificates and TLS/SSL settings
+* Scale settings
+* WebJobs schedulers
+* IP restrictions
+* Always On
+* Diagnostic settings
+* Cross-origin resource sharing (CORS)
+
+**Non slot-specific settings**:
+
+* General settings, such as framework version, 32/64-bit, web sockets
+* App settings (can be configured to stick to a slot)
+* Connection strings (can be configured to stick to a slot)
+* Handler mappings
+* Public certificates
+* WebJobs content
+* Hybrid connections *
+* Virtual network integration *
+* Service endpoints *
+* Azure Content Delivery Network *
+
+Features marked with an asterisk (*) are planned to be unswapped. 
+
+> [!NOTE]
+> Certain app settings that apply to unswapped settings are also not swapped. For example, since diagnostic settings are not swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.
+>
 
 ### Create a deployment setting
 
@@ -109,7 +140,7 @@ You can swap slots via the [CLI](/cli/azure/functionapp/deployment/slot?view=azu
 1. Navigate to the function app.
 1. Select **Deployment slots**, and then select **Swap**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Swap the deployment slot." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Screenshot that shows the 'Deployment slot' page with the 'Add Slot' action selected." border="true":::
 
 1. Verify the configuration settings for your swap and select **Swap**
     
@@ -131,7 +162,7 @@ You can remove a slot via the [CLI](/cli/azure/functionapp/deployment/slot?view=
 
 1. Select **Delete**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Delete the deployment slot in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Screenshot that shows the 'Overview' page with the 'Delete' action selected." border="true":::
 
 1. Type the name of the deployment slot you want to delete, and then select **Delete**.
 

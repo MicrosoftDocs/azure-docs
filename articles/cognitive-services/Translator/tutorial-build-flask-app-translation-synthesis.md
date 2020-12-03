@@ -59,7 +59,7 @@ As previously mentioned, you're going to need three subscription keys for this t
 * Text Analytics
 * Speech Services
 
-Use [Create a Cognitive Services Account in the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for step-by-step instructions to create resources.
+Use [Create a Cognitive Services Account in the Azure portal](../cognitive-services-apis-create-account.md) for step-by-step instructions to create resources.
 
 > [!IMPORTANT]
 > For this tutorial, please create your resources in the West US region. If using a different region, you'll need to adjust the base URL in each of your Python files.
@@ -471,7 +471,7 @@ Press **CTRL + c** to kill the app, then head to the next section.
 
 ## Analyze sentiment
 
-The [Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) can be used to perform sentiment analysis, extract key phrases from text, or detect the source language. In this app, we're going to use sentiment analysis to determine if the provided text is positive, neutral, or negative. The API returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment.
+The [Text Analytics API](../text-analytics/overview.md) can be used to perform sentiment analysis, extract key phrases from text, or detect the source language. In this app, we're going to use sentiment analysis to determine if the provided text is positive, neutral, or negative. The API returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment.
 
 In this section, you're going to do a few things:
 
@@ -655,7 +655,7 @@ Press **CTRL + c** to kill the app, then head to the next section.
 
 ## Convert text-to-speech
 
-The [Text-to-speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) enables your app to convert text into natural human-like synthesized speech. The service supports standard, neural, and custom voices. Our sample app uses a handful of the available voices, for a full list, see [supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech).
+The [Text-to-speech API](../speech-service/text-to-speech.md) enables your app to convert text into natural human-like synthesized speech. The service supports standard, neural, and custom voices. Our sample app uses a handful of the available voices, for a full list, see [supported languages](../speech-service/language-support.md#text-to-speech).
 
 In this section, you're going to do a few things:
 
@@ -950,7 +950,7 @@ Navigate to the provided server address. Type text into the input area, select a
 > [!TIP]
 > If the changes you've made aren't showing up, or the app doesn't work the way you expect it to, try clearing your cache or opening a private/incognito window.
 
-That's it, you have a working app that performs translations, analyzes sentiment, and synthesized speech. Press **CTRL + c** to kill the app. Be sure to check out the other [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/).
+That's it, you have a working app that performs translations, analyzes sentiment, and synthesized speech. Press **CTRL + c** to kill the app. Be sure to check out the other [Azure Cognitive Services](../index.yml).
 
 ## Get the source code
 
@@ -958,6 +958,6 @@ The source code for this project is available on [GitHub](https://github.com/Mic
 
 ## Next steps
 
-* [Translator reference](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Translator reference](./reference/v3-0-reference.md)
 * [Text Analytics API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
-* [Text-to-speech API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)
+* [Text-to-speech API reference](../speech-service/rest-text-to-speech.md)

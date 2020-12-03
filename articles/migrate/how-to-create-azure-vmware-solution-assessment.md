@@ -18,10 +18,10 @@ This article describes how to create an Azure VMware Solution (AVS) assessment f
 
 ## Before you start
 
-- Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
+- Make sure you've [created](./create-manage-projects.md) an Azure Migrate project.
 - If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool.
 - To create an assessment, you need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md), which discovers the on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. [Learn more](migrate-appliance.md).
-- You could also [import the server metadata](tutorial-assess-import.md) in comma-separated values (CSV) format.
+- You could also [import the server metadata](./tutorial-discover-import.md) in comma-separated values (CSV) format.
 
 
 ## Azure VMware Solution (AVS) Assessment overview
@@ -107,7 +107,7 @@ An Azure VMware Solution (AVS) assessment describes:
     - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the machine because of insufficient metadata collected from the on-premises environment.
 
 3. Review the Suggested tool:
-    - **VMware HCX or Enterprise**: For VMware machines, VMWare Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/hybrid-cloud-extension-installation.md).
+    - **VMware HCX or Enterprise**: For VMware machines, VMWare Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
     - **Unknown**: For machines imported via a CSV file, the default migration tool is unknown. Though for VMware machines, it is suggested to use the VMware Hybrid Cloud Extension (HCX) solution. 
 
 4. Click on an **AVS readiness** status. You can view VM readiness details, and drill down to see VM details, including compute, storage, and network settings.

@@ -103,7 +103,7 @@ Create a simple console application to call the actor service.
 
     The NuGet package and all its dependencies are installed in the ActorClient project.
 
-5. The client project also requires a reference to the interfaces project.  In the ActorClient project, right-click **Dependencies** and then click **Add reference...**.  Select **Projects > Solution** (if not already selected), and then tick the checkbox next to **HelloWorld.Interfaces**.  Click **OK**.
+5. The client project also requires a reference to the interfaces project.  In the ActorClient project, right-click **Dependencies** and then click **Add Project Reference...**.  Select **Projects > Solution** (if not already selected), and then tick the checkbox next to **HelloWorld.Interfaces**.  Click **OK**.
     
     ![Add reference dialog][7]
 

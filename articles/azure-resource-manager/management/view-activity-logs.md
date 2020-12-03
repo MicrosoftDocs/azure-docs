@@ -14,7 +14,7 @@ Through activity logs, you can determine:
 * the status of the operation
 * the values of other properties that might help you research the operation
 
-The activity log contains all write operations (PUT, POST, DELETE) for your resources. It doesn't include read operations (GET). For a list of resource actions, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md). You can use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+The activity log contains all write operations (PUT, POST, DELETE) for your resources. It doesn't include read operations (GET). For a list of resource actions, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md). You can use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
 Activity logs are kept for 90 days. You can query for any range of dates, as long as the starting date isn't more than 90 days in the past.
 
@@ -189,4 +189,4 @@ The REST operations for working with the activity log are part of the [Insights 
 * To view more details about the changes to your applications from the infrastructure layer all the way to application deployment, see [Use Application Change Analysis in Azure Monitor](../../azure-monitor/app/change-analysis.md).
 * To learn about the commands for viewing deployment operations, see [View deployment operations](../templates/deployment-history.md).
 * To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](lock-resources.md).
-* To see the list of operations available for each Microsoft Azure Resource Manager provider, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md)
+* To see the list of operations available for each Microsoft Azure Resource Manager provider, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md)

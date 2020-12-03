@@ -69,7 +69,7 @@ $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vault2" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
-You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate** to get the current version. 
+You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **'https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate'** to get the current version. 
 
 To view previously stored certificate:
 

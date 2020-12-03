@@ -1,15 +1,16 @@
 ---
 title: Supported versions - Azure Database for PostgreSQL - Single Server
 description: Describes the supported Postgres major and minor versions in Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 11/16/2020
 ms.custom: fasttrack-edit
 ---
 # Supported PostgreSQL major versions
-Microsoft aims to support n-2 versions of the PostgreSQL engine in Azure Database for PostgreSQL - Single Server. The versions would be the current major version on Azure (n) and the two prior major versions (-2).
+
+Please see [Azure Database for PostgreSQL versioning policy](concepts-version-policy.md) for support policy details.
 
 Azure Database for PostgreSQL currently supports the following major versions:
 
@@ -25,10 +26,14 @@ The current minor release is 9.6.16. Refer to the [PostgreSQL documentation](htt
 ## PostgreSQL version 9.5
 The current minor release is 9.5.20. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.5/static/release-9-5-20.html) to learn about improvements and fixes in this minor release.
 
+> [!NOTE]
+> Aligning with Postgres community [versioning policy](https://www.postgresql.org/support/versioning/), Azure Database for PostgreSQL will be retiring Postgres version 9.5 on February 11, 2021. Please see [Azure Database for PostgreSQL versioning policy](concepts-version-policy.md) for more details and restrictions.
+
 ## Managing upgrades
 The PostgreSQL project regularly issues minor releases to fix reported bugs. Azure Database for PostgreSQL automatically patches servers with minor releases during the service's monthly deployments. 
 
 Automatic in-place upgrades for major versions are not supported. To upgrade to the next major version, you can 
+   * See various methods to perform [major version upgrades using dump and restore](./how-to-upgrade-using-dump-and-restore.md)
    * Use [pg_dump and pg_restore](./howto-migrate-using-dump-and-restore.md) to move a database to a server created with the new engine version
    * Alternatively, you can upgrade from PostgreSQL 10 to 11 using the [Azure Database Migration service](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md)
 

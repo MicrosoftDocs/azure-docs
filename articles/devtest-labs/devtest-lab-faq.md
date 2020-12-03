@@ -63,7 +63,7 @@ DevTest Labs is a free service. Creating labs and configuring policies, template
 ## Security
 
 ### What are the different security levels in DevTest Labs?
-Security access is determined by Role-Based Access Control (RBAC). To learn how access works, it helps to learn the differences between a permission, a role, and a scope, as defined by RBAC.
+Security access is determined by Azure role-based access control (Azure RBAC). To learn how access works, it helps to learn the differences between a permission, a role, and a scope, as defined by Azure RBAC.
 
 - **Permission**: A permission is a defined access to a specific action. For example, a permission can be read access to all VMs.
 - **Role**: A role is a set of permissions that can be grouped and assigned to a user. For example, a user with a subscription owner role has access to all resources within a subscription.
@@ -78,7 +78,7 @@ You also can create custom roles in DevTest Labs. To learn how to create custom 
 
 Because scopes are hierarchical, when a user has permissions at a certain scope, the user is automatically granted those permissions at every lower-level scope in the scope. For instance, if a user is assigned the role of subscription owner, the user has access to all resources in a subscription. These resources include VMs, virtual networks, and labs. A subscription owner automatically inherits the role of lab owner. However, the opposite is not true. A lab owner has access to a lab, which is a lower scope than the subscription level. So, a lab owner can't see VMs, virtual networks, or any other resources that are outside the lab.
 
-### How do I define role-based access control for my DevTest Labs environments to ensure that IT can govern while developers/test can do their work?
+### How do I define Azure role-based access control for my DevTest Labs environments to ensure that IT can govern while developers/test can do their work?
 There is a broad pattern, however the detail depends on your organization.
 
 Central IT should own only what is necessary and enable the project and application teams to have the needed level of control. Typically, it means that central IT owns the subscription and handles core IT functions such as networking configurations. The set of **owners** for a subscription should be small. These owners can nominate additional owners when there's a need, or apply subscription-level policies, for example “No Public IP”.
@@ -87,7 +87,7 @@ There may be a subset of users that require access across a subscription, such a
 
 The DevTest Labs resource should be owned by owners who are close to the project/application team. It's because they understand their requirements for machines, and required software. In most organizations, the owner of this DevTest Labs resource is commonly the project/development lead. This owner can manage users and policies within the lab environment and can manage all VMs in the DevTest Labs environment.
 
-The project/application team members should be added to the **DevTest Labs Users** role. These users can create virtual machines (in-line with the lab and subscription-level policies). They can also manage their own virtual machines. They can't manage virtual machines that belong to other users.
+The project/application team members should be added to the **DevTest Labs User** role. These users can create virtual machines (in-line with the lab and subscription-level policies). They can also manage their own virtual machines. They can't manage virtual machines that belong to other users.
 
 For more information, see [Azure enterprise scaffold – prescriptive subscription governance documentation](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 
@@ -140,7 +140,7 @@ Separate resource group scenario:
 -	DevTest Labs creates a resource group for shared IP machines that belong to the same size.
 
 Common resource group scenario:
--	All virtual machines are spun up in the common resource group you specify. Learn more [resource group allocation for the lab](https://aka.ms/RGControl).
+-	All virtual machines are spun up in the common resource group you specify. Learn more [resource group allocation for the lab](./resource-group-control.md).
 
 ### How do I maintain a naming convention across my DevTest Labs environment?
 You may want to extend current enterprise naming conventions to Azure operations and make them consistent across the DevTest Labs environment. When deploying DevTest Labs, we recommend that you have specific starting policies. You deploy these policies by a central script and JSON templates to enforce consistency. Naming policies can be implemented through Azure policies applied at the subscription level. For JSON samples for Azure Policy, see [Azure Policy samples](../governance/policy/samples/index.md).
@@ -195,7 +195,7 @@ To copy your existing VMs to DevTest Labs:
 Yes, you can attach multiple disks to your VMs.
 
 ### Are Gen 2 images supported by DevTest Labs?
-Yes. The DevTest Labs service supports [Gen 2 images](../virtual-machines/windows/generation-2.md). However, if both Gen 1 and Gen 2 versions are available for an image, DevTest Labs shows only the Gen 1 version of the image when creating a VM. You see the image if there is only Gen 2 version of it available. 
+Yes. The DevTest Labs service supports [Gen 2 images](../virtual-machines/generation-2.md). However, if both Gen 1 and Gen 2 versions are available for an image, DevTest Labs shows only the Gen 1 version of the image when creating a VM. You see the image if there is only Gen 2 version of it available. 
 
 ### If I want to use a Windows OS image for my testing, do I have to purchase an MSDN subscription?
 To use Windows client OS images (Windows 7 or a later version) for your development or testing in Azure, take one of the following steps:

@@ -9,11 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual 
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
 ---
 
 # Create a new Azure Time Series Insights Gen1 environment in the Azure portal
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This article describes how to create a new Azure Time Series Insights environment using the Azure portal.
 
@@ -60,9 +63,9 @@ Follow these steps to create an environment:
 
 ## Next steps
 
-* [Define data access policies](time-series-insights-data-access.md) to secure your environment.
+* [Define data access policies](./concepts-access-policies.md) to secure your environment.
 
-* [Add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md) to your Azure Time Series Insights environment.
+* [Add an Event Hub event source](./how-to-ingest-data-event-hub.md) to your Azure Time Series Insights environment.
 
 * [Send events](time-series-insights-send-events.md) to the event source.
 

@@ -30,7 +30,7 @@ Version 5 of the Azure Search .NET SDK contains some changes from earlier versio
 Version 5 of the Azure Search .NET SDK targets the latest generally available version of the Azure Search REST API, specifically 2017-11-11. This makes it possible to use new features of Azure Search from a .NET application, including the following:
 
 * [Synonyms](search-synonyms.md).
-* You can now programmatically access warnings in indexer execution history (see the `Warning` property of `IndexerExecutionResult` in the [.NET reference](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet) for more details).
+* You can now programmatically access warnings in indexer execution history (see the `Warning` property of `IndexerExecutionResult` in the [.NET reference](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult) for more details).
 * Support for .NET Core 2.
 * New package structure supports using only the parts of the SDK that you need (see [Breaking changes in version 5](#ListOfChanges) for details).
 

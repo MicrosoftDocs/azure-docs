@@ -4,7 +4,7 @@ description: How to manage and update Azure HPC Cache using the Azure portal or 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 08/31/2020
 ms.author: v-erkel
 ---
 
@@ -23,6 +23,7 @@ The buttons at the top of the page can help you manage the cache:
 * **Start** and [**Stop**](#stop-the-cache) - Resumes or suspends cache operation
 * [**Flush**](#flush-cached-data) - Writes changed data to storage targets
 * [**Upgrade**](#upgrade-cache-software) - Updates the cache software
+* [**Collect diagnostics**](#collect-diagnostics) - Uploads debugging information
 * **Refresh** - Reloads the overview page
 * [**Delete**](#delete-the-cache) - Permanently destroys the cache
 
@@ -52,7 +53,7 @@ To reactivate a stopped cache, click the **Start** button. No confirmation is ne
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 Temporarily suspend a cache with the [az hpc-cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) command. This action is only valid when a cache's status is **Healthy** or **Degraded**.
 
@@ -107,7 +108,7 @@ To flush the cache, click the **Flush** button and then click **Yes** to confirm
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 Use [az hpc-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) to force the cache to write all changed data to the storage targets.
 
@@ -155,7 +156,7 @@ Click the **Upgrade** button to begin the software update. The cache status chan
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 On the Azure CLI, new software information is included at the end of the cache status report. (Use [az hpc-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) to check.) Look for the string "upgradeStatus" in the message.
 
@@ -192,6 +193,16 @@ $
 
 ---
 
+## Collect diagnostics
+
+The **Collect diagnostics** button manually starts the process to collect system information and upload it to Microsoft Service and Support for troubleshooting. Your cache automatically collects and uploads the same diagnostic information if a serious cache problem occurs.
+
+Use this control if Microsoft Service and Support requests it.
+
+After clicking the button, click **Yes** to confirm the upload.
+
+![screenshot of the 'Start diagnostics collection' pop-up confirmation message. The default button 'yes' is highlighted.](media/diagnostics-confirm.png)
+
 ## Delete the cache
 
 The **Delete** button destroys the cache. When you delete a cache, all of its resources are destroyed and no longer incur account charges.
@@ -209,7 +220,7 @@ After stopping the cache, click the **Delete** button to permanently remove the 
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 Use the Azure CLI command [az hpc-cache delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) to permanently remove the cache.
 

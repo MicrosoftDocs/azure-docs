@@ -11,16 +11,17 @@ services: iot-edge
 ---
 # Tutorial: Set up an environment for machine learning on IoT Edge
 
-> [!NOTE]
-> This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. If you have arrived at this article directly, we encourage you to begin with the [first article](tutorial-machine-learning-edge-01-intro.md) in the series for the best results.
-
 This article helps you prepare your environment for development and deployment. First, set up a development machine with all the tools you need. Then, create the necessary cloud resources in Azure.
+
+## Prerequisites
+
+This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.
 
 ## Set up the development VM
 
 This step is typically performed by a cloud developer. Some of the software may also be helpful for a data scientist.
 
-We created a PowerShell script that creates an Azure virtual machine with many of the prerequisites already configured. The VM that we create needs to be able to handle [nested virtualization](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), which is why we chose a [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) machine size.
+We created a PowerShell script that creates an Azure virtual machine with many of the prerequisites already configured. The VM that we create needs to be able to handle [nested virtualization](../virtual-machines/windows/nested-virtualization.md), which is why we chose a [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) machine size.
 
 The development VM will be set up with:
 
@@ -32,7 +33,7 @@ The development VM will be set up with:
 * [.NET Core SDK](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.1.0)
+* [Azure PowerShell](/powershell/azure/)
 * [VS Code Extensions](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -76,7 +77,7 @@ It takes about 30 minutes to create and configure the virtual machine.
 
    The script runs for several minutes as it executes the following steps:
 
-    1. Installs the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
+    1. Installs the [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
     1. Prompts you to sign in to Azure.
     1. Confirms the information for the creation of your VM. Press **y** or **Enter** to continue.
     1. Creates the resource group if it does not exist.
@@ -209,7 +210,7 @@ In this article, we created an IoT Hub and configured a route to an Azure Storag
 
 For more information about the steps covered in this portion of the Machine Learning on IoT Edge tutorial, see:
 
-* [Azure IoT Fundamentals](https://docs.microsoft.com/azure/iot-fundamentals/)
+* [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
 * [Configure message routing with IoT Hub](../iot-hub/tutorial-routing.md)
 * [Create an IoT hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md)
 

@@ -32,9 +32,9 @@ is transmitted directly to Azure backbone network.
 
 * Following established Azure-wide connectivity patterns using [private endpoints](../private-link/private-endpoint-overview.md).
 
-Common approaches to restricting connectivity include [DPS IP filter rules](./iot-dps-ip-filtering.md) and Virtual networking (VNET) with [private endpoints](../private-link/private-endpoint-overview.md). This goal of this article is to describe the VNET approach for DPS using private endpoints. 
+Common approaches to restricting connectivity include [DPS IP filter rules](./iot-dps-ip-filtering.md) and Virtual networking (VNET) with [private endpoints](../private-link/private-endpoint-overview.md). The goal of this article is to describe the VNET approach for DPS using private endpoints. 
 
-Devices that operate in on-premises networks can use [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering to connect to a VNET in Azure and access DPS resources through private endpoints. 
+Devices that operate in on-premises networks can use [Virtual Private Network (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering to connect to a VNET in Azure and access DPS resources through private endpoints. 
 
 A private endpoint is a private IP address allocated inside a customer-owned VNET by which an Azure resource is accessible. By having a private endpoint for your DPS resource, you will be able to allow devices operating inside your VNET to request provisioning by your DPS resource without allowing traffic to the public endpoint.
 
@@ -47,7 +47,7 @@ Before proceeding ensure that the following prerequisites are met:
 
 * You have provisioned an Azure VNET with a subnet in which the private endpoint will be created. For more information, see, [create a virtual network using Azure CLI](../virtual-network/quick-create-cli.md).
 
-* For devices that operate inside of on-premises networks, set up [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering into your Azure VNET.
+* For devices that operate inside of on-premises networks, set up [Virtual Private Network (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering into your Azure VNET.
 
 ## Private endpoint limitations
 
@@ -71,7 +71,7 @@ To set up a private endpoint, follow these steps:
 
 2. On the _Create a private endpoint_ Basics page, enter the information mentioned in the table below.
 
-    ![Configure the resource that a new private endpoint maps to](./media/virtual-network-support/create-private-endpoint-basics.png)
+    ![Create private endpoints basics](./media/virtual-network-support/create-private-endpoint-basics.png)
 
     | Field | Value |
     | :---- | :-----|
@@ -84,7 +84,7 @@ To set up a private endpoint, follow these steps:
 
 3. On the _Create a private endpoint Resource_ page, enter the information mentioned in the table below.
 
-    ![Configure the resource that a new private endpoint maps to](./media/virtual-network-support/create-private-endpoint-resource.png)
+    ![Create private endpoint resource](./media/virtual-network-support/create-private-endpoint-resource.png)
 
     | Field | Value |
     | :---- | :-----|
@@ -103,7 +103,7 @@ To set up a private endpoint, follow these steps:
  
     Click **Next : Tags**, and optionally provide any tags for your resource.
 
-    ![Configure the resource that a new private endpoint maps to](./media/virtual-network-support/create-private-endpoint-configuration.png)
+    ![Configure private endpoint](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
 6. Click **Review + create** and then **Create** to create your private endpoint resource.
 
@@ -137,7 +137,7 @@ You can request a private endpoint to a DPS resource by resource ID. In order to
 
 5. The DPS owner will see the private endpoint request in the **Private endpoint connections** list on DPS networking tab. On that page, the owner can **Approve** or **Reject** the private endpoint request as shown below.
 
-    ![DPS Properties tab](./media/virtual-network-support/approve-dps-private-endpoint.png)
+    ![DPS approval](./media/virtual-network-support/approve-dps-private-endpoint.png)
 
 
 ## Pricing private endpoints
@@ -150,5 +150,5 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 Use the links below to learn more about DPS security features:
 
-* [Security](concepts-security.md)
+* [Security](./concepts-service.md#attestation-mechanism)
 * [TLS 1.2 Support](tls-support.md)

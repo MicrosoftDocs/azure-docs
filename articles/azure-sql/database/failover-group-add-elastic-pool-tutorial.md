@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+ms.topic: tutorial
+author: stevestein
+ms.author: sstein
+ms.reviewer:
 ms.date: 08/27/2019
 ---
 # Tutorial: Add an Azure SQL Database elastic pool to a failover group

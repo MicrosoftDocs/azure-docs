@@ -1,4 +1,4 @@
-﻿---
+---
 title: Quickstart - Create an Azure Key Vault with Azure PowerShell
 description: Quickstart showing how to create an Azure Key Vault using Azure PowerShell
 services: key-vault
@@ -7,9 +7,8 @@ manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.subservice: secrets
+ms.subservice: general
 ms.topic: quickstart
-ms.custom: mvc
 ms.date: 11/08/2019
 ms.author: mbaldwin
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
@@ -50,13 +49,13 @@ Create a Key Vault in the resource group from the previous step. You will need t
 - The location: **EastUS**.
 
 ```azurepowershell-interactive
-New-AzKeyVault -Name "&lt;your-unique-key-vault-name&gt; -ResourceGroupName "myResourceGroup" -Location "East US"
+New-AzKeyVault -Name "<your-unique-key-vault-name>" -ResourceGroupName "myResourceGroup" -Location "East US"
 ```
 
 The output of this cmdlet shows properties of the newly created key vault. Take note of the two properties listed below:
 
 - **Vault Name**: The name you provided to the --name parameter above.
-- **Vault URI**: In the example, this is https://&lt;your-unique-keyvault-name&gt;.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+- **Vault URI**: In the example, this is https://<your-unique-keyvault-name>.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 
@@ -75,5 +74,5 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 In this quickstart you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](overview.md)
-- See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/?view=azps-2.6.0#key_vault)
+- See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)
 - Review [Azure Key Vault best practices](best-practices.md)

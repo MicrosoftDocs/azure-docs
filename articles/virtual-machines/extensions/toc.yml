@@ -52,12 +52,14 @@
       href: vmsnapshot-linux.md
     - name: Windows
       href: vmsnapshot-windows.md
-  - name: Network Watcher Agent
+  - name: Network Watcher Extension
     items:
     - name: Linux
       href: network-watcher-linux.md
     - name: Windows
       href: network-watcher-windows.md
+    - name: Update to latest version
+      href: network-watcher-update.md
   - name: InfiniBand Drivers
     items:
     - name: Linux
@@ -77,7 +79,7 @@
   - name: Azure Monitor
     items:
     - name: Azure Monitor agent
-      href: ../../azure-monitor/platform/azure-monitor-agent-overview.md?#install-the-azure-monitor-agent
+      href: ../../azure-monitor/platform/azure-monitor-agent-install.md
     - name: Diagnostics extension
       items:
       - name: Linux

@@ -212,6 +212,29 @@ This table provides details about storage-related fields.
 | VolumeFriendlyName             | Text          | Friendly name of the storage volume                          |
 | SourceSystem                   | Text          | Source system of the current data - Azure                    |
 
+## Valid Operation Names for each table
+
+Each record in the above tables has an associated **Operation Name**. An Operation Name describes the type of record (and also indicates which fields in the table are populated for that record). Each table (category) supports one or more distinct Operation Names. Below is a summary of the supported Operation Names for each of the above tables.
+
+| **Table Name / Category**                   | **Supported Operation Names** | **Description**              |
+| ------------------------------------------- | ------------------------------|----------------------------- |
+| CoreAzureBackup | BackupItem | Represents a record containing all details of a given backup item, such as ID, name, type, etc. |
+| CoreAzureBackup | BackupItemAssociation | Represents a mapping between a backup item and its associated protected container (if applicable). |
+| CoreAzureBackup | BackupItemFrontEndSizeConsumption | Represents a mapping between a backup item and its front end size. |
+| CoreAzureBackup | ProtectedContainer | Represents a record containing all details of a given protected container, such as ID, name, type etc. |
+| CoreAzureBackup | ProtectedContainerAssociation | Represents a mapping between a protected container and the vault used for its backup. |
+| CoreAzureBackup | Vault | Represents a record containing all details of a given vault eg. ID, name, tags, location etc. |
+| CoreAzureBackup | RecoveryPoint | Represents a record containing the oldest and latest recovery point for a given backup item. |
+| AddonAzureBackupJobs | Job |  Represents a record containing all details of a given job. For example, job operation, start time, status etc. |
+| AddonAzureBackupAlerts | Alert | Represents a record containing all details of a given alert. For example, alert creation time, severity, status etc.  |
+| AddonAzureBackupStorage | Storage | Represents a record containing all details of a given storage entity. For example, storage name, type etc. |
+| AddonAzureBackupStorage | StorageAssociation | Represents a mapping between a backup item and the total cloud storage consumed by the backup item. |
+| AddonAzureBackupProtectedInstance | ProtectedInstance | Represents a record containing the protected instance count for each container or backup item. For Azure VM backup, the protected instance count is available at the backup item level, for other workloads it is available at the protected container level. |
+| AddonAzureBackupPolicy | Policy |  Represents a record containing all details of a backup and retention policy. For example, ID, name, retention settings, etc. |
+| AddonAzureBackupPolicy | PolicyAssociation | Represents a mapping between a backup item and the backup policy applied to it. |   
+
+Often, you will need to perform joins between different tables as well as different sets of records that are part of the same table (differentiated by Operation Name) to get all the fields required for your analysis. Refer to the [sample queries](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries) to get started. 
+
 ## Next steps
 
 - [Learn how to send diagnostics data to Log Analytics](./backup-azure-diagnostic-events.md)

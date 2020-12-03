@@ -11,7 +11,7 @@ ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Check the Last Sync Time property for a storage account

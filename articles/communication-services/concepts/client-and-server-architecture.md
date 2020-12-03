@@ -7,7 +7,7 @@ manager: mikben
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -32,7 +32,7 @@ Azure Communication Services client libraries require `user access tokens` to ac
 
 :::image type="content" source="../media/scenarios/archdiagram-access.png" alt-text="Diagram showing user access token architecture.":::
 
-For additional information review [best identity management practices](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+For additional information review [best identity management practices](../../security/fundamentals/identity-management-best-practices.md)
 
 ## Browser communication
 

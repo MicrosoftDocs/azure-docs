@@ -20,7 +20,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 ## Create a Log Analytics workspace
 In the Azure portal, search for and then select **Log Analytics workspaces**. 
 
-![Azure portal](media/quick-create-workspace/azure-portal-01.png)
+![Screenshot of the Azure portal showing "log analytics workspaces" in the search box and Log Analytics workspaces highlighted under Services.](media/quick-create-workspace/azure-portal-01.png)
   
 Click **Add**, and then provide values for the **Resource group**, workspace **Name**, and **Location**. The workspace name must be unique across all Azure subscriptions.
 
@@ -32,7 +32,7 @@ Click **Review + create** to review the settings and then **Create** to create t
 ## Create diagnostic setting
 In the Azure portal, search for and then select **Monitor**. 
 
-![Azure portal](media/quick-collect-activity-log/azure-portal-monitor.png)
+![Screenshot of the Azure portal with "monitor" in the search box and Monitor highlighted under Services.](media/quick-collect-activity-log/azure-portal-monitor.png)
 
 Select **Activity log**. You should see recent events for the current subscription. Click **Diagnostic settings** to view diagnostic settings for the subscription.
 

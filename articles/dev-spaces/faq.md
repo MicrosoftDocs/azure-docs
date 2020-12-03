@@ -9,11 +9,13 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 
 # Frequently asked questions about Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 This addresses frequently asked questions about Azure Dev Spaces.
 
 ## What versions of Kubernetes are supported for Azure Dev Spaces?
 
-Azure Dev Spaces supports all [currently supported general availability (GA) versions of Kubernetes in AKS][aks-supported-k8s].
+Azure Dev Spaces supports [currently supported general availability (GA) versions of Kubernetes in AKS up to 1.18][aks-supported-k8s]. Kubernetes 1.19 and above on AKS uses ContainerD as the container runtime, which does not work with Azure Dev Spaces.
 
 ## Which Azure regions currently provide Azure Dev Spaces?
 
@@ -65,9 +67,9 @@ Yes, you can use Azure Dev Spaces on AKS clusters with [API server authorized IP
 
 Yes, you can use Azure Dev Spaces on AKS clusters with [restricted egress traffic for cluster nodes][aks-restrict-egress-traffic] enabled once the correct FQDNs have been allowed. More information on using an AKS clusters with restricted egress traffic for cluster nodes enabled with Azure Dev Spaces is available [here](configure-networking.md#ingress-and-egress-network-traffic-requirements).
 
-## Can I use Azure Dev Spaces on RBAC-enabled AKS clusters?
+## Can I use Azure Dev Spaces on Kubernetes RBAC-enabled AKS clusters?
 
-Yes, you can use Azure Dev Spaces on AKS clusters with or without RBAC enabled.
+Yes, you can use Azure Dev Spaces on AKS clusters with or without Kubernetes role-based access control (Kubernetes RBAC) enabled.
 
 ## What happens when I enable ingress for project in Visual Studio?
 

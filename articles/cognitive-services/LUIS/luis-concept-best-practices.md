@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.author: diberry
+
 ---
 # Best practices for building a language understanding (LUIS) app
 Use the app authoring process to build your LUIS app:
@@ -82,7 +82,7 @@ Learn about [effective machine learned entities](luis-concept-entity-types.md#ef
 
 ## Do build your app iteratively with versions
 
-Each authoring cycle should be within a new [version](luis-concept-version.md), cloned from an existing version.
+Each authoring cycle should be within a new [version](./luis-concept-app-iteration.md), cloned from an existing version.
 
 ## Do build for model decomposition
 

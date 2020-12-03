@@ -17,12 +17,15 @@ ms.custom: devx-track-csharp
 
 As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use. The REST API is very limited, and it should only be used in cases were the [Speech SDK](speech-sdk.md) cannot.
 
-Before using the speech-to-text REST API, understand:
+Before using the speech-to-text REST API, consider the following:
 
 * Requests that use the REST API and transmit audio directly can only contain up to 60 seconds of audio.
 * The speech-to-text REST API only returns final results. Partial results are not provided.
 
 If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or a file-based REST API, like [batch transcription](batch-transcription.md).
+
+> [!TIP]
+> See the  Azure government [documentation](../../azure-government/compare-azure-government-global-azure.md) for government cloud (FairFax) endpoints.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -50,7 +53,7 @@ These parameters may be included in the query string of the REST request.
 | `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include four different representations of display text. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
-| `cid` | When using the [Custom Speech portal](how-to-custom-speech.md) to create custom models, you can use custom models via their **Endpoint ID** found on the **Deployment** page. Use the **Endpoint ID** as the argument to the `cid` query string parameter. | Optional |
+| `cid` | When using the [Custom Speech portal](./custom-speech-overview.md) to create custom models, you can use custom models via their **Endpoint ID** found on the **Deployment** page. Use the **Endpoint ID** as the argument to the `cid` query string parameter. | Optional |
 
 ## Request headers
 
@@ -82,10 +85,10 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 
 This table lists required and optional parameters for pronunciation assessment.
 
-| Parameter | Description | Required / Optional |
+| Parameter | Description | Required? |
 |-----------|-------------|---------------------|
 | ReferenceText | The text that the pronunciation will be evaluated against. | Required |
-| GradingSystem | The point system for score calibration. Accepted values are `FivePoint` and `HundredMark`. The default setting is `FivePoint`. | Optional |
+| GradingSystem | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | Optional |
 | Granularity | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on the full text, word and phoneme level, `Word`, which shows the score on the full text and word level, `FullText`, which shows the score on the full text level only. The default setting is `Phoneme`. | Optional |
 | Dimension | Defines the output criteria. Accepted values are `Basic`, which shows the accuracy score only, `Comprehensive` shows scores on more dimensions (e.g. fluency score and completeness score on the full text level, error type on word level). Check [Response parameters](#response-parameters) to see definitions of different score dimensions and word error types. The default setting is `Basic`. | Optional |
 | EnableMiscue | Enables miscue calculation. With this enabled, the pronounced words will be compared to the reference text, and will be marked with omission/insertion based on the comparison. Accepted values are `False` and `True`. The default setting is `False`. | Optional |
@@ -299,5 +302,5 @@ A typical response for recognition with pronunciation assessment:
 ## Next steps
 
 - [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Customize acoustic models](./how-to-custom-speech-train-model.md)
+- [Customize language models](./how-to-custom-speech-train-model.md)

@@ -82,13 +82,13 @@ This tutorial teaches the development steps for Visual Studio 2019. If you are u
 
 1. Prepare Visual Studio 2019 on your development machine.
 
-   * If you don't already have Visual Studio on your development machine, [Install Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) with the following workloads:
+   * If you don't already have Visual Studio on your development machine, [Install Visual Studio 2019](/visualstudio/install/install-visual-studio) with the following workloads:
 
       * Azure development
       * Desktop development with C++
       * .NET Core cross-platform development
 
-   * If you do already have Visual Studio 2019 on your development machine, follow the steps in [Modify Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) to add the required workloads.
+   * If you do already have Visual Studio 2019 on your development machine, follow the steps in [Modify Visual Studio](/visualstudio/install/modify-visual-studio) to add the required workloads.
 
 2. Download and install the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension for Visual Studio 2019.
 
@@ -176,17 +176,17 @@ The solution template that you created includes sample code for an IoT Edge modu
 
 Each module can have multiple *input* and *output* queues declared in their code. The IoT Edge hub running on the device routes messages from the output of one module into the input of one or more modules. The specific code for declaring inputs and outputs varies between languages, but the concept is the same across all modules. For more information about routing between modules, see [Declare routes](module-composition.md#declare-routes).
 
-The sample C# code that comes with the project template uses the [ModuleClient Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) from the IoT Hub SDK for .NET.
+The sample C# code that comes with the project template uses the [ModuleClient Class](/dotnet/api/microsoft.azure.devices.client.moduleclient) from the IoT Hub SDK for .NET.
 
 1. In the **program.cs** file, find the **SetInputMessageHandlerAsync** method.
 
-2. The [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) method sets up an input queue to receive incoming messages. Review this method and see how it initializes an input queue called **input1**.
+2. The [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) method sets up an input queue to receive incoming messages. Review this method and see how it initializes an input queue called **input1**.
 
    ![Find the input name in the SetInputMessageHandlserAsync constructor](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
 3. Next, find the **SendEventAsync** method.
 
-4. The [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) method processes received messages and sets up an output queue to pass them along. Review this method and see that it initializes an output queue called **output1**.
+4. The [SendEventAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync) method processes received messages and sets up an output queue to pass them along. Review this method and see that it initializes an output queue called **output1**.
 
    ![Find the output name in the SendEventAsync constructor](./media/tutorial-develop-for-windows/declare-output-queue.png)
 
@@ -270,7 +270,7 @@ If you encounter errors when building and pushing your module image, it often ha
 
 You verified that the built container images are stored in your container registry, so it's time to deploy them to a device. Make sure that your IoT Edge device is up and running.
 
-1. Open the Cloud Explorer in Visual Studio and expand the details for your IoT hub.
+1. Open Cloud Explorer in Visual Studio and expand the details for your IoT hub.
 
 2. Select the name of the device that you want to deploy to. In the **Actions** list, select **Create Deployment**.
 
@@ -280,7 +280,7 @@ You verified that the built container images are stored in your container regist
 
    Do not use the deployment.template.json file, which doesn't have the full module image values in it.
 
-4. Expand the details for your IoT Edge device in the Cloud Explorer to see the modules on your device.
+4. Expand the details for your IoT Edge device in Cloud Explorer to see the modules on your device.
 
 5. Use the **Refresh** button to update the device status to see that the SimulatedTemperatureSensor and IotEdgeModule1 modules are deployed your device.
 
@@ -290,7 +290,7 @@ You verified that the built container images are stored in your container regist
 
 The IotEdgeModule1 code receives messages through its input queue and passes them along through its output queue. The deployment manifest declared routes that passed messages from SimulatedTemperatureSensor to IotEdgeModule1, and then forwarded messages from IotEdgeModule1 to IoT Hub. The Azure IoT Edge tools for Visual Studio allow you to see messages as they arrive at IoT Hub from your individual devices.
 
-1. In the Visual Studio cloud explorer, select the name of the IoT Edge device that you deployed to.
+1. In Visual Studio Cloud Explorer, select the name of the IoT Edge device that you deployed to.
 
 2. In the **Actions** menu, select **Start Monitoring Built-in Event Endpoint**.
 

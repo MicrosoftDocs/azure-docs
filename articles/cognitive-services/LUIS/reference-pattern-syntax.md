@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.author: diberry
+
 ---
 
 # Pattern syntax

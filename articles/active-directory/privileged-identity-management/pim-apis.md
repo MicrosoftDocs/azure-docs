@@ -45,7 +45,7 @@ If you are using the Graph Explorer to test your calls, you can specify the perm
 
 1. Click **modify permissions**.
 
-    ![Graph Explorer - modify permissions](./media/pim-apis/graph-explorer.png)
+    ![Screenshot that shows the "Graph Explorer" page with the "modify permissions" action selected.](./media/pim-apis/graph-explorer.png)
 
 1. Select the checkboxes next to the permissions you want to include. `PrivilegedAccess.ReadWrite.AzureAD` is not yet available in Graph Explorer.
 

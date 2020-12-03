@@ -20,7 +20,7 @@ You can convert a VHDX file to VHD, convert a dynamically
 expanding disk to a fixed-size disk, but you can't change a VM's generation. For more information,
 see
 [Should I create a generation 1 or 2 VM in Hyper-V?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V)
-and [Support for generation 2 VMs on Azure](generation-2.md).
+and [Support for generation 2 VMs on Azure](../generation-2.md).
 
 For information about the support policy for Azure VMs, see
 [Microsoft server software support for Azure VMs](https://support.microsoft.com/help/2721672/).
@@ -77,7 +77,7 @@ After the SFC scan completes, install Windows Updates and restart the computer.
    ```
 
     If the VM needs to work with a specific proxy, add a proxy exception for the Azure IP address
-    ([168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16))
+    ([168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md))
     so the VM can connect to Azure:
 
     ```
@@ -445,7 +445,7 @@ To create only one VM from one disk, you don't have to use Sysprep. Instead, you
 from a *specialized image*. For information about how to create a VM from a specialized disk, see:
 
 - [Create a VM from a specialized disk](create-vm-specialized.md)
-- [Create a VM from a specialized VHD disk](/azure/virtual-machines/windows/create-vm-specialized-portal)
+- [Create a VM from a specialized VHD disk](./create-vm-specialized-portal.md)
 
 To create a generalized image, you need to run Sysprep. For more information, see
 [How to use Sysprep: An introduction](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
@@ -466,6 +466,7 @@ In particular, Sysprep requires the drives to be fully decrypted before executio
 
 1. Sign in to the Windows VM.
 1. Run a PowerShell session as an administrator.
+1. Delete the panther directory (C:\Windows\Panther).
 1. Change the directory to `%windir%\system32\sysprep`. Then run `sysprep.exe`.
 1. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience
    (OOBE)**, and make sure the **Generalize** checkbox is selected.
@@ -477,7 +478,7 @@ In particular, Sysprep requires the drives to be fully decrypted before executio
 
 Now the VHD is ready to be uploaded. For more information about how to create a VM from a
 generalized disk, see
-[Upload a generalized VHD and use it to create a new VM in Azure](sa-upload-generalized.md).
+[Upload a generalized VHD and use it to create a new VM in Azure](/previous-versions/azure/virtual-machines/windows/sa-upload-generalized).
 
 >[!NOTE]
 > A custom *unattend.xml* file is not supported. Although we do support the
@@ -485,7 +486,7 @@ generalized disk, see
 > [microsoft-windows-shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup)
 > options into the *unattend.xml* file that the Azure provisioning agent uses. You can use, for
 > example,
-> [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet)
+> [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true)
 > to add FirstLogonCommands and LogonCommands. For more information, see
 > [additionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
@@ -525,7 +526,7 @@ Use one of the methods in this section to convert and resize your virtual disk t
 ### Use PowerShell to convert the disk
 
 You can convert a virtual disk using the [Convert-VHD](/powershell/module/hyper-v/convert-vhd)
-cmdlet in PowerShell. If you need information about installing this cmdlet see [Install the Hyper-V role](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+cmdlet in PowerShell. If you need information about installing this cmdlet see [Install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 The following example converts the disk from VHDX to VHD. It also converts the disk from a
 dynamically expanding disk to a fixed-size disk.
@@ -550,7 +551,7 @@ disk.
 ### Use PowerShell to resize the disk
 
 You can resize a virtual disk using the [Resize-VHD](/powershell/module/hyper-v/resize-vhd)
-cmdlet in PowerShell. If you need information about installing this cmdlet see [Install the Hyper-V role](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+cmdlet in PowerShell. If you need information about installing this cmdlet see [Install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 The following example resizes the disk from 100.5 MiB to 101 MiB to meet the Azure alignment requirement.
 
@@ -563,7 +564,7 @@ to resize. Replace the value for **SizeBytes** with the new size in bytes for th
 
 ### Convert from VMware VMDK disk format
 
-If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), then you can use [Azure Migrate](https://docs.microsoft.com/azure/migrate/server-migrate-overview) to convert the VMDK and upload it to Azure.
+If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), then you can use [Azure Migrate](../../migrate/server-migrate-overview.md) to convert the VMDK and upload it to Azure.
 
 ## Complete the recommended configurations
 
@@ -593,4 +594,4 @@ configured them.
 ## Next steps
 
 - [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)
-- [Troubleshoot Azure Windows VM activation problems](troubleshoot-activation-problems.md)
+- [Troubleshoot Azure Windows VM activation problems](../troubleshooting/troubleshoot-activation-problems.md)

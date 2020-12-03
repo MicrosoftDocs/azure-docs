@@ -5,13 +5,15 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
 ---
 # Monitor and debug with metrics in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB provides metrics for throughput, storage, consistency, availability, and latency. The Azure portal provides an aggregated view of these metrics. You can also view Azure Cosmos DB metrics from Azure Monitor API. The dimension values for the metrics such as container name are case-insensitive. So you need to use case-insensitive comparison when doing string comparisons on these dimension values. To learn about how to view metrics from Azure monitor, see the [Get metrics from Azure Monitor](cosmos-db-azure-monitor-metrics.md) article.
+Azure Cosmos DB provides metrics for throughput, storage, consistency, availability, and latency. The Azure portal provides an aggregated view of these metrics. You can also view Azure Cosmos DB metrics from Azure Monitor API. The dimension values for the metrics such as container name are case-insensitive. So you need to use case-insensitive comparison when doing string comparisons on these dimension values. To learn about how to view metrics from Azure monitor, see the [Get metrics from Azure Monitor](./monitor-cosmos-db.md) article.
 
 This article walks through common use cases and how Azure Cosmos DB metrics can be used to analyze and debug these issues. Metrics are collected every five minutes and are kept for seven days.
 
@@ -35,7 +37,7 @@ The following metrics are available from the **Metrics** pane:
 
 * **Consistency metrics** - This metric shows how eventual is the consistency for the consistency model you choose. For multi-region accounts, this metric also shows the replication latency between the regions you have selected.
 
-* **System metrics** - This metric shows how many metadata requests are served by the master partition. It also helps to identify the throttled requests.
+* **System metrics** - This metric shows how many metadata requests are served by the primary partition. It also helps to identify the throttled requests.
 
 The following sections explain common scenarios where you can use Azure Cosmos DB metrics. 
 
@@ -53,7 +55,7 @@ Having a good cardinality of your partition keys is essential for any scalable a
 
 :::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Single partition seeing heavy usage":::
 
-An uneven throughput distribution may cause *hot* partitions, which can result in throttled requests and may require repartitioning. For more information about partitioning in Azure Cosmos DB, see [Partition and scale in Azure Cosmos DB](./partition-data.md).
+An uneven throughput distribution may cause *hot* partitions, which can result in throttled requests and may require repartitioning. For more information about partitioning in Azure Cosmos DB, see [Partition and scale in Azure Cosmos DB](./partitioning-overview.md).
 
 ## Determine the storage distribution across partitions
 
@@ -65,7 +67,7 @@ You can root cause which partition key is skewing the distribution by clicking o
 
 :::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Partition key is skewing the distribution":::
 
-After identifying which partition key is causing the skew in distribution, you may have to repartition your container with a more distributed partition key. For more information about partitioning in Azure Cosmos DB, see [Partition and scale in Azure Cosmos DB](./partition-data.md).
+After identifying which partition key is causing the skew in distribution, you may have to repartition your container with a more distributed partition key. For more information about partitioning in Azure Cosmos DB, see [Partition and scale in Azure Cosmos DB](./partitioning-overview.md).
 
 ## Compare data size against index size
 
@@ -106,6 +108,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 You've now learned how to monitor and debug issues using the metrics provided in the Azure portal. You may want to learn more about improving database performance by reading the following articles:
 
-* To learn about how to view metrics from Azure monitor, see the [Get metrics from Azure Monitor](cosmos-db-azure-monitor-metrics.md) article. 
+* To learn about how to view metrics from Azure monitor, see the [Get metrics from Azure Monitor](./monitor-cosmos-db.md) article. 
 * [Performance and scale testing with Azure Cosmos DB](performance-testing.md)
 * [Performance tips for Azure Cosmos DB](performance-tips.md)

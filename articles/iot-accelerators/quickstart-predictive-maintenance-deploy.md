@@ -49,7 +49,7 @@ When the deployment to your Azure subscription is complete, you see a green chec
 
 On the **Provisioned solutions** page, click your new Predictive Maintenance solution accelerator.
 
-![Solution panel](./media/quickstart-predictive-maintenance-deploy/solution.png)
+![Screenshot that shows the "Provisioned solutions" page with the "Predictive Maintenance" solution accelerator highlighted.](./media/quickstart-predictive-maintenance-deploy/solution.png)
 
  You can view information about the solution accelerator in the page that appears. Choose **Go to your solution accelerator** to view your Predictive Maintenance solution accelerator:
 

@@ -1,6 +1,6 @@
 ---
 title: Import an API App as an API with the Azure portal  | Microsoft Docs
-description: This tutorial shows you how to use API Management (APIM) to import API App as an API.
+description: This article shows you how to use API Management (APIM) to import API App as an API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,7 +10,7 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
 
@@ -52,7 +52,7 @@ In this article, you learn how to:
 
     * **Starter**
     * **Unlimited**   
-7. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#-import-and-publish-a-backend-api) tutorial.
+7. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 8. Select **Create**.
 
 ## Test the new API in the Azure portal

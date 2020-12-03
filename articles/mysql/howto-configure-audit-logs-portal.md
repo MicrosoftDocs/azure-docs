@@ -1,11 +1,11 @@
 ---
 title: Access audit logs - Azure portal - Azure Database for MySQL
 description: This article describes how to configure and access the audit logs in Azure Database for MySQL from the Azure portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/24/2020
+ms.date: 9/29/2020
 ---
 
 # Configure and access audit logs for Azure Database for MySQL in the Azure portal
@@ -38,7 +38,7 @@ Enable and configure audit logging.
 1. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_events** parameter.
     :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-events.png" alt-text="Audit log events":::
 
-1. Add any MySQL users to be excluded from logging by updating the **audit_log_exclude_users** parameter. Specify users by providing their MySQL user name.
+1. Add any MySQL users to be included or excluded from logging by updating the **audit_log_exclude_users** and **audit_log_include_users** parameters. Specify users by providing their MySQL user name.
     :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png" alt-text="Audit log exclude users":::
 
 1. Once you have changed the parameters, you can click **Save**. Or you can **Discard** your changes.

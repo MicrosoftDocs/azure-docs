@@ -2,7 +2,7 @@
 title: Create and deploy template spec
 description: Learn how to create a template spec from ARM template. Then, deploy the template spec to a resource group in your subscription.
 author: tfitzmac
-ms.date: 09/25/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.author: tomfitz
 ---
@@ -16,17 +16,37 @@ This quickstart shows you how to package an Azure Resource Manager template (ARM
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Template Specs is currently in preview. To use it, you must [sign up for the wait list](https://aka.ms/templateSpecOnboarding).
->
-> After getting approved from the wait list, you'll get instructions for installing the preview PowerShell module and the preview CLI module.
+> Template Specs is currently in preview. To use it with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 ## Create template spec
 
-The template spec is a new resource type named **Microsoft.Resources/templateSpecs**. To create your template spec, you can use Azure PowerShell, Azure CLI, or an ARM template. In all options, you need an ARM template that is packaged within the template spec.
+The template spec is a resource type named **Microsoft.Resources/templateSpecs**. To create your template spec, you can use the Azure portal, Azure PowerShell, Azure CLI, or an ARM template. In all options, you need an ARM template that is packaged within the template spec.
 
-With PowerShell and CLI , the ARM template is passed in as a parameter to the command. With ARM template, the ARM template to package within the template spec is embedded within the template spec definition.
+With PowerShell and CLI, the ARM template is passed in as a parameter to the command. With ARM template, the ARM template to package within the template spec is embedded within the template spec definition.
 
 These options are shown below.
+
+# [Portal](#tab/azure-portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. From the top of the screen, in **Search resources, services and docs**, enter **template specs**, and then select **Template specs**.
+1. Select **Create template spec**.
+1. Select or enter the following values:
+
+    - **Name**: enter a name for the template spec.  For example, **storageSpec**
+    - **Subscription**: select an Azure subscription used for creating the template spec.
+    - **Resource Group**: select **Create new**, and then enter a new resource group name.  For example, **templateSpecRG**.
+    - **Location**: select a location for the resource group. For example,  **West US 2**.
+    - **Version**: enter a version for the template spec. For example, **1.0**, or **v1.0**.
+
+1. Select **Next: Edit Template**.
+1. Replace the template content with the following JSON:
+
+    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+    This is the template  that will be packaged within the template spec.
+1. Select **Review + Create**.
+1. Select **Create**.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -83,7 +103,7 @@ These options are shown below.
 1. When you use an ARM template to create the template spec, the template is embedded in the resource definition. Copy the following template and save it locally as **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
 
     > [!NOTE]
-    > In the embedded template, all left brackets must be escaped with a second left bracket. Use `[[` instead of `[`.
+    > In the embedded template, all [template expressions](template-expressions.md) must be escaped with a second left bracket. Use `"[[` instead of `"[`. JSON arrays still use a single left bracket.
 
     ```json
     {
@@ -200,7 +220,23 @@ These options are shown below.
 
 ## Deploy template spec
 
-You can now deploy the template spec. Deploying the template spec is just like deploying the template it contains, except that you pass in the resource ID of the template spec. You use the same deployment commands, and if needed, pass in parameter values for the template spec.
+You can now deploy the template spec. Deploying the template spec is just like deploying the template it contains, except that you pass in the resource ID of the template spec in Azure PowerShell or Azure CLI. You use the same deployment commands, and if needed, pass in parameter values for the template spec.
+
+# [Portal](#tab/azure-portal)
+
+1. From the Azure portal, open the resource group that you created in the last procedure.  For example **templateSpecRG**.
+1. Select the template spec you created. For example, **storageSpec**.
+1. Select **Deploy**.
+1. Select or enter the following values:
+
+    - **Subscription**: select an Azure subscription for creating the resource.
+    - **Resource group**: select **Create new** and then enter **storageRG**.
+    - **Storage Account Type**: select **Standard_GRS**.
+
+    You create a new resource group, and deploy the template within the template spec to the new resource group.
+
+1. Select **Review + create**.
+1. Select **Create**.
 
 # [PowerShell](#tab/azure-powershell)
 

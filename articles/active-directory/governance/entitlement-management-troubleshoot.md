@@ -144,7 +144,7 @@ You can only cancel a pending request that has not yet been delivered or whose d
     | P1 | Specific users and groups in your directory OR Specific connected organizations |
     | P2 | All members in your directory (excluding guests) |
     | P3 | All users in your directory (including guests) OR Specific connected organizations |
-    | P4 | All connected organizations OR All users (all connected organizations + any new external users) |
+    | P4 | All configured connected organizations OR All users (all connected organizations + any new external users) |
     
     If any policy is in a higher priority category, the lower priority categories are ignored. For an example of how multiple policies with same priority are displayed to the requestor, see [Select a policy](entitlement-management-request-access.md#select-a-policy).
 

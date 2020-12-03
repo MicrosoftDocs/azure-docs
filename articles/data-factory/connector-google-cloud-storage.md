@@ -8,7 +8,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/14/2020
 ms.author: jingwang
 ---
 
@@ -42,7 +42,11 @@ The following setup is required on your Google Cloud Storage account:
 
 ## Required permissions
 
-To copy data from Google Cloud Storage, make sure you have granted the needed permissions. The permissions defined in the service account might contain `storage.buckets.get`, `storage.buckets.list`, or `storage.objects.get` for object operations.
+To copy data from Google Cloud Storage, make sure you've been granted the following permissions for object operations: ` storage.objects.get` and ` storage.objects.list`.
+
+If you use Data Factory UI to author, additional ` storage.buckets.list` permission is required for operations like testing connection to linked service and browsing from root. If you don't want to grant this permission, you can choose "Test connection to file path" or "Browse from specified path" options from the UI.
+
+For the full list of Google Cloud Storage roles and associated permissions, see [IAM roles for Cloud Storage](https://cloud.google.com/storage/docs/access-control/iam-roles) on the Google Cloud site.
 
 ## Getting started
 

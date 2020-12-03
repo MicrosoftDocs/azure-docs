@@ -21,6 +21,10 @@
         href: quick-create-simulated-device-symm-key.md
       - name: Java
         href: quick-create-simulated-device-symmetric-key-java.md
+      - name: C#
+        href: quick-create-device-symmetric-key-csharp.md
+      - name: Node.js
+        href: quick-create-device-symmetric-key-node.md
       - name: Python
         href: quick-create-device-symmetric-key-python.md
   - name: Provision a X.509 certificate device
@@ -38,15 +42,19 @@
 - name: Tutorials
   items:
   - name: 1 - Provision sets of devices with enrollment groups
-    href: how-to-legacy-device-symm-key.md
+    items:
+     - name: Provision devices with symmetric keys
+       href: how-to-legacy-device-symm-key.md
+     - name: Use custom allocation policies
+       href: tutorial-custom-allocation-policies.md
+     - name: Provision multiple X.509 devices
+       href: tutorial-custom-hsm-enrollment-group-x509.md
   - name: 2 - Provision devices to multiple hubs
     items:
      - name: Link multiple hubs to DPS
        href: tutorial-provision-multiple-hubs.md
      - name: Provision for multitenancy
        href: how-to-provision-multitenant.md
-     - name: Use custom allocation policies
-       href: how-to-use-custom-allocation-policies.md
 - name: Samples
   items:
   - name: Simulated TPM device attestation sample
@@ -109,6 +117,8 @@
   items:
   - name: Connect MXChip IoT DevKit to IoT Hub
     href: how-to-connect-mxchip-iot-devkit.md
+  - name: Provision devices using custom allocation policies
+    href: how-to-use-custom-allocation-policies.md
   - name: Manage Device Provisioning Service
     items:
     - name: Manage enrollments - Portal
@@ -170,31 +180,31 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: /azure/iot-fundamentals/iot-support-help
+    href: ../iot-fundamentals/iot-support-help.md
   - name: Azure IoT services
     items:
     - name: IoT Hub
-      href: /azure/iot-hub
+      href: ../iot-hub/index.yml
     - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
+      href: ./index.yml
     - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
+      href: /microsoft-iot-central/
     - name: IoT Edge
-      href: /azure/iot-edge
+      href: ../iot-edge/index.yml
     - name: IoT solution accelerators
-      href: /azure/iot-accelerators
+      href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: /azure/iot-pnp
+      href: ../iot-pnp/index.yml
     - name: Azure Maps
-      href: /azure/azure-maps
+      href: ../azure-maps/index.yml
     - name: Time Series Insights
-      href: /azure/time-series-insights
+      href: ../time-series-insights/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
     - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
   - name: Azure IoT samples
     items:
     - name: C# (.NET)

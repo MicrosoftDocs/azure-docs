@@ -50,7 +50,7 @@ Use `az keyvault key create` command to create a key.
 
 ### Create an RSA key
 
-The example below shows how to create a 3070-bit **RSA** key that will be only used for **wrapKey, unwrapKey** operations (--ops). 
+The example below shows how to create a 3072-bit **RSA** key that will be only used for **wrapKey, unwrapKey** operations (--ops). 
 
 
 ```azurecli-interactive
@@ -79,7 +79,7 @@ az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec25
 
 ### Create a 256-bit symmetric key
 
-The example below shows how to create a 3070-bit **symmetric** key that will be only used for **encrypt and decrypt** operations (--ops).
+The example below shows how to create a 256-bit **symmetric** key that will be only used for **encrypt and decrypt** operations (--ops).
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decrypt  --tags --kty oct-HSM --size 256
@@ -87,7 +87,7 @@ az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decr
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops encrypt decrypt  --tags ‘usage=signing] appname=myapp’ --kty oct-HSM --size 256
 ```
 
 ## View key attributes and tags

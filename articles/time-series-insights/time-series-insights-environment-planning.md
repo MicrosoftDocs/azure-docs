@@ -9,11 +9,14 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
 ---
 
 # Plan your Azure Time Series Insights Gen1 environment
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This article describes how to plan your Azure Time Series Insights Gen1 environment based on your expected ingress rate and your data retention requirements.
 
@@ -43,12 +46,12 @@ By default, Azure Time Series Insights retains data based on the amount of stora
 
 ## Data retention
 
-You can change the **Data retention time** setting in your Azure Time Series Insights environment. You can enable up to 400 days of retention. 
+You can change the **Data retention time** setting in your Azure Time Series Insights environment. You can enable up to 400 days of retention.
 
 Azure Time Series Insights has two modes:
 
-* One mode optimizes for the most up-to-date data. It enforces a policy to **Purge old data** leaving recent data available with the instance. This mode is on, by default. 
-* The other optimizes data to remain below the configured retention limits. **Pause ingress** prevents new data from being ingressed when it's selected as the **Storage limit exceeded behavior**.
+- One mode optimizes for the most up-to-date data. It enforces a policy to **Purge old data** leaving recent data available with the instance. This mode is on, by default.
+- The other optimizes data to remain below the configured retention limits. **Pause ingress** prevents new data from being ingressed when it's selected as the **Storage limit exceeded behavior**.
 
 You can adjust retention and toggle between the two modes on the environment's configuration page in the Azure portal.
 
@@ -78,13 +81,13 @@ The second area to focus on for planning your Azure Time Series Insights environ
 
 You can increase the capacity of an S1 or S2 SKU to 10 units in a single environment. You can't migrate from an S1 environment to an S2. You can't migrate from an S2 environment to an S1.
 
-For ingress capacity, first determine the total ingress you require on a per-month basis. Next, determine what your per-minute needs are. 
+For ingress capacity, first determine the total ingress you require on a per-month basis. Next, determine what your per-minute needs are.
 
 Throttling and latency play a role in per-minute capacity. If you have a spike in your data ingress that lasts less than 24 hours, Azure Time Series Insights can "catch up" at an ingress rate of two times the rates listed in the preceding table.
 
 For example, if you have a single S1 SKU, you ingress data at a rate of 720 events per minute, and the data rate spikes for less than one hour at a rate of 1,440 events or less, there's no noticeable latency in your environment. However, if you exceed 1,440 events per minute for more than one hour, you likely will experience latency in data that is visualized and available for query in your environment.
 
-You might not know in advance how much data you expect to push. In this case, you can find data telemetry for [Azure IoT Hub](../iot-hub/iot-hub-metrics.md) and [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) in your Azure portal subscription. The telemetry can help you determine how to provision your environment. Use the **Metrics** pane in the Azure portal for the respective event source to view its telemetry. If you understand your event source metrics, you can more effectively plan and provision your Azure Time Series Insights environment.
+You might not know in advance how much data you expect to push. In this case, you can find data telemetry for [Azure IoT Hub](../iot-hub/monitor-iot-hub.md) and [Azure Event Hubs](/archive/blogs/cloud_solution_architect/using-the-azure-rest-apis-to-retrieve-event-hub-metrics) in your Azure portal subscription. The telemetry can help you determine how to provision your environment. Use the **Metrics** pane in the Azure portal for the respective event source to view its telemetry. If you understand your event source metrics, you can more effectively plan and provision your Azure Time Series Insights environment.
 
 ### Calculate ingress requirements
 
@@ -120,6 +123,6 @@ To learn more about how to create, upload, and manage your reference data in Azu
 
 - Get started by creating [a new Azure Time Series Insights environment in the Azure portal](time-series-insights-get-started.md).
 
-- Learn how to [add an Event Hubs event source](time-series-insights-how-to-add-an-event-source-eventhub.md) to Azure Time Series Insights.
+- Learn how to [add an Event Hubs event source](./how-to-ingest-data-event-hub.md) to Azure Time Series Insights.
 
-- Read about how to [configure an IoT Hub event source](time-series-insights-how-to-add-an-event-source-iothub.md).
+- Read about how to [configure an IoT Hub event source](./how-to-ingest-data-iot-hub.md).

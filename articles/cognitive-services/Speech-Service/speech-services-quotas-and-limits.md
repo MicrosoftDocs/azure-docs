@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/04/2020
 ms.author: alexeyo
 ---
 
@@ -19,19 +19,35 @@ This article contains a quick reference and the **detailed description** of Azur
 ## Quotas and Limits quick reference
 Jump to [Text-to-Speech Quotas and limits](#text-to-speech-quotas-and-limits-per-speech-resource)
 ### Speech-to-Text Quotas and Limits per Speech resource
-In the table below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
+In the tables below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
+
+#### Online Transcription
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Online Transcription Concurrent Request limit (Base and Custom models)** |  |  |
-| Default value | 1 | 20 |
+| **Concurrent Request limit (Base and Custom models)** | 1 | 20 (default value) |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
-| **REST API Request limit ([API Management](../../api-management/api-management-key-concepts.md) endpoints)** | 100 requests per 10 seconds | 100 requests per 10 seconds |
-| **Max dataset file size for Data Import** | 2 GB | 2 GB |
-| **Max input blob size for Batch Transcription** | N/A | 2.5 GB |
-| **Max blob container size for Batch Transcription** | N/A | 5 GB |
-| **Max number of blobs per container for Batch Transcription** | N/A | 10000 |
-| **Max number of simultaneously running jobs for Batch Transcription** | N/A | 2000  |
+
+#### Batch Transcription
+| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| REST API limit | Batch transcription is not available for F0 | 300 requests per minute |
+| Max audio input file size | N/A | 1 GB |
+| Max input blob size (may contain more than one file, for example, in a zip archive; ensure to note the file size limit above) | N/A | 2.5 GB |
+| Max blob container size | N/A | 5 GB |
+| Max number of blobs per container | N/A | 10000 |
+| Max number of files per Transcription request (when using multiple content URLs as input) | N/A | 1000  |
+| Max number of simultaneously running jobs | N/A | 2000  |
+
+#### Model Customization
+| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| REST API limit | 300 requests per minute | 300 requests per minute |
+| Max number of speech datasets | 2 | 500 |
+| Max acoustic dataset file size for Data Import | 2 GB | 2 GB |
+| Max language dataset file size for Data Import | 200 MB | 1.5 GB |
+| Max pronunciation dataset file size for Data Import | 1 KB | 1 MB |
+| Max text size when using `text` parameter in [Create Model](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) API request | 200 KB | 500 KB |
 
 <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
@@ -51,7 +67,7 @@ In the table below Parameters without "Adjustable" row are **not** adjustable fo
 | **Websocket specific quotas** |  |  |
 |Max Audio length produced per turn | 10 min | 10 min |
 |Max SSML Message size per turn |64 KB |64 KB |
-| **REST API Request limit** | 20 requests per minute | 25 requests per 5 seconds |
+| **REST API limit** | 20 requests per minute | 25 requests per 5 seconds |
 
 
 <sup>3</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

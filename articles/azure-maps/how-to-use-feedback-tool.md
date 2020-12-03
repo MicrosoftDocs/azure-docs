@@ -62,4 +62,4 @@ You can also track the status of your request by checking the "I want to track s
 
 To post any technical questions related to Azure Maps, visit:
 
-* [Microsoft Q & A](https://docs.microsoft.com/answers/topics/azure-maps.html)
+* [Microsoft Q & A](/answers/topics/azure-maps.html)

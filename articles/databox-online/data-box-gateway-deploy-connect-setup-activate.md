@@ -122,7 +122,7 @@ Your dashboard displays the various settings that are required to configure and 
     
     3. The device is activated and critical updates, if available, are automatically applied. You see a notification to that effect. Monitor the update progress via the Azure portal.
 
-        ![Local web UI "Cloud settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
+        ![Local web UI "Cloud settings" page 2](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
         
         **The dialog also has a recovery key that you should copy and save in a safe location. This key is used to recover your data in the event the device can't boot up.**
 

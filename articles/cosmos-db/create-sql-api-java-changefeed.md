@@ -12,6 +12,7 @@ ms.custom: devx-track-java
 ---
 
 # How to create a Java application that uses Azure Cosmos DB SQL API and change feed processor
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This how-to guide walks you through a simple Java application which uses the Azure Cosmos DB SQL API to insert documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed and Change Feed Processor. The Java application communicates with the Azure Cosmos DB SQL API using Azure Cosmos DB Java SDK v4.
 

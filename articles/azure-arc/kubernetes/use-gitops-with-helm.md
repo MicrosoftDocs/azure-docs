@@ -13,7 +13,7 @@ keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Serv
 
 # Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster (Preview)
 
-Helm is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as APT and Yum, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
+Helm is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as APT and Yum, Helm is used to manage Kubernetes charts, which are packages of pre-configured Kubernetes resources.
 
 This article shows you how to configure and use Helm with Azure Arc enabled Kubernetes.
 
@@ -21,33 +21,13 @@ This article shows you how to configure and use Helm with Azure Arc enabled Kube
 
 This article assumes that you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [connect a cluster quickstart](./connect-cluster.md).
 
-Let's first set environment variables to use throughout this tutorial. You'll need the resource group name and cluster name for your connected cluster.
-
-```bash
-export RESOURCE_GROUP=<Resource_Group_Name>
-export CLUSTER_NAME=<ClusterName>
-```
-
-## Verify your cluster is enabled with Arc
-
-```bash
-az connectedk8s list -g $RESOURCE_GROUP -o table
-```
-
-Output:
-```bash
-Name           Location    ResourceGroup
--------------  ----------  ---------------
-arc-helm-demo  eastus      k8s-clusters
-```
-
 ## Overview of using GitOps and Helm with Azure Arc enabled Kubernetes
 
  The Helm operator provides an extension to Flux that automates Helm Chart releases. A Chart release is described through a Kubernetes custom resource named HelmRelease. Flux synchronizes these resources from git to the cluster, and the Helm operator makes sure Helm charts are released as specified in the resources.
 
- Below is an example git repo structure that we'll use in this tutorial:
+ The [example repository](https://github.com/Azure/arc-helm-demo) used in this document is structured in the following way:
 
-```bash
+```console
 ├── charts
 │   └── azure-arc-sample
 │       ├── Chart.yaml
@@ -94,15 +74,8 @@ You can learn more about the HelmRelease in the official [Helm Operator document
 
 Using the Azure CLI extension for `k8sconfiguration`, let's link our connected cluster to the example git repository. We will give this configuration a name `azure-arc-sample` and deploy the Flux operator in the `arc-k8s-demo` namespace.
 
-```bash
-az k8sconfiguration create --name azure-arc-sample \
-  --resource-group $RESOURCE_GROUP --cluster-name $CLUSTER_NAME \
-  --operator-instance-name flux --operator-namespace arc-k8s-demo \
-  --operator-params='--git-readonly --git-path=releases' \
-  --enable-helm-operator --helm-operator-version='0.6.0' \
-  --helm-operator-params='--set helm.versions=v3' \
-  --repository-url https://github.com/Azure/arc-helm-demo.git  \
-  --scope namespace --cluster-type connectedClusters
+```console
+az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='0.6.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
 ```
 
 ### Configuration Parameters
@@ -114,7 +87,7 @@ To customize the creation of configuration, [learn about additional parameters y
 Using the Azure CLI, validate that the `sourceControlConfiguration` was successfully created.
 
 ```console
-az k8sconfiguration show --resource-group $RESOURCE_GROUP --name azure-arc-sample --cluster-name $CLUSTER_NAME --cluster-type connectedClusters
+az k8sconfiguration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 The `sourceControlConfiguration` resource is updated with compliance status, messages, and debugging information.
@@ -154,7 +127,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 Run the following command and navigate to `localhost:8080` on your browser to verify that application is running.
 
-```bash
+```console
 kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo 8080:8080
 ```
 

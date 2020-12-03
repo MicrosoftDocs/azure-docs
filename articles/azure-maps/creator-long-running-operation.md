@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Creator Long-Running Operation API
 
-Some API in Azure Maps use an [Asynchronous Request-Reply pattern](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). This pattern allows Azure Maps to provide highly available and responsive services. This article explains Azure Map's specific implementation of long-running asynchronous background processing.
+Some API in Azure Maps use an [Asynchronous Request-Reply pattern](/azure/architecture/patterns/async-request-reply). This pattern allows Azure Maps to provide highly available and responsive services. This article explains Azure Map's specific implementation of long-running asynchronous background processing.
 
 ## Submitting a request
 

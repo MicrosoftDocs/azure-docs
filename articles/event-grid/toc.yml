@@ -106,7 +106,7 @@
     items: 
     - name: Overview of system topics
       href: system-topics.md
-    - name: Event sources
+    - name: Event sources (publishers)
       items:
       - name: Azure App Configuration
         href: event-schema-app-configuration.md
@@ -138,13 +138,15 @@
         href: event-schema-azure-signalr.md
       - name: Azure subscriptions
         href: event-schema-subscriptions.md
-  - name: Partner topics
+  - name: Partner Events
     items:
-    - name: Overview of partner topics
-      href: partner-topics-overview.md
-    - name: Auth0
-      href: auth0-overview.md
-    - name: Become an Event Grid Partner
+    - name: Overview of Partner Events
+      href: partner-events-overview.md
+    - name: Event sources (publishers)
+      items:
+      - name: Auth0
+        href: auth0-overview.md
+    - name: Partner onboarding overview 
       href: partner-onboarding-overview.md
   - name: Event Domains
     href: event-domains.md
@@ -210,12 +212,16 @@
       href: create-view-manage-system-topics-cli.md
     - name: Azure Resource Manager template
       href: create-view-manage-system-topics-arm.md      
+  - name: Partner Events
+    items:
+    - name: Onboard as a partner
+      href: onboard-partner.md
+    - name: Subscribe to Auth0 events
+      href: auth0-how-to.md
   - name: Get access keys for topics or domains
     href: get-access-keys.md
   - name: Post to custom topic
     href: post-to-custom-topic.md
-  - name: Subscribe to Auth0 events
-    href: auth0-how-to.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
   - name: Set dead-letter location and retry policy
@@ -248,13 +254,13 @@
       href: move-partner-namespaces-across-regions.md
   - name: Secure
     items:
-    - name: Configure private endpoints
+    - name: Publish events securely over a private link
       href: configure-private-endpoints.md
     - name: Configure IP firewall
       href: configure-firewall.md
     - name: Secure Webhook with Azure Active Directory
       href: secure-webhook-delivery.md
-    - name: Event delivery with managed identity
+    - name: Event delivery, managed identity, and private link
       href: managed-service-identity.md
   - name: Troubleshoot
     items: 

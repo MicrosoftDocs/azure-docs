@@ -192,7 +192,7 @@ To accelerate development and recommend integration patterns, you can use logic 
 
 1. Provide the information for the action's properties:
 
-   ![Provide action details](media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png)
+   ![Screenshot that shows where you provide the information for the action's properties.](media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png)
 
    | Property | Required | Description |
    |----------|----------|-------------|

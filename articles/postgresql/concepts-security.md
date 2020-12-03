@@ -1,8 +1,8 @@
 ---
 title: Security in Azure Database for PostgreSQL - Single Server
 description: An overview of the security features in Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
@@ -49,6 +49,9 @@ You can opt in to [Advanced Threat Protection](concepts-data-access-and-security
 
 [Audit logging](concepts-audit.md) is available to track activity in your databases. 
 
+## Migrating from Oracle
+
+Oracle supports Transparent Data Encryption (TDE) to encrypt table and tablespace data. In Azure for PostgreSQL, the data is automatically encrypted at various layers. See the "At-rest" section in this page and also refer to various Security topics, including [customer managed keys](./concepts-data-encryption-postgresql.md) and [Infrastructure double encryption](./concepts-infrastructure-double-encryption.md). You may also consider using [pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html) extension which is supported in [Azure for PostgreSQL](./concepts-extensions.md).
 
 ## Next steps
 - Enable firewall rules for [IPs](concepts-firewall-rules.md) or [virtual networks](concepts-data-access-and-security-vnet.md)

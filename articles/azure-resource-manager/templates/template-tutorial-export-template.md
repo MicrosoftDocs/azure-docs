@@ -5,7 +5,7 @@ author: mumian
 ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao 
-ms.custom: devx-track-azurecli
+ms.custom:
 ---
 
 # Tutorial: Use exported template from the Azure portal

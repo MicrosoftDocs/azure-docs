@@ -1,11 +1,10 @@
 ---
  title: include file
- description: include file
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/08/2020
- ms.author: akjosh
+ ms.date: 10/14/2020
+ ms.author: olayemio
  ms.custom: include file
 ---
 
@@ -51,19 +50,36 @@ There are three parameters for each image definition that are used in combinatio
 
 All three of these have unique sets of values. The format is similar to how you can currently specify publisher, offer, and SKU for [Azure Marketplace images](../articles/virtual-machines/windows/cli-ps-findimage.md) in Azure PowerShell to get the latest version of a Marketplace image. Each image definition needs to have a unique set of these values.
 
+The following parameters determine which types of image versions they can contain:
+
+- Operating system state - You can set the OS state to [generalized or specialized](#generalized-and-specialized-images). This field is required.
+- Operating system - can be either Windows or Linux. This field is required.
+-	Hyper-V generation - specify whether the image was created from a generation 1 or [generation 2](../articles/virtual-machines/generation-2.md) Hyper-V VHD. Default is generation 1.
+
+
 The following are other parameters that can be set on your image definition so that you can more easily track your resources:
 
-* Operating system state - You can set the OS state to [generalized or specialized](#generalized-and-specialized-images).
-* Operating system - can be either Windows or Linux.
-* Description - use description to give more detailed information on why the image definition exists. For example, you might have an image definition for your front-end server that has the application pre-installed.
-* Eula - can be used to point to an end-user license agreement specific to the image definition.
-* Privacy Statement and Release notes - store release notes and privacy statements in Azure storage and provide a URI for accessing them as part of the image definition.
-* End-of-life date - attach an end-of-life date to your image definition to be able to use automation to delete old image definitions.
-* Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/management/tag-resources.md)
-* Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
-* Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
-* Hyper-V generation - you can specify whether the image was created from a gen 1 or gen 2 Hyper-V VHD.
-* Purchase plan information for Marketplace images - `-PurchasePlanPublisher `, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) and [Supply Azure Marketplace purchase plan information when creating images](../articles/virtual-machines/marketplace-images.md).
+- Description - use description to give more detailed information on why the image definition exists. For example, you might have an image definition for your front-end server that has the application pre-installed.
+- Eula - can be used to point to an end-user license agreement specific to the image definition.
+- Privacy Statement and Release notes - store release notes and privacy statements in Azure storage and provide a URI for accessing them as part of the image definition.
+- End-of-life date - attach an end-of-life date to your image definition to be able to use automation to delete old image definitions.
+- Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/management/tag-resources.md)
+- Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
+- Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
+- Purchase plan information for Marketplace images - `-PurchasePlanPublisher`, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) and [Supply Azure Marketplace purchase plan information when creating images](../articles/virtual-machines/marketplace-images.md).
+
+
+## Image versions
+
+An **image version** is what you use to create a VM. You can have multiple versions of an image as needed for your environment. When you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
+
+The properties of an image version are:
+
+- Version number. This is used as the name of the image version. It is always in the format: MajorVersion.MinorVersion.Patch. When you specify to use **latest** when creating a VM, the latest image is chosen based on the highest MajorVersion, then MinorVersion, then Patch. 
+- Source. The source can be a VM, managed disk, snapshot, managed image, or another image version. 
+- Exclude from latest. You can keep a version from being used as the latest image version. 
+- End of life date. Date after which VMs can't be created from this image.
+
 
 ## Generalized and specialized images
 
@@ -89,7 +105,7 @@ There are limits, per subscription, for deploying resources using Shared Image G
 - 10 image version replicas, per subscription, per region
 - Any disk attached to the image must be less than or equal to 1TB in size
 
-For more information, see [Check resource usage against limits](https://docs.microsoft.com/azure/networking/check-usage-against-limits) for examples on how to check your current usage.
+For more information, see [Check resource usage against limits](../articles/networking/check-usage-against-limits.md) for examples on how to check your current usage.
  
 ## Scaling
 Shared Image Gallery allows you to specify the number of replicas you want Azure to keep of the images. This helps in multi-VM deployment scenarios as the VM deployments can be spread to different replicas reducing the chance of instance creation processing being throttled due to overloading of a single replica.
@@ -107,7 +123,7 @@ We always recommend you to overprovision the number of replicas due to factors l
 
 [Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) provides resilience against an Availability Zone failure in the region. With the general availability of Shared Image Gallery, you can choose to store your images in ZRS accounts in regions with Availability Zones. 
 
-You can also choose the account type for each of the target regions. The default storage account type is Standard_LRS, but you can choose Standard_ZRS for regions with Availability Zones. Check the regional availability of ZRS [here](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
+You can also choose the account type for each of the target regions. The default storage account type is Standard_LRS, but you can choose Standard_ZRS for regions with Availability Zones. Check the regional availability of ZRS [here](../articles/storage/common/storage-redundancy.md).
 
 ![Graphic showing ZRS](./media/shared-image-galleries/zrs.png)
 
@@ -133,8 +149,11 @@ Images can also be shared, at scale, even across tenants using a multi-tenant ap
 
 ## Billing
 There is no extra charge for using the Shared Image Gallery service. You will be charged for the following resources:
-- Storage costs of storing the Shared Image versions. Cost depends on the number of replicas of the image version and the number of regions the version is replicated to. For example, if you have 2 images and both are replicated to 3 regions, then you will be charged for 6 managed disks based on their size. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
-- Network egress charges for replication of the first image version from the source region to the replicated regions. Subsequent replicas are handled within the region, so there are no additional charges. 
+-	Storage costs of storing each replica. The storage cost is charged as a snapshot and is based on the occupied size of the image version, the number of replicas of the image version and the number of regions the version is replicated to. 
+-	Network egress charges for replication of the first image version from the source region to the replicated regions. Subsequent replicas are handled within the region, so there are no additional charges. 
+
+For example, let's say you have an image of a 127 GB OS disk, that only occupies 10GB of storage, and one empty 32 GB data disk. The occupied size of each image would only be 10 GB. The image is replicated to 3 regions and each region has two replicas. There will be six total snapshots, each using 10GB. You will be charged the storage cost for each snapshot based on the occupied size of 10 GB. You will pay network egress charges for the first replica to be copied to the additional two regions. For more information on the pricing of snapshots in each region, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). For more information on network egress, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+
 
 ## Updating resources
 
@@ -159,11 +178,11 @@ Image version:
 
 The following SDKs support creating Shared Image Galleries:
 
-- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
-- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
-- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/azure/go/)
+- [.NET](/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](/java/azure/?view=azure-java-stable)
+- [Node.js](/javascript/api/@azure/arm-compute)
+- [Python](/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Go](/azure/go/)
 
 ## Templates
 
@@ -220,8 +239,8 @@ Yes. There are 3 scenarios based on the types of images you may have.
 
  Scenario 3: If you have a VHD in your local file system, then you need to upload the VHD to a managed image, then you can create an image definition and image version from it.
 
-- If the VHD is of a Windows VM, see [Upload a VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-- If the VHD is for a Linux VM, see [Upload a VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+- If the VHD is of a Windows VM, see [Upload a VHD](../articles/virtual-machines/windows/upload-generalized-managed.md).
+- If the VHD is for a Linux VM, see [Upload a VHD](../articles/virtual-machines/linux/upload-vhd.md#option-1-upload-a-vhd)
 
 ### Can I create an image version from a specialized disk?
 
@@ -286,4 +305,4 @@ For VM and Virtual Machine Scale Set deployments using an image version, we reco
 
 ### Can I update my Virtual Machine Scale Set created using managed image to use Shared Image Gallery images?
 
-Yes, you can update the scale set image reference from a managed image to a shared image gallery image, as long as the the OS type, Hyper-V generation, and the data disk layout matches between the images. 
+Yes, you can update the scale set image reference from a managed image to a shared image gallery image, as long as the the OS type, Hyper-V generation, and the data disk layout matches between the images.

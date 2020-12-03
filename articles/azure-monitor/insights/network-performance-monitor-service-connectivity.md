@@ -15,8 +15,8 @@ You can use the Service Connectivity Monitor capability in [Network Performance 
 
 You can perform the following functions with Service Connectivity Monitor: 
 
-- Monitor the network connectivity to your applications and network services from multiple branch offices or locations. Applications and network services include Office 365, Dynamics CRM, internal line-of-business applications, and SQL databases.
-- Use built-in tests to monitor network connectivity to Office 365 and Dynamics 365 endpoints. 
+- Monitor the network connectivity to your applications and network services from multiple branch offices or locations. Applications and network services include Microsoft 365, Dynamics CRM, internal line-of-business applications, and SQL databases.
+- Use built-in tests to monitor network connectivity to Microsoft 365 and Dynamics 365 endpoints. 
 - Determine the response time, network latency, and packet loss experienced when connecting to the endpoint.
 - Determine whether poor application performance is because of the network or because of some issue on the application provider's end.
 - Identify hot spots on the network that might be causing poor application performance by viewing the latency contributed by each hop on a topology map.
@@ -95,7 +95,7 @@ Determine whether poor application performance is because of the network or an i
 
 After you determine that the problem is because of the network, select the **Topology** view link to identify the troublesome hop on the topology map. An example is shown in the following image. Out of the 105-ms total latency between the node and the application endpoint, 96 ms is because of the hop marked in red. After you identify the troublesome hop, you can take corrective action. 
 
-![Service Connectivity Monitor tests](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![Service Connectivity Monitor endpoint topology](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## Diagnostics 
 

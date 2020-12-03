@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.custom: legacy
+ms.custom: legacy, devx-track-azurecli
 ---
 
 # Create a copy of a Linux VM by using Azure CLI and Managed Disks

@@ -9,11 +9,26 @@ ms.subservice:
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/22/2020
+ms.date: 11/24/2020
 ---
 # Azure SQL Edge release notes 
 
 This article describes what is new and what has changed with every new build of Azure SQL Edge.
+
+## Azure SQL Edge - 1.0.1
+
+### SQL Engine build number - 15.0.2000.1553
+
+### What's new?
+
+- Allow Datebucket expression defined in computed columns
+
+### Fixes
+
+- Retention Policy fix for dropping table with retention policy enabled with infinite timeout
+- Support in DacFx Deployment for Streaming and Retention Policy features 
+- DacFx Deployment Fix to enable deployment from nested folder in SAS URL 
+- PREDICT fix to support long column names in error messages
 
 ## Azure SQL Edge - 1.0.0 (RTM)
 
@@ -31,9 +46,9 @@ This article describes what is new and what has changed with every new build of 
    - Enable Parallel Execution scenarios
 6. Power saving improvements for low-power mode
 7. Streaming new feature support 
-   - [Snapshot Windows](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : new window type allowing to group by events arriving at the exact same time. 
-   - Enable [TopOne](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) and [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) as analytic function, This will allow to return records ordered by the column of your choice, without the needed to be part of a window. 
-   - Improvements to [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics). 
+   - [Snapshot Windows](/stream-analytics-query/snapshot-window-azure-stream-analytics) : new window type allowing to group by events arriving at the exact same time. 
+   - Enable [TopOne](/stream-analytics-query/topone-azure-stream-analytics) and [CollectTop](/stream-analytics-query/collecttop-azure-stream-analytics) as analytic function, This will allow to return records ordered by the column of your choice, without the needed to be part of a window. 
+   - Improvements to [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics). 
 
 ### Fixes
 1. Additional error messages and details for troubleshooting TSQL Streaming operations. 

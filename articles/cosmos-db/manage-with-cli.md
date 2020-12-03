@@ -1,20 +1,27 @@
 ---
-title: Manage Azure Cosmos DB resources using Azure CLI
-description: Use Azure CLI to manage your Azure Cosmos DB account, database and containers. 
+title: Manage Azure Cosmos DB Core (SQL) API resources using Azure CLI
+description: Manage Azure Cosmos DB Core (SQL) API resources using Azure CLI. 
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
 
 ---
-# Manage Azure Cosmos resources using Azure CLI
+# Manage Azure Cosmos Core (SQL) API resources using Azure CLI
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-The following guide describes common commands to automate management of your Azure Cosmos DB accounts, databases and containers using Azure CLI. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](https://docs.microsoft.com/cli/azure/cosmosdb). You can also find more examples in [Azure CLI samples for Azure Cosmos DB](cli-samples.md), including how to create and manage Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and Table API.
+The following guide describes common commands to automate management of your Azure Cosmos DB accounts, databases and containers using Azure CLI. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). You can also find more examples in [Azure CLI samples for Azure Cosmos DB](cli-samples.md), including how to create and manage Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and Table API.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.9.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+- This article requires version 2.12.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+For Azure CLI samples for other APIs see [CLI Samples for Cassandra](cli-samples-cassandra.md), [CLI Samples for MongoDB API](cli-samples-mongodb.md), [CLI Samples for Gremlin](cli-samples-gremlin.md), [CLI Samples for Table](cli-samples-table.md)
+
+> [!IMPORTANT]
+> Azure Cosmos DB resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
 
 ## Azure Cosmos Accounts
 
@@ -82,10 +89,10 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName \
 
 ### Enable multiple write regions
 
-Enable multi-master for a Cosmos account
+Enable multi-region writes for a Cosmos account
 
 ```azurecli-interactive
-# Update an Azure Cosmos account from single to multi-master
+# Update an Azure Cosmos account from single write region to multiple write regions
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 
@@ -206,8 +213,9 @@ The following sections demonstrate how to manage the Azure Cosmos DB database, i
 
 * [Create a database](#create-a-database)
 * [Create a database with shared throughput](#create-a-database-with-shared-throughput)
+* [Migrate a database to autoscale throughput](#migrate-a-database-to-autoscale-throughput)
 * [Change database throughput](#change-database-throughput)
-* [Manage locks on a database](#manage-lock-on-a-database)
+* [Prevent a database from being deleted](#prevent-a-database-from-being-deleted)
 
 ### Create a database
 
@@ -241,6 +249,29 @@ az cosmosdb sql database create \
     --throughput $throughput
 ```
 
+### Migrate a database to autoscale throughput
+
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+
+# Migrate to autoscale throughput
+az cosmosdb sql database throughput migrate \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $databaseName \
+    -t 'autoscale'
+
+# Read the new autoscale max throughput
+az cosmosdb sql database throughput show \
+    -g $resourceGroupName \
+    -a $accountName \
+    -n $databaseName \
+    --query resource.autoscaleSettings.maxThroughput \
+    -o tsv
+```
+
 ### Change database throughput
 
 Increase the throughput of a Cosmos database by 1000 RU/s.
@@ -267,14 +298,14 @@ az cosmosdb sql database throughput update \
     --throughput $newRU
 ```
 
-### Manage lock on a database
+### Prevent a database from being deleted
 
-Put a delete lock on a database. To learn more about how to enable this see, [Preventing changes from SDKs](role-based-access-control.md#prevent-sdk-changes).
+Put an Azure resource delete lock on a database to prevent it from being deleted. This feature requires locking the Cosmos account from being changed by data plane SDKs. To learn more see, [Preventing changes from SDKs](role-based-access-control.md#prevent-sdk-changes). Azure resource locks can also prevent a resource from being changed by specifying a `ReadOnly` lock type. For a Cosmos database, it can be used to prevent throughput from being changed.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
-accountName='my-cosmos-account'
-databaseName='myDatabase'
+accountName='mycosmosaccount'
+databaseName='database1'
 
 lockType='CanNotDelete' # CanNotDelete or ReadOnly
 databaseParent="databaseAccounts/$accountName"
@@ -307,7 +338,8 @@ The following sections demonstrate how to manage the Azure Cosmos DB container, 
 * [Create a container with TTL enabled](#create-a-container-with-ttl)
 * [Create a container with custom index policy](#create-a-container-with-a-custom-index-policy)
 * [Change container throughput](#change-container-throughput)
-* [Manage locks on a container](#manage-lock-on-a-container)
+* [Migrate a container to autoscale throughput](#migrate-a-container-to-autoscale-throughput)
+* [Prevent a container from being deleted](#prevent-a-container-from-being-deleted)
 
 ### Create a container
 
@@ -446,15 +478,41 @@ az cosmosdb sql container throughput update \
     --throughput $newRU
 ```
 
-### Manage lock on a container
+### Migrate a container to autoscale throughput
 
-Put a delete lock on a container. To learn more about how to enable this see, [Preventing changes from SDKs](role-based-access-control.md#prevent-sdk-changes).
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+
+# Migrate to autoscale throughput
+az cosmosdb sql container throughput migrate \
+    -a $accountName \
+    -g $resourceGroupName \
+    -d $databaseName \
+    -n $containerName \
+    -t 'autoscale'
+
+# Read the new autoscale max throughput
+az cosmosdb sql container throughput show \
+    -g $resourceGroupName \
+    -a $accountName \
+    -d $databaseName \
+    -n $containerName \
+    --query resource.autoscaleSettings.maxThroughput \
+    -o tsv
+```
+
+### Prevent a container from being deleted
+
+Put an Azure resource delete lock on a container to prevent it from being deleted. This feature requires locking the Cosmos account from being changed by data plane SDKs. To learn more see, [Preventing changes from SDKs](role-based-access-control.md#prevent-sdk-changes). Azure resource locks can also prevent a resource from being changed by specifying a `ReadOnly` lock type. For a Cosmos container, this can be used to prevent throughput or any other property from being changed.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
-accountName='my-cosmos-account'
-databaseName='myDatabase'
-containerName='myContainer'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
 
 lockType='CanNotDelete' # CanNotDelete or ReadOnly
 databaseParent="databaseAccounts/$accountName"
@@ -483,6 +541,6 @@ az lock delete --ids $lockid
 
 For more information on the Azure CLI, see:
 
-- [Install Azure CLI](/cli/azure/install-azure-cli)
-- [Azure CLI Reference](https://docs.microsoft.com/cli/azure/cosmosdb)
-- [Additional Azure CLI samples for Azure Cosmos DB](cli-samples.md)
+* [Install Azure CLI](/cli/azure/install-azure-cli)
+* [Azure CLI Reference](/cli/azure/cosmosdb)
+* [Additional Azure CLI samples for Azure Cosmos DB](cli-samples.md)

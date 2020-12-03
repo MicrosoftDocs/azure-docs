@@ -47,7 +47,7 @@ Prepare Azure for migration with Server Migration.
 
 **Task** | **Details**
 --- | ---
-**Create an Azure Migrate project** | Your Azure account needs Contributer or Owner permissions to create a project.
+**Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to [create a new project](https://docs.microsoft.com/azure/migrate/create-manage-projects).
 **Verify permissions for your Azure account** | Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
 
@@ -106,28 +106,6 @@ Prepare for appliance deployment as follows:
 
 > [!NOTE]
 > The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate discovery and assessment appliance you may have installed before.
-
-## Add the Server Migration tool
-
-Set up an Azure Migrate project, and then add the Server Migration tool to it.
-
-1. In the Azure portal > **All services**, search for **Azure Migrate**.
-2. Under **Services**, select **Azure Migrate**.
-3. In **Overview**, click **Assess and migrate servers**.
-4. Under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
-
-    ![Discover and assess servers](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. In **Discover, assess and migrate servers**, click **Add tools**.
-6. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
-7. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
-
-    ![Create an Azure Migrate project](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. In **Select assessment tool**, select **Skip adding an assessment tool for now** > **Next**.
-9. In **Select migration tool**, select **Azure Migrate: Server Migration** > **Next**.
-10. In **Review + add tools**, review the settings, and click **Add tools**
-11. After adding the tool, it appears in the Azure Migrate project > **Servers** > **Migration tools**.
 
 ## Set up the replication appliance
 
@@ -190,7 +168,7 @@ On machines you want to migrate, you need to install the Mobility service agent.
     ```
 2. Run the Mobility Service Installer:
     ```
-   UnifiedAgent.exe /Role "MS" /Silent
+   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
     ```
 3. Register the agent with the replication appliance:
     ```
@@ -208,7 +186,7 @@ On machines you want to migrate, you need to install the Mobility service agent.
     ```
 2. Run the installer script:
     ```
-    sudo ./install -r MS -q
+    sudo ./install -r MS -v VmWare -q
     ```
 3. Register the agent with the replication appliance:
     ```
@@ -356,7 +334,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
     - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
-    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/security-overview.md).
+    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:

@@ -4,7 +4,7 @@ description: Learn about the benefits and features of Azure Defender for contain
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 
@@ -15,6 +15,8 @@ manager: rkarlin
 Azure Container Registry (ACR) is a managed, private Docker registry service that stores and manages your container images for Azure deployments in a central registry. It's based on the open-source Docker Registry 2.0.
 
 To protect all the Azure Resource Manager based registries in your subscription, enable **Azure Defender for container registries** at the subscription level. Security Center will then scan images that are pushed to the registry, imported into the registry, or any images pulled within the last 30 days. This feature is charged per image.
+
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 ## What are the benefits of Azure Defender for container registries?
 
@@ -28,6 +30,12 @@ Security Center filters and classifies findings from the scanner. When an image 
 
 By only notifying when there are problems, Security Center reduces the potential for unwanted informational alerts.
 
+
+> [!TIP]
+> To learn more about Security Center's container security features, see:
+>
+> - [Azure Security Center and container security](container-security.md)
+> - [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## When are images scanned?
 
@@ -62,19 +70,22 @@ Security Center filters and classifies findings from the scanner. When an image 
 
 ### Can I get the scan results via REST API?
 Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
- 
+
 ### What registry types are scanned? What types are billed?
 For a list of the types of container registries supported by Azure Defender for container registries, see [Availability](defender-for-container-registries-usage.md#availability).
 
 If you connect unsupported registries to your Azure subscription, they won't be scanned and you won't be billed for them.
 
+### Can I customize the findings from the vulnerability scanner?
+Yes. If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
+
+[Learn about creating rules to disable findings from the integrated vulnerability assessment tool](defender-for-container-registries-usage.md#disable-specific-findings-preview).
+
+### Why is Security Center alerting me to vulnerabilities about an image that isn’t in my registry?
+Security Center provides vulnerability assessments for every image pushed or pulled in a registry. Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it'll expose security vulnerabilities.
+
 
 ## Next steps
 
-To learn more about Security Center's container security features, see:
-
-- [Azure Security Center and container security](container-security.md)
-
-- [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
-
-
+> [!div class="nextstepaction"]
+> [Scan your images for vulnerabilities](defender-for-container-registries-usage.md)

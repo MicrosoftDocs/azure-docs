@@ -27,7 +27,7 @@ There are two versions of the Azure Migrate service:
 
 ## Upgrade between versions
 
-You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](how-to-add-tool-first-time.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a Classic project, you can attach it to a project of current version after you delete the Classic project.
+You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](./create-manage-projects.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a Classic project, you can attach it to a project of current version after you delete the Classic project.
 
 ## Find projects from previous version
 
@@ -117,7 +117,7 @@ Windows Server 2012 R2 and all SPs | Azure provides full support. | Ready for Az
 Windows Server 2012 and all SPs | Azure provides full support. | Ready for Azure
 Windows Server 2008 R2 and all SPs | Azure provides full support.| Ready for Azure
 Windows Server 2008 (32-bit and 64-bit) | Azure provides full support. | Ready for Azure
-Windows Server 2003, 2003 R2 | Out-of-support and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure, consider upgrading the OS before migrating to Azure.
+Windows Server 2003, 2003 R2 | Out-of-support and need a [Custom Support Agreement (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) for support in Azure. | Conditionally ready for Azure, consider upgrading the OS before migrating to Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Out-of-support. The machine might boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to upgrade the OS before migrating to Azure.
 Windows Client 7, 8 and 10 | Azure provides support with [Visual Studio subscription only.](../virtual-machines/windows/client-images.md) | Conditionally ready for Azure
 Windows 10 Pro Desktop | Azure provides support with [Multitenant Hosting Rights.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Conditionally ready for Azure
@@ -304,7 +304,7 @@ To run the Kusto queries:
 4. Write your query to gather dependency data using Azure Monitor logs. Find sample queries in the next section.
 5. Run your query by clicking on Run. 
 
-[Learn more](../azure-monitor/log-query/get-started-portal.md) about how to write Kusto queries. 
+[Learn more](../azure-monitor/log-query/log-analytics-tutorial.md) about how to write Kusto queries. 
 
 ### Sample Azure Monitor logs queries
 

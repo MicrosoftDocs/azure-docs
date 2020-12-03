@@ -77,7 +77,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    ![The Office365 options](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
-8. Sign in to your Office 365 account to set up the connection. If this times out, just try again. Specify the e-mail addresses for the recipient(s) of the e-mails. Also specify the subject, and type what message you'd like the recipient to see in the body. For testing, fill in your own e-mail address as the recipient.
+8. Sign in to your work or school account to set up the connection. If this times out, just try again. Specify the e-mail addresses for the recipient(s) of the e-mails. Also specify the subject, and type what message you'd like the recipient to see in the body. For testing, fill in your own e-mail address as the recipient.
 
    Select **Add dynamic content** to show the content from the message that you can include. Select **Content** -- it will include the message in the e-mail.
 
@@ -275,7 +275,7 @@ Sign in to your [Power BI](https://powerbi.microsoft.com/) account. Go to your w
 
 ### Use the Azure CLI to clean up resources
 
-To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
+To remove the resource group, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -283,7 +283,7 @@ az group delete --name $resourceGroup
 
 ### Use PowerShell to clean up resources
 
-To remove the resource group, use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
+To remove the resource group, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup

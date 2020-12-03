@@ -26,7 +26,7 @@ To configure end-to-end TLS with an application gateway, you need a certificate 
 
 For end-to-end TLS encryption, the right back-end servers must be allowed in the application gateway. To allow this access, upload the public certificate of the back-end servers, also known as Authentication Certificates (v1) or Trusted Root Certificates (v2), to the application gateway. Adding the certificate ensures that the application gateway communicates only with known back-end instances. This configuration further secures end-to-end communication.
 
-To learn more, see [Overview of TLS termination and end to end TLS with Application Gateway](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
+To learn more, see [Overview of TLS termination and end to end TLS with Application Gateway](./ssl-overview.md).
 
 ## Create a new application gateway with end-to-end TLS
 
@@ -34,7 +34,7 @@ To create a new application gateway with end-to-end TLS encryption, you'll need 
 
 ### Enable TLS termination while creating a new application gateway
 
-To learn more, see [enable TLS termination while creating a new application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+To learn more, see [enable TLS termination while creating a new application gateway](./create-ssl-portal.md).
 
 ### Add authentication/root certificates of back-end servers
 
@@ -84,7 +84,7 @@ If you choose the latter option, apply the steps in the following procedure.
 5. Upload the PFX certificate you intend to use for TLS termination between the client and the application gateway.
 
    > [!NOTE]
-   > For testing purposes, you can use a self-signed certificate. However, this is not advised for production workloads, because they're harder to manage and aren't completely secure. For more info, see [create a self-signed certificate](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal#create-a-self-signed-certificate).
+   > For testing purposes, you can use a self-signed certificate. However, this is not advised for production workloads, because they're harder to manage and aren't completely secure. For more info, see [create a self-signed certificate](./create-ssl-portal.md#create-a-self-signed-certificate).
 
 6. Add other required settings for the **Listener**, depending on your requirements.
 

@@ -3,8 +3,8 @@ title: Build your first data factory (Resource Manager template)
 description: In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
@@ -338,7 +338,7 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
    ![Diagram View](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
 5. In the Diagram View, double-click the dataset **AzureBlobOutput**. You see that the slice that is currently being processed.
    
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
+    ![Screenshot that shows the AzureBlobOutput dataset.](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
 6. When processing is done, you see the slice in **Ready** state. Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.
    
     ![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    

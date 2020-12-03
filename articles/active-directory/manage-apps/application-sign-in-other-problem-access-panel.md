@@ -11,11 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
+ms.custom: contperfq2
 ---
 
 # Troubleshoot problems signing in to an application from Azure AD My Apps
 
-My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. 
+My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. My Apps is accessed using a web browser at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 To learn more about using Azure AD as an identity provider for an app, see the [What is Application Management in Azure AD](what-is-application-management.md). To get up to speed quickly, check out the [Quickstart Series on Application Management](view-applications-portal.md).
 
@@ -94,8 +95,8 @@ To reset a user’s password, follow these steps:
 
 ### Enable self-service password reset
 To enable self-service password reset, follow these deployment steps:
--   [Enable users to reset their Azure Active Directory passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
--   [Enable users to reset or change their Active Directory on-premises passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Enable users to reset their Azure Active Directory passwords](../authentication/tutorial-enable-sspr.md)
+-   [Enable users to reset or change their Active Directory on-premises passwords](../authentication/tutorial-enable-sspr.md)
 
 ### Check a user’s multi-factor authentication status
 To check a user’s multi-factor authentication status, follow these steps:

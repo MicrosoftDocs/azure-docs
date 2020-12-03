@@ -1,7 +1,7 @@
 ---
-title: Sign in users in JavaScript single-page apps | Azure
+title: "Quickstart: Sign in users in JavaScript single-page apps | Azure"
 titleSuffix: Microsoft identity platform
-description: Learn how a JavaScript app can call an API that requires access tokens using the Microsoft identity platform.
+description: In this quickstart, you learn how a JavaScript app can call an API that requires access tokens issued by the Microsoft identity platform.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -19,14 +19,15 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:J
 
 # Quickstart: Sign in users and get an access token in a JavaScript SPA
 
-In this quickstart, you use a code sample to learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts. A JavaScript SPA can also get an access token to call the Microsoft Graph API or any web API. (See [How the sample works](#how-the-sample-works) for an illustration.)
+In this quickstart, you download and run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users and call Microsoft Graph. The code sample also demonstrates how to get an access token to call the Microsoft Graph API or any web API.
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
-* Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) (to edit project files)
-
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart application
@@ -73,10 +74,10 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > [!div renderon="docs"]
 > To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 
-> [!div renderon="portal"]
+> [!div renderon="portal" class="sxs-lookup"]
 > Run the project with a web server by using Node.js
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
 
 > [!div renderon="docs"]
@@ -101,7 +102,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 >
 >```
 
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 
@@ -298,9 +299,4 @@ myMSALObj.acquireTokenPopup(requestObj)
 For a more detailed step-by-step guide on building the application for this quickstart, see:
 
 > [!div class="nextstepaction"]
-> [Tutorial to sign in and call MS Graph](./tutorial-v2-javascript-spa.md)
-
-To browse the MSAL repo for documentation, FAQ, issues, and more, see:
-
-> [!div class="nextstepaction"]
-> [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page application (SPA)](tutorial-v2-javascript-spa.md)

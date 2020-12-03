@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 8/20/2020
+ms.date: 12/3/2020
 ms.subservice: alerts
 ---
 
@@ -21,7 +21,7 @@ Currently, you can create newer metric alerts only in the Azure portal, [REST AP
 ## Metrics and Dimensions Supported
 Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer](./metrics-charts.md).
 
-Here's the full list of Azure monitor metric sources supported by the newer alerts:
+Here's the full list of Azure Monitor metric sources supported by the newer alerts:
 
 |Resource type  |Dimensions Supported |Multi-resource alerts| Metrics Available|
 |---------|---------|-----|----------|
@@ -32,7 +32,9 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.Automation/automationAccounts | Yes| No | [Automation Accounts](./metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft.AVS/privateClouds | No | No | |
 |Microsoft.Batch/batchAccounts | Yes | No | [Batch Accounts](./metrics-supported.md#microsoftbatchbatchaccounts) |
-|Microsoft.Cache/Redis | Yes | No | [Azure Cache for Redis](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.Cache/Redis | Yes | Yes | [Azure Cache for Redis](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Classic Cloud Services](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
+|Microsoft.ClassicCompute/virtualMachines | No | No | [Classic Virtual Machines](./metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | Yes | No | [Storage Accounts (classic)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
 |Microsoft.ClassicStorage/storageAccounts/blobServices | Yes | No | |
 |Microsoft.ClassicStorage/storageAccounts/fileServices | Yes | No | |
@@ -78,7 +80,8 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.Network/applicationGateways | Yes | No | [Application Gateways](./metrics-supported.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/azurefirewalls | Yes | No | [Firewalls](./metrics-supported.md#microsoftnetworkazurefirewalls) |
 |Microsoft.Network/dnsZones | No | No | [DNS Zones](./metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft.Network/expressRouteCircuits | N/A | No |[Express Route Circuits](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRouteCircuits | Yes | No |[ExpressRoute Circuits](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRoutePorts | Yes | No |[ExpressRoute Direct](./metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft.Network/loadBalancers (only for Standard SKUs)| Yes| No | [Load Balancers](./metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/natGateways| No | No | |
 |Microsoft.Network/privateEndpoints| No | No | |
@@ -100,6 +103,9 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.StorageCache/caches | Yes | No | |
 |Microsoft.StorageSync/storageSyncServices | Yes | No | [Storage Sync Services](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | Yes | No | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
+|Microsoft.Synapse/workspaces | Yes | No | [Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspaces) |
+|Microsoft.Synapse/workspaces/bigDataPools | Yes | No | [Synapse Analytics Apache Spark Pools](./metrics-supported.md#microsoftsynapseworkspacesbigdatapools) |
+|Microsoft.Synapse/workspaces/sqlPools | Yes | No | [Synapse Analytics SQL Pools](./metrics-supported.md#microsoftsynapseworkspacessqlpools) |
 |Microsoft.VMWareCloudSimple/virtualMachines | Yes | No | [CloudSimple Virtual Machines](./metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
 |Microsoft.Web/hostingEnvironments/multiRolePools | Yes | No | [App Service Environment Multi-Role Pools](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Yes | No | [App Service Environment Worker Pools](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
@@ -112,7 +118,7 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 ## Payload schema
 
 > [!NOTE]
-> You can also use the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
+> You can also use the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](./alerts-common-schema-definitions.md)​
 
 
 The POST operation contains the following JSON payload and schema for all near newer metric alerts when an appropriately configured [action group](./action-groups.md) is used:
@@ -173,4 +179,3 @@ The POST operation contains the following JSON payload and schema for all near n
 * Learn more about the new [Alerts experience](./alerts-overview.md).
 * Learn about [log alerts in Azure](./alerts-unified-log.md).
 * Learn about [alerts in Azure](./alerts-overview.md).
-

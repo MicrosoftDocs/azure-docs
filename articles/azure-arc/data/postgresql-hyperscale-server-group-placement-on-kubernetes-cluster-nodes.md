@@ -63,8 +63,8 @@ postgres01-2         3/3     Running   0          9h
 Each of those pods host a PostgreSQL instance. Together they form the Azure Arc enabled PostgreSQL Hyperscale server group:
 
 ```output
-Pod name	Role in the server group
-postgres01-0         	Coordinator
+Pod name	    Role in the server group
+postgres01-0  Coordinator
 postgres01-1	Worker
 postgres01-2	Worker
 ```
@@ -215,19 +215,19 @@ Using the same commands as above; we see what each physical node is hosting:
 
 |Other pods names\* |Usage|Kubernetes physical node hosting the pods
 |----|----|----
-|bootstrapper-jh48b||aks-agentpool-42715708-vmss000003
+|bootstrapper-jh48b|This is a service which handles incoming requests to create, edit, and delete custom resources such as SQL managed instances, PostgreSQL Hyperscale server groups, and data controllers|aks-agentpool-42715708-vmss000003
 |control-gwmbs||aks-agentpool-42715708-vmss000002
-|controldb-0||aks-agentpool-42715708-vmss000001
-|controlwd-zzjp7||aks-agentpool-42715708-vmss000000
-|logsdb-0|Elasticsearch, receives data from `Fluentbit` container of each pod|aks-agentpool-42715708-vmss000003
-|logsui-5fzv5||aks-agentpool-42715708-vmss000003
-|metricsdb-0|InfluxDB, receives data from the `Telegraf` container of each pod|aks-agentpool-42715708-vmss000000
-|metricsdc-47d47||aks-agentpool-42715708-vmss000002
-|metricsdc-864kj||aks-agentpool-42715708-vmss000001
-|metricsdc-l8jkf||aks-agentpool-42715708-vmss000003
-|metricsdc-nxm4l||aks-agentpool-42715708-vmss000000
-|metricsui-4fb7l||aks-agentpool-42715708-vmss000003
-|mgmtproxy-4qppp||aks-agentpool-42715708-vmss000002
+|controldb-0|This is the controller data store which is used to store configuration and state for the data controller.|aks-agentpool-42715708-vmss000001
+|controlwd-zzjp7|This is the controller "watch dog" service that keeps an eye on the availability of the data controller.|aks-agentpool-42715708-vmss000000
+|logsdb-0|This is an Elastic Search instance that is used to store all the logs collected across all the Arc data services pods. Elasticsearch, receives data from `Fluentbit` container of each pod|aks-agentpool-42715708-vmss000003
+|logsui-5fzv5|This is a Kibana instance that sits on top of the Elastic Search database to present a log analytics GUI.|aks-agentpool-42715708-vmss000003
+|metricsdb-0|This is an InfluxDB instance that is used to store all the metrics collected across all the Arc data services pods. InfluxDB, receives data from the `Telegraf` container of each pod|aks-agentpool-42715708-vmss000000
+|metricsdc-47d47|This is a daemonset deployed on all the Kubernetes nodes in the cluster to collect node-level metrics about the nodes.|aks-agentpool-42715708-vmss000002
+|metricsdc-864kj|This is a daemonset deployed on all the Kubernetes nodes in the cluster to collect node-level metrics about the nodes.|aks-agentpool-42715708-vmss000001
+|metricsdc-l8jkf|This is a daemonset deployed on all the Kubernetes nodes in the cluster to collect node-level metrics about the nodes.|aks-agentpool-42715708-vmss000003
+|metricsdc-nxm4l|This is a daemonset deployed on all the Kubernetes nodes in the cluster to collect node-level metrics about the nodes.|aks-agentpool-42715708-vmss000000
+|metricsui-4fb7l|This is a Grafana instance that sits on top of the InfluxDB database to present a monitoring dashboard GUI.|aks-agentpool-42715708-vmss000003
+|mgmtproxy-4qppp|This is a web application proxy layer that sits in front of the Grafana and Kibana instances.|aks-agentpool-42715708-vmss000002
 
 > \* The suffix on pod names will vary on other deployments. Also, we are listing here only the pods hosted inside the Kubernetes namespace of the Azure Arc Data Controller.
 
