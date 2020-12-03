@@ -28,6 +28,10 @@ In this article, you'll learn how to write a query with a serverless SQL pool th
 
 ## Overview
 
+Serverless SQL pool enables you to query Azure Cosmos DB analytical storage using `OPENROWSET` function. 
+- `OPENROWSET` with inline key. This syntax can be used to query Azure Cosmos DB collections without need to prepare credentials.
+- `OPENROWSET` that referenced credential that contains the Cosmos DB account key. This syntax can be used to create views on Azure Cosmos DB collections.
+
 To support querying and analyzing data in an Azure Cosmos DB analytical store, a serverless SQL pool uses the following `OPENROWSET` syntax:
 
 ```sql
@@ -52,6 +56,24 @@ The connection string has the following format:
 ```
 
 The Azure Cosmos DB container name is specified without quotation marks in the `OPENROWSET` syntax. If the container name has any special characters, for example, a dash (-), the name should be wrapped within square brackets (`[]`) in the `OPENROWSET` syntax.
+
+As an alternative, you can use `OPENROWSET` syntax that references credential:
+
+```sql
+OPENROWSET( 
+       PROVIDER = 'CosmosDB',
+       CONNECTION = '<Azure Cosmos DB connection string without account key>',
+       OBJECT = '<Container name>',
+       [ CREDENTIAL | SERVER_CREDENTIAL ] = '<credential name>'
+    )  [ < with clause > ] AS alias
+```
+
+The Azure Cosmos DB connection string don't contain key in this case. The connection string has the following format:
+```sql
+'account=<database account name>;database=<database name>;region=<region name>'
+```
+
+Database account master key is placed in server-level credential or database scoped credential. 
 
 > [!NOTE]
 > A serverless SQL pool doesn't support querying an Azure Cosmos DB transactional store.
@@ -133,6 +155,24 @@ The result of this query might look like the following table:
 | 2020-08-11 | 163 | RS |
 
 For more information about the SQL types that should be used for Azure Cosmos DB values, see the [rules for SQL type mappings](#azure-cosmos-db-to-sql-type-mappings) at the end of the article.
+
+## Create view
+
+Once you identify the schema, you can prepare a view on top of your Azure Cosmos DB data. You should place your Azure Cosmos DB account key in a separate credential and reference this credential from `OPENROWSET` function. Do not keep your account key in the view definition.
+
+```sql
+CREATE CREDENTIAL MyCosmosDbAccountCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+GO
+CREATE OR ALTER VIEW EcdcCases
+AS SELECT *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2;',
+      OBJECT = 'EcdcCases',
+      CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
 
 ## Query nested objects and arrays
 
