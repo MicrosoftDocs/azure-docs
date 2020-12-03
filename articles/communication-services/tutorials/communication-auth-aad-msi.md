@@ -52,9 +52,3 @@ When your code is running in the development environment, authentication may be 
 
 Other development tools may prompt you to login via a web browser.
 
-
-## Next steps
-
-- [Manage access rights to storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
-- [Use Azure AD with storage applications](storage-auth-aad-app.md).
-- [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-data-operations-powershell.md)
