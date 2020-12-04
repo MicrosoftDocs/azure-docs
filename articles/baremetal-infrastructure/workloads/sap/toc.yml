@@ -7,4 +7,4 @@
 - name: How-to guides
   items:
   - name: Manage BareMetal Instance units in Azure
-    href: workloads/sap/baremetal-infra-portal.md
+    href: baremetal-infra-portal.md

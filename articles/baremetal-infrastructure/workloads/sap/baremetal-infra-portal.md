@@ -7,7 +7,7 @@ ms.date: 12/31/2020
 
 # Manage BareMetal Instances through the Azure portal
  
-This article shows how the [Azure portal](https://portal.azure.com/) displays [BareMetal Instances](../../baremetal-overview-architecture.md). This article also shows you the activities you can do through the Azure portal with your deployed BareMetal Instance units. An Azure resource provider for BareMetal Instances provides visibility of the instances in the Azure portal, currently in public preview.
+This article shows how the [Azure portal](https://portal.azure.com/) displays [BareMetal Instances](baremetal-overview-architecture.md). This article also shows you the activities you can do through the Azure portal with your deployed BareMetal Instance units. An Azure resource provider for BareMetal Instances provides visibility of the instances in the Azure portal, currently in public preview.
  
 ## Register the BareMetalInfrastructure resource provider
  
@@ -89,7 +89,7 @@ The possible hardware revisions are:
 * Revision 4.2
  
 >[!NOTE]
->Revision 4.2 is the latest re-branded BareMetal Infrastructure using the Revision 4 architecture. Revision 4.2 has significant improvements in network latency between Azure VMs and BareMetal instance units deployed in Revision 4 stamps or rows. For more information about the different revisions, see [BareMetal Infrastructure on Azure](../../baremetal-overview-architecture.md).
+>Revision 4.2 is the latest re-branded BareMetal Infrastructure using the Revision 4 architecture. Revision 4.2 has significant improvements in network latency between Azure VMs and BareMetal instance units deployed in Revision 4 stamps or rows. For more information about the different revisions, see [BareMetal Infrastructure on Azure](baremetal-overview-architecture.md).
  
 Also, on the right side, you'll find the [Azure Proximity Placement Group's](../../../virtual-machines/linux/co-location.md) name, which is created automatically for each deployed BareMetal Instance unit. Reference the Proximity Placement Group when you deploy the Azure VMs that host the application layer. When you use the Proximity Placement Group associated with the BareMetal Instance unit, you ensure that the Azure VMs get deployed close to the BareMetal Instance unit.
  
