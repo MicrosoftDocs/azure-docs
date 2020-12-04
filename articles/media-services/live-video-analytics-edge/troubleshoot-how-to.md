@@ -4,7 +4,7 @@ description: This article covers troubleshooting steps for Live Video Analytics 
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
-ms.date: 05/24/2020
+ms.date: 12/04/2020
 
 ---
 
@@ -164,6 +164,7 @@ You can do this in either:
 * In **Azure portal**, by updating the Module Identity Twin properties of the Live Video Analytics module
     [ ![Module Identity Twin Properies.](media/troubleshoot-how-to/module-twin.png) ](media/troubleshoot-how-to/module-twin.png#lightbox)    
 * Or in your **deployment manifest** file, you can add these entries in the properties node of the Live Video Analytics module
+
 ### Use the support-bundle command
 
 When you need to gather logs from an IoT Edge device, the easiest way is to use the `support-bundle` command. This command collects:
@@ -228,10 +229,7 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
 
     `"DebugLogsDirectory": ""`
 
-
-## Frequently asked questions
-
-### What are some best practices around logging? 
+### Best practices around logging
 
 [Monitoring and logging](monitoring-logging.md) should help in understanding the taxonomy and how to generate logs that will help in debugging issues with LVA. 
 
@@ -271,17 +269,17 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 [Logging and diagnostics in gRPC on .NET](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true) provides some guidance for gathering some diagnostic logs from a gRPC server. 
 
-### What happens when gRPC connection fails? Does it come back up automatically? 
+### The gRPC connection that failes
 
 If a graph is active and streaming from a camera, the connection will be maintained by Live Video Analytics. 
 
-### What happens when CPU and GPU resources become bottlenecks? How should I monitor and ensure that I can balance the load on these resources? 
+### Monitoring and balancing the load of CPU and GPU resources when these resources become bottlenecks
 
 Live Video Analytics does not monitor or provide any hardware resource monitoring. Developers will have to use the hardware manufacturers monitoring solutions. However, if you use Kubernetes containers, you can monitor the device using the [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
 gRPC in .NET core documents also share some valuable information on [Performance Best Practices](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1&preserve-view=true) and [Load balancing](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1#load-balancing&preserve-view=true).  
 
-### My inference server does not receive any frames, and I'm getting an "unknown" protocol error. How can I troubleshoot? 
+### Troubleshooting an inference server when it does not receive any frames and you are reciving an "unknown" protocol error 
 
 There are several things you can do to get more information about the problem.  
 
@@ -295,7 +293,7 @@ There are several things you can do to get more information about the problem.
    If the command outputs a short string of jumbled text, then telnet was successfully able to open a connection to your inference server and open a binary gRPC channel. If you do not see this, then telnet will report a network error. 
 * In your inference server you can enable additional logging in the gRPC library. This can give additional information about the gRPC channel itself. Doing this varies by language, here are instructions for [C#](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true). 
 
-### How can we pick more images from buffer of gRPC without sending back result for first buffer? 
+### Picking more images from buffer of gRPC without sending back result for first buffer
 
 As a part of the gRPC data transfer contract, all messages that Live Video Analytics sends to the gRPC inferencing server should be acknowledged. Not acknowledging the receipt of an image frame breaks the data contract and can result in undesired situations.  
 
