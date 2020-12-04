@@ -53,8 +53,8 @@ New and updated articles from restructure of log query content.
 - [Log Analytics tutorial](log-query/log-analytics-tutorial.md)
 - [Log queries in Azure Monitor](log-query/log-query-overview.md)
 - [Overview of Log Analytics in Azure Monitor](log-query/log-analytics-overview.md)
-- [Samples for queries for Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor) - Consolidated Azure Monitor samples into single article.
-- [Tutorial: Use Kusto queries in Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor) - Added tutorial for Azure Monitor.
+- [Samples for queries for Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor)
+- [Tutorial: Use Kusto queries in Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor)
 
 
 
