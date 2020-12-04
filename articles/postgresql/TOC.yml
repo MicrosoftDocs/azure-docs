@@ -539,6 +539,10 @@
         displayName: portal, create hyperscale
   - name: Tutorials
     items:
+      - name: Model and load data
+        items:
+        - name: Shard data on worker nodes
+          href: tutorial-hyperscale-shard.md
     - name: Design a multi-tenant database
       href: tutorial-design-database-hyperscale-multi-tenant.md
       displayName: hyperscale, tutorial, multi-tenant
