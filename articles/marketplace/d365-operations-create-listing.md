@@ -18,7 +18,7 @@ ms.date: 10/19/2020
 
 Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
-:::image type="content" source="media/example-azure-marketplace-d365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+:::image type="content" source="media/dynamics-365/example-azure-marketplace-d365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
 #### Call-out descriptions
 
@@ -97,7 +97,7 @@ Provide a PNG file for the **Large** size logo. Partner Center will use this to 
 
 These logos are used in different places in the listing:
 
-[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+[!INCLUDE [logos-appsource-only](includes/logos-appsource-only.md)]
 
 [!INCLUDE [Logo tips](includes/graphics-suggestions.md)]
 

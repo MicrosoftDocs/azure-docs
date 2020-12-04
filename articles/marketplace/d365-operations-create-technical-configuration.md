@@ -30,9 +30,9 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 <strike>## Test drive technical configuration
 
-This page lets you set up a demonstration ("test drive") that allows customers to try your offer before purchasing it. Learn more in [What is test drive](../what-is-test-drive.md).
+This page lets you set up a demonstration ("test drive") that allows customers to try your offer before purchasing it. Learn more in [What is test drive](what-is-test-drive.md).
 
-To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.</strike>
+To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](d365-operations-create.md#test-drive) tab. To remove test drive from your offer, clear this check box.</strike>
 
 ## Next steps
 

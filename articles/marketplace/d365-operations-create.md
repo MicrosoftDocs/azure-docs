@@ -48,7 +48,7 @@ Select **Create** to generate the offer. Partner Center opens the **Offer setup*
 
 ## Alias
 
-Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name navigate, see the [Offer listing](dynamics-365-create-listing.md) page.
+Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name navigate, see the [Offer listing](d365-operations-create-listing.md) page.
 
 ## Setup details
 
@@ -69,7 +69,7 @@ For **How do you want potential customers to interact with this listing offer?**
 
 ## Test drive
 
-A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To learn more about test drives, see [What is a test drive?](./what-is-test-drive.md).
+A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To learn more about test drives, see [What is a test drive?](what-is-test-drive.md).
 
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
@@ -78,9 +78,9 @@ To enable a test drive, select the **Enable a test drive** check box and select 
 
 ## Customer leads
 
-[!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](includes/connect-lead-management.md)]
 
-For more information, see [Lead management overview](./commercial-marketplace-get-customer-leads.md).
+For more information, see [Lead management overview](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Business Applications ISV Program
 
@@ -92,5 +92,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [How to configure virtual machine offer properties](dynamics-365-create-properties.md)
+- [How to configure Dynamics 365 for Operations offer properties](d365-operations-create-properties.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
