@@ -21577,6 +21577,23 @@
       "redirect_url": "/azure/cognitive-services/text-analytics/language-support",
       "redirect_document_id": true
     },
+
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/get-started-text-analytics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/get-started-text-analytics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/text-analytics-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/get-started-text-analytics",
+      "redirect_document_id": true
+    },
+
     {
       "source_path": "articles/cognitive-services/Speech/index.md",
       "redirect_url": "/azure/cognitive-services/Speech/Home",

@@ -296,5 +296,5 @@ In this article, you learned concepts and workflow for sentiment analysis using 
 ## See also
 
 * [Text Analytics overview](../overview.md)
-* [Using the Text Analytics client library](../quickstarts/text-analytics-sdk.md)
+* [Using the Text Analytics client library](../quickstarts/get-started-text-analytics.md)
 * [What's new](../whats-new.md)

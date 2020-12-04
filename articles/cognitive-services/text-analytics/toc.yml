@@ -13,7 +13,7 @@
   expanded: true
   items:
     - name: Use the client library and REST API
-      href: quickstarts/text-analytics-sdk.md
+      href: quickstarts/get-started-text-analytics.md
 - name: Tutorials
   items:
     - name: Integrate Power BI to analyze customer feedback
