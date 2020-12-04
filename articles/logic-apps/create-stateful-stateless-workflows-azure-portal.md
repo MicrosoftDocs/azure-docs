@@ -16,7 +16,7 @@ ms.date: 12/07/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create logic apps that integrate across apps, data, cloud services, and systems, you can build and run [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) by using the new **Logic App (Preview)** resource type in the Azure portal. This new logic app type is powered by [Azure Functions](../azure-functions/functions-overview.md), can include multiple workflows, and is similar in some ways to the **Function App** resource type, which can include multiple functions. To build these logic apps by using Visual Studio Code instead, see [Create stateful or stateless workflows with Azure Logic Apps (Preview) in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md).
+To create logic apps that integrate across apps, data, cloud services, and systems, you can build and run [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) in the Azure portal by using the new **Logic App (Preview)** resource type, which is powered by [Azure Functions](../azure-functions/functions-overview.md). This new logic app type can include multiple workflows and run anywhere that Azure Functions runs. In some ways, the **Logic App (Preview)** resource type is similar to the **Function App** resource type, which can include multiple functions.
 
 ![Screenshot that shows the Azure portal with the workflow designer for the "Logic App (Preview)" resource.](./media/create-stateful-stateless-workflows-azure-portal/azure-portal-logic-apps-overview.png)
 

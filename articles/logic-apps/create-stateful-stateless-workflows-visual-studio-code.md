@@ -15,23 +15,23 @@ ms.date: 12/07/2020
 > Certain features might not be supported or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create logic apps that integrate across apps, data, cloud services, and systems, you can locally build and run [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) in a local development environment by using Visual Studio Code with the Azure Logic Apps (Preview) extension. The logic apps that you create through the extension use the new **Logic App (Preview)** resource type, which is powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime in Visual Studio Code. This new logic app type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions. To build these logic apps by using the Azure portal instead, see [Create stateful or stateless workflows with Azure Logic Apps (Preview) - Azure portal](create-stateful-stateless-workflows-azure-portal.md).
+To create logic apps that integrate across apps, data, cloud services, and systems, you can locally build and run [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) in a local development environment by using Visual Studio Code with the Azure Logic Apps (Preview) extension. The logic apps that you create through the extension use the new **Logic App (Preview)** resource type, which is powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime. This new logic app type can include multiple workflows and and run anywhere that Azure Functions runs. In some ways, the **Logic App (Preview)** resource type is similar to the **Function App** resource type, which can include multiple functions. To build these logic apps by using the Azure portal instead, see [Create stateful or stateless workflows with Azure Logic Apps (Preview) - Azure portal](create-stateful-stateless-workflows-azure-portal.md).
 
 ![Screenshot that shows Visual Studio Code and logic app workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
 Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code. The experiences to create the new resource type are separate and different from the original resource type, but you can have both the **Logic Apps** and **Logic App (Preview)** resource types in your Azure subscription. You can view and access all the deployed logic apps in your Azure subscription, but they're organized into their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps (Preview)](logic-apps-overview-preview.md#whats-new).
 
-This article shows how to create a **Logic App (Preview)** resource by using Visual Studio Code through these tasks:
+This article shows how to create a **Logic App (Preview)** resource by using Visual Studio Code and completing these tasks:
 
-* [Meet the setup requirements](#prerequisites) and [set up Visual Studio Code](#set-up) for the public preview extension.
+* [Meet the setup requirements](#prerequisites).
 
-* Create a **Logic App (Preview)** resource by [creating a project and selecting a workflow template](#create-project).
+* [Set up Visual Studio Code](#set-up) for the public preview extension.
 
-* Locally run and debug your new logic app in Visual Studio Code.
+* [Create a project for the **Logic App (Preview)** resource](#create-project), which includes selecting a workflow template.
 
-* Publish your new logic app directly from Visual Studio Code [to Azure](#publish-azure) or [to a Docker container](#deploy-docker) that you can run anywhere. For more information about Docker, see [What is Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined)?
+* [Locally run, test, and debug your new logic app](#run-test-debug-locally) in Visual Studio Code.
 
-https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564
+* [Directly publish your new logic app to Azure](#publish-azure) or to a [Docker container that you can run anywhere](#deploy-docker). Learn more about [Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
 
 ## Prerequisites
 
@@ -113,7 +113,7 @@ https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-ru
 
 * To test the example logic app that you create in this article, you need a tool that can send calls to the Request trigger, which is the first step in example logic app. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
 
-* For easier diagnostics logging and tracing capability, you can add and use an [Application Insights](../azure-monitor/app/app-insights-overview.md) resource. You can create this resource during logic app deployment, or in the Azure portal after you deploy your logic app.
+* For easier diagnostics logging and tracing capability, you can use [Application Insights](../azure-monitor/app/app-insights-overview.md) with your logic app. You can create an Application Insights resource either in Visual Studio Code during deployment to Azure or in the Azure portal after deployment. For more information about logging and monitoring with Application Insights, review [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849).
 
 <a name="set-up"></a>
 
@@ -388,9 +388,9 @@ The logic app workflow in this example uses this trigger and these actions:
 
 Next, run and debug your workflow locally in Visual Studio Code.
 
-<a name="debug-test-locally"></a>
+<a name="run-test-debug-locally"></a>
 
-## Run and debug locally
+## Run, test, and debug locally
 
 To test your logic app, follow these steps to start a debugging session and find the URL for the endpoint that's created by the Request trigger. You need this URL so that you can later send a request to that endpoint.
 
@@ -551,7 +551,7 @@ To return a response back to the caller that sent a request to your logic app, y
 
 ## Retest your logic app
 
-After you make updates to your logic app, you can run another test by rerunning the debugger in Visual Studio and sending another request to trigger your updated logic app, similar to the steps in [Debug and test your logic app](#debug-test-locally).
+After you make updates to your logic app, you can run another test by rerunning the debugger in Visual Studio and sending another request to trigger your updated logic app, similar to the steps in [Run, test, and debug locally](#run-test-debug-locally).
 
 1. On the Visual Studio Code toolbar, open the **Run** menu, and select **Start Debugging** (F5).
 
@@ -623,34 +623,36 @@ You can publish your logic app as a new resource, which automatically creates an
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to create or select a storage account.](./media/create-stateful-stateless-workflows-visual-studio-code/create-storage-account.png)
 
-   1. For easier diagnostics logging and tracing capability, you can select an existing Application Insights resource. Otherwise, you can select **Create new Application Insights resource**, or set up Application Insights in the Azure portal after you deploy your app.
+   1. For easier diagnostics logging and tracing capability, you can set up Application Insights to use with your logic app.
 
-      Before you deploy, make sure that you add the `logLevel` object to the `logging` object in the **host.json** file that exists at your project's root level, and set the `Host.Triggers.Workflow` to `Information`, for example:
+      1. Select either an existing Application Insights resource or **Create new Application Insights resource**. You can also set up Application Insights in the Azure portal after deployment.
 
-      ```json
-      "logLevel": {
-         "Host.Triggers.Workflow": "Information"
-      },
-      ```
+      1. Before you deploy, make sure that you add the `logLevel` object to the `logging` object in the **host.json** file that exists at your project's root level, and set the `Host.Triggers.Workflow` to `Information`, for example:
 
-      Here's how the **host.json** file might look:
+         ```json
+         "logLevel": {
+            "Host.Triggers.Workflow": "Information"
+         },
+         ```
 
-      ```json
-      {
-         "version": "2.0",
-         "logging": {
-            "applicationInsights": {
-               "samplingExcludedTypes": "Request",
-               "samplingSettings": {
-                  "isEnabled": true
+         Here's how the **host.json** file might look:
+
+         ```json
+         {
+            "version": "2.0",
+            "logging": {
+               "applicationInsights": {
+                  "samplingExcludedTypes": "Request",
+                  "samplingSettings": {
+                     "isEnabled": true
+                  }
+               },
+               "logLevel": {
+                  "Host.Triggers.Workflow": "Information"
                }
-            },
-            "logLevel": {
-               "Host.Triggers.Workflow": "Information"
             }
          }
-      }
-      ``` 
+         ``` 
 
    When you're done, Visual Studio Code starts creating and deploying the resources necessary for publishing your logic app.
 
@@ -789,9 +791,9 @@ To more easily debug a stateless workflow, you can enable the run history for th
 
 <a name="enable-monitoring"></a>
 
-## Enable monitoring for deployed Logic App (Preview) resources
+## Enable monitoring view in the Azure portal
 
-To enable monitoring on a deployed **Logic App (Preview)** resource, follow these steps:
+After you deploy a **Logic App (Preview)** resource from Visual Studio Code to Azure, you can review any available run history and details for a workflow in that resource by using the Azure portal and the **Monitor** experience for that workflow. However, you first have to enable monitoring view capability on that logic app resource.
 
 1. In the [Azure portal](https://portal.azure.com), find and select the deployed **Logic App (Preview)** resource.
 
