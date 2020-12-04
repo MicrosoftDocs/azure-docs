@@ -83,9 +83,6 @@ The command options are as follows:
 - **`azacsnap.json`** the JSON configuration file.  The name can be customized by using the `--configfile` command-line option and passing the config filename as a parameter (e.g `--configfile H80.json`)
   - Create a *new* `azacsnap.json` config using `azacsnap -c configure --configuration new` or *edit* an existing config file using  `azacsnap -c configure --configuration edit`
 
-## Pricing
-
-AzAcSnap is a free product (no license fee). Customers are responsible for paying the cost for the underlying components in the managed resource group.
 
 ## Next steps
 
