@@ -181,17 +181,29 @@ This article shows how to create a **Logic App (Preview)** resource by using Vis
 
 When you add the HTTP Webhook trigger or action to a logic app that runs in Azure, the trigger or action subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your private localhost server in Visual Studio Code, which the service endpoint can't reach.
 
-To locally run the HTTP Webhook trigger or action, you need to set up a public URL that exposes your localhost server and securely forwards calls from the service endpoint to the webhook callback URL. You can use a tool such as the [**ngrok** client](https://ngrok.com/download), which is available in free and paid versions, or you can use your own client. These steps use the **ngrok** client.
+If you want to locally run the HTTP Webhook trigger or action, you need to set up a public URL that exposes your localhost server and securely forwards calls from the service endpoint to the webhook callback URL. You can use a forwarding service and tool such as [**ngrok**](https://ngrok.com/), which opens an HTTP tunnel to your localhost port, or you can use your own tool.
 
-1. Before you can use the **ngrok** client, you need an **ngrok** account. If you don't have one, [sign up for an account](https://dashboard.ngrok.com/signup). Otherwise, [sign in to your account](https://dashboard.ngrok.com/login).
+To set up URL forwarding using **ngrok**, follow these steps:
 
-1. Download the **ngrok** version that you want from `https://ngrok.com/download`, and unzip the file. For more information, review [ngrok setup - Step 1](https://ngrok.com/download).
+1. [Sign up for an **ngrok** account](https://dashboard.ngrok.com/signup) if you don't have one. Otherwise, [sign in to your account](https://dashboard.ngrok.com/login).
 
-1. On your computer, open your command prompt tool, and browse to where you unzipped the **ngrok** client files.
+1. Get your personal authentication token, which your **ngrok** client needs to connect and authenticate access to your account.
 
-1. 
+   1. To find your [authentication token page](https://dashboard.ngrok.com/auth/your-authtoken), on your account dashboard menu, expand **Authentication**, and select **Your Authtoken**.
 
-https://dashboard.ngrok.com/get-started/setup
+   1. From the **Your Authtoken** box, copy the token to a safe location.
+
+1. From the [**ngrok** download page](https://ngrok.com/download) or [your account dashboard](https://dashboard.ngrok.com/get-started/setup), download the **ngrok** version that you want, and extract the .zip file. For more information, see [Step 1: Unzip to install](https://ngrok.com/download).
+
+1. On your computer, open your command prompt tool. Browse to the location where you have the **ngrok.exe** file.
+
+1. Connect the **ngrok** client to your **ngrok** account by running the following command. For more information, see [Step 2: Connect your account](https://ngrok.com/download).
+
+   `./ngrok authtoken <your_auth_token>`
+
+1. Open the HTTP tunnel to localhost port 7071 by running the following command. For more information, see [Step 3: Fire it up](https://ngrok.com/download).
+
+   `./ngrok http 7071`
 
 <a name="create-project"></a>
 
