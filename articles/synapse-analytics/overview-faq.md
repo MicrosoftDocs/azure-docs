@@ -78,7 +78,7 @@ A: Not at this time.
 
 ### Q: How do I migrate existing pipelines from Azure Data Factory to an Azure Synapse workspace?
 
-A: At this time, you must manually recreate your Azure Data Factory pipelines and related artifacts manually. 
+A: At this time, you must manually recreate your Azure Data Factory pipelines and related artifacts by exporting the JSON from the original pipeline and importing it into your Synapse workspace.
 
 ## Apache Spark
 
