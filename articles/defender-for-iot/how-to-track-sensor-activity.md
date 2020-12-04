@@ -44,7 +44,7 @@ In addition to presenting the events detected by the sensor, you can manually ad
 
 1.  Select :::image type="content" source="media/how-to-track-sensor-activity/image200.png" alt-text="Export":::.
 
-## Filtering event data
+## Filter event timeline  data
 
 Filter the timeline to display assets and events of interest to you.
 

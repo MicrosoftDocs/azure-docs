@@ -2,7 +2,7 @@
 title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/01/2020
 ---
 
 # Resource providers for Azure services
@@ -10,6 +10,8 @@ ms.date: 11/30/2020
 This article shows how resource provider namespaces map to Azure services.
 
 ## Match resource provider to service
+
+The resources providers that are marked with **- registered** are registered by default for your subscription. For more information, see [Registration](#registration).
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |

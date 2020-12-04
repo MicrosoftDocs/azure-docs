@@ -185,20 +185,18 @@
         href: how-to-view-alerts.md
       - name: View information provided in alerts
         href: how-to-view-information-provided-in-alerts.md
-      - name: Investigate alert events
-        href: how-to-investigate-alert-events.md
       - name: Manage the alert event
         href: how-to-manage-the-alert-event.md
       - name: Accelerate alert incident response
         href: how-to-accelerate-alert-incident-response.md
-      - name: Forward alert information to partners
-        href: how-to-forward-alert-information-to-partners.md
+      - name: Forward alert information
+        href: how-to-forward-alert-information.md
     - name: Work with alerts on the on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Enrich asset information
       items: 
       - name: Working with asset notifications
-        href: how-to-working-with-asset-notifications.md
+        href: how-to-working-with-device-notifications.md
       - name: Enhance port and VLAN names resolution
         href: how-to-enhance-port-and-vlan-names-resolution.md
       - name: Import asset information

@@ -4,70 +4,69 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/22/2020
-ms.topic: article
-ms.service: azure
+ms.date: 12/02/2020
 ms.topic: how-to
+ms.service: azure
 ---
 
 # Overview
 
 ## Gain insight into devices discovered by all enterprise sensors
 
-### View enterprise asset inventory
+### View enterprise device inventory
 
-Asset information from connected Sensors can be viewed from the Central Manager in the Asset Inventory. This gives Central Manager users a comprehensive view of all network information. Use import, export, and filtering tools to manage this information. The status information about the connected Sensor versions is also displayed.
+Device information from connected sensors can be viewed from the on-premises management console in the Device Inventory. This gives on-premises management console users a comprehensive view of all network information. Use import, export, and filtering tools to manage this information. The status information about the connected sensor versions is also displayed.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image46.png" alt-text="Screenshot of Asset Inventory data table":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-data-table.png" alt-text="Screenshot of the device inventory data table.":::
 
-The following table describes the Asset Inventory table columns.
+The following table describes the Device Inventory table columns.
 
-| Parameter             | Description                                                |
-| --------------------- | ---------------------------------------------------------- |
-| **Unacknowledged Alerts** | The number of unhandled alerts associated with this asset. |
-| **Business Unit** | The business unit that contains this asset. |
-| **Region** | The region that contains this asset. |
-| **Site** | The site that contains this asset. |
-| **Zone** | The zone that contains this asset. |
-| **Appliance** | The CyberX Sensor that protects this asset. |
-| **Name** | The name of this asset as it was discovered by CyberX. |
-| **Type** | The type of asset, such as PLC, HMI. |
-| **Vendor** | The name of the asset's vendor, as defined in the MAC. |
-| **Operating System** | The Operating System of the asset. |
-| **Firmware** | Asset's firmware. |
-| **IP Address** | The IP address of the asset. |
-| **VLAN** | The VLAN of the asset. |
-| **MAC Address** | The MAC address of the asset. |
-| **Protocols** | The protocols used by the asset. |
-| **Unacknowledged Alerts** | The number of unhandled alerts associated with this asset. |
-| **Is Authorized** | The authorization status of the asset:<br />- **True:** The asset has been authorized.<br />- **False:** The asset has not been authorized. |
-| **Is Known as Scanner** | Is this asset performs scanning-like activities in the network. |
-| **Is Programming Asset** | Is this a programming asset:<br />- **True:** The asset performs programming activities for PLCs/RTU/Controllers, which is usually relevant to engineering stations.<br />- **False:** The asset is not a programming asset. |
-| **Groups** | In which groups this asset participates. |
-| **Last Activity** | The last activity performed by the asset. |
-| **Discovered** | When this asset was first seen in the network. |
+| Parameter | Description |
+|--|--|
+| **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
+| **Business Unit** | The business unit that contains this device. |
+| **Region** | The region that contains this device. |
+| **Site** | The site that contains this device. |
+| **Zone** | The zone that contains this device. |
+| **Appliance** | The Defender for IoT sensor that protects this device. |
+| **Name** | The name of this device as it was discovered by Defender for IoT. |
+| **Type** | The type of device, such as PLC, or HMI. |
+| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
+| **Operating System** | The OS of the device. |
+| **Firmware** | The device's firmware. |
+| **IP Address** | The IP address of the device. |
+| **VLAN** | The VLAN of the device. |
+| **MAC Address** | The MAC address of the device. |
+| **Protocols** | The protocols used by the device. |
+| **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
+| **Is Authorized** | The authorization status of the device:<br />- **True:** The device has been authorized.<br />- **False:** The device has not been authorized. |
+| **Is Known as Scanner** | Is this device performs scanning-like activities in the network. |
+| **Is Programming Device** | Is this a programming device:<br />- **True:** The device performs programming activities for PLCs, RTU, and Controllers, which are relevant to engineering stations.<br />- **False:** The device is not a programming device. |
+| **Groups** | In which groups this device participates. |
+| **Last Activity** | The last activity performed by the device. |
+| **Discovered** | When this device was first seen in the network. |
 
-### Integrate data to the enterprise asset inventory
+### Integrate data to the enterprise device inventory
 
-Asset Inventory data integration capabilities let you enhance the data in the Asset Inventory with information from other enterprise resources. For example, from: CMDBs, DNS, Firewalls, Web APIs and so on.
+Device inventory data integration capabilities let you enhance the data in the Device Inventory with information from other enterprise resources. For example, from CMDBs, DNS, Firewalls, and Web APIs.
 
-You can use this information to learn, for example:
+You can use this information to learn. For example,
 
-- The asset purchase dates and end of warranty dates.
+- The device purchase dates and end of warranty dates.
 
-- The users responsible for each asset.
+- The users responsible for each device.
 
-- Opened tickets for assets.
+- Opened tickets for devices.
 
 - The last date firmware was upgraded.
 
-- Assets allowed access to the internet.
+- Devices allowed access to the internet.
 
-- Assets running active Antivirus applications.
+- Devices running active Antivirus applications.
 
-- Users logged into assets.
+- Users logged into devices.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image47.png" alt-text="Screenshot of Asset Inventory table data view":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-itens-highlighted.png" alt-text="Asset inventory screen data table.":::
 
 You can integrate data by:
 
@@ -75,168 +74,168 @@ You can integrate data by:
 
 Or
 
-- Running customized scripts provided by CyberX.
+- Running customized scripts provided by Defender for IoT.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image48.png" alt-text="Diagram of Enterprise Data Integrator":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/enterprise-data-integrator-graph.png" alt-text="Diagram of enterprise data integrator.":::
 
-You can work with CyberX Technical Support to set up your system to receive Web API queries.
+You can work with Defender for IoT technical support to set up your system to receive Web API queries.
 
-**To add data manually:**
+To add data manually:
 
-1. In the side menu, select **Asset Inventory** and then select :::image type="content" source="media/how-to-work-with-asset-inventory-information/image49.png" alt-text="Screenshot of Menu Icon":::.
+1. In the side menu, select **Device Inventory** and then select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false":::.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image50.png" alt-text="Screenshot of Asset Inventory Setting view":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-settings.png" alt-text="Edit your device's inventory settings.":::
 
-2. In the **Asset Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
+2. In the **Device Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image51.png" alt-text="Screenshot Add Custom Column view":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/add-custom-column.png" alt-text="Add a custom column to your inventory.":::
 
-3. In the **Add Custom Column** dialog box, add the new column name (up to 250 characters UTF), select **Manual** and select **SAVE**. The new item appears in the **Asset Inventory Settings** dialog box.
+3. In the **Add Custom Column** dialog box, add the new column name (up to 250 characters UTF), select **Manual** and select **SAVE**. The new item appears in the **Device Inventory Settings** dialog box.
 
-4. In the top right corner of the **Asset Inventory** window, select :::image type="content" source="media/how-to-work-with-asset-inventory-information/image52.png" alt-text="Screenshot of Menu Icon"::: and select **Export All Asset Inventory**. The CSV file is generated.
+4. In the top-right corner of the **Device Inventory** window, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: and select **Export All Device Inventory**. The CSV file is generated.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image53.png" alt-text="Screenshot of tabular data view":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/sample-exported-csv-file.png" alt-text="The exported CSV file.":::
 
 5. Manually add the information to the new column and save the file.
 
-6. In the top right corner of the **Asset Inventory** window, select :::image type="content" source="media/how-to-work-with-asset-inventory-information/image52.png" alt-text="Screenshot of Menu Icon":::, select **Import Manual Input Columns** and browse to the CSV file. The new data appears in the **Asset Inventory** table.
+6. In the top-right corner of the **Device Inventory** window, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false":::, select **Import Manual Input Columns** and browse to the CSV file. The new data appears in the **Device Inventory** table.
 
-**To integrate data from other enterprise entities:**
+To integrate data from other enterprise entities:
 
-1.  In the top right corner of the **Asset Inventory** window, select :::image type="content" source="media/how-to-work-with-asset-inventory-information/image52.png" alt-text="Screenshot of Menu Icon"::: and select **Export All Asset Inventory**.
+1. In the top-right corner of the **Device Inventory** window, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: and select **Export All Device Inventory**.
 
-2. In the **Asset Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
+2. In the **Device Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image51.png" alt-text="Screenshot Add Custom Column view":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/add-custom-column.png" alt-text="Add a custom column to your inventory.":::
 
 3. In the **Add Custom Column** dialog box, add the new column name (up to 250 characters UTF), select **Automatic**. The **UPLOAD SCRIPT** and **TEST SCRIPT** options appear.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image54.png" alt-text="Screenshot Add Custom Column view":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/add-custom-column-automatic.png" alt-text="Automatically add custom columns.":::
 
 4. Upload and test the script that you received from the [support.microsoft.com](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
-### Retrieve Information from the Asset Inventory
+### Retrieve information from the Device Inventory
 
-You can retrieve an extensive range of asset information detected by managed Sensors and integrate that information with 3rd party systems. For example, sensor, zone, and site IDs; IP and MAC addresses; firmware, protocol and vendor information is retrieved. Filter information you retrieve based on:
+You can retrieve an extensive range of device information detected by managed sensors and integrate that information with partner systems. For example, sensor, zone, and site IDs IP address, MAC addresses, firmware, protocol, and vendor information is retrieved. Filter information you retrieve based on:
 
-- authorized /unauthorized assets.
+- authorized and unauthorized devices.
 
-- assets associated with specific sites.
+- devices associated with specific sites.
 
-- assets associated with specific zones.
+- devices associated with specific zones.
 
-- assets associated with specific sensors.
+- devices associated with specific sensors.
 
-Work with CyberX API commands to retrieve and integrate this information. See *the CyberX API Guide for version 3.0* for details.
+Work with Defender for IoT API commands to retrieve and integrate this information. 
 
-### Add Filters to the Asset Inventory Table Columns
+### Add Filters to the Device Inventory Table Columns
 
-For each column in the Asset Inventory table you can set a filter that defines what information is displayed in the table. For example, you can decide that you want to view only the PLC assets info:
+For each column in the Device Inventory table, you can set a filter that defines what information is displayed in the table. For example, you can decide that you want to view only the PLC devices info:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image55.png" alt-text="Screenshot Asset Inventory view":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view.png" alt-text="Screenshot of the asset inventory.":::
 
 The filter disappears when you leave the window.
 
-To use the same filter, again and again, you can save a filter or a combination of filters that you need. You can open a left pane and view the filter(s) that you have saved:
+To use the same filter multiple times, you can save a filter or a combination of filters that you need. You can open a left pane and view the filter(s) that you have saved:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image56.png" alt-text="Screenshot Asset Inventory view":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories.png" alt-text="Asset inventories screen":::
 
-**To filter the Asset Inventory table information:**
+**To filter the Device Inventory table information:**
 
-1.  In the column that you want to filter, select :::image type="content" source="media/how-to-work-with-asset-inventory-information/image57.png" alt-text="Screenshot of Menu Icon":::.
+1. In the column that you want to filter, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-a-column-icon.png" border="false":::.
 
 2. In the Filter dialog box, select the filter type, as follows:
 
-  - **Equals:** The exact value according to which you want to filter the column, for example, if you filter the Protocol column according to Equals and value=ICMP, the column will present assets that use the ICMP protocol only.
+ - **Equals:** The exact value according to which you want to filter the column. For example, if you filter the Protocol column according to equals and `value=ICMP`, the column will present devices that use the ICMP protocol only.
 
-  - **Contains:** The value that is contained among other values in the column. For example, if you filter the Protocol column according to Contains and value=ICMP, the column will present assets that use the ICMP protocol as a part of the list of protocols that the asset uses.
+ - **Contains:** The value that is contained among other values in the column. For example, if you filter the Protocol column according to Contains and `value=ICMP`, the column will present devices that use the ICMP protocol as a part of the list of protocols that the device uses.
 
-3. To organize the column info according to the alphabetical order, select :::image type="content" source="media/how-to-work-with-asset-inventory-information/image60.png" alt-text="Screenshot of Menu Icon](media/how-to-work-with-asset-inventory-information/image58.png) and arrange the order by selecting the ![Screenshot of Menu Icon](media/how-to-work-with-asset-inventory-information/image59.png) and ![Screenshot of Menu Icon":::arrows.
+3. To organize the column info according to the alphabetical order, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-order-icon.png" border="false"::: and arrange the order by selecting the :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-a-z-order-icon.png" border="false"::: and :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-z-a-order-icon.png" border="false"::: arrows.
 
 4. To save a new filter, define the filter and select **Save As**.
 
 5. To change the filter definitions, change the definitions and select **Save Changes**.
 
-### View Asset Information per Zone
+### View device information per zone
 
-The following information can be learned about assets in a Zone
+The following information can be learned about devices in a Zone
 
-- **View a Zone Asset Map**
+- **View a zone device map**
 
-- **View Alerts Associated with a Zone**
+- **View alerts associated with a zone**
 
-- **View an Asst Inventory of the Zone**
+- **View a Device Inventory of the zone**
 
-- **Additional Zone Information**
+- **Additional zone information**
 
-#### View a Zone Asset Map
+#### View a zone Device Map
 
-This section describes how to access the Sensor Asset Map for the zone selected.
+This article describes how to access the sensor Device Map for the zone selected.
 
-**To view a zone map:**
+To view a zone map:
 
 1. In the **Site Management** window, select **View Zone Map** from the bar that contains the zone name.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image37.png" alt-text="Screenshot of Default Region -> Default Business Unit":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/default-region-to-default-business-unit.png" alt-text="Default region to default business unit.":::
 
-The Asset Map window displays, showing all the network elements related to the selected zone, including the Sensors, the assets connected to them and other information.
+The Device Map window displays, showing all the network elements related to the selected zone, including the sensors, the devices connected to them and other information.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image38.png" alt-text="Screenshot of Zone Map view":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/zone-map-screenshot.png" alt-text="Screenshot of the zone map.":::
 
-#### Map Views and Asset Information
+#### Map views and device information
 
-The following tools are available for viewing assets and asset information from the map. Refer to *The Asset Map* chapter in the *CyberX Platform User Guide* for details about each of these features.
+The following tools are available for viewing devices and device information from the map. Refer to *The Device Map* chapter in the *Defender for IoT Platform User Guide* for details about each of these features.
 
-- **Map Zoom Views**: Simplified View, Connections View and Detailed View
+- **Map zoom views**: Simplified View, Connections View and Detailed View
 
 The map view displayed varies depending on the map zoom-level. Switching between map views is done by adjusting the zoom levels.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image39.png" alt-text="Icons for Zoom buttons":::
+:::image type="icon" source="media/how-to-work-with-asset-inventory-information/zoom-icon.png" border="false":::
 
-- **Map Search and Layout Tools**: Tools used to display varies network segments, assets. Asset groups or layers.
+- **Map search and layout tools**: Tools used to display varied network segments, devices. Device groups or layers.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image40.png" alt-text="Screeshot of Search and Layout Tools view":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/search-and-layout-tools.png" alt-text="Screeshot of search and layout tools view.":::
 
-- **Labels and indicators on assets:** for example, the number of assets grouped in a subnet in an IT network. In this example 8.
+- **Labels and indicators on devices:** For example, the number of devices grouped in a subnet in an IT network. In this example 8.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image41.png" alt-text="Screenshot of Labels and Indicators":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/labels-and-indicators.png" alt-text="Screenshot of labels and indicators.":::
 
-- **View Asset Properties**: For example, the Sensor monitoring the asset and basic asset properties. Right-click the asset to view asset Properties.
+- **View device properties**: For example, the sensor monitoring the device and basic device properties. Right-click the device to view the device properties.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image42.png" alt-text="Screenshot of Asset Properties view":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties.png" alt-text="Screenshot of asset properties view.":::
 
-- **Alert associated with an Asset:** Right-click the asset to view related alerts.
+- **Alert associated with a device:** Right-click the device to view related alerts.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image43.png" alt-text="Screenshot of Show Alerts view":::
-
-#### View Alerts Associated with a Zone
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/show-alerts.png" alt-text="Screenshot of show alerts view.":::
+#### View alerts associated with a zone
 
 View all alerts associated with a specific zone.
 
-**To view alerts:**
+To view alerts:
 
-1. Select the Alerts icon form the Zone window. See ***Alerts*** for details about alert management in the Central Manager.
+1. Select the alerts icon form the Zone window. 
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image44.png" alt-text="Screenshot of Default Business Unit view with Example":::
+:::image type="content" source="media/how-to-work-with-Device-inventory-information/image44.png" alt-text="Screenshot of Default Business Unit view with Example":::
 
-#### View an Asst Inventory of the Zone
+#### View the Device Inventory of the zone
 
-View the Asset Inventory associated with a specific zone.
+View the Device Inventory associated with a specific zone.
 
-**To view the inventory:**
+To view the inventory:
 
-1. Select the View **Asset Inventory** form the Zone window. See ***View Asset Inventory*** for details about working in the Asset Inventory.
+1. Select the **View Device Inventory** form the Zone window. 
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image45.png" alt-text="Screenshot of Default Business Unit view with Example":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/default-business-unit.png" alt-text="Screenshot of default business unit view with example.":::
 
-#### Additional Zone Information
+#### Additional zone information
 
-The following additional Zone information is available:
+The following additional zone information is available:
 
-- **Zone details:** Number of Assets, and alerts and Sensors associated with the Zone.
+- **Zone details:** Number of devices, alerts, and sensors associated with the zone.
 
-- **Sensor details:** Name, IP address, and version of each Sensor assigned to the zone.
+- **Sensor details:** Name, IP address, and version of each sensor assigned to the zone.
 
-- **Connectivity status:** If disconnected, connect from the Sensor. See ***Make Initial Connection between Sensors and the Central Manager*** for details.
+- **Connectivity status:** If disconnected, connect from the sensor. 
 
-- **Upgrade Progress:** If the connected Sensor is being upgraded, upgrade statuses will appear. During upgrade, the Central Manager does not receive asset information from the Sensor.
+- **Upgrade progress:** If the connected sensor is being upgraded, upgrade statuses will appear. During upgrade, the on-premises management console does not receive device information from the sensor.
+- 

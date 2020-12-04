@@ -4,94 +4,91 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/22/2020
-ms.topic: article
-ms.service: azure
+ms.date: 12/2/2020
 ms.topic: how-to
+ms.service: azure
 ---
 
-# Gain insight into assets discovered by a specific sensor 
+# Gain insight into devices discovered by a specific sensor 
 
 ## Overview
 
-The Asset Inventory displays an extensive range asset attributes detected by the sensor. Options are available to:
+The Device Inventory displays an extensive range device attributes detected by the sensor. Options are available to:
 
-  - Easily filter the information. See [Working with Asset Inventory Filters](./working-with-asset-inventory-filters.md).
+ - Easily filter the information. 
 
-  - Export information to a CSV file. See [Export Asset Inventory Information](./export-asset-inventory-information.md) for details.
+ - Export information to a CSV file.
 
-  - Import Windows Registry details. See [Learning Windows Registry Details](./working-with-asset-inventory-filters.md#learning-windows-registry-details).
+ - Import Windows registry details.
 
-  - Create Groups for display in the Asset Map. See [Save Inventory Filters](./working-with-asset-inventory-filters.md#save-inventory-filters) for details.
+ - Create groups for display in the Device Map.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image143.png" alt-text="Asset Inventory":::
+The following Device Inventory attributes are displayed in the table.
 
-The following Asset Inventory attributes are displayed in the table.
+| Parameter | Description |
+|--|--|
+| Name | The name of the device as it was discovered by the sensor. |
+| Type | The type of device. |
+| Vendor | The name of the device’s vendor, as defined in the MAC address. |
+| Operating System | The OS of the device. |
+| Firmware | The device’s firmware. |
+| IP Address | The IP address of the device. |
+| VLAN | The VLAN of the device. See [Define VLAN Names](how-to-define-management-console-network-settings.md#define-vlan-names) for details about instructing the sensor to discover VLANs. |
+| MAC Address | The MAC address of the device. |
+| Protocols | The protocols used by the device. |
+| Unacknowledged Alerts | The number of unacknowledged alerts associated with this device. |
+| Is Authorized | Displays the authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device has not been authorized. |
+| Is Known as Scanner | Defined as a scanning device by the user. |
+| Is Programming device | Defined as an authorized programming device by the user <br />- **True**: The device performs programming activities for PLCs, RTU, and controllers, which are relevant to engineering stations. <br />- **False**: The device is not a programming device. |
+| Groups | In which groups this device participates. |
+| Last Activity | The last activity performed by the device. |
+| Discovered | When this device was first seen in the network. |
 
-| Parameter | Description  |
-|---|---|
-| Name  | The name of the asset as it was discovered by the sensor.  |
-| Type   |  The type of asset. |
-| Vendor   | The name of the asset’s vendor, as defined in the MAC.  |
-| Operating System   |  The Operating System of the asset. |
-|  Firmware  | Asset’s firmware.  |
-|  IP Address  | The IP address of the asset.  |
-| VLAN   | The VLAN of the asset. See <a href="./configure-vlan-names.md">Configure VLAN</a> Names for details about instructing the sensor to discover VLANs.  |
-| MAC Address   | The MAC address of the asset.  |
-| Protocols   | The protocols used by the asset.  |
-| Unacknowledged Alerts   | The number of unacknowledged alerts associated with this asset.  |
-|  Is Authorized  | Displays the authorization status defined by the user:<br />- True: The asset has been authorized.<br />- False: The asset has not been authorized. |
-| Is Known as Scanner  | Defined as a scanning asset by the user.  |
-| Is Programming Asset   | Defined as an authorized programming asset by the user <br />- *True**: The asset performs programming activities for PLCs/RTU/Controllers, which is usually relevant to engineering stations. <br />- False:The asset is not a programming asset.|
-| Groups | In which groups this asset participates.  |
-| Last Activity | The last activity performed by the asset.  |
-| Discovered | When this asset was first seen in the network. |
+To switch to the Device Inventory view:
 
-To switch to the Asset Inventory view:
+1. In the Navigation pane, select **Devices**. The **Devices** pane opens on the right.
 
-1. In the Navigation pane, select **Assets**. The **Assets** pane opens on the right.
+2. In the **Devices** pane, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/device-pane-icon.png" border="false":::.
 
-2. In the **Assets** pane, select :::image type="content" source="media/how-to-work-with-asset-inventory-information/image144.png" alt-text="Asset pane":::.
+To hide and display columns, customize the Device Inventory table:
 
-To hide and display columns, customize the Asset Inventory table:
+1. On the Device Inventory top-right menu, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/settings-icon.png" border="false":::.
 
-1.  On the Asset Inventory top-right menu, select :::image type="content" source="media/how-to-work-with-asset-inventory-information/image145.png" alt-text="Setting":::.
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-settings-screens.png" alt-text="Device inventory settings screen.":::
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image146.png" alt-text="Asset Inventory Setting":::
-
-2. In the Asset Inventory Settings window, select the columns that you want to display in the Asset Inventory table
+2. In the Device Inventory Settings window, select the columns that you want to display in the Device Inventory table
 
 3. Change the location of the columns in the table using arrows.
 
-4. Select **Save**. The Asset Inventory Settings window closes, and the new settings appear in the table.
+4. Select **Save**. The Device Inventory Settings window closes, and the new settings appear in the table.
 
-## Working with asset inventory filters
+## Working with device inventory filters
 
 ### Create temporary inventory filters
 
-For each column in the Asset Inventory table you can set a filter that defines what information is displayed in the table. For example, you can decide that you want to view only the PLC assets information.
+For each column in the Device Inventory table, you can set a filter that defines what information is displayed in the table. For example, you can decide that you want to view only the PLC devices information.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image147.png" alt-text="Assets - Learning":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/devices-learning.png" alt-text="Devices learning.":::
 
 The filter is not saved when you leave the window.
 
 ### Save inventory filters
 
-You can save a filter or a combination of filters that you need and reapply them in the Asset Inventory. Create broader filters based on a certain asset type, or more narrow filters based on a specific type and a specific protocol.
+You can save a filter or a combination of filters that you need and reapply them in the Device Inventory. Create broader filters based on a certain device type, or more narrow filters based on a specific type and a specific protocol.
 
-The filters you save are also saved as Asset Map groups. This provided an additional level of granularity in viewing network assets on the map.
+The filters you save are also saved as Device Map groups. This provided an additional level of granularity in viewing network devices on the map.
 
 To create filters:
 
-1. In the column that you want to filter, select :::image type="content" source="media/how-to-work-with-asset-inventory-information/image148.png" alt-text="Filter":::.
+1. In the column that you want to filter, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-icon.png" border="false":::.
 
 2. In the Filter dialog box, select the filter type, as follows:
 
-  - **Equals:** The exact value according to which you want to filter the column, for example, if you filter the Protocol column according to Equals and value=ICMP, the column will present assets that use the ICMP protocol only.
+ - **Equals:** The exact value according to which you want to filter the column, for example, if you filter the protocol column according to equals and `value=ICMP`, the column will present devices that use the ICMP protocol only.
 
-  - **Contains:** The value that is contained among other values in the column. For example, if you filter the Protocol column according to Contains and the value=ICMP, the column will present assets that use the ICMP protocol as a part of the list of protocols that the asset uses.
+ - **Contains:** The value that is contained among other values in the column. For example, if you filter the protocol column according to contains and the `value=ICMP`, the column will present devices that use the ICMP protocol as a part of the list of protocols that the device uses.
 
-3. To organize the column info according to the alphabetical order, select :::image type="content" source="media/how-to-work-with-asset-inventory-information/image151.png" alt-text="Select](media/how-to-work-with-asset-inventory-information/image149.png) and arrange the order by selecting the ![Up](media/how-to-work-with-asset-inventory-information/image150.png) and ![Down":::arrows.
+3. To organize the column info according to the alphabetical order, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-order-icon.png" border="false"::: and arrange the order in alphabetical order by clicking the :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-a-z-order-icon.png" border="false"::: order by alphabetical reverse order by selecting the :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-z-a-order-icon.png" border="false"::: icon.
 
 4. To save a new filter, define the filter and select **Save As**.
 
@@ -101,63 +98,63 @@ To view filters:
 
 1. Open a left pane and view the filter(s) that you have saved:
 
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/image152.png" alt-text="Left Pane":::
+ :::image type="content" source="media/how-to-work-with-asset-inventory-information/filters-from-left-pane.png" alt-text="View the filters from the left side pane.":::
 
 ### View filtered information as a map group
 
-When switching to the map view, the filtered assets are highlighted/filtered and the filter group that you saved appears in the side menu under the Asset Inventory Filters group.
+When switching to the map view, the filtered devices are highlighted and filtered and the filter group that you saved appears in the side menu under the Device Inventory Filters group.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image153.png" alt-text="Map Group":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/filters-in-the-map-view.png" alt-text="View filters when in the map view.":::
 
-## Learning windows registry details 
+## Learning Windows registry details 
 
-In addition to learning OT assets, you can discovers IT assets, including Microsoft Windows® Workstations and Servers. These assets are also displayed in Asset Inventory. Once learned, you can enrich the Asset inventory with detailed Windows information, for example:
+In addition to learning OT devices, you can discovers IT devices, including Microsoft Windows® workstations and servers. These devices are also displayed in Device Inventory. Once learned, you can enrich the Device Inventory with detailed Windows information, for example:
 
-  - Windows version installed
+ - Windows version installed
 
-  - Applications installed
+ - Applications installed
 
-  - Patch level information
+ - Patch level information
 
-  - Open ports
+ - Open ports
 
-  - More robust information on OS versions
+ - More robust information on OS versions
 
 Two options are available for retrieving this information:
 
-  - Active polling by using scheduled WMI scans. See [Configuring Windows Endpoint Monitoring](./configuring-windows-endpoint-monitoring.md) for details.
+ - Active polling by using scheduled WMI scans. 
 
-  - Local surveying by distributing and running a script on the asset. Working with local scripts bypasses the risks encountered when running WMI polling on an endpoint. It is also useful for regulated networks with waterfalls and one-way elements
+ - Local surveying by distributing and running a script on the device. Working with local scripts bypasses the risks encountered when running WMI polling on an endpoint. It is also useful for regulated networks with waterfalls and one-way elements
 
-This section describes how to locally survey the Windows endpoint registry with a script.
+This article describes how to locally survey the Windows endpoint registry with a script.
 
-This information will be used when generating alerts, notifications, Data Mining reports, Risk Assessments, and Attack Vectors.
+This information will be used when generating alerts, notifications, data mining reports, risk assessments, and attack vectors.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/image154.png" alt-text="Data mining":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/data-mining-screen.png" alt-text="Data mining screenshot.":::
 
 The following Windows OS can be surveyed:
 
-  - Windows XP
+ - Windows XP
 
-  - Windows 2000
+ - Windows 2000
 
-  - Windows NT
+ - Windows NT
 
-  - Windows 7
+ - Windows 7
 
-  - Windows 10
+ - Windows 10
 
-  - Windows Server 2003/2008/2012/2016
+ - Windows Server 2003/2008/2012/2016
 
 ### Before you begin 
 
 The following is required to work with the script.
 
-  - Admin permissions are required to run the script on the asset.
+ - Administrator permissions are required to run the script on the device.
 
-  - The Windows asset should already be learned by the sensor. This means that if the asset already exists, its information will be retrieved by the script.
+ - The Windows device should already be learned by the sensor. This means that if the device already exists, its information will be retrieved by the script.
 
-  - A sensor is monitoring the network the Windows PC is connected to.
+ - A sensor is monitoring the network the Windows PC is connected to.
 
 ### Acquiring the script 
 
@@ -175,29 +172,29 @@ You can deploy the script once or schedule on-going queries using standard autom
 
 - The files generated by the script are located next to each other.  Do not separate them.
 
-- If you run the script again in the same location these files are overwritten.
+- If you run the script again in the same location, these files are overwritten.
 
 To run the script:  
 
 1. Copy the script to a local drive and unzip it. The following files appear.
 
-   - start.bat
+    - start.bat
 
-   - settings.json
+    - settings.json
 
-   - data.bin
+    - data.bin
 
-   - run.bat
+    - run.bat
 
-     :::image type="content" source="media/how-to-work-with-asset-inventory-information/image155.png" alt-text="run bat":::
+ :::image type="content" source="media/how-to-work-with-asset-inventory-information/files-in-file-explorer.png" alt-text="View of the files in file explorer.":::
 
-2. Run the run.bat file.
+2. Run the `run.bat` file.
 
 3. After the registry is probed, the CX-snapshot file appears with the registry information.
 
-4. The file name indicates the system name and date and time of the snapshot. For example: CX-snaphot_SystemName_Month_Year_Time
+4. The file name indicates the system name and date and time of the snapshot. For example, `CX-snaphot_SystemName_Month_Year_Time`.
 
-### Import asset details
+### Import device details
 
 Information learned on each endpoint should be imported to the sensor.
 
@@ -209,18 +206,18 @@ To import:
 
 1. Select **Import Settings** from the **Import Windows Configuration** dialog box.
 
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/image156.png" alt-text="Import Windows Configuration":::
+ :::image type="content" source="media/how-to-work-with-asset-inventory-information/import-windows-configuration.png" alt-text="Import your Windows configurations.":::
 
 2. Select **Add**, and then select all the files (Ctrl=A).
 
-3. Select **Close.** The asset registry information will be imported. if there is a problem uploading one of the files you will be informed which file upload failed.
+3. Select **Close.** The device registry information will be imported. if there is a problem uploading one of the files you will be informed which file upload failed.
 
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/image157.png" alt-text="Ad new file":::
+ :::image type="content" source="media/how-to-work-with-asset-inventory-information/add-new-file.png" alt-text="Add new files upload successful.":::
 
-## Export asset inventory information
+## Export device inventory information
 
-You can Export Asset Inventory Information to an Excel file. IM ported information overwrites current information.
+You can export device inventory information to an Excel file. Imported information overwrites current information.
 
 To export a CSV file:
 
-1.  On the Asset Inventory top-right menu, select :::image type="content" source="media/how-to-work-with-asset-inventory-information/image158.png" alt-text="CSV":::. The CSV report is generated and downloaded.
+1. On the Device Inventory top-right menu, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false":::. The CSV report is generated and downloaded.

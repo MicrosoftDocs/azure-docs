@@ -12,7 +12,7 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link (preview)
+# Interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
 
 In this article, you'll learn how to interact with Azure Cosmos DB using Synapse Apache Spark. With its full support for Scala, Python, SparkSQL, and C#, Synapse Apache Spark is central to analytics, data engineering, data science, and data exploration scenarios in [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

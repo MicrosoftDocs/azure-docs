@@ -13,7 +13,7 @@ services: iot-pnp
 
 # Preview Tutorial: Create and Connect to Time Series Insights Gen2 to store, visualize, and analyze IoT Plug and Play device telemetry
 
-In this tutorial, you learn how to create and correctly configure an [Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/overview-what-is-tsi) (TSI) environment to integrate with your IoT Plug and Play solution. Use TSI to collect, process, store, query, and visualize time series data at Internet of Things (IoT) scale.
+In this tutorial, you learn how to create and correctly configure an [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) (TSI) environment to integrate with your IoT Plug and Play solution. Use TSI to collect, process, store, query, and visualize time series data at Internet of Things (IoT) scale.
 
 First, you provision a TSI environment and connect your IoT hub as a streaming event source. Then you work through model synchronization to author your [Time Series Model](../time-series-insights/concepts-model-overview.md) based on the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) sample model files you used for the temperature controller and thermostat devices.
 
@@ -36,7 +36,7 @@ To avoid the requirement to install the Azure CLI locally, you can use the Azure
 
 ## Prepare your event source
 
-The IoT hub you created previously will be your TSI environment's [event source](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources).
+The IoT hub you created previously will be your TSI environment's [event source](../time-series-insights/concepts-streaming-ingestion-event-sources.md).
 
 > [!IMPORTANT]
 > Disable any existing IoT Hub routes. There is a known issue when you use an IoT hub as a TSI event source with [routing](../iot-hub/iot-hub-devguide-messages-d2c.md#routing-endpoints) configured. Temporarily disable any routing endpoints, and when your IoT hub is connected to TSI you can re-enable them.
@@ -64,7 +64,7 @@ This section describes how to provision your Azure Time Series Insights Gen2 env
 
 The following command:
 
-* Creates an Azure storage account for your environment's [cold store](https://docs.microsoft.com/azure/time-series-insights/concepts-storage#cold-store), designed for long-term retention and analytics over historical data.
+* Creates an Azure storage account for your environment's [cold store](../time-series-insights/concepts-storage.md#cold-store), designed for long-term retention and analytics over historical data.
   * Replace `mytsicoldstore` with a unique name for your cold storage account.
 * Creates an Azure Time Series Insights Gen2 environment, including warm storage with a retention period of seven days, and cold storage for infinite retention.
   * Replace `my-tsi-env` with a unique name for your TSI environment.

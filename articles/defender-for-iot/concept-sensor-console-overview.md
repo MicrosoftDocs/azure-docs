@@ -4,16 +4,14 @@ description: Use the console's features to gain visibility and insight into your
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/24/2020
+ms.date: 12/2/2020
 ms.service: azure
 ms.topic: conceptual
 ---
 
 # About the Defender for IoT sensor console
 
-You can use the features of the Azure Defender for IoT sensor console to gain visibility and insight into your network. From the console, you can perform forensics and device analysis, handle threats, forward information to partner systems, and manage users.
-
-You might not have access to all of the features described in this guide. See [User roles and permissions](concept-user-roles-and-permissions.md) for details.
+The Azure Defender for IoT sensor console gives you visibility and insight into your network. It helps you perform forensics and device analysis, handle threats, forward information to partner systems, and more.
 
 ## Console elements
 
@@ -36,6 +34,16 @@ Elements of the console's main window include:
 
 The options available in the console's main window can vary, based on the user who signed in.
 
+## User roles and permissions
+
+User roles are designed to facilitate granular access to console tools. The following roles are available:
+
+- **Read Only** – Read Only users perform tasks such as viewing alerts and devices on the Device map. These users have access to options displayed on the **Navigation** pages.
+
+- **Security Analyst** – The security analyst has the permissions of the RO user and can also perform actions on devices, investigate and acknowledge alerts, use the investigation features. Security analysts can see the **Navigation** and **Analysis** sections.
+
+- **Administrator** – The administrator has all the permissions of the RO and the security analyst and can also manage the system configuration, create, and delete users and create notifications. Administrators can see the **Navigation, Analysis**, and **Administration** sections.
+
 ## Console tools
 
 You access console tools from the side menu.
@@ -49,8 +57,8 @@ You access console tools from the side menu.
 | Alerts | :::image type="icon" source="media/concept-sensor-console-overview/alerts-icon-azure.png" border="false"::: | Display alerts when policy violations occur, deviations from the baseline behavior occur, or any type of suspicious activity in the network is detected. |
 | Reports | :::image type="icon" source="media/concept-sensor-console-overview/reports-icon-azure.png" border="false"::: | View reports that are based on data mining queries. |
 
-
 **Analysis**
+
 | Window| Icon | Description |
 |---|---|---|
 | Event timeline | :::image type="icon" source="media/concept-sensor-console-overview/event-timeline-icon-azure.png" border="false"::: | Contains a timeline with information about alerts, network events (informational), and user operations, such as user sign-ins and user deletions.|
@@ -62,32 +70,19 @@ You access console tools from the side menu.
 | Trends and statistics | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | View trends and statistics in an extensive range of widgets. |
 | Risk Assessment | :::image type="icon" source="media/concept-sensor-console-overview/vulnerabilities-icon-azure.png" border="false"::: | Display the **Vulnerabilities** window. |
 
-
-
 **Admin**
 | Window | Icon | Description |
 |---|---|---|
 | Users | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Define users and roles with various access levels. |
-| Forwarding | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Forward alert information to partner vendors by using forwarding rules. In addition to forwarding rules, actions delivered with your system and other actions might become available when you integrate with partner vendors.<br /> See [Forward alert information to partners](how-to-forward-alert-information-to-partners.md) for details. |
+| Forwarding | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Forward alert information to partners integrating with Defender for IoT, to email addresses, to webhook servers, and more. <br /> See [Forward alert information](how-to-forward-alert-information.md) for details. |
 | System settings | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | Configure the system settings. For example, define DHCP settings, provide mail server details, or create port aliases. |
 | Import settings | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | Display the **Import Settings** window. You can perform manual changes in a device's information.<br /> See [Import device information](how-to-import-device-information.md) for details. |
-
 
 **Support**
 | Window| Icon | Description |
 |----|---|---|
 | Support | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contact [Microsoft Support](support.microsoft.com) for help. |
 
-## User roles and permissions
-
-User roles are designed to facilitate granular access to console tools. The following roles are available:
-
-- **Read Only**: Read-only users perform tasks such as viewing alerts and devices on the device map. These users have access to options displayed on the **Navigation** pages.
-
-- **Security Analyst**: The security analyst has the permissions of the RO user and can also perform actions on devices, investigate and acknowledge alerts, and use the investigation features. Security analysts can see the **Navigation** and **Analysis** sections.
-
-- **Administrator**: The administrator has all the permissions of the RO and the security analyst and can also manage the system configuration, create and delete users, and create notifications. Administrators can see the **Navigation, Analysis**, and **Administration** sections.
-
 ## See also
 
-[Create and manage users](how-to-create-and-manage-users.md) for details about creating users and permission assignments.
+[About the on-premises management console](concept-air-gapped-networks.md)
