@@ -104,7 +104,7 @@ az keyvault create --name <key-vault-name> \
   --enable-purge-protection
 ```
 
-For use in later steps, get the resource Id of the key vault:
+For use in later steps, get the resource ID of the key vault:
 
 ```azurecli
 keyvaultID=$(az keyvault show --resource-group <resource-group-name> --name <key-vault-name> --query 'id' --output tsv)
@@ -495,10 +495,9 @@ For example, to configure a new key:
 1. Under **Settings**, select  **Encryption** > **Change key**.
 
     :::image type="content" source="media/container-registry-customer-managed-keys/rotate-key.png" alt-text="Rotate key in the Azure portal":::
-1. In **Encryption**, do one of the following:
-    1. To provide a non-versioned key that enables automatic updates of key versions, select **Select from Key Vault**, and then select a new key.  
-       In the **Select key from Azure Key Vault** window, select an existing key vault and key, or **Create new**. 
-    1. To provide a versioned key, which doesn't support automatic updates of key values, select **Enter key URI**. Provide the key identifier of a versioned key.
+1. In **Encryption**, choose one of the following:
+    * Select **Select from Key Vault**, and select an existing key vault and key, or **Create new**. The key you select is non-versioned and enables automatic key rotation.
+    * Select **Enter key URI**, and provide a key identifier directly. You can provide either a versioned key URI (for a key that must be rotated manually) or a non-versioned key URI (which enables automatic key rotation).
 1. Complete the key selection and select **Save**.
 
 ## Revoke key
