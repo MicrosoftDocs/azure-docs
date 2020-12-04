@@ -54,6 +54,9 @@
   - name: Link your partner ID
     displayName: partner earned credit, pec, mpn
     href: ./how-to/partner-earned-credit.md
+  - name: Update a delegation
+    displayName: upgrade
+    href: ./how-to/update-delegation.md
   - name: Remove access to a delegation
     displayName: delete, undelegate
     href: ./how-to/remove-delegation.md

@@ -22,6 +22,63 @@ In this quickstart, you create an Azure Purview account.
 
 * Your own [Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
 
+* Your account must have permission to create resources in the subscription
+
+* If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which will can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an
+EventHub namespace.
+    1. Navigate to the Azure portal and search for **Policy**
+    1. Follow [Create a custom policy definition](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) or modify existing policy to add two exceptions with `not` operator and `resourceBypass` tag:
+
+        ```json
+        {
+          "mode": "All",
+          "policyRule": {
+            "if": {
+              "anyOf": [
+              {
+                "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.Storage/storageAccounts"
+                },
+                {
+                  "not": {
+                    "field": "tags['<resourceBypass>']",
+                    "exists": true
+                  }
+                }]
+              },
+              {
+                "allOf": [
+                {
+                  "field": "type",
+                  "equals": "Microsoft.EventHub/namespaces"
+                },
+                {
+                  "not": {
+                    "field": "tags['<resourceBypass>']",
+                    "exists": true
+                  }
+                }]
+              }]
+            },
+            "then": {
+              "effect": "deny"
+            }
+          },
+          "parameters": {}
+        }
+        ```
+        
+        > [!Note]
+        > The tag could be anything beside `resourceBypass` and it's up to you to define value when creating Purview in latter steps as long as the policy can detect the tag.
+
+        :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Screenshot showing how to create policy definition.":::
+
+    1. [Create a policy assignment](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) using the custom policy created.
+
+        [ ![Screenshot showing how to create policy assignment](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
+
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
@@ -56,9 +113,18 @@ If necessary, follow these steps to configure your subscription to enable Azure 
     1. Enter a **Purview account name** for your catalog. Spaces and symbols aren't allowed.
     1. Choose a  **Location**, and then select **Next: Configuration**.
 1. On the **Configuration** tab, select the desired **Platform size** - the allowed values are 4 capacity units (CU) and 16 CU. Select **Next: Tags**.
-1. On the **Tags** tab, you can optionally add one or more tags. These tags are for use only in the Azure portal, not Azure Purview.
+1. On the **Tags** tab, you can optionally add one or more tags. These tags are for use only in the Azure portal, not Azure Purview. 
+
+    > [!Note] 
+    > If you have **Azure Policy** and need to add exception as in **Prerequisites**, you need to add the correct tag. For example, you can add `resourceBypass` tag:
+    > :::image type="content" source="./media/create-catalog-portal/add-purview-tag.png" alt-text="Add tag to Purview account.":::
+
 1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the creation. The newly created Azure Purview account instance appears in the list on your **Purview accounts** page.
 1. When the new account provisioning is complete select **Go to resource**.
+
+    > [!Note]
+    > If the provisioning failed with `Conflict` status, that means there is an Azure policy blocking Purview from creating a **Storage account** and **EventHub namespace**. You need to go through the **Prerequisites** steps to add exceptions.
+    > :::image type="content" source="./media/create-catalog-portal/purview-conflict-error.png" alt-text="Purview conflict error message":::
 
 1. Select **Launch purview account**.
 

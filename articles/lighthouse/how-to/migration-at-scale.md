@@ -1,7 +1,7 @@
 ---
 title: Manage migration projects at scale with Azure Migrate
 description: Learn how to effectively use Azure Migrate on delegated customer resources.
-ms.date: 12/3/2020
+ms.date: 12/4/2020
 ms.topic: how-to
 ---
 
@@ -33,7 +33,7 @@ This approach minimizes context switching for service providers working across m
 
 The workflow for this model will be similar to the following:
 
-1. The customer is [onboarded to Azure Lighthouse](onboard-customer.md). The Contributor built-in role is required for the identity that will be used with Azure Migrate.
+1. The customer is [onboarded to Azure Lighthouse](onboard-customer.md). The Contributor built-in role is required for the identity that will be used with Azure Migrate. See the [delegated-resource-management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) sample template for an example using this role.
 1. The designated user signs into the managing tenant in the Azure portal, then goes to Azure Migrate. This user [creates an Azure Migrate project](/migrate/create-manage-projects.md), selecting the appropriate delegated customer subscription.
 1. The user then [performs steps for discovery and assessment](../../migrate/tutorial-discover-vmware.md).
 
@@ -49,19 +49,22 @@ The workflow for this model will be similar to the following:
 
 ## Create an Azure Migrate project in the managing tenant
 
-In this scenario, migration-related operations such as discovery and assessment are still performed by users in the managing tenant. However, the migration project and all of the relevant resources will reside in the partner tenant, and the customer will not have direct visibility into the project (though assessments can be shared with customers if desired). The migration destination for each customer will remain in the customer's tenant. This option allows multiple customer subscriptions to be managed together in the same migration project.
+In this scenario, migration-related operations such as discovery and assessment are still performed by users in the managing tenant. However, the migration project and all of the relevant resources will reside in the partner tenant, and the customer will not have direct visibility into the project (though assessments can be shared with customers if desired). The migration destination for each customer will be the customer's subscription.
 
 This approach enables services providers to start migration discovery and assessment projects quickly, abstracting those initial steps from customer subscriptions and tenants.
 
 The workflow for this model will be similar to the following:
 
-1. The customer is [onboarded to Azure Lighthouse](onboard-customer.md). The Contributor built-in role is required for the identity that will be used with Azure Migrate.
+1. The customer is [onboarded to Azure Lighthouse](onboard-customer.md). The Contributor built-in role is required for the identity that will be used with Azure Migrate. See the [delegated-resource-management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) sample template for an example using this role.
 1. The designated user signs into the managing tenant in the Azure portal, then goes to Azure Migrate. This user [creates an Azure Migrate project](/migrate/create-manage-projects.md) in a subscription belonging to the managing tenant.
 1. The user then [performs steps for discovery and assessment](../../migrate/tutorial-discover-vmware.md). The on-premises VMs will be discovered and assessed within the migration project created in the managing tenant, then migrated from there.
 
    If you are managing multiple customers in the same Hyper-V host, you can discover all workloads at once. Customer-specific VMs can be selected in the same group, then an assessment can be created, and migration can be performed by selecting the appropriate customer's subscription as the target destination. There is no need to limit the discovery scope, and you can maintain a  full overview of all customer workloads in one migration project.
 
 1. When ready, proceed with the migration by selecting the delegated customer subscription as the target destination for replicating and migrating the workloads. The newly created resources will exist in the customer subscription, while the assessment data and resources pertaining to the migration project will remain in the managing tenant.
+
+NOTE: You must modify the parameter file to reflect your environment before deploying
+https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate
 
 ## Partner recognition for customer migrations
 
