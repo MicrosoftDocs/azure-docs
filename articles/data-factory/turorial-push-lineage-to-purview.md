@@ -50,6 +50,7 @@ If you don't know how to create Copy and Dataflow activities, see
 ### Step 3: Run Execute SSIS Package activities in Data Factory
 You can create pipelines, Execute SSIS Package activities in Data Factory. You don't need any additional configuration for lineage data capture. The lineage data will automatically be captured during the activities execution.
 ![Screenshot of Execute SSIS Package activity](./media/data-factory-purview/ssis-activities-for-lineage.png)
+
 If you don't know how to create Execute SSIS Package activities, see 
 [Run SSIS Packages in Azure](./tutorial-deploy-ssis-packages-azure.md).
 
