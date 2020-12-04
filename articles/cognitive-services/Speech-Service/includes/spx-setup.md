@@ -94,13 +94,12 @@ On Windows, your commands will start like this:
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
-On Linux or macOS, your commands will start similar to this:
+On Linux or macOS, your commands will look like the sample below. Replace `ABSOLUTE_PATH` with the absolute path for your mounted directory. This path was returned by the `pwd` command in the previous section. 
+
+If you run this command before setting your key and region, you will get an error telling you to set your key and region:
 ```shell   
 sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 ```
-
-> [!NOTE]
-> Replace `ABSOLUTE_PATH` with the absolute path shown by the `pwd` command in the section above.
 
 To use the `spx` command installed in a container, always enter the full command shown above, followed by the parameters of your request.
 For example, on Windows, this command sets your key:
@@ -111,6 +110,8 @@ docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCR
 
 > [!WARNING]
 > You cannot use your computer's microphone when you run Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
+
+<!-- Need to troubleshoot issues with docker pull image
 
 ### Optional: Create a command line shortcut
 
@@ -142,7 +143,7 @@ Follow these instructions to create a shortcut:
 
 > [!WARNING]
 > If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
-
+--->
 ***
 
 ## Create subscription config
