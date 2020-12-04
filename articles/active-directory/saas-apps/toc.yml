@@ -900,6 +900,8 @@
         href: jedox-tutorial.md
       - name: JFrog Artifactory
         href: jfrog-artifactory-tutorial.md
+      - name: JLL TRIRIGA
+        href: jll-tririga-tutorial.md
       - name: JIRA SAML SSO by Microsoft
         href: jiramicrosoft-tutorial.md
       - name: JIRA SAML SSO by Microsoft (V5.2)
