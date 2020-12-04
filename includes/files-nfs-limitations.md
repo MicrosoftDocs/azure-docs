@@ -17,7 +17,7 @@ While in preview, NFS has the following limitations:
 - Only the management plane REST APIs are supported. Data plane REST APIs are not available, which means that tools like Storage Explorer will not work with NFS shares nor will you be able to browse NFS share data in the Azure portal.
 - AzCopy is not currently supported.
 - Only available for the premium tier.
-- NFS shares only accept numeric UID/GID. To avoid your clients sending alphanumeric UID/GID, you can disable idmapping.
+- NFS shares only accept numeric UID/GID. To avoid your clients sending alphanumeric UID/GID, you should disable idmapping.
 - Shares can only be mounted from one storage account on an individual VM, when using private links. Attempting to mount shares from other storage accounts will fail.
 
 ### Azure Storage features not yet supported
