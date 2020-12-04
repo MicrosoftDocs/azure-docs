@@ -27,8 +27,8 @@ For an Azure App Service container workflow, the file has three sections:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- A GitHub account. If you don't have one, sign up for [free](https://github.com/join). You will need to have your code to deploy to Azure App Service in a GitHub repository. 
-- A working container registry and Azure App Service app for containers. This example uses Azure Container Registry. Make sure to complete the full deployment to Azure App Service app for containers. Unlike regular web apps, web apps for containers do not have a default landing page. You need to publish the container to have a working example.
+- A GitHub account. If you don't have one, sign up for [free](https://github.com/join). You need to have code in a GitHub repository to deploy to Azure App Service. 
+- A working container registry and Azure App Service app for containers. This example uses Azure Container Registry. Make sure to complete the full deployment to Azure App Service for containers. Unlike regular web apps, web apps for containers do not have a default landing page. Publish the container to have a working example.
     - [Learn how to create a containerized Node.js application using Docker, push the container image to a registry, and then deploy the image to Azure App Service](/azure/developer/javascript/tutorial-vscode-docker-node-01)
   		
 ## Generate deployment credentials
@@ -110,7 +110,7 @@ When you configure the workflow file later, you use the secret for the input `cr
 
 ## Configure GitHub secrets for your registry
 
-Define secrets to use with the Docker Login action. The example in this document uses Azure Container Registry for the container repository. 
+Define secrets to use with the Docker Login action. The example in this document uses Azure Container Registry for the container registry. 
 
 1. Go to your container in the Azure portal or Docker and copy the username and password. You can find the Azure Container Registry username and password in the Azure portal under **Settings** > **Access keys** for your registry. 
 
