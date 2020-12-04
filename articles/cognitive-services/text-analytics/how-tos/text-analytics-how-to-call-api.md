@@ -16,6 +16,10 @@ ms.author: aahi
 
 In this article, we use the Text Analytics REST API and [Postman](https://www.postman.com/downloads/) to demonstrate key concepts. The API provides several synchronous and asynchronous endpoints for using the features of the service. 
 
+## Using the API synchronously
+
+You can contie
+
 ## Using the API asynchronously
 
 Starting in v3.1-preview.3, the Text Analytics API provides two asynchronous endpoints: 
@@ -43,7 +47,7 @@ See the table below to see which features can be used asynchronously. Note that 
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-## Prerequisites
+## Prerequisites for calling API asynchronously
 
 
 > [!NOTE]
