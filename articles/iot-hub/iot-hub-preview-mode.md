@@ -61,7 +61,7 @@ Once created, an IoT Hub in preview mode always shows this banner, letting you k
 
 Do *not* use an IoT hub in preview mode for production. Preview mode is intended *only* to preview the select features listed at top of this page. Some other limitations to IoT Hub preview mode are
 
-- Some existing IoT Hub features such as private link, managed identity, device streams, and failover may work unexpectedly or not at all.
+- Some existing IoT Hub features such as IP filter, private link, managed identity, device streams, and failover may work unexpectedly or not at all.
 - An IoT hub in preview mode can't be changed or upgraded to a normal IoT hub.
 - We can't guarantee the normal [IoT Hub SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) - do not use for production.
 

@@ -212,12 +212,6 @@ This tutorial is part of a set where each article builds on the work done in the
 
 In this article, we created an IoT Hub and configured a route to an Azure Storage account. Next, we will send data from a set of simulated devices through the IoT Hub into the storage account. Later in the tutorial, after we have configured our IoT Edge device and modules, we will revisit routes and look a little more at the routing query.
 
-For more information about the steps covered in this portion of the Machine Learning on IoT Edge tutorial, see:
-
-* [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
-* [Configure message routing with IoT Hub](../iot-hub/tutorial-routing.md)
-* [Create an IoT hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md)
-
 Continue to the next article to create a simulated device to monitor.
 
 > [!div class="nextstepaction"]
