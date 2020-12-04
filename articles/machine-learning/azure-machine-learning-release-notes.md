@@ -54,9 +54,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + It has fix for the bug in pipeline endpoint. The customer got an exception in setting a default pipeline for pipeline endpoint created via UI
   + **azureml-pipeline-steps**
     + Added experimental support for test data to AutoMLStep.
-  + **azureml-synapse**
-    + Fix a UI bug, now the Spark Monitor widget in Jupyter and JupyterLab will still in good shape even the window is small.
-    + Fix a bug, so that empty subcommand for synapse magic won't cause error, but default to pyspark.
   + **azureml-tensorboard**
     + Fixing the xref warnings for documentation in azureml-core package
   + **azureml-train-automl-client**
