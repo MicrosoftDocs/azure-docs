@@ -56,6 +56,8 @@ Before you start, make sure that you've met the following requirements:
 
 - Prometheus metrics aren't collected by default. Before you [configure the agent](container-insights-prometheus-integration.md) to collect the metrics, it's important to review the [Prometheus documentation](https://prometheus.io/) to understand what data can be scraped and what methods are supported.
 
+- An AKS cluster can be attached to a Log Analytics workspace in a different Azure subscription in the same Azure AD Tenant. This cannot be done via Azure Portal today, only via Azure CLI.
+
 ## Supported configurations
 
 Azure Monitor for containers officially supports the following configurations:
