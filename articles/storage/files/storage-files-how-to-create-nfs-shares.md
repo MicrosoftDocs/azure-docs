@@ -4,7 +4,7 @@ description: Learn how to create an Azure file share that can be mounted using t
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/03/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
@@ -79,7 +79,12 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 Currently, only FileStorage accounts can create NFS shares. 
 
-### PowerShell
+# [Portal](#tab/azure-portal)
+
+To verify what kind of storage account you have, navigate to it in the Azure portal.
+Once you're in your storage account, select **Properties**. From the properties blade, examine the value under **Account kind**, the value should be **FileStorage**.
+
+# [PowerShell](#tab/azure-powershell)
 To verify you have a FileStorage account, you can use the following command:
 
 ```azurepowershell
@@ -89,7 +94,7 @@ $accountKind.Kind
 
 The output should be **FileStorage**, if it is not, then your storage account is the incorrect type. To create a **FileStorage** account, see [How to create an Azure premium file share](storage-how-to-create-premium-fileshare.md).
 
-### Azure CLI
+# [Azure CLI](#tab/azure-cli)
 To verify you have a FileStorage account, you can use the following command:
 
 ```azurecli
