@@ -393,7 +393,7 @@ In v3, each endpoint log can be deleted individually by issuing a `DELETE` opera
 
 To separate custom properties from the optional configuration properties, all explicitly named properties are now located in the `properties` property and all properties defined by the callers are now located in the `customProperties` property.
 
-**v2 transcription entity**
+**v2 transcription entity:**
 
 ```json
 {
@@ -405,7 +405,7 @@ To separate custom properties from the optional configuration properties, all ex
 }
 ```
 
-**v3 transcription entity**
+**v3 transcription entity:**
 
 ```json
 {
