@@ -21,7 +21,7 @@ To create logic apps that integrate across apps, data, cloud services, and syste
 
 Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code. The experiences to create the new resource type are separate and different from the original resource type, but you can have both the **Logic Apps** and **Logic App (Preview)** resource types in your Azure subscription. You can view and access all the deployed logic apps in your Azure subscription, but they're organized into their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps (Preview)](logic-apps-overview-preview.md#whats-new).
 
-This article shows how to create a **Logic App (Preview)** resource by using Visual Studio Code and completing these tasks:
+This article shows how to create a **Logic App (Preview)** resource by using Visual Studio Code and completing these high-level tasks:
 
 * [Meet the setup requirements](#prerequisites).
 
@@ -111,6 +111,8 @@ This article shows how to create a **Logic App (Preview)** resource by using Vis
 
        ![Screenshot that shows Visual Studio Code's installed extensions list with the "Azure Logic Apps (Preview)" extension underlined.](./media/create-stateful-stateless-workflows-visual-studio-code/azure-logic-apps-extension-installed.png)
 
+* To locally run the [built-in HTTP Webhook trigger or action](../connectors/connectors-native-webhook.md) in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
+
 * To test the example logic app that you create in this article, you need a tool that can send calls to the Request trigger, which is the first step in example logic app. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
 
 * If you create your logic app with settings that support [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing capability for your logic app. You can create the Application Insights resource either in advance, during logic app deployment to Azure, or after deployment in the Azure portal. For more information about logging and monitoring with Application Insights, review [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849).
@@ -172,6 +174,24 @@ This article shows how to create a **Logic App (Preview)** resource by using Vis
       Or, in the Visual Studio Code status bar, select your Azure account. 
 
    1. When another subscriptions list appears, select the subscriptions that you want, and then make sure that you select **OK**.
+
+<a name="webhook-setup"></a>
+
+## Set up webhook callback URL forwarding
+
+When you add the HTTP Webhook trigger or action to a logic app that runs in Azure, the trigger or action subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your private localhost server in Visual Studio Code, which the service endpoint can't reach.
+
+To locally run the HTTP Webhook trigger or action, you need to set up a public URL that exposes your localhost server and securely forwards calls from the service endpoint to the webhook callback URL. You can use a tool such as the [**ngrok** client](https://ngrok.com/download), which is available in free and paid versions, or you can use your own client. These steps use the **ngrok** client.
+
+1. Before you can use the **ngrok** client, you need an **ngrok** account. If you don't have one, [sign up for an account](https://dashboard.ngrok.com/signup). Otherwise, [sign in to your account](https://dashboard.ngrok.com/login).
+
+1. Download the **ngrok** version that you want from `https://ngrok.com/download`, and unzip the file. For more information, review [ngrok setup - Step 1](https://ngrok.com/download).
+
+1. On your computer, open your command prompt tool, and browse to where you unzipped the **ngrok** client files.
+
+1. 
+
+https://dashboard.ngrok.com/get-started/setup
 
 <a name="create-project"></a>
 

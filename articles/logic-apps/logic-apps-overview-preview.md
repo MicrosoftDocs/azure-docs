@@ -105,8 +105,8 @@ In this public preview, these capabilities are currently limited, unsupported, o
 * **Triggers and actions**: Some built-in triggers are unavailable, such as Sliding Window and Batch. To start your workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). Built-in triggers and actions run natively in the Logic Apps runtime, while managed connectors are deployed in Azure. In the designer, built-in triggers and actions appear under the **Built-in** tab, while managed connector triggers and actions appear under the **Azure** tab.
 
   > [!NOTE]
-  > To run locally in Visual Studio Code, HTTP Webhook triggers and actions require additional setup. 
-  > For more information, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
+  > To run locally in Visual Studio Code, the HTTP Webhook trigger and action require additional setup. For more information, see 
+  > [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
 
   For *stateless workflows*, the **Azure** tab doesn't appear when you select a trigger because you can select only [managed connector *actions*, not triggers](../connectors/apis-list.md#managed-api-connectors). Although you can enable Azure-deployed managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
 
