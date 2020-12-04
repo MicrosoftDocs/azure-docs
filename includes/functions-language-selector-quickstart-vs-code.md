@@ -10,7 +10,7 @@ ms.author: glenga
 > - [C#](../articles/azure-functions/create-first-function-vs-code-csharp.md)
 > - [Java](../articles/azure-functions/create-first-function-vs-code-java.md)
 > - [JavaScript](../articles/azure-functions/create-first-function-vs-code-node.md)
-> - [Other (Go/Rust)](../articles/azure-functions/create-first-function-vs-code-other.md)
 > - [PowerShell](../articles/azure-functions/create-first-function-vs-code-powershell.md)
 > - [Python](../articles/azure-functions/create-first-function-vs-code-python.md)
 > - [TypeScript](../articles/azure-functions/create-first-function-vs-code-typescript.md)
+> - [Other (Go/Rust)](../articles/azure-functions/create-first-function-vs-code-other.md)
