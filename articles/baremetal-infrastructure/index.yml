@@ -25,3 +25,4 @@ landingContent:
         links:
           - text: Manage BareMetal Instance units in Azure
             url: workloads/sap/baremetal-infra-portal.md
+           
