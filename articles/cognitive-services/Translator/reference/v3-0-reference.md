@@ -34,9 +34,9 @@ Microsoft Translator is served out of multiple datacenter locations. Currently t
 
 Requests to the Microsoft Translator are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the Azure geography.
 
-To force the request to be handled by a specific Azure geography, change the Global endpoint in the API request to the desired regional endpoint:
+To force the request to be handled by a specific Azure geography, change the Global endpoint in the API request to the desired geographical endpoint:
 
-|Description|Azure geography|Base URL|
+|Description|Azure geography|Base URL (geographical endpoint)|
 |:--|:--|:--|
 |Azure|Global (non-regional)|	api.cognitive.microsofttranslator.com|
 |Azure|United States|	api-nam.cognitive.microsofttranslator.com|
