@@ -362,7 +362,6 @@ Functions V1:
 * `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNet.WebHooks.Common`
-* `Microsoft.Azure.NotificationHubs`
 
 ## Referencing custom assemblies
 
