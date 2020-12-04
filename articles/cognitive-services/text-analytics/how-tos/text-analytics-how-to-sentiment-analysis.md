@@ -8,11 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-<<<<<<< HEAD
 ms.date: 12/04/2020
-=======
-ms.date: 12/02/2020
->>>>>>> fb937ad61ac7bd29a145276aab8c2a6e4a90ffff
 ms.author: aahi
 ---
 
