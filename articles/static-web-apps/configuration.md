@@ -45,7 +45,7 @@ Each rule is composed of a route pattern, along with one or more of the optional
 | `route`        | Yes      | n/a          | The route pattern requested by the caller.<ul><li>[Wildcards](#wildcards) are supported at the end of route paths.<ul><li>For instance, the route _admin/\*_ matches any route under the _admin_ path.</ul><li>A route serves the folder's _index.html_ file by default.</ul>|
 | `rewrite`        | No       | n/a          | Defines the file or path returned from the request.<ul><li>Is mutually exclusive to a `redirect` rule<li>Rewrite rules don't change the browser's location<li>Values must point to actual files<li>Querystring parameters aren't supported</ul>  |
 | `redirect`        | No       | n/a          | Defines the file or path redirect destination for a request.<ul><li>Is mutually exclusive to a `rewrite` rule<li>Redirect rules change the browser's location<li>Default response code is a [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) temporary redirect, but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) permanent redirect<li>Querystring parameters aren't supported</ul> |
-| `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`<li>The built-in role, [`anonymous`](./authentication-authorization.md), applies to all unauthenticated users<li>The built-in role, [`authenticated`](./authentication-authorization.md), applies to any logged-in use.<li>Users must belong to at least one role<li>Roles are matched on an _OR_ basis.<ul><li>If a user is in any of the listed roles, then access is granted</ul><li>Individual users are associated to roles through [invitations](authentication-authorization.md).</ul> |
+| `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`<li>The built-in role, [`anonymous`](./authentication-authorization.md), applies to all unauthenticated users<li>The built-in role, [`authenticated`](./authentication-authorization.md), applies to any logged-in use.<li>Users must belong to at least one role<li>Roles are matched on an _OR_ basis.<ul><li>If a user is in any of the listed roles, then access is granted</ul><li>Individual users are associated to roles through [invitations](authentication-authorization.md)</ul> |
 | `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) associated with the request. Route-specific headers take precedence over [`globalHeaders`](#global-headers). |
 | `statusCode`   | No       | 200           | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) response for the request. |
 | `methods` | No | n/a | An array of HTTP methods. Available methods include: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`,  and `PATCH`. |
@@ -113,10 +113,10 @@ The following HTTP codes are available to override:
 
 | Status Code | Meaning | Cause |
 | --- | --- | --- |
-| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Bad request |	<ul><li>Invalid invitation link</ul> |
-| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Unauthorized | <ul><li>Request to restricted pages while unauthenticated</ul> |
-| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Forbidden |	<ul><li>User is logged in but doesn't have the roles required to view the page<li>User is logged in but the runtime cannot get the user details from their  identity claims<li>There are too many users logged in to the site with custom roles, therefore the runtime can't let this user login.</ul> |
-| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | Not found | <ul><li>File not found</ul> |
+| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Bad request |Invalid invitation link |
+| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Unauthorized | Request to restricted pages while unauthenticated |
+| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Forbidden |<ul><li>User is logged in but doesn't have the roles required to view the page<li>User is logged in but the runtime cannot get the user details from their  identity claims<li>There are too many users logged in to the site with custom roles, therefore the runtime can't login the user.</ul> |
+| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | Not found | File not found |
 
 ## Fallback routes
 
