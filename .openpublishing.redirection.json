@@ -7814,22 +7814,22 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/partner-center-portal/commercial-marketplace-co-sell-states.md",
+      "source_path": "articles/marketplace/partner-center-portal/commercial-marketplace-co-sell-states.md",
       "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell-states",
       "redirect_document_id": false
     },    
     {
-      "source_path": "articles/partner-center-portal/commercial-marketplace-co-sell-countries.md",
+      "source_path": "articles/marketplace/partner-center-portal/commercial-marketplace-co-sell-countries.md",
       "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell-countries",
       "redirect_document_id": false
     },       
     {
-      "source_path": "articles/partner-center-portal/commercial-marketplace-co-sell.md",
+      "source_path": "articles/marketplace/partner-center-portal/commercial-marketplace-co-sell.md",
       "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell",
       "redirect_document_id": false
     },   
     {
-      "source_path": "articles/partner-center-portal/create-new-azure-apps-offer.md",
+      "source_path": "articles/marketplace/partner-center-portal/create-new-azure-apps-offer.md",
       "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
