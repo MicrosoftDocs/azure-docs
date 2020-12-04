@@ -470,6 +470,9 @@
     - name: Data Box online transfer
       tocHref: /azure/databox-online/
       topicHref: /azure/databox-online/
+    - name: Data Box Gateway
+      tocHref: /azure/databox-gateway/
+      topicHref: /azure/databox-gateway/  
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -942,3 +945,6 @@
     - name: Reservations
       tocHref: /azure/cost-management-billing/reservations/
       topicHref: /azure/cost-management-billing/reservations/
+  - name: Purview
+    tocHref: /azure/purview/
+    topicHref: /azure/purview/

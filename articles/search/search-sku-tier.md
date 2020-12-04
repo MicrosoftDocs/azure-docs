@@ -17,7 +17,7 @@ When you [create a search service](search-create-service-portal.md), you choose 
 
 + Quantity of indexes and other objects (maximum limits)
 + Size and speed of partitions (physical storage)
-+ Billable rate, a fixed cost that also flexes with the number of partitions and replicas in use
++ Billable rate, a fixed monthly cost, but also an incremental cost if you add partitions or replicas
 
 Additionally, a few [premium features](#premium-features) come with tier requirements.
 
