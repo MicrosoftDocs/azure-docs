@@ -44,10 +44,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Doc string fixes for Command support feature in SDK
     + Adding command property to RunConfiguration. The feature enables users to run an actual command or executables on the compute through AzureML SDK.
     + Users can delete an empty experiment given the id of that experiment.
-    + Added a new method, Dataset.Tabular.to_dask_dataframe() that returns a DaskFrame that can lazily read the data in the dataset.
   + **azureml-dataprep**
     + Added dataset support for Spark built with Scala 2.12. This adds to the existing 2.11 support.
-    + Added a new method, Dataset.Tabular.to_dask_dataframe() that returns a DaskFrame that can lazily read the data in the dataset.
   + **azureml-mlflow**
     + AzureML-MLflow adds safe guards in remote scripts to avoid early termination of submitted runs.
   + **azureml-pipeline-core**
