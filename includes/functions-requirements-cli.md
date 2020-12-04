@@ -11,7 +11,7 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java,programming-language-customhandler"  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java,programming-language-other"  
 + The [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 or a later version.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
@@ -41,6 +41,6 @@ Before you begin, you must have the following:
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
 ::: zone-end
-::: zone pivot="programming-language-customhandler"
+::: zone pivot="programming-language-other"
 + Development tools for the language you are using. This tutorial uses the [R programming language](https://www.r-project.org/) as an example.
 ::: zone-end
