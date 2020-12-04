@@ -35,12 +35,12 @@ download.
 The installer, which is downloadable per above, has an associated PGP signature file with an `.asc`
 filename extension. This file can be used to verify the downloaded installer to ensure this file is a
 Microsoft provided file. The Microsoft PGP Public Key used for signing Linux packages is available here
-(<http://packages.microsoft.com/keys/microsoft.asc>) and has been used to sign the signature file.
+(<https://packages.microsoft.com/keys/microsoft.asc>) and has been used to sign the signature file.
 
 The Microsoft PGP Public Key can be imported to a user's local as follows:
 
 ```bash
-> wget http://packages.microsoft.com/keys/microsoft.asc
+> wget https://packages.microsoft.com/keys/microsoft.asc
 > gpg --import microsoft.asc
 ```
 
@@ -120,7 +120,7 @@ See [Supported scenarios for HANA Large Instances](/azure/virtual-machines/workl
 The following matrix is provided as a guideline on which versions of SAP HANA
 are supported by SAP for Storage Snapshot Backups.
 
-|                         |1.0 SPS12|2.0 SPS0|2.0 SPS1|2.0 SPS2|2.0 SPS3|2.0 SPS4|
+| Database Versions       |1.0 SPS12|2.0 SPS0|2.0 SPS1|2.0 SPS2|2.0 SPS3|2.0 SPS4|
 |-------------------------|---------|--------|--------|--------|--------|--------|
 |Single Container Database| √       | √      | -      | -      | -      | -      |
 |MDC Single Tenant        | -       | -      | √      | √      | √      | √      |
@@ -174,25 +174,25 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 
 ### Taking Snapshot Backups
 
-- [What are the prerequisites for the storage snapshot](#pre-requisites-for-installation)
-  - [Enable communication with storage](#enable-communication-with-storage)
-  - [Enable communication with SAP HANA](#enable-communication-with-sap-hana)
-- [How to take snapshots manually](#1-How-to-take-snapshots-manually)
-- [How to set up automatic snapshot backup](#2-How-to-setup-automatic-snapshot-backup)
-- [How to monitor the snapshots](#3-how-to-monitor-the-snapshots)
-- [How to delete a snapshot?](#4-how-to-delete-a-snapshot)
-- [How to restore a `hana` snapshot](#5-how-to-restore-a-hana-snapshot)
-- [How to restore a `boot` snapshot](#6-how-to-restore-a-boot-snapshot)
-- [What are key facts to know about the snapshots](#7-what-are-key-facts-to-know-about-the-snapshots)
+- [What are the prerequisites for the storage snapshot](azacsnap-installation.md#prerequisites-for-installation)
+  - [Enable communication with storage](azacsnap-installation.md#enable-communication-with-storage)
+  - [Enable communication with SAP HANA](azacsnap-installation.md#enable-communication-with-sap-hana)
+- [How to take snapshots manually](azacsnap-tips-and-tricks.md#take-snapshots-manually)
+- [How to set up automatic snapshot backup](azacsnap-tips-and-tricks.md#setup-automatic-snapshot-backup)
+- [How to monitor the snapshots](azacsnap-tips-and-tricks.md#monitor-the-snapshots)
+- [How to delete a snapshot?](azacsnap-tips-and-tricks.md#delete-a-snapshot)
+- [How to restore a snapshot](azacsnap-tips-and-tricks.md#restore-a-snapshot)
+- [How to restore a `boot` snapshot](azacsnap-tips-and-tricks.md#restore-a-boot-snapshot)
+- [What are key facts to know about the snapshots](azacsnap-tips-and-tricks.md#key-facts-to-know-about-snapshots)
 
 > Snapshots are tested for both single SID and multi SID.
 
 ### Performing Disaster Recovery
 
-- [What are the prerequisites for DR setup](#1-what-are-the-prerequisites-for-dr-setup)
-- [How to set up a disaster recovery](#2-how-to-setup-a-disaster-recovery)
-- [How to monitor the data replication from Primary to DR site](#3-how-to-monitor-the-data-replication-from-primary-to-dr-site)
-- [How to perform a failover to DR site?](#4-how-to-perform-a-failover-to-dr-site)
+- [What are the prerequisites for DR setup](azacsnap-disaster-recovery.md#prerequisites-for-dr-setup)
+- [How to set up a disaster recovery](azacsnap-disaster-recovery.md#set-up-disaster-recovery)
+- [How to monitor the data replication from Primary to DR site](azacsnap-disaster-recovery.md#monitor-data-replication-from-primary-to-dr-site)
+- [How to perform a failover to DR site?](azacsnap-disaster-recovery.md#perform-a-failover-to-dr-site)
 
 ## Next steps
 

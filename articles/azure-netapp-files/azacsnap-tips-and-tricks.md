@@ -34,7 +34,7 @@ Then to take a manual database snapshot backup, run the following command:
 > azacsnap -c backup --volume data --prefix hana_TEST --retention=1
 ```
 
-## Set up automatic snapshot backup
+## Setup automatic snapshot backup
 
 It is common practice on Unix/Linux systems to use `cron` to automate running commands on a
 system. The standard practice for the snapshot tools is to set up the user's `crontab`.

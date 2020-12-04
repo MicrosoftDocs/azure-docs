@@ -414,7 +414,7 @@ knowledgeable administrator after the installation.
 > For earlier SAP HANA on Azure Large Instance installations, the directory of pre-installed
 snapshot tools was `/hana/shared/<SID>/exe/linuxx86_64/hdb`.
 
-With the [pre-requisite steps](#pre-requisite-steps-for-installation) completed, it’s now possible to install the snapshot tools using the self-installer as follows:
+With the [pre-requisite steps](#prerequisites-for-installation) completed, it’s now possible to install the snapshot tools using the self-installer as follows:
 
 1. Copy the downloaded self-installer to the target system.
 1. Execute the self-installer as the `root` user, see the following example. If necessary, make the
