@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
-ms.date: 10/14/2020
+ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
 ---
@@ -13,6 +13,41 @@ This article discusses issues that you might run into when deploying the Update 
 
 >[!NOTE]
 >If you run into problems when deploying Update Management on a Windows machine, open the Windows Event Viewer, and check the **Operations Manager** event log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+
+## Scenario: Linux updates shown as pending and those installed vary
+
+### Issue
+
+For your Linux machine, Update Management shows specific updates available under classification **Critical and security updates** and **Other updates**. But when an update schedule is run on the machine, for example to install only updates matching the **Critical and security updates** classification, the updates installed are different from or a subset of the updates shown earlier matching that classification.
+
+### Cause
+
+When an assessment of OS updates pending for your Linux machine is done, [Open Vulnerability and Assessment Language](https://oval.mitre.org/) (OVAL) files provided by the Linux distro vendor is used by Update Management for classification. Categorization is done for Linux updates as **Critical and security updates** or **Other updates**, based on the OVAL files which states updates addressing security issues or vulnerabilities. But when the update schedule is run, it executes on the Linux machine using the appropriate package manager like YUM, APT or ZYPPER to install them. The package manager for the Linux distro may have a different mechanism to classify updates, where the results may differ from the ones obtained from OVAL files by Update Management.
+
+### Resolution
+
+You can manually check the Linux machine, the applicable updates, and their classification per the distro's package manager. To understand which updates are classified as **Critical and security updates** by your package manager, run the following commands.
+
+For YUM, the following command returns a non-zero list of updates categorized as **Critical and security updates** by Red Hat. Note that in the case of CentOS, it always returns an empty list and no security classification occurs.
+
+    ```bash
+    sudo yum -q --security check-update
+    ```
+
+For ZYPPER, the following command returns a non-zero list of updates categorized as **Critical and security updates** by SUSE.
+
+    ```bash
+    sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
+    ```
+
+For APT, the following command returns a non-zero list of updates categorized as **Critical and security updates** by Canonical for Ubuntu Linux distros.
+
+    ```bash
+    sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list
+    LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
+    ```
+
+From this list you then run the command `grep ^Inst` to get all the pending security updates.
 
 ## <a name="failed-to-enable-error"></a>Scenario: You receive the error "Failed to enable the Update solution"
 
