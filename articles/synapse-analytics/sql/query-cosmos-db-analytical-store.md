@@ -29,8 +29,10 @@ In this article, you'll learn how to write a query with a serverless SQL pool th
 ## Overview
 
 Serverless SQL pool enables you to query Azure Cosmos DB analytical storage using `OPENROWSET` function. 
-- `OPENROWSET` with inline key. This syntax can be used to query Azure Cosmos DB collections without need to prepare creadentials.
+- `OPENROWSET` with inline key. This syntax can be used to query Azure Cosmos DB collections without need to prepare credentials.
 - `OPENROWSET` that referenced credential that contains the Cosmos DB account key. This syntax can be used to create views on Azure Cosmos DB collections.
+
+### [OPENROWSET with key](#tab/openrowset-key)
 
 To support querying and analyzing data in an Azure Cosmos DB analytical store, a serverless SQL pool uses the following `OPENROWSET` syntax:
 
@@ -44,12 +46,6 @@ OPENROWSET(
 
 The Azure Cosmos DB connection string specifies the Azure Cosmos DB account name, database name, database account master key, and an optional region name to the `OPENROWSET` function.
 
-> [!IMPORTANT]
-> Make sure that you're using some UTF-8 database collation, for example, `Latin1_General_100_CI_AS_SC_UTF8`, because string values in an Azure Cosmos DB analytical store are encoded as UTF-8 text.
-> A mismatch between text encoding in the file and collation might cause unexpected text conversion errors.
-> You can easily change default collation of the current database by using the T-SQL statement 
-`alter database current collate Latin1_General_100_CI_AI_SC_UTF8`.
-
 The connection string has the following format:
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
@@ -57,7 +53,9 @@ The connection string has the following format:
 
 The Azure Cosmos DB container name is specified without quotation marks in the `OPENROWSET` syntax. If the container name has any special characters, for example, a dash (-), the name should be wrapped within square brackets (`[]`) in the `OPENROWSET` syntax.
 
-As an alternative, you can use `OPENROWSET` syntax that references credential:
+### [OPENROWSET with credential](#tab/openrowset-credential)
+
+You can use `OPENROWSET` syntax that references credential:
 
 ```sql
 OPENROWSET( 
@@ -73,7 +71,15 @@ The Azure Cosmos DB connection string don't contain key in this case. The connec
 'account=<database account name>;database=<database name>;region=<region name>'
 ```
 
-Database account master key is placed in server-level credential or database scoped crednetial, 
+Database account master key is placed in server-level credential or database scoped credential. 
+
+---
+
+> [!IMPORTANT]
+> Make sure that you're using some UTF-8 database collation, for example, `Latin1_General_100_CI_AS_SC_UTF8`, because string values in an Azure Cosmos DB analytical store are encoded as UTF-8 text.
+> A mismatch between text encoding in the file and collation might cause unexpected text conversion errors.
+> You can easily change default collation of the current database by using the T-SQL statement 
+`alter database current collate Latin1_General_100_CI_AI_SC_UTF8`.
 
 > [!NOTE]
 > A serverless SQL pool doesn't support querying an Azure Cosmos DB transactional store.
@@ -94,6 +100,9 @@ To follow along with this article showcasing how to query Azure Cosmos DB data w
 
 The easiest way to explore data in Azure Cosmos DB is by using the automatic schema inference capability. By omitting the `WITH` clause from the `OPENROWSET` statement, you can instruct the serverless SQL pool to autodetect (infer) the schema of the analytical store of the Azure Cosmos DB container.
 
+
+### [OPENROWSET with key](#tab/openrowset-key)
+
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET( 
@@ -101,6 +110,25 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
+
+### [OPENROWSET with credential](#tab/openrowset-credential)
+
+```sql
+/*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
+    CREATE CREDENTIAL MyCosmosDbAccountCredential
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+*/
+SELECT TOP 10 *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
+      OBJECT = 'EcdcCases',
+      SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+
+---
+
 In the preceding example, we instructed the serverless SQL pool to connect to the `covid` database in the Azure Cosmos DB account `MyCosmosDbAccount` authenticated by using the Azure Cosmos DB key (the dummy in the preceding example). We then accessed the `EcdcCases` container's analytical store in the `West US 2` region. Since there's no projection of specific properties, the `OPENROWSET` function will return all properties from the Azure Cosmos DB items.
 
 Assuming that the items in the Azure Cosmos DB container have `date_rep`, `cases`, and `geo_id` properties, the results of this query are shown in the following table:
@@ -137,6 +165,7 @@ Let's imagine that we've imported some data from the [ECDC COVID dataset](https:
 
 These flat JSON documents in Azure Cosmos DB can be represented as a set of rows and columns in Synapse SQL. The `OPENROWSET` function enables you to specify a subset of properties that you want to read and the exact column types in the `WITH` clause:
 
+### [OPENROWSET with key](#tab/openrowset-key)
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET(
@@ -145,7 +174,21 @@ FROM OPENROWSET(
        EcdcCases
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
-
+### [OPENROWSET with credential](#tab/openrowset-credential)
+```sql
+/*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
+    CREATE CREDENTIAL MyCosmosDbAccountCredential
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+*/
+SELECT TOP 10 *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
+      OBJECT = 'EcdcCases',
+      SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+---
 The result of this query might look like the following table:
 
 | date_rep | cases | geo_id |
@@ -155,6 +198,26 @@ The result of this query might look like the following table:
 | 2020-08-11 | 163 | RS |
 
 For more information about the SQL types that should be used for Azure Cosmos DB values, see the [rules for SQL type mappings](#azure-cosmos-db-to-sql-type-mappings) at the end of the article.
+
+## Create view
+
+Once you identify the schema, you can prepare a view on top of your Azure Cosmos DB data. You should place your Azure Cosmos DB account key in a separate credential and reference this credential from `OPENROWSET` function. Do not keep your account key in the view definition.
+
+```sql
+CREATE CREDENTIAL MyCosmosDbAccountCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'C0Sm0sDbKey==';
+GO
+CREATE OR ALTER VIEW EcdcCases
+AS SELECT *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'account=MyCosmosDbAccount;database=covid;region=westus2',
+      OBJECT = 'EcdcCases',
+      SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+
+Do not use `OPENROWSET` without explicitly defined schema because it might impact your performance. Make sure that you use the smallest possible sizes for your columns (for example VARCHAR(100) instead of default VARCHAR(8000)). You should use some UTF-8 collation as default database collation or set it as explicit column collation to avoid [UTF-8 conversion issue](/troubleshoot/reading-utf8-text). Collation `Latin1_General_100_BIN2_UTF8` provides best performance when yu filter data using some string columns.
 
 ## Query nested objects and arrays
 
