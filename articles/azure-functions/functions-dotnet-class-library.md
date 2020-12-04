@@ -324,7 +324,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
 
-To learn more about how Functions implements `ILogger`, see [Collecting telemetry data](functions-monitoring.md#collecting-telemetry-data).
+To learn more about how Functions implements `ILogger`, see [Collecting telemetry data](functions-monitoring.md#collecting-telemetry-data). Categories prefixed with `Function` assume you are using an `ILogger` instance. If you choose to instead use an `ILogger<T>`, the category name may instead be based on `T`.  
 
 ### Structured logging
 
