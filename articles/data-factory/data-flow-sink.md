@@ -99,6 +99,10 @@ By default, data is written to multiple sinks in a nondeterministic order. The e
 
 ![Custom sink ordering](media/data-flow/cache-2.png "Custom sink ordering")
 
+### Sink groups
+
+You can group sinks together by applying the same order number for a series of sinks. ADF will treat those sinks as groups that can execute in parallel. Options for parallel execution will surface in the pipeline data flow activity.
+
 ## Error row handling
 
 When writing to databases, certain rows of data may fail due to constraints set by the destination. By default, a data flow run will fail on the first error it gets. In certain connectors, you can choose to **Continue on error** that allows your data flow to complete even if individual rows have errors. Currently, this capability is only available in Azure SQL Database. For more information, see [error row handling in Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
