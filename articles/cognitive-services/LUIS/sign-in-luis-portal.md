@@ -7,8 +7,8 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 09/08/2020
 ms.topic: how-to
-ms.author: a-sakand
-author: skandil
+ms.author: nitinme
+author: nitinme
 ---
 # Sign in to LUIS portal
 
