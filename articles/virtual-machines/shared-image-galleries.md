@@ -149,9 +149,9 @@ As the Shared Image Gallery, Image Definition, and Image version are all resourc
 | Shared Image Gallery | Yes                  | Yes          | Yes                  |
 | Image Definition     | No                   | Yes          | Yes                  |
 
-We recommend sharing at the Gallery level for the best experience. We do not recommend sharing individual image versions. For more information about RBAC, see [Manage access to Azure resources using RBAC](./role-based-access-control/role-assignments-portal.md).
+We recommend sharing at the Gallery level for the best experience. We do not recommend sharing individual image versions. For more information about RBAC, see [Manage access to Azure resources using RBAC](../role-based-access-control/role-assignments-portal.md).
 
-Images can also be shared, at scale, even across tenants using a multi-tenant app registration. For more information about sharing images across tenants, see [Share gallery VM images across Azure tenants](./virtual-machines/linux/share-images-across-tenants.md).
+Images can also be shared, at scale, even across tenants using a multi-tenant app registration. For more information about sharing images across tenants, see "Share gallery VM images across Azure tenants" using the [Azure CLI](./linux/share-images-across-tenants.md) or [PowerShell](./windows/share-images-across-tenants.md).
 
 ## Billing
 There is no extra charge for using the Shared Image Gallery service. You will be charged for the following resources:
