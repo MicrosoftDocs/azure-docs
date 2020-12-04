@@ -95,6 +95,8 @@
           href: diagnostic-services.md
         - name: Stream logs in real-time
           href: spring-cloud-howto-log-streaming.md
+        - name: Application Insights
+          href: spring-cloud-howto-appliction-insights.md
     - name: Secure
       items:
         - name: Enable system-assigned managed identity
