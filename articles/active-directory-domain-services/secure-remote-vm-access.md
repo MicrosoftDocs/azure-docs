@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Secure remote access to virtual machines in Azure Active Directory Domain Services

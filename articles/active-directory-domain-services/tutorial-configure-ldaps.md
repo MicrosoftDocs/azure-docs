@@ -9,7 +9,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
+ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to secure access to an Azure Active Directory Domain Services managed domain using secure lightweight directory access protocol (LDAPS)
 ---

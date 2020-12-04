@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Known issues: Service principal alerts in Azure Active Directory Domain Services

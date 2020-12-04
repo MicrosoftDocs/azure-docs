@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Create an Azure Active Directory Domain Services managed domain using an Azure Resource Manager template

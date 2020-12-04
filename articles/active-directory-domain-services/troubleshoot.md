@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Common errors and troubleshooting steps for Azure Active Directory Domain Services

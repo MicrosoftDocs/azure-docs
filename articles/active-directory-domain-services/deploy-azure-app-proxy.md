@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Deploy Azure AD Application Proxy for secure access to internal applications in an Azure Active Directory Domain Services managed domain

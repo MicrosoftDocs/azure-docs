@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: joflore
+ms.author: justinha
 
 #Customer intent: As a directory administrator, I want to troubleshoot user account sign in problems in an Azure Active Directory Domain Services managed domain.
 ---

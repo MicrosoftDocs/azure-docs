@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: joflore 
+ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
 ---

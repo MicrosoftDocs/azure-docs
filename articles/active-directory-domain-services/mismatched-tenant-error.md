@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Resolve mismatched directory errors for existing Azure Active Directory Domain Services managed domains

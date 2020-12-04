@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
-ms.author: joflore
+ms.author: justinha
 
 #Customer intent: As an IT administrator or decision maker, I want to understand the differences between Active Directory Domain Services (AD DS), Azure AD, and Azure AD DS so I can choose the most appropriate identity solution for my organization.
 ---

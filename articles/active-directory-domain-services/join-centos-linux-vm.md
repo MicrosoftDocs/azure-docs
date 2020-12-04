@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Join a CentOS Linux virtual machine to an Azure Active Directory Domain Services managed domain

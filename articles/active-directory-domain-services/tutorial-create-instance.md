@@ -9,7 +9,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
+ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services managed domain so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
 ---

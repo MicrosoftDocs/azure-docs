@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Common use-cases and scenarios for Azure Active Directory Domain Services

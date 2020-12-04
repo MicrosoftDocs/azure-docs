@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: joflore
+ms.author: justinha
 ---
 
 # Benefits of migration from the Classic to Resource Manager deployment model in Azure Active Directory Domain Services

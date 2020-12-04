@@ -9,7 +9,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
+ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create a management VM and install the required tools to connect to and manage an Azure Active Directory Domain Services managed domain.
 ---

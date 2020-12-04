@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Join a SUSE Linux Enterprise virtual machine to an Azure Active Directory Domain Services managed domain

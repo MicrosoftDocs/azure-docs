@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
+ms.author: justinha
 ---
 
 # Resource forest concepts and features for Azure Active Directory Domain Services

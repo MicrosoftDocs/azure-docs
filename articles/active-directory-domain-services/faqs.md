@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/30/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services

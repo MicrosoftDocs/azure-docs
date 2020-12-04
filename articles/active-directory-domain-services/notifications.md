@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Configure email notifications for issues in Azure Active Directory Domain Services

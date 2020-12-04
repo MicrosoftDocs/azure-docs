@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Configure scoped synchronization from Azure AD to Azure Active Directory Domain Services using Azure AD PowerShell

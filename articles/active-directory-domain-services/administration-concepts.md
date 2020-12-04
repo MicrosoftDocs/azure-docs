@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 

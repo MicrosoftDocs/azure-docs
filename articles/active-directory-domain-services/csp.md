@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Azure Active Directory Domain Services deployment and management for Azure Cloud Solution Providers
