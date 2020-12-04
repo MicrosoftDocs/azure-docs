@@ -18,9 +18,9 @@ Your knowledge base doesn't change automatically. In order for any change to tak
 
 Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) to use this feature.
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 ## Turn on active learning for alternate questions
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 Active learning is off by default. Turn it on to see suggested questions. After you turn on active learning, you need to send information from the client app to QnA Maker. For more information, see [Architectural flow for using GenerateAnswer and Train APIs from a bot](improve-knowledge-base.md#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
 
