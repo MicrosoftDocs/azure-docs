@@ -96,7 +96,7 @@ Select this option when you may have an OCP GTM solution that does not yet have 
     [![The Action 2 tab of the migrate process.](media/co-sell-migrate/action-2-migrate.png)](media/co-sell-migrate/action-2-migrate.png#lightbox)
 
 1. Select **Create a draft offer** to migrate your solution to the commercial marketplace as a draft. It will not be live yet.
-1. Continue the publishing process in Partner Center. For assistance with publishing in Partner Center, see [Make your offer live in the commercial marketplace](#make-your-offer-live-in-the-commercial-marketplace) below.
+1. Continue the publishing process in Partner Center. For assistance with publishing in Partner Center, see [Make your offer live in the commercial marketplace](#make-your-offer-live-in-the-marketplace) below.
 
 ### Discard this solution
 
