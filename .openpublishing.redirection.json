@@ -280,7 +280,7 @@
       "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine",
       "redirect_document_id": false
     },
-    { 
+    {
       "source_path": "articles/virtual-machines/linux/cli-samples.md",
       "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine",
       "redirect_document_id": false
@@ -329,7 +329,7 @@
       "source_path": "articles/virtual-network/ddos-protection-overview.md",
       "redirect_url": "/azure/ddos-protection/ddos-protection-overview",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/virtual-network/manage-ddos-protection.md",
       "redirect_url": "/azure/ddos-protection/manage-ddos-protection",
@@ -1120,10 +1120,10 @@
       "redirect_url": "/previous-versions/azure/digital-twins/how-to-configure-monitoring",
       "redirect_document_id": false
     },
-    {	
-      "source_path": "articles/digital-twins/how-to-configure-postman.md",	
+    {
+      "source_path": "articles/digital-twins/how-to-configure-postman.md",
       "redirect_url": "/azure/digital-twins/how-to-use-postman",
-      "redirect_document_id": false	
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/how-to-diagnose-user-defined-functions.md",
@@ -7492,7 +7492,7 @@
       "source_path": "articles/event-grid/partner-topics-overview.md",
       "redirect_url": "/azure/event-grid/partner-events-overview",
       "redirect_document_id": false
-    },      
+    },
     {
       "source_path": "articles/event-grid/premium-basic-tiers.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
@@ -7817,17 +7817,17 @@
       "source_path": "articles/partner-center-portal/commercial-marketplace-co-sell-states.md",
       "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell-states",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/partner-center-portal/commercial-marketplace-co-sell-countries.md",
       "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell-countries",
       "redirect_document_id": false
-    },       
+    },
     {
       "source_path": "articles/partner-center-portal/commercial-marketplace-co-sell.md",
       "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path": "articles/partner-center-portal/create-new-azure-apps-offer.md",
       "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
@@ -23341,7 +23341,7 @@
       "source_path": "articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
       "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/migrate/how-to-add-tool-first-time.md",
       "redirect_url": "create-manage-projects",
@@ -25034,7 +25034,7 @@
     },
     {
       "source_path": "articles/active-directory/develop/app-types.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/app-types",
+      "redirect_url": "/azure/active-directory/develop/v2-app-types",
       "redirect_document_id": true
     },
     {
@@ -25049,7 +25049,7 @@
     },
     {
       "source_path": "articles/active-directory/develop/conditional-access-dev-guide.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/conditional-access-dev-guide",
+      "redirect_url": "/azure/active-directory/develop/v2-conditional-access-dev-guide",
       "redirect_document_id": true
     },
     {
@@ -25064,12 +25064,12 @@
     },
     {
       "source_path": "articles/active-directory/develop/howto-get-appsource-certified.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/howto-get-appsource-certified",
+      "redirect_url": "/azure/active-directory/develop/v2-howto-get-appsource-certified",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/about-microsoft-identity-platform.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/about-microsoft-identity-platform",
+      "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": true
     },
     {
@@ -25089,17 +25089,17 @@
     },
     {
       "source_path": "articles/active-directory/develop/howto-v1-enable-sso-android.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/howto-v1-enable-sso-android",
+      "redirect_url": "/azure/active-directory/develop/msal-android-single-sign-on",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/howto-v1-enable-sso-ios.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/howto-v1-enable-sso-ios",
+      "redirect_url": "/azure/active-directory/develop/single-sign-on-macos-ios",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/native-app.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/native-app",
+      "redirect_url": "/azure/active-directory/develop/v2-app-types",
       "redirect_document_id": true
     },
     {
@@ -25149,67 +25149,67 @@
     },
     {
       "source_path": "articles/active-directory/develop/sample-v1-code.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/sample-v1-code",
+      "redirect_url": "/azure/active-directory/develop/sample-v2-code",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/service-to-service.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/service-to-service",
+      "redirect_url": "/azure/active-directory/develop/scenario-web-api-call-api-overview",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/single-page-application.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/single-page-application",
+      "redirect_url": "/azure/active-directory/develop/scenario-spa-overview",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/v1-authentication-scenarios.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/v1-authentication-scenarios",
+      "redirect_url": "/azure/active-directory/develop/authentication-flows-app-scenarios",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/v1-oauth2-client-creds-grant-flow.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow",
+      "redirect_url": "/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/v1-oauth2-implicit-grant-flow.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/v1-oauth2-implicit-grant-flow",
+      "redirect_url": "/azure/active-directory/develop/v2-oauth2-implicit-grant-flow",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/v1-oauth2-on-behalf-of-flow.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/v1-oauth2-on-behalf-of-flow",
+      "redirect_url": "/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/v1-overview.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/v1-overview",
+      "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/v1-permissions-and-consent.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/v1-permissions-consent",
+      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/v1-protocols-oauth-code.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/v1-protocols-oauth-code",
+      "redirect_url": "/azure/active-directory/develop/v2-oauth2-auth-code-flow",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/v1-protocols-openid-connect-code.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/v1-protocols-openid-connect-code",
+      "redirect_url": "/azure/active-directory/develop/active-directory-v2-protocols",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/web-api.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/web-api",
+      "redirect_url": "/azure/active-directory/develop/v2-app-types",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/web-app.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/web-app",
+      "redirect_url": "/azure/active-directory/develop/v2-app-types",
       "redirect_document_id": true
     },
     {
@@ -26204,7 +26204,7 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-protocols-oauth-code.md",
-      "redirect_url": "/azure/active-directory/develop/v1-protocols-oauth-code",
+      "redirect_url": "/azure/active-directory/develop/v2-oauth2-auth-code-flow",
       "redirect_document_id": true
     },
     {
@@ -26234,12 +26234,12 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-protocols-openid-connect-code.md",
-      "redirect_url": "/azure/active-directory/develop/v1-protocols-openid-connect-code",
+      "redirect_url": "/azure/active-directory/develop/v2-oauth2-auth-code-flow",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant.md",
-      "redirect_url": "/azure/active-directory/develop/v1-oauth2-implicit-grant-flow",
+      "redirect_url": "/azure/active-directory/develop/v2-oauth2-implicit-grant-flow",
       "redirect_document_id": true
     },
     {
@@ -26254,7 +26254,7 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-protocols-oauth-on-behalf-of.md",
-      "redirect_url": "/azure/active-directory/develop/v1-oauth2-on-behalf-of-flow",
+      "redirect_url": "/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow",
       "redirect_document_id": true
     },
     {
@@ -26264,7 +26264,7 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-protocols-oauth-service-to-service.md",
-      "redirect_url": "/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow",
+      "redirect_url": "/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow",
       "redirect_document_id": true
     },
     {
@@ -26284,12 +26284,12 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-token-and-claims.md",
-      "redirect_url": "/azure/active-directory/develop/v1-id-and-access-tokens",
+      "redirect_url": "/azure/active-directory/develop/security-tokens",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/v1-id-and-access-tokens.md",
-      "redirect_url": "/azure/active-directory/develop/id-tokens",
+      "redirect_url": "/azure/active-directory/develop/security-tokens",
       "redirect_document_id": true
     },
     {
@@ -26304,7 +26304,7 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-permissions.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/v1-permissions-consent",
+      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
       "redirect_document_id": true
     },
     {
@@ -26314,12 +26314,12 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-conditional-access-developer.md",
-      "redirect_url": "/azure/active-directory/develop/conditional-access-dev-guide",
+      "redirect_url": "/azure/active-directory/develop/v2-conditional-access-dev-guide",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-v2-compare.md",
-      "redirect_url": "/azure/active-directory/develop/azure-ad-endpoint-comparison",
+      "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
     {
@@ -26349,12 +26349,12 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-sso-android.md",
-      "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-on-android",
+      "redirect_url": "/azure/active-directory/develop/msal-android-single-sign-on",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-sso-ios.md",
-      "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-on-ios",
+      "redirect_url": "/azure/active-directory/develop/single-sign-on-macos-ios",
       "redirect_document_id": true
     },
     {
@@ -26399,12 +26399,12 @@
     },
     {
       "source_path": "articles/active-directory/develop/howto-v1-enable-sso-on-android.md",
-      "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-android",
+      "redirect_url": "/azure/active-directory/develop/msal-android-single-sign-on",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/howto-v1-enable-sso-on-ios.md",
-      "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-ios",
+      "redirect_url": "/azure/active-directory/develop/single-sign-on-macos-ios",
       "redirect_document_id": true
     },
     {
@@ -26444,12 +26444,12 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-appmodel-v2-overview.md",
-      "redirect_url": "/azure/active-directory/develop/v2-overview",
+      "redirect_url": "/azure/active-directory/develop/application-model",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-v2-limitations.md",
-      "redirect_url": "/azure/active-directory/develop/azure-ad-endpoint-comparison",
+      "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
       "redirect_document_id": true
     },
     {
@@ -42789,7 +42789,7 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-protocols-oauth-get-jwt-token.md",
-      "redirect_url": "/azure/active-directory/develop/v1-protocols-oauth-code",
+      "redirect_url": "/azure/active-directory/develop/msal-acquire-cache-tokens",
       "redirect_document_id": false
     },
     {
@@ -59504,7 +59504,7 @@
       "redirect_url": "/azure/storage/files/storage-files-migration-storsimple-8000",
       "redirect_document_id": false
     },
-    {    
+    {
       "source_path": "articles/cosmos-db/optimize-cost-queries.md",
       "redirect_url": "/azure/cosmos-db/optimize-cost-reads-writes",
       "redirect_document_id": false
