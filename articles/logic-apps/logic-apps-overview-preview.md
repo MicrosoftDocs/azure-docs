@@ -27,6 +27,7 @@ For more information, see these topics:
 * [Create stateful or stateless workflows in the Azure portal](create-stateful-stateless-workflows-azure-portal.md)
 * [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md)
 * [Integrations on Azure blog: "Azure Logic Apps Running Anywhere - Runtime Deep Dive"](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
+* [Logic Apps Public Preview Known Issues (GitHub)](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)
 
 <a name="stateful-stateless"></a>
 
@@ -53,33 +54,13 @@ For information about how nested logic apps behave differently between stateful 
 
 ## What's in this public preview?
 
-Azure Logic Apps (Preview) includes many current and additional Logic Apps capabilities, for example:
+Azure Logic Apps (Preview) includes many current and additional capabilities, for example:
 
-* Build logic apps that can contain one or more workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
+* Create logic apps and build workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
-  * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to built-in native triggers and actions such as the HTTP action.
+  * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to built-in triggers and actions, which are native to the Logic Apps runtime, for example, the Request trigger and HTTP action. For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
   * Create and deploy logic apps that can run anywhere because the Azure Logic Apps service generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. The Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
-
-    > [!NOTE]
-    > By default, a **Logic App (Preview)** resource has its [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
-    > automatically enabled to authenticate connections at runtime. This identity differs from the authentication credentials or connection string 
-    > that you use when you create a connection. If you disable this identity, connections won't work at runtime.
-
-* Create stateless logic apps that run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](#stateful-stateless).
-
-* Publish and deploy your logic apps to various hosting environments such as Azure and [Docker containers](/dotnet/core/docker/introduction).
-
-> [!NOTE]
-> For information about current known issues, review the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
-
-The Azure Logic Apps (Preview) extension brings many current and additional Logic Apps capabilities to your local development experience in Visual Studio Code, for example:
-
-* Build logic apps for integration and automation workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
-
-  * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to built-in native triggers and actions such as the HTTP action.
-
-  * Create and deploy logic apps that can run anywhere because the Azure Logic Apps service generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. The Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy to Azure.
 
     > [!NOTE]
     > By default, a **Logic App (Preview)** resource has its [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
@@ -87,12 +68,17 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
     > credentials or connection string that you use when you create a connection. If you disable this identity, 
     > connections won't work at runtime. To view this setting, on your logic app's menu, under **Settings**, select **Identity**.
 
-* Create stateless logic apps that run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](logic-apps-overview-preview.md#stateful-stateless).
+* Create stateless logic apps that run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](#stateful-stateless).
 
-* Run and debug your logic apps locally in the Visual Studio Code development environment. Publish and deploy your logic apps from Visual Studio Code directly to various hosting environments, such as [Azure App Service](../app-service/environment/intro.md) and [Docker containers](/dotnet/core/docker/introduction). For more information, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md).
+* Locally run, test, and debug your logic apps in the Visual Studio Code development environment.
+
+* Directly publish or deploy logic apps from Visual Studio Code to various hosting environments such as Azure and [Docker containers](/dotnet/core/docker/introduction).
+
+* Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](../azure-monitor/app/app-insights-overview.md) when supported by your Azure subscription and logic app settings.
 
 > [!NOTE]
 > For information about current known issues, review the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+
 
 <a name="pricing-model"></a>
 
@@ -116,11 +102,25 @@ For more information about the pricing models that apply to this new resource ty
 
 For this public preview, these capabilities are not available or not supported:
 
-* **Supported triggers and actions**: To start your workflow, use the [built-in Request, HTTP, Event Hubs, or Service Bus trigger](../connectors/apis-list.md), which run natively with the Logic Apps runtime. Currently, [enterprise connectors](../connectors/apis-list.md#enterprise-connectors), [on-premises data gateway triggers](../connectors/apis-list.md#on-premises-connectors), Sliding Window trigger, [custom connectors](../connectors/apis-list.md#custom-apis-and-connectors), integration accounts, their artifacts, and [their connectors](../connectors/apis-list.md#integration-account-connectors) aren't supported in this preview. The "call an Azure function" capability currently works only for HTTP-based functions, is unavailable, so for now, use the HTTP *action* to call the request URL for the Azure function.
+* **Supported triggers and actions**: To start your workflow, you can use the [built-in Request, HTTP, Event Hubs, or Service Bus trigger](../connectors/apis-list.md), which run natively on the Logic Apps runtime.
 
-  Except for the previously specified triggers, *stateful* workflows can use both triggers and actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), which are deployed in Azure versus built-in triggers and actions that run natively with the Logic Apps runtime. However, *stateless* workflows currently support only *actions* for managed connectors, not triggers. Although you can enable connectors in Azure for your stateless workflow, the designer doesn't show any managed connector triggers for you to select.
+  Currently, the following triggers or actions aren't available or supported:
+
+  * [On-premises data gateway triggers](../connectors/apis-list.md#on-premises-connectors)
+
+  * [Sliding Window trigger](../connectors/connectors-native-sliding-window.md)
+
+  * [Custom connectors](../connectors/apis-list.md#custom-apis-and-connectors)
+
+  * Although integration accounts, their artifacts, and [their connectors](../connectors/apis-list.md#integration-account-connectors) aren't supported in this preview.
+
+  * The "call an Azure function" capability currently works only for functions that HTTP-based functions, is unavailable, so for now, use the HTTP *action* to call the request URL for the Azure function.
+
+  Except for the previously specified triggers, *stateful* workflows can use both triggers and actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), which are deployed in Azure versus built-in triggers and actions that run natively on the Logic Apps runtime. However, *stateless* workflows currently support only *actions* for managed connectors, not triggers. Although you can enable connectors in Azure for your stateless workflow, the designer doesn't show any managed connector triggers for you to select.
 
 * **Hosting plan availability**: Whether you create a new **Logic App (Preview)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the Premium or App Service hosting plan in Azure. **Consumption** hosting plans aren't supported nor available for deploying this resource type. You can deploy from Visual Studio Code to a Docker container, but not to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+
+* **B2B scenarios**: Integration accounts and their artifacts aren't currently supported. However, in Visual Studio Code, you can use the XML validation and 
 
 * **Parallel branches**: Currently, you can't add parallel branches through the new designer experience. However, you can still add these branches through the original designer experience and have them appear in the new designer.
 
