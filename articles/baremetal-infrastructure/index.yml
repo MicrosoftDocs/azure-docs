@@ -37,4 +37,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: SAP HANA on Azure (Large Instances)
-            url: ../../virtual-machines/workloads/sap/get-started.md#sap-hana-on-azure-large-instances
+            url: ../virtual-machines/workloads/sap/get-started.md#sap-hana-on-azure-large-instances
