@@ -53,8 +53,8 @@ This command takes the following arguments:
 - `--trim` available for SAP HANA v2 and later, this option maintains the backup catalog and
     on disk catalog and log backups. The number of entries to keep in the backup catalog is determined by
     the `--retention` option above, and deletes older entries for the defined prefix (`--prefix`)
-    from the backup catalog, and the related physical logs backup. It also deletes any logbackup
-    entries that are older than the oldest non-logbackup entry. This operations helps to prevent the log
+    from the backup catalog, and the related physical logs backup. It also deletes any log backup
+    entries that are older than the oldest non-log backup entry. This operations helps to prevent the log
     backups from using up all available disk space.
 
   > [!NOTE] 
