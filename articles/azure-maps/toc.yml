@@ -87,11 +87,11 @@
     href: supported-map-styles.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
-  - name: Mobility Service data structure
+  - name: Mobility services
     href: mobility-service-data-structure.md
-  - name: Weather Service concepts
+  - name: Weather services concepts
     href: weather-services-concepts.md
-  - name: Weather Service faq
+  - name: Weather services FAQ
     href: weather-services-faq.md
 - name: How-to guides
   items:

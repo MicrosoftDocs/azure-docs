@@ -231,7 +231,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Mobility service data structures
+          - text: Mobility services
             url: mobility-service-data-structure.md
       - linkListType: how-to-guide
         links:
@@ -241,15 +241,15 @@ landingContent:
             url: how-to-request-real-time-data.md
       - linkListType: reference
         links:
-          - text: Mobility Service
+          - text: Mobility services
             url: /rest/api/maps/mobility
 
   # Card
-  - title: Developing with Weather Services
+  - title: Developing with Weather services
     linkLists:
       - linkListType: concept
         links:
-          - text: Weather Service concept
+          - text: Weather services concepts
             url: weather-services-concepts.md
       - linkListType: concept
         links: 
@@ -265,5 +265,5 @@ landingContent:
             url: how-to-request-weather-data.md
       - linkListType: reference
         links:
-          - text: Weather Service
+          - text: Weather services
             url: /rest/api/maps/weather

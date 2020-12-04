@@ -29,21 +29,13 @@ Azure Maps is built with the collaboration of world-class mobility and location 
 AccuWeather has real-time weather and environmental information available anywhere in the world, largely due to their partnerships with numerous national governmental weather agencies and other proprietary arrangements. A list of this foundational information is provided below.
 
 * Publicly available global surface observations from government agencies
-
 * Proprietary surface observation datasets from governments and private companies
-
 * High-resolution radar data for over 40 countries/regions
-
 * Best-in-class real-time global lightning data
-
 * Government-issued weather warnings for over 60 countries/regions and territories
-
 * Satellite data from geostationary weather satellites covering the entire world
-
 * Over 150 numerical forecast models including internal, proprietary modeling, government models such as the U.S. Global Forecast System (GFS), and unique downscaled models provided by private companies
-
 * Air quality observations
-
 * Observations from departments of transportation
 
 Tens of thousands of surface observations, along with other data, are incorporated to create and influence the current conditions made available to users. This includes not only freely available standard datasets, but also unique observations obtained from national meteorological services in many countries/regions including India, Brazil, and Canada and other proprietary inputs. These unique datasets increase the spatial and temporal resolution of current condition data for our users. 
@@ -99,7 +91,7 @@ The Azure Maps [Weather concept article](https://docs.microsoft.com/azure/azure-
  
 ### Can I create radar and satellite tile animations? 
 
-Yes. In addition to real-time radar and satellite tiles, Azure Maps customers can request past and future tiles to enhance data visualizations with map overlays. This can be done by directly calling [Get Map Tile v2 API](https://aka.ms/AsureMapsWeatherTiles) or by requesting tiles via Azure Maps web SDK. Radar tiles are provided for up to 1.5 hours in the past, and for up to 2 hours in the future. The tiles and are available in 5-minute intervals. Infrared tiles are provided for up to 3 hours in the past, and are available in 10-minute intervals. For more information, see the open-source Weather Tile Animation [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer).  
+Yes. In addition to real-time radar and satellite tiles, Azure Maps customers can request past and future tiles to enhance data visualizations with map overlays. This can be done by directly calling [Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles ) or by requesting tiles via Azure Maps web SDK. Radar tiles are provided for up to 1.5 hours in the past, and for up to 2 hours in the future. The tiles and are available in 5-minute intervals. Infrared tiles are provided for up to 3 hours in the past, and are available in 10-minute intervals. For more information, see the open-source Weather Tile Animation [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer).  
 
 
 ### Do you offer icons for different weather conditions?
@@ -111,11 +103,8 @@ Yes. You can find icons and their respective codes [here](https://docs.microsoft
 If this FAQ doesn’t answer your question, you can contact us through the following channels (in escalating order):
 
 * The comments section of this article.
-
 * [MSFT Q&A page for Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html).
-
 * Microsoft Support. To create a new support request, in the [Azure portal](https://portal.azure.com/), on the Help tab, select the **Help +** support button, and then select **New support request**.
-
 * [Azure Maps UserVoice](https://feedback.azure.com/forums/909172-azure-maps) to submit feature requests.
 
 Learn how to request real-time and forecasted weather data using Azure Maps Weather services:
