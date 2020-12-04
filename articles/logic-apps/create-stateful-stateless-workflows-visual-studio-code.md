@@ -175,36 +175,6 @@ This article shows how to create a **Logic App (Preview)** resource by using Vis
 
    1. When another subscriptions list appears, select the subscriptions that you want, and then make sure that you select **OK**.
 
-<a name="webhook-setup"></a>
-
-## Set up webhook callback URL forwarding
-
-When you add the HTTP Webhook trigger or action to a logic app that runs in Azure, the trigger or action subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your private localhost server in Visual Studio Code, which the service endpoint can't reach.
-
-If you want to locally run the HTTP Webhook trigger or action, you need to set up a public URL that exposes your localhost server and securely forwards calls from the service endpoint to the webhook callback URL. You can use a forwarding service and tool such as [**ngrok**](https://ngrok.com/), which opens an HTTP tunnel to your localhost port, or you can use your own tool.
-
-To set up URL forwarding using **ngrok**, follow these steps:
-
-1. [Sign up for an **ngrok** account](https://dashboard.ngrok.com/signup) if you don't have one. Otherwise, [sign in to your account](https://dashboard.ngrok.com/login).
-
-1. Get your personal authentication token, which your **ngrok** client needs to connect and authenticate access to your account.
-
-   1. To find your [authentication token page](https://dashboard.ngrok.com/auth/your-authtoken), on your account dashboard menu, expand **Authentication**, and select **Your Authtoken**.
-
-   1. From the **Your Authtoken** box, copy the token to a safe location.
-
-1. From the [**ngrok** download page](https://ngrok.com/download) or [your account dashboard](https://dashboard.ngrok.com/get-started/setup), download the **ngrok** version that you want, and extract the .zip file. For more information, see [Step 1: Unzip to install](https://ngrok.com/download).
-
-1. On your computer, open your command prompt tool. Browse to the location where you have the **ngrok.exe** file.
-
-1. Connect the **ngrok** client to your **ngrok** account by running the following command. For more information, see [Step 2: Connect your account](https://ngrok.com/download).
-
-   `./ngrok authtoken <your_auth_token>`
-
-1. Open the HTTP tunnel to localhost port 7071 by running the following command. For more information, see [Step 3: Fire it up](https://ngrok.com/download).
-
-   `./ngrok http 7071`
-
 <a name="create-project"></a>
 
 ## Create a local project
@@ -418,7 +388,70 @@ The logic app workflow in this example uses this trigger and these actions:
 
 1. On the designer, select **Save**.
 
-Next, run and debug your workflow locally in Visual Studio Code.
+> [!IMPORTANT]
+> If you use the [built-in HTTP Webhook trigger or action](../connectors/connectors-native-webhook.md) and want to run them locally in Visual Studio Code, 
+> you must [set up forwarding for the webhook's callback URL](#webhook-setup) before you can run your workflow.
+
+<a name="webhook-setup"></a>
+
+## Set up webhook callback URL forwarding
+
+When you add the HTTP Webhook trigger or action to a logic app that runs in Azure, the trigger or action subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your private localhost server in Visual Studio Code, which calls from the service endpoint can't reach.
+
+To locally run the HTTP Webhook trigger or action in Visual Studio Code, you need to set up a public URL that exposes your localhost server and securely forwards calls from the service endpoint to the webhook callback URL. You can use a forwarding service and tool such as [**ngrok**](https://ngrok.com/), which opens an HTTP tunnel to your localhost port, or you can use your own tool.
+
+### Set up call forwarding using **ngrok**
+
+1. [Sign up for an **ngrok** account](https://dashboard.ngrok.com/signup) if you don't have one. Otherwise, [sign in to your account](https://dashboard.ngrok.com/login).
+
+1. Get your personal authentication token, which your **ngrok** client needs to connect and authenticate access to your account.
+
+   1. To find your [authentication token page](https://dashboard.ngrok.com/auth/your-authtoken), on your account dashboard menu, expand **Authentication**, and select **Your Authtoken**.
+
+   1. From the **Your Authtoken** box, copy the token to a safe location.
+
+1. From the [**ngrok** download page](https://ngrok.com/download) or [your account dashboard](https://dashboard.ngrok.com/get-started/setup), download the **ngrok** version that you want, and extract the .zip file. For more information, see [Step 1: Unzip to install](https://ngrok.com/download).
+
+1. On your computer, open your command prompt tool. Browse to the location where you have the **ngrok.exe** file.
+
+1. Connect the **ngrok** client to your **ngrok** account by running the following command. For more information, see [Step 2: Connect your account](https://ngrok.com/download).
+
+   `ngrok authtoken <your_auth_token>`
+
+1. Open the HTTP tunnel to localhost port 7071 by running the following command. For more information, see [Step 3: Fire it up](https://ngrok.com/download).
+
+   `ngrok http 7071`
+
+1. From the output, find the following line:
+
+   `http://<domain>.ngrok.io -> http://localhost:7071`
+
+1. Copy and save the URL that has this format: `http://<domain>.ngrok.io`
+
+### Set up the forwarding URL in your app settings
+
+1. In your Visual Studio Code project, at the logic app level, open the `local.settings.json` file.
+
+1. In the `Values` object, add a property named `WebhookRedirectHostUri`, and set the value to the forwarding URL that you previously created, for example:
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+         "FUNCTIONS_V2_COMPATIBILITY_MODE": "true",
+         "WebhookRedirectHostUri": "http://xxxXXXXxxxXXX.ngrok.io",
+         <...>
+      }
+   }
+   ```
+
+1. Before you run your workflow, clear your local storage. For the Azure Storage Emulator, run this command:
+
+   `AzureStorageEmulator.exe clear all`
+
+   When your workflow runs for the first time, the Logic Apps runtime registers the workflow and subscribes to the webhook operations. When your workflow runs again, the runtime won't register and subscribe again because the workflow already exists in local storage. So, before you run your workflow again, make sure that you clear your local storage.
 
 <a name="run-test-debug-locally"></a>
 
