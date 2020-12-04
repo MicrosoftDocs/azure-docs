@@ -179,7 +179,11 @@ RUN docker-php-ext-enable mysqli
 ## Build your Docker image
 Make sure you're in the directory ```my-wordpress-app``` in a terminal using the ```cd``` command. Run the following command to build your bulletin board image:
 
-```docker build --tag myblog:latest . ```
+``` bash
+
+docker build --tag myblog:latest . 
+
+```
 
 Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) or [Azure Container registry](../../container-registry/container-registry-get-started-azure-cli.md).
 
