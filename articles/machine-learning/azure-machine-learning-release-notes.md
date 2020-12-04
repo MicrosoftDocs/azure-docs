@@ -35,7 +35,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-contrib-automl-dnn-vision**
     + introduce a new AutoML task type of "image-instance-segmentation".
   + **azureml-contrib-automl-pipeline-steps**
-    + This PR brings following changes. - It creates new contrib package - azureml-contrib-automl-pipeline-steps - This new package is responsible for creating steps required for many models train/inference scenario. - It also moves the train/inference code into azureml.train.automl.runtime package so any future fixes would be automatically available through curated environment releases.
+    + This new package is responsible for creating steps required for many models train/inference scenario. - It also moves the train/inference code into azureml.train.automl.runtime package so any future fixes would be automatically available through curated environment releases.
   + **azureml-contrib-dataset**
     + introduce a new AutoML task type of "image-instance-segmentation".
   + **azureml-core**
