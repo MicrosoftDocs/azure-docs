@@ -467,7 +467,6 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 ```
 
 > [!NOTE]
-> Use "--application-logging azureblobstorage" in the above cmdlet to store logs to Azure Storage blob.
 > The project's log level is already set to `Information` in *appsettings.json*.
 
 To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) command in the Cloud Shell.
