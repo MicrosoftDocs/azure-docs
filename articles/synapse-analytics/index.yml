@@ -26,8 +26,8 @@ landingContent:
         links:
           - text: What is Azure Synapse
             url: overview-what-is.md
-          - text: Tips and best practices
-            url: overview-cheat-sheet.md
+          - text: Terminology
+            url: overview-terminology.md
           - text: FAQ
             url: overview-faq.md
 

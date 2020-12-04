@@ -113,6 +113,9 @@ With Azure AD DS-joined devices, applications can use the Kerberos and NTLM prot
 | Networking                      | Works over the internet                             | Must be connected to, or peered with, the virtual network where the managed domain is deployed |
 | Great for...                    | End-user mobile or desktop devices                  | Server VMs deployed in Azure                                              |
 
+
+If on-prem AD DS and Azure AD are configured for federated authentication using ADFS then there is no (current/valid) password hash available in Azure DS. Azure AD user accounts created before fed auth was implemented might have an old password hash but this likely doesn't match a hash of their on-prem password. Hence Azure AD DS won't be able to validate the users credentials
+
 ## Next steps
 
 To get started with using Azure AD DS, [create an Azure AD DS managed domain using the Azure portal][tutorial-create].

@@ -1,33 +1,27 @@
 ---
-title: Co-sell option in Partner Center | Azure Marketplace
-description: The information you provide on the Co-sell tab of your offer will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs.
+title: Co-sell option in the commercial marketplace | Azure Marketplace
+description: The information you provide on the Co-sell with Microsoft tab of your offer will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 10/28/2020
+ms.date: 12/04/2020
 ---
 
-# Co-sell option in Partner Center
+# Co-sell option in the commercial marketplace
 
-Providing information on the Co-sell tab is entirely optional. It is required to achieve Co-sell Ready and IP Co-sell Incentivized status. The information you provide will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [sell through Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+Providing information on the **Co-sell with Microsoft** tab is entirely optional. It is required to achieve [Co-sell Ready and IP Co-sell Incentivized status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). The information you provide will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [Co-sell with Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
-The Co-sell option in Partner Center is currently available for some offer types. Support for additional offer types will be made available over time.
+The Co-sell option in Partner Center is currently available the following offer types.
 
-| **Offer Type** | **Co-sell Page available in Partner Center** |
-|    -----------------------    |    -----------------------------  |
-| Software as a Service  (SaaS) |      Available now      |
-| Dynamics 365 for Customer Engagement & PowerApps      |     Available now      |
-| Dynamics 365 for Operations     |     Available now       |
-| Dynamics 365 Business Central      |   Available now     |
-| Azure Application     |      Available now     |
-| Azure Virtual Machine      |     To be announced       |
-| Azure Container     |     To be announced       |
-| Consulting Service      |     To be announced       |
-| IoT Edge Module      |     To be announced       |
-| Power BI Service App     |     To be announced       |
-|  |
+- Azure Application
+- Dynamics 365 for Customer Engagement & PowerApps
+- Dynamics 365 for Operations
+- Dynamics 365 Business Central
+- Software as a Service (SaaS)
+
+Support for additional offer types will be made available over time.
 
 ## Listing
 
@@ -90,11 +84,11 @@ You can also export your existing list of contacts of an offer, and then make ch
     | *:::no-loc text="Partner technical sales":::* | Supports technical architecture and deployment considerations during the sales cycle, the post-sales integration, and deployment periods. |
     | *:::no-loc text="Partner customer success manager":::* | Typically supports customers post-deployment, to help them get the most out of your offer and grow its footprint within the customer's organization. |
 
-* *Countries/Regions (Required):*  When filling out the template, use the [two letter country/region codes as listed](./commercial-marketplace-co-sell-countries.md). If the contact covers all Countries/Regions, use the three letter code "OOO". If a contact covers more than one Country/Region, enter each of the two letter codes separated by a comma (for example, enter "US, CA, FR" without quotation marks into the template).
+* *Countries/Regions (Required):*  When filling out the template, use the [two letter country/region codes as listed](commercial-marketplace-co-sell-countries.md). If the contact covers all Countries/Regions, use the three letter code "OOO". If a contact covers more than one Country/Region, enter each of the two letter codes separated by a comma (for example, enter "US, CA, FR" without quotation marks into the template).
 
     The countries/regions should reflect each contact's territory. Microsoft sales teams and channel resellers will utilize this information for requesting information or collaborating on sales within the specific Country/Region.
 
-* *States/Provinces (Optional):*  When filling out the template, use the XX-XX format as listed in the [States/Provinces table](./commercial-marketplace-co-sell-states.md).
+* *States/Provinces (Optional):*  When filling out the template, use the XX-XX format as listed in the [States/Provinces table](commercial-marketplace-co-sell-states.md).
 
 ## Reference architecture diagram
 
@@ -114,7 +108,7 @@ A helpful starting point for building reference architecture diagrams is to leve
 
 ### Example reference architecture diagram
 
-:::image type="content" source="media/co-sell-arch-diagram.png" alt-text="This image is an example Co-sell architecture diagram.":::
+[![This image is an example Co-sell architecture diagram.](./media/co-sell/co-sell-arch-diagram.png)](./media/co-sell/co-sell-arch-diagram.png#lightbox)
 
 (The example reference architecture diagram above is for a vertical industry chatbot that can be integrated with intranet sites to help with forecast demand scenarios via a Machine Learning algorithm using supply chain and manufacturing schedule data from different ERP systems. The bot is designed to address questions about when a sales person can commit on possible delivery dates for an order.)
 
