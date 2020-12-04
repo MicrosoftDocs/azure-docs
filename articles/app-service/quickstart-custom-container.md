@@ -16,10 +16,6 @@ zone_pivot_groups: app-service-containers-windows-linux
 
 This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Docker Hub](https://hub.docker.com/) from Visual Studio. You run the app in a custom container in Azure App Service.
 
-> [!NOTE]
-> App Service on Windows containers is in preview.
->
-
 ## Prerequisites
 
 To complete this tutorial:
