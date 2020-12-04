@@ -177,17 +177,17 @@ File.delete(full_path_to_file)
 ```
 ## Resources for developing Ruby applications with blobs
 
-See these additional resources for Ruby development with Blob Storage:
+See these additional resources for Ruby development:
 
 - View and download the [Ruby client library source code](https://github.com/Azure/azure-storage-ruby) for Azure Storage on GitHub.
-- Explore [Blob Storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=ruby&term=blob) written using the Ruby client library.
+- Explore [Azure samples](/samples/browse/?products=azure&languages=ruby) written using the Ruby client library.
 
 ## Next steps
 
 In this quickstart, you learned how to transfer files between Azure Blob Storage and a local disk using Ruby. To learn more about working with Blob Storage, continue to the Storage account overview.
 
 > [!div class="nextstepaction"]
-> [Storage account overview](storage-account-overview.md)
+> [Storage account overview](../common/storage-account-overview.md)
 
 
 For more information about the Storage Explorer and Blobs, see [Manage Azure Blob Storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
