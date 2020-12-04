@@ -1,7 +1,7 @@
 ---
 title: Handle errors and exceptions in MSAL.NET
 titleSuffix: Microsoft identity platform
-description: Learn how to handle errors and exceptions, Conditional Access, and claims challenges in MSAL.NET applications.
+description: Learn how to handle errors and exceptions, Conditional Access claims challenges, and retries in MSAL.NET.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -157,7 +157,7 @@ do
              }
          }
     }
-    …
+    // . . .
     if (delay.HasValue)
     {
         Thread.Sleep((int)delay.Value.TotalMilliseconds); // sleep or other
@@ -168,5 +168,4 @@ do
 
 ## Next steps
 
-Move on to the next article, 
-[Logging](msal-logging.md?tabs=dotnet).
+Consider enabling [logging in MSAL.NET](msal-logging.md?tabs=dotnet) to help you diagnose and debug issues.

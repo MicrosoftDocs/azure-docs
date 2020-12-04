@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/26/2020
 ms.author: marsma
-ms.reviewer: saeeda, jmprieur
+ms.reviewer: saeeda, rayluo
 ms.custom: aaddev
 ---
 # Handle MSAL exceptions and errors in Python

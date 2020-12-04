@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/26/2020
 ms.author: marsma
-ms.reviewer: saeeda, jmprieur
+ms.reviewer: saeeda, hahamil
 ms.custom: aaddev
 ---
 # Handle MSAL exceptions and errors in JavaScript
@@ -152,4 +152,3 @@ See [Requesting Additional Claims](active-directory-optional-claims.md) for more
 
 Move on to the next article, 
 [Logging](msal-logging.md?tabs=javascript).
-
