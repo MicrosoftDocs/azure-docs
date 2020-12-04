@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -58,14 +58,15 @@ Docs to create sync job:
 https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http 
 
 If you did not record the ID above, you can find the service principal by running the following MS Graph call. You'll need Directory.Read.All permissions to make that call:
-GET https://graph.microsoft.com/beta/servicePrincipals 
+ 
+ `GET https://graph.microsoft.com/beta/servicePrincipals `
 
 Then look for your app name in the output.
 
-Run the following two commands to create two jobs: 1 for user/group provisioning, and 1 for password hash syncing. It's the same request twice but with different template IDs.
+Run the following two commands to create two jobs: one for user/group provisioning, and one for password hash syncing. It's the same request twice but with different template IDs.
 
 
-CALL THE FOLLOWING 2 requests:
+Call the following two requests:
 
  ```
  POST https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs
@@ -85,7 +86,7 @@ CALL THE FOLLOWING 2 requests:
 
 You will need 2 calls if you want to create both.
 
-EXAMPLE RETURN VALUE (for provisioning):
+Example return value (for provisioning):
 
  ```
 HTTP 201/Created
@@ -144,9 +145,9 @@ HTTP 204/No content
 (Here, the highlighted "Domain" value is the name of the on-premises Active Directory domain from which entries are to be provisioned to Azure Active Directory.)
 
 ## Start sync job
-The job can be retrieved again via …
+The job can be retrieved again via the following command:
 
-GET https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/ 
+ `GET https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/ ` 
 
 Docs for retrieving jobs: https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-list?view=graph-rest-beta&tabs=http 
  
