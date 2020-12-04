@@ -49,7 +49,7 @@ The workflow for this model will be similar to the following:
 
 ## Create an Azure Migrate project in the managing tenant
 
-In this scenario, migration-related operations such as discovery and assessment are still performed by users in the managing tenant. However, the migration project and all of the relevant resources will reside in the partner tenant, and the customer will not have direct visibility into the project (though assessments can be shared with customers if desired). The migration destination for each customer will remain in the customer's tenant. This option allows multiple customer subscriptions to be managed together in the same migration project.
+In this scenario, migration-related operations such as discovery and assessment are still performed by users in the managing tenant. However, the migration project and all of the relevant resources will reside in the partner tenant, and the customer will not have direct visibility into the project (though assessments can be shared with customers if desired). The migration destination for each customer will be the customer's subscription.
 
 This approach enables services providers to start migration discovery and assessment projects quickly, abstracting those initial steps from customer subscriptions and tenants.
 
