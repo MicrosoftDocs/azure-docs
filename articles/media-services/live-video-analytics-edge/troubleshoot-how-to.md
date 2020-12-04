@@ -269,7 +269,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 [Logging and diagnostics in gRPC on .NET](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true) provides some guidance for gathering some diagnostic logs from a gRPC server. 
 
-### The gRPC connection that failes
+### A failed gRPC connection 
 
 If a graph is active and streaming from a camera, the connection will be maintained by Live Video Analytics. 
 
@@ -279,7 +279,7 @@ Live Video Analytics does not monitor or provide any hardware resource monitorin
 
 gRPC in .NET core documents also share some valuable information on [Performance Best Practices](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1&preserve-view=true) and [Load balancing](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1#load-balancing&preserve-view=true).  
 
-### Troubleshooting an inference server when it does not receive any frames and you are reciving an "unknown" protocol error 
+### Troubleshooting an inference server when it does not receive any frames and you are receiving, an "unknown" protocol error 
 
 There are several things you can do to get more information about the problem.  
 
