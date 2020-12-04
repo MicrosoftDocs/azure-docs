@@ -12,14 +12,11 @@ ms.reviewer: dineshm
 
 # Copy blobs between Azure storage accounts by using AzCopy v10
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article contains example commands that help you copy blobs between storage accounts. AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
+You can use AzCopy v10 to copy blobs between Azure storage accounts. AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
 
-> [!NOTE] 
-> See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service. 
->
-> If you want to **upload**, **download** or **synchronize** files with Blob storage, see the [Transfer data](storage-use-azcopy-v10.md#transfer-data) section of the [Get started with AzCopy](storage-use-azcopy-v10.md) article.
+To download AzCopy and learn about the ways that you can provide authorization credentials to the storage service, see [Get started with AzCopy](storage-use-azcopy-v10.md). 
 
-### Guidelines
+## Guidelines
 
 Apply the following guidelines to your AzCopy commands. 
 
@@ -129,8 +126,10 @@ Find more examples in any of these articles:
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
 
-- [Transfer data](storage-use-azcopy-v10.md#transfer-data)
-
 - [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
+
+- [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
+
+- [Transfer data with AzCopy and Azure Files](storage-use-azcopy-files.md)
 
 - [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
