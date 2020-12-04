@@ -37,8 +37,7 @@ Use these [Microsoft Azure Active Directory Module for Windows PowerShell](https
 The first of those two commands, require Azure Active Directory credentials. These commandlets implicitly identify the tenant and enable it for synchronization.
 
 ## Create Service Principals
-Next, we need to create the AD2AAD application/ service principal
-https://docs.microsoft.com//graph/apiapplicationtemplate-instantiate?view=graph-rest-beta&tabs=http 
+Next, we need to create the [AD2AAD application/ service principal](https://docs.microsoft.com/graph/apiapplicationtemplate-instantiate?view=graph-rest-beta&tabs=http)
 
 You need to use this application ID 1a4721b3-e57f-4451-ae87-ef078703ec94. The displayName is the AD domain url, if used in the portal (for example, contoso.com), but it may be named something else.
 
@@ -54,8 +53,7 @@ You need to use this application ID 1a4721b3-e57f-4451-ae87-ef078703ec94. The di
 ## Create Sync Job
 The output of the above command will return the objectId of the service principal that was created. For this example, the objectId is 614ac0e9-a59b-481f-bd8f-79a73d167e1c.  Use Microsoft Graph to add a synchronizationJob to that service principal.  
 
-Docs to create sync job:
-https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http 
+Documentation for creating a sync job can be found [here](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http).
 
 If you did not record the ID above, you can find the service principal by running the following MS Graph call. You'll need Directory.Read.All permissions to make that call:
  
@@ -84,7 +82,7 @@ Call the following two requests:
  }
  ```
 
-You will need 2 calls if you want to create both.
+You will need two calls if you want to create both.
 
 Example return value (for provisioning):
 
@@ -142,7 +140,8 @@ Make sure the domain name you use is the same url you set for your on-prem domai
 
 The expected response is … 
 HTTP 204/No content
-(Here, the highlighted "Domain" value is the name of the on-premises Active Directory domain from which entries are to be provisioned to Azure Active Directory.)
+
+Here, the highlighted "Domain" value is the name of the on-premises Active Directory domain from which entries are to be provisioned to Azure Active Directory.
 
 ## Start sync job
 The job can be retrieved again via the following command:
@@ -153,15 +152,16 @@ Docs for retrieving jobs: https://docs.microsoft.com/graph/api/synchronization-s
  
 To start the job, issue this request, using the objectId of the service principal created in the first step, and the job identifier returned from the request that created the job.
 
-Docs to start job: https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http 
+Documentation for how to start a job can be found [here](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http). 
 
  ```
  POST  https://graph.microsoft.com/beta/servicePrincipals/8895955e-2e6c-4d79-8943-4d72ca36878f/synchronization/jobs/AD2AADProvisioning.fc96887f36da47508c935c28a0c0b6da/start
  ```
 
 The expected response is … 
-HTTP 204/No content
-Other commands for controlling the job are documented here: https://docs.microsoft.com/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta 
+HTTP 204/No content.
+
+Other commands for controlling the job are documented [here](https://docs.microsoft.com/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta).
  
 To restart a job, one would use …
 
