@@ -3,7 +3,7 @@ title: Create stateful or stateless workflows in the Azure portal
 description: Build and run stateless or stateful automation integration workflows with Azure Logic Apps (Preview) in the Azure portal
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, sopai, logicappspm
+ms.reviewer: sopai, tonytang, rohitha, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
 ---
@@ -43,7 +43,7 @@ This article shows how to create a **Logic App (Preview)** resource by using the
 
 * To test the example logic app that you create in this article, you need a tool that can send calls to the Request trigger, which is the first step in example logic app. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
 
-* For easier diagnostics logging and tracing capability, you can add and use an [Application Insights](../azure-monitor/app/app-insights-overview.md) resource. You can create this resource in advance or when you create your logic app.
+* If you create your logic app with settings that support [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing capability for your logic app. You can create the Application Insights resource either in advance, during logic app creation, or after deployment.
 
 ## Create the logic app resource
 
@@ -322,6 +322,26 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    ![Screenshot that shows the inputs and outputs in the selected "Send an email" action.](./media/create-stateful-stateless-workflows-azure-portal/review-step-inputs-outputs.png)
 
 1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
+
+<a name="monitor-application-insights"></a>
+
+## Monitor with Application Insights
+
+During workflow execution, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
+
+If your Azure subscription and logic app settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can enable diagnostics logging and tracing capability for your logic app. You can create the Application Insights resource either in advance, during logic app creation, or after deployment.
+
+To open Application Insights for a logic app that supports or has Application Insights enabled, follow these steps:
+
+1. In the Azure portal, find your deployed logic app.
+
+1. On the logic app menu, under **Settings**, select **Application Insights**.
+
+1. If Application Insights is enabled, on the **Application Insights** pane, select **View Application Insights data**.
+
+   If Application Insights isn't enabled, on the **Application Insights** pane, select **Turn on Application Insights**. After the pane updates, at the bottom, select **Apply**.
+
+After Application Insights opens, you can review various metrics for your logic app.
 
 <a name="enable-run-history-stateless"></a>
 

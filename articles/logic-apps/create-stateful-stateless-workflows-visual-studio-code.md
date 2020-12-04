@@ -113,7 +113,7 @@ This article shows how to create a **Logic App (Preview)** resource by using Vis
 
 * To test the example logic app that you create in this article, you need a tool that can send calls to the Request trigger, which is the first step in example logic app. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
 
-* For easier diagnostics logging and tracing capability, you can use [Application Insights](../azure-monitor/app/app-insights-overview.md) with your logic app. You can create an Application Insights resource either in Visual Studio Code during deployment to Azure or in the Azure portal after deployment. For more information about logging and monitoring with Application Insights, review [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849).
+* If you create your logic app with settings that support [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing capability for your logic app. You can create the Application Insights resource either in advance, during logic app deployment to Azure, or after deployment in the Azure portal. For more information about logging and monitoring with Application Insights, review [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849).
 
 <a name="set-up"></a>
 
@@ -804,6 +804,26 @@ After you deploy a **Logic App (Preview)** resource from Visual Studio Code to A
 1. When you're done, on the **CORS** toolbar, select **Save**.
 
    ![Screenshot that shows the Azure portal with a deployed Logic Apps (Preview) resource. On the resource menu, "CORS" is selected with a new entry for "Allowed Origins" set to the wildcard "*" character.](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
+
+<a name="monitor-application-insights"></a>
+
+## Monitor with Application Insights
+
+During workflow execution for a logic app deployed to Azure, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
+
+If your Azure subscription and logic app settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can enable diagnostics logging and tracing capability for your logic app. You can create the Application Insights resource either in advance, during logic app creation, or after deployment.
+
+To open Application Insights for a logic app that supports or has Application Insights enabled, follow these steps:
+
+1. In the Azure portal, find your deployed logic app.
+
+1. On the logic app menu, under **Settings**, select **Application Insights**.
+
+1. If Application Insights is enabled, on the **Application Insights** pane, select **View Application Insights data**.
+
+   If Application Insights isn't enabled, on the **Application Insights** pane, select **Turn on Application Insights**. After the pane updates, at the bottom, select **Apply**.
+
+After Application Insights opens, you can review various metrics for your logic app. For more information, see [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849).
 
 <a name="deploy-docker"></a>
 
