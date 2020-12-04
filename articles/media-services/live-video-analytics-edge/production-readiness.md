@@ -144,7 +144,7 @@ Or
 #### System Variables
 Some system defined variables that you can use are:
 
-|Substitution|Description|Example|
+|System Variable|Description|Example|
 |-----------|-----------|-----------|
 |System.DateTime|UTC date time in ISO8601 file compliant format (basic representation YYYYMMDDThhmmss).|20200222T173200Z|
 |System.PreciseDateTime|UTC date time in ISO8601 file compliant format with milliseconds (basic representation YYYYMMDDThhmmss.sss).|20200222T173200.123Z|
@@ -152,7 +152,7 @@ Some system defined variables that you can use are:
 |System.GraphInstanceName|User provided name of the executing graph instance.|camera001|
 
 >[!TIP]
-> `System.PreciseDateTime` cannot be used when naming assets because of the “.” in the name
+> System.PreciseDateTime cannot be used when naming assets because of the “.” in the name
 ### Keeping your VM clean
 
 The Linux VM that you are using as an edge device can become unresponsive if it is not managed on a periodic basis. It is essential to keep the caches clean, eliminate unnecessary packages and remove unused containers from the VM as well. To do this here is a set of recommended commands, you can use on your edge VM.
