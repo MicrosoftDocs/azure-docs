@@ -3,7 +3,7 @@ author: baanders
 description: include file for Azure Digital Twins route filter options
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/18/2020
+ms.date: 12/04/2020
 ms.author: baanders
 ---
 
