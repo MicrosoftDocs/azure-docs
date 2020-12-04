@@ -1,9 +1,9 @@
 ---
 title: Overview for Azure Logic Apps (Preview)
-description: Learn about building stateless and stateful automation workflows by using Azure Logic Apps (Preview)
+description: Learn about building stateless and stateful automated workflows by using Azure Logic Apps (Preview) for integration and automation scenarios
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, sopai, jonfan, logicappspm
+ms.reviewer: deli, sopai, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
 ---
@@ -16,7 +16,7 @@ ms.date: 12/07/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create logic apps that integrate across apps, data, cloud services, and systems, you can build and run [*stateful* and *stateless* workflows](#stateful-stateless) by using the new **Logic App (Preview)** resource type. This new logic app type is powered by [Azure Functions](../azure-functions/functions-overview.md), can include multiple workflows, and is similar in some ways to the **Function App** resource type, which can include multiple functions. You can create this new logic app type either by using the Azure portal or by using Visual Studio Code with the new Azure Logic Apps (Preview) extension. When you use Visual Studio Code, you can locally build and run these workflows in your development environment.
+To create logic apps that integrate across apps, data, cloud services, and systems, you can build and run [*stateful* and *stateless* workflows](#stateful-stateless) by using the new **Logic App (Preview)** resource type. This new logic app type is powered by [Azure Functions](../azure-functions/functions-overview.md), can include multiple workflows, and is similar in some ways to the **Function App** resource type, which can include multiple functions. You can create this new logic app type either by using the Azure portal or by using Visual Studio Code with the new Azure Logic Apps (Preview) extension. When you use Visual Studio Code, you can locally build and run these workflows in your development environment. For more information, see [Create stateful or stateless workflows in the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md).
 
 This article provides an overview about how [stateful and stateless](#stateful-stateless) workflows differ from each other, [what's new in this public preview](#whats-new), how the [pricing model](#pricing-model) works, and various other aspects about the **Logic App (Preview)** resource type.
 
@@ -45,9 +45,9 @@ For information about how nested logic apps behave differently between stateful 
 
 ## What's in this public preview?
 
-Azure Logic Apps (Preview) brings many current and additional Logic Apps capabilities, for example:
+Azure Logic Apps (Preview) includes many current and additional Logic Apps capabilities, for example:
 
-* Build logic apps for integration and automation workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
+* Build logic apps that can contain one or more workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
   * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to built-in native triggers and actions such as the HTTP action.
 
@@ -63,8 +63,7 @@ Azure Logic Apps (Preview) brings many current and additional Logic Apps capabil
 * Publish and deploy your logic apps to various hosting environments, such as [Azure App Service](../app-service/environment/intro.md) and [Docker containers](/dotnet/core/docker/introduction).
 
 > [!NOTE]
-> For information about current known issues, review the preview extension's 
-> [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+> For information about current known issues, review the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 The Azure Logic Apps (Preview) extension brings many current and additional Logic Apps capabilities to your local development experience in Visual Studio Code, for example:
 
@@ -170,3 +169,7 @@ Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-li
   * The limit on time to run the code increases from five seconds to 15 seconds.
 
 ## Next steps
+
+* [Create stateful or stateless workflows in the Azure portal](create-stateful-stateless-workflows-azure-portal.md)
+* [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md)
+* [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)

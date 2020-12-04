@@ -309,9 +309,6 @@ The logic app workflow in this example uses this trigger and these actions:
 
 * The built-in [Response action](../connectors/connectors-native-reqres.md), which you use to send a reply and return data back to the caller.
 
-> [!NOTE]
-> For HTTP webhook 
-
 ### Add the Request trigger
 
 1. Next to the designer, in the **Add a trigger** pane, under the **Choose an operation** search box, make sure that **Built-in** is selected so that you can select a trigger that runs natively.
@@ -327,15 +324,7 @@ The logic app workflow in this example uses this trigger and these actions:
    > [!TIP]
    > If the details pane doesn't appear, makes sure that the trigger is selected on the designer.
 
-1. If you have to delete an item on the designer, follow these steps:
-
-   1. On the designer, select the item, which opens the item's details pane to the right side.
-
-   1. Expand the Visual Studio Code window widely enough so that next to the trigger or action name, the ellipses (**...**) button appears in the uppermost right corner. 
-
-   1. Open the ellipses (**...**) menu, and select **Delete**. To confirm the deletion, select **OK**.
-
-      ![Screenshot that shows selected item on designer with open details pane and with selected ellipses button and "Delete" option.](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
+1. If you need to delete an item from the designer, [follow these steps for deleting items from the designer](#delete-from-designer).
 
 ### Add the Office 365 Outlook action
 
@@ -392,8 +381,8 @@ The logic app workflow in this example uses this trigger and these actions:
    > [!NOTE]
    > If you want to make any changes in the details pane on the **Settings**, **Static Result**, or **Run After** tab, 
    > make sure that you select **Done** to commit those changes before you switch tabs or change focus to the designer. 
-   > Otherwise, Visual Studio Code won't keep your changes. For more information, review the preview extension's 
-   > [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+   > Otherwise, Visual Studio Code won't keep your changes. For more information, review the 
+   > [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 1. On the designer, select **Save**.
 
@@ -890,6 +879,25 @@ By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/),
      <...>
    }
    ```
+
+<a name="delete-from-designer"></a>
+
+## Delete items from the designer
+
+To delete an item from the designer, follow any of these steps:
+
+* Open the item's shortcut menu, and select **Delete**.
+
+* Select the item, and press the delete key. To confirm, select **OK**.
+
+* Select the item so that details pane opens for that item. In the pane's upper right corner, open the ellipses (**...**) menu, and select **Delete**. To confirm, select **OK**.
+
+  ![Screenshot that shows selected item on designer with open details pane and with selected ellipses button and "Delete" option.](./media/create-stateful-stateless-workflows-azure-portal/delete-item-from-designer.png)
+
+  > [!TIP]
+  > If the ellipses menu isn't visible, expand Visual Studio Code window wide enough so that 
+  > the details pane shows the ellipses (**...**) button in the upper right corner.
+
 <a name="troubleshooting"></a>
 
 ## Troubleshoot errors and problems

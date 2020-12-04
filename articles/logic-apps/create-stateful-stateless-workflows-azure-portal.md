@@ -22,6 +22,9 @@ Meanwhile, the original **Logic Apps** resource type still exists for you to cre
 
 This article shows how to build a **Logic App (Preview)** resource by using the Azure portal. To build this resource in Visual Studio Code, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md).
 
+> [!NOTE]
+> For information about current known issues, review the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -142,15 +145,7 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
    > [!TIP]
    > If the details pane doesn't appear, makes sure that the trigger is selected on the designer.
 
-1. If you have to delete an item on the designer, follow these steps:
-
-   1. On the designer, select the item, which opens the item's details pane to the right side.
-
-   1. Expand your browser window widely enough so that next to the trigger or action name, the ellipses (**...**) button appears in the upper right corner.
-
-   1. Open the ellipses (**...**) menu, and select **Delete**. To confirm the deletion, select **OK**.
-
-      ![Screenshot that shows selected item on designer with open details pane and with selected ellipses button and "Delete" option.](./media/create-stateful-stateless-workflows-azure-portal/delete-item-from-designer.png)
+1. If you need to delete an item from the designer, [follow these steps for deleting items from the designer](#delete-from-designer).
 
 1. To save your work, on the designer toolbar, select **Save**.
 
@@ -351,6 +346,24 @@ To more easily debug a stateless workflow, you can enable the run history for th
 1. To finish this task, select **OK**. On the **Configuration** pane toolbar, select **Save**.
 
 1. To disable the run history when you're done, either set the `Workflows.{yourWorkflowName}.OperationOptions`property to `None`, or delete the property and its value.
+
+<a name="delete-from-designer"></a>
+
+## Delete items from the designer
+
+To delete an item from the designer, follow any of these steps:
+
+* Open the item's shortcut menu, and select **Delete**.
+
+* Select the item, and press the delete key. To confirm, select **OK**.
+
+* Select the item so that details pane opens for that item. In the pane's upper right corner, open the ellipses (**...**) menu, and select **Delete**. To confirm, select **OK**.
+
+  ![Screenshot that shows selected item on designer with open details pane and with selected ellipses button and "Delete" option.](./media/create-stateful-stateless-workflows-azure-portal/delete-item-from-designer.png)
+
+  > [!TIP]
+  > If the ellipses menu isn't visible, expand your browser window wide enough so that the details 
+  > pane shows the ellipses (**...**) button in the upper right corner.
 
 ## Next steps
 
