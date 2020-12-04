@@ -29,7 +29,7 @@ AzAcSnap leverages the volume snapshot and replication functionalities in Azure 
     AzAcSnap is a centralized solution for backing up critical database files. It ensures database consistency before performing a storage volume snapshot. As a result, it ensures that the storage volume snapshot can be used for database recovery.
 - **Database catalog management**
     When you use AzAcSnap with a database that has a built-in backup catalog, the records within the catalog are kept current with storage snapshots.  This capability allows a database administrator to see the backup activity.
-- ***Ad-hoc* volume protection**
+- **Ad hoc volume protection**
     This capability is helpful for non-database volumes that don't need application quiescing before taking a storage snapshot.  Examples include SAP HANA log-backup volumes or SAPTRANS volumes.
 - **Cloning of storage volumes**
     This capability provides space-efficient storage volume clones for development and test purposes.

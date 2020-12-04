@@ -194,7 +194,7 @@ Displaying Mount Points by Volume as follows:
 > [!NOTE]
 > The steps at the end of the console display need to be taken to complete the storage preparation for a DR failover.
 
-#### Step 5: Unmount uncessary filesystems
+#### Step 5: Unmount unnecessary filesystems
 
 Execute the command `umount` to unmount the filesystems/volumes that are not needed.
 

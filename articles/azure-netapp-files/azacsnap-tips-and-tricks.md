@@ -71,7 +71,7 @@ Explanation of the above crontab.
   - `*` : Every day
   - `*` : Every month
   - `*` : Every day of the week
-- Command line to execute included within backets "()"
+- Command line to execute included within brackets "()"
   - . /home/azacsnap/.profile = pull in the user's .profile to set up their environment, including
         $PATH, etc.
   - cd /home/azacsnap/bin = change execution directory to the location "/home/azacsnap/bin" where
@@ -109,7 +109,7 @@ snapshots from the OS level. You must use the correct command (`azacsnap -c dele
 the deleted snapshots.
 
 
-## Restore a 'hana' snapshot
+## Restore a snapshot
 
 A storage volume snapshot can be restored to a new volume (`-c restore --restore snaptovol`).  For Azure Large Instance, the volume can be reverted to a snapshot (`-c restore --restore revertvolume`).
 

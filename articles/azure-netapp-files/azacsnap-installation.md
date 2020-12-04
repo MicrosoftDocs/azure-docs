@@ -467,8 +467,7 @@ installer is run with only the -I option, it will do the following steps:
     assumes the "root" user has already configured the secure user store – see section "Enable
     communication with SAP HANA".
 1. The snapshot tools are extracted into `/home/azacsnap/bin/`.
-1. The commands in `/home/azacsnap/bin/` have their permissions set (ownership and
-    executable bit, etc).
+1. The commands in `/home/azacsnap/bin/` have their permissions set (ownership and executable bit, etc.).
 
 The following example shows the correct output of the installer when run with the default
 installation option.
