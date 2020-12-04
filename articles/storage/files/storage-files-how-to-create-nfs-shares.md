@@ -100,7 +100,7 @@ To verify you have a FileStorage account, you can use the following command:
 az storage account show -g yourResourceGroup -n yourStorageAccountName
 ```
 
-The output should contain **FileStorage**, if it is not, then your storage account is the incorrect type. To create a **FileStorage** account, see [How to create an Azure premium file share](storage-how-to-create-premium-fileshare.md).
+The output should contain **"kind": "FileStorage"**, if does not, then your storage account is the incorrect type. To create a **FileStorage** account, see [How to create an Azure premium file share](storage-how-to-create-premium-fileshare.md).
 
 ---
 ## Create an NFS share
