@@ -15,7 +15,7 @@ Azure Functions is a serverless solution that allows you to write less code, mai
 
 You focus on the pieces of code that matter most to you, and Azure Functions handles the rest.
 
-[!VIDEO https://www.youtube.com/watch?v=8-jz5f_JyEQ]
+> [!VIDEO https://www.youtube.com/watch?v=8-jz5f_JyEQ]
 
 We often build systems to react to a series of critical events. Whether you're building a web API, responding to database changes, processing  IoT data streams, or even managing message queues - every application needs a way to run some code as these events occur.
 
