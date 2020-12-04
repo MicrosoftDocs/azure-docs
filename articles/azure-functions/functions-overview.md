@@ -13,7 +13,7 @@ ms.custom: contperfq2
 
 We often build systems to react to a series of critical events. Whether you're building a web API, responding to database changes, processing  IoT data streams, or even managing message queues - every application needs a way to run some code as these events occur.
 
-To meet this need, Azure Functions provides "compute on-demand" - and in two significant ways.
+To meet this need, Azure Functions provides "compute on-demand" in two significant ways.
 
 First, Azure Functions allows you to implement your system's logic into readily available blocks of code. These code blocks are called "functions". Different functions can run anytime you need to respond to critical events.
 
