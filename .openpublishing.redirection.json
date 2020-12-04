@@ -4627,7 +4627,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/go-analzye.md",
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/go-analyze.md",
       "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/REST/go-analyze.md",
       "redirect_document_id": false
     },
