@@ -228,6 +228,89 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
 
     `"DebugLogsDirectory": ""`
 
+
+## Troubleshooting
+
+### What are some best practices around logging? 
+
+[Monitoring and logging](monitoring-logging.md) should help in understanding the taxonomy and how to generate logs that will help in debugging issues with LVA. 
+
+As gRPC server implementation differ across languages, there is no standard way of adding logging inside in the server.  
+
+As an example, if you build a gRPC server using .Net core, gRPC service adds logs under the **Grpc** category. To enable detailed logs from gRPC, configure the Grpc prefixes to the Debug level in your appsettings.json file by adding the following items to the LogLevel sub-section in Logging: 
+
+```
+{ 
+  "Logging": { 
+    "LogLevel": { 
+      "Default": "Debug", 
+      "System": "Information", 
+      "Microsoft": "Information", 
+      "Grpc": "Debug" 
+       } 
+  } 
+} 
+``` 
+
+You can also configure this in the Startup.cs file with ConfigureLogging: 
+
+```
+public static IHostBuilder CreateHostBuilder(string[] args) => 
+    Host.CreateDefaultBuilder(args) 
+        .ConfigureLogging(logging => 
+        { 
+
+           logging.AddFilter("Grpc", LogLevel.Debug); 
+        }) 
+        .ConfigureWebHostDefaults(webBuilder => 
+        { 
+            webBuilder.UseStartup<Startup>(); 
+        }); 
+
+``` 
+
+[Logging and diagnostics in gRPC on .NET](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true) provides some guidance for gathering some diagnostic logs from a gRPC server. 
+
+### What happens when gRPC connection fails? Does it come back up automatically? 
+
+If a graph is active and streaming from a camera, the connection will be maintained by Live Video Analytics. 
+
+### What happens when CPU and GPU resources become bottlenecks? How should I monitor and ensure that I can balance the load on these resources? 
+
+Live Video Analytics does not monitor or provide any hardware resource monitoring. Developers will have to use the hardware manufacturers monitoring solutions. However, if you use Kubernetes containers, you can monitor the device using the [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
+
+gRPC in .NET core documents also share some valuable information on [Performance Best Practices](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1&preserve-view=true) and [Load balancing](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1#load-balancing&preserve-view=true).  
+
+### My inference server does not receive any frames, and I'm getting an "unknown" protocol error. How can I troubleshoot? 
+
+There are several things you can do to get more information about the problem.  
+
+* Include the “**ediaPipeline** log category in the desired properties of the Live Video Analytics module and ensure the log level is set to `Information`.  
+* To test network connectivity, you can run the following command from the edge device. 
+
+   ```
+   sudo docker exec lvaEdge /bin/bash -c “apt update; apt install -y telnet; telnet <inference-host> <inference-port>” 
+   ```
+
+   If the command outputs a short string of jumbled text, then telnet was successfully able to open a connection to your inference server and open a binary gRPC channel. If you do not see this, then telnet will report a network error. 
+* In your inference server you can enable additional logging in the gRPC library. This can give additional information about the gRPC channel itself. Doing this varies by language, here are instructions for [C#](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true). 
+
+### How can we pick more images from buffer of gRPC without sending back result for first buffer? 
+
+As a part of the gRPC data transfer contract, all messages that Live Video Analytics sends to the gRPC inferencing server should be acknowledged. Not acknowledging the receipt of an image frame breaks the data contract and can result in undesired situations.  
+
+To use your gRPC server with Live Video Analytics, shared memory can be used for best performance. This requires you to use Linux shared memory capabilities exposed by the programming language/environment. 
+
+1. Open the Linux shared memory handle.
+1. Upon receiving of a frame, access the address offset within the shared memory.
+1. Acknowledge the frame processing completion so its memory can be reclaimed by Live Video Analytics.
+
+   > [!NOTE]
+   > If you delay in acknowledging the receipt of the frame to Live Video Analytics for a long time, it can result in the shared memory becoming full and causing data drops.
+1. Store each frame in a data structure of your choice (list, array, and so on) on the inferencing server.
+1. You can then run your processing logic when you have the desired number of image frames.
+1. Return the inferencing result back to Live Video Analytics when ready.
+
 ## Next steps
 
 [Tutorial: Event-based video recording to cloud and playback from cloud](event-based-video-recording-tutorial.md)
