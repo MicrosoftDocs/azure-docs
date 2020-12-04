@@ -50,13 +50,13 @@ The following cURL command are executed from a BASH shell. Edit these commands w
 #### [version 3.1-preview](#tab/version-3-1)
 
 > [!NOTE]
-> The below example includes a request for the Opinion Mining feature of Sentiment Analysis, which provides granular information about the opinions related to aspects (such as the attributes of products or services) in text.
+> The below example includes a request for the Opinion Mining feature of Sentiment Analysis using the `opinionMining=true` parameter, which provides granular information about the opinions related to aspects (such as the attributes of products or services) in text.
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.3/sentiment?opinionMining=true \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
--d '{ documents: [{ id: "1", text: "I had the best day of my life."}]}'
+-d '{ documents: [{ id: "1", text: "The customer service here is really good."}]}'
 ```
 
 ### JSON response
@@ -81,13 +81,38 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
                   "negative":0.0
                },
                "offset":0,
-               "length":30,
-               "text":"I had the best day of my life.",
+               "length":41,
+               "text":"The customer service here is really good.",
                "aspects":[
-                  
+                  {
+                     "sentiment":"positive",
+                     "confidenceScores":{
+                        "positive":1.0,
+                        "negative":0.0
+                     },
+                     "offset":4,
+                     "length":16,
+                     "text":"customer service",
+                     "relations":[
+                        {
+                           "relationType":"opinion",
+                           "ref":"#/documents/0/sentences/0/opinions/0"
+                        }
+                     ]
+                  }
                ],
                "opinions":[
-                  
+                  {
+                     "sentiment":"positive",
+                     "confidenceScores":{
+                        "positive":1.0,
+                        "negative":0.0
+                     },
+                     "offset":36,
+                     "length":4,
+                     "text":"good",
+                     "isNegated":false
+                  }
                ]
             }
          ],

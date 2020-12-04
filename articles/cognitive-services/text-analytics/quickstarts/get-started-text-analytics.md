@@ -20,10 +20,12 @@ zone_pivot_groups: programming-languages-text-analytics
 Use this article to get started with the Text Analytics client library and REST API. Follow these steps to try out examples code for mining text:
 
 * Sentiment analysis
+* Opinion mining
 * Language detection
 * Entity recognition
+* Personal Identifying Information recognition
 * Key phrase extraction
-* Opinion mining
+
 
 ::: zone pivot="programming-language-csharp"
 
