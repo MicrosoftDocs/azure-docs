@@ -2,7 +2,7 @@
 title: Common alerts and resolutions in Azure AD Domain Services | Microsoft Docs
 description: Learn how to resolve common alerts generated as part of the health status for Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483

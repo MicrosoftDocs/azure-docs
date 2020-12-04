@@ -2,7 +2,7 @@
 title: Change the SKU for an Azure AD Domain Services | Microsoft Docs
 description: Learn how to the SKU tier for an Azure AD Domain Services managed domain if your business requirements change
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.service: active-directory

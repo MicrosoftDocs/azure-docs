@@ -2,7 +2,7 @@
 title: Resolve secure LDAP alerts in Azure AD Domain Services | Microsoft Docs
 description: Learn how to troubleshoot and resolve common alerts with secure LDAP for Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957

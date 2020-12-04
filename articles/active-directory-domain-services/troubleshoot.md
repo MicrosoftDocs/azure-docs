@@ -2,7 +2,7 @@
 title: Azure Active Directory Domain Services troubleshooting | Microsoft Docs'
 description: Learn how to troubleshoot common errors when you create or manage Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b

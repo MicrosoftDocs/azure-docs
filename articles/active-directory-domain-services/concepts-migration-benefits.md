@@ -2,7 +2,7 @@
 title: Benefits of Classic deployment migration in Azure AD Domain Services | Microsoft Docs
 description: Learn more about the benefits of migrating a Classic deployment of Azure Active Directory Domain Services to the Resource Manager deployment model
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.service: active-directory

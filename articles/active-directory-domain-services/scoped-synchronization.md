@@ -2,7 +2,7 @@
 title: Scoped synchronization for Azure AD Domain Services | Microsoft Docs
 description: Learn how to use the Azure portal to configure scoped synchronization from Azure AD to an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225

@@ -2,7 +2,7 @@
 title: Enable SharePoint User Profile service with Azure AD DS | Microsoft Docs
 description: Learn how to configure an Azure Active Directory Domain Services managed domain to support profile synchronization for SharePoint Server
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d

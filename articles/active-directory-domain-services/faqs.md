@@ -2,7 +2,7 @@
 title: Frequently asked questions about Azure AD Domain Services | Microsoft Docs
 description: Read and understand some of the frequently asked questions around configuration, administration, and availability for Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
