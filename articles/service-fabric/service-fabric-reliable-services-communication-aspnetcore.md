@@ -1,11 +1,8 @@
 ---
 title: Service communication with the ASP.NET Core 
 description: Learn how to use ASP.NET Core in stateless and stateful Azure Service Fabric Reliable Services applications.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
 ---
 

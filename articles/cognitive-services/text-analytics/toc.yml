@@ -98,7 +98,7 @@
     - name: v2
       items:
         - name: .NET
-          href: /dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet
+          href: /dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
         - name: Python
           href: /python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
         - name: Java

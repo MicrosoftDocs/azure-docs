@@ -8,13 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
+<<<<<<< HEAD
 ms.date: 12/04/2020
+=======
+ms.date: 12/02/2020
+>>>>>>> fb937ad61ac7bd29a145276aab8c2a6e4a90ffff
 ms.author: aahi
 ---
 
 # How to: Sentiment analysis and Opinion Mining
 
-The Text Analytics API's Sentiment Analysis feature provides two ways for detecting positive and negative sentiment. If you send a Sentiment Analysis request, the API will return sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level. You can also send Opinion Mining requests using the Sentiment Analysis endpoint, which provides granular information about the opinions related to aspects (such as the attributes of products or services) in text.
+The Text Analytics API's Sentiment Analysis feature provides two ways for detecting positive and negative sentiment. If you send a Sentiment Analysis request, the API will return sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level. You can also send Opinion Mining requests using the Sentiment Analysis endpoint, which provides granular information about the opinions related to aspects (such as the attributes of products or services) in text. 
 
 The AI models used by the API are provided by the service, you just have to send content for analysis.
 
@@ -46,13 +50,14 @@ Confidence scores range from 1 to 0. Scores closer to 1 indicate a higher confid
 
 ## Opinion Mining
 
-Opinion Mining is a feature of Sentiment Analysis, starting in version 3.1-preview. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to aspects (such as the attributes of products or services) in text.
+Opinion Mining is a feature of Sentiment Analysis, starting in the preview of version 3.1. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to aspects (such as the attributes of products or services) in text.
 
 For example, if a customer leaves feedback about a hotel such as "The room was great, but the staff was unfriendly.", Opinion Mining will locate aspects in the text, and their associated opinions and sentiments. Sentiment Analysis might only report a negative sentiment.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="A diagram of the Opinion Mining example" lightbox="../media/how-tos/opinion-mining.png":::
 
-To get Opinion Mining in your results, you must include the `opinionMining=true` flag in a request for sentiment analysis. The Opinion Mining results will be included in the sentiment analysis response.
+To get Opinion Mining in your results, you must include the `opinionMining=true` flag in a request for sentiment analysis. The Opinion Mining results will be included in the sentiment analysis response. Opinion mining is an extension of Sentiment Analysis and is included in your current [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
 
 ## Sending a REST API request 
 

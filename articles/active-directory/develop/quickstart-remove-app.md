@@ -1,34 +1,34 @@
 ---
-title: "Quickstart: Remove a registered app from the Microsoft identity platform | Azure"
+title: "How to: Remove a registered app from the Microsoft identity platform | Azure"
 titleSuffix: Microsoft identity platform
-description: In this quickstart, you learn how to remove an application registered with the Microsoft identity platform.
+description: In this how-to, you learn how to remove an application registered with the Microsoft identity platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: how-to
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: aragra, lenalepa, sureshja
+ms.reviewer: marsma, aragra, lenalepa, sureshja
 #Customer intent: As an application developer, I want to know how to remove my application from the Microsoft identity registered.
 ---
 
-# Quickstart: Remove an application registered with the Microsoft identity platform
+# How to remove an application registered with the Microsoft identity platform
 
 Enterprise developers and software-as-a-service (SaaS) providers who have registered applications with Microsoft identity platform may need to remove an application's registration.
 
-In this quickstart, you'll learn how to:
+In the following sections, you learn how to:
 
 * Remove an application authored by you or your organization
 * Remove an application authored by another organization
 
 ## Prerequisites
 
-* Completion of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
+* An [application registered in your Azure AD tenant](quickstart-register-app.md)
 
 ## Remove an application authored by you or your organization
 
@@ -50,7 +50,4 @@ In order to remove an application’s access to your directory (after having gra
 
 ## Next steps
 
-Learn more about application and service principal objects in the Microsoft identity platform:
-
-> [!div class="nextstepaction"]
-> [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md)
+Learn more about [application and service principal objects](app-objects-and-service-principals.md) in the Microsoft identity platform.

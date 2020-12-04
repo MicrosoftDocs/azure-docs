@@ -60,7 +60,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
     ![url](media/contentful-provisioning-tutorial/generate.png)
 
-6. In the modal window , give your Personal Access Token a meaningful name and click "Generate".
+6. In the modal window, give your Personal Access Token a meaningful name and click "Generate".
     
 7. The **SCIM URL** and the **Secret Token** will be generated. Copy and save these values. These values will be entered in the Provisioning tab of your Contentful application in the Azure portal.
 
