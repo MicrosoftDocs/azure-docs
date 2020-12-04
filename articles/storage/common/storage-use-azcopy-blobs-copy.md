@@ -12,7 +12,9 @@ ms.reviewer: dineshm
 
 # Copy blobs between Azure storage accounts by using AzCopy v10
 
-You can use AzCopy v10 to copy blobs between Azure storage accounts. AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. 
+
+This article contains examples that help you copy blobs between Azure storage accounts. AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
 
 To download AzCopy and learn about the ways that you can provide authorization credentials to the storage service, see [Get started with AzCopy](storage-use-azcopy-v10.md). 
 
@@ -24,8 +26,7 @@ Apply the following guidelines to your AzCopy commands.
 
   If you provide authorization credentials by using Azure Active Directory (AD), you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory). 
 
-  > [!NOTE] 
-  > The examples in this article assume that you've authenticated your identity by using [Azure Active Directory (Azure AD)](storage-use-azcopy-authorize-azure-active-directory.md) so the examples omit the SAS tokens from the destination URL.
+  The examples in this article assume that you've authenticated your identity by using [Azure Active Directory (Azure AD)](storage-use-azcopy-authorize-azure-active-directory.md) so the examples omit the SAS tokens from the destination URL.
 
 -  If you copy to a premium block blob storage account, omit the access tier of a blob from the copy operation by setting the `s2s-preserve-access-tier` to `false` (For example: `--s2s-preserve-access-tier=false`). Premium block blob storage accounts don't support access tiers. 
 
@@ -39,13 +40,14 @@ Apply the following guidelines to your AzCopy commands.
 
 ## Copy a blob
 
-You can copy a blob to another storage account. The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
+You can copy a blob to another storage account. 
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>'` |
 | **Example** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 
+The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
 
 ## Copy a directory
 
@@ -125,6 +127,12 @@ For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 Find more examples in any of these articles:
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
+
+- [Upload files to Azure Blob storage](storage-use-azcopy-blobs-upload.md)
+
+- [Download blobs from Azure Blob storage](storage-use-azcopy-blobs-download.md)
+
+- [Synchronize with Azure Blob storage](storage-use-azcopy-blobs-download.md)
 
 - [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 

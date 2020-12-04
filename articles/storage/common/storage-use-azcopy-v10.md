@@ -98,13 +98,27 @@ After you've authorized your identity or obtained a SAS token, you can begin tra
 
 To find example commands, see any of these articles.
 
-- [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
+#### Blob storage
 
-- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+[Upload files to Azure Blob storage](storage-use-azcopy-blobs-upload.md)
 
-- [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
+[Download blobs from Azure Blob storage](storage-use-azcopy-blobs-download.md)
 
-- [Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)
+[Copy blobs between Azure storage accounts](storage-use-azcopy-blobs-download.md)
+
+[Synchronize with Azure Blob storage](storage-use-azcopy-blobs-download.md)
+
+#### Azure Files
+
+[Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+
+#### Amazon S3
+
+[Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
+
+#### Azure Stack storage
+
+[Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)
 
 ## Use in a script
 
