@@ -24,7 +24,7 @@ In this quickstart, you create an Azure Purview account.
 
 * Your account must have permission to create resources in the subscription
 
-* **Important:** If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which will can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an
+* If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which will can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an
 EventHub namespace.
     1. Navigate to the Azure portal and search for **Policy**
     1. Follow [Create a custom policy definition](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) or modify existing policy to add two exceptions with `not` operator and `resourceBypass` tag:
