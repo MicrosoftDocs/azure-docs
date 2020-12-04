@@ -65,8 +65,8 @@ OpenShift Software Defined Networking [(SDN)](https://docs.openshift.com/contain
 
 ## Networking  for Azure Red Hat OpenShift
 
-The following features are specific to Azure Red Hat OpenShift:
-* Bring your own virtual network is supported.
+The following networking features are specific to Azure Red Hat OpenShift:	
+* Users can create their ARO cluster in an existing virtual network or create an virtual network when creating their ARO cluster.
 * Pod and Service Network CIDRs are configurable.
 * Nodes and masters are in different subnets.
 * Nodes and masters virtual network subnets should be minimum /27.
