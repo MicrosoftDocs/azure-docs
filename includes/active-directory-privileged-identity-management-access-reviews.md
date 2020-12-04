@@ -5,7 +5,7 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 11/17/2020
+ms.date: 12/03/2020
 ms.author: barclayn
 ms.custom: include file
 ---
