@@ -9,6 +9,7 @@ ms.author: glenga
 ## Run the function locally
 
 Visual Studio Code integrates with [Azure Functions Core tools](../articles/azure-functions/functions-run-local.md) to let you run this project on your local development computer before you publish to Azure.
+1. Set the Default Shell to **Command Prompt**. Press <kbd>F1</kbd> and type **Terminal: Select Default Shell** and select **Command Prompt** option.
 
 1. To call your function, press <kbd>F5</kbd> to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
