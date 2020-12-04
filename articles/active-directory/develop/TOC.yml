@@ -325,7 +325,7 @@
         - name: Handle errors and exceptions in MSAL.NET
           href: msal-error-handling-dotnet.md
           displayName: handling, catch
-        - name: Logging
+        - name: Logging in MSAL.NET
           href: msal-logging.md?tabs=dotnet
         - name: Acquire a token from the cache
           href: msal-net-acquire-token-silently.md
@@ -367,7 +367,7 @@
           - name: Handle errors and exceptions in MSAL.js
             href: msal-error-handling-js.md
             displayName: handling, catch
-          - name: Logging
+          - name: Logging in MSAL.js
             href: msal-logging.md?tabs=javascript
       - name: MSAL for iOS and macOS
         items:
@@ -394,10 +394,10 @@
             href: sso-between-adal-msal-apps-macos-ios.md
           - name: Troubleshoot SSL issues (MSAL iOS/macOS)
             href: ssl-issues.md
-          - name: Handle errors and exceptions in MSAL iOS/macOS
+          - name: Handle errors and exceptions in MSAL for iOS/macOS
             href: msal-error-handling-ios.md
             displayName: handling, catch
-          - name: Logging
+          - name: Logging in MSAL for iOS/macOS
             href: msal-logging.md?tabs=swift
       - name: MSAL for Python
         items:
@@ -407,10 +407,10 @@
             href: migrate-python-adal-msal.md
           - name: ADFS support in MSAL for Python
             href: msal-python-adfs-support.md
-          - name: Handle errors and exceptions in MSAL Python
+          - name: Handle errors and exceptions in MSAL for Python
             href: msal-error-handling-python.md
             displayName: handling, catch
-          - name: Logging
+          - name: Logging in MSAL for Python
             href: msal-logging.md?tabs=python
       - name: MSAL for Java
         items:
@@ -425,7 +425,7 @@
           - name: Handle errors and exceptions in MSAL for Java
             href: msal-error-handling-java.md
             displayName: handling, catch
-          - name: Logging
+          - name: Logging in MSAL for Java
             href: msal-logging.md?tabs=java
       - name: MSAL for Android
         items:
@@ -445,7 +445,7 @@
           - name: Handle errors and exceptions in MSAL for Android
             href: msal-android-handling-exceptions.md
             displayName: android, mobile, handling, catch
-          - name: Logging
+          - name: Logging in MSAL for Android
             href: msal-logging.md?tabs=android
   - name: Customize tokens and claims
     items:
