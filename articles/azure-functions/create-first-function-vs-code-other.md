@@ -240,24 +240,24 @@ In this section, you publish your project to Azure in a function app running Lin
 
 In the integrated terminal, compile the handler to Linux/x64. A binary named `handler` is created in the function app root.
 
-# [macOS](#tab/macos)
+    # [macOS](#tab/macos)
 
-```bash
-GOOS=linux GOARCH=amd64 go build handler.go
-```
+    ```bash
+    GOOS=linux GOARCH=amd64 go build handler.go
+    ```
 
-# [Linux](#tab/linux)
+    # [Linux](#tab/linux)
 
-```bash
-GOOS=linux GOARCH=amd64 go build handler.go
-```
+    ```bash
+    GOOS=linux GOARCH=amd64 go build handler.go
+    ```
 
-# [Windows](#tab/windows)
-```cmd
-set GOOS=linux
-set GOARCH=amd64
-go build hello.go
-```
+    # [Windows](#tab/windows)
+    ```cmd
+    set GOOS=linux
+    set GOARCH=amd64
+    go build hello.go
+    ```
 
 Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
 
