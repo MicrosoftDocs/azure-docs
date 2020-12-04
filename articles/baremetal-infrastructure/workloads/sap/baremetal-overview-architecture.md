@@ -9,4 +9,3 @@ ms.date: 12/18/2020
 
 
 
-[SAP HANA on Azure (Large Instances)](../../../virtual-machines/workloads/sap/get-started.md#sap-hana-on-azure-large-instances)
