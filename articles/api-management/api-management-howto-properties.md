@@ -19,14 +19,11 @@ ms.author: apimpm
 
 ## Value types
 
-API Management supports the following types of property values:
-
-
 |Type  |Description  |
 |---------|---------|
 |Plain value     |  Literal string or policy expression     |
 |Custom secret     |   Literal string or policy expression that is encrypted by API Management      |
-|[Key vault secret](#key-vault-secrets)     |  Identifier (without version) of a secret in an Azure key vault     |
+|[Key vault secret](#key-vault-secrets)     |  Identifier of a secret in an Azure key vault. The identifier must not specify a version.      |
 
 Plain values or custom secrets can contain [policy expressions](./api-management-policy-expressions.md). For example, the expression `@(DateTime.Now.ToString())` returns a string containing the current date and time.
 
@@ -34,13 +31,13 @@ For details about the named value attributes, see the API Management [REST API r
 
 ## Key vault secrets
 
-You can store secret values as encrypted strings in API Management (custom secrets) or by referencing secrets in [Azure Key Vault](../key-vault/general/overview.md). 
+Secret values can be stored either as encrypted strings in API Management (custom secrets) or by referencing secrets in [Azure Key Vault](../key-vault/general/overview.md). 
 
-Key vault integration is recommemded to manage secrets because it helps improve API Management security:
+Using key vault secrets is recommemded because it helps improve API Management security:
 
 * Secrets can be reused across services as named values
-* Secrets updated in Azure Key Vault are automatically rotated in API Management
 * Granular [access policies](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) can be applied to secrets
+* Secrets updated in the key vault are automatically rotated in API Management. After update in the key vault, a named value in API Management is updated within 3 hours. 
 
 ### Prerequisites for key vault integration
 
@@ -53,14 +50,19 @@ Key vault integration is recommemded to manage secrets because it helps improve 
     1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
 1. Create or import a secret to the key vault. See [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
 
+To use the key vault secret, [add or edit a named value](#add-and-edit-a-named-value), and specify a type of **Key vault secret**. Select the secret from the key vault.
+
+> [!CAUTION]
+> When using a key vault secret in API Management, be careful not to delete the secret, key vault, or managed identity used to access the key vault.
+
 ### Configuration for Key Vault firewall
 
-If [Key Vault firewall](../key-vault/general/network-security.md) is enabled on your key vault, the following are additional requirements:
+If [Key Vault firewall](../key-vault/general/network-security.md) is enabled on your key vault, the following are additional requirements for using key vault secrets:
 
 * You must use the API Management instance's **system-assigned** managed identity to access the key vault.
 * When enabling the Key Vault firewall, select the **Allow Trusted Microsoft Services to bypass this firewall** option.
 
-If the API Management instance is deployed in a virtual network, configure the following network settings:
+If the API Management instance is deployed in a virtual network, also configure the following network settings:
 * Enable a [service endpoint](../key-vault/general/overview-vnet-service-endpoints.md) to Azure Key Vault on the API Management subnet.
 * Configure network security group (NSG) rules to allow inbound traffic from the AzureKeyVault [service tag](../virtual-network/service-tags-overview.md). 
 
@@ -71,16 +73,15 @@ For details, see [Connect to a virtual network](api-management-using-with-vnet.m
 ![Add a named value](./media/api-management-howto-properties/add-property.png)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. Under **APIs**, select **Named values**.
-1. Select **+Add**.
-1. Enter a **Name**, and enter a **Display name** used to reference the property in policies.
-1. In **Value type**, select one of the options.
-    * If you select **Plain value** or **Custom secret**, enter the corresponding value in **Value**.
+1. Under **APIs**, select **Named values** > **+Add**.
+1. Enter a **Name** identifier, and enter a **Display name** used to reference the property in policies.
+1. In **Value type**, select one of the options and enter the **Value**:
+    * If you select **Plain value** or **Custom secret**, enter a string or policy expression.
     * If you select **Key vault secret**, enter the identifier of a key vault secret (without version), or choose **Select** to select a secret from a key vault.
-1. Enter one or more optional tags to help organize your named values, then **Save**.
+1. Add one or more optional tags to help organize your named values, then **Save**.
 4. Select **Create**.
 
-Once the named value is created, you can edit it by selecting the name. If you change the named value name, any policies that reference that named value are automatically updated to use the new name.
+Once the named value is created, you can edit it by selecting the name. If you change the name, any policies that reference that named value are automatically updated to use the new name.
 
 ## Delete a named value
 
@@ -88,12 +89,6 @@ To delete a named value, select the name and then select **Delete** from the con
 
 > [!IMPORTANT]
 > If the named value is referenced by any policies, you can't delete it until you remove the named value from all policies that use it.
-
-## Search and filter named values
-
-The **Named values** tab includes searching and filtering capabilities to help you manage your named values. To filter the named values list by name, enter a search term in the **Search property** textbox. To display all named values, clear the **Search property** textbox and press enter.
-
-To filter the list by tag, enter one or more tags into the **Filter by tags** textbox. To display all named values, clear the **Filter by tags** textbox and press enter.
 
 ## To use a named value
 
