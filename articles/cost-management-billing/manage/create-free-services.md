@@ -13,7 +13,7 @@ ms.author: banders
 
 During the first 30 days after you create an Azure free account, you have a $200 credit to use on any service, except for third-party Marketplace purchases. You can experiment with different tiers and types of Azure services using the free credit to try out Azure. If you use services or Azure resources that aren’t free during that time, charges are deducted against your credit.
 
-If you don’t use all of your credit by the end of the first 30 days, it's lost. After the first 30 days and up to 12 months after sign-up, you can only use a limited quantity of *some services—not all Azure services are free.
+If you don’t use all of your credit by the end of the first 30 days, it's lost. After the first 30 days and up to 12 months after sign-up, you can only use a limited quantity of *some services*—not all Azure services are free.
 
 Your Azure free account includes a *specified quantity* of free services for 12 months and a set of services that are always free. Only some tiers of services are available for free within certain quantities. For example, Azure has many virtual machines intended for different needs. The free account only includes access to one type of VM for free—the B1S Burstable B series that’s usable for up to 750 hours per month. By staying in the free account limits, you can use the free services in various configurations.
 
