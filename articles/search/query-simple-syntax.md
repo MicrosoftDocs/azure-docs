@@ -13,15 +13,30 @@ ms.date: 12/04/2020
 
 # Simple query syntax in Azure Cognitive Search
 
-Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
+Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because of this flexibility, it is the default for queries in Azure Cognitive Search.
 
-The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because of this flexibility, it is the default for queries in Azure Cognitive Search.
-
-The simple syntax is used for query expressions passed in the `search` parameter of a [**Search Documents request**](/rest/api/searchservice/search-documents), not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter expressions](search-filters.md) parameter of the same Search Documents API. The `search` and `$filter` parameters have different syntax, with their own rules for constructing queries, escaping strings, and so on.
+The simple syntax is used for query expressions passed in the `search` parameter of a [**Search Documents**](/rest/api/searchservice/search-documents)  request, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter expressions](search-filters.md) parameter of the same Search Documents API. The `search` and `$filter` parameters have different syntax, with their own rules for constructing queries, escaping strings, and so on.
 
 Although the simple parser is based on the [Apache Lucene Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) class, the implementation in Azure Cognitive Search excludes fuzzy search. If you need [fuzzy search](search-query-fuzzy.md) or other advanced query forms, consider the alternative [full Lucene query syntax](query-lucene-syntax.md) instead.
 
-## Search string composition
+## How to invoke simple parsing
+
+Simple syntax is the default, as determined by `queryType` and a valid string in the `search` parameter. 
+
+```http
+POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs/search?api-version=2020-06-30
+{
+  "search": "budget hotel +pool",
+  "queryType": "simple",
+  "searchMode": "any"
+}
+```
+
+Valid values for `queryType` include `simple` or `full`, where `simple` is the default, and `full` invokes the [full Lucene query parser](query-lucene-syntax.md) for more advanced queries. For simple queries, invocation is only necessary if you are resetting the syntax from full. To explicitly set the syntax, use the `queryType` search parameter. 
+
+The `searchMode` parameter can have an oversized impact on results, favoring recall over precision, so be sure to understand its implications, as described next.
+
+## Valid string composition
 
 Strings passed to the `search` parameter can include terms or phrases in any supported language, boolean and precedence operators, escape characters, and URL encoding characters. The `search` parameter is optional. Unspecified search (`search=''` or `search=*`) returns the top 50 documents in arbitrary (unranked) order.
 
@@ -34,22 +49,6 @@ By default, all terms or phrases passed in the `search` parameter undergo lexica
 Any text with one or more terms is considered a valid starting point for query execution. Azure Cognitive Search will match documents containing any or all of the terms, including any variations found during analysis of the text.
 
 As straightforward as this sounds, there is one aspect of query execution in Azure Cognitive Search that *might* produce unexpected results, increasing rather than decreasing search results as more terms and operators are added to the input string. Whether this expansion actually occurs depends on the inclusion of a NOT operator, combined with a `searchMode` parameter setting that determines how NOT is interpreted in terms of AND or OR behaviors. For more information, see [NOT operator](#not-operator).
-
-## How to invoke simple parsing
-
-Simple syntax is the default. Invocation is only necessary if you are resetting the syntax from full to simple. To explicitly set the syntax, use the `queryType` search parameter.
-
-```http
-POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs/search?api-version=2020-06-30
-{
-  "search": "budget hotel +pool",
-  "count": true,
-  "queryType": "simple",
-  "searchMode": "any"
-}
-```
-
-Valid values for `queryType` include `simple` or `full`, where `simple` is the default, and `full` invokes the [full Lucene query parser](query-lucene-syntax.md) for more advanced queries.
 
 <a name="bkmk_querysizelimits"></a>
 
