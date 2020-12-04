@@ -148,7 +148,7 @@ The job can be retrieved again via the following command:
 
  `GET https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/ ` 
 
-Docs for retrieving jobs: https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-list?view=graph-rest-beta&tabs=http 
+Documentation for retrieving jobs can be found [here](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-list?view=graph-rest-beta&tabs=http). 
  
 To start the job, issue this request, using the objectId of the service principal created in the first step, and the job identifier returned from the request that created the job.
 
