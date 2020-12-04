@@ -1,17 +1,17 @@
 ---
-title: Co-sell option in Partner Center | Azure Marketplace
-description: The information you provide on the Co-sell tab of your offer will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs.
+title: Co-sell option in the commercial marketplace | Azure Marketplace
+description: The information you provide on the Co-sell with Microsoft tab of your offer will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/03/2020
+ms.date: 12/04/2020
 ---
 
-# Co-sell option in Partner Center
+# Co-sell option in the commercial marketplace
 
-Providing information on the Co-sell tab is entirely optional. It is required to achieve [Co-sell Ready and IP Co-sell Incentivized status](/legal/marketplace/certification-policies.md#3000-requirements-for-co-sell-status). The information you provide will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [Co-sell with Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+Providing information on the **Co-sell with Microsoft** tab is entirely optional. It is required to achieve [Co-sell Ready and IP Co-sell Incentivized status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). The information you provide will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [Co-sell with Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 The Co-sell option in Partner Center is currently available the following offer types.
 

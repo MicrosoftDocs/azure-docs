@@ -102,7 +102,6 @@ Here are the logs emitted by Azure Synapse Analytics workspaces:
 |-------------------------------|-------------------------------------------------|-------------|
 | SynapseGatewayApiRequests     | GatewayApiRequests             | Azure Synapse gateway API requests. |
 | SynapseRbacOperations         | SynapseRbacOperations          | Azure Synapse role-based access control (SRBAC) operations. |
-| SynapseBuiltinSqlPoolRequestsEnded   | BuiltInSqlReqsEnded    | Ended Azure Synapse built-in serverless SQL requests. |
 
 ### Dedicated SQL pool logs
 
