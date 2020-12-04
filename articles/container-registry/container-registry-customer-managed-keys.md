@@ -288,7 +288,7 @@ Optionally create a key in the key vault for use to encrypt the registry. Follow
 1. In the **Encryption** tab, in **Customer-managed key**, select **Enabled**.
 1. In **Identity**, select the managed identity you created.
 1. In **Encryption**, choose either of the following:
-    * Select **Select from Key Vault**, and in the **Select key from Azure Key Vault** window, select an existing key vault and key, or **Create new**. 
+    * Select **Select from Key Vault**, and select an existing key vault and key, or **Create new**. The key you select is non-versioned and enables automated key rotation.
     * Select **Enter key URI**, and provide a key identifier directly. You can provide either a versioned key URI (for a key that must be rotated manually) or a non-versioned key URI (which enables automated key rotation). 
 1. In the **Encryption** tab, select **Review + create**.
 1. Select **Create** to deploy the registry instance.
