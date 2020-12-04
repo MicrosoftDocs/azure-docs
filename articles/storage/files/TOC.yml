@@ -229,6 +229,8 @@
       items:
       - name: StorSimple 8100 and 8600 migration guide
         href: storage-files-migration-storsimple-8000.md
+        -name: StorSimple migration guide and FAQ
+        href: storage-files-migration-storsimple-faq.md
       - name: StorSimple 1200 migration guide
         href: storage-files-migration-storsimple-1200.md
   - name: Improve performance
