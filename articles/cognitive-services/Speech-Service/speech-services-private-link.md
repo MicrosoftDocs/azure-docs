@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 12/04/2020
 ms.author: alexeyo
 ---
 
@@ -24,7 +24,7 @@ This article explains how to set up and use Private Link and private endpoints w
 Enabling a Speech resource for the private endpoint scenarios requires performing of the following tasks:
 - [Create Speech resource custom domain name](#create-custom-domain-name)
 - [Create and configure private endpoint(s)](#enabling-private-endpoints)
-- [Adjusting existing applications and solutions](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled)
+- [Adjust existing applications and solutions](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled)
 
 If later you decide to remove all private endpoints, but continue to use the resource, the necessary actions described in [this section](#using-speech-resource-with-custom-domain-name-without-private-endpoints).
 
@@ -369,7 +369,7 @@ This will not work for private endpoint enabled Speech resource because of the h
 
 To make it work, you need to modify how you instantiate `SpeechConfig` class and use "from endpoint" / "with endpoint" initialization. Suppose we have the following two variables defined:
 - `subscriptionKey` containing the Key of the private endpoint enabled Speech resource
-- `endPoint` containing the full **modified** endpoint URL (using the type required by the correspondent programming language). In other example this variable should contain
+- `endPoint` containing the full **modified** endpoint URL (using the type required by the correspondent programming language). In our example this variable should contain
 ```
 wss://my-private-link-speech.cognitiveservices.azure.com/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
@@ -465,7 +465,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
 
 ##### Creating `SpeechConfig` instance using authorization token
 
-You need to instantiate `SpeechConfig` class using the authorization token you obtained in the previous section. Suppose we have the following two variables defined:
+You need to instantiate `SpeechConfig` class using the authorization token you obtained in the previous section. Suppose we have the following variables defined:
 
 - `token` containing the authorization token obtained in the previous section
 - `azureRegion` containing the name of the Speech resource [region](regions.md) (example: `westeurope`)
