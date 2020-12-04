@@ -56,6 +56,10 @@ This article describes how to deploy a highly available SAP HANA system in a sca
 
 In the example configurations, installation commands, and so on, the HANA instance is **03** and the HANA system ID is **HN1**. The examples are based on HANA 2.0 SP4 and Red Hat Enterprise Linux for SAP 7.6. 
 
+> [!NOTE]
+> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
+
+
 Before you begin, refer to the following SAP notes and papers:
 
 * [Azure NetApp Files documentation][anf-azure-doc] 
@@ -725,9 +729,6 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
    > Be aware of SAP Note [2631285](https://launchpad.support.sap.com/#/notes/2631285). 
 
 ## Test SAP HANA failover 
-
-> [!NOTE]
-> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
 
 1. Simulate a node crash on an SAP HANA worker node. Do the following: 
 
