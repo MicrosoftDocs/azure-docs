@@ -351,7 +351,7 @@ To more easily debug a stateless workflow, you can enable the run history for th
 
 ## Delete items from the designer
 
-To delete an item from the designer, follow any of these steps:
+To delete an item in your workflow from the designer, follow any of these steps:
 
 * Open the item's shortcut menu, and select **Delete**.
 
@@ -359,7 +359,7 @@ To delete an item from the designer, follow any of these steps:
 
 * Select the item so that details pane opens for that item. In the pane's upper right corner, open the ellipses (**...**) menu, and select **Delete**. To confirm, select **OK**.
 
-  ![Screenshot that shows selected item on designer with open details pane and with selected ellipses button and "Delete" option.](./media/create-stateful-stateless-workflows-azure-portal/delete-item-from-designer.png)
+  ![Screenshot that shows a selected item on designer with the opened details pane plus the selected ellipses button and "Delete" command.](./media/create-stateful-stateless-workflows-azure-portal/delete-item-from-designer.png)
 
   > [!TIP]
   > If the ellipses menu isn't visible, expand your browser window wide enough so that the details 
