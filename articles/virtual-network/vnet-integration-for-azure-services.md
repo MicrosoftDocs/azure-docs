@@ -63,7 +63,7 @@ For more information, see [Virtual network service endpoints](virtual-network-se
 
 A service tag represents a group of IP address prefixes from a given Azure service. Using service tags, you can define network access controls on [network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) or [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). By specifying the service tag name (for example, AzureEventGrid) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service.
 
-![Allow or deny traffic using Service Tags](./media/network-isolation/service_tags.png)
+![Allow or deny traffic using Service Tags](./media/network-isolation/service-tags.png)
 
 You can use service tags to achieve network isolation and protect your Azure resources from the general Internet while accessing Azure services that have public endpoints. Create inbound/outbound network security group rules to deny traffic to/from **Internet** and allow traffic to/from **AzureCloud** or other [available service tags](service-tags-overview.md#available-service-tags) of specific Azure services.
 
