@@ -69,7 +69,7 @@ This command takes the following arguments:
 - `[--ssl=]` an optional parameter that defines the encryption method used to communicate
     with SAP HANA, either `openssl` or `commoncrypto`. If defined, then the `azacsnap -c backup`
     command expects to find two files in the same directory, these files must be named after
-    the corresponding SID. Refer to [Using SSL for communication with SAP HANA](azacsnap-installation#using-ssl-for-communication-with-sap-hana).
+    the corresponding SID. Refer to [Using SSL for communication with SAP HANA](azacsnap-installation.md#using-ssl-for-communication-with-sap-hana).
 - `[--frequency=]` Deprecated, do not use.
 
 The following example takes a `hana` type snapshot with a prefix of `hana_TEST` and will keep `9`
