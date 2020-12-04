@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/04/2020
 ms.author: aahi
 ---
 
@@ -54,7 +54,7 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 
 
 > [!NOTE]
-> If you're using LUIS or Speech Services, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use LUIS or Speech Services portal from a virtual network, you will need to use the following tags:  
+> If you're using LUIS, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use LUIS portal from a virtual network, you will need to use the following tags:  
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
@@ -514,8 +514,6 @@ We create a [private DNS zone](../dns/private-dns-overview.md) attached to the V
 ### Private endpoints with the Speech Services
 
 See [Using Speech Services with private endpoints provided by Azure Private Link](Speech-Service/speech-services-private-link.md).
-
-When using private endpoints with the Speech Service, you must use a custom endpoint to call the Speech Service. You cannot use the global endpoint. The endpoint must follow this pattern: `{account}.{stt|tts|voice|dls}.speech.microsoft.com`.
 
 ### DNS changes for private endpoints
 
