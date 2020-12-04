@@ -1,7 +1,7 @@
 ---
 title: Monitors in Durable Functions (Python) - Azure
 description: Learn how to implement a status monitor using the Durable Functions extension for Azure Functions (Python).
-author: dajusto
+author: davidmrdavid
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: azfuncdf
@@ -91,7 +91,7 @@ Its *function.json* is simple:
 
 And here is the code that sends the SMS message:
 
-[!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/\_\_index\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/\_\_init\_\_.py)]
 
 ---
 

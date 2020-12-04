@@ -107,11 +107,11 @@ And here is the code that generates the four-digit challenge code and sends the 
 
 The *function.json* is defined as follows:
 
-[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SendSmsChallenge/function.json)]
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/function.json)]
 
 And here is the code that generates the four-digit challenge code and sends the SMS message:
 
-[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SendSmsChallenge/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/\_\_init\_\_.py)]
 
 ---
 
