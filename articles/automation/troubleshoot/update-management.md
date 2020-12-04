@@ -43,8 +43,7 @@ sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-ru
 For APT, the following command returns a non-zero list of updates categorized as **Security** by Canonical for Ubuntu Linux distros.
 
 ```bash
-sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list
-LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
+sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
 ```
 
 From this list you then run the command `grep ^Inst` to get all the pending security updates.
