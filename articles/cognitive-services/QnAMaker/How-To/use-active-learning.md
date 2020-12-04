@@ -45,6 +45,8 @@ Active learning is off by default. Turn it on to see suggested questions. After 
 
 By default, active learning is **on** in QnA Maker managed (Preview). To see the suggested alternate questions, [use View options](../How-To/improve-knowledge-base.md#view-suggested-questions) on the Edit page.
 
+---
+
 ## Review suggested alternate questions
 
 [Review alternate suggested questions](improve-knowledge-base.md) on the **Edit** page of each knowledge base.
