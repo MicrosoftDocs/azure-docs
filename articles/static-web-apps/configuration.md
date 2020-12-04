@@ -27,7 +27,7 @@ See the [example configuration](#example-configuration-file) file for details.
 
 ## Routes
 
-Routing rules are defined as an array in the _staticwebapp.config.json_ file.
+Routes are defined as an array of routing rules. See the [example route file](#example-configuration-file) for usage examples.
 
 - Rules are executed in the order as they appear in the `routes` array.
 - Rule evaluation stops at the first match. Routing rules aren't chained together.
@@ -38,17 +38,17 @@ The routing concerns significantly overlap with authentication and authorization
 
 ## Defining routes
 
-Routes are defined in the _staticwebapps.config.json_ file as an array of rules on the `routes` property. Each rule is composed of a route pattern, along with one or more of the optional rule properties. See the [example route file](#example-configuration-file) for usage examples.
+Each rule is composed of a route pattern, along with one or more of the optional rule properties. See the [example route file](#example-configuration-file) for usage examples.
 
 | Rule property  | Required | Default value | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Yes      | n/a          | The route pattern requested by the caller.<ul><li>[Wildcards](#wildcards) are supported at the end of route paths. For instance, the route _admin/\*_ matches any route under the _admin_ path.<li>A route serves the folder's _index.html_ file by default.</ul>|
-| `rewrite`        | No       | n/a          | Defines the file or path returned from the request.<ul><li>Is mutually exclusive to a `redirect` rule<li>Rewrite rules don't change the browser's location<li>Values must point to actual files.<li>Querystring parameters aren't supported</ul>  |
-| `redirect`        | No       | n/a          | Defines the file or path destination for a new request.<ul><li>Is mutually exclusive to a `rewrite` rule<li>Redirect rules change the browser's location<li>Default response code is [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302), but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) redirect<li>Querystring parameters aren't supported</ul> |
-| `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role [`anonymous`](./authentication-authorization.md) applies to all unauthenticated users.<li>The built-in role [`authenticated`](./authentication-authorization.md) applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis. If a user is in any of the listed roles, then access is granted.<li>Individual users are associated to roles through [invitations](authentication-authorization.md).</ul> |
-| `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) associated with the request.<ul><li>Takes precedence over [`globalHeaders`](#global-headers)</ul> |
+| `route`        | Yes      | n/a          | The route pattern requested by the caller.<ul><li>[Wildcards](#wildcards) are supported at the end of route paths.<ul><li>For instance, the route _admin/\*_ matches any route under the _admin_ path.</ul><li>A route serves the folder's _index.html_ file by default.</ul>|
+| `rewrite`        | No       | n/a          | Defines the file or path returned from the request.<ul><li>Is mutually exclusive to a `redirect` rule<li>Rewrite rules don't change the browser's location<li>Values must point to actual files<li>Querystring parameters aren't supported</ul>  |
+| `redirect`        | No       | n/a          | Defines the file or path redirect destination for a request.<ul><li>Is mutually exclusive to a `rewrite` rule<li>Redirect rules change the browser's location<li>Default response code is a [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) temporary redirect, but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) permanent redirect<li>Querystring parameters aren't supported</ul> |
+| `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`<li>The built-in role, [`anonymous`](./authentication-authorization.md), applies to all unauthenticated users<li>The built-in role, [`authenticated`](./authentication-authorization.md), applies to any logged-in use.<li>Users must belong to at least one role<li>Roles are matched on an _OR_ basis.<ul><li>If a user is in any of the listed roles, then access is granted</ul><li>Individual users are associated to roles through [invitations](authentication-authorization.md).</ul> |
+| `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) associated with the request.<ul><li>Route-specific headers take precedence over [`globalHeaders`](#global-headers)</ul> |
 | `statusCode`   | No       | 200           | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) response for the request. |
-| `methods` | No | n/a | An array of HTTP methods.<ul><li>`GET`<li>`HEAD`<li>`POST`<li>`PUT`<li>`DELETE`<li>`CONNECT`<li>`OPTIONS`<li>`TRACE`<li>`PATCH`</ul> |
+| `methods` | No | n/a | An array of HTTP methods.<ul><li>Available methods include: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`</ul> |
 
 ## Securing routes with roles
 
@@ -65,12 +65,12 @@ For instance, to restrict a route to only authenticated users, add the built-in 
 }
 ```
 
-You can create new roles as needed in the `allowedRoles` array. To restrict a route to only administrators, you could define an `administrator` role in the `allowedRoles` array.
+You can create new roles as needed in the `allowedRoles` array. To restrict a route to only administrators, you could define an `administrators` role in the `allowedRoles` array.
 
 ```json
 {
   "route": "/admin",
-  "allowedRoles": ["administrator"]
+  "allowedRoles": ["administrators"]
 }
 ```
 
@@ -113,10 +113,10 @@ The following HTTP codes are available to override:
 
 | Status Code | Meaning | Cause |
 | --- | --- | --- |
-| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Bad request |	<li>Invalid invitation link |
-| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Unauthorized | <li>Request to restricted pages while unauthenticated |
-| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Forbidden |	<li>User is logged in but doesn't have the roles required to view the page<li>User is logged in but the runtime cannot get the user details from their  identity claims<li>There are too many users logged in to the site with custom roles, therefore the runtime can't let this user login. |
-| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | Not found | <li>File not found |
+| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Bad request |	<ul><li>Invalid invitation link</ul> |
+| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Unauthorized | <ul><li>Request to restricted pages while unauthenticated</ul> |
+| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Forbidden |	<ul><li>User is logged in but doesn't have the roles required to view the page<li>User is logged in but the runtime cannot get the user details from their  identity claims<li>There are too many users logged in to the site with custom roles, therefore the runtime can't let this user login.</ul> |
+| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | Not found | <ul><li>File not found</ul> |
 
 ## Fallback routes
 
@@ -221,13 +221,13 @@ Based on the above configuration, review the following scenarios.
 
 | Requests to... | Results in... |
 | --- | --- |
-| _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users redirected to _/login_. |
-| _/admin/_ | Authenticated users in the _administrators_ role are served the _/admin/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>1</sup>. Unauthenticated users redirected to _/login_. |
-| _/logo.png_ | Serves the image with a custom cache rule where the max age is a little over 182 days (15,770,000 seconds) |
+| _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users are redirected to _/login_. |
+| _/admin/_ | Authenticated users in the _administrators_ role are served the _/admin/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
+| _/logo.png_ | Serves the image with a custom cache rule where the max age is a little over 182 days (15,770,000 seconds). |
 | _/api/admin_ | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a 401 error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrators_ role are sent to the API. Authenticated users not in the _administrators_ role and unauthenticated users are served a 401 error. |
-| _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error<sup>1</sup>. Unauthenticated users redirected to _/login_. |
+| _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
 | _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
-| _/.auth/login/twitter_ | Authorization with Twitter is disabled. The server responds with a 404 error, which falls back to serving _/index.html_ with a `200` status code. |
+| _/.auth/login/twitter_ | As authorization with Twitter is disabled by the route rule, 404 error is returned, which falls back to serving _/index.html_ with a `200` status code. |
 | _/logout_ | Users are logged out of any authentication provider. |
 | _/calendar/2021/01_ | The browser is served the _/calendar.html_ file. |
 | _/specials_ | The browser is permanently redirected to _/deals_. |
