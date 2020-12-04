@@ -11,11 +11,10 @@ ms.date: 12/1/2020
 
 In this article, you use Visual Studio Code to create a [custom handler](functions-custom-handlers.md) function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
-This article supports both [Go](create-first-function-vs-code-other.md?tabs=go) and [Rust](create-first-function-vs-code-other.md?tabs=rust).
+Custom handlers can be used to create functions in any language by running a binary file. This article supports both [Go](create-first-function-vs-code-other.md?tabs=go) and [Rust](create-first-function-vs-code-other.md?tabs=rust).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-There's also a [CLI-based version](create-first-function-cli-node.md) of this article.
 
 ## Configure your environment
 
@@ -80,7 +79,7 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
 
 # [Go](#tab/go)
 
-1. Press <kbd>Ctrl + N</kbd> (<kbd>Cmd + N</kbd> on macOS) to create a new file. Save it as *handler.go* in the function app root (same folder as *host.json*).
+1. Press <kbd>Ctrl + N</kbd> (<kbd>Cmd + N</kbd> on macOS) to create a new file. Save it as *handler.go* in the function app root (in the same folder as *host.json*).
 
 1. In *handler.go*, add the following code and save the file. This is your Go custom handler.
 
@@ -128,7 +127,7 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
 
 1. Press <kbd>Ctrl + Shift + `</kbd> or select *New Terminal* from the *Terminal* menu to open a new integrated terminal in VS Code.
 
-1. In the function app root (same folder as *host.json*), initialize a Rust project named `handler`.
+1. In the function app root (the same folder as *host.json*), initialize a Rust project named `handler`.
 
     ```bash
     cargo init --name handler
@@ -240,31 +239,30 @@ In this section, you publish your project to Azure in a function app running Lin
 
 # [Go](#tab/go)
 
-1. In the integrated terminal, compile the handler to Linux/x64. A binary named `handler` is created in the function app root.
+In the integrated terminal, compile the handler to Linux/x64. A binary named `handler` is created in the function app root.
 
-    # [macOS](#tab/macos)
+# [macOS](#tab/macos)
 
-    ```bash
-    GOOS=linux GOARCH=amd64 go build handler.go
-    ```
+```bash
+GOOS=linux GOARCH=amd64 go build handler.go
+```
 
-    # [Linux](#tab/linux)
+# [Linux](#tab/linux)
 
-    ```bash
-    GOOS=linux GOARCH=amd64 go build handler.go
-    ```
+```bash
+GOOS=linux GOARCH=amd64 go build handler.go
+```
 
-    # [Windows](#tab/windows)
+# [Windows](#tab/windows)
+```cmd
+set GOOS=linux
+set GOARCH=amd64
+go build hello.go
+```
 
-    ```cmd
-    set GOOS=linux
-    set GOARCH=amd64
-    go build hello.go
-    ```
+Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
 
-    Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
-
-    ---
+---
 
 # [Rust](#tab/rust)
 
@@ -285,7 +283,13 @@ In this section, you publish your project to Azure in a function app running Lin
 
 1. If you are using Windows, change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
 
-1. To avoid publishing the contents of the *target* folder, add a line with the word `target` to the *.funcignore* file.
+1. Add the following line to the *.funcignore* file:
+
+    ```
+    target
+    ```
+
+    This prevents publishing the contents of the *target* folder.
 
 ---
 
@@ -310,7 +314,7 @@ In this section, you create a function app and related resources in your Azure s
     + **Select Function App in Azure**: Choose `+ Create new Function App (advanced)`. 
     
         > [!IMPORTANT]
-        > The `advanced` option is required to ensure you select the correct operating system.
+        > The `advanced` option lets you choose the specific operating system on which your function app runs in Azure, which in this case is Linux.
 
         ![VS Code - Select advanced create new function app](./media/functions-create-first-function-vs-code/functions-vscode-create-azure-advanced.png)
 
