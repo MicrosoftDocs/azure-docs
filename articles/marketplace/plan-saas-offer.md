@@ -254,7 +254,7 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 
 - **Resell through CSPs**: Use this option to allow Microsoft Cloud Solution Providers (CSP) partners to resell your solution as part of a bundled offer. See [Cloud Solution Provider program](cloud-solution-providers.md) for more information.
 
-- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. See [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) for detailed information on how to prepare your offer for evaluation.
+- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. See [Co-sell option in Partner Center](commercial-marketplace-co-sell.md) for detailed information on how to prepare your offer for evaluation.
 
 ## Next steps
 

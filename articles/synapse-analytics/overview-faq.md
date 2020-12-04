@@ -17,7 +17,7 @@ In this guide, you'll find the most frequently asked questions for Azure Synapse
 
 ## General
 
-### Q: What RBAC roles exist and how do I use them to secure a Synapse workspace?
+### Q: How can I use RBAC roles to secure my workspace?
 
 A: Azure Synapse introduces a number of roles and scopes to assign them on that will simplify securing your workspace.
 
@@ -31,16 +31,16 @@ Synapse RBAC roles:
 * Synapse Compute Operator (preview)
 * Synapse Credential User (preview)
 
-Synapse RBAC Scopes:
-* Workspace 
-* Spark pool
-* Integration runtime
-* Linked service
-* Credential
+To secure your Synapse workspace, assign the RBAC Roles to these RBAC scopes:
+* Workspaces
+* Spark pools
+* Integration runtimes
+* Linked services
+* Credentials
 
 Additionally, with dedicated SQL pools you have all the same security features that you know and love.
 
-### Q: How can I cost control for the capabilities inside a Synapse workspace such as dedicated SQL pools, serverless Spark pools, and serverless SQL pools?
+### Q: How do I control cont dedicated SQL pools, serverless SQL pools, and serverless Spark pools?
 
 A: As a starting point, Azure Synapse works with the built-in cost analysis and cost alerts available at the Azure subscription level.
 
@@ -78,7 +78,7 @@ A: Not at this time.
 
 ### Q: How do I migrate existing pipelines from Azure Data Factory to an Azure Synapse workspace?
 
-A: At this time, you must manually recreate your Azure Data Factory pipelines and related artifacts manually. 
+A: At this time, you must manually recreate your Azure Data Factory pipelines and related artifacts by exporting the JSON from the original pipeline and importing it into your Synapse workspace.
 
 ## Apache Spark
 
