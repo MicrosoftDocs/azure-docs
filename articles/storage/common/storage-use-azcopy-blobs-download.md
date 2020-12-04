@@ -21,14 +21,9 @@ AzCopy is a command-line utility that you can use to copy data to, from, or betw
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
-> [!NOTE]
-> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage.
->
-> If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command.
->
-> For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage. If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
-### Download a blob
+## Download a blob
 
 Download a blob by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 
@@ -41,7 +36,7 @@ Download a blob by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 > [!NOTE]
 > If the `Content-md5` property value of a blob contains a hash, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob's `Content-md5` property matches the calculated hash. If these values don't match, the download fails unless you override this behavior by appending `--check-md5=NoCheck` or `--check-md5=LogOnly` to the copy command.
 
-### Download a directory
+## Download a directory
 
 Download a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 
@@ -53,7 +48,7 @@ Download a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) comm
 
 This example results in a directory named `C:\myDirectory\myBlobDirectory` that contains all of the downloaded blobs.
 
-### Download the contents of a directory
+## Download the contents of a directory
 
 You can download the contents of a directory without copying the containing directory itself by using the wildcard symbol (*).
 
@@ -65,10 +60,9 @@ You can download the contents of a directory without copying the containing dire
 | **Syntax** | `azcopy copy 'https://<storage-account-name>.blob.core.windows.net/<container-name>/*' '<local-directory-path>/'` |
 | **Example** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/*' 'C:\myDirectory'` |
 
-> [!NOTE]
-> Append the `--recursive` flag to download files in all sub-directories.
+Append the `--recursive` flag to download files in all sub-directories.
 
-### Download specific blobs
+## Download specific blobs
 
 You can download specific blobs by using complete file names, partial names with wildcard characters (*), or by using dates and times. 
 

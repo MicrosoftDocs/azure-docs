@@ -21,12 +21,7 @@ AzCopy is a command-line utility that you can use to copy data to, from, or betw
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
-> [!NOTE]
-> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage.
->
-> If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command.
->
-> For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage. If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## Create a container
 
@@ -42,6 +37,8 @@ For detailed reference docs, see [azcopy make](storage-ref-azcopy-make.md).
 
 ## Upload a file
 
+Upload a file by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'` |
@@ -51,6 +48,8 @@ For detailed reference docs, see [azcopy make](storage-ref-azcopy-make.md).
 You can also upload a file by using a wildcard symbol (*) anywhere in the file path or file name. For example: `'C:\myDirectory\*.txt'`, or `C:\my*\*.txt`.
 
 ## Upload a directory
+
+Upload a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command. 
 
 This example copies a directory (and all of the files in that directory) to a blob container. The result is a directory in the container by the same name.
 
@@ -71,7 +70,7 @@ If you specify the name of a directory that does not exist in the container, AzC
 
 ## Upload directory contents
 
-You can upload the contents of a directory without copying the containing directory itself by using the wildcard symbol (*).
+Upload the contents of a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command. Use the wildcard symbol (*) to upload the contents without copying the containing directory itself.
 
 |    |     |
 |--------|-----------|
@@ -79,8 +78,8 @@ You can upload the contents of a directory without copying the containing direct
 | **Example** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'` |
 | **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'` |
 
-> [!NOTE]
-> Append the `--recursive` flag to upload files in all sub-directories.
+
+Append the `--recursive` flag to upload files in all sub-directories.
 
 ## Upload specific files
 
