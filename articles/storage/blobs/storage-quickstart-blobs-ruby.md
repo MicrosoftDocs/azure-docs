@@ -20,8 +20,8 @@ In this quickstart, you learn how to use Ruby to create, download, and list bloc
 
 Make sure you have the following additional prerequisites installed:
 
-* [Ruby](https://www.ruby-lang.org/en/downloads/)
-* [Azure Storage library for Ruby](https://github.com/azure/azure-storage-ruby), using the rubygem package:
+- [Ruby](https://www.ruby-lang.org/en/downloads/)
+- [Azure Storage library for Ruby](https://github.com/azure/azure-storage-ruby), using the ruby gem package:
 
     ```console
     gem install azure-storage-blob
@@ -33,7 +33,7 @@ The [sample application](https://github.com/Azure-Samples/storage-blobs-ruby-qui
 
 Use [git](https://git-scm.com/) to download a copy of the application to your development environment.
 
-```bash
+```console
 git clone https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git
 ```
 
@@ -72,25 +72,29 @@ When you press any key to continue, the sample program deletes the storage conta
 
 You can also use [Azure Storage Explorer](https://storageexplorer.com) to view the files in your storage account. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information.
 
-After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the sample does, open the *example.rb* file to look at the code.
+After you've verified the files, hit any key to delete the test files and end the demo. Open the *example.rb* file to look at the code.
 
 ## Understand the sample code
 
-Next, we walk through the sample code so that you can understand how it works.
+Next, we walk through the sample code so you can understand how it works.
 
 ### Get references to the storage objects
 
 The first thing to do is create the references to the objects used to access and manage Blob Storage. These objects build on each other. Each is used by the next one in the list.
 
-* Create an instance of the Azure storage [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) object to set up connection credentials.
-* Create the [Container](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Container/Container) object, which represents the container you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
+- Create an instance of the Azure storage [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) object to set up connection credentials.
+- Create the [Container](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Container/Container) object, which represents the container you're accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
 
-Once you have the container client, you can create the [Block](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Block) blob object that points to the specific blob in which you are interested, and perform operations such as create, download, and copy.
+Once you have the container client, you can create the [Block](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Block) blob object that points to a specific blob in which you're interested. Use a [Block](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Block) object to create, download, and copy blobs.
 
 > [!IMPORTANT]
-> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
+> Container names must be lowercase. For more information about container and blob names, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-In this section, you instantiate a new [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) object, create a new container, then set permissions on the container so the blobs are public. The container is called *quickstartblobs* with a unique ID appended.
+In this section, you:
+
+- Instantiate a new [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) object
+- Create a new container
+- Set permissions on the container so the blobs are public. The container is called *quickstart blobs* with a unique ID appended.
 
 ```ruby
 # Create a BlobService object
@@ -124,7 +128,7 @@ Block blobs can be as large as 4.7 TB, and can be anything from Excel spreadshee
 
 ### List the blobs in a container
 
-You can get a list of files in the container using the [list_blobs](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Container#list_blobs-instance_method) method. The following code retrieves the list of blobs, then loops through them, showing the names of the blobs found in a container.
+Get a list of files in the container using the [list_blobs](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Container#list_blobs-instance_method) method. The following code retrieves the list of blobs, then displays their names.
 
 ```ruby
 # List the blobs in the container
@@ -164,7 +168,7 @@ File.open(full_path_to_file,"wb") {|f| f.write(content)}
 
 ### Clean up resources
 
-If you no longer need the blob created in this quickstart, delete the entire container using the [delete_container](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Container#delete_container-instance_method) method. If the blob is no longer needed, use the [delete_blob](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob#delete_blob-instance_method) method.
+If the blob is no longer needed, use the [delete_blob](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob#delete_blob-instance_method) method to remove it. Delete the entire container using the [delete_container](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Container#delete_container-instance_method) method.
 
 ```ruby
 # Clean up resources, including the container and the downloaded file
