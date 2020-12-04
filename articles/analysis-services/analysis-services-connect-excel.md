@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Analysis Services server by using 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -37,5 +37,5 @@ Connecting to a server in Excel is supported by using Get Data in Excel 2016 and
 
 ## See also
 
-[Client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current)   
+[Client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)   
 [Manage your server](analysis-services-manage.md)

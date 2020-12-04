@@ -105,7 +105,7 @@ If you plan to add new images to your dataset, use incremental refresh to add th
 
 To add more images to your project, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload to the appropriate folder in the blob storage. 
 
-Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore.
+Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore. This data will be pulled into your project once a day when enabled.
 
 Uncheck this box if you do not want new images that appear in the datastore to be added to your project.
 

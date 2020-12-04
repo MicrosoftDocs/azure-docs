@@ -90,7 +90,7 @@ Get-AzLog -Caller 'myname@company.com'
 The following command retrieves the last 1000 events from the activity log:
 
 ```powershell
-Get-AzLog -MaxRecord 10
+Get-AzLog -MaxRecord 1000
 ```
 
 `Get-AzLog` supports many other parameters. See the `Get-AzLog` reference for more information.
