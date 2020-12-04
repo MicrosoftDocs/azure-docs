@@ -3,7 +3,7 @@ title: Troubleshooting client response timeouts and errors with API Management
 description: Troubleshoot intermittent connection errors and related latency issues in API Management
 author: vladvino
 ms.topic: troubleshooting
-ms.date: 11/03/2020
+ms.date: 12/04/2020
 ms.author: apimpm
 ms.service: api-management
 ---
@@ -16,7 +16,6 @@ This article helps you troubleshoot intermittent connection errors and related l
 
 Client applications calling APIs through your API Management (APIM) service may exhibit one or more of the following symptoms:
 
-* Slow response times when calling your APIs
 * Intermittent HTTP 500 errors
 * Timeout error messages
 
@@ -26,7 +25,7 @@ These symptoms manifest as instances of `BackendConnectionFailure` in your [Azur
 
 This pattern of symptoms often occurs due to network address translation (SNAT) port limits with your APIM service.
 
-Whenever a client calls one of your APIM APIs, Azure API Management service opens a SNAT port to access your backend API. As discussed in [Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md), Azure uses source network address translation (SNAT) and a Load Balancer (not exposed to customers) to communicate with end points outside Azure in the public IP address space, as well as end points internal to Azure that aren't using [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
+Whenever a client calls one of your APIM APIs, Azure API Management service opens a SNAT port to access your backend API. As discussed in [Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md), Azure uses source network address translation (SNAT) and a Load Balancer (not exposed to customers) to communicate with end points outside Azure in the public IP address space, as well as end points internal to Azure that aren't using [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). This situation is only applicable to backend APIs exposed on public IPs.
 
 Each instance of API Management service is initially given a pre-allocated number of SNAT ports. That limit affects opening connections to the same host and port combination. SNAT ports are used up when you have repeated calls to the same address and port combination. Once a SNAT port has been released, the port is available for reuse as needed. The Azure Network load balancer reclaims SNAT ports from closed connections only after waiting four minutes.
 
