@@ -96,7 +96,7 @@
         - name: Stream logs in real-time
           href: spring-cloud-howto-log-streaming.md
         - name: Application Insights
-          href: spring-cloud-howto-appliction-insights.md
+          href: spring-cloud-howto-application-insights.md
     - name: Secure
       items:
         - name: Enable system-assigned managed identity
