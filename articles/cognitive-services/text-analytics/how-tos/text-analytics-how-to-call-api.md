@@ -18,7 +18,8 @@ In this article, we use the Text Analytics REST API and [Postman](https://www.po
 
 ## Using the API synchronously
 
-You can contie
+You can call Text Analytics synchornously (for low latency scenarios). You have to call each API (feature) separately when using synchronous API. If you need to call multiple features then check out below section on how to call Text Analytics asynchronously. 
+
 
 ## Using the API asynchronously
 
