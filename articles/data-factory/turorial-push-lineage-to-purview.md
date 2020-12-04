@@ -1,6 +1,6 @@
 ---
 title: Push Data Factory lineage data to Azure Purview
-description: Learn about how to Push Data Factory lineage data to Azure Purview
+description: Learn about how to push Data Factory lineage data to Azure Purview
 
 services: data-factory
 ms.author: lle
