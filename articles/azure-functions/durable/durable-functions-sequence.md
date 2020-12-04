@@ -19,7 +19,7 @@ This article explains the following functions in the sample app:
 
 * `E1_HelloSequence`: An [orchestrator function](durable-functions-bindings.md#orchestration-trigger) that calls `E1_SayHello` multiple times in a sequence. It stores the outputs from the `E1_SayHello` calls and records the results.
 * `E1_SayHello`: An [activity function](durable-functions-bindings.md#activity-trigger) that prepends a string with "Hello".
-* `HttpStart`: An HTTP triggered [durable client](durable-functions-bindings#orchestration-client) function that starts an instance of the orchestrator.
+* `HttpStart`: An HTTP triggered [durable client](durable-functions-bindings.md#orchestration-client) function that starts an instance of the orchestrator.
 
 ### E1_HelloSequence orchestrator function
 
