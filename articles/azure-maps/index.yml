@@ -251,8 +251,6 @@ landingContent:
         links:
           - text: Weather services concepts
             url: weather-services-concepts.md
-      - linkListType: concept
-        links: 
           - text: Weather services FAQ
             url: weather-services-faq.md
       - linkListType: tutorial
