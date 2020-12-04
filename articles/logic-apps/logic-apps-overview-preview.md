@@ -46,7 +46,7 @@ For more information, see these topics:
   > [!NOTE]
   > Stateless workflows currently support only *actions* for [managed connectors](../connectors/apis-list.md#managed-api-connectors), 
   > which are deployed in Azure, and not triggers. To start your workflow, select the [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins), 
-  > which run natively with the Logic Apps runtime. For more information about unsupported triggers, actions, and connectors, see [Unsupported or unavailable capabilities](#unsupported).
+  > which run natively with the Logic Apps runtime. For more information about unsupported triggers, actions, and connectors, see [Limited, unsupported, or unavailable capabilities](#unsupported-unavailable).
 
 For information about how nested logic apps behave differently between stateful and stateless logic apps, see [Nested behavior differences between stateful and stateless logic apps](#nested-behavior).
 
@@ -96,31 +96,33 @@ For more information about the pricing models that apply to this new resource ty
 * [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/)
 * [Azure Storage pricing details](https://azure.microsoft.com/pricing/details/storage/)
 
-<a name="unsupported"></a>
+<a name="unsupported-unavailable"></a>
 
-## Unavailable or unsupported capabilities
+## Limited, unavailable, or unsupported capabilities
 
-For this public preview, these capabilities are not available or not supported:
+In this public preview, these capabilities are currently limited, unsupported, or unavailable:
 
-* **Supported triggers and actions**: To start your workflow, you can use the [built-in Request, HTTP, Event Hubs, or Service Bus trigger](../connectors/apis-list.md), which run natively on the Logic Apps runtime.
+* **Triggers and actions**: Some built-in triggers are unavailable, such as Sliding Window and Batch. To start your workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). Built-in triggers and actions run natively in the Logic Apps runtime, while managed connectors are deployed in Azure. In the designer, built-in triggers and actions appear under the **Built-in** tab, while managed connector triggers and actions appear under the **Azure** tab.
 
-  Currently, the following triggers or actions aren't available or supported:
+  > [!NOTE]
+  > To run locally in Visual Studio Code, HTTP Webhook triggers and actions require additional setup. 
+  > For more information, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
 
-  * [On-premises data gateway triggers](../connectors/apis-list.md#on-premises-connectors)
+  For *stateless workflows*, the **Azure** tab doesn't appear when you select a trigger because you can select only [managed connector *actions*, not triggers](../connectors/apis-list.md#managed-api-connectors). Although you can enable Azure-deployed managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
 
-  * [Sliding Window trigger](../connectors/connectors-native-sliding-window.md)
+  For *stateful workflows*, other than the triggers and actions listed below, both [managed connector triggers and actions](../connectors/apis-list.md#managed-api-connectors) are available for you to use.
 
-  * [Custom connectors](../connectors/apis-list.md#custom-apis-and-connectors)
+  These triggers and actions are currently limited, unsupported, or unavailable:
 
-  * Although integration accounts, their artifacts, and [their connectors](../connectors/apis-list.md#integration-account-connectors) aren't supported in this preview.
+  * [On-premises data gateway *triggers*](../connectors/apis-list.md#on-premises-connectors) are unavailable, but gateway actions *are* available.
 
-  * The "call an Azure function" capability currently works only for functions that HTTP-based functions, is unavailable, so for now, use the HTTP *action* to call the request URL for the Azure function.
+  * [Custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) are unavailable.
 
-  Except for the previously specified triggers, *stateful* workflows can use both triggers and actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), which are deployed in Azure versus built-in triggers and actions that run natively on the Logic Apps runtime. However, *stateless* workflows currently support only *actions* for managed connectors, not triggers. Although you can enable connectors in Azure for your stateless workflow, the designer doesn't show any managed connector triggers for you to select.
+  * For B2B scenarios, some [integration account connectors](../connectors/apis-list.md#integration-account-connectors) are unavailable. In Visual Studio Code, you can use the Liquid and XML actions, such as XML Validation, without an integration account, but you need to add Liquid maps, XML maps, or XML schemas to your project to their respective **Maps** and **Schemas** folders in the **Artifacts** folder.
+
+  * The Azure Functions action, **Choose an Azure function**, works only for functions that are created from the **HTTP Trigger** template.
 
 * **Hosting plan availability**: Whether you create a new **Logic App (Preview)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the Premium or App Service hosting plan in Azure. **Consumption** hosting plans aren't supported nor available for deploying this resource type. You can deploy from Visual Studio Code to a Docker container, but not to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
-
-* **B2B scenarios**: Integration accounts and their artifacts aren't currently supported. However, in Visual Studio Code, you can use the XML validation and 
 
 * **Parallel branches**: Currently, you can't add parallel branches through the new designer experience. However, you can still add these branches through the original designer experience and have them appear in the new designer.
 
