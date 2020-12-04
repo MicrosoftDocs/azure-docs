@@ -238,7 +238,7 @@ In this section, you publish your project to Azure in a function app running Lin
 
 # [Go](#tab/go)
 
-In the integrated terminal, compile the handler to Linux/x64. A binary named `handler` is created in the function app root.
+1. In the integrated terminal, compile the handler to Linux/x64. A binary named `handler` is created in the function app root.
 
     # [macOS](#tab/macos)
 
