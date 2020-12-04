@@ -66,7 +66,7 @@ You also can see lineage data for Dataflow activity.
 > For the lineage of Dataflow activity, we only support source and sink. The lineage for Dataflow transformation is not supported yet.
 
 You also can see lineage data for Execute SSIS Package activity.
-![Screenshot of Dataflow lineage](./media/data-factory-purview/ssis-lineage.png)
+![Screenshot of SSIS lineage](./media/data-factory-purview/ssis-lineage.png)
 
 > [!NOTE] 
 > For the lineage of Execute SSIS Package activity, we only support source and destination. The lineage for transformation is not supported yet.

@@ -15,7 +15,7 @@ ms.date: 12/3/2020
 ---
 
 # Connect Data Factory to Azure Purview (Preview)
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article will explain how to connect data factory to Azure Purview and how to report data lineage of ADF activities Copy data, Data flow and Execute SSIS package.
 
