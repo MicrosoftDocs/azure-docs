@@ -147,7 +147,7 @@ The following examples show how to use the `--blob-tags` option.
 > [!NOTE]
 > If you specify a directory for the source, all the blobs that are copied to the destination will have the same tags that you specify in the command.
 
-## Use optional flags
+## Upload with optional flags
 
 You can tweak your upload operation by using optional flags. Here's a few examples.
 

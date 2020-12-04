@@ -128,7 +128,7 @@ Then, use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--list
 
 The name of each downloaded file begins with the version ID followed by the name of the blob. 
 
-## Use optional flags
+## Download with optional flags
 
 You can tweak your download operation by using optional flags. Here's a few examples.
 
