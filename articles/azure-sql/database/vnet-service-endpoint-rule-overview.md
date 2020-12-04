@@ -47,14 +47,14 @@ Each virtual network rule applies to your whole server, not just to one particul
 
 There's a separation of security roles in the administration of virtual network service endpoints. Action is required from each of the following roles:
 
-- **Network admin**: Turn on the endpoint.
-- **Database admin**: Update the access control list (ACL) to add the given subnet to the server.
+- **Network Admin**: Turn on the endpoint.
+- **Database Admin**: Update the access control list (ACL) to add the given subnet to the server.
 
 #### Azure RBAC alternative
 
-The roles of network admin and database admin have more capabilities than are needed to manage virtual network rules. Only a subset of their capabilities is needed.
+The roles of Network Admin and Database Admin have more capabilities than are needed to manage virtual network rules. Only a subset of their capabilities is needed.
 
-You have the option of using [Azure role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the network admin or the database admin. The surface area of your security exposure is lower if you add a user to a custom role versus adding the user to the other two major administrator roles.
+You have the option of using [Azure role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role versus adding the user to the other two major administrator roles.
 
 > [!NOTE]
 > In some cases, the database in SQL Database and the virtual network subnet are in different subscriptions. In these cases, you must ensure the following configurations:
