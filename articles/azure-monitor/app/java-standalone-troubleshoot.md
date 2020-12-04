@@ -7,6 +7,8 @@ ms.custom: devx-track-java
 ---
 # Troubleshooting Azure Monitor Application Insights Java
 
+In this article, we covered some of the common issues a user might face while instrumenting java application using the java agent along with the steps to resolve these issues.
+
 ## Self-diagnostic log file
 
 By default, Application Insights Java 3.0 will produce a log file named `applicationinsights.log` in the same directory where the `applicationinsights-agent-3.0.0.jar` file is located.
@@ -27,7 +29,7 @@ These changes include:
 2.  The `instrumentationSettings` node is no longer present. All content in `instrumentationSettings` is moved to the root level. 
 3.  Configuration nodes like `sampling`, `jmxMetrics`, `instrumentation` and `heartbeat` are moved out of `preview` to the root level.
 
-## SSL Certificate Issues
+## SSL certificate issues
 
 If you are using the default Java keystore, it will already have all of the CA root certificates and you should not need to import any further SSL certificates.
 
