@@ -651,7 +651,7 @@
         "articles/azure-resource-manager/managed-applications/**/*.md": "managed-applications",
         "articles/azure-vmware/**/*.md": "azure-vmware",
         "articles/backup/**/*.md": "backup",
-        "articles/baremetal-infrastructure/**/*.md": "virtual-machines",
+        "articles/baremetal-infrastructure/**/*.md": "baremetal-infrastructure",
         "articles/batch/**/*.md": "batch",
         "articles/blockchain/**/*.md": "azure-blockchain",
         "articles/chef/**/*.md": "chef",
