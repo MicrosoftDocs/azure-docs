@@ -2,7 +2,7 @@
 title: Create a function in Go or Rust using Visual Studio Code - Azure Functions
 description: Learn how to create a Go function as an Azure Functions custom handler, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
 ms.topic: quickstart
-ms.date: 12/1/2020
+ms.date: 12/4/2020
 ---
 
 # Quickstart: Create a Go or Rust function in Azure using Visual Studio Code
@@ -11,7 +11,7 @@ ms.date: 12/1/2020
 
 In this article, you use Visual Studio Code to create a [custom handler](functions-custom-handlers.md) function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
-Custom handlers can be used to create functions in any language by running a binary file. This article supports both [Go](create-first-function-vs-code-other.md?tabs=go) and [Rust](create-first-function-vs-code-other.md?tabs=rust).
+Custom handlers can be used to create functions in any language or runtime by running an HTTP server process. This article supports both [Go](create-first-function-vs-code-other.md?tabs=go) and [Rust](create-first-function-vs-code-other.md?tabs=rust).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
