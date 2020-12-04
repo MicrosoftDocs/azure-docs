@@ -1,7 +1,7 @@
 ---
 title: Handle errors and exceptions in MSAL4J
 titleSuffix: Microsoft identity platform
-description: Learn how to handle errors and exceptions, Conditional Access, and claims challenges in MSAL4J applications.
+description: Learn how to handle errors and exceptions, Conditional Access claims challenges, and retries in MSAL4J applications.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -15,11 +15,11 @@ ms.author: marsma
 ms.reviewer: saeeda, nacanuma
 ms.custom: aaddev
 ---
-# Handle MSAL exceptions and errors in Java
+# Handle errors and exceptions in MSAL for Java
 
 [!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
 
-## Error handling in Java
+## Error handling in MSAL for Java
 
 In MSAL for Java, there are three types of exceptions: `MsalClientException`, `MsalServiceException`, and `MsalInteractionRequiredException`; all which inherit from `MsalException`.
 
@@ -81,5 +81,4 @@ MSAL exposes a `reason` field, which you can use to provide a better user experi
 
 ## Next steps
 
-Move on to the next article, 
-[Logging](msal-logging.md?tabs=java).
+Consider enabling [Logging in MSAL for Java](msal-logging.md?tabs=java) to help you diagnose and debug issues.

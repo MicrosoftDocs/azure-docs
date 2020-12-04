@@ -15,11 +15,11 @@ ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ---
-# Handle MSAL exceptions and errors in .NET
+# Handle errors and exceptions in MSAL.NET
 
 [!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
 
-## Error handling in .NET
+## Error handling in MSAL.NET
 
 When processing .NET exceptions, you can use the exception type itself and the `ErrorCode` member to distinguish between exceptions. `ErrorCode` values are constants of type [MsalError](/dotnet/api/microsoft.identity.client.msalerror).
 

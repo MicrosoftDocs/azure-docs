@@ -1,7 +1,7 @@
 ---
 title: Handle errors and exceptions in MSAL.js
 titleSuffix: Microsoft identity platform
-description: Learn how to handle errors and exceptions, Conditional Access, and claims challenges in MSAL.js applications.
+description: Learn how to handle errors and exceptions, Conditional Access claims challenges, and retries in MSAL.js applications.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -15,11 +15,11 @@ ms.author: marsma
 ms.reviewer: saeeda, hahamil
 ms.custom: aaddev
 ---
-# Handle MSAL exceptions and errors in JavaScript
+# Handle errors and exceptions in MSAL.js
 
 [!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
 
-## Error handling in JavaScript
+## Error handling in MSAL.js
 
 MSAL.js provides error objects that abstract and classify the different types of common errors. It also provides an interface to access specific details of the errors such as error messages to handle them appropriately.
 
@@ -150,5 +150,4 @@ See [Requesting Additional Claims](active-directory-optional-claims.md) for more
 
 ## Next steps
 
-Move on to the next article, 
-[Logging](msal-logging.md?tabs=javascript).
+Consider enabling [Logging in MSAL.js](msal-logging.md?tabs=javascript) to help you diagnose and debug issues.

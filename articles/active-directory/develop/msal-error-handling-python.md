@@ -1,7 +1,7 @@
 ---
-title: Handle errors and exceptions in MSAL for Python
+title: Handle errors and exceptions in MSAL Python
 titleSuffix: Microsoft identity platform
-description: Learn how to handle errors and exceptions, Conditional Access, and claims challenges in MSAL for Python applications.
+description: Learn how to handle errors and exceptions, Conditional Access claims challenges, and retries in MSAL Python applications.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -15,11 +15,11 @@ ms.author: marsma
 ms.reviewer: saeeda, rayluo
 ms.custom: aaddev
 ---
-# Handle MSAL exceptions and errors in Python
+# Handle errors and exceptions in MSAL Python
 
 [!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
 
-## Error handling in Python
+## Error handling in MSAL Python
 
 In MSAL for Python, most errors are conveyed as a return value from the API call. The error is represented as a dictionary containing the JSON response from the Microsoft identity platform.
 
@@ -36,5 +36,4 @@ In MSAL for Python, exceptions are rare because most errors are handled by retur
 
 ## Next steps
 
-Move on to the next article, 
-[Logging](msal-logging.md?tabs=python).
+Consider enabling [Logging in MSAL for Python](msal-logging.md?tabs=python) to help you diagnose and debug issues.

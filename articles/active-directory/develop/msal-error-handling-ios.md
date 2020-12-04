@@ -1,7 +1,7 @@
 ---
-title: Handle errors and exceptions in MSAL for iOS
+title: Handle errors and exceptions in MSAL iOS/macOS
 titleSuffix: Microsoft identity platform
-description: Learn how to handle errors and exceptions, Conditional Access, and claims challenges in MSAL for iOS applications.
+description: Learn how to handle errors and exceptions, Conditional Access claims challenges, and retries in MSAL iOS/macOS applications.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -15,11 +15,11 @@ ms.author: marsma
 ms.reviewer: saeeda, oldalton
 ms.custom: aaddev
 ---
-# Handle MSAL exceptions and errors in iOS
+# Handle errors and exceptions in MSAL iOS/macOS
 
 [!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
 
-## Error handling in iOS
+## Error handling in MSAL iOS/macOS
 
 The complete list of MSAL for iOS and macOS errors is listed in [MSALError enum](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128).
 
@@ -237,5 +237,4 @@ See [Request custom claims using MSAL for iOS and macOS](request-custom-claims.m
 
 ## Next steps
 
-Move on to the next article, 
-[Logging](msal-logging.md?tabs=swift).
+Consider enabling [Logging in MSAL iOS/macOS](msal-logging.md?tabs=swift) to help you diagnose and debug issues.
