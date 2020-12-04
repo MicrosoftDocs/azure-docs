@@ -260,6 +260,7 @@ In this section, you publish your project to Azure in a function app running Lin
     ```
 
     Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
+    
     ---
 
 # [Rust](#tab/rust)
