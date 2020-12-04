@@ -90,6 +90,8 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](./storage-sas-overview.md).
 
+<a id="transfer-data"></a>
+
 ## Transfer data
 
 After you've authorized your identity or obtained a SAS token, you can begin transferring data.

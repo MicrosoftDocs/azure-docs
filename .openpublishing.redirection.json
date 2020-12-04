@@ -796,6 +796,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/common/storage-use-azcopy-blobs.md",
+      "redirect_url": "/azure/storage/common/storage-use-azcopy-v10#transfer-data",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/container-service/index.yml",
       "redirect_url": "/previous-versions/azure/container-service/dcos-swarm/container-service-intro",
       "redirect_document_id": false
