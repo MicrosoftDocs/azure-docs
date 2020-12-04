@@ -19,7 +19,7 @@ ms.author: phjensen
 
 # Back up using Azure Application Consistent Snapshot Tool
 
-This article provides a guide for running the backup command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+This article provides a guide for running the backup command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
 
 ## Introduction
 
@@ -34,9 +34,9 @@ This command takes the following arguments:
 
 - `--volume=` type of volume to snapshot, this parameter may contain `data` or `other`
   - `data` snapshots the volumes within the dataVolume stanza of the configuration file.
-  - `other` snapshots the volumes within the otherVolume stanza of the configuration file. 
-  - 
-  > [!NOTE] 
+  - `other` snapshots the volumes within the otherVolume stanza of the configuration file.
+  
+  > [!NOTE]
   > By creating a separate config file with the boot volume as the otherVolume, it's possible for
       `boot` snapshots to be taken on an entirely different schedule (for example, daily).
 
@@ -45,7 +45,7 @@ This command takes the following arguments:
     for the command to determine the `--retention` number of storage snapshots that are
     kept for the specified `--prefix`.
 
-    > [!IMPORTANT] 
+    > [!IMPORTANT]
     > Only alpha numeric ("A-Z,a-z,0-9"), underscore ("_") and dash ("-") characters are allowed.
 
 - `--retention` the number of snapshots of the defined `--prefix` to be kept. Any additional
@@ -57,7 +57,7 @@ This command takes the following arguments:
     entries that are older than the oldest non-log backup entry. This operations helps to prevent the log
     backups from using up all available disk space.
 
-  > [!NOTE] 
+  > [!NOTE]
   > The following example command will keep 9 storage snapshots and ensure the
     backup catalog is continuously trimmed to match the 9 storage snapshots being
     retained.
@@ -69,7 +69,7 @@ This command takes the following arguments:
 - `[--ssl=]` an optional parameter that defines the encryption method used to communicate
     with SAP HANA, either `openssl` or `commoncrypto`. If defined, then the `azacsnap -c backup`
     command expects to find two files in the same directory, these files must be named after
-    the corresponding SID. Refer to [Using SSL for communication with SAP HANA](#using-ssl-for-communication-with-sap-hana).
+    the corresponding SID. Refer to [Using SSL for communication with SAP HANA](azacsnap-installation#using-ssl-for-communication-with-sap-hana).
 - `[--frequency=]` Deprecated, do not use.
 
 The following example takes a `hana` type snapshot with a prefix of `hana_TEST` and will keep `9`
@@ -92,7 +92,7 @@ In the example configuration above (for **Azure Large Instance**), snapshots for
 two volumes took less than 5 seconds to complete. For **Azure NetApp Files**, snapshots for the two volumes
 would take about 60 seconds.
 
-> [!NOTE] 
+> [!NOTE]
 > If the `--retention` is significantly reduced from the previous time `azacsnap` is run
 (for example, from `--retention 50` to `--retention 5`), then the time taken will increase as `azacsnap`
 needs to remove the extra snapshots.
@@ -148,7 +148,7 @@ a log filename for a `-c backup` run with a default config filename `azacsnap-ba
 
 ## Example with `other` parameter (to backup host OS)
 
-> [!NOTE] 
+> [!NOTE]
 > The use of another configuration file (`--configfile bootVol.json`) which contains only
 the boot volumes.
 
@@ -161,18 +161,9 @@ to a result file or `/var/log/messages`.
 
 The *log file* name in this example is `azacsnap-backup-bootVol.log`.
 
-> [!NOTE] 
+> [!NOTE]
 > The log file name is made up of the "(command name-(the `-c` option)-(the config filename)".  For example, if using the `-c backup` option with a log file name of `h80.json`, then the log file will be called `azacsnap-backup-h80.log`.  Or if using the `-c test` option with the same configuration file then the log file will be called `azacsnap-test-h80.log`.
 
 - HANA Large Instance Type: There are two valid values with `TYPEI` or `TYPEII` dependent on
     the HANA Large Instance Unit.
 - See [Available SKUs for HANA Large Instances](/azure/virtual-machines/workloads/sap/hana-available-skus) to confirm the available SKUs.
-
-## Next steps
-
-- [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
-- [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
-- [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)
