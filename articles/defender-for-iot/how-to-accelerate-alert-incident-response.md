@@ -4,7 +4,7 @@ description: Improve alert and incident workflows.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/01/2020
+ms.date: 12/02/2020
 ms.service: azure
 ms.topic: how-to
 ---
@@ -96,14 +96,14 @@ You can add custom alert rules based on information that individual sensors dete
 
 The alert message indicates that a user-defined rule triggered the alert.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image270.png" alt-text="Screenshot that shows a user-defined rule.":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="Screenshot that shows customized alerts.":::
 
 To create a custom alert rule:
 
 1. Select **Custom Alerts** from the side menu of a sensor.
 1. Select the plus sign (**+**) to create a rule.
 
-   :::image type="content" source="media/how-to-work-with-alerts-sensor/image267.png" alt-text="Screenshot that shows the creation of a rule.":::
+   :::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="Screenshot that shows a user-defined rule.":::
 
 1. Define a rule name.
 1. Select a category or protocol from the **Categories** pane.
@@ -116,7 +116,7 @@ To create a custom alert rule:
 
 The rule is added to the **Customized Alerts Rules** list, where you can review basic rule parameters, the last time the rule was triggered, and more. You can also enable and disable the rule from the list.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image269.png" alt-text="Screenshot that shows a customized alert.":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="Screenshot of a user-added customized rule.":::
 
 ### See also
 
