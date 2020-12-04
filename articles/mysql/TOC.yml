@@ -450,7 +450,7 @@
   - name: Tutorials
     items:
     - name : WordPress on Azure Kubernetes
-      href: tutorial-deploy-wordpress-on-aks.md
+      href: flexible-server/tutorial-deploy-wordpress-on-aks.md
     - name: Build PHP (Laravel) app with database
       href: flexible-server/tutorial-php-database-app.md
     - name: Connect with private web app
