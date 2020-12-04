@@ -41,10 +41,13 @@ After you’ve enrolled in the commercial marketplace, prepare to migrate your s
 
 Follow these steps before importing your solutions from OCP GTM:
 
-1. Visit your company's [publisher list](https://partner.microsoft.com/dashboard/account/v3/publishers/list). It includes the account owner, managers and developers who have publishing access. Learn more about [Partner Center user roles](/azure/marketplace/partner-center-portal/manage-account#define-user-roles-and-permissions).
+1. Visit your company's [publisher list](https://partner.microsoft.com/dashboard/account/v3/publishers/list). It includes the account owner, managers, and developers who have publishing access. Learn more about [Partner Center user roles](/azure/marketplace/partner-center-portal/manage-account#define-user-roles-and-permissions).
 2. Ask one of the listed contacts to [add users](https://partner.microsoft.com/dashboard/account/usermanagement) to the commercial marketplace as *managers* or *developers*, since only these roles can edit and publish solutions.
 3. Work with your developers to move your solutions from your OCP GTM account to the commercial marketplace.
-4. Determine if you want to (a) merge a solution with an existing offer in commercial marketplace, (b) keep and migrate a solution to the commercial marketplace as a new offer, or (c) discard the solution.
+4. Decide which of the following you want to do:
+    1. Merge this solution with a similar offer in the commercial marketplace.
+    1. Migrate this solution from OCP GTM to the commercial marketplace.
+    1. Discard this solution.
 
 ## Migrate your solutions from OCP GTM
 
@@ -121,7 +124,7 @@ Select this option when a solution in OCP GTM solutions is no longer relevant. Y
 
 ## Make your offer live in the commercial marketplace
 
-If you selected to migrate your offer to the commercial marketplace, it will arrive as a draft. You must publish your offer to make it live in the commercial marketplace; this will retain its co-sell status, incentives, and referral pipeline.
+If you selected to migrate your offer to the commercial marketplace, it will arrive as a draft. You still need to publish your offer to make it live in the commercial marketplace; this will retain its co-sell status, incentives, and referral pipeline.
 
 For detailed instructions on the information you need to provide before your offer can be published, read the appropriate [publishing guide](publisher-guide-by-offer-type.md). For a summary, read below.
 
