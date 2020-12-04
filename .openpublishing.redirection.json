@@ -696,6 +696,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machine-scale-sets/shared-image-galleries.md",
+      "redirect_url": "/azure/virtual-machines/shared-image-galleries",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/shared-image-galleries.md",
       "redirect_url": "/azure/virtual-machines/shared-image-galleries",
       "redirect_document_id": false
