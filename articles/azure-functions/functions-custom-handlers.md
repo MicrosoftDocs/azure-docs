@@ -20,7 +20,7 @@ Custom handlers are best suited for situations where you want to:
 
 With custom handlers, you can use [triggers and input and output bindings](./functions-triggers-bindings.md) via [extension bundles](./functions-bindings-register.md).
 
-Get started with Azure Functions custom handlers with [quickstarts in Go and Rust](create-first-function-vs-code-custom-handlers.md).
+Get started with Azure Functions custom handlers with [quickstarts in Go and Rust](create-first-function-vs-code-other.md).
 
 ## Overview
 
@@ -583,4 +583,4 @@ Support is available if the Functions host has problems starting or communicatin
 
 ## Next steps
 
-Get started building an Azure Functions app in Go or Rust with the [custom handlers quickstart](create-first-function-vs-code-custom-handlers.md).
+Get started building an Azure Functions app in Go or Rust with the [custom handlers quickstart](create-first-function-vs-code-other.md).

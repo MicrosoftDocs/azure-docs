@@ -11,7 +11,7 @@ ms.date: 12/1/2020
 
 In this article, you use Visual Studio Code to create a [custom handler](functions-custom-handlers.md) function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
-This article supports both [Go](create-first-function-vs-code-custom-handlers.md?tabs=go) and [Rust](create-first-function-vs-code-custom-handlers.md?tabs=rust).
+This article supports both [Go](create-first-function-vs-code-other.md?tabs=go) and [Rust](create-first-function-vs-code-other.md?tabs=rust).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
