@@ -4,10 +4,9 @@ description: Learn how to install a sensor and the on-premises management consol
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/24/2020
-ms.topic: article
-ms.service: azure
+ms.date: 12/2/2020
 ms.topic: how-to
+ms.service: azure
 ---
 
 # Defender for IoT installation
@@ -183,7 +182,7 @@ When the connection is established, the BIOS is configurable.
 
 To configure Dell BIOS:
 
-1. [Configure the iDRAC IP address](#configure-idrac-ip)
+1. [Configure the iDRAC IP address](#configure-idrac-ip-address)
 
 2. [Import the BIOS configuration file](#import-the-bios-configuration-file)
 
@@ -338,7 +337,7 @@ The installation process takes about 20 minutes. After the installation, the sys
    |--|--|
    | **Hardware profile** | **enterprise** |
    | **Management interface** | **eno1** |
-   | **Network parameters (usually provided by the customer)** | - |
+   | **Network parameters (provided by the customer)** | - |
    |**management network IP address:** | - |
    | **subnet mask:** | - |
    | **appliance hostname:** | - |
@@ -373,8 +372,7 @@ This article describes the HPE ProLiant DL20 installation process, which include
 
 ### HPE ProLiant DL20 back panel
 
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel.png" alt-text="HPE ProLiant DL20 back panel.":::
-![HPE ProLiant DL20 back panel.](media/tutorial-install-components/image34.png)
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel.png" alt-text="The back panel of the HPE ProLiant DL20.":::
 
 ### Enable remote access and update the password
 
@@ -563,7 +561,7 @@ The installation process takes about 20 minutes. After the installation, the sys
     | ----------| ------------- |
     | **Hardware profile** | Select **corporate**. |
     | **Management interface** | **eno2** |
-    | **Default network parameters (usually provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
+    | **Default network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
     | **input interfaces:**  | The system generates a list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator.<br/><br/>Note that there's no need to configure the bridge interface. This option is used for special use cases only. |
 
 7. After about 10 minutes, the two sets of credentials appear. One is for a **Defender for IoT** user, and one is for a **support** user.
@@ -687,7 +685,7 @@ This section describes the ESXi and Hyper-V software installation.
     | ----------| ------------- |
     | **Hardware profile** | &lt;required architecture&gt; |
     | **Management interface** | **ens192** |
-    | **Network parameters (usually provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**default gateway:** <br/>**input interfaces:**|
+    | **Network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**default gateway:** <br/>**input interfaces:**|
     | **bridge interfaces:** | There's no need to configure the bridge interface. This option is for special use cases only. |
 
 5. Enter **Y** to accept the settings.

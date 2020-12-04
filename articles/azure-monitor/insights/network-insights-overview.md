@@ -22,7 +22,7 @@ Azure Monitor for Networks is structured around these key components of monitori
 
 The Azure Monitor for Networks **Overview** page provides an easy way to visualize the inventory of your networking resources, together with resource health and alerts. It's divided into four key functional areas: search and filtering, resource health and metrics, alerts, and dependency view.
 
-[![Screenshot that shows the Overview page](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png)#lightbox)
+[![Screenshot that shows the Overview page](media/network-insights-overview/overview.png)](media/network-insights-overview/overview.png#lightbox)
 
 ### Search and filtering
 You can customize the resource health and alerts view by using filters like **Subscription**, **Resource Group**, and **Type**.

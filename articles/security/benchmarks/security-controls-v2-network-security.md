@@ -116,7 +116,7 @@ Protect Azure resources against attacks from external networks, including distri
 
 - [How to deploy Azure WAF](../../web-application-firewall/overview.md)
 
-- [Manage Azure DDoS Protection Standard using the Azure portal](../../virtual-network/manage-ddos-protection.md)
+- [Manage Azure DDoS Protection Standard using the Azure portal](../../ddos-protection/manage-ddos-protection.md)
 
 **Responsibility**: Customer
 

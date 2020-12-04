@@ -155,7 +155,7 @@ Whether you are evaluating analyzers or moving forward with a specific configura
 
 Built-in or predefined analyzers can be specified by name on an `analyzer` property of a field definition, with no additional configuration required in the index. The following example demonstrates how you would set the `whitespace` analyzer on a field. 
 
-For other scenarios and to learn more about other built-in analyzers, see [Predefined analyzers list](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+For other scenarios and to learn more about other built-in analyzers, see [Predefined analyzers list](./index-add-custom-analyzers.md#predefined-analyzers-reference). 
 
 ```json
     {
