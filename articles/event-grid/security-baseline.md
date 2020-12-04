@@ -823,7 +823,7 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 
 - [How to use managed identities for Azure resources](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [How to create a Key Vault](../key-vault/general/quick-create-portal.md)
 
 - [How to authenticate to Key Vault](../key-vault/general/authentication.md)
 

@@ -49,7 +49,7 @@ There is a separation of security roles in the administration of Virtual Network
 - **Network Admin:** &nbsp; Turn on the endpoint.
 - **Database Admin:** &nbsp; Update the access control list (ACL) to add the given subnet to the server.
 
-*RBAC alternative:*
+*Azure RBAC alternative:*
 
 The roles of Network Admin and Database Admin have more capabilities than are needed to manage virtual network rules. Only a subset of their capabilities is needed.
 
@@ -74,6 +74,7 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 
 - Turning ON virtual network service endpoints to Azure SQL Database also enables the endpoints for the MySQL and PostgreSQL Azure services. However, with endpoints ON, attempts to connect from the endpoints to your MySQL or PostgreSQL instances may fail.
   - The underlying reason is that MySQL and PostgreSQL likely do not have a virtual network rule configured. You must configure a virtual network rule for Azure Database for MySQL and PostgreSQL and the connection will succeed.
+  - To define VNet firewall rules on a SQL logical server that is already configured with private endpoints, set **Deny public network access** to **No**.
 
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
   - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]

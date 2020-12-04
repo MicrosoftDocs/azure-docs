@@ -20,7 +20,7 @@ Additional resources:
 * [API reference documentation](/java/api/overview/azure/storage-blob-readme)
 * [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
 * [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
-* [Samples](/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Samples](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 

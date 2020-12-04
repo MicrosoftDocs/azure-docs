@@ -4,6 +4,8 @@
   items:
   - name: Overview of Azure Backup
     href: backup-overview.md
+  - name: What's new in Azure Backup
+    href: whats-new.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/backup/
 - name: Quickstarts

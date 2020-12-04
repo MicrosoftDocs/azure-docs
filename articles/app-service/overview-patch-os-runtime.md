@@ -3,7 +3,7 @@ title: OS and runtime patching cadence
 description: Learn how Azure App Service updates the OS and runtimes, what runtimes and patch level your apps has, and how you can get update announcements.
 ms.topic: article
 ms.date: 02/02/2018
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 

@@ -20,12 +20,18 @@ Azure Monitor for VMs guest health has the following limitations in public previ
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 or later
 - Virtual machine must be located in one of the following regions:
+  - Australia East
   - Australia Southeast
+  - Central India
   - Central US
   - East US
   - East US 2
   - East US 2 EUAP
+  - Germany West Central
+  - Japan East
+  - North Central US
   - North Europe
+  - South Central US
   - Southeast Asia
   - UK South
   - West Europe

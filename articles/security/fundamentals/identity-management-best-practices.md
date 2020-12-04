@@ -153,7 +153,7 @@ If you have multiple tenants or you want to enable users to [reset their own pas
 
 We recommend that you require two-step verification for all of your users. This includes administrators and others in your organization who can have a significant impact if their account is compromised (for example, financial officers).
 
-There are multiple options for requiring two-step verification. The best option for you depends on your goals, the Azure AD edition you’re running, and your licensing program. See [How to require two-step verification for a user](../../active-directory/authentication/howto-mfa-userstates.md) to determine the best option for you. See the [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) pricing pages for more information about licenses and pricing.
+There are multiple options for requiring two-step verification. The best option for you depends on your goals, the Azure AD edition you’re running, and your licensing program. See [How to require two-step verification for a user](../../active-directory/authentication/howto-mfa-userstates.md) to determine the best option for you. See the [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) pricing pages for more information about licenses and pricing.
 
 Following are options and benefits for enabling two-step verification:
 
@@ -167,14 +167,14 @@ Following are options and benefits for enabling two-step verification:
 This method is available to all licensing tiers but is not able to be mixed with existing Conditional Access policies. You can find more information in [Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)
 
 **Option 2**: [Enable Multi-Factor Authentication by changing user state](../../active-directory/authentication/howto-mfa-userstates.md).   
-**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure Multi-Factor Authentication in the cloud and Azure Multi-Factor Authentication Server](../../active-directory/authentication/concept-mfa-howitworks.md). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
+**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure AD Multi-Factor Authentication in the cloud and Azure Multi-Factor Authentication Server](../../active-directory/authentication/concept-mfa-howitworks.md). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
 
-To determine where Multi-Factor Authentication needs to be enabled, see [Which version of Azure MFA is right for my organization?](../../active-directory/authentication/concept-mfa-howitworks.md).
+To determine where Multi-Factor Authentication needs to be enabled, see [Which version of Azure AD MFA is right for my organization?](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 **Option 3**: [Enable Multi-Factor Authentication with Conditional Access policy](../../active-directory/authentication/howto-mfa-getstarted.md).
 **Benefit**: This option allows you to prompt for two-step verification under specific conditions by using [Conditional Access](../../active-directory/conditional-access/concept-conditional-access-policy-common.md). Specific conditions can be user sign-in from different locations, untrusted devices, or applications that you consider risky. Defining specific conditions where you require two-step verification enables you to avoid constant prompting for your users, which can be an unpleasant user experience.
 
-This is the most flexible way to enable two-step verification for your users. Enabling a Conditional Access policy works only for Azure Multi-Factor Authentication in the cloud and is a premium feature of Azure AD. You can find more information on this method in [Deploy cloud-based Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
+This is the most flexible way to enable two-step verification for your users. Enabling a Conditional Access policy works only for Azure AD Multi-Factor Authentication in the cloud and is a premium feature of Azure AD. You can find more information on this method in [Deploy cloud-based Azure AD Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 **Option 4**: Enable Multi-Factor Authentication with Conditional Access policies by evaluating [Risk-based Conditional Access policies](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md).   
 **Benefit**: This option enables you to:
@@ -266,7 +266,7 @@ Evaluate the accounts that are assigned or eligible for the global admin role. I
 **Best practice**: Require all critical admin accounts to be password-less (preferred), or require Multi-Factor Authentication.
 **Detail**: Use the [Microsoft Authenticator app](../../active-directory/authentication/howto-authentication-passwordless-phone.md) to sign in to any Azure AD account without using a password. Like [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), the Microsoft Authenticator uses key-based authentication to enable a user credential that’s tied to a device and uses biometric authentication or a PIN.
 
-Require Azure Multi-Factor Authentication at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global Administrator, Privileged Role Administrator, Exchange Online Administrator, and SharePoint Online Administrator. Enable [Multi-Factor Authentication for your admin accounts](../../active-directory/authentication/howto-mfa-userstates.md) and ensure that admin account users have registered.
+Require Azure AD Multi-Factor Authentication at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global Administrator, Privileged Role Administrator, Exchange Online Administrator, and SharePoint Online Administrator. Enable [Multi-Factor Authentication for your admin accounts](../../active-directory/authentication/howto-mfa-userstates.md) and ensure that admin account users have registered.
 
 **Best practice**: For critical admin accounts, have an admin workstation where production tasks aren’t allowed (for example, browsing and email). This will protect your admin accounts from attack vectors that use browsing and email and significantly lower your risk of a major incident.
 **Detail**: Use an admin workstation. Choose a level of workstation security:

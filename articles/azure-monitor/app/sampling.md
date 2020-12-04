@@ -20,7 +20,7 @@ When metric counts are presented in the portal, they are renormalized to take in
 * Fixed-rate sampling is available in recent versions of the Application Insights SDKs for ASP.NET, ASP.NET Core, Java (both the agent and the SDK), and Python.
 * Ingestion sampling works on the Application Insights service endpoint. It only applies when no other sampling is in effect. If the SDK samples your telemetry, ingestion sampling is disabled.
 * For web applications, if you log custom events and need to ensure that a set of events is retained or discarded together, the events must have the same `OperationId` value.
-* If you write Analytics queries, you should [take account of sampling](../log-query/aggregations.md). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
+* If you write Analytics queries, you should [take account of sampling](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
 * Some telemetry types, including performance metrics and custom metrics, are always kept regardless of whether sampling is enabled or not.
 
 The following table summarizes the sampling types available for each SDK and type of application:

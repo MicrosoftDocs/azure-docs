@@ -2,12 +2,12 @@
 title: Set up agent-based dependency analysis in Azure Migrate Server Assessment
 description: This article describes how to set up agent-based dependency analysis in Azure Migrate Server Assessment.
 ms.topic: how-to
-ms.date: 6/09/2020
+ms.date: 11/25/2020
 ---
 
 # Set up dependency visualization
 
-This article describes how to set up agentless dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
+This article describes how to set up agent-based dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
 ## Before you start
 
@@ -78,7 +78,7 @@ To install the agent on a Windows machine:
 
 You can install the agent from the command line or using an automated method such as Configuration Manager or [Intigua](https://www.intigua.com/intigua-for-azure-migration).
 - [Learn more](../azure-monitor/platform/log-analytics-agent.md#installation-options) about using these methods to install the MMA agent.
-- The MMA agent can also be installed using this [script](https://go.microsoft.com/fwlink/?linkid=2104394).
+- The MMA agent can also be installed using this [script](https://github.com/brianbar-MSFT/Install-MMA).
 - [Learn more](../azure-monitor/platform/agents-overview.md#supported-operating-systems) about the Windows operating systems supported by MMA.
 
 ### Install MMA on a Linux machine

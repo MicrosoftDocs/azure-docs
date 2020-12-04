@@ -2,13 +2,15 @@
 title: Variables in templates
 description: Describes how to define variables in an Azure Resource Manager template. 
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 11/24/2020
 ---
 # Variables in Azure Resource Manager template
 
 This article describes how to define and use variables in your Azure Resource Manager template. You use variables to simplify your template. Rather than repeating complicated expressions throughout your template, you define a variable that contains the complicated expression. Then, you reference that variable as needed throughout your template.
 
 Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the template, Resource Manager replaces it with the resolved value.
+
+The format of each variable must match one of the [data types](template-syntax.md#data-types).
 
 ## Define variable
 

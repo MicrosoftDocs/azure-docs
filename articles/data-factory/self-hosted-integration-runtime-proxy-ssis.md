@@ -11,7 +11,7 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 11/15/2020
+ms.date: 11/19/2020
 ---
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR in Azure Data Factory
@@ -170,8 +170,10 @@ To enable your custom/3rd party components to access data on premises using self
 
 1. Install your custom/3rd party components targeting SQL Server 2017 on Azure-SSIS IR via [standard/express custom setups](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
 
-1. Create the following DTSPath registry keys on self-hosted IR if they don’t exist already: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` and `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath`.
- 
+1. Create the following DTSPath registry keys on self-hosted IR if they don’t exist already:
+   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` set to `C:\Program Files\Microsoft SQL Server\140\DTS\`
+   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` set to `C:\Program Files (x86)\Microsoft SQL Server\140\DTS\`
+   
 1. Install your custom/3rd party components targeting SQL Server 2017 on self-hosted IR under the DTSPath above and ensure that your installation process:
 
    1. Creates `<DTSPath>`, `<DTSPath>/Connections`, `<DTSPath>/PipelineComponents`, and `<DTSPath>/UpgradeMappings` folders if they don't exist already.
@@ -180,7 +182,7 @@ To enable your custom/3rd party components to access data on premises using self
    
    1. Installs all assemblies referenced by your custom/3rd party component assemblies in the global assembly cache (GAC).
 
-Here's an [example of 3rd party component](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir) that uses an express custom setup and self-hosted IR as a proxy for Azure-SSIS IR.
+Here are examples from our partners, [Theobald Software](https://kb.theobald-software.com/xtract-is/XIS-for-Azure-SHIR) and [Aecorsoft](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir), who have adapted their components to use our express custom setup and self-hosted IR as a proxy for Azure-SSIS IR.
 
 ## Enforce TLS 1.2
 

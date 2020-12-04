@@ -69,10 +69,18 @@ Depending on what you want to review, you will create your access review in Azur
 
 Your directory needs at least as many Azure AD Premium P2 licenses as the number of employees who will be performing the following tasks:
 
-- Member and guest users who are assigned as reviewers
-- Member and guest users who perform a self-review
-- Group owners who perform an access review
-- Application owners who perform an access review
+-	Member users who are assigned as reviewers
+-	Member users who perform a self-review
+-	Member users as group owners who perform an access review
+-	Member users as application owners who perform an access review
+
+For guest users, licensing needs will depend on the licensing model you’re using. However, the below guest users’ activities are considered Azure AD Premium P2 usage:
+
+-	Guest users who are assigned as reviewers
+-	Guest users who perform a self-review
+-	Guest users as group owners who perform an access review
+-	Guest users as application owners who perform an access review
+
 
 Azure AD Premium P2 licenses are **not** required for users with the Global Administrator or User Administrator roles who set up access reviews, configure settings, or apply the decisions from the reviews.
 

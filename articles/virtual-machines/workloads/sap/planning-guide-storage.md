@@ -8,14 +8,13 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -30,6 +29,8 @@ Remark about the units used throughout this article. The public cloud vendors mo
 Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, and Ultra disk keeps the base VHD (with OS) and VM attached data disks or VHDs in three copies on three different storage nodes. Failing over to another replica and seeding of a new replica in case of a storage node failure is transparent. As a result of this redundancy, it is **NOT** required to use any kind of storage redundancy layer across multiple Azure disks. This fact is called Local Redundant Storage (LRS). LRS is default for these types of storage in Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) provides sufficient redundancy to achieve the same SLAs as other native Azure storage.
 
 There are several more redundancy methods, which are all described in the article [Azure Storage replication](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that apply to some of the different storage types Azure has to offer. 
+
+Also keep in mind that different Azure storage types influence the single VM availability SLAs as released in [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 ### Azure managed disks
 
@@ -130,7 +131,6 @@ Cost basis in the case of Azure premium storage is not the actual data volume st
 - The I/O throughput for this storage is not linear with the size of the disk category. For smaller disks, like the category between 65 GiB and 128 GiB capacity, the throughput is around 780KB/GiB. Whereas for the extreme large disks like a 32,767 GiB disk, the throughput is around 28KB/GiB
 - The IOPS and throughput SLAs cannot be changed without changing the capacity of the disk
 
-Azure has a single instance VM SLA of 99.9% that is tied to the usage of Azure premium storage or Azure Ultra disk storage. The SLA is documented in [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). In order to comply with this single VM SLA, the base VHD disk as well as **all** attached disk need to be either Azure premium storage or Azure Ultra disk storage.
 
 The capability matrix for SAP workload looks like:
 

@@ -69,4 +69,4 @@ Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to recognize speech](quickstarts/speech-to-text-from-microphone.md)
+> [Learn how to recognize speech](./get-started-speech-to-text.md)

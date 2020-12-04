@@ -850,7 +850,7 @@ Additionally, you can use Azure Automation to deploy configuration changes and m
 **Guidance**: 
 Use Azure Managed Identities in conjunction with Azure Key Vault to simplify secret management for your cloud applications.
 - [How to use managed identities for Azure resources](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md) 
-- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md) 
+- [How to create a Key Vault](../key-vault/general/quick-create-portal.md) 
 
 - [How to provide Key Vault authentication with a managed identity](../key-vault/general/assign-access-policy-portal.md) 
 

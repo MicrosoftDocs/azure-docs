@@ -31,7 +31,7 @@ In addition, there are many benefits when your customers use Azure AD as an iden
 - Provide single sign-on for your users. With SSO you reduce support costs by making it easier for your customers with single sign-on. If one-click SSO is enabled, your customers’ IT Administrators don't have to learn how to configure your application for use in their organization. To learn more about single sign-on, see [What is single sign-on?](../manage-apps/what-is-single-sign-on.md).
 - Your app can be discoverable in the Microsoft 365 App Gallery, the Microsoft 365 App Launcher, and within Microsoft Search on Office.com. 
 - Integrated app management. To learn more about app management in Azure AD, see [What is application management?](../manage-apps/what-is-application-management.md).
-- Your app can use the [Graph API](https://docs.microsoft.com/graph/) to access the data that drives user productivity in the Microsoft ecosystem.
+- Your app can use the [Graph API](/graph/) to access the data that drives user productivity in the Microsoft ecosystem.
 - Application-specific documentation co-produced with the Azure AD team for our mutual customers eases adoption.
 - You provide your customers the ability to completely manage their employee and guest identities’ authentication and authorization.
 - Placing all account management and compliance responsibility with the customer owner of those identities.
@@ -42,7 +42,7 @@ In addition, there are many benefits when your customers use Azure AD as an iden
 - Add security and convenience when users sign on to applications by using Azure AD SSO and removing the need for separate credentials.
 
 > [!TIP]
-> When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For an overview of this concept, see [Multitenant Applications in Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) and [Tenancy in Azure Active Directory](single-and-multi-tenant-apps.md).
+> When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For an overview of this concept, see [Multitenant Applications in Azure](../../dotnet-develop-multitenant-applications.md) and [Tenancy in Azure Active Directory](single-and-multi-tenant-apps.md).
 
 > [!IMPORTANT]
 > To publish your app in the Azure AD gallery you must agree to specific terms and conditions. Before you begin, make sure to read and agree to the [terms and conditions](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
@@ -157,7 +157,7 @@ If your app supports SAML 2.0, you can integrate it directly with an Azure AD te
 Microsoft does not provide, or recommend, libraries for SAML implementations. There are many open-source libraries available.
 
 ### Implement WS-Fed
-To learn more about WS-Fed in ASP.NET Core, see [Authenticate users with WS-Federation in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
+To learn more about WS-Fed in ASP.NET Core, see [Authenticate users with WS-Federation in ASP.NET Core](/aspnet/core/security/authentication/ws-federation).
 
 ### Implement password vaulting
 
@@ -168,7 +168,7 @@ Create a web application that has an HTML sign-in page. Make sure that your appl
 
 You will need an Azure AD tenant in order to test your app. To set up your development environment, see [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
 
-Alternatively, an Azure AD tenant comes with every Microsoft 365 subscription. To set up a free Microsoft 365 development environment, see [Join the Microsoft 365 Developer Program](https://docs.microsoft.com/office/developer-program/microsoft-365-developer-program).
+Alternatively, an Azure AD tenant comes with every Microsoft 365 subscription. To set up a free Microsoft 365 development environment, see [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
 Once you have a tenant, you need to enable and test single-sign on access. 
 
@@ -204,7 +204,7 @@ We recommend that your documentation on your site at a minimum include the follo
 
 ### Documentation on the Microsoft Site
 
-When you list your application with the Azure Active Directory Application Gallery, which also publishes your application in the Azure Marketplace, Microsoft will generate documentation for our mutual customers explaining the step-by-step process. You can see an example [here](https://aka.ms/appstutorial). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
+When you list your application with the Azure Active Directory Application Gallery, which also publishes your application in the Azure Marketplace, Microsoft will generate documentation for our mutual customers explaining the step-by-step process. You can see an example [here](../saas-apps/tutorial-list.md). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
 
 
 ## Step 5 - Submit your app
@@ -257,7 +257,7 @@ If you want to add your application to list in the gallery by using password SSO
 
 ![Listing a password SSO application in the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
-If you are implementing a [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2.0 endpoint for user provisioning, select the option as shown. 
+If you are implementing a [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 endpoint for user provisioning, select the option as shown. 
 
    ![Request for user provisioning](./media/howto-app-gallery-listing/user-provisioning.png)
 

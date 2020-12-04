@@ -6,12 +6,12 @@
     - name: What is Azure Spring Cloud?
       href: spring-cloud-overview.md
 - name: Quickstarts
-  expanded: true 
+  expanded: true
   items:
     - name: Launch your first app
       href: spring-cloud-quickstart.md
     - name: Build and run Microservices
-      expanded: true 
+      expanded: true
       items:
       - name: Introduction to the sample app
         href: spring-cloud-quickstart-sample-app-introduction.md
@@ -42,7 +42,7 @@
     - name: Use managed identity to invoke Azure Functions from an Azure Spring Cloud app
       href: spring-cloud-tutorial-managed-identities-functions.md
 - name: Concepts
-  items: 
+  items:
     - name: Understand app and deployment
       href: spring-cloud-concept-understand-app-and-deployment.md
     - name: Understand quotas and limits
@@ -62,7 +62,7 @@
     - name: Develop
       items:
         - name: Prepare a Java Spring app for deployment
-          href: spring-cloud-tutorial-prepare-app-deployment.md 
+          href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: Set up a Config Server
           href: spring-cloud-tutorial-config-server.md
         - name: Enable Service Registration
@@ -74,7 +74,9 @@
         - name: Launch Java app from source code
           href: spring-cloud-howto-launch-from-source.md
         - name: Use IntelliJ to deploy apps
-          href: spring-cloud-tutorial-intellij-deploy-apps.md  
+          href: spring-cloud-tutorial-intellij-deploy-apps.md
+        - name: Deploy Azure Spring Cloud with Azure PowerShell
+          href: spring-cloud-howto-deploy-powershell.md
     - name: Configure
       items:
         - name: Start, stop, and delete an app
@@ -132,7 +134,7 @@
         - name: Tomcat
           href: https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
 - name: Reference
-  items: 
+  items:
   - name: Azure CLI Plugin
     href: /cli/azure/ext/spring-cloud/spring-cloud
   - name: Azure PowerShell

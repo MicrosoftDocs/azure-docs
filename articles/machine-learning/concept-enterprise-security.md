@@ -9,77 +9,32 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/09/2020
+ms.date: 11/20/2020
 ---
 
 # Enterprise security and governance for Azure Machine Learning
 
-In this article, you'll learn about security features available for Azure Machine Learning.
+In this article, you'll learn about security and governance features available for Azure Machine Learning. These features are useful for administrators, DevOps, and MLOps who want to create a secure configuration that is compliant with your companies policies. With Azure Machine Learning and the Azure platform, you can:
 
-When you use a cloud service, a best practice is to restrict access to only the users who need it. Start by understanding the authentication and authorization model used by the service. You might also want to restrict network access or securely join resources in your on-premises network with the cloud. Data encryption is also vital, both at rest and while data moves between services. You may also want to create policies to enforce certain configurations or log when non-compliant configurations are created. Finally, you need to be able to monitor the service and produce an audit log of all activity.
+* Restrict access to resources and operations by user account or groups
+* Restrict incoming and outgoing network communications
+* Encrypt data in transit and at rest
+* Scan for vulnerabilities
+* Apply and audit configuration policies
 
-> [!NOTE]
-> The information in this article works with the Azure Machine Learning Python SDK version 1.0.83.1 or higher.
+## Restrict access to resources and operations
 
-## Authentication & authorization
+[Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) is the identity service provider for Azure Machine Learning. It allows you to create and manage the security objects (user, group, service principal, and managed identity) that are used to _authenticate_ to Azure resources. Multi-factor authentication is supported if Azure AD is configured to use it.
 
-Most authentication to Azure Machine Learning resources use Azure Active Directory (Azure AD) for authentication, and role-based access control (Azure RBAC) for authorization. The exceptions to this are:
+Here's the authentication process for Azure Machine Learning using multi-factor authentication in Azure AD:
 
-* __SSH__: You can enable SSH access to some compute resources such as Azure Machine Learning compute instance. SSH access uses key-based authentication. For more information on creating SSH keys, see [Create and manage SSH keys](../virtual-machines/linux/create-ssh-keys-detailed.md). For information on enabling SSH access, see [Create and manage Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
-* __Models deployed as web services__: Web service deployments can use __key__ or __token__-based access control. Keys are static strings. Tokens are retrieved by using an Azure AD account. For more information, see [Configure authentication for models deployed as a web service](how-to-authenticate-web-service.md).
-
-Specific services that Azure Machine Learning relies on, such as Azure data storage services, have their own authentication and authorization methods. For more information on the storage services authentication, see [Connect to storage services](how-to-access-data.md).
-
-### Azure AD authentication
-
-Multi-factor authentication is supported if Azure Active Directory (Azure AD) is configured to use it. Here's the authentication process:
-
-1. The client signs in to Azure AD and gets an Azure Resource Manager token.  Users and service principals are fully supported.
+1. The client signs in to Azure AD and gets an Azure Resource Manager token.
 1. The client presents the token to Azure Resource Manager and to all Azure Machine Learning.
-1. The Machine Learning service provides a Machine Learning service token to the user compute target (for example, Machine Learning Compute). This token is used by the user compute target to call back into the Machine Learning service after the run is complete. Scope is limited to the workspace.
+1. Azure Machine Learning provides a Machine Learning service token to the user compute target (for example, Azure Machine Learning compute cluster). This token is used by the user compute target to call back into the Machine Learning service after the run is complete. The scope is limited to the workspace.
 
 [![Authentication in Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication.png#lightbox)
 
-For more information, see [Authentication for Azure Machine Learning workspace](how-to-setup-authentication.md).
-
-### Azure RBAC
-
-You can create multiple workspaces, and each workspace can be shared by multiple people. You can control what features or operations of the workspace users can access by assigning their Azure AD account to Azure RBAC roles. The following are the built-in roles:
-
-* Owner
-* Contributor
-* Reader
-
-Owners and contributors can use all compute targets and data stores that are attached to the workspace.  
-
-The following table lists some of the major Azure Machine Learning operations and the roles that can perform them:
-
-| Azure Machine Learning operation | Owner | Contributor | Reader |
-| ---- |:----:|:----:|:----:|
-| Create workspace | ✓ | ✓ | |
-| Share workspace | ✓ | |  |
-| Create compute target | ✓ | ✓ | |
-| Attach compute target | ✓ | ✓ | |
-| Attach data stores | ✓ | ✓ | |
-| Run experiment | ✓ | ✓ | |
-| View runs/metrics | ✓ | ✓ | ✓ |
-| Register model | ✓ | ✓ | |
-| Create image | ✓ | ✓ | |
-| Deploy web service | ✓ | ✓ | |
-| View models/images | ✓ | ✓ | ✓ |
-| Call web service | ✓ | ✓ | ✓ |
-
-If the built-in roles don't meet your needs, you can create custom roles. Custom roles control all operations inside a workspace, such as creating a compute, submitting a run, registering a datastore, or deploying a model. Custom roles can have read, write, or delete permissions on the various resources of a workspace, such as clusters, datastores, models, and endpoints. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md).
-
-> [!IMPORTANT]
-> Azure Machine Learning depends on other Azure services such as Azure Blob Storage and Azure Kubernetes Services. Each Azure service has its own Azure RBAC configurations. To achieve your desired level of access control, you may need to apply both Azure RBAC configurations for Azure Machine Learning and those for the services used with Azure Machine Learning.
-
-> [!WARNING]
-> Azure Machine Learning is supported with Azure Active Directory business-to-business collaboration, but is not currently supported with Azure Active Directory business-to-consumer collaboration.
-
-### Managed identities
-
-Each workspace also has an associated system-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) that has the same name as the workspace. The managed identity is used to securely access resources used by the workspace. It has the following permissions on attached resources:
+Each workspace has an associated system-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) that has the same name as the workspace. This managed identity is used to securely access resources used by the workspace. It has the following Azure RBAC permissions on attached resources:
 
 | Resource | Permissions |
 | ----- | ----- |
@@ -90,15 +45,32 @@ Each workspace also has an associated system-assigned [managed identity](../acti
 | Resource group that contains the workspace | Contributor |
 | Resource group that contains the key vault (if different from the one that contains the workspace) | Contributor |
 
-We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the resync keys operation.
+We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the [resync keys operation](how-to-change-storage-access-key.md).
 
-Azure Machine Learning creates an additional application (the name starts with `aml-` or `Microsoft-AzureML-Support-App-`) with contributor-level access in your subscription for every workspace region. For example, if you have one workspace in East US and one in North Europe in the same subscription, you'll see two of these applications. These applications enable Azure Machine Learning to help you manage compute resources.
+Azure Machine Learning also creates an additional application (the name starts with `aml-` or `Microsoft-AzureML-Support-App-`) with contributor-level access in your subscription for every workspace region. For example, if you have one workspace in East US and one in North Europe in the same subscription, you'll see two of these applications. These applications enable Azure Machine Learning to help you manage compute resources.
 
-Optionally, you can configure your own managed identities for use with Azure Virtual Machines and Azure Machine Learning compute cluster. With a VM, the managed identity can be used to access your workspace from the SDK, instead of the individual user's Azure AD account. With a compute cluster, the managed identity is used to access resources such as secured datastores that the user running the training job may not have access to. For more information, see [Authentication for Azure Machine Learning workspace](how-to-setup-authentication.md).
+You can also configure your own managed identities for use with Azure Virtual Machines and Azure Machine Learning compute cluster. With a VM, the managed identity can be used to access your workspace from the SDK, instead of the individual user's Azure AD account. With a compute cluster, the managed identity is used to access resources such as secured datastores that the user running the training job may not have access to. For more information, see [Authentication for Azure Machine Learning workspace](how-to-setup-authentication.md).
+
+> [!TIP]
+> There are some exceptions to the use of Azure AD and Azure RBAC within Azure Machine Learning:
+> * You can optionally enable __SSH__ access to compute resources such as Azure Machine Learning compute instance and compute cluster. SSH access is based on public/private key pairs, not Azure AD. SSH access is not governed by Azure RBAC.
+> * You can authenticate to models deployed as web services (inference endpoints) using __key__ or __token__-based authentication. Keys are static strings, while tokens are retrieved using an Azure AD security object. For more information, see [Configure authentication for models deployed as a web service](how-to-authenticate-web-service.md).
+
+For more information, see the following articles:
+* [Authentication for Azure Machine Learning workspace](how-to-setup-authentication.md)
+* [Manage access to Azure Machine Learning](how-to-assign-roles.md)
+* [Connect to storage services](how-to-access-data.md)
+* [Use Azure Key Vault for secrets when training](how-to-use-secrets-in-runs.md)
+* [Use Azure AD managed identity with Azure Machine Learning](how-to-use-managed-identities.md)
+* [Use Azure AD managed identity with your web service](how-to-use-azure-ad-identity.md)
 
 ## Network security and isolation
 
-To restrict physical access to Azure Machine Learning resources, you can use Azure Virtual Network (VNet). VNets allow you to create network environments that are partially, or fully, isolated from the public internet. This reduces the attack surface for your solution, as well as the chances of data exfiltration.
+To restrict network access to Azure Machine Learning resources, you can use [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). VNets allow you to create network environments that are partially, or fully, isolated from the public internet. This reduces the attack surface for your solution, as well as the chances of data exfiltration.
+
+You might use a virtual private network (VPN) gateway to connect individual clients, or your own network, to the VNet
+
+The Azure Machine Learning workspace can use [Azure Private Link](../private-link/private-link-overview.md) to create a private endpoint behind the VNet. This provides a set of private IP addresses that can be used to access the workspace from within the VNet. Some of the services that Azure Machine Learning relies on can also use Azure Private Link, but some rely on network security groups or user-defined routing.
 
 For more information, see the following documents:
 
@@ -107,89 +79,24 @@ For more information, see the following documents:
 * [Secure training environment](how-to-secure-training-vnet.md)
 * [Secure inference environment](how-to-secure-inferencing-vnet.md)
 * [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Configure firewall](how-to-access-azureml-behind-firewall.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
 ## Data encryption
 
-Azure Machine Learning uses a variety of compute resources and data stores. To learn more about how each of these supports data encryption at rest and in transit, see [Data encryption with Azure Machine Learning](concept-data-encryption.md).
+Azure Machine Learning uses a variety of compute resources and data stores on the Azure platform. To learn more about how each of these supports data encryption at rest and in transit, see [Data encryption with Azure Machine Learning](concept-data-encryption.md).
 
-### Microsoft-generated data
+When deploying models as web services, you can enable transport-layer security (TLS) to encrypt data in transit. For more information, see [Configure a secure web service](how-to-secure-web-service.md).
 
-When using services such as Automated Machine Learning, Microsoft may generate a transient, pre-processed data for training multiple models. This data is stored in a datastore in your workspace, which allows you to enforce access controls and encryption appropriately.
+## Vulnerability scanning
 
-You may also want to encrypt [diagnostic information logged from your deployed endpoint](how-to-enable-app-insights.md) into your Azure Application Insights instance.
-
-## Monitoring
-
-There are several monitoring scenarios with Azure Machine Learning, depending on the role and what is being monitored.
-
-| Role | Monitoring to use | Description |
-| ---- | ----- | ----- |
-| Admin, DevOps, MLOps | [Azure Monitor metrics](#azure-monitor), [activity log](#activity-log), [vulnerability scanning](#vulnerability-scanning) | Service level information |
-| Data Scientist, MLOps | [Monitor runs](#monitor-runs) | Information logged during training runs |
-| MLOps | [Collect model data](how-to-enable-data-collection.md), [Monitor with Application Insights](how-to-enable-app-insights.md) | Information logged by models deployed as web services or IoT Edge modules|
-
-### Monitor runs
-
-You can monitor experiment runs in Azure Machine Learning, including logging information from within your training scripts. This information can be viewed through the SDK, Azure CLI, and studio. For more information, see the following articles:
-
-* [Start, monitor, and cancel training runs](how-to-manage-runs.md)
-* [Enable logs](how-to-track-experiments.md)
-* [View logs](how-to-monitor-view-training-logs.md)
-* [Visualize runs with TensorBoard](how-to-monitor-tensorboard.md)
-
-### Azure Monitor
-
-You can use Azure Monitor metrics to view and monitor metrics for your Azure Machine Learning workspace. In the [Azure portal](https://portal.azure.com), select your workspace and then select **Metrics**:
-
-[![Screenshot showing example metrics for a workspace](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
-
-The metrics include information on runs, deployments, and registrations.
-
-For more information, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
-
-### Activity log
-
-You can view the activity log of a workspace to see various operations that are performed on the workspace. The log includes basic information like the operation name, event initiator, and timestamp.
-
-This screenshot shows the activity log of a workspace:
-
-[![Screenshot showing the activity log of a workspace](media/concept-enterprise-security/workspace-activity-log.png)](media/concept-enterprise-security/workspace-activity-log-expanded.png#lightbox)
-
-Scoring request details are stored in Application Insights. Application Insights is created in your subscription when you create a workspace. Logged information includes fields such as:
-
-* HTTPMethod
-* UserAgent
-* ComputeType
-* RequestUrl
-* StatusCode
-* RequestId
-* Duration
-
-> [!IMPORTANT]
-> Some actions in the Azure Machine Learning workspace don't log information to the activity log. For example, the start of a training run and the registration of a model aren't logged.
->
-> Some of these actions appear in the **Activities** area of your workspace, but these notifications don't indicate who initiated the activity.
-
-### Vulnerability scanning
-
-Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure machine learning, you should enable scanning of your Azure Container Registry resource and Azure Kubernetes Service resources. See [Azure Container Registry image scanning by Security Center](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
+[Azure Security Center](../security-center/security-center-introduction.md) provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure machine learning, you should enable scanning of your [Azure Container Registry](../container-registry/container-registry-intro.md) resource and Azure Kubernetes Service resources. For more information, see [Azure Container Registry image scanning by Security Center](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
 ## Audit and manage compliance
 
-[Azure Policy](../governance/policy/index.yml) is a governance tool that allows you to ensure that Azure resources are compliant with your policies. With Azure Machine Learning, you can assign the following policies:
-
-* **Customer-managed key**: Audit or enforce whether workspaces must use a customer-managed key.
-* **Private link**: Audit whether workspaces use a private endpoint to communicate with a virtual network.
-
-For more information on Azure Policy, see the [Azure Policy documentation](../governance/policy/overview.md).
-
-For more information on the policies specific to Azure Machine Learning, see [Audit and manage compliance with Azure Policy](how-to-integrate-azure-policy.md).
-
-## Resource locks
-
-[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
+[Azure Policy](../governance/policy/index.yml) is a governance tool that allows you to ensure that Azure resources are compliant with your policies. You can set policies to allow or enforce specific configurations, such as whether your Azure Machine Learning workspace uses a private endpoint. For more information on Azure Policy, see the [Azure Policy documentation](../governance/policy/overview.md). For more information on the policies specific to Azure Machine Learning, see [Audit and manage compliance with Azure Policy](how-to-integrate-azure-policy.md).
 
 ## Next steps
 

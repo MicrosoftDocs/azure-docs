@@ -57,9 +57,13 @@ To filter the list of blobs, specify a string for the `prefix` parameter. The pr
 
 You can return blob metadata with the results.
 
-- If you're using the .NET v12 SDK, specify the **Metadata** value for the [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) enumeration.
+- If you're using the .NET v12 SDK, specify the **Metadata** value for the [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) enumeration.
 
 - If you're using the .NET v11 SDK, specify the **Metadata** value for the [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) enumeration. Azure Storage includes metadata with each blob returned, so you do not need to call one of the **FetchAttributes** methods in this context to retrieve the blob metadata.
+
+### List blob versions or snapshots
+
+To list blob versions or snapshots with the .NET v12 client library, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** or **Snapshot** field. Versions and snapshots are listed from oldest to newest. For more information about listing versions, see [List blob versions](versioning-enable.md#list-blob-versions).
 
 ### Flat listing versus hierarchical listing
 

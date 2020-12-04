@@ -16,7 +16,7 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-azurecli
 ---
 
 # FAQs and known issues with managed identities for Azure resources

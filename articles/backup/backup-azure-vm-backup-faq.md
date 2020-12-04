@@ -81,11 +81,11 @@ Yes, Azure Backup supports [standard SSD managed disks](https://docs.microsoft.c
 
 ### Can we back up a VM with a Write Accelerator (WA)-enabled disk?
 
-Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup service can exclude the WA-enabled disk from backup.
+Snapshots can be taken on only data disks which are WA enabled and not OS disks. So only data disks which are WA enabled can be protected.
 
 ### I have a VM with Write Accelerator (WA) disks and SAP HANA installed. How do I back up?
 
-Azure Backup can't back up the WA-enabled disk but can exclude it from backup. However, the backup won't provide database consistency because information on the WA-enabled disk isn't backed up. You can back up disks with this configuration if you want operating system disk backup, and backup of disks that aren't WA-enabled.
+Azure Backup can back up the WA-enabled data disk. However, the backup won't provide database consistency.
 
 Azure Backup provides a streaming backup solution for SAP HANA databases with an RPO of 15 minutes. It's Backint certified by SAP to provide a native backup support leveraging SAP HANA’s native APIs. Learn more [about backing up SAP HANA databases in Azure VMs](./sap-hana-db-about.md).
 

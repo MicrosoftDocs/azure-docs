@@ -65,6 +65,9 @@ conceptualContent:
         - url: ../iot-hub/quickstart-control-device-node.md
           itemType: quickstart
           text: Control a device from the cloud
+        - url: /azure-stack/operator/iot-hub-rp-overview
+          itemType: overview
+          text: Explore IoT Hub on Azure Stack Hub
       footerLink:
         url: ../iot-hub/index.yml
         text: See more
@@ -141,7 +144,7 @@ conceptualContent:
         - url: ../iot-pnp/quickstart-connect-device-node.md
           itemType: quickstart
           text: Connect a sample device to IoT Hub
-        - url: ../iot-pnp/concepts-developer-guide-device-csharp.md
+        - url: ../iot-pnp/concepts-developer-guide-device.md
           itemType: concept
           text: Developer guide
       # footerLink

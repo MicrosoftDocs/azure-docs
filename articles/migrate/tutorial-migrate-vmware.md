@@ -33,24 +33,8 @@ Before you begin this tutorial, you should:
 
 1. [Complete the first tutorial](./tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
 2. We recommend that you complete the second tutorial to [assess VMware VMs](./tutorial-assess-vmware-azure-vm.md) before migrating them to Azure, but you don't have to. 
-
-
-## Add the Azure Migrate Server Migration tool
-
-If you didn't set up an Azure Migrate project yet, [do that](how-to-add-tool-first-time.md) before you add the tool. If you have a project set up, add the tool as follows:
-
-1. In the Azure Migrate project, click **Overview**. 
-2. In **Discover, assess, and migration servers**, click **Assess and migrate servers**.
-
-     ![Assess and migrate servers](./media/tutorial-migrate-vmware/assess-migrate.png)
-
-3. In **Migration tools**, select **Click here to add a migration tool when you are ready to migrate**.
-
-    ![Select a tool](./media/tutorial-migrate-vmware/select-migration-tool.png)
-
-4. In the tools list, select **Azure Migrate: Server Migration** > **Add tool**
-
-    ![Server Migration tool](./media/tutorial-migrate-vmware/server-migration-tool.png)
+3. Go to the already created project or [create a new project](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+4. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
 ## Set up the Azure Migrate appliance
 

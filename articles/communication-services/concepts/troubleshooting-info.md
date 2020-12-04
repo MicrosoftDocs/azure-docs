@@ -20,7 +20,7 @@ This document will help you troubleshoot issues that you may experience within y
 
 We encourage developers to submit questions, suggest features, and report problems as issues in the Communication Services [GitHub repository](https://github.com/Azure/communication). Other forums include:
 
-* [Microsoft Q&A](https://docs.microsoft.com/answers/questions/topics/single/101418.html)
+* [Microsoft Q&A](/answers/questions/topics/single/101418.html)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/azure+communication)
 
 Depending on your Azure subscription [support plan](https://azure.microsoft.com/support/plans/) you may submit a support ticket directly through the [Azure portal](https://azure.microsoft.com/support/create-ticket/).

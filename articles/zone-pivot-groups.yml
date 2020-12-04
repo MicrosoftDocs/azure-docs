@@ -261,6 +261,21 @@ groups:
     title: REST
   - id: programmer-tool-spx
     title: CLI
+- id: programming-languages-set-twenty-six
+# Owner: dobett
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
@@ -272,6 +287,20 @@ groups:
     title: Language Detection
   - id: text-analytics-sentiment-analysis
     title: Sentiment Analysis
+- id: programming-languages-set-functions-lang-workers
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-functions
   title: Programming languages
   prompt: Choose a programming language
@@ -288,20 +317,6 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
-- id: programming-languages-text-analytics
-  title: Programming languages
-  prompt: Choose a programming language.
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-language-other
-    title: Other languages...
 - id: programming-languages-metrics-monitor
   title: Programming languages
   prompt: Choose a programming language.
@@ -382,34 +397,6 @@ groups:
     title: C#
   - id: programming-language-java
     title: Java
-  - id: programming-language-more
-    title: More languages...
-- id: programming-languages-set-fifteen
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-more
-    title: More languages...
-- id: programming-languages-set-sixteen
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-cpp
-    title: C++
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-more
     title: More languages...
 - id: programming-languages-set-seventeen

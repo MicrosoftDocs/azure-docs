@@ -9,6 +9,7 @@
   items:
   - name: Start analyzing costs
     href: costs/quick-acm-cost-analysis.md
+    displayName: Azure CLI, az costmanagement query, az costmanagement export
   - name: Create a budget - ARM template
     href: costs/quick-create-budget-template.md
     displayName: ARM template, resource manager template
@@ -26,6 +27,7 @@
     href: costs/tutorial-acm-create-budgets.md
   - name: Export data
     href: costs/tutorial-export-acm-data.md
+    displayName: Azure CLI, az costmanagement query, az costmanagement export
   - name: Act on recommendations
     href: costs/tutorial-acm-opt-recommendations.md
 - name: Concepts
@@ -184,9 +186,15 @@
         href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
-      - name: Create subscriptions programmatically with latest API
-        href: manage/programmatically-create-subscription.md
-      - name: Create subscriptions programmatically with preview API
+      - name: Create EA subscriptions programmatically with latest API
+        href: manage/programmatically-create-subscription-enterprise-agreement.md
+      - name: Create MCA subscriptions programmatically with latest API
+        href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+      - name: Create MPA subscriptions programmatically with latest API
+        href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
+      - name: Create subscriptions programmatically with an ARM template
+        href: manage/create-subscription-template.md
+      - name: Create subscriptions programmatically with old preview API
         href: manage/programmatically-create-subscription-preview.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
@@ -315,7 +323,7 @@
       - name: SAP HANA Large Instances
         href: reservations/prepay-hana-large-instances-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - name: SQL Database
-        href: ../azure-sql/database/reserved-capacity-overview.md?toc=%252fazure%252fcost-management-billing%252ftoc.json
+        href: ../azure-sql/database/reserved-capacity-overview.md?toc=%2fazure%2fcost-management-billing%2ftoc.json
       - name: Azure Synapse Analytics
         href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
       - name: Virtual machines

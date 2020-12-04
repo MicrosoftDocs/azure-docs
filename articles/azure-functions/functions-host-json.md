@@ -157,6 +157,8 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 
 ### applicationInsights.samplingSettings
 
+For more information about these settings, see [Sampling in Application Insights](../azure-monitor/app/sampling.md). 
+
 |Property | Default | Description |
 | --------- | --------- | --------- | 
 | isEnabled | true | Enables or disables sampling. | 

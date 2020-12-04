@@ -48,7 +48,7 @@ Learn how to:
 
 Learn how to:
 
-- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Puppet.puppet-agent-windows-asm?tab=Overview).
+- [Deploy Puppet](https://puppet.com/docs/puppet/5.5/install_windows.html).
 
 
 ## Cloud-init

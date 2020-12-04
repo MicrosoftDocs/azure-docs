@@ -66,7 +66,7 @@ For more information on how to configure Automated Backup for SQL VMs, see one o
 - **15-minute Recovery Point Objective (RPO)**: Configure SQL transaction log backups up to every 15 minutes.
 - **Point in time restore**: Use the portal to recover databases to a specific point in time without having to manually restore multiple full, differential, and log backups.
 - **Consolidated email alerts for failures**: Configure consolidated email notifications for any failures.
-- **Role-based access control**: Determine who can manage backup and restore operations through the portal.
+- **Azure role-based access control**: Determine who can manage backup and restore operations through the portal.
 
 For a quick overview of how it works along with a demo, watch the following video:
 

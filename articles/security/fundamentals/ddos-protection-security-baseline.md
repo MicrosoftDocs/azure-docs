@@ -160,11 +160,11 @@ Additionally, to help you keep track of dedicated administrative accounts, you c
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks 
 
-**Guidance**: Use a secure, Azure-managed workstation with Azure Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Customer Lockbox requests.
+**Guidance**: Use a secure, Azure-managed workstation with Azure AD Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Customer Lockbox requests.
 
 - [Deploy a secure, Azure-managed workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
 
-- [Planning a cloud-based Azure Multi-Factor Authentication deployment](../../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 

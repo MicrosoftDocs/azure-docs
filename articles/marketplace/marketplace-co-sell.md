@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/13/2020
+ms.date: 11/20/2020
 ---
 
 # Co-sell partner engagement
@@ -25,7 +25,7 @@ The Co-sell program is available for **software built with your intellectual pro
 
 Offers that attain **Azure IP Co-sell incentivized** status gain these additional marketplace benefits:
 
-- The marketplace service fee is reduced from 20% to 10%. This discount applies to your IaaS or SaaS offer sold through the commercial marketplace. For more information, see [Reduced Service Fee](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) for more details.
+- The marketplace service fee is reduced from 20% to 10%. This discount applies to your IaaS or SaaS offer sold through the commercial marketplace. For more information, see [Commercial marketplace service fees](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees) for more details.
 - Cloud Solution Provider (CSP) partners receive a 10% incentive to sell your IaaS or SaaS offer. Learn more about the CSP program at [Cloud Solution Provider program](cloud-solution-providers.md).
 - Sales of your offer through commercial marketplace will contribute towards customers’ Azure consumption commitments. Eligible customers will see the offer marked as **"Azure benefit eligible"** in Azure portal. For more details, see [Azure consumption commitment benefit](azure-consumption-commitment-benefit.md).
 - Offers that achieve **Azure IP Co-sell incentivized** or **Business Applications Co-sell incentivized** status will receive a **"Preferred solutions"** badge in the storefronts. The badge promotes an offer's quality, performance, and ability to address customer needs in a certain industry vertical or solution area. Learn more at [Preferred solutions in Microsoft AppSource and Azure Marketplace](preferred-solutions.md).
@@ -80,6 +80,13 @@ Start your Co-sell journey directly in Partner Center following the steps below.
         :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="This image shows the CED dropdown to request a Co-sell review.":::
 
     The CED will reach out to you to complete the process.
+
+## See your offer's Co-sell status
+
+For offers with the [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md), you can see your offer's current Co-sell status on the Offer Overview page:
+
+ :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="This image shows the current Co-sell status of offers.":::
+
 
 ## Next steps
 

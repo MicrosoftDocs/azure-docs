@@ -3,6 +3,7 @@ title: Azure Monitor for SAP Solutions overview and architecture| Microsoft Docs
 description: This article provides answers to frequently asked questions about Azure monitor for SAP solutions
 author: rdeltcheva
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch

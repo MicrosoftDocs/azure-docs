@@ -66,6 +66,9 @@ You can use a connection string to connect to an Azure Cosmos DB. This method on
 
       :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Screenshot of the Connect to Cosmos D B window, showing the API drop-down menu, the Connection String box and the Account label box.":::
 
+> [!NOTE]
+> If the Azure Storage Explorer shows that the Azure Cosmos DB connection string is in an invalid format, make sure that the connection string has a semicolon (`;`) at the end. An example of a valid Azure Cosmos DB connection string would be: `AccountEndpoint=https://accountname.documents.azure.com:443;AccountKey=accountkey==;`
+
 ## Use a local emulator to connect to Azure Cosmos DB
 
 Use the following steps to connect to an Azure Cosmos DB with an emulator. This method only supports SQL accounts.

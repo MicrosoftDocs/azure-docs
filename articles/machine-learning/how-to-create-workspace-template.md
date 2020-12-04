@@ -37,6 +37,10 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
     For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
+## Limitations
+
+* When creating a new workspace, you can either allow the workspace to create the Azure services it requires automatically or provide existing services. When providing existing services, these services must all be in the same Azure subscription as the workspace.
+
 ## Workspace Resource Manager template
 
 The Azure Resource Manager template used throughout this document can be found in the [201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) directory of the Azure quickstart templates GitHub repository.

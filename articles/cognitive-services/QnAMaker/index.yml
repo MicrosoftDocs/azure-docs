@@ -120,7 +120,7 @@ landingContent:
           - text: Authoring APIs
             url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
           - text: Generate Answer APIs
-            url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime
+            url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/Runtime
           - text: .Net SDK reference documentation
             url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
           - text: Azure PowerShell

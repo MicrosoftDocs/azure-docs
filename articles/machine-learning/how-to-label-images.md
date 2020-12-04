@@ -130,7 +130,7 @@ If your project is of type "Instance Segmentation (Polygon)," you'll specify one
 
 1. Select a tag for the polygon that you plan to create.
 1. Select the **Draw polygon region** tool ![Draw polygon region tool](./media/how-to-label-images/polygon-tool.png) or select "P."
-3. Click for each point in the polygon.  When you have completed the shape, double click to finish.
+1. Click for each point in the polygon.  When you have completed the shape, double click to finish.
 
     :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Create polygons for Cat and Dog":::
 
@@ -155,3 +155,5 @@ When you're done labeling, select your name in the upper-right corner of the lab
 ## Next steps
 
 * Learn to [train image classification models in Azure](./tutorial-train-models-with-aml.md)
+
+

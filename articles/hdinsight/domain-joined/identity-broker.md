@@ -133,6 +133,26 @@ curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application
 
 For using Beeline and Livy, you can also follow the samples codes provided [here](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) to setup your client to use OAuth and connect to the cluster.
 
+## FAQ
+### What app is created by HDInsight in AAD?
+For each cluster, a third party application will be registered in AAD with the cluster uri as the identifierUri (like `https://clustername.azurehdinsight.net`).
+
+### Why are users prompted for consent before using HIB enabled clusters?
+In AAD, consent is required for all third party applications before it can authenticate users or access data.
+
+### Can the consent be approved programatically?
+Microsoft Graph api allows you to automate the consent, see the [API documentation](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0)
+The sequence to automate the consent is:
+
+* Register an app and grant Application.ReadWrite.All permissions to the app, to access Microsoft Graph
+* After a cluster is created, query for the cluster app based on the identifier uri
+* Register consent for the app
+
+When the cluster is deleted, HDInsight delete the app and there is no need to cleanup any consent.
+
+ 
+
+
 ## Next steps
 
 * [Configure an HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](apache-domain-joined-configure-using-azure-adds.md)

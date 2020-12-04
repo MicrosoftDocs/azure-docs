@@ -25,13 +25,17 @@ In this quickstart, you run a service-side application and set up communication 
 
 * [Node.js 10+](https://nodejs.org).
 
+    You can verify the current version of Node.js on your development machine using the following command:
+
+    ```cmd/sh
+    node --version
+    ```
+
 * [A sample Node.js project](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
-You can verify the current version of Node.js on your development machine using the following command:
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-```cmd/sh
-node --version
-```
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -42,18 +46,6 @@ Microsoft Azure IoT Hub currently supports device streams as a [preview feature]
 > * Central US EUAP
 > * North Europe
 > * Southeast Asia
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### Add Azure IoT Extension
-
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) commands to Azure CLI.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Create an IoT hub
 

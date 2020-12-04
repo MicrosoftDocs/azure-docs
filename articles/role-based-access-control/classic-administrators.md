@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/22/2020
+ms.date: 11/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -95,25 +95,25 @@ For information that compares member users and guest users, see [What are the de
 
 Only the Account Administrator can change the Service Administrator for a subscription. By default, when you sign up for an Azure subscription, the Service Administrator is the same as the Account Administrator. The user with the Account Administrator role has no access to the Azure portal. The user with the Service Administrator role has full access to the Azure portal. If the Account Administrator and Service Administrator are the same user and you change the Service Administrator to a different user, then the Account Administrator loses access to Azure portal. However, the Account Administrator can always use Account Center to change the Service Administrator back to themselves.
 
-Follow these steps to change the Service Administrator in **Account Center**.
-
-### Account Center
+Follow these steps to change the Service Administrator in the Azure portal.
 
 1. Make sure your scenario is supported by checking the [limitations for changing the Service Administrator](#limitations-for-changing-the-service-administrator).
 
-1. Sign in to [Account Center](https://account.windowsazure.com/subscriptions) as the Account Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 
-1. Click a subscription.
+1. Open [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
 
-1. On the right side, click **Edit subscription details**.
+1. In the left navigation, click **Properties**.
 
-    ![Screenshot showing the Edit subscription button in Account Center](./media/classic-administrators/editsub.png)
+1. Click **Service Admin**.
 
-1. In the **SERVICE ADMINISTRATOR** box, enter the email address of the new Service Administrator.
+    ![Screenshot showing the subscription properties in the Azure portal](./media/classic-administrators/service-admin.png)
 
-    ![Screenshot showing the box to change the Service Admin email](./media/classic-administrators/change-service-admin.png)
+1. In the **Edit service admin** page, enter the email address for the new Service Administrator.
 
-1. Click the checkmark to save the change.
+    ![Screenshot showing the Edit service admin page](./media/classic-administrators/service-admin-edit.png)
+
+1. Click **OK** to save the change.
 
 ### Limitations for changing the Service Administrator
 
@@ -138,7 +138,7 @@ Follow these steps to view the Account Administrator.
 
 1. Open [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
 
-1. Click **Properties**.
+1. In the left navigation, click **Properties**.
 
     The Account Administrator of the subscription is displayed in the **Account Admin** box.
 

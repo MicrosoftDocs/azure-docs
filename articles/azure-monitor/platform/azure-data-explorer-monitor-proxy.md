@@ -56,7 +56,7 @@ You can run the queries using client tools that support Kusto queries, such as: 
 > * Database name should have the same name as the resource specified in the proxy cluster. Names are case sensitive.
 > * In cross cluster queries, make sure that the naming of Application Insights apps and Log Analytics workspaces is correct.
 >     * If names contain special characters, they're replaced by URL encoding in the proxy cluster name. 
->     * If names include characters that don't meet [KQL identifier name rules](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names), they are replaced by the dash **-** character.
+>     * If names include characters that don't meet [KQL identifier name rules](/azure/data-explorer/kusto/query/schema-entities/entity-names), they are replaced by the dash **-** character.
 
 ### Direct query from your Log Analytics or Application Insights proxy cluster
 
@@ -89,9 +89,9 @@ Cross-tenant queries aren't supported by Azure Data Explorer proxy. You are sign
 
 If the Azure Data Explorer resource is in Tenant 'A' and Log Analytics workspace is in Tenant 'B' use one of the following two methods:
 
-- Azure Data Explorer allows you to add roles for principals in different tenants. Add your user ID in Tenant 'B' as an authorized user on the Azure Data Explorer cluster. Validate the *['TrustedExternalTenant'](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* property on the Azure Data Explorer cluster contains Tenant 'B'. Run the cross-query fully in Tenant 'B'.
+- Azure Data Explorer allows you to add roles for principals in different tenants. Add your user ID in Tenant 'B' as an authorized user on the Azure Data Explorer cluster. Validate the *['TrustedExternalTenant'](/powershell/module/az.kusto/update-azkustocluster)* property on the Azure Data Explorer cluster contains Tenant 'B'. Run the cross-query fully in Tenant 'B'.
 
-- Use [Lighthouse](/azure/lighthouse/) to project the Azure Monitor resource into Tenant 'A'.
+- Use [Lighthouse](../../lighthouse/index.yml) to project the Azure Monitor resource into Tenant 'A'.
 
 ### Connect to Azure Data Explorer clusters from different tenants
 
@@ -129,4 +129,4 @@ The following syntax options are available when calling the Log Analytics or App
 ## Next steps
 
 - Read more about the [data structure of Log Analytics workspaces and Application Insights](data-platform-logs.md).
-- Learn to [write queries in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries).
+- Learn to [write queries in Azure Data Explorer](/azure/data-explorer/write-queries).

@@ -832,7 +832,7 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 - [IoT Hub security tokens](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 - [How to use managed identities for IoT Hub](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
-- [How to create a key vault](../key-vault/secrets/quick-create-portal.md)
+- [How to create a key vault](../key-vault/general/quick-create-portal.md)
 - [How to provide Key Vault authentication with a managed identity](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Yes

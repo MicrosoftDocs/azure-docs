@@ -24,7 +24,7 @@ As well as the built-in [Azure Defender protections](azure-defender.md), Azure S
 ## Threat protection for Azure network layer <a name="network-layer"></a>
 Security Center network-layer analytics are based on sample [IPFIX data](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), which are packet headers collected by Azure core routers. Based on this data feed, Security Center uses machine learning models to identify and flag malicious traffic activities. Security Center also uses the Microsoft Threat Intelligence database to enrich IP addresses.
 
-Some network configurations may restrict Security Center from generating alerts on suspicious network activity. For Security Center to generate network alerts, ensure that:
+Some network configurations restrict Security Center from generating alerts on suspicious network activity. For Security Center to generate network alerts, ensure that:
 - Your virtual machine has a public IP address (or is on a load balancer with a public IP address).
 - Your virtual machine's network egress traffic isn't blocked by an external IDS solution.
 

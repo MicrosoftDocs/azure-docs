@@ -2,13 +2,15 @@
 title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 11/24/2020
 ---
 # Parameters in Azure Resource Manager templates
 
 This article describes how to define and use parameters in your Azure Resource Manager template. By providing different values for parameters, you can reuse a template for different environments.
 
 Resource Manager resolves parameter values before starting the deployment operations. Wherever the parameter is used in the template, Resource Manager replaces it with the resolved value.
+
+Each parameter must be set to one of the [data types](template-syntax.md#data-types).
 
 ## Define parameter
 

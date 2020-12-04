@@ -3,7 +3,7 @@ title: Configure monitoring for Azure Functions
 description: Learn how to connect your function app to Application Insights for monitoring and how to configure data collection.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: "contperfq2"
+ms.custom: "contperfq2, devx-track-azurecli"
 # Customer intent: As a developer, I want to understand how to correctly configure monitoring for my functions so I can collect the data that I need.
 ---
 
@@ -226,7 +226,7 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
-When you create your function app [in the Azure portal](functions-create-first-azure-function.md), from the command line by using [Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md), or by using [Visual Studio Code](functions-create-first-function-vs-code.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
+When you create your function app [in the Azure portal](functions-create-first-azure-function.md), from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md), or by using [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
 
 ### New function app in the portal
 

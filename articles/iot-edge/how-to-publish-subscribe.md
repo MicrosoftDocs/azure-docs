@@ -205,7 +205,7 @@ Now that you understand how to connect to the IoT Edge MQTT broker, let's see ho
 
 ## Publish and subscribe on user-defined topics
 
-In this article, you'll use one client named **sub_client** that subscribes to a topic and another client named **pub_client** that publishes to a topic. We'll use the [symmetric key authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication) but the same can be done with [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) or [X.509 self-signed authentication](./how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
+In this article, you'll use one client named **sub_client** that subscribes to a topic and another client named **pub_client** that publishes to a topic. We'll use the [symmetric key authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication) but the same can be done with [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) or [X.509 CA-signed authentication](./how-to-authenticate-downstream-device.md#x509-ca-signed-authentication).
 
 ### Create publisher and subscriber clients
 

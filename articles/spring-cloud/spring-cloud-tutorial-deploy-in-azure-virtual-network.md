@@ -26,6 +26,7 @@ You must register Azure Spring Cloud resource provider *Microsoft.AppPlatform* a
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
+az provider register --namespace Microsoft.ContainerService
 ```
 ## Virtual network requirements
 The virtual network to which you deploy your Azure Spring Cloud service instance must meet the following requirements:

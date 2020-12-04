@@ -382,7 +382,7 @@ If you are using Infrastructure as Code, avoid storing passwords in code and ins
 
 - [How to secure and access data in Logic Apps](logic-apps-securing-a-logic-app.md)
 
-- [How to set and retrieve a secret from Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [How to set and retrieve a secret from Azure Key Vault](../key-vault/general/quick-create-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 

@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 # Tutorial: Use a Web App Bot enabled with Language Understanding in Node.js
 
-Use Node.js to build a chat bot integrated with language understanding (LUIS). The bot is built with the Azure [Web app bot](https://docs.microsoft.com/azure/bot-service/) resource and [Bot Framework version](https://github.com/Microsoft/botbuilder-dotnet) V4.
+Use Node.js to build a chat bot integrated with language understanding (LUIS). The bot is built with the Azure [Web app bot](/azure/bot-service/) resource and [Bot Framework version](https://github.com/Microsoft/botbuilder-dotnet) V4.
 
 **In this tutorial, you learn how to:**
 
@@ -390,4 +390,4 @@ Ask bot a question for the Book Flight intent.
 See more [samples](https://github.com/microsoft/botframework-solutions) with conversational bots.
 
 > [!div class="nextstepaction"]
-> [Build a Language Understanding app with a custom subject domain](luis-quickstart-intents-only.md)
+> [Build a Language Understanding app with a custom subject domain](./tutorial-intents-only.md)
