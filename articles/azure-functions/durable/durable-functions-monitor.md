@@ -67,6 +67,8 @@ Here is the code that implements the function:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
+# [Python](#tab/python)
+We have a different tutorial for the monitoring pattern on Python, please see it [here](durable-functions-monitor-python.md).
 ---
 
 This orchestrator function performs the following actions:
@@ -98,6 +100,8 @@ And here is the implementation.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
+# [Python](#tab/python)
+We have a different tutorial for the monitoring pattern on Python, please see it [here](durable-functions-monitor-python.md).
 ---
 
 ### E3_SendGoodWeatherAlert activity function
@@ -121,6 +125,8 @@ And here is the code that sends the SMS message:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
+# [Python](#tab/python)
+We have a different tutorial for the monitoring pattern on Python, please see it [here](durable-functions-monitor-python.md).
 ---
 
 ## Run the sample
