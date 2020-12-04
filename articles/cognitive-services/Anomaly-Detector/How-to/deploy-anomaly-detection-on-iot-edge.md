@@ -76,7 +76,7 @@ For an Azure VM, this can set under **Virtual Machine** > **Settings** > **Netwo
 There are several ways to validate that the module is running. Locate the *External IP* address and exposed port of the edge device in question, and open your favorite web browser. Use the various request URLs below to validate the container is running. The example request URLs listed below are `http://<your-edge-device-ipaddress:5000`, but your specific container may vary. Keep in mind that you need to use your edge device's *External IP* address.
 
 | Request URL | Purpose |
-|--|--|
+|:-------------|:---------|
 | `http://<your-edge-device-ipaddress>:5000/` | The container provides a home page. |
 | ``http://<your-edge-device-ipaddress>:5000/status` | Also requested with GET, this verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes [liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
 | `http://<your-edge-device-ipaddress>:5000/swagger` | The container provides a full set of documentation for the endpoints and a **Try it out** feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required. |
