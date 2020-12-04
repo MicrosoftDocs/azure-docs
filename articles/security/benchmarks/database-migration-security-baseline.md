@@ -34,6 +34,8 @@ To see how Azure Database Migration Service completely maps to the Azure Securit
 
 Azure Database Migration Service uses TLS 1.2 by default. If needed for backward compatibility for the data source being migrated, support for TLS 1.0 or TLS 1.1 can be enabled in the service configuration blade of your Azure Database Migration Service.
 
+Use Azure Sentinel to discover the use of legacy insecure protocols such as SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, Unsigned LDAP Binds, and weak ciphers in Kerberos.
+
 - [How to create a network security group with security rules](../../virtual-network/tutorial-filter-network-traffic.md)
 
  
@@ -41,8 +43,6 @@ Azure Database Migration Service uses TLS 1.2 by default. If needed for backward
 - [How to deploy and configure Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md) 
 
 - [Follow pre-requisite documentation for ports to be open for Azure Database Migration Service here](../../dms/pre-reqs.md#prerequisites-common-across-migration-scenarios)
-
-Use Azure Sentinel to discover the use of legacy insecure protocols such as SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, Unsigned LDAP Binds, and weak ciphers in Kerberos.
 
 - [Azure Sentinel insecure protocols workbook](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
 
@@ -72,15 +72,9 @@ Use Azure Sentinel to discover the use of legacy insecure protocols such as SSL/
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39956).
 
-**Guidance**: Use Azure Private Link to enable private access to Azure Database Migration Service, such as Azure SQL Server, or other required services from your virtual networks, without crossing the internet. In situations where Azure Private Link is not yet available, use Azure Virtual Network service endpoints.  Azure Virtual Network service endpoints provide secure access to services via an optimized route over the Azure backbone network.  
+**Guidance**: Where applicable, use Azure Private Link to enable private access to source and destination services such as Azure SQL Server, or other required services during migration.  In situations where Azure Private Link is not yet available, use Azure Virtual Network service endpoints.  Both Azure Private Link and service endpoints provide secure access to services via an optimized route over the Azure backbone network without crossing the internet.  
 
-Where Private Link is available, use private endpoints to secure any resources being linked to your Azure Database Migration Service. With Private Link, traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
-
-Make sure the prerequisites are fulfilled before provisioning Azure Database Migration Service on your virtual network, including the communication ports that need to be allowed. 
-
-Azure Database Migration Service does not not provide the capability to configure Service Endpoints.
-
-Azure Database Migration Service does not allow for its management endpoints to be secure to a private network with the Private Link service.
+In addition, make sure the prerequisites are fulfilled before provisioning Azure Database Migration Service on your virtual network, including the communication ports that need to be allowed. 
 
 - [Overview of prerequisites for using the Azure Database Migration Service](../../dms/pre-reqs.md)
 
@@ -166,7 +160,7 @@ Your organization's resources, such as applications on Azure or your corporate n
 
 Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
 
-Note: Azure AD supports external identity that allow users without a Microsoft account to sign-in to their applications and resources with their external identity.
+Note: Azure AD supports external identities that allow users without a Microsoft account to sign in to their applications and resources with their external identity.
 
 - [Tenancy in Azure Active Directory](../../active-directory/develop/single-and-multi-tenant-apps.md) 
 
@@ -189,7 +183,7 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 
 It is recommended to remove this Application ID once the migrations are complete.
 
-- [How Application ID is used in the Online migration mode ](../../dms/tutorial-sql-server-managed-instance-online.md.) 
+- [How Application ID is used in the Online migration mode](../../dms/tutorial-sql-server-managed-instance-online.md)
 
 - [Custom roles for SQL Server to Azure SQL Managed Instance online migrations](../../dms/resource-custom-roles-sql-db-managed-instance.md)
 
@@ -220,7 +214,7 @@ Multifactor authentication - Enable Azure AD multifactor authentication and foll
 
 Passwordless authentication – Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
 
-For administrator and privileged users, ensure the highest level of the strong authentication method are used, followed by rolling out the appropriate strong authentication policy to other users.
+For administrator and privileged users, ensure the strongest level of authentication is used, followed by rolling out the appropriate strong authentication policy to other users.
 
 - [How to enable multifactor authentication in Azure](../../active-directory/authentication/howto-mfa-getstarted.md) 
 
@@ -248,7 +242,7 @@ Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that migh
 
 Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
-These data sources can be integrated with Azure Monitor, Azure Sentinel or third party SIEM systems.
+These data sources can be integrated with Azure Monitor, Azure Sentinel or third-party SIEM systems.
 
 Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription.
 
@@ -292,7 +286,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39946).
 
-**Guidance**: Azure Database Migration Service allows customers to deploy/run code or configurations or persisted data potentially with identities/secretes, it is recommend to implement Credential Scanner to identify credentials within code or configurations or persisted data. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
+**Guidance**: Azure Database Migration Service allows customers to deploy/run code or configurations or persisted data potentially with identities/secretes, it is recommended to implement Credential Scanner to identify credentials within code or configurations or persisted data. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
 If GitHub is used, you can use native secret scanning feature to identify credentials or other form of secrets within the code.
 
@@ -355,9 +349,10 @@ If GitHub is used, you can use native secret scanning feature to identify creden
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39949).
 
-**Guidance**: Azure Database Migration service requires users to create an Application ID (Service Principle) and authentication key in Azure Active Directory for migrations to Azure SQL Database Managed Instance in 'Online' mode. It is recommended to remove this Application ID once the migrations are complete.
+**Guidance**: Azure Database Migration service requires users to create an Application ID (service principle) and authentication key in Azure Active Directory for migrations to Azure SQL Database Managed Instance in 'Online' mode. It is recommended to remove this Application ID once the migrations are complete.
 
-- [How Application ID is used in the Online migration mode ](../../dms/tutorial-sql-server-managed-instance-online.md.) 
+- [How Application ID is used in the Online migration mode](../../dms/tutorial-sql-server-managed-instance-online.md)
+
 - [Custom roles for SQL Server to Azure SQL Managed Instance online migrations](../../dms/resource-custom-roles-sql-db-managed-instance.md)
 
 **Azure Security Center monitoring**: Currently not available
@@ -454,7 +449,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not Applicable; Azure Database Migration Service does not provide native data classification, discovery or labelling feature.
+**Guidance**: Not Applicable; Azure Database Migration Service does not provide native data classification, discovery or labeling feature.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -522,7 +517,7 @@ At the underlying infrastructure, Azure provides data in transit encryption by d
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Database Migration Service does not persist any customer accessible data. Data is stored only for transient purposes before being written to the target data platform. Because of this you can not leverage data protection features with the offering's resources such as access controls, encryption at rest, and enforcement of security controls with automated tools.
+**Guidance**: Azure Database Migration Service does not persist any customer accessible data. Data is stored only for transient purposes before being written to the target data platform. Because of this you cannot leverage data protection features with the offering's resources such as access controls, encryption at rest, and enforcement of security controls with automated tools.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -597,7 +592,7 @@ Azure Database Migration Service does not allow running an application or instal
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable. The Azure Database Migration Service can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact.  It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
+**Guidance**: Not applicable. The Azure Database Migration Service cannot be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact.  It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -663,7 +658,7 @@ Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that migh
 
 Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
-Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources.
+Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability gives you visibility on account anomalies inside the individual resources.
 
 Audit activity reports in the Azure Active Directory
 ../../active-directory/reports-monitoring/concept-audit-logs.md 
@@ -779,7 +774,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 - [Incident response reference guide](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -792,7 +787,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 - [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -857,7 +852,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
-Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
@@ -1019,7 +1014,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not Applicable; Azure Database Migration Service is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection. And Azure Database Migration Service does not provide any of it's specific capabilities for EDR processes. Because of this, there will be no guidance or feedback into EDR processes for this offering.
+**Guidance**: Not Applicable; Azure Database Migration Service is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection. And Azure Database Migration Service does not provide any of its specific capabilities for EDR processes. Because of this, there will be no guidance or feedback into EDR processes for this offering.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1033,7 +1028,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not Applicable; Azure Database Migration Service or its resources do not interact with virtual machines, containers and/or storage which require anti-malware protection. Thus, there is no need for any configuration changes, additional settings or deployment of any extra services to protect it from malware.
+**Guidance**: Not Applicable; Azure Database Migration Service or its resources do not interact with virtual machines, containers and/or storage which requires anti-malware protection. Thus, there is no need for any configuration changes, additional settings or deployment of any extra services to protect it from malware.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1137,7 +1132,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Required access control strategy in accordance with organizational data classification
 
--	Use of Azure native and third party data protection capabilities
+-	Use of Azure native and third-party data protection capabilities
 
 -	Data encryption requirements for in-transit and at-rest use cases
 
