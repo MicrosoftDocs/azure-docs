@@ -60,7 +60,7 @@ Azure Logic Apps (Preview) includes many current and additional capabilities, fo
 
   * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to built-in triggers and actions, which are native to the Logic Apps runtime, for example, the Request trigger and HTTP action. For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
-  * You can use the B2B Liquid and XML operations without an integration account. You need to have Liquid maps, XML maps, or XML schemas that you can either upload through the respective actions in the Azure portal or add to your Visual Studio Code project's **Artifacts** folder using the respective **Maps** and **Schemas** folders.
+  * You can use the B2B actions for Liquid Operations and XML Operations without an integration account. To use these actions, you need to have Liquid maps, XML maps, or XML schemas that you can upload through the respective actions in the Azure portal or add to your Visual Studio Code project's **Artifacts** folder using the respective **Maps** and **Schemas** folders.
 
   * Create and deploy logic apps that can run anywhere because the Azure Logic Apps service generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. The Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
@@ -135,7 +135,7 @@ In this public preview, these capabilities are currently limited, unsupported, o
 
   1. Enable the new designer by selecting the **New Canvas** control again.
 
-* **Zoom control**: This control is currently unavailable on the designer.
+* **Zoom control**: The zoom control is currently unavailable on the designer.
 
 <a name="nested-behavior"></a>
 

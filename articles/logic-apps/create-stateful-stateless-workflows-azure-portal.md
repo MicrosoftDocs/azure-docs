@@ -387,6 +387,48 @@ To delete an item in your workflow from the designer, follow any of these steps:
   > If the ellipses menu isn't visible, expand your browser window wide enough so that the details 
   > pane shows the ellipses (**...**) button in the upper right corner.
 
+<a name="troubleshoot"></a>
+
+## Troubleshoot problems and errors
+
+<a name="missing-triggers-actions"></a>
+
+### Azure Functions, Liquid Operations, and XML Operations don't appear in the designer
+
+Azure Logic Apps (Preview) supports built-in actions for Azure Functions, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, these actions won't appear in the designer if your logic app uses an outdated version of the `Microsoft.Azure.Functions.Extension.Bundle.Workflows` file.
+
+To fix this problem, follow these steps to delete the outdated version, which forces the portal to get the latest version:
+
+1. In the Azure portal, stop your logic app.
+
+   1. On your logic app menu, select **Overview**.
+
+   1. On the **Overview** pane's toolbar, select **Stop**.
+
+1. On your logic app menu, under **Development Tools**, select **Advanced Tools**.
+
+1. On the **Advanced Tools** pane, select **Go ->**, which opens the Kudu environment for your logic app.
+
+1. On the Kudu toolbar, open the **Debug console** menu, and select **CMD**. 
+
+   A console window opens so that you can browse to the file using the command prompt. Or, you can browse the directory structure that appears the console window.
+
+1. Browse to the following folder:
+
+   `...\home\data\Functions\ExtensionBundles\Microsoft.Azure.Functions.Extension.Bundle.Workflows`
+
+1. Delete the current version of the bundle. For example, in the console window, run this command where you replace `{bundle-version}` with the existing version:
+
+   `rm -rf {bundle-version}` 
+
+   > [!TIP]
+   > If you get an error such as "permission denied" or "file in use", refresh the page in your browser, 
+   > and try the previous steps again until the folder is deleted.
+
+1. In the Azure portal, return to your logic app's **Overview** page, and select **Start**.
+
+   The portal automatically downloads and uses the latest bundle.
+
 ## Next steps
 
 We'd like to hear from you about your experiences with this public preview!
