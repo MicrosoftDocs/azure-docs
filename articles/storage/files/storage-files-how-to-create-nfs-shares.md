@@ -81,8 +81,7 @@ Currently, only FileStorage accounts can create NFS shares.
 
 # [Portal](#tab/azure-portal)
 
-To verify what kind of storage account you have, navigate to it in the Azure portal.
-Once you're in your storage account, select **Properties**. From the properties blade, examine the value under **Account kind**, the value should be **FileStorage**.
+To verify what kind of storage account you have, navigate to it in the Azure portal. Then, from your storage account, select **Properties**. From the properties blade, examine the value under **Account kind**, the value should be **FileStorage**.
 
 # [PowerShell](#tab/azure-powershell)
 To verify you have a FileStorage account, you can use the following command:
