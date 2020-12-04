@@ -15,7 +15,6 @@ Custom handlers can be used to create functions in any language or runtime by ru
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-
 ## Configure your environment
 
 Before you get started, make sure you have the following requirements in place:
