@@ -565,7 +565,7 @@ Azure Lighthouse supports Impact Level 5 workloads in Azure Government with no a
 
 Azure Managed Applications supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- You can store your managed application definition in a storage account that you provide during creation so that you can manage its location and access for your regulatory needs. (https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-service-catalog-app#bring-your-own-storage-for-the-managed-application-definition)
+- You can store your managed application definition in a storage account that you provide when you create the application so that you can manage its location and access for your regulatory needs. (https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-service-catalog-app#bring-your-own-storage-for-the-managed-application-definition)
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
