@@ -25199,7 +25199,7 @@
     },
     {
       "source_path": "articles/active-directory/develop/v1-protocols-openid-connect-code.md",
-      "redirect_url": "/azure/active-directory/develop/active-directory-v2-protocols",
+      "redirect_url": "/azure/active-directory/develop/v2-protocols-oidc",
       "redirect_document_id": true
     },
     {
@@ -25619,7 +25619,7 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-protocols-oauth-code.md",
-      "redirect_url": "/azure/active-directory/develop/active-directory-protocols-oauth-code",
+      "redirect_url": "/azure/active-directory/develop/v2-oauth2-auth-code-flow",
       "redirect_document_id": false
     },
     {
