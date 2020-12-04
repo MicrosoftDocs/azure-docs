@@ -28,7 +28,7 @@ Use these [Microsoft Azure Active Directory Module for Windows PowerShell](https
 
 ## Basic setup
 
-### Enable Tenant Flags
+### Enable tenant flags
 
  ```PowerShell
  Connect-MsolService ('-AzureEnvironment <AzureEnvironmnet>')
@@ -36,7 +36,7 @@ Use these [Microsoft Azure Active Directory Module for Windows PowerShell](https
  ```
 The first of those two commands, require Azure Active Directory credentials. These commandlets implicitly identify the tenant and enable it for synchronization.
 
-## Create Service Principals
+## Create service principals
 Next, we need to create the [AD2AAD application/ service principal](https://docs.microsoft.com/graph/apiapplicationtemplate-instantiate?view=graph-rest-beta&tabs=http)
 
 You need to use this application ID 1a4721b3-e57f-4451-ae87-ef078703ec94. The displayName is the AD domain url, if used in the portal (for example, contoso.com), but it may be named something else.
@@ -50,7 +50,7 @@ You need to use this application ID 1a4721b3-e57f-4451-ae87-ef078703ec94. The di
  ```
 
 
-## Create Sync Job
+## Create sync job
 The output of the above command will return the objectId of the service principal that was created. For this example, the objectId is 614ac0e9-a59b-481f-bd8f-79a73d167e1c.  Use Microsoft Graph to add a synchronizationJob to that service principal.  
 
 Documentation for creating a sync job can be found [here](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http).
