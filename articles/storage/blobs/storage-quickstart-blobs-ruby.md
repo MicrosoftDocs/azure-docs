@@ -4,7 +4,7 @@ description: Create a storage account and a container in Azure Blob Storage. Use
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 12/03/2020
+ms.date: 12/04/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -12,7 +12,7 @@ ms.topic: quickstart
 
 # Quickstart: Azure Blob Storage client library for Ruby
 
-In this quickstart, you learn how to use Ruby to create, download, and list block blobs in a container in Microsoft Azure Blob Storage.
+Learn how to use Ruby to create, download, and list blobs in a container in Microsoft Azure Blob Storage.
 
 ## Prerequisites
 
@@ -37,42 +37,53 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git
 ```
 
-This command clones the repository to your local git folder. To open the Ruby sample application, look for the storage-blobs-ruby-quickstart folder, and open the example.rb file.
+This command clones the repository to your local machine. To open the Ruby sample application, navigate to the *storage-blobs-ruby-quickstart* folder, and open the *example.rb* file.
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## Configure your storage connection string
 
-In the application, you must provide your storage account name and account key to create a [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) instance for your application. Open the *example.rb* file in your IDE. Replace the *accountname* and *accountkey* values with your account name and key.
+Provide your storage account name and account key to create a [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) instance for your application. Open the *example.rb* file in your code editor.
+
+The following code instantiates a new [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) object. Replace the *accountname* and *accountkey* values with your account name and key.
 
 ```ruby
-blob_client = Azure::Storage::Blob::BlobService.create(
-            storage_account_name: account_name,
-            storage_access_key: account_key
-          )
+# Create a BlobService object
+account_name = "accountname"
+account_key = "accountkey"
+
+    blob_client = Azure::Storage::Blob::BlobService.create(
+    storage_account_name: account_name,
+    storage_access_key: account_key
+)
 ```
 
 ## Run the sample
 
-This sample creates a container in Blob Storage, creates a new blob in the container, lists the blobs in the container, and downloads the blob to a local file.
+The sample creates a container in Blob Storage, creates a new blob in the container, lists the blobs in the container, and downloads the blob to a local file.
 
-Run the sample. The following output is an example of the output returned when running the application:
+Run the sample. Here is an example of the output returned when running the application:
 
 ```console
-Creating a container: quickstartblobs4c3bbac6-d379-462a-a2e1-e974c4c2e0f2
+C:\azure-samples\storage-blobs-ruby-quickstart> ruby example.rb
+
+Creating a container: quickstartblobs18cd9ec0-f4ac-4688-a979-75c31a70503e
+
+Creating blob: QuickStart_6f8f29a8-879a-41fb-9db2-0b8595180728.txt
 
 List blobs in the container following continuation token
-        Blob name QuickStart_170e7d73-54ac-486e-914a-c676b9baa0e6.txt
+        Blob name: QuickStart_6f8f29a8-879a-41fb-9db2-0b8595180728.txt
 
-Downloading blob to C:/Users/azureuser/Documents/QuickStart_170e7d73-54ac-486e-914a-c676b9baa0e6.txt
-Sample finished running. Hit <any key>, to delete resources created by the sample and exit the application
+Downloading blob to C:/Users/azureuser/Documents/QuickStart_6f8f29a8-879a-41fb-9db2-0b8595180728.txt
+
+Paused, press the Enter key to delete resources created by the sample and exit the application
 ```
 
-When you press any key to continue, the sample program deletes the storage container and the local file. Before you continue, check your 'Documents' folder for the downloaded file.
+When you press Enter to continue, the sample program deletes the storage container and the local file. Before you continue, check your *Documents* folder for the downloaded file.
 
 You can also use [Azure Storage Explorer](https://storageexplorer.com) to view the files in your storage account. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information.
 
-After you've verified the files, hit any key to delete the test files and end the demo. Open the *example.rb* file to look at the code.
+After you've verified the files, press the Enter key to delete the test files and end the demo. Open the *example.rb* file to look at the code.
 
 ## Understand the sample code
 
@@ -90,22 +101,15 @@ Once you have the container client, you can create the [Block](https://www.rubyd
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about container and blob names, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-In this section, you:
+The following example code:
 
-- Instantiate a new [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) object
-- Create a new container
-- Set permissions on the container so the blobs are public. The container is called *quickstart blobs* with a unique ID appended.
+- Creates a new container
+- Sets permissions on the container so the blobs are public. The container is called *quickstartblobs* with a unique ID appended.
 
 ```ruby
-# Create a BlobService object
-blob_client = Azure::Storage::Blob::BlobService.create(
-    storage_account_name: account_name,
-    storage_access_key: account_key
-)
-
-# Create a container called 'quickstartblobs'
-container_name = 'quickstartblobs' + SecureRandom.uuid
-puts "Creating a container: " + container_name
+# Create a container
+container_name = "quickstartblobs" + SecureRandom.uuid
+puts "\nCreating a container: " + container_name
 container = blob_client.create_container(container_name)
 
 # Set the permission so the blobs are public
@@ -114,14 +118,16 @@ blob_client.set_container_acl(container_name, "container")
 
 ### Create a blob in the container
 
-Blob Storage supports block blobs, append blobs, and page blobs. To create a blob, call the [create_block_blob](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob#create_block_blob-instance_method) method passing in the data for the blob. The following example creates a blob in your container called *quickstartblobs* with a unique ID and a *.txt* file extension.
+Blob Storage supports block blobs, append blobs, and page blobs. To create a blob, call the [create_block_blob](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob#create_block_blob-instance_method) method passing in the data for the blob.
+
+The following example creates a blob in your container called *quickstartblobs* with a unique ID and a *.txt* file extension.
 
 ```ruby
-blob_name = "QuickStart_" + SecureRandom.uuid + ".txt"
-blob_contents = "Hello, World!"
-
 # Create a new block blob containing 'Hello, World!'
-blob_client.create_block_blob(container.name, blob_name, blob_contents)
+blob_name = "QuickStart_" + SecureRandom.uuid + ".txt"
+blob_data = "Hello, World!"
+puts "\nCreating blob: " + blob_name
+blob_client.create_block_blob(container.name, blob_name, blob_data)
 ```
 
 Block blobs can be as large as 4.7 TB, and can be anything from Excel spreadsheets to large video files. Page blobs are primarily used for the VHD files that back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Append blob should be used in a single writer model. Most objects stored in Blob Storage are block blobs.
@@ -137,7 +143,7 @@ nextMarker = nil
 loop do
     blobs = blob_client.list_blobs(container_name, { marker: nextMarker })
     blobs.each do |blob|
-        puts "\tBlob name #{blob.name}"
+        puts "\tBlob name: #{blob.name}"
     end
     nextMarker = blobs.continuation_token
     break unless nextMarker && !nextMarker.empty?
@@ -175,6 +181,7 @@ If the blob is no longer needed, use the [delete_blob](https://www.rubydoc.info/
 blob_client.delete_container(container_name)
 File.delete(full_path_to_file)
 ```
+
 ## Resources for developing Ruby applications with blobs
 
 See these additional resources for Ruby development:
@@ -188,6 +195,5 @@ In this quickstart, you learned how to transfer files between Azure Blob Storage
 
 > [!div class="nextstepaction"]
 > [Storage account overview](../common/storage-account-overview.md)
-
 
 For more information about the Storage Explorer and Blobs, see [Manage Azure Blob Storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
