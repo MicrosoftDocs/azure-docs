@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 10/30/2020
+ms.date: 12/04/2020
 ---
 
 # Migration of co-sell solutions from OCP GTM to the commercial marketplace
@@ -51,7 +51,7 @@ Follow these steps before importing your solutions from OCP GTM:
 
 ## Migrate your solutions from OCP GTM
 
-1. Start by signing in to OCP GTM.
+1. Begin the migration [here](https://partner.microsoft.com/solutions/migration#).
 2. Select the **Overview** page, then **Click here to get started**.
 
     :::image type="content" source="media/co-sell-migrate/migration-overview.png" alt-text="Partner Center Overview page, Overview tab.":::
