@@ -691,6 +691,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/shared-image-galleries.md",
+      "redirect_url": "/azure/virtual-machines/shared-image-galleries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/shared-image-galleries.md",
+      "redirect_url": "/azure/virtual-machines/shared-image-galleries",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/troubleshooting-shared-images.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting-shared-images",
       "redirect_document_id": false

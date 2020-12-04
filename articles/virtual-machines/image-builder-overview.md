@@ -12,7 +12,7 @@ ms.reviewer: cynthn
 
 # Preview: Azure Image Builder overview
 
-[!INCLUDE [virtual-machines-image-builder-overview](../../../includes/virtual-Standardized virtual machine (VM) images allow organizations to migrate to the cloud and ensure consistency in the deployments. Images typically include predefined security and configuration settings and necessary software. Setting up your own imaging pipeline requires time, infrastructure and setup, but with Azure VM Image Builder, just provide a simple configuration describing your image, submit it to the service, and the image is built, and distributed.
+Standardized virtual machine (VM) images allow organizations to migrate to the cloud and ensure consistency in the deployments. Images typically include predefined security and configuration settings and necessary software. Setting up your own imaging pipeline requires time, infrastructure and setup, but with Azure VM Image Builder, just provide a simple configuration describing your image, submit it to the service, and the image is built, and distributed.
  
 The Azure VM Image Builder (Azure Image Builder) lets you start with a Windows or Linux-based Azure Marketplace image, existing custom images or Red Hat Enterprise Linux (RHEL) ISO and begin to add your own customizations. Because the Image Builder is built on [HashiCorp Packer](https://packer.io/), you can also import your existing Packer shell provisioner scripts. You can also specify where you would like your images hosted, in the [Azure Shared Image Gallery](shared-image-galleries.md), as a managed image or a VHD.
 
@@ -65,7 +65,7 @@ The Azure Image Builder is a fully managed Azure service that is accessible by a
 
 **Image Builder process** 
 
-![Conceptual drawing of the Azure Image Builder process](./media/virtual-machines-image-builder-overview/image-builder-process.png)
+![Conceptual drawing of the Azure Image Builder process](./media/image-builder-overview/image-builder-process.png)
 
 1. Create the Image Template as a .json file. This .json file contains information about the image source, customizations, and distribution. There are multiple examples in the [Azure Image Builder GitHub repository](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 1. Submit it to the service, this will create an Image Template artifact in the resource group you specify. In the background, Image Builder will download the source image or ISO, and scripts as needed. These are stored in a separate resource group that is automatically created in your subscription, in the format: IT_\<DestinationResourceGroup>_\<TemplateName>. 
@@ -102,4 +102,4 @@ Image Builder currently only natively supports creating Hyper-V generation (Gen1
 ## Next steps 
  
 To try out the Azure Image Builder, see the articles for building [Linux](./linux/image-builder.md) or [Windows](./windows/image-builder.md) images.
-machines-image-builder-overview.md)]
+
