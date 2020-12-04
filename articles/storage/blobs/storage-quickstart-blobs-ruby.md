@@ -21,7 +21,7 @@ Learn how to use Ruby to create, download, and list blobs in a container in Micr
 Make sure you have the following additional prerequisites installed:
 
 - [Ruby](https://www.ruby-lang.org/en/downloads/)
-- [Azure Storage library for Ruby](https://github.com/azure/azure-storage-ruby), using the ruby gem package:
+- [Azure Storage library for Ruby](https://github.com/azure/azure-storage-ruby), using the [RubyGem package](https://rubygems.org/gems/azure-storage-blob):
 
     ```console
     gem install azure-storage-blob
@@ -31,21 +31,21 @@ Make sure you have the following additional prerequisites installed:
 
 The [sample application](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git) used in this quickstart is a basic Ruby application.
 
-Use [git](https://git-scm.com/) to download a copy of the application to your development environment.
+Use [Git](https://git-scm.com/) to download a copy of the application to your development environment. This command clones the repository to your local machine:
 
 ```console
 git clone https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git
 ```
 
-This command clones the repository to your local machine. To open the Ruby sample application, navigate to the *storage-blobs-ruby-quickstart* folder, and open the *example.rb* file.
+Navigate to the *storage-blobs-ruby-quickstart* folder, and open the *example.rb* file in your code editor.
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## Configure your storage connection string
 
-Provide your storage account name and account key to create a [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) instance for your application. Open the *example.rb* file in your code editor.
+Provide your storage account name and account key to create a [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) instance for your application.
 
-The following code instantiates a new [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) object. Replace the *accountname* and *accountkey* values with your account name and key.
+The following code in the *example.rb* file instantiates a new [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) object. Replace the *accountname* and *accountkey* values with your account name and key.
 
 ```ruby
 # Create a BlobService object
@@ -62,7 +62,7 @@ account_key = "accountkey"
 
 The sample creates a container in Blob Storage, creates a new blob in the container, lists the blobs in the container, and downloads the blob to a local file.
 
-Run the sample. Here is an example of the output returned when running the application:
+Run the sample. Here is an example of the output from running the application:
 
 ```console
 C:\azure-samples\storage-blobs-ruby-quickstart> ruby example.rb
@@ -91,12 +91,12 @@ Next, we walk through the sample code so you can understand how it works.
 
 ### Get references to the storage objects
 
-The first thing to do is create the references to the objects used to access and manage Blob Storage. These objects build on each other. Each is used by the next one in the list.
+The first thing to do is create instances of the objects used to access and manage Blob Storage. These objects build on each other. Each is used by the next one in the list.
 
 - Create an instance of the Azure storage [BlobService](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/BlobService) object to set up connection credentials.
 - Create the [Container](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Container/Container) object, which represents the container you're accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
 
-Once you have the container client, you can create the [Block](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Block) blob object that points to a specific blob in which you're interested. Use a [Block](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Block) object to create, download, and copy blobs.
+Once you have the container object, you can create a [Block](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Block) blob object that points to a specific blob in which you're interested. Use the [Block](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Block) object to create, download, and copy blobs.
 
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about container and blob names, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -120,7 +120,7 @@ blob_client.set_container_acl(container_name, "container")
 
 Blob Storage supports block blobs, append blobs, and page blobs. To create a blob, call the [create_block_blob](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob#create_block_blob-instance_method) method passing in the data for the blob.
 
-The following example creates a blob in your container called *quickstartblobs* with a unique ID and a *.txt* file extension.
+The following example creates a blob called *QuickStart_* with a unique ID and a *.txt* file extension in the container created earlier.
 
 ```ruby
 # Create a new block blob containing 'Hello, World!'
@@ -130,7 +130,7 @@ puts "\nCreating blob: " + blob_name
 blob_client.create_block_blob(container.name, blob_name, blob_data)
 ```
 
-Block blobs can be as large as 4.7 TB, and can be anything from Excel spreadsheets to large video files. Page blobs are primarily used for the VHD files that back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Append blob should be used in a single writer model. Most objects stored in Blob Storage are block blobs.
+Block blobs can be as large as 4.7 TB, and can be anything from spreadsheets to large video files. Page blobs are primarily used for the VHD files that back IaaS virtual machines. Append blobs are commonly used for logging, such as when you want to write to a file and then keep adding more information.
 
 ### List the blobs in a container
 
@@ -174,7 +174,7 @@ File.open(full_path_to_file,"wb") {|f| f.write(content)}
 
 ### Clean up resources
 
-If the blob is no longer needed, use the [delete_blob](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob#delete_blob-instance_method) method to remove it. Delete the entire container using the [delete_container](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Container#delete_container-instance_method) method.
+If a blob is no longer needed, use [delete_blob](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob#delete_blob-instance_method) to remove it. Delete an entire container using the [delete_container](https://www.rubydoc.info/gems/azure-storage-blob/2.0.1/Azure/Storage/Blob/Container#delete_container-instance_method) method. Deleting a container also deletes any blobs stored in the container.
 
 ```ruby
 # Clean up resources, including the container and the downloaded file
@@ -191,7 +191,7 @@ See these additional resources for Ruby development:
 
 ## Next steps
 
-In this quickstart, you learned how to transfer files between Azure Blob Storage and a local disk using Ruby. To learn more about working with Blob Storage, continue to the Storage account overview.
+In this quickstart, you learned how to transfer files between Azure Blob Storage and a local disk by using Ruby. To learn more about working with Blob Storage, continue to the Storage account overview.
 
 > [!div class="nextstepaction"]
 > [Storage account overview](../common/storage-account-overview.md)
