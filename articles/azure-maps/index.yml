@@ -182,6 +182,18 @@ landingContent:
           - text: Time Zones Service
             url: /rest/api/maps/timezone
   
+    # Card
+  - title: Developing with Elevation Service
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to retrieve and use elevation data
+            url: how-to-request-elevation-data.md
+      - linkListType: reference
+        links:
+          - text: Elevation Service
+            url: /rest/api/maps/elevation/
+
   # Card
   - title: Spatial Analytics
     linkLists:

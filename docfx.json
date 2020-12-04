@@ -416,6 +416,7 @@
         "articles/postgresql/**/*.md": "https://feedback.azure.com/forums/597976-azure-database-for-postgresql",
         "articles/power-bi-embedded/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/power-bi-workspace-collections/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "articles/purview/**/*.md": "https://feedback.azure.com/forums/932437-azure-purview",
         "articles/resiliency/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/scheduler/**/*.md": "https://feedback.azure.com/forums/230896-scheduler",
         "articles/search/**/*.md": "https://feedback.azure.com/forums/263029-azure-search",
@@ -673,6 +674,7 @@
         "articles/media-services/*.md": "media-services",
         "articles/migrate/*.md": "azure-migrate",
         "articles/notebooks/*.md": "azure-notebooks",
+        "acticles/object-anchors/**/*.md": "azure-object-anchors",
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/service-bus-messaging/*.md": "service-bus-messaging",
         "articles/service-fabric/*.md": "service-fabric",
@@ -855,6 +857,10 @@
         "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge",
         "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer",
         "articles/migrate/**/*.md": "Azure Migrate",
+        "articles/object-anchors/**/*.md": "Azure Object Anchors",
+        "articles/object-anchors/**/*.yml": "Azure Object Anchors",
+        "articles/purview/**/*.md": "Azure Purview",
+        "articles/purview/**/*.yml": "Azure Purview",
         "articles/remote-rendering/**/*.md": "Azure Remote Rendering",
         "articles/remote-rendering/**/*.yml": "Azure Remote Rendering",
         "articles/scheduler/*.md": "Azure Scheduler",
@@ -885,14 +891,27 @@
       "docs.html"
     ],
     "dest": "azure",
+
     "rules": {
       "sensitive-language": {
         "exclude": [
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
-          "articles/role-based-access-control/resource-provider-operations.md"
+          "articles/role-based-access-control/resource-provider-operations.md",
+          "articles/site-recovery/**/*.md",
+          "articles/virtual-machines/workloads/sap/dbms-guide-ha-ibm.md",
+          "articles/virtual-machines/workloads/sap/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
+          "articles/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw.md",
+          "articles/virtual-machines/workloads/sap/high-availability-guide-suse-nfs.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability-rhel.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md"
         ]
       }
     }
+
   }
 }
