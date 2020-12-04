@@ -21,7 +21,7 @@ Although the simple parser is based on the [Apache Lucene Simple Query Parser](h
 
 ## How to invoke simple parsing
 
-Simple syntax is the default, as determined by `queryType` and a valid string in the `search` parameter. 
+A simple query is determined by the `queryType` and a valid string passed in the `search` parameter.
 
 ```http
 POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs/search?api-version=2020-06-30
@@ -32,17 +32,17 @@ POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs
 }
 ```
 
-Valid values for `queryType` include `simple` or `full`, where `simple` is the default, and `full` invokes the [full Lucene query parser](query-lucene-syntax.md) for more advanced queries. For simple queries, invocation is only necessary if you are resetting the syntax from full. To explicitly set the syntax, use the `queryType` search parameter. 
+A `queryType` can be either "simple" or "full", where "simple" is the default, and "full" invokes the [full Lucene query parser](query-lucene-syntax.md) for more advanced queries. For simple queries, invocation is only necessary if you are resetting the syntax from full.
 
 The `searchMode` parameter can have an oversized impact on results, favoring recall over precision, so be sure to understand its implications, as described next.
 
 ## Valid string composition
 
-Strings passed to the `search` parameter can include terms or phrases in any supported language, boolean and precedence operators, escape characters, and URL encoding characters. The `search` parameter is optional. Unspecified search (`search=''` or `search=*`) returns the top 50 documents in arbitrary (unranked) order.
+Strings passed to the `search` parameter can include terms or phrases in any supported language, boolean and precedence operators, wildcard or prefix characters for "start's with" queries, escape characters, and URL encoding characters. The `search` parameter is optional. Unspecified search (`search=''` or `search=*`) returns the top 50 documents in arbitrary (unranked) order.
 
 + A *term search* is a query for one or more terms, where any of the terms are considered a match.
 
-+ A *phrase search* is an exact phrase enclosed in quotation marks `" "`. For example, while `Roach Motel` (without quotes) would search for documents containing `Roach` and/or `Motel` anywhere in any order, `"Roach Motel"` (with quotes) will only match documents that contain that whole phrase together and in that order (lexical analysis still applies).
++ A *phrase search* is an exact phrase enclosed in quotation marks `" "`. For example, while ```Roach Motel``` (without quotes) would search for documents containing ```Roach``` and/or ```Motel``` anywhere in any order, ```"Roach Motel"``` (with quotes) will only match documents that contain that whole phrase together and in that order (lexical analysis still applies).
 
 By default, all terms or phrases passed in the `search` parameter undergo lexical analysis. Make sure you understand the tokenization behavior of the analyzer you are using. Often, when query results are unexpected, the reason can be traced to how terms are tokenized at query time.
 
@@ -52,7 +52,7 @@ As straightforward as this sounds, there is one aspect of query execution in Azu
 
 <a name="bkmk_querysizelimits"></a>
 
-## Query size limits
+### Query size limits
 
 If your application generates search queries programmatically, we recommend designing it in such a way that it does not generate queries of unbounded size. For GET, the length of the URL cannot exceed 8 KB.
 
