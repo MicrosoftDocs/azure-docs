@@ -199,7 +199,7 @@ Refer to the following rules for limitations on OS disk size. When you submit an
 
 |OS|Recommended VHD size|
 |---|---|
-|Linux|30 GB to 1023 GB|
+|Linux|1 GB to 1023 GB|
 |Windows|30 GB to 250 GB|
 |
 
