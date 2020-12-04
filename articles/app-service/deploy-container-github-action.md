@@ -31,6 +31,21 @@ For an Azure App Service container workflow, the file has three sections:
 - A working container registry and Azure App Service app for containers. This example uses Azure Container Registry. 
     - [Learn how to create a containerized Node.js application using Docker, push the container image to a registry, and then deploy the image to Azure App Service](/azure/developer/javascript/tutorial-vscode-docker-node-01)
 
+## Use the Deployment Center
+
+You can quickly get started with GitHub Actions by using the App Service Deployment Center. This will automatically generate a workflow file based on your application stack and commit it to your GitHub repository in the correct directory.
+
+1. Navigate to your webapp in the Azure portal
+1. On the left side, click **Deployment Center**
+1. Click on **Get Started**
+1. Under **Continuous Deployment (CI / CD)**, select **GitHub**
+1. Next, select **GitHub Actions**
+1. Use the dropdowns to select your GitHub repository, branch, and application stack
+    - If the selected branch is protected, you can still continue to add the workflow file. Be sure to review your branch protections before continuing.
+1. On the final screen, you can review your selections and preview the workflow file that will be committed to the repository. If the selections are correct, click **Finish**
+
+This will commit the workflow file to the repository. The workflow to build and deploy your app will start immediately.
+
 ## Generate deployment credentials
 
 The recommended way to authenticate with Azure App Services for GitHub Actions is with a publish profile. You can also authenticate with a service principal but the process requires more steps. 
