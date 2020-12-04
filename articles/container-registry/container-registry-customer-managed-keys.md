@@ -290,7 +290,7 @@ Optionally create a key in the key vault for use to encrypt the registry. Follow
 1. In **Encryption**, do one of the following:
     1. To provide a non-versioned key that enables automatic updates of key versions, select **Select from Key Vault**, and then select a new key.
        In the **Select key from Azure Key Vault** window, select an existing key vault and key, or **Create new**. 
-    1. To provide a versioned key, which doesn't support automatic updates of key values, select **Enter key URI**. Provide the key identifier of a versioned key. 
+    1. Select **Enter key URI**, and provide a key identifier directly. You can provide provide either a versioned key URI (for a key that must be rotated manually) or a non-versioned key URI (which enables automated key rotation). 
 1. In the **Encryption** tab, select **Review + create**.
 1. Select **Create** to deploy the registry instance.
 
