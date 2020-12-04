@@ -75,7 +75,6 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | **Extension** | **Description** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus distributed database. |
-> | shard\_rebalancer | Safely rebalance data in a server group in case of node addition or removal. |
 
 ### Index types extensions
 
@@ -114,7 +113,6 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Information about TLS/SSL certificates. |
 > | [tsm\_system\_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html) | TABLESAMPLE method, which accepts number of rows as a limit. |
 > | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | TABLESAMPLE method, which accepts time in milliseconds as a limit. |
-> | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Provides a means of creating hypothetical indexes that don't cost CPU or disk. |
 > | [dblink](https://www.postgresql.org/docs/current/dblink.html) | A module that supports connections to other PostgreSQL databases from within a database session. See the "dblink and postgres_fdw" section for information about this extension. |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | XPath querying and XSLT. |
 
