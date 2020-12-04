@@ -10,7 +10,7 @@ manager: lizross
 
 # Required URL list
 
-In order to deploy and use Windows Virtual Desktop, you must unblock certain URLs so your virtual machines (VMs) can access them anytime. This article lists the required URLs you need to unblock.
+In order to deploy and use Windows Virtual Desktop, you must unblock certain URLs so your virtual machines (VMs) can access them anytime. This article lists the required URLs you need to unblock in order for Windows Virtual Desktop to function properly. If you don't unblock these URLs, your Windows Virtual Desktop deployment won't work.
 
 ## Virtual machines
 
