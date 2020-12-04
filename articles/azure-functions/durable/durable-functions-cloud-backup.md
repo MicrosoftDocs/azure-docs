@@ -71,11 +71,11 @@ After yielding from `context.df.Task.all`, we know that all function calls have 
 
 The function uses the standard *function.json* for orchestrator functions.
 
-[!code-json[Main](~/samples-durable-functions/samples/python/E2_BackupSiteContent/function.json)]
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/function.json)]
 
 Here is the code that implements the orchestrator function:
 
-[!code-python[Main](~/samples-durable-functions/samples/python/E2_BackupSiteContent/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/\_\_init\_\_.py)]
 
 Notice the `yield context.task_all(tasks);` line. All the individual calls to the `E2_CopyFileToBlob` function were *not* yielded, which allows them to run in parallel. When we pass this array of tasks to `context.task_all`, we get back a task that won't complete *until all the copy operations have completed*. If you're familiar with [`asyncio.gather`](https://docs.python.org/3/library/asyncio-task.html#asyncio.gather) in Python, then this is not new to you. The difference is that these tasks could be running on multiple virtual machines concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
 
@@ -112,11 +112,11 @@ The function uses the `readdirp` module (version 2.x) to recursively read the di
 
 The *function.json* file for `E2_GetFileList` looks like the following:
 
-[!code-json[Main](~/samples-durable-functions/samples/python/E2_GetFileList/function.json)]
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_GetFileList/function.json)]
 
 And here is the implementation:
 
-[!code-python[Main](~/samples-durable-functions/samples/python/E2_GetFileList/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_GetFileList/\_\_init\_\_.py)]
 
 ---
 
@@ -148,11 +148,11 @@ The JavaScript implementation uses the [Azure Storage SDK for Node](https://gith
 
 The *function.json* file for `E2_CopyFileToBlob` is similarly simple:
 
-[!code-json[Main](~/samples-durable-functions/samples/python/E2_CopyFileToBlob/function.json)]
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_CopyFileToBlob/function.json)]
 
 The Python implementation uses the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) to upload the files to Azure Blob Storage.
 
-[!code-python[Main](~/samples-durable-functions/samples/python/E2_CopyFileToBlob/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_CopyFileToBlob/\_\_init\_\_.py)]
 
 ---
 

@@ -44,11 +44,11 @@ This article explains the following functions in the sample app:
 
 The **E3_Monitor** function uses the standard *function.json* for orchestrator functions.
 
-[!code-json[Main](~/samples-durable-functions/samples/python/E3_Monitor/function.json)]
+[!code-json[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/function.json)]
 
 Here is the code that implements the function:
 
-[!code-python[Main](~/samples-durable-functions/samples/python/E3_Monitor/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/\_\_init\_\_.py)]
 
 ---
 
@@ -71,11 +71,11 @@ As with other samples, the helper activity functions are regular functions that 
 
 The *function.json* is defined as follows:
 
-[!code-json[Main](~/samples-durable-functions/samples/python/E3_TooManyOpenIssues/function.json)]
+[!code-json[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/function.json)]
 
 And here is the implementation.
 
-[!code-python[Main](~/samples-durable-functions/samples/python/E3_TooManyOpenIssues/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/\_\_init\_\_.py)]
 
 ---
 
@@ -87,11 +87,11 @@ The **E3_SendAlert** function uses the Twilio binding to send an SMS message not
 
 Its *function.json* is simple:
 
-[!code-json[Main](~/samples-durable-functions/samples/python/E3_TooManyOpenIssues/function.json)]
+[!code-json[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/function.json)]
 
 And here is the code that sends the SMS message:
 
-[!code-python[Main](~/samples-durable-functions/samples/python/E3_SendAlert/\_\_index\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/\_\_index\_\_.py)]
 
 ---
 

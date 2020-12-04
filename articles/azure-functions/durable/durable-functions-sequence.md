@@ -82,7 +82,7 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 
 Here is the orchestrator function:
 
-[!code-python[Main](~/samples-durable-functions/samples/python/E1_HelloSequence/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/\_\_init\_\_.py)]
 
 All Python orchestration functions must include the [`durable-functions` package](https://pypi.org/project/azure-functions-durable). It's a library that enables you to write Durable Functions in Python. There are two significant differences between an orchestrator function and other Python functions:
 
@@ -132,7 +132,7 @@ Unlike the orchestration function, an activity function needs no special setup. 
 
 The *function.json* file for the activity function `E1_SayHello` is similar to that of `E1_HelloSequence` except that it uses an `activityTrigger` binding type instead of an `orchestrationTrigger` binding type.
 
-[!code-json[Main](~/samples-durable-functions/samples/python/E1_SayHello/function.json)]
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E1_SayHello/function.json)]
 
 > [!NOTE]
 > Any function called by an orchestration function must use the `activityTrigger` binding.
@@ -141,7 +141,7 @@ The implementation of `E1_SayHello` is a relatively trivial string formatting op
 
 #### E1_SayHello/\_\_init\_\_.py
 
-[!code-python[Main](~/samples-durable-functions/samples/python/E1_SayHello/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E1_SayHello/\_\_init\_\_.py)]
 
 Unlike the orchestrator function, an activity function needs no special setup. The input passed to it by the orchestrator function is directly accessible as the parameter to the function.
 
@@ -175,13 +175,13 @@ Use `df.getClient` to obtain a `DurableOrchestrationClient` object. You use the 
 
 #### HttpStart/function.json
 
-[!code-json[Main](~/samples-durable-functions/samples/python/HttpStart/function.json)]
+[!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/HttpStart/function.json)]
 
 To interact with orchestrators, the function must include a `durableClient` input binding.
 
 #### HttpStart/\_\_init\_\_.py
 
-[!code-python[Main](~/samples-durable-functions/samples/python/HttpStart/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/HttpStart/\_\_init\_\_.py)]
 
 Use the `DurableOrchestrationClient` constructor to obtain a Durable Functions client. You use the client to start an orchestration. It can also help you return an HTTP response containing URLs for checking the status of the new orchestration.
 
