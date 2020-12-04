@@ -11,6 +11,10 @@ zone_pivot_groups: programming-languages-set-functions-full
 
 In this tutorial, you create and deploy your code to Azure Functions as a custom Docker container using a Linux base image. You typically use a custom image when your functions require a specific language version or have a specific dependency or configuration that isn't provided by the built-in image.
 
+::: zone pivot="programming-language-other"
+Azure Functions supports any language or runtime using [custom handlers](functions-custom-handlers.md). For some languages, such as the R programming language used in this tutorial, you need to install the runtime or additional libraries as dependencies that require the use of a custom container.
+::: zone-end
+
 Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md#features) or a [Dedicated (App Service) plan](functions-scale.md#app-service-plan) hosting. Completing this tutorial incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
 You can also use a default Azure App Service container as described on [Create your first function hosted on Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
@@ -29,7 +33,7 @@ In this tutorial, you learn how to:
 > * Enable SSH connections to the container.
 > * Add a Queue storage output binding. 
 ::: zone-end
-::: zone pivot="programming-language-customhandler"
+::: zone pivot="programming-language-other"
 > [!div class="checklist"]
 > * Create a function app and Dockerfile using the Azure Functions Core Tools.
 > * Build a custom image using Docker.
@@ -123,7 +127,7 @@ Type `Y` or press Enter to confirm.
 Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
 ::: zone-end
 
-::: zone pivot="programming-language-customhandler"  
+::: zone pivot="programming-language-other"  
 ```console
 func init LocalFunctionsProject --worker-runtime custom --docker
 ```
@@ -132,7 +136,7 @@ func init LocalFunctionsProject --worker-runtime custom --docker
 The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
 
 Navigate into the project folder:
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-customhandler"  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"  
 ```console
 cd LocalFunctionsProject
 ```
@@ -150,7 +154,7 @@ func new --name HttpExample --template "HTTP trigger"
 ```
 ::: zone-end
 
-::: zone pivot="programming-language-customhandler" 
+::: zone pivot="programming-language-other" 
 Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a subfolder matching the function name that contains a configuration file named *function.json*.
 
 ```console
@@ -255,7 +259,7 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end
-::: zone pivot="programming-language-customhandler"
+::: zone pivot="programming-language-other"
 ```console
 R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
 func start
@@ -264,7 +268,7 @@ func start
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
 Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
 ::: zone-end
-::: zone pivot="programming-language-customhandler"
+::: zone pivot="programming-language-other"
 Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample`. The browser should display a "Hello world" message.
 ::: zone-end
 Use **Ctrl**-**C** to stop the host.
@@ -275,7 +279,7 @@ Use **Ctrl**-**C** to stop the host.
 (Optional) Examine the *Dockerfile* in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux.  The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
 ::: zone-end
 
-::: zone pivot="programming-language-customhandler"
+::: zone pivot="programming-language-other"
 Examine the *Dockerfile* in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux. Custom handler applications use the `mcr.microsoft.com/azure-functions/dotnet:3.0-appservice` image as its base.
 
 Modify the *Dockerfile* to install R. Replace the contents of *Dockerfile* with the following.
@@ -307,7 +311,7 @@ To test the build, run the image in a local container using the [docker run](htt
 docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-customhandler"  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"  
 Once the image is running in a local container, open a browser to `http://localhost:8080`, which should display the placeholder image shown below. The image appears at this point because your function is running in the local container, as it would in Azure, which means that it's protected by an access key as defined in *function.json* with the `"authLevel": "function"` property. The container hasn't yet been published to a function app in Azure, however, so the key isn't yet available. If you want to test against the local container, stop docker, change the authorization property to `"authLevel": "anonymous"`, rebuild the image, and restart docker. Then reset `"authLevel": "function"` in *function.json*. For more information, see [authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ![Placeholder image indicating that the container is running locally](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
@@ -385,12 +389,14 @@ You use Azure CLI commands to create these items. Each command provides JSON out
 A function app on Azure manages the execution of your functions in your hosting plan. In this section, you use the Azure resources from the previous section to create a function app from an image on Docker Hub and configure it with a connection string to Azure Storage.
 
 1. Create the Functions app using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command. In the following example, replace `<storage_name>` with the name you used in the previous section for the storage account. Also replace `<app_name>` with a globally unique name appropriate to you, and `<docker_id>` with your Docker ID.
+
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
     ```azurecli
     az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime <functions runtime stack> --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
     ```
 ::: zone-end
-::: zone pivot="programming-language-customhandler"
+
+::: zone pivot="programming-language-other"
     ```azurecli
     az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime custom --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
     ```

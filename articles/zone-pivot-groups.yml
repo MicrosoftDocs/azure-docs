@@ -333,8 +333,8 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
-  - id: programming-language-customhandler
-    title: Custom handler
+  - id: programming-language-other
+    title: Other
 - id: programming-languages-metrics-monitor
   title: Programming languages
   prompt: Choose a programming language.
