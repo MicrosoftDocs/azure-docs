@@ -26,7 +26,7 @@ Enabling a Speech resource for the private endpoint scenarios requires performin
 - [Create and configure private endpoint(s)](#enabling-private-endpoints)
 - [Adjust existing applications and solutions](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled)
 
-If later you decide to remove all private endpoints, but continue to use the resource, the necessary actions described in [this section](#using-speech-resource-with-custom-domain-name-without-private-endpoints).
+If later you decide to remove all private endpoints, but continue to use the resource, the necessary actions are described in [this section](#using-speech-resource-with-custom-domain-name-without-private-endpoints).
 
 ## Create custom domain name
 
