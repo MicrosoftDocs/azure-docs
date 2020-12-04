@@ -15,7 +15,8 @@ ms.date: 12/3/2020
 ---
 
 # Push Data Factory lineage data to Azure Purview (Preview)
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 In this tutorial, you'll use the Data Factory user interface (UI) to create a pipeline that run activities and report lineage data to Azure Purview account. Then you can view all the lineage information in your Azure Purview account.
 
@@ -48,7 +49,7 @@ If you don't know how to create Copy and Dataflow activities, see
 
 ### Step 3: Run Execute SSIS Package activities in Data Factory
 You can create pipelines, Execute SSIS Package activities in Data Factory. You don't need any additional configuration for lineage data capture. The lineage data will automatically be captured during the activities execution.
-![Screenshot of Execute SSIS Package activity](./media/data-factory-purview/adf-activities-for-lineage.png)
+![Screenshot of Execute SSIS Package activity](./media/data-factory-purview/ssis-activities-for-lineage.png)
 If you don't know how to create Execute SSIS Package activities, see 
 [Run SSIS Packages in Azure](./tutorial-deploy-ssis-packages-azure.md).
 
