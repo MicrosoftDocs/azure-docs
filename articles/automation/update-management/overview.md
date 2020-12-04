@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 10/26/2020
+ms.date: 11/30/2020
 ms.topic: conceptual
 ---
 # Update Management overview
@@ -70,10 +70,10 @@ The following table lists the supported operating systems for update assessments
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 ||
 |Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management supports assessments and patching for this operating system. The [Hybrid Runbook Worker](../automation-windows-hrw-install.md) is supported for Windows Server 2008 R2. |
-|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](view-update-assessments.md#linux).          |
-|Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents require access to an update repository.        |
+|CentOS 6 and 7 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](view-update-assessments.md#linux).          |
+|Red Hat Enterprise 6 and 7 (x64)     | Linux agents require access to an update repository.        |
 |SUSE Linux Enterprise Server 12 (x64)     | Linux agents require access to an update repository.        |
-|Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)      |Linux agents require access to an update repository.         |
+|Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 LTS (x64)      |Linux agents require access to an update repository.         |
 
 > [!NOTE]
 > Azure virtual machine scale sets can be managed through Update Management. Update Management works on the instances themselves and not on the base image. You'll need to schedule the updates in an incremental way, so that not all the VM instances are updated at once. You can add nodes for virtual machine scale sets by following the steps under [Add a non-Azure machine to Change Tracking and Inventory](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).

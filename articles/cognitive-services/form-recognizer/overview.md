@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: automated data processing, document processing, automated data entry, forms processing
@@ -27,9 +27,9 @@ Form Recognizer is composed of the following services:
 * **[Layout API](#layout-api)** - Extract text, selection marks, and tables structures, along with their bounding box coordinates, from documents.
 * **[Custom models](#custom-models)** - Extract text, key/value pairs, selection marks, and table data from forms. These models are trained with your own data, so they're tailored to your forms.
 * **[Prebuilt models](#prebuilt-models)** - Extract data from unique form types using prebuilt models. Currently available are the following prebuilt models
-    * [Invoices](./concept-invoices.md) 
+    * [Invoices](./concept-invoices.md)
     * [Sales receipts](./concept-receipts.md)
-    * [Business cards](./concept-business-cards.md) 
+    * [Business cards](./concept-business-cards.md)
 
 
 ## Try it out
@@ -47,7 +47,7 @@ To try out the Form Recognizer Service, go to the online Sample UI Tool:
 
 ---
 
-You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service. 
+You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
 
 ## Layout API
 
@@ -73,7 +73,7 @@ When you train with labeled data, the model does supervised learning to extract 
 
 Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements. Then it uses user-specified labels to learn the key/value associations in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started when training a new model and add more labeled data as needed to improve the model accuracy.
 
-[Get started with Train with labels](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+[Get started with Train with labels](./quickstarts/label-tool.md)
 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
@@ -122,8 +122,6 @@ Use the [Sample Form Recognizer tool](https://fott.azurewebsites.net/) or follow
     * [Extract receipt data - Python](quickstarts/python-receipts.md)
   * Extract data from business cards
     * [Extract business card data - Python](quickstarts/python-business-cards.md)
- 
-
 
 ### Review the REST APIs
 
@@ -150,6 +148,10 @@ Explore the [REST API reference documentation](https://westus2.dev.cognitive.mic
 ## Input requirements
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+## Deploy on premises using Docker containers
+
+[Use Form Recognizer containers (preview)](form-recognizer-container-howto.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security or other operational reasons.
 
 ## Data privacy and security
 

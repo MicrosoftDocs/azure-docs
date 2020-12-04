@@ -78,10 +78,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<company>.csod.com`
+    `https://<company>.csod.com/samldefault.aspx?ouid=2`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<company>.csod.com`
+    `https://<company>.csod.com/samldefault.aspx?ouid=2`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Cornerstone OnDemand Client support team](mailto:moreinfo@csod.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

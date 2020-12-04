@@ -6,12 +6,12 @@ Microsoft provides direct support for the latest agent version and one version b
 
 ### Release status
 
-November XX, 2020: Released for download
+November 23, 2020: Released for download
 
 ### New features and improvements
 
 * Support for [gMSA](../articles/active-directory/cloud-provisioning/how-to-prerequisites.md#group-managed-service-accounts)
-* Support for groups up to size of 1500 members (during delta sync)
+* Support for groups up to size less than 1500 members during incremental or delta sync cycle. This is applicable when using group scoping filter
 * Support for large groups with member size up to 15K
 * Initial sync improvements
 * Advanced verbose logging

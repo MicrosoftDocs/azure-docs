@@ -34,14 +34,18 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
  
   > [Learn more about Layout extraction](concept-layout.md)
 
+- **Client library update** - The [client libraries](quickstarts/client-library.md) for .NET, Python, Java, and JavaScript have entered General Availability.
 - **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
-- **Text line style indication (handwritten/print) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
+- **Text line style indication (handwritten/other) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
 - **Quality improvements** - Extraction improvements including single digit extraction improvements.
-- **New try-it-out feature in the Form Recognizer Sample Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
+- **New try-it-out feature in the Form Recognizer Sample and Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
 
   > [Try out the Form Recognizer Sample Tool](https://fott-preview.azurewebsites.net/)
 
-  ![FOTT example](./media/fott-preview.jpg)
+  ![FOTT example](./media/ui-preview.jpg)
+  
+- **Feedback Loop** - When Analyzing files via the sample labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
+- **Auto Label Documents** - Automatically labels additional documents based on previous labeled documents in the project.
 
 ## August 2020
 
@@ -82,7 +86,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 * **Currency support** - Detection and extraction of global currency symbols.
 * **Azure Gov** - Form Recognizer is now also available in Azure Gov.
 * **Enhanced security features**: 
-   * **Bring your own key** - Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys (CMK), also known as bring your own key (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.  
+   * **Bring your own key** - Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys, also known as bring your own key (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.  
    * **Private endpoints** – Enables you on a virtual network (VNet) to [securely access data over a Private Link. ](../../private-link/private-link-overview.md)
 
 

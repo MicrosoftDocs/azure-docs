@@ -31,7 +31,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 #### Blob storage
 
-This table shows [Blob storage metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
+This table shows [Blob storage metrics](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |

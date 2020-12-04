@@ -1,6 +1,6 @@
 ---
-title: Create and use external tables in serverless SQL pool (preview)
-description: In this section, you'll learn how to create and use external tables in serverless SQL pool (preview).
+title: Create and use external tables in serverless SQL pool
+description: In this section, you'll learn how to create and use external tables in serverless SQL pool.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: vvasic
 ms.reviewer: jrasnick 
 ---
 
-# Create and use external tables using serverless SQL pool (preview) in Azure Synapse Analytics
+# Create and use external tables using serverless SQL pool in Azure Synapse Analytics
 
-In this section, you'll learn how to create and use [external tables](develop-tables-external-tables.md) in serverless SQL pool (preview). External tables are useful when you want to control access to external data in serverless SQL pool and if you want to use tools, such as Power BI, in conjunction with serverless SQL pool. External tables can access two types of storage:
+In this section, you'll learn how to create and use [external tables](develop-tables-external-tables.md) in serverless SQL pool. External tables are useful when you want to control access to external data in serverless SQL pool and if you want to use tools, such as Power BI, in conjunction with serverless SQL pool. External tables can access two types of storage:
 - Public storage where users access public storage files.
 - Protected storage where users access storage files using SAS credential, Azure AD identity, or Managed Identity of Synapse workspace.
 

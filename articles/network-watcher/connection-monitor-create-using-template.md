@@ -1,5 +1,5 @@
 ---
-title: Create Connection Monitor (Preview) - ARM template
+title: Create Connection Monitor - ARM template
 titleSuffix: Azure Network Watcher
 description: Learn how to create Connection Monitor using the ARMClient.
 services: network-watcher
@@ -10,18 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-#Customer intent: I need to create a connection montior to monitor communication between one VM and another.
+#Customer intent: I need to create a connection monitor to monitor communication between one VM and another.
 ---
 # Create a Connection Monitor using the ARM template
 
 Learn how to create Connection Monitor to monitor communication between your resources using the ARMClient. It supports hybrid and Azure cloud deployments.
 
-> [!IMPORTANT]
-> Connection Monitor is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Before you begin 
 

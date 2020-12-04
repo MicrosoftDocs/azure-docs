@@ -24,10 +24,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- An invoice document. You can use the [sample invoice](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
+- An invoice document. You can use the [sample invoice](../media/sample-invoice.jpg) for this quickstart.
 
 > [!NOTE]
-> This quickstart uses a local file. To use a invoice document accessed by URL instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync).
+> This quickstart uses a local file. To use a invoice document accessed by URL instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).
 
 ## Create a Form Recognizer resource
 
@@ -278,8 +278,10 @@ if __name__ == '__main__':
 ```
 
 1. Save the code in a file with a .py extension. For example, *form-recognizer-invoice-to-csv.py*.
+1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 1. Open a command prompt window.
-1. At the prompt, use the `python` command to run the sample. For example, `python form-recognizer-invoice.py` {file name or folder name}
+1. At the prompt, use the `python` command to run the sample. For example, `python form-recognizer-invoice.py {file name or folder name}`
 The Python script can run with a single invoice or a folder as the parameter and will output the JSON file ".invoice.json" and the values extracted from the invoices into a CSV file "-invoiceResults.csv" with the results. When running on a folder, it will scan through all "pdf","jpg","jpeg","png","bmp","tif","tiff" files and run them with the API.
 
 ## Next steps
@@ -287,6 +289,6 @@ The Python script can run with a single invoice or a folder as the parameter and
 In this quickstart, you used the Form Recognizer REST API with Python to extract the content from invoices. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync)
+> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)
 
    

@@ -1,12 +1,12 @@
 ---
 title: Anchor relationships and way-finding
 description: Learn about the conceptual model behind anchor relationships. Learn to connect anchors within a space and to use the Nearby API to fulfill a way-finding scenario.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ---

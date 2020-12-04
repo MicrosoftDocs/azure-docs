@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 11/20/2020
+ms.date: 11/23/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
@@ -179,7 +179,7 @@ Perform the following steps in the Azure portal to order a device.
 
     A user-assigned managed identity is a stand-alone Azure resource that can be used to manage multiple resources. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).  
 
-    If you need to create a new managed identity, follow the guidance in [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    If you need to create a new managed identity, follow the guidance in [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
     ![Select a user identity](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
 

@@ -4,7 +4,7 @@ description: How to maintain your Language Understanding (LUIS) app under source
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 11/18/2020
 ---
 
 
@@ -49,7 +49,7 @@ To save a LUIS app in `.lu` format and place it under source control:
 - OR: Use a text editor to create a `.lu` file for a LUIS app and add it to your source control repository
 
 > [!TIP]
-> If you are working with the JSON export of a LUIS app, you can [convert it to LUDown](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert) using the [BotBuilder-Tools LUIS CLI](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS). Use the `--sort` option to ensure that intents and utterances are sorted alphabetically.  
+> If you are working with the JSON export of a LUIS app, you can [convert it to LUDown](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert).  Use the `--sort` option to ensure that intents and utterances are sorted alphabetically.  
 > Note that the **.LU** export capability built into the LUIS portal already sorts the output.
 
 ### Build the LUIS app from source

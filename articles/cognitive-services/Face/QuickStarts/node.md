@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-js
 #Customer intent: As a Node.js developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
@@ -79,8 +79,8 @@ To extract face attributes, use detection model 1 and add the `returnFaceAttribu
 
 ```javascript
     params : {
-		detectionModel: 'detection_01',
-		returnFaceAttributes: 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+        detectionModel: 'detection_01',
+        returnFaceAttributes: 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
         returnFaceId: true
     },
 ```
@@ -271,4 +271,4 @@ The response now includes face attributes. For example:
 In this quickstart, you wrote a Node.js script that calls the Azure Face service to detect faces in an image and return their attributes. Next, explore the Face API reference documentation to learn more.
 
 > [!div class="nextstepaction"]
-> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 

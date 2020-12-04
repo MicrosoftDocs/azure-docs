@@ -7,8 +7,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ---
 
