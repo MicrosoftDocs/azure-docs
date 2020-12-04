@@ -220,7 +220,7 @@ spec:
     spec:
       containers:
       - name: wordpress-blog
-        image: [DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]
+        image: [DOCKER-HUB-USER-OR-ACR-ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]
         ports:
         - containerPort: 80
         env:
