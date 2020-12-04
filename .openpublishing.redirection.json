@@ -501,6 +501,121 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/databox-online/data-box-gateway-overview.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-deploy-prep.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-prep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-deploy-provision-hyperv.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-provision-hyperv",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-deploy-provision-vmware.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-provision-vmware",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-deploy-connect-setup-activate.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-connect-setup-activate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-deploy-add-shares.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-add-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-system-requirements.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-system-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-limits.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-limits.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-security.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-use-cases.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-use-cases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-apply-updates.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-apply-updates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-manage-shares.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-manage-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-manage-users.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-manage-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-manage-bandwidth-schedules.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-manage-bandwidth-schedules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-manage-access-power-connectivity-mode.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-manage-access-power-connectivity-mode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-connect-powershell-interface.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-connect-powershell-interface",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-monitor.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-troubleshoot.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-2007-release-notes.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-2007-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-1911-release-notes.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-1911-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-1906-release-notes.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-1906-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-1905-release-notes.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-1905-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-release-notes.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-release-notes",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/infrastructure-example.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/infrastructure-example",
       "redirect_document_id": false
@@ -7698,6 +7813,21 @@
       "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/partner-center-portal/commercial-marketplace-co-sell-states.md",
+      "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell-states",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/partner-center-portal/commercial-marketplace-co-sell-countries.md",
+      "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell-countries",
+      "redirect_document_id": false
+    },       
+    {
+      "source_path": "articles/partner-center-portal/commercial-marketplace-co-sell.md",
+      "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell",
+      "redirect_document_id": false
+    },   
     {
       "source_path": "articles/partner-center-portal/create-new-azure-apps-offer.md",
       "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
