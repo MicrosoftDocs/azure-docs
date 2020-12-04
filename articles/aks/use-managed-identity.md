@@ -125,7 +125,7 @@ Update the system-assigned identity:
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 
-Update the user-assigned identity:
+Register the Feature Flag for user-assigned identity:
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
