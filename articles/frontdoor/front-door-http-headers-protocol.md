@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 12/4/2020
 ms.author: duau
 ---
 
@@ -23,10 +23,6 @@ This article outlines the protocol that Front Door supports with parts of the ca
 
 ## Client to Front Door
 Front Door accepts most headers for the incoming request without modifying them. Some reserved headers are removed from the incoming request if sent, including headers with the X-FD-* prefix.
-
-| Header  | Example and description |
-| ------------- | ------------- |
-| X-Azure-InternalError:  | This header will contain the error code that Front Door comes across when processing the request. This error indicates the issue is internal to the Front Door service/infrastructure. Report issue to support.  |
 
 ## Front Door to backend
 
@@ -45,13 +41,6 @@ Front Door includes headers for an incoming request unless they're removed becau
 | X-Forwarded-Proto | *X-Forwarded-Proto: http* </br> The X-Forwarded-Proto HTTP header field is often used to identify the originating protocol of an HTTP request. Front Door based on configuration might communicate with the backend by using HTTPS. This is true even if the request to the reverse proxy is HTTP. |
 | X-FD-HealthProbe | X-FD-HealthProbe HTTP header field is used to identify the health probe from Front Door. If this header set to 1, the request is health probe. You can use when want to strict access from particular Front Door with X-Forwarded-Host header field. |
 |X-Azure-FDID | *X-Azure-FDID header: 437c82cd-360a-4a54-94c3-5ff707647783* </br> This field contains frontdoorID that can be used to identify which Front Door the incoming request is from. This field is populated by Front Door service. | 
-|X-Azure-ExternalError | *X-Azure-ExternalError: 0x830c1011, The certificate authority is unfamiliar.* </br> This header shows the error code that Front Door servers come across while establishing connectivity to the backend server to process a request. This header will help identify issues in the connection between Front Door and the backend application. This header will include a detailed error message to help you identify connectivity issues to your backend (for example, DNS resolution, invalid cert, and so on.). | 
-
-## Backend to Front Door
-
-| Header  | Example and description |
-| ------------- | ------------- |
-| X-Azure-OriginStatusCode |  *X-Azure-OriginStatusCode: 503* </br> This header contains the HTTP status code returned by the backend. Using this header you can identify the HTTP status code returned by the application running in your backend without going through backend logs. This status code might be different from the HTTP status code in the response sent to the client by Front Door. This header allows you to determine if the backend is misbehaving or if the issue is with the Front Door service. |
 
 ## Front Door to client
 
@@ -61,6 +50,13 @@ Any headers sent to Front Door from the backend are also passed through to the c
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> This is a unique reference string that identifies a request served by Front Door, which is critical for troubleshooting as it's used to search access logs.|
 | X-Cache | *X-Cache: TCP_HIT* </br> This header describes the cache status of the request, which enables you to identify if the response content is being served from the cache of the Front Door. |
+
+You need to send "X-Azure-DebugInfo: 1" request header to enable the following optional response headers:
+| Header  | Example and description |
+| ------------- | ------------- |
+| X-Azure-OriginStatusCode |  *X-Azure-OriginStatusCode: 503* </br> This header contains the HTTP status code returned by the backend. Using this header you can identify the HTTP status code returned by the application running in your backend without going through backend logs. This status code might be different from the HTTP status code in the response sent to the client by Front Door. This header allows you to determine if the backend is misbehaving or if the issue is with the Front Door service. |
+| X-Azure-InternalError:  | This header will contain the error code that Front Door comes across when processing the request. This error indicates the issue is internal to the Front Door service/infrastructure. Report issue to support.  |
+|X-Azure-ExternalError | *X-Azure-ExternalError: 0x830c1011, The certificate authority is unfamiliar.* </br> This header shows the error code that Front Door servers come across while establishing connectivity to the backend server to process a request. This header will help identify issues in the connection between Front Door and the backend application. This header will include a detailed error message to help you identify connectivity issues to your backend (for example, DNS resolution, invalid cert, and so on.). |
 
 ## Next steps
 
