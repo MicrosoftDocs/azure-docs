@@ -3,7 +3,7 @@ title: Create stateful or stateless workflows in Visual Studio Code
 description: Build and run stateless or stateful automation integration workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension 
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
+ms.reviewer: rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
 ---
@@ -15,23 +15,23 @@ ms.date: 12/07/2020
 > Certain features might not be supported or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create logic app workflows that integrate across apps, data, cloud services, and systems, you can use Visual Studio Code and the Azure Logic Apps (Preview) extension to build and locally run [*stateful* and *stateless* logic app workflows](logic-apps-overview-preview.md#stateful-stateless) in your development environment. To build and run these workflows in the Azure portal, see [Create stateful or stateless workflows with Azure Logic Apps (Preview) - Azure portal](create-stateful-stateless-workflows-azure-portal.md).
+To create logic apps that integrate across apps, data, cloud services, and systems, you can locally build and run [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) in a local development environment by using Visual Studio Code with the Azure Logic Apps (Preview) extension. The logic apps that you create through the extension use the new **Logic App (Preview)** resource type, which is powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime in Visual Studio Code. This new logic app type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions. To build these logic apps by using the Azure portal instead, see [Create stateful or stateless workflows with Azure Logic Apps (Preview) - Azure portal](create-stateful-stateless-workflows-azure-portal.md).
 
 ![Screenshot that shows Visual Studio Code and logic app workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-The logic apps that you create with the public preview extension use the new **Logic App (Preview)** resource type and are powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime in your local environment. This new resource type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions.
+Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code. The experiences to create the new resource type are separate and different from the original resource type, but you can have both the **Logic Apps** and **Logic App (Preview)** resource types in your Azure subscription. You can view and access all the deployed logic apps in your Azure subscription, but they're organized into their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps (Preview)](logic-apps-overview-preview.md#whats-new).
 
-Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code. The experiences to create the new resource type are separate and different from the original resource type, but you can have both the **Logic Apps** and **Logic App (Preview)** resource types in your Azure subscription. You can view and access all the deployed logic apps in your Azure subscription, but they appear and are kept separately in their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps (Preview)](logic-apps-overview-preview.md#whats-new).
+This article shows how to create a **Logic App (Preview)** resource by using Visual Studio Code through these tasks:
 
-This article shows how to build a **Logic App (Preview)** resource by using Visual Studio Code:
+* [Meet the setup requirements](#prerequisites) and [set up Visual Studio Code](#set-up) for the public preview extension.
 
-* How to meet the [setup requirements](#prerequisites) and [set up Visual Studio Code](#set-up) for the public preview extension.
+* Create a **Logic App (Preview)** resource by [creating a project and selecting a workflow template](#create-project).
 
-* How to build new **Logic App (Preview)** workflows by [creating a project and selecting a workflow template](#create-project).
+* Locally run and debug your new logic app in Visual Studio Code.
 
-* How to locally run and debug your new logic apps in Visual Studio Code.
+* Publish your new logic app directly from Visual Studio Code [to Azure](#publish-azure) or [to a Docker container](#deploy-docker) that you can run anywhere. For more information about Docker, see [What is Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined)?
 
-* How to publish these new logic apps directly from Visual Studio Code [to Azure](#publish-azure) or [to a Docker container](#deploy-docker) that you can run anywhere. For more information about Docker, see [What is Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined)?
+https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564
 
 ## Prerequisites
 
@@ -886,7 +886,7 @@ By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/),
 
 To delete an item in your workflow from the designer, follow any of these steps:
 
-* Open the item's shortcut menu, and select **Delete**.
+* Select the item, open the item's shortcut menu (Shift+F10), and select **Delete**. To confirm, select **OK**.
 
 * Select the item, and press the delete key. To confirm, select **OK**.
 

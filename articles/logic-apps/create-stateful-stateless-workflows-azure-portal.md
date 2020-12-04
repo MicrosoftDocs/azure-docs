@@ -16,11 +16,13 @@ ms.date: 12/07/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create logic app workflows that integrate across apps, data, cloud services, and systems, you can build and run [*stateful* and *stateless* logic app workflows](logic-apps-overview-preview.md#stateful-stateless) by using the Azure portal. The logic apps that you create with the new **Logic App (Preview)** resource type, which is powered by [Azure Functions](../azure-functions/functions-overview.md). This new resource type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions.
+To create logic apps that integrate across apps, data, cloud services, and systems, you can build and run [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) by using the new **Logic App (Preview)** resource type in the Azure portal. This new logic app type is powered by [Azure Functions](../azure-functions/functions-overview.md), can include multiple workflows, and is similar in some ways to the **Function App** resource type, which can include multiple functions. To build these logic apps by using Visual Studio Code instead, see [Create stateful or stateless workflows with Azure Logic Apps (Preview) in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md).
 
-Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in the Azure portal. The experiences to create the new resource type are separate and different from the original resource type, but you can have both the **Logic Apps** and **Logic App (Preview)** resource types in your Azure subscription. You can view and access all the deployed logic apps in your subscription, but they appear and are kept separately in their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps (Preview)](logic-apps-overview-preview.md#whats-new).
+![Screenshot that shows the Azure portal with the workflow designer for the "Logic App (Preview)" resource.](./media/create-stateful-stateless-workflows-azure-portal/azure-portal-logic-apps-overview.png)
 
-This article shows how to build a **Logic App (Preview)** resource by using the Azure portal. To build this resource in Visual Studio Code, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md).
+Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in the Azure portal. The experiences to create the new resource type are separate and different from the original resource type, but you can have both the **Logic Apps** and **Logic App (Preview)** resource types in your Azure subscription. You can view and access all the deployed logic apps in your subscription, but they're organized into their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps (Preview)](logic-apps-overview-preview.md#whats-new).
+
+This article shows how to create a **Logic App (Preview)** resource by using the Azure portal. To build this resource in Visual Studio Code instead, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md).
 
 > [!NOTE]
 > For information about current known issues, review the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
@@ -353,7 +355,7 @@ To more easily debug a stateless workflow, you can enable the run history for th
 
 To delete an item in your workflow from the designer, follow any of these steps:
 
-* Open the item's shortcut menu, and select **Delete**.
+* Select the item, open the item's shortcut menu (Shift+F10), and select **Delete**. To confirm, select **OK**.
 
 * Select the item, and press the delete key. To confirm, select **OK**.
 
