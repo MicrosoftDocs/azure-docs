@@ -18,29 +18,29 @@ This article discusses issues that you might run into when deploying the Update 
 
 ### Issue
 
-For your Linux machine, Update Management shows specific updates available under classification **Critical and security updates** and **Other updates**. But when an update schedule is run on the machine, for example to install only updates matching the **Critical and security updates** classification, the updates installed are different from or a subset of the updates shown earlier matching that classification.
+For your Linux machine, Update Management shows specific updates available under classification **Security** and **Others**. But when an update schedule is run on the machine, for example to install only updates matching the **Security** classification, the updates installed are different from or a subset of the updates shown earlier matching that classification.
 
 ### Cause
 
-When an assessment of OS updates pending for your Linux machine is done, [Open Vulnerability and Assessment Language](https://oval.mitre.org/) (OVAL) files provided by the Linux distro vendor is used by Update Management for classification. Categorization is done for Linux updates as **Critical and security updates** or **Other updates**, based on the OVAL files which states updates addressing security issues or vulnerabilities. But when the update schedule is run, it executes on the Linux machine using the appropriate package manager like YUM, APT or ZYPPER to install them. The package manager for the Linux distro may have a different mechanism to classify updates, where the results may differ from the ones obtained from OVAL files by Update Management.
+When an assessment of OS updates pending for your Linux machine is done, [Open Vulnerability and Assessment Language](https://oval.mitre.org/) (OVAL) files provided by the Linux distro vendor is used by Update Management for classification. Categorization is done for Linux updates as **Security** or **Others**, based on the OVAL files which states updates addressing security issues or vulnerabilities. But when the update schedule is run, it executes on the Linux machine using the appropriate package manager like YUM, APT or ZYPPER to install them. The package manager for the Linux distro may have a different mechanism to classify updates, where the results may differ from the ones obtained from OVAL files by Update Management.
 
 ### Resolution
 
-You can manually check the Linux machine, the applicable updates, and their classification per the distro's package manager. To understand which updates are classified as **Critical and security updates** by your package manager, run the following commands.
+You can manually check the Linux machine, the applicable updates, and their classification per the distro's package manager. To understand which updates are classified as **Security** by your package manager, run the following commands.
 
-For YUM, the following command returns a non-zero list of updates categorized as **Critical and security updates** by Red Hat. Note that in the case of CentOS, it always returns an empty list and no security classification occurs.
+For YUM, the following command returns a non-zero list of updates categorized as **Security** by Red Hat. Note that in the case of CentOS, it always returns an empty list and no security classification occurs.
 
     ```bash
     sudo yum -q --security check-update
     ```
 
-For ZYPPER, the following command returns a non-zero list of updates categorized as **Critical and security updates** by SUSE.
+For ZYPPER, the following command returns a non-zero list of updates categorized as **Security** by SUSE.
 
     ```bash
     sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
     ```
 
-For APT, the following command returns a non-zero list of updates categorized as **Critical and security updates** by Canonical for Ubuntu Linux distros.
+For APT, the following command returns a non-zero list of updates categorized as **Security** by Canonical for Ubuntu Linux distros.
 
     ```bash
     sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list
