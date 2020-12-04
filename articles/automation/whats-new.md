@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: overview
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/03/2020
+ms.date: 12/04/2020
 ---
 
 # What's new in Azure Automation?
@@ -22,16 +22,10 @@ This page is updated monthly, so revisit it regularly.
 
 The following is a rollup of all the changes performed on Azure Automation and its features over the current year. Included are new features, changed features, and deprecated functionality.
 
+### General
+
 - Support for Impact Level 5 (IL5) compute isolation in Azure Government cloud.
-- Updated runbooks used by Start/Stop VMs during off-hours to use Azure Az modules
 - Retirement of the Automation watcher task
-- Support for Update Management feature in the following regions:
-
-   - South Central US
-   - Switzerland North
-   - China East 2
-   - US Gov Arizona
-
 - Support for Azure Az module cmdlets in runbooks
 - Automation account availability in the following US Government cloud regions:
 
@@ -52,8 +46,23 @@ The following is a rollup of all the changes performed on Azure Automation and i
    - Switzerland North
 
 - Automation diagnostic logs schema update.
-- Hybrid Runbook Worker support for Windows Server 2008 R2.
 - Retired support of Azure Classic PowerShell cmdlets.
+- Hybrid Runbook Worker support for Windows Server 2008 R2.
+
+### Start/Stop VMs during off-hours
+
+Updated runbooks used by Start/Stop VMs during off-hours to use Azure Az modules
+
+### Update Management
+
+- Support for Update Management feature in the following regions:
+
+   - South Central US
+   - Switzerland North
+   - China East2
+   - US Gov Arizona
+
+- Update Management support for Windows Server 2008 R2.
 - Introduced native support for Azure Lighthouse in Update Management.
 
 ## Next steps
