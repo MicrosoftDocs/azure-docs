@@ -60,6 +60,8 @@ Azure Logic Apps (Preview) includes many current and additional capabilities, fo
 
   * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to built-in triggers and actions, which are native to the Logic Apps runtime, for example, the Request trigger and HTTP action. For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
+  * You can use the B2B Liquid and XML operations without an integration account. You need to have Liquid maps, XML maps, or XML schemas that you can either upload through the respective actions in the Azure portal or add to your Visual Studio Code project's **Artifacts** folder using the respective **Maps** and **Schemas** folders.
+
   * Create and deploy logic apps that can run anywhere because the Azure Logic Apps service generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. The Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
     > [!NOTE]
@@ -78,7 +80,6 @@ Azure Logic Apps (Preview) includes many current and additional capabilities, fo
 
 > [!NOTE]
 > For information about current known issues, review the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
-
 
 <a name="pricing-model"></a>
 
@@ -108,19 +109,21 @@ In this public preview, these capabilities are currently limited, unsupported, o
   > To run locally in Visual Studio Code, the HTTP Webhook trigger and action require additional setup. For more information, see 
   > [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
 
-  For *stateless workflows*, the **Azure** tab doesn't appear when you select a trigger because you can select only [managed connector *actions*, not triggers](../connectors/apis-list.md#managed-api-connectors). Although you can enable Azure-deployed managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
+  * For *stateless workflows*, the **Azure** tab doesn't appear when you select a trigger because you can select only [managed connector *actions*, not triggers](../connectors/apis-list.md#managed-api-connectors). Although you can enable Azure-deployed managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
 
-  For *stateful workflows*, other than the triggers and actions listed below, both [managed connector triggers and actions](../connectors/apis-list.md#managed-api-connectors) are available for you to use.
+  * For *stateful workflows*, other than the triggers and actions listed below, both [managed connector triggers and actions](../connectors/apis-list.md#managed-api-connectors) are available for you to use.
 
-  These triggers and actions are currently limited, unsupported, or unavailable:
+  * These triggers and actions are currently limited, unsupported, or unavailable:
 
-  * [On-premises data gateway *triggers*](../connectors/apis-list.md#on-premises-connectors) are unavailable, but gateway actions *are* available.
+    * [On-premises data gateway *triggers*](../connectors/apis-list.md#on-premises-connectors) are unavailable, but gateway actions *are* available.
 
-  * [Custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) are unavailable.
+    * [Custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) are unavailable.
 
-  * For B2B scenarios, some [integration account connectors](../connectors/apis-list.md#integration-account-connectors) are unavailable. In Visual Studio Code, you can use the Liquid and XML actions, such as XML Validation, without an integration account, but you need to add Liquid maps, XML maps, or XML schemas to your project to their respective **Maps** and **Schemas** folders in the **Artifacts** folder.
+    * For B2B scenarios, some built-in [triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, such as the Flat File Encoding and Decoding actions.
 
-  * The Azure Functions action, **Choose an Azure function**, works only for functions that are created from the **HTTP Trigger** template.
+    * The Azure Functions action, **Choose an Azure function**, works only for functions that are created from the **HTTP Trigger** template.
+
+    * If you use Visual Studio Code with the preview extension on macOS, the Inline Code action, **Execute JavaScript Code**, is unavailable.
 
 * **Hosting plan availability**: Whether you create a new **Logic App (Preview)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the Premium or App Service hosting plan in Azure. **Consumption** hosting plans aren't supported nor available for deploying this resource type. You can deploy from Visual Studio Code to a Docker container, but not to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
@@ -131,6 +134,8 @@ In this public preview, these capabilities are currently limited, unsupported, o
   1. Add the parallel branches to your workflow.
 
   1. Enable the new designer by selecting the **New Canvas** control again.
+
+* **Zoom control**: This control is currently unavailable on the designer.
 
 <a name="nested-behavior"></a>
 
