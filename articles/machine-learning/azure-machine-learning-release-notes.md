@@ -134,7 +134,6 @@ Learn more about [image instance segmentation labeling](how-to-label-images.md).
     + Fixed an issue where VotingRegressor predictions may be inaccurate after refitting the model.
   + **azureml-core**
     + Additional detail added about relationship between AKS deployment configuration and Azure Kubernetes Service concepts.
-    + Customer can use linked service SDK to link synapse workspace into AML workspace. CRUD are supported.
     + Environment client labels support. User can label Environments and reference them by label.
   + **azureml-dataprep**
     + Better error message when using currently unsupported Spark with Scala 2.12.
