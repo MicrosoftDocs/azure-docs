@@ -229,7 +229,7 @@ jobs:
     steps:
     # checkout the repo
     - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
+      uses: actions/checkout@main
     
     - name: 'Login via Azure CLI'
       uses: azure/login@v1
