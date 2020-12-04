@@ -34,15 +34,13 @@ Use these [Microsoft Azure Active Directory Module for Windows PowerShell](https
  Connect-MsolService ('-AzureEnvironment <AzureEnvironmnet>')
  Set-MsolDirSyncEnabled -EnableDirSync $true
  ```
-The first of those two commands requires Azure Active Directory credentials. These commandlets implicitly identify the tenant and enable it for synchronization.
+The first of those two commands, require Azure Active Directory credentials. These commandlets implicitly identify the tenant and enable it for synchronization.
 
 ## Create Service Principals
 Next, we need to create the AD2AAD application/ service principal
 https://docs.microsoft.com//graph/apiapplicationtemplate-instantiate?view=graph-rest-beta&tabs=http 
 
-You must use this specific application id 1a4721b3-e57f-4451-ae87-ef078703ec94
-
-Displayname is the AD domain url if used in the portal (e.g. contoso.com ) but it can be named anything
+You must use this specific application ID 1a4721b3-e57f-4451-ae87-ef078703ec94 and the displayName is the AD domain url if used in the portal (e.g. contoso.com) but it can be named anything.
 
  ```
  POST https://graph.microsoft.com/beta/applicationTemplates/1a4721b3-e57f-4451-ae87-ef078703ec94/instantiate
@@ -59,12 +57,12 @@ The output of the above command will return the objectId of the service principa
 Docs to create sync job:
 https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http 
 
-If you did not record the id above, you can find the service principal by running the following MS Graph call. You'll need Directory.Read.All permissions to make that call:
+If you did not record the ID above, you can find the service principal by running the following MS Graph call. You'll need Directory.Read.All permissions to make that call:
 GET https://graph.microsoft.com/beta/servicePrincipals 
 
 Then look for your app name in the output.
 
-Run the following 2 commands to create 2 jobs: 1 for user/group provisioning, and 1 for password hash syncing. It's the same request twice but with different template ids.
+Run the following 2 commands to create 2 jobs: 1 for user/group provisioning, and 1 for password hash syncing. It's the same request twice but with different template IDs.
 
 
 CALL THE FOLLOWING 2 requests:
