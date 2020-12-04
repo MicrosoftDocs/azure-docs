@@ -4,7 +4,7 @@ description: Learn how to create an Azure file share that can be mounted using t
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
