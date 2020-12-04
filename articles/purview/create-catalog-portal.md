@@ -77,7 +77,7 @@ EventHub namespace.
 
     1. [Create a policy assignment](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) using the custom policy created.
 
-        :::image type="content" source="./media/create-catalog-portal/policy-assignment.png" alt-text="Screenshot showing how to create policy assignment.":::
+        [ ![Screenshot showing how to create policy assignment](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
 
 ## Sign in to Azure
 
