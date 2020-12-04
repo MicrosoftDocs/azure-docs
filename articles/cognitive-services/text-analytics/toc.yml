@@ -64,7 +64,7 @@
      href: How-tos/text-analytics-how-to-call-api.md
    - name: Language detection
      href: How-tos/text-analytics-how-to-language-detection.md
-   - name: Sentiment analysis
+   - name: Sentiment analysis and opinion mining
      href: How-tos/text-analytics-how-to-sentiment-analysis.md
    - name: Key phrase extraction
      href: How-tos/text-analytics-how-to-keyword-extraction.md
@@ -94,6 +94,8 @@
     href: /powershell/module/azurerm.cognitiveservices/
   - name: Text Analytics API
     items:
+      - name: v3.1.preview.3
+        href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/
       - name: v3.0
         href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
       - name: v2
@@ -113,7 +115,7 @@
     - name: v2
       items:
         - name: .NET
-          href: /dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet
+          href: /dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
         - name: Python
           href: /python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
         - name: Java

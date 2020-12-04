@@ -30,7 +30,7 @@ The extension can be used with the following languages, which are supported by t
 
 In this article, examples are currently available only for JavaScript (Node.js) and C# class library functions.  
 
-This article provides details about how to use the Azure Functions extension to develop functions and publish them to Azure. Before you read this article, you should [create your first function by using Visual Studio Code](functions-create-first-function-vs-code.md).
+This article provides details about how to use the Azure Functions extension to develop functions and publish them to Azure. Before you read this article, you should [create your first function by using Visual Studio Code](./create-first-function-vs-code-csharp.md).
 
 > [!IMPORTANT]
 > Don't mix local development and portal development for a single function app. When you publish from a local project to a function app, the deployment process overwrites any functions that you developed in the portal.
@@ -229,7 +229,7 @@ When you publish from Visual Studio Code, you take advantage of the [Zip deploy]
 
 ### Quick function app create
 
-When you choose **+ Create new function app in Azure...**, the extension automatically generates values for the Azure resources needed by your function app. These values are based on the function app name that you choose. For an example of using defaults to publish your project to a new function app in Azure, see the [Visual Studio Code quickstart article](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
+When you choose **+ Create new function app in Azure...**, the extension automatically generates values for the Azure resources needed by your function app. These values are based on the function app name that you choose. For an example of using defaults to publish your project to a new function app in Azure, see the [Visual Studio Code quickstart article](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure).
 
 If you want to provide explicit names for the created resources, you must choose the advanced create path.
 

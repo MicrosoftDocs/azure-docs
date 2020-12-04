@@ -2,7 +2,8 @@
 title: Concepts - Monitor and repair Azure VMware Solution private clouds
 description: Learn how Azure VMware Solution monitors and repairs VMware ESXi servers on an Azure VMware Solution private cloud.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.custom: contperfq2
+ms.date: 11/20/2020
 ---
 
 # Monitor and repair Azure VMware Solution private clouds

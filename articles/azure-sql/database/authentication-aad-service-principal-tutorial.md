@@ -174,7 +174,7 @@ For more information on how to create an Azure AD application, see the article [
 
 ### Permissions required to set or unset the Azure AD admin
 
-In order for the service principal to set or unset an Azure AD admin for Azure SQL, an additional API Permission is necessary. The [Directory.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application API permission will need to be added to your application in Azure AD.
+In order for the service principal to set or unset an Azure AD admin for Azure SQL, an additional API Permission is necessary. The [Directory.Read.All](/graph/permissions-reference#application-permissions-18) Application API permission will need to be added to your application in Azure AD.
 
 :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Directory.Reader.All permissions in Azure AD":::
 

@@ -71,6 +71,16 @@
       href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
     - name: Cognitive Services containers documentation
       href: ../containers/index.yml
+- name: Scenario deep-dives
+  items:
+  - name: Face enrollment
+    items:
+    - name: Overview
+      href: enrollment-overview.md
+    - name: How-to guides
+      items:
+      - name: Build an enrollment app with React
+        href: build-enrollment-app.md
 - name: Reference
   items:
   - name: Face API

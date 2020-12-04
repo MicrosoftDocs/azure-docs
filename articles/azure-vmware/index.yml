@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: dikamath 
   ms.author: dikamath 
-  ms.date: 10/19/2020 
+  ms.date: 11/19/2020 
 
 # card 1
 landingContent:
@@ -42,7 +42,7 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: Plan the deployment
+          - text: 0 - Plan the deployment
             url: production-ready-deployment-steps.md
           - text: 1 - Deploy Azure VMware Solution
             url: deploy-azure-vmware-solution.md
@@ -135,7 +135,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.vmware
+            url: /powershell/module/az.vmware
           - text: FAQ
             url: faq.md
 

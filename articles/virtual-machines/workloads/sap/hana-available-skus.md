@@ -12,7 +12,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/23/2020
+ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -30,10 +30,13 @@ SAP HANA on Azure (Large Instances) service based on Revision 4 stamps is availa
 
 - West US 2
 - East US
-- East US 2
-- South Central US
+
+BareMetal Infrastructure (certified for SAP HANA workloads) service based on Revision 4.2 stamps. It's available in several configurations in the Azure regions of:
 - West Europe
 - North Europe
+- East US 2
+- South Central US
+
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Connection Monitor | Microsoft Docs
+title: Connection Monitor in Azure | Microsoft Docs
 description: Learn how to use Connection Monitor to monitor network communication in a distributed environment.
 services: network-watcher
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/27/2020
+ms.date: 11/23/2020
 ms.author: vinigam
 ms.custom: mvc
 #Customer intent: I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
@@ -30,7 +30,7 @@ Here are some use cases for Connection Monitor:
 - Your hybrid application needs connectivity to an Azure Storage endpoint. Your on-premises site and your Azure application connect to the same Azure Storage endpoint. You want to compare the latencies of the on-premises site to the latencies of the Azure application.
 - You want to check the connectivity between your on-premises setups and the Azure VMs that host your cloud application.
 
-Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor (Classic)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor (NPM) [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitoring](https://docs.microsoft.com/azure/expressroute/how-to-npm), and [Performance Monitoring](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) feature.
+Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor (Classic)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor (NPM) [Service Connectivity Monitor](../azure-monitor/insights/network-performance-monitor-service-connectivity.md), [ExpressRoute Monitoring](../expressroute/how-to-npm.md), and [Performance Monitoring](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) feature.
 
 Here are some benefits of Connection Monitor:
 
@@ -61,7 +61,7 @@ Connection Monitor relies on lightweight executable files to run connectivity ch
 
 To make Connection Monitor recognize your Azure VMs as monitoring sources, install the Network Watcher Agent virtual machine extension on them. This extension is also known as the *Network Watcher extension*. Azure virtual machines require the extension to trigger end-to-end monitoring and other advanced functionality. 
 
-You can install the Network Watcher extension when you [create a VM](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm). You can also separately install, configure, and troubleshoot the Network Watcher extension for [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux) and [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
+You can install the Network Watcher extension when you [create a VM](./connection-monitor.md#create-the-first-vm). You can also separately install, configure, and troubleshoot the Network Watcher extension for [Linux](../virtual-machines/extensions/network-watcher-linux.md) and [Windows](../virtual-machines/extensions/network-watcher-windows.md).
 
 Rules for a network security group (NSG) or firewall can block communication between the source and destination. Connection Monitor detects this issue and shows it as a diagnostic message in the topology. To enable connection monitoring, ensure that NSG and firewall rules allow packets over TCP or ICMP between the source and destination.
 
@@ -69,7 +69,7 @@ Rules for a network security group (NSG) or firewall can block communication bet
 
 To make Connection Monitor recognize your on-premises machines as sources for monitoring, install the Log Analytics agent on the machines. Then enable the Network Performance Monitor solution. These agents are linked to Log Analytics workspaces, so you need to set up the workspace ID and primary key before the agents can start monitoring.
 
-To install the Log Analytics agent for Windows machines, see [Azure Monitor virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows).
+To install the Log Analytics agent for Windows machines, see [Azure Monitor virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
 
 If the path includes firewalls or network virtual appliances (NVAs), then make sure that the destination is reachable.
 
@@ -77,7 +77,7 @@ If the path includes firewalls or network virtual appliances (NVAs), then make s
 
 All subscriptions that have a virtual network are enabled with Network Watcher. When you create a virtual network in your subscription, Network Watcher is automatically enabled in the virtual network's region and subscription. This automatic enabling doesn't affect your resources or incur a charge. Ensure that Network Watcher isn't explicitly disabled on your subscription. 
 
-For more information, see [Enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+For more information, see [Enable Network Watcher](./network-watcher-create.md).
 
 ## Create a connection monitor 
 
@@ -107,7 +107,7 @@ Connection Monitor includes the following entities:
 
  ![Diagram showing a connection monitor, defining the relationship between test groups and tests](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-You can create a connection monitor using [Azure portal](connection-monitor-preview-create-using-portal.md) or [ARMClient](connection-monitor-preview-create-using-arm-client.md)
+You can create a connection monitor using [Azure portal](./connection-monitor-create-using-portal.md) or [ARMClient](./connection-monitor-create-using-template.md)
 
 All sources, destinations, and test configurations that you add to a test group get broken down to individual tests. Here's an example of how sources and destinations are broken down:
 
@@ -344,5 +344,5 @@ For networks whose sources are Azure VMs, the following issues can be detected:
 
 ## Next Steps
     
-   * Learn [How to create Connection Monitor using Azure portal](connection-monitor-preview-create-using-portal.md)  
-   * Learn [How to create Connection Monitor using ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * Learn [How to create Connection Monitor using Azure portal](./connection-monitor-create-using-portal.md)  
+   * Learn [How to create Connection Monitor using ARMClient](./connection-monitor-create-using-template.md)

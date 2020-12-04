@@ -57,7 +57,7 @@ To extend protection to virtual machines and SQL databases that are in other clo
 
 
 
-## Azure Defender alerts 
+## Security alerts 
 
 When Azure Defender detects a threat in any area of your environment, it generates an alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response.
 

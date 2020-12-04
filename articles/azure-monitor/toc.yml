@@ -89,6 +89,8 @@
           href: samples/resource-manager-web-app.md
         - name: Azure Functions
           href: samples/resource-manager-function-app.md
+    - name: Data collection rules
+      href: samples/resource-manager-data-collection-rules.md
     - name: Diagnostic settings
       href: samples/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
@@ -164,6 +166,7 @@
     - name: Deploy Azure Monitor
       href: deploy.md
     - name: Deploy at scale
+      displayName: Azure Policy, Policy
       href: deploy-scale.md
   - name: Manage and configure
     items:
@@ -248,6 +251,8 @@
         href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
       - name: Standard columns
         href: platform/log-standard-columns.md
+      - name: Audit queries
+        href: log-query/query-audit.md
       - name: Optimize queries
         href: log-query/query-optimization.md
       - name: Functions
@@ -269,6 +274,8 @@
           href: log-query/resource-expression.md   
         - name: Unify application data resources
           href: log-query/unify-app-resource-data.md
+        - name: Query Azure Data Explorer from Azure Monitor
+          href: platform/azure-monitor-data-explorer-proxy.md
     - name: Data export
       items:
       - name: Workspace data export
@@ -351,6 +358,9 @@
       - name: Overview
         displayname: Azure Monitor agent
         href: platform/azure-monitor-agent-overview.md
+      - name: Install
+        displayname: Azure Monitor agent
+        href: platform/azure-monitor-agent-install.md
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: platform/data-collection-rule-azure-monitor-agent.md
@@ -542,7 +552,7 @@
         href: platform/it-service-management-connector-secure-webhook-connections.md
       - name: Create Service Manager web app
         href: platform/itsmc-service-manager-script.md
-      - name: Fix ServiceNow ITSM sync problems
+      - name: Troubleshooting problems in ITSM Connector
         href: platform/itsmc-resync-servicenow.md
     - name: Migrate classic alert rules
       items:
@@ -668,6 +678,8 @@
               href: app/java-standalone-telemetry-processors.md
             - name: JVM arguments setup
               href: app/java-standalone-arguments.md
+            - name: Upgrade from 2.x
+              href: app/java-standalone-upgrade-from-2x.md
       - name: On-Premises servers
         items:
         - name: ASP.NET
@@ -1133,6 +1145,8 @@
         href: platform/workbooks-tree-visualizations.md
       - name: Graph
         href: platform/workbooks-graph-visualizations.md
+      - name: Map
+        href: platform/workbooks-map-visualizations.md
       - name: Honey comb
         href: platform/workbooks-honey-comb.md
       - name: Composite bar

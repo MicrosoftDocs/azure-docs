@@ -113,7 +113,7 @@ Azure Cognitive Services – Face can be used in Azure Government supporting Imp
 
 Cognitive Services – Language Understanding can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Configure encryption at rest of content in Cognitive Services – Language Understanding using customer-managed keys in Azure Key Vault https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest)
+- Configure encryption at rest of content in Cognitive Services – Language Understanding using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest)
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
@@ -194,7 +194,7 @@ Azure HDInsight can be used in Azure Government supporting Impact Level 5 worklo
 
 ### [Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse/)
 
-Azure Synapse Analytics (formerly SQL Data Warehouse) can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Azure Synapse Analytics can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
 - Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
 
@@ -369,6 +369,26 @@ When you store images and other artifacts in an Azure container registry, Azure 
 
 ## Databases
 
+### [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+
+Azure SQL Database can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the [Azure SQL documentation](../azure-sql/database/transparent-data-encryption-byok-overview.md).
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure SQL DB** | X | X | X | X | X |
+
+### [Azure SQL Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/)
+
+Azure SQL Stretch Database can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure SQL Stretch DB** | X | X | X | X | X |
+
 ### [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) 
 
 Azure Database for MySQL can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
@@ -401,7 +421,7 @@ Azure DevTest Labs can be used in Azure Government supporting Impact Level 5 wor
 
 ## Hybrid
 
-### [Azure Stack Edge] (https://azure.microsoft.com/products/azure-stack/edge/)
+### [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/)
 
 Azure Stack Edge can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
@@ -908,22 +928,3 @@ To help ensure the security and integrity of data moved to the cloud, StorSimple
 | --- | --- | --- | --- | --- | --- |
 | **StorSimple** | X | X | X | X | X |
 
-### [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
-
-Azure SQL Database can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
-
-- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the [Azure SQL documentation](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
-
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- |
-| **Azure SQL DB** | X | X | X | X | X |
-
-### [Azure SQL Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/)
-
-Azure SQL Stretch Database can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
-
-- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
-
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- |
-| **Azure SQL Stretch DB** | X | X | X | X | X |
