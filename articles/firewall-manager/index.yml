@@ -41,12 +41,12 @@ landingContent:
       links:
         - text: What are security partner providers?
           url: trusted-security-partners.md
+        - text: Secure virtual hubs using Check Point Cloudguard Connect
+          url: check-point-overview.md
     - linkListType: how-to-guide
       links:
        - text: Deploy a security partner provider
          url: deploy-trusted-security-partner.md
-       - text: Secure virtual hubs using Check Point Cloudguard Connect
-         url: check-point-overview.md
   # Card
   - title: Secure your Azure cloud network
     linkLists:
