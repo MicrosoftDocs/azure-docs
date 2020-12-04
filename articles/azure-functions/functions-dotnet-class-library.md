@@ -324,6 +324,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
 
+To learn more about how Functions implements `ILogger`, see [Collecting telemetry data](functions-monitoring.md#collecting-telemetry-data).
+
 ### Structured logging
 
 The order of placeholders, not their names, determines which parameters are used in the log message. Suppose you have the following code:
