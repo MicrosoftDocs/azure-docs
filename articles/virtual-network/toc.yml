@@ -106,7 +106,7 @@
     - name: Virtual network NAT security baseline
       href: nat-security-baseline.md
     - name: Network isolation of Azure services
-      href: virtual-network-integration-for-azure-services.md
+      href: integrate-azure-services-with-virtual-networks.md
     - name: Network security groups
       items:
       - name: Overview
