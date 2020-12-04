@@ -259,9 +259,8 @@ In the integrated terminal, compile the handler to Linux/x64. A binary named `ha
     go build hello.go
     ```
 
-Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
-
----
+    Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
+    ---
 
 # [Rust](#tab/rust)
 
