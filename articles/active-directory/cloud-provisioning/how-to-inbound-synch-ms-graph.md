@@ -40,7 +40,7 @@ The first of those two commands, require Azure Active Directory credentials. The
 Next, we need to create the AD2AAD application/ service principal
 https://docs.microsoft.com//graph/apiapplicationtemplate-instantiate?view=graph-rest-beta&tabs=http 
 
-You must use this specific application ID 1a4721b3-e57f-4451-ae87-ef078703ec94 and the displayName is the AD domain url if used in the portal (e.g. contoso.com) but it can be named anything.
+You need to use this application ID 1a4721b3-e57f-4451-ae87-ef078703ec94. The displayName is the AD domain url, if used in the portal (for example, contoso.com), but it may be named something else.
 
  ```
  POST https://graph.microsoft.com/beta/applicationTemplates/1a4721b3-e57f-4451-ae87-ef078703ec94/instantiate
@@ -52,7 +52,7 @@ You must use this specific application ID 1a4721b3-e57f-4451-ae87-ef078703ec94 a
 
 
 ## Create Sync Job
-The output of the above command will return the objectId of the service principal that was created. Given that value, which, in the case of this example is 614ac0e9-a59b-481f-bd8f-79a73d167e1c, use Microsoft Graph to add a synchronizationJob to that service principal:
+The output of the above command will return the objectId of the service principal that was created. For this example, the objectId is 614ac0e9-a59b-481f-bd8f-79a73d167e1c.  Use Microsoft Graph to add a synchronizationJob to that service principal.  
 
 Docs to create sync job:
 https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http 
@@ -62,7 +62,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals
 
 Then look for your app name in the output.
 
-Run the following 2 commands to create 2 jobs: 1 for user/group provisioning, and 1 for password hash syncing. It's the same request twice but with different template IDs.
+Run the following two commands to create two jobs: 1 for user/group provisioning, and 1 for password hash syncing. It's the same request twice but with different template IDs.
 
 
 CALL THE FOLLOWING 2 requests:
@@ -116,13 +116,13 @@ HTTP 201/Created
 ```
 
 ## Update targeted domain
-In this tenant the object identifier and application identifier of the service principal are as follows:
+For this tenant, the object identifier and application identifier of the service principal are as follows:
 
 ObjectId: 8895955e-2e6c-4d79-8943-4d72ca36878f
 AppId: 00000014-0000-0000-c000-000000000000
 DisplayName: testApp
 
-We're going to need to update the domain this configuration is targeting, so update the secrets for this (couldn't find public docs for this)
+We're going to need to update the domain this configuration is targeting, so update the secrets for this domain.
 
 Make sure the domain name you use is the same url you set for your on-prem domain controller
 
