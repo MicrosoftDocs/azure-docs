@@ -97,12 +97,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Linked service API is refined. Instead of providing resource Id, we have 3 separate parameters sub_id, rg, and name defined in configuration.
     + In order to enable customers to self-resolve token corruption issues, enable workspace token synchronization to be a public method.
     + This change allows an empty string to be used as a value for a script_param
-  + **azureml-pipeline-core**
-    + SDK to support SynapseCompute type and SynapseSparkStep. Customers can run experiment and pipeline run on synapse spark pool.
-  + **azureml-pipeline-steps**
-    + SDK to support SynapseCompute type and SynapseSparkStep. Customers can run experiment and pipeline run on synapse spark pool.
-  + **azureml-synapse**
-    + Add Synapse magic and SparkMonitor to enable user submit Syanpse job and view the job progress in notebook.
   + **azureml-train-automl-client**
     +  Improved handling of short time series by allowing padding them with gaussian noise.
   + **azureml-train-automl-runtime**
