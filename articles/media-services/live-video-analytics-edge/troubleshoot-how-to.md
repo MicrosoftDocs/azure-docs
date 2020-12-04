@@ -235,7 +235,7 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
 
 As gRPC server implementation differ across languages, there is no standard way of adding logging inside in the server.  
 
-As an example, if you build a gRPC server using .Net core, gRPC service adds logs under the **Grpc** category. To enable detailed logs from gRPC, configure the Grpc prefixes to the Debug level in your appsettings.json file by adding the following items to the LogLevel sub-section in Logging: 
+As an example, if you build a gRPC server using .NET core, gRPC service adds logs under the **Grpc** category. To enable detailed logs from gRPC, configure the Grpc prefixes to the Debug level in your appsettings.json file by adding the following items to the LogLevel sub-section in Logging: 
 
 ```
 { 
