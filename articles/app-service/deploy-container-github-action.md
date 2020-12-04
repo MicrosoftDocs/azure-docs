@@ -27,10 +27,10 @@ For an Azure App Service container workflow, the file has three sections:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
-- A working container registry and Azure App Service app for containers. This example uses Azure Container Registry. 
+- A GitHub account. If you don't have one, sign up for [free](https://github.com/join). You will need to have your code to deploy to Azure App Service in a GitHub repository. 
+- A working container registry and Azure App Service app for containers. This example uses Azure Container Registry. Make sure to complete the full deployment to Azure App Service app for containers. Unlike regular web apps, web apps for containers do not have a default landing page. You need to publish the container to have a working example.
     - [Learn how to create a containerized Node.js application using Docker, push the container image to a registry, and then deploy the image to Azure App Service](/azure/developer/javascript/tutorial-vscode-docker-node-01)
-
+  		
 ## Generate deployment credentials
 
 The recommended way to authenticate with Azure App Services for GitHub Actions is with a publish profile. You can also authenticate with a service principal but the process requires more steps. 
@@ -46,7 +46,7 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 1. On the **Overview** page, select **Get Publish profile**.
 
     > [!NOTE]
-    > As of October 2020, Linux web apps will need the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the file**. This requirement will be removed in the future.
+    > As of October 2020, Linux web apps will need the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the file**. This requirement will be removed in the future. See [Configure an App Service app in the Azure portal](/azure/app-service/configure-common), to learn how to configure common web app settings.  
 
 1. Save the downloaded file. You'll use the contents of the file to create a GitHub secret.
 
@@ -76,21 +76,6 @@ In the example, replace the placeholders with your subscription ID, resource gro
 > It is always a good practice to grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
 
 ---
-
-## Configure the GitHub secret
-
-In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
-
-Paste the contents of the JSON output as the value of secret variable. Give the secret the name like `AZURE_CREDENTIALS`.
-
-When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
-
-```yaml
-- uses: azure/login@v1
-  with:
-    creds: ${{ secrets.AZURE_CREDENTIALS }}
-```
-
 ## Configure the GitHub secret for authentication
 
 # [Publish profile](#tab/publish-profile)
@@ -125,9 +110,9 @@ When you configure the workflow file later, you use the secret for the input `cr
 
 ## Configure GitHub secrets for your registry
 
-Define secrets to use with the Docker Login action. 
+Define secrets to use with the Docker Login action. The example in this document uses Azure Container Registry for the container repository. 
 
-1. Go to your container in the Azure portal or Docker and copy the username and password. 
+1. Go to your container in the Azure portal or Docker and copy the username and password. You can find the Azure Container Registry username and password in the Azure portal under **Settings** > **Access keys** for your registry. 
 
 2. Define a new secret for the registry username named `REGISTRY_USERNAME`. 
 
@@ -159,7 +144,7 @@ jobs:
         docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
 ```
 
-You can also use [Docker Login](https://github.com/azure/docker-login) to log into multiple container registries at the same time. This example includes two new GitHub secrets for authentication with docker.io.
+You can also use [Docker Login](https://github.com/azure/docker-login) to log into multiple container registries at the same time. This example includes two new GitHub secrets for authentication with docker.io. The example assumes that there is a Dockerfile at the root level of the registry. 
 
 ```yml
 name: Linux Container Node Workflow
