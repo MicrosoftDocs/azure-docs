@@ -42,7 +42,7 @@ landingContent:
         links:
           - text: Use serverless SQL pool
             url: quickstart-sql-on-demand.md
-          - text: Create adedicated SQL pool using Synapse Studio
+          - text: Create a dedicated SQL pool using Synapse Studio
             url: quickstart-create-sql-pool-studio.md
 
 
