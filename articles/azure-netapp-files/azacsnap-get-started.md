@@ -189,7 +189,7 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 
 ### Performing Disaster Recovery
 
-- [What are the prerequisites for DR setup](azacsnap-disaster-recovery.md#prerequisites-for-dr-setup)
+- [What are the prerequisites for DR setup](azacsnap-disaster-recovery.md#prerequisites-for-disaster-recovery-setup)
 - [How to set up a disaster recovery](azacsnap-disaster-recovery.md#set-up-disaster-recovery)
 - [How to monitor the data replication from Primary to DR site](azacsnap-disaster-recovery.md#monitor-data-replication-from-primary-to-dr-site)
 - [How to perform a failover to DR site?](azacsnap-disaster-recovery.md#perform-a-failover-to-dr-site)
