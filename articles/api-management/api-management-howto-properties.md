@@ -15,84 +15,79 @@ ms.author: apimpm
 
 [API Management policies](api-management-howto-policies.md) are a powerful capability of the system that allows the Azure portal to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and named values.
 
-Each API Management service instance has a global collection of key/value pairs, called *named values*. There is no imposed limit on the number of items in the collection. Named values can be used to manage constant string values across all API configuration and policies. 
+*Named values* are a global collection of key/value pairs in each API Management instance. There is no imposed limit on the number of items in the collection. Named values can be used to manage constant string values across all API configurations and policies. 
 
-Yo can stored manage, and referenced secret named values in [Azure Key Vault](../key-vault/general/overview.md). Integration with Azure Key Vault helps improve API Management security in several ways:
+## Value types
+
+API Management supports the following types of property values:
+
+
+|Type  |Description  |
+|---------|---------|
+|Plain value     |  Literal string or policy expression     |
+|Custom secret     |   Literal string or policy expression that is encrypted by API Management      |
+|[Key vault secret](#key-vault-secrets)     |  Identifier (without version) of a secret in an Azure key vault     |
+
+Plain values or custom secrets can contain [policy expressions](./api-management-policy-expressions.md). For example, the expression `@(DateTime.Now.ToString())` returns a string containing the current date and time.
+
+For details about the named value attributes, see the API Management [REST API reference](rest/api/apimanagement/2020-06-01-preview/namedvalue/createorupdate).
+
+## Key vault secrets
+
+You can store secret values as encrypted strings in API Management (custom secrets) or by referencing secrets in [Azure Key Vault](../key-vault/general/overview.md). 
+
+Key vault integration is recommemded to manage secrets because it helps improve API Management security:
 
 * Secrets can be reused across services as named values
 * Secrets updated in Azure Key Vault are automatically rotated in API Management
-* Granular access policies can be applied to secrets
+* Granular [access policies](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) can be applied to secrets
 
-## Named value attributes
+### Prerequisites for key vault integration
 
-Each named value may have the following attributes:
+1. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+1. Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
+1. Assign a [key vault access policy](../key-vault/general/assign-access-policy-portal.md) to the identity with permissions to get and list secrets from the vault. To add the policy:
+    1. In the portal, navigate to your key vault.
+    1. Select **Settings > Access policies > +Add Access Policy**.
+    1. Select **Secret permissions**, then select **Get** and **List**.
+    1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
+1. Create or import a secret to the key vault. See [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
 
-| Attribute      | Type            | Description                                                                                                                            |
-| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `Display name` | string          | Used for referencing the named value in policies. A string of one to 256 characters. Only letters, numbers, dot, and dash are allowed. |
-| `Value`        | string          | Actual value. Must not be empty or consist only of whitespace. Maximum of 4096 characters long.                                        |
-| `Secret`       | boolean         | Whether the value is a secret and should be encrypted or not.                                                               |
-| `Tags`         | array of string | Used to filter the named value list. Up to 32 tags.                                                                                    |
+### Configuration for Key Vault firewall
 
-![Named values](./media/api-management-howto-properties/named-values.png)
+If [Key Vault firewall](../key-vault/general/network-security.md) is enabled on your key vault, the following are additional requirements:
 
-Named values can contain literal strings and [policy expressions](./api-management-policy-expressions.md). For example, the value of `Expression` is a policy expression that returns a string containing the current date and time. The named value `Credential` is marked as a secret, so its value is not displayed by default.
+* You must use the API Management instance's **system-assigned** managed identity to access the key vault.
+* When enabling the Key Vault firewall, select the **Allow Trusted Microsoft Services to bypass this firewall** option.
 
-| Name       | Value                      | Secret | Tags          |
-| ---------- | -------------------------- | ------ | ------------- |
-| Answer     | 42                         | False  | vital-numbers |
-| Credential | ••••••••••••••••••••••     | True   | security      |
-| Expression | @(DateTime.Now.ToString()) | False  |               |
+If the API Management instance is deployed in a virtual network, configure the following network settings:
+* Enable a [service endpoint](../key-vault/general/overview-vnet-service-endpoints.md) to Azure Key Vault on the API Management subnet.
+* Configure network security group (NSG) rules to allow inbound traffic from the AzureKeyVault [service tag](../virtual-network/service-tags-overview.md). 
+
+For details, see [Connect to a virtual network](api-management-using-with-vnet.md).
 
 ## Add and edit a named value
 
 ![Add a named value](./media/api-management-howto-properties/add-property.png)
 
-1. Select **APIs** from under **API MANAGEMENT**.
-2. Select **Named values**.
-3. Select **+Add**.
-
-    **Name** and **Value** are required values. If value is a secret, select the **This is a secret** checkbox. Enter one or more optional tags to help organize your named values, then **Save**.
-
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. Under **APIs**, select **Named values**.
+1. Select **+Add**.
+1. Enter a **Name**, and enter a **Display name** used to reference the property in policies.
+1. In **Value type**, select one of the options.
+    * If you select **Plain value** or **Custom secret**, enter the corresponding value in **Value**.
+    * If you select **Key vault secret**, enter the identifier of a key vault secret (without version), or choose **Select** to select a secret from a key vault.
+1. Enter one or more optional tags to help organize your named values, then **Save**.
 4. Select **Create**.
 
 Once the named value is created, you can edit it by selecting the name. If you change the named value name, any policies that reference that named value are automatically updated to use the new name.
 
-## Add secret named value
-
-To use a secret as a named value, we recommend storing and managing the secret in an Azure key vault.
-
-1. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
-1. Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
-1. Assign a [key vault access policy](../key-vault/general/assign-access-policy-portal.md) to the identity with permissions to get and list secrets from the vault. When configuring the policy in the **Add access policy** window in the portal:
-    1. In **Secret permissions**, select **Get** and select **List**.
-    1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assignmed managed identity, the principal is the name of your API Management instance.
-    1. Create or import a secret to the key vault. See [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
-    1. 
-    1. 
-
-### Configuration for Key Vault firewall
-
-If [Key Vault firewall](../key-vault/general/network-security.md) is enabled on your key vault, you may use the key vault to store secrets for API Management. 
-
-The following are additional requirements for API Management to access the key vault when Key Vault firewall is enabled:
-
-* You must use the API Management instance's **system-assigned** managed identity to access the key vault.
-* When enabling the Key Vault firewall, select the **Allow Trusted Microsoft Services to bypass this firewall** option.
-
-Additionally, if the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure the following network settings:
-* Enable a [service endpoint](../key-vault/general/overview-vnet-service-endpoints.md) to Azure Key Vault on the API Management subnet 
-* Open up NSG for the AzureKeyVault [service tag](../virtual-network/service-tags-overview.md)
-*
-
-
-
 ## Delete a named value
 
-To delete a named value, click **Delete** beside the named value to delete.
+To delete a named value, select the name and then select **Delete** from the context menu (**...**).
 
 > [!IMPORTANT]
-> If the named value is referenced by any policies, you will be unable to successfully delete it until you remove the named value from all policies that use it.
+> If the named value is referenced by any policies, you can't delete it until you remove the named value from all policies that use it.
 
 ## Search and filter named values
 
