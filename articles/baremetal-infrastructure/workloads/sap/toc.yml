@@ -1,5 +1,5 @@
 - name: BareMetal Infrastructure
-  href: index.yml
+  href: ../../index.yml
 - name: Overview
   items:
   - name: About BareMetal Infrastructure
