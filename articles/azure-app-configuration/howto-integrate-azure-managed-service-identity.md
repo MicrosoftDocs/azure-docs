@@ -229,7 +229,7 @@ git remote add azure <url>
 Push to the Azure remote to deploy your app with the following command. When you're prompted for a password, enter the password you created in [Configure a deployment user](#configure-a-deployment-user). Don't use the password you use to sign in to the Azure portal.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 You might see runtime-specific automation in the output, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python.
