@@ -48,7 +48,7 @@ Follow these steps before importing your solutions from OCP GTM:
 
 ## Migrate your solutions from OCP GTM
 
-1. Start by signing in to [Partner Center](https://partner.microsoft.com/solutions/migration).
+1. Start by signing in to OCP GTM.
 2. Select the **Overview** page, then **Click here to get started**.
 
     :::image type="content" source="media/co-sell-migrate/migration-overview.png" alt-text="Partner Center Overview page, Overview tab.":::
@@ -100,7 +100,7 @@ Select this option when you may have an OCP GTM solution that does not yet have 
     :::image type="content" source="media/co-sell-migrate/action-2-migrate.png" alt-text="The Action 2 tab of the migrate process.":::
 
 1. Select **Create a draft offer** to migrate your solution to the commercial marketplace as a draft. It will not be live yet.
-1. Continue the publishing process in Partner Center. For assistance with publishing in Partner Center, see [How to review and publish an offer to the commercial marketplace](review-publish-offer.md).
+1. Continue the publishing process in Partner Center. For assistance with publishing in Partner Center, see [Make your offer live in the commercial marketplace](#make-your-offer-live-in-the-commercial-marketplace) below.
 
 ### Discard this solution
 
