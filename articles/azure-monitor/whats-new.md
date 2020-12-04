@@ -11,6 +11,71 @@ ms.date: 11/11/2020
 
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
 
+## November 2020
+
+### General
+- [Azure Monitor service limits](service-limits.md) - Updated for Azure Arc support.
+
+### Agents
+- [Overview of the Azure monitoring agents](platform/agents-overview.md) - Updated for Azure Arc support.
+- [Install the Azure Monitor agent](platform/azure-monitor-agent-install.md) - New article.
+- [Azure Monitor agent overview](platform/azure-monitor-agent-overview.md) - Updated for Azure Arc support.
+- [Resource Manager template samples for agents](samples/resource-manager-agent.md) - Updated for Azure Arc support.
+
+### Alerts
+- [Create and manage action groups in the Azure portal](platform/action-groups.md) - Added source IP addresses for webhooks.
+
+### Application Insights
+- [Azure Monitor Application Insights Java](app/java-in-process-agent.md) - Added configuration example.
+- [React plugin for Application Insights JavaScript SDK](app/javascript-react-plugin.md) - Added section on using React hooks.
+- [Telemetry processors (preview) - Azure Monitor Application Insights Java](app/java-standalone-telemetry-processors.md) - New article.
+- [Telemetry processors (preview) - Azure Monitor Application Insights Java](app/java-standalone-upgrade-from-2x.md) - New article.
+- [Release Notes for Microsoft.ApplicationInsights.SnapshotCollector NuGet package - Application Insights](app/snapshot-collector-release-notes.md) - New article.
+
+### Autoscale
+- [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on moving Autoscale to a different region.
+
+### Data collection
+- [Configure data collection for the Azure Monitor agent (preview)](platform/data-collection-rule-azure-monitor-agent.md) - Updated for Azure Arc support.
+- [Data Collection Rules in Azure Monitor (preview)](platform/data-collection-rule-overview.md) - Updated for Azure Arc support.
+- [Resource Manager template samples for data collection rules](samples/resource-manager-data-collection-rules.md) - New article.
+- [Operations - List (Azure Monitor) | Microsoft Docs](includes/azure-monitor-limits-data-collection-rules.md) - Updated for Azure Arc support.
+
+### Insights and solutions
+- [IT Service Management Connector - Secure Export in Azure Monitor](platform/it-service-management-connector-secure-webhook-connections.md) - Added section on connecting to ServiceNow.
+
+### Logs
+- [Integrate Log Analytics and Excel](log-query/log-excel.md) - New article.
+- [Log Analytics data security](platform/data-security.md) - Added section on additional security features.
+- [Log Analytics integration with Power BI and Excel](log-query/log-powerbi.md) - New article.
+- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - 
+- [Standard columns in Azure Monitor log records](platform/log-standard-columns.md) - Added _SubscriptionId column.
+
+New and updated articles from restructure of log query content.
+
+- [Advanced aggregations in Azure Monitor log queries](log-query/advanced-aggregations.md)
+- [Advanced queries in Azure Monitor](log-query/advanced-query-writing.md)
+- [Aggregations in Azure Monitor log queries](log-query/aggregations.md)
+- [Creating charts and diagrams from Azure Monitor log queries](log-query/charts.md)
+- [Get started with Log Analytics queries](log-query/get-started-portal.md)
+- [Joins in Azure Monitor log queries](log-query/joins.md)
+- [Log Analytics tutorial](log-query/log-analytics-tutorial.md)
+- [Log queries in Azure Monitor](log-query/log-query-overview.md)
+- [Overview of Log Analytics in Azure Monitor](log-query/log-analytics-overview.md)
+- [Upgrading your Log Analytics Dashboard visualizations](log-query/data-explorer-difference.md)
+- [Working with date time values in Azure Monitor log queries](log-query/datetime-operations.md)
+- [Working with strings in Azure Monitor log queries](log-query/json-data-structures.md)
+
+
+
+
+### Virtual machines
+- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Added supported regions.
+- [Configure monitoring in Azure Monitor for VMs guest health using data collection rules (preview)](insights/vminsights-health-configure-dcr.md) - New article.
+- [Enable Azure Monitor for VMs guest health (preview)](insights/vminsights-health-enable.md) - New article.
+- [Troubleshoot Azure Monitor for VMs guest health (preview)](insights/vminsights-health-troubleshoot.md) - New article.
+
+
 ## October 2020
 
 ### General
