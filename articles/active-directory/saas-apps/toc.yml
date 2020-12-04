@@ -1816,6 +1816,8 @@
         href: vocoli-tutorial.md
       - name: Vodeclic
         href: vodeclic-tutorial.md
+      - name: vonage
+        href: vonage-tutorial.md
       - name: Voyance
         href: voyance-tutorial.md
       - name: Vtiger CRM (SAML)
