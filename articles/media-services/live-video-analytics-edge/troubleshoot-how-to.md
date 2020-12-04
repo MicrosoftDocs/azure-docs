@@ -229,7 +229,7 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
     `"DebugLogsDirectory": ""`
 
 
-## Troubleshooting
+## Frequently asked questions
 
 ### What are some best practices around logging? 
 
