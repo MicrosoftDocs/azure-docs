@@ -64,6 +64,12 @@ Similar to placing your APIM and backend services in a virtual network, you can 
 
 Refer to [Azure Firewall](../firewall/overview.md) documentation for more.
 
+### Consider response caching and other backend performance tuning
+
+Another potential mitigation to consider is improving processing times for your backend APIs. One way to do this is by configuring certain APIs with response caching to reduce latency between client applications calling your API and your APIM backend load.
+
+For more, see [Add caching to improve performance in Azure API Management](api-management-howto-cache.md).
+
 ### Consider implementing access restriction policies
 
 If it makes sense for your business scenario, you can implement access restriction policies for your API Management product. For example, the `rate-limit-by-key` policy can be used to prevent API usage spikes on a per key basis by limiting the call rate per a specified time period.
