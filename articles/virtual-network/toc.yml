@@ -74,7 +74,7 @@
   - name: Integrate Azure services
     items:
     - name: Overview
-      href: integrate-azure-services-with-virtual-networks.md
+      href: vnet-integration-for-azure-services.md
     - name: Deploy a dedicated service
       href: virtual-network-for-azure-services.md
     - name: Private Link
@@ -106,7 +106,7 @@
     - name: Virtual network NAT security baseline
       href: nat-security-baseline.md
     - name: Network isolation of Azure services
-      href: integrate-azure-services-with-virtual-networks.md
+      href: vnet-integration-for-azure-services.md
     - name: Network security groups
       items:
       - name: Overview
