@@ -3,11 +3,11 @@ title: 'Tutorial: Send Event Hubs data to data warehouse - Event Grid'
 description: 'Tutorial: Describes how to use Azure Event Grid and Event Hubs to migrate data to a Azure Synapse Analytics. It uses an Azure Function to retrieve a Capture file.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Tutorial: Stream big data into a data warehouse
-Azure [Event Grid](overview.md) is an intelligent event routing service that enables you to react to notifications (events) from apps and services. For example, it can trigger an Azure Function to process Event Hubs data that has been captured to an Azure Blob storage or Azure Data Lake Storage, and migrate the data to other data repositories. This [Event Hubs and Event Grid integration sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) shows you how to use Event Hubs with Event Grid to seamlessly migrate captured Event Hubs data from blob storage to a Azure Synapse Analytics (formerly SQL Data Warehouse).
+Azure [Event Grid](overview.md) is an intelligent event routing service that enables you to react to notifications (events) from apps and services. For example, it can trigger an Azure Function to process Event Hubs data that has been captured to an Azure Blob storage or Azure Data Lake Storage, and migrate the data to other data repositories. This [Event Hubs and Event Grid integration sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) shows you how to use Event Hubs with Event Grid to seamlessly migrate captured Event Hubs data from blob storage to a Azure Synapse Analytics.
 
 ![Application overview](media/event-grid-event-hubs-integration/overview.png)
 
@@ -22,8 +22,8 @@ This diagram depicts the workflow of the solution you build in this tutorial:
 In this article, you take the following steps:
 
 > [!div class="checklist"]
-> * Use an Azure Resource Manager template to deploy the infrastructure: an event hub, a storage account, a function app, a Synapse Analytics.
-> * Create a table in the data warehouse.
+> * Use an Azure Resource Manager template to deploy the infrastructure: an event hub, a storage account, a function app, a dedicated SQL pool.
+> * Create a table in the dedicated SQL pool.
 > * Add code to the function app.
 > * Subscribe to the event. 
 > * Run app that sends data to the event hub.

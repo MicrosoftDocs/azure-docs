@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 12/04/2020
 ms.author: b-juche
 ---
 # Metrics for Azure NetApp Files

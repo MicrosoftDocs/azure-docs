@@ -65,7 +65,7 @@ See [Create a user-assigned managed identity](../active-directory/managed-identi
 
 ### Create Azure Key Vault
 
-Create a key vault. See [Create Azure Key Vault](../key-vault/secrets/quick-create-portal.md) for specific steps.
+Create a key vault. See [Create Azure Key Vault](../key-vault/general/quick-create-portal.md) for specific steps.
 
 HDInsight only supports Azure Key Vault. If you have your own key vault, you can import your keys into Azure Key Vault. Remember that the key vault must have **Soft delete** enabled. For more information about importing existing keys, visit [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
 

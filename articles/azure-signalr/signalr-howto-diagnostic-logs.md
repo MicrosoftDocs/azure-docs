@@ -117,7 +117,7 @@ To view resource logs, follow these steps:
 
     ![Log Analytics menu item](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Enter `SignalRServiceDiagnosticLogs` and select time range to query resource logs. For advanced query, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+2. Enter `SignalRServiceDiagnosticLogs` and select time range to query resource logs. For advanced query, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 
     ![Query log in Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 

@@ -17,7 +17,7 @@ ms.custom: contperfq1
 
 This article explains deep learning vs. machine learning and how they fit into the broader category of artificial intelligence. Learn about deep learning solutions you can build on Azure Machine Learning, such as fraud detection, voice and facial recognition, sentiment analysis, and time series forecasting.
 
-For guidance on choosing algorithms for your solutions, see the [Machine Learning Algorithm Cheat Sheet](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri).
+For guidance on choosing algorithms for your solutions, see the [Machine Learning Algorithm Cheat Sheet](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri).
 
 ## Deep learning, machine learning, and AI
 
@@ -89,8 +89,6 @@ Text analytics based on deep learning methods involves analyzing large quantitie
 
 Companies use deep learning to perform text analysis to detect insider trading and compliance with government regulations. Another common example is insurance fraud: text analytics has often been used to analyze large amounts of documents to recognize the chances of an insurance claim being fraud. 
 
-Learn how to use a TensorFlow model in Azure Machine Learning: [Classify handwritten digits by using a TensorFlow model](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
-
 ## Artificial neural networks
 
 Artificial neural networks are formed by layers of connected nodes. Deep learning models use neural networks that have a large number of layers. 
@@ -103,7 +101,7 @@ The feedforward neural network is the most simple type of artificial neural netw
 
 ### Recurrent neural network
 
-Recurrent neural networks are a widely used artificial neural network. These networks save the output of a layer and feed it back to the input layer to help predict the layer's outcome. Recurrent neural networks have great learning abilities. They're widely used for complex tasks such as time series forecasting, learning handwriting and recognizing language.
+Recurrent neural networks are a widely used artificial neural network. These networks save the output of a layer and feed it back to the input layer to help predict the layer's outcome. Recurrent neural networks have great learning abilities. They're widely used for complex tasks such as time series forecasting, learning handwriting, and recognizing language.
 
 ### Convolutional neural networks
 
@@ -114,6 +112,9 @@ Convolutional neural networks have been used in areas such as video recognition,
 ## Next steps
 
 The following articles show you more options for using open-source deep learning models in [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
+
+
+- [Classify handwritten digits by using a TensorFlow model](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [Classify handwritten digits by using a TensorFlow estimator and Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
