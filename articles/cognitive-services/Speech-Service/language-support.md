@@ -36,12 +36,14 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Arabic (Bahrain), modern standard  |`ar-BH` | Language model                                   |
 |Arabic (Egypt)                     |`ar-EG` | Language model                                   |
 |Arabic (Iraq)                      |`ar-IQ` | Language model                                   |
+|Arabic (Israel)					          |`ar-IL` | Language model									                  |
 |Arabic (Jordan)                    |`ar-JO` | Language model                                   |
 |Arabic (Kuwait)                    |`ar-KW` | Language model                                   |
 |Arabic (Lebanon)                   |`ar-LB` | Language model                                   |
 |Arabic (Oman)                      |`ar-OM` | Language model                                   |
 |Arabic (Qatar)                     |`ar-QA` | Language model                                   |
 |Arabic (Saudi Arabia)              |`ar-SA` | Language model                                   |
+|Arabic (State of Palestine)		    |`ar-PS` | Language model                                   |
 |Arabic (Syria)                     |`ar-SY` | Language model                                   |
 |Arabic (United Arab Emirates)      |`ar-AE` | Language model                                   |
 |Bulgarian (Bulgaria)               |`bg-BG` | Language model                                   |
@@ -59,6 +61,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |English (India)                    |`en-IN` | Acoustic model<br>Language model                 |
 |English (Ireland)                  |`en-IE` | Language Model                                   |
 |English (New Zealand)              |`en-NZ` | Acoustic model<br>Language model                 |
+|English (Nigeria)					        |`en-NG` | Language Model									                  |
 |English (Philippines)              |`en-PH` | Language Model                                   |
 |English (Singapore)                |`en-SG` | Language Model                                   |
 |English (South Africa)             |`en-ZA` | Language Model                                   |
@@ -98,6 +101,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 |Spanish (Dominican Republic)       |`es-DO` | Language Model                                   |
 |Spanish (Ecuador)                  |`es-EC` | Language Model                                   |
 |Spanish (El Salvador)              |`es-SV` | Language Model                                   |
+|Spanish (Equatorial Guinea)		    |`es-GQ` | Language Model                                   |
 |Spanish (Guatemala)                |`es-GT` | Language Model                                   |
 |Spanish (Honduras)                 |`es-HN` | Language Model                                   |
 |Spanish (Mexico)                   |`es-MX` | Acoustic model<br>Language model                 |

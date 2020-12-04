@@ -23,7 +23,7 @@ ms.reviewer: assafi
 
 # [Version 2.1](#tab/version-2)
 
-[v2 Reference documentation](/dotnet/api/overview/azure/cognitiveservices/client/textanalytics) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [v2 Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+[v2 Reference documentation](/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [v2 Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
 ---
 
