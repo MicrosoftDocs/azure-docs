@@ -102,7 +102,7 @@
     href: troubleshoot-how-to.md
   - name: Upgrading
     href: upgrading-lva-module.md
-  - name: Develop and deploy a gRPC inference srv
+  - name: Develop and deploy a gRPC inference server
     href: develop-deploy-grpc-inference-srv-how-to.md
 - name: Reference
   items:
