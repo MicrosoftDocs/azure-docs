@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/04/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -41,11 +41,20 @@ You can track the progress as the reviewers complete their reviews.
 
 1. In the list, click an access review.
 
-    To view a series of access reviews, navigate to the access review, and you will find upcoming occurrences in Scheduled reviews.
+    To view future instances of an access reviews, navigate to the access review, and select Scheduled reviews.
 
     On the **Overview** page, you can see the progress. No access rights are changed in the directory until the review is completed.
 
     ![Access reviews progress](./media/complete-access-review/overview-progress.png)
+    
+    If you are viewing an access review that reviews guest access across Microsoft 365 groups (Preview), the Overview blade lists each group in the review.  
+
+    ![review guest access across Microsoft 365 groups](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Click on a group to see the progress of the review on that group.
+
+   ![review guest access across Microsoft 365 groups](./media/complete-access-review/
+progress-group-review.png)
 
 1. If you want to stop an access review before it has reached the scheduled end date, click the **Stop** button.
 
@@ -69,7 +78,7 @@ A configured auto applying review, or selecting **Apply** doesn't have an effect
 
 To view the results for a one-time access review, click the **Results** page. To view just a user's access, in the Search box, type the display name or user principal name of a user whose access was reviewed.
 
-![Retrieve results for an access review](./media/complete-access-review/retrieve-results.png)
+![Retrieve results for an access review](./media/complete-access-review/retrieve-results.png) 
 
 To view the progress of an active access review that is recurring, click on the **Results** page.
 
