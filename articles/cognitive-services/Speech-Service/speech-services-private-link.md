@@ -259,7 +259,9 @@ A Speech resource with custom domain name and private endpoint enabled uses a di
 
 We will use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name (custom domain) for this section.
 
-Usually Speech resources use [Cognitive Services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the Speech Services REST API. These resources have the following naming format: <p/>`{region}.api.cognitive.microsoft.com`
+#### Speech-to-Text REST API
+
+Usually Speech resources use [Cognitive Services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the [Speech-to-Text REST API](rest-speech-to-text.md). These resources have the following naming format: <p/>`{region}.api.cognitive.microsoft.com`
 
 This is a sample request URL:
 
@@ -283,6 +285,44 @@ So generally speaking after enabling custom domain name for a Speech resource yo
 >
 > Speech resource custom domain name contains **no** information about the region where the resource is deployed. So the application logic described above will **not** work and needs to be altered.
 
+#### Text-to-Speech REST API
+
+[Text-to-Speech REST API](rest-text-to-speech.md) uses two types of endpoints:
+- [Cognitive Services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the Cognitive Services REST API to obtain an authorization token
+- Special endpoints for all other operations
+
+The detailed description of the special endpoints and how their URL should be transformed for a private endpoint enabled Speech resource is provided in [this subsection](#general-principle) of "Usage with Speech SDK" section below. The same principle described for SDK applies for the Text-to-Speech REST API.
+
+Get familiar with the material in the subsection mentioned and see the following example.
+
+**Text-to-Speech REST API usage example.**
+
+We will use West Europe as a sample Azure Region and `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name (custom domain). Custom domain name `my-private-link-speech.cognitiveservices.azure.com` in our example belongs to the Speech resource created in West Europe region.
+
+To get the list the voices supported in the region one needs to do the following two operations:
+
+- Obtain authorization token via
+```http
+https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
+```
+- Using the obtained token get the list of voices via
+```http
+https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
+```
+(See more details on the steps above in [Text-to-Speech REST API documentation](rest-text-to-speech.md).)
+
+For the private endpoint enabled Speech resource the endpoint URLs for the same operation sequence need to be modified. The same sequence will look like this:
+- Obtain authorization token via
+```http
+https://my-private-link-speech.cognitiveservices.azure.com/v1.0/issuetoken
+```
+(see detailed explanation in [Speech-to-Text REST API](#speech-to-text-rest-api) subsection above)
+- Using the obtained token get the list of voices via
+```http
+https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
+```
+(see detailed explanation in [General principle](#general-principle) subsection of "Usage with Speech SDK" section below)
+
 ### Speech resource with custom domain name and private endpoint. Usage with Speech SDK
 
 Using Speech SDK with custom domain name and private endpoint enabled Speech resources requires the review and likely changes of your application code. We are working on more seamless support of private endpoint scenario and will introduce it in future Speech SDK versions.
@@ -291,7 +331,7 @@ We will use `my-private-link-speech.cognitiveservices.azure.com` as a sample Spe
 
 #### General principle
 
-Usually in SDK scenarios Speech resources use the special regional endpoints for different service offerings. The DNS name format for these endpoints is: </p>`{region}.{speech service offering}.speech.microsoft.com`
+Usually in SDK scenarios (as well as in the Text-to-Speech REST API scenarios) Speech resources use the special regional endpoints for different service offerings. The DNS name format for these endpoints is: </p>`{region}.{speech service offering}.speech.microsoft.com`
 
 Example: </p>`westeurope.stt.speech.microsoft.com`
 
@@ -347,11 +387,11 @@ To apply the principle described in the previous section to your application cod
 ##### Determining application endpoint URL
 
 - [Enable logging for your application](how-to-use-logging.md) and run it to generate the log
-- In the log file search for `SPEECH-Endpoint`. The string will contain `value` parameter, which in turn will contain the full URL your application was using
+- In the log file search for `SPEECH-ConnectionUrl`. The string will contain `value` parameter, which in turn will contain the full URL your application was using
 
 Example of a log file line with the endpoint URL:
 ```
-(660016): 138ms SPX_DBG_TRACE_VERBOSE:  property_bag_impl.cpp:138 ISpxPropertyBagImpl::LogPropertyAndValue: this=0x0000021EE9A17BE8; name='SPEECH-Endpoint'; value='wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US'
+(114917): 41ms SPX_DBG_TRACE_VERBOSE:  property_bag_impl.cpp:138 ISpxPropertyBagImpl::LogPropertyAndValue: this=0x0000028FE4809D78; name='SPEECH-ConnectionUrl'; value='wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?traffictype=spx&language=en-US'
 ```
 Thus the URL used by the application in this example is:
 ```
@@ -427,7 +467,13 @@ Compare it with the output from [this section](#optional-check-dns-resolution-fr
 
 ### Speech resource with custom domain name without private endpoints. Usage with REST API
 
-REST API usage is fully equivalent to the case of [private endpoint enabled Speech resources](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-rest-api).
+#### Speech-to-Text REST API
+
+Speech-to-Text REST API usage is fully equivalent to the case of [private endpoint enabled Speech resources](#speech-to-text-rest-api).
+
+#### Text-to-Speech REST API
+
+In this case Text-to-Speech REST API usage has no differences to the general case and should be used as described in [Text-to-Speech REST API documentation](rest-text-to-speech.md).
 
 
 ### Speech resource with custom domain name without private endpoints. Usage with Speech SDK
