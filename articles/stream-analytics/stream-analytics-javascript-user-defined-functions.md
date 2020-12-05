@@ -197,7 +197,7 @@ function main(datetime){
 }
 ```
 
-**Sample query: Pass a datetime as input value
+**Sample query: Pass a datetime as input value**
 ```SQL
 SELECT
     udf.toLocaleString(input.datetime) as localeString
