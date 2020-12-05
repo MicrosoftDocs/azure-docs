@@ -18,7 +18,7 @@ This article answers to common questions about [Azure Maps Weather services](htt
 * Weather services coverage and availability
 * Data update frequency
 * Developing with Azure Maps SDKs
-* Options to visualize weather data, including Microsoft PowerBI integration
+* Options to visualize weather data, including Microsoft Power BI integration
 
 ## Data sources and data models
 
@@ -46,13 +46,13 @@ These datasets are reviewed in real time for accuracy for the Digital Forecast S
 
 Numerous weather forecast guidance systems are utilized to formulate global forecasts. Over 150 numerical forecast models are used each day, both external and internal datasets. This includes government models such as the European Centre ECMWF and the U.S. Global Forecast System (GFS). Additionally, AccuWeather incorporates proprietary high-resolution models that downscale forecasts to specific locations and strategic regional domains to predict weather with further accuracy. AccuWeather’s unique blending and weighting algorithms   have been developed over the last several decades. These algorithms optimally leverage the numerous forecast inputs to provide highly accurate forecasts.
 
-## Weather services Coverage and Availability
+## Weather services coverage and availability
 
 **What kind of coverage can I expect for different countries/regions?**
 
 Weather service coverage varies by country/region. All features are not available in every country/region. For more information, see [coverage documentation](https://docs.microsoft.com/azure/azure-maps/weather-coverage).
 
-## Data Update Frequency
+## Data update frequency
 
 **How often is Current Conditions data updated?**
 
@@ -80,9 +80,9 @@ We plan to create a services module for Java/Android similar to the web SDK modu
 
 ## Data visualizations  
 
-**Does Azure Maps PowerBI Visual support Azure Maps weather tiles?**
+**Does Azure Maps Power BI Visual support Azure Maps weather tiles?**
 
-Yes. To learn how to migrate radar and infrared satellite tiles to the Microsoft PowerBI visual, see [Add a tile layer to PowerBI visual](https://docs.microsoft.com/azure/azure-maps/power-bi-visual-add-tile-layer). 
+Yes. To learn how to migrate radar and infrared satellite tiles to the Microsoft Power BI visual, see [Add a tile layer to Power BI visual](https://docs.microsoft.com/azure/azure-maps/power-bi-visual-add-tile-layer). 
 
 **How do I interpret colors used for radar and satellite tiles?**
 
@@ -96,7 +96,7 @@ Yes. In addition to real-time radar and satellite tiles, Azure Maps customers ca
 
 Yes. You can find icons and their respective codes [here](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons). Notice that only some of the Weather service APIs, such as  [Get Current Conditions API](https://aka.ms/azuremapsweathercurrentconditions), return the *iconCode* in the response. For more information, see the Current WeatherConditions open-source [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location).
 
-## Next Steps
+## Next steps
 
 If this FAQ doesn’t answer your question, you can contact us through the following channels (in escalating order):
 
