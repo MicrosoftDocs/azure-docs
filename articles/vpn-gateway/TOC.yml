@@ -9,6 +9,8 @@
   items:
   - name: Create and manage a VPN gateway
     href: tutorial-create-gateway-portal.md
+  - name: Configure a site-to-site connection
+    href: tutorial-site-to-site-portal.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -84,7 +86,7 @@
     - name: Configure S2S connections
       items:
       - name: Azure portal
-        href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+        href: tutorial-site-to-site-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-create-site-to-site-rm-powershell.md
       - name: Azure CLI
