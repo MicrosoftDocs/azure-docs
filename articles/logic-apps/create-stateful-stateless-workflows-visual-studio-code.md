@@ -111,7 +111,7 @@ This article shows how to create a **Logic App (Preview)** resource by using Vis
 
        ![Screenshot that shows Visual Studio Code's installed extensions list with the "Azure Logic Apps (Preview)" extension underlined.](./media/create-stateful-stateless-workflows-visual-studio-code/azure-logic-apps-extension-installed.png)
 
-* To locally run the [built-in HTTP Webhook trigger or action](../connectors/connectors-native-webhook.md) in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
+* To locally run webhook-based triggers and actions, such as the [built-in HTTP Webhook trigger](../connectors/connectors-native-webhook.md), in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
 
 * To test the example logic app that you create in this article, you need a tool that can send calls to the Request trigger, which is the first step in example logic app. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
 
@@ -389,16 +389,21 @@ The logic app workflow in this example uses this trigger and these actions:
 1. On the designer, select **Save**.
 
 > [!IMPORTANT]
-> If you use the [built-in HTTP Webhook trigger or action](../connectors/connectors-native-webhook.md) and want to run them locally in Visual Studio Code, 
-> you must [set up forwarding for the webhook's callback URL](#webhook-setup) before you can run your workflow.
+> If you want to use webhook-based triggers, such as the [built-in HTTP Webhook trigger or action](../connectors/connectors-native-webhook.md) 
+> and run them locally in Visual Studio Code, you need to [set up forwarding for the webhook callback URL](#webhook-setup) 
+> before you can run your workflow.
+>
+> Although supported, the HTTP Webhook trigger might not appear in the designer for you to select. 
+> If the trigger doesn't appear, you can manually add the trigger definition to your workflow 
+> definition file. For these steps, see [HTTP Webhook trigger doesn't appear available in the designer](#http-webhook-trigger-definition).
 
 <a name="webhook-setup"></a>
 
 ## Set up webhook callback URL forwarding
 
-When you add the HTTP Webhook trigger or action to a logic app that runs in Azure, the trigger or action subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your private localhost server in Visual Studio Code, which calls from the service endpoint can't reach.
+When you use a webhook-based trigger or action, such as **HTTP Webhook**, with a logic app running in Azure, the Logic Apps runtime subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, when you're working in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your localhost server, which is private so the service endpoint can't call this URL.
 
-To locally run the HTTP Webhook trigger or action in Visual Studio Code, you need to set up a public URL that exposes your localhost server and securely forwards calls from the service endpoint to the webhook callback URL. You can use a forwarding service and tool such as [**ngrok**](https://ngrok.com/), which opens an HTTP tunnel to your localhost port, or you can use your own tool.
+To locally run webhook-based triggers and actions in Visual Studio Code, you need to set up a public URL that exposes your localhost server and securely forwards calls from the service endpoint to the webhook callback URL. You can use a forwarding service and tool such as [**ngrok**](https://ngrok.com/), which opens an HTTP tunnel to your localhost port, or you can use your own tool.
 
 ### Set up call forwarding using **ngrok**
 
@@ -988,6 +993,28 @@ To delete an item in your workflow from the designer, follow any of these steps:
 <a name="troubleshooting"></a>
 
 ## Troubleshoot errors and problems
+
+<a name="http-webhook-trigger-definition"></a>
+
+### HTTP Webhook trigger doesn't appear available in the designer
+
+Although supported, the HTTP Webhook trigger might not appear in the designer for you to include in your workflow. In this case, you can manually add the trigger definition to your workflow definition file, **workflow.json** in your Visual Studio Code project. Include the trigger definition inside the `triggers` JSON object:
+
+```json
+"triggers": {
+   "HTTP_Webhook_Trigger": {
+      "type": "HttpWebhook",
+      "inputs": {
+         "subscribe": {
+            "body": "@listCallbackUrl()",
+            "method": "<HTTP-method-type>",
+            "uri": "<endpoint-subscribe-URL>"
+         },
+         "unsubscribe": {}
+      }
+   }
+}
+```
 
 <a name="400-bad-request"></a>
 

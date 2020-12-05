@@ -106,7 +106,7 @@ In this public preview, these capabilities are currently limited, unsupported, o
 * **Triggers and actions**: Some built-in triggers are unavailable, such as Sliding Window and Batch. To start your workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). Built-in triggers and actions run natively in the Logic Apps runtime, while managed connectors are deployed in Azure. In the designer, built-in triggers and actions appear under the **Built-in** tab, while managed connector triggers and actions appear under the **Azure** tab.
 
   > [!NOTE]
-  > To run locally in Visual Studio Code, the HTTP Webhook trigger and action require additional setup. For more information, see 
+  > To run locally in Visual Studio Code, webhook-based triggers and actions require additional setup. For more information, see 
   > [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
 
   * For *stateless workflows*, the **Azure** tab doesn't appear when you select a trigger because you can select only [managed connector *actions*, not triggers](../connectors/apis-list.md#managed-api-connectors). Although you can enable Azure-deployed managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
@@ -119,21 +119,21 @@ In this public preview, these capabilities are currently limited, unsupported, o
 
     * [Custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) are unavailable.
 
-    * For B2B scenarios, some built-in [triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, such as the Flat File Encoding and Decoding actions.
-
     * The Azure Functions action, **Choose an Azure function**, works only for functions that are created from the **HTTP Trigger** template.
 
     * If you use Visual Studio Code with the preview extension on macOS, the Inline Code action, **Execute JavaScript Code**, is unavailable.
+
+    * Some built-in [B2B triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, such as the Flat File Encoding and Decoding actions.
 
 * **Hosting plan availability**: Whether you create a new **Logic App (Preview)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the Premium or App Service hosting plan in Azure. **Consumption** hosting plans aren't supported nor available for deploying this resource type. You can deploy from Visual Studio Code to a Docker container, but not to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 * **Parallel branches**: Currently, you can't add parallel branches through the new designer experience. However, you can still add these branches through the original designer experience and have them appear in the new designer.
 
-  1. At the bottom of the designer, disable the new designer by selecting the **New Canvas** control.
+  1. At the bottom of the designer, disable the new experience by selecting the **New Canvas** control.
 
   1. Add the parallel branches to your workflow.
 
-  1. Enable the new designer by selecting the **New Canvas** control again.
+  1. Enable the new experience by selecting the **New Canvas** control again.
 
 * **Zoom control**: The zoom control is currently unavailable on the designer.
 
@@ -141,7 +141,7 @@ In this public preview, these capabilities are currently limited, unsupported, o
 
 ## Nested behavior differences between stateful and stateless logic apps
 
-You can [make a logic app workflow callable](../logic-apps/logic-apps-http-endpoint.md) from other logic app workflows that exist in the same **Logic App (Preview)** resource by using the [Request](../connectors/connectors-native-reqres.md) trigger, [HTTP Webhook](../connectors/connectors-native-webhook.md) trigger, or managed connector triggers that have the [ApiConnectionWebhook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
+You can [make a logic app workflow callable](../logic-apps/logic-apps-http-endpoint.md) from other logic app workflows that exist in the same **Logic App (Preview)** resource by using the [Request trigger](../connectors/connectors-native-reqres.md), [HTTP Webhook trigger](../connectors/connectors-native-webhook.md), or managed connector triggers that have the [ApiConnectionWebhook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
 
 Here are the behavior patterns that nested logic app workflows can follow after a parent workflow calls a child workflow:
 
