@@ -900,6 +900,8 @@
         href: jedox-tutorial.md
       - name: JFrog Artifactory
         href: jfrog-artifactory-tutorial.md
+      - name: JLL TRIRIGA
+        href: jll-tririga-tutorial.md
       - name: JIRA SAML SSO by Microsoft
         href: jiramicrosoft-tutorial.md
       - name: JIRA SAML SSO by Microsoft (V5.2)
@@ -1606,6 +1608,8 @@
         href: snowflake-tutorial.md
       - name: Softeon WMS
         href: softeon-tutorial.md
+      - name: Software AG Cloud
+        href: software-ag-cloud-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-tutorial.md
       - name: Sonarqube
@@ -1812,6 +1816,8 @@
         href: vocoli-tutorial.md
       - name: Vodeclic
         href: vodeclic-tutorial.md
+      - name: vonage
+        href: vonage-tutorial.md
       - name: Voyance
         href: voyance-tutorial.md
       - name: Vtiger CRM (SAML)

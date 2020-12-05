@@ -25,7 +25,7 @@ Timely response to policy violations or security issues really requires a “con
 
 The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
 
-To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](/develop/app-resilience-continuous-access-evaluation.md).
+To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](/azure/active-directory/develop/app-resilience-continuous-access-evaluation).
 
 ### Key benefits
 
