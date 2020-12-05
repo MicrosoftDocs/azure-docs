@@ -123,7 +123,7 @@ This article shows how to create a **Logic App (Preview)** resource by using Vis
 
 1. To make sure that all the extensions are correctly installed, reload or restart Visual Studio Code.
 
-1. Enable or check that Visual Studio Code automatically finds and installs extension updates so that your public preview extension gets the latest updates.
+1. Enable or check that Visual Studio Code automatically finds and installs extension updates so that your public preview extension gets the latest updates. Otherwise, you have to manually uninstall the outdated version and install the latest version.
 
    To check this setting, follow these steps:
 

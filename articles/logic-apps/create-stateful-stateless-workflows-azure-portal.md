@@ -395,7 +395,7 @@ To delete an item in your workflow from the designer, follow any of these steps:
 
 ### Azure Functions, Liquid Operations, and XML Operations don't appear in the designer
 
-Azure Logic Apps (Preview) supports built-in actions for Azure Functions, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, these actions won't appear in the designer if your logic app uses an outdated version of the `Microsoft.Azure.Functions.Extension.Bundle.Workflows` file.
+Azure Logic Apps (Preview) supports built-in actions for Azure Functions, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, these actions won't appear in the designer if your logic app uses an outdated version of the extension bundle, `Microsoft.Azure.Functions.ExtensionBundle.Workflows`.
 
 To fix this problem, follow these steps to delete the outdated version, which forces the portal to get the latest version:
 
@@ -407,27 +407,29 @@ To fix this problem, follow these steps to delete the outdated version, which fo
 
 1. On your logic app menu, under **Development Tools**, select **Advanced Tools**.
 
-1. On the **Advanced Tools** pane, select **Go ->**, which opens the Kudu environment for your logic app.
+1. On the **Advanced Tools** pane, select **Go**, which opens the Kudu environment for your logic app.
 
 1. On the Kudu toolbar, open the **Debug console** menu, and select **CMD**. 
 
-   A console window opens so that you can browse to the file using the command prompt. Or, you can browse the directory structure that appears the console window.
+   A console window opens so that you can browse to the bundle folder using the command prompt. Or, you can browse the directory structure that appears the console window.
 
-1. Browse to the following folder:
+1. Browse to the following folder, which contains versioned folders for the existing bundle:
 
-   `...\home\data\Functions\ExtensionBundles\Microsoft.Azure.Functions.Extension.Bundle.Workflows`
+   `...\home\data\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows`
 
-1. Delete the current version of the bundle. For example, in the console window, run this command where you replace `{bundle-version}` with the existing version:
+1. Delete the version folder for the existing bundle. In the console window, you can run this command where you replace `{bundle-version}` with the existing version:
 
-   `rm -rf {bundle-version}` 
+   `rm -rf {bundle-version}`
+
+   For example: `rm -rf 1.1.3`
 
    > [!TIP]
    > If you get an error such as "permission denied" or "file in use", refresh the page in your browser, 
    > and try the previous steps again until the folder is deleted.
 
-1. In the Azure portal, return to your logic app's **Overview** page, and select **Start**.
+1. In the Azure portal, return to your logic app's **Overview** page, and select **Restart**.
 
-   The portal automatically downloads and uses the latest bundle.
+   The portal automatically gets and uses the latest bundle.
 
 ## Next steps
 
