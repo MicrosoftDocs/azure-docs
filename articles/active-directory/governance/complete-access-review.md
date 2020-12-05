@@ -49,11 +49,11 @@ You can track the progress as the reviewers complete their reviews.
     
     If you are viewing an access review that reviews guest access across Microsoft 365 groups (Preview), the Overview blade lists each group in the review.  
 
-    ![review guest access across Microsoft 365 groups](./media/complete-access-review/review-guest-access-across-365-groups.png)
+   ![review guest access across Microsoft 365 groups](./media/complete-access-review/review-guest-access-across-365-groups.png)
 
     Click on a group to see the progress of the review on that group.
 
-    ![review guest access across Microsoft 365 groups](./media/complete-access-review/progress-group-review.png)
+   ![review guest access across Microsoft 365 groups](./media/complete-access-review/progress-group-review.png)
 
 1. If you want to stop an access review before it has reached the scheduled end date, click the **Stop** button.
 
