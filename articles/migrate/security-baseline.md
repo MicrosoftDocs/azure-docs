@@ -51,7 +51,7 @@ recommendations. Use the score to gauge how closely your configuration matches
 best practice recommendations, and to make improvements in your security
 posture.
 
-Note: Azure AD supports external identity that allows users
+Azure AD supports external identity that allows users
 without a Microsoft account to sign in to their applications and resources with
 their external identity.
 
@@ -216,7 +216,7 @@ approval is also supported.
 
 Use built-in roles to allocate permission and only create custom role when required.
 
-What is Azure role-based access control (Azure RBAC) ../role-based-access-control/overview.md 
+- [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)
 
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
 
