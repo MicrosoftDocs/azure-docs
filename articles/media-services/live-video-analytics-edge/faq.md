@@ -211,7 +211,7 @@ This is completely dependent on how complex the AI model is developed and how th
 
 ### How do I store images with bounding boxes post processing? 
 
-Today, we are providing bounding box co-ordinates as inference messages only. Developers can build a custom MJPEG streamer that can use these messages and overlay the bounding boxes over the video frames.  
+Today, we are providing bounding box coordinates as inference messages only. Developers can build a custom MJPEG streamer that can use these messages and overlay the bounding boxes over the video frames.  
 
 ## gRPC compatibility 
 
@@ -221,11 +221,11 @@ Any field value which is not supplied will be given a default [as specified by g
 
 Live Video Analytics uses proto3 version of the protocol buffer language. To ensure that the protocol definition is fully forward/backward compatible with newer/older binaries, the “required” and “optional” fields were removed by Google. 
 
-All the proto buffer data used by Live Video Analytics contracts are available in the protobuf files [defined here](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc). 
+All the protocol buffer data used by Live Video Analytics contracts are available in the protocol buffer files [defined here](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc). 
 
-### How should I ensure that I am using the latest protobuf files? 
+### How should I ensure that I am using the latest protocol buffer files? 
 
-The latest protobuf files can be [obtained here](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc). Whenever we update the contract files, they will appear in this location. While there is no immediate plan to update the proto files, look for the package name at the top of the files to know the version. It should read: 
+The latest protocol buffer files can be [obtained here](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc). Whenever we update the contract files, they will appear in this location. While there is no immediate plan to update the protocol files, look for the package name at the top of the files to know the version. It should read: 
 
 ```
 microsoft.azure.media.live_video_analytics.extensibility.grpc.v1 
