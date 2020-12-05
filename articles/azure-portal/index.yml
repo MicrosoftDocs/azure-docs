@@ -7,13 +7,11 @@ metadata:
   title: Azure portal documentation
   description: Learn how to manage your Azure subscriptions and resources using the Azure portal web-based console. The Azure portal is an alternative to using command-line tools.
   services: Azure portal
-  ms.service: azure-portal
-  ms.subservice: 
+    ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
   author: mblythe
-  ms.author: mblythe
-  ms.date: 08/05/2020
+    ms.date: 08/05/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
