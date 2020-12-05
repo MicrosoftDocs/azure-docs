@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/03/2020
+ms.date: 12/04/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -74,7 +74,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 8. Click on Next: Reviews
 9. In the **Select reviewers** section, select either one or more people to perform the access reviews. You can choose from:
-    - **Group owner(s)** (Only available when performing a review on a Team or M365 group)
+    - **Group owner(s)** (Only available when performing a review on a Team or group)
     - **Selected user(s) or groups(s)**
     - **Users review own access**
     - **(Preview) Managers of users.**
@@ -101,16 +101,14 @@ Use the If reviewers don't respond list to specify what happens for users that a
 
     ![Upon completion settings options](./media/create-access-review/upon-completion-settings-new.png)
 
-Use the Action to apply on denied users to specify what happens to guest users if they are denied.
+Use the Action to apply on denied **guest** users to specify what happens to guest users if they are denied.
 - Remove user’s membership from the resource will remove denied user’s access to the group or application being reviewed, they will still be able to sign-in to the tenant.
-- Block user from signing-in for 30 days, then remove user from the tenant will block the denied users from signing in to the tenant, regardless if they have access to other resources. If there was a mistake or if an admin decides to re-enable one’s access, they can do so within 30 days after the user has been disabled. If there is no action taken on the disabled users, they will be deleted from the tenant.
+- Block user from signing-in for 30 days, then remove user from the tenant will block the denied users from signing in to the tenant, regardless if they have access to other resources. If there was a mistake or if an admin decides to re-enable one’s access, they can do so within 30 days after the user has been disabled. If there is no action taken on the disabled users. They will be deleted from the tenant.
 
 To learn more about best practices for removing guest users who no longer have access to resources in your organization read the article titled [Use Azure AD Identity Governance to review and remove external users who no longer have resource access.](access-reviews-external-users.md)
 
    >[!NOTE]
-   >Action to apply on denied users only works if you previously scoped a review to Guest users only.
-   >[!IMPORTANT]
-   > This option is unavailable for the **All M365 groups with guest users** review type, and default to "Remove user's membership..." to prevent accidental mass deletion of guest users.
+   >Action to apply on denied guest users is not configurable on reviews scoped to more than guest users. It is also not configurable for reviews of **All M365 groups with guest users.** When not configurable, the default option of removing user's membership from the resource is used on denied users.
 
 13.	In the **Enable review decision helpers** choose whether you would like your reviewer to receive recommendations during the review process.
 
