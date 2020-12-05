@@ -34096,6 +34096,11 @@
       "source_path": "articles/security/security-channel-nine.md",
       "redirect_url": "/azure/security/fundamentals/channel-nine",
       "redirect_document_id": true
+	 },
+	 {
+      "source_path": "articles/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell.md",
+      "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/security-get-started-overview.md",
