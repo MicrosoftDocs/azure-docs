@@ -84,10 +84,11 @@ This article shows how to create a **Logic App (Preview)** resource by using Vis
     > these logic apps won't work with the public preview extension. However, you can migrate these 
     > logic apps by uninstalling the private preview extension, performing the required cleanup, and 
     > installing the public preview extension. You can then create your new project in Visual Studio Code, 
-    > and copy your previously created logic app's **workflow.definition** file into your new project.
-    >
+    > and copy your previously created logic app's **workflow.definition** file into your new project. 
+    > 
     > So, before you install the public preview extension, make sure that you uninstall any 
-    > earlier versions, and delete these artifacts:
+    > earlier versions, and delete the relevant artifacts. For more information, see 
+    > [Migrate from Azure Logic Apps (Private Preview) extension](#migrate-private-preview).
     >
     > * The **Microsoft.Azure.Functions.ExtensionBundle.Workflows** folder, which contains 
     > previous extension bundles and is located along either path here:
@@ -452,7 +453,7 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
    }
    ```
 
-1. Before you run your workflow, clear your local storage. For the Azure Storage Emulator, run this command:
+1. Before you run your workflow, clear your storage. If you're using the Azure Storage Emulator, run this command:
 
    `AzureStorageEmulator.exe clear all`
 
@@ -998,7 +999,9 @@ To delete an item in your workflow from the designer, follow any of these steps:
 
 ### HTTP Webhook trigger doesn't appear available in the designer
 
-Although supported, the HTTP Webhook trigger might not appear in the designer for you to include in your workflow. In this case, you can manually add the trigger definition to your workflow definition file, **workflow.json** in your Visual Studio Code project. Include the trigger definition inside the `triggers` JSON object:
+Although supported, the HTTP Webhook trigger might not appear in the designer for you to include in your workflow. In this case, you can manually add the trigger definition to your workflow definition file, **workflow.json** in your Visual Studio Code project.
+
+In your workflow's **workflow.json** file, include the trigger definition inside the `triggers` JSON object. For more information, see [HTTPWebhook trigger reference](logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
 
 ```json
 "triggers": {
@@ -1018,7 +1021,7 @@ Although supported, the HTTP Webhook trigger might not appear in the designer fo
 
 <a name="400-bad-request"></a>
 
-### "400 Bad Request"
+### "400 Bad Request" appears on a trigger or action
 
 When a run fails, and you inspect the run in monitoring view, this error might appear on a trigger or action that has a longer name, which causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit.
 
