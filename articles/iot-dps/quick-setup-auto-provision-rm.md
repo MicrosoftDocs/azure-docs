@@ -65,7 +65,7 @@ Two Azure resources are defined in the template above:
 
     The deployment will take a few moments to complete. 
 
-    In addition to the Azure Portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
+    In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 
 #### Deploy with the Azure CLI
@@ -124,7 +124,7 @@ Sign in to your Azure account and select your subscription.
     | **iotHubName** | Enter a name for the IoT Hub that must be globally unique within the *.azure-devices.net* namespace. You need the hub name in the next section when you validate the deployment. |
     | **provisioningServiceName** | Enter a name for the new Device Provisioning Service (DPS) resource. The name must be globally unique within the *.azure-devices-provisioning.net* namespace. You need the DPS name in the next section when you validate the deployment. |
 
-    The AzureCLI is used to deploy the template. In addition to the Azure CLI, you can also use the Azure PowerShell, Azure Portal, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
+    The AzureCLI is used to deploy the template. In addition to the Azure CLI, you can also use the Azure PowerShell, Azure portal, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 
 ## Review deployed resources
