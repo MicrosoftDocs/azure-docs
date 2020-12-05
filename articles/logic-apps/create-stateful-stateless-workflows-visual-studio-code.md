@@ -79,28 +79,12 @@ This article shows how to create a **Logic App (Preview)** resource by using Vis
 
     Currently, you can have both the original **Azure Logic Apps** extension and the new **Azure Logic Apps (Preview)** extension installed at the same time in Visual Studio Code. By selecting the Azure icon on the Visual Studio Code toolbar, you can view all the logic apps deployed in Azure, but each resource type appears in their own extension sections, **Logic Apps** and **Azure Logic Apps (Preview)**.
 
-    > [!IMPORTANT]
-    > If you created logic apps by using the **Azure Logic Apps (Private Preview)** extension, 
-    > these logic apps won't work with the public preview extension. However, you can migrate these 
-    > logic apps by uninstalling the private preview extension, performing the required cleanup, and 
-    > installing the public preview extension. You can then create your new project in Visual Studio Code, 
-    > and copy your previously created logic app's **workflow.definition** file into your new project. 
-    > 
-    > So, before you install the public preview extension, make sure that you uninstall any 
-    > earlier versions, and delete the relevant artifacts. For more information, see 
-    > [Migrate from Azure Logic Apps (Private Preview) extension](#migrate-private-preview).
-    >
-    > * The **Microsoft.Azure.Functions.ExtensionBundle.Workflows** folder, which contains 
-    > previous extension bundles and is located along either path here:
-    >
-    >   * `C:\Users\{userName}\AppData\Local\Temp\Functions\ExtensionBundles`
-    >
-    >   * `C:\Users\{userName}.azure-functions-core-tools\Functions\ExtensionBundles`
-    >
-    > * The **microsoft.azure.workflows.webjobs.extension** folder, which is the [NuGet](/nuget/what-is-nuget) 
-    > cache for the private preview extension and is located along this path:
-    >
-    >   `C:\Users\{userName}\.nuget\packages`
+    > [!NOTE]
+    > If you created logic apps with the **Azure Logic Apps (Private Preview)** extension, these logic apps won't work with the 
+    > public preview extension. However, you can migrate these logic apps after you uninstall the private preview extension, 
+    > delete the associated artifacts, and install the public preview extension. You then create your new project in Visual Studio Code, 
+    > and copy your previously created logic app's **workflow.definition** file into your new project. For more information, see 
+    > [Migrate from the private preview extension](#migrate-private-preview).
 
     To install the **Azure Logic Apps (Preview)** extension, follow these steps:
 
@@ -117,6 +101,32 @@ This article shows how to create a **Logic App (Preview)** resource by using Vis
 * To test the example logic app that you create in this article, you need a tool that can send calls to the Request trigger, which is the first step in example logic app. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
 
 * If you create your logic app with settings that support [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing capability for your logic app. You can create the Application Insights resource either [in advance](../azure-monitor/app/create-workspace-resource.md), during logic app deployment to Azure, or after deployment in the Azure portal. For more information about logging and monitoring with Application Insights, review [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849).
+
+<a name="migrate-private-preview"></a>
+
+## Migrate from the private preview extension
+
+Any logic apps that you created with the **Azure Logic Apps (Private Preview)** extension won't work with the public preview extension. However, you can migrate these logic apps into a new Visual Studio Code project by following these steps:
+
+1. Uninstall the private preview extension.
+
+1. Delete the associated extension bundle and nuget package folders in these locations:
+
+   * The **Microsoft.Azure.Functions.ExtensionBundle.Workflows** folder, which contains previous extension bundles and is located along either path here:
+
+     * `C:\Users\{userName}\AppData\Local\Temp\Functions\ExtensionBundles`
+
+     * `C:\Users\{userName}.azure-functions-core-tools\Functions\ExtensionBundles`
+
+   * The **microsoft.azure.workflows.webjobs.extension** folder, which is the [NuGet](/nuget/what-is-nuget) cache for the private preview extension and is located along this path:
+
+     `C:\Users\{userName}\.nuget\packages`
+
+1. Install the **Azure Logic Apps (Preview)** extension.
+
+1. Create a new project in Visual Studio Code.
+
+1. Copy your previously created logic app's **workflow.definition** file into your new project.
 
 <a name="set-up"></a>
 
