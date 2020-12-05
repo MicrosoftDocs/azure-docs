@@ -12,6 +12,11 @@ ms.author: irenehua
 # Upgrade Azure Public Load Balancer
 [Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus).
 
+There are two stages in a upgrade:
+
+1. Change IP allocation method from Dynamic to Static.
+2. Run the PowerShell script to complete the upgrade and traffic migration.
+
 ## Upgrade overview
 
 An Azure PowerShell script is available that does the following:
@@ -24,8 +29,27 @@ An Azure PowerShell script is available that does the following:
 ### Caveats\Limitations
 
 * Script only supports Public Load Balancer upgrade. For Internal Basic Load Balancer upgrade, refer to [this page](./upgrade-basicinternal-standard.md) for instructions.
-* If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
+* The allocation method of the Public IP Address has to be changed to "static" before running the script. 
 * If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Please make sure they are not empty.
+
+### Change Allocation method of the Public IP Address to Static
+
+* **Here are our recommendes steps:
+
+    1. To do the tasks in this quickstart, sign in to the [Azure portal](https://portal.azure.com).
+ 
+    1. Select **All resources** on the left menu, and then select the **Basic Public IP Address associated with Basic Load Balancer** from the resource list.
+   
+    1. Under **Settings**, select **Configurations**.
+   
+    1. Under **Assignment**, select **Static**.
+    1. Select **Save**.
+    >[!NOTE]
+    >For VMs which have Public IPs, you will need to create Standard IP addresses first where same IP address is not guaranteed. Disassociate VMs from Basic IPs and associate them with the newly created Standard IP addresses. Then, you will be able to follow instructions to add VMs into backend pool of Standard Load Balancer. 
+
+* **Creating new VMs to add to the backend pools of the newly created Standard Public Load Balancer**.
+    * More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
+
 
 ## Download the script
 
@@ -64,14 +88,13 @@ To run the script:
    * **oldRgName: [String]: Required** – This is the resource group for your existing Basic Load Balancer you want to upgrade. To find this string value, navigate to Azure portal, select your Basic Load Balancer source, and click the **Overview** for the load balancer. The Resource Group is located on that page.
    * **oldLBName: [String]: Required** – This is the name of your existing Basic Balancer you want to upgrade. 
    * **newrgName: [String]: Required** – This is the resource group in which the Standard Load Balancer will be created. It can be a new resource group or an existing one. If you pick an existing resource group, note that the name of the Load Balancer has to be unique within the resource group. 
-   * **newlocation: [String]: Required** – This is the location in which the Standard Load Balancer will be created. It is recommended to inherit the same location of the chosen Basic Load Balancer to the Standard Load Balancer for better association with other existing resources.
    * **newLBName: [String]: Required** – This is the name for the Standard Load Balancer to be created.
 1. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
 
     **Example**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newLbName "LBForUpgrade"
    ```
 
 ### Create an outbound rule for outbound connection
@@ -85,6 +108,10 @@ Follow the [instructions](./quickstart-load-balancer-standard-public-powershell.
 ### Are there any limitations with the Azure PowerShell script to migrate the configuration from v1 to v2?
 
 Yes. See [Caveats/Limitations](#caveatslimitations).
+
+### How long does the upgrade take?
+
+It usually take about 5-10 minutes to the script to finish and it could take longer depending on the complexity of your Load Balancer configuration. Therefore, keep the downtime in mind and plan for failover if necessary.
 
 ### Does the Azure PowerShell script also switch over the traffic from my Basic Load Balancer to the newly created Standard Load Balancer?
 
