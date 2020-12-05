@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/07/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -213,17 +213,17 @@ Azure Logic Apps supports write operations, including inserts and updates, throu
 
 ## HTTP limits
 
-Here are the limits for a single outgoing or incoming HTTP call:
+Here are the limits for a single inbound or outbound call:
 
 #### Timeout
 
 Some connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than these limits. For more information, see the technical details for the specific connector and also [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Name | Multi-tenant limit | Integration service environment limit | Notes |
-|------|--------------------|---------------------------------------|-------|
-| Outbound request | 120 seconds <br>(2 minutes) | 240 seconds <br>(4 minutes) | Examples of outbound requests include calls made by HTTP triggers. <p><p>**Tip**: For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). To work around timeout limits when you call another logic app that has a [callable endpoint](logic-apps-http-endpoint.md), you can use the built-in Azure Logic Apps action instead, which you can find in the connector picker under **Built-in**. |
-| Inbound request | 120 seconds <br>(2 minutes) | 240 seconds <br>(4 minutes) | Examples of inbound requests include calls received by request triggers and webhook triggers. <p><p>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
-|||||
+| Name | Multi-tenant timeout | Multi-tenant timeout (preview) | Integration service environment limit | Notes |
+|------|----------------------|--------------------------------|---------------------------------------|-------|
+| Outbound request | 2 minutes | - Max: 10 minutes <p>- Min: 5 minutes | 4 minutes | Examples of outbound requests include calls made by HTTP-based triggers. For more information about the preview version, see [Azure Logic Apps (Preview)](logic-apps-overview-preview.md). <p><p>**Tip**: For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). To work around timeout limits when you call another logic app that has a [callable endpoint](logic-apps-http-endpoint.md), you can use the built-in Azure Logic Apps action instead, which you can find in the connector picker under **Built-in**. |
+| Inbound request | 2 minutes | - Max: 10 minutes <p>- Min: 5 minutes | 4 minutes | Examples of inbound requests include calls received by request-based triggers and webhook-based triggers. For more information about the preview version, see [Azure Logic Apps (Preview)](logic-apps-overview-preview.md). <p><p>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
+||||||
 
 <a name="message-size-limits"></a>
 
@@ -379,7 +379,7 @@ When you delete a logic app, no new runs are instantiated. All in-progress and p
 
 ## Firewall configuration: IP addresses and service tags
 
-The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depend on the region where your logic app exists. *All* logic apps in the same region use the same IP address ranges. Some [Power Automate](/power-automate/getting-started) calls, such as **HTTP** and **HTTP + OpenAPI** requests, go directly through the Azure Logic Apps service and come from the IP addresses that are listed here. For more information about IP addresses used by Power Automate, see [Limits and configuration in Power Automate](/flow/limits-and-config#ip-address-configuration).
+The IP addresses that Azure Logic Apps uses for inbound and outbound calls depend on the region where your logic app exists. *All* logic apps in the same region use the same IP address ranges. Some [Power Automate](/power-automate/getting-started) calls, such as **HTTP** and **HTTP + OpenAPI** requests, go directly through the Azure Logic Apps service and come from the IP addresses that are listed here. For more information about IP addresses used by Power Automate, see [Limits and configuration in Power Automate](/flow/limits-and-config#ip-address-configuration).
 
 > [!TIP]
 > To help reduce complexity when you create security rules, you can optionally use
