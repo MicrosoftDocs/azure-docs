@@ -38,23 +38,16 @@ azdata login --endpoint https://<external IP address of host/data controller>:30
 #### 2. Show the connection endpoints
 Run the following command:
 ```console
-azdata arc postgres endpoint list -n <server group name>
+azdata arc postgres server show -n <server group name>
 ```
-It returns an output like:
+It shows the configuration of the server group. At the bottom of the output, you will see the endpoints in the "Status" section. For example: 
 ```console
-[
-  {
-    "Description": "PostgreSQL Instance",
-    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
-  },
-  {
-    "Description": "Log Search Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
-  },
-  {
-    "Description": "Metrics Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
-  }
+[ "status": {
+    "externalEndpoint": "12.345.567.89:5432",
+    "logSearchDashboard": "https://23.456.78.900:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))",
+    "metricsDashboard": "https://23.456.78.900:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01",
+    "readyPods": "3/3",
+    "state": "Ready"
 ]
 ```
 Use these end points to:
@@ -63,7 +56,7 @@ Use these end points to:
 
 For example, you can use the end point named _PostgreSQL Instance_ to connect with psql to your server group. For example:
 ```console
-psql postgresql://postgres:MyPassworkd@12.345.123.456:1234
+psql postgresql://postgres:MyPassworkd@12.345.567.89:5432
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
 WARNING: psql major version 10, server major version 12.
          Some psql features might not work.
@@ -85,11 +78,11 @@ postgres=#
 ## From CLI with kubectl
 - If your server group is of Postgres version 12 (default), then the following command:
 ```console
-kubectl get postgresql-12/<server group name>
+kubectl get postgresql-12/<server group name> -n <namespace name>
 ```
 - If your server group is of Postgres version 11, then the following command:
 ```console
-kubectl get postgresql-11/<server group name>
+kubectl get postgresql-11/<server group name> -n <namespace name>
 ```
 
 Those commands will produce output like the one below. You can use that information to form your connection strings:
