@@ -26,9 +26,9 @@ For more information about other ways to create an ISE, see these articles:
 
 * Any additional resources that you want to use with your ISE so that you can include their information in the ISE definition, for example: 
 
-  * To enable self-signed certificate support, you need to include information about that certificate.
+  * To enable self-signed certificate support, you need to include information about that certificate in the ISE definition.
 
-  * To enable the user-assigned managed identity, you need to create that identity in advance so that you can include the `principalId` and `clientId` properties and their values. For more information, see [Create a user-assigned managed identity in the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+  * To enable the user-assigned managed identity, you need to create that identity in advance and include the `objectId`, `principalId` and `clientId` properties and their values in the ISE definition. For more information, see [Create a user-assigned managed identity in the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
 * A tool that you can use to create your ISE by calling the Logic Apps REST API with an HTTPS PUT request. For example, you can use [Postman](https://www.getpostman.com/downloads/), or you can build a logic app that performs this task.
 
@@ -141,6 +141,15 @@ This example request body shows the sample values:
    "name": "Fabrikam-ISE",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "WestUS2",
+   "identity": {
+      "type": "UserAssigned",
+      "userAssignedIdentities": {
+         "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/*********************************": {
+            "principalId": "*********************************",
+            "clientId": "*********************************"
+         }
+      }
+   },
    "sku": {
       "name": "Premium",
       "capacity": 1
@@ -179,4 +188,3 @@ This example request body shows the sample values:
 
 * [Add resources to integration service environments](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 * [Manage integration service environments](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)
-
