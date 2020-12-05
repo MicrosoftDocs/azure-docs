@@ -98,7 +98,7 @@ gpg: Good signature from "Microsoft (Release signing)
 
 For more details about using GPG, see [The GNU Privacy Handbook](https://www.gnupg.org/gph/en/manual/book1.html).
 
-## Supported Scenarios
+## Supported scenarios
 
 The snapshot tools can be used in the following scenarios.
 
@@ -172,7 +172,7 @@ configured, and crontab enabled in advance of the failover.
 
 The following guidance is provided to illustrate the usage of the snapshot tools.
 
-### Taking Snapshot Backups
+### Taking snapshot backups
 
 - [What are the prerequisites for the storage snapshot](azacsnap-installation.md#prerequisites-for-installation)
   - [Enable communication with storage](azacsnap-installation.md#enable-communication-with-storage)
@@ -187,7 +187,7 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 
 > Snapshots are tested for both single SID and multi SID.
 
-### Performing Disaster Recovery
+### Performing disaster recovery
 
 - [What are the prerequisites for DR setup](azacsnap-disaster-recovery.md#prerequisites-for-disaster-recovery-setup)
 - [How to set up a disaster recovery](azacsnap-disaster-recovery.md#set-up-disaster-recovery)

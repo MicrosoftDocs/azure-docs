@@ -151,11 +151,13 @@ need to be provided this information again.
 }
 ```
 
-> **Note** For a DR scenario where backups are to be run at the DR site, then the HANA Server Name
+> [!NOTE] 
+> For a DR scenario where backups are to be run at the DR site, then the HANA Server Name
 configured in the DR configuration file (for example, `DR.json`) at the DR site should be the same as
 the production server name.
 
-> **Note** For Azure Large Instance your storage IP address must be in the same subnet as your server pool. For example, in
+> [!NOTE] 
+> For Azure Large Instance your storage IP address must be in the same subnet as your server pool. For example, in
 this case, our server pool subnet is 172. 18. 18 .0/24 and our assigned storage IP is 172.18.18.11.
 
 ## Configure the database

@@ -243,7 +243,10 @@ Key attributes of storage volume snapshots:
   - Shared: `/hana/shared/<SID>/.snapshot`
   - Logs: `/hana/logbackups/<SID>/.snapshot`
   - Boot: boot snapshots for HLI are **not visible** from OS level, but can be listed using `azacsnap -c details`.
-  > **Note** `.snapshot` is a read-only hidden *virtual* folder providing read-only access to the snapshots.
+ 
+  > [!NOTE] 
+  >  `.snapshot` is a read-only hidden *virtual* folder providing read-only access to the snapshots.
+
 - **Max snapshot:** The hardware can sustain up to 250 snapshots per volume. The snapshot
     command will keep a maximum number of snapshots for the prefix based on the retention
     set on the command line, and will delete the oldest snapshot if it goes beyond the

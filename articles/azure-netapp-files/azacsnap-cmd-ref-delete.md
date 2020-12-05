@@ -51,7 +51,8 @@ This command takes the following arguments:
 azacsnap -c delete --delete sync --hanasid H80 --hanabackupid 157979797979
 ```
 
-> **Note* Checks for any entries in the backup catalog for the SAP HANA backup ID 157979797979,
+> [!NOTE] 
+> Checks for any entries in the backup catalog for the SAP HANA backup ID 157979797979,
 gets the storage snapshot name and deletes both the entry in the backup catalog
 and the snapshot from all of the volumes containing the named snapshot.
 
@@ -59,7 +60,8 @@ and the snapshot from all of the volumes containing the named snapshot.
 azacsnap -c delete --delete sync --snapshot hana_hourly.2020-01-22_2358
 ```
 
-> **Note* Checks for any entries in the backup catalog for the snapshot named hana_hourly.2020-01-22_2358,
+> [!NOTE] 
+> Checks for any entries in the backup catalog for the snapshot named hana_hourly.2020-01-22_2358,
 gets the SAP HANA backup ID and deletes both the entry in the backup catalog
 and the snapshot from any of the volumes containing the named snapshot.
 
@@ -69,7 +71,8 @@ and the snapshot from any of the volumes containing the named snapshot.
 azacsnap -c delete --delete hana --hanasid H80 --hanabackupid 157979797979
 ```
 
-> **Note* Deletes the SAP HANA backup ID 157979797979 from the backup catalog for SID H80.
+> [!NOTE] 
+> Deletes the SAP HANA backup ID 157979797979 from the backup catalog for SID H80.
 
 ### Delete a snapshot using `storage` option`
 
@@ -77,11 +80,12 @@ azacsnap -c delete --delete hana --hanasid H80 --hanabackupid 157979797979
 azacsnap -c delete --delete storage --snapshot hana_hourly.2020-01-22_2358
 ```
 
-> **Note* Deletes the snapshot from any volumes containing snapshot named hana_hourly.2020-01-22_2358.
+> [!NOTE] 
+> Deletes the snapshot from any volumes containing snapshot named hana_hourly.2020-01-22_2358.
 
 **Output using the `--delete storage` option**
 
-Note the user is asked to confirm the deletion.
+The user is asked to confirm the deletion.
 
 ```bash
 > azacsnap -c delete --delete storage --snapshot azacsnap-hsr-ha.2020-07-02T221702.2535255Z
