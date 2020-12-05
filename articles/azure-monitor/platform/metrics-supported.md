@@ -2383,7 +2383,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 ## Microsoft.Web/sites (excluding functions) 
 
 > [!NOTE]
-> **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
+> **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been added to an allowlist for private preview.
 
 > [!IMPORTANT]
 > **Average Response Time** will be deprecated to avoid confusion with metric aggregations. Use **Response Time** as a replacement.
@@ -2430,7 +2430,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 ## Microsoft.Web/sites (functions)
 
 > [!NOTE]
-> **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
+> **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been added to an allowlist for private preview.
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|

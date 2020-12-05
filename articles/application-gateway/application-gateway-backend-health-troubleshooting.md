@@ -283,7 +283,7 @@ For more information about how to extract and upload Trusted Root Certificates i
 **Message:** The root certificate of the server certificate used by the
 backend does not match the trusted root certificate added to the
 application gateway. Ensure that you add the correct root certificate to
-whitelist the backend
+allowlist the backend
 
 **Cause:** End-to-end SSL with Application Gateway v2 requires the
 backend server's certificate to be verified in order to deem the server Healthy.
