@@ -25,15 +25,15 @@ Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool tha
 
 AzAcSnap leverages the volume snapshot and replication functionalities in Azure NetApp Files and Azure Large Instance.  It provides the following benefits:
 
-- **Application-consistent data protection**
+- **Application-consistent data protection**   
     AzAcSnap is a centralized solution for backing up critical database files. It ensures database consistency before performing a storage volume snapshot. As a result, it ensures that the storage volume snapshot can be used for database recovery.
-- **Database catalog management**
+- **Database catalog management**   
     When you use AzAcSnap with a database that has a built-in backup catalog, the records within the catalog are kept current with storage snapshots.  This capability allows a database administrator to see the backup activity.
-- **Ad hoc volume protection**
+- **Ad hoc volume protection**   
     This capability is helpful for non-database volumes that don't need application quiescing before taking a storage snapshot.  Examples include SAP HANA log-backup volumes or SAPTRANS volumes.
-- **Cloning of storage volumes**
+- **Cloning of storage volumes**   
     This capability provides space-efficient storage volume clones for development and test purposes.
-- **Support for Disaster Recovery**
+- **Support for disaster recovery**   
     AzAcSnap leverages storage volume replication to provide options for recovering replicated application-consistent snapshots at a remote site.
 
 AzAcSnap is a single binary.  It does not need additional agents or plug-ins to interact with the database or the storage (Azure NetApp Files via Azure Resource Manager, and Azure Large Instance via SSH).  AzAcSnap must be installed on a system that has connectivity to the database and the storage.  However, the flexibility of installation and configuration allows for either a single centralized installation or a fully distributed installation with copies installed on each database installation.

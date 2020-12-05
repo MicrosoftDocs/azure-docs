@@ -13,13 +13,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/05/2020
+ms.date: 12/04/2020
 ms.author: b-juche
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated on a regular basis. This article provides a summary about the latest new features and enhancements. 
+
+## December 2020
+
+* Support for [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap)    
+
+    AzAcSnap is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL).   
+
+    AzAcSnap leverages the volume snapshot and replication functionalities in Azure NetApp Files and Azure Large Instance. It provides the following benefits:
+
+    * Application-consistent data protection 
+    * Database catalog management 
+    * *Ad hoc* volume protection 
+    * Cloning of storage volumes 
+    * Support for disaster recovery 
 
 ## November 2020
 
