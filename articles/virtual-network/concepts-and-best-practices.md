@@ -1,12 +1,12 @@
 ---
 title: Azure Virtual Network - Concepts and best practices
-description: Learn about Azure Virtual Network concepts and features, including address space, subnets, regions, and subscriptions. 
+description: Learn about Azure Virtual Network concepts and best practices. 
 services: virtual-network
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: concept
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
@@ -15,7 +15,7 @@ ms.author: kumud
 
 # Azure Virtual Network concepts and best practices
 
-This article describes key concepts and best practices for Azure virtual network.
+This article describes key concepts and best practices for Azure Virtual Network (VNet) .
 
 ## VNet concepts
 
