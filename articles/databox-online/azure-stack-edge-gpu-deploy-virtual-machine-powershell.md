@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 12/04/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -16,7 +16,7 @@ ms.author: alkohli
 
 <!--[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]-->
 
-This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure PowerShell.
+This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure PowerShell. This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices.
 
 ## VM deployment workflow
 
@@ -190,7 +190,7 @@ If you are using *https*, then you need to install appropriate certificates on y
 
 Copy any disk images to be used into page blobs in the local storage account that you created in the earlier steps. You can use a tool such as [AzCopy](../storage/common/storage-use-azcopy-v10.md) to upload the VHD to the storage account that you created in earlier steps. 
 
-Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
+<!--Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
 
 ```powershell
 AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
@@ -206,8 +206,40 @@ A sample output using AzCopy 7.3 is shown below. For more information on this co
 
 ```powershell
 AzCopy /Source:\\hcsfs\scratch\vm_vhds\linux\ /Dest:http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages /DestKey:gJKoyX2Amg0Zytd1ogA1kQ2xqudMHn7ljcDtkJRHwMZbMK== /Y /S /V /NC:32 /BlobType:page /destType:blob /z:2e7d7d27-c983-410c-b4aa-b0aa668af0c6
+```-->
+Use the following commands with AzCopy 10:  
+
+```powershell
+$StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>)[0].Value
+
+$endPoint = (Get-AzureRmStorageAccount -name <StorageAccountName> -ResourceGroupName <ResourceGroupName>).PrimaryEndpoints.Blob
+
+$StorageAccountContext = New-AzureStorageContext -StorageAccountName <StorageAccountName> -StorageAccountKey <StorageAccountKey> -Endpoint <Endpoint>
+
+$StorageAccountSAS = New-AzureStorageAccountSASToken -Service Blob,File,Queue,Table -ResourceType Container,Service,Object -Permission "acdlrw" -Context <StorageAccountContext> -Protocol HttpsOnly
+
+<AzCopy exe path> cp "Full VHD path" "<BlobEndPoint>/<ContainerName><StorageAccountSAS>"
 ```
 
+Here is an example output: 
+
+```powershell
+$ContainerName = <ContainerName>
+$ResourceGroupName = <ResourceGroupName>
+$StorageAccountName = <StorageAccountName>
+$VHDPath = "Full VHD Path"
+$VHDFile = <VHDFileName>
+
+$StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName)[0].Value
+
+$endPoint = (Get-AzureRmStorageAccount -name $StorageAccountName -resourcegroupname $ResourceGroupName).PrimaryEndpoints.Blob
+
+$StorageAccountContext = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -Endpoint $endPoint
+
+$StorageAccountSAS = New-AzureStorageAccountSASToken -Service Blob,File,Queue,Table -ResourceType Container,Service,Object -Permission "acdlrw" -Context $StorageAccountContext -Protocol HttpsOnly
+
+C:\AzCopy.exe  cp "$VHDPath\$VHDFile" "$endPoint$ContainerName$StorageAccountSAS"
+```
 
 ## Create managed disks from the VHD
 
@@ -291,12 +323,19 @@ You must create one virtual network and associate a virtual network interface be
 > -   Only static allocation method will be allowed during Vnic creation and user needs to provide a private IP address.
 
  
-**Create a Vnet**
+**Query the automatically created Vnet**
+
+When you enable compute from the local UI of your device, a Vnet `ASEVNET` is created automatically under `ASERG` resource group. 
+Use the following command to query the existing Vnet:
 
 ```powershell
+$aRmVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG 
+```
+
+<!--```powershell
 $subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name <Subnet name> -AddressPrefix <Address Prefix>
 $aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName <Resource group name> -Name <Vnet name> -Location DBELocal -AddressPrefix <Address prefix> -Subnet $subNetId
-```
+```-->
 
 **Create a Vnic using the Vnet subnet ID**
 
@@ -542,7 +581,7 @@ For more information, go to [Dv2 series on General Purpose VM sizes](../virtual-
 
 Extension, scale sets, availability sets, snapshots are not supported.
 
-## Configure AzCopy
+<!--## Configure AzCopy
 
 When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge Pro device.
 
@@ -559,7 +598,7 @@ On the client used to access your Azure Stack Edge Pro device, set up a global v
 To verify if the environment variable for AzCopy was set correctly, take the following steps:
 
 1. Run "azcopy env"
-2. Find `AZCOPY_DEFAULT_SERVICE_API_VERSION` parameter. This should have the value you set in the preceding steps.
+2. Find `AZCOPY_DEFAULT_SERVICE_API_VERSION` parameter. This should have the value you set in the preceding steps.-->
 
 
 ## Next steps
