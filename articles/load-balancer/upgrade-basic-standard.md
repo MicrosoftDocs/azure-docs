@@ -12,7 +12,7 @@ ms.author: irenehua
 # Upgrade Azure Public Load Balancer
 [Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus).
 
-There are two stages in a upgrade:
+There are two stages in an upgrade:
 
 1. Change IP allocation method from Dynamic to Static.
 2. Run the PowerShell script to complete the upgrade and traffic migration.
@@ -34,7 +34,7 @@ An Azure PowerShell script is available that does the following:
 
 ### Change Allocation method of the Public IP Address to Static
 
-* **Here are our recommendes steps:
+* **Here are our recommended steps:
 
     1. To do the tasks in this quickstart, sign in to the [Azure portal](https://portal.azure.com).
  
@@ -111,7 +111,7 @@ Yes. See [Caveats/Limitations](#caveatslimitations).
 
 ### How long does the upgrade take?
 
-It usually take about 5-10 minutes to the script to finish and it could take longer depending on the complexity of your Load Balancer configuration. Therefore, keep the downtime in mind and plan for failover if necessary.
+It usually take about 5-10 minutes foo the script to finish and it could take longer depending on the complexity of your Load Balancer configuration. Therefore, keep the downtime in mind and plan for failover if necessary.
 
 ### Does the Azure PowerShell script also switch over the traffic from my Basic Load Balancer to the newly created Standard Load Balancer?
 
