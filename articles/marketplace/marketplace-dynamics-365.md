@@ -124,7 +124,7 @@ After you've considered the planning items described above, select one of the fo
 | Publishing guide    | Notes  |
 | :------------------- | :-------------------|
 | <strike>Microsoft 365</strike> | <strike>Review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center).</strike> |
-| [Dynamics 365 for Operations and Finance](./partner-center-portal/create-new-operations-offer.md) | When you're building for Enterprise Edition, first review the [publishing process and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). |
+| [Dynamics 365 for Operations and Finance](d365-operations-create.md) | When you're building for Enterprise Edition, first review the [publishing process and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). |
 | [Dynamics 365 for Business Central](./partner-center-portal/create-new-business-central-offer.md) |   |
 | [Dynamics 365 for Customer Engagement](./partner-center-portal/create-new-customer-engagement-offer.md) | First review the [publishing process and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
 | <strike>Power Apps</strike> | <strike>Learn how to [let customers test drive your app on AppSource](https://powerapps.microsoft.com/blog/appsource-test-drive/).</strike> |

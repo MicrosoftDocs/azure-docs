@@ -188,7 +188,7 @@
       - name: Create a Dynamics 365 for Operations offer
         items: 
         - name: Create a Dynamics 365 for Operations offer
-          href: partner-center-portal/create-new-operations-offer.md
+          href: d365-operations-create.md
         - name: Functional validation
           href: dynamics-365-finance-operations-functional-validation.md
       - name: Create a Dynamics 365 Business Central offer

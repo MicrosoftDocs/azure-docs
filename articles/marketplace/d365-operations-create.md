@@ -9,15 +9,15 @@ ms.author: mingshen
 ms.date: 11/25/2020
 ---
 
-# How to create a Dynamics 365 for Finance and Operations
+# How to create a Dynamics 365 for Operations
 
-This article describes how to create a [Dynamics 365 for Finance and Operations](https://dynamics.microsoft.com/finance-and-operations) offer. This offer type is an enterprise resource planning (ERP) service that supports advanced finance, operations, manufacturing, and supply chain management. All offers for Dynamics 365 go through our certification process.
+This article describes how to create a [Dynamics 365 for Operations](https://dynamics.microsoft.com/finance-and-operations) offer. This offer type is an enterprise resource planning (ERP) service that supports advanced operations, finance, manufacturing, and supply chain management. All offers for Dynamics 365 go through our certification process.
 
 Before you start, [create a commercial marketplace account in Partner Center](partner-center-portal/create-account.md). Ensure that your account is enrolled in the commercial marketplace program.
 
 ## Before you begin
 
-If you haven't done so yet, review [Plan a virtual machine offer](marketplace-virtual-machines.md). It will explain the technical requirements for your virtual machine and list the information and assets you’ll need when you create your offer.
+If you haven't done so yet, review [Plan a Dynamics 365 for Operations offer](marketplace-dynamics-365.md). It will explain the technical requirements for your offer and list the information and assets you’ll need when you create your offer.
 
 ## Create a new offer
 

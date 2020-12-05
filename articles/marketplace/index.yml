@@ -87,7 +87,7 @@ landingContent:
       - text: Dynamics 365 Business Central offers
         url: ./partner-center-portal/create-new-business-central-offer.md
       - text: Dynamics 365 for Operations offers
-        url: ./partner-center-portal/create-new-operations-offer.md
+        url: ./d365-operations-create.md
       - text: More offer types
         url: ./publisher-guide-by-offer-type.md
 

@@ -71,4 +71,4 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
 ## Next steps
 
-To learn about creating an offer, see: [Create a Dynamics 365 for Operations offer](./partner-center-portal/create-new-operations-offer.md).
+- To learn about creating an offer, see: [Create a Dynamics 365 for Operations offer](d365-operations-create.md).
