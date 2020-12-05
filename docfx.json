@@ -645,7 +645,6 @@
         "articles/azure-government/**/*.md": "azure-government",
         "articles/azure-monitor/**/*.md": "azure-monitor",
         "articles/azure-portal/**/*.md": "azure-portal",
-        "articles/azure-portal/**/*.yml": "azure-portal",
         "articles/azure-relay/*.md": "service-bus-relay",
         "articles/azure-resource-manager/**/*.md": "azure-resource-manager",
         "articles/azure-resource-manager/custom-providers/**/*.md": "azure-custom-providers",
