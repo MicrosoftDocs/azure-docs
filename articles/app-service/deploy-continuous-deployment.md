@@ -5,7 +5,7 @@ ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.topic: article
 ms.date: 03/20/2020
 ms.reviewer: dariac
-ms.custom: seodec18, fasttrack-edit
+ms.custom: seodec18
 ---
 
 # Continuous deployment to Azure App Service
