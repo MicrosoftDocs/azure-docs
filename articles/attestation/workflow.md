@@ -21,7 +21,7 @@ The following actors are involved in an Azure Attestation work flow:
 - **Azure Attestation**: The component which accepts enclave evidence from client, validates it and returns attestation token to the client
 
 
-## Intel® SGX enclave validation work flow
+## Intel® Software Guard Extensions (SGX) enclave validation work flow
 
 Here are the general steps in a typical SGX enclave attestation workflow (using Azure Attestation):
 
