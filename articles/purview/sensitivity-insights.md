@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 12/06/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
@@ -44,6 +44,9 @@ Sensitivity labels enable you to state how sensitive certain data is in your org
 While classifications are matched directly (a social security number has a classification of **Social Security Number**), sensitivity labels are applied when one or more classifications and scenarios are found together. 
 
 Purview uses the same classifications, also known as sensitive information types, as Microsoft 365. This enables you to extend your existing sensitivity labels across your Azure Purview assets.
+
+> [!NOTE]
+> After you have scanned your source types, give **Sensitivity labeling** Insights a couple of hours to reflect the new assets.
 
 **To view sensitivity labeling insights:**
 

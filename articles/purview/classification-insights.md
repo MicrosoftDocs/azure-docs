@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 12/06/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
@@ -38,6 +38,9 @@ For more information, see [Manage data sources in Azure Purview (Preview)](manag
 In Azure Purview, classifications are similar to subject tags, and are used to mark and identify data of a specific type that's found within your data estate during scanning.
 
 Purview uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire data estate.
+
+> [!NOTE]
+> After you have scanned your source types, give **Classification labeling** Insights a couple of hours to reflect the new assets.
 
 **To view classification insights:**
 
