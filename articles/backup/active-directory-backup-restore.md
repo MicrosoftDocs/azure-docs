@@ -18,7 +18,7 @@ This article outlines the proper procedures for backing up and restoring Active 
 
 - Make sure at least one domain controller is backed up. If you back up more than one domain controller, make sure all the ones holding the [FSMO (Flexible Single Master Operation) roles](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/planning-operations-master-role-placement) are backed up.
 
-- Back up Active Directory frequently. The backup should never be more than the tombstone period (by default 60 days), because objects older than the tombstone period will be "tombstoned" and no longer considered valid.
+- Back up Active Directory frequently. The backup should never be more than the tombstone lifetime (by default 60 days), because objects older than the tombstone lifetime will be "tombstoned" and no longer considered valid.
 
 - Have a clear disaster recovery plan that includes instructions on how to restore your domain controllers. To prepare for restoring an Active Directory forest, read the [Active Directory Forest Recovery Guide](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-guide).
 
