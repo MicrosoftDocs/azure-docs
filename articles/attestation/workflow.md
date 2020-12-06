@@ -32,6 +32,8 @@ Here are the general steps in a typical SGX enclave attestation workflow (using 
 
 ![SGX enclave validation flow](./media/sgx-validation-flow.png)
 
+Note: For sending attestation requests in ["2018-09-01-preview"](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/attestation/data-plane/Microsoft.Attestation/stable/2018-09-01-preview) API version, the client needs to send evidence to Azure Attestation along with the Azure AD access token
+
 ## Next steps
 - [How to author and sign an attestation policy](author-sign-policy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
