@@ -108,6 +108,12 @@ For example, on Windows, this command sets your key:
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
 ```
 
+For more extended interaction with the command line tool, you can start a container with an interactive bash shell by adding an entrypoint parameter.
+For example, on Windows, this command will start such a container, allowing sequential operations using the `spx` command:
+```shell
+docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
+```
+
 > [!WARNING]
 > You cannot use your computer's microphone when you run Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
 
