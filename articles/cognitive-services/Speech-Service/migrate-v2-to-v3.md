@@ -436,6 +436,5 @@ Accuracy tests have been renamed to evaluations because the new name describes b
 Examine all features of these commonly used REST APIs provided by Speech services:
 
 * [Speech-to-text REST API](rest-speech-to-text.md)
-* [Text-to-speech REST API](rest-text-to-speech.md)
 * [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) for v3 of the REST API
 * For sample code to perform batch transcriptions, view the the [GitHub sample repository](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
