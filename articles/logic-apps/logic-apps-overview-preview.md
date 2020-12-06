@@ -16,11 +16,11 @@ ms.date: 12/07/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With Azure Logic Apps Preview, you can build and run logic apps that contain both [*stateful* and *stateless* workflows](#stateful-stateless) that integrate across apps, data, cloud services, and systems by using the new **Logic App (Preview)** resource type. This new logic app type can include multiple workflows and is powered by the redesigned Azure Logic Apps (Preview) runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers.
+With Azure Logic Apps Preview, you can build and run logic apps that contain both [*stateful* and *stateless* workflows](#stateful-stateless) that integrate across apps, data, cloud services, and systems by using the new **Logic App (Preview)** resource type. This new logic app type can include multiple workflows and is powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers.
 
 How is this possible? The redesigned runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This architecture means that you can run the new logic app type anywhere that Azure Functions runs. You can host the redesigned runtime on almost any network topology, and choose any available compute size to handle the necessary workload that's required by your workflows. For more information, see [Introduction to Azure Functions](../azure-functions/functions-overview.md) and [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md).
 
-You can create the new **Logic App (Preview)** resource either by [starting in the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or by [creating a project in Visual Studio Code with the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md). Also, in Visual Studio Code, you can build *and locally run* your workflows in your development environment. Whether you use the portal or Visual Studio Code, you can deploy and run the new logic app type in the same kinds of hosting environments.
+You can create the **Logic App (Preview)** resource either by [starting in the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or by [creating a project in Visual Studio Code with the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md). Also, in Visual Studio Code, you can build *and locally run* your workflows in your development environment. Whether you use the portal or Visual Studio Code, you can deploy and run the new logic app type in the same kinds of hosting environments.
 
 This overview covers the following areas:
 
@@ -56,8 +56,10 @@ The following table briefly summarizes the differences in the way that workflows
 |-------------|----------------------------------|
 | Azure Logic Apps (multi-tenant) | Workflows *from customers in multiple tenants* share the same processing (compute), storage, network, and so on. |
 | Azure Logic Apps (preview) | Workflows *in the same logic app* share the same processing (compute), storage, but customers can choose their own virtual network. |
-| Integration service environment | Workflows in the *same environment* share the same processing (compute), storage, and network. |
+| Integration service environment (unavailable with preview) | Workflows in the *same environment* share the same processing (compute), storage, and network. |
 ||||
+
+Meanwhile, the original **Logic Apps** resource type is still available for you to create in the Azure portal and in Visual Studio Code using the original Azure Logic Apps extension. Although the user experiences are separate and different between the logic app resource types, your Azure subscription can include both the **Logic Apps** and **Logic App (Preview)** resource types. You can view and access all the deployed logic apps in your Azure subscription, but the apps are organized into their own categories and sections.
 
 For more information, see [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
@@ -251,3 +253,8 @@ For more information, see [Logic app definition limits](logic-apps-limits-and-co
 * [Create stateful or stateless workflows in the Azure portal](create-stateful-stateless-workflows-azure-portal.md)
 * [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md)
 * [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)
+
+Also, we'd like to hear from you about your experiences with Azure Logic Apps Preview!
+
+* For bugs or problems, [create your issues in GitHub](https://github.com/Azure/logicapps/issues).
+* For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/lafeedback).
