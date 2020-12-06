@@ -92,7 +92,7 @@ Create RBAC Service Principal
 
     1. This should generate an output like the following example: 
 
-        ```bash
+        <pre>
         {
           "clientId": "00aa000a-aaaa-0000-00a0-00aa000aaa0a",
           "clientSecret": "00aa000a-aaaa-0000-00a0-00aa000aaa0a",
@@ -105,7 +105,7 @@ Create RBAC Service Principal
           "galleryEndpointUrl": "https://gallery.azure.com/",
           "managementEndpointUrl": "https://management.core.windows.net/"
         }
-        ```
+        </pre>
 
     > This command will automatically assign RBAC contributor role to the service principal at
     subscription level, you can narrow down the scope to the specific resource group where your
@@ -123,7 +123,7 @@ example steps are to provide guidance on setup of SSH for this communication.
 
     Refer to the following output where the `MACs hmac-sha1` line has been added:
 
-    ```bash
+    <pre>
     # RhostsRSAAuthentication no
     # RSAAuthentication yes
     # PasswordAuthentication yes
@@ -153,7 +153,7 @@ example steps are to provide guidance on setup of SSH for this communication.
     # PermitLocalCommand no
     # VisualHostKey no
     # ProxyCommand ssh -q -W %h:%p gateway.example.com
-    ```
+    </pre>
 
 1. Create a private/public key pair
 
@@ -172,14 +172,14 @@ example steps are to provide guidance on setup of SSH for this communication.
     cat /root/.ssh/id_rsa.pub
     ```
 
-    ```bash
+    <pre>
     ssh-rsa
     AAAAB3NzaC1yc2EAAAADAQABAAABAQDoaRCgwn1Ll31NyDZy0UsOCKcc9nu2qdAPHdCzleiTWISvPW
     FzIFxz8iOaxpeTshH7GRonGs9HNtRkkz6mpK7pCGNJdxS4wJC9MZdXNt+JhuT23NajrTEnt1jXiVFH
     bh3jD7LjJGMb4GNvqeiBExyBDA2pXdlednOaE4dtiZ1N03Bc/J4TNuNhhQbdsIWZsqKt9OPUuTfD
     j0XvwUTLQbR4peGNfN1/cefcLxDlAgI+TmKdfgnLXIsSfbacXoTbqyBRwCi7p+bJnJD07zSc9YCZJa
     wKGAIilSg7s6Bq/2lAPDN1TqwIF8wQhAg2C7yeZHyE/ckaw/eQYuJtN+RNBD
-    ```
+    </pre>
 
 ## Enable communication with SAP HANA
 
@@ -196,14 +196,14 @@ database, change the IP address, usernames, and passwords as appropriate:
     hdbsql -n <IP_address_of_host>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
     ```
 
-    ```bash
+    <pre>
     Welcome to the SAP HANA Database interactive terminal.
 
     Type: \h for help with commands
     \q to quit
 
     hdbsql SYSTEMDB=>
-    ```
+    </pre>
 
 1. Create the user
 
@@ -249,7 +249,7 @@ database, change the IP address, usernames, and passwords as appropriate:
     hdbuserstore List
     ```
 
-    ```bash
+    <pre>
     DATA FILE : /home/azacsnap/.hdb/sapprdhdb80/SSFS_HDB.DAT
     KEY FILE : /home/azacsnap/.hdb/sapprdhdb80/SSFS_HDB.KEY
 
@@ -257,7 +257,7 @@ database, change the IP address, usernames, and passwords as appropriate:
     KEY AZACSNAP
     ENV : <IP_address_of_host>:
     USER: AZACSNAP
-    ```
+    </pre>
 
 ### Additional instructions for using the log trimmer (SAP HANA 2.0 and later)
 
@@ -271,14 +271,14 @@ usernames, and passwords as appropriate:
     hdbsql -n <IP_address_of_host>:30015 - i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
     ```
 
-    ```bash  
+    <pre>  
     Welcome to the SAP HANA Database interactive terminal.
 
     Type: \h for help with commands
     \q to quit
 
     hdbsql TENANTDB=>
-    ```
+    </pre>
 
 1. Create the user
 
@@ -321,12 +321,12 @@ See the following example query and output.
 hdbsql -jaxC -n 10.90.0.31:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> " SELECT HOST,
 ```
 
-```bash
+<pre>
 SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%' "
 sapprdhdb80,30013,SYSTEMDB
 sapprdhdb80,30015,H81
 sapprdhdb80,30041,H82
-```
+</pre>
 
 ### Using SSL for communication with SAP HANA
 
@@ -440,7 +440,7 @@ chmod +x azacsnap_installer_v5.0.run
 ./azacsnap_installer_v5.0.run
 ```
 
-```bash
+<pre>
 Usage: ./azacsnap_installer_v5.0.run [-v] -I [-u <HLI Snapshot Command user>]
 ./azacsnap_installer_v5.0.run [-v] -X [-d <directory>]
 ./azacsnap_installer_v5.0.run [-h]
@@ -455,7 +455,7 @@ Switches enclosed in [] are optional for each command line.
 - d is the target directory to extract into, by default this is
 './snapshot_cmds'.
 Examples of a target directory are ./tmp or /usr/local/bin
-```
+</pre>
 
 > [!NOTE]
 > The self-installer has an option to extract (-X) the snapshot tools from the bundle without
@@ -491,7 +491,7 @@ installation option.
 ./azacsnap_installer_v5.0.run -I
 ```
 
-```bash
+<pre>
 +-----------------------------------------------------------+
 | Azure Application Consistent Snapshot Tool Installer      |
 +-----------------------------------------------------------+
@@ -529,7 +529,7 @@ installation option.
      azacsnap -c test --test hana --ssl=<commoncrypto|openssl>
 7. Run your first snapshot backup..... (example below)
      azacsnap -c backup --volume=data --prefix=hana_test --frequency=15min --retention=1
-```
+</pre>
 
 ### Uninstall the snapshot tools
 
@@ -557,9 +557,9 @@ As the root superuser, a manual installation can be achieved as follows:
     grep sapsys /etc/group
     ```
 
-    ```bash
+    <pre>
     sapsys:x:1010:
-    ```
+    </pre>
 
 1. Create Snapshot user 'azacsnap', home directory, and set group membership using
     the group id from step 1.

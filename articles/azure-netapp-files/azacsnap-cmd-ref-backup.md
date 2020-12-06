@@ -116,9 +116,9 @@ example `azacsnap-backup-azacsnap.result` that contains the following output:
 cat logs/azacsnap-backup-azacsnap.result
 ```
 
-```bash
+<pre>
 Database # 1 (H80) : completed ok
-```
+</pre>
 
 The `/var/log/messages` file contains the same output as the `.result` file. See the following
 example (run as root):
@@ -127,7 +127,7 @@ example (run as root):
 grep "azacsnap.*Database" /var/log/messages | tail -n10
 ```
 
-```bash
+<pre>
 Jul  2 05:22:07 server01 azacsnap[183868]: Database # 1 (H80) : completed ok
 Jul  2 05:27:06 server01 azacsnap[4069]: Database # 1 (H80) : completed ok
 Jul  2 05:32:07 server01 azacsnap[19769]: Database # 1 (H80) : completed ok
@@ -138,7 +138,7 @@ Jul  2 05:52:06 server01 azacsnap[82964]: Database # 1 (H80) : completed ok
 Jul  2 05:57:06 server01 azacsnap[98522]: Database # 1 (H80) : completed ok
 Jul  2 05:59:13 server01 azacsnap[105519]: Database # 1 (H80) : completed ok
 Jul  2 06:02:06 server01 azacsnap[114280]: Database # 1 (H80) : completed ok
-```
+</pre>
 
 ## Example with `other` parameter
 

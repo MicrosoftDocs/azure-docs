@@ -43,7 +43,7 @@ brevity.  Also be aware some of the lines may have been wrapped to fit the outpu
 azacsnap -c details --details snapshots
 ```
 
-```bash
+<pre>
 List snapshot details called with snapshotFilter ''
 #, Volume, Snapshot, Create Time, HANA Backup ID, Snapshot Size
 #1, hana_data_h31_azsollabbl20a31_mnt00001_t210_vol, hana_hourly.2020-06-17T113043.1586971Z, "Wed Jun 17 11:31:14 2020", "HANA Backup ID: 1592393444174, 702.6MB
@@ -77,7 +77,7 @@ List snapshot details called with snapshotFilter ''
 #1, hana_log_backups_h31_azsollabbl20a31_t210_vol, azacsnap_vesangam_other_test.2020-06-17T113215.4462696Z, "Wed Jun 17 11:32:43 2020", "HANA Log-Backups, 156KB
 #2, hana_log_backups_h31_azsollabbl20a31_t210_vol, azacsnap_vesangam_other_test2.2020-06-17T114205.1041364Z, "Wed Jun 17 11:42:35 2020", "HANA Log-Backups, 1.34MB
 , hana_log_backups_h31_azsollabbl20a31_t210_vol, , , Size used by Snapshots, 1.49MB
-```
+</pre>
 
 > [!NOTE] 
 > This example shows output for snapshots run using the previous version (v4.3) as well as snapshots taken with the latest version (5.0).
@@ -95,13 +95,13 @@ be executed on the **DR site server**. This command checks **only** the volumes 
 azacsnap -c details --details replication
 ```
 
-```bash
+<pre>
 Getting replication details for HLI systems
 Volume, Link status, Current Replication Activity, Latest Snapshot Replicated, Size of Latest Snapshot Replicated, Current Lag Time between snapshots (HH:MM:SS)
 hana_data_h80_mnt00001_t250_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036590.2020-11-02_031000, 7.53MB, 00h 06m 02s
 hana_shared_h80_t250_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036594.2020-11-02_031000, 1.64MB, 00h 06m 04s
 hana_log_backups_h80_t250_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036635.2020-11-02_031500, 2.32KB, 00h 01m 04s
-```
+</pre>
 
 
 The following example has broken replication status and, in this scenario, activating DR would likely

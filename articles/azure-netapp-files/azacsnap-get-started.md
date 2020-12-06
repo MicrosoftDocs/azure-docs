@@ -55,13 +55,20 @@ The following commands trust the Microsoft PGP Public Key:
 gpg --list-keys
 ```
 
-```bash
+Listed keys:
+<pre>
 ----<snip>----
 pub rsa2048 2015- 10 - 28 [SC]
 BC528686B50D79E339D3721CEB3E94ADBE1229CF
 uid [ unknown] Microsoft (Release signing) gpgsecurity@microsoft.com
+</pre>
 
-> gpg --edit-key gpgsecurity@microsoft.com
+```bash
+gpg --edit-key gpgsecurity@microsoft.com
+```
+
+Output from interactive `gpg` session signing Microsoft public key:
+<pre>
 gpg (GnuPG) 2.1.18; Copyright (C) 2017 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
@@ -87,7 +94,7 @@ Really sign? (y/N) y
 
 gpg> quit
 Save changes? (y/N) y
-```
+</pre>
 
 The PGP signature file for the installer can be checked as follows:
 
@@ -95,12 +102,12 @@ The PGP signature file for the installer can be checked as follows:
 gpg --verify azacsnap_installer_v5.0.run.asc azazsnap_installer_v5.0.run
 ```
 
-```bash
+<pre>
 gpg: Signature made Sat 13 Apr 2019 07:51:46 AM STD
 gpg: using RSA key EB3E94ADBE1229CF
 gpg: Good signature from "Microsoft (Release signing)
 <gpgsecurity@microsoft.com>" [full]
-```
+</pre>
 
 For more details about using GPG, see [The GNU Privacy Handbook](https://www.gnupg.org/gph/en/manual/book1.html).
 

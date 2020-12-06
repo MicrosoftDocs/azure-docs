@@ -96,7 +96,7 @@ Execute the command `df –h` to list the filesystems and associated volumes to 
 df -h
 ```
 
-```bash
+<pre>
 Filesystem Size Used Avail Use% Mounted on
 devtmpfs 378G 8.0K 378G 1% /dev
 tmpfs 569G 0 569G 0%
@@ -119,7 +119,7 @@ tmpfs 76G 0 76G 0% /run/user/0
 172.18.20.241:/hana_data_h80_mnt00002_t020_xdp 1.2T 300M 1.2T 1% /hana/data/H80/mnt00002
 172.18.20.241:/hana_data_h80_mnt00003_t020_xdp 1.2T 332M 1.2T 1% /hana/data/H80/mnt00003
 172.18.20.241:/hana_log_backups_h80_t020_xdp 512G 15G 498G 3% /hana/logbackups/H80_T250
-```
+</pre>
 
 #### Step 2: Shut down HANA on the Primary site
 
@@ -158,7 +158,7 @@ azacsnap -c restore --restore revertvolume --hanasid H80
 azacsnap --configfile DR.json -c restore --restore revertvolume --hanasid H80
 ```
 
-```bash
+<pre>
 * This program is designed for those customers who have previously installed the
   Production HANA instance in the Disaster Recovery Location either as a
   stand-alone instance or as part of a multi-purpose environment.
@@ -195,7 +195,7 @@ Displaying Mount Points by Volume as follows:
 * 3. Mount newly added filesystems.                                            *
 * 4. Perform HANA Snapshot Recovery using HANA Studio.                         *
 ********************************************************************************
-```
+</pre>
 
 > [!NOTE]
 > The steps at the end of the console display need to be taken to complete the storage preparation for a DR failover.
@@ -216,18 +216,18 @@ Modify the file `/etc/fstab` to comment out the data and log backups entries for
 
 - Comment out the existing mount points running on the DR site with the `#` character:
 
-  ```bash
+  <pre>
   #172.18.20.241:/hana_data_h80_mnt00001_t020_vol /hana/data/H80/mnt00001 nfs     rw,hard,timeo=600,vers=4,rsize=1048576,wsize=1048576,intr,noatime,lock 0 0
   #172.18.20.241:/hana_log_backups_h80_t020 /hana/logbackups/H80 nfs rw,bg,hard,timeo=600,vers=4,rsize=1048576,wsize=1048576,intr,noatime,lock 0 0
-  ```
+  </pre>
 
 - Add the following lines to `/etc/fstab`
   > this should be the same output from the command
 
-  ```bash
+  <pre>
   10.50.251.34:/hana_data_h80_mnt00001_t020_xdp  /hana/data/H80/mnt00001 nfs  rw,bg,hard,timeo=600,vers=4,rsize=1048576,wsize=1048576,intr,noatime,lock 0 0
   10.50.251.36:/hana_log_backups_h80_t020_xdp01  /hana/log_backups/H80/01 nfs rw,bg,hard,timeo=600,vers=4,rsize=1048576,wsize=1048576,intr,noatime,lock 0 0
-  ```
+  </pre>
 
 #### Step 7: Mount the recovery volumes
 
@@ -243,15 +243,12 @@ Now, If you execute `df –h` you should see the `*_dp` volumes mounted.
 df -h
 ```
 
-```bash
-Filesystem Size Used Avail Use% Mounted
-on
+<pre>
+Filesystem Size Used Avail Use% Mounted on
 devtmpfs 378G 8.0K 378G 1% /dev
-tmpfs 569G 0 569G 0%
-/dev/shm
+tmpfs 569G 0 569G 0% /dev/shm
 tmpfs 378G 18M 378G 1% /run
-tmpfs 378G 0 378G 0%
-/sys/fs/cgroup
+tmpfs 378G 0 378G 0% /sys/fs/cgroup
 /dev/mapper/3600a098038304445622b4b584c575a66-part2 47G 20G 28G 42% /
 /dev/mapper/3600a098038304445622b4b584c575a66-part1 979M 57M 856M 7% /boot
 172.18.20.241:/hana_log_h80_mnt00003_t020_vol 512G 2.1G 510G 1% /hana/log/H80/mnt00003
@@ -267,7 +264,7 @@ tmpfs 76G 0 76G 0% /run/user/0
 172.18.20.241:/hana_data_h80_mnt00002_t020_xdp 1.2T 300M 1.2T 1% /hana/data/H80/mnt00002
 172.18.20.241:/hana_data_h80_mnt00003_t020_xdp 1.2T 332M 1.2T 1% /hana/data/H80/mnt00003
 172.18.20.241:/hana_log_backups_h80_t020_xdp 512G 15G 498G 3% /hana/logbackups/H80_T250
-```
+</pre>
 
 #### Step 8: Recover the SYSTEMDB
 

@@ -41,15 +41,7 @@ system. The standard practice for the snapshot tools is to set up the user's `cr
 
 An example of a `crontab` for the user `azacsnap` to automate snapshots is below.
 
-> [!NOTE] 
-> Output of `crontab -l` command wrapped at maximum of 80 characters per line. Ensure
-all the crontab entries are on a single line, otherwise crontab will error when trying to save.
-
-```bash
-crontab -l
-```
-
-```bash
+<pre>
 MAILTO=""
 # =============== TEST snapshot schedule ===============
 # Data Volume Snapshots - taken every hour.
@@ -58,16 +50,16 @@ MAILTO=""
 5,10,15,20,25,30,35,40,45,50,55 * * * * (. /home/azacsnap/.profile ; cd /home/azacsnap/bin ; azacsnap -c backup --volume other --prefix logs_TEST --retention=9)
 # Other Volume Snapshots - using an alternate config file to snapshot the boot volume daily.
 @daily (. /home/azacsnap/.profile ; cd /home/azacsnap/bin ; azacsnap -c backup --volume other --prefix DailyBootVol --retention=7 --configfile boot-vol.json)
-```
+</pre>
 
 Explanation of the above crontab.
 
-- MAILTO="": by having an empty value this prevents cron from automatically trying to email the user when executing the crontab entry as it would likely end up in the local user's mail file.
+- `MAILTO=""`: by having an empty value this prevents cron from automatically trying to email the user when executing the crontab entry as it would likely end up in the local user's mail file.
 - Shorthand versions of timing for crontab entries are self-explanatory: 
-  - @monthly = Run once a month, that is, "0 0 1 * *".
-  - @weekly  = Run once a week, that is,  "0 0 * * 0".
-  - @daily   = Run once a day, that is,   "0 0 * * *".
-  - @hourly  = Run once an hour, that is, "0 * * * *".
+  - `@monthly` = Run once a month, that is, "0 0 1 * *".
+  - `@weekly`  = Run once a week, that is,  "0 0 * * 0".
+  - `@daily`   = Run once a day, that is,   "0 0 * * *".
+  - `@hourly`  = Run once an hour, that is, "0 * * * *".
 - The first five columns are used to designate times, refer to column examples below:
   - `0,15,30,45`: Every 15 minutes
   - `0-23`: Every hour
@@ -75,11 +67,11 @@ Explanation of the above crontab.
   - `*` : Every month
   - `*` : Every day of the week
 - Command line to execute included within brackets "()"
-  - . /home/azacsnap/.profile = pull in the user's .profile to set up their environment, including
+  - `. /home/azacsnap/.profile` = pull in the user's .profile to set up their environment, including
         $PATH, etc.
-  - cd /home/azacsnap/bin = change execution directory to the location "/home/azacsnap/bin" where
+  - `cd /home/azacsnap/bin` = change execution directory to the location "/home/azacsnap/bin" where
         config files are.
-  - azacsnap -c ..... = the full azacsnap command to run, including all the options.
+  - `azacsnap -c .....` = the full azacsnap command to run, including all the options.
 
 Further explanation of cron and the format of the crontab file here: <https://en.wikipedia.org/wiki/Cron>
 
@@ -163,11 +155,13 @@ In some cases, customers already have tools to protect SAP HANA and only want to
     </pre>
 1. Check the config file, refer to the following example:
 
+    Use `cat` command to display the contents of the configuration file:
+
     ```bash
     cat BootVolume.json
     ```
 
-    ```bash
+    <pre>
     {
       "version": "5.0 Preview",
       "logPath": "./logs",
@@ -200,7 +194,7 @@ In some cases, customers already have tools to protect SAP HANA and only want to
         }
       ]
     }
-    ```
+    </pre>
 
 1. Test a boot volume backup
 
@@ -214,12 +208,13 @@ In some cases, customers already have tools to protect SAP HANA and only want to
     azacsnap -c details --snapshotfilter TestBootVolume --configfile BootVolume.json
     ```
 
-    ```bash
+    Command output:
+    <pre>
     List snapshot details called with snapshotFilter 'TestBootVolume'
     #, Volume, Snapshot, Create Time, HANA Backup ID, Snapshot Size
     #1, t210_sles_boot_azsollabbl20a31_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 Preview (20200617.75879)", 200KB
     , t210_sles_boot_azsollabbl20a31_vol, , , Size used by Snapshots, 1.31GB
-    ```
+    </pre>
 
 1. Set up automatic snapshot backup.
 

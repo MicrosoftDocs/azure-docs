@@ -43,12 +43,12 @@ For SSL, this command can take the following optional argument:
 azacsnap -c test --test hana
 ```
 
-```bash
+<pre>
 BEGIN : Test process started for 'hana'
 BEGIN : SAP HANA tests
 PASSED: Successful connectivity to HANA version 2.00.032.00.1533114046
 END   : Test process complete for 'hana'
-```
+</pre>
 
 ## Check connectivity with storage `azacsnap -c test --test storage`
 
@@ -77,13 +77,12 @@ END   : Test process complete for 'storage'
 generation and HLI SKU.  Based on this information it then provides guidance on configuring 'boot'
 snapshots (see the line starting with `Action:` output).
 
-```bash
+<pre>
 SID1   : Generation 4
 Storage: ams07-a700s-saphan-1-01v250-client25-nprod
 HLI SKU: S96
 Action : Configure the 'boot' snapshots on ALL the servers.
-
-```
+</pre>
 
 ## Next steps
 
