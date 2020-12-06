@@ -21708,6 +21708,11 @@
       "redirect_document_id": false
 	 },
 	 {
+      "source_path": "articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md",
+      "redirect_url": "/azure/vpn-gateway/tutorial-site-to-site-portal",
+      "redirect_document_id": false
+	 },
+	 {
       "source_path": "articles/vpn-gateway/vpn-gateway-resetgw-classic.md",
       "redirect_url": "/azure/vpn-gateway/reset-gateway",
       "redirect_document_id": false
