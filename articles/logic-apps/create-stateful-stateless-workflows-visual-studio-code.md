@@ -15,27 +15,34 @@ ms.date: 12/07/2020
 > Certain features might not be supported or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With [Azure Logic Apps Preview](logic-apps-overview-preview.md), you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running logic apps that include [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) in Visual Studio Code by using the Azure Logic Apps (Preview) extension. By using this new logic app type, you can build multiple workflows that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers.
-
-The redesigned runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This architecture means that you can run the new logic app type anywhere that Azure Functions runs. You can host the redesigned runtime on almost any network topology, and choose any available compute size to handle the necessary workload that's required by your workflows. For more information, see [Introduction to Azure Functions](../azure-functions/functions-overview.md) and [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md).
-
-In Visual Studio Code, you can create a project that *locally* builds and runs your logic app's workflows in your development environment by using the Azure Logic Apps (Preview) extension. While you can also [create the new logic app type in the Azure portal](create-stateful-stateless-workflows-azure-portal.md), both approaches provide the capability for you to deploy and run your logic app in the same kinds of hosting environments.
+With [Azure Logic Apps Preview](logic-apps-overview-preview.md), you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running logic apps that include [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) in Visual Studio Code by using the Azure Logic Apps (Preview) extension. By using this new logic app type, you can build multiple workflows that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers. To learn more about the new logic app type, see [Overview for Azure Logic Apps Preview](logic-apps-overview-preview.md).
 
 ![Screenshot that shows Visual Studio Code and logic app workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-Meanwhile, the original **Logic Apps** resource type is still available for you to create in the Azure portal and in Visual Studio Code using the original Azure Logic Apps extension. Although the user experiences are separate and different between the logic app resource types, your Azure subscription can include both the **Logic Apps** and **Logic App (Preview)** resource types. You can view and access all the deployed logic apps in your Azure subscription, but the apps are organized into their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps Preview](logic-apps-overview-preview.md).
+In Visual Studio Code, you can start by creating a project that *locally* builds and runs your logic app's workflows in your development environment by using the Azure Logic Apps (Preview) extension. While you can also start by [creating a new **Logic App (Preview)** resource in the Azure portal](create-stateful-stateless-workflows-azure-portal.md), both approaches provide the capability for you to deploy and run your logic app in the same kinds of hosting environments.
 
-This article shows how to create the new logic app type in Visual Studio Code by completing these high-level tasks:
+Meanwhile, you can still create the original logic app type. Although the development experiences differ between the original and new logic app types, your Azure subscription can include both types. You can view and access all the deployed logic apps in your Azure subscription, but the apps are organized into their own categories and sections.
 
-* [Meet the setup requirements](#prerequisites).
+This article shows how to create your logic app and a workflow in Visual Studio Code by using the Azure Logic Apps (Preview) extension and performing these high-level tasks:
 
-* [Set up Visual Studio Code](#set-up) to use the Azure Logic Apps (Preview) extension.
+* Create a project for your logic app and workflow.
 
-* [Create a project for the **Logic App (Preview)** resource](#create-project), which includes a workflow template that you select.
+* Add a trigger and an action.
 
-* [Locally run, test, and debug your new logic app](#run-test-debug-locally) in Visual Studio Code.
+* Run, test, debug, and review run history locally.
 
-* [Directly deploy your new logic app to Azure](#deploy-azure) or to a [Docker container that you can run anywhere](#deploy-docker). Learn more about [Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
+* Deploy to Azure, which includes optionally enabling Application Insights.
+
+* Find and manage your deployed logic app.
+
+* Enable run history for stateless workflows.
+
+* Enable or open the Application Insights dashboard after deployment.
+
+* Deploy to a Docker container that you can run anywhere.
+
+> [!NOTE]
+> For information about current known issues, review the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 ## Prerequisites
 
@@ -989,7 +996,7 @@ After Application Insights opens, you can review various metrics for your logic 
 
 <a name="deploy-docker"></a>
 
-## Deploy to Docker container
+## Deploy to Docker
 
 By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/), you can build your project, and then publish your build. You can then build and use a [Docker container](/visualstudio/docker/tutorials/docker-tutorial#what-is-a-container) as the destination for deploying your logic app workflow. For more information, review these topics:
 

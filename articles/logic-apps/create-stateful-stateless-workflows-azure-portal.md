@@ -16,24 +16,27 @@ ms.date: 12/07/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With [Azure Logic Apps Preview](logic-apps-overview-preview.md), you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running logic apps that include [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) in the Azure portal by starting with the new **Logic App (Preview)** resource type. With this new logic app type, you can build multiple workflows that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers.
+With [Azure Logic Apps Preview](logic-apps-overview-preview.md), you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running logic apps that include [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) in the Azure portal by starting with the new **Logic App (Preview)** resource type. With this new logic app type, you can build multiple workflows that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers. To learn more about the new logic app type, see [Overview for Azure Logic Apps Preview](logic-apps-overview-preview.md).
 
 ![Screenshot that shows the Azure portal with the workflow designer for the "Logic App (Preview)" resource.](./media/create-stateful-stateless-workflows-azure-portal/azure-portal-logic-apps-overview.png)
 
-The redesigned runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This architecture means that you can run the new logic app type anywhere that Azure Functions runs. You can host the redesigned runtime on almost any network topology, and choose any available compute size to handle the necessary workload that's required by your workflows. For more information, see [Introduction to Azure Functions](../azure-functions/functions-overview.md) and [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md).
+In the Azure portal, you can start by creating a new **Logic App (Preview)** resource. While you can also start by [creating a project in Visual Studio Code with the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md), both approaches provide the capability for you to deploy and run your logic app in the same kinds of hosting environments.
 
-In the Azure portal, you can start by creating a new **Logic App (Preview)** resource either by [starting in the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or by [creating a project in Visual Studio Code with the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md). Also, in Visual Studio Code, you can build *and locally run* your workflows in your development environment. Whether you use the portal or Visual Studio Code, you can deploy and run the new logic app type in the same kinds of hosting environments.
+Meanwhile, you can still create the original logic app type. Although the development experiences differ between the original and new logic app types, your Azure subscription can include both types. You can view and access all the deployed logic apps in your Azure subscription, but the apps are organized into their own categories and sections.
 
-While you can also a Visual Studio Code project that *locally* builds and runs your logic app's workflows in your development environment by using the Azure Logic Apps (Preview) extension, 
+This article shows how to build your logic app and workflow in the Azure portal by using the **Logic App (Preview)** resource type and performing these high-level tasks:
 
+* Create the new logic app resource and add a blank workflow.
 
-[create the new logic app type in the Azure portal](create-stateful-stateless-workflows-azure-portal.md), both approaches provide the capability for you to deploy and run your logic app in the same kinds of hosting environments.
+* Add a trigger and action.
 
-hat *locally* builds and runs your logic app's workflows in your development environment by using the Azure Logic Apps (Preview) extension. Although you can also [create the new logic app type in the Azure portal](create-stateful-stateless-workflows-azure-portal.md), both approaches provide the capability for you to deploy and run your logic app in the same kinds of hosting environments.
+* Trigger a workflow run.
 
-Meanwhile, the original **Logic Apps** resource type is still available for you to create in the Azure portal and in Visual Studio Code using the original Azure Logic Apps extension. Although the user experiences are separate and different between the logic app resource types, your Azure subscription can include both the **Logic Apps** and **Logic App (Preview)** resource types. You can view and access all the deployed logic apps in your Azure subscription, but the apps are organized into their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps Preview](logic-apps-overview-preview.md).
+* View the workflow's run history.
 
-This article shows how to create a **Logic App (Preview)** resource by using the Azure portal. To build this resource in Visual Studio Code instead, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md).
+* Enable or open the Application Insights dashboard.
+
+* Enable run history for stateless workflows.
 
 > [!NOTE]
 > For information about current known issues, review the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
@@ -115,11 +118,11 @@ This article shows how to create a **Logic App (Preview)** resource by using the
 
 1. After the **New workflow** pane opens, provide a name for your workflow, and choose either the [**Stateful** or **Stateless**](logic-apps-overview-preview.md#stateful-stateless) workflow type. When you're done, select **Create**.
 
-   This example adds a blank stateful workflow named `Fabrikam-Stateful-Workflow`. By default, the workflow is enabled but doesn't do anything yet until you add a trigger and actions.
+   This example adds a blank stateful workflow named `Fabrikam-Stateful-Workflow`. By default, the workflow is enabled but doesn't do anything until you add a trigger and actions.
 
    ![Screenshot that shows the newly added blank stateful workflow "Fabrikam-Stateful-Workflow".](./media/create-stateful-stateless-workflows-azure-portal/logic-app-blank-workflow-created.png)
 
-1. Next, open the blank workflow in the designer so that you can add a trigger and actions.
+1. Next, open the blank workflow in the designer so that you can add a trigger and an action.
 
    1. From the workflow list, select the blank workflow.
 
@@ -131,7 +134,7 @@ This article shows how to create a **Logic App (Preview)** resource by using the
 
 <a name="add-trigger-actions"></a>
 
-## Add a trigger and actions
+## Add a trigger and an action
 
 This example builds a workflow that has these steps:
 
@@ -336,13 +339,13 @@ For a stateful workflow, after each workflow run, you can view the run history, 
 
 <a name="monitor-application-insights"></a>
 
-## Enable or monitor Application Insights after deployment
+## Enable or open Application Insights dashboard
 
 During workflow execution, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
 
 If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
-To enable Application Insights on a deployed logic app or to review Application Insights data when already enabled, follow these steps:
+To enable Application Insights on a deployed logic app or open the Application Insights dashboard if already enabled, follow these steps:
 
 1. In the Azure portal, find your deployed logic app.
 
