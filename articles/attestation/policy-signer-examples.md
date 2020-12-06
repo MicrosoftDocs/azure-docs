@@ -13,6 +13,7 @@ ms.author: mbaldwin
 # Examples of an attestation policy signer certificate
 
 Policy signer certificates associated with an attestation provider will be used by Microsoft Azure Attestation to validate signed policies.
+Learn more of [benefits of policy signing](/azure/attestation/basic-concepts/#Benefits-of-policy-signing)
 
 ## Policy signer certificate content
 
