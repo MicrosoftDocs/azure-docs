@@ -57,7 +57,7 @@ In this article, the example logic app triggers when a new email arrives in a wo
      >
      > * The **Execute JavaScript Code** is renamed **Run in-line JavaScript**.
      >
-     > * The Inline Code action has [updated limits](logic-apps-overview.md#inline-code-limits).
+     > * The Inline Code action has [updated limits](logic-apps-overview-preview.md#inline-code-limits).
 
      You can start from either option here:
 
