@@ -111,7 +111,7 @@ Yes. See [Caveats/Limitations](#caveatslimitations).
 
 ### How long does the upgrade take?
 
-It usually take about 5-10 minutes foo the script to finish and it could take longer depending on the complexity of your Load Balancer configuration. Therefore, keep the downtime in mind and plan for failover if necessary.
+It usually take about 5-10 minutes for the script to finish and it could take longer depending on the complexity of your Load Balancer configuration. Therefore, keep the downtime in mind and plan for failover if necessary.
 
 ### Does the Azure PowerShell script also switch over the traffic from my Basic Load Balancer to the newly created Standard Load Balancer?
 
