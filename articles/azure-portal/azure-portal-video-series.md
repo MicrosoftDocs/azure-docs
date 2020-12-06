@@ -1,16 +1,11 @@
 ---
 title: Azure portal how-to video series
 description: Find video demos for how to work with Azure services in the portal. View and link directly to the latest how-to videos.
-services: azure-portal
 keywords: 
-author: mgblythe
-ms.author: mblythe
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-
-ms.service: azure-portal
-manager: mtillman
 ---
+
 # Azure portal how-to video series
 
 The Azure portal how-to video series showcases how to work with Azure services in the Azure portal. Each week the Azure portal team adds to the video playlist. These interactive demos can help you be more efficient and productive.
