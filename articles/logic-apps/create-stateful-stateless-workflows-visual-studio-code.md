@@ -15,7 +15,7 @@ ms.date: 12/07/2020
 > Certain features might not be supported or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create logic apps that integrate across apps, data, cloud services, and systems, you can locally build and run [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) in a local development environment by using Visual Studio Code with the Azure Logic Apps (Preview) extension. The logic apps that you create through the extension use the new **Logic App (Preview)** resource type, which is powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime. This new logic app type can include multiple workflows and and run anywhere that Azure Functions runs. In some ways, the **Logic App (Preview)** resource type is similar to the **Function App** resource type, which can include multiple functions. To build these logic apps by using the Azure portal instead, see [Create stateful or stateless workflows with Azure Logic Apps (Preview) - Azure portal](create-stateful-stateless-workflows-azure-portal.md).
+To create logic apps that integrate across apps, data, cloud services, and systems, you can locally build and run [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) in a local development environment by using Visual Studio Code with the Azure Logic Apps (Preview) extension. The logic apps that you create through the extension use the new **Logic App (Preview)** resource type, which is powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime. This new logic app type can include multiple workflows and run anywhere that Azure Functions runs. In some ways, the **Logic App (Preview)** resource type is similar to the **Function App** resource type, which can include multiple functions. To build these logic apps by using the Azure portal instead, see [Create stateful or stateless workflows with Azure Logic Apps (Preview) - Azure portal](create-stateful-stateless-workflows-azure-portal.md).
 
 ![Screenshot that shows Visual Studio Code and logic app workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
@@ -81,10 +81,10 @@ This article shows how to create a **Logic App (Preview)** resource by using Vis
 
     > [!NOTE]
     > If you created logic apps with the **Azure Logic Apps (Private Preview)** extension, these logic apps won't work with the 
-    > public preview extension. However, you can migrate these logic apps after you uninstall the private preview extension, 
+    > public preview extension. However, you can migrate these logic apps after you uninstall the Private Preview extension, 
     > delete the associated artifacts, and install the public preview extension. You then create your new project in Visual Studio Code, 
     > and copy your previously created logic app's **workflow.definition** file into your new project. For more information, see 
-    > [Migrate from the private preview extension](#migrate-private-preview).
+    > [Migrate from the Private Preview extension](#migrate-private-preview).
 
     To install the **Azure Logic Apps (Preview)** extension, follow these steps:
 
@@ -104,13 +104,13 @@ This article shows how to create a **Logic App (Preview)** resource by using Vis
 
 <a name="migrate-private-preview"></a>
 
-## Migrate from the private preview extension
+## Migrate from the Private Preview extension
 
 Any logic apps that you created with the **Azure Logic Apps (Private Preview)** extension won't work with the public preview extension. However, you can migrate these logic apps into a new Visual Studio Code project by following these steps:
 
-1. Uninstall the private preview extension.
+1. Uninstall the Private Preview extension.
 
-1. Delete the associated extension bundle and nuget package folders in these locations:
+1. Delete the associated extension bundle and NuGet package folders in these locations:
 
    * The **Microsoft.Azure.Functions.ExtensionBundle.Workflows** folder, which contains previous extension bundles and is located along either path here:
 
@@ -118,7 +118,7 @@ Any logic apps that you created with the **Azure Logic Apps (Private Preview)** 
 
      * `C:\Users\{userName}.azure-functions-core-tools\Functions\ExtensionBundles`
 
-   * The **microsoft.azure.workflows.webjobs.extension** folder, which is the [NuGet](/nuget/what-is-nuget) cache for the private preview extension and is located along this path:
+   * The **microsoft.azure.workflows.webjobs.extension** folder, which is the [NuGet](/nuget/what-is-nuget) cache for the Private Preview extension and is located along this path:
 
      `C:\Users\{userName}\.nuget\packages`
 
@@ -751,7 +751,7 @@ You can publish your logic app as a new resource, which automatically creates an
          * Workflow activity, such as trigger, action, and run.
          * Storage request activity, such as success or failure.
          * HTTP request activity, such as inbound, outbound, success, and failure.
-         * Ad-hoc development traces, such as debug messages.
+         * Ad hoc development traces, such as debug messages.
 
          Each event type is assigned to a severity level. For example, the `Trace` level captures the most detailed messages, while the `Information` level captures general activity in your workflow, such as when your logic app, workflow, trigger, and actions start and stop. This table describes the severity levels and their trace types:
 

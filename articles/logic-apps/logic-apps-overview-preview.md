@@ -39,14 +39,17 @@ For more information, see these topics:
 
 * *Stateless*
 
-  Create stateless workflows when you don't need to save, review, or reference data from previous events in external storage for later review. These workflows save the inputs and outputs for each action and their states *only in memory*, rather than transferring this data to external storage. As a result, stateless workflows have shorter runs that are usually no longer than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't kept in external storage. However, if outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. These workflows can only run synchronously.
+  Create stateless workflows when you don't need to save, review, or reference data from previous events in external storage for later review. These workflows save the inputs and outputs for each action and their states *only in memory*, rather than transferring this data to external storage. As a result, stateless workflows have shorter runs that are typically no longer than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't kept in external storage. However, if outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. These workflows can only run synchronously.
 
   For easier debugging, you can enable run history for a stateless workflow, which has some impact on performance, and then disable the run history when you're done. For more information, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create stateful or stateless workflows in the Azure portal](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
 
   > [!NOTE]
-  > Stateless workflows currently support only *actions* for [managed connectors](../connectors/apis-list.md#managed-api-connectors), 
-  > which are deployed in Azure, and not triggers. To start your workflow, select the [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins), 
-  > which run natively with the Logic Apps runtime. For more information about unsupported triggers, actions, and connectors, see [Limited, unsupported, or unavailable capabilities](#unsupported-unavailable).
+  > Stateless workflows currently support only *actions* for 
+  > [managed connectors](../connectors/apis-list.md#managed-api-connectors), 
+  > which are deployed in Azure, and not triggers. To start your workflow, 
+  > select either the [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins). 
+  > These triggers run natively in the Logic Apps runtime. For more information about unsupported triggers, actions, 
+  > and connectors, see [Limited, unsupported, or unavailable capabilities](#unsupported-unavailable).
 
 For information about how nested logic apps behave differently between stateful and stateless logic apps, see [Nested behavior differences between stateful and stateless logic apps](#nested-behavior).
 
@@ -85,7 +88,7 @@ Azure Logic Apps (Preview) includes many current and additional capabilities, fo
 
 ## Pricing model
 
-Whether you create the new **Logic App (Preview)** resource type in the Azure portal or deploy the new resource type from Visual Studio Code, you're prompted to select a hosting plan, specifically the [App Service plan or Premium plan](../azure-functions/functions-scale.md) to use as the pricing model. If you select the App Service plan, you're also prompted to select a [pricing tier](../app-service/overview-hosting-plans.md). During public preview, running logic apps on App Service doesn't incur *additional* charges on top of the selected plan.
+Whether you create the new **Logic App (Preview)** resource type in the Azure portal or deploy the new resource type from Visual Studio Code, you select a hosting plan to use for pricing, specifically the [App Service plan or Premium plan](../azure-functions/functions-scale.md). If you select the App Service plan, you're also prompted to select a [pricing tier](../app-service/overview-hosting-plans.md). During public preview, running logic apps on App Service doesn't incur *additional* charges on top of the selected plan.
 
 Stateful logic apps use [external storage](../azure-functions/functions-scale.md#storage-account-requirements), so the Azure Storage pricing model applies to storage transactions that the Azure Logic Apps runtime performs. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states.
 
