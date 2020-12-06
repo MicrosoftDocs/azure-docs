@@ -1,7 +1,7 @@
 ---
 title: About the Cisco ISE pxGrid integration
 description: 
-Author: shhazam-ms
+author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.date: 12/06/2020

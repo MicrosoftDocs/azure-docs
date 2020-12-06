@@ -95,7 +95,7 @@ To collapse an IT subnet:
 
 1.  From the left pane, select **Devices**.
 
-2. In the Devices window, select :::image type="content" source="media/how-to-work-with-maps/red-number.png)alt-text="Number in red indicates how many expanded IT subnets currently appear on the map.":::.
+2. In the Devices window, select :::image type="content" source="media/how-to-work-with-maps/red-number.png" alt-text="Number in red indicates how many expanded IT subnets currently appear on the map.":::
 
    :::image type="content" source="media/how-to-work-with-maps/devices-notifications.png" alt-text="Device window":::
 
