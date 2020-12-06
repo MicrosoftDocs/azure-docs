@@ -53,6 +53,9 @@ In this step, you will designate and configure the Linux machine that will forwa
 1. While the script is running, check to make sure you don't get any error or warning messages.
     - You may get a message directing you to run a command to correct an issue with the mapping of the *Computer* field. See the [explanation in the deployment script](#mapping-command) for details.
 
+1. Continue to [STEP 2: Configure your security solution to forward CEF messages](connect-cef-solution-config.md) .
+
+
 > [!NOTE]
 > **Using the same machine to forward both plain Syslog *and* CEF messages**
 >
@@ -63,7 +66,16 @@ In this step, you will designate and configure the Linux machine that will forwa
 > 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Azure Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
-Continue to [STEP 2: Configure your security solution to forward CEF messages](connect-cef-solution-config.md) .
+> [!NOTE]
+> **Changing the source of the TimeGenerated field**
+>
+> - By default, the Log Analytics agent populates the *TimeGenerated* field in the schema with the time the agent received the event from the Syslog daemon. As a result, the time at which the event was generated on the source system is not recorded in Azure Sentinel.
+>
+> - You can, however, run the following command, which will download and run the `TimeGenerated.py` script. This script configures the Log Analytics agent to populate the *TimeGenerated* field with the event's original time on its source system, instead of the time it was received by the agent.
+>
+>    ```bash
+>    wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
+>    ```
 
 ## Deployment script explained
 
