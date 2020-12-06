@@ -14,7 +14,7 @@ This article describes the limits and configuration details for creating and run
 
 <a name="definition-limits"></a>
 
-## Definition limits
+## Logic app definition limits
 
 Here are the limits for a single logic app definition:
 
@@ -32,7 +32,9 @@ Here are the limits for a single logic app definition:
 | Maximum number of `parameters` | 50 | |
 | Maximum number of `outputs` | 10 | |
 | Maximum size for `trackedProperties` | 16,000 characters |
-| Inline Code action - Maximum number of code characters | 1,024 characters <p>For a 100,000 character limit, create your logic apps with Visual Studio Code and the [preview **Azure Logic Apps** extension](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
+| Inline Code action - Maximum number of code characters | 1,024 characters | To extend this limit to 100,000 characters, create your logic apps with the **Logic App (Preview)** resource type, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Inline Code action - Maximum duration for running code | 5 seconds | To extend this limit to a 15 seconds, create your logic apps with the **Logic App (Preview)** resource type, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
+||||
 
 <a name="run-duration-retention-limits"></a>
 
@@ -209,18 +211,20 @@ To go above these limits in normal processing, or run load testing that might go
 
 Azure Logic Apps supports write operations, including inserts and updates, through the gateway. However, these operations have [limits on their payload size](/data-integration/gateway/service-gateway-onprem#considerations).
 
-<a name="request-limits"></a>
+<a name="http-limits"></a>
 
 ## HTTP limits
 
 Here are the limits for a single inbound or outbound call:
 
-#### Timeout
+<a name="http-timeout-limits"></a>
+
+#### Timeout duration
 
 Some connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than these limits. For more information, see the technical details for the specific connector and also [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Name | Multi-tenant timeout | Multi-tenant timeout (preview) | Integration service environment limit | Notes |
-|------|----------------------|--------------------------------|---------------------------------------|-------|
+| Name | Logic Apps (multi-tenant) | Logic Apps (preview) | Integration service environment | Notes |
+|------|---------------------------|----------------------|---------------------------------|-------|
 | Outbound request | 120 seconds <br>(2 minutes) | 230 seconds <br>(3.9 minutes) | 240 seconds <br>(4 minutes) | Examples of outbound requests include calls made by the HTTP trigger or action. For more information about the preview version, see [Azure Logic Apps (Preview)](logic-apps-overview-preview.md). <p><p>**Tip**: For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). To work around timeout limits when you call another logic app that has a [callable endpoint](logic-apps-http-endpoint.md), you can use the built-in Azure Logic Apps action instead, which you can find in the connector picker under **Built-in**. |
 | Inbound request | 120 seconds <br>(2 minutes) | 230 seconds <br>(3.9 minutes) | 240 seconds <br>(4 minutes) | Examples of inbound requests include calls received by the Request trigger, HTTP Webhook trigger, and HTTP Webhook action. For more information about the preview version, see [Azure Logic Apps (Preview)](logic-apps-overview-preview.md). <p><p>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
 ||||||
@@ -338,7 +342,7 @@ For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/
 | Artifact | Limit | Notes |
 | -------- | ----- | ----- |
 | Assembly | 8 MB | To upload files larger than 2 MB, use an [Azure storage account and blob container](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
-| Map (XSLT file) | 8 MB | To upload files larger than 2 MB, use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate). <p><p>**Note**: The amount of data or records that a map can successfully process is based on the message size and action timeout limits in Azure Logic Apps. For example, if you use an HTTP action, based on [HTTP message size and timeout limits](#request-limits), a map can process data up to the HTTP message size limit if the operation completes within the HTTP timeout limit. |
+| Map (XSLT file) | 8 MB | To upload files larger than 2 MB, use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate). <p><p>**Note**: The amount of data or records that a map can successfully process is based on the message size and action timeout limits in Azure Logic Apps. For example, if you use an HTTP action, based on [HTTP message size and timeout limits](#http-limits), a map can process data up to the HTTP message size limit if the operation completes within the HTTP timeout limit. |
 | Schema | 8 MB | To upload files larger than 2 MB, use an [Azure storage account and blob container](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 

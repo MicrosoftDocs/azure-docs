@@ -1,14 +1,14 @@
 ---
-title: Overview for Azure Logic Apps (Preview)
-description: Learn about building stateless and stateful automated workflows by using Azure Logic Apps (Preview) for integration and automation scenarios
+title: Overview for Azure Logic Apps Preview
+description: Azure Logic Apps Preview is cloud solution for building automated stateful and stateless workflows that integrate apps, data, services, and systems with minimal code for enterprise-level scenarios.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, sopai, logicappspm
+ms.reviewer: sopai, absafaan, rohitha, rarayudu, haassyad, archidda, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
 ---
 
-# Overview for Azure Logic Apps Preview
+# Overview: Azure Logic Apps Preview
 
 > [!IMPORTANT]
 > This capability is in public preview, is provided without a service level agreement, and 
@@ -16,11 +16,23 @@ ms.date: 12/07/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create logic apps that integrate across apps, data, cloud services, and systems, you can build and run [*stateful* and *stateless* workflows](#stateful-stateless) by using the new **Logic App (Preview)** resource type, which is powered by [Azure Functions](../azure-functions/functions-overview.md). This new logic app type can include multiple workflows and run anywhere that Azure Functions runs. In some ways, the **Logic App (Preview)** resource type is similar to the **Function App** resource type, which can include multiple functions.
+When you use Azure Logic Apps Preview, you can build and run [*stateful* and *stateless* workflows](#stateful-stateless) that integrate across apps, data, cloud services, and systems by working with the new **Logic App (Preview)** resource type. This new logic app type can include multiple workflows and is powered by the redesigned Logic Apps runtime, which offers portability, better performance, and the flexibility for deploying to various hosting environments, such as Logic Apps Preview in Azure and Docker containers.
 
-You can create logic apps from this resource type either by using the Azure portal or by using Visual Studio Code with the Azure Logic Apps (Preview) extension. When you use Visual Studio Code, you can locally build and run these workflows in your development environment. Whether you use the portal or Visual Studio Code, you can deploy your app to various hosting environments such as Azure and Docker containers.
+You can create the new logic app type either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code with the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md). When you use Visual Studio Code, you can locally build and run the new workflows in your development environment. Whether you use the portal or Visual Studio Code, you can deploy and run the new logic app type in the same environments.
 
-This article provides an overview about how [stateful and stateless](#stateful-stateless) workflows differ from each other, [what's new in this public preview](#whats-new), how the [pricing model](#pricing-model) works, and various other aspects about the **Logic App (Preview)** resource type.
+This overview covers the following areas:
+
+* [Differences between Logic Apps Preview, the Logic Apps multi-tenant environment, and the integration service environment](#preview-differences).
+
+* [Differences between stateful and stateless workflows](#stateful-stateless), including behavior differences between [nested stateful and stateless workflows](#nested-behavior).
+
+* [Capabilities in this public preview](#public-preview-contents).
+
+* [How the pricing model works](#pricing-model).
+
+* [Limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
+
+* [Limits in Azure Logic Apps Preview](#limits).
 
 For more information, see these topics:
 
@@ -28,6 +40,23 @@ For more information, see these topics:
 * [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md)
 * [Integrations on Azure blog: "Azure Logic Apps Running Anywhere - Runtime Deep Dive"](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
 * [Logic Apps Public Preview Known Issues (GitHub)](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)
+
+<a name="preview-differences"></a>
+
+## How is Azure Logic Apps Preview different?
+
+The new Logic Apps runtime uses [Azure Functions](../azure-functions/functions-overview.md) extensibility and is hosted as an extension on the Azure Functions runtime. This architecture means you can run logic apps anywhere that Azure Functions runs. You can host the Logic Apps runtime on almost any network topology that you want, and choose any available compute size to handle the necessary workload that your workflow needs. For more information about Azure Functions extensibility, see [WebJobs SDK: Creating custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
+
+With this new approach, the Logic Apps runtime and your workflows become part of your app that you can package together. This capability lets you deploy and run your workflows by simply copying artifacts to the hosting environment and starting your app. This approach also provides a more standardized experience for building DevOps pipelines around the workflow projects for running the required tests and validations before you deploy changes to production environments.
+
+The following table briefly summarizes the differences in the way that workflows share resources, based on the environment where they run. For differences in limits, see [Limits in Azure Logic Apps Preview](#limits).
+
+| Environment | Resource sharing and consumption |
+|-------------|----------------------------------|
+| Logic Apps (multi-tenant) | Workflows *from customers in multiple tenants* share the same processing (compute), storage, network, and so on. |
+| Logic Apps (preview) | Workflows *in the same logic app* share the same processing (compute), storage, but customers can choose their own virtual network. |
+| Integration service environment | Workflows in the *same environment* share the same processing (compute), storage, and network. |
+||||
 
 <a name="stateful-stateless"></a>
 
@@ -44,18 +73,48 @@ For more information, see these topics:
   For easier debugging, you can enable run history for a stateless workflow, which has some impact on performance, and then disable the run history when you're done. For more information, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create stateful or stateless workflows in the Azure portal](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
 
   > [!NOTE]
-  > Stateless workflows currently support only *actions* for 
-  > [managed connectors](../connectors/apis-list.md#managed-api-connectors), 
-  > which are deployed in Azure, and not triggers. To start your workflow, 
-  > select either the [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins). 
-  > These triggers run natively in the Logic Apps runtime. For more information about unsupported triggers, actions, 
-  > and connectors, see [Limited, unsupported, or unavailable capabilities](#unsupported-unavailable).
+  > Stateless workflows currently support only *actions* for [managed connectors](../connectors/apis-list.md#managed-api-connectors), 
+  > which are deployed in Azure, and not triggers. To start your workflow, select either the 
+  > [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins). 
+  > These triggers run natively in the Logic Apps runtime. For more information about limited, 
+  > unavailable, or unsupported triggers, actions, and connectors, see 
+  > [Limited, unavailable, or unsupported capabilities](#unsupported-unavailable).
 
-For information about how nested logic apps behave differently between stateful and stateless logic apps, see [Nested behavior differences between stateful and stateless logic apps](#nested-behavior).
+<a name="nested-behavior"></a>
 
-<a name="whats-new"></a>
+### Nested behavior differences between stateful and stateless workflows
 
-## What's in this public preview?
+You can [make a logic app workflow callable](../logic-apps/logic-apps-http-endpoint.md) from other logic app workflows that exist in the same **Logic App (Preview)** resource by using the [Request trigger](../connectors/connectors-native-reqres.md), [HTTP Webhook trigger](../connectors/connectors-native-webhook.md), or managed connector triggers that have the [ApiConnectionWebhook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
+
+Here are the behavior patterns that nested logic app workflows can follow after a parent workflow calls a child workflow:
+
+* Asynchronous polling pattern
+
+  The parent doesn't wait for a response to their initial call, but continually checks the child's run history until the child finishes running. By default, stateful workflows follow this pattern, which is ideal for long-running child workflows that might exceed [request timeout limits](../logic-apps/logic-apps-limits-and-config.md).
+
+* Synchronous pattern ("fire and forget")
+
+  The child acknowledges the call by immediately returning a `202 ACCEPTED` response, and the parent continues to the next action without waiting for the results from the child. Instead, the parent receives the results when the child finishes running. Child stateful workflows that don't include a Response action always follow the synchronous pattern. For child stateful workflows, the run history is available for you to review.
+
+  To enable this behavior, in the workflow's JSON definition, set the `operationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+
+* Trigger and wait
+
+  For a child stateless workflow, the parent waits for a response that returns the results from the child. This pattern works similar to using the built-in [HTTP trigger or action](../connectors/connectors-native-http.md) to call a child workflow. Child stateless workflows that don't include a Response action immediately return a `202 ACCEPTED` response, but the parent waits for the child to finish before continuing to the next action. These behaviors apply only to child stateless workflows.
+
+This table specifies the child workflow's behavior based on whether the parent and child are stateful, stateless, or are mixed workflow types:
+
+| Parent workflow | Child workflow | Child behavior |
+|-----------------|----------------|----------------|
+| Stateful | Stateful | Asynchronous or synchronous with `"operationOptions": "DisableAsyncPattern"` setting |
+| Stateful | Stateless | Trigger and wait |
+| Stateless | Stateful | Synchronous |
+| Stateless | Stateless | Trigger and wait |
+||||
+
+<a name="public-preview-contents"></a>
+
+## What capabilities are in this public preview?
 
 Azure Logic Apps (Preview) includes many current and additional capabilities, for example:
 
@@ -100,11 +159,11 @@ For more information about the pricing models that apply to this new resource ty
 * [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/)
 * [Azure Storage pricing details](https://azure.microsoft.com/pricing/details/storage/)
 
-<a name="unsupported-unavailable"></a>
+<a name="limited-unavailable-unsupported"></a>
 
 ## Limited, unavailable, or unsupported capabilities
 
-In this public preview, these capabilities are currently limited, unsupported, or unavailable:
+In this public preview, these capabilities are currently limited, unavailable, or unsupported:
 
 * **Triggers and actions**: Some built-in triggers are unavailable, such as Sliding Window and Batch. To start your workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). Built-in triggers and actions run natively in the Logic Apps runtime, while managed connectors are deployed in Azure. In the designer, built-in triggers and actions appear under the **Built-in** tab, while managed connector triggers and actions appear under the **Azure** tab.
 
@@ -140,51 +199,50 @@ In this public preview, these capabilities are currently limited, unsupported, o
 
 * **Zoom control**: The zoom control is currently unavailable on the designer.
 
-<a name="nested-behavior"></a>
-
-## Nested behavior differences between stateful and stateless logic apps
-
-You can [make a logic app workflow callable](../logic-apps/logic-apps-http-endpoint.md) from other logic app workflows that exist in the same **Logic App (Preview)** resource by using the [Request trigger](../connectors/connectors-native-reqres.md), [HTTP Webhook trigger](../connectors/connectors-native-webhook.md), or managed connector triggers that have the [ApiConnectionWebhook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
-
-Here are the behavior patterns that nested logic app workflows can follow after a parent workflow calls a child workflow:
-
-* Asynchronous polling pattern
-
-  The parent doesn't wait for a response to their initial call, but continually checks the child's run history until the child finishes running. By default, stateful workflows follow this pattern, which is ideal for long-running child workflows that might exceed [request timeout limits](../logic-apps/logic-apps-limits-and-config.md).
-
-* Synchronous pattern ("fire and forget")
-
-  The child acknowledges the call by immediately returning a `202 ACCEPTED` response, and the parent continues to the next action without waiting for the results from the child. Instead, the parent receives the results when the child finishes running. Child stateful workflows that don't include a Response action always follow the synchronous pattern. For child stateful workflows, the run history is available for you to review.
-
-  To enable this behavior, in the workflow's JSON definition, set the `operationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
-
-* Trigger and wait
-
-  For a child stateless workflow, the parent waits for a response that returns the results from the child. This pattern works similar to using the built-in [HTTP trigger or action](../connectors/connectors-native-http.md) to call a child workflow. Child stateless workflows that don't include a Response action immediately return a `202 ACCEPTED` response, but the parent waits for the child to finish before continuing to the next action. These behaviors apply only to child stateless workflows.
-
-This table specifies the child workflow's behavior based on whether the parent and child are stateful, stateless, or are mixed workflow types:
-
-| Parent workflow | Child workflow | Child behavior |
-|-----------------|----------------|----------------|
-| Stateful | Stateful | Asynchronous or synchronous with `"operationOptions": "DisableAsyncPattern"` setting |
-| Stateful | Stateless | Trigger and wait |
-| Stateless | Stateful | Synchronous |
-| Stateless | Stateless | Trigger and wait |
-||||
-
 <a name="limits"></a>
 
-## Limits
+## Limits for Azure Logic Apps Preview
 
-Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md) are the same for this resource type, here are the differences in this public preview extension:
+Although many limits for Azure Logic Apps Preview stay the same as the [limits for multi-tenant Azure Logic Apps](logic-apps-limits-and-config.md), these limits have changed for Azure Logic Apps Preview.
 
-* Managed connectors: 50 requests per minute per connection
+<a name="http-timeout-limits"></a>
 
-* For the [Inline Code action for JavaScript](../logic-apps/logic-apps-add-run-inline-code.md) action, these limits have changed:
+### HTTP timeout limits
 
-  * The limit on code characters increases from 1,024 characters to 100,000 characters.
+For a single inbound call or outbound call, the timeout limit is 230 seconds (3.9 minutes) for these triggers and actions:
 
-  * The limit on time to run the code increases from five seconds to 15 seconds.
+* Outbound request: HTTP trigger, HTTP action
+* Inbound request: Request trigger, HTTP Webhook trigger, HTTP Webhook action
+
+In comparison, here are the timeout limits for these triggers and actions in other environments where logic apps run:
+
+* Multi-tenant Azure Logic Apps: 120 seconds (2 minutes)
+* Integration service environment: 240 seconds (4 minutes)
+
+For more information, see [HTTP limits](logic-apps-limits-and-config.md#http-limits).
+
+> [!NOTE]
+> Some managed connectors make asynchronous calls or listen for webhook requests, so the 
+> timeout limits for these operations might be longer than these limits. For more information, 
+> see the technical details for the specific connector along with [Workflow triggers and actions](logic-apps-workflow-actions-triggers.md).
+
+<a name="managed-connector-limits"></a>
+
+### Managed connectors
+
+Managed connectors are limited to 50 requests per minute per connection. To work with connector throttling issues, see [Handle throttling problems (429 - "Too many requests" error) in Azure Logic Apps](handle-throttling-problems-429-errors.md#connector-throttling).
+
+<a name="inline-code-limits"></a>
+
+### Inline Code (Execute JavaScript Code)
+
+For a single logic app definition, the Inline Code action, [**Execute JavaScript Code**](logic-apps-add-run-inline-code.md), has these updated limits:
+
+* The maximum number of code characters increases from 1,024 characters to 100,000 characters.
+
+* The maximum duration for running code increases from five seconds to 15 seconds.
+
+For more information, see [Logic app definition limits](logic-apps-limits-and-config.md#definition-limits).
 
 ## Next steps
 

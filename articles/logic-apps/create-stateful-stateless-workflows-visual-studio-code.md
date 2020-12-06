@@ -19,7 +19,7 @@ To create logic apps that integrate across apps, data, cloud services, and syste
 
 ![Screenshot that shows Visual Studio Code and logic app workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code. The experiences to create the new resource type are separate and different from the original resource type, but you can have both the **Logic Apps** and **Logic App (Preview)** resource types in your Azure subscription. You can view and access all the deployed logic apps in your Azure subscription, but they're organized into their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps (Preview)](logic-apps-overview-preview.md#whats-new).
+Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code. The experiences to create the new resource type are separate and different from the original resource type, but you can have both the **Logic Apps** and **Logic App (Preview)** resource types in your Azure subscription. You can view and access all the deployed logic apps in your Azure subscription, but they're organized into their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps (Preview)](logic-apps-overview-preview.md#public-preview-contents).
 
 This article shows how to create a **Logic App (Preview)** resource by using Visual Studio Code and completing these high-level tasks:
 
