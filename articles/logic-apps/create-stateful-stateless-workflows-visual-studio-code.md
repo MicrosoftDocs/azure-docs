@@ -369,7 +369,7 @@ The logic app workflow in this example uses this trigger and these actions:
    > If too much time passes before you complete the prompts, the authentication process times out and fails. 
    > In this case, return to the designer and retry signing in to create the connection.
 
-1. When the Azure Logic Apps preview extension prompts you for consent to access your email account, select **Open**. Follow the subsequent prompt to allow access.
+1. When the Azure Logic Apps (Preview) extension prompts you for consent to access your email account, select **Open**. Follow the subsequent prompt to allow access.
 
    ![Screenshot that shows the preview extension prompt to permit access.](./media/create-stateful-stateless-workflows-visual-studio-code/allow-preview-extension-open-uri.png)
 

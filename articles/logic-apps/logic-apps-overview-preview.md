@@ -16,13 +16,15 @@ ms.date: 12/07/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When you use Azure Logic Apps Preview, you can build and run [*stateful* and *stateless* workflows](#stateful-stateless) that integrate across apps, data, cloud services, and systems by working with the new **Logic App (Preview)** resource type. This new logic app type can include multiple workflows and is powered by the redesigned Logic Apps runtime, which offers portability, better performance, and the flexibility for deploying to various hosting environments, such as Logic Apps Preview in Azure and Docker containers.
+With Azure Logic Apps Preview, you can build and run logic apps that contain both [*stateful* and *stateless* workflows](#stateful-stateless) that integrate across apps, data, cloud services, and systems by using the new **Logic App (Preview)** resource type. This new logic app type can include multiple workflows and is powered by the redesigned Azure Logic Apps (Preview) runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers.
 
-You can create the new logic app type either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code with the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md). When you use Visual Studio Code, you can locally build and run the new workflows in your development environment. Whether you use the portal or Visual Studio Code, you can deploy and run the new logic app type in the same environments.
+How is this possible? The redesigned runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This architecture means that you can run the new logic app type anywhere that Azure Functions runs. You can host the redesigned runtime on almost any network topology, and choose any available compute size to handle the necessary workload that's required by your workflows. For more information, see [Introduction to Azure Functions](../azure-functions/functions-overview.md) and [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md).
+
+You can create the new **Logic App (Preview)** resource either by [starting in the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or by [creating a project in Visual Studio Code with the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md). Also, in Visual Studio Code, you can build *and locally run* your workflows in your development environment. Whether you use the portal or Visual Studio Code, you can deploy and run the new logic app type in the same kinds of hosting environments.
 
 This overview covers the following areas:
 
-* [Differences between Logic Apps Preview, the Logic Apps multi-tenant environment, and the integration service environment](#preview-differences).
+* [Differences between Azure Logic Apps Preview, the Azure Logic Apps multi-tenant environment, and the integration service environment](#preview-differences).
 
 * [Differences between stateful and stateless workflows](#stateful-stateless), including behavior differences between [nested stateful and stateless workflows](#nested-behavior).
 
@@ -34,29 +36,30 @@ This overview covers the following areas:
 
 * [Limits in Azure Logic Apps Preview](#limits).
 
-For more information, see these topics:
+For more information, see these other articles:
 
-* [Create stateful or stateless workflows in the Azure portal](create-stateful-stateless-workflows-azure-portal.md)
-* [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md)
-* [Integrations on Azure blog: "Azure Logic Apps Running Anywhere - Runtime Deep Dive"](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
+* [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
+
 * [Logic Apps Public Preview Known Issues (GitHub)](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)
 
 <a name="preview-differences"></a>
 
-## How does Azure Logic Apps Preview work differently?
+## How does Azure Logic Apps Preview differ?
 
-The new Logic Apps runtime uses [Azure Functions](../azure-functions/functions-overview.md) extensibility and is hosted as an extension on the Azure Functions runtime. This architecture means you can run logic apps anywhere that Azure Functions runs. You can host the Logic Apps runtime on almost any network topology that you want, and choose any available compute size to handle the necessary workload that your workflow needs. For more information about Azure Functions extensibility, see [WebJobs SDK: Creating custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
+The Azure Logic Apps Preview runtime uses [Azure Functions](../azure-functions/functions-overview.md) extensibility and is hosted as an extension on the Azure Functions runtime. This architecture means you can run the new logic app type anywhere that Azure Functions runs. You can host the Azure Logic Apps Preview runtime on almost any network topology that you want, and choose any available compute size to handle the necessary workload that your workflow needs. For more information about Azure Functions extensibility, see [WebJobs SDK: Creating custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
-With this new approach, the Logic Apps runtime and your workflows become part of your app that you can package together. This capability lets you deploy and run your workflows by simply copying artifacts to the hosting environment and starting your app. This approach also provides a more standardized experience for building DevOps pipelines around the workflow projects for running the required tests and validations before you deploy changes to production environments.
+With this new approach, the Azure Logic Apps Preview runtime and your workflows are both part of your app that you can package together. This capability lets you deploy and run your workflows by simply copying artifacts to the hosting environment and starting your app. This approach also provides a more standardized experience for building DevOps pipelines around the workflow projects for running the required tests and validations before you deploy changes to production environments.
 
 The following table briefly summarizes the differences in the way that workflows share resources, based on the environment where they run. For differences in limits, see [Limits in Azure Logic Apps Preview](#limits).
 
 | Environment | Resource sharing and consumption |
 |-------------|----------------------------------|
-| Logic Apps (multi-tenant) | Workflows *from customers in multiple tenants* share the same processing (compute), storage, network, and so on. |
-| Logic Apps (preview) | Workflows *in the same logic app* share the same processing (compute), storage, but customers can choose their own virtual network. |
+| Azure Logic Apps (multi-tenant) | Workflows *from customers in multiple tenants* share the same processing (compute), storage, network, and so on. |
+| Azure Logic Apps (preview) | Workflows *in the same logic app* share the same processing (compute), storage, but customers can choose their own virtual network. |
 | Integration service environment | Workflows in the *same environment* share the same processing (compute), storage, and network. |
 ||||
+
+For more information, see [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
 <a name="stateful-stateless"></a>
 
@@ -76,7 +79,7 @@ The following table briefly summarizes the differences in the way that workflows
   > Stateless workflows currently support only *actions* for [managed connectors](../connectors/apis-list.md#managed-api-connectors), 
   > which are deployed in Azure, and not triggers. To start your workflow, select either the 
   > [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins). 
-  > These triggers run natively in the Logic Apps runtime. For more information about limited, 
+  > These triggers run natively in the Azure Logic Apps Preview runtime. For more information about limited, 
   > unavailable, or unsupported triggers, actions, and connectors, see 
   > [Limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
 
@@ -120,7 +123,7 @@ Azure Logic Apps (Preview) includes many current and additional capabilities, fo
 
 * Create logic apps and build workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
-  * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to built-in triggers and actions, which are native to the Logic Apps runtime, for example, the Request trigger and HTTP action. For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+  * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to the built-in triggers and actions that are native to the Azure Logic Apps Preview runtime, for example, the Request trigger and HTTP action. For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
   * You can use the B2B actions for Liquid Operations and XML Operations without an integration account. To use these actions, you need to have Liquid maps, XML maps, or XML schemas that you can upload through the respective actions in the Azure portal or add to your Visual Studio Code project's **Artifacts** folder using the respective **Maps** and **Schemas** folders.
 
@@ -149,7 +152,7 @@ Azure Logic Apps (Preview) includes many current and additional capabilities, fo
 
 Whether you create the new **Logic App (Preview)** resource type in the Azure portal or deploy the new resource type from Visual Studio Code, you select a hosting plan to use for pricing, specifically the [App Service plan or Premium plan](../azure-functions/functions-scale.md). If you select the App Service plan, you're also prompted to select a [pricing tier](../app-service/overview-hosting-plans.md). During the public preview period, running logic apps on App Service doesn't incur *additional* charges on top of the selected plan.
 
-Stateful logic apps use [external storage](../azure-functions/functions-scale.md#storage-account-requirements), so the Azure Storage pricing model applies to storage transactions that the Azure Logic Apps runtime performs. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states.
+Stateful logic apps use [external storage](../azure-functions/functions-scale.md#storage-account-requirements), so the Azure Storage pricing model applies to storage transactions that the Azure Logic Apps Preview runtime performs. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states.
 
 For more information about the pricing models that apply to this new resource type, review these topics:
 
@@ -165,7 +168,7 @@ For more information about the pricing models that apply to this new resource ty
 
 In Azure Logic Apps Preview, these capabilities are currently limited, unavailable, or unsupported:
 
-* **Triggers and actions**: Some built-in triggers are unavailable, such as Sliding Window and Batch. To start your workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). Built-in triggers and actions run natively in the Logic Apps runtime, while managed connectors are deployed in Azure. In the designer, built-in triggers and actions appear under the **Built-in** tab, while managed connector triggers and actions appear under the **Azure** tab.
+* **Triggers and actions**: Some built-in triggers are unavailable, such as Sliding Window and Batch. To start your workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). Built-in triggers and actions run natively in the Azure Logic Apps Preview runtime, while managed connectors are deployed in Azure. In the designer, built-in triggers and actions appear under the **Built-in** tab, while managed connector triggers and actions appear under the **Azure** tab.
 
   > [!NOTE]
   > To run locally in Visual Studio Code, webhook-based triggers and actions require additional setup. For more information, see 
@@ -183,13 +186,15 @@ In Azure Logic Apps Preview, these capabilities are currently limited, unavailab
 
     * The Azure Functions action, **Choose an Azure function**, works only for functions that are created from the **HTTP Trigger** template.
 
-    * The [Inline Code action, **Execute JavaScript Code**](logic-apps-add-run-inline-code.md), no longer needs an integration account. Also, in Azure Logic Apps Preview, this action is now named **Run in-line JavaScript**.
+    * The [Inline Code action](logic-apps-add-run-inline-code.md) no longer requires an integration account. Also, in Azure Logic Apps Preview, this action is now named **Run in-line JavaScript**.
 
-      If you use Visual Studio Code with the Azure Logic Apps (Preview) extension on macOS, the **Run in-line JavaScript** action is unavailable.
+      > [!NOTE]
+      > If you use macOS, the **Run in-line JavaScript** action is currently unavailable 
+      > when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
 
-    * Some built-in [B2B triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, such as the Flat File Encoding and Decoding actions.
+    * Some [built-in B2B triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
 
-* **Hosting plan availability**: Whether you create a new **Logic App (Preview)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the Premium or App Service hosting plan in Azure. **Consumption** hosting plans aren't supported nor available for deploying this resource type. You can deploy from Visual Studio Code to a Docker container, but not to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+* **Hosting plan availability**: Whether you create a new **Logic App (Preview)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the Premium or App Service hosting plan in Azure. Consumption hosting plans are unavailable and unsupported for deploying this resource type. You can deploy from Visual Studio Code to a Docker container, but not to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 * **Parallel branches**: Currently, you can't add parallel branches through the new designer experience. However, you can still add these branches through the original designer experience and have them appear in the new designer.
 
@@ -203,7 +208,7 @@ In Azure Logic Apps Preview, these capabilities are currently limited, unavailab
 
 <a name="limits"></a>
 
-## Limits for Azure Logic Apps Preview
+## Updated limits in Azure Logic Apps Preview
 
 Although many limits for Azure Logic Apps Preview stay the same as the [limits for multi-tenant Azure Logic Apps](logic-apps-limits-and-config.md), these limits have changed for Azure Logic Apps Preview.
 
@@ -222,11 +227,6 @@ In comparison, here are the timeout limits for these triggers and actions in oth
 * Integration service environment: 240 seconds (4 minutes)
 
 For more information, see [HTTP limits](logic-apps-limits-and-config.md#http-limits).
-
-> [!NOTE]
-> Some managed connectors make asynchronous calls or listen for webhook requests, so the 
-> timeout limits for these operations might be longer than these limits. For more information, 
-> see the technical details for the specific connector along with [Workflow triggers and actions](logic-apps-workflow-actions-triggers.md).
 
 <a name="managed-connector-limits"></a>
 
