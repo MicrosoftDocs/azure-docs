@@ -354,6 +354,17 @@ At the bottom of this page, there's a table describing the Azure Security Center
 |                                                                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                       |          |
 
 
+## <a name="alerts-dns"></a>Alerts for DNS
+
+[Further details and notes](defender-for-dns-introduction.md)
+
+| Alert | Description | Intent<br>([Learn more](#intentions)) | Severity |
+|-----|:-------------------------------------:|----------|
+| **PLACEHOLDER**<br>(PLACEHOLDER) | PLACEHOLDER  | PLACEHOLDER | PLACEHOLDER |
+|   |  |  |  |
+
+
+
 ## <a name="alerts-azurestorage"></a>Alerts for Azure Storage
 
 [Further details and notes](defender-for-storage-introduction.md)
