@@ -36,7 +36,7 @@ You'll use a command like the following to call the Face API and get face attrib
 Make the following changes:
 1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
 1. Change the first part of the query URL to match the endpoint that corresponds to your subscription key.
-  [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+  [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Optionally change the URL in the body of the request to point to a different image.
 
 Once you've made your changes, open a command prompt and enter the new command. 
