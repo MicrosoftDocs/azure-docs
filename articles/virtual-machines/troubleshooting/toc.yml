@@ -40,6 +40,8 @@
     href: restart-resize-error-troubleshooting.md
   - name: Restarting, Shutting Down, or Stopping services
     href: boot-error-troubleshoot-windows.md
+  - name: Issues with a full OS disk on a Linux virtual machine
+    href: os-disk-full-linux.md
 - name: Unexpected restart
   items:
   - name: Unexpected reboots of VMs with attached VHDs
@@ -343,7 +345,7 @@
 - name: Migration and Move issues
   items:
   - name: Azure Resource Manager migration (ASM to ARM) FAQ
-    href: ../windows/migration-classic-resource-manager-overview.md
+    href: ../migration-classic-resource-manager-overview.md
 - name: Planned Maintenance
   items:
   - name: Overview

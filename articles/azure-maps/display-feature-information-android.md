@@ -58,9 +58,7 @@ map.events.add((OnFeatureClick) (features) -> {
 }, symbolLayer.getId());    //Limit this event to the symbol layer.
 ```
 
-<center>
-
-![Animation of a feature being tapped and a toast message being displayed](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)</center>
+![Animation of a feature being tapped and a toast message being displayed](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)
 
 In addition to toast messages, There are many other ways to present the metadata properties of a feature, such as:
 

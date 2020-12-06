@@ -31,9 +31,9 @@ In the **New device** panel, choose **IoT Edge device**. You can leave the defau
 
 It's also possible to register an IoT Edge device directly with the IoT Hub instance in your solution accelerator. You need to know the name of the IoT hub in your solution accelerator before you follow any of these how-to guides:
 
-- [Register a new Azure IoT Edge device from the Azure portal](../iot-edge/how-to-register-device.md#register-in-the-azure-portal)
-- [Register a new Azure IoT Edge device with Azure CLI](../iot-edge/how-to-register-device.md#register-with-the-azure-cli)
-- [Register a new Azure IoT Edge device from Visual Studio Code](../iot-edge/how-to-register-device.md#register-with-visual-studio-code)
+- [Register a new Azure IoT Edge device from the Azure portal](../iot-edge/how-to-manual-provision-symmetric-key.md?tabs=azure-portal%2Cwindows)
+- [Register a new Azure IoT Edge device with Azure CLI](../iot-edge/how-to-manual-provision-symmetric-key.md?tabs=azure-cli%2Cwindows)
+- [Register a new Azure IoT Edge device from Visual Studio Code](../iot-edge/how-to-manual-provision-symmetric-key.md?tabs=visual-studio-code%2Cwindows)
 
 When you register a device directly with the IoT hub in the Remote Monitoring solution accelerator, it's listed on the **Device Explorer** page in the web UI.
 
@@ -41,11 +41,11 @@ When you register a device directly with the IoT hub in the Remote Monitoring so
 
 Before you can deploy modules to your Edge device, you must install the IoT Edge runtime on the real device. The following how-to guides show you how to install the runtime on common device platforms:
 
-- [Install the Azure IoT Edge runtime on Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
-- [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux.md)
-- [Install Azure IoT Edge runtime on Windows to use with Windows containers](../iot-edge/how-to-install-iot-edge-windows.md)
-- [Install the Azure IoT Edge runtime on Windows to use with Linux containers](../iot-edge/how-to-install-iot-edge-windows-with-linux.md)
-- [Install the IoT Edge runtime on Windows IoT Core](../iot-edge/how-to-install-iot-edge-windows.md)
+- [Install the Azure IoT Edge runtime on Linux (x64)](../iot-edge/how-to-install-iot-edge.md)
+- [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge.md)
+- [Install Azure IoT Edge runtime on Windows to use with Windows containers](../iot-edge/how-to-install-iot-edge.md)
+- [Install the Azure IoT Edge runtime on Windows to use with Linux containers](../iot-edge/how-to-install-iot-edge.md)
+- [Install the IoT Edge runtime on Windows IoT Core](../iot-edge/how-to-install-iot-edge.md)
 
 ## Next steps
 

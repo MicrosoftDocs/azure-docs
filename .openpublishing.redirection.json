@@ -1,38 +1,323 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/windows/download-template.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/download-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-lamp.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-lamp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nsg",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-oms.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-oms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-quick-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-wordpress",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-encrypt-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-encrypt-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-mount-os-disk.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-mount-os-disk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-nlb.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-nlb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-restart-by-tag.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-restart-by-tag",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-docker-host.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-docker-host",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-nginx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-oms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-collect-vm-details.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-collect-vm-details",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-iis.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-iis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-nsg",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-oms.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-oms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-quick-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-encrypt-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-encrypt-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-nlb.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-nlb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-nlb-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-oms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-encrypt-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/matlab-mdcs-cluster.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/matlab-mdcs-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/powershell-samples.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/powershell-samples.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine",
+      "redirect_document_id": false
+    },
+    { 
+      "source_path": "articles/virtual-machines/linux/cli-samples.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/cli-samples.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/network-watcher/connection-monitor-preview.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-overview",
       "redirect_document_id": false
     },
-	{
+	  {
       "source_path": "articles/network-watcher/connection-monitor-preview-create-using-arm-client.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-template",
       "redirect_document_id": false
     },
-	{
+	  {
       "source_path": "articles/network-watcher/migrate-to-connection-monitor-preview-from-network-performance-monitor.md",
       "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor",
       "redirect_document_id": false
     },
-	{
+	  {
       "source_path": "articles/network-watcher/migrate-to-connection-monitor-preview-from-connection-monitor.md",
       "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic",
       "redirect_document_id": false
     },
-	{
+	  {
       "source_path": "articles/network-watcher/connection-monitor-preview-create-using-portal.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-portal",
       "redirect_document_id": false
     },
-	{
+  	{
       "source_path": "articles/digital-twins/how-to-convert-models.md",
       "redirect_url": "/azure/digital-twins/how-to-integrate-models",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-wan/security-baseline.md",
-      "redirect_url": "/azure/virtual-wan/",
       "redirect_document_id": false
     },
     {
@@ -44,7 +329,7 @@
       "source_path": "articles/virtual-network/ddos-protection-overview.md",
       "redirect_url": "/azure/ddos-protection/ddos-protection-overview",
       "redirect_document_id": false
-    },
+    },  
     {
       "source_path": "articles/virtual-network/manage-ddos-protection.md",
       "redirect_url": "/azure/ddos-protection/manage-ddos-protection",
@@ -213,6 +498,121 @@
     {
       "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-overview.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-deploy-prep.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-prep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-deploy-provision-hyperv.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-provision-hyperv",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-deploy-provision-vmware.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-provision-vmware",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-deploy-connect-setup-activate.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-connect-setup-activate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-deploy-add-shares.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-deploy-add-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-system-requirements.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-system-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-limits.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-limits.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-security.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-use-cases.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-use-cases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-apply-updates.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-apply-updates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-manage-shares.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-manage-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-manage-users.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-manage-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-manage-bandwidth-schedules.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-manage-bandwidth-schedules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-manage-access-power-connectivity-mode.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-manage-access-power-connectivity-mode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-connect-powershell-interface.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-connect-powershell-interface",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-monitor.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-troubleshoot.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-2007-release-notes.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-2007-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-1911-release-notes.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-1911-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-1906-release-notes.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-1906-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-1905-release-notes.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-1905-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-gateway-release-notes.md",
+      "redirect_url": "/azure/databox-gateway/data-box-gateway-release-notes",
       "redirect_document_id": false
     },
     {
@@ -720,10 +1120,10 @@
       "redirect_url": "/previous-versions/azure/digital-twins/how-to-configure-monitoring",
       "redirect_document_id": false
     },
-    {
-      "source_path": "articles/digital-twins/how-to-configure-postman.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/how-to-configure-postman",
-      "redirect_document_id": false
+    {	
+      "source_path": "articles/digital-twins/how-to-configure-postman.md",	
+      "redirect_url": "/azure/digital-twins/how-to-use-postman",
+      "redirect_document_id": false	
     },
     {
       "source_path": "articles/digital-twins/how-to-diagnose-user-defined-functions.md",
@@ -1810,6 +2210,16 @@
       "source_path": "articles/machine-learning/studio/algorithm-cheat-sheet.md",
       "redirect_url": "/azure/machine-learning/algorithm-cheat-sheet",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package.md",
+      "redirect_url": "/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md",
+      "redirect_url": "/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/service-bus-messaging/service-bus-paired-namespaces.md",
@@ -3892,6 +4302,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/sql-query-aggregates.md",
+      "redirect_url": "/azure/cosmos-db/sql-query-aggregate-functions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/firewall-support.md",
       "redirect_url": "/azure/cosmos-db/how-to-configure-firewall",
       "redirect_document_id": false
@@ -4309,6 +4724,126 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/Research.md",
       "redirect_url": "/azure/cognitive-services/Computer-vision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/CSharp-analyze.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-analyze.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/CSharp-hand-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-hand-text.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/CSharp-print-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-print-text.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/CSharp-thumb.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-thumb.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/go-analyze.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/REST/go-analyze.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/go-print-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/REST/go-print-text.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/go-thumb.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/REST/go-thumb.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/java-analyze.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/REST/java-analyze.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/java-hand-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/REST/java-hand-text.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/java-print-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/REST/java-print-text.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/java-thumb.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/REST/java-thumb.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/javascript-analyze.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/REST/javascript-analyze.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/javascript-hand-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/REST/javascript-hand-text.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/javascript-print-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/REST/javascript-print-text.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/javascript-thumb.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/REST/javascript-thumb.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/node-analyze.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/REST/node-analyze.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/node-print-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/REST/node-print-text.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/node-thumb.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/REST/node-thumb.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/python-analyze.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/REST/python-analyze.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/python-disk.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/REST/python-disk.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/python-domain.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/REST/python-domain.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/python-hand-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/REST/python-hand-text.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/python-print-text.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/REST/python-print-text.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/QuickStarts/python-thumb.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/REST/python-thumb.md",
       "redirect_document_id": false
     },
     {
@@ -7395,12 +7930,32 @@
     },
     {
       "source_path": "articles/azure-resource-manager/managed-application-author-marketplace.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/commercial-marketplace-co-sell-states.md",
+      "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell-states",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/marketplace/partner-center-portal/commercial-marketplace-co-sell-countries.md",
+      "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell-countries",
+      "redirect_document_id": false
+    },       
+    {
+      "source_path": "articles/marketplace/partner-center-portal/commercial-marketplace-co-sell.md",
+      "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell",
+      "redirect_document_id": false
+    },   
+    {
+      "source_path": "articles/marketplace/partner-center-portal/create-new-azure-apps-offer.md",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/managed-application-consume-marketplace.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -7655,7 +8210,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/managed-applications/publish-marketplace-app.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -19803,6 +20358,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/synapse-analytics/release-notes.md",
+      "redirect_url": "/azure/synapse-analytics/overview-what-is",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-build-multi-tenant-apps.md",
       "redirect_url": "/azure/sql-database/saas-tenancy-app-design-patterns",
       "redirect_document_id": false
@@ -21145,6 +21705,11 @@
     {
       "source_path": "articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic",
+      "redirect_document_id": false
+	 },
+	 {
+      "source_path": "articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md",
+      "redirect_url": "/azure/vpn-gateway/tutorial-site-to-site-portal",
       "redirect_document_id": false
 	 },
 	 {
@@ -28203,6 +28768,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-concurrency.md",
+      "redirect_url": "/azure/storage/blobs/concurrency-manage",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-configure-connection-string.md",
       "redirect_url": "/azure/storage/common/storage-configure-connection-string",
       "redirect_document_id": true
@@ -30573,6 +31143,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/faq-billing.md",
+      "redirect_url": "/azure/security-center/security-center-pricing#faq---pricing-and-billing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-features-retirement-july2019.md",
       "redirect_url": "/azure/security-center/security-center-introduction",
       "redirect_document_id": false
@@ -32334,37 +32909,37 @@
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-pre-requisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-push-to-production.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-push-to-staging.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-creation.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-creation-prerequisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-test-in-staging.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -32454,7 +33029,7 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -32484,7 +33059,7 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -33526,6 +34101,11 @@
       "source_path": "articles/security/security-channel-nine.md",
       "redirect_url": "/azure/security/fundamentals/channel-nine",
       "redirect_document_id": true
+	 },
+	 {
+      "source_path": "articles/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell.md",
+      "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/security-get-started-overview.md",
@@ -39762,6 +40342,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cdn/enable-raw-logs.md",
+      "redirect_url": "/azure/cdn/monitoring-and-access-log",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
       "redirect_document_id": true
@@ -44293,47 +44878,47 @@
     },
     {
       "source_path": "articles/azure-monitor/log-query/string-operations.md",
-      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples?pivots=azuremonitor",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/log-query/datetime-operations.md",
-      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples?pivots=azuremonitor",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/log-query/aggregations.md",
-      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples?pivots=azuremonitor",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/log-query/advanced-aggregations.md",
-      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples?pivots=azuremonitor",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/log-query/joins.md",
-      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples?pivots=azuremonitor",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/log-query/json-data-structures.md",
-      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples?pivots=azuremonitor",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/log-query/charts.md",
-      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples?pivots=azuremonitor",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/log-query/search-queries.md",
-      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples?pivots=azuremonitor",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/log-query/advanced-query-writing.md",
-      "redirect_url": "/azure/data-explorer/kusto/query/tutorial&pivots=azuremonitor",
+      "redirect_url": "/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor",
       "redirect_document_id": false
     },
     {
@@ -44343,7 +44928,7 @@
     },
     {
       "source_path": "articles/azure-monitor/log-query/smart-analytics.md",
-      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples?pivots=azuremonitor",
       "redirect_document_id": false
     },
     {
@@ -48406,18 +48991,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/synapse-analytics/index.yml",
-      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/index.yml",
+      "redirect_url": "/azure/synapse-analytics/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/index.yml",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/synapse-analytics/overview-faq.md",
-      "redirect_url": "/azure/synapse-analytics/overview-what-is",
       "redirect_document_id": false
     },
     {
@@ -49731,11 +50311,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-central/core/tutorial-connect-device.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-connect-device-nodejs",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/iot-central/retail/architecture-connected-logistics-pnp.md",
       "redirect_url": "/azure/iot-central/retail/architecture-connected-logistics",
       "redirect_document_id": true
@@ -49910,14 +50485,26 @@
       "redirect_url": "/azure/iot-central/core/howto-export-data",
       "redirect_document_id": true
     },
-
     {
       "source_path": "articles/iot-central/retail/tutorial-video-analytics-create-app.md",
       "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-create-app-yolo-v3",
       "redirect_document_id": true
     },
-
-
+    {
+      "source_path": "articles/iot-central/core/tutorial-connect-device-java.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-connect-device-nodejs.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-connect-device-python.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
@@ -53989,6 +54576,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts/curl-analyze.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts/curl-thumb.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts/curl-print-text.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/lab-services/classroom-labs/class-type-deep-learning-natural-processing.md",
       "redirect_url": "/azure/lab-services/classroom-labs/class-type-deep-learning-natural-language-processing",
       "redirect_document_id": false
@@ -54376,6 +54978,11 @@
     {
       "source_path": "articles/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-launch.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-system-integration",
       "redirect_document_id": true
     },
     {
@@ -57319,37 +57926,37 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-skus-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-testdrive-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-marketplace-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-support-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-create-technical-assets.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -59536,6 +60143,11 @@
     {
       "source_path": "articles/media-services/latest/cli-create-transform.md",
       "redirect_url": "/azure/media-services/latest/how-to-create-transform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/security/access-control.md",
+      "redirect_url": "/azure/synapse-analytics/security/synapse-workspace-access-control-overview",
       "redirect_document_id": false
     }
   ]

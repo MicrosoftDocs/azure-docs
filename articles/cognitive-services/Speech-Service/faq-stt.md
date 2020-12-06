@@ -14,7 +14,7 @@ ms.author: panosper
 
 # Speech to Text frequently asked questions
 
-If you can't find answers to your questions in this FAQ, check out [other support options](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
+If you can't find answers to your questions in this FAQ, check out [other support options](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## General
 
@@ -66,7 +66,7 @@ If you have adapted and deployed a model with baseline V1.0, that deployment wil
 
 **Q: Are my requests logged?**
 
-**A**: By default requests are not logged (neither audio, nor transcription). If required you may select *Log content from this endpoint* option when you [create a custom endpoint](how-to-custom-speech-deploy-model.md) to enable tracing. Then requests will be logged in Azure in secure storage.
+**A**: By default requests are not logged (neither audio, nor transcription). If required you may select *Log content from this endpoint* option when you [create a custom endpoint](./how-to-custom-speech-train-model.md) to enable tracing. Then requests will be logged in Azure in secure storage.
 
 **Q: Are my requests throttled?**
 

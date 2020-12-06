@@ -70,7 +70,7 @@ In accordance with your planning requirements, do the following:
 1. Create an Azure Migrate projects.
 2. Add the Azure Migrate Server Assessment tool to the projects.
 
-[Learn more](how-to-add-tool-first-time.md)
+[Learn more](./create-manage-projects.md)
 
 ## Create and review an assessment
 

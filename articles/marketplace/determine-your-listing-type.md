@@ -140,7 +140,7 @@ The following table shows the options that are available for different offer typ
 
 &#42; SaaS transactable offers in AppSource are currently credit card only.
 
-&#42;&#42; Microsoft 365 add-ins are free to install and can be monetized using a SaaS offer. For more information, see [Monetize your Office 365 add-in through the Microsoft commercial marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace.md).
+&#42;&#42; Microsoft 365 add-ins are free to install and can be monetized using a SaaS offer. For more information, see [Monetize your Office 365 add-in through the Microsoft commercial marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ## Marketplace rewards
 

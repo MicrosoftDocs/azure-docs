@@ -1,5 +1,5 @@
 ---
-title: Serverless SQL pool (preview)
+title: Serverless SQL pool
 description: Learn about serverless SQL pool in Azure Synapse Analytics.
 services: synapse analytics
 author: filippopovic
@@ -10,9 +10,9 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
-# Serverless SQL pool (preview) in Azure Synapse Analytics 
+# Serverless SQL pool in Azure Synapse Analytics 
 
-Every Azure Synapse Analytics workspace (preview) comes with serverless SQL pool (preview) endpoints that you can use to query data in the lake.
+Every Azure Synapse Analytics workspace comes with serverless SQL pool endpoints that you can use to query data in the lake.
 
 Serverless SQL pool is a query service over the data in your data lake. It enables you to access your data through the following functionalities:
  

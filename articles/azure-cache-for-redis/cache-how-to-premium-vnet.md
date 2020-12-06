@@ -124,7 +124,7 @@ There are nine outbound port requirements. Outbound requests in these ranges are
 
 | Port(s) | Direction | Transport Protocol | Purpose | Local IP | Remote IP |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443 |Outbound |TCP |Redis dependencies on Azure Storage/PKI (Internet) | (Redis subnet) |* |
+| 80, 443 |Outbound |TCP |Redis dependencies on Azure Storage/PKI (Internet) | (Redis subnet) |* <sup>4</sup> |
 | 443 | Outbound | TCP | Redis dependency on Azure Key Vault and Azure Monitor | (Redis subnet) | AzureKeyVault, AzureMonitor <sup>1</sup> |
 | 53 |Outbound |TCP/UDP |Redis dependencies on DNS (Internet/VNet) | (Redis subnet) | 168.63.129.16 and 169.254.169.254 <sup>2</sup> and any custom DNS server for the subnet <sup>3</sup> |
 | 8443 |Outbound |TCP |Internal communications for Redis | (Redis subnet) | (Redis subnet) |
@@ -140,6 +140,8 @@ There are nine outbound port requirements. Outbound requests in these ranges are
 
 <sup>3</sup> Not needed for subnets with no custom DNS server, or newer redis caches that ignore custom DNS.
 
+<sup>4</sup> For more information, see [Additional VNET network connectivity requirements](#additional-vnet-network-connectivity-requirements).
+
 #### Geo-replication peer port requirements
 
 If you are using georeplication between caches in Azure Virtual Networks, please note that the recommended configuration is to unblock ports 15000-15999 for the whole subnet in both inbound AND outbound directions to both caches, so that all the replica components in the subnet can communicate directly with each other even in the event of a future geo-failover.
@@ -150,13 +152,13 @@ There are eight inbound port range requirements. Inbound requests in these range
 
 | Port(s) | Direction | Transport Protocol | Purpose | Local IP | Remote IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing | (Redis subnet) | (Redis subnet), Virtual Network, Azure Load Balancer <sup>1</sup> |
+| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing | (Redis subnet) | (Redis subnet), (Client subnet), AzureLoadBalancer <sup>1</sup> |
 | 8443 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
-| 8500 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) |Azure Load Balancer |
-| 10221-10231 |Inbound |TCP |Client communication to Redis Clusters, Internal communications for Redis | (Redis subnet) |(Redis subnet), Azure Load Balancer, (Client subnet) |
-| 13000-13999 |Inbound |TCP |Client communication to Redis Clusters, Azure load balancing | (Redis subnet) |Virtual Network, Azure Load Balancer |
-| 15000-15999 |Inbound |TCP |Client communication to Redis Clusters, Azure load Balancing, and Geo-Replication | (Redis subnet) |Virtual Network, Azure Load Balancer, (Geo-replica peer subnet) |
-| 16001 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) |Azure Load Balancer |
+| 8500 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) | AzureLoadBalancer |
+| 10221-10231 |Inbound |TCP |Client communication to Redis Clusters, Internal communications for Redis | (Redis subnet) |(Redis subnet), AzureLoadBalancer, (Client subnet) |
+| 13000-13999 |Inbound |TCP |Client communication to Redis Clusters, Azure load balancing | (Redis subnet) | (Redis subnet), (Client subnet), AzureLoadBalancer |
+| 15000-15999 |Inbound |TCP |Client communication to Redis Clusters, Azure load Balancing, and Geo-Replication | (Redis subnet) | (Redis subnet), (Client subnet), AzureLoadBalancer, (Geo-replica peer subnet) |
+| 16001 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) | AzureLoadBalancer |
 | 20226 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 
 <sup>1</sup> You can use the Service Tag 'AzureLoadBalancer' (Resource Manager) (or 'AZURE_LOADBALANCER' for classic) for authoring the NSG rules.
@@ -212,19 +214,19 @@ If you are unable to resolve the DNS name, some client libraries include configu
 VNets can only be used with premium caches.
 
 ### Why does creating an Azure Cache for Redis fail in some subnets but not others?
-If you are deploying an Azure Cache for Redis to a Resource Manager VNet, the cache must be in a dedicated subnet that contains no other resource type. If an attempt is made to deploy an Azure Cache for Redis to a Resource Manager VNet subnet that contains other resources, the deployment fails. You must delete the existing resources inside the subnet before you can create a new Azure Cache for Redis.
+If you are deploying an Azure Cache for Redis to a VNet, the cache must be in a dedicated subnet that contains no other resource type. If an attempt is made to deploy an Azure Cache for Redis to a Resource Manager VNet subnet that contains other resources (such as Application Gateways, Outbound NAT, and so on), the deployment will usually fail. You must delete existing resources of other types before you can create a new Azure Cache for Redis.
 
-You can deploy multiple types of resources to a classic VNet as long as you have enough IP addresses available.
+You must also have enough IP addresses available in the subnet.
 
 ### What are the subnet address space requirements?
 Azure reserves some IP addresses within each subnet, and these addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, along with three more addresses used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-In addition to the IP addresses used by the Azure VNET infrastructure, each Redis instance in the subnet uses two IP addresses per shard and one additional IP address for the load balancer. A non-clustered cache is considered to have one shard.
+In addition to the IP addresses used by the Azure VNET infrastructure, each Redis instance in the subnet uses two IP addresses per cluster shard (plus additional IP addresses for additional replicas, if any) and one additional IP address for the load balancer. A non-clustered cache is considered to have one shard.
 
 ### Do all cache features work when hosting a cache in a VNET?
 When your cache is part of a VNET, only clients in the VNET can access the cache. As a result, the following cache management features don't work at this time.
 
-* Redis Console - Because Redis Console runs in your local browser, which is outside the VNET, it can't connect to your cache.
+* Redis Console - Because Redis Console runs in your local browser, which is usually on a developer machine that is not connected to the VNET, it cannot then connect to your cache.
 
 
 ## Use ExpressRoute with Azure Cache for Redis
@@ -233,7 +235,7 @@ Customers can connect an [Azure ExpressRoute](https://azure.microsoft.com/servic
 
 By default, a newly created ExpressRoute circuit does not perform forced tunneling (advertisement of a default route, 0.0.0.0/0) on a VNET. As a result, outbound Internet connectivity is allowed directly from the VNET and client applications are able to connect to other Azure endpoints including Azure Cache for Redis.
 
-However a common customer configuration is to use forced tunneling (advertise a default route) which forces outbound Internet traffic to instead flow on-premises. This traffic flow breaks connectivity with Azure Cache for Redis if the outbound traffic is then blocked on-premises such that the Azure Cache for Redis instance is not able to communicate with its dependencies.
+However, a common customer configuration is to use forced tunneling (advertise a default route) which forces outbound Internet traffic to instead flow on-premises. This traffic flow breaks connectivity with Azure Cache for Redis if the outbound traffic is then blocked on-premises such that the Azure Cache for Redis instance is not able to communicate with its dependencies.
 
 The solution is to define one (or more) user-defined routes (UDRs) on the subnet that contains the Azure Cache for Redis. A UDR defines subnet-specific routes that will be honored instead of the default route.
 
