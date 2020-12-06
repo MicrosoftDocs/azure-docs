@@ -1,6 +1,6 @@
 ---
 title: Manage sensors from the on-premises management console 
-description: 
+description: Learn how to manage sensors from the management console, including, updating sensor versions, pushing system settings to sensors, enabling and disabling engines on sensors, and more.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -43,9 +43,9 @@ To apply system settings:
 
 2. In the Configure Sensors pane, select one of the sensor system setting options.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-system-setting-options.png" alt-text="The system setting options for your sensor":::            
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-system-setting-options.png" alt-text="The system setting options for your sensor":::
 
-   The following example describes how to set up define Mail Server parameters for your enterprise sensors.
+   The following example describes how to define Mail Server parameters for your enterprise sensors.
 
 3. Select Mail Server.
 
@@ -63,7 +63,7 @@ To apply system settings:
 
 ## Update versions
 
-This can be done for several sensors simultaneously from the on-premises management console.
+You can update several sensors simultaneously from the on-premises management console.
 
 To update several sensors:
 
@@ -75,7 +75,7 @@ To update several sensors:
 
 3. Go to the **Updates** page.
 
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/image4.png" alt-text="Screenshot of Updates dashbord.":::
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/image4.png" alt-text="Screenshot of Updates dashboard.":::
 
 4. Select **Download** from the Sensors section and save the file.
 
@@ -95,7 +95,7 @@ To update several sensors:
 
 9. An Upload File dialog box opens. Upload the file you downloaded from the Azure **Updates** page.
 
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/image9.png" alt-text="Icon to add an Upgrage version":::
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/image9.png" alt-text="Icon to add an Update version":::
 
 10. During the update process, the update status of each sensor appears in the **Site Management** window.
 
@@ -111,9 +111,9 @@ To update the threat intelligence data:
 
 1. Navigate to the Azure Defender for IoT, Updates page. 
 
-2. Download and save the file. 
+2. Download and save the file.
 
-3. Log in to the management console. 
+3. Log in to the management console.
 
 4. On the side menu, select System Settings. 
 
@@ -123,25 +123,37 @@ To update the threat intelligence data:
 
 7. Upload the package downloaded from the Azure Defender for IoT, Updates page.
 
+## Understand sensor disconnection events
+
+The Site Manager window displays disconnect information if Sensors disconnect from their assigned on-premises management console. The following Sensor disconnect information is available:
+
+- The on-premises management console cannot process data received from Sensor.
+
+- Times drift detected. The on-premises management console has been disconnected from Sensor.
+
+- Sensor not communicating with on-premises management console. Check network connectivity.
+
+:::image type="content" source="media/how-to-view-sensor-connection-status-to-the-on-premise-manager/image36.png" alt-text="Screenshot of Zone 1 view":::
+
 ## Enable or disable sensors
 
-Sensors are protected by five Defender for IoT engines. You can enable or disable the engines for connected sensors.
+Sensors are protected by five Defenders for IoT engines. You can enable or disable the engines for connected sensors.
 
 | Engine | Description | Example Scenario |
 |--|--|--|
-| Protocol Violation Engine | A protocol violation occurs when the packet structure or field values don't comply with the protocol specification. | "Illegal MODBUS Operation (Function Code Zero)" alert. This alert indicates that the master asset sent a request with function code 0 to a slave asset. This is not allowed according to the protocol specification and the slave asset might not handle the input correctly. |
-| Policy Violation Engine | A policy violation occurs with a deviation from baseline behavior defined in the learned or configured policy. | "Unauthorized HTTP User Agent" alert. This alert indicates that an application that was not learned or approved by the policy is used as an HTTP client on an asset. This may be a new web browser or application on that asset. |
+| Protocol Violation Engine | A protocol violation occurs when the packet structure or field values don't comply with the protocol specification. | "Illegal MODBUS Operation (Function Code Zero)" alert. This alert indicates that a primary device sent a request with function code 0 to a secondary device. This is not allowed according to the protocol specification and the secondary device might not handle the input correctly. |
+| Policy Violation Engine | A policy violation occurs with a deviation from baseline behavior defined in the learned or configured policy. | "Unauthorized HTTP User Agent" alert. This alert indicates that an application that was not learned or approved by the policy is used as an HTTP client on an device. This may be a new web browser or application on that device. |
 | Malware Engine | The malware engine detects malicious network activity. | "Suspicion of Malicious Activity (Stuxnet)" alert. This alert indicates that the sensor found suspicious network activity known to be related to the Stuxnet malware, which is an advanced persistent threat aimed at industrial control / SCADA networks. |
 | Anomaly Engine | The malware engine detects anomaly in network behavior. | "Periodic Behavior in Communication Channel." This is a component that inspects network connections and finds periodic/cyclic behavior of data transmission, which is very common in industrial networks. |
-| Operational Engine | Operational incidents or malfunctioning entities. | “Asset is Suspected to be Disconnected (Unresponsive)" alert. This alert is raised when an asset is not responding to any kind of request for a pre-defined period, this may indicate on an asset shutdown, disconnection or malfunction. |
- 	 	 
- To enable or disable: 
+| Operational Engine | Operational incidents or malfunctioning entities. | “Asset is Suspected to be Disconnected (Unresponsive)" alert. This alert triggered when a device is not responding to any requests for a pre-defined period, this may indicate on an device shutdown, disconnection or malfunction.
+|
+To enable or disable:
 
 1. In the console left pane, select System Settings. 
 
-2. In the Sensor Engine Configuration section, enable or disable engines for connected sensors. 		 		
- 	 	 
-3. Select SAVE CHANGES. 
+2. In the Sensor Engine Configuration section, enable or disable engines for connected sensors. 
+
+3. Select SAVE CHANGES.
 
    A red exclamation mark appears if there is a mismatch of enabled engines on one of your enterprise sensors. The engine may have been disabled directly form the sensor.
 
@@ -155,7 +167,7 @@ You can schedule sensor backups and perform on-demand sensor backups from the On
 
 **What is not backed up**: PCAP files and logs. Backup and restore of PCAPs and logs can be done manually. 
 
-By default, sensors are automatically backed up at 3:00 AM daily. The sensor Backup Schedule feature lets you collect these backups and store them up on the on-premises management console, or an external backup server. Copying files from sensors to the On-premises management console is carried out over an encrypted channel. 
+By default, sensors are automatically backed up at 3:00 AM daily. The sensor Backup Schedule feature lets you collect these backups and store them up on the on-premises management console, or an external backup server. Copying files from sensors to the on-premises management console is carried out over an encrypted channel. 
 
 :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-backup-schedule-screen.png" alt-text="The sensor backup screen":::
 
@@ -165,7 +177,7 @@ When the sensors are not registered with the on-premises management console, the
 
 The restore process is the same regardless of where the files are stored.
 
-### On-premises management console backup storage for sensors 
+### On-premises management console backup storage for sensors
 
 You can maintain up to 9 backups for each managed sensor, provided that the backed-up files do not exceed the maximum backup space allocated. 
 
@@ -315,3 +327,6 @@ This section describes how to set up the SMB server when saving a backup to an e
 
 9. Set Backup.shared_location to <backup_folder_name_on_cyberx_server>.
 
+## See also
+
+[Manage individual sensors](how-to-manage-individual-sensors.md)

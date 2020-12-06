@@ -65,21 +65,21 @@ This section describes:
   - CyberX patch 2.8.11.1 or above
 
 > [!Note] 
-> If you are already working with a CyberX/ServiceNow integration and upgrade using the Central Manager, pervious data received from CyberX Sensors should be cleared from ServiceNow.
+> If you are already working with a CyberX/ServiceNow integration and upgrade using the on-premises management console, pervious data received from CyberX Sensors should be cleared from ServiceNow.
 
 ## Architecture
 
-### Central Manager architecture
+### on-premises management console architecture
 
-The Central Manager provides a unified source for all the asset and alert information sent to ServiceNow.
+The on-premises management console provides a unified source for all the asset and alert information sent to ServiceNow.
 
-You can set up a Central Manager to communicate with one instance of ServiceNow. The Central Manager pushes Sensor data to the CyberX App using REST API.
+You can set up a on-premises management console to communicate with one instance of ServiceNow. The on-premises management console pushes Sensor data to the CyberX App using REST API.
 
-:::image type="content" source="media/integration-servicenow/image3.png" alt-text="Central Manager Architecture":::
+:::image type="content" source="media/integration-servicenow/image3.png" alt-text="on-premises management console Architecture":::
 
-If you are setting up your system to work with a Central Manager, disable the ServiceNow Sync, Forwarding Rules and proxy configurations in Sensors, if they were set up.
+If you are setting up your system to work with a on-premises management console, disable the ServiceNow Sync, Forwarding Rules and proxy configurations in Sensors, if they were set up.
 
-These configurations should be set up for the Central Manager. Configuration instructions are described in this guide.
+These configurations should be set up for the on-premises management console. Configuration instructions are described in this guide.
 
 ### Sensor architecture
 
@@ -87,7 +87,7 @@ If you want to set up your environment to include direct communication between S
 
 :::image type="content" source="media/integration-servicenow/image4.png" alt-text="Sensor architecture":::
 
-It recommended to set up your integration using the Central Manager to communicate with ServiceNow.
+It recommended to set up your integration using the on-premises management console to communicate with ServiceNow.
 
 ## Create access tokens in ServiceNow
 
@@ -155,13 +155,13 @@ To define the rule:
 
 This section describes how to configure CyberX to push an extensive range of asset attributes to ServiceNow tables. See ***Inventory Information*** for details about the kind of information pushed to ServiceNow.
 
-To send attributes to ServiceNow, you must map your Central Manager to a ServiceNow instance. This ensures that the CyberX platform can communicate and authenticate with the instance.
+To send attributes to ServiceNow, you must map your on-premises management console to a ServiceNow instance. This ensures that the CyberX platform can communicate and authenticate with the instance.
 
 To add a ServiceNow instance:
 
-1.  Log in to your CyberX Central Manager.
+1.  Log in to your CyberX on-premises management console.
 
-2. Select **System Settings** and then **ServiceNow** from the Central Manager Integration section.
+2. Select **System Settings** and then **ServiceNow** from the on-premises management console Integration section.
 
     :::image type="content" source="media/integration-servicenow/image10.png" alt-text="ServiceNow":::
 
@@ -183,19 +183,19 @@ To add a ServiceNow instance:
 
 ## Verify communication
 
-Verify that the Central Manager is connected to the ServiceNow instance by reviewing the *Last Sync* date.
+Verify that the on-premises management console is connected to the ServiceNow instance by reviewing the *Last Sync* date.
 
   :::image type="content" source="media/integration-servicenow/image12.png" alt-text="Verify Communication":::
 
 ## Setting up CyberX-ServiceNow integration using the HTTPS proxy
 
-When setting up the CyberX-ServiceNow integration, the Central Manager and the ServiceNow server communicate using the port 443. If the ServiceNow server is behind the proxy, the default port cannot be used.
+When setting up the CyberX-ServiceNow integration, the on-premises management console and the ServiceNow server communicate using the port 443. If the ServiceNow server is behind the proxy, the default port cannot be used.
 
 CyberX supports an HTTPS proxy in ServiceNow integration by enabling the change of the default port used for integration.
 
 To configure the proxy:
 
-1.  Edit global properties in Central Manager:  
+1.  Edit global properties in on-premises management console:  
     `sudo vim /var/cyberx/properties/global.properties`
 
 2. Add the following parameters:

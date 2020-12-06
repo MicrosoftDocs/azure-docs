@@ -143,7 +143,7 @@ Options are available to customize the alert rules based on the:
 
 **To create a forwarding rule:**
 
-1.  From the Sensor or Central Manager left pane, select **Forwarding.**
+1.  From the Sensor or on-premises management console left pane, select **Forwarding.**
 
     :::image type="content" source="media/integration-splunk/image7.png" alt-text="Screenshot of select forwarding":::
 

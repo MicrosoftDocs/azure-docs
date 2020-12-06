@@ -98,7 +98,7 @@ Options are available to customize the alert rules based on the:
 
 ### To create a forwarding rule:
 
-1. From the Sensor or Central Manager left pane, select **Forwarding**.
+1. From the Sensor or on-premises management console left pane, select **Forwarding**.
 
     :::image type="content" source="media/integration-fortinet/image6.png" alt-text="Screenshot of Forwarding window":::
 
@@ -112,7 +112,7 @@ Options are available to customize the alert rules based on the:
     | **Select Severity** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts <u>and any alert above this severity level will be forwarded.</u> |
     | **Protocols** | By default, all the protocols are selected.<br><br>To select a specific protocol, select **Specific** and select the protocol for which this rule is applied. |
     | **Engines** | By default, all the security engines are involved.<br><br>To select a specific security engine for which this rule is applied, select **Specific** and select the engine. |
-    | **System Notifications** | Forward sensor online/offline status. This option is only available if you have logged into the Central Manager. |
+    | **System Notifications** | Forward sensor online/offline status. This option is only available if you have logged into the on-premises management console. |
 
 3. To instruct CyberX to send alert information to FortiSIEM, select **Action** and then select **Send to FortiSIEM**.
 
@@ -196,7 +196,7 @@ The malicious source address appears in the FortiGage **Administrator** window.
     | **Select Severity** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
     | **Protocols** | By default, all the protocols are selected.<br><br>To select a specific protocol, select **Specific** and select the protocol for which this rule is applied. |
     | **Engines** | By default, all the security engines are involved.<br><br>To select a specific security engine for which this rule is applied, select **Specific** and select the engine. |
-    | **System Notifications** | Forward sensor *online/offline* status. This option is only available if you have logged into the Central Manager. |
+    | **System Notifications** | Forward sensor *online/offline* status. This option is only available if you have logged into the on-premises management console. |
 
 3. To instruct CyberX to send firewall rules to FortiGate, select **Action** and then select **Send to FortiGate**.
 

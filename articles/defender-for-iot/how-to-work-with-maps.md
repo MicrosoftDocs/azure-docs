@@ -710,9 +710,9 @@ To export:
 
 ## Gain insight into Global, Regional and Local Threats
 
-### The Central Manager Map
+### The on-premises management console Map
 
-With CyberX Central Manager you can plan how to achieve full security coverage by dividing your network into geographical and logical segments that reflect your business typology.
+With CyberX on-premises management console you can plan how to achieve full security coverage by dividing your network into geographical and logical segments that reflect your business typology.
 
 - **Geographical Facility Level:** A **Site** is a number of assets grouped according to geographical location presented on the map. By default, CyberX provides you with a world map. You can change it to the map relevant to your organization: a country map, a city map and so on. The map is empty by default. You need to add sites to the map to reflect your company structure.
 
@@ -734,7 +734,7 @@ With CyberX Central Manager you can plan how to achieve full security coverage b
 
 ### Understanding the Map Views
 
-The CyberX Central Manager provides an overall view of your industrial network in a context-related map. The general map view presents the global map of your organization with geographical location of each site.
+The CyberX on-premises management console provides an overall view of your industrial network in a context-related map. The general map view presents the global map of your organization with geographical location of each site.
 
 :::image type="content" source="media/how-to-work-with-maps/image9.png" alt-text="Screenshot of Enterprise Map View":::
 
