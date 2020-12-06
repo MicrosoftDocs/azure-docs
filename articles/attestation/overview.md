@@ -54,7 +54,7 @@ Azure Attestation customers have expressed a requirement for Microsoft to be ope
 
 Azure Attestation is the preferred choice for attesting TEEs as it offers the following benefits: 
 
-- Unified framework for attesting multiple TEEs such as SGX enclaves and TPM
+- Unified framework for attesting multiple environments such as TPMs, SGX enclaves and VBS enclaves 
 - Multi-tenant service which allows configuration of custom attestation providers and policies to restrict token generation
 - Offers default providers which can attest with no configuration from users
 - Protects its data while-in use with implementation in an SGX enclave
