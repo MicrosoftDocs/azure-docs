@@ -125,7 +125,7 @@ To set up communication:
 
 5.  Select the **pxGrid checkbox**. Add a description.
 
-    :::image type="content" source="media/integration-cisco-isepxgrid-integration/profile-configuration.png alt-text="Screenshot of the add description":::
+    :::image type="content" source="media/integration-cisco-isepxgrid-integration/profile-configuration.png" alt-text="Screenshot of the add description":::
 
 ## Subscribe to the endpoint device topic
 

@@ -5,7 +5,7 @@ author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.date: 12/6/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure
 ---
 
@@ -41,7 +41,7 @@ This article provides an overview of physical sensor models available. You can p
 
 | Deployment Type | Corporate | Enterprise | SMB |
 |--|--|--|--|
-| **Image** | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360.png" alt-text="The Corporate level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png" alt-text="The Enterprise level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png" alt-text="The SMB level model."::: |
+| **Image** | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360.png" alt-text="The Corporate level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png" alt-text="The Enterprise-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png" alt-text="The SMB level model."::: |
 | **Model** | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 |
 | **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 8 RJ45 or 6 OPT | 4 RJ45 |
 | **Max Bandwidth<sup>1</sup>** | 3 Gb/Sec | 1 Gb/Sec | 200 Mb/Sec |
@@ -104,7 +104,7 @@ This article describes hardware specifications for the following appliances:
 | Storage | 6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5in) in Hot-plug Hard Drive - RAID 5 |
 | Network controller | On-board: 2 x 1 Gb Broadcom BCM5720<br>On-board LOM: iDRAC Port Card 1 Gb Broadcom BCM5720<br><br>External: 1 x Intel Ethernet i350 QP 1 Gb Server Adapter, Low Profile |
 | Management | HPE iLO Advanced |
-| Device access | 2 rear USB 3.0<br>1 front USB 2.0<br>1 internal USB 3.0 |
+| Device access | two rear USB 3.0<br>One front USB 2.0<br>One internal USB 3.0 |
 | Power | 2 x HPE 500 W Flex Slot Platinum Hot Plug Low Halogen Power Supply Kit |
 | Rack support | HPE 1U Gen10 SFF Easy Install Rail Kit |
 
@@ -134,11 +134,11 @@ This article describes hardware specifications for the following appliances:
 | Chassis | 1U rack server |
 | Dimensions (Height x Width x Depth) | 4.32 x 43.46 x 38.22 cm/1.70 x 17.11 x 15.05 inch |
 | Weight | 7.9 kg/17.41 lb |
-| Processor | Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71W |
+| Processor | Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W |
 | Chipset | Intel C242 |
 | Memory | 2x16GB Dual Rank x8 DDR4-2666 |
-| Storage | 3 x 1 TB SATA 6G Midline 7.2 K SFF (2.5in) – RAID 5 with Smart Array P408i-a SR Controller |
-| Network controller | On-board: 2 x 1 Gb <br>On-board: iLO Port Card 1 Gb <br>External: 1 x HPE Ethernet 1 Gb 4-port 366FLR Adapter |
+| Storage | 3 x 1-TB SATA 6G Midline 7.2 K SFF (2.5in) – RAID 5 with Smart Array P408i-a SR Controller |
+| Network controller | On-board: 2 x 1 Gb <br>On-board: iLO Port Card 1 Gb <br>External: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter |
 | Management | HPE iLO Advanced |
 | Device access | Front: 1xUSB 3.0, 1xUSB iLO Service Port <br>Rear: 2xUSB 3.0 <br>Internal: 1x USB 3.0 |
 | Power | Dual Hot Plug Power Supplies 500 W |
@@ -225,7 +225,7 @@ This article details additional appliances that were certified by Microsoft but 
 |--|--|
 | **Image** | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot.png" alt-text="Enterprise deployment type."::: |
 | **Model** | Dell PowerEdge R340 XL |
-| **Monitoring ports** | up to 9 RJ45 or 6 OPT |
+| **Monitoring ports** | up to nine RJ45 or six OPT |
 | **Max Bandwidth<sup>1</sup>** | 1G Mb/Sec |
 | **Max Protected Devices** | 10,000 |
 
@@ -245,10 +245,10 @@ After purchasing the appliance, navigate to **Azure Defender for IoT > Network S
 | Processor | Intel Xeon E-2144G 3.6 GHz, 8M cache, 4C/8T, turbo (71 W) |
 | Chipset | Intel C246 |
 | Memory | 32 GB = 2 x 16 GB 2666MT/s DDR4 ECC UDIMM |
-| Storage | 3 X 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5 |
+| Storage | three X 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5 |
 | Network controller | On-board: 2 x 1 Gb Broadcom BCM5720<br>On-board LOM: iDRAC Port Card 1 Gb Broadcom BCM5720 <br><br>External: 1 x Intel Ethernet i350 QP 1 Gb Server Adapter, Low Profile |
-| Management | iDRAC 9 Enterprise |
-| Device access | 2 rear USB 3.0 <br> 1 front USB 3.0 |
+| Management | iDRAC nine Enterprise |
+| Device access | two rear USB 3.0 <br> One front USB 3.0 |
 | Power | Dual Hot Plug Power Supplies 350 W |
 | Rack support | ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks, with support for optional tool-less cable management arm. |
 
@@ -261,14 +261,14 @@ After purchasing the appliance, navigate to **Azure Defender for IoT > Network S
 | Component | Technical Specifications |
 |--|--|
 | Construction | Aluminum, Fanless & Dust-proof Design |
-| Dimensions | 240mm (W) x 225mm (D) x 77mm (H) |
-| Weight | 3.1kg (incl. CPU, memory and HDD) |
+| Dimensions | 240 mm (W) x 225 mm (D) x 77 mm (H) |
+| Weight | 3.1 kg (incl. CPU, memory, and HDD) |
 | CPU | Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151 |
 | Chipset | Intel® Q170 Platform Controller Hub |
-| Memory | 8GB DDR4 2133MHz Wide Temperature SODIMM |
-| Storage | 128GB 3ME3 Wide Temperature mSATA SSD |
+| Memory | 8 GB DDR4 2133 MHz Wide Temperature SODIMM |
+| Storage | 128 GB 3ME3 Wide Temperature mSATA SSD |
 | Network controller | 6x Gigabit Ethernet ports by Intel® I219 |
-| Device access | 4 USBs: 2 fronts; 2 rears; 1 internal |
+| Device access | 4 USBs: Two fronts; two rears; 1 internal |
 | Power Adapter | 120/240VAC-20VDC/6A |
 | Mounting | Mounting kit, Din Rail |
 | Operating Temperature | \-25°C ~ 70°C |
