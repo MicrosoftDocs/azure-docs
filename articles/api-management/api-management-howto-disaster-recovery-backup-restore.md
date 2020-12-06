@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 12/05/2020
 ms.author: apimpm
 ---
 
@@ -171,7 +171,7 @@ Backup is a long running operation that may take more than a minute to complete.
 -   While backup is in progress, **avoid management changes in the service** such as SKU upgrade or downgrade, change in domain name, and more.
 -   Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
 -   **Changes** made to the service configuration, (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
--   **Allow** access from control plane to Azure Storage Account, if it has [firewall][azure-storage-ip-firewall] enabled. Customer should open the set of [Azure API Management Control Plane IP Addresses][control-plane-ip-address] on their Storage Account for Backup to or Restore from. This is because the requests to Azure Storage are not SNATed to a public IP from Compute > (Azure Api Management control Plane). Cross Region storage request will be SNATed.
+-   If the Azure Storage Account is [firewall][azure-storage-ip-firewall] enabled, then the customer must **Allow** the set of [Azure API Management Control Plane IP Addresses][control-plane-ip-address] on their Storage Account for Backup to or Restore from to work. The Azure Storage Account can be in any Azure Region except the one where the API Management service is located. For example if the API Management service is in West US, then the Azure Storage Account can be in West US 2 and the customer needs to open the control Plane IP 13.64.39.16 (API Management Control Plane IP of West US) in his firewall. This is because the requests to Azure Storage are not SNATed to a public IP from Compute (Azure Api Management Control Plane) in same Azure Region. Cross Region storage request will be SNATed to the Public IP Address.
 
 #### What is not backed up
 -   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
