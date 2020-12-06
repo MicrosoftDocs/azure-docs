@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ---
 
-# Cross Service Query - Azure Monitor and Azure Data Explorer (Preview)
-
+# Cross service query - Azure Monitor and Azure Data Explorer (Preview)
+Create cross service queries between [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/), [Application Insights](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics](/azure/azure-monitor/platform/data-platform-logs).
 ## Azure Monitor and Azure Data Explorer cross-service querying
 This experience enables you to [create cross service queries between Azure Data Explorer and Azure Monitor](https://docs.microsoft.com/azure/data-explorer/query-monitor-data) and to [create cross service queries between Azure Monitor and Azure Data Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy).
 
@@ -27,7 +27,7 @@ Where the outer query is querying a table in the workspace, and then joining wit
 > * The ability to query Azure Monitor data from Azure Data Explorer, either directly from Azure Data Explorer client tools, or indirectly by running a query on an Azure Data Explorer cluster, is in preview mode.
 > * Contact the [Cross service query](mailto:adxproxy@microsoft.com) team with any questions.
 
-## Query exported Log Analytics Data from Azure Blob storage account
+## Query exported Log Analytics data from Azure Blob storage account
 
 Exporting data from Azure Monitor to an Azure storage account enables low-cost retention and the ability to reallocate logs to different regions.
 
