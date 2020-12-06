@@ -78,7 +78,7 @@ The following table briefly summarizes the differences in the way that workflows
   > [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins). 
   > These triggers run natively in the Logic Apps runtime. For more information about limited, 
   > unavailable, or unsupported triggers, actions, and connectors, see 
-  > [Limited, unavailable, or unsupported capabilities](#unsupported-unavailable).
+  > [Limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
 
 <a name="nested-behavior"></a>
 
