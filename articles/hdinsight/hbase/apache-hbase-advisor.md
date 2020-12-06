@@ -45,4 +45,8 @@ Cap the max value for this configuration to be less than 5.
 
 # Full table scan
 If you have happen to see this advisory it indicates that over 75% of the scans issued are full table/region scans. Revisiting how the scan is formed might help in faster query performance like setting proper start and stop row, cases where you really need full table/region scan check if there is a possibility of avoiding cache usage for those queries so that other queries that needs to make use of the cache might not evict the blocks that are really hot.
+For ensuring the scans do not use cache use the below API while creating your scans,
+  ```
+    scan#setCaching(false)
+  ```
 
