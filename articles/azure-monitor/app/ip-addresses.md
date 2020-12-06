@@ -45,7 +45,7 @@ This is the list of addresses from which [availability web tests](./monitor-web-
 
 
 > [!NOTE]
-> For resources located inside private virtual networks that cannot allow direct inbound communication with the availability test agents in public Azure, the alternative is to [create and host your own custom availability tests](availability-azure-functions.md).
+> For resources located inside private virtual networks that cannot allow direct inbound communication with the availability test agents in public Azure, the only option is to [create and host your own custom availability tests](availability-azure-functions.md).
 
 ### Service tag
 
