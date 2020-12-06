@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/06/2020
+ms.date: 11/24/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about the file extensions found in my data.
 ---
 
