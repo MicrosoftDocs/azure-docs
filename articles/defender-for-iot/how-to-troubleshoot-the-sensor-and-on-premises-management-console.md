@@ -41,9 +41,9 @@ To check the system sanity:
 
 4. From the side menu, select **Data Mining**.
 
-5. In the \Data Mining window, select **ALL** and generate a report.
+5. In the Data Mining window, select **ALL** and generate a report.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/image325.png" alt-text="Data Mining":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Generate a new report using data mining.":::
 
 6. Make sure the report contains data.
 

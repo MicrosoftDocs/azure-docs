@@ -4,7 +4,7 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/3/2020
+ms.date: 12/6/2020
 ms.topic: how-to
 ms.service: azure
 ---
@@ -95,7 +95,7 @@ To collapse an IT subnet:
 
 1.  From the left pane, select **Devices**.
 
-2. In the Devices window, select :::image type="content" source="media/how-to-work-with-maps/red-number.png)alt-text="The number in red indicates how many expanded IT subnets currently appear on the map":::.
+2. In the Devices window, select :::image type="content" source="media/how-to-work-with-maps/red-number.png)alt-text="Number in red indicates how many expanded IT subnets currently appear on the map.":::.
 
    :::image type="content" source="media/how-to-work-with-maps/devices-notifications.png" alt-text="Device window":::
 
@@ -193,7 +193,7 @@ Three device detail views can be displayed:
 
   - [Bird’s-eye view](#birds-eye-view)
 
-  - [Device type and connection view](#device-typeconnection-view)
+  - [Device type and connection view](#device-type-and-connection-view)
 
   - [Detailed view](#detailed-view)
 
@@ -468,7 +468,7 @@ Access the Programming Analysis window from the:
 
 Use the event timeline to display a timeline of events in which programming changes were detected.
 
-:::image type="content" source="media/how-to-work-with-maps/timeline.png" alt-text="Event Timeline":::
+:::image type="content" source="media/how-to-work-with-maps/timeline.png" alt-text="A view of the event timeline.":::
 
 #### Unauthorized programming alerts
 
@@ -489,7 +489,7 @@ This section describes how to view programming files and compare versions. Searc
 
 :::image type="content" source="media/how-to-work-with-maps/timeline-view.png" alt-text="programming timeline window":::
 
-|The Programming Timeline includes the following information.| |
+|Programming timeline type | Description |
 |--|--|
 | Programmed Device | Provides details about the device that was programmed, including the hostname and file. |
 | Recent Events | Displays the 50 most recent events detected by the sensor. <br />To highlight an event, hover over it and click the star. :::image type="icon" source="media/how-to-work-with-maps/star.png" border="false"::: <br /> The last 50 events can be viewed. |
@@ -591,7 +591,7 @@ For example, if you merge two devices with an IP address, both IP addresses will
 
 The event timeline presents the merge event.
 
-:::image type="content" source="media/how-to-work-with-maps/events-time.png" alt-text="Event Timeline":::
+:::image type="content" source="media/how-to-work-with-maps/events-time.png" alt-text="The event timeline with merged events.":::
 
 You cannot undo a device merge. If you mistakenly merged two devices, delete the device and wait for The sensor to rediscover both.
 

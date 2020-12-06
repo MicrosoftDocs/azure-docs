@@ -4,7 +4,7 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/2/2020
+ms.date: 12/6/2020
 ms.topic: how-to
 ms.service: azure
 ---
@@ -17,7 +17,7 @@ Your sensor was onboarded with the Defender for IoT from the Azure portal. Each 
 
 A unique activation file should have been uploaded to each sensor you deploy. 
 
-See [Upload new activation files](#upload-new-activation-files) for information regarding when and how to use a new file.
+For more information regarding when and how to use a new file see [Upload new activation files](#upload-new-activation files).
 
 See [Activation file upload troubleshooting](#activation-file-upload-troubleshooting) if you cannot upload the file.
 

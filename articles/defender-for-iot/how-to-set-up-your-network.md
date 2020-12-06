@@ -4,7 +4,7 @@ description: Learn about solution architecture, network preparation, pre-requisi
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/03/2020
+ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
 ---
@@ -215,8 +215,8 @@ In a star network, every host is connected to a central hub. In its simplest for
 
 This article provides recommendations when deploying multiple sensors.
 
-|                   |                | **Dependency** | **Number of sensors** |
-| ----------------- | -------------- | -------------- | --------------------- |
+| **Number **| **Meters** | **Dependency** | **Number of sensors** |
+|--|--|--|--|
 | The maximum distance between switches | 80 meters | Prepared Ethernet cable | More than 1 |
 | Number of OT networks | More than 1 | No physical connectivity | More than 1 |
 | Number of switch’s | Can use RSPAN configuration | Up to 8 switches with local span close to the sensor by cabling distance | More than 1 |
@@ -231,7 +231,7 @@ Monitoring switch traffic can be accomplished with the following methods:
 
 - [Switch SPAN Port](#switch-span-port)
 
-- [Remote SPAN (RSPAN)](#remote-span-rspan)
+- [Remote SPAN (RSPAN)](#remotespan-rspan)
 
 SPAN and RSPAN are Cisco terminology. Other brands of switches have similar functionality but may use different terminology.
 
@@ -550,13 +550,12 @@ Review this list prior to site deployment.
 | 17 | Training (self-learning) | ☐ |  |
 | 18 | Go no go | ☐ |  |
 | 19 | Schedule deployment date | ☐ |  |
-<br />
-<br />
+
 | **Date** |  | **Deployment date** |  |
 |--|--|--|--|
-| **Defender for IoT** |  | **Site name** |  |
-| **Name** |  | **Name** |  |
-| **Position** |  | **Position** |  |
+| Defender for IoT |  | Site name* |  |
+| Name|  | Name |  |
+| Position |  | Position |  |
 
 #### Architecture review
 
