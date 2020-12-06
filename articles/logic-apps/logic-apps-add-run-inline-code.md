@@ -49,15 +49,13 @@ In this article, the example logic app triggers when a new email arrives in a wo
 
    * If you don't want to use an integration account, you can try using [Azure Logic Apps Preview](logic-apps-overview-preview.md), and create a logic app from the **Logic App (Preview)** resource type.
 
-     > [!NOTE]
-     > With Azure Logic Apps Preview, the Inline Code action is different in these ways:
-     >
-     > * If you use macOS, the **Run in-line JavaScript** action is currently 
-     > unavailable for the Azure Logic Apps (Preview) extension in Visual Studio Code.
-     >
-     > * The **Execute JavaScript Code** is renamed **Run in-line JavaScript**.
-     >
-     > * The Inline Code action has [updated limits](logic-apps-overview-preview.md#inline-code-limits).
+     However, for Azure Logic Apps Preview, the Inline Code action also differs in these ways:
+
+     * If you use macOS or Linux, the Inline Code action currently remains unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
+
+     * The action name, **Execute JavaScript Code**, has changed to **Run in-line JavaScript**.
+
+     * The Inline Code action has [updated limits](logic-apps-overview-preview.md#inline-code-limits).
 
      You can start from either option here:
 

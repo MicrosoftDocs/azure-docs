@@ -3,7 +3,7 @@ title: Overview for Azure Logic Apps Preview
 description: Azure Logic Apps Preview is cloud solution for building automated stateful and stateless workflows that integrate apps, data, services, and systems with minimal code for enterprise-level scenarios.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: sopai, absafaan, rohitha, rarayudu, haassyad, archidda, logicappspm
+ms.reviewer: rohitha, rarayudu, sopai, tonytang, haassyad, hongzili, absafaan, archidda, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
 ---
@@ -16,7 +16,7 @@ ms.date: 12/07/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With Azure Logic Apps Preview, you can build and run logic apps that contain both [*stateful* and *stateless* workflows](#stateful-stateless) that integrate across apps, data, cloud services, and systems by using the new **Logic App (Preview)** resource type. This new logic app type can include multiple workflows and is powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers.
+With Azure Logic Apps Preview, you can create and run logic apps that include [*stateful* and *stateless* workflows](#stateful-stateless) for automation and integration solutions across apps, data, cloud services, and systems by using the new **Logic App (Preview)** resource type. This new logic app type can include multiple workflows and is powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers.
 
 How is this possible? The redesigned runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This architecture means that you can run the new logic app type anywhere that Azure Functions runs. You can host the redesigned runtime on almost any network topology, and choose any available compute size to handle the necessary workload that's required by your workflows. For more information, see [Introduction to Azure Functions](../azure-functions/functions-overview.md) and [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md).
 
@@ -65,7 +65,7 @@ For more information, see [Azure Logic Apps Running Anywhere - Runtime Deep Dive
 
 <a name="stateful-stateless"></a>
 
-## Stateful versus stateless workflows
+## Stateful and stateless workflows
 
 * *Stateful*
 
@@ -89,9 +89,9 @@ For more information, see [Azure Logic Apps Running Anywhere - Runtime Deep Dive
 
 ### Nested behavior differences between stateful and stateless workflows
 
-You can [make a logic app workflow callable](../logic-apps/logic-apps-http-endpoint.md) from other logic app workflows that exist in the same **Logic App (Preview)** resource by using the [Request trigger](../connectors/connectors-native-reqres.md), [HTTP Webhook trigger](../connectors/connectors-native-webhook.md), or managed connector triggers that have the [ApiConnectionWebhook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
+You can [make a workflow callable](../logic-apps/logic-apps-http-endpoint.md) from other workflows that exist in the same **Logic App (Preview)** resource by using the [Request trigger](../connectors/connectors-native-reqres.md), [HTTP Webhook trigger](../connectors/connectors-native-webhook.md), or managed connector triggers that have the [ApiConnectionWebhook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
 
-Here are the behavior patterns that nested logic app workflows can follow after a parent workflow calls a child workflow:
+Here are the behavior patterns that nested workflows can follow after a parent workflow calls a child workflow:
 
 * Asynchronous polling pattern
 
@@ -119,11 +119,11 @@ This table specifies the child workflow's behavior based on whether the parent a
 
 <a name="public-preview-contents"></a>
 
-## What capabilities are in Azure Logic Apps Preview?
+## Capabilities
 
 Azure Logic Apps (Preview) includes many current and additional capabilities, for example:
 
-* Create logic apps and build workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
+* Create logic apps and their workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
   * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to the built-in triggers and actions that are native to the Azure Logic Apps Preview runtime, for example, the Request trigger and HTTP action. For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
@@ -137,11 +137,11 @@ Azure Logic Apps (Preview) includes many current and additional capabilities, fo
     > credentials or connection string that you use when you create a connection. If you disable this identity, 
     > connections won't work at runtime. To view this setting, on your logic app's menu, under **Settings**, select **Identity**.
 
-* Create stateless logic apps that run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](#stateful-stateless).
+* Create logic apps with stateless workflows that run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](#stateful-stateless).
 
-* Locally run, test, and debug your logic apps in the Visual Studio Code development environment.
+* Locally run, test, and debug your logic apps and their workflows in the Visual Studio Code development environment.
 
-* Directly publish or deploy logic apps from Visual Studio Code to various hosting environments such as Azure and [Docker containers](/dotnet/core/docker/introduction).
+* Directly publish or deploy logic apps and their workflows from Visual Studio Code to various hosting environments such as Azure and [Docker containers](/dotnet/core/docker/introduction).
 
 * Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](../azure-monitor/app/app-insights-overview.md) when supported by your Azure subscription and logic app settings.
 
@@ -152,9 +152,12 @@ Azure Logic Apps (Preview) includes many current and additional capabilities, fo
 
 ## Pricing model
 
-Whether you create the new **Logic App (Preview)** resource type in the Azure portal or deploy the new resource type from Visual Studio Code, you select a hosting plan to use for pricing, specifically the [App Service plan or Premium plan](../azure-functions/functions-scale.md). If you select the App Service plan, you're also prompted to select a [pricing tier](../app-service/overview-hosting-plans.md). During the public preview period, running logic apps on App Service doesn't incur *additional* charges on top of the selected plan.
+When you create the new logic app type in the Azure portal or deploy from Visual Studio Code, you must choose a hosting plan, either [App Service or Premium](../azure-functions/functions-scale.md), for your logic app to use. This plan determines the pricing model that applies to running your logic app. If you select the App Service plan, you must also choose a [pricing tier](../app-service/overview-hosting-plans.md).
 
-Stateful logic apps use [external storage](../azure-functions/functions-scale.md#storage-account-requirements), so the Azure Storage pricing model applies to storage transactions that the Azure Logic Apps Preview runtime performs. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states.
+*Stateful* workflows use [external storage](../azure-functions/functions-scale.md#storage-account-requirements), so the [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/) applies to storage transactions that the Azure Logic Apps Preview runtime performs. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states.
+
+> [!NOTE]
+> During public preview, running logic apps on App Service doesn't incur *additional* charges on top of your selected plan.
 
 For more information about the pricing models that apply to this new resource type, review these topics:
 
@@ -186,13 +189,15 @@ In Azure Logic Apps Preview, these capabilities are currently limited, unavailab
 
     * [Custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) are unavailable.
 
-    * The Azure Functions action, **Choose an Azure function**, works only for functions that are created from the **HTTP Trigger** template.
+    * The [Azure Functions action named **Choose an Azure function**](logic-apps-azure-functions.md) works only for functions that are created from the **HTTP Trigger** template.
 
-    * The [Inline Code action](logic-apps-add-run-inline-code.md) no longer requires an integration account. Also, in Azure Logic Apps Preview, this action is now named **Run in-line JavaScript**.
+    * The [Inline Code action](logic-apps-add-run-inline-code.md) no longer requires an integration account. However, the Inline Code action also differs in these ways:
 
-      > [!NOTE]
-      > If you use macOS, the **Run in-line JavaScript** action is currently unavailable 
-      > when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
+      * If you use macOS or Linux, the Inline Code action currently remains unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
+
+      * The action name, **Execute JavaScript Code**, has changed to **Run in-line JavaScript**. 
+
+      * The Inline Code action has [updated limits](#inline-code-limits).
 
     * Some [built-in B2B triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
 
@@ -223,7 +228,7 @@ For a single inbound call or outbound call, the timeout limit is 230 seconds (3.
 * Outbound request: HTTP trigger, HTTP action
 * Inbound request: Request trigger, HTTP Webhook trigger, HTTP Webhook action
 
-In comparison, here are the timeout limits for these triggers and actions in other environments where logic apps run:
+In comparison, here are the timeout limits for these triggers and actions in other environments where logic apps and their workflows run:
 
 * Multi-tenant Azure Logic Apps: 120 seconds (2 minutes)
 * Integration service environment: 240 seconds (4 minutes)
