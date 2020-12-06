@@ -93,7 +93,10 @@ This subsection describes the detailed steps for a failover to the Disaster Reco
 Execute the command `df –h` to list the filesystems and associated volumes to refer to after the failover.
 
 ```bash
-# df -h
+df -h
+```
+
+```bash
 Filesystem Size Used Avail Use% Mounted on
 devtmpfs 378G 8.0K 378G 1% /dev
 tmpfs 569G 0 569G 0%
@@ -125,8 +128,8 @@ If performing a complete failover of production workloads, and it is possible to
 For example, if logged in as root the following example shows how SAP HANA can be shut down.  Replace <sid> with your SAP HANA SID.
 
 ```bash
-# su - <sid>adm
-> HDB stop
+su - <sid>adm
+HDB stop
 ```
 
 #### Step 3: Shut down HANA on DR site
@@ -136,8 +139,8 @@ It is important to shut down SAP HANA on the DR site before restoring the volume
 For example, if logged in as root the following example shows how SAP HANA can be shut down.  Replace <sid> with your SAP HANA SID.
 
 ```bash
-# su - <sid>adm
-> HDB stop
+su - <sid>adm
+HDB stop
 ```
 
 > [!IMPORTANT] 
@@ -146,13 +149,16 @@ For example, if logged in as root the following example shows how SAP HANA can b
 #### Step 4: Restore the volumes
 
 ```bash
-> azacsnap -c restore --restore revertvolume --hanasid H80
+azacsnap -c restore --restore revertvolume --hanasid H80
 ```
 
 **_Output of the DR failover command_**.
 
 ```bash
-> azacsnap --configfile DR.json -c restore --restore revertvolume --hanasid H80
+azacsnap --configfile DR.json -c restore --restore revertvolume --hanasid H80
+```
+
+```bash
 * This program is designed for those customers who have previously installed the
   Production HANA instance in the Disaster Recovery Location either as a
   stand-alone instance or as part of a multi-purpose environment.
@@ -199,7 +205,7 @@ Displaying Mount Points by Volume as follows:
 Execute the command `umount` to unmount the filesystems/volumes that are not needed.
 
 ```bash
-# umount <Mount point>
+umount <Mount point>
 ```
 
 Unmount the data and log backup mountpoints. You may have multiple data mountpoint in the scale-out scenario.
@@ -228,13 +234,16 @@ Modify the file `/etc/fstab` to comment out the data and log backups entries for
 Execute the command `mount –a` to mount all the mount points.
 
 ```bash
-# mount -a
+mount -a
 ```
 
 Now, If you execute `df –h` you should see the `*_dp` volumes mounted.
 
 ```bash
-# df -h
+df -h
+```
+
+```bash
 Filesystem Size Used Avail Use% Mounted
 on
 devtmpfs 378G 8.0K 378G 1% /dev

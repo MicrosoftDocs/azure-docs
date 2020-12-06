@@ -63,7 +63,7 @@ This command takes the following arguments:
     retained.
 
     ```bash
-    > azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim
+    azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim
     ```
 
 - `[--ssl=]` an optional parameter that defines the encryption method used to communicate
@@ -76,7 +76,7 @@ The following example takes a `hana` type snapshot with a prefix of `hana_TEST` 
 of them communicating with SAP HANA using SSL (`openssl`).
 
 ```bash
-> azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim --ssl=openssl
+azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim --ssl=openssl
 ```
 
 ## Snapshot backups are fast
@@ -100,7 +100,7 @@ needs to remove the extra snapshots.
 ## Example with `data` parameter
 
 ```bash
-> azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim
+azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim
 ```
 
 The command does not output to the console, but does write to a log file, a result file,
@@ -113,7 +113,10 @@ The *result* file has the same base name as the log file, with `.result` as its 
 example `azacsnap-backup-azacsnap.result` that contains the following output:
 
 ```bash
-> cat logs/azacsnap-backup-azacsnap.result
+cat logs/azacsnap-backup-azacsnap.result
+```
+
+```bash
 Database # 1 (H80) : completed ok
 ```
 
@@ -121,7 +124,10 @@ The `/var/log/messages` file contains the same output as the `.result` file. See
 example (run as root):
 
 ```bash
-# grep "azacsnap.*Database" /var/log/messages | tail -n10
+grep "azacsnap.*Database" /var/log/messages | tail -n10
+```
+
+```bash
 Jul  2 05:22:07 server01 azacsnap[183868]: Database # 1 (H80) : completed ok
 Jul  2 05:27:06 server01 azacsnap[4069]: Database # 1 (H80) : completed ok
 Jul  2 05:32:07 server01 azacsnap[19769]: Database # 1 (H80) : completed ok
@@ -137,7 +143,7 @@ Jul  2 06:02:06 server01 azacsnap[114280]: Database # 1 (H80) : completed ok
 ## Example with `other` parameter
 
 ```bash
-> azacsnap -c backup --volume other --prefix logs_TEST --retention 9
+azacsnap -c backup --volume other --prefix logs_TEST --retention 9
 ```
 
 The command does not output to the console, but does write to a log file only.  It does _not_ write
@@ -153,7 +159,7 @@ a log filename for a `-c backup` run with a default config filename `azacsnap-ba
 the boot volumes.
 
 ```bash
-> azacsnap -c backup --volume other --prefix boot_TEST --retention 9 --configfile bootVol.json
+azacsnap -c backup --volume other --prefix boot_TEST --retention 9 --configfile bootVol.json
 ```
 
 The command does not output to the console, but does write to a log file only.  It does _not_ write

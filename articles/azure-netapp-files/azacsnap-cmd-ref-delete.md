@@ -88,7 +88,10 @@ azacsnap -c delete --delete storage --snapshot hana_hourly.2020-01-22_2358
 The user is asked to confirm the deletion.
 
 ```bash
-> azacsnap -c delete --delete storage --snapshot azacsnap-hsr-ha.2020-07-02T221702.2535255Z
+azacsnap -c delete --delete storage --snapshot azacsnap-hsr-ha.2020-07-02T221702.2535255Z
+```
+
+```bash
 Processing delete request for snapshot 'azacsnap-hsr-ha.2020-07-02T221702.2535255Z'.
 Are you sure you want to permanently delete the snapshot 'azacsnap-hsr-ha.2020-07-02T221702.2535255Z' from all storage volumes.? (y/n) [n]: y
 Snapshot deletion completed
@@ -97,7 +100,10 @@ Snapshot deletion completed
 It is possible to avoid user confirmation, by using the optional `--force` parameter as follows:
 
 ```bash
-> azacsnap -c delete --delete storage --snapshot azacsnap-hsr-ha.2020-07-02T222201.4988618Z --force
+azacsnap -c delete --delete storage --snapshot azacsnap-hsr-ha.2020-07-02T222201.4988618Z --force
+```
+
+```bash
 Processing delete request for snapshot 'azacsnap-hsr-ha.2020-07-02T222201.4988618Z'.
 Snapshot deletion completed
 ```

@@ -31,7 +31,7 @@ Before executing any backup commands (`azacsnap -c backup`), check the configura
 Then to take a manual database snapshot backup, run the following command:
 
 ```bash
-> azacsnap -c backup --volume data --prefix hana_TEST --retention=1
+azacsnap -c backup --volume data --prefix hana_TEST --retention=1
 ```
 
 ## Setup automatic snapshot backup
@@ -46,7 +46,10 @@ An example of a `crontab` for the user `azacsnap` to automate snapshots is below
 all the crontab entries are on a single line, otherwise crontab will error when trying to save.
 
 ```bash
-azacsnap@sapprdhdb80:~/bin> crontab -l
+crontab -l
+```
+
+```bash
 MAILTO=""
 # =============== TEST snapshot schedule ===============
 # Data Volume Snapshots - taken every hour.
@@ -161,7 +164,10 @@ In some cases, customers already have tools to protect SAP HANA and only want to
 1. Check the config file, refer to the following example:
 
     ```bash
-    > cat BootVolume.json
+    cat BootVolume.json
+    ```
+
+    ```bash
     {
       "version": "5.0 Preview",
       "logPath": "./logs",
@@ -199,13 +205,16 @@ In some cases, customers already have tools to protect SAP HANA and only want to
 1. Test a boot volume backup
 
     ```bash
-    > azacsnap -c backup --volume other --prefix TestBootVolume --retention 1 --configfile BootVolume.json
+    azacsnap -c backup --volume other --prefix TestBootVolume --retention 1 --configfile BootVolume.json
     ```
 
 1. Check it's listed, note the addition of the `--snapshotfilter` option to limit the snapshot list returned.
 
     ```bash
-    > azacsnap -c details --snapshotfilter TestBootVolume --configfile BootVolume.json
+    azacsnap -c details --snapshotfilter TestBootVolume --configfile BootVolume.json
+    ```
+
+    ```bash
     List snapshot details called with snapshotFilter 'TestBootVolume'
     #, Volume, Snapshot, Create Time, HANA Backup ID, Snapshot Size
     #1, t210_sles_boot_azsollabbl20a31_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 Preview (20200617.75879)", 200KB

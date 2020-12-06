@@ -40,8 +40,8 @@ Microsoft provided file. The Microsoft PGP Public Key used for signing Linux pac
 The Microsoft PGP Public Key can be imported to a user's local as follows:
 
 ```bash
-> wget https://packages.microsoft.com/keys/microsoft.asc
-> gpg --import microsoft.asc
+wget https://packages.microsoft.com/keys/microsoft.asc
+gpg --import microsoft.asc
 ```
 
 The following commands trust the Microsoft PGP Public Key:
@@ -52,7 +52,10 @@ The following commands trust the Microsoft PGP Public Key:
 4. Sign the key to trust it.
 
 ```bash
-> gpg --list-keys
+gpg --list-keys
+```
+
+```bash
 ----<snip>----
 pub rsa2048 2015- 10 - 28 [SC]
 BC528686B50D79E339D3721CEB3E94ADBE1229CF
@@ -89,7 +92,10 @@ Save changes? (y/N) y
 The PGP signature file for the installer can be checked as follows:
 
 ```bash
-> gpg --verify azacsnap_installer_v5.0.run.asc azazsnap_installer_v5.0.run
+gpg --verify azacsnap_installer_v5.0.run.asc azazsnap_installer_v5.0.run
+```
+
+```bash
 gpg: Signature made Sat 13 Apr 2019 07:51:46 AM STD
 gpg: using RSA key EB3E94ADBE1229CF
 gpg: Good signature from "Microsoft (Release signing)

@@ -40,7 +40,10 @@ For SSL, this command can take the following optional argument:
 ### Output of the `azacsnap -c test --test hana` command
 
 ```bash
-> azacsnap -c test --test hana
+azacsnap -c test --test hana
+```
+
+```bash
 BEGIN : Test process started for 'hana'
 BEGIN : SAP HANA tests
 PASSED: Successful connectivity to HANA version 2.00.032.00.1533114046
@@ -55,8 +58,11 @@ for each data volume to verify snapshot access for each file system.
 
 ### Output of the `azacsnap -c test --test storage` command
 
+```bash
+azacsnap -c test --test storage
+```
+
 <pre>
-> azacsnap -c test --test storage
 BEGIN : Test process started for 'storage'
 BEGIN : Storage test snapshots on 'data' volumes
 BEGIN : 2 task(s) to Test Snapshots for Storage Volume Type 'data'

@@ -40,7 +40,10 @@ The example below has been executed on an **Azure Large Instance** and the outpu
 brevity.  Also be aware some of the lines may have been wrapped to fit the output.
 
 ```bash
-> azacsnap -c details --details snapshots
+azacsnap -c details --details snapshots
+```
+
+```bash
 List snapshot details called with snapshotFilter ''
 #, Volume, Snapshot, Create Time, HANA Backup ID, Snapshot Size
 #1, hana_data_h31_azsollabbl20a31_mnt00001_t210_vol, hana_hourly.2020-06-17T113043.1586971Z, "Wed Jun 17 11:31:14 2020", "HANA Backup ID: 1592393444174, 702.6MB
@@ -89,7 +92,10 @@ be executed on the **DR site server**. This command checks **only** the volumes 
 > This option is only available on **Azure Large Instance** (HLI) systems.
 
 ```bash
-> azacsnap -c details --details replication
+azacsnap -c details --details replication
+```
+
+```bash
 Getting replication details for HLI systems
 Volume, Link status, Current Replication Activity, Latest Snapshot Replicated, Size of Latest Snapshot Replicated, Current Lag Time between snapshots (HH:MM:SS)
 hana_data_h80_mnt00001_t250_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036590.2020-11-02_031000, 7.53MB, 00h 06m 02s
@@ -105,8 +111,11 @@ result in incomplete data at the DR site.
 > Note the warning in the following example about replication broken off for two of the
 volumes.
 
+```bash
+azacsnap -c details --details replication
+```
+
 <pre>
-> azacsnap -c details --details replication
 Getting replication details for HLI systems
 <font color="blue">Volume, Link status, Current Replication Activity, Latest Snapshot Replicated, Size of Latest Snapshot Replicated, Current Lag Time between snapshots (HH:MM:SS)</font>
 hana_data_h80_sapprdhdb80_mnt00001_t020_xdp, <font color="red">Broken-Off - Contact Microsoft Operations immediately!</font>, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036523.2020-03-12_052000, 2.47MB, 99h 99m 99s  WARNING: replication has not occurred for more than 30 minutes!
@@ -117,8 +126,11 @@ hana_shared_h80_sapprdhdb80_t020_xdp, <font color="green">Active</font>, Idle, s
 This example has successful replication between the Primary site and the DR site, so these systems
 are ready to support a DR scenario.
 
+```bash
+azacsnap -c details --details replication
+```
+
 <pre>
-> azacsnap -c details --details replication
 Getting replication details for HLI systems
 <font color="blue">Volume, Link status, Current Replication Activity, Latest Snapshot Replicated, Size of Latest Snapshot Replicated, Current Lag Time between snapshots (HH:MM:SS)</font>
 hana_data_h80_sapprdhdb80_mnt00001_t020_xdp, <font color="green">Active</font>, Idle, snapmirror.21215d07-2653-11e8-8e4c-00a098af659c_2157387233.2019-04-09_055000, 106.8MB, 00h 09m 45s

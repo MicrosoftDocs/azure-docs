@@ -31,7 +31,10 @@ A configuration file can be created by running `azacsnap -c configure --configur
 The following example is for Azure Large Instance configuration:
 
 ```bash
-$ azacsnap -c configure --configuration new
+azacsnap -c configure --configuration new
+```
+
+```bash
 Building new config file
 Add comment to config file (blank entry to exit adding comments):This is a new config file for `azacsnap`
 Add comment to config file (blank entry to exit adding comments):
@@ -79,7 +82,10 @@ When adding *HLI Storage* to a database section, the following values are requir
    simplest is to try the following shell command:
 
     ```bash
-    $  grep nfs /etc/fstab | cut -f2 -d"/" | sort | uniq
+    grep nfs /etc/fstab | cut -f2 -d"/" | sort | uniq
+    ```
+
+    ```bash
     hana_data_p40_soldub41_mnt00001_t020_vol
     hana_log_backups_p40_soldub41_t020_vol
     hana_log_p40_soldub41_mnt00001_t020_vol
@@ -107,7 +113,10 @@ need to be provided this information again.
 ** The following is an example only, update all the values accordingly.
 
 ```bash
-> cat azacsnap.json
+cat azacsnap.json
+```
+
+```bash
 {
   "version": "5.0 Preview",
   "logPath": "./logs",
@@ -180,7 +189,10 @@ values on the command line match the local SAP HANA configuration.
 In this example, the change is being made to the `basepath_logbackup` parameter.
 
 ```bash
-> hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> "ALTER
+hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> "ALTER
+```
+
+```bash
 SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence',
 'basepath_logbackup') = '/hana/logbackups/H80' WITH RECONFIGURE"
 ```
@@ -192,7 +204,10 @@ First, check to ensure the `basepath_catalogbackup` path exists on the filesyste
 ownership as the directory.
 
 ```bash
-> ls -ld /hana/logbackups/H80/catalog
+ls -ld /hana/logbackups/H80/catalog
+```
+
+```bash
 drwxr-x--- 4 h80adm sapsys 4096 Jan 17 06:55 /hana/logbackups/H80/catalog
 ```
 
@@ -200,19 +215,20 @@ If the path needs to be created, the following example creates the path and sets
 ownership and permissions. These commands will need to be run as root.
 
 ```bash
-# mkdir /hana/logbackups/H80/catalog
-# chown --reference=/hana/shared/H80/HDB00 /hana/logbackups/H80/catalog
-# chmod --reference=/hana/shared/H80/HDB00 /hana/logbackups/H80/catalog
-# ls -ld /hana/logbackups/H80/catalog
+mkdir /hana/logbackups/H80/catalog
+chown --reference=/hana/shared/H80/HDB00 /hana/logbackups/H80/catalog
+chmod --reference=/hana/shared/H80/HDB00 /hana/logbackups/H80/catalog
+ls -ld /hana/logbackups/H80/catalog
+```
+
+```bash
 drwxr-x--- 4 h80adm sapsys 4096 Jan 17 06:55 /hana/logbackups/H80/catalog
 ```
 
 The following example will change the SAP HANA setting.
 
 ```bash
-> hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> "ALTER
-SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence', 
-'basepath_catalogbackup') = '/hana/logbackups/H80/catalog' WITH RECONFIGURE"
+hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> "ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence', 'basepath_catalogbackup') = '/hana/logbackups/H80/catalog' WITH RECONFIGURE"
 ```
 
 ### Check log and catalog backup locations
@@ -224,9 +240,10 @@ SYSTEM settings.
 > This query also returns the DEFAULT settings for comparison.
 
 ```bash
-> hdbsql -jaxC -n <HANA_ip_address> - i 00 -U AZACSNAP "select * from sys.m_inifile_contents
-where (key = 'basepath_databackup' or key ='basepath_datavolumes' or 
-key = 'basepath_logbackup' or key = 'basepath_logvolumes' or key = 'basepath_catalogbackup')"
+hdbsql -jaxC -n <HANA_ip_address> - i 00 -U AZACSNAP "select * from sys.m_inifile_contents where (key = 'basepath_databackup' or key ='basepath_datavolumes' or key = 'basepath_logbackup' or key = 'basepath_logvolumes' or key = 'basepath_catalogbackup')"
+```
+
+```bash
 global.ini,DEFAULT,,,persistence,basepath_catalogbackup,$(DIR_INSTANCE)/backup/log
 global.ini,DEFAULT,,,persistence,basepath_databackup,$(DIR_INSTANCE)/backup/data
 global.ini,DEFAULT,,,persistence,basepath_datavolumes,$(DIR_GLOBAL)/hdb/data
@@ -246,9 +263,7 @@ backups (for example, every 10 minutes) by adding the log_backups volume into th
 configuration file.
 
 ```bash
-> hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> "ALTER
-SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence',
-'log_backup_timeout_s') = '300' WITH RECONFIGURE"
+hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> "ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence', 'log_backup_timeout_s') = '300' WITH RECONFIGURE"
 ```
 
 #### Check log backup timeout
@@ -258,8 +273,10 @@ In this example, the settings that have been set will display as the SYSTEM sett
 query also returns the DEFAULT settings for comparison.
 
 ```bash
-> hdbsql -jaxC -n <HANA_ip_address> - i 00 -U AZACSNAP "select * from sys.m_inifile_contents
-where key like '%log_backup_timeout%' "
+hdbsql -jaxC -n <HANA_ip_address> - i 00 -U AZACSNAP "select * from sys.m_inifile_contents where key like '%log_backup_timeout%' "
+```
+
+```bash
 global.ini,DEFAULT,,,persistence,log_backup_timeout_s,900
 global.ini,SYSTEM,,,persistence,log_backup_timeout_s,300
 ```

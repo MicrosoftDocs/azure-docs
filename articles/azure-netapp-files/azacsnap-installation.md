@@ -74,20 +74,20 @@ Create RBAC Service Principal
 1. Within an Azure Cloud Shell session, make sure you're logged on at the subscription where you want
   to be associated with the service principal by default:
 
-  ```bash
-  Cloud Shell User@Azure> az account show
+  ```azurecli-interactive
+  az account show
   ```
 
 1. If the subscription is not correct, use
 
-    ```bash
-    Cloud Shelluser@Azure> az account set -s <subscription name or id>
+    ```azurecli-interactive
+    az account set -s <subscription name or id>
     ```
 
 1. Create a service principal using Azure CLI per the following example
 
-    ```bash
-    Cloud Shell User@Azure> az ad sp create-for-rbac --sdk-auth
+    ```azurecli-interactive
+    az ad sp create-for-rbac --sdk-auth
     ```
 
     1. This should generate an output like the following example: 
@@ -160,7 +160,7 @@ example steps are to provide guidance on setup of SSH for this communication.
     Using the following example command to generate the key pair, do not enter a password when generating a key.
 
     ```bash
-    > ssh-keygen -t rsa –b 5120 -C ""
+    ssh-keygen -t rsa –b 5120 -C ""
     ```
 
 1. Send the public key to Microsoft Operations
@@ -169,7 +169,10 @@ example steps are to provide guidance on setup of SSH for this communication.
     to enable the snapshot tools to communicate with the storage subsystem.
 
     ```bash
-    > cat /root/.ssh/id_rsa.pub
+    cat /root/.ssh/id_rsa.pub
+    ```
+
+    ```bash
     ssh-rsa
     AAAAB3NzaC1yc2EAAAADAQABAAABAQDoaRCgwn1Ll31NyDZy0UsOCKcc9nu2qdAPHdCzleiTWISvPW
     FzIFxz8iOaxpeTshH7GRonGs9HNtRkkz6mpK7pCGNJdxS4wJC9MZdXNt+JhuT23NajrTEnt1jXiVFH
@@ -190,8 +193,10 @@ database, change the IP address, usernames, and passwords as appropriate:
 1. Connect to the SYSTEMDB to create the user
 
     ```bash
-    > hdbsql -n <IP_address_of_host>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
+    hdbsql -n <IP_address_of_host>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
+    ```
 
+    ```bash
     Welcome to the SAP HANA Database interactive terminal.
 
     Type: \h for help with commands
@@ -204,7 +209,7 @@ database, change the IP address, usernames, and passwords as appropriate:
 
     This example creates the AZACSNAP user in the SYSTEMDB.
 
-    ```bash
+    ```sql
     hdbsql SYSTEMDB=> CREATE USER AZACSNAP PASSWORD <AZACSNAP_PASSWORD_CHANGE_ME> NO FORCE_FIRST_PASSWORD_CHANGE;
     ```
 
@@ -213,7 +218,7 @@ database, change the IP address, usernames, and passwords as appropriate:
     This example sets the permission for the AZACSNAP user to allow for performing a database
     consistent storage snapshot.
 
-    ```bash
+    ```sql
     hdbsql SYSTEMDB=> GRANT BACKUP ADMIN, CATALOG READ, MONITORING TO AZACSNAP;
     ```
 
@@ -224,7 +229,7 @@ database, change the IP address, usernames, and passwords as appropriate:
 
    This example disables the password expiration for the AZACSNAP user, without this change the user's password will expire preventing snapshots to be taken correctly.  
 
-   ```bash
+   ```sql
    hdbsql SYSTEMDB=> ALTER USER AZACSNAP DISABLE PASSWORD LIFETIME;
    ```
 
@@ -232,7 +237,7 @@ database, change the IP address, usernames, and passwords as appropriate:
     This example uses the `hdbuserstore` command from the Linux shell to set up the SAP HANA Secure User store.
 
     ```bash
-    > hdbuserstore Set AZACSNAP <IP_address_of_host>:30013 AZACSNAP <AZACSNAP_PASSWORD_CHANGE_ME>
+    hdbuserstore Set AZACSNAP <IP_address_of_host>:30013 AZACSNAP <AZACSNAP_PASSWORD_CHANGE_ME>
     ```
 
 1. Check the SAP HANA Secure User Store
@@ -241,7 +246,10 @@ database, change the IP address, usernames, and passwords as appropriate:
     on the SAP website.
 
     ```bash
-    > hdbuserstore List
+    hdbuserstore List
+    ```
+
+    ```bash
     DATA FILE : /home/azacsnap/.hdb/sapprdhdb80/SSFS_HDB.DAT
     KEY FILE : /home/azacsnap/.hdb/sapprdhdb80/SSFS_HDB.KEY
 
@@ -260,8 +268,10 @@ usernames, and passwords as appropriate:
 1. Connect to the TENANT database to create the user, tenant-specific details are `<IP_address_of_host>` and `<SYSTEM_USER_PASSWORD>`.  Also, note the port (`30015`) required to communicate with the TENANT database.
 
     ```bash
-    > hdbsql -n <IP_address_of_host>:30015 - i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
-  
+    hdbsql -n <IP_address_of_host>:30015 - i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
+    ```
+
+    ```bash  
     Welcome to the SAP HANA Database interactive terminal.
 
     Type: \h for help with commands
@@ -274,9 +284,8 @@ usernames, and passwords as appropriate:
 
     This example creates the AZACSNAP user in the SYSTEMDB.
 
-    ```bash
-    hdbsql TENANTDB=> CREATE USER AZACSNAP PASSWORD <AZACSNAP_PASSWORD_CHANGE_ME>
-    NO FORCE_FIRST_PASSWORD_CHANGE;
+    ```sql
+    hdbsql TENANTDB=> CREATE USER AZACSNAP PASSWORD <AZACSNAP_PASSWORD_CHANGE_ME> NO FORCE_FIRST_PASSWORD_CHANGE;
     ```
 
 1. Grant the user permissions
@@ -284,7 +293,7 @@ usernames, and passwords as appropriate:
     This example sets the permission for the AZACSNAP user to allow for performing a database
     consistent storage snapshot.
 
-    ```bash
+    ```sql
     hdbsql TENANTDB=> GRANT BACKUP ADMIN, CATALOG READ, MONITORING TO AZACSNAP;
     ```
 
@@ -295,21 +304,24 @@ usernames, and passwords as appropriate:
 
    This example disables the password expiration for the AZACSNAP user, without this change the user's password will expire preventing snapshots to be taken correctly.  
 
-   ```bash
+   ```sql
    hdbsql TENANTDB=> ALTER USER AZACSNAP DISABLE PASSWORD LIFETIME;
    ```
 
 > **Note**  repeat these steps for all the tenant databases. It's possible to get the connection details for all the
 tenants using the following SQL query against the SYSTEMDB.
 
-```bash
+```sql
 SELECT HOST, SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%'
 ```
 
 See the following example query and output.
 
 ```bash
-> hdbsql -jaxC -n 10.90.0.31:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> " SELECT HOST,
+hdbsql -jaxC -n 10.90.0.31:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> " SELECT HOST,
+```
+
+```bash
 SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%' "
 sapprdhdb80,30013,SYSTEMDB
 sapprdhdb80,30015,H81
@@ -424,8 +436,11 @@ Running the self-installer command without any arguments will display help on us
 install the snapshot tools as follows:
 
 ```bash
-# chmod +x azacsnap_installer_v5.0.run
-# ./azacsnap_installer_v5.0.run
+chmod +x azacsnap_installer_v5.0.run
+./azacsnap_installer_v5.0.run
+```
+
+```bash
 Usage: ./azacsnap_installer_v5.0.run [-v] -I [-u <HLI Snapshot Command user>]
 ./azacsnap_installer_v5.0.run [-v] -X [-d <directory>]
 ./azacsnap_installer_v5.0.run [-h]
@@ -473,7 +488,10 @@ The following example shows the correct output of the installer when run with th
 installation option.
 
 ```bash
-> ./azacsnap_installer_v5.0.run -I
+./azacsnap_installer_v5.0.run -I
+```
+
+```bash
 +-----------------------------------------------------------+
 | Azure Application Consistent Snapshot Tool Installer      |
 +-----------------------------------------------------------+
@@ -519,7 +537,7 @@ If the snapshot tools have been installed using the default settings, uninstalla
 removing the user the commands have been installed for (default = azacsnap).
 
 ```bash
-> userdel -f -r azacsnap
+userdel -f -r azacsnap
 ```
 
 ### Manual installation of the snapshot tools
@@ -536,7 +554,10 @@ As the root superuser, a manual installation can be achieved as follows:
 1. Get the "sapsys" group id, in this case the group id = 1010
 
     ```bash
-    # grep sapsys /etc/group
+    grep sapsys /etc/group
+    ```
+
+    ```bash
     sapsys:x:1010:
     ```
 
@@ -544,38 +565,38 @@ As the root superuser, a manual installation can be achieved as follows:
     the group id from step 1.
 
     ```bash
-    # useradd -m -g 1010 -c "Azure SAP HANA Snapshots User" azacsnap
+    useradd -m -g 1010 -c "Azure SAP HANA Snapshots User" azacsnap
     ```
 
 1. Make sure the user azacsnap's login `.profile` exists.
 
     ```bash
-    # echo "" >> /home/azacsnap/.profile
+    echo "" >> /home/azacsnap/.profile
     ```
 
 1. Search filesystem for directories to add to azacsnap's $PATH, these are typically the paths to
     the SAP HANA tools, such as `hdbsql` and `hdbuserstore`.
 
     ```bash
-    # HDBSQL_PATH=`find -L /hana/shared/[A-z0-9][A-z0-9][A-z0-9]/HDB*/exe /usr/sap/hdbclient -name hdbsql -exec dirname {} + 2> /dev/null | sort | uniq | tr '\n' ':'`
+    HDBSQL_PATH=`find -L /hana/shared/[A-z0-9][A-z0-9][A-z0-9]/HDB*/exe /usr/sap/hdbclient -name hdbsql -exec dirname {} + 2> /dev/null | sort | uniq | tr '\n' ':'`
     ```
 
 1. Add the updated PATH to the user's profile
 
     ```bash
-    # echo "export PATH=\"\$PATH:$HDBSQL_PATH\"" >> /home/azacsnap/.profile
+    echo "export PATH=\"\$PATH:$HDBSQL_PATH\"" >> /home/azacsnap/.profile
     ```
 
 1. Search filesystem for directories to add to azacsnap's $LD_LIBRARY_PATH.
 
     ```bash
-    # NEW_LIB_PATH=`find -L /hana/shared/[A-z0-9][A-z0-9][A-z0-9]/HDB*/exe /usr/sap/hdbclient -name "*.so" -exec dirname {} + 2> /dev/null | sort | uniq | tr '\n' ':'`
+    NEW_LIB_PATH=`find -L /hana/shared/[A-z0-9][A-z0-9][A-z0-9]/HDB*/exe /usr/sap/hdbclient -name "*.so" -exec dirname {} + 2> /dev/null | sort | uniq | tr '\n' ':'`
     ```
 
 1. Add the updated library path to the user's profile
 
     ```bash
-    > echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$NEW_LIB_PATH\"" >> /home/azacsnap/.profile
+    echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$NEW_LIB_PATH\"" >> /home/azacsnap/.profile
     ```
 
 1. On Azure Large Instances
@@ -584,13 +605,13 @@ As the root superuser, a manual installation can be achieved as follows:
        > see section "[Enable communication with storage](#enable-communication-with-storage)".
 
         ```bash
-        > cp -pr ~/.ssh /home/azacsnap/.
+        cp -pr ~/.ssh /home/azacsnap/.
         ```
 
     1. Set the user permissions correctly for the SSH files
 
         ```bash
-        > chown -R azacsnap.sapsys /home/azacsnap/.ssh
+        chown -R azacsnap.sapsys /home/azacsnap/.ssh
         ```
 
 1. On Azure NetApp Files
@@ -599,15 +620,15 @@ As the root superuser, a manual installation can be achieved as follows:
         1. SUSE Linux
 
             ```bash
-            # echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.profile
-            # echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.profile
+            echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.profile
+            echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.profile
             ```
 
         1. RHEL
 
             ```bash
-            # echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.bash_profile
-            # echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.bash_profile
+            echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.bash_profile
+            echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.bash_profile
             ```
 
 1. Copy the SAP HANA connection secure user store for the target user, azacsnap. This
@@ -615,31 +636,31 @@ As the root superuser, a manual installation can be achieved as follows:
     > see section "[Enable communication with SAP HANA](#enable-communication-with-sap-hana)".
 
     ```bash
-    # cp -pr ~/.hdb /home/azacsnap/.
+    cp -pr ~/.hdb /home/azacsnap/.
     ```
 
 1. Set the user permissions correctly for the `hdbuserstore` files
 
     ```bash
-    # chown -R azacsnap.sapsys /home/azacsnap/.hdb
+    chown -R azacsnap.sapsys /home/azacsnap/.hdb
     ```
 
 1. Extract the snapshot tools into /home/azacsnap/bin/.
 
     ```bash
-    # ./azacsnap_installer_v5.0.run -X -d /home/azacsnap/bin
+    ./azacsnap_installer_v5.0.run -X -d /home/azacsnap/bin
     ```
 
 1. Make the commands executable
 
     ```bash
-    # chmod 700 /home/azacsnap/bin/*
+    chmod 700 /home/azacsnap/bin/*
     ```
 
 1. Ensure the correct ownership permissions are set on the user's home directory
 
     ```bash
-    # chown -R azacsnap.sapsys /home/azacsnap/*
+    chown -R azacsnap.sapsys /home/azacsnap/*
     ```
 
 ### Complete the setup of snapshot tools

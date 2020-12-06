@@ -41,7 +41,10 @@ CRITICAL: Command 'test' failed with error:
 1. Try to run the command below to verify if the `hdbsql` command is in the path and it can connect to the SAP HANA Server. The following example shows the correct running of the command and its output.
 
     ```bash
-    > hdbsql -n 172.18.18.50 - i 00 -d SYSTEMDB -U AZACSNAP "\s"
+    hdbsql -n 172.18.18.50 - i 00 -d SYSTEMDB -U AZACSNAP "\s"
+    ```
+
+    ```bash
     host          : 172.18.18.50
     sid           : H80
     dbname        : SYSTEMDB
@@ -67,7 +70,7 @@ CRITICAL: Command 'test' failed with error:
     to Getting Started guide for details):
 
     ```bash
-    # export PATH=$PATH:/hana/shared/H80/exe/linuxx86_64/hdb/
+    export PATH=$PATH:/hana/shared/H80/exe/linuxx86_64/hdb/
     ```
 
     <pre>
@@ -92,6 +95,9 @@ The following example is from running `azacsnap` on SAP HANA on Azure Large Inst
 
 ```bash
 azacsnap -c test --test storage
+```
+
+```bash
 The authenticity of host '172.18.18.11 (172.18.18.11)' can't be established.
 ECDSA key fingerprint is SHA256:QxamHRn3ZKbJAKnEimQpVVCknDSO9uB4c9Qd8komDec.
 Are you sure you want to continue connecting (yes/no)?
@@ -101,13 +107,16 @@ Are you sure you want to continue connecting (yes/no)?
 command to validate communication with the storage platform.
 
 ```bash
-> ssh <StorageBackupname>@<Storage IP address> "volume show -fields volume"
+ssh <StorageBackupname>@<Storage IP address> "volume show -fields volume"
 ```
 
 An example with expected output:
 
 ```bash
-> ssh clt1h80backup@10.8.0.16 "volume show -fields volume"
+ssh clt1h80backup@10.8.0.16 "volume show -fields volume"
+```
+
+```bash
 vserver volume
 --------------------------------- ------------------------------
 osa33-hana-c01v250-client25-nprod hana_data_h80_mnt00001_t020_vol
@@ -117,7 +126,10 @@ osa33-hana-c01v250-client25-nprod hana_data_h80_mnt00002_t020_vol
 #### The authenticity of host '172.18.18.11 (172.18.18.11)' can't be established
 
 ```bash
-> azacsnap -c test --test storage
+azacsnap -c test --test storage
+```
+
+```bash
 BEGIN : Test process started for 'storage'
 BEGIN : Storage test snapshots on 'data' volumes
 BEGIN : 1 task(s) to Test Snapshots for Storage Volume Type 'data'
@@ -135,6 +147,9 @@ The following example is from running `azacsnap` on a VM using Azure NetApp File
 
 ```bash
 azacsnap --configfile azacsnap.json.NOT-WORKING -c test --test storage
+```
+
+```bash
 BEGIN : Test process started for 'storage'
 BEGIN : Storage test snapshots on 'data' volumes
 BEGIN : 1 task(s) to Test Snapshots for Storage Volume Type 'data'
