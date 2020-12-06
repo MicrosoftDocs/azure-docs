@@ -43,7 +43,7 @@ This article shows how to create a **Logic App (Preview)** resource by using the
 
 * To test the example logic app that you create in this article, you need a tool that can send calls to the Request trigger, which is the first step in example logic app. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
 
-* If you create your logic app with settings that support [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing capability for your logic app. You can create the Application Insights resource either [in advance](../azure-monitor/app/create-workspace-resource.md), during logic app creation, or after deployment.
+* If you create your logic app with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
 ## Create the logic app resource
 
@@ -80,7 +80,7 @@ This article shows how to create a **Logic App (Preview)** resource by using the
    | **SKU and size** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for hosting your logic app. Your choices are affected by the plan type that you previously chose. To change the default tier, select **Change size**. You can then select other pricing tiers, based on the workload that you need. <p><p>This example uses the free **F1 pricing tier** for **Dev / Test** workloads. For more information, review [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/). |
    |||||
 
-1. Next, if your selected subscription, runtime stack, OS, publish type, region, resource group, or hosting plan supports [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing capability for your logic app. On the **Monitoring** tab, under **Application Insights**, set **Enable Application Insights** to **Yes** if not already selected.
+1. Next, if your creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. On the **Monitoring** tab, under **Application Insights**, set **Enable Application Insights** to **Yes** if not already selected.
 
 1. After Azure validates your logic app's settings, on the **Review + create** tab, select **Create**.
 
@@ -325,21 +325,21 @@ For a stateful workflow, after each workflow run, you can view the run history, 
 
 <a name="monitor-application-insights"></a>
 
-## Monitor with Application Insights
+## Enable or monitor Application Insights after deployment
 
 During workflow execution, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
 
-If your Azure subscription and logic app settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can enable diagnostics logging and tracing capability for your logic app. You can create the Application Insights resource either [in advance](../azure-monitor/app/create-workspace-resource.md), during logic app creation, or after deployment.
+If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
-To open Application Insights for a logic app that supports or has Application Insights enabled, follow these steps:
+To enable Application Insights on a deployed logic app or to review Application Insights data when already enabled, follow these steps:
 
 1. In the Azure portal, find your deployed logic app.
 
 1. On the logic app menu, under **Settings**, select **Application Insights**.
 
-1. If Application Insights is enabled, on the **Application Insights** pane, select **View Application Insights data**.
+1. If Application Insights isn't enabled, on the **Application Insights** pane, select **Turn on Application Insights**. After the pane updates, at the bottom, select **Apply**.
 
-   If Application Insights isn't enabled, on the **Application Insights** pane, select **Turn on Application Insights**. After the pane updates, at the bottom, select **Apply**.
+   If Application Insights is enabled, on the **Application Insights** pane, select **View Application Insights data**.
 
 After Application Insights opens, you can review various metrics for your logic app.
 

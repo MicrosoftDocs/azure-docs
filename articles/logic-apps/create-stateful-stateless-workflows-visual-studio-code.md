@@ -100,7 +100,7 @@ This article shows how to create a **Logic App (Preview)** resource by using Vis
 
 * To test the example logic app that you create in this article, you need a tool that can send calls to the Request trigger, which is the first step in example logic app. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
 
-* If you create your logic app with settings that support [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing capability for your logic app. You can create the Application Insights resource either [in advance](../azure-monitor/app/create-workspace-resource.md), during logic app deployment, or after deployment. For more information about logging and monitoring with Application Insights, review [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849).
+* If you create your logic app and deploy with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you deploy your logic app from Visual Studio Code or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you deploy your logic app, or after deployment.
 
 <a name="migrate-private-preview"></a>
 
@@ -704,9 +704,11 @@ You can publish your logic app as a new resource, which automatically creates an
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to create or select a storage account.](./media/create-stateful-stateless-workflows-visual-studio-code/create-storage-account.png)
 
-   1. If your logic app's deployment settings support [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app as a deployment step. Or, you can enable this capability after deployment. For more information, see [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849).
-   
-      1. To enable logging and tracing now, select either an existing Application Insights resource or **Create new Application Insights resource**.
+   1. If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you deploy your logic app from Visual Studio Code or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you deploy your logic app, or after deployment.
+
+      To enable logging and tracing now, follow these steps:
+
+      1. Select either an existing Application Insights resource or **Create new Application Insights resource**.
 
       1. In the [Azure portal](htpps://portal.azure.com), go to your Application Insights resource.
 
@@ -728,7 +730,7 @@ You can publish your logic app as a new resource, which automatically creates an
          ```
 
          > [!TIP]
-         > When you're done, check that the trigger and action names correctly appear in your Application Insights resource.
+         > You can check whether the trigger and action names correctly appear in your Application Insights instance.
          >
          > 1. In the Azure portal, go to your Application Insights resource.
          >
@@ -740,11 +742,18 @@ You can publish your logic app as a new resource, which automatically creates an
          > Rather than use the `WorkflowName.ActionName` format, these duplicates use the workflow name as 
          > the operation name and originate from the Azure Functions host.
 
-         Next, you can optionally change the [severity level](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849) for the diagnostic data that you want your logic app to collect and send to your Application Insights instance.
+      1. Next, you can optionally adjust the severity level for the tracing data that your logic app collects and sends to your Application Insights instance.
 
-      1. At your project's root level, open the **host.json** file. If the `logLevel` object doesn't exist, add that object inside the `logging` object. In the `logLevel` object, add the `Host.Triggers.Workflow` property, and set the property value to the severity level you want, based on the corresponding trace type.
+         Each time that a workflow-related event happens, such as when a workflow is triggered or when an action runs, the runtime emits various traces. These traces cover the workflow's lifetime and include, but aren't limited to, the following event types:
 
-         For example, the `Trace` level captures the most detailed information, while the `Information` level captures general activity in your workflow, such as when your logic app, workflow, trigger, and actions start and stop. This table describes the available severity levels and corresponding trace types:
+         * Service activity, such as start, stop, and errors.
+         * Jobs and dispatcher activity.
+         * Workflow activity, such as trigger, action, and run.
+         * Storage request activity, such as success or failure.
+         * HTTP request activity, such as inbound, outbound, success, and failure.
+         * Ad-hoc development traces, such as debug messages.
+
+         Each event type is assigned to a severity level. For example, the `Trace` level captures the most detailed messages, while the `Information` level captures general activity in your workflow, such as when your logic app, workflow, trigger, and actions start and stop. This table describes the severity levels and their trace types:
 
          | Severity level | Trace type |
          |----------------|------------|
@@ -752,11 +761,27 @@ You can publish your logic app as a new resource, which automatically creates an
          | Debug | Logs that you can use for investigation during development, for example, inbound and outbound HTTP calls. |
          | Error | Logs that indicate a failure in workflow execution, but not a general failure in your logic app. |
          | Information | Logs that track the general activity in your logic app or workflow, for example: <p><p>- When a trigger, action, or run starts and ends. <br>- When your logic app starts or ends. |
-         | Trace | Logs that contain the most detailed information, for example, storage requests or dispatcher activity. |
+         | Trace | Logs that contain the most detailed messages, for example, storage requests or dispatcher activity, plus all the messages that are related to workflow execution activity. |
          | Warning | Logs that highlight an abnormal state in your logic app but doesn't prevent its running. |
          |||
 
-         Here's an example that shows how to set the severity level in the **host.json** file:
+         To set the severity level, at your project's root level, open the **host.json** file, and find the `logging` object. This object controls the log filtering for all the workflows in your logic app and follows the [ASP.NET Core layout for log type filtering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering).
+
+         ```json
+         {
+            "version": "2.0",
+            "logging": {
+               "applicationInsights": {
+                  "samplingExcludedTypes": "Request",
+                  "samplingSettings": {
+                     "isEnabled": true
+                  }
+               }
+            }
+         }
+         ```
+
+         If the `logging` object doesn't contain a `logLevel` object that includes the `Host.Triggers.Workflow` property, add those items. Set the property to the severity level for the trace type that you want, for example:
 
          ```json
          {
@@ -775,13 +800,13 @@ You can publish your logic app as a new resource, which automatically creates an
          }
          ```
 
-   When you're done, Visual Studio Code starts creating and deploying the resources necessary for publishing your logic app.
+   When you're done with the deployment steps, Visual Studio Code starts creating and deploying the resources necessary for publishing your logic app.
 
 1. To review and monitor the deployment process, on the **View** menu, select **Output**. From the Output window toolbar list, select **Azure Logic Apps**.
 
    ![Screenshot that shows the Output window with the "Azure Logic Apps" selected in the toolbar list along with the deployment progress and statuses.](./media/create-stateful-stateless-workflows-visual-studio-code/logic-app-deployment-output-window.png)
 
-   When Visual Studio Code finishes deploying your logic app workflow to Azure, this message appears:
+   When Visual Studio Code finishes deploying your logic app to Azure, this message appears:
 
    ![Screenshot that shows a message that deployment to Azure successfully completed.](./media/create-stateful-stateless-workflows-visual-studio-code/deployment-to-azure-completed.png)
 
@@ -932,7 +957,7 @@ After you deploy a **Logic App (Preview)** resource from Visual Studio Code to A
 
 During workflow execution, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
 
-If your logic app's deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can enable diagnostics logging and tracing for your logic app. You can do so either when you deploy your logic app from Visual Studio Code or after deployment. You need an Application Insights instance, but you create can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you deploy from Visual Studio Code, or after deployment.
+If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you deploy your logic app from Visual Studio Code or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you deploy your logic app, or after deployment.
 
 To enable Application Insights on a deployed logic app or to review Application Insights data when already enabled, follow these steps:
 
