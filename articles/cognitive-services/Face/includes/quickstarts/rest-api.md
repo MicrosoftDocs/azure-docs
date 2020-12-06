@@ -173,11 +173,11 @@ First, you need to detect faces in images before you can compare them. Run this 
 
 Find the `"faceId"` value in the JSON response and save it to a temporary location. Then, call the above command again for these other image URLs, and save their face IDs as well. You'll use these IDs as the group of faces from which to find a similar face.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_group":::
+:::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_group":::
 
 Finally, detect the single query face that you will use for matching, and save its ID. Keep this ID separate from the others.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_matcher":::
+:::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_matcher":::
 
 ### Find matches
 
@@ -191,7 +191,7 @@ Then make the following changes:
 
 Use the following JSON content for the `body` value:
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_body":::
+:::code language="JSON" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_body":::
 
 1. Use the query face ID for `"faceId"`.
 1. Paste the other face IDs as terms in the `"faceIds"` array.
