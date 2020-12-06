@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 12/02/2020
+ms.date: 12/06/2020
 ms.author: pafarley
 ---
 
@@ -18,7 +18,6 @@ Use the Face REST API to:
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
 * [Create a person group](#create-a-person-group)
-* [Identify a face](#identify-a-face)
 
 ## Prerequisites
 
@@ -170,85 +169,46 @@ This operation takes a single detected face (source) and searches a set of other
 
 First, you need to detect faces in images before you can compare them. Run this command as you did in the [Detect faces](#detect-faces-in-an-image) section. This detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different recognition model.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_1":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detect_for_similar":::
 
 Find the `"faceId"` value in the JSON response and save it to a temporary location. Then, call the above command again for these other image URLs, and save their face IDs as well. You'll use these IDs as the group of faces from which to find a similar face.
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_group":::
 
+Finally, detect the single query face that you will use for matching, and save its ID. Keep this ID separate from the others.
+
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_matcher":::
+
 ### Find matches
 
-The following method detects faces in a set of target images and in a single source image. Then, it compares them and finds all the target images that are similar to the source image.
+Copy the following command to a text editor.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=detect_for_similar)]
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar":::
 
-### Print matches
+Then make the following changes:
+1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
+1. Change the first part of the query URL to match the endpoint that corresponds to your subscription key.
 
-The following code prints the match details to the console:
+Use the following JSON content for the `body` value:
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar_print)]
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_body":::
 
-## Identify a face
+1. Use the query face ID for `"faceId"`.
+1. Paste the other face IDs as terms in the `"faceIds"` array.
 
-The Identify operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known. In order to do the Identify operation, you first need to create and train a **PersonGroup**
+### Examine the results
 
-### Create a person group
+You'll receive a JSON response that lists the IDs of the faces which match your query face.
 
-The following code creates a **PersonGroup** with six different **Person** objects. It associates each **Person** with a set of example images, and then it trains to recognize each person by their facial characteristics. **Person** and **PersonGroup** objects are used in the Verify, Identify, and Group operations.
-
-Declare a string variable at the root of your class to represent the ID of the **PersonGroup** you'll create.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_declare)]
-
-In a new method, add the following code. This method will carry out the Identify operation. The first block of code associates the names of persons with their example images.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_files)]
-
-Notice that this code defines a variable `sourceImageFileName`. This variable corresponds to the source image&mdash;the image that contains people to identify.
-
-Next, add the following code to create a **Person** object for each person in the Dictionary and add the face data from the appropriate images. Each **Person** object is associated with the same **PersonGroup** through its unique ID string. Remember to pass the variables `client`, `url`, and `RECOGNITION_MODEL1` into this method.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
-
-> [!TIP]
-> You can also create a **PersonGroup** from local images. See the [IPersonGroupPerson](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson?view=azure-dotnet) methods such as **AddFaceFromStreamAsync**.
-
-### Train the PersonGroup
-
-Once you've extracted face data from your images and sorted it into different **Person** objects, you must train the **PersonGroup** to identify the visual features associated with each of its **Person** objects. The following code calls the asynchronous **train** method and polls the results, printing the status to the console.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_train)]
-
-> [!TIP]
-> The Face API runs on a set of pre-built models that are static by nature (the model's performance will not regress or improve as the service is run). The results that the model produces might change if Microsoft updates the model's backend without migrating to an entirely new model version. To take advantage of a newer version of a model, you can retrain your **PersonGroup**, specifying the newer model as a parameter with the same enrollment images.
-
-This **Person** group and its associated **Person** objects are now ready to be used in the Verify, Identify, or Group operations.
-
-### Identify faces
-
-The following code takes the source image and creates a list of all the faces detected in the image. These are the faces that will be identified against the **PersonGroup**.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify_sources)]
-
-The next code snippet calls the **IdentifyAsync** operation and prints the results to the console. Here, the service attempts to match each face from the source image to a **Person** in the given **PersonGroup**. This closes out your Identify method.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify)]
-
-## Run the application
-
-#### [Visual Studio IDE](#tab/visual-studio)
-
-Run the application by clicking the **Debug** button at the top of the IDE window.
-
-#### [CLI](#tab/cli)
-
-Run the application from your application directory with the `dotnet run` command.
-
-```dotnet
-dotnet run
+```json
+[
+    {
+        "persistedFaceId" : "015839fb-fbd9-4f79-ace9-7675fc2f1dd9",
+        "confidence" : 0.82
+    },
+    ...
+] 
 ```
-
----
 
 ## Clean up resources
 
@@ -257,20 +217,11 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-If you created a **PersonGroup** in this quickstart and you want to delete it, run the following code in your program:
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_delete)]
-
-Define the deletion method with the following code:
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_deletepersongroup)]
-
 ## Next steps
 
-In this quickstart, you learned how to use the Face client library for .NET to do basis facial recognition tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the Face REST API to do basic facial recognition tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
-> [Face API reference (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)
+> [Face API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
 * [What is the Face service?](../../overview.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/FaceQuickstart.cs).
