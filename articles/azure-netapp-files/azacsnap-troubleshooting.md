@@ -155,14 +155,3 @@ ERROR: Could not create StorageANF object [authFile = 'azureauth.json']
       ```bash
       [19/Nov/2020:18:41:10 +13:00] DEBUG: [PID:0020257:StorageANF:659] [1] Innerexception: Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException AADSTS7000222: The provided client secret keys are expired. Visit the Azure Portal to create new keys for your app, or consider using certificate credentials for added security: https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials
       ```
-
-
-
-## Next steps
-
-- [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
-- [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
-- [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)

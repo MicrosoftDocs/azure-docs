@@ -86,9 +86,4 @@ The command options are as follows:
 
 ## Next steps
 
-- [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
 - [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
-- [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)

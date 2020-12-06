@@ -125,12 +125,3 @@ hana_data_h80_sapprdhdb80_mnt00001_t020_xdp, <font color="green">Active</font>, 
 hana_log_backups_h80_sapprdhdb80_t020_xdp, <font color="green">Active</font>, Idle, snapmirror.21215d07-2653-11e8-8e4c-00a098af659c_2157387278.2019-04-09_055700, 75.57MB, 00h 02m 45s
 hana_shared_h80_sapprdhdb80_t020_xdp, <font color="green">Active</font>, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036524.2020-04-02_020000, 2.94MB, 00h 04m 55s
 </pre>
-
-## Next steps
-
-- [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
-- [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
-- [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)

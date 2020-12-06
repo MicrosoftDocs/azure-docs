@@ -101,12 +101,3 @@ It is possible to avoid user confirmation, by using the optional `--force` param
 Processing delete request for snapshot 'azacsnap-hsr-ha.2020-07-02T222201.4988618Z'.
 Snapshot deletion completed
 ```
-
-## Next steps
-
-- [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
-- [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
-- [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)

@@ -281,13 +281,3 @@ If you are running snapshot-based backups at the DR site, then the HANA Server N
 are not automatically replicated to another site.  Work with Microsoft Operations to
 better understand returning any files or data back to the original production site.
 </font>
-
-
-## Next steps
-
-- [Introduction to Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)
-- [Get started with Azure Application Consistent Snapshot Tool](azacsnap-get-started.md)
-- [Install Azure Application Consistent Snapshot Tool](azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-configure.md)
-- [Test Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-test.md)
-- [Back up with Azure Application Consistent Snapshot Tool](azacsnap-cmd-ref-backup.md)
