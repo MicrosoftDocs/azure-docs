@@ -41,17 +41,16 @@ In this article, the example logic app triggers when a new email arrives in a wo
 
    The example logic app in this topic uses this Office 365 Outlook trigger: **When a new email arrives**
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's linked to your logic app. If you don't want to create or use an integration account, try creating a logic app in the Azure portal using the new **Logic App (Preview)** resource type or in Visual Studio Code by using the new [Azure Logic Apps preview extension](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md).
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's linked to your logic app.
 
-  > [!NOTE]
-  > Make sure that you use an integration account that's appropriate for your use case or scenario. 
-  > For example, [Free-tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration 
-  > accounts are meant only for exploratory scenarios and workloads, not production scenarios, 
-  > are limited in usage and throughput, and aren't supported by a service-level agreement (SLA). 
-  > Other tiers incur costs, but include SLA support, offer more throughput, and have higher limits. 
-  > Learn more about integration account [tiers](../logic-apps/logic-apps-pricing.md#integration-accounts), 
-  > [pricing](https://azure.microsoft.com/pricing/details/logic-apps/), 
-  > and [limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+  * Make sure that you use an integration account that's appropriate for your use case or scenario. 
+
+    For example, [Free-tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration accounts are meant only for exploratory scenarios and workloads, not production scenarios, are limited in usage and throughput, and aren't supported by a service-level agreement (SLA). Other tiers incur costs, but include SLA support, offer more throughput, and have higher limits. Learn more about integration account [tiers](../logic-apps/logic-apps-pricing.md#integration-accounts), [pricing](https://azure.microsoft.com/pricing/details/logic-apps/), and [limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+
+   * If you don't want to use an integration account, try creating a logic app [by using the **Logic App (Preview)** resource type in the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code with the new Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md). 
+
+     > [!IMPORTANT]
+     > In Azure Logic Apps Preview, the Inline Code action, **Execute JavaScript Code**, is now named **Run in-line JavaScript**.
 
 ## Add inline code
 

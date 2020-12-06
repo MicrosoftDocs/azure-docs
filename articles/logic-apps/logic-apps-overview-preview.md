@@ -43,7 +43,7 @@ For more information, see these topics:
 
 <a name="preview-differences"></a>
 
-## How is Azure Logic Apps Preview different?
+## How does Azure Logic Apps Preview work differently?
 
 The new Logic Apps runtime uses [Azure Functions](../azure-functions/functions-overview.md) extensibility and is hosted as an extension on the Azure Functions runtime. This architecture means you can run logic apps anywhere that Azure Functions runs. You can host the Logic Apps runtime on almost any network topology that you want, and choose any available compute size to handle the necessary workload that your workflow needs. For more information about Azure Functions extensibility, see [WebJobs SDK: Creating custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
@@ -114,7 +114,7 @@ This table specifies the child workflow's behavior based on whether the parent a
 
 <a name="public-preview-contents"></a>
 
-## What capabilities are in this public preview?
+## What capabilities are in Azure Logic Apps Preview?
 
 Azure Logic Apps (Preview) includes many current and additional capabilities, for example:
 
@@ -147,7 +147,7 @@ Azure Logic Apps (Preview) includes many current and additional capabilities, fo
 
 ## Pricing model
 
-Whether you create the new **Logic App (Preview)** resource type in the Azure portal or deploy the new resource type from Visual Studio Code, you select a hosting plan to use for pricing, specifically the [App Service plan or Premium plan](../azure-functions/functions-scale.md). If you select the App Service plan, you're also prompted to select a [pricing tier](../app-service/overview-hosting-plans.md). During public preview, running logic apps on App Service doesn't incur *additional* charges on top of the selected plan.
+Whether you create the new **Logic App (Preview)** resource type in the Azure portal or deploy the new resource type from Visual Studio Code, you select a hosting plan to use for pricing, specifically the [App Service plan or Premium plan](../azure-functions/functions-scale.md). If you select the App Service plan, you're also prompted to select a [pricing tier](../app-service/overview-hosting-plans.md). During the public preview period, running logic apps on App Service doesn't incur *additional* charges on top of the selected plan.
 
 Stateful logic apps use [external storage](../azure-functions/functions-scale.md#storage-account-requirements), so the Azure Storage pricing model applies to storage transactions that the Azure Logic Apps runtime performs. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states.
 
@@ -163,7 +163,7 @@ For more information about the pricing models that apply to this new resource ty
 
 ## Limited, unavailable, or unsupported capabilities
 
-In this public preview, these capabilities are currently limited, unavailable, or unsupported:
+In Azure Logic Apps Preview, these capabilities are currently limited, unavailable, or unsupported:
 
 * **Triggers and actions**: Some built-in triggers are unavailable, such as Sliding Window and Batch. To start your workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). Built-in triggers and actions run natively in the Logic Apps runtime, while managed connectors are deployed in Azure. In the designer, built-in triggers and actions appear under the **Built-in** tab, while managed connector triggers and actions appear under the **Azure** tab.
 
@@ -183,7 +183,9 @@ In this public preview, these capabilities are currently limited, unavailable, o
 
     * The Azure Functions action, **Choose an Azure function**, works only for functions that are created from the **HTTP Trigger** template.
 
-    * If you use Visual Studio Code with the preview extension on macOS, the Inline Code action, **Execute JavaScript Code**, is unavailable.
+    * The [Inline Code action, **Execute JavaScript Code**](logic-apps-add-run-inline-code.md), no longer needs an integration account. Also, in Azure Logic Apps Preview, this action is now named **Run in-line JavaScript**.
+
+      If you use Visual Studio Code with the Azure Logic Apps (Preview) extension on macOS, the **Run in-line JavaScript** action is unavailable.
 
     * Some built-in [B2B triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, such as the Flat File Encoding and Decoding actions.
 

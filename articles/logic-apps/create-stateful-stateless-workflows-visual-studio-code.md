@@ -153,7 +153,7 @@ Any logic apps that you created with the **Azure Logic Apps (Private Preview)** 
 
    1. On the **User** tab, go to **>** **Extensions** **>** **Azure Logic Apps (Preview)**.
 
-   1. Under **Azure Logic Apps V2: Panel Mode**, confirm that **Enable panel mode** is selected. Under **Azure Logic Apps V2: Project Runtime**, set the version to **~3** or **~2**, based on the [Azure Functions Core Tools version](#prerequisites) that you installed earlier.
+   1. Under **Azure Logic Apps V2: Panel Mode**, confirm that **Enable panel mode** is selected. Under **Azure Logic Apps V2: Project Runtime**, confirm the version is set to **~3**.
 
       > [!IMPORTANT]
       > If you want to use the [**Inline Code** action](../logic-apps/logic-apps-add-run-inline-code.md) 
