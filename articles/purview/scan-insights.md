@@ -15,8 +15,9 @@ This how-to guide describes how to access, view, and filter Azure Purview scan i
 
 In this how-to guide, you'll learn how to:
 
-* View insights from your Purview account.
-* Get a bird's eye view of your scans.
+> [!div class="checklist"]
+> * View insights from your Purview account.
+> * Get a bird's eye view of your scans.
 
 ## Prerequisites
 

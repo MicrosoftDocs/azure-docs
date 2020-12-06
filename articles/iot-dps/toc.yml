@@ -13,7 +13,7 @@
       href: quick-setup-auto-provision.md
     - name: Azure CLI
       href: quick-setup-auto-provision-cli.md
-    - name: Azure RM template
+    - name: ARM template
       href: quick-setup-auto-provision-rm.md
   - name: Provision a symmetric key device
     items:
