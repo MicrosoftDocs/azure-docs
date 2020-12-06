@@ -21708,6 +21708,11 @@
       "redirect_document_id": false
 	 },
 	 {
+      "source_path": "articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md",
+      "redirect_url": "/azure/vpn-gateway/tutorial-site-to-site-portal",
+      "redirect_document_id": false
+	 },
+	 {
       "source_path": "articles/vpn-gateway/vpn-gateway-resetgw-classic.md",
       "redirect_url": "/azure/vpn-gateway/reset-gateway",
       "redirect_document_id": false
@@ -34096,6 +34101,11 @@
       "source_path": "articles/security/security-channel-nine.md",
       "redirect_url": "/azure/security/fundamentals/channel-nine",
       "redirect_document_id": true
+	 },
+	 {
+      "source_path": "articles/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell.md",
+      "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/security-get-started-overview.md",
