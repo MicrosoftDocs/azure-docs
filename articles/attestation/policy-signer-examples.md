@@ -15,7 +15,7 @@ ms.author: mbaldwin
 Policy signer certificates associated with an attestation provider will be used by Microsoft Azure Attestation to validate signed policies.
 Learn more of [benefits of policy signing](/azure/attestation/basic-concepts/#Benefits-of-policy-signing)
 
-**Policy signer certificates file content to be used in create provider flow**
+**Policy signer certificate file content to be used in create provider flow**
 
 ```
 -----BEGIN CERTIFICATE-----
