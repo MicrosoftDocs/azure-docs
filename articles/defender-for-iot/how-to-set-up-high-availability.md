@@ -1,34 +1,32 @@
 ---
 title: Set up high availability
-description: 
+description: Increase the resiliency of your Defender for Iot deployment by installing a on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/1/2020
-ms.topic: article
+ms.date: 12/6/2020
+ms.topic: how-to
 ms.service: azure
 ---
-# Set up high availability
-
-## About high availability
+# About high availability
 
 Increase the resiliency of your Defender for Iot deployment by installing a on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 
 This deployment is implemented with a on-premises management console pair that includes a primary and secondary appliance.
 
-### About primary and secondary communication
+## About primary and secondary communication
 
 When a primary and secondary on-premises management console is paired:
 
 - A on-premises management console SLL certificate is applied to create a secure connection between the primary and secondary appliances. The SLL may be the self-signed certificate installed by default or a certificate installed by the customer.
 
-- The primary on-premises management console data is automatically backed up to the secondary on-premises management console every 10 minutes. Contact <support@cyberx-labs.com> for information about changing the default setting. The on-premises management console configurations and device data are backed up. PCAP files and logs are not included in the backup. You can back up and restore of PCAPs and logs manually.
+- The primary on-premises management console data is automatically backed up to the secondary on-premises management console every 10 minutes. The on-premises management console configurations and device data are backed up. PCAP files and logs are not included in the backup. You can back up and restore of PCAPs and logs manually.
 
 - The primary setup at the console is duplicated on the secondary. For example, system settings. If these settings are updated on the primary, they are also updated on the secondary.
 
 - Before the license of the secondary expires, you should define it as the primary in order to update the license.
 
-### About failover and failback
+## About failover and failback
 
 If a sensor cannot connect to the primary on-premises management console, it automatically connects to the secondary. Your system will be supported by both the primary and secondary simultaneously, if less than half of the sensors are communicating with the secondary. The secondary takes over when more than half of the sensors are communicating with it. Failover from the primary to the secondary takes approximately three minutes. When the failover occurs, the primary on-premises management console console freezes. When this happens, you can sign in to the secondary using the same sign in credentials.
 
@@ -42,7 +40,7 @@ Sign back in to the primary appliance after redirection.
 
 The installation and configuration procedures are performed in four main stages:
 
-1. Install a on-premises management console primary appliance. See the Defender for Iot Installation Guide for details.
+1. Install a on-premises management console primary appliance. 
 
 2. Configure the on-premises management console primary appliance. For example, scheduled backup settings, VLAN settings. See the on-premises management console user guide for details. All settings are applied to the secondary appliance automatically after pairing.
 
@@ -52,37 +50,35 @@ The installation and configuration procedures are performed in four main stages:
 
 ## High availability requirements
 
-Verify that you have met the following High Availability requirements:
+Verify that you have met the following high availability requirements:
 
-- Certificate Requirements
+- Certificate requirements
 
-- Software/Hardware Requirements
+- Software and hardware requirements
 
-- Network Access Requirements
+- Network access requirements
 
-#### Software and hardware requirements
+### Software and hardware requirements
 
 - Both the primary and secondary on-premises management console appliances must be running identical hardware models and software versions.
 
 - The high availability system can be set up by Defender for Iot users only, using CLI tools.
 
-#### Network access requirements
+### Network access requirements
 
 You need to verify that your organizational security policy allows you access to the following services on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
 
 |Port|Service|Description|
 |----|-------|-----------|
-|**443/TCP**|HTTPS|Grants access to the on-premises management console web console.|
-|**22/TCP**|SSH|Syncs the data between the primary and secondary on-premises management console appliances|
-|**123/UDP**|NTP| The on-premises management console's NTP time sync. Verify that the active and passive appliances are defined with the same timezone.|
-
-For a complete list of the system access requirements, see the Defender for Iot Installation Guide.
+|**443 or TCP**|HTTPS|Grants access to the on-premises management console web console.|
+|**22 or TCP**|SSH|Syncs the data between the primary and secondary on-premises management console appliances|
+|**123 or UDP**|NTP| The on-premises management console's NTP time sync. Verify that the active and passive appliances are defined with the same timezone.|
 
 ## Create the primary and secondary pair
 
 Verify that both the primary and secondary on-premises management console appliances are powered on before starting the procedure.  
 
-### On the Primary
+### On the primary
 
 1. Sign in to the CLI as a Defender for Iot user.
 
@@ -139,7 +135,7 @@ To access the core logs:
 
 Perform the high availability update in the following order. Make sure each step is complete before you begin a new step.
 
-**To update with high availability:**
+To update with high availability:
 
 1.  Update the primary on-premises management console.
 
