@@ -1,15 +1,17 @@
 ---
 title: Manage individual sensors
-description: 
+description: Learn how-to activate and set up a sensor, as well as perform sensor management tasks, for example back up and restore. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/2/2020
+ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
 # Manage individual sensors
+
+This article describes how to activate and set up a sensor, as well as perform sensor management tasks, for example  back up and restore.
 
 ## Manage sensor activation files
 
@@ -156,7 +158,7 @@ You can configure the sensor time and region so that all the users see the same 
 | Date format | Select one of the following format options:<br />- dd/MM/yyyy HH:mm:ss<br />- MM/dd/yyyy HH:mm:ss<br />- yyyy/MM/dd HH:mm:ss |
 | Date and time | Displays the current date and local time in the format you selected.<br />For example, if your actual location is America and New York, but the timezone is set to Europe and Berlin, the time is displayed according to Berlin local time. |
 
-To configure time and regional:
+To configure the sensor time:
 
 1. On the side menu, select **System Settings**.
 
@@ -164,7 +166,7 @@ To configure time and regional:
 
 3. Set the parameters and select **Save**.
 
-## Setting up backup and restore files
+## Set up backup and restore files
 
 System backup is performed automatically at 3:00 AM daily. The data is saved on a different disk in the sensor, the default location is `/var/cyberx/backups`.
 
@@ -254,7 +256,7 @@ Restore failures will be displayed.
 
 The following procedure describes how to update a standalone sensor using the sensor console. The update process takes approximately 30 minutes.
 
-1.  Go to the [Azure portal](https://portal.azure.com/).
+1. Go to the [Azure portal](https://portal.azure.com/).
 
 2. Go to Defender for Iot.
 
@@ -274,7 +276,7 @@ The following procedure describes how to update a standalone sensor using the se
 
 8. The update process starts, during which time the system is rebooted twice.
 
-9. After the first reboot (before the completion of the update process), the system opens with the sign-in window and after the sign-in, the following appears at the bottom left of the sidebar:
+9. After the first reboot (before the completion of the update process), the system opens with the sign-in window. After the sign-in, displays  at the bottom left of the sidebar:
 
     :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after login.":::
 
@@ -291,3 +293,7 @@ To access system properties:
 2. Select **System Settings**.
 
 3. Select **System Properties** from the general section.
+
+## See also
+
+[Manage Sensors from the Management Console](how-to-manage-sensors-from-the-on-premises-management-console.md)

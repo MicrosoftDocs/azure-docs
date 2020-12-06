@@ -276,39 +276,3 @@ This article describes the commands available to perform various system actions 
 |Display the status of all Azure Defender for IoT platform services|```system sanity```|Checks the sanity of the system, by listing the current status of all Azure Defender for IoT platform services|
 |Show the software version|```system version```|Displays the version of the software currently running on the system|
 
-## Glossary
-
-| Abbreviation | Meaning                                   |
-| ------------ | ----------------------------------------- |
-| AD           | Active Directory                          |
-| DB           | Database                                  |
-| CM           | Central Manager                           |
-| DHCP         | Dynamic Host Configuration Protocol       |
-| DMZ          | Demilitarized Zone                        |
-| DNS          | Domain Name System                        |
-| DR           | Disaster Recovery                         |
-| FW           | Firewall                                  |
-| Gbps         | Billions of bits per second               |
-| HA           | High Availability                         |
-| HDD          | Hard Disc Drive                           |
-| HMI          | Human Machine Interface                   |
-| ICS          | Industrialized Control System             |
-| M2M          | Machine to Machine                        |
-| SOC          | Security Operations Center                |
-| NTP          | Network Time Protocol                     |
-| OPC          | Open Platform Communications              |
-| OT           | Operational Technology                    |
-| PCAP         | Packet Capture Application Programming    |
-| PLC          | Programmable Logic Controller             |
-| SCADA        | Supervisory Control and Data Acquisition  |
-| SIEM         | Security Information and Event Management |
-| SNMP         | Simple Network Management Protocol        |
-| SOC          | Security Operations Center                |
-| SPAN         | Switched Port Analyzer                    |
-| SYSLOG       | System Logging Protocol                   |
-| TCP          | Transmission Control Protocol             |
-| UI           | User Interface                            |
-| VLAN         | Virtual Local Area Network                |
-| VM           | Virtual Machine                           |
-| VNET         | Virtual Network                           |
-

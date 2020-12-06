@@ -1085,6 +1085,6 @@ However, The user's experience when signing in to the sensor remains the same.
 
 4. Type `--port 10000`.
 
-### Next Steps
+### Next steps
 
 [Set up your network](how-to-set-up-your-network.md)

@@ -1,5 +1,4 @@
 
-
 # Integrate with active directory servers 
 
 Configure the sensor to work with Active Directory. This allows Active Directory users to access the sensor console using their Active Directory credentials.

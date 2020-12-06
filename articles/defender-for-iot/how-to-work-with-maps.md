@@ -9,13 +9,9 @@ ms.topic: article
 ms.service: azure
 ---
 
-# Overview
+# Investigate sensor detections in the device map
 
-## Investigate sensor detections in the map
-
-### The asset map
-
-The Asset Map provides a graphical representation of network assets detected. Use the map to:
+The Asset Map provides a graphical representation of network devices detected. Use the map to:
 
   - Retrieve, analyze and manage asset information.
 

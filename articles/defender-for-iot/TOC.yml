@@ -171,10 +171,10 @@
       href: how-to-work-with-threat-intelligence-packages.md
     - name: Work with device inventory information
       items: 
-      - name: Gain insight into devices discovered by all enterprise sensors
-        href: how-to-gain-insight-into-devices-discovered-by-all-enterprise-sensors.md
-      - name: Gain insight into devices discovered by a specific sensor
-        href: how-to-gain-insight-into-devices-discovered-by-a-specific-sensor.md
+      - name: Investigate all enterprise sensor detections in a device inventory
+        href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+      - name: Investigate sensor detections in a device inventory
+        href: how-to-investigate-sensor-detections-in-a-device-inventory.md
     - name: Work with maps
       href: how-to-work-with-maps.md
     - name: Work with alerts detected by a sensor
@@ -233,8 +233,8 @@
       href: how-to-define-access-tokens.md
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
-    - name: Setup active directory
-      href: how-to-setup-active-directory.md
+    - name: Set up active directory
+      href: how-to-set-up-active-directory.md
     - name: Manage proprietary protocols (Horizon)
       href: how-to-manage-proprietary-protocols.md  
   - name: Device builder

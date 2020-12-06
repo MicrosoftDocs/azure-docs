@@ -1,27 +1,27 @@
 ---
 title: Gain insight into devices discovered by a specific sensor
-description: 
+description: The Device Inventory displays an extensive range device attributes detected by a sensor. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/2/2020
+ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
-# Gain insight into devices discovered by a specific sensor 
+# Investigate sensor detections in a Device Inventory
 
-## Overview
+The Device Inventory displays an extensive range device attributes detected by a sensor. Options are available to:
 
-The Device Inventory displays an extensive range device attributes detected by the sensor. Options are available to:
-
- - Easily filter the information. 
+ - Easily filter the information.
 
  - Export information to a CSV file.
 
  - Import Windows registry details.
 
  - Create groups for display in the Device Map.
+
+## View device attributes in the Device Inventory
 
 The following Device Inventory attributes are displayed in the table.
 
@@ -44,7 +44,7 @@ The following Device Inventory attributes are displayed in the table.
 | Last Activity | The last activity performed by the device. |
 | Discovered | When this device was first seen in the network. |
 
-To switch to the Device Inventory view:
+To view the Device Inventory view:
 
 1. In the Navigation pane, select **Devices**. The **Devices** pane opens on the right.
 
@@ -62,17 +62,15 @@ To hide and display columns, customize the Device Inventory table:
 
 4. Select **Save**. The Device Inventory Settings window closes, and the new settings appear in the table.
 
-## Working with device inventory filters
+### Create temporary device inventory filters
 
-### Create temporary inventory filters
-
-For each column in the Device Inventory table, you can set a filter that defines what information is displayed in the table. For example, you can decide that you want to view only the PLC devices information.
+You can set a filters that define what information is displayed in the table. For example, you can decide that you want to view only the PLC devices information.
 
 :::image type="content" source="media/how-to-work-with-asset-inventory-information/devices-learning.png" alt-text="Devices learning.":::
 
-The filter is not saved when you leave the window.
+The filter is not saved when you leave the inventory window.
 
-### Save inventory filters
+### Save device inventory filters
 
 You can save a filter or a combination of filters that you need and reapply them in the Device Inventory. Create broader filters based on a certain device type, or more narrow filters based on a specific type and a specific protocol.
 
@@ -106,7 +104,7 @@ When switching to the map view, the filtered devices are highlighted and filtere
 
 :::image type="content" source="media/how-to-work-with-asset-inventory-information/filters-in-the-map-view.png" alt-text="View filters when in the map view.":::
 
-## Learning Windows registry details 
+## Learn Windows registry details
 
 In addition to learning OT devices, you can discovers IT devices, including Microsoft Windows® workstations and servers. These devices are also displayed in Device Inventory. Once learned, you can enrich the Device Inventory with detailed Windows information, for example:
 
@@ -146,7 +144,7 @@ The following Windows OS can be surveyed:
 
  - Windows Server 2003/2008/2012/2016
 
-### Before you begin 
+### Before you begin
 
 The following is required to work with the script.
 
@@ -156,7 +154,7 @@ The following is required to work with the script.
 
  - A sensor is monitoring the network the Windows PC is connected to.
 
-### Acquiring the script 
+### Acquire the script
 
 To receive the script, contact customer support at [support.microsoft.com](mailto:support.microsoft.com).
 
@@ -214,10 +212,16 @@ To import:
 
  :::image type="content" source="media/how-to-work-with-asset-inventory-information/add-new-file.png" alt-text="Add new files upload successful.":::
 
-## Export device inventory information
+## Export Device Inventory Information
 
 You can export device inventory information to an Excel file. Imported information overwrites current information.
 
 To export a CSV file:
 
 1. On the Device Inventory top-right menu, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false":::. The CSV report is generated and downloaded.
+
+## See also
+
+[Investigate all enterprise sensor detections in a Device Inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+
+[Investigate sensor detections in the device map](how-to-work-with-maps.md)
