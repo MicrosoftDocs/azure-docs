@@ -12,7 +12,7 @@ ms.author: mbaldwin
 ---
 # Workflow
 
-Microsoft Azure Attestation receives evidence from enclavess and evaluates the evidence against Azure security baseline and configurable policies. Upon successful verficiation, Azure Attestation generates an attestation token to confirm trustworthiness of the enclave.
+Microsoft Azure Attestation receives evidence from enclaves and evaluates the evidence against Azure security baseline and configurable policies. Upon successful verification, Azure Attestation generates an attestation token to confirm trustworthiness of the enclave.
 
 The following actors are involved in an Azure Attestation work flow:
 
