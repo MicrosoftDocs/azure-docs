@@ -34,6 +34,6 @@ When you receive an alert from Azure Defender for DNS, we recommend you investig
 
 This page explained the process of responding to an alert from Azure Defender for Key Vault. For related information see the following pages:
 
-- [Introduction to Azure Defender for DNS](defender-for-key-dns-introduction.md)
+- [Introduction to Azure Defender for DNS](defender-for-dns-introduction.md)
 - [Suppress alerts from Azure Defender](alerts-suppression-rules.md)
 - [Continuously export Security Center data](continuous-export.md)
