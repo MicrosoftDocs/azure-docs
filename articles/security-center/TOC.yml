@@ -264,6 +264,8 @@
     - name: Respond to Azure Defender for Key Vault alerts
       displayName: akv, kv
       href: defender-for-key-vault-usage.md
+    - name: Respond to Azure Defender for DNS alerts
+      href: defender-for-dns-usage.md
     - name: Manage security incidents
       href: security-center-incident.md
     - name: Generate threat intelligence reports

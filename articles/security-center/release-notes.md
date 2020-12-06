@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: memildin
 
 ---
@@ -33,6 +33,7 @@ Updates in December include:
 
 - [Azure Defender for SQL servers on machines is generally available](#azure-defender-for-sql-servers-on-machines-is-generally-available)
 - [Azure Defender for SQL support for Azure Synapse Analytics dedicated SQL pool is generally available](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [Twn new Azure Defender plans: Azure Defender for DNS and Azure Defender for Resource Manager (in preview)](#twn-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 
 ### Azure Defender for SQL servers on machines is generally available
 
@@ -64,6 +65,23 @@ Azure Defender for SQL protects your dedicated SQL pools with:
 Azure Defender for SQL's support for Azure Synapse Analytics SQL pools is automatically added to Azure SQL databases bundle in Azure Security Center. You'll find a new “Azure Defender for SQL” tab in your Synapse workspace page in the Azure portal.
 
 Learn more about [Azure Defender for SQL](defender-for-sql-introduction.md).
+
+
+### Twn new Azure Defender plans: Azure Defender for DNS and Azure Defender for Resource Manager (in preview)
+
+We've added two new cloud-native breadth threat protection capabilities for your Azure environment.
+
+These new protections greatly enhance your resiliency against attacks from threat actors, and significantly increase the number of Azure resources protected by Azure Defender.
+
+- **Azure Defender for Resource Manager** - automatically monitors all resource management operations performed in your organization. For more information, see:
+    - [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+    - [Introduction to Azure Defender for DNS](defender-for-dns-introduction.md)
+    - [Alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
+
+- **Azure Defender for DNS** - continuously monitors all DNS queries from your Azure resources. For more information, see:
+    - [Respond to Azure Defender for DNS alerts](defender-for-dns-usage.md)
+    - [Alerts provided by Azure Defender for DNS](alerts-reference.md#alerts-dns)
+
 
 ## November 2020
 

@@ -39,6 +39,13 @@ Azure Defender for DNS protects against issues including:
 
 For a full list of the alerts provided by Azure Defender for DNS, see the [alerts reference page](alerts-reference.md#alerts-dns).
 
+## Dependencies
+
+Azure Defender for DNS doesn't use any agents. 
+
+To protect your DNS layer, enable Azure Defender for DNS for each of your subscriptions as described in [Enable Azure Defender](security-center-pricing.md).
+
+
 ## Next steps
 
 In this article, you learned about Azure Defender for DNS. For related material, see the following article: 
