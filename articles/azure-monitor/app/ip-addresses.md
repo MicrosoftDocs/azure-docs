@@ -43,6 +43,10 @@ Status Monitor Configuration - needed only when making changes.
 ## Availability tests
 This is the list of addresses from which [availability web tests](./monitor-web-app-availability.md) are run. If you want to run web tests on your app, but your web server is restricted to serving specific clients, then you will have to permit incoming traffic from our availability test servers.
 
+
+> [!NOTE]
+> For resources located inside private virtual networks that cannot allow direct inbound communication with the availability test agents in public Azure, the alternative is to [create and host your own custom availability tests](availability-azure-functions.md).
+
 ### Service tag
 
 If you are using Azure Network Security Groups, simply add an **inbound port rule** to allow traffic from Application Insights availability tests by selecting **Service Tag** as the **Source** and **ApplicationInsightsAvailability** as the **Source service tag**.
