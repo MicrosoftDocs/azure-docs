@@ -138,7 +138,7 @@ If you are not seeing the two stack components say *Listen* next to them or they
 1. Open the Registry Editor (in Start menu, type *regedit*).
 2. Navigate to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations. 
 3. Under *WinStations* you may see several folders for different stack versions, select the folder that matches the version information that you made note of in part 3 under the Diagnosis section. 
-4. Scroll to find *fReverseConnectMode* and verify that its data value is 1. Also verify that *fEnableWinSatation* is set to 1.
+4. Scroll to find *fReverseConnectMode* and verify that its data value is 1. Also verify that *fEnableWinStation* is set to 1.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of fReverseConnectMode](media/freverseconnect.PNG)
