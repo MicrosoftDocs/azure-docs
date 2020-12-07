@@ -55,8 +55,8 @@ The following table briefly summarizes the differences in the way that workflows
 | Environment | Resource sharing and consumption |
 |-------------|----------------------------------|
 | Azure Logic Apps (Multi-tenant) | Workflows *from customers in multiple tenants* share the same processing (compute), storage, network, and so on. |
-| Azure Logic Apps (Preview) | Workflows *in the same logic app* share the same processing (compute), storage, and network. |
-| Integration service environment (unavailable in Preview) | Workflows in the *same environment* share the same processing (compute), storage, and network. |
+| Azure Logic Apps (Preview) | Workflows *in the same logic app* share the same processing (compute), storage, network, and so on. |
+| Integration service environment (unavailable in Preview) | Workflows in the *same environment* share the same processing (compute), storage, network, and so on. |
 ||||
 
 Meanwhile, you can still create the original logic app type in the Azure portal and in Visual Studio Code by using the original Azure Logic Apps extension. Although the development experiences differ between the original and new logic app types, your Azure subscription can include both types. You can view and access all the deployed logic apps in your Azure subscription, but the apps are organized into their own categories and sections.
