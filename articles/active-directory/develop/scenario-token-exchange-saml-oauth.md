@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 12/07/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ---
 
 # Microsoft identity platform token exchange scenarios with SAML and OAuth
 
-SAML and OpenID Connect (OIDC) / OAuth are popular standards used to implement single sign-on. Some apps might only speak SAML and others might only speak OIDC/OAuth. Both standards use tokens to communicate secrets.
+SAML and OpenID Connect (OIDC) / OAuth are popular protocols used to implement Single Sign-On (SSO). Some apps might only implement SAML and others might only implement OIDC/OAuth. Both protocols use tokens to communicate secrets.
 
-This article outlines common scenarios where you need to exchange tokens between standards. Basic guidance is provided including what is supported, what is not supported, and what is possible though not recommended.
+This article outlines common scenarios where you need to exchange tokens between SAML and OIDC/OAuth. Basic guidance is provided including what is supported, what is not supported, and what is possible though not recommended.
 
 ## Scenario: You have a SAML token and want to call Graph using an OAuth token
 
