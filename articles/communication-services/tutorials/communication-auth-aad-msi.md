@@ -14,13 +14,13 @@ ms.reviewer: <>
 
 # Authorize access to Administration and SMS APIs with managed identities for Azure resources
 
-Administration and SMS APIs support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
+Administration and SMS APIs support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to administration and SMS APIs using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
-This article shows how to authorize access to Administration and SMS APIs from an Azure VM using managed identities for Azure Resources. It also describes how to test your code in the development environment.
+This article shows how to authorize access to Administration and SMS APIs from an Azure Function using managed identities for Azure Resources. It also describes how to test your code in the development environment.
 
 ## Enable managed identities on an VM or App service
 
-Before you can use managed identities for Azure Resources to authorize access to blobs and queues from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure Resources, see one of these articles:
+Before you can use managed identities for Azure Resources to authorize access to ACS APIs from your Azure Function, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure Resources, see one of these articles:
 
 - [Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
@@ -31,7 +31,7 @@ Before you can use managed identities for Azure Resources to authorize access to
 
 ### Assign Azure roles for access to APIs
 
-When an Azure AD security principal attempts to access an API, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob or queue data in Azure Storage. For information about assigning permissions via Azure RBAC.
+When an Azure AD security principal attempts to access an API, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to ACS APIs. For information about assigning permissions via Azure RBAC.
 
 #### Azure Portal
 
@@ -61,7 +61,19 @@ When your code is running in the development environment, authentication may be 
 
 Other development tools may prompt you to login via a web browser.
 
-## [Pending SDK] .NET code example
+## Install client library packages
 
-TODO: Add code example
+```console
+dotnet add package Azure.Communication.Administration
+dotnet add package Azure.Identity
+```
 
+## .NET code example
+
+```csharp
+     string ResourceUrl = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_RESOURCE");
+     ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredential();
+     var client = new CommunicationIdentityClient(managedIdentityCredential, ResourceUrl);
+     var identityResponse = await client.CreateUserAsync();
+     var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+```
