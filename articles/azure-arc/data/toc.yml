@@ -80,6 +80,8 @@
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Get data controller username & password
           href: retrieve-the-username-password-for-data-controller.md
+        - name: Update service principal credentials
+          href: update-service-principal-credentials.md
     - name: Troubleshooting
       items:
         - name: Guide
