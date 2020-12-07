@@ -310,7 +310,7 @@ This error indicates that the broker was unable to find an endpoint to establish
 2. You will see how many session hosts you have in the host pool and how many active sessions next to *Total active sessions*. 
 3. Select *Properties* under the *Settings* on the blade on the left. 
 4. Under *Configuration* you will see *Max session limit*. 
-5. Verify that the \\( \[\frac{Total active sessions}{# of session hosts}\] < Max Session Limit\\). If not, you need to increase the max session limit or terminate some sessions.
+5. Verify that the $Total active sessions \div # of session hosts < Max Session Limit$. If not, you need to increase the max session limit or terminate some sessions.
 
 #### Verify that the agent services are running on your VM(s).
 
