@@ -4,7 +4,7 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/6/2020
+ms.date: 12/06/2020
 ms.service: azure
 ms.topic: how-to
 ---
@@ -29,7 +29,7 @@ You can perform the following from the management console Alerts window:
 
 ## View alerts in the on-premises management console
 
-The on-premises management console aggregates alerts from all connected Sensors. This provides an enterprise view of recent threats in your network and helps you better understand how Sensor users are handling them.
+The on-premises management console aggregates alerts from all connected sensors. This provides an enterprise view of recent threats in your network and helps you better understand how Sensor users are handling them.
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-with-samples.png" alt-text="Screenshot of the Alerts window.":::
 

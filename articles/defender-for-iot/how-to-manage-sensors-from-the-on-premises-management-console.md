@@ -321,7 +321,7 @@ To save sensor backup to an external SMB server:
 
  - `sudo nano /var/cyberx/properties/backup.properties` 
 
-9. Set Backup.shared_location to <backup_folder_name_on_cyberx_server>.
+9. Set Backup.shared_location to `<backup_folder_name_on_cyberx_server>`.
 
 ## See also
 
