@@ -16,6 +16,14 @@ In this article, we configure an Azure virtual machine running Linux to be an Io
 
 The steps in this article are typically performed by a cloud developer.
 
+In this section of the tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Create certificates to allow your gateway device to connect securely to your downstream devices.
+> * Create an IoT Edge device.
+> * Create an Azure Virtual Machine to simulate your IoT Edge device.
+
 ## Prerequisites
 
 This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.
