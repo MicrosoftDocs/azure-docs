@@ -7,7 +7,7 @@ ms.date: 11/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: mvc, contperfq2
 ---
 
 # What is Azure IoT Central?
@@ -29,7 +29,7 @@ This article outlines, for IoT Central:
 
 The IoT Central documentation refers to four personas who interact with an IoT Central application:
 
-- A _solution builder_ is responsible for [defining the types of devices](howto-set-up-template.md) that connect to the application and customizing the application for the operator.
+- A _solution builder_ is responsible for [creating an application](quick-deploy-iot-central.md), [configuring rules and actions](quick-configure-rules.md), [defining integrations with other services](howto-export-data.md), and further customizing the application for operators and device developers.
 - An _operator_ [manages the devices](howto-manage-devices.md) connected to the application.
 - An _administrator_ is responsible for administrative tasks such as managing [user roles and permissions](howto-administer.md) within the application.
 - A _device developer_ [creates the code that runs on a device](concepts-telemetry-properties-commands.md) or [IoT Edge module](concepts-iot-edge.md) connected to your application.
