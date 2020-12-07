@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 12/07/2020
 ---
 
 # Move operation support for resources
@@ -1021,7 +1021,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hanainstances | No | No |
-> | sapmonitors | Yes | Yes |
+> | sapmonitors | No | No |
 
 ## Microsoft.HardwareSecurityModules
 

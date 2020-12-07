@@ -17,6 +17,8 @@
     href: quick-create-portal.md
   - name: .NET
     href: quick-create-net.md
+  - name: Node.js
+    href: quick-create-node.md
   - name: Python
     href: quick-create-python.md
   - name: ARM template
