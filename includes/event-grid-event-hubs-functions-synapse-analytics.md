@@ -30,8 +30,6 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 * SQL Server for hosting the data warehouse
 * Azure Synapse Analytics (dedicated SQL pool) for storing the migrated data
 
-### Launch Azure Cloud Shell in Azure portal
-
 ### Use Azure CLI to deploy the infrastructure
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
@@ -93,10 +91,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
             --parameters eventHubNamespaceName=<event-hub-namespace> eventHubName=hubdatamigration sqlServerName=<sql-server-name> sqlServerUserName=<user-name> sqlServerPassword=<password> sqlServerDatabaseName=<database-name> storageName=<unique-storage-name> functionAppName=<app-name>
         ```
     3.  Press **ENTER** in the Cloud Shell window to run the command. This process may take a while since you are creating a bunch of resources. In the result of the command, ensure that there have been no failures. 
-    
-
-### Close the Cloud Shell 
-Close the cloud shell by selecting the **Cloud Shell** button in the portal (or) **X** button in the top-right corner of the Cloud Shell window. 
+1. Close the Cloud Shell by selecting the **Cloud Shell** button in the portal (or) **X** button in the top-right corner of the Cloud Shell window. 
 
 ### Verify that the resources are created
 
@@ -118,7 +113,7 @@ Create a table in your data warehouse by running the [CreateDataWarehouseTable.s
     ![Azure Synapse Analytics page](media/event-grid-event-hubs-functions-synapse-analytics/sql-data-warehouse-page.png)
 2. Enter the name of **user** and **password** for the SQL server, and select **OK**. If you see a message about allowing your client to access the SQL server, follow these steps:
     1. Select the link: **Set server firewall**. 
-    2. On the **Firewall settings** page, select **Add client IP** on the toolbar, and then select **Save** on the tooblar. 
+    2. On the **Firewall settings** page, select **Add client IP** on the toolbar, and then select **Save** on the toolbar. 
     3. Select **OK** on the success message.
     4. Navigate back to the **Dedicated SQL pool** page, and select **Query editor (preview)** on the left menu. 
     5. Enter **user** and **password**, and then select **OK**. 
