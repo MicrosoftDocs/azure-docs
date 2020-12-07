@@ -11,10 +11,17 @@ ms.custom: references_regions
 Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. To allow managed identities to be used with a managed cluster node type, a property `vmManagedIdentity` has been added to node type definitions containing a list of identities that may be used, `userAssignedIdentities`. Functionality mirrors how managed identities can be used in non-managed clusters, such as using a managed identity with the [Azure Key Vault virtual machine scale set extension](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
 
 
-For an example of a Service Fabric managed cluster deployment that makes use of managed identity on a node type, see [this template](LINK). For a list of supported regions, see the [managed cluster FAQ](https://docs.microsoft.com/azure/service-fabric/faq-managed-cluster#what-regions-are-supported-in-the-preview).
+For an example of a Service Fabric managed cluster deployment that makes use of managed identity on a node type, see [this template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). For a list of supported regions, see the [managed cluster FAQ](https://docs.microsoft.com/azure/service-fabric/faq-managed-cluster#what-regions-are-supported-in-the-preview).
 
 > [!NOTE]
 > Only user-assigned identities are currently supported for this feature.
+
+## Prerequisites
+
+Before you begin:
+
+* If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+* If you plan to use PowerShell, [install](https://docs.microsoft.com/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 
 ## Create a user-assigned managed identity 
 
