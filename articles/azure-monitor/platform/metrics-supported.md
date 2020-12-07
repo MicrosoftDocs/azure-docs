@@ -150,8 +150,8 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |jvm.memory.committed|Yes|jvm.memory.committed|Bytes|Average|Memory assigned to JVM in bytes|Deployment, AppName, Pod|
 |jvm.memory.max|Yes|jvm.memory.max|Bytes|Maximum|The maximum amount of memory in bytes that can be used for memory management|Deployment, AppName, Pod|
 |jvm.memory.used|Yes|jvm.memory.used|Bytes|Average|App Memory Used in bytes|Deployment, AppName, Pod|
-|process.cpu.usage|Yes|process.cpu.usage|Percent|Average|App JVM CPU Usage Percentage|Deployment, AppName, Pod|
-|system.cpu.usage|Yes|system.cpu.usage|Percent|Average|The recent cpu usage for the whole system|Deployment, AppName, Pod|
+|process.cpu.usage|Yes|process.cpu.usage|Percent|Average|The recent CPU usage for the JVM process|Deployment, AppName, Pod|
+|system.cpu.usage|Yes|system.cpu.usage|Percent|Average|The recent CPU usage for the whole system|Deployment, AppName, Pod|
 |tomcat.global.error|Yes|tomcat.global.error|Count|Total|Tomcat Global Error|Deployment, AppName, Pod|
 |tomcat.global.received|Yes|tomcat.global.received|Bytes|Total|Tomcat Total Received Bytes|Deployment, AppName, Pod|
 |tomcat.global.request.avg.time|Yes|tomcat.global.request.avg.time|Milliseconds|Average|Tomcat Request Average Time|Deployment, AppName, Pod|
@@ -268,6 +268,22 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
+|allcachehits|Yes|Cache Hits (Instance Based)|Count|Total||ShardId, Port, Primary|
+|allcachemisses|Yes|Cache Misses (Instance Based)|Count|Total||ShardId, Port, Primary|
+|allcacheRead|Yes|Cache Read (Instance Based)|BytesPerSecond|Maximum||ShardId, Port, Primary|
+|allcacheWrite|Yes|Cache Write (Instance Based)|BytesPerSecond|Maximum||ShardId, Port, Primary|
+|allconnectedclients|Yes|Connected Clients (Instance Based)|Count|Maximum||ShardId, Port, Primary|
+|allevictedkeys|Yes|Evicted Keys (Instance Based)|Count|Total||ShardId, Port, Primary|
+|allexpiredkeys|Yes|Expired Keys (Instance Based)|Count|Total||ShardId, Port, Primary|
+|allgetcommands|Yes|Gets (Instance Based)|Count|Total||ShardId, Port, Primary|
+|alloperationsPerSecond|Yes|Operations Per Second (Instance Based)|Count|Maximum||ShardId, Port, Primary|
+|allserverLoad|Yes|Server Load (Instance Based)|Percent|Maximum||ShardId, Port, Primary|
+|allsetcommands|Yes|Sets (Instance Based)|Count|Total||ShardId, Port, Primary|
+|alltotalcommandsprocessed|Yes|Total Operations  (Instance Based)|Count|Total||ShardId, Port, Primary|
+|alltotalkeys|Yes|Total Keys (Instance Based)|Count|Maximum||ShardId, Port, Primary|
+|allusedmemory|Yes|Used Memory (Instance Based)|Bytes|Maximum||ShardId, Port, Primary|
+|allusedmemorypercentage|Yes|Used Memory Percentage (Instance Based)|Percent|Maximum||ShardId, Port, Primary|
+|allusedmemoryRss|Yes|Used Memory RSS (Instance Based)|Bytes|Maximum||ShardId, Port, Primary|
 |cachehits|Yes|Cache Hits|Count|Total||ShardId|
 |cachehits0|Yes|Cache Hits (Shard 0)|Count|Total||No Dimensions|
 |cachehits1|Yes|Cache Hits (Shard 1)|Count|Total||No Dimensions|
@@ -571,7 +587,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |DataIn|Yes|Data In|Bytes|Total|Size of incoming data in bytes.|ApiName, OperationName, Region|
 |DataOut|Yes|Data Out|Bytes|Total|Size of outgoing data in bytes.|ApiName, OperationName, Region|
 |Latency|Yes|Latency|MilliSeconds|Average|Latency in milliseconds.|ApiName, OperationName, Region|
-|ProcessedImages|Yes|Processed Images|Count|Total| Number of Transactions for image processing.|ApiName, FeatureName, UsageChannel, Region|
+|ProcessedImages|Yes|Processed Images|Count|Total|Number of Transactions for image processing.|ApiName, FeatureName, UsageChannel, Region|
 |ServerErrors|Yes|Server Errors|Count|Total|Number of calls with service internal error (HTTP response code 5xx).|ApiName, OperationName, Region|
 |SpeechSessionDuration|Yes|Speech Session Duration|Seconds|Total|Total duration of speech session in seconds.|ApiName, OperationName, Region|
 |SuccessfulCalls|Yes|Successful Calls|Count|Total|Number of successful calls.|ApiName, OperationName, Region|
@@ -581,12 +597,25 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |TotalTransactions|Yes|Total Transactions|Count|Total|Total number of transactions.|No Dimensions|
 
 
+## Microsoft.Compute/cloudServices
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|Disk Read Bytes|Yes|Disk Read Bytes|Bytes|Total|Bytes read from disk during monitoring period|RoleInstanceId|
+|Disk Read Operations/Sec|Yes|Disk Read Operations/Sec|CountPerSecond|Average|Disk Read IOPS|RoleInstanceId|
+|Disk Write Bytes|Yes|Disk Write Bytes|Bytes|Total|Bytes written to disk during monitoring period|RoleInstanceId|
+|Disk Write Operations/Sec|Yes|Disk Write Operations/Sec|CountPerSecond|Average|Disk Write IOPS|RoleInstanceId|
+|Percentage CPU|Yes|Percentage CPU|Percent|Average|The percentage of allocated compute units that are currently in use by the Virtual Machine(s)|RoleInstanceId|
+
+
 ## Microsoft.Compute/virtualMachines
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |CPU Credits Consumed|Yes|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine|No Dimensions|
 |CPU Credits Remaining|Yes|CPU Credits Remaining|Count|Average|Total number of credits available to burst|No Dimensions|
+|Data Disk Bandwidth Consumed Percentage|Yes|Data Disk Bandwidth Consumed Percentage|Percent|Average|Percentage of data disk bandwidth consumed per minute|LUN|
+|Data Disk IOPS Consumed Percentage|Yes|Data Disk IOPS Consumed Percentage|Percent|Average|Percentage of data disk I/Os consumed per minute|LUN|
 |Data Disk Queue Depth|Yes|Data Disk Queue Depth (Preview)|Count|Average|Data Disk Queue Depth(or Queue Length)|LUN|
 |Data Disk Read Bytes/sec|Yes|Data Disk Read Bytes/Sec (Preview)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period|LUN|
 |Data Disk Read Operations/Sec|Yes|Data Disk Read Operations/Sec (Preview)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period|LUN|
@@ -602,6 +631,8 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |Network In Total|Yes|Network In Total|Bytes|Total|The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic)|No Dimensions|
 |Network Out|Yes|Network Out Billable (Deprecated)|Bytes|Total|The number of billable bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) (Deprecated)|No Dimensions|
 |Network Out Total|Yes|Network Out Total|Bytes|Total|The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic)|No Dimensions|
+|OS Disk Bandwidth Consumed Percentage|Yes|OS Disk Bandwidth Consumed Percentage|Percent|Average|Percentage of operating system disk bandwidth consumed per minute|LUN|
+|OS Disk IOPS Consumed Percentage|Yes|OS Disk IOPS Consumed Percentage|Percent|Average|Percentage of operating system disk I/Os consumed per minute|LUN|
 |OS Disk Queue Depth|Yes|OS Disk Queue Depth (Preview)|Count|Average|OS Disk Queue Depth(or Queue Length)|No Dimensions|
 |OS Disk Read Bytes/sec|Yes|OS Disk Read Bytes/Sec (Preview)|CountPerSecond|Average|Bytes/Sec read from a single disk during monitoring period for OS disk|No Dimensions|
 |OS Disk Read Operations/Sec|Yes|OS Disk Read Operations/Sec (Preview)|CountPerSecond|Average|Read IOPS from a single disk during monitoring period for OS disk|No Dimensions|
@@ -624,6 +655,10 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |Premium Data Disk Cache Read Miss|Yes|Premium Data Disk Cache Read Miss (Preview)|Percent|Average|Premium Data Disk Cache Read Miss|LUN|
 |Premium OS Disk Cache Read Hit|Yes|Premium OS Disk Cache Read Hit (Preview)|Percent|Average|Premium OS Disk Cache Read Hit|No Dimensions|
 |Premium OS Disk Cache Read Miss|Yes|Premium OS Disk Cache Read Miss (Preview)|Percent|Average|Premium OS Disk Cache Read Miss|No Dimensions|
+|VM Cached Bandwidth Consumed Percentage|Yes|VM Cached Bandwidth Consumed Percentage|Percent|Average|Percentage of cached disk bandwidth consumed by the VM|No Dimensions|
+|VM Cached IOPS Consumed Percentage|Yes|VM Cached IOPS Consumed Percentage|Percent|Average|Percentage of cached disk IOPS consumed by the VM|No Dimensions|
+|VM Uncached Bandwidth Consumed Percentage|Yes|VM Uncached Bandwidth Consumed Percentage|Percent|Average|Percentage of uncached disk bandwidth consumed by the VM|No Dimensions|
+|VM Uncached IOPS Consumed Percentage|Yes|VM Uncached IOPS Consumed Percentage|Percent|Average|Percentage of uncached disk IOPS consumed by the VM|No Dimensions|
 
 
 ## Microsoft.Compute/virtualMachineScaleSets
@@ -724,6 +759,18 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |MemoryUsage|Yes|Memory Usage|Bytes|Average|Total memory usage in byte.|containerName|
 |NetworkBytesReceivedPerSecond|Yes|Network Bytes Received Per Second|Bytes|Average|The network bytes received per second.|No Dimensions|
 |NetworkBytesTransmittedPerSecond|Yes|Network Bytes Transmitted Per Second|Bytes|Average|The network bytes transmitted per second.|No Dimensions|
+
+
+## Microsoft.ContainerRegistry/registries
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|AgentPoolCPUTime|Yes|AgentPool CPU Time|Seconds|Total|AgentPool CPU Time in seconds|No Dimensions|
+|RunDuration|Yes|Run Duration|Milliseconds|Total|Run Duration in milliseconds|No Dimensions|
+|SuccessfulPullCount|Yes|Successful Pull Count|Count|Average|Number of successful image pulls|No Dimensions|
+|SuccessfulPushCount|Yes|Successful Push Count|Count|Average|Number of successful image pushes|No Dimensions|
+|TotalPullCount|Yes|Total Pull Count|Count|Average|Number of image pulls in total|No Dimensions|
+|TotalPushCount|Yes|Total Push Count|Count|Average|Number of image pushes in total|No Dimensions|
 
 
 ## Microsoft.ContainerService/managedClusters
@@ -973,7 +1020,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |---|---|---|---|---|---|---|
 |AddRegion|Yes|Region Added|Count|Count|Region Added|Region|
 |AutoscaleMaxThroughput|No|Autoscale Max Throughput|Count|Maximum|Autoscale Max Throughput|DatabaseName, CollectionName|
-|AvailableStorage|No|(deprecated) Available Storage|Bytes|Total|"Available Storage" will be removed from Azure Monitor at the end of September 2020. Cosmos DB collection storage size is now unlimited. The only restriction is that the storage size for each logical partition key is 20GB. You can enable PartitionKeyStatistics in Diagnostic Log to know the storage consumption for top partition keys. For more info about Cosmos DB storage quota, please check this doc https://docs.microsoft.com/azure/cosmos-db/concepts-limits. After deprecation, the remaining alert rules still defined on the deprecated metric will be automatically disabled post the deprecation date.|CollectionName, DatabaseName, Region|
+|AvailableStorage|No|(deprecated) Available Storage|Bytes|Total|"Available Storage" will be removed from Azure Monitor at the end of September 2023. Cosmos DB collection storage size is now unlimited. The only restriction is that the storage size for each logical partition key is 20GB. You can enable PartitionKeyStatistics in Diagnostic Log to know the storage consumption for top partition keys. For more info about Cosmos DB storage quota, please check this doc https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits. After deprecation, the remaining alert rules still defined on the deprecated metric will be automatically disabled post the deprecation date.|CollectionName, DatabaseName, Region|
 |CassandraConnectionClosures|No|Cassandra Connection Closures|Count|Total|Number of Cassandra connections that were closed, reported at a 1 minute granularity|Region, ClosureReason|
 |CassandraConnectorAvgReplicationLatency|No|Cassandra Connector Average ReplicationLatency|MilliSeconds|Average|Cassandra Connector Average ReplicationLatency|No Dimensions|
 |CassandraConnectorReplicationHealthStatus|No|Cassandra Connector Replication Health Status|Count|Count|Cassandra Connector Replication Health Status|NotStarted, ReplicationInProgress, Error|
@@ -1253,6 +1300,51 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |ServiceApiResult|Yes|Total Service Api Results|Count|Count|Number of total service api results|ActivityType, ActivityName, StatusCode, StatusCodeClass|
 
 
+## Microsoft.Kusto/Clusters
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BatchBlobCount|Yes|Batch Blob Count|Count|Average|Number of data sources in an aggregated batch for ingestion.|Database|
+|BatchDuration|Yes|Batch Duration|Seconds|Average|The duration of the aggregation phase in the ingestion flow.|Database|
+|BatchesProcessed|Yes|Batches Processed|Count|Average|Number of batches aggregated for ingestion. Batching Type: whether the batch reached batching time, data size or number of files limit set by batching policy|Database, SealReason|
+|BatchSize|Yes|Batch Size|Bytes|Average|Uncompressed expected data size in an aggregated batch for ingestion.|Database|
+|BlobsProcessed|Yes|Blobs Processed|Count|Average|Number of blobs processed by a component.|Database, ComponentType, ComponentName|
+|BlobsReceived|Yes|Blobs Received|Count|Average|Number of blobs received from input stream by a component.|Database, ComponentType, ComponentName|
+|BlobsRejected|Yes|Blobs Rejected|Count|Average|Number of blobs permanently rejected by a component.|Database, ComponentType, ComponentName|
+|CacheUtilization|Yes|Cache utilization|Percent|Average|Utilization level in the cluster scope|No Dimensions|
+|ContinuousExportMaxLatenessMinutes|Yes|Continuous Export Max Lateness|Count|Maximum|The lateness (in minutes) reported by the continuous export jobs in the cluster|No Dimensions|
+|ContinuousExportNumOfRecordsExported|Yes|Continuous export – num of exported records|Count|Total|Number of records exported, fired for every storage artifact written during the export operation|ContinuousExportName, Database|
+|ContinuousExportPendingCount|Yes|Continuous Export Pending Count|Count|Maximum|The number of pending continuous export jobs ready for execution|No Dimensions|
+|ContinuousExportResult|Yes|Continuous Export Result|Count|Count|Indicates whether Continuous Export succeeded or failed|ContinuousExportName, Result, Database|
+|CPU|Yes|CPU|Percent|Average|CPU utilization level|No Dimensions|
+|CumulativeLatency|Yes|Cumulative Latency|Seconds|Average|Cumulative time from when a message is discovered until it is received by the reporting component for processing (discovery time is set when message is enqueued for ingestion queue, or when discovered by data connection).|Database, ComponentType|
+|DiscoveryLatency|Yes|Discovery Latency|Seconds|Average|Reported by data connections (if exist). Time in seconds from when a message is enqueued or event is created until it is discovered by data connection. This time is not included in the Azure Data Explorer total ingestion duration.|ComponentType, ComponentName|
+|EventsProcessedForEventHubs|Yes|Events processed (for Event/IoT Hubs)|Count|Total|Number of events processed by the cluster when ingesting from Event/IoT Hub|EventStatus|
+|ExportUtilization|Yes|Export Utilization|Percent|Maximum|Export utilization|No Dimensions|
+|IngestionLatencyInSeconds|Yes|Ingestion latency|Seconds|Average|Ingestion time from the source (e.g. message is in EventHub) to the cluster in seconds|No Dimensions|
+|IngestionResult|Yes|Ingestion result|Count|Count|Number of ingestion operations|IngestionResultDetails|
+|IngestionUtilization|Yes|Ingestion utilization|Percent|Average|Ratio of used ingestion slots in the cluster|No Dimensions|
+|IngestionVolumeInMB|Yes|Ingestion volume (in MB)|Bytes|Total|Overall volume of ingested data to the cluster (in MB)|No Dimensions|
+|InstanceCount|Yes|Instance Count|Count|Average|Total instance count|No Dimensions|
+|KeepAlive|Yes|Keep alive|Count|Average|Sanity check indicates the cluster responds to queries|No Dimensions|
+|MaterializedViewAgeMinutes|Yes|Materialized View Age|Count|Average|The materialized view age in minutes|Database, MaterializedViewName|
+|MaterializedViewDataLoss|Yes|Materialized View Data Loss|Count|Maximum|Indicates potential data loss in materialized view|Database, MaterializedViewName, Kind|
+|MaterializedViewExtentsRebuild|Yes|Materialized View Extents Rebuild|Count|Average|Number of extents rebuild|Database, MaterializedViewName|
+|MaterializedViewHealth|Yes|Materialized View Health|Count|Average|The health of the materialized view (1 for healthy, 0 for non-healthy)|Database, MaterializedViewName|
+|MaterializedViewRecordsInDelta|Yes|Materialized View Records In Delta|Count|Average|The number of records in the non-materialized part of the view|Database, MaterializedViewName|
+|MaterializedViewResult|Yes|Materialized View Result|Count|Average|The result of the materialization process|Database, MaterializedViewName, Result|
+|QueryDuration|Yes|Query duration|Milliseconds|Average|Queries’ duration in seconds|QueryStatus|
+|QueryResult|No|Query Result|Count|Count|Total number of queries.|Status|
+|SteamingIngestRequestRate|Yes|Streaming Ingest Request Rate|Count|RateRequestsPerSecond|Streaming ingest request rate (requests per second)|No Dimensions|
+|StreamingIngestDataRate|Yes|Streaming Ingest Data Rate|Count|Average|Streaming ingest data rate (MB per second)|No Dimensions|
+|StreamingIngestDuration|Yes|Streaming Ingest Duration|Milliseconds|Average|Streaming ingest duration in milliseconds|No Dimensions|
+|StreamingIngestResults|Yes|Streaming Ingest Result|Count|Average|Streaming ingest result|Result|
+|TotalNumberOfConcurrentQueries|Yes|Total number of concurrent queries|Count|Total|Total number of concurrent queries|No Dimensions|
+|TotalNumberOfExtents|Yes|Total number of extents|Count|Total|Total number of data extents|No Dimensions|
+|TotalNumberOfThrottledCommands|Yes|Total number of throttled commands|Count|Total|Total number of throttled commands|CommandType|
+|TotalNumberOfThrottledQueries|Yes|Total number of throttled queries|Count|Total|Total number of throttled queries|No Dimensions|
+
+
 ## Microsoft.Logic/integrationServiceEnvironments
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1337,13 +1429,13 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |---|---|---|---|---|---|---|
 |Active Cores|Yes|Active Cores|Count|Average|Number of active cores|Scenario, ClusterName|
 |Active Nodes|Yes|Active Nodes|Count|Average|Number of Acitve nodes. These are the nodes which are actively running a job.|Scenario, ClusterName|
-|Cancel Requested Runs|Yes|Cancel Requested Runs|Count|Total|Number of runs where cancel was requested for this workspace. Count is updated when cancellation request has been received for a run.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Cancelled Runs|Yes|Cancelled Runs|Count|Total|Number of runs cancelled for this workspace. Count is updated when a run is successfully cancelled.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Completed Runs|Yes|Completed Runs|Count|Total|Number of runs completed successfully for this workspace. Count is updated when a run has completed and output has been collected.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
+|Cancel Requested Runs|Yes|Cancel Requested Runs|Count|Total|Number of runs where cancel was requested for this workspace. Count is updated when cancellation request has been received for a run.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
+|Cancelled Runs|Yes|Cancelled Runs|Count|Total|Number of runs cancelled for this workspace. Count is updated when a run is successfully cancelled.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
+|Completed Runs|Yes|Completed Runs|Count|Total|Number of runs completed successfully for this workspace. Count is updated when a run has completed and output has been collected.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
 |CpuUtilization|Yes|CpuUtilization|Count|Average|Percentage of utilization on a CPU node. Utilization is reported at one minute intervals.|Scenario, runId, NodeId, ClusterName|
 |Errors|Yes|Errors|Count|Total|Number of run errors in this workspace. Count is updated whenever run encounters an error.|Scenario|
-|Failed Runs|Yes|Failed Runs|Count|Total|Number of runs failed for this workspace. Count is updated when a run fails.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Finalizing Runs|Yes|Finalizing Runs|Count|Total|Number of runs entered finalizing state for this workspace. Count is updated when a run has completed but output collection still in progress.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
+|Failed Runs|Yes|Failed Runs|Count|Total|Number of runs failed for this workspace. Count is updated when a run fails.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
+|Finalizing Runs|Yes|Finalizing Runs|Count|Total|Number of runs entered finalizing state for this workspace. Count is updated when a run has completed but output collection still in progress.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
 |GpuUtilization|Yes|GpuUtilization|Count|Average|Percentage of utilization on a GPU node. Utilization is reported at one minute intervals.|Scenario, runId, NodeId, DeviceId, ClusterName|
 |Idle Cores|Yes|Idle Cores|Count|Average|Number of idle cores|Scenario, ClusterName|
 |Idle Nodes|Yes|Idle Nodes|Count|Average|Number of idle nodes. Idle nodes are the nodes which are not running any jobs but can accept new job if available.|Scenario, ClusterName|
@@ -1354,18 +1446,18 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |Model Deploy Succeeded|Yes|Model Deploy Succeeded|Count|Total|Number of model deployments that succeeded in this workspace|Scenario|
 |Model Register Failed|Yes|Model Register Failed|Count|Total|Number of model registrations that failed in this workspace|Scenario, StatusCode|
 |Model Register Succeeded|Yes|Model Register Succeeded|Count|Total|Number of model registrations that succeeded in this workspace|Scenario|
-|Not Responding Runs|Yes|Not Responding Runs|Count|Total|Number of runs not responding for this workspace. Count is updated when a run enters Not Responding state.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Not Started Runs|Yes|Not Started Runs|Count|Total|Number of runs in Not Started state for this workspace. Count is updated when a request is received to create a run but run information has not yet been populated. |Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
+|Not Responding Runs|Yes|Not Responding Runs|Count|Total|Number of runs not responding for this workspace. Count is updated when a run enters Not Responding state.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
+|Not Started Runs|Yes|Not Started Runs|Count|Total|Number of runs in Not Started state for this workspace. Count is updated when a request is received to create a run but run information has not yet been populated. |Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
 |Preempted Cores|Yes|Preempted Cores|Count|Average|Number of preempted cores|Scenario, ClusterName|
 |Preempted Nodes|Yes|Preempted Nodes|Count|Average|Number of preempted nodes. These nodes are the low priority nodes which are taken away from the available node pool.|Scenario, ClusterName|
-|Preparing Runs|Yes|Preparing Runs|Count|Total|Number of runs that are preparing for this workspace. Count is updated when a run enters Preparing state while the run environment is being prepared.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Provisioning Runs|Yes|Provisioning Runs|Count|Total|Number of runs that are provisioning for this workspace. Count is updated when a run is waiting on compute target creation or provisioning.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Queued Runs|Yes|Queued Runs|Count|Total|Number of runs that are queued for this workspace. Count is updated when a run is queued in compute target. Can occur when waiting for required compute nodes to be ready.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
+|Preparing Runs|Yes|Preparing Runs|Count|Total|Number of runs that are preparing for this workspace. Count is updated when a run enters Preparing state while the run environment is being prepared.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
+|Provisioning Runs|Yes|Provisioning Runs|Count|Total|Number of runs that are provisioning for this workspace. Count is updated when a run is waiting on compute target creation or provisioning.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
+|Queued Runs|Yes|Queued Runs|Count|Total|Number of runs that are queued for this workspace. Count is updated when a run is queued in compute target. Can occure when waiting for required compute nodes to be ready.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
 |Quota Utilization Percentage|Yes|Quota Utilization Percentage|Count|Average|Percent of quota utilized|Scenario, ClusterName, VmFamilyName, VmPriority|
-|Started Runs|Yes|Started Runs|Count|Total|Number of runs running for this workspace. Count is updated when run starts running on required resources.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Starting Runs|Yes|Starting Runs|Count|Total|Number of runs started for this workspace. Count is updated after request to create run and run info, such as the Run Id, has been populated|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
+|Started Runs|Yes|Started Runs|Count|Total|Number of runs running for this workspace. Count is updated when run starts running on required resources.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
+|Starting Runs|Yes|Starting Runs|Count|Total|Number of runs started for this workspace. Count is updated after request to create run and run info, such as the Run Id, has been populated|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType, ExperimentName|
 |Total Cores|Yes|Total Cores|Count|Average|Number of total cores|Scenario, ClusterName|
-|Total Nodes|Yes|Total Nodes|Count|Average|Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Preempted Nodes, Leaving Nodes|Scenario, ClusterName|
+|Total Nodes|Yes|Total Nodes|Count|Average|Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Premepted Nodes, Leaving Nodes|Scenario, ClusterName|
 |Unusable Cores|Yes|Unusable Cores|Count|Average|Number of unusable cores|Scenario, ClusterName|
 |Unusable Nodes|Yes|Unusable Nodes|Count|Average|Number of unusable nodes. Unusable nodes are not functional due to some unresolvable issue. Azure will recycle these nodes.|Scenario, ClusterName|
 |Warnings|Yes|Warnings|Count|Total|Number of run warnings in this workspace. Count is updated whenever a run encounters a warning.|Scenario|
@@ -1453,7 +1545,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |BytesReceived|Yes|Bytes Received|Bytes|Total|The total number of bytes received by the Application Gateway from the clients|Listener|
 |BytesSent|Yes|Bytes Sent|Bytes|Total|The total number of bytes sent by the Application Gateway to the clients|Listener|
 |CapacityUnits|No|Current Capacity Units|Count|Average|Capacity Units consumed|No Dimensions|
-|ClientRtt|No|Client RTT|MilliSeconds|Average|Average round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgments|Listener|
+|ClientRtt|No|Client RTT|MilliSeconds|Average|Average round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgements|Listener|
 |ComputeUnits|No|Current Compute Units|Count|Average|Compute Units consumed|No Dimensions|
 |CpuUtilization|No|CPU Utilization|Percent|Average|Current CPU utilization of the Application Gateway|No Dimensions|
 |CurrentConnections|Yes|Current Connections|Count|Total|Count of current connections established with Application Gateway|No Dimensions|
@@ -1486,8 +1578,8 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|BitsInPerSecond|Yes|BitsInPerSecond|CountPerSecond|Average|Bits ingressing Azure per second|No Dimensions|
-|BitsOutPerSecond|Yes|BitsOutPerSecond|CountPerSecond|Average|Bits egressing Azure per second|No Dimensions|
+|BitsInPerSecond|Yes|BitsInPerSecond|BitsPerSecond|Average|Bits ingressing Azure per second|No Dimensions|
+|BitsOutPerSecond|Yes|BitsOutPerSecond|BitsPerSecond|Average|Bits egressing Azure per second|No Dimensions|
 
 
 ## Microsoft.Network/dnszones
@@ -1561,7 +1653,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |AllocatedSnatPorts|No|Allocated SNAT Ports|Count|Average|Total number of SNAT ports allocated within time period|FrontendIPAddress, BackendIPAddress, ProtocolType, |
-|ByteCount|Yes|Byte Count|Count|Total|Total number of Bytes transmitted within time period|FrontendIPAddress, FrontendPort, Direction|
+|ByteCount|Yes|Byte Count|Bytes|Total|Total number of Bytes transmitted within time period|FrontendIPAddress, FrontendPort, Direction|
 |DipAvailability|Yes|Health Probe Status|Count|Average|Average Load Balancer health probe status per time duration|ProtocolType, BackendPort, FrontendIPAddress, FrontendPort, BackendIPAddress|
 |PacketCount|Yes|Packet Count|Count|Total|Total number of Packets transmitted within time period|FrontendIPAddress, FrontendPort, Direction|
 |SnatConnectionCount|Yes|SNAT Connection Count|Count|Total|Total number of new SNAT connections created within time period|FrontendIPAddress, BackendIPAddress, ConnectionState|
@@ -1594,7 +1686,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ByteCount|Yes|Byte Count|Count|Total|Total number of Bytes transmitted within time period|Port, Direction|
+|ByteCount|Yes|Byte Count|Bytes|Total|Total number of Bytes transmitted within time period|Port, Direction|
 |BytesDroppedDDoS|Yes|Inbound bytes dropped DDoS|BytesPerSecond|Maximum|Inbound bytes dropped DDoS|No Dimensions|
 |BytesForwardedDDoS|Yes|Inbound bytes forwarded DDoS|BytesPerSecond|Maximum|Inbound bytes forwarded DDoS|No Dimensions|
 |BytesInDDoS|Yes|Inbound bytes DDoS|BytesPerSecond|Maximum|Inbound bytes DDoS|No Dimensions|
@@ -1853,7 +1945,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |ActiveMessages|No|Count of active messages in a Queue/Topic.|Count|Average|Count of active messages in a Queue/Topic.|EntityName|
 |ConnectionsClosed|No|Connections Closed.|Count|Average|Connections Closed for Microsoft.ServiceBus.|EntityName|
 |ConnectionsOpened|No|Connections Opened.|Count|Average|Connections Opened for Microsoft.ServiceBus.|EntityName|
-|CPUXNS|No|CPU (Deprecated)|Percent|Maximum|Service bus premium namespace CPU usage metric. This metric is deprecated. Please use the CPU metric (NamespaceCpuUsage) instead.|No Dimensions|
+|CPUXNS|No|CPU (Deprecated)|Percent|Maximum|Service bus premium namespace CPU usage metric. This metric is depricated. Please use the CPU metric (NamespaceCpuUsage) instead.|No Dimensions|
 |DeadletteredMessages|No|Count of dead-lettered messages in a Queue/Topic.|Count|Average|Count of dead-lettered messages in a Queue/Topic.|EntityName|
 |IncomingMessages|Yes|Incoming Messages|Count|Total|Incoming Messages for Microsoft.ServiceBus.|EntityName|
 |IncomingRequests|Yes|Incoming Requests|Count|Total|Incoming Requests for Microsoft.ServiceBus.|EntityName|
@@ -1951,9 +2043,9 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |sqlserver_process_memory_percent|Yes|SQL Server process memory percent|Percent|Maximum|Memory usage as a percentage of the SQL DB process. Not applicable to data warehouses.|No Dimensions|
 |storage|Yes|Data space used|Bytes|Maximum|Data space used. Not applicable to data warehouses.|No Dimensions|
 |storage_percent|Yes|Data space used percent|Percent|Maximum|Data space used percent. Not applicable to data warehouses or hyperscale databases.|No Dimensions|
-|tempdb_data_size|Yes|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes. Not applicable to data warehouses.|No Dimensions|
-|tempdb_log_size|Yes|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. Not applicable to data warehouses.|No Dimensions|
-|tempdb_log_used_percent|Yes|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used. Not applicable to data warehouses.|No Dimensions|
+|tempdb_data_size|Yes|Tempdb Data File Size Kilobytes|Count|Maximum|Space used in tempdb data files in kilobytes. Not applicable to data warehouses.|No Dimensions|
+|tempdb_log_size|Yes|Tempdb Log File Size Kilobytes|Count|Maximum|Space used in tempdb transaction log file in kilobytes. Not applicable to data warehouses.|No Dimensions|
+|tempdb_log_used_percent|Yes|Tempdb Percent Log Used|Percent|Maximum|Space used percentage in tempdb transaction log file. Not applicable to data warehouses.|No Dimensions|
 |wlg_active_queries|Yes|Workload group active queries|Count|Total|Active queries within the workload group. Applies only to data warehouses.|WorkloadGroupName, IsUserDefined|
 |wlg_active_queries_timeouts|Yes|Workload group query timeouts|Count|Total|Queries that have timed out for the workload group. Applies only to data warehouses.|WorkloadGroupName, IsUserDefined|
 |wlg_allocation_relative_to_system_percent|Yes|Workload group allocation by system percent|Percent|Maximum|Allocated percentage of resources relative to the entire system per workload group. Applies only to data warehouses.|WorkloadGroupName, IsUserDefined|
@@ -1996,9 +2088,9 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |storage_limit|Yes|Data max size|Bytes|Average|Data max size|No Dimensions|
 |storage_percent|Yes|Data space used percent|Percent|Average|Data space used percent|No Dimensions|
 |storage_used|Yes|Data space used|Bytes|Average|Data space used|No Dimensions|
-|tempdb_data_size|Yes|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes|No Dimensions|
-|tempdb_log_size|Yes|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes|No Dimensions|
-|tempdb_log_used_percent|Yes|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used|No Dimensions|
+|tempdb_data_size|Yes|Tempdb Data File Size Kilobytes|Count|Maximum|Space used in tempdb data files in kilobytes.|No Dimensions|
+|tempdb_log_size|Yes|Tempdb Log File Size Kilobytes|Count|Maximum|Space used in tempdb transaction log file in kilobytes.|No Dimensions|
+|tempdb_log_used_percent|Yes|Tempdb Percent Log Used|Percent|Maximum|Space used percentage in tempdb transaction log file|No Dimensions|
 |workers_percent|Yes|Workers percentage|Percent|Average|Workers percentage|No Dimensions|
 |xtp_storage_percent|Yes|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|No Dimensions|
 
@@ -2092,7 +2184,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |StorageSyncRecalledTotalNetworkBytes|Yes|Cloud tiering recall size|Bytes|Total|Size of data recalled|SyncGroupName, ServerName|
 |StorageSyncRecallIOTotalSizeBytes|Yes|Cloud tiering recall|Bytes|Total|Total size of data recalled by the server|ServerName|
 |StorageSyncRecallThroughputBytesPerSecond|Yes|Cloud tiering recall throughput|BytesPerSecond|Average|Size of data recall throughput|SyncGroupName, ServerName|
-|StorageSyncServerHeartbeat|Yes|Server Online Status|Count|Maximum|Metric that logs a value of 1 each time the registered server successfully records a heartbeat with the Cloud Endpoint|ServerName|
+|StorageSyncServerHeartbeat|Yes|Server Online Status|Count|Maximum|Metric that logs a value of 1 each time the resigtered server successfully records a heartbeat with the Cloud Endpoint|ServerName|
 |StorageSyncSyncSessionAppliedFilesCount|Yes|Files Synced|Count|Total|Count of Files synced|SyncGroupName, ServerEndpointName, SyncDirection|
 |StorageSyncSyncSessionPerItemErrorsCount|Yes|Files not syncing|Count|Total|Count of files failed to sync|SyncGroupName, ServerEndpointName, SyncDirection|
 
@@ -2101,7 +2193,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ServerHeartbeat|Yes|Server Online Status|Count|Maximum|Metric that logs a value of 1 each time the registered server successfully records a heartbeat with the Cloud Endpoint|ServerResourceId, ServerName|
+|ServerHeartbeat|Yes|Server Online Status|Count|Maximum|Metric that logs a value of 1 each time the resigtered server successfully records a heartbeat with the Cloud Endpoint|ServerResourceId, ServerName|
 |ServerRecallIOTotalSizeBytes|Yes|Cloud tiering recall|Bytes|Total|Total size of data recalled by the server|ServerResourceId, ServerName|
 
 
@@ -2145,40 +2237,19 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |ResourceUtilization|Yes|SU % Utilization|Percent|Maximum|SU % Utilization|LogicalName, PartitionId|
 
 
-## Microsoft.Synapse/workspaces
-
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|OrchestrationActivityRunsEnded|No|Activity runs ended|Count|Total|Count of orchestration activities that succeeded, failed, or were cancelled|Result, FailureType, Activity, ActivityType, Pipeline|
-|OrchestrationPipelineRunsEnded|No|Pipeline runs ended|Count|Total|Count of orchestration pipeline runs that succeeded, failed, or were cancelled|Result, FailureType, Pipeline|
-|OrchestrationTriggersEnded|No|Triggers ended|Count|Total|Count of orchestration triggers that succeeded, failed, or were cancelled|Result, FailureType, Trigger|
-|SQLOnDemandLoginAttempts|No|Login attempts|Count|Total|Count of login attempts that succeeded or failed|Result|
-|SQLOnDemandQueriesEnded|No|Queries ended|Count|Total|Count of queries that succeeded, failed, or were cancelled|Result|
-|SQLOnDemandQueryProcessedBytes|No|Data processed|Bytes|Total|Amount of data processed by queries|No Dimensions|
-
-
-## Microsoft.Synapse/workspaces/bigDataPools
-
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|CoresCapacity|No|Cores capacity|Count|Maximum|Cores capacity|No Dimensions|
-|MemoryCapacityGB|No|Memory capacity (GB)|Count|Maximum|Memory capacity (GB)|No Dimensions|
-|SparkJobsEnded|Yes|Ended applications|Count|Total|Count of ended applications|JobType, JobResult|
-
-
 ## Microsoft.Synapse/workspaces/sqlPools
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |AdaptiveCacheHitPercent|No|Adaptive cache hit percentage|Percent|Maximum|Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache hit percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache|No Dimensions|
 |AdaptiveCacheUsedPercent|No|Adaptive cache used percentage|Percent|Maximum|Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache used percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache|No Dimensions|
-|Connections|Yes|Connections|Count|Total|Count of Total logins to the dedicated SQL pool|Result|
-|ConnectionsBlockedByFirewall|No|Connections blocked by firewall|Count|Total|Count of connections blocked by firewall rules. Revisit access control policies for your dedicated SQL pool and monitor these connections if the count is high|No Dimensions|
-|DWULimit|No|DWU limit|Count|Maximum|Service level objective of the dedicated SQL pool|No Dimensions|
-|DWUUsed|No|DWU used|Count|Maximum|Represents a high-level representation of usage across the dedicated SQL pool. Measured by DWU limit * DWU percentage|No Dimensions|
-|DWUUsedPercent|No|DWU used percentage|Percent|Maximum|Represents a high-level representation of usage across the dedicated SQL pool. Measured by taking the maximum between CPU percentage and Data IO percentage|No Dimensions|
+|Connections|Yes|Connections|Count|Total|Count of Total logins to the SQL pool|Result|
+|ConnectionsBlockedByFirewall|No|Connections blocked by firewall|Count|Total|Count of connections blocked by firewall rules. Revisit access control policies for your SQL pool and monitor these connections if the count is high|No Dimensions|
+|DWULimit|No|DWU limit|Count|Maximum|Service level objective of the SQL pool|No Dimensions|
+|DWUUsed|No|DWU used|Count|Maximum|Represents a high-level representation of usage across the SQL pool. Measured by DWU limit * DWU percentage|No Dimensions|
+|DWUUsedPercent|No|DWU used percentage|Percent|Maximum|Represents a high-level representation of usage across the SQL pool. Measured by taking the maximum between CPU percentage and Data IO percentage|No Dimensions|
 |LocalTempDBUsedPercent|No|Local tempdb used percentage|Percent|Maximum|Local tempdb utilization across all compute nodes - values are emitted every five minute|No Dimensions|
-|MemoryUsedPercent|No|Memory used percentage|Percent|Maximum|Memory utilization across all nodes in the dedicated SQL pool|No Dimensions|
+|MemoryUsedPercent|No|Memory used percentage|Percent|Maximum|Memory utilization across all nodes in the SQL pool|No Dimensions|
 |wlg_effective_min_resource_percent|Yes|Effective min resource percent|Percent|Minimum|The effective min resource percentage setting allowed considering the service level and the workload group settings. The effective min_percentage_resource can be adjusted higher on lower service levels|IsUserDefined, WorkloadGroup|
 |WLGActiveQueries|No|Workload group active queries|Count|Total|The active queries within the workload group. Using this metric unfiltered and unsplit displays all active queries running on the system|IsUserDefined, WorkloadGroup|
 |WLGActiveQueriesTimeouts|No|Workload group query timeouts|Count|Total|Queries for the workload group that have timed out. Query timeouts reported by this metric are only once the query has started executing (it does not include wait time due to locking or resource waits)|IsUserDefined, WorkloadGroup|
@@ -2247,26 +2318,26 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ActiveRequests|Yes|Active Requests|Count|Total|Active Requests|Instance|
-|AverageResponseTime|Yes|Average Response Time (deprecated)|Seconds|Average|Average Response Time (deprecated)|Instance|
-|BytesReceived|Yes|Data In|Bytes|Total|Data In|Instance|
-|BytesSent|Yes|Data Out|Bytes|Total|Data Out|Instance|
-|CpuPercentage|Yes|CPU Percentage|Percent|Average|CPU Percentage|Instance|
-|DiskQueueLength|Yes|Disk Queue Length|Count|Average|Disk Queue Length|Instance|
-|Http101|Yes|Http 101|Count|Total|Http 101|Instance|
-|Http2xx|Yes|Http 2xx|Count|Total|Http 2xx|Instance|
-|Http3xx|Yes|Http 3xx|Count|Total|Http 3xx|Instance|
-|Http401|Yes|Http 401|Count|Total|Http 401|Instance|
-|Http403|Yes|Http 403|Count|Total|Http 403|Instance|
-|Http404|Yes|Http 404|Count|Total|Http 404|Instance|
-|Http406|Yes|Http 406|Count|Total|Http 406|Instance|
-|Http4xx|Yes|Http 4xx|Count|Total|Http 4xx|Instance|
-|Http5xx|Yes|Http Server Errors|Count|Total|Http Server Errors|Instance|
-|HttpQueueLength|Yes|Http Queue Length|Count|Average|Http Queue Length|Instance|
+|ActiveRequests|Yes|Active Requests (deprecated)|Count|Total|Active Requests|Instance|
+|AverageResponseTime|Yes|Average Response Time (deprecated)|Seconds|Average|The average time taken for the front end to serve requests, in seconds.|Instance|
+|BytesReceived|Yes|Data In|Bytes|Total|The average incoming bandwidth used across all front ends, in MiB.|Instance|
+|BytesSent|Yes|Data Out|Bytes|Total|The average incoming bandwidth used across all front end, in MiB.|Instance|
+|CpuPercentage|Yes|CPU Percentage|Percent|Average|The average CPU used across all instances of front end.|Instance|
+|DiskQueueLength|Yes|Disk Queue Length|Count|Average|The average number of both read and write requests that were queued on storage. A high disk queue length is an indication of an app that might be slowing down because of excessive disk I/O.|Instance|
+|Http101|Yes|Http 101|Count|Total|The count of requests resulting in an HTTP status code 101.|Instance|
+|Http2xx|Yes|Http 2xx|Count|Total|The count of requests resulting in an HTTP status code = 200 but < 300.|Instance|
+|Http3xx|Yes|Http 3xx|Count|Total|The count of requests resulting in an HTTP status code = 300 but < 400.|Instance|
+|Http401|Yes|Http 401|Count|Total|The count of requests resulting in HTTP 401 status code.|Instance|
+|Http403|Yes|Http 403|Count|Total|The count of requests resulting in HTTP 403 status code.|Instance|
+|Http404|Yes|Http 404|Count|Total|The count of requests resulting in HTTP 404 status code.|Instance|
+|Http406|Yes|Http 406|Count|Total|The count of requests resulting in HTTP 406 status code.|Instance|
+|Http4xx|Yes|Http 4xx|Count|Total|The count of requests resulting in an HTTP status code = 400 but < 500.|Instance|
+|Http5xx|Yes|Http Server Errors|Count|Total|The count of requests resulting in an HTTP status code = 500 but < 600.|Instance|
+|HttpQueueLength|Yes|Http Queue Length|Count|Average|The average number of HTTP requests that had to sit on the queue before being fulfilled. A high or increasing HTTP Queue length is a symptom of a plan under heavy load.|Instance|
 |LargeAppServicePlanInstances|Yes|Large App Service Plan Workers|Count|Average|Large App Service Plan Workers|No Dimensions|
 |MediumAppServicePlanInstances|Yes|Medium App Service Plan Workers|Count|Average|Medium App Service Plan Workers|No Dimensions|
-|MemoryPercentage|Yes|Memory Percentage|Percent|Average|Memory Percentage|Instance|
-|Requests|Yes|Requests|Count|Total|Requests|Instance|
+|MemoryPercentage|Yes|Memory Percentage|Percent|Average|The average memory used across all instances of front end.|Instance|
+|Requests|Yes|Requests|Count|Total|The total number of requests regardless of their resulting HTTP status code.|Instance|
 |SmallAppServicePlanInstances|Yes|Small App Service Plan Workers|Count|Average|Small App Service Plan Workers|No Dimensions|
 |TotalFrontEnds|Yes|Total Front Ends|Count|Average|Total Front Ends|No Dimensions|
 
@@ -2275,8 +2346,8 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|CpuPercentage|Yes|CPU Percentage|Percent|Average|CPU Percentage|Instance|
-|MemoryPercentage|Yes|Memory Percentage|Percent|Average|Memory Percentage|Instance|
+|CpuPercentage|Yes|CPU Percentage|Percent|Average|The average CPU used across all instances of the worker pool.|Instance|
+|MemoryPercentage|Yes|Memory Percentage|Percent|Average|The average memory used across all instances of the worker pool.|Instance|
 |WorkersAvailable|Yes|Available Workers|Count|Average|Available Workers|No Dimensions|
 |WorkersTotal|Yes|Total Workers|Count|Average|Total Workers|No Dimensions|
 |WorkersUsed|Yes|Used Workers|Count|Average|Used Workers|No Dimensions|
@@ -2286,12 +2357,12 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|BytesReceived|Yes|Data In|Bytes|Total|Data In|Instance|
-|BytesSent|Yes|Data Out|Bytes|Total|Data Out|Instance|
-|CpuPercentage|Yes|CPU Percentage|Percent|Average|CPU Percentage|Instance|
-|DiskQueueLength|Yes|Disk Queue Length|Count|Average|Disk Queue Length|Instance|
-|HttpQueueLength|Yes|Http Queue Length|Count|Average|Http Queue Length|Instance|
-|MemoryPercentage|Yes|Memory Percentage|Percent|Average|Memory Percentage|Instance|
+|BytesReceived|Yes|Data In|Bytes|Total|The average incoming bandwidth used across all instances of the plan.|Instance|
+|BytesSent|Yes|Data Out|Bytes|Total|The average outgoing bandwidth used across all instances of the plan.|Instance|
+|CpuPercentage|Yes|CPU Percentage|Percent|Average|The average CPU used across all instances of the plan.|Instance|
+|DiskQueueLength|Yes|Disk Queue Length|Count|Average|The average number of both read and write requests that were queued on storage. A high disk queue length is an indication of an app that might be slowing down because of excessive disk I/O.|Instance|
+|HttpQueueLength|Yes|Http Queue Length|Count|Average|The average number of HTTP requests that had to sit on the queue before being fulfilled. A high or increasing HTTP Queue length is a symptom of a plan under heavy load.|Instance|
+|MemoryPercentage|Yes|Memory Percentage|Percent|Average|The average memory used across all instances of the plan.|Instance|
 |SocketInboundAll|Yes|SocketInboundAll|Count|Average|SocketInboundAll|Instance|
 |SocketLoopback|Yes|SocketLoopback|Count|Average|SocketLoopback|Instance|
 |SocketOutboundAll|Yes|SocketOutboundAll|Count|Average|SocketOutboundAll|Instance|
@@ -2310,99 +2381,93 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 
 ## Microsoft.Web/sites
 
-This includes both Web Sites and Functions
-> [!NOTE]
-> **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
-
-> [!IMPORTANT]
-> **Average Response Time** will be deprecated to avoid confusion with metric aggregations. Use **Response Time** as a replacement.
-
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|AppConnections|Yes|Connections|Count|Average|Connections|Instance|
-|AverageMemoryWorkingSet|Yes|Average memory working set|Bytes|Average|Average memory working set|Instance|
-|AverageResponseTime|Yes|Average Response Time (deprecated)|Seconds|Average|Average Response Time (deprecated)|Instance|
-|BytesReceived|Yes|Data In|Bytes|Total|Data In|Instance|
-|BytesSent|Yes|Data Out|Bytes|Total|Data Out|Instance|
-|CpuTime|Yes|CPU Time|Seconds|Total|CPU Time|Instance|
-|CurrentAssemblies|Yes|Current Assemblies|Count|Average|Current Assemblies|Instance|
-|FileSystemUsage|Yes|File System Usage|Bytes|Average|File System Usage|No Dimensions|
+|AppConnections|Yes|Connections|Count|Average|The number of bound sockets existing in the sandbox (w3wp.exe and its child processes). A bound socket is created by calling bind()/connect() APIs and remains until said socket is closed with CloseHandle()/closesocket().|Instance|
+|AverageMemoryWorkingSet|Yes|Average memory working set|Bytes|Average|The average amount of memory used by the app, in megabytes (MiB).|Instance|
+|AverageResponseTime|Yes|Average Response Time (deprecated)|Seconds|Average|The average time taken for the app to serve requests, in seconds.|Instance|
+|BytesReceived|Yes|Data In|Bytes|Total|The amount of incoming bandwidth consumed by the app, in MiB.|Instance|
+|BytesSent|Yes|Data Out|Bytes|Total|The amount of outgoing bandwidth consumed by the app, in MiB.|Instance|
+|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see https://docs.microsoft.com/en-us/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
+|CurrentAssemblies|Yes|Current Assemblies|Count|Average|The current number of Assemblies loaded across all AppDomains in this application.|Instance|
+|FileSystemUsage|Yes|File System Usage|Bytes|Average|Percentage of filesystem quota consumed by the app.|No Dimensions|
 |FunctionExecutionCount|Yes|Function Execution Count|Count|Total|Function Execution Count|Instance|
 |FunctionExecutionUnits|Yes|Function Execution Units|Count|Total|Function Execution Units|Instance|
-|Gen0Collections|Yes|Gen 0 Garbage Collections|Count|Total|Gen 0 Garbage Collections|Instance|
-|Gen1Collections|Yes|Gen 1 Garbage Collections|Count|Total|Gen 1 Garbage Collections|Instance|
-|Gen2Collections|Yes|Gen 2 Garbage Collections|Count|Total|Gen 2 Garbage Collections|Instance|
-|Handles|Yes|Handle Count|Count|Average|Handle Count|Instance|
+|Gen0Collections|Yes|Gen 0 Garbage Collections|Count|Total|The number of times the generation 0 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|Instance|
+|Gen1Collections|Yes|Gen 1 Garbage Collections|Count|Total|The number of times the generation 1 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|Instance|
+|Gen2Collections|Yes|Gen 2 Garbage Collections|Count|Total|The number of times the generation 2 objects are garbage collected since the start of the app process.|Instance|
+|Handles|Yes|Handle Count|Count|Average|The total number of handles currently open by the app process.|Instance|
 |HealthCheckStatus|Yes|Health check status|Count|Average|Health check status|Instance|
-|Http101|Yes|Http 101|Count|Total|Http 101|Instance|
-|Http2xx|Yes|Http 2xx|Count|Total|Http 2xx|Instance|
-|Http3xx|Yes|Http 3xx|Count|Total|Http 3xx|Instance|
-|Http401|Yes|Http 401|Count|Total|Http 401|Instance|
-|Http403|Yes|Http 403|Count|Total|Http 403|Instance|
-|Http404|Yes|Http 404|Count|Total|Http 404|Instance|
-|Http406|Yes|Http 406|Count|Total|Http 406|Instance|
-|Http4xx|Yes|Http 4xx|Count|Total|Http 4xx|Instance|
-|Http5xx|Yes|Http Server Errors|Count|Total|Http Server Errors|Instance|
-|HttpResponseTime|Yes|Response Time|Seconds|Average|Response Time|Instance|
-|IoOtherBytesPerSecond|Yes|IO Other Bytes Per Second|BytesPerSecond|Total|IO Other Bytes Per Second|Instance|
-|IoOtherOperationsPerSecond|Yes|IO Other Operations Per Second|BytesPerSecond|Total|IO Other Operations Per Second|Instance|
-|IoReadBytesPerSecond|Yes|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
-|IoReadOperationsPerSecond|Yes|IO Read Operations Per Second|BytesPerSecond|Total|IO Read Operations Per Second|Instance|
-|IoWriteBytesPerSecond|Yes|IO Write Bytes Per Second|BytesPerSecond|Total|IO Write Bytes Per Second|Instance|
-|IoWriteOperationsPerSecond|Yes|IO Write Operations Per Second|BytesPerSecond|Total|IO Write Operations Per Second|Instance|
-|MemoryWorkingSet|Yes|Memory working set|Bytes|Average|Memory working set|Instance|
-|PrivateBytes|Yes|Private Bytes|Bytes|Average|Private Bytes|Instance|
-|Requests|Yes|Requests|Count|Total|Requests|Instance|
-|RequestsInApplicationQueue|Yes|Requests In Application Queue|Count|Average|Requests In Application Queue|Instance|
-|Threads|Yes|Thread Count|Count|Average|Thread Count|Instance|
-|TotalAppDomains|Yes|Total App Domains|Count|Average|Total App Domains|Instance|
-|TotalAppDomainsUnloaded|Yes|Total App Domains Unloaded|Count|Average|Total App Domains Unloaded|Instance|
+|Http101|Yes|Http 101|Count|Total|The count of requests resulting in an HTTP status code 101.|Instance|
+|Http2xx|Yes|Http 2xx|Count|Total|The count of requests resulting in an HTTP status code = 200 but < 300.|Instance|
+|Http3xx|Yes|Http 3xx|Count|Total|The count of requests resulting in an HTTP status code = 300 but < 400.|Instance|
+|Http401|Yes|Http 401|Count|Total|The count of requests resulting in HTTP 401 status code.|Instance|
+|Http403|Yes|Http 403|Count|Total|The count of requests resulting in HTTP 403 status code.|Instance|
+|Http404|Yes|Http 404|Count|Total|The count of requests resulting in HTTP 404 status code.|Instance|
+|Http406|Yes|Http 406|Count|Total|The count of requests resulting in HTTP 406 status code.|Instance|
+|Http4xx|Yes|Http 4xx|Count|Total|The count of requests resulting in an HTTP status code = 400 but < 500.|Instance|
+|Http5xx|Yes|Http Server Errors|Count|Total|The count of requests resulting in an HTTP status code = 500 but < 600.|Instance|
+|HttpResponseTime|Yes|Response Time|Seconds|Average|The time taken for the app to serve requests, in seconds.|Instance|
+|IoOtherBytesPerSecond|Yes|IO Other Bytes Per Second|BytesPerSecond|Total|The rate at which the app process is issuing bytes to I/O operations that don't involve data, such as control operations.|Instance|
+|IoOtherOperationsPerSecond|Yes|IO Other Operations Per Second|BytesPerSecond|Total|The rate at which the app process is issuing I/O operations that aren't read or write operations.|Instance|
+|IoReadBytesPerSecond|Yes|IO Read Bytes Per Second|BytesPerSecond|Total|The rate at which the app process is reading bytes from I/O operations.|Instance|
+|IoReadOperationsPerSecond|Yes|IO Read Operations Per Second|BytesPerSecond|Total|The rate at which the app process is issuing read I/O operations.|Instance|
+|IoWriteBytesPerSecond|Yes|IO Write Bytes Per Second|BytesPerSecond|Total|The rate at which the app process is writing bytes to I/O operations.|Instance|
+|IoWriteOperationsPerSecond|Yes|IO Write Operations Per Second|BytesPerSecond|Total|The rate at which the app process is issuing write I/O operations.|Instance|
+|MemoryWorkingSet|Yes|Memory working set|Bytes|Average|The current amount of memory used by the app, in MiB.|Instance|
+|PrivateBytes|Yes|Private Bytes|Bytes|Average|Private Bytes is the current size, in bytes, of memory that the app process has allocated that can't be shared with other processes.|Instance|
+|Requests|Yes|Requests|Count|Total|The total number of requests regardless of their resulting HTTP status code.|Instance|
+|RequestsInApplicationQueue|Yes|Requests In Application Queue|Count|Average|The number of requests in the application request queue.|Instance|
+|Threads|Yes|Thread Count|Count|Average|The number of threads currently active in the app process.|Instance|
+|TotalAppDomains|Yes|Total App Domains|Count|Average|The current number of AppDomains loaded in this application.|Instance|
+|TotalAppDomainsUnloaded|Yes|Total App Domains Unloaded|Count|Average|The total number of AppDomains unloaded since the start of the application.|Instance|
 
 
 ## Microsoft.Web/sites/slots
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|AppConnections|Yes|Connections|Count|Average|Connections|Instance|
-|AverageMemoryWorkingSet|Yes|Average memory working set|Bytes|Average|Average memory working set|Instance|
-|AverageResponseTime|Yes|Average Response Time (deprecated)|Seconds|Average|Average Response Time (deprecated)|Instance|
-|BytesReceived|Yes|Data In|Bytes|Total|Data In|Instance|
-|BytesSent|Yes|Data Out|Bytes|Total|Data Out|Instance|
-|CpuTime|Yes|CPU Time|Seconds|Total|CPU Time|Instance|
-|CurrentAssemblies|Yes|Current Assemblies|Count|Average|Current Assemblies|Instance|
-|FileSystemUsage|Yes|File System Usage|Bytes|Average|File System Usage|No Dimensions|
+|AppConnections|Yes|Connections|Count|Average|The number of bound sockets existing in the sandbox (w3wp.exe and its child processes). A bound socket is created by calling bind()/connect() APIs and remains until said socket is closed with CloseHandle()/closesocket().|Instance|
+|AverageMemoryWorkingSet|Yes|Average memory working set|Bytes|Average|The average amount of memory used by the app, in megabytes (MiB).|Instance|
+|AverageResponseTime|Yes|Average Response Time (deprecated)|Seconds|Average|The average time taken for the app to serve requests, in seconds.|Instance|
+|BytesReceived|Yes|Data In|Bytes|Total|The amount of incoming bandwidth consumed by the app, in MiB.|Instance|
+|BytesSent|Yes|Data Out|Bytes|Total|The amount of outgoing bandwidth consumed by the app, in MiB.|Instance|
+|CpuTime|Yes|CPU Time|Seconds|Total|The amount of CPU consumed by the app, in seconds. For more information about this metric. Please see https://docs.microsoft.com/en-us/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (CPU time vs CPU percentage).|Instance|
+|CurrentAssemblies|Yes|Current Assemblies|Count|Average|The current number of Assemblies loaded across all AppDomains in this application.|Instance|
+|FileSystemUsage|Yes|File System Usage|Bytes|Average|Percentage of filesystem quota consumed by the app.|No Dimensions|
 |FunctionExecutionCount|Yes|Function Execution Count|Count|Total|Function Execution Count|Instance|
 |FunctionExecutionUnits|Yes|Function Execution Units|Count|Total|Function Execution Units|Instance|
-|Gen0Collections|Yes|Gen 0 Garbage Collections|Count|Total|Gen 0 Garbage Collections|Instance|
-|Gen1Collections|Yes|Gen 1 Garbage Collections|Count|Total|Gen 1 Garbage Collections|Instance|
-|Gen2Collections|Yes|Gen 2 Garbage Collections|Count|Total|Gen 2 Garbage Collections|Instance|
-|Handles|Yes|Handle Count|Count|Average|Handle Count|Instance|
+|Gen0Collections|Yes|Gen 0 Garbage Collections|Count|Total|The number of times the generation 0 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|Instance|
+|Gen1Collections|Yes|Gen 1 Garbage Collections|Count|Total|The number of times the generation 1 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|Instance|
+|Gen2Collections|Yes|Gen 2 Garbage Collections|Count|Total|The number of times the generation 2 objects are garbage collected since the start of the app process.|Instance|
+|Handles|Yes|Handle Count|Count|Average|The total number of handles currently open by the app process.|Instance|
 |HealthCheckStatus|Yes|Health check status|Count|Average|Health check status|Instance|
-|Http101|Yes|Http 101|Count|Total|Http 101|Instance|
-|Http2xx|Yes|Http 2xx|Count|Total|Http 2xx|Instance|
-|Http3xx|Yes|Http 3xx|Count|Total|Http 3xx|Instance|
-|Http401|Yes|Http 401|Count|Total|Http 401|Instance|
-|Http403|Yes|Http 403|Count|Total|Http 403|Instance|
-|Http404|Yes|Http 404|Count|Total|Http 404|Instance|
-|Http406|Yes|Http 406|Count|Total|Http 406|Instance|
-|Http4xx|Yes|Http 4xx|Count|Total|Http 4xx|Instance|
-|Http5xx|Yes|Http Server Errors|Count|Total|Http Server Errors|Instance|
-|HttpResponseTime|Yes|Response Time|Seconds|Average|Response Time|Instance|
-|IoOtherBytesPerSecond|Yes|IO Other Bytes Per Second|BytesPerSecond|Total|IO Other Bytes Per Second|Instance|
-|IoOtherOperationsPerSecond|Yes|IO Other Operations Per Second|BytesPerSecond|Total|IO Other Operations Per Second|Instance|
-|IoReadBytesPerSecond|Yes|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
-|IoReadOperationsPerSecond|Yes|IO Read Operations Per Second|BytesPerSecond|Total|IO Read Operations Per Second|Instance|
-|IoWriteBytesPerSecond|Yes|IO Write Bytes Per Second|BytesPerSecond|Total|IO Write Bytes Per Second|Instance|
-|IoWriteOperationsPerSecond|Yes|IO Write Operations Per Second|BytesPerSecond|Total|IO Write Operations Per Second|Instance|
-|MemoryWorkingSet|Yes|Memory working set|Bytes|Average|Memory working set|Instance|
-|PrivateBytes|Yes|Private Bytes|Bytes|Average|Private Bytes|Instance|
-|Requests|Yes|Requests|Count|Total|Requests|Instance|
-|RequestsInApplicationQueue|Yes|Requests In Application Queue|Count|Average|Requests In Application Queue|Instance|
-|Threads|Yes|Thread Count|Count|Average|Thread Count|Instance|
-|TotalAppDomains|Yes|Total App Domains|Count|Average|Total App Domains|Instance|
-|TotalAppDomainsUnloaded|Yes|Total App Domains Unloaded|Count|Average|Total App Domains Unloaded|Instance|
+|Http101|Yes|Http 101|Count|Total|The count of requests resulting in an HTTP status code 101.|Instance|
+|Http2xx|Yes|Http 2xx|Count|Total|The count of requests resulting in an HTTP status code = 200 but < 300.|Instance|
+|Http3xx|Yes|Http 3xx|Count|Total|The count of requests resulting in an HTTP status code = 300 but < 400.|Instance|
+|Http401|Yes|Http 401|Count|Total|The count of requests resulting in HTTP 401 status code.|Instance|
+|Http403|Yes|Http 403|Count|Total|The count of requests resulting in HTTP 403 status code.|Instance|
+|Http404|Yes|Http 404|Count|Total|The count of requests resulting in HTTP 404 status code.|Instance|
+|Http406|Yes|Http 406|Count|Total|The count of requests resulting in HTTP 406 status code.|Instance|
+|Http4xx|Yes|Http 4xx|Count|Total|The count of requests resulting in an HTTP status code = 400 but < 500.|Instance|
+|Http5xx|Yes|Http Server Errors|Count|Total|The count of requests resulting in an HTTP status code = 500 but < 600.|Instance|
+|HttpResponseTime|Yes|Response Time|Seconds|Average|The time taken for the app to serve requests, in seconds.|Instance|
+|IoOtherBytesPerSecond|Yes|IO Other Bytes Per Second|BytesPerSecond|Total|The rate at which the app process is issuing bytes to I/O operations that don't involve data, such as control operations.|Instance|
+|IoOtherOperationsPerSecond|Yes|IO Other Operations Per Second|BytesPerSecond|Total|The rate at which the app process is issuing I/O operations that aren't read or write operations.|Instance|
+|IoReadBytesPerSecond|Yes|IO Read Bytes Per Second|BytesPerSecond|Total|The rate at which the app process is reading bytes from I/O operations.|Instance|
+|IoReadOperationsPerSecond|Yes|IO Read Operations Per Second|BytesPerSecond|Total|The rate at which the app process is issuing read I/O operations.|Instance|
+|IoWriteBytesPerSecond|Yes|IO Write Bytes Per Second|BytesPerSecond|Total|The rate at which the app process is writing bytes to I/O operations.|Instance|
+|IoWriteOperationsPerSecond|Yes|IO Write Operations Per Second|BytesPerSecond|Total|The rate at which the app process is issuing write I/O operations.|Instance|
+|MemoryWorkingSet|Yes|Memory working set|Bytes|Average|The current amount of memory used by the app, in MiB.|Instance|
+|PrivateBytes|Yes|Private Bytes|Bytes|Average|Private Bytes is the current size, in bytes, of memory that the app process has allocated that can't be shared with other processes.|Instance|
+|Requests|Yes|Requests|Count|Total|The total number of requests regardless of their resulting HTTP status code.|Instance|
+|RequestsInApplicationQueue|Yes|Requests In Application Queue|Count|Average|The number of requests in the application request queue.|Instance|
+|Threads|Yes|Thread Count|Count|Average|The number of threads currently active in the app process.|Instance|
+|TotalAppDomains|Yes|Total App Domains|Count|Average|The current number of AppDomains loaded in this application.|Instance|
+|TotalAppDomainsUnloaded|Yes|Total App Domains Unloaded|Count|Average|The total number of AppDomains unloaded since the start of the application.|Instance|
 
 ## Next steps
-* [Read about metrics in Azure Monitor](data-platform.md)
-* [Create alerts on metrics](alerts-overview.md)
-* [Export metrics to storage, Event Hub, or Log Analytics](platform-logs-overview.md)
+
+- [Read about metrics in Azure Monitor](data-platform.md)
+- [Create alerts on metrics](alerts-overview.md)
+- [Export metrics to storage, Event Hub, or Log Analytics](platform-logs-overview.md)
