@@ -2,19 +2,21 @@
 title: Reports in Azure Monitor for containers
 description: Describes reports available to analyze data collected by Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 12/07/2020
 ---
 
 # Reports in Azure Monitor for containers
-Reports in Azure Monitor for containers are [Azure workbooks](../platform/workbooks-overview.md) that combine text, log queries, metrics, and parameters into rich interactive reports that can be edited by different team members depending on the particular requirements of your organization. 
+Reports in Azure Monitor for containers are [Azure workbooks](../platform/workbooks-overview.md) that combine text, log queries, metrics, and parameters into rich interactive reports that can be edited by different team members depending on the particular requirements of your organization. This article describes the different reports that are available and how to access them.
 
-Access reports for a particular cluster in Azure Monitor for containers from the **Reports (preview)** page. From the **Azure Monitor** menu in the Azure portal, select **Containers**
+## Viewing reports
+From the **Azure Monitor** menu in the Azure portal, select **Containers**. Select **Insights** in the **Monitoring** section, choose a particular cluster, and then select the **Reports (preview)** page. 
 
-[![Reports page](media/container-insights-workbooks/reports-page.png)](media/container-insights-workbooks/reports-page.png#lightbox)
+[![Reports page](media/container-insights-reports/reports-page.png)](media/container-insights-workbooks/reports-page.png#lightbox)
 
+## Create a custom workbook
 To create a custom workbook based on any of these workbooks, select the **View Workbooks** dropdown and then **Go to AKS Gallery** at the bottom of the dropdown. See [Azure Monitor Workbooks](../platform/workbooks-overview.md) for more information about workbooks and using workbook templates.
 
-[![AKS gallery](media/container-insights-workbooks/aks-gallery.png)](media/container-insights-workbooks/aks-gallery.png#lightbox)
+[![AKS gallery](media/container-insights-reports/aks-gallery.png)](media/container-insights-workbooks/aks-gallery.png#lightbox)
 
 ## Node workbooks
 
@@ -33,8 +35,8 @@ To create a custom workbook based on any of these workbooks, select the **View W
 
 ## Resource Monitoring workbooks
 
-- **Deployments**: 
-
+- **Deployments**: Status of your deployments & Horizontal Pod Autoscaler(HPA) including custom HPA. 
+  
 - **Workload Details**: Interactive charts showing performance statistics of workloads for a namespace. Includes multiple tabs:
 
   - Overview of CPU and Memory usage by POD.
