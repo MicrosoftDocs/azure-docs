@@ -138,7 +138,7 @@ Dependency collection is enabled by default. [This](asp-net-dependencies.md#auto
 
 ### Performance counters
 
-Support for [performance counters](./web-monitor-performance.md) in ASP.NET Core is limited:
+Support for [performance counters](./performance-counters.md) in ASP.NET Core is limited:
 
 * SDK versions 2.4.1 and later collect performance counters if the application is running in Azure Web Apps (Windows).
 * SDK versions 2.7.1 and later collect performance counters if the application is running in Windows and targets `NETSTANDARD2.0` or later.
