@@ -128,6 +128,10 @@ To handle the claim challenge, you'll need to use the `.WithClaim()` method of t
 
 [!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
 
+### HTTP error codes 500-600
+
+MSAL.NET implements a simple retry-once mechanism for errors with HTTP error codes 500-600.
+
 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) surfaces `System.Net.Http.Headers.HttpResponseHeaders` as a property `namedHeaders`. You can use additional information from the error code to improve the reliability of your applications. In the case described, you can use the `RetryAfterproperty` (of type `RetryConditionHeaderValue`) and compute when to retry.
 
 Here is an example for a daemon application using the client credentials flow. You can adapt this to any of the methods for acquiring a token.

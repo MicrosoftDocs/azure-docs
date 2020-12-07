@@ -121,4 +121,4 @@ When your client requests an access token, Azure AD also returns an authenticati
 
 If you're using MSAL for Java, learn about [custom token cache serialization in MSAL for Java](msal-java-token-cache-serialization.md).
 
-Learn about [handling errors and exceptions](msal-handling-exceptions.md).
+Learn about [handling errors and exceptions](msal-error-handling-dotnet.md).
