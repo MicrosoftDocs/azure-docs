@@ -110,7 +110,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Web/hostingEnvironments/multiRolePools | Yes | No | [App Service Environment Multi-Role Pools](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Yes | No | [App Service Environment Worker Pools](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | Yes | No | [App Service Plans](./metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Web/sites | Yes | No | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) and [Functions](./metrics-supported.md#microsoftwebsites-functions)|
+|Microsoft.Web/sites | Yes | No | [App Services and Functions](./metrics-supported.md#microsoftwebsites)|
 |Microsoft.Web/sites/slots | Yes | No | [App Service slots](./metrics-supported.md#microsoftwebsitesslots)|
 
 <sup>1</sup> Not supported for virtual machine network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate) and custom metrics.

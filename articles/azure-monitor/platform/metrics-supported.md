@@ -2422,7 +2422,6 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |TotalAppDomains|Yes|Total App Domains|Count|Average|The current number of AppDomains loaded in this application.|Instance|
 |TotalAppDomainsUnloaded|Yes|Total App Domains Unloaded|Count|Average|The total number of AppDomains unloaded since the start of the application.|Instance|
 
-
 ## Microsoft.Web/sites/slots
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|

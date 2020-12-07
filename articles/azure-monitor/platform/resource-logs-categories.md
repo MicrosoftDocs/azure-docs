@@ -18,7 +18,7 @@ A combination of the resource type (available in the `resourceId` property) and 
 
 ## Costs
 
- There are costs associated with sending and storing any data into into Log Analytics and/or Event hub. There is an addition [Cost to export some categories of resource logs](https://azure.microsoft.com/pricing/details/monitor/). Others are free of export costs. Specifics are listed in the table below.
+ There are costs associated with sending and storing any data into into Log Analytics and/or Event hub. Resource logs are one type of data you can send to these locations. There is an additional [cost to export some categories of resource logs](https://azure.microsoft.com/pricing/details/monitor/). Others are free of export costs. Specifics are listed in the table below.
 
 ## Supported log categories per resource type
 
@@ -30,7 +30,7 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.AnalysisServices/servers
 
-Export Export cost:  Free 
+Export cost:  Free 
 |Category|Category Display Name|
 |---|---|
 |Engine|Engine|
@@ -39,7 +39,7 @@ Export Export cost:  Free
 
 ## Microsoft.ApiManagement/service
 
-Export Export cost:  Free 
+Export cost:  Free 
 |Category|Category Display Name|
 |---|---|
 |GatewayLogs|Logs related to ApiManagement Gateway|
@@ -47,7 +47,7 @@ Export Export cost:  Free
 
 ## Microsoft.AppPlatform/Spring
 
-Export Export cost:  Free 
+Export cost:  Free 
 |Category|Category Display Name|
 |---|---|
 |ApplicationConsole|Application Console|
@@ -56,7 +56,7 @@ Export Export cost:  Free
 
 ## Microsoft.Automation/automationAccounts
 
-Export Export cost:  Free 
+Export cost:  Free 
 |Category|Category Display Name|
 |---|---|
 |DscNodeStatus|Dsc Node Status|
@@ -66,7 +66,7 @@ Export Export cost:  Free
 
 ## Microsoft.Batch/batchAccounts
 
-Export Export cost:  Free 
+Export cost:  Free 
 |Category|Category Display Name|
 |---|---|
 |ServiceLog|Service Logs|
@@ -74,7 +74,7 @@ Export Export cost:  Free
 
 ## Microsoft.BatchAI/workspaces
 
-Export Export cost:  Free 
+Export cost:  Free 
 |Category|Category Display Name|
 |---|---|
 |BaiClusterEvent|BaiClusterEvent|
@@ -84,7 +84,7 @@ Export Export cost:  Free
 
 ## Microsoft.Blockchain/blockchainMembers
 
-Export Export cost:  Free 
+Export cost:  Free 
 |Category|Category Display Name|
 |---|---|
 |BlockchainApplication|Blockchain Application|
@@ -95,7 +95,7 @@ Export Export cost:  Free
 
 ## Microsoft.Blockchain/cordaMembers
 
-Export Export cost: Free 
+Export cost: Free 
 |Category|Category Display Name|
 |---|---|
 |BlockchainApplication|Blockchain Application|
@@ -103,7 +103,7 @@ Export Export cost: Free
 
 ## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
 
-Export Export cost: Free 
+Export cost: Free 
 |Category|Category Display Name|
 |---|---|
 |WebApplicationFirewallLogs|Web Appliation Firewall Logs|
@@ -111,7 +111,7 @@ Export Export cost: Free
 
 ## Microsoft.Cdn/profiles
 
-Export Export cost: Free 
+Export cost: Free 
 |Category|Category Display Name|
 |---|---|
 |AzureCdnAccessLog|Azure Cdn Access Log|
@@ -119,7 +119,7 @@ Export Export cost: Free
 
 ## Microsoft.Cdn/profiles/endpoints
 
-Export Export cost: Free 
+Export cost: Free 
 |Category|Category Display Name|
 |---|---|
 |CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
@@ -127,7 +127,7 @@ Export Export cost: Free
 
 ## Microsoft.ClassicNetwork/networksecuritygroups
 
-Export Export cost: Free 
+Export cost: Free 
 |Category|Category Display Name|
 |---|---|
 |Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|
@@ -135,7 +135,7 @@ Export Export cost: Free
 
 ## Microsoft.CognitiveServices/accounts
 
-Export Export cost: Free 
+Export cost: Free 
 |Category|Category Display Name|
 |---|---|
 |Audit|Audit Logs|
@@ -145,7 +145,7 @@ Export Export cost: Free
 
 ## Microsoft.ContainerRegistry/registries
 
-Export Export cost: Free 
+Export cost: Free 
 |Category|Category Display Name|
 |---|---|
 |ContainerRegistryLoginEvents|Login Events|
