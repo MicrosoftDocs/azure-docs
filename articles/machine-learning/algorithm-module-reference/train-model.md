@@ -58,7 +58,9 @@ In Azure Machine Learning, creating and using a machine learning model is typica
 1.  Submit the pipeline. If you have a lot of data, this can take a while.
 
     > [!IMPORTANT] 
-    > If you have an ID column which is the ID of each row, **Train Model** may hit an error like "Number of unique values in column: "{column_name}" is greater than allowed." This is because the ID column hit the threshold of unique values, and may cause out of memory. Usually ID column is meaningless during training. You can use [Edit Metadata](edit-metadata.md) to mark that column as **Clear feature** and it will not be used in training. See [Designer error code](././designer-error-codes.md) for more error details.
+    > If you have an ID column which is the ID of each row, or a text column, which contains too many unique values, **Train Model** may hit an error like "Number of unique values in column: "{column_name}" is greater than allowed.
+    >
+    > This is because the column hit the threshold of unique values, and may cause out of memory. You can use [Edit Metadata](edit-metadata.md) to mark that column as **Clear feature** and it will not be used in training, or [Extract N-Gram Features from Text module](extract-n-gram-features-from-text.md) to preprocess text column. See [Designer error code](././designer-error-codes.md) for more error details.
 
 ## Results
 
