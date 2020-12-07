@@ -22,7 +22,7 @@ Use the Face REST API to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You'll need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 
@@ -30,7 +30,7 @@ Use the Face REST API to:
 
 You'll use a command like the following to call the Face API and get face attribute data from an image. First, copy the code into a text editor&mdash;you'll need to make changes to certain parts of the command before you can run it.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_2":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detection_model_2":::
 
 Make the following changes:
 1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
@@ -62,7 +62,7 @@ You should see the face information displayed as JSON data in the console window
  
 To extract face attributes, call the Detect API again, but set `detectionModel` to `detection_01`. Add the `returnFaceAttributes` query parameter as well. The command should now look like the following. As before, insert your Face subscription key and endpoint.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_1":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detection_model_1":::
 
 ### Examine the results
 
@@ -168,21 +168,21 @@ This operation takes a single detected face (source) and searches a set of other
 
 First, you need to detect faces in images before you can compare them. Run this command as you did in the [Detect faces](#detect-faces-in-an-image) section. This detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different detection model.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detect_for_similar":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detect_for_similar":::
 
 Find the `"faceId"` value in the JSON response and save it to a temporary location. Then, call the above command again for these other image URLs, and save their face IDs as well. You'll use these IDs as the target group of faces from which to find a similar face.
 
-:::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_group":::
+:::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar_group":::
 
 Finally, detect the single source face that you'll use for matching, and save its ID. Keep this ID separate from the others.
 
-:::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_matcher":::
+:::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar_matcher":::
 
 ### Find matches
 
 Copy the following command to a text editor.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar":::
 
 Then make the following changes:
 1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
@@ -190,14 +190,14 @@ Then make the following changes:
 
 Use the following JSON content for the `body` value:
 
-:::code language="JSON" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_body":::
+:::code language="JSON" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar_body":::
 
 1. Use the source face ID for `"faceId"`.
 1. Paste the other face IDs as terms in the `"faceIds"` array.
 
 ### Examine the results
 
-You'll receive a JSON response that lists the IDs of the faces which match your query face.
+You'll receive a JSON response that lists the IDs of the faces that match your query face.
 
 ```json
 [
