@@ -25,9 +25,10 @@ Is this scenario supported? Basic guidance on how to do it? Should we cover usin
 
 ### AD FS (on premises based identity management) compared to Azure AD (cloud based identity management)
 
-
-### ADAL vs MSAL
+### ADAL vs MSAL (version 1 compared to version 2 of identity library)
 Using ADAL library (often called v1 of Microsoft's identity library) compared to using MSAL (often called v2 of Microsoft's identity library). For more information about ADAL versus MSAL, see [Overview of Microsoft Authentication Library (MSAL)](msal-overview.md).
+
+
 
 ## Scenario: You have an OAuth token and you want to call into an app implemented with SAML
 
@@ -35,8 +36,10 @@ Is this scenario supported? Basic guidance on how to do it? Should we cover usin
 
 ### AD FS (on premises based identity management) compared to Azure AD (cloud based identity management)
 
-### ADAL vs MSAL
+### ADAL vs MSAL (version 1 compared to version 2 of identity library)
 Using ADAL library (often called v1 of Microsoft's identity library) compared to using MSAL (often called v2 of Microsoft's identity library). For more information about ADAL versus MSAL, see [Overview of Microsoft Authentication Library (MSAL)](msal-overview.md).
+
+
 
 
 ## Scenario: Paul mentioned a couple of other scenarios to cover
