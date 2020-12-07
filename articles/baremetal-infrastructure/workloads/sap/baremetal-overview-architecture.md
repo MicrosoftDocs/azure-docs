@@ -38,3 +38,7 @@ It is your responsibility to design and implement back up and recovery solutions
 
 >[!IMPORTANT]
 >As soon as you receive root access, you assume all responsibility for licensing, security, and support for OS and third-party software. 
+
+[image]
+
+## Compute
