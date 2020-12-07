@@ -259,9 +259,26 @@ A Speech resource with custom domain name and private endpoint enabled uses a di
 
 We will use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name (custom domain) for this section.
 
-#### Speech-to-Text REST API
+#### Note on Speech Services REST API
 
-Usually Speech resources use [Cognitive Services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the [Speech-to-Text REST API](rest-speech-to-text.md). These resources have the following naming format: <p/>`{region}.api.cognitive.microsoft.com`
+Speech Services has REST API for [Speech-to-Text](rest-speech-to-text.md) and [Text-to-Speech](rest-text-to-speech.md). The following needs to be considered for the private endpoint enabled scenario.
+
+Speech-to-Text has the two different REST APIs. Each API serves a different purpose, uses different endpoints, and requires a different approach when used sing in private endpoint enabled scenario.
+
+The Speech-to-Text REST APIs are:
+- [v1.0](rest-speech-to-text.md) is used for On-Line transcription
+- v3.0 is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). (See [full reference](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0))
+
+Usage of Speech-to-Text v1.0 and Text-to-Speech REST API in the private endpoint scenario is the same and equivalent to [Speech SDK case](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk) described later in this article. 
+
+Speech-to-Text REST API v3.0 is using a different set of endpoints and thus requires a different approach for the private endpoint enabled scenario.
+
+Both cases are described in the next subsections.
+
+
+#### Speech-to-Text REST API v3.0
+
+Usually Speech resources use [Cognitive Services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the [Speech-to-Text REST API v3.0](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). These resources have the following naming format: <p/>`{region}.api.cognitive.microsoft.com`
 
 This is a sample request URL:
 
@@ -285,21 +302,21 @@ So generally speaking after enabling custom domain name for a Speech resource yo
 >
 > Speech resource custom domain name contains **no** information about the region where the resource is deployed. So the application logic described above will **not** work and needs to be altered.
 
-#### Text-to-Speech REST API
+#### Speech-to-Text REST API v1.0 and Text-to-Speech REST API
 
-[Text-to-Speech REST API](rest-text-to-speech.md) uses two types of endpoints:
+[Speech-to-Text REST API v1.0](rest-speech-to-text.md) and [Text-to-Speech REST API](rest-text-to-speech.md) use two types of endpoints:
 - [Cognitive Services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the Cognitive Services REST API to obtain an authorization token
 - Special endpoints for all other operations
 
-The detailed description of the special endpoints and how their URL should be transformed for a private endpoint enabled Speech resource is provided in [this subsection](#general-principle) of "Usage with Speech SDK" section below. The same principle described for SDK applies for the Text-to-Speech REST API.
+The detailed description of the special endpoints and how their URL should be transformed for a private endpoint enabled Speech resource is provided in [this subsection](#general-principle) of "Usage with Speech SDK" section below. The same principle described for SDK applies for the Speech-to-Text v1.0 and Text-to-Speech REST API.
 
-Get familiar with the material in the subsection mentioned and see the following example.
+Get familiar with the material in the subsection mentioned in the previous paragraph and see the following example. (The example describes Text-to-Speech REST API; usage of Speech-to-Text v1.0 REST API is fully equivalent)
 
 **Text-to-Speech REST API usage example.**
 
 We will use West Europe as a sample Azure Region and `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name (custom domain). Custom domain name `my-private-link-speech.cognitiveservices.azure.com` in our example belongs to the Speech resource created in West Europe region.
 
-To get the list the voices supported in the region one needs to do the following two operations:
+To get the list of the voices supported in the region one needs to do the following two operations:
 
 - Obtain authorization token via
 ```http
@@ -309,14 +326,14 @@ https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
 ```http
 https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
 ```
-(See more details on the steps above in [Text-to-Speech REST API documentation](rest-text-to-speech.md).)
+(See more details on the steps above in [Text-to-Speech REST API documentation](rest-text-to-speech.md))
 
 For the private endpoint enabled Speech resource the endpoint URLs for the same operation sequence need to be modified. The same sequence will look like this:
 - Obtain authorization token via
 ```http
 https://my-private-link-speech.cognitiveservices.azure.com/v1.0/issuetoken
 ```
-(see detailed explanation in [Speech-to-Text REST API](#speech-to-text-rest-api) subsection above)
+(see detailed explanation in [Speech-to-Text REST API v3.0](#speech-to-text-rest-api-v30) subsection above)
 - Using the obtained token get the list of voices via
 ```http
 https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
@@ -467,13 +484,13 @@ Compare it with the output from [this section](#optional-check-dns-resolution-fr
 
 ### Speech resource with custom domain name without private endpoints. Usage with REST API
 
-#### Speech-to-Text REST API
+#### Speech-to-Text REST API v3.0
 
-Speech-to-Text REST API usage is fully equivalent to the case of [private endpoint enabled Speech resources](#speech-to-text-rest-api).
+Speech-to-Text REST API v3.0 usage is fully equivalent to the case of [private endpoint enabled Speech resources](#speech-to-text-rest-api-v30).
 
-#### Text-to-Speech REST API
+#### Speech-to-Text REST API v1.0 and Text-to-Speech REST API
 
-In this case Text-to-Speech REST API usage has no differences to the general case and should be used as described in [Text-to-Speech REST API documentation](rest-text-to-speech.md).
+In this case Speech-to-Text REST API v1.0 and Text-to-Speech REST API usage has no differences to the general case and should be used as described in [Speech-to-Text REST API v1.0](rest-speech-to-text.md) and [Text-to-Speech REST API](rest-text-to-speech.md) documentation.
 
 
 ### Speech resource with custom domain name without private endpoints. Usage with Speech SDK
