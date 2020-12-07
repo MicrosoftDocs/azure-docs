@@ -2,7 +2,7 @@
 title: Event replication between Event Hubs - Azure Event Hubs | Microsoft Docs
 description: This article provides an overview of replicating event between Event Hubs and with IoT Hub
 ms.topic: article
-ms.date: 09/15/2020
+ms.date: 12/01/2020
 ---
 
 # Event replication between Event Hubs 
@@ -66,6 +66,7 @@ To receive events from an Event Hub, add configuration information to the top se
 * **type** - the "eventHubTrigger" type.
 * **connection** - the name of the app configuration value for the Event Hub connection string. This value must be `{FunctionName}-source-connection` if you want to use the provided scripts.
 * **eventHubName** - the name of the Event Hub within the namespace identified by the connection string.
+* * **consumerGroupName** - name of the consumer group. Each replication task must have its own, exclusive consumer group on the Event Hub, distinct from all other consumer groups that an application might use. 
 
 ```JSON
     ...
@@ -75,6 +76,7 @@ To receive events from an Event Hub, add configuration information to the top se
             "type": "eventHubTrigger",
             "connection": "EventHubAToEventHubB-source-connection",
             "eventHubName": "eventHubA",
+            "consumerGroupName" : "mygroup",
             "name": "input" 
         }
     ...
@@ -131,6 +133,7 @@ For instance, assume a task `EventHubAToEventHubB` that is configured like this:
             "type": "eventHubTrigger",
             "connection": "EventHubAToEventHubB-source-connection",
             "eventHubName": "eventHubA",
+            "consumerGroupName" : "mygroup",
             "name": "input" 
         },
         {
