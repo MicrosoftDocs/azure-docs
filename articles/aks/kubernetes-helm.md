@@ -48,7 +48,7 @@ version.BuildInfo{Version:"v3.0.0", GitCommit:"e29ce2a54e96cd02ccfce88bee4f58bb6
 Use the [helm repo][helm-repo-add] command to add the official Helm stable charts and *ingress-nginx* repositories.
 
 ```console
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add stable https://charts.helm.sh/stable
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 ```
 
