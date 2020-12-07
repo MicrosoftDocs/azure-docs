@@ -79,9 +79,6 @@ For Visual Studio for Mac use the [manual guidance](#enable-application-insights
         }
     ```
 
-    > [!NOTE]
-    > `services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` works for simple initializers. For others, the following is required: `services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`
-    
 3. Set up the instrumentation key.
 
     Although you can provide the instrumentation key as an argument to `AddApplicationInsightsTelemetry`, we recommend that you specify the instrumentation key in configuration. The following code sample shows how to specify an instrumentation key in `appsettings.json`. Make sure `appsettings.json` is copied to the application root folder during publishing.
@@ -260,6 +257,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+> [!NOTE]
+> `services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` works for simple initializers. For others, the following is required: `services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`
+    
 ### Removing TelemetryInitializers
 
 Telemetry initializers are present by default. To remove all or specific telemetry initializers, use the following sample code *after* you call `AddApplicationInsightsTelemetry()`.
