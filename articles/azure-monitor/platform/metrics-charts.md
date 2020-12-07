@@ -225,7 +225,7 @@ You can use the criteria you have set to visualize your metrics as the basis of 
 
 ### To create a new alert rule, click **New Alert rule**
 
-![New alert rule button highlighted in red](./media/metrics-charts/015.png)
+![New alert rule button highlighted in red](./media/metrics-charts/042.png)
 
 You will be taken to the alert rule creation pane with the underlying metric dimensions from your chart pre-populated to make it easier to generate custom alert rules.
 
