@@ -158,7 +158,7 @@ Create a table in your data warehouse by running the [CreateDataWarehouseTable.s
 3. In Solution Explorer, right-click **FunctionEGDWDumper** project, and select **Publish**.
 4. If you see the following screen, select **Start**. 
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/start-publish-button.png" alt-text="Screenshot that shows Visual Studios with the "Start" button in the Publish section.":::
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/start-publish-button.png" alt-text="Start button in the Publish section.":::
 5. In the **Publish** dialog box, select **Azure** for **Target**, and select **Next**. 
 6. Select **Azure Function App (Windows)**, and select **Next**.
 7. On the **Functions instance** tab, select your Azure subscription, expand the resource group, and select you function app, and then select **Finish**. You need to sign into your Azure account if you haven't already done so. 
@@ -288,3 +288,9 @@ This section helps you with monitoring or troubleshooting the solution.
     	"eventTime": "2020-12-07T21:50:12.7065524Z"
     }
     ```
+
+### Verify that the data is stored in the dedicated SQL pool
+In the browser tab where you have the query window open, query the table in your dedciated SQL pool for the migrated data.
+
+![Query results](media/event-grid-event-hubs-functions-synapse-analytics/query-results.png)
+
