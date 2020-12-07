@@ -18,7 +18,7 @@ This article shows you how to use [Azure Storage Explorer](https://azure.microso
 
 > [!div class="checklist"]
 > * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
+> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
 > * Azure Storage Explorer installed on your local computer. To install Azure Storage Explorer for Windows, Macintosh, or Linux, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## Sign in to Storage Explorer
@@ -106,4 +106,4 @@ You can manage permissions on individual directories, as well as individual file
 Learn access control lists in Data Lake Storage Gen2.
 
 > [!div class="nextstepaction"]
-> [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+> [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md)

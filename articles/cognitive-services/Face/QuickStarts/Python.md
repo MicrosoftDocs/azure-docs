@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 #Customer intent: As a Python developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
@@ -31,9 +31,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Run the Jupyter notebook
+## Run the Jupyter Notebook
 
-You can run this quickstart as a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the button below. Then follow the instructions in the notebook.
+You can run this quickstart as a Jupyter Notebook on [MyBinder](https://mybinder.org). To launch Binder, select the button below. Then follow the instructions in the notebook.
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
 
@@ -76,8 +76,8 @@ To extract face attributes, use detection model 1 and add the `returnFaceAttribu
 
 ```python
 params = {
-	'detectionModel': 'detection_01',
-	'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+    'detectionModel': 'detection_01',
+    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
     'returnFaceId': 'true'
 }
 ```
@@ -269,3 +269,4 @@ Next, explore the Face API reference documentation to learn more about the suppo
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+ 

@@ -21,91 +21,91 @@ Each link in the following sections targets the corresponding page within the Mi
 
 ## User management
 
-- [List users](https://docs.microsoft.com/graph/api/user-list)
-- [Create a consumer user](https://docs.microsoft.com/graph/api/user-post-users)
-- [Get a user](https://docs.microsoft.com/graph/api/user-get)
-- [Update a user](https://docs.microsoft.com/graph/api/user-update)
-- [Delete a user](https://docs.microsoft.com/graph/api/user-delete)
+- [List users](/graph/api/user-list)
+- [Create a consumer user](/graph/api/user-post-users)
+- [Get a user](/graph/api/user-get)
+- [Update a user](/graph/api/user-update)
+- [Delete a user](/graph/api/user-delete)
 
 For more information about managing Azure AD B2C user accounts with the Microsoft Graph API, see [Manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).
 
 ## User phone number management
 
-- [Add](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)
-- [Get](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)
-- [Update](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)
-- [Delete](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)
+- [Add](/graph/api/authentication-post-phonemethods)
+- [Get](/graph/api/b2cauthenticationmethodspolicy-get)
+- [Update](/graph/api/b2cauthenticationmethodspolicy-update)
+- [Delete](/graph/api/phoneauthenticationmethod-delete)
 
-For more information about managing user's sign-in phone number with the Microsoft Graph API, see [B2C Authentication Methods](https://docs.microsoft.com/graph/api/resources/b2cauthenticationmethodspolicy).
+For more information about managing user's sign-in phone number with the Microsoft Graph API, see [B2C Authentication Methods](/graph/api/resources/b2cauthenticationmethodspolicy).
 
 ## Identity providers (user flow)
 
 Manage the identity providers available to your user flows in your Azure AD B2C tenant.
 
-- [List identity providers registered in the Azure AD B2C tenant](https://docs.microsoft.com/graph/api/identityprovider-list)
-- [Create an identity provider](https://docs.microsoft.com/graph/api/identityprovider-post-identityproviders)
-- [Get an identity provider](https://docs.microsoft.com/graph/api/identityprovider-get)
-- [Update identity provider](https://docs.microsoft.com/graph/api/identityprovider-update)
-- [Delete an identity provider](https://docs.microsoft.com/graph/api/identityprovider-delete)
+- [List identity providers registered in the Azure AD B2C tenant](/graph/api/identityprovider-list)
+- [Create an identity provider](/graph/api/identityprovider-post-identityproviders)
+- [Get an identity provider](/graph/api/identityprovider-get)
+- [Update identity provider](/graph/api/identityprovider-update)
+- [Delete an identity provider](/graph/api/identityprovider-delete)
 
 ## User flow
 
 Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in, password reset, and profile update.
 
-- [List user flows](https://docs.microsoft.com/graph/api/identityuserflow-list)
-- [Create a user flow](https://docs.microsoft.com/graph/api/identityuserflow-post-userflows)
-- [Get a user flow](https://docs.microsoft.com/graph/api/identityuserflow-get)
-- [Delete a user flow](https://docs.microsoft.com/graph/api/identityuserflow-delete)
+- [List user flows](/graph/api/identityuserflow-list)
+- [Create a user flow](/graph/api/identityuserflow-post-userflows)
+- [Get a user flow](/graph/api/identityuserflow-get)
+- [Delete a user flow](/graph/api/identityuserflow-delete)
 
 ## Custom policies
 
 The following operations allow you to manage your Azure AD B2C Trust Framework policies, known as [custom policies](custom-policy-overview.md).
 
-- [List all trust framework policies configured in a tenant](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
-- [Create trust framework policy](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
-- [Read properties of an existing trust framework policy](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
-- [Update or create trust framework policy.](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)
-- [Delete an existing trust framework policy](https://docs.microsoft.com/graph/api/trustframeworkpolicy-delete)
+- [List all trust framework policies configured in a tenant](/graph/api/trustframework-list-trustframeworkpolicies)
+- [Create trust framework policy](/graph/api/trustframework-post-trustframeworkpolicy)
+- [Read properties of an existing trust framework policy](/graph/api/trustframeworkpolicy-get)
+- [Update or create trust framework policy.](/graph/api/trustframework-put-trustframeworkpolicy)
+- [Delete an existing trust framework policy](/graph/api/trustframeworkpolicy-delete)
 
 ## Policy keys
 
 The Identity Experience Framework stores the secrets referenced in a custom policy to establish trust between components. These secrets can be symmetric or asymmetric keys/values. In the Azure portal, these entities are shown as **Policy keys**.
 
-The top-level resource for policy keys in the Microsoft Graph API is the [Trusted Framework Keyset](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset). Each **Keyset** contains at least one **Key**. To create a key, first create an empty keyset, and then generate a key in the keyset. You can create a manual secret, upload a certificate, or a PKCS12 key. The key can be a generated secret, a string you define (such as the Facebook application secret), or a certificate you upload. If a keyset has multiple keys, only one of the keys is active.
+The top-level resource for policy keys in the Microsoft Graph API is the [Trusted Framework Keyset](/graph/api/resources/trustframeworkkeyset). Each **Keyset** contains at least one **Key**. To create a key, first create an empty keyset, and then generate a key in the keyset. You can create a manual secret, upload a certificate, or a PKCS12 key. The key can be a generated secret, a string you define (such as the Facebook application secret), or a certificate you upload. If a keyset has multiple keys, only one of the keys is active.
 
 ### Trust Framework policy keyset
 
-- [List the trust framework keysets](https://docs.microsoft.com/graph/api/trustframework-list-keysets)
-- [Create a trust framework keysets](https://docs.microsoft.com/graph/api/trustframework-post-keysets)
-- [Get a keyset](https://docs.microsoft.com/graph/api/trustframeworkkeyset-get)
-- [Update a trust framework keysets](https://docs.microsoft.com/graph/api/trustframeworkkeyset-update)
-- [Delete a trust framework keysets](https://docs.microsoft.com/graph/api/trustframeworkkeyset-delete)
+- [List the trust framework keysets](/graph/api/trustframework-list-keysets)
+- [Create a trust framework keysets](/graph/api/trustframework-post-keysets)
+- [Get a keyset](/graph/api/trustframeworkkeyset-get)
+- [Update a trust framework keysets](/graph/api/trustframeworkkeyset-update)
+- [Delete a trust framework keysets](/graph/api/trustframeworkkeyset-delete)
 
 ### Trust Framework policy key
 
-- [Get currently active key in the keyset](https://docs.microsoft.com/graph/api/trustframeworkkeyset-getactivekey)
-- [Generate a key in keyset](https://docs.microsoft.com/graph/api/trustframeworkkeyset-generatekey)
-- [Upload a string based secret](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadsecret)
-- [Upload a X.509 certificate](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadcertificate)
-- [Upload a PKCS12 format certificate](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12)
+- [Get currently active key in the keyset](/graph/api/trustframeworkkeyset-getactivekey)
+- [Generate a key in keyset](/graph/api/trustframeworkkeyset-generatekey)
+- [Upload a string based secret](/graph/api/trustframeworkkeyset-uploadsecret)
+- [Upload a X.509 certificate](/graph/api/trustframeworkkeyset-uploadcertificate)
+- [Upload a PKCS12 format certificate](/graph/api/trustframeworkkeyset-uploadpkcs12)
 
 ## Applications
 
-- [List applications](https://docs.microsoft.com/graph/api/application-list)
-- [Create an application](https://docs.microsoft.com/graph/api/resources/application)
-- [Update application](https://docs.microsoft.com/graph/api/application-update)
-- [Create servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal)
-- [Create oauth2Permission Grant](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant)
-- [Delete application](https://docs.microsoft.com/graph/api/application-delete)
+- [List applications](/graph/api/application-list)
+- [Create an application](/graph/api/resources/application)
+- [Update application](/graph/api/application-update)
+- [Create servicePrincipal](/graph/api/resources/serviceprincipal)
+- [Create oauth2Permission Grant](/graph/api/resources/oauth2permissiongrant)
+- [Delete application](/graph/api/application-delete)
 
 ## Application extension properties
 
-- [List extension properties](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
+- [List extension properties](/graph/api/application-list-extensionproperty)
 
 Azure AD B2C provides a directory that can hold 100 custom attributes per user. For user flows, these extension properties are [managed by using the Azure portal](custom-policy-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you, the first time the policy writes a value to the extension property.
 
 ## Audit logs
 
-- [List audit logs](https://docs.microsoft.com/graph/api/directoryaudit-list)
+- [List audit logs](/graph/api/directoryaudit-list)
 
 For more information about accessing Azure AD B2C audit logs with the Microsoft Graph API, see [Accessing Azure AD B2C audit logs](view-audit-logs.md).

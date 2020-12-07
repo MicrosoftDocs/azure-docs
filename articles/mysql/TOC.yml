@@ -117,8 +117,6 @@
         href: sample-scripts-azure-cli.md
       - name: Java connection pooling
         href: sample-scripts-java-connection-pooling.md
-      - name: Azure Policy built-ins
-        href: ./policy-reference.md
   - name: Concepts
     items:
      - name: Servers
@@ -127,6 +125,8 @@
        href: concepts-supported-versions.md
      - name: Limitations
        href: concepts-limits.md
+     - name: Operational best practices
+       href: concept-operation-excellence-best-practices.md
      - name: Pricing Tiers
        items:
        - name: Pricing tiers
@@ -157,6 +157,9 @@
          href: concepts-azure-ad-authentication.md
        - name: Infrastructure double encryption
          href: concepts-infrastructure-double-encryption.md
+       - name: Security controls by Azure Policy
+         displayName: regulatory, compliance, standards, domains
+         href: ./security-controls-policy.md
        - name: Security baseline
          href: security-baseline.md
      - name: Planned maintenance
@@ -195,6 +198,10 @@
        - name: Performance recommendations
          href: concepts-performance-recommendations.md
          displayName:  recommendation
+       - name: Monitoring best practices
+         href: concept-monitoring-best-practices.md
+       - name: Performance best practices
+         href: concept-performance-best-practices.md
      - name: Application development
        items:
        - name: Application development overview
@@ -202,7 +209,7 @@
        - name: Drivers and tools compatibility
          href: concepts-compatibility.md
          displayName: drivers, tools
-       - name: Application Best practices
+       - name: Application best practices
          href: app-development-best-practices.md
          displayName: application
        - name: Connection resiliency
@@ -448,6 +455,8 @@
             href: flexible-server/connect-python.md
   - name: Tutorials
     items:
+    - name : WordPress on Azure Kubernetes
+      href: flexible-server/tutorial-deploy-wordpress-on-aks.md
     - name: Build PHP (Laravel) app with database
       href: flexible-server/tutorial-php-database-app.md
     - name: Connect with private web app
@@ -575,6 +584,9 @@
     href: /azure/templates/microsoft.dbformysql/allversions
   - name: Management stored procedures
     href: reference-stored-procedures.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Deployment templates

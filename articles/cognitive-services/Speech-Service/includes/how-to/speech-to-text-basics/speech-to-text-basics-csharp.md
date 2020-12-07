@@ -302,7 +302,7 @@ There are a few ways to improve recognition accuracy with the Speech SDK. Let's 
 > [!IMPORTANT]
 > The Phrase List feature is only available in English.
 
-To use a phrase list, first create a [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?preserve-view=true&view=azure-dotnet) object, then add specific words and phrases with [`AddPhrase`](//dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase?preserve-view=true&view=azure-dotnet).
+To use a phrase list, first create a [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?preserve-view=true&view=azure-dotnet) object, then add specific words and phrases with [`AddPhrase`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase?preserve-view=true&view=azure-dotnet).
 
 Any changes to [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?preserve-view=true&view=azure-dotnet) take effect on the next recognition or after a reconnection to the Speech service.
 
@@ -321,5 +321,5 @@ phraseList.Clear();
 
 Phrase lists are only one option to improve recognition accuracy. You can also: 
 
-* [Improve accuracy with Custom Speech](../../../how-to-custom-speech.md)
+* [Improve accuracy with Custom Speech](../../../custom-speech-overview.md)
 * [Improve accuracy with tenant models](../../../tutorial-tenant-model.md)

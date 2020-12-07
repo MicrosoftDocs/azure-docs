@@ -114,7 +114,7 @@ The following articles and scenarios provide task-specific guidance for working 
 - How to deploy Certificates to VMs from Key Vault - [Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md) - A cloud application running in a VM on Azure needs a certificate. How do you get this certificate into this VM today?
 - [Deploying Azure Web App Certificate through Key Vault](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
 - Assign an access policy ([CLI](assign-access-policy-cli.md) | [PowerShell](assign-access-policy-powershell.md) | [Portal](assign-access-policy-portal.md)). 
-- [How to use Key Vault soft-delete with CLI](soft-delete-cli.md) guides you through the use and lifecycle of a key vault and various key vault objects with soft-delete enabled.
+- [How to use Key Vault soft-delete with CLI](./key-vault-recovery.md) guides you through the use and lifecycle of a key vault and various key vault objects with soft-delete enabled.
 - [How to pass secure values (such as passwords) during deployment](../../azure-resource-manager/templates/key-vault-parameter.md) - When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Key Vault and reference the value in other Resource Manager templates.
 
 ## Integrated with Key Vault

@@ -40,7 +40,7 @@ Peering Service is:
 Peering Service is not a private connectivity product like Azure ExpressRoute or a VPN product.
 
 > [!NOTE]
-> For more information about ExpressRoute, see [ExpressRoute documentation](https://docs.microsoft.com/azure/expressroute/).
+> For more information about ExpressRoute, see [ExpressRoute documentation](../expressroute/index.yml).
 >
 
 ## Background
@@ -52,7 +52,7 @@ Microsoft and partner service providers ensure that the traffic for the prefixes
 ![Microsoft network and public connectivity](./media/peering-service-about/peering-service-background-final.png)
 
 > [!NOTE]
-> For more information about the Microsoft global network, see [Microsoft global network](https://docs.microsoft.com/azure/networking/microsoft-global-network).
+> For more information about the Microsoft global network, see [Microsoft global network](../networking/microsoft-global-network.md).
 >
 
 ## Why use Peering Service?

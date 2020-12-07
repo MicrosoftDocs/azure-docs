@@ -20,7 +20,7 @@ The processes of this quick start result in a production-ready environment for c
 Identify the subscription you plan to use to deploy Azure VMware Solution.  You can either create a new subscription or reuse an existing one.
 
 >[!NOTE]
->The subscription must be associated with a Microsoft Enterprise Agreement.
+>The subscription must be associated with a Microsoft Enterprise Agreement or a Cloud Solution Provider Azure plan. For more information, see [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
 
 ## Resource group
 
@@ -43,7 +43,7 @@ Identify the size hosts that you want to use when deploying Azure VMware Solutio
 
 ## Number of hosts
 
-Define the number of hosts that you want to deploy into the Azure VMware Solution private cloud.  The minimum node count is three, and the maximum is 16 per cluster.  For more information, see the [Azure VMware Solution private cloud and clusters](concepts-private-clouds-clusters.md#clusters) documentation.
+Define the number of hosts that you want to deploy into the Azure VMware Solution private cloud.  The minimum number of hosts is three, and the maximum is 16 per cluster.  For more information, see the [Azure VMware Solution private cloud and clusters](concepts-private-clouds-clusters.md#clusters) documentation.
 
 You can always extend the cluster later if you need to go beyond the initial deployment number.
 
@@ -87,14 +87,6 @@ Keep in mind that:
 
 - If you plan to extend networks from on-premises, those networks must connect to a [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) in your on-premises VMware environment.  
 - If the network(s) you wish to extend live on a [vSphere Standard Switch](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), then they can't be extended.
-
-## ExpressRoute Global Reach peering network
-
-Identify a `/29` CIDR network address block required for the ExpressRoute Global Reach peering. Remember, any IP segments created must be unique across your Azure VMware Solution and on-premises footprint. The IPs in this segment are used at each end of the ExpressRoute Global Reach connection to connect the Azure VMware Solution ExpressRoute circuit with the on-premises ExpressRoute circuit. 
-
-**Example:** 10.1.0.0/29
-
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identify - ExpressRoute Global Reach peering network" border="false":::
 
 ## Azure Virtual Network to attach Azure VMware Solution
 

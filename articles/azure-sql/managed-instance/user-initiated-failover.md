@@ -32,9 +32,9 @@ You might consider executing a [manual failover](../database/high-availability-s
 
 ## Initiate manual failover on SQL Managed Instance
 
-### RBAC permissions required
+### Azure RBAC permissions required
 
-User initiating a failover will need to have one of the following RBAC roles:
+User initiating a failover will need to have one of the following Azure roles:
 
 - Subscription Owner role, or
 - Managed Instance Contributor role, or
