@@ -68,7 +68,7 @@ To register your apps manually, choose the Azure Active Directory (Azure AD) ten
     1. In the **User consent display name** box, enter `Access TodoListService as a user`.
     1. In the **User consent description** box, enter `Accesses the TodoListService web API as a user`.
     1. For **State**, keep **Enabled**.
-    1. Select **Add scope**.
+1. Select **Add scope**.
 
 ### Configure the service project
 

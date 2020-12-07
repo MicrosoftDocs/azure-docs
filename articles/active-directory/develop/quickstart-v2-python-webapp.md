@@ -54,8 +54,9 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Select **Register**.
 > 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
 > 1. Under **Manage**, select **Authentication**.
-> 1. From the **Web** section, add `http://localhost:5000/getAToken` as **Redirect URIs**.
-> 1. Select **Save**.
+> 1. Select **Add a platform** > **Web**.
+> 1. Add `http://localhost:5000/getAToken` and  as **Redirect URIs**.
+> 1. Select **Configure**.
 > 1. Under **Manage**, select the **Certificates & secrets**  and from the **Client secrets** section, select **New client secret**.
 > 1. Type a key description (for instance app secret), leave the default expiration, and select **Add**.
 > 1. Note the **Value** of the **Client Secret** for later use.

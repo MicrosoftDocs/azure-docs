@@ -51,8 +51,10 @@ To run this sample you will need:
 > 1. Select **Register**.
 > 1. On the **Overview** page, note the **Application (client) ID** and the **Directory (tenant) ID** for later use.
 > 1. Under **Manage**, select **Authentication**.
-> 1. From the **Web** section, add `https://localhost:8443/msal4jsample/secure/aad` and `https://localhost:8443/msal4jsample/graph/me` as **Redirect URIs**..
-> 1. Select **Save**.
+> 1. Select **Add a platform** > **Web**.
+> 1. Add `https://localhost:8443/msal4jsample/secure/aad` and  as **Redirect URIs**.
+> 1. Select **Configure**.
+> 1. From the **Web** section, add `https://localhost:8443/msal4jsample/graph/me` as a second **Redirect URIs**.
 > 1. Under **Manage**, select the **Certificates & secrets**  and from the **Client secrets** section, select **New client secret**.
 > 1. Type a key description (for instance app secret), leave the default expiration, and select **Add**.
 > 1. Note the **Value** of the **Client Secret** for later use.

@@ -57,10 +57,11 @@ The quickstart applies to both iOS and macOS apps. Some steps are needed only fo
 > 1. Search for and select **Azure Active Directory**.    
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
->Select **Register**.
+> 1. Select **Register**.
 > 1. Under **Manage**, select **Authentication** > **Add Platform** > **iOS**.
 > 1. Enter the **Bundle Identifier** for your application. The bundle identifier is a unique string that uniquely identifies your application, for example `com.<yourname>.identitysample.MSALMacOS`. Make a note of the value you use. Note that the iOS configuration is also applicable to macOS applications.
 > 1. Select **Configure** and save the **MSAL Configuration** details for later in this quickstart.
+> 1. Select **Done**.
 
 > [!div renderon="portal" class="sxs-lookup"]
 >

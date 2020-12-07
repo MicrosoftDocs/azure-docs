@@ -50,8 +50,9 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
 > 1. Select **Register** to create the application.
 > 1. Under **Manage**, select **Authentication**.
-> 1. In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, select `https://login.microsoftonline.com/common/oauth2/nativeclient`.
-> 1. Select **Save**.
+> 1. Select **Add a platform** > **Mobile and desktop applications**.
+> 1. In the **Redirect URIs** section, select `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+> 1. Select **Configure**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
