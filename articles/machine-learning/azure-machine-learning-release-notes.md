@@ -49,7 +49,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-mlflow**
     + AzureML-MLflow adds safe guards in remote scripts to avoid early termination of submitted runs.
   + **azureml-pipeline-core**
-    + It has fix for the bug in pipeline endpoint. The customer got an exception in setting a default pipeline for pipeline endpoint created via UI
+    + Fixed a bug in setting a default pipeline for pipeline endpoint created via UI
   + **azureml-pipeline-steps**
     + Added experimental support for test data to AutoMLStep.
   + **azureml-tensorboard**
