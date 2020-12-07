@@ -51,8 +51,6 @@ Once models are trained and ready for production, you have to choose how to depl
 
 For web-based deployments, users can leverage technologies like Docker to deploy their models. Docker .
 
-
-
 ## Machine Learning Operations (MLOps)
 
 Auditability and reproducibility are an important part of running experiments. Azure Machine Learning enables you to compose pipelines in GitHub Actions.
