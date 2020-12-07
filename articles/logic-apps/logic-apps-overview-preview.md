@@ -1,6 +1,6 @@
 ---
 title: Overview for Azure Logic Apps Preview
-description: Azure Logic Apps Preview is cloud solution for building automated stateful and stateless workflows that integrate apps, data, services, and systems with minimal code for enterprise-level scenarios.
+description: Azure Logic Apps Preview is a cloud solution for building automated stateful and stateless workflows that integrate apps, data, services, and systems with minimal code for enterprise-level scenarios.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev

@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 12/07/2020
 ---
 
-# Create stateful and stateless workflows with Azure Logic Apps Preview in the Azure portal
+# Create stateful and stateless workflows in the Azure portal with Azure Logic Apps Preview
 
 > [!IMPORTANT]
 > This capability is in public preview, is provided without a service level agreement, and 
