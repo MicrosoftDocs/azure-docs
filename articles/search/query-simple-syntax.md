@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 12/08/2020
 ---
 
 # Simple query syntax in Azure Cognitive Search
@@ -21,7 +21,7 @@ Although the simple parser is based on the [Apache Lucene Simple Query Parser](h
 
 ## How to invoke simple parsing
 
-A simple query is determined by the `queryType` and a valid string passed in the `search` parameter.
+A simple query is determined by the `queryType` and a valid string passed in the `search` parameter. A query request always targets the documents collection of a single index. The syntax described in this article pertains to the contents of the `search` parameter specifically.
 
 ```http
 POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs/search?api-version=2020-06-30
@@ -32,13 +32,13 @@ POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs
 }
 ```
 
-A `queryType` can be either "simple" or "full", where "simple" is the default, and "full" invokes the [full Lucene query parser](query-lucene-syntax.md) for more advanced queries. For simple queries, invocation is only necessary if you are resetting the syntax from full.
+A `queryType` can be either "simple" or "full", where "simple" is the default, and "full" invokes the [full Lucene query parser](query-lucene-syntax.md) for more advanced queries. For simple queries, setting the `queryType` is only necessary if you are resetting the syntax from full.
 
-The `searchMode` parameter can have an oversized impact on results, favoring recall over precision, so be sure to understand its implications, as described next.
+The `searchMode` parameter is syntax-agnostic but because it is impactful, determining whether recall is favored over precision, make sure that you understand how it works, as described in the next section.
 
-## Valid string composition
+## Search string composition
 
-Strings passed to the `search` parameter can include terms or phrases in any supported language, boolean and precedence operators, wildcard or prefix characters for "start's with" queries, escape characters, and URL encoding characters. The `search` parameter is optional. Unspecified search (`search=''` or `search=*`) returns the top 50 documents in arbitrary (unranked) order.
+Strings passed to the `search` parameter can include terms or phrases in any supported language, boolean operators, precedence operators, wildcard or prefix characters for "start's with" queries, escape characters, and URL encoding characters. The `search` parameter is optional. Unspecified, search (`search=''` or `search=*`) returns the top 50 documents in arbitrary (unranked) order.
 
 + A *term search* is a query for one or more terms, where any of the terms are considered a match.
 
@@ -58,7 +58,7 @@ If your application generates search queries programmatically, we recommend desi
 
 For POST (and any other request), where the body of the request includes `search` and other parameters such as `filter` and `orderby`, the maximum size is 16 MB, where the maximum number of clauses in `search` (expressions separated by AND, OR, and so on) is 1024. There is also a limit of approximately 32 KB on the size of any individual term in a query. For more information, see [API request limits](search-limits-quotas-capacity.md#api-request-limits).
 
-## Precedence operators (grouping)
+### Precedence operators (grouping)
 
 You can use parentheses to create subqueries, including operators within the parenthetical statement. For example, `motel+(wifi|luxury)` will search for documents containing the "motel" term and either "wifi" or "luxury" (or both).
 

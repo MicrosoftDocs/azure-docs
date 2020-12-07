@@ -8,28 +8,17 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/23/2020
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.date: 12/08/2020
 ---
 
 # Lucene query syntax in Azure Cognitive Search
 
-You can write queries against Azure Cognitive Search based on the rich [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions are a few examples. Much of the Lucene Query Parser syntax is [implemented intact in Azure Cognitive Search](search-lucene-query-architecture.md), with the exception of *range searches* which are constructed in Azure Cognitive Search through `$filter` expressions. 
+Azure Cognitive Search offers the rich [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions are a few examples. Much of the Lucene Query Parser syntax is [implemented intact in Azure Cognitive Search](search-lucene-query-architecture.md), with the exception of *range searches* which are constructed in Azure Cognitive Search through `$filter` expressions. 
 
 > [!NOTE]
-> The full Lucene syntax is used for query expressions passed in the **search** parameter of the [Search Documents](/rest/api/searchservice/search-documents) API, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter](search-filters.md) parameter of that API. These different syntaxes have their own rules for constructing queries, escaping strings, and so on.
+> The full Lucene syntax is used for query expressions passed in the `search` parameter of the [Search Documents](/rest/api/searchservice/search-documents) API, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter](search-filters.md) parameter of that API. These different syntaxes have their own rules for constructing queries, escaping strings, and so on.
 
-## Invoke full parsing
+## How to invoke full parsing
 
 Set the `queryType` search parameter to specify which parser to use. Valid values include `simple|full`, with `simple` as the default, and `full` for Lucene. 
 
@@ -39,15 +28,9 @@ Set the `queryType` search parameter to specify which parser to use. Valid value
 
 The following example finds documents in the index using the Lucene query syntax, evident in the `queryType=full` parameter. This query returns hotels where the category field contains the term "budget" and all searchable fields containing the phrase "recently renovated". Documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3).  
 
-The `searchMode=all` parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.
+The `searchMode=all` parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.  
 
-```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2020-06-30&querytype=full
-```
-
- Alternatively, use POST:  
-
-```
+```http
 POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
   "search": "category:budget AND \"recently renovated\"^3",
@@ -59,9 +42,11 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 For additional examples, see [Lucene query syntax examples for building queries in Azure Cognitive Search](search-query-lucene-examples.md). For details about specifying the full contingent of query parameters, see [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
->  Azure Cognitive Search also supports [Simple Query Syntax](query-simple-syntax.md), a simple and robust query language that can be used for straightforward keyword search.  
+> Azure Cognitive Search also supports [Simple Query Syntax](query-simple-syntax.md), a simple and robust query language that can be used for straightforward keyword search.  
 
-##  <a name="bkmk_syntax"></a> Syntax fundamentals  
+<a name="bkmk_syntax"></a> 
+
+## Syntax fundamentals  
 
 the following syntax fundamentals apply to all queries that use the Lucene syntax.  
 
