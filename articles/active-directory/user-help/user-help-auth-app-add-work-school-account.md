@@ -62,7 +62,7 @@ To add an account by scanning a QR Code, do the following:
 
    ![Screen that provides a QR code](./media/user-help-auth-app-add-work-school-account/auth-app-barcode.png)
 
-1. Open the Microsoft Authenticator app, select the plus icon ![Select the plus icon on either iOS or Android devices](media/user-help-auth-app-add-personal-ms-account/plus-icon.png) and select **Add account**, and then select **Work or school account,** followed by **Scan a QR Code**.
+1. Open the Microsoft Authenticator app, select the plus icon ![Select the plus icon on either iOS or Android devices](media/user-help-auth-app-add-work-school-account/plus-icon.png) and select **Add account**, and then select **Work or school account,** followed by **Scan a QR Code**.
    If you don't have an account set up in the Authenticator app, you'll see a large blue button that says **Add account**.
 
 If you aren't prompted to use your camera to scan a QR Code, in your phone's settings, ensure that the Authenticator app has access to the phone camera.
