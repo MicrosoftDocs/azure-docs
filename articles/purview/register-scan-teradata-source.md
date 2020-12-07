@@ -12,7 +12,7 @@ ms.date: 12/06/2020
 
 This article outlines how to register a Teradata source in Purview and set up a scan.
 
-    [!IMPORTANT]
+> [!IMPORTANT]
     This data source is currently in preview. You can try it out and give us feedback.
 
 ## Supported Capabilities
@@ -31,7 +31,7 @@ runtime](manage-integration-runtimes.md) to connect to it.
 4. You will have to manually install a driver named Teradata JDBC
     Driver on your on-premises virtual machine. The executable JAR file can be downloaded from the [Teradata website](https://downloads.teradata.com/).
 
-        [!Note] The driver should be accessible to all accounts in the VM. Please do not install in a user account.
+    >[!Note] The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
 5. Supported Teradata database versions are **12.x to 16.x**. Make sure to have Read access to the Teradata source being scanned.
 
@@ -90,19 +90,19 @@ To create and run a new scan, do the following:
 
 - Schema: List subset of schemas to import expressed as a semicolon separated list. e.g.schema1; schema2. All user schemas are imported if that list is  empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
 
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
+    Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
         - start with A or    
         - end with B or    
         - contain C or    
         - equal D
 
-        Usage of NOT and special characters are not acceptable
+    Usage of NOT and special characters are not acceptable
 
 - Driver location: Complete path to Teradata driver location on customer’s VM. The Teradata JDBC driver name must be: com.teradata.jdbc.TeraDriver
 
 - Maximum memory available: Maximum memory(in GB) available on customer’s VM to be used by scanning processes. This is dependent on the size of Teradata source to be scanned.
 
-        As a thumb rule, please provide 2GB memory for every 1k tables
+    >[!Note] As a thumb rule, please provide 2GB memory for every 1000 tables
 
 :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="setup scan" border="true":::
 
