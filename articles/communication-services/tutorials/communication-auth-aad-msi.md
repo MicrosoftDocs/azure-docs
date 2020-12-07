@@ -69,7 +69,7 @@ dotnet add package Azure.Identity
 ```csharp
      bool isLocal = string.IsNullOrEmpty(Environment.GetEnvironmentVariable("WEBSITE_INSTANCE_ID"));
      string ResourceEndpoint = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_RESOURCE");
-     TokenCredential credential = isLocal ? new DefaultAzureCredential : new ManagedIdentityCredential();
+     TokenCredential credential = isLocal ? new DefaultAzureCredential() : new ManagedIdentityCredential();
      
      var client = new CommunicationIdentityClient(managedIdentityCredential, ResourceEndpoint);
      var identityResponse = await client.CreateUserAsync();
