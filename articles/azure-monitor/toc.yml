@@ -890,8 +890,6 @@
         items:
         - name: Deep diagnostics for web apps and services
           href: app/devops.md
-        - name: Monitor performance in web applications
-          href: app/web-monitor-performance.md
         - name: Separate development, test, and production
           href: app/separate-resources.md
         - name: How do I ... in Application Insights?
