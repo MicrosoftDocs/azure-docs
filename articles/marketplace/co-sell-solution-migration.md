@@ -74,7 +74,8 @@ Select this option if the solution is already published in the commercial market
 1. Identify the existing offer.
     1. Select **I want to merge this solution with a similar offer in the commercial marketplace** (see **Action required** image [above](#beginmigration)).
     1. The **Action 1** tab shows live commercial marketplace offers that your OCP GTM solution can be associated with. Select the live offer from the list if you have one. If there is no list of offers to choose from, enter the customer-facing address (URL) from Microsoft AppSource or Azure Marketplace.
-        [![The Action 1 tab of the merge process.](media/co-sell-migrate/action-1-merge.png)](media/co-sell-migrate/action-1-merge.png#lightbox)    1. Select **Continue**.
+        [![The Action 1 tab of the merge process.](media/co-sell-migrate/action-1-merge.png)](media/co-sell-migrate/action-1-merge.png#lightbox)
+    1. Select **Continue**.
 1. Request the merge.
     1. The **Action 2** tab shows directions to request the merge of your OCP GTM solution with the one you identified. To request the merge, select **Save & Contact support**, which opens a partner support page in a browser.
     1. Select **Provide Issue Details** and enter the following:
@@ -89,7 +90,7 @@ Select this option when you may have an OCP GTM solution that does not yet have 
 1. Select **I want to migrate this solution from OCP GTM to the commercial marketplace** (see **Action required** image [above](#beginmigration)), then **Continue**.
 1. On the **Action 1** tab, select the [offer type](publisher-guide-by-offer-type.md), then **Continue**.
 
-    [![The Action 1 tab of the migrate process.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)    1. Select **Continue**.
+    [![The Action 1 tab of the migrate process.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)
 
 1. On the **Action 2** tab, select the [publisher profile](partner-center-portal/create-account.md) from the list provided. If you do not have a publisher account, create one at [Partner Center](https://partner.microsoft.com/solutions/migration), select it here.
 
