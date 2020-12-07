@@ -16,6 +16,8 @@ ms.author: kenwith
 
 Get started with simplified user logins by setting up single sign-on (SSO) for an application that you added to your Azure Active Directory (Azure AD) tenant. After you set up SSO, your users can sign in to an application by using their Azure AD credentials. SSO is included in the free edition of Azure AD.
 
+To learn more about OIDC-based SSO, see [Understand OIDC-based single sign-on](configure-oidc-single-sign-on.md).
+
 ## Prerequisites
 
 To set up SSO for an application that you added to your Azure AD tenant, you need:
