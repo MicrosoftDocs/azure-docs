@@ -213,7 +213,7 @@ From v1.2.0 Azure CNI will have Transparent mode as default for single tenancy L
 
 As the name suggests, bridge mode Azure CNI, in a "just in time" fashion, will create a L2 bridge named "azure0". All the host side pod `veth` pair interfaces will be connected to this bridge. So Pod-Pod intra VM communication is through this bridge. The bridge in question is a layer 2 virtual device that on its own cannot receive or transmit anything unless you bind one or more real devices to it. For this reason, eth0 of the Linux VM has to be converted into a subordinate to "azure0" bridge. This creates a complex network topology within the Linux VM and as a symptom CNI had to take care of other networking functions like DNS server update and so on.
 
-![Bridge mode topology](media/faq/bridge-mode.png)
+:::image type="content" source="media/faq/bridge-mode.png" alt-text="Bridge mode topology":::
 
 Below is an example of how the ip route setup looks like in Bridge mode. Regardless of how many pods the node has, there will only ever be two routes. The first one saying, all traffic excluding local on azure0 will go to the default gateway of the subnet through the interface with ip "src 10.240.0.4" (which is Node primary IP) and the second one saying "10.20.x.x" Pod space to kernel for kernel to decide.
 
@@ -227,7 +227,7 @@ root@k8s-agentpool1-20465682-1:/#
 ### Transparent mode
 Transparent mode takes a straight forward approach to setting up Linux networking. In this mode, Azure CNI won't change any properties of eth0 interface in the Linux VM. This minimal approach of changing the Linux networking properties helps reduce complex corner case issues that clusters could face with Bridge mode. In Transparent Mode, Azure CNI will create and add host-side pod `veth` pair interfaces that will be added to the host network. Intra VM Pod-to-Pod communication is through ip routes that the CNI will add. Essentially Pod-to-Pod intra VM is lower layer 3 network traffic.
 
-![Transparent mode topology](media/faq/transparent-mode.png)
+:::image type="content" source="media/faq/transparent-mode.png" alt-text="Transparent mode topology":::
 
 Below is an example ip route setup of transparent mode, each Pod's interface will get a static route attached so that traffic with dest IP as the Pod will be sent directly to the Pod's host side `veth` pair interface.
 
