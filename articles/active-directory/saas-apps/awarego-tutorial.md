@@ -132,11 +132,11 @@ In this section, you create a user called Britta Simon in AwareGo. Work with [A
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to zeroheight Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to AwareGo Sign-on URL where you can initiate the login flow. 
 
 * Go to AwareGo Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the zeroheight tile in the My Apps, this will redirect to zeroheight Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the AwareGo tile in the My Apps, this will redirect to AwareGo Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## Next steps
