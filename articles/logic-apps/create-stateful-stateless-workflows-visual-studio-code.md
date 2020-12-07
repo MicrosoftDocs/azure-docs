@@ -307,7 +307,7 @@ Before you can create your logic app, create a local project so that you can man
          {
             "IsEncrypted": false,
             "Values": {
-               "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net",
+               "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey=<access-key>;EndpointSuffix=core.windows.net",
                "FUNCTIONS_WORKER_RUNTIME": "dotnet"
             }
          }
