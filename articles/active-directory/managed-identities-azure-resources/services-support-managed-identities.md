@@ -269,7 +269,7 @@ Refer to the following list to configure managed identity for Azure Service Fabr
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | Not Available | Not Available | Not Available |
+| System assigned | ![Available][check] | Not Available | Not Available | ![Available][check] |
 | User assigned | Not Available | Not Available | Not Available | Not Available |
 
 
