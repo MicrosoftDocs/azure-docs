@@ -258,21 +258,20 @@ main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 Execute the following commands to run the app.
 
-    ```azurecli
-    npm install
-    npm index.js
-    ```
+```azurecli
+npm install
+npm index.js
+```
 
 A variation of the following output appears:
 
-    ```azurecli
-    Creating a certificate in mykeyvault called 'myCertificate' ... done.
-    Retrieving your certificate from mykeyvault.
-    Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
-    Deleting your certificate from mykeyvault ... done
-    Purging your certificate from mykeyvault ... done 
+```azurecli
+Creating a certificate in mykeyvault called 'myCertificate' ... done.
+Retrieving your certificate from mykeyvault.
+Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
+Deleting your certificate from mykeyvault ... done
+Purging your certificate from mykeyvault ... done 
     ```
-
 
 ## Next steps
 

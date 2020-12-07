@@ -227,18 +227,19 @@ Modify the .NET Core console app to interact with the Key Vault by completing th
 
 1. When prompted, enter a secret value. For example, mySecretPassword.
 
-    A variation of the following output appears:
+A variation of the following output appears:
 
-    ```console
-    Input the value of your secret > mySecretPassword
-    Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
-    Forgetting your secret.
-    Your secret is ''.
-    Retrieving your secret from <your-unique-keyvault-name>.
-    Your secret is 'mySecretPassword'.
-    Deleting your secret from <your-unique-keyvault-name> ... done.    
-    Purging your secret from <your-unique-keyvault-name> ... done.
-    ```
+```console
+Input the value of your secret > mySecretPassword
+Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
+Forgetting your secret.
+Your secret is ''.
+Retrieving your secret from <your-unique-keyvault-name>.
+Your secret is 'mySecretPassword'.
+Deleting your secret from <your-unique-keyvault-name> ... done.    
+Purging your secret from <your-unique-keyvault-name> ... done.
+```
+
 ## Next steps
 
 To learn more about Key Vault and how to integrate it with your apps, see the following articles:
