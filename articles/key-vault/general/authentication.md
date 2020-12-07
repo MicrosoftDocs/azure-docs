@@ -99,7 +99,7 @@ The following diagram illustrates the process for an application calling a Key V
 ![The Azure Key Vault authentication flow](../media/authentication/authentication-flow.png)
 
 > [!NOTE]
-> Key Vault SDK clients for secrets, certificates, and keys make an additional call to Key Vault without access token,  which results in 401 response to retrieve tenant information. For more information see [Authentication, requests,-and-responses][authentication-requests-and-responses.md]
+> Key Vault SDK clients for secrets, certificates, and keys make an additional call to Key Vault without access token,  which results in 401 response to retrieve tenant information. For more information see [Authentication, requests and responses](authentication-requests-and-responses.md)
 
 ## Code examples
 
