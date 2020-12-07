@@ -20,7 +20,6 @@ In this article, we use the Text Analytics REST API and [Postman](https://www.po
 
 You can call Text Analytics synchornously (for low latency scenarios). You have to call each API (feature) separately when using synchronous API. If you need to call multiple features then check out below section on how to call Text Analytics asynchronously. 
 
-
 ## Using the API asynchronously
 
 Starting in v3.1-preview.3, the Text Analytics API provides two asynchronous endpoints: 
@@ -48,13 +47,12 @@ See the table below to see which features can be used asynchronously. Note that 
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-## Prerequisites for calling API asynchronously
-
+## Create a Text Analytics resource
 
 > [!NOTE]
-> * You will need a Text Analytics resource using a Standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) if you want to use the `/analyze` or `/health` endpoints.
+> * You will need a Text Analytics resource using a Standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) if you want to use the `/analyze` or `/health` endpoints. The `/analyze` endpoint is included in your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
-1.	First, go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and create a new Text Analytics resource, if you don't have one already. Choose the **Standard (S) pricing tier** if you want to use the `/analyze` or `/health` endpoints. The `/analyze` endpoint is included in your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+1.	First, go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and create a new Text Analytics resource, if you don't have one already. Choose a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 2.	Select the region you want to use for your endpoint.  Please note the `/analyze` and `/health` endpoints are only available in the following regions: West US 2, East US 2, Central US, North Europe and West Europe.
 
