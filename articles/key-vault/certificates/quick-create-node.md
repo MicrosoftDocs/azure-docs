@@ -164,7 +164,7 @@ const client = new Certificate(KVUri, credential);
 
 ### Save a certificate
 
-Now that your application is authenticated, you can put a certificate into your keyvault using the [beginCreateCertificate method](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_) This requires a name for the certificate and the certificate policy[certificate policy](https://docs.microsoft.com/en-us/javascript/api/@azure/keyvault-certificates/certificatepolicy) with [certificate policy properties](https://docs.microsoft.com/en-us/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties)
+Now that your application is authenticated, you can put a certificate into your keyvault using the [beginCreateCertificate method](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_) This requires a name for the certificate and the certificate policy[certificate policy](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicy) with [certificate policy properties](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties)
 
 ```javascript
 const certificatePolicy = {
