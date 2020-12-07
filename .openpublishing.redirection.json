@@ -54366,6 +54366,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/curl.md",
+      "redirect_url": "/azure/cognitive-services/face/QuickStarts/client-libraries?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/text-analytics/vs-text-connected-service.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/",
       "redirect_document_id": false
