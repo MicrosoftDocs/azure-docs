@@ -49,7 +49,7 @@ In this case, you do not have the correct credentials to install the agent on th
 
 #### Unavailable VM or other agent installation/upgrade failures
 
-If your VM says *Unavailable* it is best to reinstall the agent, which will also reinstall the side-by-side stack. For all other errors with the agent not being properly installed, the same recourse is recommended. See [Reinstalling WVD Agent](#Reinstalling-WVD-Agent) and follow the steps outlined there.
+If your VM says *Unavailable* it is best to reinstall the agent, which will also reinstall the side-by-side stack. For all other errors with the agent not being properly installed, the same recourse is recommended. See [Reinstalling WVD Agent](#reinstalling-wvd-agent) and follow the steps outlined there.
 
 ## The WVD agent service is not running.
 
@@ -98,7 +98,7 @@ If you are seeing that *RDAgentBootLoader* is either stopped or not running, thi
 2. Select *Start*. Note that if this option is greyed out for you, you do not have administrator permissions and will need that in order to start the service.
 3. Wait 10 seconds, and then right-click *Remote Desktop Agent Loader*.
 4. Select *Refresh*.
-5. If the service stops after you started and refreshed it, you may have a registration failure. See [INVALID_REGISTRATION_TOKEN](#INVALID_REGISTRATION_TOKEN) and [NAME_ALREADY_REGISTERED](#NAME_ALREADY_REGISTERED).
+5. If the service stops after you started and refreshed it, you may have a registration failure. See [INVALID_REGISTRATION_TOKEN](#invalid_registration_token) and [NAME_ALREADY_REGISTERED](#name_already_registered).
 
 ## The WVD agent listener is not working.
 
@@ -131,7 +131,7 @@ If you are not seeing the two stack components say *Listen* next to them or they
    > [!div class="mx-imgBorder"]
    > ![Screenshot of programs and features](media/programs-and-features.PNG)
 
-3. If you are not seeing these components installed, see [Reinstalling WVD Agent](#Reinstalling-WVD-Agent).
+3. If you are not seeing these components installed, see [Reinstalling WVD Agent](#reinstalling-wvd-agent).
 
 #### If you are using Windows 10 2004...
 
@@ -163,7 +163,7 @@ If you are not seeing the two stack components say *Listen* next to them or they
 
 ### Why are you getting this error?
 
-The agent cannot connect to the broker and is unable to reach a particular URL. This may be because of your fierewall or DNS settings.
+The agent cannot connect to the broker and is unable to reach a particular URL. This may be because of your firewall or DNS settings.
 
 ### Resolution
 
@@ -314,17 +314,17 @@ This error indicates that the broker was unable to find an endpoint to establish
 
 #### Verify that the agent services are running on your VM(s).
 
-1. Verify [the agent service is running.](#The-WVD-agent-service-is-not-running)
-2. Verify [the WVD listener is working.](#The-WVD-agent-listener-is-not-working) 
+1. Verify [the agent service is running.](#the-wvd-agent-service-is-not-running)
+2. Verify [the WVD listener is working.](#the-wvd-agent-listener-is-not-working) 
 
 #### Verify that the agent can talk to the broker.
 
-1. Verify [the agent can talk to the broker.](#The-WVD-agent-cannot-talk-to-the-broker)
+1. Verify [the agent can talk to the broker.](#the-wvd-agent-cannot-talk-to-the-broker)
 
 #### Verify that this is not a registration issue.
 
-1. See [INVALID_REGISTRATION_TOKEN.](#INVALID_REGISTRATION_TOKEN)
-2. See [NAME_ALREADY_REGISTERED.](#NAME_ALREADY_REGISTERED) 
+1. See [INVALID_REGISTRATION_TOKEN.](#invalid_registration_token)
+2. See [NAME_ALREADY_REGISTERED.](#name_already_registered) 
 
 ## INVALID_REGISTRATION_TOKEN
 
@@ -348,7 +348,7 @@ The registration token that you have is not recognized as valid.
 
 #### Create a new registration token.
 
-1. Follow steps 1-5 to [generate a new registration key for the VM](#Generate-a-new-registration-key-for-the-VM).
+1. Follow steps 1-5 to [generate a new registration key for the VM](#generate-a-new-registration-key-for-the-vm).
 
 #### Change IsRegistered to 0.
 
@@ -397,7 +397,7 @@ The name of your VM has already been registered and is probably a duplicate.
 
 ### Resolution
 
-1. Follow steps 1-5 to [remove the session host from the host pool](#Remove-the-session-host-from-the-host-pool).
+1. Follow steps 1-5 to [remove the session host from the host pool](#remove-the-session-host-from-the-host-pool).
 2. Go to the *Overview* page for the host pool that your VM is in in the [Azure Portal](https://portal.azure.com). 
 3. Go to the *Session Hosts* tab to see the list of all session hosts in that host pool.
 4. Wait for 5-10 minutes for the session host to show *Available*.
@@ -422,7 +422,7 @@ Something went wrong with the communication between the agent and the broker.
 
 ### Resolution
 
-Verify [the agent can talk to the broker.](#The-WVD-agent-cannot-talk-to-the-broker)
+Verify [the agent can talk to the broker.](#the-wvd-agent-cannot-talk-to-the-broker)
 
 ## EXPIRED_REGISTRATION_TOKEN
 
@@ -441,8 +441,8 @@ Whenever you create a registration token, you set an expiration date for it. Rec
 
 ### Resolution
 
-1. Follow steps 1-5 to [generate a new registration key for the VM](#Generate-a-new-registration-key-for-the-VM).
-2. Follow steps 1-13 to [reinstall the WVD Agent and Bootloader](#Uninstall-all-agent-bootloader-and-stack-component-programs). 
+1. Follow steps 1-5 to [generate a new registration key for the VM](#generate-a-new-registration-key-for-the-vm).
+2. Follow steps 1-13 to [reinstall the WVD Agent and Bootloader](#uninstall-all-agent-bootloader-and-stack-component-programs). 
 
 ## InstallMsiException
 
