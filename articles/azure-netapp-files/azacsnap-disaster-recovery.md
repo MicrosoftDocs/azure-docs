@@ -61,7 +61,7 @@ One is **normal** and other is **multipurpose**. In the **normal** DR, you have 
 
 Microsoft operations team already manage and monitor the DR link from Primary site to the DR site.
 You can monitor the data replication from your primary server to DR server using the snapshot
-command `azure_hana_replication_status`.
+command `azacsnap -c details --details replication`.
 
 ## Perform a failover to DR site
 
