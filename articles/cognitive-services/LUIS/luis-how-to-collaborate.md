@@ -45,7 +45,7 @@ After you have been added as a contributor, [sign in to the LUIS portal](sign-in
 1. Click the avatar in the top right corner of the screen. Then click **Switch to a different Azure directory**. 
 1. In the window that appears, be sure to select the Azure directory that contains the LUIS resource that was shared with you. 
 
-
+    :::image type="content" source="media/migrate-authoring-key/switch-directories.png" alt-text="Switch directories" lightbox="media/migrate-authoring-key/switch-directories.png":::
 
 ### Users with multiple emails
 
