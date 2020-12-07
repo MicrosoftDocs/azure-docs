@@ -1,6 +1,9 @@
 ---
 title: Support for VMware migration in Azure Migrate
 description: Learn about support for VMware VM migration in Azure Migrate.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
 ---

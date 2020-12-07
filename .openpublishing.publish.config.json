@@ -460,7 +460,7 @@
     {
       "path_to_root": "samples-cosmosdb-xamarin",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "cosmosdb-python-sdk",

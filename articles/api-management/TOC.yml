@@ -241,6 +241,8 @@
               href: api-management-howto-create-groups.md
             - name: Retrieve IP addresses
               href: api-management-howto-ip-addresses.md
+            - name: Get API analytics
+              href: howto-use-analytics.md
             - name: Log events to Azure Event Hubs
               href: api-management-howto-log-event-hubs.md
             - name: Log requests with Azure Application Insights

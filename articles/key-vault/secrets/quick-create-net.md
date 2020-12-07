@@ -27,7 +27,7 @@ For more information about Key Vault and secrets, see:
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 * [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
 * [Azure CLI](/cli/azure/install-azure-cli)
-* A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
+* A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
 
 This quickstart is using `dotnet` and Azure CLI
 
@@ -50,6 +50,13 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 2. Sign in with your account credentials in the browser.
 
+### Grant access to your key vault
+
+Create an access policy for your key vault that grants secret permissions to your user account
+
+```console
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
+```
 
 ### Create new .NET console app
 
@@ -86,15 +93,6 @@ For this quickstart, you'll also need to install the Azure SDK client library fo
 ```dotnetcli
 dotnet add package Azure.Identity
 ```
-
-#### Grant access to your key vault
-
-Create an access policy for your key vault that grants secret permission to your user account
-
-```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
-```
-
 #### Set environment variables
 
 This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
@@ -129,7 +127,7 @@ Add the following directives to the top of *Program.cs*:
 
 In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?#defaultazurecredential). 
+In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. Fore more information about authenticating to key vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
@@ -151,16 +149,20 @@ You can now retrieve the previously set value with the [GetSecretAsync](/dotnet/
 
 ```csharp
 var secret = await client.GetSecretAsync(secretName);
-``````
+```
 
 Your secret is now saved as `secret.Value`.
 
 ### Delete a secret
 
-Finally, let's delete the secret from your key vault with the [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) method.
+Finally, let's delete the secret from your key vault with the [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) and [PurgeDeletedSecretAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.purgedeletedsecretasync) methods.
 
 ```csharp
-await client.StartDeleteSecretAsync(secretName);
+var operation = await client.StartDeleteSecretAsync("mySecret");
+// You only need to wait for completion if you want to purge or recover the key.
+await operation.WaitForCompletionAsync();
+
+await client.PurgeDeletedKeyAsync("mySecret");
 ```
 
 ## Sample code
@@ -225,52 +227,18 @@ Modify the .NET Core console app to interact with the Key Vault by completing th
 
 1. When prompted, enter a secret value. For example, mySecretPassword.
 
-    A variation of the following output appears:
+A variation of the following output appears:
 
-    ```console
-    Input the value of your secret > mySecretPassword
-    Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
-    Forgetting your secret.
-    Your secret is ''.
-    Retrieving your secret from <your-unique-keyvault-name>.
-    Your secret is 'mySecretPassword'.
-    Deleting your secret from <your-unique-keyvault-name> ... done.    
-    ```
-
-## Clean up resources
-
-When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding resource group.
-
-### Delete a Key Vault
-
-```azurecli
-az keyvault delete --name <your-unique-keyvault-name>
+```console
+Input the value of your secret > mySecretPassword
+Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
+Forgetting your secret.
+Your secret is ''.
+Retrieving your secret from <your-unique-keyvault-name>.
+Your secret is 'mySecretPassword'.
+Deleting your secret from <your-unique-keyvault-name> ... done.    
+Purging your secret from <your-unique-keyvault-name> ... done.
 ```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
-```
-
-### Purge a Key Vault
-
-```azurecli
-az keyvault purge --location eastus --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
-```
-
-### Delete a resource group
-
-```azurecli
-az group delete -g "myResourceGroup"
-```
-
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
-```
-
 
 ## Next steps
 
