@@ -34,7 +34,7 @@ This article shows how to build your logic app and workflow in the Azure portal 
 
 * View the workflow's run history.
 
-* Enable or open the Application Insights dashboard.
+* Enable or open the Application Insights dashboard after deployment.
 
 * Enable run history for stateless workflows.
 
@@ -337,9 +337,9 @@ For a stateful workflow, after each workflow run, you can view the run history, 
 
 1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
 
-<a name="monitor-application-insights"></a>
+<a name="enable-open-application-insights"></a>
 
-## Enable or open Application Insights dashboard
+## Enable or open Application Insights dashboard after deployment
 
 During workflow execution, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
 
@@ -361,7 +361,7 @@ After Application Insights opens, you can review various metrics for your logic 
 
 ## Enable run history for stateless workflows
 
-To more easily debug a stateless workflow, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for the Azure portal, or if you're working in Visual Studio Code, see [Create stateful or stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
+To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for the Azure portal, or if you're working in Visual Studio Code, see [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
 
 1. In the [Azure portal](https://portal.azure.com), find and open your **Logic App (Preview)** resource.
 

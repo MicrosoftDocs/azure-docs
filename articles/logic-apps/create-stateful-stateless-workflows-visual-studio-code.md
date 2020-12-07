@@ -492,13 +492,44 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
 
    When your workflow runs for the first time, the Logic Apps runtime registers the workflow and subscribes to the webhook operations. When your workflow runs again, the runtime won't register and subscribe again because the workflow already exists in local storage. So, before you run your workflow again, make sure that you clear your local storage.
 
+<a name="manage-breakpoints"></a>
+
+## Manage breakpoints for debugging
+
+Before you run and test your logic app workflow by starting a debugging session, you can set [breakpoints](https://code.visualstudio.com/docs/editor/debugging#_breakpoints) inside the **workflow.json** file for each workflow. No other setup is required. 
+
+At this time, breakpoints are supported only for actions, not triggers. Each action definition has these breakpoint locations:
+
+* Set the starting breakpoint on the line that shows the action's name. When this breakpoint hits during the debugging session, you can review the action's inputs before they're evaluated.
+
+* Set the ending breakpoint on the line that shows the action's closing curly brace (**}**). When this breakpoint hits during the debugging session, you can review the action's results before the action finishes running.
+
+To add a breakpoint, follow these steps:
+
+1. Open the **workflow.json** file for the workflow that you want to debug.
+
+1. On the line where you want to set the breakpoint, in the left column, select inside that column. To remove the breakpoint, select that breakpoint.
+
+   When you start your debugging session, the Run view appears on the left side of the code window, while the Debug toolbar appears near the top.
+
+   > [!NOTE]
+   > If the Run view doesn't automatically appear, press Ctrl+Shift+D.
+
+1. To review the available information when a breakpoint hits, in the Run view, examine the **Variables** pane.
+
+1. To continue workflow execution, on the Debug toolbar, select **Continue** (play button). 
+
+You can add and remove breakpoints at any time during the workflow run. However, if you update the **workflow.json** file after the run starts, breakpoints don't automatically update. To update the breakpoints, restart the logic app.
+
+For general information, see [Breakpoints - Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging#_breakpoints).
+
 <a name="run-test-debug-locally"></a>
 
 ## Run, test, and debug locally
 
-To test your logic app, follow these steps to start a debugging session and find the URL for the endpoint that's created by the Request trigger. You need this URL so that you can later send a request to that endpoint.
+To test your logic app, follow these steps to start a debugging session, and find the URL for the endpoint that's created by the Request trigger. You need this URL so that you can later send a request to that endpoint.
 
-1. To help you more easily debug a stateless workflow, you can [enable the run history for that workflow](#enable-run-history-stateless).
+1. To debug a stateless workflow more easily, you can [enable the run history for that workflow](#enable-run-history-stateless).
 
 1. On the Visual Studio Code toolbar, open the **Run** menu, and select **Start Debugging** (F5).
 
@@ -939,7 +970,7 @@ Through the Azure portal, you can add blank workflows to a **Logic App (Preview)
 
 ## Enable run history for stateless workflows
 
-To more easily debug a stateless workflow, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create stateful or stateless workflows in the Azure portal](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
+To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create stateful and stateless workflows in the Azure portal](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
 
 1. In your project, find and expand the **workflow-designtime** folder. Find and open the **local.settings.json** file.
 
@@ -974,9 +1005,9 @@ After you deploy a **Logic App (Preview)** resource from Visual Studio Code to A
 
    ![Screenshot that shows the Azure portal with a deployed Logic Apps (Preview) resource. On the resource menu, "CORS" is selected with a new entry for "Allowed Origins" set to the wildcard "*" character.](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
 
-<a name="monitor-application-insights"></a>
+<a name="enable-open-application-insights"></a>
 
-## Enable or monitor Application Insights after deployment
+## Enable or open Application Insights dashboard after deployment
 
 During workflow execution, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
 

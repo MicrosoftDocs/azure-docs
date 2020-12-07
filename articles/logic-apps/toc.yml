@@ -71,9 +71,9 @@
       items:
        - name: Overview for Azure Logic Apps Preview
          href: logic-apps-overview-preview.md
-       - name: Create stateful or stateless workflows - Azure portal
+       - name: Create stateful and stateless workflows - Azure portal
          href: create-stateful-stateless-workflows-azure-portal.md
-       - name: Create stateful or stateless workflows - Visual Studio Code
+       - name: Create stateful and stateless workflows - Visual Studio Code
          href: create-stateful-stateless-workflows-visual-studio-code.md
     - name: Call logic apps from Power Automate and Power Apps
       href: call-from-power-automate-power-apps.md
