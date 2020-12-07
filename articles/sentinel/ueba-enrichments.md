@@ -58,60 +58,60 @@ The following is a list of entity enrichments that are the products of Azure Sen
 | --- | --- | --- | --- |
 |
 | **First time user performed action**<br>*(FirstTimeUserPerformedAction)* | 180 | The action was performed for the first time by the user. | True, False |
-| **First time action performed in tenant**<br>*(FirstTimeActionPerformedInTenant)* | 180 | The action was performed for the first time by anyone in the organization. | True, False |
 | **Action uncommonly performed by user**<br>*(ActionUncommonlyPerformedByUser)* | ? | The action is not commonly performed by the user. | True, False |
 | **Action uncommonly performed among peers**<br>*(ActionUncommonlyPerformedAmongPeers)* | 180 | The action is not commonly performed among user's peers. | True, False |
+| **First time action performed in tenant**<br>*(FirstTimeActionPerformedInTenant)* | 180 | The action was performed for the first time by anyone in the organization. | True, False |
 | **Action uncommonly performed in tenant**<br>*(ActionUncommonlyPerformedInTenant)* | 180 | The action is not commonly performed in the organization. | True, False |
 |
 | **First time user used app**<br>*(FirstTimeUserUsedApp)* | 180 | The app was used for the first time by the user. | True, False |
-| **First time app observed in tenant**<br>*(FirstTimeAppObservedInTenant)* | 180 | The app was observed for the first time in the organization. | True, False |
 | **App uncommonly used by user**<br>*(AppUncommonlyUsedByUser)* | ? | The app is not commonly used by the user. | True, False |
 | **App uncommonly used among peers**<br>*(AppUncommonlyUsedAmongPeers)* | 180 | The app is not commonly used among user's peers. | True, False |
+| **First time app observed in tenant**<br>*(FirstTimeAppObservedInTenant)* | 180 | The app was observed for the first time in the organization. | True, False |
 | **App uncommonly used in tenant**<br>*(AppUncommonlyUsedInTenant)* | 180 | The app is not commonly used in the organization. | True, False |
 |
 | **First time user used auth type**<br>*(FirstTimeUserUsedAuthType)* | -new- | An uncommon authentication type used by a user can be an indication for the user being compromised. | |
-| **First time auth type used in tenant**<br>*(FirstTimeAuthTypeUsedInTenant)* | -new- |  | |
 | **Auth type uncommonly used by user**<br>*(AuthTypeUncommonlyUsedByUser)* | -new- |  | |
 | **Auth type uncommonly used among peers**<br>*(AuthTypeUncommonlyUsedAmongPeers)* | -new- |  | |
+| **First time auth type used in tenant**<br>*(FirstTimeAuthTypeUsedInTenant)* | -new- |  | |
 | **Auth type uncommonly used in tenant**<br>*(AuthTypeUncommonlyUsedInTenant)* | -new- |  | |
 |
 | **First time user connected via browser**<br>*(FirstTimeUserConnectedViaBrowser)* | 30 | The browser was observed for the first time by the user. | True, False |
-| **First time browser observed in tenant**<br>*(FirstTimeBrowserObservedInTenant)* | 30 | The browser was observed for the first time in the organization. | True, False |
 | **Browser uncommonly used by user**<br>*(BrowserUncommonlyUsedByUser)* |  |  |  |
 | **Browser uncommonly used among peers**<br>*(BrowserUncommonlyUsedAmongPeers)* | 30 | The browser is not commonly used among user's peers. | True, False |
+| **First time browser observed in tenant**<br>*(FirstTimeBrowserObservedInTenant)* | 30 | The browser was observed for the first time in the organization. | True, False |
 | **Browser uncommonly used in tenant**<br>*(BrowserUncommonlyUsedInTenant)* | 30 | The browser is not commonly used in the organization. | True, False |
 |
 | **First time user connected from country**<br>*(FirstTimeUserConnectedFromCountry)* | 90 | The geo location, as resolved from the IP address, was connected from for the first time by the user. | True, False |
-| **First time connection from country observed in tenant**<br>*(FirstTimeConnectionFromCountryObservedInTenant)* | 90 | The country was connected from for the first time by anyone in the organization. | True, False |
 | **Country uncommonly connected from by user**<br>*(CountryUncommonlyConnectedFromByUser)* |  |  |  |
 | **Country uncommonly connected from among peers**<br>*(CountryUncommonlyConnectedFromAmongPeers)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from among user's peers. | True, False |
+| **First time connection from country observed in tenant**<br>*(FirstTimeConnectionFromCountryObservedInTenant)* | 90 | The country was connected from for the first time by anyone in the organization. | True, False |
 | **Country uncommonly connected from in tenant**<br>*(CountryUncommonlyConnectedFromInTenant)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from in the organization. | True, False |
 |
 | **First time user connected from device**<br>*(FirstTimeUserConnectedFromDevice)* | 30 | The source device was connected from for the first time by the user. | True, False |
-| **First time device observed in tenant**<br>*(FirstTimeDeviceObservedInTenant)* | 30 | The device was observed for the first time in the organization. | True, False |
 | **Device uncommonly used by user**<br>*(DeviceUncommonlyUsedByUser)* |  |  |  |
 | **Device uncommonly used among peers**<br>*(DeviceUncommonlyUsedAmongPeers)* | 180 | The device is not commonly used among user's peers. | True, False |
+| **First time device observed in tenant**<br>*(FirstTimeDeviceObservedInTenant)* | 30 | The device was observed for the first time in the organization. | True, False |
 | **Device uncommonly used in tenant**<br>*(DeviceUncommonlyUsedInTenant)* | 180 | The device is not commonly used in the organization. | True, False |
 |
 | **First time user logged on to device**<br>*(FirstTimeUserLoggedOnToDevice)* | 180 | The destination device was connected to for the first time by the user. | True, False |
 | **Device family uncommonly used in tenant**<br>*(DeviceFamilyUncommonlyUsedInTenant)* | 30 | The device family is not commonly used in the organization. | True, False |
 |
 | **First time user connected via ISP**<br>*(FirstTimeUserConnectedViaISP)* | 30 | The ISP was observed for the first time by the user. | True, False |
-| **First time connection via ISP in tenant**<br>*(FirstTimeConnectionViaISPInTenant)* | 30 | The ISP was observed for the first time in the organization. | True, False |
 | **ISP uncommonly used by user**<br>*(ISPUncommonlyUsedByUser)* |  |  |  |
 | **ISP uncommonly used among peers**<br>*(ISPUncommonlyUsedAmongPeers)* | 30 | The ISP is not commonly used among user's peers. | True, False |
+| **First time connection via ISP in tenant**<br>*(FirstTimeConnectionViaISPInTenant)* | 30 | The ISP was observed for the first time in the organization. | True, False |
 | **ISP uncommonly used in tenant**<br>*(ISPUncommonlyUsedInTenant)* | 30 | The ISP is not commonly used in the organization. | True, False |
 |
 | **First time user used OS**<br>*(FirstTimeUserUsedOS)* | ? | The OS was used for the first time by the user. | True, False |
-| **First time OS observed in tenant**<br>*(FirstTimeOSObservedInTenant)* | ? | The OS was observed for the first time in the organization. | True, False |
 | **OS uncommonly used by user**<br>*(OSUncommonlyUsedByUser)* |  |  |  |
 | **OS uncommonly used among peers**<br>*(OSUncommonlyUsedAmongPeers)* | ? | The OS is not commonly used among user's peers. | True, False |
+| **First time OS observed in tenant**<br>*(FirstTimeOSObservedInTenant)* | ? | The OS was observed for the first time in the organization. | True, False |
 | **OS uncommonly used in tenant**<br>*(OSUncommonlyUsedInTenant)* | ? | The ISP is not commonly used in the organization. | True, False |
 |
 | **First time user accessed resource**<br>*(FirstTimeUserAccessedResource)* | 180 | The resource was accessed for the first time by the user. | True, False |
-| **First time resource accessed in tenant**<br>*(FirstTimeResourceAccessedInTenant)* | 180 | The resource was accessed for the first time by anyone in the organization. | True, False |
 | **Resource uncommonly accessed by user**<br>*(ResourceUncommonlyAccessedByUser)* |  |  |  |
 | **Resource uncommonly accessed among peers**<br>*(ResourceUncommonlyAccessedAmongPeers)* | 180 | The resource is not commonly accessed among user's peers. | True, False |
+| **First time resource accessed in tenant**<br>*(FirstTimeResourceAccessedInTenant)* | 180 | The resource was accessed for the first time by anyone in the organization. | True, False |
 | **Resource uncommonly accessed in tenant**<br>*(ResourceUncommonlyAccessedInTenant)* | 180 | The resource is not commonly accessed in the organization. | True, False |
 |
 | **Last time user performed action**<br>*(LastTimeUserPerformedAction)* | 180 | Last time the user performed the same action. | <Timestamp> |
