@@ -1232,7 +1232,7 @@ Azure Logic Apps Preview supports built-in actions for Azure Function Operations
 
 Also, the **Azure Function Operations** connector and actions don't appear in the designer picker unless you enabled or selected **Use connectors from Azure** when you created your logic app. If you didn't enable the Azure-deployed connectors at app creation time, you can enable them from your project in Visual Studio Code. Open the **workflow.json** shortcut menu, and select **Use Connectors from Azure**.
 
-To fix the outdated bundle, follow these steps to delete the outdated bundle, which makes Visual Studio Code automatically upate the extension bundle to the latest version.
+To fix the outdated bundle, follow these steps to delete the outdated bundle, which makes Visual Studio Code automatically update the extension bundle to the latest version.
 
 > [!NOTE]
 > This solution applies only to logic apps that you create and deploy using Visual Studio Code with 
