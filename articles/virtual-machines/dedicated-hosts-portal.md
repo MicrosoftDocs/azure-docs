@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/12/2020
+ms.date: 12/07/2020
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
@@ -43,7 +43,7 @@ In this example, we will create a host group using 1 availability zone and 2 fau
 1. For **Location**, select **East US**.
 1. For **Availability Zone**, select **1**.
 1. For **Fault domain count**, select **2**.
-1. If you used the **Automatic placement** URL, select this option to automatically assign VMs and scale set instances to an available host in this group.
+1. Select **Automatic placement** to automatically assign VMs and scale set instances to an available host in this group.
 1. Select **Review + create** and then wait for validation.
 1. Once you see the **Validation passed** message, select **Create** to create the host group.
 
@@ -77,7 +77,7 @@ If you set a fault domain count for your host group, you will be asked to specif
 1. In **Availability options** select **Availability zone**, select *1* from the drop-down.
 1. For the size, select **Change size**. In the list of available sizes, choose one from the Esv3 series, like **Standard E2s v3**. You may need to clear the filter in order to see all of the available sizes.
 1. Complete the rest of the fields on the **Basics** tab as needed.
-1. At the top of the page, select the **Advanced** tab and in the **Host** section, select *myHostGroup* for **Host group** and *myHost* for the **Host**. 
+1. If you want to specify which host to use for your VM, then at the top of the page, select the **Advanced** tab and in the **Host** section, select *myHostGroup* for **Host group** and *myHost* for the **Host**. Otherwise, your VM will automatically be placed on a host with capacity.
 	![Select host group and host](./media/dedicated-hosts-portal/advanced.png)
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 1. When you see the message that validation has passed, select **Create**.
