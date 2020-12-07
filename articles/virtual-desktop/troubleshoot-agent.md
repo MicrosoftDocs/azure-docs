@@ -175,9 +175,9 @@ The agent cannot connect to the broker and is unable to reach a particular URL. 
    > ![Screenshot of broker uri and broker uri global](media/broker-uris.PNG)
 
  
-4. Open a browser and go to *BrokerURI/api/health*. 
+4. Open a browser and go to *\<BrokerURI\>api/health*. 
    - Make sure that in place of *BrokerURI* in the above link, you put the actual value from step 3. 
-5. Open another tab in the browser and go to *BrokerURIGlobal/api/health*. 
+5. Open another tab in the browser and go to *\<BrokerURIGlobal\>api/health*. 
    - Make sure that in place of *BrokerURIGlobal* in the above link, you put the actual value from step 3. 
 6. Both pages should load as shown below. 
 
@@ -232,7 +232,7 @@ The side-by-side stack is only supported by Windows Enterprise or Windows Server
 2. Select *Windows Logs*.
 3. Double click *Application*. This will show a list of events.
 4. On the right hand side of the window, select *Filter Current Log...*.
-5. In the text field that says *<All Event IDs>, type *0*, and select *Ok*.
+5. In the text field that says *\<All Event IDs\>*, type *0*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *CheckSessionHostDomainIsReachableAsync -SessionHost unhealthy: the domain the SessionHost is joined to is not reachable!* in the general description if you have received this error.
 
    > [!div class="mx-imgBorder"]
@@ -265,7 +265,7 @@ You may be facing this disconnection issue if your server is missing a heartbeat
 2. Select *Windows Logs*.
 3. Double click *Application*. This will show a list of events.
 4. On the right hand side of the window, select *Filter Current Log...*.
-5. In the text field that says *<All Event IDs>, type *3703*, and select *Ok*.
+5. In the text field that says *\<All Event IDs\>*, type *3703*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *RDGateway Url: is not accessible. Make sure the RDGateway Url is accessible from this machine.* in the general description if you have received this error.
 
 ### Why are you getting this error?
@@ -285,7 +285,7 @@ This error is raised when the RD Gateway URL cannot be reached during orchestrat
 2. Select *Windows Logs*.
 3. Double click *Application*. This will show a list of events.
 4. On the right hand side of the window, select *Filter Current Log...*.
-5. In the text field that says *<All Event IDs>, type *3277*, and select *Ok*.
+5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *ENDPOINT_NOT_FOUND* in the general description if you have received this error.
 
 ### Why are you getting this error?
@@ -310,7 +310,7 @@ This error indicates that the broker was unable to find an endpoint to establish
 2. You will see how many session hosts you have in the host pool and how many active sessions next to *Total active sessions*. 
 3. Select *Properties* under the *Settings* on the blade on the left. 
 4. Under *Configuration* you will see *Max session limit*. 
-5. Verify that the Total active sessions / # of session hosts < Max Session Limit. If not, you need to increase the max session limit or terminate some sessions.
+5. Verify that the \\( \[\frac{Total active sessions}{# of session hosts}\] < Max Session Limit\\). If not, you need to increase the max session limit or terminate some sessions.
 
 #### Verify that the agent services are running on your VM(s).
 
