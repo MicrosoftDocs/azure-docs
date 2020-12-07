@@ -328,9 +328,9 @@ Before you can create your logic app, create a local project so that you can man
 
 ## Add a trigger and actions
 
-After you open the designer from your **workflow.json** file's shortcut menu, the **Choose an operation** prompt appears on the designer and is selected by default. You can now start creating your workflow by adding a trigger and actions.
+After you open the designer, the **Choose an operation** prompt appears on the designer and is selected by default. You can now start creating your workflow by adding a trigger and actions.
 
-The logic app workflow in this example uses this trigger and these actions:
+The workflow in this example uses this trigger and these actions:
 
 * The built-in [Request trigger](../connectors/connectors-native-reqres.md), **When a HTTP request is received**, which receives inbound calls or requests and creates an endpoint that other services or logic apps can call.
 
