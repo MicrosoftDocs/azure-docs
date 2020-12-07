@@ -55,7 +55,7 @@ The following table briefly summarizes the differences in the way that workflows
 | Environment | Resource sharing and consumption |
 |-------------|----------------------------------|
 | Azure Logic Apps (Multi-tenant) | Workflows *from customers in multiple tenants* share the same processing (compute), storage, network, and so on. |
-| Azure Logic Apps (Preview) | Workflows *in the same logic app* share the same processing (compute), storage, but customers can choose their own virtual network. |
+| Azure Logic Apps (Preview) | Workflows *in the same logic app* share the same processing (compute), storage, and network. |
 | Integration service environment (unavailable in Preview) | Workflows in the *same environment* share the same processing (compute), storage, and network. |
 ||||
 
