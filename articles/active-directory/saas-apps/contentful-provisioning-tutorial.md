@@ -1,10 +1,9 @@
 ---
-title: 'Tutorial: Configure Contentful for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to automatically provision and deprovision user accounts from Azure AD to Contentful.
+title: 'Tutorial: Configure Contentful for automatic user provisioning with Azure Active Directory'
+description: Learn how to automatically provision and deprovision user accounts from Azure Active Directory (Azure AD) to Contentful.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: zchia
 manager: beatrizd
 
 ms.assetid: 3b761984-a9a0-4519-b23e-563438978de5
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2020
-ms.author: Zhchia
+ms.author: zhchia
 ---
 
 # Tutorial: Configure Contentful for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Contentful and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and deprovisions users and groups to [Contentful](https://www.contentful.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Contentful and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and deprovisions users and groups to [Contentful](https://www.contentful.com/) by using the Azure AD provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## Capabilities supported
 
@@ -53,7 +52,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 3. Go to **Left Slider** > **Organization settings** > **Access Tools** > **User provisioning**.
 
-   ![Menu](media/contentful-provisioning-tutorial/access.png)
+   ![Screenshot of the Organization settings menu in Contentful, with User provisioning highlighted under Access Tools.](media/contentful-provisioning-tutorial/access.png)
 
 4. Copy and save the **SCIM URL**. You'll enter this value on the **Provisioning** tab of your Contentful application in the Azure portal.
 
@@ -65,7 +64,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 7. The **SCIM URL** and the **Secret Token** are generated. Copy and save these values. You'll enter these values on the **Provisioning** tab of your Contentful application in the Azure portal.
 
-    ![access](media/contentful-provisioning-tutorial/token.png)
+    ![Screenshot of the Personal access token pane, with C F P A T and the token placeholder name highlighted.](media/contentful-provisioning-tutorial/token.png)
 
 
 If you have questions when you configure provisioning in the Contentful admin console, contact [Contentful Support](mailto:support@contentful.com).
@@ -73,13 +72,13 @@ If you have questions when you configure provisioning in the Contentful admin co
 
 ## Add Contentful from the Azure AD application gallery
 
-To manage provisioning to Contentful, add Contentful from the Azure AD application gallery. If you have previously set up Contentful for single sign-on, you can use the same application. However, we recommend that you create a separate app to initially test the integration. Learn how to [add an application in the gallery](../app-provisioning/add-gallery-app.md). 
+To manage provisioning to Contentful, add Contentful from the Azure AD application gallery. If you have previously set up Contentful for single sign-on, you can use the same application. However, we recommend that you create a separate app to initially test the integration. Learn how to [add an application in the gallery](../manage-apps/add-application-portal.md). 
 
 ## Define who will be in scope for provisioning 
 
 You can use the Azure AD provisioning service to scope who will be provisioned based on assignment to the application and or based on attributes of the user or group. 
 
-If you choose to scope who will be provisioned to your app based on assignment, complete the steps to [assign users and groups to the application](../app-provisioning/assign-user-or-group-access-portal.md).
+If you choose to scope who will be provisioned to your app based on assignment, complete the steps to [assign users and groups to the application](../manage-apps/assign-user-or-group-access-portal.md).
 
 If you choose to scope who will be provisioned based solely on attributes of the user or group, use a scoping filter to [define conditional rules for provisioning user accounts](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -95,27 +94,27 @@ This section guides you through the steps to set up the Azure AD provisioning se
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, and then select **All applications**.
 
-   [Enterprise applications blade](common/enterprise-applications.png)
+   [Screenshot that shows the Enterprise applications blade in the Azure portal.](common/enterprise-applications.png)
 
 2. In the applications list, select **Contentful**.
 
-   ![The Contentful link in the Applications list](common/all-applications.png)
+   ![Screenshot that shows the Contentful link in the Applications list.](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
-   ![Provisioning tab](common/provisioning.png)
+   ![Screenshot of the Provisioning tab highlighted in the Manage section of the left menu.](common/provisioning.png)
 
 4. Set **Provisioning Mode** to **Automatic**.
 
-   ![Provisioning tab automatic](common/provisioning-automatic.png)
+   ![Screenshot that shows the Provisioning Mode options, with Automatic highlighted.](common/provisioning-automatic.png)
 
 5. In the **Admin Credentials** section, enter your Contentful tenant URL and secret token. To ensure that Azure AD can connect to Contentful, select **Test Connection**. If the connection fails, be sure that your Contentful account has Admin permissions, and then try again.
 
-   ![Token](common/provisioning-testconnection-tenanturltoken.png)
+   ![Screenshot that shows the Tenant U R L and Secret Token text boxes, with the Test Connection button highlighted.](common/provisioning-testconnection-tenanturltoken.png)
 
 6. In **Notification Email**, enter the email address of a person or group who should receive the provisioning error notifications, and then select the **Send an email notification when a failure occurs** check box.
 
-   ![Notification Email](common/provisioning-notification-email.png)
+   ![Screenshot that shows the Notification Email text box.](common/provisioning-notification-email.png)
 
 7. Select **Save**.
 
@@ -142,15 +141,15 @@ This section guides you through the steps to set up the Azure AD provisioning se
 
 13. To enable the Azure AD provisioning service for Contentful, in the **Settings** section, change **Provisioning Status** to **On**.
 
-    ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+    ![Screenshot that shows Provisioning Status On and Off toggle.](common/provisioning-toggle-on.png)
 
 14. To define the users or groups that you want to provision to Contentful, in the **Settings** section, select the relevant values in **Scope**.
 
-    ![Provisioning Scope](common/provisioning-scope.png)
+    ![Screenshot that shows options you can select in the Scope pane.](common/provisioning-scope.png)
 
 15. When you're ready to provision, select **Save**.
 
-    ![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+    ![Screenshot that shows the Save button and the Cancel button.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** under **Settings**. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes, as long as the Azure AD provisioning service is running. 
 
@@ -160,10 +159,10 @@ After you've configured provisioning, use the following resources to monitor you
 
 * To determine which users have been provisioned successfully or unsuccessfully, view the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md).
 * To see the status of the provisioning cycle and how close it is to finishing, check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md).
-* If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about [quarantine states](../app-provisioningapplication-provisioning-quarantine-status.md).  
+* If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about [quarantine states](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 * [Manage user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../app-provisioning/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
