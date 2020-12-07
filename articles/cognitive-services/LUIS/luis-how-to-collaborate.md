@@ -15,7 +15,7 @@ ms.date: 11/19/2019
 
 # Add contributors to your app
 
-An app owner can add contributors to apps. These collaborators can modify the model, train, and publish the app.
+An app owner can add contributors to apps. These contributors can modify the model, train, and publish the app.
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
@@ -38,26 +38,18 @@ You have migrated if your LUIS authoring experience is tied to an Authoring reso
 
     If you have trouble with this role assignment, review [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) and [Azure access control troubleshooting](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
 
-## Add collaborator to LUIS app
+## View the app as a contributor
 
-The following procedure is for all users that have **not migrated** to use the Azure authoring resource.
+After you have been added as a contributor, [sign in to the LUIS portal](sign-in-luis-portal.md). You may need to switch to a different Azure directory to see apps you've been shared on.
 
-You have not migrated if your LUIS authoring experience is not tied to an Authoring resource on the **Manage -> Azure resources** page in the LUIS portal.
+1. Click the avatar in the top right corner of the screen. Then click **Switch to a different Azure directory**. 
+1. In the window that appears, be sure to select the Azure directory that contains the LUIS resource that was shared with you. 
 
-An app has a single author, the owner, but can have many collaborators. To allow collaborators to edit your LUIS app, you must add the email they use to access the LUIS portal to the collaborators list. Once they are added, the app shows in their LUIS portal.
-
-1. Select **Manage** from the top right menu, then select **Collaborators** in the left menu.
-
-1. Select **Add Collaborator** from the toolbar.
-
-1. Enter the email address the collaborator uses to sign in to the LUIS portal.
-
-    ![Add collaborator's email address](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
 
 
 ### Users with multiple emails
 
-If you add contributors/collaborators to a LUIS app, you are specifying the exact email address. While Azure Active Directory (Azure AD) allows a single user to have more than one email account used interchangeably, LUIS requires the user to sign in with the email address specified when adding the contributor/collaborator.
+If you add contributors to a LUIS app, you are specifying the exact email address. While Azure Active Directory (Azure AD) allows a single user to have more than one email account used interchangeably, LUIS requires the user to sign in with the email address specified when adding the contributor.
 
 <a name="owner-and-collaborators"></a>
 

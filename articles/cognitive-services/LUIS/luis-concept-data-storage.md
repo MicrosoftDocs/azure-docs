@@ -9,12 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 12/07/2020
 
 ---
 
 # Data storage and removal in Language Understanding (LUIS) Cognitive Services
-LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. This data is stored for 30 days. 
+
+LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. 
+
+*	Data used to train the model will be saved in LUIS for the lifetime of the application. If an owner or contributor deletes the app, this data will be deleted with it. If the  application has no activity, the app will be soft deleted after 90 days and completely deleted after another 90 days. 
+
+* Application authors can choose to enable logging on the utterances that are sent to a published application. If enabled, utterances will be saved for 30 days, and can be viewed by the application author. If logging isn't enabled when the application is published, this data is not stored.
 
 ## Export and delete app
 Users have full control over [exporting](luis-how-to-start-new-app.md#export-app) and [deleting](luis-how-to-start-new-app.md#delete-app) the app. 
