@@ -205,19 +205,19 @@
         href: manage/transfer-subscriptions-subscribers-csp.md
       - name: Cancel subscription
         href: manage/cancel-azure-subscription.md
-    - name: Create subscriptions with REST API
+    - name: Create subscriptions programmatically
       items:
-      - name: Create subscriptions - REST API
+      - name: Create subscriptions programmatically
         href: manage/programmatically-create-subscription.md
-      - name: Create EA subscriptions - REST
+      - name: Create EA subscriptions programmatically
         href: manage/programmatically-create-subscription-enterprise-agreement.md
-      - name: Create MCA subscriptions - REST
+      - name: Create MCA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
-      - name: Create MPA subscriptions - REST
+      - name: Create MPA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
       - name: Create subscriptions - ARM template
         href: manage/create-subscription-template.md
-      - name: Create subscriptions - preview REST
+      - name: Create subscriptions programmatically - preview APIs
         href: manage/programmatically-create-subscription-preview.md
     - name: Manage Enterprise Agreement subscriptions
       items:
