@@ -10,7 +10,9 @@ ms.date: 12/01/2020
 
 # What is Industrial IoT (IIoT)?
 
-IIoT is the Industrial Internet of Things. IIoT enhances industrial efficiencies through the application of IoT in the manufacturing industry.
+IIoT (Industrial Internet of Things) enhances industrial efficiencies through the application of IoT in the manufacturing industry.
+
+![Industrial Iot](media/overview-what-is-Industrial-IoT/02359-Marketplace-255px.png)
 
 ## Improve industrial efficiencies
 Enhance your operational productivity and profitability with Azure Industrial IoT. Reduce the time-consuming process of accessing the assets on-site. Connect and monitor your industrial equipment and devices in the cloud - including your machines already operating on the factory floor. Analyze your IoT data for insights that help you increase the performance of the entire site.
@@ -34,7 +36,7 @@ The IoT Hub acts as a central message hub for bi-directional communication betwe
 **Discover, register, and manage your Industrial Assets with Azure**
 Azure Industrial IoT allows plant operators to discover OPC UA enabled servers in a factory network and register them in Azure IoT Hub. Operations personnel can subscribe and react to events on the factory floor from anywhere in the world. The Microservices' REST APIs mirror the OPC UA services edge-side. They are secured using OAUTH authentication and authorization backed by Azure Active Directory (AAD). This enables your cloud applications to browse server address spaces or read/write variables and execute methods using HTTPS and simple OPC UA JSON payloads.
 
-# Next steps
+## Next steps
 Now that you have learned what Industrial IoT is, you can read about the Industrial IoT Platform and the OPC Publisher:
 
 > [!div class="nextstepaction"]

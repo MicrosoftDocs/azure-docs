@@ -38,7 +38,7 @@ OPC Publisher supports batching of the data sent to IoT Hub to reduce network lo
 
 This application uses the OPC Foundation OPC UA reference stack as NuGet packages. See [https://opcfoundation.org/license/redistributables/1.3/](https://opcfoundation.org/license/redistributables/1.3/) for the licensing terms.
 
-# Next steps
+## Next steps
 Now that you have learned what the OPC Publisher is, you can get started by deploying it:
 
 > [!div class="nextstepaction"]
