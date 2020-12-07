@@ -32,7 +32,7 @@ This overview covers the following areas:
 
 * [How the pricing model works](#pricing-model).
 
-* [Limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
+* [Changed, limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
 
 * [Limits in Azure Logic Apps Preview](#limits).
 
@@ -81,7 +81,7 @@ Meanwhile, you can still create the original logic app type in the Azure portal 
   > [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins). 
   > These triggers run natively in the Azure Logic Apps Preview runtime. For more information about limited, 
   > unavailable, or unsupported triggers, actions, and connectors, see 
-  > [Limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
+  > [Changed, limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
 
 <a name="nested-behavior"></a>
 
@@ -169,9 +169,9 @@ For more information about the pricing models that apply to this new resource ty
 
 <a name="limited-unavailable-unsupported"></a>
 
-## Limited, unavailable, or unsupported capabilities
+## Changed, limited, unavailable, or unsupported capabilities
 
-In Azure Logic Apps Preview, these capabilities are currently limited, unavailable, or unsupported:
+In Azure Logic Apps Preview, these capabilities have change, or they are currently limited, unavailable, or unsupported:
 
 * **Triggers and actions**: Some built-in triggers are unavailable, such as Sliding Window and Batch. To start your workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). Built-in triggers and actions run natively in the Azure Logic Apps Preview runtime, while managed connectors are deployed in Azure. In the designer, built-in triggers and actions appear under the **Built-in** tab, while managed connector triggers and actions appear under the **Azure** tab.
 
@@ -189,11 +189,11 @@ In Azure Logic Apps Preview, these capabilities are currently limited, unavailab
 
     * [Custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) are unavailable.
 
-    * The built-in action, [Azure Functions - Choose an Azure function](logic-apps-azure-functions.md), currently works only for functions that are created from the **HTTP Trigger** template. Also, **Azure Functions - Choose an Azure function** is now **Azure Function Operations - Call an Azure function**.
+    * The built-in action, [Azure Functions - Choose an Azure function](logic-apps-azure-functions.md) is now **Azure Function Operations - Call an Azure function**. This action currently works only for functions that are created from the **HTTP Trigger** template.
 
-    * If you use macOS or Linux, the built-in action, [Inline Code - Execute JavaScript Code](logic-apps-add-run-inline-code.md) is currently unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code. Also, note these changes:
+    * The built-in action, [Inline Code - Execute JavaScript Code](logic-apps-add-run-inline-code.md) is now **Inline Code Operations - Run in-line JavaScript**.
 
-      * **Inline Code - Execute JavaScript Code** is now **Inline Code Operations - Run in-line JavaScript**.
+      * If you use macOS or Linux, **Inline Code Operations** is currently unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
 
       * Inline Code Operations actions no longer require an integration account.
 
