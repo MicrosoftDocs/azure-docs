@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
+ms.custom: contperfq2
 ---
 
 # What is Custom Speech?

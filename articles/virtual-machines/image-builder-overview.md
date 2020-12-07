@@ -1,15 +1,20 @@
 ---
-author: 
-ms.author: danielsollondon
-ms.date: 08/03/2020
-ms.topic: include
-ms.service: virtual-machines-linux
-manager: daberry
+title: Learn about Azure Image Builder (preview)
+description: Learn more about Azure Image Builder for virtual machines in Azure.
+author: danielsollondon
+ms.author: danis
+ms.date: 05/02/2019
+ms.topic: conceptual
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.reviewer: cynthn
 ---
+
+# Preview: Azure Image Builder overview
 
 Standardized virtual machine (VM) images allow organizations to migrate to the cloud and ensure consistency in the deployments. Images typically include predefined security and configuration settings and necessary software. Setting up your own imaging pipeline requires time, infrastructure and setup, but with Azure VM Image Builder, just provide a simple configuration describing your image, submit it to the service, and the image is built, and distributed.
  
-The Azure VM Image Builder (Azure Image Builder) lets you start with a Windows or Linux-based Azure Marketplace image, existing custom images or Red Hat Enterprise Linux (RHEL) ISO and begin to add your own customizations. Because the Image Builder is built on [HashiCorp Packer](https://packer.io/), you can also import your existing Packer shell provisioner scripts. You can also specify where you would like your images hosted, in the [Azure Shared Image Gallery](../articles/virtual-machines/windows/shared-image-galleries.md), as a managed image or a VHD.
+The Azure VM Image Builder (Azure Image Builder) lets you start with a Windows or Linux-based Azure Marketplace image, existing custom images or Red Hat Enterprise Linux (RHEL) ISO and begin to add your own customizations. Because the Image Builder is built on [HashiCorp Packer](https://packer.io/), you can also import your existing Packer shell provisioner scripts. You can also specify where you would like your images hosted, in the [Azure Shared Image Gallery](shared-image-galleries.md), as a managed image or a VHD.
 
 > [!IMPORTANT]
 > Azure Image Builder is currently in public preview.
@@ -60,7 +65,7 @@ The Azure Image Builder is a fully managed Azure service that is accessible by a
 
 **Image Builder process** 
 
-![Conceptual drawing of the Azure Image Builder process](./media/virtual-machines-image-builder-overview/image-builder-process.png)
+![Conceptual drawing of the Azure Image Builder process](./media/image-builder-overview/image-builder-process.png)
 
 1. Create the Image Template as a .json file. This .json file contains information about the image source, customizations, and distribution. There are multiple examples in the [Azure Image Builder GitHub repository](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 1. Submit it to the service, this will create an Image Template artifact in the resource group you specify. In the background, Image Builder will download the source image or ISO, and scripts as needed. These are stored in a separate resource group that is automatically created in your subscription, in the format: IT_\<DestinationResourceGroup>_\<TemplateName>. 
@@ -73,14 +78,14 @@ When you register for the (AIB), this grants the AIB Service permission to creat
 
 To allow Azure VM Image Builder to distribute images to either the managed images or to a Shared Image Gallery, you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private containers.
 
-Initially you must follow [create Azure user-assigned managed identity](../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) documentation on how to create an identity.
+Initially you must follow [create Azure user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) documentation on how to create an identity.
 
 Once you have the identity you need to grant it permissions, to do this, you can use an Azure Custom Role Definition, and then assign the user-assigned managed identity to use the Custom Role Definition.
 
 Permissions are explained in more detail [here](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements), and the examples show how this is implemented.
 
 > [!Note]
-> Previously with AIB, you would use the AIB SPN, and grant the SPN permissions to the image resource groups. We are moving away from this model, to allow for future capabilities. From 26th May 2020, Image Builder will not accept templates that do not have a user-assigned identity, existing templates will need to be resubmitted to the service with a [user-identity](../articles/virtual-machines/linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#identity). The examples here already show how you can create a user-assigned identity and add them to a template. For more information please review this [documentation](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information) on this change and releases updates.
+> Previously with AIB, you would use the AIB SPN, and grant the SPN permissions to the image resource groups. We are moving away from this model, to allow for future capabilities. From 26th May 2020, Image Builder will not accept templates that do not have a user-assigned identity, existing templates will need to be resubmitted to the service with a [user-identity](./linux/image-builder-json.md). The examples here already show how you can create a user-assigned identity and add them to a template. For more information please review this [documentation](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information) on this change and releases updates.
 
 ## Costs
 You will incur some compute, networking and storage costs when creating, building and storing images with Azure Image Builder. These costs are similar to the costs incurred in manually creating custom images. For the resources, you will be charged at your Azure rates. 
@@ -96,4 +101,5 @@ Image Builder currently only natively supports creating Hyper-V generation (Gen1
  
 ## Next steps 
  
-To try out the Azure Image Builder, see the articles for building [Linux](../articles/virtual-machines/linux/image-builder.md) or [Windows](../articles/virtual-machines/windows/image-builder.md) images.
+To try out the Azure Image Builder, see the articles for building [Linux](./linux/image-builder.md) or [Windows](./windows/image-builder.md) images.
+
