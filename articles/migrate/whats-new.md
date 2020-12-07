@@ -1,6 +1,9 @@
 ---
 title: What's new in Azure Migrate 
 description: Learn about what's new and recent updates in the Azure Migrate service.
+author: bsiva
+ms.author: bsiva
+ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
