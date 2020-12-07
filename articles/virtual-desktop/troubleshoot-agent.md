@@ -216,7 +216,7 @@ The side-by-side stack is only supported by Windows Enterprise or Windows Server
 
 #### Create a VM that is Windows Enterprise or Windows Server
 
-1. Follow steps 1-12 under [Virtual Machine Details](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace). Note that the recommended images for your VM are:
+1. Follow steps 1-12 under [Virtual Machine Details](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-azure-marketplace#virtual-machine-details). Note that the recommended images for your VM are:
    - Windows 10 Enterprise multi-session, Version 1909
    - Windows 10 Enterprise multi-session, Version 1909 + Microsoft 365 Apps
    - Windows Server 2019 Datacenter
@@ -310,7 +310,7 @@ This error indicates that the broker was unable to find an endpoint to establish
 2. You will see how many session hosts you have in the host pool and how many active sessions next to *Total active sessions*. 
 3. Select *Properties* under the *Settings* on the blade on the left. 
 4. Under *Configuration* you will see *Max session limit*. 
-5. Verify that the Total active sessions \ # of session hosts < Max Session Limit. If not, you need to increase the max session limit or terminate some sessions.
+5. Verify that the (Total active sessions \ # of session hosts) < Max Session Limit. If not, you need to increase the max session limit or terminate some sessions.
 
 #### Verify that the agent services are running on your VM(s).
 
