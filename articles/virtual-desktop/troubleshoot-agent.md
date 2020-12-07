@@ -155,7 +155,7 @@ If you are not seeing the 2 stack components say *Listen* next to them or they a
 2. Select *Windows Logs*.
 3. Double click *Application*. This will show a list of events.
 4. On the right hand side of the window, select *Filter Current Log...*.
-5. In the text field that says \<All Event IDs\>, type *3277*, and select *Ok*.
+5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *Agent cannot connect to broker with error NOT_FOUND. URL:* in the general description if you have received this error.
 
    > [!div class="mx-imgBorder"]
