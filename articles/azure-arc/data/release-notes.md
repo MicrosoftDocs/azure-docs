@@ -45,8 +45,6 @@ You can specify direct connectivity when you create the data controller. The fol
 azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
-
-
 ## October 2020 
 
 Azure Data CLI (`azdata`) version number: 20.2.3. Download at [https://aka.ms/azdata](https://aka.ms/azdata).
