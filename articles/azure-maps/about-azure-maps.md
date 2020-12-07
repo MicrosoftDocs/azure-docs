@@ -197,6 +197,21 @@ Azure Maps is built for mobility and can help you develop cross-platform applica
 
 Also, Azure Maps offers a convenient [JavaScript map control](/javascript/api/azure-maps-control) with a simple programming model. The development is quick and easy for both web and mobile applications.
 
+## Elevation service (Preview)
+
+The Azure Maps Elevation service is a web service that developers can use to retrieve elevation data from anywhere on the Earth’s surface.
+
+The Elevation service allows you to retrieve elevation data in two formats:
+
+* **GeoTIFF raster format**. Use the [Render V2 - Get Map Tile API](/rest/api/maps/renderv2) to retrieve elevation data in tile format.
+
+* **GeoJSON format**. Use the [Elevation APIs](/rest/api/maps/elevation) to request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. 
+
+    :::image type="content" source="./media/about-azure-maps/elevation.png" alt-text="Example of map with elevation data":::
+    
+
+
+
 ## Power BI visual
 
 The Azure Maps visual for Power BI provides a rich set of data visualizations for spatial data on top of a map. It's estimated that over 80% of business data has a location context. The Azure Maps visual offers a no-code solution for gaining insights into how this location context relates to and influences your business data.
