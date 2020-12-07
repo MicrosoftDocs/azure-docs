@@ -12,20 +12,25 @@ ms.reviewer: dineshm
 
 # Download blobs from Azure Blob storage by using AzCopy v10
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article contains example commands that help you download blobs from  Blob storage.
+You can download blobs and directories from Blob storage by using the AzCopy v10 command-line utility. 
 
-> [!TIP]
-> The examples in this article enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+To see examples for other types of tasks such as uploading files, synchronizing with Blob storage, or copying blobs between accounts, see the links presented in the [Next Steps](#next-steps) section of this article.
 
 ## Get started
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
-The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage. If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> [!NOTE] 
+> The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD).
+>
+> If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## Download a blob
 
 Download a blob by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 |    |     |
 |--------|-----------|
@@ -40,6 +45,9 @@ Download a blob by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 
 Download a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>' '<local-directory-path>' --recursive` |
@@ -51,6 +59,9 @@ This example results in a directory named `C:\myDirectory\myBlobDirectory` that 
 ## Download directory contents
 
 You can download the contents of a directory without copying the containing directory itself by using the wildcard symbol (*).
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 > [!NOTE]
 > Currently, this scenario is supported only for accounts that don't have a hierarchical namespace.
@@ -65,6 +76,9 @@ Append the `--recursive` flag to download files in all sub-directories.
 ## Download specific blobs
 
 You can download specific blobs by using complete file names, partial names with wildcard characters (*), or by using dates and times. 
+
+> [!TIP]
+> These examples enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 #### Specify multiple complete blob names
 

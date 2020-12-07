@@ -12,7 +12,9 @@ ms.reviewer: dineshm
 
 # Copy blobs between Azure storage accounts by using AzCopy v10
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article contains examples that help you copy blobs between Azure storage accounts. 
+You can copy blobs, directories, and containers between storage accounts by by using the AzCopy v10 command-line utility. 
+
+To see examples for other types of tasks such as uploading files, downloading blobs, and synchronizing with Blob storage, see the links presented in the [Next Steps](#next-steps) section of this article.
 
 AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
 
@@ -32,8 +34,6 @@ Apply the following guidelines to your AzCopy commands.
 
 - If you copy to or from an account that has a hierarchical namespace, use `blob.core.windows.net` instead of `dfs.core.windows.net` in the URL syntax. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use `blob.core.windows.net`, and it is the only supported syntax for account to account copy scenarios. 
 
-- Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). The examples in this article enclose path arguments with single quotes ('').  
-
 - You can increase the throughput of copy operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Optimize throughput](storage-use-azcopy-configure.md#optimize-throughput). 
 
 - If the source blobs have index tags, and you want to retain those tags, you'll have to re-apply them to the destination blobs. For information about how to set index tags, see the [Copy blobs to another storage account with index tags](#copy-between-accounts-and-add-index-tags) section of this article.
@@ -41,6 +41,9 @@ Apply the following guidelines to your AzCopy commands.
 ## Copy a blob
 
 Copy a blob to another storage account by using the [azcopy copy](storage-ref-azcopy-copy.md) command. 
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 |    |     |
 |--------|-----------|
@@ -53,6 +56,9 @@ The copy operation is synchronous so when the command returns, that indicates th
 
 Copy a directory to another storage account by using the [azcopy copy](storage-ref-azcopy-copy.md) command. 
 
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
@@ -64,6 +70,9 @@ The copy operation is synchronous so when the command returns, that indicates th
 
 Copy a container to another storage account by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
@@ -74,6 +83,9 @@ The copy operation is synchronous so when the command returns, that indicates th
 ## Copy containers, directories, and blobs
 
 Copy all containers, directories, and blobs to another storage account by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 |    |     |
 |--------|-----------|
@@ -97,6 +109,9 @@ For example, to add the a key `my tag` and a value `my tag value`, you would add
 Separate multiple index tags by using an ampersand (`&`).  For example, if you want to add a key `my second tag` and a value `my second tag value`, the complete option string would be `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`.
 
 The following examples show how to use the `--blob-tags` option.
+
+> [!TIP]
+> These examples enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 |    |     |
 |--------|-----------|

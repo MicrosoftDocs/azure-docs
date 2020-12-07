@@ -12,22 +12,25 @@ ms.reviewer: dineshm
 
 # Synchronize with Azure Blob storage by using AzCopy v10
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article contains example commands that help you synchronize local storage with Azure Blob storage.
+You can synchronize local storage with Azure Blob storage by using the AzCopy v10 command-line utility. 
 
 You can synchronize the contents of a local file system with a blob container. You can also synchronize containers and virtual directories with one another. Synchronization is one-way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server to server APIs. The examples presented in this section also work with accounts that have a hierarchical namespace. 
 
 > [!NOTE]
 > The current release of AzCopy doesn't synchronize between other sources and destinations (For example: File storage or Amazon Web Services (AWS) S3 buckets).
 
+To see examples for other types of tasks such as uploading files, downloading blobs, or copying blobs between accounts, see the links presented in the [Next Steps](#next-steps) section of this article.
+
 ## Get started
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
-The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage. If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> [!NOTE] 
+> The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD).
+>
+> If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.ken>'`.
 
 ## Guidelines
-
-- Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). The examples in this article enclose path arguments with single quotes ('').  
 
 - The [sync](storage-ref-azcopy-sync.md) command compares file names and last modified timestamps. Set the `--delete-destination` optional flag to a value of `true` or `prompt` to delete files in the destination directory if those files no longer exist in the source directory.
 
@@ -39,6 +42,9 @@ The examples in this article assume that you've authenticated your identity by u
 
 In this case, the container is the destination, and the local file system is the source. 
 
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy sync '<local-directory-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
@@ -47,6 +53,9 @@ In this case, the container is the destination, and the local file system is the
 ## Update a local file system with changes to a container
 
 In this case, the local file system is the destination, and the container is the source.
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 |    |     |
 |--------|-----------|
@@ -57,6 +66,9 @@ In this case, the local file system is the destination, and the container is the
 
 The first container that appears in this command is the source. The second one is the destination.
 
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
@@ -65,6 +77,9 @@ The first container that appears in this command is the source. The second one i
 ## Update a directory with changes to a directory in another file share
 
 The first directory that appears in this command is the source. The second one is the destination.
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 |    |     |
 |--------|-----------|
