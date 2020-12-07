@@ -179,7 +179,7 @@ Note: Azure AD supports external identities that allow users without a Microsoft
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39941).
 
-**Guidance**: Azure Database Migration service requires users to create an Application ID (service principle) and authentication key in Azure Active Directory for migrations to Azure SQL Database Managed Instance in 'Online' mode. This Application ID requires either the Contributor role at the subscription level (which is not recommended due to the excessive access permissions Contributor role would be granted) or creation of custom roles with specific permissions that Azure Database Migrations Service requires. 
+**Guidance**: Azure Database Migration service requires users to create an Application ID (service principle) and authentication key in Azure Active Directory (Azure AD) for migrations to Azure SQL Database Managed Instance in 'Online' mode. This Application ID requires either the Contributor role at the subscription level (which is not recommended due to the excessive access permissions Contributor role would be granted) or creation of custom roles with specific permissions that Azure Database Migrations Service requires.
 
 It is recommended to remove this Application ID once the migrations are complete.
 
@@ -349,7 +349,7 @@ If GitHub is used, you can use native secret scanning feature to identify creden
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39949).
 
-**Guidance**: Azure Database Migration service requires users to create an Application ID (service principle) and authentication key in Azure Active Directory for migrations to Azure SQL Database Managed Instance in 'Online' mode. It is recommended to remove this Application ID once the migrations are complete.
+**Guidance**: Azure Database Migration service requires users to create an Application ID (service principle) and authentication key in Azure Active Directory (Azure AD) for migrations to Azure SQL Database Managed Instance in 'Online' mode. It is recommended to remove this Application ID once the migrations are complete.
 
 - [How Application ID is used in the Online migration mode](../../dms/tutorial-sql-server-managed-instance-online.md)
 
