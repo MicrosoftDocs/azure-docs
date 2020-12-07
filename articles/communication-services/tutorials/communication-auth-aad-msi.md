@@ -88,9 +88,9 @@ The examples below are using the [DefaultAzureCredential](https://docs.microsoft
      
      SmsClient smsClient = new SmsClient(managedIdentityCredential, ResourceEndpoint);
      smsClient.Send(
-          from: new PhoneNumber("<leased-phone-number>"),
-          to: new PhoneNumber("<to-phone-number>"),
-          message: "Hello World via SMS",
-          new SendSmsOptions { EnableDeliveryReport = true } // optional
-);
+         from: new PhoneNumber("<leased-phone-number>"),
+         to: new PhoneNumber("<to-phone-number>"),
+         message: "Hello World via SMS",
+         new SendSmsOptions { EnableDeliveryReport = true } // optional
+     );
 ```
