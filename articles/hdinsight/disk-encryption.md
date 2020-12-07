@@ -113,7 +113,9 @@ HDInsight only supports Azure Key Vault. If you have your own key vault, you can
 
 You're now ready to create a new HDInsight cluster. Customer-managed keys can only be applied to new clusters during cluster creation. Encryption can't be removed from customer-managed key clusters, and customer-managed keys can't be added to existing clusters.
 
-HDInsight supports the creation of clusters using of both versioned and versionless keys. If you create the cluster with a versionless key URI, then the HDInsight cluster will try to perform key auto-rotation when the key is updated in your Azure Key Vault. If you create the cluster with a versioned key URI, you will have to perform a manual key rotation as discussed in [Rotating the encryption key](#rotating-the-encryption-key).
+Beginning with the [November 2020 release](hdinsight-release-notes.md#release-date-11182020), HDInsight supports the creation of clusters using both versioned and version-less key URIs. If you create the cluster with a version-less key URI, then the HDInsight cluster will try to perform key auto-rotation when the key is updated in your Azure Key Vault. If you create the cluster with a versioned key URI, you will have to perform a manual key rotation as discussed in [Rotating the encryption key](#rotating-the-encryption-key).
+
+For clusters created before the November 2020 release, you will have to perform key rotation manually using the versioned key URI.
 
 #### Using the Azure portal
 
@@ -356,7 +358,7 @@ The contents of the resource management template, `azuredeploy.json`:
 
 ### Rotating the encryption key
 
-There might be scenarios where you might want to change the encryption keys used by the HDInsight cluster after it has been created. This can be easily via the portal. For this operation, the cluster must have access to both the current key and the intended new key, otherwise the rotate key operation will fail. Regardless of whether you created the cluster with a versioned or versionless key, you can choose to if you want to rotate the key with a version or not.
+You can change the encryption keys used on your running cluster, using the Azure portal or Azure CLI. For this operation, the cluster must have access to both the current key and the intended new key, otherwise the rotate key operation will fail. For clusters created after the the November 2020 release you can choose if you want to your new key to have a version or not. For clusters created before the November 2020 release, you must use a versioned key when rotating the encryption key.
 
 #### Using the Azure portal
 
