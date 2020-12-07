@@ -45,7 +45,7 @@ This tutorial uses a two device hierarchy for simplicity. One device, **topLayer
 To create a hierarchy of IoT Edge devices, you will need:
 
 * A computer (Windows or Linux) with internet connectivity.
-* Two Linux devices to configure as IoT Edge devices. If you don't have devices available, you can use [Azure virtual machines](../virtual-machines/linux/index.yml).
+* Two Linux devices to configure as IoT Edge devices. If you don't have devices available, you can create [Azure virtual machines](../virtual-machines/linux/overview.md).
 * An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * Azure CLI v2.3.1 with the Azure IoT extension v0.10.6 or higher installed. This tutorial uses the [Azure Cloud Shell](../cloud-shell/overview.md). If you're unfamiliar with the Azure Cloud Shell, [check out a quickstart for details](./quickstart-linux.md#prerequisites).
@@ -180,7 +180,7 @@ Install IoT Edge by following these steps on both devices.
    sudo apt-get install moby-engine
    ```
 
-1. Install the hsmlib and IoT Edge daemon <!-- Update with proper image links on release -->
+1. Install the hsmlib and IoT Edge daemon. <!-- Update with proper image links on release -->
 
    ```bash
    curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/libiothsm-std_1.2.0.rc2-1-1_debian9_amd64.deb -o libiothsm-std.deb
