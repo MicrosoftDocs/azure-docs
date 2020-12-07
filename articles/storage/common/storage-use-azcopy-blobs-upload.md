@@ -20,13 +20,15 @@ To see examples for other types of tasks such as downloading blobs, synchronizin
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
-The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage. If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
-
-The examples in this article enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+> [!NOTE] 
+> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage. If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## Create a container
 
-You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a container. The examples in this section create a container named `mycontainer`.
+You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a container.
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 |    |     |
 |--------|-----------|
@@ -39,6 +41,9 @@ For detailed reference docs, see [azcopy make](storage-ref-azcopy-make.md).
 ## Upload a file
 
 Upload a file by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 |    |     |
 |--------|-----------|
@@ -53,6 +58,9 @@ You can also upload a file by using a wildcard symbol (*) anywhere in the file p
 Upload a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command. 
 
 This example copies a directory (and all of the files in that directory) to a blob container. The result is a directory in the container by the same name.
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 |    |     |
 |--------|-----------|
@@ -73,6 +81,9 @@ If you specify the name of a directory that does not exist in the container, AzC
 
 Upload the contents of a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command. Use the wildcard symbol (*) to upload the contents without copying the containing directory itself.
 
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` |
@@ -85,6 +96,9 @@ Append the `--recursive` flag to upload files in all sub-directories.
 ## Upload specific files
 
 You can upload specific files by using complete file names, partial names with wildcard characters (*), or by using dates and times.
+
+> [!TIP]
+> These examples enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 ### Specify multiple complete file names
 
@@ -138,6 +152,9 @@ For example, to add the a key `my tag` and a value `my tag value`, you would add
 Separate multiple index tags by using an ampersand (`&`).  For example, if you want to add a key `my second tag` and a value `my second tag value`, the complete option string would be `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`.
 
 The following examples show how to use the `--blob-tags` option.
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 |    |     |
 |--------|-----------|
