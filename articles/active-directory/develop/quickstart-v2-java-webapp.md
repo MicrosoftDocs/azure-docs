@@ -141,7 +141,7 @@ Run it directly from your IDE by using the embedded spring boot server or packag
 
 ##### Running from IDE
 
-If you are running the web application from an IDE, select run, then navigate to the home page of the project. For this sample, the standard home page URL is https://localhost:8443
+If you are running the web application from an IDE, select run, then navigate to the home page of the project. For this sample, the standard home page URL is https://localhost:8443.
 
 1. On the front page, select the **Login** button to redirect to Azure Active Directory and prompt the user for their credentials.
 
