@@ -31,9 +31,9 @@ This article describes the available virtual machine sizes for Cloud Services (e
 
 ## Configure sizes for Cloud Services (extended support)
 
-You can specify the virtual machine size of a role instance as part of the service model in the service definition file. The size of the role determines the number of CPU cores, memory capacity and the local file system size that is allocated. Choose the role size based on your application's resource requirements. 
+You can specify the virtual machine size of a role instance as part of the service model in the service definition file. The size of the role determines the number of CPU cores, memory capacity and the local file system size.
 
-For example, setting the role size to `Standard_D2` for a web role instance: 
+For example, setting the web role instance size to `Standard_D2`: 
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2"> 
