@@ -52181,6 +52181,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-deploy-image.md",
+      "redirect_url": "/azure/iot-accelerators/device-simulation-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mariadb/reference-data-in-stored-procedures.md",
       "redirect_url": "/azure/mariadb/reference-stored-procedures",
       "redirect_document_id": false

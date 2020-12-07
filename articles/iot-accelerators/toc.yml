@@ -88,8 +88,6 @@
       href: iot-accelerators-device-simulation-time-series-insights.md
     - name: Serialize telemetry using Protobuf
       href: iot-accelerators-device-simulation-protobuf.md
-    - name: Deploy a custom docker image
-      href: iot-accelerators-device-simulation-deploy-image.md
 - name: Resources
   items:
   - name: Support and help options
