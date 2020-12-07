@@ -192,7 +192,9 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 If a failure occurs while sending events to Azure Functions, Stream Analytics retries most operations. All http exceptions are retried until success with the exception of http error 413 (entity too large). An entity too large error is treated as a data error that is subjected to the [retry or drop policy](stream-analytics-output-error-policy.md).
 
 > [!NOTE]
-> The timeout for HTTP requests from Stream Analytics to Azure Functions is set to 100 seconds. If your Azure Functions app takes more than 100 seconds to process a batch, Stream Analytics errors out.
+> The timeout for HTTP requests from Stream Analytics to Azure Functions is set to 100 seconds. If your Azure Functions app takes more than 100 seconds to process a batch, Stream Analytics errors out and will rety for the batch.
+
+Retrying for timeouts may result in duplicate events written to the output sink. When Stream Analytics retries for a failed batch, it retries for all the events in the batch. For example, consider a batch of 20 events being sent to Azure Functions from Stream Analytics. Lets assume that Azure functions takes 100 secs to process the first 10 events in that batch. After the 100 secs passes, Stream Analytics will suspend the request as it has not received a positive response from Azure Functions and will send out another request for the same batch. This will result in the first 10 events in the batch to be processed again by Azure Functions causing a duplicate. 
 
 ## Known issues
 
