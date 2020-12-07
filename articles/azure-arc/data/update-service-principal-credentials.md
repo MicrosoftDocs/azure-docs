@@ -1,5 +1,5 @@
 ---
-title: Update service principal credential
+title: Update service principal credentials
 description: Update credential for a service principal
 services: azure-arc
 ms.service: azure-arc
@@ -13,9 +13,9 @@ ms.topic: how-to
 
 # Update service principal credentials
 
-In some cases you need to update the service principal credential in the data controller. 
+When the service principal credentials change, you need to update the secrets in the data controller.
 
-For example, if you deployed the data controller using a specific set of values for service principal tenant ID, client ID and client secret, and then one or more of these values changes, you can update the secrets in the data controller with the changes. This article explains how to update the secrets in the data controller.  Following are the instructions to update Tenant Id, Client Id or the Client secret. 
+For example, if you deployed the data controller using a specific set of values for service principal tenant ID, client ID, and client secret, and then change one or more of these values, you need to update the secrets in the data controller.  Following are the instructions to update Tenant Id, Client Id or the Client secret. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -37,7 +37,7 @@ The service principal was created at [Create service principal](upload-metrics-a
    kubectl edit secret/upload-service-principal-secret -n arc
    ```
 
-   This opens the credentials yml file in the default editor. 
+   The `kubecl edit` command opens the credentials .yml file in the default editor. 
 
 
 1. Edit the service principal secret. 
