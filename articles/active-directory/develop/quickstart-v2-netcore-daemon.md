@@ -46,15 +46,15 @@ This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page by searching for **App registrations** in the Azure Portal search bar.
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter your application's registration information.
-> 1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Daemon-console`, then select **Register** to create the application.
-> 1. Once registered, select the **Certificates & secrets** menu.
+> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application, for example `Daemon-console`. Users of your app might see this name, and you can change it later.
+> 1. Select **Register** to create the application.
+> 1. Under **Manage**, select **Certificates & secrets**.
 > 1. Under **Client secrets**, select **+ New client secret**. Give it a name and select **Add**. Copy the secret on a safe location. You will need it to use in your code, and it will not be displayed again in the portal.
-> 1. Now, select the **API Permissions** menu, select **+ Add a permission** button, select **Microsoft Graph**.
+> 1. Under **Manage**, select the **API Permissions** menu, select **+ Add a permission** button, select **Microsoft Graph**.
 > 1. Select **Application permissions**.
 > 1. Under **User** node, select **User.Read.All**, then select **Add permissions**
 
@@ -118,7 +118,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 ##### Global tenant administrator
 
 > [!div renderon="docs"]
-> If you are a global tenant administrator, in the Azure Portal navigate to **Enterprise applications** > Click on your app registration > Choose **"Permissions"** from the Security section of the left navigation pane. Click on the large button labeled **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
+> If you are a global tenant administrator, in the Azure Portal navigate to **Enterprise applications** > Select your app registration > Choose **"Permissions"** from the Security section of the left navigation pane. Select the large button labeled **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**
