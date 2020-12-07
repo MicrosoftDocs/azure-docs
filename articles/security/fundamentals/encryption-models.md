@@ -210,7 +210,7 @@ The Azure services that support each encryption model:
 | Azure Site Recovery              | Yes                | -                  | -                  |
 | Azure Migrate                    | Yes                | Yes                | -                  |
 | **Media**                        |                    |                    |                    |
-| Media Services                   | Yes                | -                  | Yes                |
+| Media Services                   | Yes                | Yes                | Yes                |
 | **Security**                     |                    |                    |                    |
 | Azure Security Center for IoT    | Yes                | Yes                | -                  |
 | Azure Sentinel                   | Yes                | Yes                | -                  |
