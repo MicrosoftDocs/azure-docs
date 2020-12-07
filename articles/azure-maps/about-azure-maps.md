@@ -207,7 +207,7 @@ The Elevation service allows you to retrieve elevation data in two formats:
 
 * **GeoJSON format**. Use the [Elevation APIs](/rest/api/maps/elevation) to request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. 
 
-    :::image type="content" source="./media/about-azure-maps/elevation.png" alt-text="Example of map with elevation data":::
+:::image type="content" source="./media/about-azure-maps/elevation.png" alt-text="Example of map with elevation data":::
     
 
 
