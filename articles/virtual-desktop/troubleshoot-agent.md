@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop diagnose connectivity issues - Azure
+title: Troubleshoot Windows Virtual Desktop Agent Issues - Azure
 description: How to diagnose and resolve common agent and connectivity issues.
 author: Sefriend
 ms.topic: troubleshooting
@@ -81,7 +81,7 @@ Get-Service RdAgentBootLoader
 
 1. Open the Task Manager (in Start menu, type *task manager*).
 2. Select *More details* at the bottom to expand the list of programs.
-3. Under *Background processes*, right click *RDAgentBootLoader*. 
+3. Under *Background processes*, right-click *RDAgentBootLoader*. 
 4. Select *Go to details*.
 5. Verify that it says *Running* next to *RdAgentBootLoader*. If not, see the resolution section below.
 
@@ -94,9 +94,9 @@ If you are seeing that *RDAgentBootLoader* is either stopped or not running, thi
 
 ### Resolution
 
-1. In the Services window, right click *Remote Desktop Agent Loader*.
+1. In the Services window, right-click *Remote Desktop Agent Loader*.
 2. Select *Start*. Note that if this option is greyed out for you, you do not have administrator permissions and will need that in order to start the service.
-3. Wait 10 seconds, and then right click *Remote Desktop Agent Loader*.
+3. Wait 10 seconds, and then right-click *Remote Desktop Agent Loader*.
 4. Select *Refresh*.
 5. If the service stops after you started and refreshed it, you may have a registration failure. See [INVALID_REGISTRATION_TOKEN](#INVALID_REGISTRATION_TOKEN) and [NAME_ALREADY_REGISTERED](#NAME_ALREADY_REGISTERED).
 
@@ -115,7 +115,7 @@ If you are seeing that *RDAgentBootLoader* is either stopped or not running, thi
 
 ### Why are you getting this error?
 
-If you are not seeing the 2 stack components say *Listen* next to them or they are not showing up at all after running *qwinsta*, it means that there is a stack issue. Stack updates get installed along with agent updates, and sometimes it may appear that there is an issues with the agent because it just had an update, but in this case the WVD listener is not working.
+If you are not seeing the 2 stack components say *Listen* next to them or they are not showing up at all after running *qwinsta*, it means that there is a stack issue. Stack updates get installed along with agent updates, and sometimes it may appear that there is an issue with the agent because it just had an update, but in this case the WVD listener is not working.
 
 ### Resolution
 
@@ -143,8 +143,8 @@ If you are not seeing the 2 stack components say *Listen* next to them or they a
    > [!div class="mx-imgBorder"]
    > ![Screenshot of fReverseConnectMode](media/freverseconnect.PNG)
 
-5. If *fReverseConnectMode* is not set to 1, double click on *fReverseConnectMode* and enter the value 1 for its field. 
-6. If *fEnableWinStation* is not set to 1, double click on *fEnableWinStation* and enter the value 1 for its field. 
+5. If *fReverseConnectMode* is not set to 1, double-click on *fReverseConnectMode* and enter the value 1 for its field. 
+6. If *fEnableWinStation* is not set to 1, double-click on *fEnableWinStation* and enter the value 1 for its field. 
    - Note: to change the *fReverseConnectMode* or *fEnableWinStation* mode for multiple VMs at one time, you can either 1) export the registry key from the machine that you already have working and import it into all the other machines that need this change, or 2) create a GPO to set the registry key value for the machines that need the change.
  
 ## The WVD agent cannot talk to the broker.
@@ -153,8 +153,8 @@ If you are not seeing the 2 stack components say *Listen* next to them or they a
 
 1. Open the Event Viewer (in Start menu, type *event viewer*).
 2. Select *Windows Logs*.
-3. Double click *Application*. This will show a list of events.
-4. On the right hand side of the window, select *Filter Current Log...*.
+3. Double-click *Application*. This will show a list of events.
+4. On the right-hand side of the window, select *Filter Current Log...*.
 5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *Agent cannot connect to broker with error NOT_FOUND. URL:* in the general description if you have received this error.
 
@@ -230,8 +230,8 @@ The side-by-side stack is only supported by Windows Enterprise or Windows Server
 
 1. Open the Event Viewer (in Start menu, type *event viewer*).
 2. Select *Windows Logs*.
-3. Double click *Application*. This will show a list of events.
-4. On the right hand side of the window, select *Filter Current Log...*.
+3. Double-click *Application*. This will show a list of events.
+4. On the right-hand side of the window, select *Filter Current Log...*.
 5. In the text field that says *\<All Event IDs\>*, type *0*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *CheckSessionHostDomainIsReachableAsync -SessionHost unhealthy: the domain the SessionHost is joined to is not reachable!* in the general description if you have received this error.
 
@@ -251,7 +251,7 @@ You may be facing this disconnection issue if your server is missing a heartbeat
 4. Open the Registry Editor (in Start menu, type *regedit*).
 5. Navigate to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations. 
 6. Under *WinStations* you may see several folders for different stack versions, select the folder that matches the version information that you made note of in part 3.
-7. Create the following new registry DWORD (right click in registry editor -> New -> DWORD (32-bit) Value) with the corresponding decimal values: 
+7. Create the following new registry DWORD (right-click in registry editor -> New -> DWORD (32-bit) Value) with the corresponding decimal values: 
    - HeartbeatInterval: 10000
    - HeartbeatWarnCount: 30 
    - HeartbeatDropCount: 60 
@@ -263,8 +263,8 @@ You may be facing this disconnection issue if your server is missing a heartbeat
 
 1. Open the Event Viewer (in Start menu, type *event viewer*).
 2. Select *Windows Logs*.
-3. Double click *Application*. This will show a list of events.
-4. On the right hand side of the window, select *Filter Current Log...*.
+3. Double-click *Application*. This will show a list of events.
+4. On the right-hand side of the window, select *Filter Current Log...*.
 5. In the text field that says *\<All Event IDs\>*, type *3703*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *RDGateway Url: is not accessible. Make sure the RDGateway Url is accessible from this machine.* in the general description if you have received this error.
 
@@ -283,14 +283,14 @@ This error is raised when the RD Gateway URL cannot be reached during orchestrat
 
 1. Open the Event Viewer (in Start menu, type *event viewer*).
 2. Select *Windows Logs*.
-3. Double click *Application*. This will show a list of events.
-4. On the right hand side of the window, select *Filter Current Log...*.
+3. Double-click *Application*. This will show a list of events.
+4. On the right-hand side of the window, select *Filter Current Log...*.
 5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *ENDPOINT_NOT_FOUND* in the general description if you have received this error.
 
 ### Why are you getting this error?
 
-This error indicates that the broker was unable to find an endpoint to establish a connection on. This can be for a variety of reasons including you don't have VMs in your deployment, they are not powered on, they have all exceeded the max session limit, the agent service is not working on them, etc...
+This error indicates that the broker was unable to find an endpoint to establish a connection on. This can be for a variety of reasons including you don't have VMs in your deployment, they are not powered on, they have all exceeded the max session limit, the agent service is not working on them, etc.
 
 ### Resolution
 
@@ -332,8 +332,8 @@ This error indicates that the broker was unable to find an endpoint to establish
 
 1. Open the Event Viewer (in Start menu, type *event viewer*).
 2. Select *Windows Logs*.
-3. Double click *Application*. This will show a list of events.
-4. On the right hand side of the window, select *Filter Current Log...*.
+3. Double-click *Application*. This will show a list of events.
+4. On the right-hand side of the window, select *Filter Current Log...*.
 5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *INVALID_REGISTRATION_TOKEN* in the general description if you have received this error.
 
@@ -354,9 +354,9 @@ The registration token that you have is not recognized as valid.
 
 2. Open the Registry Editor (in the Start menu, type *regedit*). 
 3. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent. 
-4. Double click *IsRegistered*. 
+4. Double-click *IsRegistered*. 
 5. In the *Value data:* entry box, type *0* and select *Ok*. 
-6. Double click *RegistrationToken*. 
+6. Double-click *RegistrationToken*. 
 7. In the *Value data:* entry box, paste the registration token from step 1. 
 
    > [!div class="mx-imgBorder"]
@@ -383,8 +383,8 @@ The registration token that you have is not recognized as valid.
 
 1. Open the Event Viewer (in Start menu, type *event viewer*).
 2. Select *Windows Logs*.
-3. Double click *Application*. This will show a list of events.
-4. On the right hand side of the window, select *Filter Current Log...*.
+3. Double-click *Application*. This will show a list of events.
+4. On the right-hand side of the window, select *Filter Current Log...*.
 5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *NAME_ALREADY_REGISTERED* in the general description if you have received this error.
 
@@ -411,8 +411,8 @@ The name of your VM has already been registered and is probably a duplicate.
 
 1. Open the Event Viewer (in Start menu, type *event viewer*).
 2. Select *Windows Logs*.
-3. Double click *Application*. This will show a list of events.
-4. On the right hand side of the window, select *Filter Current Log...*.
+3. Double-click *Application*. This will show a list of events.
+4. On the right-hand side of the window, select *Filter Current Log...*.
 5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *INVALID_FORM* in the general description if you have received this error.
 
@@ -430,8 +430,8 @@ Verify [the agent can talk to the broker.](#The-WVD-agent-cannot-talk-to-the-bro
 
 1. Open the Event Viewer (in Start menu, type *event viewer*).
 2. Select *Windows Logs*.
-3. Double click *Application*. This will show a list of events.
-4. On the right hand side of the window, select *Filter Current Log...*.
+3. Double-click *Application*. This will show a list of events.
+4. On the right-hand side of the window, select *Filter Current Log...*.
 5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *EXPIRED_REGISTRATION_TOKEN* in the general description if you have received this error.
 
@@ -450,8 +450,8 @@ Whenever you create a registration token, you set an expiration date for it. Rec
 
 1. Open the Event Viewer (in Start menu, type *event viewer*).
 2. Select *Windows Logs*.
-3. Double click *Application*. This will show a list of events.
-4. On the right hand side of the window, select *Filter Current Log...*.
+3. Double-click *Application*. This will show a list of events.
+4. On the right-hand side of the window, select *Filter Current Log...*.
 5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *InstallMsiException* in the general description if you have received this error.
 
@@ -474,8 +474,8 @@ Disable the following policies:
 
 1. Open the Event Viewer (in Start menu, type *event viewer*).
 2. Select *Windows Logs*.
-3. Double click *Application*. This will show a list of events.
-4. On the right hand side of the window, select *Filter Current Log...*.
+3. Double-click *Application*. This will show a list of events.
+4. On the right-hand side of the window, select *Filter Current Log...*.
 5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *Win32Exception* in the general description if you have received this error.
 
@@ -496,7 +496,7 @@ Disable the following policies:
 
 ### Uninstall all agent, bootloader, and stack component programs.
 
-1. Login to your VM as an administrator. 
+1. Log in to your VM as an administrator. 
 2. Go to Programs and Features (in Start menu, type *Control Panel*, and navigate to Control Panel\Programs\Programs and Features).
 3. Remove the following programs:
    - Remote Desktop Agent Boot Loader
@@ -538,23 +538,23 @@ Disable the following policies:
 
 ### Reinstall the WVD Agent and Bootloader.
 
-1. Login to your VM as an administrator and go to this link [here](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+1. Log in to your VM as an administrator and go to this link [here](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 2. Download the *Windows Virtual Desktop Agent* and the *Windows Virtual Desktop Agent Bootloader* that are linked in parts 2 and 3 under *Register the virtual machines to the Windows Virtual Desktop host pool*.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of agent and bootloader download page](media/agent-bootloader-download.PNG)
 
-3. Right click the downloaded installers (both the agent and the bootloader).
+3. Right-click the downloaded installers (both the agent and the bootloader).
 4. Select *Properties*.
 5. Select *Unblock*.
 6. Select *Ok*. This will allow your system to trust the installer.
-7. Run the agent installer by double clicking it.
+7. Run the agent installer by double-clicking it.
 8. When the installer asks you for the registration token, paste the registration key from your clipboard. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of pasted registration token](media/pasted-registration-token.PNG)
 
-9. Run the bootloader installer by double clicking it.
+9. Run the bootloader installer by double-clicking it.
 10. Go to the *Overview* page for the host pool that your VM is in in the [Azure Portal](https://portal.azure.com).
 11. Go to the *Session Hosts* tab to see the list of all session hosts in that host pool.
 12. You should now see the session host registered in the host pool with the status *Available*. 
