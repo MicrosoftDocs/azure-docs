@@ -30,7 +30,7 @@ Adding an OIDC-based app in Azure Active Directory
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
-To learn more about admin and user consent, see [Understand user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
+To learn more about user and admin consent, see [Understand user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
 
 ## Next steps
 
