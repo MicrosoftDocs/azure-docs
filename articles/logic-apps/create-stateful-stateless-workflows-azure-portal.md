@@ -427,9 +427,9 @@ To delete an item in your workflow from the designer, follow any of these steps:
 
 <a name="missing-triggers-actions"></a>
 
-### Supported triggers and actions are missing from the designer in the Azure portal
+### New triggers and actions are missing from the designer picker for previously created workflows
 
-Azure Logic Apps Preview supports built-in actions for Azure Functions, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, these actions won't appear in the designer if your logic app uses an outdated version of the extension bundle, `Microsoft.Azure.Functions.ExtensionBundle.Workflows`.
+Azure Logic Apps Preview supports built-in actions for Azure Function Operations, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, for previously created logic apps, these actions might not appear in the designer for you to select if your logic app uses an outdated version of the extension bundle, `Microsoft.Azure.Functions.ExtensionBundle.Workflows`.
 
 To fix this problem, follow these steps to delete the outdated version so that the extension bundle can automatically update to the latest version.
 
