@@ -18,6 +18,8 @@ ms.topic: conceptual
 
 ## December 2020
 
+Azure Data CLI (`azdata`) version number: 20.2.5. Download at [https://aka.ms/azdata](https://aka.ms/azdata).
+
 ### Breaking change
 
 This release introduces an updated [resource provider](../../azure-resource-manager/management/azure-services-resource-providers.md) called `Microsoft.AzureArcData`. Before you can use this feature, you need to register this resource provider. 
@@ -32,10 +34,6 @@ To register this resource provider:
 You can review detailed steps at [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). This change also removes all your existing shadow resources that you have uploaded to the Azure portal. In order to use the resource provider, you need to update the data controller and use the latest `azdata` CLI.  
 
 ### Platform release notes
-
-#### azdata CLI version
-
-`azdata` CLI version `20.2.5`
 
 #### Direct connectivity mode
 
