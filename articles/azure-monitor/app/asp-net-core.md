@@ -257,6 +257,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+> [!NOTE]
+> `services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` works for simple initializers. For others, the following is required: `services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`
+    
 ### Removing TelemetryInitializers
 
 Telemetry initializers are present by default. To remove all or specific telemetry initializers, use the following sample code *after* you call `AddApplicationInsightsTelemetry()`.
