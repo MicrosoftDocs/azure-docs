@@ -71,9 +71,9 @@ Creator (Preview) inherits Azure Maps Access Control (IAM) settings. All API cal
 
 Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more information, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
-## Access to Creator services (Preview) 
+## Access to Creator services
 
-Creator services are accessible only from within the location selected during creation. If calls are made to Creator services from outside the selected location, a user error message will be returned. To make calls from outside the selected location, the service URL must include the geographic prefix for the selected locations. For example, if Creator is created in the United States, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
+Creator services (Preview) are accessible only from within the location selected during creation. If calls are made to Creator services from outside the selected location, a user error message will be returned. To make calls from outside the selected location, the service URL must include the geographic prefix for the selected locations. For example, if Creator is created in the United States, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
 
 Also, all data imported into Creator should be uploaded into the same geographical location as the Creator resource. For example, if Creator is provisioned in the United Stated, all raw data should be uploaded via `us.atlas.microsoft.com/mapData/upload`.
 

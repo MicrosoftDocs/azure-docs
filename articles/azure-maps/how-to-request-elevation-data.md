@@ -18,7 +18,7 @@ ms.custom: mvc
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure (Preview) s](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The Azure Maps [Elevation service](https://docs.microsoft.com/rest/api/maps/elevation) provides APIs to query elevation data for locations on earth. You can request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. Also, you can use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2) to retrieve elevation data in tile format. The tiles are delivered in GeoTIFF raster format. This article shows you how to use Azure Maps Elevation service and the Get Map Tile API to request elevation data. The elevation data can be requested in both GeoJSON and GeoTiff formats.
+The Azure Maps [Elevation service](https://docs.microsoft.com/rest/api/maps/elevation) provides APIs to query elevation data anywhere on the Earth's surface. You can request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. Also, you can use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2) to retrieve elevation data in tile format. The tiles are delivered in GeoTIFF raster format. This article shows you how to use Azure Maps Elevation service and the Get Map Tile API to request elevation data. The elevation data can be requested in both GeoJSON and GeoTiff formats.
 
 ## Prerequisites
 
