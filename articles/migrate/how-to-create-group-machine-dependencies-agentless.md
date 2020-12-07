@@ -1,6 +1,9 @@
 ---
 title: Set up agentless dependency analysis in Azure Migrate Server Assessment
 description:  Set up agentless dependency analysis in Azure Migrate Server Assessment.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
 ---

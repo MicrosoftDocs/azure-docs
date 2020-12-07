@@ -464,12 +464,9 @@ You can also use a Resource Manager template that installs and runs the popular 
 
 Usually, you see an unknown status when access to the backend is blocked by a network security group (NSG), custom DNS, or user-defined routing (UDR) on the application gateway subnet. For more information, see [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md).
 
-### Is there any case where NSG flow logs won't show allowed traffic?
+### Are NSG flow logs supported on NSGs associated to Application Gateway v2 subnet?
 
-Yes. If your configuration matches following scenario, you won't see allowed traffic in your NSG flow logs:
-- You've deployed Application Gateway v2
-- You have an NSG on the application gateway subnet
-- You've enabled NSG flow logs on that NSG
+Due to current platform limitations, if you have an NSG on the Application Gateway v2 (Standard_v2, WAF_v2) subnet and if you have enabled NSG flow logs on it, you will see nondeterministic behavior and this scenario is currently not supported.
 
 ### Does Application Gateway store customer data?
 

@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Plan and troubleshoot User Principal Name changes in Azure Active Directory
 
-A User Principal Name (UPN) is an attribute that is an internet communication standard for user accounts. A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix joins the suffix using the "@" symbol. For example, someone@example.com. A UPN must be unique among all security principal objects within a directory forest. 
+A User Principal Name (UPN) is an attribute that is an internet communication standard for user accounts. A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix joins the suffix using the "\@" symbol. For example, someone@example.com. A UPN must be unique among all security principal objects within a directory forest. 
 
 **This article assumes you're using UPN as the user identifier. It addresses planning for UPN changes, and recovering from issues that may result from UPN changes.**
 

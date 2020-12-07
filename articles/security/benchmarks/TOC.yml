@@ -134,7 +134,7 @@
     href: ../../azure-resource-manager/managed-applications/security-baseline.md
   - name: Azure Monitor security baseline
     href: ../../azure-monitor/security-baseline.md
-  - name: Azure Migrate Learning security baseline
+  - name: Azure Migrate security baseline
     href: ../../migrate/security-baseline.md
   - name: Azure Policy security baseline
     href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
