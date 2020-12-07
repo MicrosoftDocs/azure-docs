@@ -56,7 +56,11 @@ This article shows how to create your logic app and a workflow in Visual Studio 
 
   If you choose to use a different [email connector that's supported by Azure Logic Apps](/connectors/), such as Outlook.com or [Gmail](../connectors/connectors-google-data-security-privacy-policy.md), you can still follow the example, and the general overall steps are the same, but your user interface and options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
 
+<a name="storage-requirements"></a>
+
 ### Storage requirements
+
+#### Windows and Linux
 
 1. Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179).
 
@@ -67,6 +71,20 @@ This article shows how to create your logic app and a workflow in Visual Studio 
    > Otherwise, you get a message that the `Workflow design time could not be started`.
    >
    > ![Screenshot that shows the Azure Storage Emulator running.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
+
+#### macOS
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and [create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal), which is a [prerequisite for Azure Functions](../azure-functions/storage-considerations.md).
+
+1. [Find and copy the storage account's connection string](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys), for example:
+
+   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
+
+   ![Screenshot that shows the Azure portal with storage account access keys and connection string copied.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
+
+1. Save the string somewhere safe so that you can later add the string to the **local.settings.json** files in the project that you use for creating your logic app in Visual Studio Code.
+
+When you later try to open the designer for a workflow in your logic app, you get a message that the `Workflow design time could not be started`. After this message appears, you have to add the storage account's connection string to the two **local.settings.json** files in the project, and retry opening the designer again.
 
 ### Tools
 
@@ -255,37 +273,47 @@ Before you can create your logic app, create a local project so that you can man
 
    Make sure that you explicitly add the **global.json** file to your project's root level from inside Visual Studio Code. Otherwise, the designer won't open.
 
-1. If Visual Studio Code is running on Windows or Linux, make sure that the Azure Storage Emulator is running. For more information, review the [Prerequisites](#prerequisites).
+1. If you're running Visual Studio Code on Windows or Linux, make sure that the Azure Storage Emulator is running. For more information, review the [Prerequisites](#prerequisites). If you're running Visual Studio Code on macOS, continue to the next step.
 
 1. Expand the project folder for your workflow. Open the **workflow.json** file's shortcut menu, and select **Open in Designer**.
 
    ![Screenshot that shows Explorer pane and shortcut window for the workflow.json file with "Open in Designer" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/open-definition-file-in-designer.png)
 
-   If you get the error message that the `Workflow design time could not be started`, make sure that the Azure Storage Emulator is running. Otherwise, try these other troubleshooting suggestions:
+   If you get the error message that the `Workflow design time could not be started`, check the following:
 
-   In Visual Studio Code, check the output from the Preview extension.
+   * **Windows or Linux**: Make sure that the Azure Storage Emulator is running. Otherwise, see [Troubleshoot problems and errors](#troubleshooting).
 
-   1. From the **View** menu, select **Output**.
+   * **macOS**: Try the following solution, and if unsuccessful, see [Troubleshoot problems and errors](#troubleshooting).
 
-   1. From the list on the **Output** title bar, select **Azure Logic Apps** so that you can view the output for the Preview extension, for example:
+     1. In your project, open the **local.settings.json** files, which you can find in your project's root folder and in the **workflow-designtime** folder.
 
-      ![Screenshot that shows Visual Studio Code's Output window with "Azure Logic Apps" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/check-outout-window-azure-logic-apps.png)
+        ![Screenshot that shows Explorer pane and 'local.settings.json' files in your project.](./media/create-stateful-stateless-workflows-visual-studio-code/local-settings-json-files.png)
 
-   1. Review the output and check whether this error message appears:
+     1. In each file, find the `AzureWebJobsStorage` property, for example:
 
-      ```text
-      A host error has occurred during startup operation '{operationID}'.
-      System.Private.CoreLib: The file 'C:\Users\{userName}\AppData\Local\Temp\Functions\
-      ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.1\bin\
-      DurableTask.AzureStorage.dll' already exists.
-      Value cannot be null. (Parameter 'provider')
-      Application is shutting down...
-      Initialization cancellation requested by runtime.
-      Stopping host...
-      Host shutdown completed.
-      ```
+        ```json
+        {
+           "IsEncrypted": false,
+           "Values": {
+              "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+              "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+            }
+        }
+        ```
 
-      This error can happen if you previously tried to open the designer, and then discontinued or deleted your project. To resolve this error, delete the **ExtensionBundles** folder at this location **...\Users\\{your-username}\AppData\Local\Temp\Functions\ExtensionBundles**, and retry opening the **workflow.json** file in the designer.
+      1. Replace the `AzureWebJobsStorage` property value with the connection string that you saved earlier from your storage account, for example:
+
+         ```json
+         {
+            "IsEncrypted": false,
+            "Values": {
+               "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net",
+               "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+            }
+         }
+         ```
+
+      1. Save your changes, and try reopening the **workflow.json** file in the designer.
 
 1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**, which applies to all managed connectors that are available and deployed in Azure, not just connectors for Azure services.
 
@@ -973,11 +1001,27 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 1. Add the `Workflows.{yourWorkflowName}.operationOptions` property and set the value to `WithStatelessRunHistory`, for example:
 
+   **Windows or Linux**
+
    ```json
    {
       "IsEncrypted": false,
       "Values": {
          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+         "Workflows.{yourWorkflowName}.OperationOptions": "WithStatelessRunHistory"
+      }
+   }
+   ```
+
+   **macOS**
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct; \
+             AccountKey=<access-key>;EndpointSuffix=core.windows.net",
          "FUNCTIONS_WORKER_RUNTIME": "dotnet",
          "Workflows.{yourWorkflowName}.OperationOptions": "WithStatelessRunHistory"
       }
@@ -1145,6 +1189,32 @@ To delete an item in your workflow from the designer, follow any of these steps:
 <a name="troubleshooting"></a>
 
 ## Troubleshoot errors and problems
+
+<a name="designer-fails-to-open"></a>
+
+### Opening designer fails with error: "Workflow design time could not be started"
+
+1. In Visual Studio Code, open the Output window. From the **View** menu, select **Output**.
+
+1. From the list in the Output window's title bar, select **Azure Logic Apps (Preview)** so that you can review output from the extension, for example:
+
+   ![Screenshot that shows the Output window with "Azure Logic Apps" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/check-outout-window-azure-logic-apps.png)
+
+1. Review the output and check whether this error message appears:
+
+   ```text
+   A host error has occurred during startup operation '{operationID}'.
+   System.Private.CoreLib: The file 'C:\Users\{userName}\AppData\Local\Temp\Functions\
+   ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.1\bin\
+   DurableTask.AzureStorage.dll' already exists.
+   Value cannot be null. (Parameter 'provider')
+   Application is shutting down...
+   Initialization cancellation requested by runtime.
+   Stopping host...
+   Host shutdown completed.
+   ```
+
+   This error can happen if you previously tried to open the designer, and then discontinued or deleted your project. To resolve this error, delete the **ExtensionBundles** folder at this location **...\Users\\{your-username}\AppData\Local\Temp\Functions\ExtensionBundles**, and retry opening the **workflow.json** file in the designer.
 
 <a name="missing-triggers-actions"></a>
 
