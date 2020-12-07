@@ -26,11 +26,11 @@ This article describes how to understand Azure Active Directory (Azure AD) role-
 Both systems contain similarly used role definitions and role assignments. However, Azure AD role permissions can't be used in Azure custom roles and vice versa.
 
 ## Understand Azure AD role-based access control
-Azure AD supports 2 types of roles - 
-* Built-in roles
-* Custom roles
+Azure AD supports 2 types of roles definitions - 
+* [Built-in roles](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference)
+* [Custom roles](https://docs.microsoft.com/azure/active-directory/roles/custom-create)
 
-Built-in roles are out of box roles that have a fixed set of permissions. These role definitions cannot be modified. There are many built-in roles that Azure AD supports, and the list is growing. To round off the edges and meet your sophisticated requirements, Azure AD also supports custom roles. Granting permission using custom Azure AD roles is a two-step process that involves creating a custom role definition and then assigning it using a role assignment. A custom role definition is a collection of permissions that you add from a preset list. These permissions are the same permissions used in the built-in roles.  
+Built-in roles are out of box roles that have a fixed set of permissions. These role definitions cannot be modified. There are many [built-in roles](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference) that Azure AD supports, and the list is growing. To round off the edges and meet your sophisticated requirements, Azure AD also supports [custom roles](https://docs.microsoft.com/azure/active-directory/roles/custom-create). Granting permission using custom Azure AD roles is a two-step process that involves creating a custom role definition and then assigning it using a role assignment. A custom role definition is a collection of permissions that you add from a preset list. These permissions are the same permissions used in the built-in roles.  
 
 Once you’ve created your custom role definition (or using a built-in role), you can assign it to a user by creating a role assignment. A role assignment grants the user the permissions in a role definition at a specified scope. This two-step process allows you to create a single role definition and assign it many times at different scopes. A scope defines the set of Azure AD resources the role member has access to. The most common scope is organization-wide (org-wide) scope. A custom role can be assigned at org-wide scope, meaning the role member has the role permissions over all resources in the organization. A custom role can also be assigned at an object scope. An example of an object scope would be a single application. The same role can be assigned to one user over all applications in the organization and then to another user with a scope of only the Contoso Expense Reports app.  
 
