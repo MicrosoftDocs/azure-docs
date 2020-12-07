@@ -78,7 +78,7 @@ To import the IP address, OS, patch level:
 
 To import the authorization status:
 
-1. Download and save the [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the  Defender for Iot help center. Verify that you saved the file as a csv.
+1. Download and save the [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the  Defender for IoT help center. Verify that you saved the file as a csv.
 
 2. Enter the information as:
 
@@ -163,7 +163,7 @@ To import the IP address, OS, patch level:
 
 To import the authorization status:
 
-1. Download and save the [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the  Defender for Iot help center. Verify that you saved the file as a csv.
+1. Download and save the [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the  Defender for IoT help center. Verify that you saved the file as a csv.
 
 2. Enter the information as:
 

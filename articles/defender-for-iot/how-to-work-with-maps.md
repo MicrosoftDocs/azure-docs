@@ -709,11 +709,11 @@ To export:
 
 ### The on-premises management console map
 
-With Defender for Iot on-premises management console, you can plan how to achieve full security coverage by dividing your network into geographical and logical segments that reflect your business typology.
+With Defender for IoT on-premises management console, you can plan how to achieve full security coverage by dividing your network into geographical and logical segments that reflect your business typology.
 
-- **Geographical facility level:** A Site is a number of devices grouped according to geographical location presented on the map. By default, Defender for Iot provides you with a world map. You can change it to the map relevant to your organization: a country map, a city map and so on. The map is empty by default. You need to add sites to the map to reflect your company structure.
+- **Geographical facility level:** A Site is a number of devices grouped according to geographical location presented on the map. By default, Defender for IoT provides you with a world map. You can change it to the map relevant to your organization: a country map, a city map and so on. The map is empty by default. You need to add sites to the map to reflect your company structure.
 
-  For example, there is a company with five physical sites, Toronto, New York, Berlin, Moscow, and Florence. All five sites were added to the map by the Defender for Iot administrator. When the site color changes on the map, it provides the SOC team with indication of critical system status at a glance.
+  For example, there is a company with five physical sites, Toronto, New York, Berlin, Moscow, and Florence. All five sites were added to the map by the Defender for IoT administrator. When the site color changes on the map, it provides the SOC team with indication of critical system status at a glance.
 
   The map is interactive and enables opening each site and delve into this site's info.
 
@@ -727,21 +727,21 @@ With Defender for Iot on-premises management console, you can plan how to achiev
 
 - **Local logical segment level:** A Zone is a logical section within a site defined according to user-defined characteristics such as functional areas, production lines, or controller types, to allow enforcement of security policies relevant to the zone definition. For example, the Toronto site contains five production lines that can be defined as five zones. The three glass production lines are three zones related to the glass business unit, the plastic production line is a zone within the plastic business unit and the truck engine production line is a zone within the automobile business unit.
 
-- **Local view level:** A single Defender for Iot installation that provides insight into the operational and security status of the devices connected Defender for Iot.
+- **Local view level:** A single Defender for IoT installation that provides insight into the operational and security status of the devices connected Defender for IoT.
 
 ### Understanding the map views
 
-The Defender for Iot on-premises management console provides an overall view of your industrial network in a context-related map. The general map view presents the global map of your organization with geographical location of each site.
+The Defender for IoT on-premises management console provides an overall view of your industrial network in a context-related map. The general map view presents the global map of your organization with geographical location of each site.
 
 :::image type="content" source="media/how-to-work-with-maps/enterprise.png" alt-text="Screenshot of Enterprise Map View":::
 
 In addition to the general map view, you can switch to filtered map views that pinpoint problems in your network. In the general map view, all the sites are presented in gray. In other views, the sites are presented according to the following color scheme:
 
-- **Green**: The number of security events detected by Defender for Iot is below the threshold defined by Defender for Iot security experts for your system. No need to take any action at this stage.
+- **Green**: The number of security events detected by Defender for IoT is below the threshold defined by Defender for IoT security experts for your system. No need to take any action at this stage.
 
-- **Yellow**: The number of security events detected by Defender for Iot is equal to the threshold defined by Defender for Iot security experts for your system. Consider checking the situation.
+- **Yellow**: The number of security events detected by Defender for IoT is equal to the threshold defined by Defender for IoT security experts for your system. Consider checking the situation.
 
-- **Red**: The number of security events is beyond the threshold defined by Defender for Iot security experts for your system. You must take immediate action.
+- **Red**: The number of security events is beyond the threshold defined by Defender for IoT security experts for your system. You must take immediate action.
 
 An immediate view into problematic sites allows you to focus on the important issues and better prioritize your actions, as follows:
 

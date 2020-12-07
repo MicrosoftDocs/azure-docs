@@ -67,7 +67,7 @@ The following severity levels ae displayed:
 
 Severity levels are predefined.
 
-You can adjust the counter to provide numbers based on acknowledged and unacknowledged alerts. Unacknowledged alerts are alerts that were triggered at Defender for Iot sensors but not yet reviewed by operates at the sensor.
+You can adjust the counter to provide numbers based on acknowledged and unacknowledged alerts. Unacknowledged alerts are alerts that were triggered at Defender for IoT sensors but not yet reviewed by operates at the sensor.
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/show-acknowledged-alerts.png" alt-text="View your acknowledged alerts."::: When the **Show Acknowledged Alerts** option is selected, all the acknowledged alerts appear in the Alerts window.
 
@@ -122,7 +122,7 @@ You can manage alert events detected by organizational sensors as follows:
 
 ## Create alert exclusion rules
 
-Instruct Defender for Iot to ignore alert triggers based on:
+Instruct Defender for IoT to ignore alert triggers based on:
 
 - Time zones and time periods
 
@@ -132,9 +132,9 @@ Instruct Defender for Iot to ignore alert triggers based on:
 
 - A specific sensor
 
-Create alert exclusion rules when you want Defender for Iot to ignore activity that will trigger an alert.
+Create alert exclusion rules when you want Defender for IoT to ignore activity that will trigger an alert.
 ****
-For example, if you know that all the OT devices monitored by a specific sensor will be going through maintenance procedures for two days, you can define an exclusion rule that instructs Defender for Iot to suppress alerts detected by this sensor during the predefined period.
+For example, if you know that all the OT devices monitored by a specific sensor will be going through maintenance procedures for two days, you can define an exclusion rule that instructs Defender for IoT to suppress alerts detected by this sensor during the predefined period.
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alert-exclusions.png" alt-text="Screenshot of create exclusion rule view.":::
 
@@ -196,7 +196,7 @@ You can suppress alerts by either muting them or creating alert exclusion rules.
 
   - You know ahead of time that you want to exclude the event from the database. For example, you know the scenario detected at a certain sensor will trigger irrelevant alerts. For example, you will be carrying out maintenance work on organizational PLCs on a specific site and want to suppress alerts related to PLCs for this site.
 
-  - You want Defender for Iot to ignore events for a specific range of time (for system maintenance tasks)
+  - You want Defender for IoT to ignore events for a specific range of time (for system maintenance tasks)
 
   - You want to ignore events in a specific subnet.
 

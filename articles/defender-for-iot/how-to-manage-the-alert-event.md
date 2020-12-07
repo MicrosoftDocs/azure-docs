@@ -4,7 +4,7 @@ description: Manage alert events detected in your network.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/06/2020
+ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
 ---
@@ -15,9 +15,9 @@ The following options are available for managing alert events:
 
  | Action | Description |
  |--|--|
- | **Learn** | Authorize the detected event. See [About learning and unlearning events](#about-learning-and-unlearning-events) for details. |
- | **Acknowledge** | Hide the alert once for the detected event. The alert will be triggered again if the event is detected again. See [About acknowledging and unacknowledging events](#about-acknowledging-and-unacknowledging-events) for details. |
- | **Mute** | Continuously ignore activity with identical devices and comparable traffic. See [About muting and unmuting events](#about-muting-and-unmuting-events) for details. |
+ | **Learn** | Authorize the detected event. For more information, see [About learning and unlearning events](#about-learning-and-unlearning-events) for details. |
+ | **Acknowledge** | Hide the alert once for the detected event. The alert will be triggered again if the event is detected again. For more information, see [About acknowledging and unacknowledging events](#about-acknowledging-and-unacknowledging-events) for details. |
+ | **Mute** | Continuously ignore activity with identical devices and comparable traffic. For more information, see [About muting and unmuting events](#about-muting-and-unmuting-events) for details. |
 
 ## About learning and unlearning events
 
@@ -27,7 +27,7 @@ When you select **Learn**, the sensor considers traffic, configurations, or acti
 
 For example, you receive an alert indicating address scanning activity on a device not previously defined by a network scanner. If this device was added to the network for the purpose of scanning, you may instruct the sensor to learn the device as a scanning device.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image171.png" alt-text="Address detected scan":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/detected.png" alt-text="The address detected scan window.":::
 
 Learned events can be unlearned. When unlearned the sensor will retrigger, alerts relate to this event.
 
@@ -54,9 +54,9 @@ Unacknowledge alerts if further investigation is required.
 
 Under certain circumstances, you may want to instruct your sensor to ignore a specific scenario on your network. For example,
 
-  - The Anomaly engine triggers an alert on a spike in bandwidth between two devices, but the spike is valid for these devices.
+  - The **Anomaly** engine triggers an alert on a spike in bandwidth between two devices, but the spike is valid for these devices.
 
-  - The Protocol Violation engine triggers an alert on a protocol deviation detected between two devices, but the deviation is valid between the devices.
+  - The **Protocol Violation** engine triggers an alert on a protocol deviation detected between two devices, but the deviation is valid between the devices.
 
 In these situations, learning is not available. When learning cannot be carried out and you want to suppress the alert and remove the device when calculating risks and attack vectors, you can mute the alert event instead.
 
@@ -83,9 +83,9 @@ When muted, the event is ignored anytime the source sends an HTTP header with il
 
 **Once muted:**
 
-  - The alert will be accessible in the Acknowledged alert view until it is unmuted.
+  - The alert will be accessible in the **Acknowledged** alert view until it is unmuted.
 
-  - The mute action will be displayed in the Event Timeline.
+  - The mute action will be displayed in the **Event Timeline**.
 
     :::image type="content" source="media/how-to-work-with-alerts-sensor/muted-event-notification-screenshot.png" alt-text="Event detected and muted.":::
 
@@ -93,11 +93,11 @@ When muted, the event is ignored anytime the source sends an HTTP header with il
 
 To mute and unmute an alert:
 
-1. Select the mute icon on the alert.
+1. Select the **Mute** icon on the alert.
 
 To view muted alerts:
 
-1. Select the acknowledged option form the Alerts main screen.
+1. Select the **Acknowledged** option form the **Alerts** main screen.
 
 2. Hover over an alert to see if it muted.  
 

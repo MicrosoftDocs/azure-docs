@@ -17,7 +17,7 @@ The Defender for IoT on-premises management console delivers a real-time view of
 
 Defender for IoT provides a consolidated view of all your devices, and critical information about them, such as type (PLC, RTU, DCS, etc.), manufacturer, model, and firmware revision level, as well as alert information.  
 
-Defender for IoT enables the effective management of multiple deployments and a comprehensive unified view of the network. Defender for Iot optimizes alert handling and control of the operational network security. 
+Defender for IoT enables the effective management of multiple deployments and a comprehensive unified view of the network. Defender for IoT optimizes alert handling and control of the operational network security. 
 
 The on-premises management console is a web based administrative platform that lets you monitor and control the activities of global sensor installations. 
 

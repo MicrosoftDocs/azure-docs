@@ -1077,7 +1077,7 @@ However, The user's experience when signing in to the sensor remains the same.
 
 **To enable tunneling:**
 
-1. Sign in to the on-premises management console CLI with Defender for Iot or support user credentials.
+1. Sign in to the on-premises management console CLI with Defender for IoT or support user credentials.
 
 2. Type: `sudo cyberx-management-tunnel-enable`.
 
