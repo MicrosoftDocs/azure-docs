@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 12/07/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -86,8 +86,8 @@ Take the following steps if returning the device in US, Canada, or Europe.
 4. Schedule a pickup with UPS if returning the device. To schedule a pickup:
 
     * Call the local UPS (country/region-specific toll free number).
-    * In your call, quote the reverse shipment tracking number as shown in the E-ink display or your printed label.
-    * If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
+    * In your call, quote the reverse shipment tracking number as shown in the E-ink display or your printed label. If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
+    * If you face any issues while scheduling a pickup, or you are asked to pay additional fees, please contact Azure Data Box Operations. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com).
 
     Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
