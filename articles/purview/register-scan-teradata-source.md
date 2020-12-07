@@ -22,7 +22,7 @@ The Teradata source supports **Full scan** to extract metadata from a Teradata d
 ## Prerequisites
 
 1. The connector supports data store located only inside an on-premises network, an Azure virtual network, or Amazon Virtual Private Cloud. Hence you need to set up a [self-hosted integration
-runtime](https://docs.microsoft.com/en-us/azure/purview/manage-integration-runtimes) to connect to it.
+runtime](manage-integration-runtimes.md) to connect to it.
 
 2. Make sure the Java Runtime Environment (JRE) is installed on your virtual machine where self-hosted integration runtime is installed.
  
@@ -68,7 +68,7 @@ On the **Register sources (Teradata)** screen, do the following:
 ## Creating and running a scan
 
 To create and run a new scan, do the following:
-1. In the Management Center, click on *Integration runtimes*. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](https://docs.microsoft.com/en-us/azure/purview/manage-integration-runtimes) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
+1. In the Management Center, click on *Integration runtimes*. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
 
 2. Next, navigate **Sources**
 
