@@ -77,7 +77,7 @@ As you work with the node resource group, keep in mind that you cannot:
 
 If you modify or delete Azure-created tags and other resource properties in the node resource group, you could get unexpected results such as scaling and upgrading errors. AKS allows you to create and modify custom tags created by end-users, and you can add those tags when [creating a node pool](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the managed resource group.
 
-However, modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
+However, modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
 
 ## What Kubernetes admission controllers does AKS support? Can admission controllers be added or removed?
 
@@ -99,7 +99,7 @@ Currently, you can't modify the list of admission controllers in AKS.
 
 ## Can I use admission controller webhooks on AKS?
 
-Yes, you may use admission controller webhooks on AKS. It is recommended you exclude internal AKS namespaces which are marked with the **control-plane label.** For example, by adding the below to the webhook configuration:
+Yes, you may use admission controller webhooks on AKS. It is recommended you exclude internal AKS namespaces, which are marked with the **control-plane label.** For example, by adding the below to the webhook configuration:
 
 ```
 namespaceSelector:
@@ -108,7 +108,7 @@ namespaceSelector:
       operator: DoesNotExist
 ```
 
-AKS firewalls the API server egress so you're admission controller webhooks need to be accessible from within the cluster.
+AKS firewalls the API server egress so your admission controller webhooks need to be accessible from within the cluster.
 
 ## Can admission controller webhooks impact kube-system and internal AKS namespaces?
 
@@ -158,35 +158,35 @@ Most clusters are deleted upon user request; in some cases, especially where cus
 
 ## If I have pod / deployments in state 'NodeLost' or 'Unknown' can I still upgrade my cluster?
 
-You can, but AKS does not recommend this. Upgrades should ideally be performed when the state of the cluster is known and healthy.
+You can, but AKS does not recommend this. Upgrades should be performed when the state of the cluster is known and healthy.
 
 ## If I have a cluster with one or more nodes in an Unhealthy state or shut down, can I perform an upgrade?
 
-No, please delete/remove any nodes in a failed state or otherwise removed from the cluster prior to upgrading.
+No, delete/remove any nodes in a failed state or otherwise removed from the cluster prior to upgrading.
 
 ## I ran a cluster delete, but see the error `[Errno 11001] getaddrinfo failed` 
 
-Most commonly, this is caused by users having one or more Network Security Groups (NSGs) still in use and associated with the cluster.  Please remove them and attempt the delete again.
+Most commonly, this is caused by users having one or more Network Security Groups (NSGs) still in use and associated with the cluster.  Remove them and attempt the delete again.
 
 ## I ran an upgrade, but now my pods are in crash loops, and readiness probes fail?
 
-Please confirm your service principal has not expired.  Please see: [AKS service principal](./kubernetes-service-principal.md) and [AKS update credentials](./update-credentials.md).
+Confirm your service principal has not expired.  See: [AKS service principal](./kubernetes-service-principal.md) and [AKS update credentials](./update-credentials.md).
 
 ## My cluster was working, but suddenly cannot provision LoadBalancers, mount PVCs, etc.? 
 
-Please confirm your service principal has not expired.  Please see: [AKS service principal](./kubernetes-service-principal.md)  and [AKS update credentials](./update-credentials.md).
+Confirm your service principal has not expired.  See: [AKS service principal](./kubernetes-service-principal.md)  and [AKS update credentials](./update-credentials.md).
 
 ## Can I scale my AKS cluster to zero?
-You can completely [stop a running AKS cluster](start-stop-cluster.md), saving on the respective compute costs. Additionally, you may also choose to [scale or auto-scale all or specific `User` node pools](scale-cluster.md#scale-user-node-pools-to-0) to 0, maintaining only the necessary cluster configuration.
-You cannot directly scale [system node pools](use-system-pools.md) to 0.
+You can completely [stop a running AKS cluster](start-stop-cluster.md), saving on the respective compute costs. Additionally, you may also choose to [scale or autoscale all or specific `User` node pools](scale-cluster.md#scale-user-node-pools-to-0) to 0, maintaining only the necessary cluster configuration.
+You cannot directly scale [system node pools](use-system-pools.md) to zero.
 
 ## Can I use the virtual machine scale set APIs to scale manually?
 
 No, scale operations by using the virtual machine scale set APIs aren't supported. Use the AKS APIs (`az aks scale`).
 
-## Can I use virtual machine scale sets to manually scale to 0 nodes?
+## Can I use virtual machine scale sets to manually scale to zero nodes?
 
-No, scale operations by using the virtual machine scale set APIs aren't supported. You can use the AKS API to scale to 0 non-system node pools or [stop your cluster](start-stop-cluster.md) instead.
+No, scale operations by using the virtual machine scale set APIs aren't supported. You can use the AKS API to scale to zero non-system node pools or [stop your cluster](start-stop-cluster.md) instead.
 
 ## Can I stop or de-allocate all my VMs?
 
@@ -209,15 +209,15 @@ Except for the following two images, AKS images are not required to run as root:
 
 ## What is Azure CNI Transparent Mode vs. Bridge Mode?
 
-From v1.2.0 Azure CNI will have Transparent mode as default for single tenancy Linux CNI deployments. Transparent mode is replacing bridge mode. In this section we will discuss more about the differences about both modes and what are the benefits/limitation for using Transparent mode in Azure CNI.
+From v1.2.0 Azure CNI will have Transparent mode as default for single tenancy Linux CNI deployments. Transparent mode is replacing bridge mode. In this section, we will discuss more about the differences about both modes and what are the benefits/limitation for using Transparent mode in Azure CNI.
 
 ### Bridge mode
 
-As the name suggests, bridge mode Azure CNI, in a "just in time" fashion, will create a L2 bridge usually named "azure0". All the host side pod `veth` pair interfaces will be connected to this bridge. So Pod-Pod intra VM communication is through this bridge. The bridge in question is a layer 2 virtual device that on its own cannot receive or transmit anything unless you bind one or more real devices to it. For this reason, eth0 of the Linux VM has to be converted into a slave to "azure0" bridge. This creates a complex network topology within the Linux VM and as a symptom CNI had to take care of other networking functions like DNS server update etc.
+As the name suggests, bridge mode Azure CNI, in a "just in time" fashion, will create a L2 bridge named "azure0". All the host side pod `veth` pair interfaces will be connected to this bridge. So Pod-Pod intra VM communication is through this bridge. The bridge in question is a layer 2 virtual device that on its own cannot receive or transmit anything unless you bind one or more real devices to it. For this reason, eth0 of the Linux VM has to be converted into a subordinate to "azure0" bridge. This creates a complex network topology within the Linux VM and as a symptom CNI had to take care of other networking functions like DNS server update etc.
 
 ![Bridge mode topology](media/faq/bridge-mode.png)
 
-Below is an example of how the ip route setup looks like in Bridge mode. Regardless of how many pods the node has, there will only ever be 2 routes. The first one saying, all traffic excluding local on azure0 will be go to default gateway of the subnet through the interface with ip "src 10.240.0.4" ( which is Node primary IP) and the 2nd one saying "10.20.x.x" Pod space to kernel for kernel to decide.
+Below is an example of how the ip route setup looks like in Bridge mode. Regardless of how many pods the node has, there will only ever be two routes. The first one saying, all traffic excluding local on azure0 will go to the default gateway of the subnet through the interface with ip "src 10.240.0.4" (which is Node primary IP) and the second one saying "10.20.x.x" Pod space to kernel for kernel to decide.
 
 ```bash
 default via 10.240.0.1 dev azure0 proto dhcp src 10.240.0.4 metric 100
@@ -227,7 +227,7 @@ root@k8s-agentpool1-20465682-1:/#
 ```
 
 ### Transparent mode
-Transparent mode takes a straight forward approach to setting up Linux networking. In this mode, Azure CNI will not change any properties of eth0 interface in the Linux VM. This minimal approach of changing the Linux networking properties helps reduce complex corner case issues that clusters could face with Bridge mode. In Transparent Mode, Azure CNI will create and add host-side pod `veth` pair interfaces that will be added to the host network. Intra VM Pod-to-Pod communication is through ip routes which the CNI will add. Essentially Pod-to-Pod intra VM is lower layer 3 network traffic.
+Transparent mode takes a straight forward approach to setting up Linux networking. In this mode, Azure CNI won't change any properties of eth0 interface in the Linux VM. This minimal approach of changing the Linux networking properties helps reduce complex corner case issues that clusters could face with Bridge mode. In Transparent Mode, Azure CNI will create and add host-side pod `veth` pair interfaces that will be added to the host network. Intra VM Pod-to-Pod communication is through ip routes that the CNI will add. Essentially Pod-to-Pod intra VM is lower layer 3 network traffic.
 
 ![Transparent mode topology](media/faq/transparent-mode.png)
 
@@ -235,8 +235,8 @@ Below is an example ip route setup of transparent mode, each Pod's interface wil
 
 ### Benefits of transparent mode
 
-- Provides mitigation for Conntrack DNS parallel race condition and avoidance of 5sec DNS latency issues without the need to setup node local DNS (you may still use node local DNS for performance reasons).
-- Eliminates the initial 5 sec DNS latency CNI bridge mode introduces today due to "just in time" bridge setup.
+- Provides mitigation for Conntrack DNS parallel race condition and avoidance of 5-sec DNS latency issues without the need to set up node local DNS (you may still use node local DNS for performance reasons).
+- Eliminates the initial 5-sec DNS latency CNI bridge mode introduces today due to "just in time" bridge setup.
 - One of the corner cases in bridge mode is that the Azure CNI cannot keep updating the custom DNS server lists users add to either VNET or NIC. This results in the CNI picking up only the first instance of the DNS server list. Solved in Transparent mode as CNI does not change any eth0 properties. Seem more [here](https://github.com/Azure/azure-container-networking/issues/713).
 - Provides better handling of UDP traffic and mitigation for UDP flood storm when ARP times out. In bridge mode, when bridge does not know a MAC address of destination pod in intra-VM Pod-to-Pod communication, by design, this results in storm of the packet to all ports. Solved in Transparent mode as there are no L2 devices in path. See more [here](https://github.com/Azure/azure-container-networking/issues/704).
 - Transparent mode performs better in Intra VM Pod-to-Pod communication in terms of throughput and latency when compared to bridge mode.
