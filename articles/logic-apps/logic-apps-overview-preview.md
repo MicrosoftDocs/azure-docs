@@ -193,15 +193,17 @@ In Azure Logic Apps Preview, these capabilities have change, or they are current
 
     * The built-in action, [Inline Code - Execute JavaScript Code](logic-apps-add-run-inline-code.md) is now **Inline Code Operations - Run in-line JavaScript**.
 
+      * Inline Code Operations actions no longer require an integration account.
+
       * If you use macOS or Linux, **Inline Code Operations** is currently unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
 
-      * Inline Code Operations actions no longer require an integration account.
+      * If you make changes in an Inline Code Operations action, you need to restart your logic app.
 
       * Inline Code Operations actions have [updated limits](logic-apps-overview-preview.md#inline-code-limits).
 
-      * Some [built-in B2B triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
+    * Some [built-in B2B triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
 
-      * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
+    * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
 
 * **Hosting plan availability**: Whether you create a new **Logic App (Preview)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the Premium or App Service hosting plan in Azure. Consumption hosting plans are unavailable and unsupported for deploying this resource type. You can deploy from Visual Studio Code to a Docker container, but not to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 

@@ -1218,15 +1218,22 @@ To delete an item in your workflow from the designer, follow any of these steps:
 
 <a name="missing-triggers-actions"></a>
 
-### Supported triggers and actions are missing from the designer in Visual Studio Code
+### New triggers and actions are missing from the designer picker for previously created workflows
 
-Azure Logic Apps Preview supports built-in actions for Azure Functions, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, these actions won't appear in the designer if your logic app uses an outdated version of the extension bundle, `Microsoft.Azure.Functions.ExtensionBundle.Workflows`.
+Azure Logic Apps Preview supports built-in actions for Azure Function Operations, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, for previously created logic apps, these actions might not appear in the designer for you to select if Visual Studio Code uses an outdated version of the extension bundle, `Microsoft.Azure.Functions.ExtensionBundle.Workflows`.
+
+> [!NOTE]
+> For Azure Function Operations, functions also only appear for you to select if you 
+> enabled or selected **Use connectors from Azure** when you created your logic app. 
+>
+> If you didn't enable them during logic app creation, you can go back and enable them. 
+> In your project, open the **workflow.json** shortcut menu, and select **Use Connectors from Azure**.
 
 To fix this problem, follow these steps to delete the outdated version, which results in the extension bundle can automatically update to the latest version.
 
 > [!NOTE]
 > This solution applies only to logic apps that you create and deploy using Visual Studio Code with 
-> the Azure Logic Apps (Preview) extension, not the logic apps that you create using the Azure portal. 
+> the Azure Logic Apps (Preview) extension, not the logic apps that you created using the Azure portal. 
 > See [Supported triggers and actions are missing from the designer in the Azure portal](create-stateful-stateless-workflows-azure-portal.md#missing-triggers-actions).
 
 1. Save any work that you don't want to lose, and close Visual Studio.
