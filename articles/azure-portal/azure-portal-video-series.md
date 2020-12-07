@@ -12,17 +12,24 @@ The Azure portal how-to video series showcases how to work with Azure services i
 
 ## Featured video
 
-In this featured video, we show you how to create and manage an App Service domain.
+In this featured video, we show you how to get started in Azure using the Azure Quickstart Center.
 
-> [!VIDEO https://www.youtube.com/embed/b1kDT8-6a3g]
+> [!VIDEO https://www.youtube.com/embed/mb5k9nXMtBM]
 
-[How to create and manage an App Service domain](https://www.youtube.com/watch?v=b1kDT8-6a3g)
+[How to get started in Azure using the Azure Quickstart Center](https://www.youtube.com/watch?v=mb5k9nXMtBM)
 
 Catch up on these recent videos you may have missed:
 
-| [How to add and secure a custom domain on your App Service web app](https://www.youtube.com/watch?v=bXP6IvNYISw)  | [Improvements to the Linux virtual machine experience](https://www.youtube.com/watch?v=obg6Fq2T898)  | [How to use blob versioning](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
+| [How to manage applications in Azure Kubernetes Service](https://www.youtube.com/watch?v=YfARHb52Bp4)  | [How to build Azure Workbooks using logs and parameters](https://www.youtube.com/watch?v=EC7n1Oo6D-o)  | [How to add and secure a custom domain on your App Service web app](https://www.youtube.com/watch?v=bXP6IvNYISw)
 | ------| ------ | ------ |
-| [![Image of YouTube video about how to add and secure a custom domain on your App Service web app](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=bXP6IvNYISw) | [![Image of YouTube video about improvements to the Linux virtual machine experience](https://i.ytimg.com/vi/obg6Fq2T898/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?obg6Fq2T898) | [![Image of YouTube video about how to use blob versioning](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) |
+
+| [![Image of YouTube video about how to manage applications in Azure Kubernetes Service](https://i.ytimg.com/vi/YfARHb52Bp4/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCbH0KTqtK7Msrn9wTt0dTG9SC-cg)](https://www.youtube.com/watch?YfARHb52Bp4) 
+
+| [![Image of YouTube video about how to build Azure Workbooks using logs and parameters](https://i.ytimg.com/vi/EC7n1Oo6D-o/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBqSGbF3LqP7jQG_JfrTUgHiU8stA)](http://www.youtube.com/watch?v=EC7n1Oo6D-o) 
+
+| [![Image of YouTube video about how to add and secure a custom domain on your App Service web app](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCo2Cs9DwnDUZmJzW7C2nL8RtBLlw)](http://www.youtube.com/watch?v=bXP6IvNYISw) |
+
+
 
 ## Video playlist
 
