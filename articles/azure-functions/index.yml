@@ -39,6 +39,8 @@ landingContent:
         links:
           - text: Create your first function (C#)
             url: create-first-function-vs-code-csharp.md
+          - text: Create your first function (Go)
+            url: create-first-function-vs-code-other.md?tabs=go
           - text: Create your first function (Java)
             url: create-first-function-vs-code-java.md
           - text: Create your first function (JavaScript)
@@ -47,8 +49,11 @@ landingContent:
             url: create-first-function-vs-code-powershell.md
           - text: Create your first function (Python)
             url: create-first-function-vs-code-python.md
+          - text: Create your first function (Rust)
+            url: create-first-function-vs-code-other.md?tabs=rust
           - text: Create your first function (TypeScript)
             url: create-first-function-vs-code-typescript.md
+
       - linkListType: learn
         links:
           - text: Create serverless logic
