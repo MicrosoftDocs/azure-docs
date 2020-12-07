@@ -1,5 +1,5 @@
 ---
-title: Create Logic App (Preview) workflows in Visual Studio Code
+title: Create Logic Apps Preview workflows in Visual Studio Code
 description: Build and run workflows for automation and integration scenarios in Visual Studio Code with the Azure Logic Apps (Preview) extension.
 services: logic-apps
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.date: 12/07/2020
 ---
 
 # Create stateful and stateless workflows in Visual Studio Code by using the Azure Logic Apps (Preview) extension
-f
+
 > [!IMPORTANT]
 > This capability is in public preview, is provided without a service level agreement, and is not recommended for production workloads. 
 > Certain features might not be supported or might have constrained capabilities. For more information, see 
@@ -996,7 +996,7 @@ After you deploy a **Logic App (Preview)** resource from Visual Studio Code to A
 
 1. When you're done, on the **CORS** toolbar, select **Save**.
 
-   ![Screenshot that shows the Azure portal with a deployed Logic Apps (Preview) resource. On the resource menu, "CORS" is selected with a new entry for "Allowed Origins" set to the wildcard "*" character.](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
+   ![Screenshot that shows the Azure portal with a deployed Logic App (Preview) resource. On the resource menu, "CORS" is selected with a new entry for "Allowed Origins" set to the wildcard "*" character.](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
 
 <a name="enable-open-application-insights"></a>
 
@@ -1130,38 +1130,19 @@ To fix this problem, follow these steps to delete the outdated version, which re
 > the Azure Logic Apps (Preview) extension, not the logic apps that you create using the Azure portal. 
 > See [Supported triggers and actions are missing from the designer in the Azure portal](create-stateful-stateless-workflows-azure-portal.md#missing-triggers-actions).
 
-1. In your Visual Studio Code project, expand the `workflow-designtime` folder, and open the **local.settings.json** file.
-
-1. In the `Values` object, add a property named `FUNCTIONS_EXTENSIONBUNDLE_SOURCE_URI`, and set the value to the following URL:
-
-   `https://cdnforlogicappsv2.blob.core.windows.net/logicapps1203`
-
-   For example:
-
-   ```json
-   {
-      "IsEncrypted": false,
-      "Values": {
-         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-         "FUNCTIONS_EXTENSIONBUNDLE_SOURCE_URI": "https://cdnforlogicappsv2.blob.core.windows.net/logicapps1203"
-      }
-   }
-   ```
-
 1. Save any work that you don't want to lose, and close Visual Studio.
 
 1. On your computer, browse to the following folder, which contains versioned folders for the existing bundle:
 
    `...\Users\{your-username}\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows`
 
-1. Delete the version folder for the existing bundle, for example, if you have a folder for version 1.1.3, delete that folder.
+1. Delete the version folder for the earlier bundle, for example, if you have a folder for version 1.1.3, delete that folder.
 
 1. Now, browse to the following folder, which contains versioned folders for required NuGet package:
 
    `...\Users\{your-username}\.nuget\packages\microsoft.azure.workflows.webjobs.extension`
 
-1. Delete the version folder for the existing package, for example, if you have a folder for version 1.0.0.8-preview, delete that folder.
+1. Delete the version folder for the earlier package, for example, if you have a folder for version 1.0.0.8-preview, delete that folder.
 
 1. Reopen Visual Studio Code, your project, and the **workflow.json** file in the designer.
 

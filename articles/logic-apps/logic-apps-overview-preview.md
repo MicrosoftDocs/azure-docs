@@ -119,7 +119,7 @@ This table specifies the child workflow's behavior based on whether the parent a
 
 ## Capabilities
 
-Azure Logic Apps (Preview) includes many current and additional capabilities, for example:
+Azure Logic Apps Preview includes many current and additional capabilities, for example:
 
 * Create logic apps and their workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 

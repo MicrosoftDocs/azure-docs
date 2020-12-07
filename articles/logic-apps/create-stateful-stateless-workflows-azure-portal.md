@@ -1,6 +1,6 @@
 ---
-title: Create Logic App (Preview) workflows in the Azure portal
-description: Build and run workflows for automation and integration scenarios with Azure Logic Apps (Preview) in the Azure portal.
+title: Create Logic Apps Preview workflows in the Azure portal
+description: Build and run workflows for automation and integration scenarios with Azure Logic Apps Preview in the Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 12/07/2020
 ---
 
-# Create stateful and stateless workflows with Azure Logic Apps (Preview) in the Azure portal
+# Create stateful and stateless workflows with Azure Logic Apps Preview in the Azure portal
 
 > [!IMPORTANT]
 > This capability is in public preview, is provided without a service level agreement, and 
