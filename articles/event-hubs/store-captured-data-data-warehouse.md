@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Migrate event data to Azure Synapse Analytics - Azure Event Hubs'
-description: 'Tutorial: This tutorial shows you how to capture data from your event hub into Azure Synapse Analytics by using an Azure function triggered by an event grid.' 
+description: Describes how to use Azure Event Grid and Functions to migrate Event Hubs captured data to Azure Synapse Analytics.
 services: event-hubs
-ms.date: 06/23/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Migrate captured Event Hubs data to Azure Synapse Analytics using Event Grid and Azure Functions
-Event Hubs [Capture](./event-hubs-capture-overview.md) is the easiest way to automatically deliver streamed data in Event Hubs to an Azure Blob storage or Azure Data Lake store. You can subsequently process and deliver the data to any other storage destinations of your choice, such as Azure Synapse Analytics or Cosmos DB. In this tutorial, you learn how you to capture data from your event hub into Azure Synapse Analytics by using an Azure function triggered by an [event grid](../event-grid/overview.md).
+Azure Event Hubs [Capture](./event-hubs-capture-overview.md) enables you to automatically capture the streaming data in Event Hubs in an Azure Blob storage or Azure Data Lake Storage. This tutorial shows you how to migrate captured Event Hubs data from Storage to Azure Synapse Analytics by using an Azure function that's triggered by [Event Grid](../event-grid/overview.md).
 
 [!INCLUDE [event-grid-event-hubs-functions-synapse-analytics.md](../../includes/event-grid-event-hubs-functions-synapse-analytics.md)]
 

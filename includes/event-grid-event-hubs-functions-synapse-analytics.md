@@ -304,7 +304,7 @@ This section helps you with monitoring or troubleshooting the solution.
     ```
 
 ### Verify that the data is stored in the dedicated SQL pool
-In the browser tab where you have the query window open, query the table in your dedciated SQL pool for the migrated data.
+In the browser tab where you have the query window open, query the table in your dedicated SQL pool for the migrated data.
 
 ![Query results](media/event-grid-event-hubs-functions-synapse-analytics/query-results.png)
 
