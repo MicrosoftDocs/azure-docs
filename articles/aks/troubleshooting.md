@@ -19,11 +19,6 @@ There's also a [troubleshooting guide](https://github.com/feiskyer/kubernetes-ha
 
  [Request more cores](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-## What is the maximum pods-per-node setting for AKS?
-
-The maximum pods-per-node setting is 30 by default if you deploy an AKS cluster in the Azure portal.
-The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster in the Azure CLI. (Make sure you're using the latest version of the Azure CLI). This setting can be changed by using the `–-max-pods` flag in the `az aks create` command.
-
 ## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
 
 This error indicates a subnet in use for a cluster no longer has available IPs within its CIDR for successful resource assignment. For Kubenet clusters, the requirement is sufficient IP space for each node in the cluster. For Azure CNI clusters, the requirement is sufficient IP space for each node and pod in the cluster.
@@ -84,10 +79,6 @@ These timeouts may be related to internal traffic between nodes being blocked. V
 ## I'm trying to enable Kubernetes role-based access control (Kubernetes RBAC) on an existing cluster. How can I do that?
 
 Enabling Kubernetes role-based access control (Kubernetes RBAC) on existing clusters isn't supported at this time, it must be set when creating new clusters. Kubernetes RBAC is enabled by default when using CLI, Portal, or an API version later than `2020-03-01`.
-
-## I created a cluster with Kubernetes RBAC enabled and now I see many warnings on the Kubernetes dashboard. The dashboard used to work without any warnings. What should I do?
-
-The reason for the warnings is the cluster has Kubernetes RBAC enabled and access to the dashboard is now restricted by default. In general, this approach is good practice because the default exposure of the dashboard to all users of the cluster can lead to security threats. If you still want to enable the dashboard, follow the steps in [this blog post](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## I can't get logs by using kubectl logs or I can't connect to the API server. I'm getting "Error from server: error dialing backend: dial tcp…". What should I do?
 
@@ -215,44 +206,11 @@ If your cluster's provisioning status changes from *Ready* to *Failed* with or w
 
 If your cluster's provisioning status remains as *Failed* or the applications on your cluster stop working, [submit a support request](https://azure.microsoft.com/support/options/#submit).
 
+## My watch is stale or Azure AD Pod Identity NMI is returning status 500
+
+If you're using Azure Firewall like on this [example](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall) you may encounter this as the long lived TCP connections via firewall using Application Rules currently have a bug (to be resolved in Q1CY21) that causes the Go `keepalives` to be terminated on the firewall. Until this issue is resolved you can mitigate by adding a Network rule (instead of application rule) to the AKS API server IP.
 
 ## Azure Storage and AKS Troubleshooting
-
-### What are the recommended stable versions of Kubernetes for Azure disk? 
-
-| Kubernetes version | Recommended version |
-|--|:--:|
-| 1.12 | 1.12.9 or later |
-| 1.13 | 1.13.6 or later |
-| 1.14 | 1.14.2 or later |
-
-
-### WaitForAttach failed for Azure Disk: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax
-
-In Kubernetes version 1.10, MountVolume.WaitForAttach may fail with an Azure Disk remount.
-
-On Linux, you may see an incorrect DevicePath format error. For example:
-
-```console
-MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
-  Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
-```
-
-On Windows, you may see a wrong DevicePath(LUN) number error. For example:
-
-```console
-Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
-1102-dynamic-pvc-6c526c51-4a18-11e8-ab5c-000d3af7b38e) lun:(4)
-```
-
-This issue has been fixed in the following versions of Kubernetes:
-
-| Kubernetes version | Fixed version |
-|--|:--:|
-| 1.10 | 1.10.2 or later |
-| 1.11 | 1.11.0 or later |
-| 1.12 and later | N/A |
-
 
 ### Failure when setting uid and gid in mountOptions for Azure Disk
 
