@@ -447,10 +447,6 @@ The workflow in this example uses this trigger and these actions:
 > If you want to use webhook-based triggers, such as the [built-in HTTP Webhook trigger or action](../connectors/connectors-native-webhook.md) 
 > and run them locally in Visual Studio Code, you need to [set up forwarding for the webhook callback URL](#webhook-setup) 
 > before you can run your workflow.
->
-> Although supported, the HTTP Webhook trigger might not appear in the designer for you to select. 
-> If the trigger doesn't appear, you can manually add the trigger definition to your workflow 
-> definition file. For these steps, see [HTTP Webhook trigger doesn't appear available in the designer](#http-webhook-trigger-definition).
 
 <a name="webhook-setup"></a>
 
@@ -490,9 +486,9 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
 
 ### Set up the forwarding URL in your app settings
 
-1. In Visual Studio Code, at your project's root project, at the project level, open the **local.settings.json** file.
+1. In Visual Studio Code, at your project's root level, open the **local.settings.json** file.
 
-1. In the `Values` object, add a property named `WebhookRedirectHostUri`, and set the value to the forwarding URL that you previously created, for example:
+1. In the `Values` object, add a property named `Workflows.WebhookRedirectHostUri`, and set the value to the forwarding URL that you previously created, for example:
 
    ```json
    {
@@ -501,7 +497,7 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
          "FUNCTIONS_WORKER_RUNTIME": "dotnet",
          "FUNCTIONS_V2_COMPATIBILITY_MODE": "true",
-         "WebhookRedirectHostUri": "http://xxxXXXXxxxXXX.ngrok.io",
+         "Workflows.WebhookRedirectHostUri": "http://xxxXXXXxxxXXX.ngrok.io",
          <...>
       }
    }
@@ -509,13 +505,17 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
 
 When you locally start a debugging session or run the workflow without debugging for the first time, the Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the workflow already exists in local storage.
 
-> [!NOTE]
-> When you stop the debugging session or workflow run, the subscriptions still persist in storage. 
-> If you don't want to keep these subscriptions, either delete them or clear your local storage. 
->
-> For example, if you're using the Azure Storage Emulator, run this command:
->
-> `AzureStorageEmulator.exe clear all`
+After your workflow starts running, the terminal window might show errors like this example:
+
+`message='Http request failed with unhandled exception of type 'InvalidOperationException' and message: 'System.InvalidOperationException: Synchronous operations are disallowed. Call ReadAsync or set AllowSynchronousIO to true instead.`
+
+In this case, open the **local.settings.json** file at your project's root level ,and make sure that the property is set to `true`:
+
+`"FUNCTIONS_V2_COMPATIBILITY_MODE": "true"`
+
+When you stop the debugging session or workflow run, the subscriptions still persist in storage. If you don't want to keep these subscriptions, either delete them or clear your local storage. For example, if you're using the Azure Storage Emulator, run this command to clear your storage:
+
+`AzureStorageEmulator.exe clear all`
 
 <a name="manage-breakpoints"></a>
 
@@ -885,9 +885,11 @@ You can publish your logic app as a new resource, which automatically creates an
 
    ![Screenshot that shows the Output window with the "Azure Logic Apps" selected in the toolbar list along with the deployment progress and statuses.](./media/create-stateful-stateless-workflows-visual-studio-code/logic-app-deployment-output-window.png)
 
-   When Visual Studio Code finishes deploying your logic app to Azure, this message appears:
+   When Visual Studio Code finishes deploying your logic app to Azure, the following message appears:
 
    ![Screenshot that shows a message that deployment to Azure successfully completed.](./media/create-stateful-stateless-workflows-visual-studio-code/deployment-to-azure-completed.png)
+
+1. Before you continue or close the confirmation message, select **Upload settings** so that you upload your local project settings to Azure.
 
    Congratulations, your logic app is now live in Azure and enabled by default.
 
@@ -1253,30 +1255,6 @@ To fix this problem, follow these steps to delete the outdated version, which re
 1. Reopen Visual Studio Code, your project, and the **workflow.json** file in the designer.
 
 The missing triggers and actions now appear in the designer.
-
-<a name="http-webhook-trigger-definition"></a>
-
-### HTTP Webhook trigger doesn't appear available in the designer
-
-Although supported, the HTTP Webhook trigger might not appear in the designer for you to include in your workflow. In this case, you can manually add the trigger definition to your workflow definition file, **workflow.json** in your Visual Studio Code project.
-
-In your workflow's **workflow.json** file, include the trigger definition inside the `triggers` JSON object. For more information, see [HTTPWebhook trigger reference](logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
-
-```json
-"triggers": {
-   "HTTP_Webhook_Trigger": {
-      "type": "HttpWebhook",
-      "inputs": {
-         "subscribe": {
-            "body": "@listCallbackUrl()",
-            "method": "<HTTP-method-type>",
-            "uri": "<endpoint-subscribe-URL>"
-         },
-         "unsubscribe": {}
-      }
-   }
-}
-```
 
 <a name="400-bad-request"></a>
 
