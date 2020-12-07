@@ -16,7 +16,7 @@ ms.reviewer: <>
 
 Administration and SMS APIs support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to administration and SMS APIs using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
-This article shows how to authorize access to Administration and SMS APIs from an Azure Function using managed identities for Azure Resources. It also describes how to test your code in the development environment.
+This article shows how to authorize access to Administration and SMS APIs from an Azure environemnt that supports managed identities. It also describes how to test your code in the development environment.
 
 ## Enable managed identities on an VM or App service
 
@@ -33,7 +33,7 @@ Before you can use managed identities for Azure Resources to authorize access to
 
 When an Azure AD security principal attempts to access an API, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to ACS APIs. For information about assigning permissions via Azure RBAC.
 
-#### Azure Portal
+#### Azure Portal example
 
 1. Go to the azure portal
 1. Go to the Azure Communication Service resource
