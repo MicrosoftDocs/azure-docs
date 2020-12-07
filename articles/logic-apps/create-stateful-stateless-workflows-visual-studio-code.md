@@ -9,7 +9,7 @@ ms.date: 12/07/2020
 ---
 
 # Create stateful and stateless workflows in Visual Studio Code by using the Azure Logic Apps (Preview) extension
-
+f
 > [!IMPORTANT]
 > This capability is in public preview, is provided without a service level agreement, and is not recommended for production workloads. 
 > Certain features might not be supported or might have constrained capabilities. For more information, see 
@@ -33,7 +33,7 @@ This article shows how to create your logic app and a workflow in Visual Studio 
 
 * Deploy to Azure, which includes optionally enabling Application Insights.
 
-* Find and manage your deployed logic app.
+* Manage your deployed logic app in Visual Studio Code and the Azure portal.
 
 * Enable run history for stateless workflows.
 
@@ -173,15 +173,9 @@ Any logic apps that you created with the **Azure Logic Apps (Private Preview)** 
       * Under **Azure Logic Apps V2: Project Runtime**, check that the version is set to **~3**.
 
         > [!IMPORTANT]
-        > To use the [Inline Code action for running JavaScript](../logic-apps/logic-apps-add-run-inline-code.md), 
-        > the **Project Runtime** setting requires version 3.
-
-        > Also, this action currently isn't supported on Linux operating systems.
-      > review these considerations:
-      > 
-      > * For macOS, the Inline Code action is currently unavailable.
-      >
-      > * 
+        > To use the [Inline Code action](../logic-apps/logic-apps-add-run-inline-code.md), 
+        > if available on your operating system, the **Project Runtime** setting requires version 3.
+        > However, this action is currently unavailable on macOS and Linux.
 
       ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Preview)" extension.](./media/create-stateful-stateless-workflows-visual-studio-code/azure-logic-apps-preview-settings.png)
 
@@ -868,15 +862,15 @@ You can publish your logic app as a new resource, which automatically creates an
 
 Next, you can learn how to perform these tasks:
 
-* [Find your deployed logic app in the Azure portal](#find-manage-deployed-workflows-portal) or [in Visual Studio Code](#find-manage-deployed-workflows-vs-code).
+* [Manage deployed logic apps in Visual Studio Code](#manage-deployed-apps-vs-code) or by using the [Azure portal](#manage-deployed-apps-portal).
 
 * [Enable run history on stateless workflows](#enable-run-history-stateless).
 
-* [Enable monitoring on a deployed **Logic App (Preview)** resource](#enable-monitoring).
+* [Enable monitoring view in the Azure portal for a deployed logic app](#enable-monitoring).
 
-<a name="find-manage-deployed-workflows-vs-code"></a>
+<a name="manage-deployed-apps-vs-code"></a>
 
-## Find and manage deployed logic apps in Visual Studio Code
+## Manage deployed logic apps in Visual Studio Code
 
 In Visual Studio Code, you can view all the deployed logic apps in your Azure subscription, whether they are the original **Logic Apps** or the **Logic App (Preview)** resource type, and select tasks that help you manage those logic apps. However, to access both resource types, you need both the **Azure Logic Apps** and the **Azure Logic Apps (Preview)** extensions for Visual Studio Code.
 
@@ -908,9 +902,9 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    ![Screenshot that shows the Azure portal and the search bar with search results for deployed logic app, which appears selected.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-azure-portal.png)
 
-<a name="find-manage-deployed-workflows-portal"></a>
+<a name="manage-deployed-apps-portal"></a>
 
-## Find and manage deployed logic apps in the portal
+## Manage deployed logic apps in the portal
 
 In the Azure portal, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. Currently, each resource type is organized and managed as separate categories in Azure. To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
 
@@ -993,7 +987,7 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 ## Enable monitoring view in the Azure portal
 
-After you deploy a **Logic App (Preview)** resource from Visual Studio Code to Azure, you can review any available run history and details for a workflow in that resource by using the Azure portal and the **Monitor** experience for that workflow. However, you first have to enable monitoring view capability on that logic app resource.
+After you deploy a **Logic App (Preview)** resource from Visual Studio Code to Azure, you can review any available run history and details for a workflow in that resource by using the Azure portal and the **Monitor** experience for that workflow. However, you first have to enable the **Monitor** view capability on that logic app resource.
 
 1. In the [Azure portal](https://portal.azure.com), find and select the deployed **Logic App (Preview)** resource.
 

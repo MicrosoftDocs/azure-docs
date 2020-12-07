@@ -48,8 +48,10 @@ This article shows how to build your logic app and workflow in the Azure portal 
 * An [Azure Storage account](../storage/common/storage-account-overview.md) because the **Logic App (Preview)** resource is powered by Azure Functions and has [storage requirements that are similar to function apps](../azure-functions/storage-considerations.md). You can use an existing storage account, or you can create a storage account in advance or during logic app creation.
 
   > [!NOTE]
-  > [Stateful logic apps](logic-apps-overview-preview.md#stateful-stateless) perform storage transactions, such as using queues for 
-  > scheduling and storing workflow states in tables and blobs. These transactions incur [Azure Storage charges](https://azure.microsoft.com/pricing/details/storage/). For more information about how stateful logic apps store data in external storage, see [Stateful versus stateless](logic-apps-overview-preview.md#stateful-stateless).
+  > [Stateful logic apps](logic-apps-overview-preview.md#stateful-stateless) perform storage transactions, such as 
+  > using queues for scheduling and storing workflow states in tables and blobs. These transactions incur 
+  > [Azure Storage charges](https://azure.microsoft.com/pricing/details/storage/). For more information about 
+  > how stateful logic apps store data in external storage, see [Stateful versus stateless](logic-apps-overview-preview.md#stateful-stateless).
 
 * To build the same example logic app in this article, you need an Office 365 Outlook email account that uses a Microsoft work or school account to sign in.
 
