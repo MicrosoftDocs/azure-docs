@@ -16,7 +16,7 @@ ms.reviewer: tasharm, assafi, sumeh
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.1/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.1/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 # [Version 3.0](#tab/version-3)
 
@@ -35,6 +35,8 @@ This article only describes version 3.x of the API.
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* To use the Analyze feature and Text Analytics for health, you will need a Text Analytics resource with the standard (S) pricing tier.
+* To use Text Analytics for health, you will also need to [request access to the gated preview](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health#request-access-to-the-public-preview). 
 
 ## Setting up
 
@@ -49,7 +51,7 @@ Create a Maven project in your preferred IDE or development environment. Then ad
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.0-beta.1</version>
+        <version>5.1.0-beta.3</version>
     </dependency>
 </dependencies>
 ```
@@ -583,3 +585,215 @@ Recognized phrases:
 cat
 veterinarian
 ```
+---
+
+## Recognize healthcare entities with Text Analytics for health 
+
+# [Version 3.1 preview](#tab/version-3-1)
+
+> [!NOTE]
+> To use Text Analytics for health, you will need to [request access to the gated preview](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health#request-access-to-the-public-preview). you will also need a Text Analytics Resource with the standard (S) pricing tier.
+
+```csharp
+static void RecognizeHealthcareEntitiesExample(TextAnalyticsClient client)
+{
+		List<TextDocumentInput> documents = new ArrayList<>();
+		for (int i = 0; i < 3; i++) {
+				documents.add(new TextDocumentInput(Integer.toString(i),
+						"Subject is taking 100mg of ibuprofen twice daily"));
+		}
+
+		// Request options: show statistics and model version
+		RecognizeHealthcareEntityOptions options = new RecognizeHealthcareEntityOptions()
+				.setIncludeStatistics(true);
+
+		client.beginAnalyzeHealthcare(documents, options)
+				.flatMap(AsyncPollResponse::getFinalResult)
+				.subscribe(healthcareTaskResultPagedFlux ->
+						healthcareTaskResultPagedFlux.subscribe(
+								healthcareTaskResult -> {
+										System.out.printf("Job display name: %s, job ID: %s.%n", healthcareTaskResult.getDisplayName(),
+												healthcareTaskResult.getJobId());
+
+										RecognizeHealthcareEntitiesResultCollection healthcareEntitiesResultCollection = healthcareTaskResult.getResult();
+										// Model version
+										System.out.printf("Results of Azure Text Analytics \"Analyze Healthcare\" Model, version: %s%n",
+												healthcareEntitiesResultCollection.getModelVersion());
+
+										// Batch statistics
+										TextDocumentBatchStatistics batchStatistics = healthcareEntitiesResultCollection.getStatistics();
+										System.out.printf("Documents statistics: document count = %s, erroneous document count = %s, transaction count = %s, valid document count = %s.%n",
+												batchStatistics.getDocumentCount(), batchStatistics.getInvalidDocumentCount(),
+												batchStatistics.getTransactionCount(), batchStatistics.getValidDocumentCount());
+
+										healthcareEntitiesResultCollection.forEach(healthcareEntitiesResult -> {
+												System.out.println("Document id = " + healthcareEntitiesResult.getId());
+												System.out.println("Document entities: ");
+												HealthcareEntityCollection healthcareEntities = healthcareEntitiesResult.getEntities();
+												AtomicInteger ct = new AtomicInteger();
+												healthcareEntities.forEach(healthcareEntity -> {
+														System.out.printf("\ti = %d, Text: %s, category: %s, subcategory: %s, confidence score: %f.%n",
+																ct.getAndIncrement(),
+																healthcareEntity.getText(), healthcareEntity.getCategory(), healthcareEntity.getSubcategory(),
+																healthcareEntity.getConfidenceScore());
+												});
+
+												healthcareEntities.getEntityRelations().forEach(
+														healthcareEntityRelation ->
+																System.out.printf("Is bidirectional: %s, target: %s, source: %s, relation type: %s.%n",
+																		healthcareEntityRelation.isBidirectional(),
+																		healthcareEntityRelation.getTargetLink(),
+																		healthcareEntityRelation.getSourceLink(),
+																		healthcareEntityRelation.getRelationType()));
+										});
+								}
+						));
+}
+```
+
+### Output
+
+```console
+Job display name: null, job ID: b27979b0-9f26-4ca4-a164-bef1338ef06d.
+Results of Azure Text Analytics "Analyze Healthcare" Model, version: 2020-09-03
+Documents statistics: document count = 1, erroneous document count = 0, transaction count = 1, valid document count = 1.
+Document id = 0
+Document entities: 
+    i = 0, Text: 100mg, category: Dosage, subcategory: null, confidence score: 1.000000.
+    i = 1, Text: ibuprofen, category: MedicationName, subcategory: null, confidence score: 1.000000.
+    i = 2, Text: twice daily, category: Frequency, subcategory: null, confidence score: 1.000000.
+Is bidirectional: false, target: #/results/documents/0/entities/1, source: #/results/documents/0/entities/0, relation type: DosageOfMedication.
+Is bidirectional: false, target: #/results/documents/0/entities/1, source: #/results/documents/0/entities/2, relation type: FrequencyOfMedication.
+```
+
+# [Version 3.0](#tab/version-3)
+
+This feature is not available in version 3.0.
+
+# [Version 2.1](#tab/version-2)
+
+This feature is not available in version 2.1.
+
+---
+
+## Use the API asynchronously with the Analyze operation
+
+# [Version 3.1 preview](#tab/version-3-1)
+
+> [!NOTE]
+> To use Analyze operations, you must use a Text Analytics resource with the standard (S) pricing tier.  
+
+```csharp
+static void AnalyzeOperationExample(TextAnalyticsClient client)
+{
+	List<TextDocumentInput> documents = Arrays.asList(
+			new TextDocumentInput("0", "Microsoft was founded by Bill Gates and Paul Allen."),
+	);
+
+	client.beginAnalyzeTasks(documents,
+			new AnalyzeTasksOptions().setDisplayName("{tasks_display_name}")
+					.setEntitiesRecognitionTasks(Arrays.asList(new EntitiesTask()))
+					.setKeyPhrasesExtractionTasks(Arrays.asList(new KeyPhrasesTask()))
+					.setPiiEntitiesRecognitionTasks(Arrays.asList(new PiiTask())))
+			.flatMap(AsyncPollResponse::getFinalResult)
+			.subscribe(analyzeTasksResultPagedFlux ->
+					analyzeTasksResultPagedFlux.subscribe(analyzeTasksResult -> {
+							System.out.printf("Job Display Name: %s, Job ID: %s.%n", analyzeTasksResult.getDisplayName(),
+									analyzeTasksResult.getJobId());
+							System.out.printf("Total tasks: %s, completed: %s, failed: %s, in progress: %s.%n",
+									analyzeTasksResult.getTotal(), analyzeTasksResult.getCompleted(),
+									analyzeTasksResult.getFailed(), analyzeTasksResult.getInProgress());
+
+							List<RecognizeEntitiesResultCollection> entityRecognitionTasks = analyzeTasksResult.getEntityRecognitionTasks();
+							if (entityRecognitionTasks != null) {
+									entityRecognitionTasks.forEach(taskResult -> {
+											// Recognized entities for each of documents from a batch of documents
+											AtomicInteger counter = new AtomicInteger();
+											for (RecognizeEntitiesResult entitiesResult : taskResult) {
+													System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
+													if (entitiesResult.isError()) {
+															// Erroneous document
+															System.out.printf("Cannot recognize entities. Error: %s%n", entitiesResult.getError().getMessage());
+													} else {
+															// Valid document
+															entitiesResult.getEntities().forEach(entity -> System.out.printf(
+																	"Recognized entity: %s, entity category: %s, entity subcategory: %s, confidence score: %f.%n",
+																	entity.getText(), entity.getCategory(), entity.getSubcategory(), entity.getConfidenceScore()));
+													}
+											}
+									});
+							}
+							List<ExtractKeyPhrasesResultCollection> keyPhraseExtractionTasks = analyzeTasksResult.getKeyPhraseExtractionTasks();
+							if (keyPhraseExtractionTasks != null) {
+									keyPhraseExtractionTasks.forEach(taskResult -> {
+											// Extracted key phrase for each of documents from a batch of documents
+											AtomicInteger counter = new AtomicInteger();
+											for (ExtractKeyPhraseResult extractKeyPhraseResult : taskResult) {
+													System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
+													if (extractKeyPhraseResult.isError()) {
+															// Erroneous document
+															System.out.printf("Cannot extract key phrases. Error: %s%n", extractKeyPhraseResult.getError().getMessage());
+													} else {
+															// Valid document
+															System.out.println("Extracted phrases:");
+															extractKeyPhraseResult.getKeyPhrases().forEach(keyPhrases -> System.out.printf("\t%s.%n", keyPhrases));
+													}
+											}
+									});
+							}
+							List<RecognizePiiEntitiesResultCollection> entityRecognitionPiiTasks = analyzeTasksResult.getEntityRecognitionPiiTasks();
+							if (entityRecognitionPiiTasks != null) {
+									entityRecognitionPiiTasks.forEach(taskResult -> {
+											// Recognized Personally Identifiable Information entities for each document in a batch of documents
+											AtomicInteger counter = new AtomicInteger();
+											for (RecognizePiiEntitiesResult entitiesResult : taskResult) {
+													// Recognized entities for each document in a batch of documents
+													System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
+													if (entitiesResult.isError()) {
+															// Erroneous document
+															System.out.printf("Cannot recognize Personally Identifiable Information entities. Error: %s%n", entitiesResult.getError().getMessage());
+													} else {
+															// Valid document
+															PiiEntityCollection piiEntityCollection = entitiesResult.getEntities();
+															System.out.printf("Redacted Text: %s%n", piiEntityCollection.getRedactedText());
+															piiEntityCollection.forEach(entity -> System.out.printf(
+																	"Recognized Personally Identifiable Information entity: %s, entity category: %s, entity subcategory: %s, offset: %s, confidence score: %f.%n",
+																	entity.getText(), entity.getCategory(), entity.getSubcategory(), entity.getOffset(), entity.getConfidenceScore()));
+													}
+											}
+									});
+							}
+					}));
+}
+```
+
+### Output
+
+```console
+Job Display Name: {tasks_display_name}, Job ID: e7cb90a8-8055-49d9-9934-636a3b7cd1a4_637411680000000000.
+Total tasks: 3, completed: 3, failed: 0, in progress: 0.
+Text = Microsoft was founded by Bill Gates and Paul Allen, Id = 0, Language = null
+Recognized entity: Microsoft, entity category: Organization, entity subcategory: null, confidence score: 0.820000.
+Recognized entity: Bill Gates, entity category: Person, entity subcategory: null, confidence score: 0.840000.
+Recognized entity: Paul Allen, entity category: Person, entity subcategory: null, confidence score: 0.890000.
+Text = Microsoft was founded by Bill Gates and Paul Allen, Id = 0, Language = null
+Extracted phrases:
+    Bill Gates.
+    Paul Allen.
+    Microsoft.
+Text = Microsoft was founded by Bill Gates and Paul Allen, Id = 0, Language = null
+Redacted Text: ********* was founded by ********** and **********
+Recognized Personally Identifiable Information entity: Microsoft, entity category: Organization, entity subcategory: null, offset: 0, confidence score: 0.820000.
+Recognized Personally Identifiable Information entity: Bill Gates, entity category: Person, entity subcategory: null, offset: 25, confidence score: 0.840000.
+Recognized Personally Identifiable Information entity: Paul Allen, entity category: Person, entity subcategory: null, offset: 40, confidence score: 0.890000.
+```
+
+# [Version 3.0](#tab/version-3)
+
+This feature is not available in version 3.0.
+
+# [Version 2.1](#tab/version-2)
+
+This feature is not available in version 2.1.
+
+---
