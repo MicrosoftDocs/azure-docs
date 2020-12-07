@@ -1,7 +1,10 @@
 ---
-title: Discover apps, roles, and features on on-premises servers with Azure Migrate 
+title: Discover apps on on-premises servers with Azure Migrate 
 description: Learn how to discover apps, roles, and features on on-premises servers with Azure Migrate Server Assessment.
-ms.topic: article
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 06/10/2020
 ---
 
