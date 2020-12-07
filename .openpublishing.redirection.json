@@ -38014,7 +38014,12 @@
     },
     {
       "source_path": "articles/iot-suite/iot-suite-faq-rm-v2.md",
-      "redirect_url": "/azure/iot-accelerators/iot-accelerators-faq-rm-v2",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-faq-rm-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-suite-faq-rm-v2.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-faq-rm-v2",
       "redirect_document_id": false
     },
     {
@@ -52177,7 +52182,7 @@
     },
     {
       "source_path": "articles/iot-accelerators/quickstart-device-simulation-deploy.md",
-      "redirect_url": "https://github.com/Azure/device-simulation-dotnet/blob/master/README.md",
+      "redirect_url": "/azure/iot-accelerators/device-simulation-overview",
       "redirect_document_id": false
     },
     {

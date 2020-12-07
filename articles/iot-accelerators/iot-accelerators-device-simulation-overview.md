@@ -57,7 +57,7 @@ Advanced device models let you:
 
 ## Next steps
 
-In this article, you learned about the Device Simulation solution accelerator and its capabilities. To get started using the solution accelerator, continue to the quickstart:
+In this article, you learned about the Device Simulation solution accelerator and its capabilities. To deploy the solution accelerator, visit the GitHub repository:
 
 > [!div class="nextstepaction"]
 > [Deploy and run an IoT device simulation in Azure](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)

@@ -47,10 +47,6 @@ landingContent:
         links: 
           - text: Device Simulation solution accelerator overview
             url: iot-accelerators-device-simulation-overview.md
-      - linkListType: quickstart
-        links: 
-          - text: Try a device simulation solution
-            url: https://github.com/Azure/device-simulation-dotnet/blob/master/README.md
       - linkListType: tutorial
         links: 
           - text: Create and run an IoT device simulation
