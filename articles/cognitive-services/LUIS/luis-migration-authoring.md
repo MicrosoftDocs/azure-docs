@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 12/07/2020
 
 ---
 # Migrate to an Azure resource authoring key
@@ -24,7 +24,7 @@ Language Understanding (LUIS) authoring authentication has changed from an email
 
 Migration is the process of changing authoring authentication from an email account to an Azure resource. Your account will be linked to an Azure subscription and an Azure authoring resource after you migrate. *All LUIS users (app owners and collaborators) will eventually need to migrate.*
 
-Migration has to be done from the [LUIS portal](https://www.luis.ai). If you create the authoring keys by using the LUIS CLI, for example, you'll need to complete the migration process in the LUIS portal. You can still have coauthors on your applications after migration, but these will be added on the Azure resource level instead of the application level.
+Migration has to be done from the [LUIS portal](https://www.luis.ai). If you create the authoring keys by using the LUIS CLI, for example, you'll need to complete the migration process in the LUIS portal. You can still have co-authors on your applications after migration, but these will be added on the Azure resource level instead of the application level.
 
 > [!Note]
 > Before migration, coauthors are known as _collaborators_ on the LUIS app level. After migration, the Azure role of _contributor_ is used for the same functionality on the Azure resource level.
@@ -60,7 +60,7 @@ Migration has to be done from the [LUIS portal](https://www.luis.ai). If you cre
 
 ## Migration steps
 
-1. When you sign-in to the [LUIS portal](https://www.luis.ai), an Azure migration window will open with the steps for migration. If you dismiss it, you wont be able to proceed with authoring your LUIS applications, and the only action displayed will be to continue with the migration.
+1. When you sign-in to the [LUIS portal](https://www.luis.ai), an Azure migration window will open with the steps for migration. If you dismiss it, you won't be able to proceed with authoring your LUIS applications, and the only action displayed will be to continue with the migration.
 
     > [!div class="mx-imgBorder"]
     > ![Migration Window Intro](./media/migrate-authoring-key/notify-azure-migration.png)
@@ -102,7 +102,7 @@ A `*` symbol will appear next to the application name if you have a prediction r
 5. For each region, choose to create a new LUIS authoring resource, or to migrate to an existing one using the buttons.
 
    > [!div class="mx-imgBorder"]
-   > ![choose to create or existing authoring resource](./media/migrate-authoring-key/migration-multiregional-createnewresource.png)
+   > ![choose to create or existing authoring resource](./media/migrate-authoring-key/migration-multiregional-resource.png)
 
    Provide the following information:
 
