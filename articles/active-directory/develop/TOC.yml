@@ -456,6 +456,9 @@
       href: active-directory-schema-extensions.md
     - name: Configure token lifetimes
       href: configure-token-lifetimes.md
+    - name: Use Continuous Access Evaluation APIs
+      href: app-resilience-continuous-access-evaluation.md
+      displayName: cae
   - name: Handle browser cookie restrictions
     items:
       - name: Handle ITP in Safari

@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Score machine learning models with PREDICT
 
-Dedicated SQL pool provides you the capability to score machine learning models using the familiar T-SQL language. With T-SQL [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest), you can bring your existing machine learning models trained with historical data and score them within the secure boundaries of your data warehouse. PREDICT function takes an [ONNX (Open Neural Network Exchange)](https://onnx.ai/) model and data as inputs. This feature eliminates the step of moving valuable data outside the data warehouse for scoring. It aims to empower data professionals to easily deploy machine learning models with the familiar T-SQL interface as well as collaborate seamlessly with data scientists working with the right framework for their task.
+Dedicated SQL pool provides you the capability to score machine learning models using the familiar T-SQL language. With T-SQL [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true), you can bring your existing machine learning models trained with historical data and score them within the secure boundaries of your data warehouse. PREDICT function takes an [ONNX (Open Neural Network Exchange)](https://onnx.ai/) model and data as inputs. This feature eliminates the step of moving valuable data outside the data warehouse for scoring. It aims to empower data professionals to easily deploy machine learning models with the familiar T-SQL interface as well as collaborate seamlessly with data scientists working with the right framework for their task.
 
 > [!NOTE]
 > This functionality is currently not supported in serverless SQL pool.
@@ -61,7 +61,7 @@ GO
 
 ```
 
-Once the model is converted to a hexadecimal string and the table definition specified, use the [COPY command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) or Polybase to load the model in the dedicated SQL pool table. The following code sample uses the Copy command to load the model.
+Once the model is converted to a hexadecimal string and the table definition specified, use the [COPY command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) or Polybase to load the model in the dedicated SQL pool table. The following code sample uses the Copy command to load the model.
 
 ```sql
 -- Copy command to load hexadecimal string of the model from Azure Data Lake storage location
@@ -75,17 +75,17 @@ WITH (
 
 ## Scoring the model
 
-Once the model and data are loaded in the data warehouse, use the **T-SQL PREDICT** function to score the model. Make sure that the new input data is in the same format as the training data used for building the model. T-SQL PREDICT takes two inputs: model and new scoring input data, and generates new columns for the output.The model can be specified as a variable, a literal or a scalar sub_query. Use [WITH common_table_expression](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15) to specify a named result set for the data parameter.
+Once the model and data are loaded in the data warehouse, use the **T-SQL PREDICT** function to score the model. Make sure that the new input data is in the same format as the training data used for building the model. T-SQL PREDICT takes two inputs: model and new scoring input data, and generates new columns for the output.The model can be specified as a variable, a literal or a scalar sub_query. Use [WITH common_table_expression](https://docs.microsoft.com/sql/t-sql/queries/with-common-table-expression-transact-sql?view=azure-sqldw-latest&preserve-view=true) to specify a named result set for the data parameter.
 
-The example below shows a sample query using prediction function. An additional column with name *Score* and data type *float* is created containing the prediction results. All the input data columns as well as output prediction columns are available to display with the select statement. For more details, see [PREDICT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+The example below shows a sample query using prediction function. An additional column with name *Score* and data type *float* is created containing the prediction results. All the input data columns as well as output prediction columns are available to display with the select statement. For more details, see [PREDICT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 -- Query for ML predictions
 SELECT d.*, p.Score
 FROM PREDICT(MODEL = (SELECT Model FROM Models WHERE Id = 1),
-DATA = dbo.mytable AS d) WITH (Score float) AS p;
+DATA = dbo.mytable AS d, RUNTIME = ONNX) WITH (Score float) AS p;
 ```
 
 ## Next steps
 
-To learn more about the PREDICT function, see [PREDICT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+To learn more about the PREDICT function, see [PREDICT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).

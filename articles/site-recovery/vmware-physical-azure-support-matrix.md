@@ -253,7 +253,7 @@ Hot storage| No
 Block blobs | No
 Encryption-at-rest (SSE)| Yes
 Encryption-at-rest (CMK)| Yes (via PowerShell Az 3.3.0 module onwards)
-Double Encryption at rest | Yes (via PowerShell Az 3.3.0 module onwards). Learn more on supported regions for [Windows](../virtual-machines/windows/disk-encryption.md) and [Linux](../virtual-machines/linux/disk-encryption.md).
+Double Encryption at rest | Yes (via PowerShell Az 3.3.0 module onwards). Learn more on supported regions for [Windows](../virtual-machines/disk-encryption.md) and [Linux](../virtual-machines/disk-encryption.md).
 Premium storage | Yes
 Secure transfer option | Yes
 Import/export service | No

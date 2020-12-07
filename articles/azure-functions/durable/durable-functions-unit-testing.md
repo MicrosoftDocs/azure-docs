@@ -20,7 +20,7 @@ The examples in this article require knowledge of the following concepts and fra
 
 * Durable Functions
 
-* [xUnit](https://xunit.github.io/) - Testing framework
+* [xUnit](https://github.com/xunit/xunit) - Testing framework
 
 * [moq](https://github.com/moq/moq4) - Mocking framework
 
@@ -174,6 +174,6 @@ And the unit tests will verify the format of the output. The unit tests can use 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
+> [Learn more about xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
 > 
 > [Learn more about moq](https://github.com/Moq/moq4/wiki/Quickstart)

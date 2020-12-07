@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
 ---
 # Create alerts for Azure SQL Database and Azure Synapse Analytics using the Azure portal
