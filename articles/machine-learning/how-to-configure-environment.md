@@ -1,14 +1,14 @@
 ---
 title: Set up Python development environment
 titleSuffix: Azure Machine Learning
-description: Learn to set up a Python development environment for Azure Machine Learning. Use Conda environments, create configuration files, and configure your own cloud-based notebook server, Jupyter Notebooks, Azure Databricks, IDEs, code editors, and the Data Science Virtual Machine.
+description: Set up Azure Machine Learning Python development environments in Jupyter Notebooks, Visual Studio Code, Azure Databricks, and Data Science Virtual Machines.
 services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 09/30/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
 ---

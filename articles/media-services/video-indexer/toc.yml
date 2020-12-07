@@ -47,8 +47,6 @@
       href: customize-person-model-overview.md
 - name: How to guides
   items:
-  - name: Connect to Azure
-    href: connect-to-azure.md
   - name: Manage account connected to Azure
     href: manage-account-connected-to-azure.md
   - name: Upload and index videos
@@ -56,6 +54,7 @@
   - name: Examine Video Indexer output
     href: video-indexer-output-json-v2.md
   - name: Find exact moments within videos
+    displayName: search
     href: video-indexer-search.md
   - name: Detect scenes, shots, keyframes
     href: scenes-shots-keyframes.md
@@ -67,6 +66,8 @@
     href: use-editor-create-project.md
   - name: Embed widgets into your application
     href: video-indexer-embed-widgets.md
+  - name: Considerations when using Video Indexer at scale
+    href: considerations-when-use-at-scale.md
   - name: Disaster recovery
     href: video-indexer-disaster-recovery.md        
   - name: Customize content models

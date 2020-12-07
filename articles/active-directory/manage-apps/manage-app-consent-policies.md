@@ -26,7 +26,7 @@ App consent policies where the ID begins with "microsoft-" are built-in policies
 
 ## Pre-requisites
 
-1. Make sure you're using the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) module. This step is important if you have installed both the [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) module and the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) module).
+1. Make sure you're using the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module. This step is important if you have installed both the [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) module and the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module).
 
     ```powershell
     Remove-Module AzureAD -ErrorAction SilentlyContinue
@@ -144,7 +144,7 @@ To learn more:
 * [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 * [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)
 * [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-* [Permissions and consent in the Microsoft identity platform](../develop/active-directory-v2-scopes.md)
+* [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
 To get help or find answers to your questions:
 * [Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

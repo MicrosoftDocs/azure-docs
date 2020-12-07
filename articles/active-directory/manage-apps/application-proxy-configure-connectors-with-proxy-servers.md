@@ -164,6 +164,9 @@ The best way to identify and troubleshoot connector connectivity issues is to ta
 
 You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Message Analyzer.
 
+> [!NOTE]
+> [Microsoft Message Analyzer (MMA) was retired](https://docs.microsoft.com/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) and its download packages removed from microsoft.com sites on November 25 2019.  There is currently no Microsoft replacement for Microsoft Message Analyzer in development at this time.  For similar functionality, please consider using a 3rd party network protocol analyzer tool such as Wireshark.
+
 The following examples are specific to Message Analyzer, but the principles can be applied to any analysis tool.
 
 ### Take a capture of connector traffic
@@ -204,4 +207,4 @@ If you see other response codes, such as 407 or 502, that means that the proxy i
 ## Next steps
 
 * [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
-* If you have problems with connector connectivity issues, ask your question in the [Microsoft Q&A question page for Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) or create a ticket with our support team.
+* If you have problems with connector connectivity issues, ask your question in the [Microsoft Q&A question page for Azure Active Directory](/answers/topics/azure-active-directory.html) or create a ticket with our support team.

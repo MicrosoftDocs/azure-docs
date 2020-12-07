@@ -10,7 +10,7 @@ ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 
-# Connect to your Azure Synapse workspace using private links (preview)
+# Connect to your Azure Synapse workspace using private links
 
 This article will teach you how to create a private endpoint to your Azure Synapse workspace. See [private links and private endpoints](https://docs.microsoft.com/azure/private-link/) to learn more.
 

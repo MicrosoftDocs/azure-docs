@@ -1,19 +1,19 @@
 ---
-title: Create and use views in serverless SQL pool (preview)
-description: In this section, you'll learn how to create and use views to wrap serverless SQL pool (preview) queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with serverless SQL pool.
+title: Create and use views in serverless SQL pool
+description: In this section, you'll learn how to create and use views to wrap serverless SQL pool queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with serverless SQL pool.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
 
-# Create and use views using serverless SQL pool (preview) in Azure Synapse Analytics
+# Create and use views using serverless SQL pool in Azure Synapse Analytics
 
-In this section, you'll learn how to create and use views to wrap serverless SQL pool (preview) queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with serverless SQL pool.
+In this section, you'll learn how to create and use views to wrap serverless SQL pool queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with serverless SQL pool.
 
 ## Prerequisites
 

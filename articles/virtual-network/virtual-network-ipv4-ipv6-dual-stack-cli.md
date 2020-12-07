@@ -21,12 +21,11 @@ This article shows you how to deploy a dual stack (IPv4 + IPv6) application with
 
 To deploy a dual stack (IPV4 + IPv6) application using Standard Load Balancer, see [Deploy an IPv6 dual stack application with Standard Load Balancer using Azure CLI](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.49 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
+- This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -262,7 +261,7 @@ az network vnet create \
 --name dsVNET \
 --resource-group DsResourceGroup01 \
 --location eastus  \
---address-prefixes "10.0.0.0/16" "ace:cab:deca::/48"
+--address-prefixes "10.0.0.0/16" "fd00:db8:deca::/48"
 
 # Create a single dual stack subnet
 
@@ -270,7 +269,7 @@ az network vnet subnet create \
 --name dsSubNET \
 --resource-group DsResourceGroup01 \
 --vnet-name dsVNET \
---address-prefixes "10.0.0.0/24" "ace:cab:deca:deed::/64" \
+--address-prefixes "10.0.0.0/24" "fd00:db8:deca:deed::/64" \
 --network-security-group dsNSG1
 ```
 

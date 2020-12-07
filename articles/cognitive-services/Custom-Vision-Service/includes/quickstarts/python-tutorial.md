@@ -19,7 +19,7 @@ Use the Custom Vision client library for Python to:
 * Publish the current iteration
 * Test the prediction endpoint
 
-[Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-customvision/azure/cognitiveservices/vision/customvision) | [Package (PyPI)](https://pypi.org/project/azure-cognitiveservices-vision-customvision/) | [Samples](https://docs.microsoft.com/samples/browse/?products=azure&term=vision&terms=vision&languages=python)
+[Reference documentation](/python/api/overview/azure/cognitiveservices/customvision?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-customvision/azure/cognitiveservices/vision/customvision) | [Package (PyPI)](https://pypi.org/project/azure-cognitiveservices-vision-customvision/) | [Samples](/samples/browse/?languages=python&products=azure&term=vision&terms=vision)
 
 ## Prerequisites
 
@@ -57,15 +57,15 @@ Create variables for your resource's Azure endpoint and subscription keys.
 >
 > You can find the prediction resource ID value on the resource's **Overview** tab, listed as **Subscription ID**.
 >
-> Remember to remove the keys from your code when you're done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
+> Remember to remove the keys from your code when you're done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 ## Object model
 
 |Name|Description|
 |---|---|
-|[CustomVisionTrainingClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) | This class handles the creation, training, and publishing of your models. |
-|[CustomVisionPredictionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python)| This class handles the querying of your models for image classification predictions.|
-|[ImagePrediction](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-python)| This class defines a single object prediction on a single image. It includes properties for the object ID and name, the bounding box location of the object, and a confidence score.|
+|[CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) | This class handles the creation, training, and publishing of your models. |
+|[CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python)| This class handles the querying of your models for image classification predictions.|
+|[ImagePrediction](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-python)| This class defines a single object prediction on a single image. It includes properties for the object ID and name, the bounding box location of the object, and a confidence score.|
 
 ## Code examples
 
@@ -81,7 +81,7 @@ These code snippets show you how to do the following with the Custom Vision clie
 
 ## Authenticate the client
 
-Instantiate a training and prediction client with your endpoint and keys. Create **ApiKeyServiceClientCredentials** objects with your keys, and use them with your endpoint to create a [CustomVisionTrainingClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) and [CustomVisionPredictionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python) object.
+Instantiate a training and prediction client with your endpoint and keys. Create **ApiKeyServiceClientCredentials** objects with your keys, and use them with your endpoint to create a [CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) and [CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python) object.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_auth)]
 
@@ -89,7 +89,7 @@ Instantiate a training and prediction client with your endpoint and keys. Create
 
 Add the following code to your script to create a new Custom Vision service project. 
 
-See the [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-) method to specify other options when you create your project (explained in the [Build a classifier](../../getting-started-build-a-classifier.md) web portal guide).  
+See the [create_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-) method to specify other options when you create your project (explained in the [Build a classifier](../../getting-started-build-a-classifier.md) web portal guide).  
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_create)]
 
@@ -120,7 +120,7 @@ This code creates the first iteration of the prediction model.
 > [!TIP]
 > Train with selected tags
 >
-> You can optionally train on only a subset of your applied tags. You may want to do this if you haven't applied enough of certain tags yet, but you do have enough of others. In the **[train_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** call, set the optional parameter *selected_tags* to a list of the ID strings of the tags you want to use. The model will train to only recognize the tags on that list.
+> You can optionally train on only a subset of your applied tags. You may want to do this if you haven't applied enough of certain tags yet, but you do have enough of others. In the **[train_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** call, set the optional parameter *selected_tags* to a list of the ID strings of the tags you want to use. The model will train to only recognize the tags on that list.
 
 ## Publish the current iteration
 
@@ -169,4 +169,4 @@ Now you've seen how every step of the image classification process can be done i
 
 * [What is Custom Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ImageClassification/CustomVisionQuickstart.py)
-* [SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)
+* [SDK reference documentation](/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)

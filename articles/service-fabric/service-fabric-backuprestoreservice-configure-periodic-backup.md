@@ -41,7 +41,7 @@ A backup policy consists of the following configurations:
         ```
 
     2. **Time-based backup schedule**: This schedule type should be used if the need is to take data backup at specific times of the day or week. Schedule frequency type can either be daily or weekly.
-        1. **_Daily_ Time-based backup schedule**: This schedule type should be used if the need id to take data backup at specific times of the day. To specify this, set `ScheduleFrequencyType` to _Daily_; and set `RunTimes` to list of desired time during the day in ISO8601 format, date specified along with time will be ignored. For example, `0001-01-01T18:00:00` represents _6:00 PM_ everyday, ignoring date part _0001-01-01_. Below example illustrates the configuration to trigger daily backup at _9:00 AM_ and _6:00 PM_ everyday.
+        1. **_Daily_ Time-based backup schedule**: This schedule type should be used if the need is to take data backup at specific times of the day. To specify this, set `ScheduleFrequencyType` to _Daily_; and set `RunTimes` to list of desired time during the day in ISO8601 format, date specified along with time will be ignored. For example, `0001-01-01T18:00:00` represents _6:00 PM_ everyday, ignoring date part _0001-01-01_. Below example illustrates the configuration to trigger daily backup at _9:00 AM_ and _6:00 PM_ everyday.
 
             ```json
             {
@@ -54,7 +54,7 @@ A backup policy consists of the following configurations:
             }
             ```
 
-        2. **_Weekly_ Time-based backup schedule**: This schedule type should be used if the need id to take data backup at specific times of the day. To specify this, set `ScheduleFrequencyType` to _Weekly_; set `RunDays` to list of days in a week when backup needs to be triggered and set `RunTimes` to list of desired time during the day in ISO8601 format, date specified along with time will be ignored. List of days of a week when to trigger the periodic backup. Below example illustrates the configuration to trigger daily backup at _9:00 AM_ and _6:00 PM_ during Monday to Friday.
+        2. **_Weekly_ Time-based backup schedule**: This schedule type should be used if the need is to take data backup at specific times of the day. To specify this, set `ScheduleFrequencyType` to _Weekly_; set `RunDays` to list of days in a week when backup needs to be triggered and set `RunTimes` to list of desired time during the day in ISO8601 format, date specified along with time will be ignored. List of days of a week when to trigger the periodic backup. Below example illustrates the configuration to trigger daily backup at _9:00 AM_ and _6:00 PM_ during Monday to Friday.
 
             ```json
             {
@@ -76,6 +76,7 @@ A backup policy consists of the following configurations:
 
 * **Backup storage**: Specifies the location to upload backups. Storage can be either Azure blob store or file share.
     1. **Azure blob store**: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Azure-based_ clusters can use this storage type. Description for this storage type requires connection string and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup.
+
         ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -84,9 +85,10 @@ A backup policy consists of the following configurations:
             "ContainerName": "BackupContainer"
         }
         ```
-> [!NOTE]
-> Backup restore Service does not work with v1 Azure storage
->
+
+        > [!NOTE]
+        > Backup restore Service does not work with v1 Azure storage
+        >
 
     2. **File share**: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premises. Description for this storage type requires file share path where backups need to be uploaded. Access to the file share can be configured using one of the following options
         1. _Integrated Windows Authentication_, where the access to file share is provided to all computers belonging to the Service Fabric cluster. In this case, set following fields to configure _file-share_ based backup storage.

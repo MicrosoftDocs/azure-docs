@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Synapse Studio (preview) 
+title: Troubleshoot Synapse Studio
 description: Troubleshoot Azure Synapse Studio
 author: julieMSFT 
 ms.service: synapse-analytics 
@@ -10,11 +10,11 @@ ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Studio (preview) troubleshooting
+# Azure Synapse Studio troubleshooting
 
 This trouble-shooting guide provides instruction on what information to provide when opening a support ticket on network connectivity issues. With the proper information, we can possibly resolve the issue more quickly.
 
-## Serverless SQL pool (preview) service connectivity issue
+## Serverless SQL pool service connectivity issue
 
 ### Symptom 1
 

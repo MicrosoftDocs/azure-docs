@@ -158,11 +158,11 @@ In Visual Studio, create an ASP.NET Core Web application named as "hello-world" 
    ```csharp
    public static IHostBuilder CreateHostBuilder(string[] args) =>
                Host.CreateDefaultBuilder(args)
+                   .UseAzureSpringCloudService()
                    .ConfigureWebHostDefaults(webBuilder =>
                    {
                        webBuilder.UseStartup<Startup>();
-                   })
-                   .UseAzureSpringCloudService();
+                   });
    ```
 
 4. In the *Startup.cs* file, add a `using` directive and code that uses the Steeltoe Service Discovery at the end of the `ConfigureServices` and `Configure` methods:
@@ -346,6 +346,9 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
 ```
 
   ![Initializr page](media/spring-cloud-quickstart-java/initializr-page.png)
+
+> [!NOTE]
+> We've identified an issue with Spring Boot 2.4 on TLS authentication between your apps and Eureka and are currently working with the Spring community to resolve it. Please refer to our [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) for the workaround.
 
 1. Click **Generate** when all the dependencies are set. Download and unpack the package, then create a web controller for a simple web application by adding `src/main/java/com/example/hellospring/HelloController.java` as follows:
 

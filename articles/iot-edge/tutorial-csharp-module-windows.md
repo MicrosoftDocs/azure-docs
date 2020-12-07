@@ -30,7 +30,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Solution scope
+## Prerequisites
 
 This tutorial demonstrates how to develop a module in **C#** using **Visual Studio 2019** and deploy it to a **Windows device**. If you're developing modules for Linux devices, go to [Develop a C# IoT Edge module for Linux devices](tutorial-csharp-module.md) instead.
 
@@ -40,8 +40,6 @@ Use the following table to understand your options for developing and deploying 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64 develop** | ![Develop C# modules for WinAMD64 in VS Code](./media/tutorial-c-module/green-check.png) | ![Develop C# modules for WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64 debug** |   | ![Debug C# modules for WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
-
-## Prerequisites
 
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment, [Develop an IoT Edge module for a Windows device](tutorial-develop-for-windows.md). After completing that tutorial, you already should have the following prerequisites:
 

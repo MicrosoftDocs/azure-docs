@@ -19,7 +19,7 @@ Get started with Azure Communication Services by using Azure Event Grid to handl
 
 ## About Azure Event Grid
 
-[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) is a cloud-based eventing service. In this article, you'll learn how to subscribe to events for [communication service events](../../concepts/event-handling.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we'll send the events to a web app that collects and displays the messages.
+[Azure Event Grid](../../../event-grid/overview.md) is a cloud-based eventing service. In this article, you'll learn how to subscribe to events for [communication service events](../../concepts/event-handling.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we'll send the events to a web app that collects and displays the messages.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -44,7 +44,7 @@ It may take a moment for the registration to finish. Select **Refresh** to updat
 
 ### Event Grid Viewer deployment
 
-For this quickstart, we will use the [Azure Event Grid Viewer Sample](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) to view events in near-real time. This will provide the user with the experience of a real-time feed. In addition, the payload of each event should be available for inspection as well.  
+For this quickstart, we will use the [Azure Event Grid Viewer Sample](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) to view events in near-real time. This will provide the user with the experience of a real-time feed. In addition, the payload of each event should be available for inspection as well.  
 
 ## Subscribe to the SMS events using web hooks
 
@@ -58,7 +58,7 @@ On the **Create Event Subscription** page, Enter a **name** for the event subscr
 
 You can subscribe to specific events to tell Event Grid which of the SMS events you want to track, and where to send the events. Select the events you'd like to subscribe to from the dropdown menu. For SMS you'll have the option to choose `SMS Received` and `SMS Delivery Report Received`. 
 
-If you're prompted to provide a **System Topic Name**, feel free to provide a unique identifier that you can optionally use to filter events after they've been emitted.
+If you're prompted to provide a **System Topic Name**, feel free to provide a unique string. This field has no impact on your experience and is used for internal telemetry purposes.
 
 Check out the full list of [events supported by Azure Communication Services](../../concepts/event-handling.md).
 
@@ -70,7 +70,7 @@ Select **Web Hook** for **Endpoint type**.
 
 For **Endpoint**, click **Select an endpoint**, and enter the URL of your web app.
 
-In this case, we will use the URL from the [Azure Event Grid Viewer Sample](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) we set up earlier in the quickstart. The URL for the sample will be in the format: `https://{{site-name}}.azurewebsites.net/api/updates`
+In this case, we will use the URL from the [Azure Event Grid Viewer Sample](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) we set up earlier in the quickstart. The URL for the sample will be in the format: `https://{{site-name}}.azurewebsites.net/api/updates`
 
 Then select **Confirm Selection**.
 
@@ -89,7 +89,7 @@ Check out the full list of [events supported by Azure Communication Services](..
 
 ### Receiving SMS events
 
-Once you complete either action above you will notice that `SMS Received` and `SMS Delivery Report Received` events are sent to your endpoint. These events will show up in the [Azure Event Grid Viewer Sample](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) we set up at the beginning. You can press the eye icon next to the event to see the entire payload. Events will look like this:
+Once you complete either action above you will notice that `SMS Received` and `SMS Delivery Report Received` events are sent to your endpoint. These events will show up in the [Azure Event Grid Viewer Sample](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) we set up at the beginning. You can press the eye icon next to the event to see the entire payload. Events will look like this:
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot showing the Event Grid Schema for an SMS Received Event.":::
 
@@ -111,4 +111,4 @@ In this quickstart, you learned how to consume SMS events. You can receive SMS m
 You may also want to:
 
  - [Learn about event handling concepts](../../concepts/event-handling.md)
- - [Learn about Event Grid](https://docs.microsoft.com/azure/event-grid/overview)
+ - [Learn about Event Grid](../../../event-grid/overview.md)

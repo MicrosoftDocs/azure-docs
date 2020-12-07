@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Deploy the Language Understanding (LUIS) container to Azure Container instances
 
-Learn how to deploy the Cognitive Services [LUIS](luis-container-howto.md) container to Azure [Container instances](https://docs.microsoft.com/azure/container-instances/). This procedure demonstrates the creation of an Anomaly Detector resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
+Learn how to deploy the Cognitive Services [LUIS](luis-container-howto.md) container to Azure [Container instances](../../container-instances/index.yml). This procedure demonstrates the creation of an Anomaly Detector resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-prerequisites.md)]
 

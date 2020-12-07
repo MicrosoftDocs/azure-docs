@@ -411,10 +411,9 @@ These properties are client specific, so you can configure `appInsights.defaultC
 ## Next steps
 
 * [Monitor your telemetry in the portal](./overview-dashboard.md)
-* [Write Analytics queries over your telemetry](../log-query/get-started-portal.md)
+* [Write Analytics queries over your telemetry](../log-query/log-analytics-tutorial.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
 [FAQ]: ../faq.md
-

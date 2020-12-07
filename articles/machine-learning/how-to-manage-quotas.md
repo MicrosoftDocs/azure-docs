@@ -1,14 +1,14 @@
 ---
 title: Manage resources and quotas
 titleSuffix: Azure Machine Learning
-description: Learn about the quotas on resources for Azure Machine Learning and how to request quota increases.
+description: Learn about the quotas and limits on resources for Azure Machine Learning and how to request quota increases.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 10/13/2020
+ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
 ---
@@ -40,25 +40,29 @@ Along with managing quotas, you can learn how to [plan and manage costs for Azur
 
 In this section, you learn about the default and maximum quota limits for the following resources:
 
++ Azure Machine Learning assets
+  + Azure Machine Learning compute
+  + Azure Machine Learning pipelines
 + Virtual machines
-+ Azure Machine Learning compute
-+ Azure Machine Learning pipelines
 + Azure Container Instances
 + Azure Storage
 
 > [!IMPORTANT]
 > Limits are subject to change. For the latest information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) for all of Azure.
 
-### Virtual machines
-Each Azure subscription has a limit on the number of virtual machines across all services. Virtual machine cores have a regional total limit and a regional limit per size series. Both limits are separately enforced.
+### Azure Machine Learning assets
+The following limits on assets apply on a per-workspace basis. 
 
-For example, consider a subscription with a US East total VM core limit of 30, an A series core limit of 30, and a D series core limit of 30. This subscription would be allowed to deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two that does not exceed a total of 30 cores.
+| **Resource** | **Maximum limit** |
+| --- | --- |
+| Datasets | 10 million |
+| Runs | 10 million |
+| Models | 10 million|
+| Artifacts | 10 million |
 
-You can't raise limits for virtual machines above the values shown in the following table.
+In addition, the maximum **run time** is 30 days and the maximum number of **metrics logged per run** is 1 million.
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
-
-### Azure Machine Learning compute
+#### Azure Machine Learning compute
 [Azure Machine Learning compute](concept-compute-target.md#azure-machine-learning-compute-managed) has a default quota limit on both the number of cores and the number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota from the previous section.
 
 [Request a quota increase](#request-quota-increases) to raise the limits in this section up to the maximum limit shown in the table.
@@ -85,13 +89,22 @@ The following table shows additional limits that you can't exceed.
 <sup>1</sup> Maximum lifetime is the duration between when a run starts and when it finishes. Completed runs persist indefinitely. Data for runs not completed within the maximum lifetime is not accessible.
 <sup>2</sup> Jobs on a low-priority node can be preempted whenever there's a capacity constraint. We recommend that you implement checkpoints in your job.
 
-### Azure Machine Learning pipelines
+#### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
 
 | **Resource** | **Limit** |
 | --- | --- |
 | Steps in a pipeline | 30,000 |
 | Workspaces per resource group | 800 |
+
+### Virtual machines
+Each Azure subscription has a limit on the number of virtual machines across all services. Virtual machine cores have a regional total limit and a regional limit per size series. Both limits are separately enforced.
+
+For example, consider a subscription with a US East total VM core limit of 30, an A series core limit of 30, and a D series core limit of 30. This subscription would be allowed to deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two that does not exceed a total of 30 cores.
+
+You can't raise limits for virtual machines above the values shown in the following table.
+
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### Container Instances
 

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
-ms.custom: identityplatformtop40
+ms.custom: identityplatformtop40, contperfq2
 # Customer intent: As an application developer, I want a quick introduction to the Microsoft identity platform so I can decide if this platform meets my application development requirements.
 ---
 

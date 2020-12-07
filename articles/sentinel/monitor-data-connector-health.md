@@ -39,7 +39,7 @@ There are three tabbed sections in this workbook:
 1. The **Overview** tab shows the general status of data ingestion in the selected workspace: 
 volume measures, EPS rates and time last log received.
 
-1. The **Data collection anomalies** tab will help you to detect anomalies in the data collection process, by table and data source. Each tab presents anomalies for a particular table (the **General** tab includes a collection of tables). The anomalies are calculated using the **series_decompose_anomalies()** function that returns an **anomaly score**. [Learn more about this function](https://docs.microsoft.com/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Set the following parameters for the function to evaluate:
+1. The **Data collection anomalies** tab will help you to detect anomalies in the data collection process, by table and data source. Each tab presents anomalies for a particular table (the **General** tab includes a collection of tables). The anomalies are calculated using the **series_decompose_anomalies()** function that returns an **anomaly score**. [Learn more about this function](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Set the following parameters for the function to evaluate:
 
     - **AnomaliesTimeRange**: This time picker applies only to the data collection anomalies view.
     - **SampleInterval**: The time interval in which data is sampled in the given time range. The anomaly score is calculated only on the last interval's data.

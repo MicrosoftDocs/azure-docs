@@ -48,6 +48,7 @@ When creating the private endpoint, you must specify the storage account and the
 
 > [!TIP]
 > Create a separate private endpoint for the secondary instance of the storage service for better read performance on RA-GRS accounts.
+> Make sure to create a general-purpose v2(Standard or Premium) storage account .
 
 For read access to the secondary region with a storage account configured for geo-redundant storage, you need separate private endpoints for both the primary and secondary instances of the service. You don't need to create a private endpoint for the secondary instance for **failover**. The private endpoint will automatically connect to the new primary instance after failover. For more information about storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 

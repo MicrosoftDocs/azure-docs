@@ -72,7 +72,7 @@ The following table is intended to highlight the key actions for the following l
 
 | Recommended action | Detail |
 | --- | --- |
-| [Enable combined registration experience for Azure MFA and SSPR to simplify user registration experience](../authentication/howto-registration-mfa-sspr-combined.md) | Allow your users to register from one common experience for both Azure Multi-Factor Authentication and self-service password reset. |
+| [Enable combined registration experience for Azure AD MFA and SSPR to simplify user registration experience](../authentication/howto-registration-mfa-sspr-combined.md) | Allow your users to register from one common experience for both Azure AD Multi-Factor Authentication and self-service password reset. |
 | [Configure MFA settings for your organization](../authentication/howto-mfa-getstarted.md) | Ensure accounts are protected from being compromised with multi-factor authentication |
 | [Enable self-service password reset](../authentication/tutorial-enable-sspr.md) | This ability reduces help desk calls and loss of productivity when a user cannot sign into their device or an application |
 | [Implement Password Writeback](../authentication/tutorial-enable-sspr-writeback.md) (if using hybrid identities) | Allow password changes in the cloud to be written back to an on-premises Windows Server Active Directory environment. |
@@ -102,11 +102,11 @@ The following table is intended to highlight the key actions for the following l
 
 | Recommended action | Detail |
 | --- | --- |
-| [Enable combined registration experience for Azure MFA and SSPR to simplify user registration experience](../authentication/howto-registration-mfa-sspr-combined.md) | Allow your users to register from one common experience for both Azure Multi-Factor Authentication and self-service password reset. |
+| [Enable combined registration experience for Azure AD MFA and SSPR to simplify user registration experience](../authentication/howto-registration-mfa-sspr-combined.md) | Allow your users to register from one common experience for both Azure AD Multi-Factor Authentication and self-service password reset. |
 | [Configure MFA settings for your organization](../authentication/howto-mfa-getstarted.md) | Ensure accounts are protected from being compromised with multi-factor authentication |
 | [Enable self-service password reset](../authentication/tutorial-enable-sspr.md) | This ability reduces help desk calls and loss of productivity when a user cannot sign into their device or an application |
 | [Implement Password Writeback](../authentication/tutorial-enable-sspr-writeback.md) (if using hybrid identities) | Allow password changes in the cloud to be written back to an on-premises Windows Server Active Directory environment. |
-| [Enable Identity Protection policies to enforce MFA registration](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Manage the roll-out of Azure Multi-Factor Authentication (MFA). |
+| [Enable Identity Protection policies to enforce MFA registration](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Manage the roll-out of Azure AD Multi-Factor Authentication (MFA). |
 | [Enable Identity Protection user and sign-in risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Enable Identity Protection User and Sign-in policies. The recommended sign-in policy is to target medium risk sign-ins and require MFA. For User policies it should target high risk users requiring the password change action. |
 | Create and enable Conditional Access policies | [MFA for admins to protect accounts that are assigned administrative rights.](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [Block legacy authentication protocols due to the increased risk associated with legacy authentication protocols.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [Require MFA for Azure Management to protect your privileged resources by requiring multi-factor authentication for any user accessing Azure resources.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [Enable Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) (if using hybrid identities) | Provide redundancy for authentication and improve security (including Smart Lockout, IP Lockout, and the ability to discover leaked credentials.) |

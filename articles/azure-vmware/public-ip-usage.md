@@ -26,21 +26,21 @@ This article details how you can use the public IP functionality in Virtual WAN.
 ## Prerequisites
 
 - Azure VMware Solution environment
-- A web server running in Azure VMware Solution environment.
+- A webserver running in Azure VMware Solution environment.
 - A new non-overlapping IP range for the Virtual WAN hub deployment, typically a `/24`.
 
 ## Reference architecture
 
 :::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Public IP architecture diagram" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
-The architecture diagram shows a web server hosted in the Azure VMware Solution environment and configured with RFC1918 private IP addresses.  The web service is made available to the internet through Virtual WAN public IP functionality.  Public IP is typically a destination NAT translated in Azure Firewall. With DNAT rules, firewall policy translates public IP address requests to a private address (web server) with a port.
+The architecture diagram shows a web server hosted in the Azure VMware Solution environment and configured with RFC1918 private IP addresses.  The web service is made available to the internet through Virtual WAN public IP functionality.  Public IP is typically a destination NAT translated in Azure Firewall. With DNAT rules, firewall policy translates public IP address requests to a private address (webserver) with a port.
 
 User requests hit the firewall on a public IP that, in turn, is translated to private IP using DNAT rules in the Azure Firewall. The firewall checks the NAT table, and if the request matches an entry, it forwards the traffic to the translated address and port in the Azure VMware Solution environment.
 
 The web server receives the request and replies with the requested information or page to the firewall, and then the firewall forwards the information to the user on the public IP address.
 
 ## Test case
-In this scenario, you must publish the IIS web server to the internet. Use the public IP feature in Azure VMware Solution to publish the website on a public IP address.  We will configure NAT rules on the firewall and access Azure VMware Solution resource (VMs with web server) with public IP.
+In this scenario, you'll publish the IIS webserver to the internet. Use the public IP feature in Azure VMware Solution to publish the website on a public IP address.  You'll also configure NAT rules on the firewall and access Azure VMware Solution resource (VMs with a web server) with public IP.
 
 ## Deploy Virtual WAN
 
@@ -60,9 +60,9 @@ In this scenario, you must publish the IIS web server to the internet. Use the p
 
 1. Accept the default values or change them, and then select **Create**.
 
-   - Virtual wide area network resource group
+   - Virtual WAN resource group
 
-   - Virtual wide area network name
+   - Virtual WAN name
 
    - Virtual hub address block (using new non-overlapping IP range)
 
@@ -114,7 +114,7 @@ Once all components are deployed, you can see them in the added Resource group. 
 
 1. Under the **DNS** tab, select **Disable**, and then select **Next : Rules**.
 
-1. Select **Add a rule collection**, provide the below details and select **Add** and then select **Next : Threat intelligence**.
+1. Select **Add a rule collection**, provide the below details, and select **Add** and then select **Next : Threat intelligence**.
 
    -  Name
    -  Rules collection Type - DNAT
@@ -136,7 +136,7 @@ Once all components are deployed, you can see them in the added Resource group. 
 
 1. Select a hub from the list and select **Add**.
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Screenshot that shows the selected hubs that will be converted to Scecured Virtual Hubs." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Screenshot that shows the selected hubs that will be converted to Secured Virtual Hubs." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
 1. Select **Next : Tags**. 
 

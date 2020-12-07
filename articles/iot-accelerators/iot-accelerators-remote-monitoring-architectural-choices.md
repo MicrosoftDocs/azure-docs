@@ -18,7 +18,7 @@ The Azure IoT Remote Monitoring solution accelerator is an open-source, MIT lice
 - Device management
 - Stream processing
 
-The Remote Monitoring solution follows the recommended [Azure IoT reference architecture](https://aka.ms/iotrefarchitecture).
+The Remote Monitoring solution follows the recommended [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot).
 
 This article describes the key architectural and technical choices made in each of the Remote Monitoring subsystems. However, the technical choices Microsoft made in the Remote Monitoring solution aren't the only way to implement a remote monitoring IoT solution. You should regard the technical implementation as a baseline for building a successful application and you should modify it to:
 
@@ -81,4 +81,4 @@ Alternatives to Docker include hosting microservices in PaaS services such as Az
 
 * Deploy your Remote Monitoring solution [here](https://www.azureiotsolutions.com/).
 * Explore GitHub code in [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) and [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
-* Learn more about the IoT Reference Architecture [here](https://aka.ms/iotrefarchitecture).
+* Learn more about the IoT Reference Architecture [here](/azure/architecture/reference-architectures/iot).

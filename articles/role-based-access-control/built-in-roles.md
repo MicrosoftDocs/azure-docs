@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 11/03/2020
+ms.date: 11/18/2020
 ms.custom: generated
 ---
 
@@ -58,17 +58,17 @@ The following table provides a brief description and the unique ID of each built
 > | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys. | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | [Storage Account Contributor](#storage-account-contributor) | Permits management of storage accounts. Provides access to the account key, which can be used to access data via Shared Key authorization. | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | [Storage Account Key Operator Service Role](#storage-account-key-operator-service-role) | Permits listing and regenerating storage account access keys. | 81a9662b-bebf-436f-a333-f67b29880f12 |
-> | [Storage Blob Data Contributor](#storage-blob-data-contributor) | Read, write, and delete Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
-> | [Storage Blob Data Owner](#storage-blob-data-owner) | Provides full access to Azure Storage blob containers and data, including assigning POSIX access control. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
-> | [Storage Blob Data Reader](#storage-blob-data-reader) | Read and list Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
-> | [Storage Blob Delegator](#storage-blob-delegator) | Get a user delegation key, which can then be used to create a shared access signature for a container or blob that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
+> | [Storage Blob Data Contributor](#storage-blob-data-contributor) | Read, write, and delete Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | [Storage Blob Data Owner](#storage-blob-data-owner) | Provides full access to Azure Storage blob containers and data, including assigning POSIX access control. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
+> | [Storage Blob Data Reader](#storage-blob-data-reader) | Read and list Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | [Storage Blob Delegator](#storage-blob-delegator) | Get a user delegation key, which can then be used to create a shared access signature for a container or blob that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas). | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
 > | [Storage File Data SMB Share Contributor](#storage-file-data-smb-share-contributor) | Allows for read, write, and delete access on files/directories in Azure file shares. This role has no built-in equivalent on Windows file servers. | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
 > | [Storage File Data SMB Share Elevated Contributor](#storage-file-data-smb-share-elevated-contributor) | Allows for read, write, delete, and modify ACLs on files/directories in Azure file shares. This role is equivalent to a file share ACL of change on Windows file servers. | a7264617-510b-434b-a828-9731dc254ea7 |
 > | [Storage File Data SMB Share Reader](#storage-file-data-smb-share-reader) | Allows for read access on files/directories in Azure file shares. This role is equivalent to a file share ACL of read on  Windows file servers. | aba4ae5f-2193-4029-9191-0cb91df5e314 |
-> | [Storage Queue Data Contributor](#storage-queue-data-contributor) | Read, write, and delete Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
-> | [Storage Queue Data Message Processor](#storage-queue-data-message-processor) | Peek, retrieve, and delete a message from an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
-> | [Storage Queue Data Message Sender](#storage-queue-data-message-sender) | Add messages to an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
-> | [Storage Queue Data Reader](#storage-queue-data-reader) | Read and list Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 19e7f393-937e-4f77-808e-94535e297925 |
+> | [Storage Queue Data Contributor](#storage-queue-data-contributor) | Read, write, and delete Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | [Storage Queue Data Message Processor](#storage-queue-data-message-processor) | Peek, retrieve, and delete a message from an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
+> | [Storage Queue Data Message Sender](#storage-queue-data-message-sender) | Add messages to an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
+> | [Storage Queue Data Reader](#storage-queue-data-reader) | Read and list Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Web** |  |  |
 > | [Azure Maps Data Reader](#azure-maps-data-reader) | Grants access to read map related data from an Azure maps account. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Search Service Contributor](#search-service-contributor) | Lets you manage Search services, but not access to them. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
@@ -175,9 +175,9 @@ The following table provides a brief description and the unique ID of each built
 > | **Monitor** |  |  |
 > | [Application Insights Component Contributor](#application-insights-component-contributor) | Can manage Application Insights components | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Gives user permission to view and download debug snapshots collected with the Application Insights Snapshot Debugger. Note that these permissions are not included in the [Owner](#owner) or [Contributor](#contributor) roles. When giving users the Application Insights Snapshot Debugger role, you must grant the role directly to the user. The role is not recognized when it is added to a custom role. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
-> | [Monitoring Contributor](#monitoring-contributor) | Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
+> | [Monitoring Contributor](#monitoring-contributor) | Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [Monitoring Metrics Publisher](#monitoring-metrics-publisher) | Enables publishing metrics against Azure resources | 3913510d-42f4-4e42-8a64-420c390055eb |
-> | [Monitoring Reader](#monitoring-reader) | Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
+> | [Monitoring Reader](#monitoring-reader) | Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | [Workbook Contributor](#workbook-contributor) | Can save shared workbooks. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
 > | [Workbook Reader](#workbook-reader) | Can read workbooks. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 > | **Management + governance** |  |  |
@@ -232,6 +232,7 @@ Grants full access to manage all resources, but does not allow you to assign rol
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/elevateAccess/Action | Grants the caller User Access Administrator access at the tenant scope |
 > | [Microsoft.Blueprint](resource-provider-operations.md#microsoftblueprint)/blueprintAssignments/write | Create or update any blueprint assignments |
 > | [Microsoft.Blueprint](resource-provider-operations.md#microsoftblueprint)/blueprintAssignments/delete | Delete any blueprint assignments |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/galleries/share/action | Shares a Gallery to different scopes |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -255,7 +256,8 @@ Grants full access to manage all resources, but does not allow you to assign rol
         "Microsoft.Authorization/*/Write",
         "Microsoft.Authorization/elevateAccess/Action",
         "Microsoft.Blueprint/blueprintAssignments/write",
-        "Microsoft.Blueprint/blueprintAssignments/delete"
+        "Microsoft.Blueprint/blueprintAssignments/delete",
+        "Microsoft.Compute/galleries/share/action"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -2109,7 +2111,7 @@ Permits listing and regenerating storage account access keys. [Learn more](../st
 
 ### Storage Blob Data Contributor
 
-Read, write, and delete Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
+Read, write, and delete Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2162,7 +2164,7 @@ Read, write, and delete Azure Storage containers and blobs. To learn which actio
 
 ### Storage Blob Data Owner
 
-Provides full access to Azure Storage blob containers and data, including assigning POSIX access control. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
+Provides full access to Azure Storage blob containers and data, including assigning POSIX access control. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2205,7 +2207,7 @@ Provides full access to Azure Storage blob containers and data, including assign
 
 ### Storage Blob Data Reader
 
-Read and list Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
+Read and list Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2248,7 +2250,7 @@ Read and list Azure Storage containers and blobs. To learn which actions are req
 
 ### Storage Blob Delegator
 
-Get a user delegation key, which can then be used to create a shared access signature for a container or blob that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). [Learn more](https://docs.microsoft.com/rest/api/storageservices/get-user-delegation-key)
+Get a user delegation key, which can then be used to create a shared access signature for a container or blob that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas). [Learn more](/rest/api/storageservices/get-user-delegation-key)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2414,7 +2416,7 @@ Allows for read access on files/directories in Azure file shares. This role is e
 
 ### Storage Queue Data Contributor
 
-Read, write, and delete Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
+Read, write, and delete Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2463,7 +2465,7 @@ Read, write, and delete Azure Storage queues and queue messages. To learn which 
 
 ### Storage Queue Data Message Processor
 
-Peek, retrieve, and delete a message from an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
+Peek, retrieve, and delete a message from an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2504,7 +2506,7 @@ Peek, retrieve, and delete a message from an Azure Storage queue. To learn which
 
 ### Storage Queue Data Message Sender
 
-Add messages to an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
+Add messages to an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2543,7 +2545,7 @@ Add messages to an Azure Storage queue. To learn which actions are required for 
 
 ### Storage Queue Data Reader
 
-Read and list Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
+Read and list Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Learn more](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4209,7 +4211,7 @@ Lets you manage SQL Managed Instances and required network configuration, but ca
 
 ### SQL Security Manager
 
-Lets you manage the security-related policies of SQL servers and databases, but not access to them. [Learn more](../sql-database/sql-database-advanced-data-security.md)
+Lets you manage the security-related policies of SQL servers and databases, but not access to them. [Learn more](../azure-sql/database/azure-defender-for-sql.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4334,7 +4336,7 @@ Lets you manage the security-related policies of SQL servers and databases, but 
 
 ### SQL Server Contributor
 
-Lets you manage SQL servers and databases, but not access to them, and not their security-related policies. [Learn more](../sql-database/sql-database-aad-authentication-configure.md)
+Lets you manage SQL servers and databases, but not access to them, and not their security-related policies. [Learn more](../azure-sql/database/authentication-aad-configure.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6546,6 +6548,7 @@ Azure Sentinel Contributor [Learn more](../sentinel/roles.md)
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/*/read |  |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get datasources under a workspace. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooks/* |  |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/read | Read a private Workbook |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -6578,6 +6581,7 @@ Azure Sentinel Contributor [Learn more](../sentinel/roles.md)
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.Insights/workbooks/*",
+        "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
@@ -6615,6 +6619,7 @@ Azure Sentinel Reader [Learn more](../sentinel/roles.md)
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/*/read |  |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get datasources under a workspace. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooks/read | Read a workbook |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/read | Read a private Workbook |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -6651,6 +6656,7 @@ Azure Sentinel Reader [Learn more](../sentinel/roles.md)
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.Insights/workbooks/read",
+        "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
@@ -6694,13 +6700,15 @@ Azure Sentinel Responder [Learn more](../sentinel/roles.md)
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/*/read |  |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get datasources under a workspace. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooks/read | Read a workbook |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/read | Read a private Workbook |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
-> | *none* |  |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/cases/*/Delete |  |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/incidents/*/Delete |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -6736,13 +6744,17 @@ Azure Sentinel Responder [Learn more](../sentinel/roles.md)
         "Microsoft.OperationalInsights/workspaces/query/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.Insights/workbooks/read",
+        "Microsoft.Insights/myworkbooks/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.SecurityInsights/cases/*/Delete",
+        "Microsoft.SecurityInsights/incidents/*/Delete"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
@@ -6999,8 +7011,8 @@ Read metadata of keys and perform wrap/unwrap operations. Only works for key vau
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/read | List keys in the specified vault, or read properties and public material of a key. For asymmetric keys, this operation exposes public key and includes ability to perform public key algorithms such as encrypt and verify signature. Private keys and symmetric keys are never exposed. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/wrap/action | Wrap a symmetric key with a Key Vault key. Note that if the Key Vault key is asymmetric, this operation can be performed with read access. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/unwrap/action | Unwrap a symmetric key with a Key Vault key. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/wrap/action | Wraps a symmetric key with a Key Vault key. Note that if the Key Vault key is asymmetric, this operation can be performed by principals with read access. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/unwrap/action | Unwraps a symmetric key with a Key Vault key. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -7043,13 +7055,13 @@ Perform cryptographic operations using keys. Only works for key vaults that use 
 > | **DataActions** |  |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/read | List keys in the specified vault, or read properties and public material of a key. For asymmetric keys, this operation exposes public key and includes ability to perform public key algorithms such as encrypt and verify signature. Private keys and symmetric keys are never exposed. |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/update/action | Updates the specified attributes associated with the given key. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/backup/action | Create the backup file of a key. The file can used to restore the key in a Key Vault of same subscription. Restrictions may apply. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/encrypt/action | Encrypt plaintext with a key. Note that if the key is asymmetric, this operation can be performed by principals with read access. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/decrypt/action | Decrypt ciphertext with a key. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/wrap/action | Wrap a symmetric key with a Key Vault key. Note that if the Key Vault key is asymmetric, this operation can be performed with read access. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/unwrap/action | Unwrap a symmetric key with a Key Vault key. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/sign/action | Sign a hash with a key. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/verify/action | Verify a hash. Note that if the key is asymmetric, this operation can be performed by principals with read access. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/backup/action | Creates the backup file of a key. The file can used to restore the key in a Key Vault of same subscription. Restrictions may apply. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/encrypt/action | Encrypts plaintext with a key. Note that if the key is asymmetric, this operation can be performed by principals with read access. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/decrypt/action | Decrypts ciphertext with a key. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/wrap/action | Wraps a symmetric key with a Key Vault key. Note that if the Key Vault key is asymmetric, this operation can be performed by principals with read access. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/unwrap/action | Unwraps a symmetric key with a Key Vault key. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/sign/action | Signs a message digest (hash) with a key. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/verify/action | Verifies the signature of a message digest (hash) with a key. Note that if the key is asymmetric, this operation can be performed by principals with read access. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -7216,7 +7228,7 @@ Read secret contents. Only works for key vaults that use the 'Azure role-based a
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/secrets/getSecret/action | Get the value of a secret. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/secrets/getSecret/action | Gets the value of a secret. |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/secrets/readMetadata/action | List or view the properties of a secret, but not its value. |
 > | **NotDataActions** |  |
 > | *none* |  |
@@ -7722,7 +7734,7 @@ Gives user permission to view and download debug snapshots collected with the Ap
 
 ### Monitoring Contributor
 
-Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). [Learn more](../azure-monitor/platform/roles-permissions-security.md)
+Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Learn more](../azure-monitor/platform/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7755,8 +7767,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/sharedKeys/action | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/storageinsightconfigs/* | Read/write/delete log analytics storage insight configurations. |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
-> | [Microsoft.WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/monitors/* |  |
-> | [Microsoft.WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/notificationSettings/* |  |
+> | [Microsoft.WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/monitors/* | Get information about guest VM health monitors. |
 > | [Microsoft.AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
 > | [Microsoft.AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/actionRules/* |  |
 > | [Microsoft.AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartGroups/* |  |
@@ -7807,7 +7818,6 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*",
         "Microsoft.Support/*",
         "Microsoft.WorkloadMonitor/monitors/*",
-        "Microsoft.WorkloadMonitor/notificationSettings/*",
         "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
         "Microsoft.AlertsManagement/actionRules/*",
         "Microsoft.AlertsManagement/smartGroups/*"
@@ -7870,7 +7880,7 @@ Enables publishing metrics against Azure resources [Learn more](../azure-monitor
 
 ### Monitoring Reader
 
-Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). [Learn more](../azure-monitor/platform/roles-permissions-security.md)
+Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Learn more](../azure-monitor/platform/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

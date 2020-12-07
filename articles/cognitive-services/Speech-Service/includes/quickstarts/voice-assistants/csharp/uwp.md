@@ -12,9 +12,9 @@ ms.custom: devx-track-csharp
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Set up your development environment and create an empty project](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
-> * Create a bot connected to the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Create a bot connected to the [Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Make sure that you have access to a microphone for audio capture
 > 
   > [!NOTE]
@@ -272,7 +272,7 @@ The Design view is updated to show the application's user interface.
    > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
    > [!NOTE]
-   > For information on configuring your bot, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > For information on configuring your bot, see the Bot Framework documentation for [the Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 1. Replace the strings `YourSpeechSubscriptionKey` and `YourServiceRegion` with your own values for your speech subscription and [region](~/articles/cognitive-services/speech-service/regions.md).
 

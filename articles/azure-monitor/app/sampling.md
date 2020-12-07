@@ -20,7 +20,7 @@ When metric counts are presented in the portal, they are renormalized to take in
 * Fixed-rate sampling is available in recent versions of the Application Insights SDKs for ASP.NET, ASP.NET Core, Java (both the agent and the SDK), and Python.
 * Ingestion sampling works on the Application Insights service endpoint. It only applies when no other sampling is in effect. If the SDK samples your telemetry, ingestion sampling is disabled.
 * For web applications, if you log custom events and need to ensure that a set of events is retained or discarded together, the events must have the same `OperationId` value.
-* If you write Analytics queries, you should [take account of sampling](../log-query/aggregations.md). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
+* If you write Analytics queries, you should [take account of sampling](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
 * Some telemetry types, including performance metrics and custom metrics, are always kept regardless of whether sampling is enabled or not.
 
 The following table summarizes the sampling types available for each SDK and type of application:
@@ -49,7 +49,7 @@ There are three different sampling methods:
 * **Ingestion sampling** happens at the Application Insights service endpoint. It discards some of the telemetry that arrives from your app, at a sampling rate that you set. It doesn't reduce telemetry traffic sent from your app, but helps you keep within your monthly quota. The main advantage of ingestion sampling is that you can set the sampling rate without redeploying your app. Ingestion sampling works uniformly for all servers and clients, but it does not apply when any other types of sampling are in operation.
 
 > [!IMPORTANT]
-> If adaptive or fixed rate sampling methods are in operation, ingestion sampling is disabled.
+> If adaptive or fixed rate sampling methods are enabled for a telemetry type, ingestion sampling is disabled for that telemetry. However, telemetry types that are excluded from sampling at the SDK level will still be subject to ingestion sampling at the rate set in the portal.
 
 ## Adaptive sampling
 

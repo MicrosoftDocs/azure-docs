@@ -13,7 +13,7 @@ ms.custom: contperfq1, devx-track-azurecli
 
 # Enable Azure Active Directory Domain Services authentication on Azure Files
 
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS).We strongly recommend you to review the [How it works section](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) to select the right domain service for authentication. The setup is different depends on the domain service you choose. This article focuses on enabling and configuring Azure AD DS for authentication with Azure file shares.
+[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS).We strongly recommend you to review the [How it works section](./storage-files-active-directory-overview.md#how-it-works) to select the right domain service for authentication. The setup is different depends on the domain service you choose. This article focuses on enabling and configuring Azure AD DS for authentication with Azure file shares.
 
 If you are new to Azure file shares, we recommend reading our [planning guide](storage-files-planning.md) before reading the following series of articles.
 
@@ -29,7 +29,7 @@ Before you enable Azure AD over SMB for Azure file shares, make sure you have co
 
     You can use a new or existing tenant for Azure AD authentication over SMB. The tenant and the file share that you want to access must be associated with the same subscription.
 
-    To create a new Azure AD tenant, you can [Add an Azure AD tenant and an Azure AD subscription](https://docs.microsoft.com/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription). If you have an existing Azure AD tenant but want to create a new tenant for use with Azure file shares, see [Create an Azure Active Directory tenant](https://docs.microsoft.com/rest/api/datacatalog/create-an-azure-active-directory-tenant).
+    To create a new Azure AD tenant, you can [Add an Azure AD tenant and an Azure AD subscription](/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription). If you have an existing Azure AD tenant but want to create a new tenant for use with Azure file shares, see [Create an Azure Active Directory tenant](/rest/api/datacatalog/create-an-azure-active-directory-tenant).
 
 1.  **Enable Azure AD Domain Services on the Azure AD tenant.**
 
@@ -93,9 +93,9 @@ The following image shows how to enable Azure AD DS authentication over SMB for 
 
 # [PowerShell](#tab/azure-powershell)
 
-To enable Azure AD DS authentication over SMB with Azure PowerShell, install the latest Az module (2.4 or newer) or the Az.Storage module (1.5 or newer). For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+To enable Azure AD DS authentication over SMB with Azure PowerShell, install the latest Az module (2.4 or newer) or the Az.Storage module (1.5 or newer). For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
 
-To create a new storage account, call [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0), and then set the **EnableAzureActiveDirectoryDomainServicesForFile** parameter to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for enabling the feature is **EnableAzureFilesAadIntegrationForSMB**.)
+To create a new storage account, call [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0), and then set the **EnableAzureActiveDirectoryDomainServicesForFile** parameter to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for enabling the feature is **EnableAzureFilesAadIntegrationForSMB**.)
 
 ```powershell
 # Create a new storage account
@@ -119,9 +119,9 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable Azure AD authentication over SMB with Azure CLI, install the latest CLI version (Version 2.0.70 or newer). For more information about installing Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+To enable Azure AD authentication over SMB with Azure CLI, install the latest CLI version (Version 2.0.70 or newer). For more information about installing Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-To create a new storage account, call [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create), and set the `--enable-files-aadds` property to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **file-aad**.)
+To create a new storage account, call [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create), and set the `--enable-files-aadds` property to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **file-aad**.)
 
 ```azurecli-interactive
 # Create a new storage account

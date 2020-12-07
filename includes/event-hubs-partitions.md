@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 11/19/2020
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -21,7 +21,7 @@ Event Hubs retains data for a configured retention time that applies across all 
 
 ![Event Hubs](./media/event-hubs-partitions/multiple-partitions.png)
 
-The number of partitions is specified at creation and must be between 2 and 32. The partition count is not changeable, so you should consider long-term scale when setting partition count. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. You can increase the number of partitions beyond 32 by contacting the Event Hubs team.
+The number of partitions is specified at creation and must be between 1 and 32. The partition count is not changeable, so you should consider long-term scale when setting partition count. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. You can increase the number of partitions beyond 32 by contacting the Event Hubs team.
 
 You may want to set it to be the highest possible value, which is 32, at the time of creation. Remember that having more than one partition will result in events sent to multiple partitions without retaining the order, unless you configure senders to only send to a single partition out of the 32 leaving the remaining 31 partitions redundant. In the former case, you will have to read events across all 32 partitions. In the latter case, there is no obvious additional cost apart from the extra configuration you have to make on Event Processor Host.
 

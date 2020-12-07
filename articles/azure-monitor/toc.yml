@@ -89,6 +89,8 @@
           href: samples/resource-manager-web-app.md
         - name: Azure Functions
           href: samples/resource-manager-function-app.md
+    - name: Data collection rules
+      href: samples/resource-manager-data-collection-rules.md
     - name: Diagnostic settings
       href: samples/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
@@ -164,6 +166,7 @@
     - name: Deploy Azure Monitor
       href: deploy.md
     - name: Deploy at scale
+      displayName: Azure Policy, Policy
       href: deploy-scale.md
   - name: Manage and configure
     items:
@@ -180,6 +183,21 @@
         href: app/pricing.md
       - name: Log data usage and costs
         href: platform/manage-cost-storage.md
+  - name: Azure Monitor Metrics
+    items:
+    - name: Overview
+      displayname: Metrics
+      href: platform/data-platform-metrics.md
+    - name: Metrics explorer
+      items:
+      - name: Getting started with Metrics Explorer
+        href: platform/metrics-getting-started.md
+      - name: Advanced features of Metrics Explorer
+        href: platform/metrics-charts.md
+      - name: Examples of metric charts
+        href: platform/metric-chart-samples.md
+      - name: Troubleshooting metric charts
+        href: platform/metrics-troubleshoot.md
   - name: Azure Monitor Logs
     items:
     - name: Overview
@@ -233,6 +251,8 @@
         href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
       - name: Standard columns
         href: platform/log-standard-columns.md
+      - name: Audit queries
+        href: log-query/query-audit.md
       - name: Optimize queries
         href: log-query/query-optimization.md
       - name: Functions
@@ -254,29 +274,22 @@
           href: log-query/resource-expression.md   
         - name: Unify application data resources
           href: log-query/unify-app-resource-data.md
+        - name: Cross service query between Azure Monitor and Azure Data Explorer overview
+          href: platform/azure-data-explorer-monitor-cross-service-query.md
+        - name: Query Azure Data Explorer from Azure Monitor
+          href: platform/azure-monitor-data-explorer-proxy.md
     - name: Data export
       items:
       - name: Workspace data export
         href: platform/logs-data-export.md
       - name: Export with Logic Apps
         href: platform/logs-export-logic-app.md
-      - name: Query exported data with Data Explorer
+      - name: Query data with Azure Data Explorer
         href: platform/azure-data-explorer-query-storage.md
-  - name: Azure Monitor Metrics
-    items:
-    - name: Overview
-      displayname: Metrics
-      href: platform/data-platform-metrics.md
-    - name: Metrics explorer
-      items:
-      - name: Getting started with Metrics Explorer
-        href: platform/metrics-getting-started.md
-      - name: Advanced features of Metrics Explorer
-        href: platform/metrics-charts.md
-      - name: Examples of metric charts
-        href: platform/metric-chart-samples.md
-      - name: Troubleshooting metric charts
-        href: platform/metrics-troubleshoot.md
+      - name: Send to Excel
+        href: log-query/log-excel.md
+      - name: Send to Power BI
+        href: log-query/log-powerbi.md
   - name: Platform logs
     items:
     - name: Overview
@@ -347,6 +360,9 @@
       - name: Overview
         displayname: Azure Monitor agent
         href: platform/azure-monitor-agent-overview.md
+      - name: Install
+        displayname: Azure Monitor agent
+        href: platform/azure-monitor-agent-install.md
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: platform/data-collection-rule-azure-monitor-agent.md
@@ -538,7 +554,7 @@
         href: platform/it-service-management-connector-secure-webhook-connections.md
       - name: Create Service Manager web app
         href: platform/itsmc-service-manager-script.md
-      - name: Fix ServiceNow ITSM sync problems
+      - name: Troubleshooting problems in ITSM Connector
         href: platform/itsmc-resync-servicenow.md
     - name: Migrate classic alert rules
       items:
@@ -575,12 +591,16 @@
           displayname: ilogger, logging, log 
           href: app/ilogger.md
       - name: ASP.NET
-        displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
-        href: app/asp-net.md
-      - name: Non-HTTP apps/Background apps
+        items: 
+        - name: ASP.NET App Monitoring
+          displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
+          href: app/asp-net.md
+        - name: Troubleshoot ASP.NET
+          href: app/asp-net-troubleshoot-no-data.md
+      - name: Non-HTTP/Background apps
         displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
         href: app/worker-service.md  
-      - name: .NET Console
+      - name: ASP.NET Console
         displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
         href: app/console.md
       - name: Java
@@ -590,18 +610,10 @@
             href: app/java-get-started.md
           - name: Log traces
             href: app/java-trace-logs.md
-          - name: Unix metrics
-            href: app/java-collectd.md
           - name: Dependencies
             href: app/java-agent.md
           - name: Filter telemetry
             href: app/java-filter-telemetry.md
-          - name: Micrometer Metrics
-            displayname: java
-            href: app/micrometer-java.md
-          - name: Spring Boot app
-            displayname: java
-            href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
           - name: Troubleshoot
             href: app/java-troubleshoot.md
       - name: Node.js 
@@ -637,8 +649,6 @@
       - name: Application Insights API summary
         displayname: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
         href: app/api-custom-events-metrics.md
-      - name: Troubleshoot ASP.NET
-        href: app/asp-net-troubleshoot-no-data.md
       - name: Remove Application Insights 
         href: app/remove-application-insights.md
     - name: Codeless monitoring
@@ -670,6 +680,8 @@
               href: app/java-standalone-telemetry-processors.md
             - name: JVM arguments setup
               href: app/java-standalone-arguments.md
+            - name: Upgrade from 2.x
+              href: app/java-standalone-upgrade-from-2x.md
       - name: On-Premises servers
         items:
         - name: ASP.NET
@@ -878,8 +890,6 @@
         items:
         - name: Deep diagnostics for web apps and services
           href: app/devops.md
-        - name: Monitor performance in web applications
-          href: app/web-monitor-performance.md
         - name: Separate development, test, and production
           href: app/separate-resources.md
         - name: How do I ... in Application Insights?
@@ -946,14 +956,28 @@
       href: insights/vminsights-maps.md
     - name: Monitor performance
       href: insights/vminsights-performance.md
-    - name: Monitor changes
-      href: insights/vminsights-change-analysis.md
+    - name: Monitor guest health (preview)
+      items:
+      - name: Overview
+        href: insights/vminsights-health-overview.md
+      - name: Enable
+        href: insights/vminsights-health-enable.md
+      - name: Alerts
+        href: insights/vminsights-health-alerts.md
+      - name: Configure monitors in portal
+        href: insights/vminsights-health-configure.md
+      - name: Configure monitors at scale
+        href: insights/vminsights-health-configure-dcr.md
+      - name: Troubleshoot
+        href: insights/vminsights-health-troubleshoot.md
     - name: Analyze data with log queries
       href: insights/vminsights-log-search.md
+    - name: Monitor performance
+      href: insights/vminsights-alerts.md
+    - name: Monitor changes
+      href: insights/vminsights-change-analysis.md
     - name: Visualize data with workbooks
       href: insights/vminsights-workbooks.md
-    - name: Create alert rules
-      href: insights/vminsights-alerts.md
     - name: Disable monitoring
       href: insights/vminsights-optout.md
   - name: Azure Monitor for containers 
@@ -1121,6 +1145,8 @@
         href: platform/workbooks-tree-visualizations.md
       - name: Graph
         href: platform/workbooks-graph-visualizations.md
+      - name: Map
+        href: platform/workbooks-map-visualizations.md
       - name: Honey comb
         href: platform/workbooks-honey-comb.md
       - name: Composite bar
@@ -1241,6 +1267,8 @@
         href: app/release-notes.md
       - name: Web app extension
         href: app/web-app-extension-release-notes.md
+      - name: Snapshot Debugger
+        href: app/snapshot-collector-release-notes.md
     - name: Data model
       items:
       - name: Overview
@@ -1323,6 +1351,11 @@
       href: platform/resource-logs-blob-format.md
     - name: Key Vault Analytics (deprecated)
       href: insights/azure-key-vault-deprecated.md
+    - name: Unix metrics
+      href: app/java-collectd.md
+    - name: Micrometer Metrics
+      displayname: java
+      href: app/micrometer-java.md
     - name: Views
       items:
       - name: View Designer

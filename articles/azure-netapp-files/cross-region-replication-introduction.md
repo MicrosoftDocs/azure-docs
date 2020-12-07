@@ -106,10 +106,11 @@ Regular Azure NetApp Files storage capacity charge for Month 2 applies to the de
 
 ## Next steps
 * [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
-* [Create replication peering](cross-region-replication-create-peering.md)
+* [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
+* [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
 
 
