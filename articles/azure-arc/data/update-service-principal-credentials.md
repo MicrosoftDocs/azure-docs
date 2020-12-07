@@ -11,11 +11,13 @@ ms.date: 12/09/2020
 ms.topic: how-to
 ---
 
-# Update service principal credential
+# Update service principal credentials
 
 In some cases you need to update the service principal credential in the data controller. 
 
 For example, if you deployed the data controller using a specific set of values for service principal tenant ID, client ID and client secret, and then one or more of these values changes, you can update the secrets in the data controller with the changes. This article explains how to update the secrets in the data controller.  Following are the instructions to update Tenant Id, Client Id or the Client secret. 
+
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Background
 
