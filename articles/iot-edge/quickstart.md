@@ -110,7 +110,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 
 4. Click on the 'Add' button
 
-![Screenshot - Windows Admin Start Page](./media/quickstart/EFLOW/WACStartPageAdd.png)
+![Screenshot - Windows Admin Start Page Add Button](./media/quickstart/EFLOW/WACStartPageAdd.png)
 
 5. Locate the Azure IoT Edge tile, and select **Create new**. This will start the installation wizard.
 
@@ -122,7 +122,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 
 7. Choose the **Optional diagnostic data** if you would like to help us, and click **Next: Deploy**
 
-![Screenshot - Wizard Welcome](./media/quickstart/EFLOW/Diagnostic-Data.png)
+![Screenshot - Diagnostic Data](./media/quickstart/EFLOW/Diagnostic-Data.png)
 
 8. On **Deploy - 2.1 Target Device** screen, select your desired target device to validate that it meets the minimum requirements. Once confirmed, choose **Next** to continue
 
@@ -141,7 +141,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 ![Screenshot - Wizard Provisioning](./media/quickstart/EFLOW/Wizard-Provision.png)
 
 13. Once provisioning is complete, select **Finish** to complete and return to the Windows Admin Center start screen. You should now be able to see your device listed as an Azure EFLOW Devices.
-![Screenshot - Wizard Provisioning](./media/quickstart/EFLOW/WACEFLOWDevice.png)
+![Screenshot - WAC EFLOW Device](./media/quickstart/EFLOW/WACEFLOWDevice.png)
 
 
 Select your Azure EFLOW device to view its dashboard​. You should see that the workloads from your device twin in Azure IoT Hub have been deployed.
