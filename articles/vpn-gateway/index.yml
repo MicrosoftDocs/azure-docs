@@ -46,7 +46,7 @@ landingContent:
             url: tutorial-site-to-site-portal.md
       - linkListType: how-to-guide
         links:
-          - text: Create a point-to-site connection
+          - text: Create a point-to-site VPN connection
             url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
   # Card
   - title: VPN devices
