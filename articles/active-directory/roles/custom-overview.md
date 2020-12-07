@@ -79,7 +79,7 @@ A scope is the restriction of permitted actions to a particular Azure AD resourc
 
 ## Required license plan
 
-Using built-in roles in Azure AD is free, while custom roles requires an Azure AD Premium P1 license.
+Using built-in roles in Azure AD is free, while custom roles requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Next steps
 
