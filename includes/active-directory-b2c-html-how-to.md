@@ -50,7 +50,7 @@ The following table lists the default page content provided by Azure AD B2C. Dow
 
 ## Hosting the page content
 
-When using your own HTML and CSS files to customize the UI, host your UI content on any publicly available HTTPS endpoint that supports CORS. For example, [Azure Blob storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Services](/azure/app-service/), web servers, CDNs, AWS S3, or file sharing systems.
+When using your own HTML and CSS files to customize the UI, host your UI content on any publicly available HTTPS endpoint that supports CORS. For example, [Azure Blob storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Services](../articles/app-service/index.yml), web servers, CDNs, AWS S3, or file sharing systems.
 
 ## Guidelines for using custom page content
 

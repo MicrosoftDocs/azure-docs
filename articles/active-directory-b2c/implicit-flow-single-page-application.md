@@ -137,7 +137,7 @@ Several more validations that you should perform are described in detail in the 
 
 * Ensuring that the user or organization has signed up for the app.
 * Ensuring that the user has proper authorization and privileges.
-* Ensuring that a certain strength of authentication has occurred, such as by using Azure Multi-Factor Authentication.
+* Ensuring that a certain strength of authentication has occurred, such as by using Azure AD Multi-Factor Authentication.
 
 For more information about the claims in an ID token, see the [Azure AD B2C token reference](tokens-overview.md).
 

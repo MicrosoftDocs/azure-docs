@@ -118,9 +118,9 @@ $_.ObjectId | Format-Table}
 ```
 For more information:
 
-- Learn about [hybrid identity solutions](../active-directory/choose-hybrid-identity-solution.md).
-- Read the blog post [Use Azure AD Connect with multiple clouds](https://blogs.technet.microsoft.com/ralfwi/2017/01/24/using-adconnect-with-multiple-clouds/) to learn about ways you can sync to different cloud environments.
-- Learn more about [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+- Learn about [hybrid identity solutions](../active-directory/hybrid/whatis-hybrid-identity.md).
+- Read the blog post [Use Azure AD Connect with multiple clouds](/archive/blogs/ralfwi/using-adconnect-with-multiple-clouds) to learn about ways you can sync to different cloud environments.
+- Learn more about [Azure Active Directory](../active-directory/index.yml).
 - Read about [custom domain names](../active-directory/fundamentals/add-custom-domain.md).
 - Learn how to [import data from CSV to Azure AD](/powershell/azure/active-directory/importing-data).
 
@@ -144,7 +144,7 @@ For more information:
 
 ## Multi-Factor Authentication
 
-You must re-create users and redefine your Azure Multi-Factor Authentication instance in your new environment. 
+You must re-create users and redefine your Azure AD Multi-Factor Authentication instance in your new environment. 
 
 To get a list of user accounts for which multi-factor authentication is enabled or enforced:
 
@@ -154,7 +154,7 @@ To get a list of user accounts for which multi-factor authentication is enabled 
 
 For more information:
 
-- Learn more about [Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
+- Learn more about [Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## Next steps
 

@@ -77,11 +77,7 @@ You can link a Power BI workspace to your Azure Synapse workspace. This capabili
     * Under **NYCTaxiWorkspace1** > **Power BI reports**, a new report called **PassengerAnalysis**.
 1. Select the **PassengerAnalysis** report. The report opens and you can edit it directly within Synapse Studio.
 
-## Monitor activities
 
-1. In Synapse Studio, go to the **monitor** hub.
-1. In this location, you can see a history of all the activities taking place in the workspace and which ones are active now.
-1. Explore the **Pipeline runs**, **Apache Spark applications**, and **SQL requests** to see what you've already done in the workspace.
 
 ## Next steps
 

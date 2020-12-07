@@ -230,7 +230,7 @@ Yes, OCSP stapling is supported by default by Front Door and no configuration is
 
 ### Does Azure Front Door also support re-encryption of traffic to the backend?
 
-Yes, Azure Front Door supports TLS/SSL offload, and end to end TLS, which re-encrypts the traffic to the backend. In fact, since the connections to the backend happen over it's public IP, it is recommended that you configure your Front Door to use HTTPS as the forwarding protocol.
+Yes, Azure Front Door supports TLS/SSL offload, and end to end TLS, which re-encrypts the traffic to the backend. In fact, since the connections to the backend happen over its public IP, it is recommended that you configure your Front Door to use HTTPS as the forwarding protocol.
 
 ### Does Front Door support self-signed certificates on the backend for HTTPS connection?
 

@@ -168,7 +168,7 @@ The **ClaimsProviderSelections** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| DisplayOption| No | Controls the behavior of a case where a single claims provider selection is available. Possible values: `DoNotShowSingleProvider` (default) , the user is redirected immediately to the federated identity provider. Or `ShowSingleProvider` Azure AD B2C presents the sign-in page with the single identity provider selection. To use this attribute, the [content definition version](page-layout.md) must be `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` and above.|
+| DisplayOption| No | Controls the behavior of a case where a single claims provider selection is available. Possible values: `DoNotShowSingleProvider` (default), the user is redirected immediately to the federated identity provider. Or `ShowSingleProvider` Azure AD B2C presents the sign-in page with the single identity provider selection. To use this attribute, the [content definition version](page-layout.md) must be `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` and above.|
 
 The **ClaimsProviderSelection** element contains the following attributes:
 

@@ -33,7 +33,7 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 
 ## Register a web application
 
-To register a web application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
+To register a web application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
 
 #### [App registrations](#tab/app-reg-ga/)
 

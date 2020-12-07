@@ -144,7 +144,7 @@ To configure Azure AD single sign-on with UserVoice, perform the following steps
 
     c. Paste the **Logout URL** value, which you have copied from the Azure portal into the **SSO Remote Sign-Out textbox**.
  
-    d. Paste the **Thumbprint** value , which you have copied from Azure portal  into the **Current certificate SHA1 fingerprint** textbox.
+    d. Paste the **Thumbprint** value, which you have copied from Azure portal  into the **Current certificate SHA1 fingerprint** textbox.
 	
 	e. Click **Save authentication settings**.
 

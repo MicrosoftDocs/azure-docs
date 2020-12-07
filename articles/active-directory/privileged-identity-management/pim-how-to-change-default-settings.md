@@ -76,7 +76,7 @@ And, you can choose one of these **active** assignment duration options:
 
 ## Require multi-factor authentication
 
-Privileged Identity Management provides optional enforcement of Azure Multi-Factor Authentication for two distinct scenarios.
+Privileged Identity Management provides optional enforcement of Azure AD Multi-Factor Authentication for two distinct scenarios.
 
 ### Require Multi-Factor Authentication on active assignment
 
@@ -86,7 +86,7 @@ To ensure that the administrator fulfilling the assignment is who they say they 
 
 ### Require Multi-Factor Authentication on activation
 
-You can require users who are eligible for a role to prove who they are using Azure Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
+You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
 
 To require multi-factor authentication before activation, check the **Require Multi-Factor Authentication on activation** box in the Assignment tab of **Edit role setting**.
 
@@ -162,8 +162,8 @@ Use the **Incident/Request ticket** switch to require eligible administrators to
 
 Use the **Multi-Factor Authentication** switch to specify whether to require users to verify their identity with MFA before they can activate their roles. They only have to verify their identity once per session, not every time they activate a role. There are two tips to keep in mind when you enable MFA:
 
-- Users who have Microsoft accounts for their email addresses (typically @outlook.com, but not always) cannot register for Azure Multi-Factor Authentication. If you want to assign roles to users with Microsoft accounts, you should either make them permanent admins or disable multi-factor authentication for that role.
-- You cannot disable Azure Multi-Factor Authentication for highly privileged roles for Azure AD and Microsoft 365. This safety feature helps protect the following roles:  
+- Users who have Microsoft accounts for their email addresses (typically @outlook.com, but not always) cannot register for Azure AD Multi-Factor Authentication. If you want to assign roles to users with Microsoft accounts, you should either make them permanent admins or disable multi-factor authentication for that role.
+- You cannot disable Azure AD Multi-Factor Authentication for highly privileged roles for Azure AD and Microsoft 365. This safety feature helps protect the following roles:  
   
   - Azure Information Protection administrator
   - Billing administrator

@@ -45,7 +45,7 @@ Managed private endpoints are private endpoints created in the Azure Data Factor
 
 ![New Managed private endpoint](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory supports private links. Private link enables you to access Azure (PaaS) services (such as Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (formerly SQL Data Warehouse)).
+Azure Data Factory supports private links. Private link enables you to access Azure (PaaS) services (such as Azure Storage, Azure Cosmos DB, Azure Synapse Analytics).
 
 When you use a private link, traffic between your data stores and managed Virtual Network traverses entirely over the Microsoft backbone network. Private Link protects against data exfiltration risks. You establish a private link to a resource by creating a private endpoint.
 
@@ -67,6 +67,11 @@ If the owner approves the connection, the private link is established. Otherwise
 
 Only a Managed private endpoint in an approved state can send traffic to a given private link resource.
 
+## Interactive Authoring
+Interactive authoring capabilities is used for functionalities like test connection, browse folder list and table list, get schema, and preview data. You can enable interactive authoring when creating or editing an Azure Integration Runtime which is in ADF-managed virtual network. The backend service will pre-allocate compute for interactive authoring functionalities. Otherwise, the compute will be allocated every time any interactive operation is performed which will take more time. The Time To Live (TTL) for interactive authoring is 60 minutes, which means it will automatically become disabled after 60 minutes of the last interactive authoring operation.
+
+![Interactive authoring](./media/managed-vnet/interactive-authoring.png)
+
 ## Limitations and known issues
 ### Supported Data Sources
 Below data sources are supported to connect through private link from ADF Managed Virtual Network.
@@ -75,7 +80,7 @@ Below data sources are supported to connect through private link from ADF Manage
 - Azure Files
 - Azure Data Lake Gen2
 - Azure SQL Database (not including Azure SQL Managed Instance)
-- Azure Synapse Analytics (formerly SQL Data Warehouse)
+- Azure Synapse Analytics
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Azure Private Link Service

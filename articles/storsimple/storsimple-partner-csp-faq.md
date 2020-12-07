@@ -55,7 +55,7 @@ StorSimple Virtual Array for CSP is available in all the markets where StorSimpl
 There are multiple solutions:
 
 - The partners can resell StorSimple Virtual Array. 
-- The partners can deliver solutions built around StorSimple and other Azure services or third-party software. For more information, review some possible [solutions that exist around StorSimple](https://aka.ms/storsimple-build-solutions).
+- The partners can deliver solutions built around StorSimple and other Azure services or third-party software. For more information, review some possible [solutions that exist around StorSimple](./storsimple-disaster-recovery-using-azure-site-recovery.md).
 - They can also discover new business models by delivering managed services.
 
 ### What are the incentives available for StorSimple CSP partners? Do I qualify for any CSP program incentives?

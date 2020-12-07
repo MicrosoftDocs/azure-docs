@@ -66,7 +66,7 @@ For more information on how to configure Automated Backup for SQL VMs, see one o
 - **15-minute Recovery Point Objective (RPO)**: Configure SQL transaction log backups up to every 15 minutes.
 - **Point in time restore**: Use the portal to recover databases to a specific point in time without having to manually restore multiple full, differential, and log backups.
 - **Consolidated email alerts for failures**: Configure consolidated email notifications for any failures.
-- **Role-based access control**: Determine who can manage backup and restore operations through the portal.
+- **Azure role-based access control**: Determine who can manage backup and restore operations through the portal.
 
 For a quick overview of how it works along with a demo, watch the following video:
 
@@ -88,7 +88,7 @@ The following sections describe several manual backup and restore options in mor
 
 ### Backup to attached disks
 
-For SQL Server on Azure VMs, you can use native backup and restore techniques using attached disks on the VM for the destination of the backup files. However, there is a limit to the number of disks you can attach to an Azure virtual machine, based on the [size of the virtual machine](../../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json). There is also the overhead of disk management to consider.
+For SQL Server on Azure VMs, you can use native backup and restore techniques using attached disks on the VM for the destination of the backup files. However, there is a limit to the number of disks you can attach to an Azure virtual machine, based on the [size of the virtual machine](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). There is also the overhead of disk management to consider.
 
 For an example of how to manually create a full database backup using SQL Server Management Studio (SSMS) or Transact-SQL, see [Create a Full Database Backup](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
 

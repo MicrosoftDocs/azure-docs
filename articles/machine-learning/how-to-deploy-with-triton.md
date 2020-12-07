@@ -10,7 +10,7 @@ author: gvashishtha
 ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
-ms.custom: deploy
+ms.custom: deploy, devx-track-azurecli
 ---
 
 # High-performance serving with Triton Inference Server (Preview) 
@@ -48,7 +48,7 @@ Before attempting to use Triton for your own model, it's important to understand
 
 ### Setting the number of workers
 
-To set the number of workers in your deployment, set the environment variable `WORKER_COUNT`. Given you have an [Environment](https://docs.microsoft.compython/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) object called `env`, you can do the following:
+To set the number of workers in your deployment, set the environment variable `WORKER_COUNT`. Given you have an [Environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) object called `env`, you can do the following:
 
 ```{py}
 env.environment_variables["WORKER_COUNT"] = "1"

@@ -67,7 +67,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|A cloud-based authentication repository that supports a multi-tenant, cloud-based directory and multiple identity management services within Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|An identity management service that enables control over how customers sign-up, sign-in, and manage their profiles when using Azure-based applications.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| A cloud-based and managed version of Active Directory Domain Services. |
-| [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| A security provision that employs several different forms of authentication and verification before allowing access to secured information. |
+| [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| A security provision that employs several different forms of authentication and verification before allowing access to secured information. |
 
 ## Backup and disaster recovery
 |Service|Description|
@@ -87,5 +87,5 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| A global DNS load balancer.|
 | [Azure Application Proxy](../../active-directory/manage-apps/application-proxy.md)| An authenticating front-end used to secure remote access for web applications hosted on-premises. |
 |[Azure Firewall](../../firewall/overview.md)|A managed, cloud-based network security service that protects your Azure Virtual Network resources.|
-|[Azure DDoS protection](../../virtual-network/ddos-protection-overview.md)|Combined with application design best practices, provides defense against DDoS attacks.|
+|[Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md)|Combined with application design best practices, provides defense against DDoS attacks.|
 |[Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)|Extends your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection.|

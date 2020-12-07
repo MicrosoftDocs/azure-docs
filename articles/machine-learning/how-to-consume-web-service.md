@@ -10,7 +10,7 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
-ms.custom: "how-to, devx-track-python, devx-track-csharp"
+ms.custom: "how-to, devx-track-python, devx-track-csharp, devx-track-azurecli"
 
 
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.

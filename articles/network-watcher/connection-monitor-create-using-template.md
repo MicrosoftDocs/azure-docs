@@ -1,5 +1,5 @@
 ---
-title: Create Connection Monitor - ARMClient
+title: Create Connection Monitor - ARM template
 titleSuffix: Azure Network Watcher
 description: Learn how to create Connection Monitor using the ARMClient.
 services: network-watcher
@@ -10,13 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-#Customer intent: I need to create a connection montior to monitor communication between one VM and another.
+#Customer intent: I need to create a connection monitor to monitor communication between one VM and another.
 ---
-# Create a Connection Monitor using the ARMClient
+# Create a Connection Monitor using the ARM template
 
 Learn how to create Connection Monitor to monitor communication between your resources using the ARMClient. It supports hybrid and Azure cloud deployments.
+
 
 ## Before you begin 
 
@@ -363,7 +364,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 * Test Groups
 	* name - Name your test group.
 	* testConfigurations - Test Configurations based on which source endpoints connect to destination endpoints
-	* sources - Choose from endpoints created above. Azure based source endpoints need to have Azure Network Watcher extension installed and nonAzure based source endpoints need to haveAzure Log Analytics agent installed. To install an agent for your source, see [Install monitoring agents](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+	* sources - Choose from endpoints created above. Azure based source endpoints need to have Azure Network Watcher extension installed and nonAzure based source endpoints need to haveAzure Log Analytics agent installed. To install an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
 	* destinations -  Choose from endpoints created above. You can monitor connectivity to Azure VMs or any endpoint (a public IP, URL, or FQDN) by specifying them as destinations. In a single test group, you can add Azure VMs, Office 365 URLs, Dynamics 365 URLs, and custom endpoints.
 	* disable - Use this field to disable monitoring for all sources and destinations that the test group specifies.
 
@@ -395,5 +396,5 @@ Connection monitors have the following scale limits:
 
 ## Next steps
 
-* Learn [how to analyze monitoring data and set alerts](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
-* Learn [how to diagnose issues in your network](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)
+* Learn [how to analyze monitoring data and set alerts](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
+* Learn [how to diagnose issues in your network](./connection-monitor-overview.md#diagnose-issues-in-your-network)

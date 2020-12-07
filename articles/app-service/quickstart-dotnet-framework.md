@@ -3,7 +3,7 @@ title: 'Quickstart: Create a C# ASP.NET app'
 description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app template from Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 08/06/2020
+ms.date: 11/20/2020
 ms.custom: "devx-track-csharp, mvc, devcenter, seodec18"
 ---
 
@@ -50,20 +50,21 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**.
 
-1. Choose **App Service** and select **Create profile**.
+1. In **Publish**, select **Azure** and click **Next**.
 
-   ![Publish from project overview page](./media/quickstart-dotnet-framework/publish-app-framework-vs2019.png)
+1. Select **Azure App Service (Windows)** and click **Next**.
 
-1. In **App Service Create new**, your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
+   <!-- ![Publish from project overview page](./media/quickstart-dotnet-framework/publish-app-framework-vs2019.png) -->
 
-   > [!NOTE]
-   > If you're already signed in, don't select **Create** yet.
-   >
-   >
+1. Your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
 
    ![Sign in to Azure](./media/quickstart-dotnet-framework/sign-in-azure-framework-vs2019.png)
 
    [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
+
+1. To the right of **App Service instances**, click **+**.
+
+   ![New App Service app](./media/quickstart-dotnet-framework/publish-new-app-service.png)
 
 1. For **Resource group**, select **New**.
 
@@ -71,9 +72,9 @@ Create an ASP.NET web app by following these steps:
 
    [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-1. For to **Hosting Plan**, select **New**.
+1. For **Hosting Plan**, select **New**.
 
-1. In the **Configure Hosting Plan** dialog, enter the values from the following table, and then select **OK**.
+1. In the **Hosting Plan** dialog, enter the values from the following table, and then select **OK**.
 
    | Setting | Suggested Value | Description |
    |-|-|-|
@@ -85,11 +86,13 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Name**, enter a unique app name that includes only the valid characters are `a-z`, `A-Z`, `0-9`, and `-`. You can accept the automatically generated unique name. The URL of the web app is `http://<app-name>.azurewebsites.net`, where `<app-name>` is your app name.
 
-2. Select **Create** to start creating the Azure resources.
+2. Select **Create** to create the Azure resources.
 
    ![Configure app name](./media/quickstart-dotnet-framework/web-app-name-framework-vs2019.png)
 
     Once the wizard completes, the Azure resources are created for you and you are ready to publish.
+
+3. Select **Finish** to close the wizard.
 
 3. In the **Publish** page, click **Publish**. Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
 

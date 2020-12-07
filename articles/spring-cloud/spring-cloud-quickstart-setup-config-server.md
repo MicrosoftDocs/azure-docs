@@ -6,7 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
@@ -77,6 +77,9 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ```
 ---
 ::: zone-end
+
+> [!TIP]
+> If you are using a private repository for config server, please refer to our [tutorial on setting up authentication](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server).
 
 ## Troubleshooting of Azure Spring Cloud config server
 

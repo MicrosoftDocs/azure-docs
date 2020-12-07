@@ -71,7 +71,7 @@ ORDER BY
 
 The filepath function returns a full or partial path:
 
-- When called without a parameter, it returns the full file path that the row originates from.
+- When called without a parameter, it returns the full file path that the row originates from. When DATA_SOURCE is used in OPENROWSET, it returns path relative to DATA_SOURCE. 
 - When called with a parameter, it returns part of the path that matches the wildcard on the position specified in the parameter. For example, parameter value 1 would return part of the path that matches the first wildcard.
 
 The following sample reads NYC Yellow Taxi data files for the last three months of 2017. It returns the number of rides per file path. The OPENROWSET part of the query specifies which files will be read.

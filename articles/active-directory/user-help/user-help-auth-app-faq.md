@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -19,7 +19,7 @@ ms.reviewer: olhaun
 
 This article answers common questions about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp).
 
-The Microsoft Authenticator app replaced the Azure Authenticator app, and it's the recommended app when you use Azure Multi-Factor Authentication. The Microsoft Authenticator app is available for [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) and [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
+The Microsoft Authenticator app replaced the Azure Authenticator app, and it's the recommended app when you use Azure AD Multi-Factor Authentication. The Microsoft Authenticator app is available for [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) and [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 ## Frequently asked questions
 
@@ -28,6 +28,14 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 **Q**: Is registering a device agreeing to give the company or service access to my device?
 
 **A**: Registering a device gives your device access to your organization's services and doesn't allow your organization access to your device.
+
+## Too many app permissions
+
+**Q**: Why does the app request so many permissions?
+
+**A**: Here's the full list of permissions that might be asked for, and how they're used by the app. The specific permissions you see will depend on the type of phone you have.
+
+- **Location**. Sometimes your organization wants to know your location before allowing you to access certain resources. The app will request this permission only if your organization has a policy requiring location. 
 
 ### Legacy APNs support deprecated
 

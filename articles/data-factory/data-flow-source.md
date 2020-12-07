@@ -45,6 +45,7 @@ Mapping data flow follows an extract, load, and transform (ELT) approach and wor
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Managed Instance (preview)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Hive](connector-hive.md#mapping-data-flow-properties) | | -/✓ | 
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
 Settings specific to these connectors are located on the **Source options** tab. Information and data flow script examples on these settings are located in the connector documentation.

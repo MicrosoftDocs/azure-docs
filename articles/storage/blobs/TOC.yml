@@ -1,5 +1,5 @@
 - name: Azure Blob storage documentation
-  href: /azure/storage/blobs/
+  href: ./index.yml
 - name: Overview
   items:
   - name: What is Azure Blob storage?
@@ -205,8 +205,6 @@
           href: scalability-targets-premium-page-blobs.md
         - name: Storage resource provider
           href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Concurrency
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Find, search, and understand blob data
       items:
       - name: Use blob index tags to manage and find blob data
@@ -215,6 +213,8 @@
         href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Full text search for blob data
         href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Use blob inventory to manage blob data
+        href: blob-inventory.md
     - name: Data migration
       items:
       - name: Compare data transfer solutions
@@ -455,6 +455,8 @@
         href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Initiate account failover
         href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Manage concurrency
+      href: concurrency-manage.md
     - name: Use a storage emulator
       items:
       - name: Use the Azurite open-source emulator
@@ -590,7 +592,7 @@
       - name: Storage Explorer accessibility
         href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Blob storage on Microsoft Q&A
-      href: https://docs.microsoft.com/answers/topics/azure-blob-storage.html
+      href: /answers/topics/azure-blob-storage.html
     - name: Blob storage on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-blob-storage
     - name: Pricing for block blobs
@@ -654,7 +656,7 @@
 - name: Data Lake Storage Gen2
   items:
   - name: Switch to Data Lake Storage Gen1 documentation
-    href: /azure/data-lake-store/
+    href: ../../data-lake-store/index.yml
   - name: Overview
     items:
     - name: Introduction to Data Lake Storage
@@ -666,7 +668,7 @@
   - name: Tutorials
     items:
     - name: Extract, transform, and load data using Azure Databricks
-      href: ../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Access Data Lake Storage data with Databricks using Spark
       href: data-lake-storage-use-databricks-spark.md
     - name: Extract, transform, load data with Apache Hive on Azure HDInsight
@@ -712,7 +714,7 @@
     - name: Monitoring
       items:
       - name: Monitor Blob storage
-        href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Transition from classic metrics
         href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Monitoring (classic)
@@ -733,8 +735,10 @@
       items:
       - name: Migrate from Data Lake Storage Gen1
         href: data-lake-storage-migrate-gen1-to-gen2.md
-      - name: Migrate an on-premises HDFS store
+      - name: Migrate an HDFS store offline
         href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+      - name: Migrate an HDFS store online
+        href: migrate-gen2-wandisco-live-data-platform.md
     - name: Manage
       items:
       - name: .NET
@@ -872,7 +876,7 @@
       - name: Storage Explorer accessibility
         href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Microsoft Q&A question page
-      href: https://docs.microsoft.com/answers/topics/azure-blob-storage.html
+      href: /answers/topics/azure-blob-storage.html
     - name: Azure Storage on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Pricing

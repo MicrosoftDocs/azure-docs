@@ -1,8 +1,8 @@
 ---
 title: Data integration using Azure Data Factory and Azure Data Share
 description: Copy, transform, and share data using Azure Data Factory and Azure Data Share
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
@@ -17,7 +17,7 @@ As customers embark on their modern data warehouse and analytics projects, they 
 
 From enabling code-free ETL/ELT to creating a comprehensive view over your data, improvements in Azure Data Factory will empower your data engineers to confidently bring in more data, and thus more value, to your enterprise. Azure Data Share will allow you to do business to business sharing in a governed manner.
 
-In this workshop, you'll use Azure Data Factory (ADF) to ingest data from Azure SQL Database into Azure Data Lake Storage Gen2 (ADLS Gen2). Once you land the data in the lake, you'll transform it via mapping data flows, data factory's native transformation service, and sink it into Azure Synapse Analytics (formerly SQL DW). Then, you'll share the table with transformed data along with some additional data using Azure Data Share. 
+In this workshop, you'll use Azure Data Factory (ADF) to ingest data from Azure SQL Database into Azure Data Lake Storage Gen2 (ADLS Gen2). Once you land the data in the lake, you'll transform it via mapping data flows, data factory's native transformation service, and sink it into Azure Synapse Analytics. Then, you'll share the table with transformed data along with some additional data using Azure Data Share. 
 
 The data used in this lab is New York City taxi data. To import it into your database in SQL Database, download the [taxi-data bacpac file](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
@@ -303,7 +303,7 @@ You have now completed the data factory portion of this lab. Publish your resour
 
 ## Share data using Azure Data Share
 
-In this section, you'll learn how to set up a new data share using the Azure portal. This will involve creating a new data share that will contain datasets from Azure Data Lake Store Gen2 and Azure Synapse Analytics (formerly SQL Data Warehouse). You'll then configure a snapshot schedule, which will give the data consumers an option to automatically refresh the data being shared with them. Then, you'll invite recipients to your data share. 
+In this section, you'll learn how to set up a new data share using the Azure portal. This will involve creating a new data share that will contain datasets from Azure Data Lake Store Gen2 and Azure Synapse Analytics. You'll then configure a snapshot schedule, which will give the data consumers an option to automatically refresh the data being shared with them. Then, you'll invite recipients to your data share. 
 
 Once you have created a data share, you'll then switch hats and become the *data consumer*. As the data consumer, you'll walk through the flow of accepting a data share invitation, configuring where you'd like the data to be received and mapping datasets to different storage locations. Then you'll trigger a snapshot, which will copy the data shared with you into the destination specified. 
 
@@ -337,7 +337,7 @@ Once you have created a data share, you'll then switch hats and become the *data
 
     ![Add dataset 1](media/lab-data-flow-data-share/add-dataset.png)
 
-1. Select **Azure Synapse Analytics** (formerly SQL Data Warehouse) to select a table from Azure Synapse Analytics that your ADF transformations landed in.
+1. Select **Azure Synapse Analytics** to select a table from Azure Synapse Analytics that your ADF transformations landed in.
 
     ![Add dataset sql](media/lab-data-flow-data-share/add-dataset-sql.png)
 

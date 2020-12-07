@@ -125,11 +125,11 @@ landingContent:
           - text: Database Migration Guide
             url: https://datamigration.microsoft.com/
           - text: Data Migration Assistant
-            url: https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017
+            url: /sql/dma/dma-overview?view=sql-server-2017
           - text: SQL Server Migration Assistant
-            url: https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017
+            url: /sql/ssma/sql-server-migration-assistant?view=sql-server-2017
           - text: Database Experimentation Assistant
-            url: https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview?view=sql-server-2017
+            url: /sql/dea/database-experimentation-assistant-overview?view=sql-server-2017
           - text: Data Access Migration Toolkit
             url: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
 # Card 5
