@@ -26,10 +26,13 @@ This article describes how to understand Azure Active Directory (Azure AD) role-
 Both systems contain similarly used role definitions and role assignments. However, Azure AD role permissions can't be used in Azure custom roles and vice versa.
 
 ## Understand Azure AD role-based access control
+Azure AD supports 2 types of roles - 
+* Built-in roles
+* Custom roles
 
-Granting permission using custom Azure AD roles is a two-step process that involves creating a custom role definition and then assigning it using a role assignment. A custom role definition is a collection of permissions that you add from a preset list. These permissions are the same permissions used in the built-in roles.  
+Built-in roles are out of box roles that have a fixed set of permissions. These role definitions cannot be modified. There are many built-in roles that Azure AD supports, and the list is growing. To round off the edges and meet your sophisticated requirements, Azure AD also supports custom roles. Granting permission using custom Azure AD roles is a two-step process that involves creating a custom role definition and then assigning it using a role assignment. A custom role definition is a collection of permissions that you add from a preset list. These permissions are the same permissions used in the built-in roles.  
 
-Once you’ve created your role definition, you can assign it to a user by creating a role assignment. A role assignment grants the user the permissions in a role definition at a specified scope. This two-step process allows you to create a single role definition and assign it many times at different scopes. A scope defines the set of Azure AD resources the role member has access to. The most common scope is organization-wide (org-wide) scope. A custom role can be assigned at org-wide scope, meaning the role member has the role permissions over all resources in the organization. A custom role can also be assigned at an object scope. An example of an object scope would be a single application. The same role can be assigned to one user over all applications in the organization and then to another user with a scope of only the Contoso Expense Reports app.  
+Once you’ve created your custom role definition (or using a built-in role), you can assign it to a user by creating a role assignment. A role assignment grants the user the permissions in a role definition at a specified scope. This two-step process allows you to create a single role definition and assign it many times at different scopes. A scope defines the set of Azure AD resources the role member has access to. The most common scope is organization-wide (org-wide) scope. A custom role can be assigned at org-wide scope, meaning the role member has the role permissions over all resources in the organization. A custom role can also be assigned at an object scope. An example of an object scope would be a single application. The same role can be assigned to one user over all applications in the organization and then to another user with a scope of only the Contoso Expense Reports app.  
 
 Azure AD built-in and custom roles operate on concepts similar to [Azure role-based access control (Azure RBAC)](../../active-directory-b2c/overview.md). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is that Azure RBAC controls access to Azure resources such as virtual machines or storage using Azure Resource Management, and Azure AD custom roles control access to Azure AD resources using Graph API. Both systems leverage the concept of role definitions and role assignments. Azure AD RBAC permissions cannot be included in Azure roles and vice versa.
 
@@ -76,7 +79,7 @@ A scope is the restriction of permitted actions to a particular Azure AD resourc
 
 ## Required license plan
 
-[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
+Using built-in roles in Azure AD is free, while custom roles requires an Azure AD Premium P1 license.
 
 ## Next steps
 
