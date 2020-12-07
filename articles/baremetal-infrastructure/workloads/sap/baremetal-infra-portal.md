@@ -2,7 +2,7 @@
 title: BareMetal Instance units in Azure
 description: Learn how to identify and interact with BareMetal Instance units through the Azure portal.
 ms.topic: how-to
-ms.date: 12/31/2020
+ms.date: 12/18/2020
 ---
 
 # Manage BareMetal Instances through the Azure portal
