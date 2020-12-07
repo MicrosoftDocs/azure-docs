@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/07/2020
 ---
 
 # Set up logging to monitor logic apps in Azure Security Center
@@ -55,7 +55,7 @@ If diagnostic logging is already enabled, there might be an issue with the desti
 
 ## Fix diagnostic logging for logic apps
 
-If your [logic apps are listed as unhealthy in Security Center](#view-logic-apps-health-status), open your logic app in Code View in the Azure portal or through the Azure CLI. Then, check the destination configuration for your diagnostic logs: [Azure Log Analytics](#log-analytics-and-event-hubs-destinations), [Azure Event Hubs](#log-analytics-and-event-hubs-destinations), or [a storage account](#storage-accounts-destinations).
+If your [logic apps are listed as unhealthy in Security Center](#view-logic-apps-health-status), open your logic app in Code View in the Azure portal or through the Azure CLI. Then, check the destination configuration for your diagnostic logs: [Azure Log Analytics](#log-analytics-and-event-hubs-destinations), [Azure Event Hubs](#log-analytics-and-event-hubs-destinations), or [an Azure Storage account](#storage-account-destination).
 
 ### Log Analytics and Event Hubs destinations
 
@@ -87,7 +87,7 @@ For example:
 ] 
 ```
 
-### Storage accounts destinations
+### Storage account destination
 
 If you use a storage account as the destination for your Logic Apps diagnostic logs, check the following settings.
 
