@@ -18,6 +18,45 @@ Make sure that you installed the latest [Azure CLI](/cli/azure/install-azure-cli
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
+
+## Deploy from a VHD using purchase plan parameters
+
+If you have an existing VHD that was created using a paid Azure Marketplace image, you might need to supply the purchase plan information when you create a new VM from that VHD. 
+
+If you still have the original VM, or another VM created using the same marketplace image, you can get the plan name, publisher, and product information from it using [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). This example gets a VM named *myVM* in the *myResourceGroup* resource group and then displays the purchase plan information.
+
+```azurepowershell-interactive
+az vm get-instance-view -g myResourceGroup -n myVM --query plan
+```
+
+If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://ms.portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription Id and the time stamp of the delete operation.
+
+Once you have the plan information, you can create the new VM using the `--attach-os-disk` parameter to specify the VHD.
+
+```azurecli-interactive
+az vm create \
+   --resource-group myResourceGroup \
+  --name myNewVM \
+  --nics myNic \
+  --size Standard_DS1_v2 --os-type Linux \
+  --attach-os-disk myVHD \
+  --plan-name planName \
+  --plan-publisher planPublisher \
+  --plan-product planProduct 
+```
+
+## Deploy a new VM using purchase plan parameters
+
+If you already have information about the image, you can deploy it using the `az vm create` command. In this example, we deploy a VM with the RabbitMQ Certified by Bitnami image:
+
+```azurecli
+az group create --name myResourceGroupVM --location westus
+
+az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
+```
+
+If you get a message about accepting the terms of the image, see the section [Accept the terms](#accept-the-terms) later in this article.
+
 ## List popular images
 
 Run the [az vm image list](/cli/azure/vm/image) command, without the `--all` option, to see a list of popular VM images in the Azure Marketplace. For example, run the following command to display a cached list of popular images in table format:
@@ -320,7 +359,7 @@ Output:
 }
 ```
 
-### Accept the terms
+## Accept the terms
 
 To view and accept the license terms, use the [az vm image accept-terms](/cli/azure/vm/image?) command. When you accept the terms, you enable programmatic deployment in your subscription. You only need to accept terms once per subscription for the image. For example:
 
@@ -345,16 +384,6 @@ The output includes a `licenseTextLink` to the license terms, and indicates that
   "signature": "XXXXXXLAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNXXXXXX",
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
-```
-
-### Deploy using purchase plan parameters
-
-After accepting the terms for the image, you can deploy a VM in the subscription. To deploy the image by using the `az vm create` command, provide parameters for the purchase plan in addition to a URN for the image. For example, to deploy a VM with the RabbitMQ Certified by Bitnami image:
-
-```azurecli
-az group create --name myResourceGroupVM --location westus
-
-az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
 ```
 
 ## Next steps
