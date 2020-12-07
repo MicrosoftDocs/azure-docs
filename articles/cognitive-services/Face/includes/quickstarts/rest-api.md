@@ -17,7 +17,6 @@ Use the Face REST API to:
 
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
-* [Create a person group](#create-a-person-group)
 
 ## Prerequisites
 
@@ -36,7 +35,7 @@ You'll use a command like the following to call the Face API and get face attrib
 Make the following changes:
 1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
 1. Change the first part of the query URL to match the endpoint that corresponds to your subscription key.
-  [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
+   [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Optionally change the URL in the body of the request to point to a different image.
 
 Once you've made your changes, open a command prompt and enter the new command. 
@@ -167,15 +166,15 @@ This operation takes a single detected face (source) and searches a set of other
 
 ### Detect faces for comparison
 
-First, you need to detect faces in images before you can compare them. Run this command as you did in the [Detect faces](#detect-faces-in-an-image) section. This detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different recognition model.
+First, you need to detect faces in images before you can compare them. Run this command as you did in the [Detect faces](#detect-faces-in-an-image) section. This detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different detection model.
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detect_for_similar":::
 
-Find the `"faceId"` value in the JSON response and save it to a temporary location. Then, call the above command again for these other image URLs, and save their face IDs as well. You'll use these IDs as the group of faces from which to find a similar face.
+Find the `"faceId"` value in the JSON response and save it to a temporary location. Then, call the above command again for these other image URLs, and save their face IDs as well. You'll use these IDs as the target group of faces from which to find a similar face.
 
 :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_group":::
 
-Finally, detect the single query face that you will use for matching, and save its ID. Keep this ID separate from the others.
+Finally, detect the single source face that you'll use for matching, and save its ID. Keep this ID separate from the others.
 
 :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_matcher":::
 
@@ -193,7 +192,7 @@ Use the following JSON content for the `body` value:
 
 :::code language="JSON" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_body":::
 
-1. Use the query face ID for `"faceId"`.
+1. Use the source face ID for `"faceId"`.
 1. Paste the other face IDs as terms in the `"faceIds"` array.
 
 ### Examine the results
