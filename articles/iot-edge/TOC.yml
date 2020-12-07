@@ -137,6 +137,10 @@
       href: how-to-install-iot-edge-kubernetes.md
     - name: IoT Edge virtual machine using an ARM template
       href: how-to-install-iot-edge-ubuntuvm.md
+    - name: Run IoT Edge on Windows
+      items:
+      - name: Install and provision runtime
+        href: how-to-install-iot-edge-on-windows.md
   - name: Auto-provision with DPS
     items:
     - name: TPM attestation
