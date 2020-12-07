@@ -31,8 +31,6 @@ This article describes how to create one or more access reviews for group member
 
 - Azure AD Premium P2
 - Global administrator or User administrator
-- (Preview) Resource owners of Microsoft 365 Groups can create reviews on the Microsoft 365 groups they own
-- (Preview) Resource owners of Azure AD Security Groups can create reviews on the Azure AD Security groups they own
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
@@ -52,7 +50,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 5. If you selected **Teams + Groups** in Step 1, you have two options in Step 2
    - **All Microsoft 365 groups with guest users.** Select this option if you would like to create recurring reviews on all your guest users across all your Microsoft Teams and M365 groups in your organization. You can choose to exclude certain groups by clicking on ‘Select group(s) to exclude’.
-   - **Select teams + groups.** Select this option if you would like to specify a finite set of teams and/or groups to review. After clicking on this option you will see a list of groups to the right to pick from.
+   - **Select teams + groups.** Select this option if you would like to specify a finite set of teams and/or groups to review. After clicking on this option, you will see a list of groups to the right to pick from.
 
      ![Teams and groups](./media/create-access-review/teams-groups.png)
 
@@ -103,7 +101,7 @@ Use the If reviewers don't respond list to specify what happens for users that a
 
 Use the Action to apply on denied **guest** users to specify what happens to guest users if they are denied.
 - Remove user’s membership from the resource will remove denied user’s access to the group or application being reviewed, they will still be able to sign-in to the tenant.
-- Block user from signing-in for 30 days, then remove user from the tenant will block the denied users from signing in to the tenant, regardless if they have access to other resources. If there was a mistake or if an admin decides to re-enable one’s access, they can do so within 30 days after the user has been disabled. If there is no action taken on the disabled users. They will be deleted from the tenant.
+- Block user from signing-in for 30 days, then remove user from the tenant will block the denied users from signing in to the tenant, regardless if they have access to other resources. If there was a mistake or if an admin decides to re-enable one’s access, they can do so within 30 days after the user has been disabled. If there is no action taken on the disabled users, they will be deleted from the tenant.
 
 To learn more about best practices for removing guest users who no longer have access to resources in your organization read the article titled [Use Azure AD Identity Governance to review and remove external users who no longer have resource access.](access-reviews-external-users.md)
 
