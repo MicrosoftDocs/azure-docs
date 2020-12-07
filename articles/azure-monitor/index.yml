@@ -64,9 +64,9 @@ landingContent:
       - linkListType: get-started
         links:
           - text: .NET
-            url: learn/quick-monitor-portal.md
+            url: app/asp.net.md
           - text: .NET Core
-            url: learn/dotnetcore-quick-start.md
+            url: app/asp-net-core.md
           - text: Node.js
             url: learn/nodejs-quick-start.md
           - text: Mobile
