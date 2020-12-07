@@ -64,7 +64,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: .NET
-            url: app/asp.net.md
+            url: app/asp-net.md
           - text: .NET Core
             url: app/asp-net-core.md
           - text: Node.js
