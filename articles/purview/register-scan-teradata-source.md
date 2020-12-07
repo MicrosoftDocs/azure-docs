@@ -13,7 +13,7 @@ ms.date: 12/06/2020
 This article outlines how to register a Teradata source in Purview and set up a scan.
 
 > [!IMPORTANT]
-    This data source is currently in preview. You can try it out and give us feedback.
+> This data source is currently in preview. You can try it out and give us feedback.
 
 ## Supported Capabilities
 
@@ -31,7 +31,8 @@ runtime](manage-integration-runtimes.md) to connect to it.
 4. You will have to manually install a driver named Teradata JDBC
     Driver on your on-premises virtual machine. The executable JAR file can be downloaded from the [Teradata website](https://downloads.teradata.com/).
 
-    >[!Note] The driver should be accessible to all accounts in the VM. Please do not install in a user account.
+    > [!Note] 
+    > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
 5. Supported Teradata database versions are **12.x to 16.x**. Make sure to have Read access to the Teradata source being scanned.
 
@@ -102,7 +103,8 @@ To create and run a new scan, do the following:
 
 - Maximum memory available: Maximum memory(in GB) available on customer’s VM to be used by scanning processes. This is dependent on the size of Teradata source to be scanned.
 
-    >[!Note] As a thumb rule, please provide 2GB memory for every 1000 tables
+    > [!Note] 
+    > As a thumb rule, please provide 2GB memory for every 1000 tables
 
 :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="setup scan" border="true":::
 
