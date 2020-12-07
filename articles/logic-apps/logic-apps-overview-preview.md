@@ -217,7 +217,7 @@ In Azure Logic Apps Preview, these capabilities are currently limited, unavailab
 
 <a name="limits"></a>
 
-## Updated limits in Azure Logic Apps Preview
+## Updated limits
 
 Although many limits for Azure Logic Apps Preview stay the same as the [limits for multi-tenant Azure Logic Apps](logic-apps-limits-and-config.md), these limits have changed for Azure Logic Apps Preview.
 

@@ -37,7 +37,7 @@ This article shows how to create your logic app and a workflow in Visual Studio 
 
 * Enable run history for stateless workflows.
 
-* Enable or open the Application Insights dashboard after deployment.
+* Enable or open the Application Insights after deployment.
 
 * Deploy to a Docker container that you can run anywhere.
 
@@ -1001,7 +1001,7 @@ After you deploy a **Logic App (Preview)** resource from Visual Studio Code to A
 
 <a name="enable-open-application-insights"></a>
 
-## Enable or open Application Insights dashboard after deployment
+## Enable or open Application Insights after deployment
 
 During workflow execution, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
 
