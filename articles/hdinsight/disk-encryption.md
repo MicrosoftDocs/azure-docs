@@ -113,15 +113,22 @@ HDInsight only supports Azure Key Vault. If you have your own key vault, you can
 
 You're now ready to create a new HDInsight cluster. Customer-managed keys can only be applied to new clusters during cluster creation. Encryption can't be removed from customer-managed key clusters, and customer-managed keys can't be added to existing clusters.
 
+HDInsight supports the creation of clusters using of both versioned and versionless keys. If you create the cluster with a versionless key URI, then the HDInsight cluster will try to perform key auto-rotation when the key is updated in your Azure Key Vault. If you create the cluster with a versioned key URI, you will have to perform a manual key rotation as discussed in [Rotating the encryption key](#rotating-the-encryption-key).
+
 #### Using the Azure portal
 
-During cluster creation, provide the full **Key identifier**, including the key version. For example, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. You also need to assign the managed identity to the cluster and provide the key URI.
+During cluster creation, you can either use a versioned key, or a versionless key in the following way:
+
+- **Versioned** - During cluster creation, provide the full **Key identifier**, including the key version. For example, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`.
+- **Versionless** - During cluster creation, provide only the **Key identifier**. For example, `https://contoso-kv.vault.azure.net/keys/myClusterKey`.
+
+You also need to assign the managed identity to the cluster.
 
 ![Create new cluster](./media/disk-encryption/create-cluster-portal.png)
 
 #### Using Azure CLI
 
-The following example shows how to use Azure CLI to create a new Apache Spark cluster with disk encryption enabled. For more information, see [Azure CLI az hdinsight create](/cli/azure/hdinsight#az-hdinsight-create).
+The following example shows how to use Azure CLI to create a new Apache Spark cluster with disk encryption enabled. For more information, see [Azure CLI az hdinsight create](/cli/azure/hdinsight#az-hdinsight-create). The parameter `encryption-key-version` is optional.
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -135,7 +142,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### Using Azure Resource Manager templates
 
-The following example shows how to use an Azure Resource Manager template to create a new Apache Spark cluster with disk encryption enabled. For more information, see [What are ARM templates?](../azure-resource-manager/templates/overview.md).
+The following example shows how to use an Azure Resource Manager template to create a new Apache Spark cluster with disk encryption enabled. For more information, see [What are ARM templates?](../azure-resource-manager/templates/overview.md). The resource manager template property `diskEncryptionKeyVersion` is optional.
 
 This example uses PowerShell to call the template.
 
@@ -349,7 +356,7 @@ The contents of the resource management template, `azuredeploy.json`:
 
 ### Rotating the encryption key
 
-There might be scenarios where you might want to change the encryption keys used by the HDInsight cluster after it has been created. This can be easily via the portal. For this operation, the cluster must have access to both the current key and the intended new key, otherwise the rotate key operation will fail.
+There might be scenarios where you might want to change the encryption keys used by the HDInsight cluster after it has been created. This can be easily via the portal. For this operation, the cluster must have access to both the current key and the intended new key, otherwise the rotate key operation will fail. Regardless of whether you created the cluster with a versioned or versionless key, you can choose to if you want to rotate the key with a version or not.
 
 #### Using the Azure portal
 
