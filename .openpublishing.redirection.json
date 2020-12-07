@@ -276,6 +276,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/image-builder-overview.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/image-builder-overview.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/powershell-samples.md",
       "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine",
       "redirect_document_id": false
@@ -678,6 +688,21 @@
     {
       "source_path": "articles/virtual-machines/linux/troubleshooting-shared-images.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting-shared-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/shared-image-galleries.md",
+      "redirect_url": "/azure/virtual-machines/shared-image-galleries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/shared-image-galleries.md",
+      "redirect_url": "/azure/virtual-machines/shared-image-galleries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/shared-image-galleries.md",
+      "redirect_url": "/azure/virtual-machines/shared-image-galleries",
       "redirect_document_id": false
     },
     {
