@@ -42,6 +42,9 @@ When an Azure AD security principal attempts to access an API, that security pri
 1. In the Assign access to field select "User assigned managed identity" (or a "System assigned managed identity") then select the desired identity then save
 ![Managed identity role](media/communication-auth-aad-msi-assign.png)
 
+#### Powershell
+
+Assigning roles is also possible using powershell, see [Add or remove Azure role assignments using Azure PowerShell](../../articles/role-based-access-control/role-assignments-powershell.md)
 
 ## Authenticate with the Azure Identity library
 
