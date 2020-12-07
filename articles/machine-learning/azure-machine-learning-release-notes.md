@@ -66,9 +66,21 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-core**
     + HyperDriveRun.get_children_sorted_by_primary_metric() should complete faster now
     + Improved error handling in HyperDrive SDK.
+    +  Deprecated all estimator classes in favor of using ScriptRunConfig to configure experiment runs. Deprecated classes include:
+    	+ MMLBaseEstimator
+    	+ Estimator
+    	+ PyTorch 
+    	+ TensorFlow 
+    	+ Chainer 
+    	+ SKLearn
+    + Deprecated the use of Nccl and Gloo as valid input types for Estimator classes in favor of using PyTorchConfiguration with ScriptRunConfig.
+    + Deprecated the use of Mpi as a valid input type for Estimator classes in favor of using MpiConfiguration with ScriptRunConfig.
+    + Adding command property to runconfiguration. The feature enables users to run an actual command or executables on the compute through AzureML SDK.
+
     +  Deprecated all estimator classes in favor of using ScriptRunConfig to configure experiment runs. Deprecated classes include: + MMLBaseEstimator + Estimator + PyTorch + TensorFlow + Chainer + SKLearn
     + Deprecated the use of Nccl and Gloo as a valid type of input for Estimator classes in favor of using PyTorchConfiguration with ScriptRunConfig. 
     + Deprecated the use of Mpi as a valid type of input for Estimator classes in favor of using MpiConfiguration with ScriptRunConfig.
+
 
 
 ## 2020-11-09
