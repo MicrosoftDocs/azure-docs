@@ -19,8 +19,7 @@ ms.reviewer: olhaun
 If your organization uses two-factor verification, you can set up your work or school account to use the Microsoft Authenticator app as one of the verification methods.
 
 >[!Important]
->- Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](user-help-auth-app-download-install.md) article.
->- This feature is usable only by users whose admins have enabled phone sign-in using the Authenticator app for them.
+>Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](user-help-auth-app-download-install.md) article.
 
 ## Add your work or school account
 
@@ -31,11 +30,11 @@ You can add your work or school account to the Microsoft Authenticator app by do
 
 ### Sign in with your credentials
 
-To add an account by signing into your work or school account using your credentials:
+This feature is usable only by users whose admins have enabled phone sign-in using the Authenticator app for them. To add an account by signing into your work or school account using your credentials:
 
-1. Open the Microsoft Authenticator app and select to the **+** button and tap **Add work or school account**. Select **Sign in (Preview)**.
+1. Open the Microsoft Authenticator app and select to the **+** button and tap **Add work or school account**. Select **Sign in**.
 
-1. Enter your work or school account credentials. If you have a Temporary Access Pass (TAP) you can use that to sign in. At this point, you could potentially be blocked from proceeding by one of several conditions:
+1. Enter your work or school account credentials. If you have a Temporary Access Pass (TAP) you can use that to sign in. At this point, you could potentially be blocked from proceeding by one of the following conditions:
 
    - If you don’t have enough authentication methods on your account to get a strong authentication token, you will not be able to proceed to add an account.
 
@@ -60,7 +59,10 @@ To add an account by scanning a QR Code, do the following:
 
    ![Screen that provides a QR code](./media/user-help-auth-app-add-work-school-account/auth-app-barcode.png)
 
-1. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon, and then select **Work or school account,** followed by **Scan a QR Code**.
+1. Open the Microsoft Authenticator app, select the plus icon ![Select the plus icon on either iOS or Android devices](media/user-help-auth-app-add-personal-ms-account/plus-icon.png) and select **Add account**, and then select **Work or school account,** followed by **Scan a QR Code**.
+   If you don't have an account set up in the Authenticator app, you'll see a large blue button that says **Add account**.
+
+If you aren't prompted to use your camera to scan a QR Code, in your phone's settings, ensure that the Authenticator app has access to the [hone camera.
 
 ## Next steps
 
