@@ -1,17 +1,17 @@
 ---
 title: Work with maps
-description: 
+description: The Device Map provides a graphical representation of network devices detected. Use the map to analyze, and manage device information, network slices and generate reports.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/6/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
-# Investigate sensor detections in the Device Map
+# Investigate sensor detections in the device map
 
-The Asset Map provides a graphical representation of network devices detected. Use the map to:
+The Device Map provides a graphical representation of network devices detected. Use the map to:
 
   - Retrieve, analyze, and manage device information.
 

@@ -4,7 +4,7 @@ description: Learn how-to activate and set up a sensor, as well as perform senso
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/06/2020
+ms.date: 12/6/2020
 ms.topic: how-to
 ms.service: azure
 ---
