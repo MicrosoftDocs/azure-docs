@@ -191,13 +191,13 @@ In Azure Logic Apps Preview, these capabilities are currently limited, unavailab
 
     * The [Azure Functions action named **Choose an Azure function**](logic-apps-azure-functions.md) works only for functions that are created from the **HTTP Trigger** template.
 
-    * The [Inline Code action](logic-apps-add-run-inline-code.md) no longer requires an integration account. However, the Inline Code action also differs in these ways:
+    * If you use macOS or Linux, the [Inline Code](logic-apps-add-run-inline-code.md) actions are currently unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code. Also, note these changes:
 
-      * If you use macOS or Linux, the Inline Code action currently remains unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
+      * **Inline Code** is now **Inline Code Operations**, while the Inline Code action named **Execute JavaScript Code** is now **Run in-line JavaScript**.
 
-      * The action name, **Execute JavaScript Code**, has changed to **Run in-line JavaScript**. 
-
-      * The Inline Code action has [updated limits](#inline-code-limits).
+      * Inline Code Operations actions no longer require an integration account.
+ 
+      * Inline Code Operations actions have [updated limits](logic-apps-overview-preview.md#inline-code-limits).
 
     * Some [built-in B2B triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
 
@@ -245,9 +245,9 @@ Managed connectors are limited to 50 requests per minute per connection. To work
 
 <a name="inline-code-limits"></a>
 
-### Inline Code (Execute JavaScript Code)
+### Inline Code Operations (Execute JavaScript Code)
 
-For a single logic app definition, the Inline Code action, [**Execute JavaScript Code**](logic-apps-add-run-inline-code.md), has these updated limits:
+For a single logic app definition, the Inline Code Operations action, [**Execute JavaScript Code**](logic-apps-add-run-inline-code.md), has these updated limits:
 
 * The maximum number of code characters increases from 1,024 characters to 100,000 characters.
 

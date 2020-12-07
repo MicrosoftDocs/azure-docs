@@ -409,15 +409,16 @@ To delete an item in your workflow from the designer, follow any of these steps:
 
 <a name="missing-triggers-actions"></a>
 
-### Azure Functions, Liquid Operations, and XML Operations don't appear in the designer
+### Supported triggers and actions are missing from the designer in the Azure portal
 
-Azure Logic Apps (Preview) supports built-in actions for Azure Functions, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, these actions won't appear in the designer if your logic app uses an outdated version of the extension bundle, `Microsoft.Azure.Functions.ExtensionBundle.Workflows`.
+Azure Logic Apps Preview supports built-in actions for Azure Functions, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, these actions won't appear in the designer if your logic app uses an outdated version of the extension bundle, `Microsoft.Azure.Functions.ExtensionBundle.Workflows`.
 
-To fix this problem, follow these steps to delete the outdated version, which results in the portal updating to the latest version.
+To fix this problem, follow these steps to delete the outdated version so that the extension bundle can automatically update to the latest version.
 
 > [!NOTE]
-> This solution applies only to **Logic App (Preview)** resources that you create using 
-> the Azure portal, not the logic apps that you publish from Visual Studio Code to Azure.
+> This specific solution applies only to **Logic App (Preview)** resources that you create using 
+> the Azure portal, not the logic apps that you create and deploy using Visual Studio Code and the 
+> Azure Logic Apps (Preview) extension. See [Supported triggers and actions are missing from the designer in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#missing-triggers-actions).
 
 1. In the Azure portal, stop your logic app.
 
