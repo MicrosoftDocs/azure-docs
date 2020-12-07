@@ -22,7 +22,7 @@ With [Azure Logic Apps Preview](logic-apps-overview-preview.md), you can build a
 
 In the Azure portal, you can start by creating a new **Logic App (Preview)** resource. While you can also start by [creating a project in Visual Studio Code with the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md), both approaches provide the capability for you to deploy and run your logic app in the same kinds of hosting environments.
 
-Meanwhile, you can still create the original logic app type. Although the development experiences differ between the original and new logic app types, your Azure subscription can include both types. You can view and access all the deployed logic apps in your Azure subscription, but the apps are organized into their own categories and sections.
+Meanwhile, you can still create the original logic app type. Although the development experiences in the portal differ between the original and new logic app types, your Azure subscription can include both types. You can view and access all the deployed logic apps in your Azure subscription, but the apps are organized into their own categories and sections.
 
 This article shows how to build your logic app and workflow in the Azure portal by using the **Logic App (Preview)** resource type and performing these high-level tasks:
 
