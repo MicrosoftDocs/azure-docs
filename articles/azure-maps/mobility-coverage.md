@@ -69,6 +69,7 @@ The following table provides coverage information for Azure Maps Mobility serv
 | South Korea | Busan, Seoul |
 | Taiwan | Changhua County, Taipei |
 | Thailand | Bangkok, Chiang Mai |
+| Uzbekistan | Samarkand |
 | Vietnam | Hanoi, Ho Chi Minh City |
 
 ## Europe
@@ -139,7 +140,7 @@ The following table provides coverage information for Azure Maps Mobility serv
 | South Africa | Cape Town |
 | Tunisia | Kairouan |
 | United Arab Emirates  | Abu Dhabi, Dubai |
-| Uzbekistan | Samarkand |
+
 
 ## Next steps
 
