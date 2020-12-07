@@ -286,7 +286,7 @@ To update the custom HSM stub code for this tutorial:
 
 ## Verify ownership of the root certificate
 
-1. Using the directions from [Register the public part of an X.509 certificate and get a verification code](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), upload the root certificate and get a verification code from DPS.
+1. Using the directions from [Register the public part of an X.509 certificate and get a verification code](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`) and get a verification code from DPS.
 
 2. Once you have a verification code from DPS for the root certificate, run the following command from your certificate script working directory to generate a verification certificate.
  
