@@ -11,6 +11,25 @@ ms.custom: "include file"
 
 ---
 
+![Application overview](media/event-grid-event-hubs-integration/overview.png)
+
+This diagram depicts the workflow of the solution you build in this tutorial: 
+
+1. Data sent to an Azure event hub is captured in an Azure blob storage.
+2. When the data capture is complete, an event is generated and sent to an Azure event grid. 
+3. The event grid forwards this event data to an Azure function app.
+4. The function app uses the blob URL in the event data to retrieve the blob from the storage. 
+5. The function app migrates the blob data to an Azure Synapse Analytics. 
+
+In this article, you take the following steps:
+
+> [!div class="checklist"]
+> - Deploy the required infrastructure for the tutorial
+> - Publish code to a Functions App
+> - Create an Event Grid subscription 
+> - Stream sample data into Event Hubs
+> - Verify captured data in Azure Synapse Analytics
+
 ## Prerequisites
 To complete this tutorial, you must have:
 
