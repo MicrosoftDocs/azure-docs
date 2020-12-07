@@ -34,7 +34,7 @@ Azure Monitor for containers automatically starts monitoring GPU usage on nodes,
 
 ## GPU performance charts 
 
-Azure Monitor for containers includes pre-configured charts for the metrics listed earlier in the table as a GPU workbook for every cluster. See [Workbooks in Azure Monitor for containers](container-insights-workbooks.md) for a description of the workbooks available for Azure Monitor for containers.
+Azure Monitor for containers includes pre-configured charts for the metrics listed earlier in the table as a GPU workbook for every cluster. See [Workbooks in Azure Monitor for containers](container-insights-reports.md) for a description of the workbooks available for Azure Monitor for containers.
 
 ## Next steps
 

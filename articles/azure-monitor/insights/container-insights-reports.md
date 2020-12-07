@@ -11,12 +11,12 @@ Reports in Azure Monitor for containers are [Azure workbooks](../platform/workbo
 ## Viewing reports
 From the **Azure Monitor** menu in the Azure portal, select **Containers**. Select **Insights** in the **Monitoring** section, choose a particular cluster, and then select the **Reports (preview)** page. 
 
-[![Reports page](media/container-insights-reports/reports-page.png)](media/container-insights-workbooks/reports-page.png#lightbox)
+[![Reports page](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 
 ## Create a custom workbook
 To create a custom workbook based on any of these workbooks, select the **View Workbooks** dropdown and then **Go to AKS Gallery** at the bottom of the dropdown. See [Azure Monitor Workbooks](../platform/workbooks-overview.md) for more information about workbooks and using workbook templates.
 
-[![AKS gallery](media/container-insights-reports/aks-gallery.png)](media/container-insights-workbooks/aks-gallery.png#lightbox)
+[![AKS gallery](media/container-insights-reports/aks-gallery.png)](media/container-insights-reports/aks-gallery.png#lightbox)
 
 ## Node workbooks
 
