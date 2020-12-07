@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 10/29/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
@@ -15,6 +15,41 @@ ms.topic: conceptual
 # Release notes - Azure Arc enabled data services (Preview)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## December 2020
+
+### Breaking change
+
+This release introduces an updated [resource provider](../../azure-resource-manager/management/azure-services-resource-providers.md) called `Microsoft.AzureArcData`.
+
+To enable this resource provider: 
+
+1. Login to the Azure Portal 
+2. All Services from the top left corner 
+3. Navigate to Subscriptions 
+4. Choose your subscription
+5. Navigate to Resource providers 
+6. Search for `Microsoft.AzureArcData` and click the register button
+
+Additional steps can also be found at [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). This change also removes all your existing shadow resources that you have uploaded to the Azure portal. In order to use the resource provider, you need to update the data controller and use the latest `azdata` CLI.  
+
+### Platform release notes: 
+
+#### azdata CLI version
+
+`azdata` CLI version `20.2.5`
+
+#### Direct connectivity mode
+
+This release introduces direct connectivity mode. Direct connectivity mode enables the data controller to automatically upload the usage information to Azure. As part of the usage upload, the Arc data controller resource is automatically created in the portal, if it is not already created via `azdata` upload.  
+
+You can specify direct connectivity when you create the data controller. The following example creates a data controller with `azdata arc dc create` named `azure-arc-aks-hci` using direct connectivity mode (`connectivity-mode direct`).
+
+```console
+azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode direct
+```
+
+
 
 ## October 2020 
 
@@ -97,10 +132,8 @@ For instructions see [What are Azure Arc enabled data services?](overview.md)
 > **Just want to try things out?**  
 > Get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
-[Install the client tools](install-client-tools.md)
-
-[Create the Azure Arc data controller](create-data-controller.md) (requires installing the client tools first)
-
-[Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
-
-[Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (requires creation of an Azure Arc data controller first)
+- [Install the client tools](install-client-tools.md)
+- [Create the Azure Arc data controller](create-data-controller.md) (requires installing the client tools first)
+- [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
+- [Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (requires creation of an Azure Arc data controller first)
+- [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md)
