@@ -190,7 +190,7 @@
       - name: Accelerate alert incident response
         href: how-to-accelerate-alert-incident-response.md
       - name: Forward alert information
-        href: how-to-forward-alert-information.md
+        href: how-to-forward-alert-information-to-partners.md
     - name: Work with alerts on the on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Enrich asset information

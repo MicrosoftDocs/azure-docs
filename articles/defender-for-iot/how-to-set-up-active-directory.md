@@ -1,3 +1,13 @@
+---
+title: Set up Active Directory
+description: Configure the sensor to work with Active Directory. This allows Active Directory users to access the sensor console using their Active Directory credentials.
+author: shhazam-ms
+manager: rkarlin
+ms.author: shhazam
+ms.date: 12/03/2020
+ms.topic: how-to
+ms.service: azure
+---
 
 # Integrate with active directory servers 
 
@@ -11,21 +21,21 @@ Two types of LDAP based authentication are supported:
 
 ## Active Directory and Defender for IoT permissions
 
-Active Directory groups defined here can be associated with specific permission levels. For example, configure a specific Active Directory group and assign all users in the group Read Only permissions. See [Manage Users](./manage-users.md) for details.
+Active Directory groups defined here can be associated with specific permission levels. For example, configure a specific Active Directory group and assign all users in the group RO permissions. See [Create and manage users](how-to-create-and-manage-users.md) for details.
 
 **To configure Active Directory:**
 
 1. From the left navigation pane, select **System Settings**.
 
-    :::image type="content" source="media/how-to-setup-active-directory//image299.png" alt-text="System Settings":::
+    :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings.png" alt-text="View your Active Directory system settings.":::
 
-2. In the **System Settings** pane, select **Active Directory**.
+2. In the System Settings pane, select **Active Directory**.
 
-    :::image type="content" source="media/how-to-setup-active-directory//image300.png" alt-text="Active Directory":::
+    :::image type="content" source="media/how-to-setup-active-directory/ad-configurations.png" alt-text="Edit your Active Directory configurations.":::
 
-3. In the Edit **Active Directory Configuration** dialog box, select **Active Directory Integration Enabled** and select **Save**. The Edit **Active Directory Configuration** dialog box expands, and you can now enter the parameters to configure Active Directory.
+3. In the Edit Active Directory Configuration dialog box, select **Active Directory Integration Enabled** and select **Save**. The Edit Active Directory Configuration dialog box expands, and you can now enter the parameters to configure Active Directory.
 
-    :::image type="content" source="media/how-to-setup-active-directory//image301.png" alt-text="Active Directory Integration":::
+    :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled.png" alt-text="Enter the parameters to configure Active Directory.":::
 
     > [!NOTE]
     > - You must define the LDAP parameters here exactly as they appear in Active Directory.
@@ -36,11 +46,11 @@ Active Directory groups defined here can be associated with specific permission 
 
 | Server parameter | Description |
 |--|--|
-| Domain Controller FQDN | Set the Fully Qualified Domain Name (FQDN) exactly as it appears on your LDAP server, for example, host1.subdomain.domain.</span>com |
-| Domain Controller Port | Define the port on which your LDAP is configured. |
-| Primary Domain | Set the Domain Name, for example, subdomain.domain.</span>com, and the Connection Type according to your LDAP configuration. |
-| Active Directory Groups | Type the group names that are defined in your Active Directory configuration on the LDAP server. |
-| Trusted Domains | To add a trusted domain, add the Domain Name and the Connection Type of a trusted domain. <br />You can configure Trusted Domains only for users that were defined under Users. |
+| Domain controller FQDN | Set the Fully Qualified Domain Name (FQDN) exactly as it appears on your LDAP server, for example, `host1.subdomain.domain.com` |
+| Domain controller port | Define the port on which your LDAP is configured. |
+| Primary domain | Set the domain name, for example, `subdomain.domain.com`, and the connection type according to your LDAP configuration. |
+| Active directory groups | Type the group names that are defined in your Active Directory configuration on the LDAP server. |
+| Trusted domains | To add a trusted domain, add the domain name and the connection type of a trusted domain. <br />You can configure trusted domains only for users that were defined under users. |
 
 5. Select **Save**.
 

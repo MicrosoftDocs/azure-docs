@@ -35,19 +35,19 @@ For more information about CyberArk requirements, refer to
 
 Whenever the CyberX platform identifies remote sessions that have not been authorized by PSM, it will issue an “Unauthorized Remote Session” alert as shown below. To facilitate immediate investigation, the alert also shows the IP addresses and names of the source and destination devices.
 
-![“Unauthorized Remote Session” alert](media/integration-cyberark/image3.png)
+:::image type="content" source="media/integration-cyberark/image3.png" alt-text="“Unauthorized Remote Session” alert":::
 
 ### Event timeline 
 
 Whenever PSM authorizes a remote connection, it will be documented and visible in the CyberX Event Log page, which shows a timeline of all alerts and notifications. This acts as an additional audit trail, as seen below:
 
-![Event Log](media/integration-cyberark/image4.png)
+:::image type="content" source="media/integration-cyberark/image4.png" alt-text="Event Log":::
 
 ### Auditing & forensics
 
 Administrators can also audit and investigate remote access sessions by querying the CyberX platform via its built-in data mining interface. This can be used to identify all remote access connections that have occurred including forensic details such as From/To devices, protocols (RDP, SSH, etc.), Source/Destination users, time-stamps, and whether the sessions were authorized using PSM.
 
-![Data mining interface](media/integration-cyberark/image5.png)
+:::image type="content" source="media/integration-cyberark/image5.png" alt-text="Data mining interface":::
 
 ### Integration system requirements
 
@@ -68,7 +68,7 @@ A dedicated network interface is also provided in the CyberX appliance for centr
 
 The CyberArk PSM solution is deployed in the data center of the organization to manage privileged users and secure remote access connections.
 
-![CyberArk PSM solution deployment](media/integration-cyberark/image6.png)
+:::image type="content" source="media/integration-cyberark/image6.png" alt-text="CyberArk PSM solution deployment":::
 
 The integration between the CyberX platform and CyberArk PSM is performed via syslog messages. These messages are sent by the PSM solution to the CyberX platform, notifying CyberX of any remote sessions or verification failures.
 
@@ -110,7 +110,7 @@ To configure PSM:
 1. Place the CyberX syslog configuration file (CyberX.xsl) in c:\Program Files\PrivateArk\Server\Syslog\CyberX.xsl
 1. Restart the vault server:
    - Open Server Central Administration (Icon: PrivateArk Server)
-   ![Server Central Administration](media/integration-cyberark/image7.png)
+   :::image type="content" source="media/integration-cyberark/image7.png" alt-text="Server Central Administration":::
    - Click on Stop Traffic Light (Server Stop)
    - Click on Start Traffic Light (Server Start)
 
@@ -123,7 +123,7 @@ To configure the CyberX platform:
 ###  Starting the syslog server
    - In the CyberX console, navigate to the System Settings screen
    - Toggle on the "Syslog Server" to start it
-   ![Server status](media/integration-cyberark/image8.png)
+   :::image type="content" source="media/integration-cyberark/image8.png" alt-text="Server status":::
 
 ### Changing the port
 
@@ -133,7 +133,7 @@ If you want to change the port, log in to the system via the CLI, and navigate t
 
 To stop the integration, toggle off the "Syslog Server
 
-![Server status](media/integration-cyberark/image8.png)
+:::image type="content" source="media/integration-cyberark/image8.png" alt-text="Server status":::
 
 ## Set up the CyberX appliances
 

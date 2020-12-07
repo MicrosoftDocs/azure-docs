@@ -212,7 +212,7 @@ To view alerts:
 
 1. Select the alerts icon form the Zone window. 
 
-:::image type="content" source="media/how-to-work-with-Device-inventory-information/image44.png" alt-text="Screenshot of Default Business Unit view with Example":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/business-unit-view.png" alt-text="Screenshot of default business unit view with examples.":::
 
 See [Overview - Working with Alerts](how-to-work-with-alerts-on-premises-management-console.md)
 

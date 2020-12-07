@@ -38,7 +38,7 @@ Azure Defender for IoT includes the following components:
 - Azure Defender for IoT sensor VM or appliance
 - On-premises management console for local site management
 
-![Defender for IoT architecture](./media/architecture/defender-iot-security-architecture.png)
+:::image type="content" source="./media/architecture/defender-iot-security-architecture.png" alt-text="Defender for IoT architecture":::
 
 ### Azure Defender for IoT sensors
 
@@ -78,7 +78,7 @@ Managing Azure Defender for IoT across hybrid environments is accomplished via t
 #### Sensor console
 Sensor detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, asset inventory, and in an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. You can also use the console to view and handle threats detected by sensor engines, forward information to partner systems, manage users, and more.
 
-![Defender for IoT sensor console](./media/architecture/sensor-console.png)
+:::image type="content" source="./media/architecture/sensor-console.png" alt-text="Defender for IoT sensor console":::
 
 #### On-premises management console
 The on-premises management console enables security operations center (SOC) operators to manage and analyze alerts aggregated from multiple sensors into one single dashboard and provides an overall view of the health of the OT networks.
