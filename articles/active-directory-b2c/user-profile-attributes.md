@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -86,7 +86,7 @@ The table below lists the [user resource type](https://docs.microsoft.com/graph/
 
 When using a phone for multi-factor authentication (MFA), the mobile phone is used to verify the user identity. To [add](https://docs.microsoft.com/graph/api/authentication-post-phonemethods) a new phone number programatically, [update](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [get](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get), or [delete](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) the phone number, use MS Graph API [phone authentication method](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod).
 
-In Azure AD B2C custom the phone number is available through `strongAuthenticationPhoneNumber` claim type. 
+In Azure AD B2C [custom policies](custom-policy-overview.md), the phone number is available through `strongAuthenticationPhoneNumber` claim type.
 
 ## Extension attributes
 
