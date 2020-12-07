@@ -28,7 +28,7 @@ At this point, you have:
 
 * An Azure IoT hub.
 * A Device Provisioning Service (DPS) instance linked to your IoT hub. The DPS instance should have an individual device enrollment for your IoT Plug and Play device.
-* A connection to your IoT hub from either a single-component device or a multiple-component device. The device streams simulated data.
+* A connection to your IoT hub from either a single-component device or a multiple-component device that streams simulated data.
 
 To avoid the requirement to install the Azure CLI locally, you can use Azure Cloud Shell to set up the cloud services.
 
@@ -125,7 +125,7 @@ The following details outline the simplest method to synchronize your device DTD
 * At least one type variable is created for each telemetry that has a numeric schema.
   * Only numeric data types can be used for variables, but if a value is sent as another type that can be converted, `"0"` for example, you can use a [conversion](/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) function such as `toDouble`.
 * The variable name can be either the telemetry name or the display name.
-* When you define the time series expression variable, refer to the telemetry's name on the wire and to the telemetry's data type.
+* When you define the Time Series Expression variable, refer to the telemetry's name on the wire and to the telemetry's data type.
 
 | DTDL JSON | Time series model type JSON | Example value |
 |-----------|------------------|-------------|
