@@ -98,6 +98,9 @@ The following diagram illustrates the process for an application calling a Key V
 
 ![The Azure Key Vault authentication flow](../media/authentication/authentication-flow.png)
 
+> [!NOTE]
+> Key Vault SDK clients for secrets, certificates, and keys in the first call to Key Vault do not provide an access token to retrieve tenant information. It’s expected to receive an HTTP 401 using Key Vault SDK client where the Key Vault shows to the application the WWW-Authenticate header containing the resource and the tenant where it needs to go and ask for the token. If everything is configured correctly, the second call from the application to Key Vault will contain a valid token and will succeed. 
+
 ## Code examples
 
 The following table links to different articles that demonstrate how to work with Key Vault in application code using the Azure SDK libraries for the language in question. Other interfaces such as the Azure CLI and the Azure portal are included for convenience.
