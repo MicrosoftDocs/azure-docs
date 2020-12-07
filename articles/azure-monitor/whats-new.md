@@ -5,11 +5,75 @@ ms.subservice:
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 11/11/2020
+ms.date: 12/04/2020
 ---
 # What's new in Azure Monitor documentation?
 
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
+
+## November 2020
+
+### General
+- [Azure Monitor service limits](service-limits.md) - Updated for Azure Arc support.
+
+### Agents
+- [Overview of the Azure monitoring agents](platform/agents-overview.md) - Updated for Azure Arc support.
+- [Install the Azure Monitor agent](platform/azure-monitor-agent-install.md) - New article.
+- [Azure Monitor agent overview](platform/azure-monitor-agent-overview.md) - Updated for Azure Arc support.
+- [Resource Manager template samples for agents](samples/resource-manager-agent.md) - Updated for Azure Arc support.
+
+### Alerts
+- [Create and manage action groups in the Azure portal](platform/action-groups.md) - Added source IP addresses for webhooks.
+
+### Application Insights
+- [Java codeless application monitoring Azure Monitor Application Insights](app/java-in-process-agent.md) - Added configuration example.
+- [React plugin for Application Insights JavaScript SDK](app/javascript-react-plugin.md) - Added section on using React hooks.
+- [Upgrading from Application Insights Java 2.x SDK](app/java-standalone-upgrade-from-2x.md) - New article.
+- [Release notes for Microsoft.ApplicationInsights.SnapshotCollector](app/snapshot-collector-release-notes.md) - New article.
+
+### Autoscale
+- [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on moving Autoscale to a different region.
+
+### Data collection
+- [Configure data collection for the Azure Monitor agent (preview)](platform/data-collection-rule-azure-monitor-agent.md) - Updated for Azure Arc support.
+- [Data Collection Rules in Azure Monitor (preview)](platform/data-collection-rule-overview.md) - Updated for Azure Arc support.
+- [Resource Manager template samples for data collection rules](samples/resource-manager-data-collection-rules.md) - New article.
+
+### Insights and solutions
+- [Connect Azure to ITSM tools by using Secure Export](platform/it-service-management-connector-secure-webhook-connections.md) - Added section on connecting to ServiceNow.
+
+### Logs
+- [Integrate Log Analytics and Excel](log-query/log-excel.md) - New article.
+- [Log Analytics data security](platform/data-security.md) - Added section on additional security features.
+- [Log Analytics integration with Power BI](log-query/log-powerbi.md) - New article.
+- [Standard columns in Azure Monitor log records](platform/log-standard-columns.md) - Added _SubscriptionId column.
+
+New and updated articles from restructure of log query content.
+
+- [Log Analytics tutorial](log-query/log-analytics-tutorial.md)
+- [Log queries in Azure Monitor](log-query/log-query-overview.md)
+- [Overview of Log Analytics in Azure Monitor](log-query/log-analytics-overview.md)
+- [Samples for queries for Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor)
+- [Tutorial: Use Kusto queries in Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor)
+
+
+
+### Virtual machines
+
+- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Added supported regions.
+
+New articles for Azure Monitor for VMs guest health (preview)
+
+- [Azure Monitor for VMs guest health (preview)](insights/vminsights-health-overview.md)
+- [Azure Monitor for VMs guest health alerts (preview)](insights/vminsights-health-alerts.md)
+- [Configure monitoring in Azure Monitor for VMs guest health (preview)](insights/vminsights-health-configure.md)
+- [Configure monitoring in Azure Monitor for VMs guest health using data collection rules (preview)](insights/vminsights-health-configure-dcr.md)
+- [Enable Azure Monitor for VMs guest health (preview)](insights/vminsights-health-enable.md)
+- [Troubleshoot Azure Monitor for VMs guest health (preview)](insights/vminsights-health-troubleshoot.md)
+
+
+
+
 
 ## October 2020
 
