@@ -593,7 +593,7 @@ Array of JSON Objects representing alerts.
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
-| **id** | Numeric | No | - |
+| **ID** | Numeric | No | - |
 | **time** | Numeric | No | Epoch (UTC) |
 | **title** | String | No | - |
 | **message** | String | No | - |
@@ -885,7 +885,7 @@ The device object contains:
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
-| **id** | String | No | - |
+| **ID** | String | No | - |
 | **score** | Numeric | No | Double |
 | **description** | String | No | - |
 
@@ -1540,7 +1540,7 @@ response:
 
 ## Change password
 
-Use this API to let users to change their own passwords. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
+Use this API to let users  change their own passwords. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
 ### /external/authentication/set_password
 
@@ -1715,7 +1715,7 @@ The APIs you define here appear in the on-premises management console, Alert Exc
 
 ### Change Password
 
-Use this API to let users to change their own passwords. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
+Use this API to let users  change their own passwords. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
 - **/external/authentication/set_password**
 
@@ -1727,7 +1727,7 @@ Use this API to let system administrators change passwords for specific users. D
 
 ## Retrieve device information
 
-This API requests a list of all devices detected by Defender for IoT sensors connected to a on-premises management console.
+This API requests a list of all devices detected by Defender for IoT sensors connected to an on-premises management console.
 
 ### /external/v1/devices
 
@@ -1948,7 +1948,7 @@ Array of JSON Objects representing devices.
 
 ## Retrieve alert information
 
-Use this API to retrieve all or filtered alerts from a on-premises management console.
+Use this API to retrieve all or filtered alerts from an on-premises management console.
 
 ### /external/v1/alerts
 
@@ -1988,7 +1988,7 @@ Use this API to retrieve all or filtered alerts from a on-premises management co
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
-| **id** | Numeric | No | - |
+| **ID** | Numeric | No | - |
 | **time** | Numeric | No | Epoch (UTC) |
 | **title** | String | No | - |
 | **message** | String | No | - |
@@ -2415,7 +2415,7 @@ response:
 
 ## Change password
 
-Use this API to let users to change their own passwords. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
+Use this API to let users  change their own passwords. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
 ### /external/authentication/set_password
 

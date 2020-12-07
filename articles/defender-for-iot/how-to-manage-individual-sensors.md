@@ -1,6 +1,6 @@
 ---
 title: Manage individual sensors
-description: Learn how-to activate and set up a sensor, as well as perform sensor management tasks, for example back up and restore. 
+description: Learn how-to activate and set up a sensor, as well as perform sensor management tasks, for example backup and restore. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -11,7 +11,7 @@ ms.service: azure
 
 # Manage individual sensors
 
-This article describes how to activate and set up a sensor, as well as perform sensor management tasks, for example  back up and restore.
+This article describes how to activate and set up a sensor, as well as perform sensor management tasks, for example  backup and restore.
 
 ## Manage sensor activation files
 
@@ -19,9 +19,9 @@ Your sensor was onboarded with the Defender for IoT from the Azure portal. Each 
 
 A unique activation file should have been uploaded to each sensor you deploy. 
 
-For more information regarding when and how to use a new file see [Upload new activation files](#upload-new-activation files).
+For more information regarding when and how to use a new file, see [Upload new activation files](#upload-new-activation files).
 
-See [Activation file upload troubleshooting](#activation-file-upload-troubleshooting) if you cannot upload the file.
+If you can't upload the file, see [Activation file upload troubleshooting](#activation-file-upload-troubleshooting).
 
 ### About locally connected sensor activation files
 
@@ -276,9 +276,9 @@ The following procedure describes how to update a standalone sensor using the se
 
 8. The update process starts, during which time the system is rebooted twice.
 
-9. After the first reboot (before the completion of the update process), the system opens with the sign-in window. After the sign-in, displays  at the bottom left of the sidebar:
+9. After the first reboot (before the completion of the update process), the system opens with the sign in window. After the sign in, displays  at the bottom left of the sidebar:
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after login.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after signing in.":::
 
 ## Adjust system properties
 
