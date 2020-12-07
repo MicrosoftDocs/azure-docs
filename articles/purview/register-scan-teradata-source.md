@@ -1,5 +1,5 @@
 ---
-title: Register a Teradata source and setup scans (Preview)
+title: Register a Teradata source and setup scans (preview)
 description: This article outlines how to register a Teradata source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
