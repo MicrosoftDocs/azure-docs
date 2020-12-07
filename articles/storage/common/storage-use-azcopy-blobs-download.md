@@ -156,7 +156,7 @@ For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ## Next steps
 
-- Find more examples in the following articles:
+- Find more examples in these articles:
 
 - [Examples: Upload](storage-use-azcopy-blobs-upload.md)
 - [Examples: Copy between accounts](storage-use-azcopy-blobs-download.md)

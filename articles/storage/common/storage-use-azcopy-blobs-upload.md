@@ -180,7 +180,7 @@ For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ## Next steps
 
-Find more examples in any of the following articles:
+Find more examples in these articles:
 
 - [Examples: Download](storage-use-azcopy-blobs-download.md)
 - [Examples: Copy between accounts](storage-use-azcopy-blobs-copy.md)
