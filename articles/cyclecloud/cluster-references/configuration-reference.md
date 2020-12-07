@@ -171,3 +171,12 @@ writable = false
 | sync | Boolean | Synchronous/asynchronous export option. Defaults to `true`. |
 | writable | Boolean | The ro/rw export option for the filesystem. Defaults to `true`. |
 | options | String | Any non-default options to use when exporting the filesystem. |
+
+### `[[[configuration]]]`
+ A limited number of configuration options are available under no namespace, usually for legacy reasons.
+
+| Attribute | Type | Description |
+| --------- | ---- | ----------- |
+| http_proxy | String | The hostname or IP address of the proxy server to use on the node (e.g. 10.10.10.10) |
+| https_proxy | String | The hostname or IP address of the HTTPS proxy server to use on the node. (e.g. 10.10.0.1) |
+| no_proxy | String | A comma separated list of hostnames or IP addresses not to use a proxy server for. Default: 169.254.169.254 to allow access to Azure metadata |
