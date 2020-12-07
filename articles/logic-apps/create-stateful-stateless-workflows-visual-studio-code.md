@@ -304,7 +304,7 @@ Before you can create your logic app, create a local project so that you can man
 
    ![Screenshot that shows Explorer pane with resource groups list and "Create new resource group" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/create-select-resource-group.png)
 
-1. Provide a name for the resource group, and press Enter. This example uses `example-logic-app-preview-rg`.
+1. Provide a name for the resource group, and press Enter. This example uses `Fabrikam-Workflows-RG`.
 
    ![Screenshot that shows Explorer pane and resource group name box.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
@@ -724,7 +724,7 @@ You can publish your logic app as a new resource, which automatically creates an
 
 1. To create your new **Logic App (Preview)** resource, follow these steps:
 
-   1. Provide a globally unique name for your new logic app, which is the name to use for the **Logic App (Preview)** resource. This example uses `example-logic-app-preview`.
+   1. Provide a globally unique name for your new logic app, which is the name to use for the **Logic App (Preview)** resource. This example uses `fabrikam-workflows-app`.
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to provide a name for the new logic app to create.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
