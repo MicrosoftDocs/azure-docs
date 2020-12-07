@@ -225,19 +225,19 @@ Modify the .NET Core console app to interact with the Key Vault by completing th
 
 Execute the following command to build the project
 
-    ```dotnetcli
-    dotnet build
-    ```
+```dotnetcli
+dotnet build
+```
 
 A variation of the following output appears:
 
-    ```console
-    Creating a certificate in mykeyvault called 'myCertificate' ... done.
-    Retrieving your certificate from mykeyvault.
-    Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
-    Deleting your certificate from mykeyvault ... done
-    Purging your certificate from mykeyvault ... done
-    ```
+```console
+Creating a certificate in mykeyvault called 'myCertificate' ... done.
+Retrieving your certificate from mykeyvault.
+Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
+Deleting your certificate from mykeyvault ... done
+Purging your certificate from mykeyvault ... done
+```
 
 ## Next steps
 

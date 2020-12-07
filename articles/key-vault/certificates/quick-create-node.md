@@ -271,7 +271,7 @@ Retrieving your certificate from mykeyvault.
 Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
 Deleting your certificate from mykeyvault ... done
 Purging your certificate from mykeyvault ... done 
-    ```
+```
 
 ## Next steps
 
