@@ -181,25 +181,27 @@ In Azure Logic Apps Preview, these capabilities are currently limited, unavailab
 
   * For *stateless workflows*, the **Azure** tab doesn't appear when you select a trigger because you can select only [managed connector *actions*, not triggers](../connectors/apis-list.md#managed-api-connectors). Although you can enable Azure-deployed managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
 
-  * For *stateful workflows*, other than the triggers and actions listed below, both [managed connector triggers and actions](../connectors/apis-list.md#managed-api-connectors) are available for you to use.
+  * For *stateful workflows*, other than the triggers and actions that are listed as unavailable below, both [managed connector triggers and actions](../connectors/apis-list.md#managed-api-connectors) are available for you to use.
 
-  * These triggers and actions are currently limited, unsupported, or unavailable:
+  * These triggers and actions have either changed or are currently limited, unsupported, or unavailable:
 
     * [On-premises data gateway *triggers*](../connectors/apis-list.md#on-premises-connectors) are unavailable, but gateway actions *are* available.
 
     * [Custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) are unavailable.
 
-    * The [Azure Functions action named **Choose an Azure function**](logic-apps-azure-functions.md) works only for functions that are created from the **HTTP Trigger** template.
+    * The built-in action, [Azure Functions - Choose an Azure function](logic-apps-azure-functions.md), currently works only for functions that are created from the **HTTP Trigger** template. Also, **Azure Functions - Choose an Azure function** is now **Azure Function Operations - Call an Azure function**.
 
-    * If you use macOS or Linux, the [Inline Code](logic-apps-add-run-inline-code.md) actions are currently unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code. Also, note these changes:
+    * If you use macOS or Linux, the built-in action, [Inline Code - Execute JavaScript Code](logic-apps-add-run-inline-code.md) is currently unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code. Also, note these changes:
 
-      * **Inline Code** is now **Inline Code Operations**, while the Inline Code action named **Execute JavaScript Code** is now **Run in-line JavaScript**.
+      * **Inline Code - Execute JavaScript Code** is now **Inline Code Operations - Run in-line JavaScript**.
 
       * Inline Code Operations actions no longer require an integration account.
- 
+
       * Inline Code Operations actions have [updated limits](logic-apps-overview-preview.md#inline-code-limits).
 
-    * Some [built-in B2B triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
+      * Some [built-in B2B triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
+
+      * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
 
 * **Hosting plan availability**: Whether you create a new **Logic App (Preview)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the Premium or App Service hosting plan in Azure. Consumption hosting plans are unavailable and unsupported for deploying this resource type. You can deploy from Visual Studio Code to a Docker container, but not to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
