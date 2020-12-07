@@ -29,10 +29,6 @@
       href: learn/quick-collect-windows-computer.md
   - name: Monitor applications
     items:
-    - name: .NET application
-      href: learn/quick-monitor-portal.md
-    - name: .NET Core application
-      href: learn/dotnetcore-quick-start.md
     - name: Node.js application
       href: learn/nodejs-quick-start.md
     - name: Mobile application
