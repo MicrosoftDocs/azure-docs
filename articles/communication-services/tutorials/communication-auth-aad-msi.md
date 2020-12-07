@@ -64,15 +64,33 @@ dotnet add package Azure.Communication.Administration
 dotnet add package Azure.Identity
 ```
 
-### .NET code example
+The examples below are using the [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) that is suitable for multiple environments
+
+### Administration SDK example (create identity and issue token)
 
 ```csharp
-     bool isLocal = string.IsNullOrEmpty(Environment.GetEnvironmentVariable("WEBSITE_INSTANCE_ID"));
-     string ResourceEndpoint = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_RESOURCE");
-     TokenCredential credential = isLocal ? new DefaultAzureCredential() : new ManagedIdentityCredential();
+     string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_RESOURCE_ENDPOINT");
+     TokenCredential credential = new DefaultAzureCredential();
      
      var client = new CommunicationIdentityClient(managedIdentityCredential, ResourceEndpoint);
      var identityResponse = await client.CreateUserAsync();
      
      var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+```
+
+
+### SMS SDK example (send SMS)
+
+
+```csharp
+     string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_RESOURCE_ENDPOINT");
+     TokenCredential credential = new DefaultAzureCredential();
+     
+     SmsClient smsClient = new SmsClient(managedIdentityCredential, ResourceEndpoint);
+     smsClient.Send(
+          from: new PhoneNumber("<leased-phone-number>"),
+          to: new PhoneNumber("<to-phone-number>"),
+          message: "Hello World via SMS",
+          new SendSmsOptions { EnableDeliveryReport = true } // optional
+);
 ```
