@@ -963,7 +963,7 @@ Through the Azure portal, you can add blank workflows to a **Logic App (Preview)
 
 ## Enable run history for stateless workflows
 
-To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create stateful and stateless workflows in the Azure portal](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
+To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create stateful and stateless workflows in the Azure portal](create-stateful-stateless-workflows-azure-portal.md#enable-run-history-stateless).
 
 1. In your Visual Studio Code project, expand the **workflow-designtime** folder, and open the **local.settings.json** file.
 
