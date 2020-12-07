@@ -180,7 +180,7 @@ const retrievedKey = await client.getKey(keyName);
 
 ### Delete a key
 
-Finally, let's delete and purge the key from your key vault with the [beginDeleteKey]https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#beginDeleteKey_string__BeginDeleteKeyOptions_) and [purgeDeletedKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#purgeDeletedKey_string__PurgeDeletedKeyOptions_) methods.
+Finally, let's delete and purge the key from your key vault with the [beginDeleteKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#beginDeleteKey_string__BeginDeleteKeyOptions_) and [purgeDeletedKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#purgeDeletedKey_string__PurgeDeletedKeyOptions_) methods.
 
 ```javascript
 const deletePoller = await client.beginDeleteKey(keyName);

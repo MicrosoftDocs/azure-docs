@@ -182,7 +182,7 @@ Your secret is now saved as `retrievedSecret.value`.
 
 ### Delete a secret
 
-Finally, let's delete and purge the secret from your key vault with the [beginDeleteSecret]https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#beginDeleteSecret_string__BeginDeleteSecretOptions_) and [purgeDeletedSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#purgeDeletedSecret_string__PurgeDeletedSecretOptions_) methods.
+Finally, let's delete and purge the secret from your key vault with the [beginDeleteSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#beginDeleteSecret_string__BeginDeleteSecretOptions_) and [purgeDeletedSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#purgeDeletedSecret_string__PurgeDeletedSecretOptions_) methods.
 
 ```javascript
 const deletePoller = await client.beginDeleteSecret(secretName);
