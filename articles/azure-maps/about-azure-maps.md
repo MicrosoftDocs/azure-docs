@@ -191,13 +191,7 @@ Maps Creator provides three core services:
 
 * [WFS service](/rest/api/maps/featurestate). Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) standards for querying a single dataset.
 
-## Programming model
-
-Azure Maps is built for mobility and can help you develop cross-platform applications. It uses a programming model that's language agnostic and supports JSON output through [REST APIs](/rest/api/maps/).
-
-Also, Azure Maps offers a convenient [JavaScript map control](/javascript/api/azure-maps-control) with a simple programming model. The development is quick and easy for both web and mobile applications.
-
-## Elevation service (Preview)
+### Elevation service (Preview)
 
 The Azure Maps Elevation service is a web service that developers can use to retrieve elevation data from anywhere on the Earth’s surface.
 
@@ -208,7 +202,15 @@ The Elevation service allows you to retrieve elevation data in two formats:
 * **GeoJSON format**. Use the [Elevation APIs](/rest/api/maps/elevation) to request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. 
 
 :::image type="content" source="./media/about-azure-maps/elevation.png" alt-text="Example of map with elevation data":::
-    
+
+
+## Programming model
+
+Azure Maps is built for mobility and can help you develop cross-platform applications. It uses a programming model that's language agnostic and supports JSON output through [REST APIs](/rest/api/maps/).
+
+Also, Azure Maps offers a convenient [JavaScript map control](/javascript/api/azure-maps-control) with a simple programming model. The development is quick and easy for both web and mobile applications.
+
+
 
 
 
