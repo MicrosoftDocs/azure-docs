@@ -100,8 +100,8 @@ static void Main(string[] args)
     KeyPhraseExtractionExample(client);
     // Using AnalyzeOperationExample() and RecognizeHealthcareEntitiesExample() requires a Text Analytics resource with the standard (S) pricing tier.
     // Using RecognizeHealthcareEntitiesExample() also requires submitting a request to access the gated preview for this feature.
-    //AnalyzeOperationExample(client);
-    //RecognizeHealthcareEntitiesExample(client);
+    //await AnalyzeOperationExample(client).ConfigureAwait(false);
+    //await RecognizeHealthcareEntitiesExample(client).ConfigureAwait(false);
 
     Console.Write("Press any key to exit.");
     Console.ReadKey();
@@ -897,7 +897,7 @@ Key phrases:
 Create a new function called `RecognizeHealthcareEntitiesExample()` that takes the client that you created earlier, and call its `StartHealthcare()` function. The returned `HealthcareOperation` object will contain the `Operation` interface object for `RecognizeHealthcareEntitiesResultCollection`. As it is a Long Running Operation, `await` on the `healthOperation.WaitForCompletionAsync()` for the value to be updated. Once the `WaitForCompletionAsync()` is finishes, the collection should be updated in the `healthOperation.Value`. If there was an error, it will throw a `RequestFailedException`.
 
 ```csharp
-static void RecognizeHealthcareEntitiesExample(TextAnalyticsClient client)
+static async Task RecognizeHealthcareEntitiesExample(TextAnalyticsClient client)
 {
     string inputText = "Subject is taking 100mg of ibuprofen twice daily";
     HealthcareOperation operation = await client.StartHealthcareAsync(inputText);
@@ -989,7 +989,7 @@ This feature is not available in version 2.1.
 Create a new function called `AnalyzeOperationExample()` that takes the client that you created earlier, and call its `StartAnalyzeOperationBatch()` function. The returned `AnalyzeOperation` object will contain the `Operation` interface object for `AnalyzeOperationResult`. As it is a Long Running Operation, `await` on the `operation.WaitForCompletionAsync()` for the value to be updated. Once the `WaitForCompletionAsync()` is finishes, the collection should be updated in the `operation.Value`. If there was an error, it will throw a `RequestFailedException`.
 
 ```csharp
-static void AnalyzeOperationExample(TextAnalyticsClient client)
+static async Task AnalyzeOperationExample(TextAnalyticsClient client)
 {
     string inputText = "Microsoft was founded by Bill Gates and Paul Allen.";
 
