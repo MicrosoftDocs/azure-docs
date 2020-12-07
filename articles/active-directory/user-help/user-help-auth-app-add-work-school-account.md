@@ -19,7 +19,8 @@ ms.reviewer: olhaun
 If your organization uses two-factor verification, you can set up your work or school account to use the Microsoft Authenticator app as one of the verification methods.
 
 >[!Important]
->Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](user-help-auth-app-download-install.md) article.
+>- Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](user-help-auth-app-download-install.md) article.
+>- This feature is usable only by users whose admins have enabled phone sign-in using the Authenticator app for them.
 
 ## Add your work or school account
 
@@ -58,6 +59,8 @@ To add an account by scanning a QR Code, do the following:
 1. Select the checkbox next to Authenticator app, and then select **Configure**. The **Configure mobile app** page appears.
 
    ![Screen that provides a QR code](./media/user-help-auth-app-add-work-school-account/auth-app-barcode.png)
+
+1. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon, and then select **Work or school account,** followed by **Scan a QR Code**.
 
 ## Next steps
 
