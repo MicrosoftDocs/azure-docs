@@ -4,9 +4,9 @@ description: Migrate a certificate protecting the database encryption key of a d
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang:
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein, jovanpop
@@ -16,7 +16,7 @@ ms.date: 07/21/2020
 # Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-When you're migrating a database protected by [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) to Azure SQL Managed Instance using the native restore option, the corresponding certificate from the SQL Server instance needs to be migrated before database restore. This article walks you through the process of manual migration of the certificate to Azure SQL Managed Instance:
+When you're migrating a database protected by [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) to Azure SQL Managed Instance using the native restore option, the corresponding certificate from the SQL Server instance needs to be migrated before database restore. This article walks you through the process of manual migration of the certificate to Azure SQL Managed Instance:
 
 > [!div class="checklist"]
 >
@@ -33,20 +33,20 @@ For an alternative option using a fully managed service for seamless migration o
 
 To complete the steps in this article, you need the following prerequisites:
 
-* [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) command-line tool installed on the on-premises server or other computer with access to the certificate exported as a file. The Pvk2Pfx tool is part of the [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), a self-contained command-line environment.
+* [Pvk2Pfx](/windows-hardware/drivers/devtest/pvk2pfx) command-line tool installed on the on-premises server or other computer with access to the certificate exported as a file. The Pvk2Pfx tool is part of the [Enterprise Windows Driver Kit](/windows-hardware/drivers/download-the-wdk), a self-contained command-line environment.
 * [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell) version 5.0 or higher installed.
 
 # [PowerShell](#tab/azure-powershell)
 
 Make sure you have the following:
 
-* Azure PowerShell module [installed and updated](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* Azure PowerShell module [installed and updated](/powershell/azure/install-az-ps).
 * [Az.Sql module](https://www.powershellgallery.com/packages/Az.Sql).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Managed Instance, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRM modules are substantially identical.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Managed Instance, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRM modules are substantially identical.
 
 Run the following commands in PowerShell to install/update the module:
 
@@ -155,7 +155,7 @@ If the certificate is kept in the SQL Server local machine certificate store, it
 
 # [Azure CLI](#tab/azure-cli)
 
-You need to first [set up an Azure key vault](/azure/key-vault/key-vault-manage-with-cli2) with your *.pfx* file.
+You need to first [set up an Azure key vault](../../key-vault/general/manage-with-cli2.md) with your *.pfx* file.
 
 1. Start with preparation steps in PowerShell:
 

@@ -5,6 +5,7 @@ services: virtual-machines-windows
 manager: carmonm
 author: bobbytreed
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -43,7 +44,7 @@ You can configure the extension to use your Azure Blob storage credentials to ac
 
 ### Internet Connectivity
 
-If you need to download a script externally such as from GitHub or Azure Storage, then additional firewall and Network Security Group ports need to be opened. For example, if your script is located in Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](../../virtual-network/security-overview.md#service-tags).
+If you need to download a script externally such as from GitHub or Azure Storage, then additional firewall and Network Security Group ports need to be opened. For example, if your script is located in Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 If your script is on a local server, then you may still need additional firewall and Network Security Group ports need to be opened.
 

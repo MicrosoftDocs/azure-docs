@@ -15,18 +15,26 @@ ms.author: sebansal
 
 # Renew your Azure Key Vault certificates
 
-With Azure Key Vault, you can easily provision, manage, and deploy digital certificates for your network and enable secure communications for your applications. For more information about certificates, see [About Azure Key Vault certificates](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates).
+With Azure Key Vault, you can easily provision, manage, and deploy digital certificates for your network and enable secure communications for your applications. For more information about certificates, see [About Azure Key Vault certificates](./about-certificates.md).
 
 By using short-lived certificates or by increasing the frequency of certificate rotation, you can help prevent access to your applications by unauthorized users.
 
 This article discusses how to renew your Azure Key Vault certificates.
 
-## Get notified about certificate expirations
-To be notified when your certificates are about to expire, do the following:
+## Get notified about certificate expiration
+To get notified about certificate life events, you would need to add certificate contact. Certificate contacts contain contact information to send notifications triggered by certificate lifetime events. The contacts information is shared by all the certificates in the key vault. A notification is sent to all the specified contacts for an event for any certificate in the key vault.
 
-First, add a certificate contact to your key vault by using the PowerShell cmdlet [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0).
+### Steps to set certificate notifications:
+First, add a certificate contact to your key vault. You can add using Azure portal or PowerShell cmdlet [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0).
 
-Second, configure when you want to be notified about the certificate expiration. To configure the lifecycle attributes of the certificate, see [Configure certificate autorotation in Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
+Second, configure when you want to be notified about the certificate expiration. To configure the lifecycle attributes of the certificate, see [Configure certificate autorotation in Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
+
+If a certificate's policy is set to auto renewal, then a notification is sent on the following events.
+
+- Before certificate renewal
+- After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
+
+  When a certificate policy that is set to be manually renewed (email only), a notification is sent when it's time to renew the certificate.  
 
 In Key Vault, there are three categories of certificates:
 -	Certificates that are created with an integrated certificate authority (CA), such as DigiCert or GlobalSign
@@ -34,7 +42,7 @@ In Key Vault, there are three categories of certificates:
 -	Self-signed certificates
 
 ## Renew an integrated CA certificate 
-Azure Key Vault handles the end-to-end maintenance of certificates that are issued by trusted Microsoft certificate authorities DigiCert and GlobalSign. Learn how to [integrate a trusted CA with Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority).
+Azure Key Vault handles the end-to-end maintenance of certificates that are issued by trusted Microsoft certificate authorities DigiCert and GlobalSign. Learn how to [integrate a trusted CA with Key Vault](./how-to-integrate-certificate-authority.md).
 
 ## Renew a nonintegrated CA certificate 
 By using Azure Key Vault, you can import certificates from any CA, a benefit that lets you integrate with several Azure resources and make deployment easy. If you're worried about losing track of your certificate expiration dates or, worse, you've discovered that a certificate has already expired, your key vault can help keep you up to date. For nonintegrated CA certificates, the key vault lets you set up near-expiration email notifications. Such notifications can be set for multiple users as well.
@@ -58,7 +66,7 @@ For more information about creating a new CSR, see [Create and merge a CSR in Ke
 
 ## Renew a self-signed certificate
 
-Azure Key Vault also handles autorenewal of self-signed certificates. To learn more about changing the issuance policy and updating a certificate's lifecycle attributes, see [Configure certificate autorotation in Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
+Azure Key Vault also handles autorenewal of self-signed certificates. To learn more about changing the issuance policy and updating a certificate's lifecycle attributes, see [Configure certificate autorotation in Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
 ## Troubleshoot
 If the issued certificate is in *disabled* status in the Azure portal, go to **Certificate Operation** to view the certificate's error message.

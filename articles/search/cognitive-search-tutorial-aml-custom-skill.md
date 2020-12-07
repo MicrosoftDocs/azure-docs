@@ -3,8 +3,8 @@ title: "Tutorial: Create and deploy a custom skill with Azure Machine Learning"
 titleSuffix: Azure Cognitive Search
 description: This tutorial demonstrates how to use Azure Machine Learning to build and deploy a custom skill for Azure Cognitive Search's AI enrichment pipeline.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020

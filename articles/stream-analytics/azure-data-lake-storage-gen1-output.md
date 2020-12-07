@@ -31,7 +31,7 @@ The following table lists property names and their descriptions to configure you
 | Encoding | If you're using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.|
 | Delimiter | Applicable only for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab, and vertical bar.|
 | Format | Applicable only for JSON serialization. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. If you select **Line separated**, the JSON is read one object at a time. The whole content by itself would not be a valid JSON.  **Array** specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it's preferable to use line-separated JSON, because it doesn't require any special handling while the output file is still being written to.|
-| Authentication mode | You can authorize access to your Data Lake Storage account using [Managed Identity](stream-analytics-managed-identities-adls.md) or User token. Once you grant access, you can revoke access by changing the user account password, deleting the Data Lake Storage output for this job, or deleting the Stream Analytics job. |
+| Authentication mode | You can authorize access to your Data Lake Storage account using [Managed Identity](stream-analytics-managed-identities-adls.md) (preview) or User token. Once you grant access, you can revoke access by changing the user account password, deleting the Data Lake Storage output for this job, or deleting the Stream Analytics job. |
 
 ## Partitioning
 
@@ -39,7 +39,7 @@ For the partition key, use {date} and {time} tokens in the path prefix pattern. 
 
 ## Output batch size
 
-For the maximum message size, see [Data Lake Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). To optimize batch size, use up to 4 MB per write operation.
+For the maximum message size, see [Data Lake Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits). To optimize batch size, use up to 4 MB per write operation.
 
 ## Next steps
 

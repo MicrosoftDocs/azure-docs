@@ -32,7 +32,7 @@ Pass-through Authentication is a free feature. You don't need any paid editions 
 
 ## Does [Conditional Access](../conditional-access/overview.md) work with Pass-through Authentication?
 
-Yes. All Conditional Access capabilities, including Azure Multi-Factor Authentication, work with Pass-through Authentication.
+Yes. All Conditional Access capabilities, including Azure AD Multi-Factor Authentication, work with Pass-through Authentication.
 
 ## Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?
 Yes, sign-in using a non-UPN value, such as an alternate email, is supported for both pass-through authentication (PTA) and password hash sync (PHS). For more information about [Alternate Login ID](../authentication/howto-authentication-use-email-signin.md).

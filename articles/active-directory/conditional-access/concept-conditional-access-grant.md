@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 11/24/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -31,7 +31,7 @@ Block is a powerful control that should be wielded with appropriate knowledge. P
 
 Administrators can choose to enforce one or more controls when granting access. These controls include the following options: 
 
-- [Require multi-factor authentication (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Require multi-factor authentication (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [Require device to be marked as compliant (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Require hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
 - [Require approved client app](app-based-conditional-access.md)
@@ -47,7 +47,7 @@ By default Conditional Access requires all selected controls.
 
 ### Require multi-factor authentication
 
-Selecting this checkbox will require users to perform Azure Multi-Factor Authentication. More information about deploying Azure Multi-Factor Authentication can be found in the article [Planning a cloud-based Azure Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+Selecting this checkbox will require users to perform Azure AD Multi-Factor Authentication. More information about deploying Azure AD Multi-Factor Authentication can be found in the article [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
 ### Require device to be marked as compliant
 
@@ -67,7 +67,7 @@ When using the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), th
 
 Organizations can require that an access attempt to the selected cloud apps needs to be made from an approved client app. These approved client apps support [Intune app protection policies](/intune/app-protection-policy) independent of any mobile-device management (MDM) solution.
 
-In order to leverage this grant control, Conditional Access requires that the device be registered in Azure Active Directory which requires the use of a broker app. The broker app can be either the Microsoft Authenticator for iOS, or the Microsoft Company portal for Android devices. If a broker app is not installed on the device when the user attempts to authenticate, the user gets redirected to the app store to install the broker app.
+In order to leverage this grant control, Conditional Access requires that the device be registered in Azure Active Directory which requires the use of a broker app. The broker app can be the Microsoft Authenticator for iOS, or either the Microsoft Authenticator or Microsoft Company portal for Android devices. If a broker app is not installed on the device when the user attempts to authenticate, the user gets redirected to the appropriate app store to install the required broker app.
 
 This setting applies to the following iOS and Android apps:
 
@@ -105,7 +105,7 @@ This setting applies to the following iOS and Android apps:
 - The approved client apps support the Intune mobile application management feature.
 - The **Require approved client app** requirement:
    - Only supports the iOS and Android for device platform condition.
-   - A broker app is required to register the device. On iOS, the broker app is Microsoft Authenticator and on Android, it is Intune Company Portal app.
+   - A broker app is required to register the device. The broker app can be the Microsoft Authenticator for iOS, or either the Microsoft Authenticator or Microsoft Company portal for Android devices.
 - Conditional Access cannot consider Microsoft Edge in InPrivate mode an approved client app.
 
 See the article, [How to: Require approved client apps for cloud app access with Conditional Access](app-based-conditional-access.md) for configuration examples.

@@ -150,7 +150,9 @@ Logic Apps provides these popular Standard connectors for automating tasks, proc
 
 ## On-premises connectors
 
-Here are some commonly used Standard connectors that Logic Apps provides for accessing data and resources in on-premises systems. Before you can create a connection to an on-premises system, you must first [download, install, and set up an on-premises data gateway][gateway-doc]. This gateway provides a secure communication channel without having to set up the necessary network infrastructure.
+Before you can create a connection to an on-premises system, you must first [download, install, and set up an on-premises data gateway][gateway-doc]. This gateway provides a secure communication channel without having to set up the necessary network infrastructure. 
+
+Here are *some* commonly used Standard connectors that Logic Apps provides for accessing data and resources in on-premises systems. For the on-premises connectors list, see [Supported data sources](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
 
 :::row:::
     :::column:::

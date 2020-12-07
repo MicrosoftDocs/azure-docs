@@ -2,9 +2,10 @@
 title: 'Quickstart: Create a Python app'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
-ms.date: 09/22/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.date: 11/10/2020
+ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
+adobe-target: true
 
 ---
 
@@ -13,7 +14,7 @@ zone_pivot_groups: python-frameworks-01
 In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
 
 > [!TIP]
-> If you prefer to deploy apps through an IDE, see **[Deploy Python apps to App Service from Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
+> If you prefer using Visual Studio Code instead, follow our **[Visual Studio Code App Service quickstart](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
 
 ## Set up your initial environment
 
@@ -59,7 +60,7 @@ This command opens a browser to gather your credentials. When the command finish
 
 Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
 
-[Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
+Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Clone the sample
 
@@ -91,7 +92,7 @@ cd python-docs-hello-django
 
 The sample contains framework-specific code that Azure App Service recognizes when starting the app. For more information, see [Container startup process](configure-language-python.md#container-startup-process).
 
-[Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
+Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Run the sample
 
@@ -130,25 +131,9 @@ The sample contains framework-specific code that Azure App Service recognizes wh
     
 1. Run the development server.
 
-    # [Bash](#tab/bash)
-
-    ```bash
-    python3 manage.py runserver
+    ```terminal
+    python manage.py runserver
     ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    py -3 manage.py runserver
-    ```
-
-    # [Cmd](#tab/cmd)
-
-    ```cmd
-    py -3 manage.py runserver
-    ```
-
-    ---    
 
 1. Open a web browser and go to the sample app at `http://localhost:8000/`. The app displays the message **Hello, World!**.
 
@@ -157,7 +142,7 @@ The sample contains framework-specific code that Azure App Service recognizes wh
 1. In your terminal window, press **Ctrl**+**C** to exit the development server.
 ::: zone-end
 
-[Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
+Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Deploy the sample
 
@@ -178,13 +163,13 @@ The command may take a few minutes to complete. While running, it provides messa
 
 ![Example output of the az webapp up command](./media/quickstart-python/az-webapp-up-output.png)
 
-[Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
+Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 [!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## Browse to the app
 
-Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It takes a few moments to start the app initially.
+Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It can take a minute or two for the the app to start, so if you see a default app page, wait a minute and refresh the browser.
 
 The Python sample code is running a Linux container in App Service using a built-in image.
 
@@ -192,7 +177,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 **Congratulations!** You've deployed your Python app to App Service.
 
-[Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
+Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Redeploy updates
 
@@ -229,7 +214,7 @@ Once deployment is complete, switch back to the browser window open to `http://<
 
 ![Run an updated sample Python app in Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
-[Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
+Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 > [!TIP]
 > Visual Studio Code provides powerful extensions for Python and Azure App Service, which simplify the process of deploying Python web apps to App Service. For more information, see [Deploy Python apps to App Service from Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
@@ -252,7 +237,7 @@ You can also inspect the log files from the browser at `https://<app-name>.scm.a
 
 To stop log streaming at any time, press **Ctrl**+**C** in the terminal.
 
-[Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
+Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Manage the Azure app
 
@@ -270,7 +255,7 @@ Selecting the app opens its **Overview** page, where you can perform basic manag
 
 The App Service menu provides different pages for configuring your app.
 
-[Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
+Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Clean up resources
 
@@ -286,7 +271,7 @@ The command uses the resource group name cached in the *.azure/config* file.
 
 The `--no-wait` argument allows the command to return before the operation is complete.
 
-[Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
+Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Next steps
 

@@ -20,10 +20,8 @@ ms.custom: aaddev
 
 Shared device mode is a feature of Azure Active Directory that allows you to build applications that support Firstline Workers and enable shared device mode on the devices deployed to them.
 
-> [!NOTE]
-> This feature is in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> This feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## What are Firstline Workers?
 

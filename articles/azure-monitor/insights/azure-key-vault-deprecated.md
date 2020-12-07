@@ -71,7 +71,7 @@ The following table shows data collection methods and other details about how da
 | Azure |  |  |&#8226; |  |  | on arrival |
 
 ## Use Azure Key Vault
-After you [install the solution](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), view the Key Vault data by clicking the **Key Vault Analytics** tile from the Azure Monitor **Overview** page. Open this page from the **Azure Monitor** menu by clicking **More** under the **Insights** section. 
+After you [install the solution](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?source=intercept.nl&tab=Overview), view the Key Vault data by clicking the **Key Vault Analytics** tile from the Azure Monitor **Overview** page. Open this page from the **Azure Monitor** menu by clicking **More** under the **Insights** section. 
 
 ![Screenshot of the Key Vault Analytics tile on the Azure Monitor Overview page showing a graph of key vault operations volume over time.](media/azure-key-vault/log-analytics-keyvault-tile.png)
 

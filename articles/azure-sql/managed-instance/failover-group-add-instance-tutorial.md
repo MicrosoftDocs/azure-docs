@@ -7,10 +7,10 @@ ms.service: sql-managed-instance
 ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
-ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sashan, sstein
+ms.topic: tutorial
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan
 ms.date: 08/27/2019
 ---
 # Tutorial: Add SQL Managed Instance to a failover group

@@ -40,6 +40,8 @@
     href: restart-resize-error-troubleshooting.md
   - name: Restarting, Shutting Down, or Stopping services
     href: boot-error-troubleshoot-windows.md
+  - name: Issues with a full OS disk on a Linux virtual machine
+    href: os-disk-full-linux.md
 - name: Unexpected restart
   items:
   - name: Unexpected reboots of VMs with attached VHDs
@@ -110,14 +112,20 @@
       href: unresponsive-vm-apply-group-policy.md
     - name: VM is unresponsive when applying security policy
       href: unresponsive-vm-apply-security-policy.md
+    - name: VM is unresponsive while waiting for Local Session Manager
+      href: vm-unresponsive-wait-local-session-manager.md
     - name: Windows boot manager error - Status Invalid Image Hash
       href: windows-boot-error-invalid-image-hash.md
     - name: Windows stop error - Bad System Config Info
       href: windows-stop-error-bad-system-config-info.md
+    - name: Windows stop error - Hardware malfunction
+      href: windows-stop-error-hardware-malfunction.md
     - name: Windows stop error - Status No Memory
       href: troubleshoot-windows-stop-error.md
     - name: Windows stop error - System Process Terminated
       href: windows-stop-error-system-process-terminated.md
+    - name: Windows stop error - System thread exception not handled
+      href: windows-stop-error-system-thread-exception-not-handled.md
 - name: Cannot connect to my VM
   items:
   - name: RDP
@@ -242,9 +250,9 @@
 - name: Troubleshoot Shared Image Galleries
   items:
   - name: Troubleshoot Shared Image Gallery - Windows
-    href: ../windows/troubleshooting-shared-images.md
+    href: ../troubleshooting-shared-images.md
   - name: Troubleshoot Shared Image Gallery - Linux
-    href: ../linux/troubleshooting-shared-images.md
+    href: ../troubleshooting-shared-images.md
 - name: VM extension issues
   items:
   - name: Azure extension overview
@@ -255,6 +263,8 @@
     href: install-vm-agent-offline.md
   - name: Troubleshoot Windows VM agent
     href: windows-azure-guest-agent.md
+  - name: Troubleshoot Linux VM agent
+    href: linux-azure-guest-agent.md
 - name: Backup and restore
   items:
   - name: Troubleshoot backup failures on Azure VM
@@ -335,7 +345,7 @@
 - name: Migration and Move issues
   items:
   - name: Azure Resource Manager migration (ASM to ARM) FAQ
-    href: ../windows/migration-classic-resource-manager-overview.md
+    href: ../migration-classic-resource-manager-overview.md
 - name: Planned Maintenance
   items:
   - name: Overview
@@ -349,4 +359,3 @@
   items:
   - name: Support for 32-bit operating systems
     href: support-32-bit-operating-systems-virtual-machines.md
-    

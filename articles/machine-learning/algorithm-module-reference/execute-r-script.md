@@ -1,7 +1,7 @@
 ---
 title: "Execute R Script: Module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Execute R Script module in Azure Machine Learning to run R code.
+description: Learn how to use the Execute R Script module in Azure Machine Learning designer to run custom R code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
+ms.date: 12/02/2020
 ---
 
 # Execute R Script module
@@ -74,25 +74,27 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
  > Before you install a package, check if it already exists so you don't repeat an installation. Repeat installations might cause web service requests to time out.     
 
+## Access to registered dataset
+
+You can refer to the following sample code to access to the [registered datasets](../how-to-create-register-datasets.md) in your workspace:
+
+```R
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## Uploading files
 The Execute R Script module supports uploading files by using the Azure Machine Learning R SDK.
 
 The following sample shows how to upload an image file in Execute R Script:
 ```R
-
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main,
-# which is the entry point for this module.
-
-# Note that functions dependent on the X11 library,
-# such as "View," are not supported because the X11 library
-# is not preinstalled.
-
-# The entry point function MUST have two input arguments.
-# If the input port is not connected, the corresponding
-# dataframe argument will be null.
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
 
@@ -114,22 +116,6 @@ After the pipeline run is finished, you can preview the image in the right panel
 
 > [!div class="mx-imgBorder"]
 > ![Preview of uploaded image](media/module/upload-image-in-r-script.png)
-
-## Access to registered dataset
-
-You can refer to the following sample code to [access to the registered datasets](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) in your workspace:
-
-```R
-		azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-  run = get_current_run()
-  ws = run$experiment$workspace
-  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
-  dataframe2 <- dataset$to_pandas_dataframe()
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
 
 ## How to configure Execute R Script
 
@@ -190,11 +176,11 @@ Datasets stored in the designer are automatically converted to an R data frame w
     > [!NOTE]
     > Existing R code might need minor changes to run in a designer pipeline. For example, input data that you provide in CSV format should be explicitly converted to a dataset before you can use it in your code. Data and column types used in the R language also differ in some ways from the data and column types used in the designer.
 
-    If your script is larger than 16 KB, use the **Script Bundle** port to avoid errors like *CommandLine exceeds the limit of 16597 characters*. 
+1. If your script is larger than 16 KB, use the **Script Bundle** port to avoid errors like *CommandLine exceeds the limit of 16597 characters*. 
     
     1. Bundle the script and other custom resources to a zip file.
     1. Upload the zip file as a **File Dataset** to the studio. 
-    1. Drag the dataset module from the *My datasets* list in the left module pane in the designer authoring page. 
+    1. Drag the dataset module from the *Datasets* list in the left module pane in the designer authoring page. 
     1. Connect the dataset module to the **Script Bundle** port of **Execute R Script** module.
     
     Following is the sample code to consume the script in the script bundle:
@@ -501,4 +487,4 @@ The following preinstalled R packages are currently available:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

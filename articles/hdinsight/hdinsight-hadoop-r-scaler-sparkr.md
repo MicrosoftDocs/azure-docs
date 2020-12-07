@@ -14,13 +14,13 @@ ms.date: 12/26/2019
 
 This document shows how to predict flight arrival delays using a **ScaleR** logistic regression model. The example uses flight delay and weather data, joined using **SparkR**.
 
-Although both packages run on Apache Hadoop’s Spark execution engine, they're blocked from in-memory data sharing as they each require their own respective Spark sessions. Until this issue is addressed in an upcoming version of ML Server, the workaround is to maintain non-overlapping Spark sessions, and to exchange data through intermediate files. The instructions here show that these requirements are straightforward to achieve.
+Although both packages run on Apache Hadoop's Spark execution engine, they're blocked from in-memory data sharing as they each require their own respective Spark sessions. Until this issue is addressed in an upcoming version of ML Server, the workaround is to maintain non-overlapping Spark sessions, and to exchange data through intermediate files. The instructions here show that these requirements are straightforward to achieve.
 
 This example was initially shared in a talk at Strata 2016 by Mario Inchiosa and Roni Burd. You can find this talk at [Building a Scalable Data Science Platform with R](https://channel9.msdn.com/blogs/Cloud-and-Enterprise-Premium/Building-A-Scalable-Data-Science-Platform-with-R-and-Hadoop).
 
 The code was originally written for ML Server running on Spark in an HDInsight cluster on Azure. But the concept of mixing the use of SparkR and ScaleR in one script is also valid in the context of on-premises environments.
 
-The steps in this document assume that you have an intermediate level of knowledge of R and R the [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) library of ML Server. You're introduced to [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) while walking through this scenario.
+The steps in this document assume that you have an intermediate level of knowledge of R and R the [ScaleR](/machine-learning-server/r/concept-what-is-revoscaler) library of ML Server. You're introduced to [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) while walking through this scenario.
 
 ## The airline and weather datasets
 
@@ -213,7 +213,7 @@ weatherDF <- read.df(sqlContext, weatherPath, source = "com.databricks.spark.csv
 
 ## Data cleansing and transformation
 
-Next we do some cleanup on the airline data we’ve imported to rename columns. We only keep the variables needed, and round scheduled departure times down to the nearest hour to enable merging with the latest weather data at departure:
+Next we do some cleanup on the airline data we've imported to rename columns. We only keep the variables needed, and round scheduled departure times down to the nearest hour to enable merging with the latest weather data at departure:
 
 ```
 logmsg('clean the airline data') 
@@ -454,7 +454,7 @@ rxGetInfo(testDS)
 
 ## Train and test a logistic regression model
 
-Now we're ready to build a model. To see the influence of weather data on delay in the arrival time, we use ScaleR’s logistic regression routine. We use it to model whether an arrival delay of greater than 15 minutes is influenced by the weather at the departure and arrival airports:
+Now we're ready to build a model. To see the influence of weather data on delay in the arrival time, we use ScaleR's logistic regression routine. We use it to model whether an arrival delay of greater than 15 minutes is influenced by the weather at the departure and arrival airports:
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
@@ -474,7 +474,7 @@ logitModel <- rxLogit(formula, data = trainDS, maxIterations = 3)
 base::summary(logitModel)
 ```
 
-Now let’s see how it does on the test data by making some predictions and looking at ROC and AUC.
+Now let's see how it does on the test data by making some predictions and looking at ROC and AUC.
 
 ```
 # Predict over test data (Logistic Regression).
@@ -501,7 +501,7 @@ plot(logitRoc)
 
 ## Scoring elsewhere
 
-We can also use the model for scoring data on another platform. By saving it to an RDS file and then transferring and importing that RDS into a destination scoring environment such as MIcrosoft SQL Server R Services. It's important to ensure that the factor levels of the data to be scored match those on which the model was built. That match can be achieved by extracting and saving the column information associated with the modeling data via ScaleR’s `rxCreateColInfo()` function and then applying that column information to the input data source for prediction. In the following we save a few rows of the test dataset and extract and use the column information from this sample in the prediction script:
+We can also use the model for scoring data on another platform. By saving it to an RDS file and then transferring and importing that RDS into a destination scoring environment such as Microsoft SQL Server R Services. It's important to ensure that the factor levels of the data to be scored match those on which the model was built. That match can be achieved by extracting and saving the column information associated with the modeling data via ScaleR's `rxCreateColInfo()` function and then applying that column information to the input data source for prediction. In the following code example, we save a few rows of the test dataset and extract and use the column information from this sample in the prediction script:
 
 ```
 # save the model and a sample of the test dataset 
@@ -530,7 +530,7 @@ In this article, we've shown how it's possible to combine use of SparkR for data
 
 ## Next steps and more information
 
-- For more information on use of ML Server on Apache Spark, see the [Getting started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+- For more information on use of ML Server on Apache Spark, see the [Getting started guide](/machine-learning-server/r/how-to-revoscaler-spark).
 
 - For information on ML Services on HDInsight, see [Overview of ML Services on HDInsight](r-server/r-server-overview.md).
 
@@ -538,4 +538,4 @@ For more information on use of SparkR, see:
 
 - [Apache SparkR document](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [SparkR Overview](https://docs.databricks.com/spark/latest/sparkr/overview.html) from Databricks.
+- [SparkR Overview](/azure/databricks/spark/latest/sparkr/overview)

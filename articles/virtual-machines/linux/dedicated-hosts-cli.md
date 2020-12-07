@@ -13,7 +13,7 @@ ms.author: cynthn
 # Deploy to dedicated hosts using the Azure CLI
  
 
-This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
+This article guides you through how to create an Azure [dedicated host](../dedicated-hosts.md) to host your virtual machines (VMs). 
 
 Make sure that you have installed Azure CLI version 2.0.70 or later, and signed in to an Azure account using `az login`. 
 
@@ -316,8 +316,8 @@ az group delete -n myDHResourceGroup
 
 ## Next steps
 
-- For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
+- For more information, see the [Dedicated hosts](../dedicated-hosts.md) overview.
 
-- You can also create dedicated hosts using the [Azure portal](dedicated-hosts-portal.md).
+- You can also create dedicated hosts using the [Azure portal](../dedicated-hosts-portal.md).
 
 - There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.

@@ -56,7 +56,7 @@ You can also access Activity log events using the following methods.
 
 [Create a diagnostic setting](diagnostic-settings.md) to send the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five  workspaces. Collecting logs across tenants requires [Azure Lighthouse](../../lighthouse/index.yml).
 
-Activity log data in a Log Analytics workspace is stored in a table called *AzureActivity* that you can retrieve with a [log query](../log-query/log-query-overview.md) in [Log Analytics](../log-query/get-started-portal.md). The structure of this table varies depending on the [category of the log entry](activity-log-schema.md). For a description of the table properties, see the [Azure Monitor data reference](/azure/azure-monitor/reference/tables/azureactivity).
+Activity log data in a Log Analytics workspace is stored in a table called *AzureActivity* that you can retrieve with a [log query](../log-query/log-query-overview.md) in [Log Analytics](../log-query/log-analytics-tutorial.md). The structure of this table varies depending on the [category of the log entry](activity-log-schema.md). For a description of the table properties, see the [Azure Monitor data reference](/azure/azure-monitor/reference/tables/azureactivity).
 
 For example, to view a count of Activity log records for each category, use the following query.
 
@@ -222,7 +222,7 @@ Following is a sample PowerShell script to create a log profile that writes the 
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId  $storageAccountId -ServiceBusRuleId $serviceBusRuleId
    ```
 
 
@@ -395,4 +395,5 @@ You will soon no longer be able to add the Activity Logs Analytics solution to y
 ## Next steps
 
 * [Read an overview of platform logs](platform-logs-overview.md)
+* [Review Activity log event schema](activity-log-schema.md)
 * [Create diagnostic setting to send Activity logs to other destinations](diagnostic-settings.md)

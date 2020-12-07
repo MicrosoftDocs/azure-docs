@@ -44,7 +44,7 @@ SPAs have two additional restrictions:
 * [The redirect URI must be marked as type `spa`](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) to enable CORS on login endpoints.
 * Refresh tokens issued through the authorization code flow to `spa` redirect URIs have a 24-hour lifetime rather than a 90-day lifetime.
 
-![Code flow for SPA apps](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagram showing the OAuth 2 authorization code flow between a single-page app and the security token service endpoint." border="false":::
 
 ## Performance and UX implications
 

@@ -60,9 +60,8 @@ An alternate way to reconfigure DATA 0 network interface is through the use of t
    * Fixed IPv4 address for Controller 0
    * Fixed IPv4 address for Controller 1
      
-     For more information on the use of this cmdlet, go to [Windows PowerShell for StorSimple cmdlet reference](https://technet.microsoft.com/library/dn688161.aspx).
+     For more information on the use of this cmdlet, go to [Windows PowerShell for StorSimple cmdlet reference](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)).
 
 ## Next steps
 * To configure network interfaces other than DATA 0, you can use the [Configure network settings in the Azure portal](storsimple-8000-modify-device-config.md). 
-* If you experience any issues when configuring your network interfaces, refer to [Troubleshoot deployment issues](storsimple-troubleshoot-deployment.md).
-
+* If you experience any issues when configuring your network interfaces, refer to [Troubleshoot deployment issues](./storsimple-8000-troubleshoot-deployment.md).

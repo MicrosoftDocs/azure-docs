@@ -121,7 +121,7 @@ In the scope of this article, we will be using the Windows Voice Assistant clien
 1. Launch **VoiceAssistantClient.exe**.
 1. Create a new publish profile and enter value for **Connection Profile**. In the **General Settings** section, enter values **Subscription Key** (this is same as the **Speech resource key** value you saved when publishing the application), **Subscription key region** and **Custom commands app ID**.
     > [!div class="mx-imgBorder"]
-    > ![WVAC Create profile](media/custom-commands/create-profile.png)
+    > ![Screenshot that highlights the General Settings section for creating a WVAC profile.](media/custom-commands/create-profile.png)
 1. Select **Save and Apply Profile**.
 1. Now try out the following inputs via speech/text
     > [!div class="mx-imgBorder"]

@@ -15,11 +15,11 @@ This article lists the steps that will help you deploy Live Video Analytics on y
 
 ## Prerequisites
 
-* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](https://docs.microsoft.com/azure/iot-edge/support#operating-systems)
+* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../iot-edge/support.md#operating-systems)
 * Azure subscription to which you have [owner privileges](../../role-based-access-control/built-in-roles.md#owner)
 * [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
-* [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge-linux.md)
+* [Register IoT Edge device](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge.md)
 * [Create an Azure Media Services account](../latest/create-account-howto.md)
 
     * Use one of these regions: East US 2, East US, Central US, North Central US, Japan East, West US, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.

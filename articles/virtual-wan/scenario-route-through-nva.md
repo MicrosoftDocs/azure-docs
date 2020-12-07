@@ -37,16 +37,16 @@ The following connectivity matrix, summarizes the flows supported in this scenar
 
 | From             | To:|   *NVA Spokes*|*NVA VNets*|*Non-NVA VNets*|*Branches*|
 |---|---|---|---|---|---|
-| **NVA Spokes**   | &#8594; | 0/0 UDR  |  Peering |   0/0 UDR    |  0/0 UDR  |
-| **NVA VNets**    | &#8594; |   Static |      X   |        X     |      X    |
-| **Non-NVA VNets**| &#8594; |   Static |      X   |        X     |      X    |
-| **Branches**     | &#8594; |   Static |      X   |        X     |      X    |
+| **NVA Spokes**   | &#8594; | Over NVA VNet | Peering | Over NVA VNet | Over NVA VNet |
+| **NVA VNets**    | &#8594; | Peering | Direct | Direct | Direct |
+| **Non-NVA VNets**| &#8594; | Over NVA VNet | Direct | Direct | Direct |
+| **Branches**     | &#8594; | Over NVA VNet | Direct | Direct | Direct |
 
-Each of the cells in the connectivity matrix describes whether a Virtual WAN connection (the "From" side of the flow, the row headers in the table) learns a destination prefix (the "To" side of the flow, the column headers in italics in the table) for a specific traffic flow. An "X" means that connectivity is provided natively by Virtual WAN, and "Static" means that connectivity is provided by Virtual WAN using static routes. Consider the following:
+Each of the cells in the connectivity matrix describes how a VNet or branch (the "From" side of the flow, the row headers in the table) communicates with a destination VNet or branch (the "To" side of the flow, the column headers in italics in the table). "Direct" means that connectivity is provided natively by Virtual WAN, "Peering" means that connectivity is provided by a User-Defined Route int he VNet, "Over NVA VNet" means that the connectivity traverses the NVA deployed in the NVA VNet. Consider the following:
 
 * NVA Spokes are not managed by Virtual WAN. As a result, the mechanisms with which they will communicate to other VNets or branches are maintained by the user. Connectivity to the NVA VNet is provided by a VNet peering, and a Default route to 0.0.0.0/0 pointing to the NVA as next hop should cover connectivity to the Internet, to other spokes, and to branches
 * NVA VNets will know about their own NVA spokes, but not about NVA spokes connected to other NVA VNets. For example, in Table 1, VNet 2 knows about VNet 5 and VNet 6, but not about other spokes such as VNet 7 and VNet 8. A static route is required to inject other spokes' prefixes into NVA VNets
-* Similarly, branches and non-NVA VNets will not know about any NVA spoke, since NVA spokes are not connected to VWAN hubs. As a result, static routes will be needed here as well.
+* Similarly, branches and non-NVA VNets will not know about any NVA spoke, since NVA spokes are not connected to Virtual WAN hubs. As a result, static routes will be needed here as well.
 
 Taking into account that the NVA spokes are not managed by Virtual WAN, all other rows show the same connectivity pattern. As a result, a single route table (the Default one) will do:
 

@@ -15,7 +15,7 @@ ms.author: cynthn
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage.
 
 > [!WARNING]
-> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information, see [Pricing and Billing when using Premium Storage](disks-types.md#billing).
+> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information, see [Pricing and Billing when using Premium Storage](../disks-types.md#billing).
 
 If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
 
@@ -48,8 +48,7 @@ You can *hot* remove a data disk, but make sure nothing is actively using the di
 1. In the left menu, select **Virtual Machines**.
 1. Select the virtual machine that has the data disk you want to detach.
 1. Under **Settings**, select **Disks**.
-1. At the top of the **Disks** pane, select **Edit**.
-1. In the **Disks** pane, to the far right of the data disk that you would like to detach, select **Detach**.
+1. In the **Disks** pane, to the far right of the data disk that you would like to detach, click the **X** delete button.
 1. Select **Save** on the top of the page to save your changes.
 
 The disk stays in storage but is no longer attached to a virtual machine.

@@ -3,7 +3,7 @@ title: Deploy container instance by GitHub action
 description: Configure a GitHub action that automates steps to build, push, and deploy a container image to Azure Container Instances
 ms.topic: article
 ms.date: 08/20/2020
-ms.custom: 
+ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
 # Configure a GitHub action to create a container instance
@@ -51,7 +51,7 @@ In the GitHub workflow, you need to supply Azure credentials to authenticate to 
 First, get the resource ID of your resource group. Substitute the name of your group in the following [az group show][az-group-show] command:
 
 ```azurecli
-groupId=$(az group show \
+$groupId=$(az group show \
   --name <resource-group-name> \
   --query id --output tsv)
 ```

@@ -22,7 +22,7 @@ Azure Stack Edge Pro with GPU is a Hardware-as-a-service solution. Microsoft shi
 Here are the various scenarios where Azure Stack Edge Pro can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
 
 - **Inference with Azure Machine Learning** - With Azure Stack Edge Pro, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge Pro device, see 
-[Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+[Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Preprocess data** - Transform data before sending it to Azure via compute options such as containerized workloads and Virtual Machines to create a more actionable dataset. Preprocessing can be used to: 
 
@@ -70,7 +70,7 @@ Azure Stack Edge Pro physical device, Azure resource, and target storage account
 
 - **Resource availability** - For this preview release, the resource is available in East US, West EU, and South East Asia regions.
 
-- **Device availability** - For a list of all the countries where the Azure Stack Edge Pro device is available, go to **Availability** section in the **Azure Stack Edge Pro** tab for [Azure Stack Edge Pro pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
+- **Device availability** - For a list of all the countries/regions where the Azure Stack Edge Pro device is available, go to **Availability** section in the **Azure Stack Edge Pro** tab for [Azure Stack Edge Pro pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Pro data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 

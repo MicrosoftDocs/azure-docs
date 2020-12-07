@@ -6,10 +6,8 @@
     href: introduction.md
 - name: Quick start
   items:
-    - name: Pre-deployment process
+    - name: 0 - Plan the deployment
       href: production-ready-deployment-steps.md
-    - name: Pre-deployment checklist
-      href: pre-deployment-checklist.md
     - name: 1 - Deploy Azure VMware Solution
       href: deploy-azure-vmware-solution.md
     - name: 2 - Connect to on-premises
@@ -22,7 +20,7 @@
     href: tutorial-network-checklist.md
   - name: 2 - Create a private cloud
     href: tutorial-create-private-cloud.md
-  - name: 3 - Access a private cloud 
+  - name: 3 - Access a private cloud
     href: tutorial-access-private-cloud.md
   - name: 4 - Configure networking
     href: tutorial-configure-networking.md
@@ -44,15 +42,17 @@
     href: concepts-storage.md
   - name: Access and identity for private clouds
     href: concepts-identity.md
-  - name: Role-based access control
+  - name: vSphere role-based access control
     href: concepts-role-based-access-control.md
+  - name: Monitor and repair private clouds
+    href: concepts-monitor-repair-private-cloud.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
 - name: How-to guides
   items:
   - name: Enable Azure VMware Solution
     href: enable-azure-vmware-solution.md
-  - name: Save costs a reserved instance
+  - name: Save costs with a reserved instance
     href: reserved-instance.md
   - name: Migration assessment
     href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
@@ -61,13 +61,21 @@
   - name: Deploy disaster recovery for VMs
     href: disaster-recovery-for-virtual-machines.md
   - name: Deploy VM via content library
-    href: tutorial-deploy-vm-content-library.md
+    href: ./deploy-vm-content-library.md
+  - name: Set up GitHub Enterprise Server
+    href: github-enterprise-server.md
+  - name: Public IP usage
+    href: public-ip-usage.md
+  - name: Create an IPSec tunnel
+    href: create-ipsec-tunnel.md
   - name: Azure native integration
     items:
     - name: API Management
       href: concepts-api-management.md
     - name: Hub and spoke
       href: concepts-hub-and-spoke.md
+    - name: Azure Security Center
+      href: azure-security-integration.md
     - name: Azure Backup Server
       items:
       - name: Set up Backup Server
@@ -83,12 +91,24 @@
   - name: VMware solutions
     items:
     - name: Set up vRealize Operations
-      href: vrealize-operations-for-azure-vmware-solution.md  
+      href: vrealize-operations-for-azure-vmware-solution.md
+    - name: Deploy VMware Horizon
+      href: azure-vmware-solution-horizon.md
+  - name: VMware ecosystem
+    items:
+    - name: Backup solutions for VMs
+      href: ecosystem-back-up-vms.md
 - name: Resources
   items:
   - name: Troubleshooting
     items:
-    - name: Get help with deployment or provisioning failures
-      href: fix-deployment-provisioning-failures.md  
+    - name: Open a support request for deployment failures
+      href: fix-deployment-provisioning-failures.md
   - name: FAQ
     href: faq.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/ext/vmware/vmware
+  - name: Azure PowerShell
+    href: /powershell/module/az.vmware/

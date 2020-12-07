@@ -1,11 +1,11 @@
 ---
 title: Migrate using dump and restore - Azure Database for MySQL
 description: This article explains two common ways to back up and restore databases in your Azure Database for MySQL, using tools such as mysqldump, MySQL Workbench, and PHPMyAdmin.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 2/27/2020
+ms.date: 10/30/2020
 ---
 
 # Migrate your MySQL database to Azure Database for MySQL using dump and restore
@@ -16,6 +16,8 @@ This article explains two common ways to back up and restore databases in your A
 - Dump and restore from the command-line (using mysqldump)
 - Dump and restore using PHPMyAdmin
 
+You can also refer to [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) for detailed information and use cases about migrating databases to Azure Database for MySQL. This guide provides guidance that will lead the successful planning and execution of a MySQL migration to Azure.
+
 ## Before you begin
 To step through this how-to guide, you need to have:
 - [Create Azure Database for MySQL server - Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
@@ -25,11 +27,15 @@ To step through this how-to guide, you need to have:
 > [!TIP]
 > If you are looking to migrate large databases with database sizes more than 1 TBs, you may want to consider using community tools like **mydumper/myloader** which supports parallel export and import. Learn [How to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
 
-## Common use-cases for dump and restore
-You may use MySQL utilities such as **mysqldump** and **mysqlpump** to dump and load databases into an Azure MySQL Database in several common scenarios. In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.
 
-- **Use database dumps when you are migrating the entire database**. This recommendation holds when moving a large amount of MySQL data, or when you want to minimize service interruption for live sites or applications.
--  **Use database dump if all the tables in the database use the InnoDB storage engine**. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before migration to Azure Database for MySQL.
+## Common use-cases for dump and restore
+
+Most common use-cases are:
+
+- **Moving from other managed service provider** - Most managed service provider may not provide access to the physical storage file for security reasons so logical backup and restore is the only option to migrate.
+- **Migrating from on-premises environment or Virtual machine** - Azure Database for MySQL doesn't support restore of physical backups which makes logical backup and restore as the ONLY approach.
+- **Moving your backup storage from locally redundant to geo-redundant storage** - Azure Database for MySQL allows configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you cannot change the backup storage redundancy option. In order to move your backup storage from locally redundant storage to geo-redundant storage, dump and restore is the ONLY option. 
+-  **Migrating from alternative storage engines to InnoDB** - Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before migration to Azure Database for MySQL.
 
     For example, if you have a WordPress or WebApp using the MyISAM tables, first convert those tables by migrating into InnoDB format before restoring to Azure Database for MySQL. Use the clause `ENGINE=InnoDB` to set the engine used when creating a new table, then transfer the data into the compatible table before the restore.
 
@@ -159,4 +165,5 @@ For known issues, tips and tricks, we recommend you to look at our [techcommunit
 
 ## Next steps
 - [Connect applications to Azure Database for MySQL](./howto-connection-string.md).
-- For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](https://aka.ms/datamigration).
+- For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
+- If you are looking to migrate large databases with database sizes more than 1 TBs, you may want to consider using community tools like **mydumper/myloader** which supports parallel export and import. Learn [How to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).

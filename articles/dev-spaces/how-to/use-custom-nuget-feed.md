@@ -11,6 +11,8 @@ manager: gwallace
 ---
 # Use a custom NuGet feed with Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
+
 A NuGet feed provides a convenient way to include package sources in a project. Azure Dev Spaces needs to access this feed in order for dependencies to be properly installed in the Docker container.
 
 ## Set up a NuGet feed

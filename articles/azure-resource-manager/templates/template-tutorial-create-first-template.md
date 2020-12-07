@@ -5,7 +5,7 @@ author: mumian
 ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao 
-ms.custom: devx-track-azurecli
+ms.custom:
 
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 

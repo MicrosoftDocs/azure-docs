@@ -80,7 +80,7 @@ With Azure Database for PostgreSQL, you can continue to administer your database
 
 Additionally, configuring high availability to another data center requires minimal to no configuration or administration.
 
-- With PostgreSQL on Azure VMs, you have full control over the operating system and the PostgreSQL server instance configuration. With a VM, you decide when to update or upgrade the operating system and database software and what patches to apply. You also decide when to install any additional software such as an antivirus application. Some automated features are provided to greatly simplify patching, backup, and high availability. You can control the size of the VM, the number of disks, and their storage configurations. For more information, see [Virtual machine and cloud service sizes for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+- With PostgreSQL on Azure VMs, you have full control over the operating system and the PostgreSQL server instance configuration. With a VM, you decide when to update or upgrade the operating system and database software and what patches to apply. You also decide when to install any additional software such as an antivirus application. Some automated features are provided to greatly simplify patching, backup, and high availability. You can control the size of the VM, the number of disks, and their storage configurations. For more information, see [Virtual machine and cloud service sizes for Azure](../virtual-machines/sizes.md).
 
 ## Time to move to Azure PostgreSQL Service (PaaS)
 
@@ -92,4 +92,3 @@ Additionally, configuring high availability to another data center requires mini
 
 - See Azure Database for [PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
 - Get started by creating your first server.
-

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 
@@ -192,9 +192,9 @@ Azure AD checks your current hybrid connectivity and provides one of the followi
 * Your on-premises writeback client is up and running.
 * Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
 * Unfortunately, we can't check your on-premises writeback client status because the installed version of Azure AD Connect is out-of-date. [Upgrade Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) to be able to check your connection status.
-* Unfortunately, it looks like we can't connect to your on-premises writeback client right now. [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) to restore the connection.
+* Unfortunately, it looks like we can't connect to your on-premises writeback client right now. [Troubleshoot Azure AD Connect](./troubleshoot-sspr-writeback.md) to restore the connection.
 * Unfortunately, we can't connect to your on-premises writeback client because password writeback has not been properly configured. [Configure password writeback](./tutorial-enable-sspr-writeback.md) to restore the connection.
-* Unfortunately, it looks like we can't connect to your on-premises writeback client right now. This may be due to temporary issues on our end. If the problem persists, [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) to restore the connection.
+* Unfortunately, it looks like we can't connect to your on-premises writeback client right now. This may be due to temporary issues on our end. If the problem persists, [Troubleshoot Azure AD Connect](./troubleshoot-sspr-writeback.md) to restore the connection.
 
 To get started with SSPR writeback, complete the following tutorial:
 
@@ -224,7 +224,7 @@ SSPR performs the equivalent of an admin-initiated password reset in Active Dire
 Password reset and change are fully supported on all business-to-business (B2B) configurations. B2B user password reset is supported in the following three cases:
 
 * **Users from a partner organization with an existing Azure AD tenant**: If the organization you partner with has an existing Azure AD tenant, we respect whatever password reset policies are enabled on that tenant. For password reset to work, the partner organization just needs to make sure that Azure AD SSPR is enabled. There is no additional charge for Microsoft 365 customers.
-* **Users who sign up through** self-service sign-up: If the organization you partner with used the [self-service sign-up](../users-groups-roles/directory-self-service-signup.md) feature to get into a tenant, we let them reset the password with the email they registered.
+* **Users who sign up through** self-service sign-up: If the organization you partner with used the [self-service sign-up](../enterprise-users/directory-self-service-signup.md) feature to get into a tenant, we let them reset the password with the email they registered.
 * **B2B users**: Any new B2B users created by using the new [Azure AD B2B capabilities](../external-identities/what-is-b2b.md) can also reset their passwords with the email they registered during the invite process.
 
 To test this scenario, go to https://passwordreset.microsoftonline.com with one of these partner users. If they have an alternate email or authentication email defined, password reset works as expected.

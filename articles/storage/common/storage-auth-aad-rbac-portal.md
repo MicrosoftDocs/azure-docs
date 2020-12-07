@@ -1,7 +1,7 @@
 ---
 title: Use the Azure portal to assign an Azure role for data access 
 titleSuffix: Azure Storage
-description: Learn how to use the Azure portal to assign permissions to an Azure Active Directory security principal with role-based access control (RBAC). Azure Storage supports built-in and Azure custom roles for authentication via Azure AD.
+description: Learn how to use the Azure portal to assign permissions to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication via Azure AD.
 services: storage
 author: tamram
 
@@ -94,9 +94,9 @@ Assigning the **Reader** role is necessary only for users who need to access blo
 ## Next steps
 
 - For more information about Azure roles for storage resources, see [Authenticate access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md). 
-- To learn more about RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
+- To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 - To learn how to assign and manage Azure role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
-    - [Manage role-based access control (RBAC) with Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-    - [Manage role-based access control (RBAC) with Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-    - [Manage role-based access control (RBAC) with the REST API](../../role-based-access-control/role-assignments-rest.md)
+    - [Add or remove Azure role assignments using the Azure PowerShell module](../../role-based-access-control/role-assignments-powershell.md)
+    - [Add or remove Azure role assignments using the Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+    - [Add or remove Azure role assignments using the REST API](../../role-based-access-control/role-assignments-rest.md)
 - To learn how to authorize access to containers and queues from within your storage applications, see [Use Azure AD with Azure Storage applications](storage-auth-aad-app.md).

@@ -255,7 +255,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
  
 3. Once the credentials are supplied, you can push your module image to your Azure container registry. In the VS Code Explorer, right-click the **module.json** file and select **Build and Push IoT Edge solution**.
 
-    ![Build and push IoT Edge solution](./media/azure-stack-edge-j-series-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![Build and push IoT Edge solution 2](./media/azure-stack-edge-j-series-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     When you tell Visual Studio Code to build your solution, it runs two commands in the integrated terminal: docker build and docker push. These two commands build your code, containerize the CSharpModule.dll, and then push the code to the container registry that you specified when you initialized the solution.
 

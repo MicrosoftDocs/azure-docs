@@ -31,9 +31,9 @@ This tutorial will use the Azure CLI to deploy resources in Azure.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+- This article requires version 2.0.30 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -236,7 +236,7 @@ You should get the following results once the command completes:
     done
     ```
 
-The above command creates the VMs, and creates a default VNet for those VMs. For more information on the different configurations, see the [az vm create](https://docs.microsoft.com/cli/azure/vm) article.
+The above command creates the VMs, and creates a default VNet for those VMs. For more information on the different configurations, see the [az vm create](/cli/azure/vm) article.
 
 You should get results similar to the following once the command completes for each VM:
 
@@ -257,7 +257,7 @@ You should get results similar to the following once the command completes for e
 > [!IMPORTANT]
 > The default image that is created with the above command creates a 32GB OS disk by default. You could potentially run out of space with this default installation. You can use the following parameter added to the above `az vm create` command to create an OS disk with 128GB as an example: `--os-disk-size-gb 128`.
 >
-> You can then [configure Logical Volume Manager (LVM)](../../../virtual-machines/linux/configure-lvm.md) if you need to expand appropriate folder volumes to accomodate your installation.
+> You can then [configure Logical Volume Manager (LVM)](/previous-versions/azure/virtual-machines/linux/configure-lvm) if you need to expand appropriate folder volumes to accomodate your installation.
 
 ### Test connection to the created VMs
 
@@ -1126,6 +1126,34 @@ To ensure that the configuration has succeeded so far, we will test a failover. 
     sudo pcs resource move ag_cluster-clone <VM2> --master
     ```
 
+   You can also specify an additional option so that the temporary constraint that's created to move the resource to a desired node is disabled automatically, and you do not have to perform steps 2 and 3 below.
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master lifetime=30S
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master lifetime=30S
+    ```
+
+   Another alternative to automate steps 2 and 3 below which clear the temporary constraint in the resource move command itself is by combining multiple commands in a single line. 
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master && sleep 30 && pcs resource clear ag_cluster-master
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master && sleep 30 && pcs resource clear ag_cluster-clone
+    ```
+    
 2. If you check your constraints again, you'll see that another constraint was added because of the manual failover:
     
     **RHEL 7**

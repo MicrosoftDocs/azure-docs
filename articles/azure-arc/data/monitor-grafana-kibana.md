@@ -25,7 +25,7 @@ To access the dashboards you will need to retrieve your cluster's IP address. Th
 
 To retrieve the public IP address use the following command:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -61,7 +61,7 @@ The steps below highlight how to create an NSG rule for the Kibana and Grafana e
 
 ### Find the name of the NSG
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -69,7 +69,7 @@ az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 
 Once you have the name of the NSG you can add a rule using the following command:
 
-```console
+```azurecli
 az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 600 -g azurearcvm-rg --access Allow --description 'Allow Kibana and Grafana ports' --destination-address-prefixes '*' --destination-port-ranges 30777 --direction Inbound --protocol Tcp --source-address-prefixes '*' --source-port-ranges '*'
 ```
 

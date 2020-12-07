@@ -1,6 +1,8 @@
 ---
 title: Use NLP with LUIS for chat bots
 description: Learn when to use Language Understanding and when to use QnA Maker and understand how they compliment each other.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ---

@@ -16,11 +16,12 @@ The NVv3-series virtual machines are powered by [NVIDIA Tesla M60](https://image
 
 Each GPU in NVv3 instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
 
-Premium Storage caching:  Supported
-
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs / Expected network bandwidth (Mbps) | Virtual Workstations | Virtual Applications |
 |---|---|---|---|---|---|---|---|---|---|---|

@@ -1,6 +1,9 @@
 ---
 title: Questions about discovery, assessment, and dependency analysis in Azure Migrate
 description: Get answers to common questions about discovery, assessment, and dependency analysis in Azure Migrate.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
 
@@ -40,21 +43,21 @@ For "Performance-based" assessment, the assessment report export says 'Percentag
 
 - If the VMs are powered on for the duration for which you are creating the assessment
 - If only memory counters are missing and you are trying to assess Hyper-V VMs, check if you have dynamic memory enabled on these VMs. There is a known issue currently due to which Azure Migrate appliance cannot collect memory utilization for such VMs.
-- If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) is allowed.
+- If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
 Note- If any of the performance counters are missing, Azure Migrate: Server Assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
 
 ## Why is the confidence rating of my assessment low?
 
-The confidence rating is calculated for "Performance-based" assessments based on the percentage of [available data points](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
+The confidence rating is calculated for "Performance-based" assessments based on the percentage of [available data points](./concepts-assessment-calculation.md#ratings) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
 
 - You did not profile your environment for the duration for which you are creating the assessment. For example, if you are creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you cannot wait for the duration, please change the performance duration to a smaller period and 'Recalculate' the assessment.
  
-- Server Assessment is not be able to collect the performance data for some or all the VMs in the assessment period. Please check if the VMs were powered on for the duration of the assessment, outbound connections on ports 443 are allowed. For Hyper-V VMs, if dynamic memory is enabled, memory counters will be missing leading to a low confidence rating. Please 'Recalculate' the assessment to reflect the latest changes in confidence rating. 
+- Server Assessment is not able to collect the performance data for some or all the VMs in the assessment period. Please check if the VMs were powered on for the duration of the assessment, outbound connections on ports 443 are allowed. For Hyper-V VMs, if dynamic memory is enabled, memory counters will be missing leading to a low confidence rating. Please 'Recalculate' the assessment to reflect the latest changes in confidence rating. 
 
 - Few VMs were created after discovery in Server Assessment had started. For example, if you are creating an assessment for the performance history of last one month, but few VMs were created in the environment only a week ago. In this case, the performance data for the new VMs will not be available for the entire duration and the confidence rating would be low.
 
-[Learn more](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) about confidence rating.
+[Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence rating.
 
 ## I can't see some groups when I am creating an Azure VMware Solution (AVS) assessment
 

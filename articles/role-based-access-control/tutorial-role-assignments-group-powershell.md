@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this tutorial, you will need:
 
 - Permissions to create groups in Azure Active Directory (or have an existing group)
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)
+- [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md)
 
 ## Role assignments
 

@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 ---
 # Share gallery VM images across Azure tenants - Linux examples
 
-Shared Image Galleries let you share images using RBAC. You can use RBAC to share images within your tenant, and even to individuals outside of your tenant. For more information about this simple sharing option, see the [Share the gallery](./shared-images-portal.md#share-the-gallery).
+Shared Image Galleries let you share images using Azure RBAC. You can use Azure RBAC to share images within your tenant, and even to individuals outside of your tenant. For more information about this simple sharing option, see the [Share the gallery](./shared-images-portal.md#share-the-gallery).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 

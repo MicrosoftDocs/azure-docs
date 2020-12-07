@@ -1,7 +1,7 @@
 ---
-title: Sign in users in Angular single-page apps - Azure
+title: "Quickstart: Sign in users in Angular single-page apps - Azure"
 titleSuffix: Microsoft identity platform
-description: Learn how an Angular app can call an API that requires access tokens by using the Microsoft identity platform.
+description: In this quickstart, you learn how an Angular app can call an API that requires access tokens issued by the Microsoft identity platform.
 services: active-directory
 author: jasonnutter
 manager: CelesteDG
@@ -19,7 +19,7 @@ ms.author: janutter
 
 # Quickstart: Sign in users and get an access token in an Angular single-page application
 
-In this quickstart, you use a code sample to learn how an Angular single-page application (SPA) can sign in users who have personal Microsoft accounts, work accounts, or school accounts. An Angular SPA can also get an access token to call the Microsoft Graph API or any web API.
+In this quickstart, you download and run a code sample that demonstrates how an Angular single-page application (SPA) can sign in users and call Microsoft Graph. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
 
 ## Prerequisites
 

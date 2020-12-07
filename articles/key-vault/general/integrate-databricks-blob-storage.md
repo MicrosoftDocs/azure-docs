@@ -24,11 +24,11 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-Before you start this tutorial, install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 ## Create a storage account and blob container with Azure CLI
 
-You'll need to create a general-purpose storage account first to use blobs. If you don't have a [resource group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create), create one before running the command. The following command creates and display the metadata of the storage container. Copy down the **ID**.
+You'll need to create a general-purpose storage account first to use blobs. If you don't have a [resource group](/cli/azure/group?view=azure-cli-latest#az-group-create), create one before running the command. The following command creates and display the metadata of the storage container. Copy down the **ID**.
 
 ```azurecli
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob
@@ -36,7 +36,7 @@ az storage account create --name contosoblobstorage5 --resource-group contosoRes
 
 ![Console output of the above command. ID is highlighted in green for end-user to see.](../media/databricks-command-output-1.png)
 
-Before you can create a container to upload the blob to, you'll need to assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role to yourself. For this example, the role will be assigned to the storage account you've made earlier.
+Before you can create a container to upload the blob to, you'll need to assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. For this example, the role will be assigned to the storage account you've made earlier.
 
 ```azurecli
 az role assignment create --role "Storage Blob Data Contributor" --assignee t-trtr@microsoft.com --scope "/subscriptions/885e24c8-7a36-4217-b8c9-eed31e110504/resourceGroups/contosoResourceGroup5/providers/Microsoft.Storage/storageAccounts/contosoblobstorage5
@@ -89,7 +89,7 @@ az keyvault secret set --vault-name contosoKeyVault10 --name storageKey --value 
 
 ## Create an Azure Databricks workspace and add Key Vault secret scope
 
-This section can't be completed through the command line. Follow this [guide](https://docs.microsoft.com/azure/azure-databricks/store-secrets-azure-key-vault#create-an-azure-databricks-workspace-and-add-a-secret-scope). You'll need to access the [Azure portal](https://ms.portal.azure.com/#home) to:
+This section can't be completed through the command line. Follow this [guide](/azure/databricks/scenarios/store-secrets-azure-key-vault#create-an-azure-databricks-workspace-and-add-a-secret-scope). You'll need to access the [Azure portal](https://ms.portal.azure.com/#home) to:
 
 1. Create your Azure Databricks resource
 1. Launch your workspace
@@ -97,7 +97,7 @@ This section can't be completed through the command line. Follow this [guide](ht
 
 ## Access your blob container from Azure Databricks workspace
 
-This section can't be completed through the command line. Follow this [guide](https://docs.microsoft.com/azure/azure-databricks/store-secrets-azure-key-vault#access-your-blob-container-from-azure-databricks). You'll need to use the Azure Databricks workspace to:
+This section can't be completed through the command line. Follow this [guide](/azure/databricks/scenarios/store-secrets-azure-key-vault#access-your-blob-container-from-azure-databricks). You'll need to use the Azure Databricks workspace to:
 
 1. Create a **New Cluster**
 1. Create a **New Notebook**
@@ -119,4 +119,4 @@ df.show()
 
 Make sure your Key Vault is recoverable:
 > [!div class="nextstepaction"]
-> [Clean up your resources](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
+> [Clean up your resources](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell)

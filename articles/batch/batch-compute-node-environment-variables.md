@@ -19,7 +19,7 @@ To get the current value of an environment variable, launch `cmd.exe` on a Windo
 
 `cmd /c set <ENV_VARIABLE_NAME>`
 
-`/bin/sh printenv <ENV_VARIABLE_NAME>`
+`/bin/sh -c "printenv <ENV_VARIABLE_NAME>"`
 
 ## Command-line expansion of environment variables
 
@@ -27,7 +27,7 @@ The command lines executed by tasks on compute nodes do not run under a shell. T
 
 `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
-`/bin/sh -c MyTaskApplication $MY_ENV_VAR`
+`/bin/sh -c "MyTaskApplication $MY_ENV_VAR"`
 
 ## Environment variables
 

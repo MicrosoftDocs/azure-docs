@@ -11,12 +11,13 @@ ms.custom: devx-track-csharp
 ---
 
 # Optimize storage cost in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB offers unlimited storage and throughput. Unlike throughput, which you have to provision/configure on your Azure Cosmos containers or databases, the storage is billed based on a consumption basis. You are billed only for the logical storage you consume and you don’t have to reserve any storage in advance. Storage automatically scales up and down based on the data that you add or remove to an Azure Cosmos container.
 
 ## Storage cost
 
-Storage is billed with the unit of GBs. Local SSD-backed storage is used by your data and indexing. The total storage used is equal to the storage required by the data and indexes used across all the regions where you are using Azure Cosmos DB. If you globally replicate an Azure Cosmos account across three regions, you will pay for the total storage cost in each of those three regions. To estimate your storage requirement, see [capacity planner](https://www.documentdb.com/capacityplanner) tool. The cost for storage in Azure Cosmos DB is $0.25 GB/month, see [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest updates. You can set up alerts to determine storage used by your Azure Cosmos container, to monitor your storage, see [Monitor Azure Cosmos DB](monitor-accounts.md)) article.
+Storage is billed with the unit of GBs. Local SSD-backed storage is used by your data and indexing. The total storage used is equal to the storage required by the data and indexes used across all the regions where you are using Azure Cosmos DB. If you globally replicate an Azure Cosmos account across three regions, you will pay for the total storage cost in each of those three regions. To estimate your storage requirement, see [capacity planner](https://www.documentdb.com/capacityplanner) tool. The cost for storage in Azure Cosmos DB is $0.25 GB/month, see [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest updates. You can set up alerts to determine storage used by your Azure Cosmos container, to monitor your storage, see [Monitor Azure Cosmos DB](./monitor-cosmos-db.md)) article.
 
 ## Optimize cost with item size
 
@@ -24,7 +25,7 @@ Azure Cosmos DB expects the item size to be 2 MB or less for optimal performance
 
 ## Optimize cost with indexing
 
-By default, the data is automatically indexed, which can increase the total storage consumed. However, you can apply custom index policies to reduce this overhead. Automatic indexing that has not been tuned through policy is about 10-20% of the item size. By removing or customizing index policies, you don't pay extra cost for writes and don't require additional throughput capacity. See [Indexing in Azure Cosmos DB](indexing-policies.md) to configure custom indexing policies. If you have worked with relational databases before, you may think that “index everything” means doubling of storage or higher. However, in Azure Cosmos DB, in the median case, it’s much lower. In Azure Cosmos DB, the storage overhead of index is typically low (10-20%) even with automatic indexing, because it is designed for a low storage footprint. By managing the indexing policy, you can control the tradeoff of index footprint and query performance in a more fine-grained manner.
+By default, the data is automatically indexed, which can increase the total storage consumed. However, you can apply custom index policies to reduce this overhead. Automatic indexing that has not been tuned through policy is about 10-20% of the item size. By removing or customizing index policies, you don't pay extra cost for writes and don't require additional throughput capacity. See [Indexing in Azure Cosmos DB](index-policy.md) to configure custom indexing policies. If you have worked with relational databases before, you may think that “index everything” means doubling of storage or higher. However, in Azure Cosmos DB, in the median case, it’s much lower. In Azure Cosmos DB, the storage overhead of index is typically low (10-20%) even with automatic indexing, because it is designed for a low storage footprint. By managing the indexing policy, you can control the tradeoff of index footprint and query performance in a more fine-grained manner.
 
 ## Optimize cost with time to live and change feed
 
@@ -36,7 +37,7 @@ If you want to store rich media types, for example, videos, images, etc., you ha
 
 ## Check storage consumed
 
-To check the storage consumption of an Azure Cosmos container, you can run a HEAD or GET request on the container, and inspect the `x-ms-request-quota` and the `x-ms-request-usage` headers. Alternatively, when working with the .NET SDK, you can use the [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), and [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) properties to get the storage consumed.
+To check the storage consumption of an Azure Cosmos container, you can run a HEAD or GET request on the container, and inspect the `x-ms-request-quota` and the `x-ms-request-usage` headers. Alternatively, when working with the .NET SDK, you can use the [DocumentSizeQuota](/previous-versions/azure/dn850325(v%3Dazure.100)), and [DocumentSizeUsage](/previous-versions/azure/dn850324(v=azure.100)) properties to get the storage consumed.
 
 ## Using SDK
 
@@ -55,6 +56,5 @@ Next you can proceed to learn more about cost optimization in Azure Cosmos DB wi
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of queries](optimize-cost-queries.md)
+* Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of multi-region Azure Cosmos accounts](optimize-cost-regions.md)
-

@@ -1,18 +1,18 @@
 ---
 title: Common Data Model format
 description: Transform data using the Common Data Model metadata system
-author: djpmsft
+author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
-ms.author: daperlov
+ms.date: 11/20/2020
+ms.author: makromer
 ---
 
 # Common Data Model format in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Common Data Model (CDM) metadata system makes it possible for data and its meaning to be easily shared across applications and business processes. To learn more, see the [Common Data Model](https://docs.microsoft.com/common-data-model/) overview.
+The Common Data Model (CDM) metadata system makes it possible for data and its meaning to be easily shared across applications and business processes. To learn more, see the [Common Data Model](/common-data-model/) overview.
 
 In Azure Data Factory, users can transform data from CDM entities in both model.json and manifest form stored in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) using mapping data flows. You can also sink data in CDM format using CDM entity references that will land your data in CSV or Parquet format in partitioned folders. 
 
@@ -46,6 +46,12 @@ The below table lists the properties supported by a CDM source. You can edit the
 | Corpus folder | the root location of the corpus | yes, if using manifest | String | corpusPath |
 | Corpus entity | Path to entity reference | yes | String | entity |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
+
+When selecting "Entity Reference" both in the Source and Sink transformations, you can select from these three options for the location of your entity reference:
+
+* Local uses the entity defined in the manifest file already being used by ADF
+* Custom will ask you to point to an entity manifest file that is different from the manifest file ADF is using
+* Standard will use an entity reference from the standard library of CDM entities maintained in ```Github```.
 
 ### Sink settings
 

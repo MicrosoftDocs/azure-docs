@@ -3,14 +3,16 @@ title: Performance tips for Azure Cosmos DB Java SDK v4
 description: Learn client configuration options to improve Azure Cosmos database performance for Java SDK v4
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 10/13/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
+ms.custom: devx-track-java, contperfq2
 ---
 
 # Performance tips for Azure Cosmos DB Java SDK v4
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -33,14 +35,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 * **Connection mode: Use Direct mode**
 <a id="direct-connection"></a>
     
-    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of client-side latency. The connection mode is a key configuration setting available for configuring the client. For Azure Cosmos DB Java SDK v4, the two available connection modes are:  
-
-    * Direct mode (default)      
-    * Gateway mode
-
-    These connection modes essentially condition the route that data plane requests - document reads and writes - take from your client machine to partitions in the Azure Cosmos DB back-end. Generally Direct mode is the preferred option for best performance - it allows your client to open TCP connections directly to partitions in the Azure Cosmos DB back-end and send requests *direct*ly with no intermediary. By contrast, in Gateway mode, requests made by your client are routed to a so-called "Gateway" server in the Azure Cosmos DB front-end, which in turn fans out your requests to the appropriate partition(s) in the Azure Cosmos DB back-end. If your application runs within a corporate network with strict firewall restrictions, Gateway mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop (client to Gateway plus Gateway to partition) every time data is read or written to Azure Cosmos DB. Because of this, Direct mode offers better performance due to fewer network hops.
-
-    The connection mode for data plane requests is configured in the Azure Cosmos DB client builder using the *directMode()* or *gatewayMode()* methods, as shown below. To configure either mode with default settings, call either method without arguments. Otherwise, pass a configuration settings class instance as the argument (*DirectConnectionConfig* for *directMode()*,  *GatewayConnectionConfig* for *gatewayMode()*.)
+    Java SDK default connection mode is direct. You can configure the connection mode in the client builder using the *directMode()* or *gatewayMode()* methods, as shown below. To configure either mode with default settings, call either method without arguments. Otherwise, pass a configuration settings class instance as the argument (*DirectConnectionConfig* for *directMode()*,  *GatewayConnectionConfig* for *gatewayMode()*.). To learn more about different connectivity options, see the [connectivity modes](sql-sdk-connection-modes.md) article.
     
     ### <a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -89,13 +84,13 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 * **Enable Accelerated Networking on your Azure VM for lower latency.**
 
-It is recommended that you follow the instructions to enable Accelerated Networking in your [Windows (click for instructions)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) or [Linux (click for instructions)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) Azure VM, in order to maximize performance.
+It is recommended that you follow the instructions to enable Accelerated Networking in your [Windows (click for instructions)](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux (click for instructions)](../virtual-network/create-vm-accelerated-networking-cli.md) Azure VM, in order to maximize performance.
 
 Without accelerated networking, IO that transits between your Azure VM and other Azure resources may be unnecessarily routed through a host and virtual switch situated between the VM and its network card. Having the host and virtual switch inline in the datapath not only increases latency and jitter in the communication channel, it also steals CPU cycles from the VM. With accelerated networking, the VM interfaces directly with the NIC without intermediaries; any network policy details which were being handled by the host and virtual switch are now handled in hardware at the NIC; the host and virtual switch are bypassed. Generally you can expect lower latency and higher throughput, as well as more *consistent* latency and decreased CPU utilization when you enable accelerated networking.
 
 Limitations: accelerated networking must be supported on the VM OS, and can only be enabled when the VM is stopped and deallocated. The VM cannot be deployed with Azure Resource Manager.
 
-Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) instructions for more details.
+Please see the [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) and [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) instructions for more details.
 
 ## SDK usage
 * **Install the most recent SDK**
@@ -126,7 +121,7 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
     
     Geographic collocation can give you higher and more consistent throughput when using Sync API (see [Collocate clients in same Azure region for performance](#collocate-clients)) but still is not expected to exceed Async API attainable throughput.
 
-    Some users may also be unfamiliar with [Project Reactor](https://projectreactor.io/), the Reactive Streams framework used to implement Azure Cosmos DB Java SDK v4 Async API. If this is a concern, we recommend you read our introductory [Reactor Pattern Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) and then take a look at this [Introduction to Reactive Programming](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) in order to familiarize yourself. If you have already used Azure Cosmos DB with an Async interface, and the SDK you used was Azure Cosmos DB Async Java SDK v2, then you may be familiar with [ReactiveX](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava) but be unsure what has changed in Project Reactor. In that case, please take a look at our [Reactor vs. RxJava Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) to become familiarized.
+    Some users may also be unfamiliar with [Project Reactor](https://projectreactor.io/), the Reactive Streams framework used to implement Azure Cosmos DB Java SDK v4 Async API. If this is a concern, we recommend you read our introductory [Reactor Pattern Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md) and then take a look at this [Introduction to Reactive Programming](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) in order to familiarize yourself. If you have already used Azure Cosmos DB with an Async interface, and the SDK you used was Azure Cosmos DB Async Java SDK v2, then you may be familiar with [ReactiveX](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava) but be unsure what has changed in Project Reactor. In that case, please take a look at our [Reactor vs. RxJava Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) to become familiarized.
 
     The following code snippets show how to initialize your Azure Cosmos DB client for Async API or Sync API operation, respectively:
 
@@ -166,13 +161,13 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
         As a first step, use the following recommended configuration settings below. These *DirectConnectionConfig* options are advanced configuration settings which can affect SDK performance in unexpected ways; we recommend users avoid modifying them unless they feel very comfortable in understanding the tradeoffs and it is absolutely necessary. Please contact the [Azure Cosmos DB team](mailto:CosmosDBPerformanceSupport@service.microsoft.com) if you run into issues on this particular topic.
 
-        | Configuration option       | Default    |
-        | :------------------:       | :-----:    |
-        | idleConnectionTimeout      | "PT1M"     |
-        | maxConnectionsPerEndpoint  | "PT0S"     |
-        | connectTimeout             | "PT1M10S"  |
-        | idleEndpointTimeout        | 8388608    |
-        | maxRequestsPerConnection   | 10         |
+        | Configuration option       | Default   |
+        | :------------------:       | :-----:   |
+        | idleConnectionTimeout      | "PT0"     |
+        | maxConnectionsPerEndpoint  | "130"     |
+        | connectTimeout             | "PT5S"    |
+        | idleEndpointTimeout        | "PT1H"    |
+        | maxRequestsPerConnection   | "30"      |
 
 * **Tuning parallel queries for partitioned collections**
 
@@ -316,7 +311,7 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
-    For more information, see [Azure Cosmos DB indexing policies](indexing-policies.md).
+    For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
 
 ## Throughput
 <a id="measure-rus"></a>
@@ -370,4 +365,4 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
 ## Next steps
 
-To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md).
+To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md).

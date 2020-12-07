@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/11/2020
+ms.date: 12/04/2020
 ---
 
 # Mapping data flow Debug Mode
@@ -20,9 +20,9 @@ Azure Data Factory mapping data flow's debug mode allows you to interactively wa
 
 ![Debug slider](media/data-flow/debugbutton.png "Debug slider")
 
-Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a 60-minute time to live will be spun up. For more information on data flow integration runtimes, see [Data flow performance](concepts-data-flow-performance.md#ir).
+Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a default 60-minute time to live will be spun up. If you'd like to allow for more idle team before your session times out, you can choose a higher TTL setting. For more information on data flow integration runtimes, see [Data flow performance](concepts-data-flow-performance.md#ir).
 
-![Debug IR selection](media/data-flow/debugbutton2.png "Debug IR selection")
+![Debug IR selection](media/data-flow/debug-new-1.png "Debug IR selection")
 
 When Debug mode is on, you'll interactively build your data flow with an active Spark cluster. The session will close once you turn debug off in Azure Data Factory. You should be aware of the hourly charges incurred by Azure Databricks during the time that you have the debug session turned on.
 
@@ -31,7 +31,7 @@ In most cases, it's a good practice to build your Data Flows in debug mode so th
 ![View data flow debug sessions](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
 
 > [!NOTE]
-> Every debug session that a user starts from their ADF browser UI is a new session with its own Spark cluster. You can use the monitoring view for debug sessions above to view and manage debug sessions per factory.
+> Every debug session that a user starts from their ADF browser UI is a new session with its own Spark cluster. You can use the monitoring view for debug sessions above to view and manage debug sessions per factory. You are charged for every hour that each debug session is executing including the TTL time.
 
 ## Cluster status
 
@@ -72,15 +72,15 @@ When unit testing Joins, Exists, or Lookup transformations, make sure that you u
 
 Once you see the data preview, you can generate a quick transformation to typecast, remove, or do a modification on a column. Click on the column header and then select one of the options from the data preview toolbar.
 
-![Quick actions](media/data-flow/quick-actions1.png "Quick actions")
+![Screenshot shows the data preview toolbar with options: Typecast, Modify, Statistics, and Remove.](media/data-flow/quick-actions1.png "Quick actions")
 
 Once you select a modification, the data preview will immediately refresh. Click **Confirm** in the top-right corner to generate a new transformation.
 
-![Quick actions](media/data-flow/quick-actions2.png "Quick actions")
+![Screenshot shows the Confirm button.](media/data-flow/quick-actions2.png "Quick actions")
 
 **Typecast** and **Modify** will generate a Derived Column transformation and **Remove** will generate a Select transformation.
 
-![Quick actions](media/data-flow/quick-actions3.png "Quick actions")
+![Screenshot shows Derived Column’s Settings.](media/data-flow/quick-actions3.png "Quick actions")
 
 > [!NOTE]
 > If you edit your Data Flow, you need to re-fetch the data preview before adding a quick transformation.

@@ -7,6 +7,8 @@
       href: what-is-application-management.md
     - name: What is single sign-on (SSO)?
       href: what-is-single-sign-on.md
+    - name: What's new in docs?
+      href: whats-new-docs.md
   - name: Quickstarts
     expanded: true
     items:
@@ -59,14 +61,26 @@
       items:
       - name: Plan a single sign-on deployment
         href: plan-sso-deployment.md
-      - name: Single sign-on options 
+      - name: Single sign-on options
         href: sso-options.md
+      - name: Single sign-on with on-prem apps
+        href: application-proxy-config-sso-how-to.md
+      - name: OIDC-based SSO
+        href: configure-oidc-single-sign-on.md
       - name: SAML-based SSO
         href: configure-saml-single-sign-on.md
+      - name: SAML-based SSO (on-prem apps)
+        href: application-proxy-configure-single-sign-on-on-premises-apps.md
       - name: Password-based SSO
         href: configure-password-single-sign-on-non-gallery-applications.md
+      - name: Password-based SSO (on-prem apps)
+        href: application-proxy-configure-single-sign-on-password-vaulting.md
       - name: Linked-based SSO
         href: configure-linked-sign-on.md
+      - name: Header-based SSO (on-prem apps)
+        href: application-proxy-configure-single-sign-on-with-headers.md
+      - name: Kerberos-based SSO (on-prem apps)
+        href: application-proxy-configure-single-sign-on-with-kcd.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
     - name: Application security
@@ -110,18 +124,26 @@
     items:
     - name: Assign users and manage access to apps
       items:
-      - name: Configure user consent
-        href: configure-user-consent.md
-      - name: Manage and evaluate consent requests
-        href: manage-consent-requests.md
-      - name: Grant tenant-wide admin consent
-        href: grant-admin-consent.md
-      - name: Configure admin consent workflow (preview)
-        href: configure-admin-consent-workflow.md
+      - name: Consent and permissions
+        items:
+        - name: Configure user consent
+          href: configure-user-consent.md
+        - name: Configure group owner consent
+          href: configure-user-consent-groups.md
+        - name: Configure permission classifications
+          href: configure-permission-classifications.md
+        - name: Manage app consent policies
+          href: manage-app-consent-policies.md
+        - name: Configure admin consent workflow (preview)
+          href: configure-admin-consent-workflow.md
+        - name: Manage and evaluate consent requests
+          href: manage-consent-requests.md
+        - name: Grant tenant-wide admin consent
+          href: grant-admin-consent.md
+        - name: Review permissions granted to apps
+          href: manage-application-permissions.md
       - name: Manage user assignment for an app
         href: assign-user-or-group-access-portal.md
-      - name: Review permissions granted to apps
-        href: manage-application-permissions.md
       - name: Create collections on My Apps
         href: access-panel-collections.md
       - name: Use self-service app access
@@ -170,24 +192,24 @@
         href: application-proxy-remove-personal-data.md
       - name: Configure custom domain
         href: application-proxy-configure-custom-domain.md
-      - name: Single sign-on with Application Proxy
+      - name: Secure legacy apps 
         items:
-        - name: Kerberos constrained Delegation (KCD)
-          href: application-proxy-configure-single-sign-on-with-kcd.md
-        - name: Password vaulting
-          href: application-proxy-configure-single-sign-on-password-vaulting.md
-        - name: Headers
-          href: application-proxy-configure-single-sign-on-with-ping-access.md
-        - name: SAML SSO
-          href: application-proxy-configure-single-sign-on-on-premises-apps.md
-      - name: Secure legacy apps with app delivery controllers or networks
-        href: secure-hybrid-access.md
+        - name: Secure hybrid access with Azure AD 
+          href: secure-hybrid-access.md
+        - name: F5 and Azure AD integration
+          href: f5-aad-integration.md
+        - name: F5 BIG-IP VE deployment in Azure IaaS
+          href: f5-bigip-deployment-guide.md
+        - name: F5 Big-IP with Azure AD for passwordless VPN
+          href: f5-aad-password-less-vpn.md
       - name: Publishing walkthroughs
         items:
         - name: Integrate with Application Proxy on an NDES server
           href: active-directory-app-proxy-protect-ndes.md
+        - name: Integrate with Application Proxy using PingAccess
+          href: application-proxy-ping-access-publishing-guide.md
         - name: Integrate with Azure AD Domain Services
-          href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
+          href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Integrate with Power BI
           href: application-proxy-integrate-with-power-bi.md
         - name: Integrate with Cloud App Security
@@ -210,6 +232,8 @@
         href: troubleshoot-password-based-sso.md
       - name: Troubleshoot SAML-based single sign-on
         href: troubleshoot-saml-based-sso.md
+      - name: Debug SAML-based single sign-on
+        href: debug-saml-sso-issues.md
       - name: Troubleshoot user sign-in
         items:
         - name: Unexpected consent prompt
@@ -222,12 +246,8 @@
           href: application-sign-in-problem-application-error.md
         - name: Problem signing into a Microsoft app
           href: application-sign-in-problem-first-party-microsoft.md
-        - name: Problem with federated single sign-on - non-gallery app
-          href: application-sign-in-problem-federated-sso-non-gallery.md
-        - name: Problem with federated single sign-on - gallery app
+        - name: Problem with single sign-on
           href: application-sign-in-problem-federated-sso-gallery.md
-        - name: Problem with custom-developed app
-          href: application-sign-in-problem-custom-dev.md
       - name: Troubleshoot on-premises apps
         items:
         - name: Application Proxy troubleshooting
@@ -246,14 +266,12 @@
           href: application-proxy-connectivity-no-working-connector.md
         - name: Configure in admin portal
           href: application-proxy-config-how-to.md
-        - name: Configure single sign-on to my app
-          href: application-proxy-config-sso-how-to.md
         - name: Problem creating an app in admin portal
           href: application-proxy-config-problem.md
         - name: Configure Kerberos Constrained Delegation
           href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
         - name: Configure with PingAccess
-          href: application-proxy-back-end-ping-access-how-to.md
+          href: ./application-proxy-ping-access-publishing-guide.md
         - name: Can't Access this Corporate Application error
           href: application-proxy-sign-in-bad-gateway-timeout-error.md
         - name: Problem installing the Application Proxy Agent Connector
@@ -271,11 +289,11 @@
   - name: Resources
     items:
         - name: Support and help options for developers
-          href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
+          href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Azure feedback forum
           href: https://feedback.azure.com/forums/169401-azure-active-directory
         - name: Microsoft Q&A question page
-          href: https://docs.microsoft.com/answers/topics/azure-active-directory.html
+          href: /answers/topics/azure-active-directory.html
         - name: Pricing
           href: https://azure.microsoft.com/pricing/details/active-directory
         - name: Service updates

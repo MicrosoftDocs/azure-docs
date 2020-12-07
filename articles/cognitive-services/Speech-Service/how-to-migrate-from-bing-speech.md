@@ -26,7 +26,7 @@ A single Speech service subscription key grants access to the following features
 * [Speech-to-text](speech-to-text.md)
 * [Custom speech-to-text](https://cris.ai)
 * [Text-to-speech](text-to-speech.md)
-* [Custom text-to-speech voices](how-to-customize-voice-font.md)
+* [Custom text-to-speech voices](./how-to-custom-voice-create-voice.md)
 * [Speech translation](speech-translation.md) (does not include [Text translation](../translator/translator-info-overview.md))
 
 The [Speech SDK](speech-sdk.md) is a functional replacement for the Bing Speech client libraries, but uses a different API.
@@ -40,8 +40,8 @@ The Speech service is largely similar to Bing Speech, with the following differe
 | C# SDK | :heavy_check_mark: | :heavy_check_mark: | Speech service supports Windows 10, Universal Windows Platform (UWP), and .NET Standard 2.0. |
 | C++ SDK | :heavy_minus_sign: | :heavy_check_mark: | Speech service supports Windows and Linux. |
 | Java SDK | :heavy_check_mark: | :heavy_check_mark: | Speech service supports Android and Speech Devices. |
-| Continuous speech recognition | 10 minutes | Unlimited (with SDK) | Both Bing Speech and Speech service WebSockets protocols support up to 10 minutes per call. However, the Speech SDK automatically reconnects on timeout or disconnect. |
-| Partial or interim results | :heavy_check_mark: | :heavy_check_mark: | With WebSockets protocol or SDK. |
+| Continuous speech recognition | 10 minutes | Unlimited | The Speech SDK supports unlimited continuous recognition, and automatically reconnects upon timeout or disconnect. |
+| Partial or interim results | :heavy_check_mark: | :heavy_check_mark: | Supported with the Speech SDK. |
 | Custom speech models | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requires a separate Custom Speech subscription. |
 | Custom voice fonts | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requires a separate Custom Voice subscription. |
 | 24-kHz voices | :heavy_minus_sign: | :heavy_check_mark: |
@@ -51,7 +51,7 @@ The Speech service is largely similar to Bing Speech, with the following differe
 | Recognition mode | Manual via endpoint URI | Automatic | Recognition mode is not available in the Speech service. |
 | Endpoint locality | Global | Regional | Regional endpoints improve latency. |
 | REST APIs | :heavy_check_mark: | :heavy_check_mark: | The Speech service REST APIs are compatible with Bing Speech (different endpoint). REST APIs support text-to-speech and limited speech-to-text functionality. |
-| WebSockets protocols | :heavy_check_mark: | :heavy_check_mark: | The Speech service WebSockets API is compatible with Bing Speech (different endpoint). Migrate to the Speech SDK if possible, to simplify your code. |
+| WebSockets protocols | :heavy_check_mark: | :heavy_minus_sign: | The Speech SDK abstracts web socket connections for functionality that requires a constant connection to the service, so there is no longer support to subscribe to them manually. |
 | Service-to-service API calls | :heavy_check_mark: | :heavy_minus_sign: | Provided in Bing Speech via the C# Service Library. |
 | Open-source SDK | :heavy_check_mark: | :heavy_minus_sign: |
 
@@ -61,34 +61,32 @@ The Speech service uses a time-based pricing model (rather than a transaction-ba
 
 If you or your organization have applications in development or production that use a Bing Speech API, you should update them to use the Speech service as soon as possible. See the [Speech service documentation](index.yml) for available SDKs, code samples, and tutorials.
 
-The Speech service [REST APIs](rest-apis.md) are compatible with the Bing Speech APIs. If you're currently using the Bing Speech REST APIs, you need only change the REST endpoint, and switch to a Speech service subscription key.
-
-The Speech service WebSockets protocols are also compatible with those used by Bing Speech. We recommend that for new development, you use the Speech SDK rather than WebSockets. It's a good idea to migrate existing code to the SDK as well. However, as with the REST APIs, existing code that uses Bing Speech via WebSockets requires only a change in endpoint and an updated key.
+The Speech service [REST APIs](./overview.md#reference-docs) are compatible with the Bing Speech APIs. If you're currently using the Bing Speech REST APIs, you need only change the REST endpoint, and switch to a Speech service subscription key.
 
 If you're using a Bing Speech client library for a specific programming language, migrating to the [Speech SDK](speech-sdk.md) requires changes to your application, because the API is different. The Speech SDK can make your code simpler, while also giving you access to new features. The Speech SDK is available in a wide variety of programming languages. APIs on all platforms are similar, easing multi-platform development.
 
 The Speech service doesn't offer a global endpoint. Determine if your application functions efficiently when it uses a single regional endpoint for all of its traffic. If not, use geolocation to determine the most efficient endpoint. You need a separate Speech service subscription in each region you use.
 
-If your application uses long-lived connections and can't use an available SDK, you can use a WebSockets connection. Manage the 10-minute timeout limit by reconnecting at the appropriate times.
-
 To get started with the Speech SDK:
 
 1. Download the [Speech SDK](speech-sdk.md).
-1. Work through the Speech service [quickstart guides](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) and [tutorials](how-to-recognize-intents-from-speech-csharp.md). Also look at the [code samples](samples.md) to get experience with the new APIs.
+1. Work through the Speech service [quickstart guides](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) and [tutorials](how-to-recognize-intents-from-speech-csharp.md). Also look at the [code samples](./speech-sdk.md#sample-source-code) to get experience with the new APIs.
 1. Update your application to use the Speech service.
 
 ## Support
 
 Bing Speech customers should contact customer support by opening a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also contact us if your support need requires a [technical support plan](https://azure.microsoft.com/support/plans/).
 
-For Speech service, SDK, and API support, visit the Speech service [support page](support.md).
+For Speech service, SDK, and API support, visit the Speech service [support page](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## Next steps
 
 * [Try out Speech service for free](overview.md#try-the-speech-service-for-free)
-* [Quickstart: Recognize speech in a UWP app using the Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Get started with speech-to-text](get-started-speech-to-text.md)
+* [Get started with text-to-speech](get-started-text-to-speech.md)
 
 ## See also
+
 * [Speech service release notes](releasenotes.md)
 * [What is the Speech service](overview.md)
 * [Speech service and Speech SDK documentation](speech-sdk.md#get-the-speech-sdk)

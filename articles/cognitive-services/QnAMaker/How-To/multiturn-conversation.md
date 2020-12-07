@@ -1,6 +1,8 @@
 ---
 title: Multi-turn conversations - QnA Maker
 description: Use prompts and context to manage the multiple turns, known as multi-turn, for your bot from one question to another. Multi-turn is the ability to have a back-and-forth conversation where the previous question's context influences the next question and answer.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
 ---
@@ -75,7 +77,7 @@ When you add a hierarchical document, QnA Maker determines follow-up prompts fro
 
 ## Create knowledge base with multi-turn prompts with the Create API
 
-You can create a knowledge case with multi-turn prompts using the [QnA Maker Create API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). The prompts are adding in the `context` property's `prompts` array.
+You can create a knowledge case with multi-turn prompts using the [QnA Maker Create API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create). The prompts are adding in the `context` property's `prompts` array.
 
 ## Show questions and answers with context
 
@@ -350,11 +352,11 @@ If you are building a custom application using multi-turn feature. In the initia
 
 ## Display order is supported in the Update API
 
-The [display text and display order](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), returned in the JSON response, is supported for editing by the [Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
+The [display text and display order](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), returned in the JSON response, is supported for editing by the [Update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
 
 ## Add or delete multi-turn prompts with the Update API
 
-You can add or delete multi-turn prompts using the [QnA Maker Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  The prompts are adding in the `context` property's `promptsToAdd` array and the `promptsToDelete` array.
+You can add or delete multi-turn prompts using the [QnA Maker Update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  The prompts are adding in the `context` property's `promptsToAdd` array and the `promptsToDelete` array.
 
 ## Export knowledge base for version control
 
@@ -362,7 +364,7 @@ QnA Maker supports version control by including multi-turn conversation steps in
 
 ## Next steps
 
-Learn more about contextual conversations from this [dialog sample](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) or learn more about [conceptual bot design for multi-turn conversations](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Learn more about contextual conversations from this [dialog sample](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) or learn more about [conceptual bot design for multi-turn conversations](/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
 > [Migrate a knowledge base](../Tutorials/migrate-knowledge-base.md)

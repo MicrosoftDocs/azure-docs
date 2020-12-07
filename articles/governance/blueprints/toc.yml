@@ -31,6 +31,9 @@
   - name: Protect new resources with blueprint resource locks
     displayName: read only, do not delete, lock assignment
     href: ./tutorials/protect-new-resources.md
+  - name: "Learn: Govern multiple subscriptions by using Azure Blueprints"
+    displayName: governance, module
+    href: /learn/modules/build-cloud-governance-strategy-azure/10-govern-subscriptions-azure-blueprints
 - name: Samples
   items:
   - name: Index

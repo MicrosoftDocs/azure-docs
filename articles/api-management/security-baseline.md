@@ -94,9 +94,9 @@ Use Azure Security Center Integrated Threat Intelligence to deny communications 
 
 * [Understand Azure Application Gateway](../application-gateway/index.yml)
 
-* [How to configure Azure DDoS Protection Standard](../virtual-network/manage-ddos-protection.md)
+* [How to configure Azure DDoS Protection Standard](../ddos-protection/manage-ddos-protection.md)
 
-* [Understand Azure Security Center Integrated Threat Intelligence](../security-center/threat-protection.md)
+* [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -183,7 +183,7 @@ Caution: When configuring an NSG on the API Management subnet, there are a set o
 **Guidance**: Define and implement standard security configurations for network settings related to your Azure API Management deployments. Use Azure Policy aliases in the "Microsoft.ApiManagement" and "Microsoft.Network" namespaces to create custom policies to audit or enforce network configuration of your Azure API Management deployments and related resources. You may also make use of built-in policy definitions for Azure Virtual Networks, such as:
 - DDoS Protection Standard should be enabled
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -297,7 +297,7 @@ Optionally, integrate API Management with Azure Application Insights and use it 
 
 * [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/get-started-portal.md)
+* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to integrate with Azure Application Insights](./api-management-howto-app-insights.md)
 
@@ -319,7 +319,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 * [How to enable diagnostic settings for Azure API Management](./api-management-howto-use-azure-monitor.md#activity-logs)
 
-* [How to configure an alert rule for unauthorized request](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule-for-unauthorized-request)
+* [How to configure an alert rule for Azure API Management](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule)
 
 * [How to view capacity metrics of an Azure API management instance](./api-management-capacity.md)
 
@@ -371,11 +371,11 @@ Follow recommendations from Azure Security Center for the management and mainten
 
 * [How to use Role-Based Access Control in Azure API Management](./api-management-role-based-access-control.md)
 
-* [How to get list of users under an Azure API Management Instance](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [How to get list of users under an Azure API Management Instance](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
-* [How to get a list of users assigned to a directory role in Azure AD with PowerShell](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0)
+* [How to get a list of users assigned to a directory role in Azure AD with PowerShell](/powershell/module/az.resources/get-azroleassignment)
 
-* [How to get a directory role definition in Azure AD with PowerShell](/powershell/module/az.resources/get-azroledefinition?view=azps-3.7.0)
+* [How to get a directory role definition in Azure AD with PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
 * [Understand identity and access recommendations from Azure Security Center](../security-center/recommendations-reference.md#recs-identity)
 
@@ -476,7 +476,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Whenever possible, use Azure AD as the central authentication and authorization system. AAD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
+**Guidance**: Whenever possible, use Azure AD as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
 Configure your Azure API Management Developer Portal to authenticate developer accounts by using Azure Active Directory.
 
@@ -486,7 +486,7 @@ Configure your Azure API Management instance to protect your APIs by using the O
 
 * [How to protect an API by using OAuth 2.0 with Azure Active Directory and API Management](./api-management-howto-protect-backend-with-aad.md)
 
-* [How to create and configure an AAD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+* [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -502,7 +502,7 @@ Administrators can create custom groups or leverage external groups in associate
 
 * [How to manage user accounts in Azure API Management](./api-management-howto-create-or-invite-developers.md)
 
-* [How to get list of API Management users](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [How to get list of API Management users](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
 * [How to create and use groups to manage developer accounts in Azure API Management](./api-management-howto-create-groups.md)
 
@@ -584,7 +584,7 @@ Configure advanced monitoring with API Management by using the `log-to-eventhub`
 
 * [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../governance/management-groups/create.md)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -610,7 +610,7 @@ Microsoft manages the underlying infrastructure for Azure API Management and has
 
 **Guidance**: Management plane calls are made through Azure Resource Manager over TLS. A valid JSON web token (JWT) is required. Data plane calls can be secured with TLS and one of supported authentication mechanisms (for example, client certificate or JWT).
 
-* [Understand data protection in Azure API Management](./api-management-security-controls.md#data-protection)
+* [Understand data protection in Azure API Management](#data-protection)
 
 * [Manage TLS settings in Azure API Management](./api-management-howto-manage-protocols-ciphers.md)
 
@@ -660,7 +660,7 @@ Microsoft manages the underlying infrastructure for Azure API Management and has
 
 **Guidance**: Sensitive data such as certificates, keys, and secret named values are encrypted with service-managed, per service instance keys. All encryption keys are per service instance and are service managed.
 
-* [Understand data protection/encryption at rest with Azure API Management](./api-management-security-controls.md#data-protection)
+* [Understand data protection/encryption at rest with Azure API Management](#data-protection)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -688,7 +688,7 @@ Microsoft manages the underlying infrastructure for Azure API Management and has
 
 Underlying platform scanned and patched by Microsoft. Review security controls available to reduce service configuration related vulnerabilities.
 
-* [Understanding security controls available to Azure API Management](./api-management-security-controls.md)
+* [Understanding security controls available to Azure API Management]()
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -724,7 +724,7 @@ Underlying platform scanned and patched by Microsoft. Review security controls a
 
 Underlying platform scanned and patched by Microsoft. Customer to review security controls available to them to reduce service configuration related vulnerabilities.
 
-* [Understanding security controls available to Azure API Management](./api-management-security-controls.md)
+* [Understanding security controls available to Azure API Management]()
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -742,7 +742,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 * [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 * [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -770,7 +770,7 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 * [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../governance/management-groups/create.md)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -834,7 +834,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -884,7 +884,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Define and implement standard security configurations for your Azure API Management service with Azure Policy. Use Azure Policy aliases in the "Microsoft.ApiManagement" namespace to create custom policies to audit or enforce the configuration of your Azure API Management services.
 
-* [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -924,11 +924,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your Azure API Management service configuration.
 
-* [How to store files in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [How to store files in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-* [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
-
-* [Understand the Azure API Management DevOps Resource Kit](./api-management-security-controls.md#configuration-management)
+* [Azure Repos Documentation](/azure/devops/repos/index)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -967,8 +965,6 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 **Guidance**: Use the Azure API Management DevOps Resource Kit to perform configuration management for Azure API Management.
 
 In addition, define and implement standard security configurations for your Azure API Management services with Azure Policy. Use Azure Policy aliases in the "Microsoft.ApiManagement" namespace to create custom policies to audit or enforce the configuration of Azure API Management instances. Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
-
-* [Understand the Azure API Management DevOps Resource Kit](./api-management-security-controls.md#configuration-management)
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -1082,7 +1078,7 @@ Managed identities can be used to obtain certificates from Azure Key Vault for A
 
 * [How to implement disaster recovery using service backup and restore in Azure API Management](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-* [How to backup Azure Key Vault certificates](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [How to backup Azure Key Vault certificates](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1094,7 +1090,7 @@ Managed identities can be used to obtain certificates from Azure Key Vault for A
 
 * [How to call the API Management restore operation](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
-* [How to restore Azure Key Vault certificates](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [How to restore Azure Key Vault certificates](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1110,7 +1106,7 @@ Managed identities can be used to obtain certificates from Azure Key Vault for A
 
 Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
 
-* [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
