@@ -2,10 +2,10 @@
 title: Create an AVS assessment with Azure Migrate Server Assessment | Microsoft Docs
 description: Describes how to create an AVS assessment with the Azure Migrate Server Assessment tool
 author: rashi-ms
-ms.service: azure-migrate
-ms.topic: article
-ms.date: 06/26/2020
 ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
+ms.date: 06/26/2020
 ---
 
 
