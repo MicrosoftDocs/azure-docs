@@ -71,9 +71,9 @@ dotnet add package Azure.Identity
 ## .NET code example
 
 ```csharp
-     string ResourceUrl = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_RESOURCE");
+     string ResourceEndpoint = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_RESOURCE");
      ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredential();
-     var client = new CommunicationIdentityClient(managedIdentityCredential, ResourceUrl);
+     var client = new CommunicationIdentityClient(managedIdentityCredential, ResourceEndpoint);
      var identityResponse = await client.CreateUserAsync();
      var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
 ```
