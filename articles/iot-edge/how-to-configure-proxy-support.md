@@ -266,6 +266,11 @@ If you included the **UpstreamProtocol** environment variable in the confige.yam
 }
 ```
 
+## Working with traffic-inspecting proxies
+If the proxy you're attempting to use performs traffic inspection on TLS secured connections, it's important to note that authentication with X.509 certificates will not work.  IoT Edge establishes a TLS channel that's encrypted end-to-end with the provided certificate and key, and if that channel is broken for traffic inspection then the proxy will not be able to reestablish it with the proper credentials and IoT Hub and DPS will return an Unauthorized error.
+
+If you would like to use a proxy that performs traffic inspection you must either use SAS authentication or have DPS and IoT Hub added to an allowlist for avoiding inspection.
+
 ## Next steps
 
 Learn more about the roles of the [IoT Edge runtime](iot-edge-runtime.md).
