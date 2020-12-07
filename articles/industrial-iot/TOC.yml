@@ -1,0 +1,17 @@
+
+- name: Azure Industrial IoT documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Industrial IoT?
+    href: overview-what-is-Industrial-IoT.md
+  - name: What is the OPC Publisher?
+    href: overview-what-is-OPC-Publisher.md
+  - name: What is the Industrial IoT Platform?
+    href: overview-what-is-Industrial-IoT-Platform.md
+- name: Resources 
+  items:
+  - name: OPC Publisher GitHub repository
+    href: https://github.com/Azure/Industrial-IoT
+  - name: IIoT Platform GitHub repository
+    href: https://github.com/Azure/iot-edge-opc-publisher
