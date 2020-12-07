@@ -154,7 +154,7 @@ The Azure services that support each encryption model:
 | Translator Text                  | Yes                | Yes                | -                  |
 | Power BI                         | Yes                | Yes, RSA 4096-bit  | -                  |
 | **Analytics**                    |                    |                    |                    |
-| Azure Stream Analytics           | Yes                | N/A\*              | -                  |
+| Azure Stream Analytics           | Yes                | Yes\*\*            | -                  |
 | Event Hubs                       | Yes                | Yes                | -                  |
 | Functions                        | Yes                | Yes                | -                  |
 | Azure Analysis Services          | Yes                | -                  | -                  |
