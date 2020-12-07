@@ -110,7 +110,7 @@ This article shows how to build your logic app and workflow in the Azure portal 
 
    After Azure finishes deployment, your logic app is automatically live and running but doesn't do anything yet because no workflows exist.
 
-1. On the deployment completion page, select **Go to resource** so that you can start building a workflow.
+1. On the deployment completion page, select **Go to resource** so that you can start building your workflow.
 
    ![Screenshot that shows the Azure portal and the finished deployment.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-completed-deployment.png)
 
@@ -122,9 +122,9 @@ If you selected **Docker Container** while creating your logic app, make sure th
 
 1. In the Azure portal, go to your logic app resource.
 
-1. On the logic app menu, under **Settings**, select **Container settings**.
+1. On the logic app menu, under **Settings**, select **Container settings**. Provide the details and location for your Docker container image.
 
-1. On the **Container settings** pane, provide the details and location for your Docker container image.
+   ![Screenshot that shows the logic app menu with "Container settings" selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-deploy-container-settings.png)
 
 1. When you're finished, save your settings.
 
