@@ -23,12 +23,11 @@ For users familiar with the Synapse RBAC roles provided during the preview, the 
 - **New lower-level scopes** are introduced for several roles.  These scopes allow roles to be restricted to specific resources or objects.
 
 >[!Note]
->- The new roles and lower-level scopes are currently in preview.  
->- The Apache Spark Administrator and SQL Administrator roles will be deprecated in a future release in favor of the new Synapse RBAC roles.  You are encouraged to adopt the new preview roles, which are fully supported, and to provide feedback on their use.
+>The **new Synapse RBAC roles and lower-level scopes are currently in preview**.  You are encouraged to use these new roles and scopes, which are fully supported, and to provide feedback on their use.
 
 ## Built-in Synapse RBAC roles and scopes
 
-The following table describes each built-in role and the scopes at which these roles can be used.
+The following table describes the built-in roles and the scopes at which they can be used.
 
 >[!Note]
 > Users with any Synapse RBAC role at any scope automatically have the Synapse User role at workspace scope. 
