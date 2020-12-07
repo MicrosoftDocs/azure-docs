@@ -191,6 +191,17 @@ In Azure Logic Apps Preview, these capabilities have change, or they are current
 
     * The built-in action, [Azure Functions - Choose an Azure function](logic-apps-azure-functions.md) is now **Azure Function Operations - Call an Azure function**. This action currently works only for functions that are created from the **HTTP Trigger** template.
 
+      In the Azure portal, you can select an HTTP trigger function where you have access by creating a connection through the user experience. If you inspect the function action's JSON definition in code view or the **workflow.json** file, the action refers to the function by using a `connectionName` reference. This version abstracts the function's information as a connection, which you can find in your project's **connections.json** file, which is available after you create a connection.
+
+      > [!NOTE]
+      > In the Preview version, the function action supports only query string authentication. 
+      > Azure Logic Apps Preview gets the default key from the function when making the connection, 
+      > stores that key in your app's settings, and uses the key for authentication when calling the function.
+      >
+      > As with the original version, if you renew this key, for example, through the Azure Functions experience 
+      > in the portal, the function action no longer works due to the invalid key. To fix this problem, you need 
+      > to recreate the connection to the function that you want to call or update your app's settings with the new key.
+
     * The built-in action, [Inline Code - Execute JavaScript Code](logic-apps-add-run-inline-code.md) is now **Inline Code Operations - Run in-line JavaScript**.
 
       * Inline Code Operations actions no longer require an integration account.
