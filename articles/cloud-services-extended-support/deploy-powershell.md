@@ -12,7 +12,7 @@ ms.custom:
 
 # Create a Cloud Service (extended support) using Azure PowerShell
 
-This article shows how to use the `Az.CloudService` PowerShell module to deploy Cloud Services (extended support) in Azure that has multiple roles (WebRole and WorkerRole) and RDP extension. 
+This article shows how to use the `Az.CloudService` PowerShell module to deploy Cloud Services (extended support) in Azure that has multiple roles (WebRole and WorkerRole) and remote desktop extension. 
 
 > [!IMPORTANT]
 > Cloud Services (extended support) is currently in public preview.
@@ -44,7 +44,7 @@ $keyVault = New-AzKeyVault -Name 'ContosoKeyVault' -ResourceGroupName 'ContosoOr
 
 ## Give user accounts permissions to manage certificates in Key Vault
 
-Use the `Set-AzKeyVaultAccessPolicy` cmdlet to update the Key Vault access policy and grant certificate permissions to the user accounts.
+Use the `Set-AzKeyVaultAccessPolicy` command to update the Key Vault access policy and grant certificate permissions to the user accounts.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete
@@ -101,7 +101,7 @@ New-AzVirtualNetwork -Name 'ContosoVNet' -ResourceGroupName 'ContosoOrg' -Locati
 
 ## Create a public IP address
 
-Create a public IP address to be associated with the load balancer of Cloud Service.
+Create a public IP address to be associate with the load balancer.
 
 ```powershell
 $publicIp = New-AzPublicIpAddress -Name 'ContosoPublicIP' -ResourceGroupName 'ContosoOrg' -Location 'East US' -AllocationMethod 'Dynamic' -IpAddressVersion 'IPv4' -DomainNameLabel 'contosocloudservice' -Sku 'Basic'
@@ -118,7 +118,7 @@ $secretGroup = New-AzCloudServiceVaultSecretGroupObject -Id $keyVault.ResourceId
 
 ## Create a role profile
 
-Create a role profile in-memory object. Role profile defines the role's sku specific properties such as name, capacity and tier. For this example, we have defined two roles: WebRole and WorkerRole.
+Create a role profile in-memory object. The role profile defines the sku specific properties such as name, capacity and tier. For this example, we have defined two roles: WebRole and WorkerRole.
 
 > [!NOTE]
 > Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file.
@@ -140,7 +140,7 @@ $loadBalancerConfig = New-AzCloudServiceLoadBalancerConfigurationObject -Name 'C
 
 ## Create an extension profile
 
-Create an extension profile in-memory object that you want to add to your Cloud Service. For this example we will add remote desktop extension and Geneva monitoring extension.
+Create an extension profile in-memory object to add to the Cloud Service. For this example we will add remote desktop extension and Geneva monitoring extension.
 
 ```powershell
 # RDP extension
@@ -155,7 +155,7 @@ $extensions = @($rdpExtension, $genevaExtension)
 
 ## (Optional) Add tags to your Cloud Service
 
-We can define tags as a PowerShell hash table and add then to the Cloud Service.
+Define tags as a PowerShell hash table and add them to the Cloud Service.
 
 ```powershell
 $tag=@{"Owner" = "Contoso"; "Client" = "PowerShell"}
@@ -194,7 +194,7 @@ $cloudService = New-AzCloudService `
 
 ## Get Remote desktop file
 
-Get the remote desktop  file using `Get-AzCloudServiceRoleInstanceRemoteDesktopFile`. Sign in to the role instance using the credentials specified when the remote desktop extension was applied. 
+Get the remote desktop file using `Get-AzCloudServiceRoleInstanceRemoteDesktopFile`. Sign in to the role instance using the credentials specified when the remote desktop extension was applied. 
 
 ```powershell
 Get-AzCloudServiceRoleInstanceRemoteDesktopFile -ResourceGroupName "ContosoOrg" -CloudServiceName "ContosoCS" -RoleInstanceName "WebRole_IN_0" -OutFile "C:\temp\WebRole_IN_0.rdp"

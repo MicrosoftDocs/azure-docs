@@ -45,7 +45,7 @@ There are two key prerequisites for a successful Cloud Service swap:
 
 - If you want to use a reserved IP address for one of the swappable Cloud Services, the other Cloud Service must also use a reserved IP.
 
-- All instances of your roles must be running before you can perform the swap. You can check the status of your instances on the Overview blade in the Azure portal or by running the `Get-AzRole` command in Azure PowerShell.
+- All instances of your roles must be running before you can perform the swap. You can check the status of your instances on the overview blade in the Azure portal or by running the `Get-AzRole` command in Azure PowerShell.
 
     > [!NOTE]
     >  Guest OS updates and service healing operations also can cause deployment swaps to fail. For more information, see [Troubleshoot Cloud Service deployments](https://docs.microsoft.com/azure/cloud-services/cloud-services-troubleshoot-deployment-problems).
