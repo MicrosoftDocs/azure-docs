@@ -1,6 +1,6 @@
 ---
 title: Manage sensors from the on-premises management console 
-description: 
+description: Learn how to manage sensors from the management console, including, updating sensor versions, pushing system settings to sensors, enabling and disabling engines on sensors, and more.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -43,9 +43,9 @@ To apply system settings:
 
 2. In the Configure Sensors pane, select one of the sensor system setting options.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-system-setting-options.png" alt-text="The system setting options for your sensor.":::            
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-system-setting-options.png" alt-text="The system setting options for your sensor":::
 
-   The following example describes how to set up define mail server parameters for your enterprise sensors.
+   The following example describes how to define Mail Server parameters for your enterprise sensors.
 
 3. Select **Mail Server**.
 
@@ -63,7 +63,7 @@ To apply system settings:
 
 ## Update versions
 
-This can be done for several sensors simultaneously from the on-premises management console.
+You can update several sensors simultaneously from the on-premises management console.
 
 To update several sensors:
 
@@ -109,7 +109,7 @@ To update the Threat Intelligence data:
 
 1. Navigate to the Defender for IoT Updates page. 
 
-2. Download and save the file. 
+2. Download and save the file.
 
 3. Sign in to the management console. 
 
@@ -121,9 +121,21 @@ To update the Threat Intelligence data:
 
 7. Upload the package downloaded from the Defender for IoT Updates page.
 
+## Understand sensor disconnection events
+
+The Site Manager window displays disconnect information if Sensors disconnect from their assigned on-premises management console. The following Sensor disconnect information is available:
+
+- The on-premises management console cannot process data received from Sensor.
+
+- Times drift detected. The on-premises management console has been disconnected from Sensor.
+
+- Sensor not communicating with on-premises management console. Check network connectivity.
+
+:::image type="content" source="media/how-to-view-sensor-connection-status-to-the-on-premise-manager/image36.png" alt-text="Screenshot of Zone 1 view":::
+
 ## Enable or disable sensors
 
-Sensors are protected by five Defender for IoT engines. You can enable or disable the engines for connected sensors.
+Sensors are protected by five Defenders for IoT engines. You can enable or disable the engines for connected sensors.
 
 | Engine | Description | Example scenario |
 |--|--|--|
@@ -163,7 +175,7 @@ When the sensors are not registered with the on-premises management console, the
 
 The restore process is the same regardless of where the files are stored.
 
-### On-premises management console backup storage for sensors 
+### On-premises management console backup storage for sensors
 
 You can maintain up to 9 backups for each managed sensor, provided that the backed-up files do not exceed the maximum backup space allocated. 
 
@@ -309,4 +321,8 @@ To save sensor backup to an external SMB server:
 
  - `sudo nano /var/cyberx/properties/backup.properties` 
 
-9. Set Backup.shared_location to `<backup_folder_name_on_cyberx_server>`.
+9. Set Backup.shared_location to <backup_folder_name_on_cyberx_server>.
+
+## See also
+
+[Manage individual sensors](how-to-manage-individual-sensors.md)

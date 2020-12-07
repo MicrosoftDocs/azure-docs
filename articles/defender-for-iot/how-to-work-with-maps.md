@@ -9,13 +9,9 @@ ms.topic: how-to
 ms.service: azure
 ---
 
-# Work with maps
+# Investigate sensor detections in the device map
 
-## Investigate sensor detections in the map
-
-### The device map
-
-The device map provides a graphical representation of network devices detected. Use the map to:
+The Device Map provides a graphical representation of network devices detected. Use the map to:
 
   - Retrieve, analyze, and manage device information.
 

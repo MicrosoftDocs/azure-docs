@@ -35,7 +35,7 @@ Before you create Access Groups it is recommended to:
 
 - Plan which users are associated with Access Groups you create. Two options are available for assigning users to Access Groups:
 
-  - **Assign groups of Active Directory groups**: Verify that you set up an Active Directory to integrate with the Central Manager.
+  - **Assign groups of Active Directory groups**: Verify that you set up an Active Directory to integrate with the on-premises management console.
   
   - **Assign local users**: Verify that you created users. See ***Define Users*** for details.
 
@@ -47,7 +47,7 @@ This section describes how to create access groups. Default global business unit
 
 **To create groups:**
 
-1. Select **Access Groups** from the Central Manager side menu.
+1. Select **Access Groups** from the on-premises management console side menu.
 
 2. *Add a group name:* Select :::image type="content" source="media/how-to-define-global-user-access-control/image102.png" alt-text="Icon of Add button":::. In the Add Access Group dialog box enter an Access Group name. 64 characters are supported. Assign the name in a way that will help you easily distinguish this group from other groups.
 
@@ -81,6 +81,6 @@ This section describes the information you should know when creating rules.
 
 - You can only assign one element per rule, i.e., one Business unit, one region, one site and one zone for each rule. Create addition rules for the group if for example, if you want users in one Active Directory group to have access to different business units in different regions.
 
-- If you change an entity and the change impacts the rule logic, the rule will be deleted. If changes made to a topology entity impacts the rule logic as such that all rules are deleted, the access group remains but the users cannot log in to the Central Manager. Users are notified to log in to contact their Administrator.
+- If you change an entity and the change impacts the rule logic, the rule will be deleted. If changes made to a topology entity impacts the rule logic as such that all rules are deleted, the access group remains but the users cannot log in to the on-premises management console. Users are notified to log in to contact their Administrator.
 
 - If no Business Units or Region is selected, the user will have access to all Business Units and Regions defined.

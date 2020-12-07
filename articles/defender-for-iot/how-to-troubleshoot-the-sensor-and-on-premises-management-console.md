@@ -133,7 +133,7 @@ Another indication of the same problem, is when multiple internet-related alerts
 
 To fix the configuration:
 
-1. Set the valid internet addresses and them to ICS subnets.
+1. Right-click on the Cloud icon on the Device map and select Export IP Addresses. Copy the public ranges that are private and add them to the subnet list. For more information, see [Configure subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 
 2. Generate a new data mining report for internet connections.
 

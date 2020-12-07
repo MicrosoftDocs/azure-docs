@@ -51,6 +51,8 @@ Alerts are triggered when sensor engines detect changes in network traffic and b
 | Malware alerts | Triggered when the Malware engine detects malicious network activity. For example, known attacks such as Conficker. |
 | Anomaly alerts | Triggered when the Anomaly engine detects a deviation. For example, a device is performing network scanning but is not defined as a scanning device. |
 
+Tools are available to enable and disable sensor engines. Alerts are not triggered from engines that are disabled. See [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md).
+
 ## Alerts and sensor reporting
 
 Activity reflected in alerts may be calculated when generating Data Mining, Risk Assessment, and Attack Vector reports. When you manage these events, the sensor updates the reports accordingly.
@@ -63,4 +65,10 @@ For example,
 
 ## See also
 
+[Learning modes](concept-learning-modes.md)
+
+[View information provided in alerts](how-to-view-information-provided-in-alerts.md)
+
 [Manage the alert event](how-to-manage-the-alert-event.md)
+
+[Accelerate Alert workflows](how-to-accelerate-alert-incident-response.md)

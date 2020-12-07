@@ -25,7 +25,7 @@ This document describes how to configure the CyberX solution integration with QR
 
 You can change the platform name at any time. The change takes effect immediately.
 
-When building sites and assigning appliances to zones in the Central Manager, it is important for more efficient usage that each CyberX appliance has a significant name. For example, “Motorcycles PL Unit 2” means that this appliance is protecting unit #2 in the Motorcycles production line.
+When building sites and assigning appliances to zones in the on-premises management console, it is important for more efficient usage that each CyberX appliance has a significant name. For example, “Motorcycles PL Unit 2” means that this appliance is protecting unit #2 in the Motorcycles production line.
 
 :::image type="content" source="media/integration-qradar/image2.png" alt-text="Screenshot of Changing CyberX Appliance Name view":::
 
@@ -70,7 +70,7 @@ QID is an event identifier in QRadar. All of CyberX platform reports are tagged 
 
 ## Setting Up QRadar forwarding rules
 
-QRadar forwarding rule must be configured in the CyberX appliance and mapped in the Central Manager.
+QRadar forwarding rule must be configured in the CyberX appliance and mapped in the on-premises management console.
 
 **To define QRadar notifications in the CyberX appliance:**
 1. In the From the side menu, select **Forwarding**. The **Forwarding** window appears.

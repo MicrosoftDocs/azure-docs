@@ -1,6 +1,6 @@
 ---
-title: Gain insight into devices discovered by all enterprise sensors
-description: 
+title: Learn about devices discovered by all enterprise sensors
+description: Device information from connected sensors can be viewed from the on-premises management console Device Inventory. This gives a comprehensive view of all network information. Use import, export, and filtering tools to manage this information. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -9,11 +9,7 @@ ms.topic: how-to
 ms.service: azure
 ---
 
-# Overview
-
-## Gain insight into devices discovered by all enterprise sensors
-
-### View enterprise device inventory
+# Investigate all enterprise sensor detections in a Device Inventory
 
 Device information from connected sensors can be viewed from the on-premises management console in the Device Inventory. This gives on-premises management console users a comprehensive view of all network information. Use import, export, and filtering tools to manage this information. The status information about the connected sensor versions is also displayed.
 
@@ -46,7 +42,7 @@ The following table describes the Device Inventory table columns.
 | **Last Activity** | The last activity performed by the device. |
 | **Discovered** | When this device was first seen in the network. |
 
-### Integrate data to the enterprise device inventory
+## Integrate data to the enterprise Device Inventory
 
 Device inventory data integration capabilities let you enhance the data in the Device Inventory with information from other enterprise resources. For example, from CMDBs, DNS, Firewalls, and Web APIs.
 
@@ -114,7 +110,7 @@ To integrate data from other enterprise entities:
 
 4. Upload and test the script that you received from the [support.microsoft.com](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
-### Retrieve information from the Device Inventory
+## Retrieve information from the Device Inventory
 
 You can retrieve an extensive range of device information detected by managed sensors and integrate that information with partner systems. For example, sensor, zone, and site IDs IP address, MAC addresses, firmware, protocol, and vendor information is retrieved. Filter information you retrieve based on:
 
@@ -126,21 +122,21 @@ You can retrieve an extensive range of device information detected by managed se
 
 - devices associated with specific sensors.
 
-Work with Defender for IoT API commands to retrieve and integrate this information. 
+Work with Defender for IoT API commands to retrieve and integrate this information.
 
-### Add Filters to the Device Inventory Table Columns
+## Filter the Device Inventory
 
-For each column in the Device Inventory table, you can set a filter that defines what information is displayed in the table. For example, you can decide that you want to view only the PLC devices info:
+You can filter Device Inventory to show columns of interest. For example, view only the PLC devices info:
 
 :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view.png" alt-text="Screenshot of the asset inventory.":::
 
-The filter disappears when you leave the window.
+The filter is cleared when you leave the window.
 
 To use the same filter multiple times, you can save a filter or a combination of filters that you need. You can open a left pane and view the filter(s) that you have saved:
 
 :::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories.png" alt-text="Asset inventories screen":::
 
-**To filter the Device Inventory table information:**
+**To filter the Device Inventory:**
 
 1. In the column that you want to filter, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-a-column-icon.png" border="false":::.
 
@@ -156,7 +152,7 @@ To use the same filter multiple times, you can save a filter or a combination of
 
 5. To change the filter definitions, change the definitions and select **Save Changes**.
 
-### View device information per zone
+## View device information per zone
 
 The following information can be learned about devices in a Zone
 
@@ -182,7 +178,7 @@ The Device Map window displays, showing all the network elements related to the 
 
 :::image type="content" source="media/how-to-work-with-asset-inventory-information/zone-map-screenshot.png" alt-text="Screenshot of the zone map.":::
 
-#### Map views and device information
+### Map views and device information
 
 The following tools are available for viewing devices and device information from the map. Refer to *The Device Map* chapter in the *Defender for IoT Platform User Guide* for details about each of these features.
 
@@ -207,9 +203,10 @@ The map view displayed varies depending on the map zoom-level. Switching between
 - **Alert associated with a device:** Right-click the device to view related alerts.
 
 :::image type="content" source="media/how-to-work-with-asset-inventory-information/show-alerts.png" alt-text="Screenshot of show alerts view.":::
-#### View alerts associated with a zone
 
-View all alerts associated with a specific zone.
+### View alerts associated with a zone
+
+View all alerts associated with a specific zone. 
 
 To view alerts:
 
@@ -217,15 +214,19 @@ To view alerts:
 
 :::image type="content" source="media/how-to-work-with-asset-inventory-information/business-unit-view.png" alt-text="Screenshot of default business unit view with examples.":::
 
-#### View the Device Inventory of the zone
+See [Overview - Working with Alerts](how-to-work-with-alerts-on-premises-management-console.md)
 
-View the Device Inventory associated with a specific zone.
+### View the Device Inventory of the zone
+
+View the Device Inventory associated with a specific zone. 
 
 To view the inventory:
 
-1. Select the **View Device Inventory** form the Zone window. 
+1. Select the **View Device Inventory** form the Zone window.
 
 :::image type="content" source="media/how-to-work-with-asset-inventory-information/default-business-unit.png" alt-text="Screenshot of default business unit view with example.":::
+
+See [Investigate all enterprise sensor detections in a Device Inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 
 #### Additional zone information
 
@@ -235,7 +236,10 @@ The following additional zone information is available:
 
 - **Sensor details:** Name, IP address, and version of each sensor assigned to the zone.
 
-- **Connectivity status:** If disconnected, connect from the sensor. 
+- **Connectivity status:** If disconnected, connect from the sensor. See [Make initial connection between sensors and the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#make-initial-connection-between-sensors-and-the-on-premises-management-console) 
 
-- **Upgrade progress:** If the connected sensor is being upgraded, upgrade statuses will appear. During upgrade, the on-premises management console does not receive device information from the sensor.
-- 
+- **Update progress:** If the connected sensor is being upgraded, upgrade statuses will appear. During upgrade, the on-premises management console does not receive device information from the sensor.
+
+## See also
+
+[Investigate sensor detections in a Device Inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
