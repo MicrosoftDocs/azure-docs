@@ -124,10 +124,10 @@ Affected Azure Maps REST Services:
  * Get Search Address Reverse
  * Get Search Address Reverse Cross Street
  * Post Search Inside Geometry
- * Post Search Address Batch (Preview) 
- * Post Search Address Reverse Batch (Preview) 
+ * Post Search Address Batch
+ * Post Search Address Reverse Batch
  * Post Search Along Route
- * Post Search Fuzzy Batch (Preview) 
+ * Post Search Fuzzy Batch
 
  
 ### SDKs

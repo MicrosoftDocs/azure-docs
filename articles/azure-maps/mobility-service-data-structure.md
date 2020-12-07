@@ -23,7 +23,7 @@ This article introduces the concept of Metro Area in [Azure Maps Mobility servic
 
 ## Metro area
 
-Mobility services (Preview) data are grouped by supported metro areas. Metro areas don't follow city boundaries. A metro area can contain multiple cities, densely populated city, and surrounding cities. In fact, a country/region can be one metro area. 
+Mobility services (Preview) data is grouped by supported metro areas. Metro areas don't follow city boundaries. A metro area can contain multiple cities, densely populated city, and surrounding cities. In fact, a country/region can be one metro area. 
 
 The `metroID` is a metro area's ID that can be used to call the [Get Metro Area Info API](/rest/api/maps/mobility/getmetroareainfopreview). Use Azure Maps' "Get Metro" API to request transit types, transit agencies, active alerts, and additional details for the chosen metro. You can also request the supported metro areas and metroIDs. Metro area IDs are subject to change.
 

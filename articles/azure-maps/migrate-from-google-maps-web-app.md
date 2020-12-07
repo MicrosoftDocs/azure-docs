@@ -71,7 +71,7 @@ The table lists key API features in the Google Maps V3 JavaScript SDK and the su
 | Geocoder service        | ✓                          |
 | Directions service      | ✓                          |
 | Distance Matrix service | ✓                          |
-| Elevation service (Preview)      | Planned                     |
+| Elevation service       | Planned                    |
 
 ## Notable differences in the web SDKs
 
