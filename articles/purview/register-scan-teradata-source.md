@@ -142,3 +142,7 @@ Below are the functionalities not supported today. Efforts are underway to have 
 - Classification
 - Scoped Scanning
 
+## Next steps
+
+- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
+- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
