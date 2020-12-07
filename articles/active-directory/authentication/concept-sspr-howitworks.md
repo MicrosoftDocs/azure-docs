@@ -86,7 +86,7 @@ When you don't require registration, users aren't prompted during sign-in, but t
 >
 > This interrupt to register for SSPR doesn't break the user's connection if they're already signed in.
 
-## Set the number of days before users are asked to reconfirm their authentication information
+## Reconfirm authentication information
 
 To make sure that authentication methods are correct when they're needed to reset or change their password, you can require users confirm their info registered information after a certain period of time. This option is only available if you enable the **Require users to register when signing in** option.
 
