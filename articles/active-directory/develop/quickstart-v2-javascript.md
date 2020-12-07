@@ -46,7 +46,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > ### Option 2 (Manual): Register and manually configure your application and code sample
 >
 > #### Step 1: Register your application
-
+>
 > 1. Sign in to the [Azure portal](https://portal.azure.com).
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 > 1. Search for and select **Azure Active Directory**.
