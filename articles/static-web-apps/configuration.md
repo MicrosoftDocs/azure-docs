@@ -11,14 +11,14 @@ ms.author: cshoe
 
 # Configure Azure Static Web Apps
 
-Configuration for Azure Static Web Apps is defined in the _staticwebapp.config.json_ file, which defines the following rules:
+Configuration for Azure Static Web Apps is defined in the _staticwebapp.config.json_ file, which controls the following settings:
 
-- Back-end routing
+- Routing
 - Authentication and authorization
-- Global HTTP header definitions
 - HTTP response overrides
+- Global HTTP header definitions
 
-The _staticwebapp.config.json_ file may be placed in any location under the _app_ folder.
+The _staticwebapp.config.json_ file may be placed in any location within your application source code folder.
 
 See the [example configuration](#example-configuration-file) file for details.
 
@@ -27,11 +27,10 @@ See the [example configuration](#example-configuration-file) file for details.
 
 ## Routes
 
-Routes are defined as an array of routing rules. See the [example route file](#example-configuration-file) for usage examples.
+Route rules allow you to define the pattern of  URLs that expose your application to the web. Routes are are defined as an array of routing rules. See the [example route file](#example-configuration-file) for usage examples.
 
 - Rules are executed in the order as they appear in the `routes` array.
 - Rule evaluation stops at the first match. Routing rules aren't chained together.
-- Roles are defined in the _staticwebapp.config.json_ file and users are associated to roles via [invitations](./authentication-authorization.md).
 - You have full control over role names.
 
 The routing concerns significantly overlap with authentication and authorization concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
@@ -43,16 +42,16 @@ Each rule is composed of a route pattern, along with one or more of the optional
 | Rule property  | Required | Default value | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
 | `route`        | Yes      | n/a          | The route pattern requested by the caller.<ul><li>[Wildcards](#wildcards) are supported at the end of route paths.<ul><li>For instance, the route _admin/\*_ matches any route under the _admin_ path.</ul><li>A route serves the folder's _index.html_ file by default.</ul>|
-| `rewrite`        | No       | n/a          | Defines the file or path returned from the request.<ul><li>Is mutually exclusive to a `redirect` rule<li>Rewrite rules don't change the browser's location<li>Values must point to actual files<li>Querystring parameters aren't supported</ul>  |
-| `redirect`        | No       | n/a          | Defines the file or path redirect destination for a request.<ul><li>Is mutually exclusive to a `rewrite` rule<li>Redirect rules change the browser's location<li>Default response code is a [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) temporary redirect, but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) permanent redirect<li>Querystring parameters aren't supported</ul> |
-| `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`<li>The built-in role, [`anonymous`](./authentication-authorization.md), applies to all unauthenticated users<li>The built-in role, [`authenticated`](./authentication-authorization.md), applies to any logged-in use.<li>Users must belong to at least one role<li>Roles are matched on an _OR_ basis.<ul><li>If a user is in any of the listed roles, then access is granted</ul><li>Individual users are associated to roles through [invitations](authentication-authorization.md)</ul> |
-| `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) associated with the request. Route-specific headers take precedence over [`globalHeaders`](#global-headers). |
-| `statusCode`   | No       | 200           | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) response for the request. |
-| `methods` | No | n/a | An array of HTTP methods. Available methods include: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`,  and `PATCH`. |
+| `rewrite`        | No       | n/a          | Defines the file or path returned from the request.<ul><li>Is mutually exclusive to a `redirect` rule<li>Rewrite rules don't change the browser's location<li>Values must point to the relative path of an actual file<li>Querystring parameters aren't supported</ul>  |
+| `redirect`        | No       | n/a          | Defines the file or path redirect destination for a request.<ul><li>Is mutually exclusive to a `rewrite` rule<li>Redirect rules change the browser's location<li>Default response code is a [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (temporary redirect), but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (permanent redirect)<li>Querystring parameters aren't supported</ul> |
+| `allowedRoles` | No       | anonymous     | Defines a list of role names required to access a route. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`<li>The built-in role, [`anonymous`](./authentication-authorization.md), applies to all unauthenticated users<li>The built-in role, [`authenticated`](./authentication-authorization.md), applies to any logged-in use.<li>Users must belong to at least one role<li>Roles are matched on an _OR_ basis.<ul><li>If a user is in any of the listed roles, then access is granted</ul><li>Individual users are associated to roles through [invitations](authentication-authorization.md)</ul> |
+| `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) added to the response. Route-specific headers take precedence over [`globalHeaders`](#global-headers). |
+| `statusCode`   | No       | 200           | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) of the response. |
+| `methods` | No | All methods | List of request methods which match a route. Available methods include: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`,  and `PATCH`. |
 
 ## Securing routes with roles
 
-Routes are secured by adding one or more role names into a rule's `allowedRoles` array. See the [example route file](#example-configuration-file) for usage examples.
+Routes are secured by adding one or more role names into a rule's `allowedRoles` array, and users are associated to custom roles via [invitations](./authentication-authorization.md). See the [example route file](#example-configuration-file) for usage examples.
 
 By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role.
 
@@ -65,12 +64,12 @@ For instance, to restrict a route to only authenticated users, add the built-in 
 }
 ```
 
-You can create new roles as needed in the `allowedRoles` array. To restrict a route to only administrators, you could define an `administrators` role in the `allowedRoles` array.
+You can create new roles as needed in the `allowedRoles` array. To restrict a route to only administrators, you could define an `administrator` role in the `allowedRoles` array.
 
 ```json
 {
   "route": "/admin",
-  "allowedRoles": ["administrators"]
+  "allowedRoles": ["administrator"]
 }
 ```
 
@@ -79,7 +78,7 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 
 ## Wildcards
 
-Wildcard rules match all requests under `rewrite` and `redirect` route patterns, and are only supported at the end of a path. See the [example route file](#example-configuration-file) for usage examples.
+Wildcard rules match all requests in a route patterns, and are only supported at the end of a path. See the [example route file](#example-configuration-file) for usage examples.
 
 For instance, to implement routes for a calendar application, you can rewrite all URLs that fall under the _calendar_ route to serve a single file.
 
@@ -92,7 +91,7 @@ For instance, to implement routes for a calendar application, you can rewrite al
 
 The _calendar.html_ file can then use client-side routing to serve a different view for URL variations like `/calendar/january/1`, `/calendar/2020`, and `/calendar/overview`.
 
-If you don't want a wildcard route to apply to supporting files (JavaScript, CSS and image files), consider placing them in a separate folder outside the scope of the wildcard rule.
+ Wildcards also apply to any static files within the path. If you don't want a wildcard route to apply to supporting files (JavaScript, CSS and image files), consider placing them in a separate folder outside the scope of the wildcard rule.
 
 Common uses cases for wildcard routes include:
 
@@ -105,9 +104,15 @@ Common uses cases for wildcard routes include:
 
 The `globalHeaders` section provides a set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) applied to each request, unless overridden by a [route header](#route-headers) rule. See the [example route file](#example-configuration-file) for usage examples.
 
+Some common use cases for global headers include:
+
+- Custom caching rules
+- Enforcing security policies
+- Encoding settings
+
 ## Response overrides
 
-The `responseOverrides` section provides a set of HTTP response codes that allow you to serve custom files or paths. See the [example route file](#example-configuration-file) for usage examples.
+The `responseOverrides` section provides an opportunity to define custom responses when the server would otherwise respond with error codes. See the [example route file](#example-configuration-file) for usage examples.
 
 The following HTTP codes are available to override:
 
@@ -147,7 +152,7 @@ This rule allows any file not found on the server to return the _index.html_ fil
         },
         {
             "route": "/admin/*",
-            "allowedRoles": ["administrators"]
+            "allowedRoles": ["administrator"]
         },
         {
             "route": "/images/*",
@@ -163,7 +168,7 @@ This rule allows any file not found on the server to return the _index.html_ fil
         {
             "route": "/api/*",
             "methods": [ "PUT", "POST", "PATCH", "DELETE" ],
-            "allowedRoles": ["administrators"]
+            "allowedRoles": ["administrator"]
         },
         {
             "route": "/api/*",
@@ -171,7 +176,7 @@ This rule allows any file not found on the server to return the _index.html_ fil
         },
         {
             "route": "/customers/contoso",
-            "allowedRoles": ["administrators", "customers_contoso"]
+            "allowedRoles": ["administrator", "customers_contoso"]
         },
         {
             "route": "/login",
@@ -222,10 +227,10 @@ Based on the above configuration, review the following scenarios.
 | Requests to... | Results in... |
 | --- | --- |
 | _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users are redirected to _/login_. |
-| _/admin/_ | Authenticated users in the _administrators_ role are served the _/admin/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
+| _/admin/_ | Authenticated users in the _administrator_ role are served the _/admin/index.html_ file. Authenticated users not in the _administrator_ role are served a 401 error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
 | _/logo.png_ | Serves the image with a custom cache rule where the max age is a little over 182 days (15,770,000 seconds). |
-| _/api/admin_ | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a 401 error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrators_ role are sent to the API. Authenticated users not in the _administrators_ role and unauthenticated users are served a 401 error. |
-| _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
+| _/api/admin_ | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a 401 error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrator_ role are sent to the API. Authenticated users not in the _administrator_ role and unauthenticated users are served a 401 error. |
+| _/customers/contoso_ | Authenticated users who belong to either the _administrator_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrator_ or _customers\_contoso_ roles are served a 401 error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
 | _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
 | _/.auth/login/twitter_ | As authorization with Twitter is disabled by the route rule, 404 error is returned, which falls back to serving _/index.html_ with a `200` status code. |
 | _/logout_ | Users are logged out of any authentication provider. |
