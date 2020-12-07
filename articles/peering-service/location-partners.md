@@ -1,4 +1,3 @@
----
 title: Azure Peering Service locations and partners
 description: Learn about Azure Peering Service locations and partners
 services: peering-service
@@ -8,7 +7,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 11/06/2020
+ms.date: 12/07/2020
 ms.author: derekol
 ---
 
@@ -25,7 +24,7 @@ The table in this article provides information on the Peering Service connectivi
 
 | **Partners** | **Market**|
 |-----------|---------|
-| [CenturyLink](https://www.ctl.io/microsoft-azure-peering-services/) |United States|
+| [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) |North America, Europe|
 | [BBIX](https://www.bbix.net/en/service/) |Japan |
 | [CCL](https://concepts.co.nz/news/general-news/) |Oceania |
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe, Asia|
