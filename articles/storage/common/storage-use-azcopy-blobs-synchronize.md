@@ -87,12 +87,10 @@ For a complete list, see [options](storage-ref-azcopy-sync.md#options).
 
 Find more examples in any of these articles:
 
-- [Get started with AzCopy](storage-use-azcopy-v10.md)
-
+- [Examples: Upload](storage-use-azcopy-blobs-upload.md)
+- [Examples: Download](storage-use-azcopy-blobs-download.md)
+- [Examples: Copy between accounts](storage-use-azcopy-blobs-copy.md)
+- [Examples: Amazon S3 buckets](storage-use-azcopy-s3.md)
+- [Examples: Azure Files](storage-use-azcopy-files.md)
 - [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
-
-- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-
-- [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
-
 - [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)

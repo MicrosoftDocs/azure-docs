@@ -124,20 +124,12 @@ For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ## Next steps
 
-Find more examples in any of these articles:
+Find more examples in the following articles:
 
-- [Get started with AzCopy](storage-use-azcopy-v10.md)
-
-- [Upload files to Azure Blob storage](storage-use-azcopy-blobs-upload.md)
-
-- [Download blobs from Azure Blob storage](storage-use-azcopy-blobs-download.md)
-
-- [Synchronize with Azure Blob storage](storage-use-azcopy-blobs-download.md)
-
+- [Examples: Upload](storage-use-azcopy-blobs-upload.md)
+- [Examples: Download](storage-use-azcopy-blobs-download.md)
+- [Examples: Synchronize](storage-use-azcopy-blobs-synchronize.md)
+- [Examples: Amazon S3 buckets](storage-use-azcopy-s3.md)
+- [Examples: Azure Files](storage-use-azcopy-files.md)
 - [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
-
-- [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
-
-- [Transfer data with AzCopy and Azure Files](storage-use-azcopy-files.md)
-
 - [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)

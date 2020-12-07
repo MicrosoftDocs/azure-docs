@@ -48,7 +48,7 @@ Download a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) comm
 
 This example results in a directory named `C:\myDirectory\myBlobDirectory` that contains all of the downloaded blobs.
 
-## Download the contents of a directory
+## Download directory contents
 
 You can download the contents of a directory without copying the containing directory itself by using the wildcard symbol (*).
 
@@ -142,20 +142,12 @@ For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ## Next steps
 
-Find more examples in any of these articles:
+- Find more examples in the following articles:
 
-- [Get started with AzCopy](storage-use-azcopy-v10.md)
-
-- [Upload files to Azure Blob storage](storage-use-azcopy-blobs-upload.md)
-
-- [Synchronize with Azure Blob storage](storage-use-azcopy-blobs-download.md)
-
-- [Copy blobs between Azure storage accounts](storage-use-azcopy-blobs-download.md)
-
+- [Examples: Upload](storage-use-azcopy-blobs-upload.md)
+- [Examples: Copy between accounts](storage-use-azcopy-blobs-download.md)
+- [Examples: Synchronize](storage-use-azcopy-blobs-synchronize.md)
+- [Examples: Amazon S3 buckets](storage-use-azcopy-s3.md)
+- [Examples: Azure Files](storage-use-azcopy-files.md)
 - [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
-
-- [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
-
-- [Transfer data with AzCopy and Azure Files](storage-use-azcopy-files.md)
-
 - [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)

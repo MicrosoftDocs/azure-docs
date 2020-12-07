@@ -12,16 +12,17 @@ ms.reviewer: dineshm
 
 # Upload files to Azure Blob storage by using AzCopy v10
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article contains example commands that help you upload files and directories to Blob storage.
+You can upload files and directories to Blob storage by using the AzCopy v10 command-line utility. 
 
-> [!TIP]
-> The examples in this article enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+To see examples for other types of tasks such as downloading blobs, synchronizing with Blob storage, or copying blobs between accounts, see the links presented in the [Next Steps](#next-steps) section of this article.
 
 ## Get started
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage. If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+
+The examples in this article enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 ## Create a container
 
@@ -160,20 +161,12 @@ For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ## Next steps
 
-Find more examples in any of these articles:
+Find more examples in any of the following articles:
 
-- [Get started with AzCopy](storage-use-azcopy-v10.md)
-
-- [Download blobs from Azure Blob storage](storage-use-azcopy-blobs-download.md)
-
-- [Synchronize with Azure Blob storage](storage-use-azcopy-blobs-download.md)
-
-- [Copy blobs between Azure storage accounts](storage-use-azcopy-blobs-download.md)
-
+- [Examples: Download](storage-use-azcopy-blobs-download.md)
+- [Examples: Copy between accounts](storage-use-azcopy-blobs-copy.md)
+- [Examples: Synchronize](storage-use-azcopy-blobs-synchronize.md)
+- [Examples: Amazon S3 buckets](storage-use-azcopy-s3.md)
+- [Examples: Azure Files](storage-use-azcopy-files.md)
 - [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
-
-- [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
-
-- [Transfer data with AzCopy and Azure Files](storage-use-azcopy-files.md)
-
 - [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
