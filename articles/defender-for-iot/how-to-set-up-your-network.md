@@ -4,7 +4,7 @@ description: Learn about solution architecture, network preparation, pre-requisi
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/01/2020
+ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
 ---
@@ -27,7 +27,7 @@ For assistance or support, contact [support.microsoft.com](https://support.micro
 
 Site Deployment tasks include:
 
-- [Gather site information](#gather-site-information)
+- [Collect site information](#collect-site-information)
 
 - [Prepare a configuration workstation](#prepare-a-configuration-workstation)
 
@@ -55,7 +55,7 @@ Record site information, for example:
 
 - DNS Servers (Optional) Prepare your DNS server IP and Hostname.
 
-A detailed list and description of important site information is provided in [Example site book](#appendix-2---example-site-book)
+A detailed list and description of important site information is provided in [Example site book](#example-site-book)
 
 #### Successful monitoring guidelines
 
@@ -215,8 +215,8 @@ In a star network, every host is connected to a central hub. In its simplest for
 
 This article provides recommendations when deploying multiple sensors.
 
-|                   |                | **Dependency** | **Number of sensors** |
-| ----------------- | -------------- | -------------- | --------------------- |
+| **Number **| **Meters** | **Dependency** | **Number of sensors** |
+|--|--|--|--|
 | The maximum distance between switches | 80 meters | Prepared Ethernet cable | More than 1 |
 | Number of OT networks | More than 1 | No physical connectivity | More than 1 |
 | Number of switch’s | Can use RSPAN configuration | Up to 8 switches with local span close to the sensor by cabling distance | More than 1 |
@@ -225,13 +225,13 @@ This article provides recommendations when deploying multiple sensors.
 
 To see only relevant information for traffic analysis, it is required to connect the Defender for IoT platform to a mirroring port on a switch or a TAP, that includes only industrial ICS and SCADA traffic​. 
 
-![Diagram of Traffic mirroring.](media/tutorial-network-setup/image7.jpg)
+:::image type="content" source="media/how-to-set-up-your-network/switch.jpg" alt-text="Use this switch for your set up.":::
 
 Monitoring switch traffic can be accomplished with the following methods:
 
 - [Switch SPAN Port](#switch-span-port)
 
-- [Remote SPAN (RSPAN)](#remote span-rspan)
+- [Remote SPAN (RSPAN)](#remotespan-rspan)
 
 SPAN and RSPAN are Cisco terminology. Other brands of switches have similar functionality but may use different terminology.
 
@@ -530,7 +530,7 @@ Use the example site book to retrieve and review important information needed fo
 
 Review this list prior to site deployment.
 
-| **#** | **Task or Activity** | **Status** | **Comments** |
+| **Number** | **Task or Activity** | **Status** | **Comments** |
 |--|--|--|--|
 | 1 | Provide global | ☐ |  |
 | 3 | Order appliance(s) | ☐ |  |
@@ -550,13 +550,12 @@ Review this list prior to site deployment.
 | 17 | Training (self-learning) | ☐ |  |
 | 18 | Go no go | ☐ |  |
 | 19 | Schedule deployment date | ☐ |  |
-<br />
 
 | **Date** |  | **Deployment date** |  |
 |--|--|--|--|
-| **Defender for IoT** |  | **Site name** |  |
-| **Name** |  | **Name** |  |
-| **Position** |  | **Position** |  |
+| Defender for IoT |  | Site name* |  |
+| Name|  | Name |  |
+| Position |  | Position |  |
 
 #### Architecture review
 
