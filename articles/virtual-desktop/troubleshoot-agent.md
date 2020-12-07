@@ -310,7 +310,7 @@ This error indicates that the broker was unable to find an endpoint to establish
 2. You will see how many session hosts you have in the host pool and how many active sessions next to *Total active sessions*. 
 3. Select *Properties* under the *Settings* on the blade on the left. 
 4. Under *Configuration* you will see *Max session limit*. 
-5. Verify that the $Total active sessions \div # of session hosts < Max Session Limit$. If not, you need to increase the max session limit or terminate some sessions.
+5. Verify that the Total active sessions \ # of session hosts < Max Session Limit. If not, you need to increase the max session limit or terminate some sessions.
 
 #### Verify that the agent services are running on your VM(s).
 
@@ -334,7 +334,7 @@ This error indicates that the broker was unable to find an endpoint to establish
 2. Select *Windows Logs*.
 3. Double click *Application*. This will show a list of events.
 4. On the right hand side of the window, select *Filter Current Log...*.
-5. In the text field that says *<All Event IDs>, type *3277*, and select *Ok*.
+5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *INVALID_REGISTRATION_TOKEN* in the general description if you have received this error.
 
    > [!div class="mx-imgBorder"]
@@ -348,7 +348,7 @@ The registration token that you have is not recognized as valid.
 
 #### Create a new registration token.
 
-1. Follow steps 1-5 to [generate a new registration key for the VM](#Generate-a-new-registration-key-for-the-VM) under *Reinstalling WVD Agent*.
+1. Follow steps 1-5 to [generate a new registration key for the VM](#Generate-a-new-registration-key-for-the-VM).
 
 #### Change IsRegistered to 0.
 
@@ -385,11 +385,11 @@ The registration token that you have is not recognized as valid.
 2. Select *Windows Logs*.
 3. Double click *Application*. This will show a list of events.
 4. On the right hand side of the window, select *Filter Current Log...*.
-5. In the text field that says *<All Event IDs>, type *3277*, and select *Ok*.
+5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *NAME_ALREADY_REGISTERED* in the general description if you have received this error.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of NAME_ALREADY_REGISTERED](../3277-name-already-registered.PNG)
+   > ![Screenshot of NAME_ALREADY_REGISTERED](media/3277-name-already-registered.PNG)
 
 ### Why are you getting this error?
 
@@ -397,7 +397,7 @@ The name of your VM has already been registered and is probably a duplicate.
 
 ### Resolution
 
-1. Follow steps 1-5 to [remove the session host from the host pool](#Remove-the-session-host-from-the-host-pool) under *Reinstalling WVD Agent*.
+1. Follow steps 1-5 to [remove the session host from the host pool](#Remove-the-session-host-from-the-host-pool).
 2. Go to the *Overview* page for the host pool that your VM is in in the [Azure Portal](https://portal.azure.com). 
 3. Go to the *Session Hosts* tab to see the list of all session hosts in that host pool.
 4. Wait for 5-10 minutes for the session host to show *Available*.
@@ -413,7 +413,7 @@ The name of your VM has already been registered and is probably a duplicate.
 2. Select *Windows Logs*.
 3. Double click *Application*. This will show a list of events.
 4. On the right hand side of the window, select *Filter Current Log...*.
-5. In the text field that says *<All Event IDs>, type *3277*, and select *Ok*.
+5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *INVALID_FORM* in the general description if you have received this error.
 
 ### Why are you getting this error?
@@ -422,7 +422,7 @@ Something went wrong with the communication between the agent and the broker.
 
 ### Resolution
 
-1. Verify [the agent can talk to the broker.](#The-WVD-agent-cannot-talk-to-the-broker)
+Verify [the agent can talk to the broker.](#The-WVD-agent-cannot-talk-to-the-broker)
 
 ## EXPIRED_REGISTRATION_TOKEN
 
@@ -432,7 +432,7 @@ Something went wrong with the communication between the agent and the broker.
 2. Select *Windows Logs*.
 3. Double click *Application*. This will show a list of events.
 4. On the right hand side of the window, select *Filter Current Log...*.
-5. In the text field that says *<All Event IDs>, type *3277*, and select *Ok*.
+5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *EXPIRED_REGISTRATION_TOKEN* in the general description if you have received this error.
 
 ### Why are you getting this error?
@@ -441,8 +441,8 @@ Whenever you create a registration token, you set an expiration date for it. Rec
 
 ### Resolution
 
-1. Follow steps 1-5 to [generate a new registration key for the VM](#Generate-a-new-registration-key-for-the-VM) under *Reinstalling WVD Agent*.
-2. Follow steps 1-13 to [reinstall the WVD Agent and Bootloader](#Uninstall-all-agent-bootloader-and-stack-component-programs) under *Reinstalling WVD Agent*. 
+1. Follow steps 1-5 to [generate a new registration key for the VM](#Generate-a-new-registration-key-for-the-VM).
+2. Follow steps 1-13 to [reinstall the WVD Agent and Bootloader](#Uninstall-all-agent-bootloader-and-stack-component-programs). 
 
 ## InstallMsiException
 
@@ -452,7 +452,7 @@ Whenever you create a registration token, you set an expiration date for it. Rec
 2. Select *Windows Logs*.
 3. Double click *Application*. This will show a list of events.
 4. On the right hand side of the window, select *Filter Current Log...*.
-5. In the text field that says *<All Event IDs>, type *3277*, and select *Ok*.
+5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *InstallMsiException* in the general description if you have received this error.
 
 ### Why are you getting this error?
@@ -476,7 +476,7 @@ Disable the following policies:
 2. Select *Windows Logs*.
 3. Double click *Application*. This will show a list of events.
 4. On the right hand side of the window, select *Filter Current Log...*.
-5. In the text field that says *<All Event IDs>, type *3277*, and select *Ok*.
+5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *Win32Exception* in the general description if you have received this error.
 
 ### Why are you getting this error?
@@ -538,7 +538,7 @@ Disable the following policies:
 
 ### Reinstall the WVD Agent and Bootloader.
 
-1. Login to your VM as an administrator and go o this link [here](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+1. Login to your VM as an administrator and go to this link [here](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 2. Download the *Windows Virtual Desktop Agent* and the *Windows Virtual Desktop Agent Bootloader* that are linked in parts 2 and 3 under *Register the virtual machines to the Windows Virtual Desktop host pool*.
 
    > [!div class="mx-imgBorder"]
