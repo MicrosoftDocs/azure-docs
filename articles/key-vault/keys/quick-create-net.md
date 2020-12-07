@@ -50,6 +50,13 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 2. Sign in with your account credentials in the browser.
 
+#### Grant access to your key vault
+
+Create an access policy for your key vault that grants key permissions to your user account
+
+```console
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
+```
 
 ### Create new .NET console app
 
@@ -85,14 +92,6 @@ For this quickstart, you'll also need to install the Azure SDK client library fo
 
 ```dotnetcli
 dotnet add package Azure.Identity
-```
-
-#### Grant access to your key vault
-
-Create an access policy for your key vault that grants key permission to your user account
-
-```console
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
 
 #### Set environment variables
@@ -133,7 +132,7 @@ using Azure.Security.KeyVault.Keys;
 
 In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information about authenticating to key vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. Fore more information about authenticating to key vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```csharp
 var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
@@ -243,41 +242,8 @@ Modify the .NET Core console app to interact with the Key Vault by completing th
     Retrieving your key from mykeyvault.
     Your key version is '8532359bced24e4bb2525f2d2050738a'.
     Deleting your key from jl-kv ... done
+    Purging your key from <your-unique-keyvault-name> ... done.   
     ```
-
-## Clean up resources
-
-When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding resource group.
-
-### Delete a Key Vault
-
-```azurecli
-az keyvault delete --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
-```
-
-### Purge a Key Vault
-
-```azurecli
-az keyvault purge --location eastus --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
-```
-
-### Delete a resource group
-
-```azurecli
-az group delete -g "myResourceGroup"
-```
-
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
-```
 
 ## Next steps
 
