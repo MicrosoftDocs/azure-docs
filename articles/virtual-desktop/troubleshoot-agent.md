@@ -47,25 +47,9 @@ If the status says upgrading, it may be that the agent was not properly installe
 
 In this case, you do not have the correct credentials to install the agent on the VM.
 
-#### Unavailable VM
+#### Unavailable VM or other agent installation/upgrade failures
 
-##### Reinstall the Side-By-Side Stack
-
-1. Open your Command Prompt (in Start menu, type *cmd*) as an administrator.
-2. Type and run *net stop RDAgentBootloader* to stop the bootloader.
-3. Go to Programs and Features (in Start menu, type *Control Panel*, and navigate to Control Panel\Programs\Programs and Features).
-4. Uninstall the *Remote Desktop Services SxS Network Stack*.
-5. Navigate to C:\Program Files\Microsoft RDInfra.
-6. Double click on and install the SxSStack component.
-7. Go back to your Command Prompt with administrator privileges.
-8. Type and run *qwinsta*.
-9. Verify that the side-by-side stack component that you just installed in step 6 shows in this list and it says *Listening* next to it.
-10. Type and run *net start RDAgentBootLoader* to start the bootloader.
-11. If you are still seeing *Unavailable* as the VM status, see [Reinstalling WVD Agent](#Reinstalling-WVD-Agent).
-
-#### Other agent installation/upgrade failures
-
-For all other errors with the agent not being properly installed, see [Reinstalling WVD Agent](#Reinstalling-WVD-Agent) and follow the steps outlined there.
+If your VM says *Unavailable* it is best to try and reinstall the agent, which will also reinstall the side-by-side stack. For all other errors with the agent not being properly installed, the same recourse is recommended. See [Reinstalling WVD Agent](#Reinstalling-WVD-Agent) and follow the steps outlined there.
 
 ## The WVD agent service is not running.
 
@@ -75,7 +59,7 @@ For all other errors with the agent not being properly installed, see [Reinstall
 
 1. Open your Services window (in Start menu, type *services*).
 2. Scroll to *Remote Desktop Agent Loader*.  
-3. Verify that it says *Running* next to it. If not, see [Reinstalling WVD Agent](#Reinstalling-WVD-Agent).
+3. Verify that it says *Running* next to it. If not, see the resolution section below.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of Services window with RDAgent Loader highlighted](media/agentloader.PNG)
@@ -88,7 +72,7 @@ For all other errors with the agent not being properly installed, see [Reinstall
 Get-Service RdAgentBootLoader
 ```
  
-3. Verify that it says *Running* next to *RdAgentBootLoader*. If not, see [Reinstalling WVD Agent](#Reinstalling-WVD-Agent).
+3. Verify that it says *Running* next to *RdAgentBootLoader*. If not, see the resolution section below.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of Powershell cmdlet being run, running RDAgent BootLoader](media/agentrunning.PNG)
@@ -99,7 +83,7 @@ Get-Service RdAgentBootLoader
 2. Select *More details* at the bottom to expand the list of programs.
 3. Under *Background processes*, right click *RDAgentBootLoader*. 
 4. Select *Go to details*.
-5. Verify that it says *Running* next to *RdAgentBootLoader*. If not, see [Reinstalling WVD Agent](#Reinstalling-WVD-Agent).
+5. Verify that it says *Running* next to *RdAgentBootLoader*. If not, see the resolution section below.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of RDAgent BootLoader running in task manager](media/running-in-task-manager.PNG)
@@ -159,9 +143,6 @@ If you are not seeing the 2 stack components say *Listen* next to them or they a
    > [!div class="mx-imgBorder"]
    > ![Screenshot of fReverseConnectMode](media/freverseconnect.PNG)
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of fEnableWinStation](media/fenablewinstation.PNG)
-
 5. If *fReverseConnectMode* is not set to 1, double click on *fReverseConnectMode* and enter the value 1 for its field. 
 6. If *fEnableWinStation* is not set to 1, double click on *fEnableWinStation* and enter the value 1 for its field. 
    - Note: to change the *fReverseConnectMode* or *fEnableWinStation* mode for multiple VMs at one time, you can either 1) export the registry key from the machine that you already have working and import it into all the other machines that need this change, or 2) create a GPO to set the registry key value for the machines that need the change.
@@ -174,7 +155,7 @@ If you are not seeing the 2 stack components say *Listen* next to them or they a
 2. Select *Windows Logs*.
 3. Double click *Application*. This will show a list of events.
 4. On the right hand side of the window, select *Filter Current Log...*.
-5. In the text field that says *<All Event IDs>, type *3277*, and select *Ok*.
+5. In the text field that says \<All Event IDs\>, type *3277*, and select *Ok*.
 6. In the filtered list, you will see an event that includes *Agent cannot connect to broker with error NOT_FOUND. URL:* in the general description if you have received this error.
 
    > [!div class="mx-imgBorder"]
@@ -194,10 +175,10 @@ The agent cannot connect to the broker and is unable to reach a particular URL. 
    > ![Screenshot of broker uri and broker uri global](media/broker-uris.PNG)
 
  
-4. Open a browser and go to *https://<BrokerURI>api/health*. 
-   - Make sure that in place of *<BrokerURI>* in the above link, you put the actual value from step 3. 
-5. Open another tab in the browser and go to *https://<BrokerURIGlobal>/api/health*. 
-   - Make sure that in place of <BrokerURIGlobal> in the above link, you put the actual value from step 3. 
+4. Open a browser and go to *BrokerURI/api/health*. 
+   - Make sure that in place of *BrokerURI* in the above link, you put the actual value from step 3. 
+5. Open another tab in the browser and go to *BrokerURIGlobal/api/health*. 
+   - Make sure that in place of *BrokerURIGlobal* in the above link, you put the actual value from step 3. 
 6. Both pages should load as shown below. 
 
    > [!div class="mx-imgBorder"]
@@ -209,7 +190,7 @@ The agent cannot connect to the broker and is unable to reach a particular URL. 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of unsuccessful loaded broker access](media/unsuccessful-broker-uri.PNG)
 
-8. If the network is blocking these URLs, you will need to whitelist the required URLs. See [Safe URL List](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list).
+8. If the network is blocking these URLs, you will need to whitelist the required URLs. See [Safe URL List](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list) for instructions on how to do this.
 
 ## Trying to operate an unsupported VM OS.
 
@@ -235,7 +216,7 @@ The side-by-side stack is only supported by Windows Enterprise or Windows Server
 
 #### Create a VM that is Windows Enterprise or Windows Server
 
-1. Follow steps 1-12 under *[Virtual Machine Details]*(https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace). Note that the recommended images for your VM are:
+1. Follow steps 1-12 under [Virtual Machine Details](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace). Note that the recommended images for your VM are:
    - Windows 10 Enterprise multi-session, Version 1909
    - Windows 10 Enterprise multi-session, Version 1909 + Microsoft 365 Apps
    - Windows Server 2019 Datacenter
