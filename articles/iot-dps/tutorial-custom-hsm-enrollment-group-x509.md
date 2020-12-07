@@ -22,7 +22,7 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 
 This tutorial is similar to the previous tutorials demonstrating how to use enrollment groups to provision sets of devices. However, X.509 certificates will be used in this tutorial instead of symmetric keys. Review the previous tutorials in this section for a simple approach using [symmetric keys](./concepts-symmetric-key-attestation.md).
 
-This tutorial will demonstrate the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) that provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets is strongly recommended.
+This tutorial will demonstrate the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) that provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets is not required, but strongly recommended to help protect sensitive information like your device certificate's private key.
 
 If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md) before continuing with this tutorial. 
 
@@ -222,7 +222,9 @@ To create the certificate chain:
 
 ## Configure the custom HSM stub code
 
-The specifics of interacting with actual secure hardware-based storage vary depending on the hardware. As a result, the certificate chain used by the device in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods shown in this sample would then be implemented to read the secrets from that hardware-based storage.
+The specifics of interacting with actual secure hardware-based storage vary depending on the hardware. As a result, the certificate chain used by the device in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods shown in this sample would then be implemented to read the secrets from that hardware-based storage. 
+
+While HSM hardware is not required, it is not recommended to have sensitive information, like the certificate's private key, checked into source code. This exposes the key to anyone that can view the code. This is only done in this article to assist with learning.
 
 To update the custom HSM stub code for this tutorial:
 
