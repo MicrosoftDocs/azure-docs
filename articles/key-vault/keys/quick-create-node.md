@@ -245,23 +245,22 @@ main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 ## Test and verify
 
-1. Execute the following commands to run the app.
+Execute the following commands to run the app.
 
-    ```azurecli
-    npm install
-    npm index.js
-    ```
+```azurecli
+npm install
+npm index.js
+```
 
 A variation of the following output appears:
 
-    ```azurecli
-    Creating a key in <your-unique-keyvault-name> called 'myKey' ... done.
-    Retrieving your key from mykeyvault.
-    Your key version is '8532359bced24e4bb2525f2d2050738a'.
-    Deleting your key from <your-unique-keyvault-name> ... done.  
-    Purging your key from <your-unique-keyvault-name> ... done.   
-    ```
-
+```azurecli
+Creating a key in <your-unique-keyvault-name> called 'myKey' ... done.
+Retrieving your key from mykeyvault.
+Your key version is '8532359bced24e4bb2525f2d2050738a'.
+Deleting your key from <your-unique-keyvault-name> ... done.  
+Purging your key from <your-unique-keyvault-name> ... done.   
+```
 
 ## Next steps
 
