@@ -23,10 +23,10 @@ Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname> | Sel
 3. Look at the status that is listed for the session host(s) in your host pool. If it continually says *Upgrading* or *Unavailable*, as shown in the picture below, the agent installation on your host(s) has failed.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of PowerShell cmdlet being run, upgrading status](../media/upgrading.png)
+   > ![Screenshot of PowerShell cmdlet being run, upgrading status](media/upgrading.png)
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of PowerShell cmdlet being run, unavailable status](../media/unavailable.png)
+   > ![Screenshot of PowerShell cmdlet being run, unavailable status](media/unavailable.png)
 
 ### Why are you getting this error?
 
