@@ -1,6 +1,6 @@
 ---
-title: Serverless SQL pool (preview) self-help
-description: This section contains information that can help you troubleshoot problems with serverless SQL pool (preview).
+title: Serverless SQL pool self-help
+description: This section contains information that can help you troubleshoot problems with serverless SQL pool.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics 
@@ -11,9 +11,9 @@ ms.author: stefanazaric
 ms.reviewer: jrasnick
 ---
 
-# Self-help for serverless SQL pool (preview)
+# Self-help for serverless SQL pool
 
-This article contains information about how to troubleshoot most frequent problems with serverless SQL pool (preview) in Azure Synapse Analytics.
+This article contains information about how to troubleshoot most frequent problems with serverless SQL pool in Azure Synapse Analytics.
 
 ## Serverless SQL pool is grayed out in Synapse Studio
 
@@ -32,7 +32,7 @@ If your query fails with the error message 'This query can't be executed due to 
 
 - Make sure data types of reasonable sizes are used. Also, specify schema for Parquet files for string columns as they'll be VARCHAR(8000) by default. 
 
-- If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview). 
+- If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
 - Visit [performance best practices for serverless SQL pool](best-practices-sql-on-demand.md) to optimize query.  
 

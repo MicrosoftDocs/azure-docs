@@ -207,4 +207,4 @@ When you create an HDInsight cluster, a load balancer is created as well. The ty
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 * For more information on network security groups, see [Network security groups](../virtual-network/network-security-groups-overview.md).
 * For more information on user-defined routes, see [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
-* For more information on controlling traffic, see [Control network traffic](./control-network-traffic.md).
+* For more information on controlling traffic including Firewall integration, see [Control network traffic](./control-network-traffic.md).

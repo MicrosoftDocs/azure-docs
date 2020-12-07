@@ -52,7 +52,7 @@ The basic encryption available for connectivity to Azure Government supports Tra
 
 ## Managing secrets
 
-Proper protection and management of encryption keys is essential for data security. Customers should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data. [Azure Key Vault](../key-vault/key-vault-overview.md) is a multi-tenant key management service that Microsoft recommends for managing and controlling access to encryption keys when seamless integration with Azure services is required. Azure Key Vault enables customers to store their encryption keys in Hardware Security Modules (HSMs) that are FIPS 140-2 validated.  For more information, see [Data encryption key management with Azure Key Vault](./azure-secure-isolation-guidance.md#azure-key-vault)
+Proper protection and management of encryption keys is essential for data security. Customers should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data. [Azure Key Vault](../key-vault/general/overview.md) is a multi-tenant key management service that Microsoft recommends for managing and controlling access to encryption keys when seamless integration with Azure services is required. Azure Key Vault enables customers to store their encryption keys in Hardware Security Modules (HSMs) that are FIPS 140-2 validated.  For more information, see [Data encryption key management with Azure Key Vault](./azure-secure-isolation-guidance.md#azure-key-vault)
 
 ### Best practices for managing secrets
 
@@ -116,4 +116,3 @@ Screening standards include the validation of US citizenship of all Microsoft su
 ## Next steps
 For supplemental information and updates please subscribe to the
 <a href="https://devblogs.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
-

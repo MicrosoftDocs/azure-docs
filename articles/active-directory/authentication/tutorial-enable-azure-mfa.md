@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management

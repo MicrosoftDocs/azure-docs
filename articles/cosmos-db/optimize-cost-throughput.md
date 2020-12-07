@@ -133,7 +133,7 @@ Since you are billed for the throughput provisioned, matching the provisioned th
 
 To determine the provisioned throughput for a new workload, you can use the following steps: 
 
-1. Perform an initial, rough evaluation using the capacity planner and adjust your estimates with the help of the Azure Cosmos Explorer in the Azure portal. 
+1. Perform an initial, rough evaluation using the capacity planner and adjust your estimates with the help of the Azure Cosmos DB Explorer in the Azure portal. 
 
 2. It's recommended to create the containers with higher throughput than expected and then scaling down as needed. 
 

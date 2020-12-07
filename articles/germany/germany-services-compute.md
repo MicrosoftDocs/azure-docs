@@ -14,7 +14,7 @@ ms.custom: bfdocs
 [!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 ## Virtual Machines
-For details on the Azure Virtual Machines service and how to use it, see [Sizes for Windows virtual machines in Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
+For details on the Azure Virtual Machines service and how to use it, see [Sizes for Windows virtual machines in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Variations
 These products (virtual machines) are available in Azure Germany:

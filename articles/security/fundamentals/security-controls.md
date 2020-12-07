@@ -19,7 +19,7 @@ This index provides links to "Built-in security controls" articles. A security c
 Built-in security control articles are available for the following services:
 
 
-- [Azure App Service](../../app-service/app-service-security-controls.md)
+- [Azure App Service](../../app-service/security-baseline.md)
 - [Azure Resource Manager](../../azure-resource-manager/management/azure-resource-manager-security-controls.md)
-- [Azure Service Bus Relay](../../service-bus-relay/service-bus-relay-security-controls.md)
+- [Azure Service Bus Relay](../../azure-relay/service-bus-relay-security-controls.md)
 - [Azure Spring Cloud](../../spring-cloud/spring-cloud-concept-security-controls.md)
