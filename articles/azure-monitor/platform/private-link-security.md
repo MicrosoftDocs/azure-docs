@@ -84,7 +84,7 @@ In the below topology:
 > [!NOTE]
 > In some network topologies (mainly Hub-and-spoke) you may quickly reach the 10 VNets limit for a single AMPLS. In such cases it's advised to use a shared private link connection instead of separate ones. Create a single Private Endpoint on the hub network, link it to your AMPLS and peer the relevant networks to the hub network.
 
-![Hub-and-spoke-single-PE](./media/private-link-security/Hub-and-spoke-single-PE.png)
+![Hub-and-spoke-single-PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
 ## Example connection
 
