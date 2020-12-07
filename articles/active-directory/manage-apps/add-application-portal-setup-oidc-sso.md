@@ -49,7 +49,7 @@ To set up single sign-on for an application:
    > [!IMPORTANT]
     > If you already have a subscription to the application then validation of user details and tenant/directory information will happen. If the application is not able to verify the user then it will redirect you to sign-up for the application service or to the error page.
 
-3. After successful authentication, a dialog appears asking for admin consent. Select **Consent on behalf of your organization** and then select **Accept**. 
+3. After successful authentication, a dialog appears asking for admin consent. Select **Consent on behalf of your organization** and then select **Accept**. To learn more about user and admin consent, see [Understand user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
 
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Screenshot shows the consent screen for an app." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
@@ -59,6 +59,11 @@ To set up single sign-on for an application:
 > [!TIP]
 > You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
+Here is a video walking through additional details of adding an OIDC-based app to Azure AD.
+
+Adding an OIDC-based app in Azure Active Directory
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## Clean up resources
 
