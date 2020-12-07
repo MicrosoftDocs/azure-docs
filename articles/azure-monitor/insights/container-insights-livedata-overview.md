@@ -2,7 +2,7 @@
 title: View Live Data (preview) with Azure Monitor for containers | Microsoft Docs
 description: This article describes the real-time view of Kubernetes logs, events, and pod metrics without using kubectl in Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 12/07/2020
 ms.custom: references_regions
 ---
 
@@ -36,6 +36,21 @@ To suspend autoscroll and control the behavior of the pane, allowing you to manu
 
 >[!IMPORTANT]
 >No data is stored permanently during operation of this feature. All information captured during the session is deleted when you close your browser or navigate away from it. Data only remains present for visualization inside the five minute window of the metrics feature; any metrics older than five minutes are also deleted. The Live Data (preview) buffer queries within reasonable memory usage limits.
+
+## View deployment logs
+
+1. In the Azure portal, browse to the AKS cluster resource group and select your AKS resource.
+
+2. On the AKS cluster dashboard, under **Kubernetes resources** on the left-hand side, choose **Workloads**.
+
+3. Select a deployment.
+
+4. Select **Live Logs (preview)** on the left-hand side.
+
+5. Select a pod.
+
+
+![Deployment live logs](./media/container-insights-livedata-overview/livedata-deployment.png)
 
 ## View logs
 
