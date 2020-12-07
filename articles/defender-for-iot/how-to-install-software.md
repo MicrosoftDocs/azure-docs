@@ -4,10 +4,9 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/24/2020
-ms.topic: article
-ms.service: azure
+ms.date: 12/2/2020
 ms.topic: how-to
+ms.service: azure
 ---
 
 # About the Defender for IoT Installation
@@ -28,7 +27,7 @@ The following installation information is covered:
 
 After installation, connect your sensor to your network.
 
-# About Defender for IoT appliances 
+## About Defender for IoT appliances 
 
 This article covers information about Defender for IoT sensor appliances and the appliance for the Defender for IoT on-premises management console.
 
@@ -197,7 +196,7 @@ When the connection is established, the BIOS is configurable.
 
 To configure Dell BIOS:
 
-1. [Configure iDRAC IP address](#configure-idrac-ip)
+1. [Configure iDRAC IP address](#configure-idrac-ip-address)
 
 2. [Import the BIOS Configuration File](#import-the-bios-configuration-file)
 
@@ -357,7 +356,7 @@ The installation process takes approximately 20 minutes. After the installation,
    |--|--|
    | **Hardware profile** | enterprise |
    | **Management interface** | eno1 |
-   | **Network parameters (usually provided by the customer)** | - |
+   | **Network parameters (provided by the customer)** | - |
    |**management network IP address:** | - |
    | **subnet mask:** | - |
    | **appliance hostname:** | - |
@@ -393,7 +392,8 @@ This article describes the HPE ProLiant DL20 installation process, which include
 ### HPE ProLiant DL20 back panel
 
 :::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel.png" alt-text="HPE Proliant DL20 back panel":::
-![HPE ProLiant DL20 back panel](media/tutorial-install-components/image34.png)
+
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel.png" alt-text="The back panel of the HPE ProLiant DL20.":::
 
 ### Enable remote access and update password
 
@@ -582,7 +582,7 @@ The installation process takes approximately 20 minutes. After the installation,
     | ----------| ------------- |
     | **Hardware profile** | Select corporate. |
     | **Management interface** | eno2 |
-    | **Default network parameters (usually provided by the customer)** | **management network IP address:** <br />**subnet mask:** <br />**appliance hostname:** <br />**DNS:** <br />**the default gateway IP address:**|
+    | **Default network parameters (provided by the customer)** | **management network IP address:** <br />**subnet mask:** <br />**appliance hostname:** <br />**DNS:** <br />**the default gateway IP address:**|
     | **input interfaces:**  | The list of input interfaces is generated for you by the system.<br /><br />To mirror the input interfaces, copy all the items presented in the list with a comma separator.<br /><br />**Note:** There is no need to configure the bridge interface, this option is used for special use cases only. |
 
 7. After approximately 10 minutes, the two sets of credentials appear. One for a **Defender for IoT** user and one for a **support** user.
@@ -706,7 +706,7 @@ This article describes the ESXi and Hyper-V software installation.
     | ----------| ------------- |
     | **Hardware profile** | &lt;required architecture&gt; |
     | **Management interface** | ens192 |
-    | **DNetwork parameters (usually provided by the customer)** | **management network IP address:** <br />**subnet mask:** <br />**appliance hostname:** <br />**DNS:** <br />**default gateway:** <br />**input interfaces:**|
+    | **DNetwork parameters (provided by the customer)** | **management network IP address:** <br />**subnet mask:** <br />**appliance hostname:** <br />**DNS:** <br />**default gateway:** <br />**input interfaces:**|
     | **bridge interfaces:** | No need to configure the bridge interface, this option is for special use cases only |
 
 5. Type *Y* to accept the settings
@@ -868,7 +868,7 @@ Booting the virtual machine will start the installation process from the ISO ima
 
 6. Access the management console via the IP address previously configured <https://ip_address>
 
-    :::image type="content" source="media/tutorial-install-components/defender-for-iot-management-console-sign-in-screen.png" alt-text="Management console sign in screen":::
+    :::image type="content" source="media/tutorial-install-components/defender-for-iot-management-console-sign-in-screen.png" alt-text="Management console sign-in screen":::
 
 ## Post install validation
 
@@ -919,7 +919,7 @@ Post install validation must include the following tests:
   - The size of the backup folder
   - The limitations of the backup folder
   - When was the last backup
-  - How much space there is for the additional backup files
+  - How much space there are for the additional backup files
 
 - **ifconfig: Displays the appliance physical interfaces’ parameters.
 
@@ -1085,6 +1085,6 @@ However, The user's experience when signing in to the sensor remains the same.
 
 4. Type `--port 10000`.
 
-### Next Steps
+### Next steps
 
 [Set up your network](how-to-set-up-your-network.md)
