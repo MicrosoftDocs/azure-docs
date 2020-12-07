@@ -9,7 +9,7 @@ manager: clarkn
 ---
 # Troubleshoot Common WVD Agent and Connectivity Issues
 
-There may be a few scenarios where the Windows Virtual Desktop agent can cause connectivity issues. This may be because the broker throws an error that causes the agent to stop the service, or there are problems with the agent update. In addition, there are scenarios in which the stack installation, which happens simultaneously with agent installations, can cause issues. These failures can result in a loss of connectivity to the session host. This troubleshooting guide will walk through common issues that you may face and how to diagnose, explain, and resolve them.
+There may be a few scenarios where the Windows Virtual Desktop agent can cause connectivity issues. These issues may be because the broker throws an error that causes the agent to stop the service, or there are problems with the agent update. In addition, there are scenarios in which the stack installation, which happens simultaneously with agent installations, can cause issues. These failures can result in a loss of connectivity to the session host. This troubleshooting guide will walk through common issues that you may face and how to diagnose, explain, and resolve them.
 
 ## The agent status is stuck in upgrading or unavailable, or failed during installation.
 
@@ -30,7 +30,7 @@ Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname> | Sel
 
 ### Why are you getting this error?
 
-If the status says upgrading, it may be that the agent was not properly installed on your VM. This could be because your credentials were invalid, there was another installation happening at the same time, or for some other reason. If the status says unavailable, it may be that the side-by-side stack was not properly installed on your VM.
+If the status is stuck in *Upgrading*, it may be that the agent was not properly installed on your VM. This failure to install could be because your credentials were invalid, there was another installation happening at the same time, or for some other reason. If the status is stuck in *Unavailable*, it may be that the side-by-side stack was not properly installed on your VM.
 
 ### Resolution
 
@@ -49,7 +49,7 @@ In this case, you do not have the correct credentials to install the agent on th
 
 #### Unavailable VM or other agent installation/upgrade failures
 
-If your VM says *Unavailable* it is best to try and reinstall the agent, which will also reinstall the side-by-side stack. For all other errors with the agent not being properly installed, the same recourse is recommended. See [Reinstalling WVD Agent](#Reinstalling-WVD-Agent) and follow the steps outlined there.
+If your VM says *Unavailable* it is best to reinstall the agent, which will also reinstall the side-by-side stack. For all other errors with the agent not being properly installed, the same recourse is recommended. See [Reinstalling WVD Agent](#Reinstalling-WVD-Agent) and follow the steps outlined there.
 
 ## The WVD agent service is not running.
 
@@ -106,7 +106,7 @@ If you are seeing that *RDAgentBootLoader* is either stopped or not running, thi
 
 1. Open your Command Prompt (in Start menu, type *cmd*) as an administrator.
 2. Type and run *qwinsta*.
-3. There should be 2 stack components displayed: *rdp-tcp* and *rdp-sxs*. 
+3. There should be two stack components displayed: *rdp-tcp* and *rdp-sxs*. 
    - Note that depending on the version of your OS, *rdp-sxs* may be followed by the build number as shown below. If it is, be sure to make note of this build number.
 4. Verify that these components show *Listen* next to them. If not, see the resolution section below.
 
@@ -115,14 +115,14 @@ If you are seeing that *RDAgentBootLoader* is either stopped or not running, thi
 
 ### Why are you getting this error?
 
-If you are not seeing the 2 stack components say *Listen* next to them or they are not showing up at all after running *qwinsta*, it means that there is a stack issue. Stack updates get installed along with agent updates, and sometimes it may appear that there is an issue with the agent because it just had an update, but in this case the WVD listener is not working.
+If you are not seeing the two stack components say *Listen* next to them or they are not showing up at all after running *qwinsta*, it means that there is a stack issue. Stack updates get installed along with agent updates, and sometimes it may appear that there is an issue with the agent because it just had an update, but in this case the WVD listener is not working.
 
 ### Resolution
 
 #### If you are using Windows 10 1809, 1903, or 1909...
 
 1. Go to Programs and Features (in Start menu, type *Control Panel*, and navigate to Control Panel\Programs\Programs and Features).
-2. Verify that the following 4 components are installed, as shown below. Note that you may see multiple instances of any of the following, and that is ok.
+2. Verify that the following four components are installed, as shown below. You may see multiple instances of any of the following, and that is ok.
    - Remote Desktop Agent BootLoader
    - Remote Desktop Services Infrastructure Agent
    - Remote Desktop Services Infrastructure Geneva Agent
@@ -210,13 +210,13 @@ The agent cannot connect to the broker and is unable to reach a particular URL. 
 
 ### Why are you getting this error?
 
-The side-by-side stack is only supported by Windows Enterprise or Windows Server SKUs (i.e. Pro VM is not supported). If you do not have an Enterprise or Server SKU, the stack will be installed on your VM, but will not be activated, so you will not see it show up when you run *qwinsta* in your command line.
+The side-by-side stack is only supported by Windows Enterprise or Windows Server SKUs (that is, Pro VM is not supported). If you do not have an Enterprise or Server SKU, the stack will be installed on your VM, but will not be activated, so you will not see it show up when you run *qwinsta* in your command line.
 
 ### Resolution
 
 #### Create a VM that is Windows Enterprise or Windows Server
 
-1. Follow steps 1-12 under [Virtual Machine Details](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace#virtual-machine-details). Note that the recommended images for your VM are:
+1. Follow steps 1-12 under [Virtual Machine Details](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace#virtual-machine-details). The recommended images for your VM are:
    - Windows 10 Enterprise multi-session, Version 1909
    - Windows 10 Enterprise multi-session, Version 1909 + Microsoft 365 Apps
    - Windows Server 2019 Datacenter
@@ -246,8 +246,8 @@ You may be facing this disconnection issue if your server is missing a heartbeat
 
 1. Open your Command Prompt (in Start menu, type *cmd*) as an administrator.
 2. Type and run *qwinsta*.
-3. There should be 2 stack components displayed: *rdp-tcp* and *rdp-sxs*. 
-   - Note that depending on the version of your OS, *rdp-sxs* may be followed by the build number as shown below. If it is, be sure to make note of this build number.
+3. There should be two stack components displayed: *rdp-tcp* and *rdp-sxs*. 
+   - Depending on the version of your OS, *rdp-sxs* may be followed by the build number as shown below. If it is, be sure to make note of this build number.
 4. Open the Registry Editor (in Start menu, type *regedit*).
 5. Navigate to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations. 
 6. Under *WinStations* you may see several folders for different stack versions, select the folder that matches the version information that you made note of in part 3.
@@ -299,7 +299,7 @@ This error indicates that the broker was unable to find an endpoint to establish
 1. Go to the [Azure Portal](https://portal.azure.com).
 2. Go to the *Overview* page for your specific VM(s).
 3. Verify that your VMs are on. If you do not have VMs, you need to [create one](https://docs.microsoft.com/azure/virtual-desktop/expand-existing-host-pool#add-virtual-machines-with-the-azure-portal). If your VM is not powered on, you need to select *Start*.
-   - Note that if the *Status* for your VM says *Running* and the *Start* button is greyed out, your VM is on.
+   - If the *Status* for your VM says *Running* and the *Start* button is greyed out, your VM is on.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of vm status saying running](media/vm-running.PNG)
