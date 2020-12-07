@@ -11,7 +11,7 @@ ms.custom: "include file"
 
 ---
 
-![Application overview](media/event-grid-event-hubs-integration/overview.png)
+![Application overview](media/event-grid-event-hubs-functions-synapse-analytics/overview.png)
 
 This diagram depicts the workflow of the solution you build in this tutorial: 
 
