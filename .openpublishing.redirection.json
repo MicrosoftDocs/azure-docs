@@ -7959,6 +7959,16 @@
       "redirect_document_id": false
     },
     {
+       "source_path": "azure/marketplace/appsource-offer-publishing-guide.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "azure/marketplace/dynamics-365-finance-operations-functional-validation.md",
+     "redirect_url": "/azure/marketplace/d365-create-operations-validation",
+     "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/managed-application-createuidefinition-overview.md",
       "redirect_url": "/azure/azure-resource-manager/managed-applications/create-uidefinition-overview",
       "redirect_document_id": false
@@ -23054,7 +23064,7 @@
     },
     {
       "source_path": "articles/marketplace/publishing-checklist-appsource.md",
-      "redirect_url": "/azure/marketplace/appsource-offer-publishing-guide",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
       "redirect_document_id": false
     },
     {
@@ -23074,7 +23084,7 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/dynamics-365-solution-preparation.md",
-      "redirect_url": "/azure/marketplace/appsource-offer-publishing-guide",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
       "redirect_document_id": false
     },
     {

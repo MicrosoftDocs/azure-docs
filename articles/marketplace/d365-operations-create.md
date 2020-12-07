@@ -9,7 +9,7 @@ ms.author: mingshen
 ms.date: 11/25/2020
 ---
 
-# How to create a Dynamics 365 for Operations
+# How to create a Dynamics 365 for Operations offer
 
 This article describes how to create a [Dynamics 365 for Operations](https://dynamics.microsoft.com/finance-and-operations) offer. This offer type is an enterprise resource planning (ERP) service that supports advanced operations, finance, manufacturing, and supply chain management. All offers for Dynamics 365 go through our certification process.
 

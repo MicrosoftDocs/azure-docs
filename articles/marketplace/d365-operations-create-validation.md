@@ -1,17 +1,17 @@
 ---
-title: Functional validation of an AppSource Dynamics 365 Finance and Operations offer in Azure Marketplace.
-description: How to functionally validate a Dynamics 365 Finance and Operations offer in Azure Marketplace. 
+title: Functional validation of a Dynamics 365 Operations offer in Microsoft AppSource.
+description: How to functionally validate a Dynamics 365 Operations offer in Microsoft AppSource.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: emuench
 ms.author: navits
-ms.date: 07/17/2020
+ms.date: 12/07/2020
 ---
 
-# AppSource Dynamics 365 Finance and Operations functional validation
+# Dynamics 365 for Operations functional validation
 
-To complete a first publish in [Partner Center](https://partner.microsoft.com/dashboard/home), offers for Dynamics 365 Finance and Operations require two functional validations:
+Publishing a Dynamics 365 for Operations offer in [Partner Center](https://partner.microsoft.com/dashboard/home) requires two functional validations:
 
 - Upload a demonstration video of the Dynamics 365 environment that shows basic functionality.
 - Present screenshots that demonstrate the solution's [Lifecycle Services](https://lcs.dynamics.com/) (LCS) environment.
@@ -58,17 +58,17 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
     | Package contents<ul><li>Model</li><li>Software deployable package</li></ul> | [![Package contents screen one](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
     | <ul><li>GER configuration</li><li>Database backup</li></ul><br>Artifacts are not required in the **GER configuration** section. | [![Package contents screen two](media/dynamics-365-finance-operations/package-contents-2-45.png)](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |
     | <ul><li>Power BI report model</li><li>BPM artifact</li></ul><br>Artifacts are not required in the **Power BI** section. | [![Package contents screen three](media/dynamics-365-finance-operations/package-contents-3-45.png)](media/dynamics-365-finance-operations/package-contents-3.png#lightbox) |
-    | <ul><li>Process data package</li><li>Solution license agreement and privacy policy</li></ul><br>The **GER configuration** and **Power BI report model** sections are optional to include for Finance and Operations offers. | [![Package contents screen four](media/dynamics-365-finance-operations/package-contents-4-45.png)](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |
+    | <ul><li>Process data package</li><li>Solution license agreement and privacy policy</li></ul><br>The **GER configuration** and **Power BI report model** sections are optional to include for operations offers. | [![Package contents screen four](media/dynamics-365-finance-operations/package-contents-4-45.png)](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |
 
     To learn more about each section of the LCS portal, see the [LCS User Guide](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
 
 3. Upload to Partner Center.
 
     1. Create a text document that includes the demo video address and screenshots, or save the screenshots as separate JPG files.
-    2. Add the text and any JPG files to a .zip file in the [Commercial Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center on your Finance and Operations offer's **Supplemental Content** tab.
+    2. Add the text and images to a .zip file in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) on the operations offer's **Supplemental content** tab.
 
     [![Shows the project library window](media/dynamics-365-finance-operations/supplemental-content.png)](media/dynamics-365-finance-operations/supplemental-content.png#lightbox)
 
 ## Next steps
 
-- To learn about creating an offer, see: [Create a Dynamics 365 for Operations offer](d365-operations-create.md).
+- To learn about creating an offer, see [Create a Dynamics 365 for Operations offer](d365-operations-create.md).
