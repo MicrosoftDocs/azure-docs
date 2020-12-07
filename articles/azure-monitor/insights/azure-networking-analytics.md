@@ -38,14 +38,14 @@ For more information, see [Network Performance Monitor](../../networking/network
 1. Add the management solution to Azure Monitor, and
 2. Enable diagnostics to direct the diagnostics to a Log Analytics workspace in Azure Monitor. It is not necessary to write the logs to Azure Blob storage.
 
-Note: If diagnostic logs are not enabled, the dashboard blades for that resource are blank and display an error message.
+If diagnostic logs are not enabled, the dashboard blades for that resource are blank and display an error message.
 
 ## Azure Application Gateway analytics
 
 1. Enable diagnostics to direct the diagnostics to a Log Analytics workspace in Azure Monitor.
 2. Consume the detailed summary for your resource using the workbook template for Application Gateway.
 
-Note: If diagnostic logs are not enabled for Application Gateway, only the default metric data would be populated within the workbook.
+If diagnostic logs are not enabled for Application Gateway, only the default metric data would be populated within the workbook.
 
 
 > [!NOTE]
