@@ -22,7 +22,7 @@ Set the variables for resource group and cluster name.
 Replace **\<resource_group>** with your resource group's name and **\<aro_cluster>** with your cluster's name.
 
 ```azurecli-interactive
-resource_groupg=<resource_group>
+resource_group=<resource_group>
 aro_cluster=<aro_cluster>
 ```
 
