@@ -1,6 +1,6 @@
 ---
 title: Mobility services (Preview) data structures in Microsoft Azure Maps
-description: Understand how data is organized into metro areas in Azure Maps Mobility services (Preview) . See which fields store information about public transit stops and lines.
+description: Understand how data is organized into metro areas in Azure Maps Mobility services (Preview). See which fields store information about public transit stops and lines.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -56,12 +56,12 @@ To begin, you can request line groups by using the [Get Transit Line API](/rest/
 
 ## Next steps
 
-Learn how to request transit data using Mobility services (Preview) :
+Learn how to request transit data using Mobility services (Preview):
 
 > [!div class="nextstepaction"]
 > [How to request transit data](how-to-request-transit-data.md)
 
-Learn how to request real-time data using Mobility services (Preview) :
+Learn how to request real-time data using Mobility services (Preview):
 
 > [!div class="nextstepaction"]
 > [How to request real-time data](how-to-request-real-time-data.md)

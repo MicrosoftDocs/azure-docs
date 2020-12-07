@@ -797,7 +797,7 @@ The Azure Maps [Get Transit Itinerary](/rest/api/maps/mobility/gettransititinera
 
 ## Next steps
 
-Learn how to request real-time data using Mobility services (Preview) :
+Learn how to request real-time data using Mobility services (Preview):
 
 > [!div class="nextstepaction"]
 > [How to request real-time data](how-to-request-real-time-data.md)

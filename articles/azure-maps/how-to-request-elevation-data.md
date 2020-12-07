@@ -1,6 +1,6 @@
 ---
 title: Request elevation data using the Azure Maps Elevation service (Preview) 
-description: Learn how to request elevation data using the Azure Maps Elevation service (Preview) .
+description: Learn how to request elevation data using the Azure Maps Elevation service (Preview).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -11,7 +11,7 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Request elevation data using the Azure Maps Elevation service (Preview) 
+# Request elevation data using the Azure Maps Elevation service (Preview)
 
 > [!IMPORTANT]
 > The Azure Maps Elevation service is currently in public preview.

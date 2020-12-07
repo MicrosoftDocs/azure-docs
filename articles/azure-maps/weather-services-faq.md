@@ -110,7 +110,7 @@ If this FAQ doesn’t answer your question, you can contact us through the follo
 * Microsoft Support. To create a new support request, in the [Azure portal](https://portal.azure.com/), on the Help tab, select the **Help +** support button, and then select **New support request**.
 * [Azure Maps UserVoice](https://feedback.azure.com/forums/909172-azure-maps) to submit feature requests.
 
-Learn how to request real-time and forecasted weather data using Azure Maps Weather services (Preview) :
+Learn how to request real-time and forecasted weather data using Azure Maps Weather services (Preview):
 > [!div class="nextstepaction"]
 > [Request Real-time weather data ](how-to-request-weather-data.md)
 

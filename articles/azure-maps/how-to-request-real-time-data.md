@@ -114,7 +114,7 @@ Let's use "522" as our metro ID, which is the metro ID for the  "Seattle–Tacom
 
 ## Next steps
 
-Learn how to request transit data using Mobility services (Preview) :
+Learn how to request transit data using Mobility services (Preview):
 
 > [!div class="nextstepaction"]
 > [How to request transit data](how-to-request-transit-data.md)

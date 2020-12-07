@@ -28,7 +28,7 @@ You can use Creator to develop applications with map features based on indoor ma
 
 ## Create Azure Maps Creator (Preview) 
 
-To use Creator services (Preview) , Azure Maps Creator must be created in an Azure Maps account. For information on how to create Azure Maps Creator in Azure Maps, see [Manage Azure Maps Creator](how-to-manage-creator.md).
+To use Creator services (Preview), Azure Maps Creator must be created in an Azure Maps account. For information on how to create Azure Maps Creator in Azure Maps, see [Manage Azure Maps Creator](how-to-manage-creator.md).
 
 ## Upload a Drawing package
 
@@ -100,7 +100,7 @@ Datasets can be queried using the [Web Feature Service (WFS) API](/rest/api/maps
 
 ### Indoor Maps module
 
-The [Azure Maps Web SDK](./index.yml) includes the Indoor Maps module. This module offers extended functionalities to the Azure Maps *Map Control* library. The Indoor Maps module renders indoor maps created in Creator (Preview) . It integrates widgets such as *floor picker*, which helps users visualize the different floors.
+The [Azure Maps Web SDK](./index.yml) includes the Indoor Maps module. This module offers extended functionalities to the Azure Maps *Map Control* library. The Indoor Maps module renders indoor maps created in Creator (Preview). It integrates widgets such as *floor picker*, which helps users visualize the different floors.
 
 The Indoor Maps module allows you to create web applications that integrate indoor map data with other [Azure Maps services](./index.yml). The most common application setups could include adding knowledge to indoor maps from other maps such as road, imagery, weather, and transit.
 

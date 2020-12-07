@@ -150,12 +150,12 @@ The following table provides coverage information for Azure Maps Mobility serv
 
 ## Next steps
 
-Learn how to request transit data using Mobility services (Preview) :
+Learn how to request transit data using Mobility services (Preview):
 
 > [!div class="nextstepaction"]
 > [How to request transit data](how-to-request-transit-data.md)
 
-Learn how to request real-time data using Mobility services (Preview) :
+Learn how to request real-time data using Mobility services (Preview):
 
 > [!div class="nextstepaction"]
 > [How to request real-time data](how-to-request-real-time-data.md)
