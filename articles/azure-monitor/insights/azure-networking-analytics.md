@@ -88,6 +88,18 @@ $gateway = Get-AzApplicationGateway -Name 'ContosoGateway'
 Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
+#### Accessing Azure Application Gateway analytics via Azure Monitor Network insights
+
+Application insights can be accessed via the insights tab within your Application Gateway resource.
+
+![Screenshot of Application Gateway insights ](media/azure-networking-analytics/azure-appgw-insights.png
+)
+
+The "view detailed metrics" tab will open up the pre-populated workbook summarizing the data from your Application Gateway.
+
+![Screenshot of Application Gateway workbook ](media/azure-networking-analytics/azure-appgw-workbook.png
+)
+
 ## Migrating from Azure Gateway analytics solution to Azure Monitor workbooks
 
 > [!NOTE]
