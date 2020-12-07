@@ -5,9 +5,9 @@ services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: dnethi
-ms.author: dinakar.nethi
+ms.author: mikeray
 ms.reviewer: mikeray
-ms.date: 12/10/2020
+ms.date: 12/09/2020
 ms.topic: how-to
 ---
 
