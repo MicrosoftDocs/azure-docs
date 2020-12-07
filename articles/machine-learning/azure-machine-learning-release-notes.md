@@ -61,7 +61,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-automl-runtime**
     + Added the initial core implementation of test set ingestion feature.
     + Fix the computation of the raw explanations for the best AutoML model if the AutoML models are trained using validation_size setting.
-    + This PR brings following changes. - It creates new contrib package - azureml-contrib-automl-pipeline-steps - This new package is responsible for creating steps required for many models train/inference scenario. - It also moves the train/inference code into azureml.train.automl.runtime package so any future fixes would be automatically available through curated environment releases.
     + Moved references to sklearn.externals.joblib to depend directly on joblib.
   + **azureml-train-core**
     + HyperDriveRun.get_children_sorted_by_primary_metric() should complete faster now
