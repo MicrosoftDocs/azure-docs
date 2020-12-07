@@ -2327,6 +2327,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Content-Moderator/video-transcript-moderation-review-tutorial-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/video-moderation-human-review",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/quickstart-sdk.md",
       "redirect_url": "/azure/cognitive-services/luis/azure-sdk-quickstart",
       "redirect_document_id": false
