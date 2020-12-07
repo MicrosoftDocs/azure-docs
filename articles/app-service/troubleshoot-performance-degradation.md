@@ -78,7 +78,7 @@ Each App Service app provides an extensible management end point that allows you
 - Source code editors like [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Management tools for connected resources such as a MySQL database connected to an app.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../azure-monitor/app/web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../azure-monitor/app/app-insights-overview.md).
 
 <a name="collect"></a>
 
