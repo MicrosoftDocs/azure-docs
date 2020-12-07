@@ -34,7 +34,7 @@ Azure provides the following Azure built-in roles for authorizing access to App 
 - **Reader**: Use this role to give read access to the App Configuration resource. This does not grant access to the resource's access keys, nor to the data stored in App Configuration.
 
 > [!NOTE]
-> Currently, the Azure portal only supports HMAC authentication to access App Configuration data. Azure AD authentication is not supported. Therefore, users of the Azure portal require the *Contributor* role to retrieve the access keys of the App Configuration resource. Granting *App Configuration Data Reader* or *App Configuration Data Owner* roles has no impact on access through the portal.
+> Currently, the Azure portal supports only HMAC authentication to access App Configuration data. Azure AD authentication is not supported. Therefore, users of the Azure portal require the *Contributor* role to retrieve the access keys of the App Configuration resource. Granting *App Configuration Data Reader* or *App Configuration Data Owner* roles has no impact on access through the portal.
 
 ## Next steps
 Learn more about using [managed identities](howto-integrate-azure-managed-service-identity.md) to administer your App Configuration service.
