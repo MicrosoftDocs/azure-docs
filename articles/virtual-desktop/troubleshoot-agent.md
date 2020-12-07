@@ -43,7 +43,7 @@ If the status says upgrading, it may be that the agent was not properly installe
 *Error 1402. Could not open key: HKEY_LOCAL_MACHINE\Software\Classes\Bond.SchemaAttribute. System error 19. Verify that you have sufficient access to that key, or contact your support personnel…*
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of AgentInstall.txt showing this permissions error](../media/permission.png)
+   > ![Screenshot of AgentInstall.txt showing this permissions error](media/permission.png)
 
 In this case, you do not have the correct credentials to install the agent on the VM.
 
@@ -78,7 +78,7 @@ For all other errors with the agent not being properly installed, see [Reinstall
 3. Verify that it says *Running* next to it. If not, see [Reinstalling WVD Agent](#Reinstalling-WVD-Agent).
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of Services window with RDAgent Loader highlighted](../media/agentloader.png)
+   > ![Screenshot of Services window with RDAgent Loader highlighted](media/agentloader.png)
 
 #### Verify this in PowerShell.
 
@@ -91,7 +91,7 @@ Get-Service RdAgentBootLoader
 3. Verify that it says *Running* next to *RdAgentBootLoader*. If not, see [Reinstalling WVD Agent](#Reinstalling-WVD-Agent).
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of Powershell cmdlet being run, running RDAgent BootLoader](../media/agentrunning.png)
+   > ![Screenshot of Powershell cmdlet being run, running RDAgent BootLoader](media/agentrunning.png)
 
 #### Verify this in Task Manager.
 
@@ -102,7 +102,7 @@ Get-Service RdAgentBootLoader
 5. Verify that it says *Running* next to *RdAgentBootLoader*. If not, see [Reinstalling WVD Agent](#Reinstalling-WVD-Agent).
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of RDAgent BootLoader running in task manager](../media/running-in-task-manager.png)
+   > ![Screenshot of RDAgent BootLoader running in task manager](media/running-in-task-manager.png)
 
 ### Why are you getting this error?
 
@@ -127,7 +127,7 @@ If you are seeing that *RDAgentBootLoader* is either stopped or not running, thi
 4. Verify that these components show *Listen* next to them. If not, see the resolution section below.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of stack running in cmd prompt](../media/sxs-in-cmd.png)
+   > ![Screenshot of stack running in cmd prompt](media/sxs-in-cmd.png)
 
 ### Why are you getting this error?
 
@@ -145,7 +145,7 @@ If you are not seeing the 2 stack components say *Listen* next to them or they a
    - Remote Desktop Services SxS Network Stack
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of programs and features](../media/programs-and-features.png)
+   > ![Screenshot of programs and features](media/programs-and-features.png)
 
 3. If you are not seeing these components installed, see [Reinstalling WVD Agent](#Reinstalling-WVD-Agent).
 
@@ -157,10 +157,10 @@ If you are not seeing the 2 stack components say *Listen* next to them or they a
 4. Scroll to find *fReverseConnectMode* and verify that its data value is 1. Also verify that *fEnableWinSatation* is set to 1.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of fReverseConnectMode](../media/freverseconnect.png)
+   > ![Screenshot of fReverseConnectMode](media/freverseconnect.png)
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of fEnableWinStation](../media/fenablewinstation.png)
+   > ![Screenshot of fEnableWinStation](media/fenablewinstation.png)
 
 5. If *fReverseConnectMode* is not set to 1, double click on *fReverseConnectMode* and enter the value 1 for its field. 
 6. If *fEnableWinStation* is not set to 1, double click on *fEnableWinStation* and enter the value 1 for its field. 
@@ -178,7 +178,7 @@ If you are not seeing the 2 stack components say *Listen* next to them or they a
 6. In the filtered list, you will see an event that includes *Agent cannot connect to broker with error NOT_FOUND. URL:* in the general description if you have received this error.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of 3277 error cannot connect to url](../media/3277-cannot-connect.png)
+   > ![Screenshot of 3277 error cannot connect to url](media/3277-cannot-connect.png)
 
 ### Why are you getting this error?
 
@@ -191,7 +191,7 @@ The agent cannot connect to the broker and is unable to reach a particular URL. 
 3. Make note of the values for *BrokerURI* and *BrokerURIGlobal*.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of broker uri and broker uri global](../media/broker-uris.png)
+   > ![Screenshot of broker uri and broker uri global](media/broker-uris.png)
 
  
 4. Open a browser and go to *https://<BrokerURI>api/health*. 
@@ -201,13 +201,13 @@ The agent cannot connect to the broker and is unable to reach a particular URL. 
 6. Both pages should load as shown below. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of successfully loaded broker access](../media/successful-broker-uri.png)
+   > ![Screenshot of successfully loaded broker access](media/successful-broker-uri.png)
  
 
 7. If the network is blocking, the pages will not load as shown below. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of unsuccessful loaded broker access](../media/unsuccessful-broker-uri.png)
+   > ![Screenshot of unsuccessful loaded broker access](media/unsuccessful-broker-uri.png)
 
 8. If the network is blocking these URLs, you will need to whitelist the required URLs. See [Safe URL List](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list).
 
@@ -225,7 +225,7 @@ The agent cannot connect to the broker and is unable to reach a particular URL. 
 5. You may also receive the following error indicating that you are running an unsupported OS version: *szOutput=:Listener rdp-sxs is not allowed*
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of operating system in portal](../media/os.png)
+   > ![Screenshot of operating system in portal](media/os.png)
 
 ### Why are you getting this error?
 
@@ -255,7 +255,7 @@ The side-by-side stack is only supported by Windows Enterprise or Windows Server
 6. In the filtered list, you will see an event that includes *CheckSessionHostDomainIsReachableAsync -SessionHost unhealthy: the domain the SessionHost is joined to is not reachable!* in the general description if you have received this error.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of event 0 in event viewer](../media/event-0-host-unhealthy.png)
+   > ![Screenshot of event 0 in event viewer](media/event-0-host-unhealthy.png)
 
 ### Why are you getting this error?
 
@@ -321,7 +321,7 @@ This error indicates that the broker was unable to find an endpoint to establish
    - Note that if the *Status* for your VM says *Running* and the *Start* button is greyed out, your VM is on.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of vm status saying running](../media/vm-running.png)
+   > ![Screenshot of vm status saying running](media/vm-running.png)
 
 #### Verify that the max session limit has not been exceeded on your VM(s).
 
@@ -357,7 +357,7 @@ This error indicates that the broker was unable to find an endpoint to establish
 6. In the filtered list, you will see an event that includes *INVALID_REGISTRATION_TOKEN* in the general description if you have received this error.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of INVALID_REGISTRATION_TOKEN](../media/3277-invalid-registration.png)
+   > ![Screenshot of INVALID_REGISTRATION_TOKEN](media/3277-invalid-registration.png)
 
 ### Why are you getting this error?
 
@@ -379,7 +379,7 @@ The registration token that you have is not recognized as valid.
 7. In the *Value data:* entry box, paste the registration token from step 1. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of IsRegistered 0](../media/isregistered.png)
+   > ![Screenshot of IsRegistered 0](media/isregistered.png)
 
 #### Stop and restart the RDAgentBootLoader.
 
@@ -394,7 +394,7 @@ The registration token that you have is not recognized as valid.
 13. Verify that *IsRegistered* is set to 1 and there is nothing in the data column for *RegistrationToken*. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of IsRegistered 1](../media/isregistered1.png)
+   > ![Screenshot of IsRegistered 1](media/isregistered1.png)
 
 ## NAME_ALREADY_REGISTERED
 
@@ -422,7 +422,7 @@ The name of your VM has already been registered and is probably a duplicate.
 4. Wait for 5-10 minutes for the session host to show *Available*.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of available session host](../media/host-available.png)
+   > ![Screenshot of available session host](media/host-available.png)
 
 ## INVALID_FORM
 
@@ -527,7 +527,7 @@ Disable the following policies:
 >You may see multiple instances of these programs, remove all of them.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of uninstalling programs](../media/programs-and-features.png)
+   > ![Screenshot of uninstalling programs](media/programs-and-features.png)
 
 ### Remove the session host from the host pool.
 
@@ -537,7 +537,7 @@ Disable the following policies:
 4. Select *Remove* from the options along the top.  
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of removing VM from host pool](../media/remove-host.png)
+   > ![Screenshot of removing VM from host pool](media/remove-host.png)
 
 ### Generate a new registration key for the VM.
 
@@ -545,7 +545,7 @@ Disable the following policies:
 2. Select *Registration key*, just to the right of the search bar.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of registration key in portal](../media/reg-key-button.png)
+   > ![Screenshot of registration key in portal](media/reg-key-button.png)
 
 3. Select *Generate new key* in the *Registration key* blade.
 4. Enter the expiration date and then select *Ok*.  
@@ -561,7 +561,7 @@ Disable the following policies:
 2. Download the *Windows Virtual Desktop Agent* and the *Windows Virtual Desktop Agent Bootloader* that are linked in parts 2 and 3 under *Register the virtual machines to the Windows Virtual Desktop host pool*.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of agent and bootloader download page](../media/agent-bootloader-download.png)
+   > ![Screenshot of agent and bootloader download page](media/agent-bootloader-download.png)
 
 3. Right click the downloaded installers (both the agent and the bootloader).
 4. Select *Properties*.
@@ -571,7 +571,7 @@ Disable the following policies:
 8. When the installer asks you for the registration token, paste the registration key from your clipboard. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of pasted registration token](../media/pasted-registration-token.png)
+   > ![Screenshot of pasted registration token](media/pasted-registration-token.png)
 
 9. Run the bootloader installer by double clicking it.
 10. Go to the *Overview* page for the host pool that your VM is in in the [Azure Portal](https://portal.azure.com).
@@ -579,7 +579,7 @@ Disable the following policies:
 12. You should now see the session host registered in the host pool with the status *Available*. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of available session host](../media/host-available.png)
+   > ![Screenshot of available session host](media/host-available.png)
 
 ## Troubleshooting Conclusion
 
