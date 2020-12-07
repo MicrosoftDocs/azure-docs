@@ -48,7 +48,7 @@ To perform the steps described in this article, you must have:
 3. Select **Virtual network**.
 4. Configure the API Management instance to be deployed inside a Virtual network.
 
-    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Select virtual network in Azure portal":::
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Select virtual network in Azure portal.":::
     
 5. Select the desired access type:
 
@@ -69,7 +69,7 @@ To perform the steps described in this article, you must have:
 
     Then select **Apply**. The **Virtual network** page of your API Management instance is updated with your new virtual network and subnet choices.
 
-    :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Virtual network settings in porta":::
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Virtual network settings in the portal.":::
 
 7. In the top navigation bar, select **Save**, and then select **Apply network configuration**.
 
