@@ -426,7 +426,7 @@ The workflow in this example uses this trigger and these actions:
 
 <a name="webhook-setup"></a>
 
-## Set up webhook callback URL forwarding
+## Set up callback URL forwarding for webhooks
 
 When you use a webhook-based trigger or action, such as **HTTP Webhook**, with a logic app running in Azure, the Logic Apps runtime subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, when you're working in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your localhost server, which is private so the service endpoint can't call this URL.
 
@@ -479,11 +479,15 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
    }
    ```
 
-1. Before you run your workflow, clear your storage. If you're using the Azure Storage Emulator, run this command:
+When you locally start a debugging session or run the workflow without debugging for the first time, the Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the workflow already exists in local storage.
 
-   `AzureStorageEmulator.exe clear all`
-
-   When your workflow runs for the first time, the Logic Apps runtime registers the workflow and subscribes to the webhook operations. When your workflow runs again, the runtime won't register and subscribe again because the workflow already exists in local storage. So, before you run your workflow again, make sure that you clear your local storage.
+> [!NOTE]
+> When you stop the debugging session or workflow run, the subscriptions still persist in storage. 
+> If you don't want to keep these subscriptions, either delete them or clear your local storage. 
+>
+> For example, if you're using the Azure Storage Emulator, run this command:
+>
+> `AzureStorageEmulator.exe clear all`
 
 <a name="manage-breakpoints"></a>
 
