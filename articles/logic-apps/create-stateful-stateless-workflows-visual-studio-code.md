@@ -1026,41 +1026,27 @@ After Application Insights opens, you can review various metrics for your logic 
 
 ## Deploy to Docker
 
-By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/), you can build your project, and then publish your build. You can then build and use a [Docker container](/visualstudio/docker/tutorials/docker-tutorial#what-is-a-container) as the destination for deploying your logic app workflow. For more information, review these topics:
+You can deploy your logic app to a [Docker container](/visualstudio/docker/tutorials/docker-tutorial#what-is-a-container) as the hosting environment by using the [.NET CLI](/dotnet/core/tools/). With these commands, you can build and publish your logic app's project. You can then build and run your Docker container as the destination for deploying your logic app.
 
+If you're not familiar with Docker, review these topics:
+
+* [What is Docker?](/dotnet/architecture/microservices/container-docker-introduction/docker-defined)
 * [Introduction to Containers and Docker](/dotnet/architecture/microservices/container-docker-introduction/)
 * [Introduction to .NET and Docker](/dotnet/core/docker/introduction)
-* [Docker terminology](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology)
-* [Tutorial: Get started with Docker](/visualstudio/docker/tutorials/docker-tutorial)
+* [Docker containers, images, and registries](/dotnet/architecture/microservices/container-docker-introduction/docker-containers-images-registries)
+* [Introduction to Docker]
+* [Tutorial: Get started with Docker (Visual Studio Code)](/visualstudio/docker/tutorials/docker-tutorial)
 
-1. To build your project, open a command-line prompt, and run this command:
+### Requirements
 
-   `dotnet build -c release`
+* The Azure Storage account that your logic app uses for deployment
 
-   For more information, see the [dotnet build](/dotnet/core/tools/dotnet-build/) reference page.
+* A Docker file for a .NET workflow that you use when building your Docker container
 
-1. Publish your build by running this command:
-
-   `dotnet publish -c release`
-
-   For more information, see the [dotnet publish](/dotnet/core/tools/dotnet-publish/) reference page.
-
-1. Build a Docker container by using a Docker file for a .NET workflow and running this command:
-
-   `docker build --tag local/workflowcontainer .`
-
-   For example, here is a sample Docker file that deploys a stateful logic app and specifies the connection string for the Azure Storage account that was used to publish the logic app to the Azure portal. To find and copy the storage account's connection string in the Azure portal, review [Manage storage account keys](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys).
-
-   ![Screenshot that shows the Azure portal with storage account access keys and connection string copied.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
-
-   The connection string looks similar to this sample:
-
-   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey={access-key};EndpointSuffix=core.windows.net`
-
-   Here's the format for the Docker file:
+   For example, this sample Docker file deploys a logic app with a stateful workflow. The file specifies the connection string and access key for the Azure Storage account that was used for publishing the logic app to the Azure portal.
 
    ```text
-   FROM mcr.microsoft.com/azure-functions/dotnet:3.0.14492-appservice
+   FROM mcr.microsoft.com/azure-functions/dotnet:3.0-appservice
 
    ENV AzureWebJobsStorage <storage-account-connection-string>
    ENV AZURE_FUNCTIONS_ENVIRONMENT Development
@@ -1070,6 +1056,43 @@ By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/),
 
    COPY ./bin/Release/netcoreapp3.1/publish/ /home/site/wwwroot
    ```
+   For more information, see [Best practices for writing Docker files](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+
+### Build and publish your app
+
+1. To build your logic app's project locally, open a command-line prompt and run this command:
+
+   `dotnet build -c release`
+
+   For more information, see the [dotnet build](/dotnet/core/tools/dotnet-build/) reference page.
+
+1. Publish your project's build to a folder to use for deployment to the hosting environment by running this command:
+
+   `dotnet publish -c release`
+
+   For more information, see the [dotnet publish](/dotnet/core/tools/dotnet-publish/) reference page.
+
+### Access to your storage account
+
+Before you build and run your Docker container, you need to get the connection string that contains the access keys to your storage account.
+
+1. In the Azure portal, on the storage account menu, under **Settings**, select **Access keys**. 
+
+   ![Screenshot that shows the Azure portal with storage account access keys and connection string copied.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
+
+1. Under **Connection string**, copy your storage account's connection string. The connection string looks similar to this sample:
+
+   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey={access-key};EndpointSuffix=core.windows.net`
+
+   For more information, review [Manage storage account keys](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys).
+
+1. Save the connection string somewhere safe. In your logic app project, you need to add this string to both **local.settings.json** files. You also need to add this string to your Docker file.
+
+### Build and run your Docker container image
+
+1. Build your Docker container image by using your Docker file and running this command:
+
+   `docker build --tag local/workflowcontainer .`
 
    For more information, see [docker build](https://docs.docker.com/engine/reference/commandline/build/).
 
@@ -1081,23 +1104,25 @@ By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/),
 
    For more information, see [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
-1. To get the callback URL for the Request trigger, send this request:
+### Get callback URL for Request trigger
 
-   `POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
+To get the callback URL for the Request trigger, send this request:
 
-   The <*master-key*> value is defined in the Azure storage account that you set for `AzureWebJobsStorage` in the file, **azure-webjobs-secrets/{deployment-name}/host.json**, where you can find the value in this section:
+`POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
 
-   ```json
-   {
-     <...>
-     "masterKey": {
-        "name": "master",
-        "value": "<master-key>",
-        "encrypted": false
-     },
-     <...>
+The <*master-key*> value is defined in the Azure Storage account that you set for `AzureWebJobsStorage` in the file, **azure-webjobs-secrets/{deployment-name}/host.json**, where you can find the value in this section:
+
+```json
+{
+   <...>
+   "masterKey": {
+      "name": "master",
+      "value": "<master-key>",
+      "encrypted": false
+   },
+   <...>
    }
-   ```
+```
 
 <a name="delete-from-designer"></a>
 
