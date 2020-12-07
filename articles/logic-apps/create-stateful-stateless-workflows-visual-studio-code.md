@@ -1092,16 +1092,22 @@ If you're not familiar with Docker, review these topics:
    For example, this sample Docker file deploys a logic app with a stateful workflow. The file specifies the connection string and access key for the Azure Storage account that was used for publishing the logic app to the Azure portal.
 
    ```text
-   FROM mcr.microsoft.com/azure-functions/dotnet:3.0-appservice
+   FROM mcr.microsoft.com/dotnet/core/sdk3.1 AS installer-env
 
+   COPY . /src/dotnet-function-app
+   RUN cd /src/dotnet-function-app && \
+       mkdir -p /home/site/wwwroot && \
+       dotnet publish *.csproj --output /home/site/wwwroot
+
+   FROM mcr.microsoft.com/azure-functions/dotnet:3.0
    ENV AzureWebJobsStorage <storage-account-connection-string>
-   ENV AZURE_FUNCTIONS_ENVIRONMENT Development
-   ENV AzureWebJobsScriptRoot=/home/site/wwwroot
-   ENV AzureFunctionsJobHost__Logging__Console__IsEnabled=true
-   ENV FUNCTIONS_V2_COMPATIBILITY_MODE=true
+   ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+       AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
+       FUNCTIONS_V2_COMPATIBILITY_MODE=true
 
-   COPY ./bin/Release/netcoreapp3.1/publish/ /home/site/wwwroot
+   COPY --from=installer-env ["/home/site/wwwroot", "/home/site/wwwroot"]
    ```
+
    For more information, see [Best practices for writing Docker files](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 ### Build and publish your app
