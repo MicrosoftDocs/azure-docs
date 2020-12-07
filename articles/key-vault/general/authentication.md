@@ -99,7 +99,7 @@ The following diagram illustrates the process for an application calling a Key V
 ![The Azure Key Vault authentication flow](../media/authentication/authentication-flow.png)
 
 > [!NOTE]
-> Key Vault SDK clients for secrets, certificates, and keys in the first call to Key Vault do not provide an access token to retrieve tenant information. It’s expected to receive an HTTP 401 using Key Vault SDK client where the Key Vault shows to the application the WWW-Authenticate header containing the resource and the tenant where it needs to go and ask for the token. If everything is configured correctly, the second call from the application to Key Vault will contain a valid token and will succeed. 
+> Key Vault SDK clients for secrets, certificates, and keys make an additional call to Key Vault without access token,  which results in 401 response to retrieve tenant information. For more information see [Authentication, requests,-and-responses][authentication-requests-and-responses.md]
 
 ## Code examples
 
