@@ -20,9 +20,8 @@ In this featured video, we show you how to get started in Azure using the Azure 
 
 Catch up on these recent videos you may have missed:
 
-| [How to manage applications in Azure Kubernetes Service](https://www.youtube.com/watch?v=YfARHb52Bp4)  | [How to build Azure Workbooks using logs and parameters](https://www.youtube.com/watch?v=EC7n1Oo6D-o)  | [How to add and secure a custom domain on your App Service web app](https://www.youtube.com/watch?v=bXP6IvNYISw)
+| [How to manage applications in Azure Kubernetes Service](https://www.youtube.com/watch?v=YfARHb52Bp4)  | [How to build Azure Workbooks using logs and parameters](https://www.youtube.com/watch?v=EC7n1Oo6D-o)  | [How to add and secure a custom domain on your App Service web app](https://www.youtube.com/watch?v=bXP6IvNYISw) |
 | ------| ------ | ------ |
-
 | [![Image of YouTube video about how to manage applications in Azure Kubernetes Service](https://i.ytimg.com/vi/YfARHb52Bp4/hqdefault.jpg)](https://www.youtube.com/watch?YfARHb52Bp4) | [![Image of YouTube video about how to build Azure Workbooks using logs and parameters](https://i.ytimg.com/vi/EC7n1Oo6D-o/hqdefault.jpg)](http://www.youtube.com/watch?v=EC7n1Oo6D-o) | [![Image of YouTube video about how to add and secure a custom domain on your App Service web app](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg)](http://www.youtube.com/watch?v=bXP6IvNYISw) |
 
 ## Video playlist
