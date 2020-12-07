@@ -77,7 +77,7 @@ You can create [user flows](user-flow-overview.md) of different types in your Az
 1. Select **Run user flow**.
 2. Depending on the type of user flow you're testing, either sign up using a valid email address and follow the sign-up flow, or sign in using an account that you previously created.
 
-    ![Run user flow page in portal with Run user flow button highlighted](./media/create-user-flow/signup-signin-run-now.PNG)
+    ![Run user flow page in portal with Run user flow button highlighted](./media/create-user-flow/sign-up-sign-in-run-now.png)
 
 1. Follow the user flow prompts. When you complete the user flow, the token is returned to `https://jwt.ms` and should be displayed to you.
 
