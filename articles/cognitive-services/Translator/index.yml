@@ -32,7 +32,7 @@ landingContent:
           - text: Compliance
             url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
           - text: Create a subscription
-            url: translator-text-how-to-signup.md
+            url: ./translator-how-to-signup.md
           - text: FAQ
             url: https://www.microsoft.com/translator/faq.aspx
   - title: Get started
@@ -96,3 +96,10 @@ landingContent:
             url: https://aka.ms/TranslatorGitHub
           - text: Stack Overflow
             url: https://stackoverflow.com/questions/tagged/microsoft-translator
+
+  - title: Help and feedback
+    linkLists:
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context

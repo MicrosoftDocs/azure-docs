@@ -19,13 +19,13 @@ This article explains how to create a T-SQL streaming job in Azure SQL Edge. You
 
 T-SQL streaming uses the external data source functionality of SQL Server to define the data sources associated with the external stream inputs and outputs of the streaming job. Use the following T-SQL commands to create an external stream input or output object:
 
-- [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql)
+- [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
-- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
+- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](/sql/t-sql/statements/create-external-data-source-transact-sql)
 
 - [CREATE EXTERNAL STREAM (Transact-SQL)](#example-create-an-external-stream-object-to-azure-sql-database)
 
-Additionally, if Azure SQL Edge, SQL Server, or Azure SQL Database is used as an output stream, you need the [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). This T-SQL command defines the credentials to access the database.
+Additionally, if Azure SQL Edge, SQL Server, or Azure SQL Database is used as an output stream, you need the [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). This T-SQL command defines the credentials to access the database.
 
 ### Supported input and output stream data sources
 
@@ -33,7 +33,7 @@ Azure SQL Edge currently only supports the following data sources as stream inpu
 
 | Data source type | Input | Output | Description |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge hub | Y | Y | Data source to read and write streaming data to an Azure IoT Edge hub. For more information, see [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| Azure IoT Edge hub | Y | Y | Data source to read and write streaming data to an Azure IoT Edge hub. For more information, see [IoT Edge Hub](../iot-edge/iot-edge-runtime.md#iot-edge-hub).|
 | SQL Database | N | Y | Data source connection to write streaming data to SQL Database. The database can be a local database in Azure SQL Edge, or a remote database in SQL Server or Azure SQL Database.|
 | Kafka | Y | N | Data source to read streaming data from a Kafka topic. This adapter is currently only available for Intel or AMD versions of Azure SQL Edge. It isn't available for the ARM64 version of Azure SQL Edge.|
 
@@ -168,7 +168,7 @@ The following example creates an external stream object to the local database in
 Use the `sys.sp_create_streaming_job` system stored procedure to define the streaming queries and create the streaming job. The `sp_create_streaming_job` stored procedure takes the following parameters:
 
 - `job_name`: The name of the streaming job. Streaming job names are unique across the instance.
-- `statement`: [Stream Analytics Query Language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?)-based streaming query statements.
+- `statement`: [Stream Analytics Query Language](/stream-analytics-query/stream-analytics-query-language-reference)-based streaming query statements.
 
 The following example creates a simple streaming job with one streaming query. This query reads the inputs from the IoT Edge hub, and writes to `dbo.TemperatureMeasurements` in the database.
 
@@ -228,7 +228,8 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 (
        (
        name nvarchar(256),
-       status nvarchar(256)
+       status nvarchar(256),
+       error nvarchar(256)
        )
 )
 ```

@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
 ---
 
@@ -17,12 +17,13 @@ ms.custom: seodec18
 This article describes how to work with Time Series Model in Azure Time Series Insights Gen2. It details several common data scenarios.
 
 > [!TIP]
+>
 > * Read more about the [Time Series Model](concepts-model-overview.md).
-> * Learn more about navigating the [Azure Time Series Insights Gen2 explorer](./time-series-insights-update-explorer.md).
+> * Learn more about navigating the [Azure Time Series Insights Gen2 explorer](./concepts-ux-panels.md).
 
 ## Instances
 
-The Azure Time Series Insights explorer supports Instance **CREATE**, **READ**, **UPDATE**, and **DELETE** operations within the browser. 
+The Azure Time Series Insights explorer supports Instance **CREATE**, **READ**, **UPDATE**, and **DELETE** operations within the browser.
 
 To begin, select the **Model** view from the Azure Time Series Insights explorer **Analyze** view.
 
@@ -52,7 +53,7 @@ To begin, select the **Model** view from the Azure Time Series Insights explorer
 
 ### Edit a single instance
 
-1. Select the instance, and select the **edit** or **pencil icon**. 
+1. Select the instance, and select the **edit** or **pencil icon**.
 1. Make the required changes, and select **Save**.
 
     [![Edit a single instance.](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png#lightbox)
@@ -70,7 +71,7 @@ To begin, select the **Model** view from the Azure Time Series Insights explorer
 
 ## Hierarchies
 
-The Azure Time Series Insights explorer supports Hierarchy **CREATE**, **READ**, **UPDATE**, and **DELETE** operations within the browser. 
+The Azure Time Series Insights explorer supports Hierarchy **CREATE**, **READ**, **UPDATE**, and **DELETE** operations within the browser.
 
 To begin, select the **Model** view from the Azure Time Series Insights explorer **Analyze** view.
 
@@ -112,7 +113,7 @@ To begin, select the **Model** view from the Azure Time Series Insights explorer
 
 ### Delete a hierarchy
 
-1. Select the hierarchy, and select the **delete** or **waste bin icon**. 
+1. Select the hierarchy, and select the **delete** or **waste bin icon**.
 
     [![Delete a hierarchy by selecting the Delete button.](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png#lightbox)
 
@@ -120,7 +121,7 @@ To begin, select the **Model** view from the Azure Time Series Insights explorer
 
 ## Types
 
-The Azure Time Series Insights explorer supports Type **CREATE**, **READ**, **UPDATE**, and **DELETE** operations within the browser. 
+The Azure Time Series Insights explorer supports Type **CREATE**, **READ**, **UPDATE**, and **DELETE** operations within the browser.
 
 To begin, select the **Model** view from the Azure Time Series Insights explorer **Analyze** view.
 
@@ -131,7 +132,7 @@ To begin, select the **Model** view from the Azure Time Series Insights explorer
     [![Time Series Model types pane.](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png#lightbox)
 
 1. Select **+ Add** to display the **Add a new type** popup modal.
-1. Enter properties and variables for your type. Once entered, select **Save**. 
+1. Enter properties and variables for your type. Once entered, select **Save**.
 
     [![Configuration settings to add a type.](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png#lightbox)
 
@@ -163,8 +164,8 @@ To begin, select the **Model** view from the Azure Time Series Insights explorer
 
 ## Next steps
 
-- For more information about Time Series Model, read [Data modeling](./concepts-model-overview.md).
+* For more information about Time Series Model, read [Data modeling](./concepts-model-overview.md).
 
-- To learn more about the Gen2, read [Visualize data in the Azure Time Series Insights Gen2 explorer](./time-series-insights-update-explorer.md).
+* To learn more about the Gen2, read [Visualize data in the Azure Time Series Insights Gen2 explorer](./concepts-ux-panels.md).
 
-- To learn about supported JSON shapes, read [Supported JSON shapes](./time-series-insights-send-events.md#supported-json-shapes).
+* To learn about supported JSON shapes, read [Supported JSON shapes](./time-series-insights-send-events.md#supported-json-shapes).

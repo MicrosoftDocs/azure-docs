@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/24/2020
+ms.date: 10/08/2020
 ---
 
 # Exchange AS2 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
@@ -19,7 +19,7 @@ ms.date: 07/24/2020
 > you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you link your 
 > integration account to the logic app where you plan to use the connector.
 
-To work with AS2 messages in Azure Logic Apps, you can use the AS2 connector, which provides triggers and actions for managing AS2 communication. For example, to establish security and reliability when transmitting messages, you can use these actions:
+To work with AS2 messages in Azure Logic Apps, you can use the AS2 connector, which provides triggers and actions that support and manage AS2 (version 1.2) communication. For example, to establish security and reliability when transmitting messages, you can use these actions:
 
 * [**AS2 Encode** action](#encode) for providing encryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN), which help support non-repudiation. For example, this action applies AS2/HTTP headers and performs these tasks when configured:
 

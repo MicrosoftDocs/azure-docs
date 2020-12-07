@@ -1,8 +1,10 @@
 ---
 title: Set up an Azure Migrate appliance for physical servers
 description: Learn how to set up an Azure Migrate appliance for physical server assessment.
-ms.service: azure-migrate
-ms.topic: article
+author: vikram1988 
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/15/2020
 ---
 
@@ -118,7 +120,7 @@ Set up the appliance for the first time.
    
    Sign-in with a PIN isn't supported.
 3. After you successfully logged in, go back to the web app. 
-4. If the Azure user account used for logging has the right [permissions](tutorial-prepare-physical.md) on the Azure resources created during key generation, the appliance registration will be initiated.
+4. If the Azure user account used for logging has the right [permissions](./tutorial-discover-physical.md) on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
 
 

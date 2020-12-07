@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Roles you can't manage in Privileged Identity Management
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) enables you to manage all [Azure AD roles](../users-groups-roles/directory-assign-admin-roles.md) and all [Azure roles](../../role-based-access-control/built-in-roles.md). Azure roles can also include your custom roles attached to your management groups, subscriptions, resource groups, and resources. However, there are few roles that you cannot manage. This article describes the roles you can't manage in Privileged Identity Management.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) enables you to manage all [Azure AD roles](../roles/permissions-reference.md) and all [Azure roles](../../role-based-access-control/built-in-roles.md). Azure roles can also include your custom roles attached to your management groups, subscriptions, resource groups, and resources. However, there are few roles that you cannot manage. This article describes the roles you can't manage in Privileged Identity Management.
 
 ## Classic subscription administrator roles
 

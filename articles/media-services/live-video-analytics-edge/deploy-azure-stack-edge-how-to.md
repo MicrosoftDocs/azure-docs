@@ -16,27 +16,27 @@ For Live Video Analytics, we will deploy via IoT Hub, but the Azure Stack Edge r
 
 ## Prerequisites
 
-* Azure subscription to which you have [owner privileges](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
-* An [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep) resource
+* Azure subscription to which you have [owner privileges](../../role-based-access-control/built-in-roles.md#owner).
+* An [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) resource
    
-* [An IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
-* A [service principal](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/create-custom-azure-resource-manager-role-how-to#create-service-principal) for the Live Video Analytics module.
+* [An IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
+* A [service principal](./create-custom-azure-resource-manager-role-how-to.md#create-service-principal) for the Live Video Analytics module.
 
    Use one of these regions where IoT Hub is available: East US 2, Central US, North Central US, Japan East, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
 * Storage account
 
     It is recommended that you use General-purpose v2 (GPv2) Storage accounts.  
-    Learn more about a [general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade?tabs=azure-portal).
+    Learn more about a [general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md?tabs=azure-portal).
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
 
 ## Configuring Azure Stack Edge for using Live Video Analytics
 
-Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. Read more about [Azure Stack Edge and detailed setup instructions](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep). To get started, follow the instructions in the links below:
+Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. Read more about [Azure Stack Edge and detailed setup instructions](../../databox-online/azure-stack-edge-deploy-prep.md). To get started, follow the instructions in the links below:
 
-* [Azure Stack Edge / Data Box Gateway Resource Creation](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep)
-* [Install and Setup](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-install)
-* [Connection and Activation](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate)
+* [Azure Stack Edge / Data Box Gateway Resource Creation](../../databox-online/azure-stack-edge-deploy-prep.md)
+* [Install and Setup](../../databox-online/azure-stack-edge-deploy-install.md)
+* [Connection and Activation](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
 
 ### Attach an IoT Hub to Azure Stack Edge
 
@@ -75,7 +75,7 @@ Before you continue, make sure that:
 
 * You've activated your Azure Stack Edge resource.
 * You have access to a Windows client system running PowerShell 5.0 or later to access the Azure Stack Edge resource.
-* To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge resource via its [local web UI](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate#connect-to-the-local-web-ui-setup). 
+* To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge resource via its [local web UI](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
     
     * To enable the compute, in the local web UI of your device, go to the Compute page.
     
@@ -201,7 +201,7 @@ These steps cover creating a Gateway user and setting up file shares to view the
     > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Remote share":::
     
     > [!TIP]
-    > Using your Windows client connected to your Azure Stack Edge, connect to the SMB shares following the steps [mentioned in this document](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share).
+    > Using your Windows client connected to your Azure Stack Edge, connect to the SMB shares following the steps [mentioned in this document](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share).
     
 1. Update the Live Video Analytics Edge module's Container Create Options (see point 4 in [add modules document](deploy-iot-edge-device.md#add-modules)) to use Volume Mounts.
 

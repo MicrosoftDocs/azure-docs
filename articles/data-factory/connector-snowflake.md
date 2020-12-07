@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
+ms.date: 11/24/2020
 ---
 
 # Copy and transform data in Snowflake by using Azure Data Factory
@@ -31,8 +31,6 @@ For the Copy activity, this Snowflake connector supports the following functions
 
 - Copy data from Snowflake that utilizes Snowflake's [COPY into [location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) command to achieve the best performance.
 - Copy data to Snowflake that takes advantage of Snowflake's [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance. It supports Snowflake on Azure. 
-
-Snowflake as sink is not supported when you use Azure Synapse Analytics workspace.
 
 ## Get started
 

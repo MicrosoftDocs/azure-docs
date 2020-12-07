@@ -9,6 +9,8 @@ keywords: "azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, A
 
 # How running your code with Azure Dev Spaces works
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 Azure Dev Spaces provides you with multiple ways to rapidly iterate and debug Kubernetes applications and collaborate with your team on an Azure Kubernetes Service (AKS) cluster. Once your [project is prepared to run in a dev space][how-it-works-prep], you can use Dev Spaces to build and run your project in your AKS cluster.
 
 This article describes what happens run your code in AKS with Dev Spaces.

@@ -1,7 +1,7 @@
 ---
 title: Create a data labeling project
 titleSuffix: Azure Machine Learning
-description: Learn how to create and run labeling projects to tag data for machine learning.  The tools include ml assisted labeling, or human in the loop labeling to aid with the task.
+description: Learn how to create and run labeling projects to tag data for machine learning.  Use ML assisted labeling, or human in the loop labeling, to aid with the task.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -105,7 +105,7 @@ If you plan to add new images to your dataset, use incremental refresh to add th
 
 To add more images to your project, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload to the appropriate folder in the blob storage. 
 
-Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore.
+Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore. This data will be pulled into your project once a day when enabled.
 
 Uncheck this box if you do not want new images that appear in the datastore to be added to your project.
 
@@ -151,6 +151,9 @@ Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeli
 The exact number of labeled images necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another. For some projects, is sometimes possible to see prelabel or cluster tasks after 300 images have been manually labeled. ML Assisted Labeling uses a technique called *Transfer Learning*, which uses a pre-trained model to jump-start the training process. If your dataset's classes are similar to those in the pre-trained model, pre-labels may be available after only a few hundred manually labeled images. If your dataset is significantly different from the data used to pre-train the model, it may take much longer.
 
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
+
+> [!NOTE]
+> ML assisted data labelling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network. 
 
 ### Clustering
 
@@ -244,7 +247,7 @@ Use these steps to add one or more labels to a project:
 
 ## Export the labels
 
-You can export the label data for Machine Learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. Use the **Export** button on the **Project details** page of your labeling project.
+You can export the label data for Machine Learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). Use the **Export** button on the **Project details** page of your labeling project.
 
 The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *export/coco*. You can access the exported Azure Machine Learning dataset in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
 
@@ -254,4 +257,4 @@ The COCO file is created in the default blob store of the Azure Machine Learning
 
 * [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
 * Label images for [image classification or object detection](how-to-label-images.md)
-* Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](compare-azure-ml-to-studio-classic.md)
+* Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)

@@ -12,11 +12,11 @@ ms.date: 09/10/2020
 
 # Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job
 
-In this article, you learn how to create Azure DevOps [build](/devops/pipelines/get-started-designer) and [release](/devops/pipelines/release/define-multistage-release-process) pipelines using Azure Stream Analytics CI/CD tools.
+In this article, you learn how to create Azure DevOps [build](/azure/devops/pipelines/get-started/pipelines-get-started) and [release](/azure/devops/pipelines/release/define-multistage-release-process) pipelines using Azure Stream Analytics CI/CD tools.
 
 ## Commit your Stream Analytics project
 
-Before you begin, commit your complete Stream Analytics projects as source files to an [Azure DevOps](/devops/user-guide/source-control) repository. You can reference this [sample repository](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) and [Stream Analytics project source code](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) in Azure Pipelines.
+Before you begin, commit your complete Stream Analytics projects as source files to an [Azure DevOps](/azure/devops/user-guide/source-control) repository. You can reference this [sample repository](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) and [Stream Analytics project source code](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) in Azure Pipelines.
 
 The steps in this article use a Stream Analytics Visual Studio Code project. If you're using a Visual Studio project, follow the steps in [Automate builds, tests, and deployments of an Azure Stream Analytics job using CI/CD tools](cicd-tools.md).
 

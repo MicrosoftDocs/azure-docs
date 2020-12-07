@@ -2,7 +2,7 @@
 title: Network planning and connections for Azure AD Domain Services | Microsoft Docs
 description: Learn about some of the virtual network design considerations and resources used for connectivity when you run Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
+ms.author: justinha
 
 ---
 # Virtual network design considerations and configuration options for Azure Active Directory Domain Services
@@ -100,7 +100,7 @@ A managed domain creates some networking resources during deployment. These reso
 
 ## Network security groups and required ports
 
-A [network security group (NSG)](../virtual-network/security-overview.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. A network security group is created when you deploy a managed domain that contains a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
+A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. A network security group is created when you deploy a managed domain that contains a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
 
 The following network security group rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your managed domain is deployed into.
 
@@ -172,4 +172,4 @@ For more information about some of the network resources and connection options 
 
 * [Azure virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 * [Azure VPN gateways](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
-* [Azure network security groups](../virtual-network/security-overview.md)
+* [Azure network security groups](../virtual-network/network-security-groups-overview.md)

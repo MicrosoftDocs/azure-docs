@@ -51,7 +51,7 @@ When the storage setup prompt appears, select **Show advanced settings** to view
 ![The Resource group setting](media/persisting-shell-storage/advanced-storage.png)
 
 ## Securing storage access
-For security, each user should provision their own storage account.  For role-based access control (RBAC), users must have contributor access or above at the storage account level.
+For security, each user should provision their own storage account.  For Azure role-based access control (Azure RBAC), users must have contributor access or above at the storage account level.
 
 Cloud Shell uses an Azure File Share in a storage account, inside a specified subscription. Due to inherited permissions, users with sufficient access rights to the subscription will be able to access all the storage accounts, and file shares contained in the subscription.
 

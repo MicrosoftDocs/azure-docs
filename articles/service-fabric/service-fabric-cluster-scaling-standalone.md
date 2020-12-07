@@ -1,11 +1,8 @@
 ---
 title: Azure Service Fabric standalone cluster scaling 
 description: Learn about scaling Service Fabric standalone clusters in or out and up or down.
-author: dkkapur
-
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: dekapur
 ---
 # Scaling Service Fabric standalone clusters
 A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Clusters can contain potentially thousands of nodes. After creating a Service Fabric cluster, you can scale the cluster horizontally (change the number of nodes) or vertically (change the resources of the nodes).  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.

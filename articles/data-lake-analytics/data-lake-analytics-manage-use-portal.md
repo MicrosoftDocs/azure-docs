@@ -1,10 +1,8 @@
 ---
 title: Manage Azure Data Lake Analytics by using the Azure portal
 description: This article describes how to use the Azure portal to manage Data Lake Analytics accounts, data sources, users, & jobs.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
 ---
@@ -85,9 +83,9 @@ You can use the **Add User Wizard** to easily provision new Data Lake users.
 7. Review all your selected changes, and then click **Run**.
 8. When the wizard is finished, click **Done**.
 
-## Manage Role-Based Access Control
+## Manage Azure role-based access control
 
-Like other Azure services, you can use Role-Based Access Control (RBAC) to control how users interact with the service.
+Like other Azure services, you can use Azure role-based access control (Azure RBAC) to control how users interact with the service.
 
 The standard Azure roles have the following capabilities:
 * **Owner**: Can submit jobs, monitor jobs, cancel jobs from any user, and configure the account.

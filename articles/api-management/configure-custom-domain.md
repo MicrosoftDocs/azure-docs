@@ -47,10 +47,10 @@ To perform the steps described in this article, you must have:
     There are a number of endpoints to which you can assign a custom domain name. Currently, the following endpoints are available:
 
     - **Gateway** (default is: `<apim-service-name>.azure-api.net`),
-    - **Portal** (default is: `<apim-service-name>.portal.azure-api.net`),
+    - **Developer portal (legacy)** (default is: `<apim-service-name>.portal.azure-api.net`),
+    - **Developer portal** (default is: `<apim-service-name>.developer.azure-api.net`).
     - **Management** (default is: `<apim-service-name>.management.azure-api.net`),
     - **SCM** (default is: `<apim-service-name>.scm.azure-api.net`),
-    - **NewPortal** (default is: `<apim-service-name>.developer.azure-api.net`).
 
     > [!NOTE]
     > Only the **Gateway** endpoint is available for configuration in the Consumption tier.

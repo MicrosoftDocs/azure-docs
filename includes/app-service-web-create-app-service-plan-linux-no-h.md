@@ -21,7 +21,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 When the App Service plan has been created, the Azure CLI shows information similar to the following example:
 
-<pre>
+```json
 { 
   "adminSiteName": null,
   "appServicePlanName": "myAppServicePlan",
@@ -32,9 +32,9 @@ When the App Service plan has been created, the Azure CLI shows information simi
   "location": "West Europe",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  &lt; JSON data removed for brevity. &gt;
+  <JSON data removed for brevity.>
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
 } 
-</pre>
+```

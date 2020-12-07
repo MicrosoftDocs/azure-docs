@@ -54,7 +54,7 @@ Perform the following steps to create a support request:
 
 4. On the **Review + Create** tab, review the information related to Support ticket. Select **Create**. 
 
-    ![Problem](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
+    ![Problem 2](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
     After you have created the Support ticket, a Support engineer will contact you as soon as possible to proceed with your request.
 

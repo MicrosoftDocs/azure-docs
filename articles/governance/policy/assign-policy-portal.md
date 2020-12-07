@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with portal"
 description: In this quickstart, you use Azure portal to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources
@@ -68,9 +68,10 @@ disks_ policy definition.
    custom values can be entered.
 
 1. Leave **Create a Managed Identity** unchecked. This box _must_ be checked when the policy or
-   initiative includes a policy with the
-   [deployIfNotExists](./concepts/effects.md#deployifnotexists) effect. As the policy used for this
-   quickstart doesn't, leave it blank. For more information, see
+   initiative includes a policy with either the
+   [deployIfNotExists](./concepts/effects.md#deployifnotexists) or
+   [modify](./concepts/effects.md#modify) effect. As the policy used for this quickstart doesn't,
+   leave it blank. For more information, see
    [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and
    [how remediation security works](./how-to/remediate-resources.md#how-remediation-security-works).
 
@@ -95,16 +96,17 @@ work with the condition evaluation for the resulting compliance state. Although 
 evaluation logic in the Azure portal, the compliance state results are shown. The compliance state
 result is either compliant or non-compliant.
 
-| **Resource State** | **Effect** | **Policy Evaluation** | **Compliance State** |
+| Resource State | Effect | Policy Evaluation | Compliance State |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non-Compliant |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compliant |
-| New | Audit, AuditIfNotExist\* | True | Non-Compliant |
-| New | Audit, AuditIfNotExist\* | False | Compliant |
+| New or Updated | Audit, Modify, AuditIfNotExist | True | Non-Compliant |
+| New or Updated | Audit, Modify, AuditIfNotExist | False | Compliant |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | True | Non-Compliant |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | False | Compliant |
 
-\* The Append, DeployIfNotExist, and AuditIfNotExist effects require the IF statement to be TRUE.
-The effects also require the existence condition to be FALSE to be non-compliant. When TRUE, the IF
-condition triggers evaluation of the existence condition for the related resources.
+> [!NOTE]
+> The DeployIfNotExist and AuditIfNotExist effects require the IF statement to be TRUE and the
+> existence condition to be FALSE to be non-compliant. When TRUE, the IF condition triggers
+> evaluation of the existence condition for the related resources.
 
 ## Clean up resources
 

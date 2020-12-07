@@ -10,16 +10,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
 ---
 # Configure token lifetime policies (preview)
-Many scenarios are possible in Azure AD when you can create and manage token lifetimes for apps, service principals, and your overall organization. To learn more, read [Configurable token lifetimes in Microsoft identity platform](active-directory-configurable-token-lifetimes.md). 
+Many scenarios are possible in Azure AD when you can create and manage token lifetimes for apps, service principals, and your overall organization.  
 
 > [!IMPORTANT]
-> After hearing from customers during the preview, we've implemented [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency. After May 30, 2020 no new tenant will be able to use configurable token lifetime policy to configure session and refresh tokens. The deprecation will happen within several months after that, which means that we will stop honoring existing session and refresh tokens polices. You can still configure access token lifetimes after the deprecation.
+> After January 30, 2021, tenants will no longer be able to configure refresh and session token lifetimes and Azure AD will stop honoring existing refresh and session token configuration in policies after that date. You can still configure access token lifetimes after the deprecation.  To learn more, read [Configurable token lifetimes in Microsoft identity platform](active-directory-configurable-token-lifetimes.md).
+> We’ve implemented [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency.
 
 
 In this section, we walk through a few common policy scenarios that can help you impose new rules for:

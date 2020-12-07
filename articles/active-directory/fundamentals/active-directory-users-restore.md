@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/01/2018
+ms.date: 10/23/2020
 ms.author: ajburnle 
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Restore or remove a recently deleted user using Azure Active Directory
-After you delete a user, the account remains in a suspended state for 30 days. During that 30-day window, the user account can be restored, along with all its properties. After that 30-day window passes, the user is automatically, and permanently, deleted.
+After you delete a user, the account remains in a suspended state for 30 days. During that 30-day window, the user account can be restored, along with all its properties. After that 30-day window passes, the permanent deletion process is automatically started.
 
 You can view your restorable users, restore a deleted user, or permanently delete a user using Azure Active Directory (Azure AD) in the Azure portal.
 
@@ -73,10 +73,10 @@ You can permanently delete a user from your organization without waiting the 30 
 
 2. Select **Delete permanently**.
 
-    ![Users - Deleted users page, with Restore user option highlighted](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
+    ![Users - Deleted users page, with Delete user option highlighted](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## Next steps
-After you've restored or deleted your users, you can perform the following basic processes:
+After you've restored or deleted your users, you can:
 
 - [Add or delete users](add-users-azure-active-directory.md)
 
@@ -86,4 +86,4 @@ After you've restored or deleted your users, you can perform the following basic
 
 - [Add guest users from another organization](../external-identities/what-is-b2b.md)
 
-For more information about other available user management tasks, [Azure AD user management documentation](../users-groups-roles/index.yml).
+For more information about other available user management tasks, [Azure AD user management documentation](../enterprise-users/index.yml).

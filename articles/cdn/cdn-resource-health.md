@@ -20,7 +20,7 @@ ms.author: mazha
 
 # Monitor the health of Azure CDN resources
   
-Azure CDN Resource health is a subset of [Azure resource health](../resource-health/resource-health-overview.md).  You can use Azure resource health to monitor the health of CDN resources and receive actionable guidance to troubleshoot problems.
+Azure CDN Resource health is a subset of [Azure resource health](../service-health/resource-health-overview.md).  You can use Azure resource health to monitor the health of CDN resources and receive actionable guidance to troubleshoot problems.
 
 >[!IMPORTANT] 
 >Azure CDN resource health only currently accounts for the health of global CDN delivery and API capabilities.  Azure CDN resource health does not verify individual CDN endpoints.
@@ -59,6 +59,6 @@ We are sorry, we are experiencing issues with some of our CDN providers | Check 
 
 ## Next steps
 
-- [Read an overview of Azure resource health](../resource-health/resource-health-overview.md)
+- [Read an overview of Azure resource health](../service-health/resource-health-overview.md)
 - [Troubleshoot issues with CDN compression](./cdn-troubleshoot-compression.md)
 - [Troubleshoot issues with 404 errors](./cdn-troubleshoot-endpoint.md)

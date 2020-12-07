@@ -1360,12 +1360,12 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |Preempted Nodes|Yes|Preempted Nodes|Count|Average|Number of preempted nodes. These nodes are the low priority nodes which are taken away from the available node pool.|Scenario, ClusterName|
 |Preparing Runs|Yes|Preparing Runs|Count|Total|Number of runs that are preparing for this workspace. Count is updated when a run enters Preparing state while the run environment is being prepared.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Provisioning Runs|Yes|Provisioning Runs|Count|Total|Number of runs that are provisioning for this workspace. Count is updated when a run is waiting on compute target creation or provisioning.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Queued Runs|Yes|Queued Runs|Count|Total|Number of runs that are queued for this workspace. Count is updated when a run is queued in compute target. Can occure when waiting for required compute nodes to be ready.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
+|Queued Runs|Yes|Queued Runs|Count|Total|Number of runs that are queued for this workspace. Count is updated when a run is queued in compute target. Can occur when waiting for required compute nodes to be ready.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Quota Utilization Percentage|Yes|Quota Utilization Percentage|Count|Average|Percent of quota utilized|Scenario, ClusterName, VmFamilyName, VmPriority|
 |Started Runs|Yes|Started Runs|Count|Total|Number of runs running for this workspace. Count is updated when run starts running on required resources.|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Starting Runs|Yes|Starting Runs|Count|Total|Number of runs started for this workspace. Count is updated after request to create run and run info, such as the Run Id, has been populated|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Total Cores|Yes|Total Cores|Count|Average|Number of total cores|Scenario, ClusterName|
-|Total Nodes|Yes|Total Nodes|Count|Average|Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Premepted Nodes, Leaving Nodes|Scenario, ClusterName|
+|Total Nodes|Yes|Total Nodes|Count|Average|Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Preempted Nodes, Leaving Nodes|Scenario, ClusterName|
 |Unusable Cores|Yes|Unusable Cores|Count|Average|Number of unusable cores|Scenario, ClusterName|
 |Unusable Nodes|Yes|Unusable Nodes|Count|Average|Number of unusable nodes. Unusable nodes are not functional due to some unresolvable issue. Azure will recycle these nodes.|Scenario, ClusterName|
 |Warnings|Yes|Warnings|Count|Total|Number of run warnings in this workspace. Count is updated whenever a run encounters a warning.|Scenario|
@@ -1453,7 +1453,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |BytesReceived|Yes|Bytes Received|Bytes|Total|The total number of bytes received by the Application Gateway from the clients|Listener|
 |BytesSent|Yes|Bytes Sent|Bytes|Total|The total number of bytes sent by the Application Gateway to the clients|Listener|
 |CapacityUnits|No|Current Capacity Units|Count|Average|Capacity Units consumed|No Dimensions|
-|ClientRtt|No|Client RTT|MilliSeconds|Average|Average round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgements|Listener|
+|ClientRtt|No|Client RTT|MilliSeconds|Average|Average round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgments|Listener|
 |ComputeUnits|No|Current Compute Units|Count|Average|Compute Units consumed|No Dimensions|
 |CpuUtilization|No|CPU Utilization|Percent|Average|Current CPU utilization of the Application Gateway|No Dimensions|
 |CurrentConnections|Yes|Current Connections|Count|Total|Count of current connections established with Application Gateway|No Dimensions|
@@ -1853,7 +1853,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |ActiveMessages|No|Count of active messages in a Queue/Topic.|Count|Average|Count of active messages in a Queue/Topic.|EntityName|
 |ConnectionsClosed|No|Connections Closed.|Count|Average|Connections Closed for Microsoft.ServiceBus.|EntityName|
 |ConnectionsOpened|No|Connections Opened.|Count|Average|Connections Opened for Microsoft.ServiceBus.|EntityName|
-|CPUXNS|No|CPU (Deprecated)|Percent|Maximum|Service bus premium namespace CPU usage metric. This metric is depricated. Please use the CPU metric (NamespaceCpuUsage) instead.|No Dimensions|
+|CPUXNS|No|CPU (Deprecated)|Percent|Maximum|Service bus premium namespace CPU usage metric. This metric is deprecated. Please use the CPU metric (NamespaceCpuUsage) instead.|No Dimensions|
 |DeadletteredMessages|No|Count of dead-lettered messages in a Queue/Topic.|Count|Average|Count of dead-lettered messages in a Queue/Topic.|EntityName|
 |IncomingMessages|Yes|Incoming Messages|Count|Total|Incoming Messages for Microsoft.ServiceBus.|EntityName|
 |IncomingRequests|Yes|Incoming Requests|Count|Total|Incoming Requests for Microsoft.ServiceBus.|EntityName|
@@ -2082,6 +2082,47 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
 
+## microsoft.storagesync/storageSyncServices
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|ServerSyncSessionResult|Yes|Sync Session Result|Count|Average|Metric that logs a value of 1 each time the Server Endpoint successfully completes a Sync Session with the Cloud Endpoint|SyncGroupName, ServerEndpointName, SyncDirection|
+|StorageSyncBatchTransferredFileBytes|Yes|Bytes synced|Bytes|Total|Total file size transferred for Sync Sessions|SyncGroupName, ServerEndpointName, SyncDirection|
+|StorageSyncRecalledNetworkBytesByApplication|Yes|Cloud tiering recall size by application|Bytes|Total|Size of data recalled by application|SyncGroupName, ServerName, ApplicationName|
+|StorageSyncRecalledTotalNetworkBytes|Yes|Cloud tiering recall size|Bytes|Total|Size of data recalled|SyncGroupName, ServerName|
+|StorageSyncRecallIOTotalSizeBytes|Yes|Cloud tiering recall|Bytes|Total|Total size of data recalled by the server|ServerName|
+|StorageSyncRecallThroughputBytesPerSecond|Yes|Cloud tiering recall throughput|BytesPerSecond|Average|Size of data recall throughput|SyncGroupName, ServerName|
+|StorageSyncServerHeartbeat|Yes|Server Online Status|Count|Maximum|Metric that logs a value of 1 each time the registered server successfully records a heartbeat with the Cloud Endpoint|ServerName|
+|StorageSyncSyncSessionAppliedFilesCount|Yes|Files Synced|Count|Total|Count of Files synced|SyncGroupName, ServerEndpointName, SyncDirection|
+|StorageSyncSyncSessionPerItemErrorsCount|Yes|Files not syncing|Count|Total|Count of files failed to sync|SyncGroupName, ServerEndpointName, SyncDirection|
+
+
+## microsoft.storagesync/storageSyncServices/registeredServers
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|ServerHeartbeat|Yes|Server Online Status|Count|Maximum|Metric that logs a value of 1 each time the registered server successfully records a heartbeat with the Cloud Endpoint|ServerResourceId, ServerName|
+|ServerRecallIOTotalSizeBytes|Yes|Cloud tiering recall|Bytes|Total|Total size of data recalled by the server|ServerResourceId, ServerName|
+
+
+## microsoft.storagesync/storageSyncServices/syncGroups
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|SyncGroupBatchTransferredFileBytes|Yes|Bytes synced|Bytes|Total|Total file size transferred for Sync Sessions|SyncGroupName, ServerEndpointName, SyncDirection|
+|SyncGroupSyncSessionAppliedFilesCount|Yes|Files Synced|Count|Total|Count of Files synced|SyncGroupName, ServerEndpointName, SyncDirection|
+|SyncGroupSyncSessionPerItemErrorsCount|Yes|Files not syncing|Count|Total|Count of files failed to sync|SyncGroupName, ServerEndpointName, SyncDirection|
+
+
+## microsoft.storagesync/storageSyncServices/syncGroups/serverEndpoints
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|ServerEndpointBatchTransferredFileBytes|Yes|Bytes synced|Bytes|Total|Total file size transferred for Sync Sessions|ServerEndpointName, SyncDirection|
+|ServerEndpointSyncSessionAppliedFilesCount|Yes|Files Synced|Count|Total|Count of Files synced|ServerEndpointName, SyncDirection|
+|ServerEndpointSyncSessionPerItemErrorsCount|Yes|Files not syncing|Count|Total|Count of files failed to sync|ServerEndpointName, SyncDirection|
+
+
 ## Microsoft.StreamAnalytics/streamingjobs
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -2111,7 +2152,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |OrchestrationActivityRunsEnded|No|Activity runs ended|Count|Total|Count of orchestration activities that succeeded, failed, or were cancelled|Result, FailureType, Activity, ActivityType, Pipeline|
 |OrchestrationPipelineRunsEnded|No|Pipeline runs ended|Count|Total|Count of orchestration pipeline runs that succeeded, failed, or were cancelled|Result, FailureType, Pipeline|
 |OrchestrationTriggersEnded|No|Triggers ended|Count|Total|Count of orchestration triggers that succeeded, failed, or were cancelled|Result, FailureType, Trigger|
-|SQLOnDemandLoginAttempts|No|Login attempts|Count|Total|Count of login attempts that succeded or failed|Result|
+|SQLOnDemandLoginAttempts|No|Login attempts|Count|Total|Count of login attempts that succeeded or failed|Result|
 |SQLOnDemandQueriesEnded|No|Queries ended|Count|Total|Count of queries that succeeded, failed, or were cancelled|Result|
 |SQLOnDemandQueryProcessedBytes|No|Data processed|Bytes|Total|Amount of data processed by queries|No Dimensions|
 
@@ -2131,13 +2172,13 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |---|---|---|---|---|---|---|
 |AdaptiveCacheHitPercent|No|Adaptive cache hit percentage|Percent|Maximum|Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache hit percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache|No Dimensions|
 |AdaptiveCacheUsedPercent|No|Adaptive cache used percentage|Percent|Maximum|Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache used percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache|No Dimensions|
-|Connections|Yes|Connections|Count|Total|Count of Total logins to the SQL pool|Result|
-|ConnectionsBlockedByFirewall|No|Connections blocked by firewall|Count|Total|Count of connections blocked by firewall rules. Revisit access control policies for your SQL pool and monitor these connections if the count is high|No Dimensions|
-|DWULimit|No|DWU limit|Count|Maximum|Service level objective of the SQL pool|No Dimensions|
-|DWUUsed|No|DWU used|Count|Maximum|Represents a high-level representation of usage across the SQL pool. Measured by DWU limit * DWU percentage|No Dimensions|
-|DWUUsedPercent|No|DWU used percentage|Percent|Maximum|Represents a high-level representation of usage across the SQL pool. Measured by taking the maximum between CPU percentage and Data IO percentage|No Dimensions|
+|Connections|Yes|Connections|Count|Total|Count of Total logins to the dedicated SQL pool|Result|
+|ConnectionsBlockedByFirewall|No|Connections blocked by firewall|Count|Total|Count of connections blocked by firewall rules. Revisit access control policies for your dedicated SQL pool and monitor these connections if the count is high|No Dimensions|
+|DWULimit|No|DWU limit|Count|Maximum|Service level objective of the dedicated SQL pool|No Dimensions|
+|DWUUsed|No|DWU used|Count|Maximum|Represents a high-level representation of usage across the dedicated SQL pool. Measured by DWU limit * DWU percentage|No Dimensions|
+|DWUUsedPercent|No|DWU used percentage|Percent|Maximum|Represents a high-level representation of usage across the dedicated SQL pool. Measured by taking the maximum between CPU percentage and Data IO percentage|No Dimensions|
 |LocalTempDBUsedPercent|No|Local tempdb used percentage|Percent|Maximum|Local tempdb utilization across all compute nodes - values are emitted every five minute|No Dimensions|
-|MemoryUsedPercent|No|Memory used percentage|Percent|Maximum|Memory utilization across all nodes in the SQL pool|No Dimensions|
+|MemoryUsedPercent|No|Memory used percentage|Percent|Maximum|Memory utilization across all nodes in the dedicated SQL pool|No Dimensions|
 |wlg_effective_min_resource_percent|Yes|Effective min resource percent|Percent|Minimum|The effective min resource percentage setting allowed considering the service level and the workload group settings. The effective min_percentage_resource can be adjusted higher on lower service levels|IsUserDefined, WorkloadGroup|
 |WLGActiveQueries|No|Workload group active queries|Count|Total|The active queries within the workload group. Using this metric unfiltered and unsplit displays all active queries running on the system|IsUserDefined, WorkloadGroup|
 |WLGActiveQueriesTimeouts|No|Workload group query timeouts|Count|Total|Queries for the workload group that have timed out. Query timeouts reported by this metric are only once the query has started executing (it does not include wait time due to locking or resource waits)|IsUserDefined, WorkloadGroup|

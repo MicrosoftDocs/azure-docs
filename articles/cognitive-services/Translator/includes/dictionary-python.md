@@ -1,6 +1,7 @@
 ---
 author: erhopf
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
@@ -47,7 +48,7 @@ The Translator global endpoint is set as the `endpoint`. `path` sets the `dictio
 The `params` are used to set the source and output languages. In this sample we're using English and Spanish: `en` and `es`.
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> For more information about endpoints, routes, and request parameters, see [Translator 3.0: Dictionary Lookup](../reference/v3-0-dictionary-lookup.md).
 
 ```python
 path = '/dictionary/lookup?api-version=3.0'
@@ -58,7 +59,7 @@ constructed_url = endpoint + path + params
 ## Add headers
 
 The easiest way to authenticate a request is to pass in your subscription key as an
-`Ocp-Apim-Subscription-Key` header, which is what we use in this sample. As an alternative, you can exchange your subscription key for an access token, and pass the access token along as an `Authorization` header to validate your request. For more information, see [Authentication](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+`Ocp-Apim-Subscription-Key` header, which is what we use in this sample. As an alternative, you can exchange your subscription key for an access token, and pass the access token along as an `Authorization` header to validate your request. For more information, see [Authentication](../reference/v3-0-reference.md#authentication).
 
 Copy this code snippet into your project:
 
@@ -70,7 +71,7 @@ headers = {
 }
 ```
 
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](../reference/v3-0-reference.md#authentication).
 
 ## Create a request to find alternate translations
 
@@ -146,4 +147,4 @@ If you've hardcoded your subscription key into your program, make sure to remove
 Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
-> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+> [API reference](../reference/v3-0-reference.md)

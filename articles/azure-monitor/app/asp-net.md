@@ -346,6 +346,12 @@ To add client-side monitoring, open the `_Layout.cshtml` file and follow the [sn
 
 There is a known issue in the current version of Visual Studio 2019 that when storing the instrumentation key in a User Secret is broken for .NET Framework-based apps and the key ultimately has to be hardcoded into the applicationinsights.config file to work around this bug. This article is designed to avoid this issue entirely, by not using User Secrets.  
 
+## Open-source SDK
+
+* [Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet).
+
+For the latest updates and bug fixes [consult the release notes](./release-notes.md).
+
 ## Next steps
 
 * Add synthetic transactions to test that your website is available from all over the world with [availability monitoring](monitor-web-app-availability.md).

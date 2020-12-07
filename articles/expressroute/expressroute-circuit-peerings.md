@@ -66,7 +66,7 @@ Each peering requires separate BGP sessions (one pair for each peering type). Th
 
 ## <a name="health"></a>ExpressRoute health
 
-ExpressRoute circuits may be monitored for availability, connectivity to VNets and bandwidth utilization using [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
+ExpressRoute circuits may be monitored for availability, connectivity to VNets and bandwidth utilization using [Network Performance Monitor](../networking/network-monitoring-overview.md) (NPM).
 
 NPM monitors the health of Azure private peering and Microsoft peering. Check out our [post](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) for more information.
 

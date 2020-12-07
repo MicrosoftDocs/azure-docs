@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 10/06/2019
  ms.author: mbaldwin
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 ## Create a resource group
 
@@ -125,7 +125,7 @@ If you want to use a key encryption key (KEK) for an additional layer of securit
 
 You can generate a new KEK using the Azure CLI [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) command, the Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet, or the [Azure portal](https://portal.azure.com/). You must generate an RSA key type; Azure Disk Encryption does not yet support using Elliptic Curve keys.
 
-You can instead import a KEK from your on-premises key management HSM. For more information, see [Key Vault Documentation](/azure/key-vault/key-vault-hsm-protected-keys).
+You can instead import a KEK from your on-premises key management HSM. For more information, see [Key Vault Documentation](../articles/key-vault/keys/hsm-protected-keys.md).
 
 Your key vault KEK URLs must be versioned. Azure enforces this restriction of versioning. For valid secret and KEK URLs, see the following examples:
 
@@ -142,7 +142,7 @@ Azure Disk Encryption doesn't support specifying port numbers as part of key vau
 Use the Azure CLI [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) command to generate a new KEK and store it in your key vault.
 
 ```azurecli-interactive
-az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA-HSM
+az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
 ```
 
 You may instead import a private key using the Azure CLI [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) command:

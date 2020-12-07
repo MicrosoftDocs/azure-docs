@@ -36,7 +36,7 @@ For information about the pricing and features of individual App Service plans, 
 ## Scale up your pricing tier
 
 > [!NOTE]
-> To scale up to **PremiumV2** tier, see [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md).
+> To scale up to **PremiumV3** tier, see [Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md).
 >
 
 1. In your browser, open the [Azure portal][portal].
@@ -79,7 +79,7 @@ For a table of service limits, quotas, and constraints, and supported features i
 ## More resources
 
 [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md)  
-[Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md)
+[Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/

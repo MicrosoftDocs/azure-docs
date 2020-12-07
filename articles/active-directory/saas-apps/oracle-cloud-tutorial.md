@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 10/04/2020
 ms.author: jeedes
 ---
 
@@ -20,8 +20,6 @@ In this tutorial, you'll learn how to integrate Oracle Cloud Infrastructure Cons
 * Control in Azure AD who has access to Oracle Cloud Infrastructure Console.
 * Enable your users to be automatically signed-in to Oracle Cloud Infrastructure Console with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
@@ -35,24 +33,23 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Oracle Cloud Infrastructure Console supports **SP** initiated SSO.
-* Once you configure the Oracle Cloud Infrastructure Console you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Oracle Cloud Infrastructure Console from the gallery
 
 To configure the integration of Oracle Cloud Infrastructure Console into Azure AD, you need to add Oracle Cloud Infrastructure Console from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Oracle Cloud Infrastructure Console** in the search box.
 1. Select **Oracle Cloud Infrastructure Console** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD SSO
 
 Configure and test Azure AD SSO with Oracle Cloud Infrastructure Console using a test user called **B. Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Oracle Cloud Infrastructure Console.
 
-To configure and test Azure AD SSO with Oracle Cloud Infrastructure Console, complete the following building blocks:
+To configure and test Azure AD SSO with Oracle Cloud Infrastructure Console, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
@@ -65,7 +62,7 @@ To configure and test Azure AD SSO with Oracle Cloud Infrastructure Console, com
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Oracle Cloud Infrastructure Console** application integration page, find the **Manage** section and select **Single sign-on**.
+1. In the Azure portal, on the **Oracle Cloud Infrastructure Console** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
@@ -97,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Oracle Cloud Infrastructure Console application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-   ![image](common/edit-attribute.png)
+   ![image1](common/edit-attribute.png)
 
 1. In addition to above, Oracle Cloud Infrastructure Console application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
@@ -107,9 +104,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
  
    1. Click **Save**.
 
-      ![image](./media/oracle-cloud-tutorial/config07.png)
+      ![image2](./media/oracle-cloud-tutorial/config07.png)
 	
-      ![image](./media/oracle-cloud-tutorial/config11.png)
+      ![image3](./media/oracle-cloud-tutorial/config11.png)
 
    1. Click the **pen** next to **Groups returned in claim**.
 
@@ -125,13 +122,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    1. Click **Save**.
 
-      ![image](./media/oracle-cloud-tutorial/config08.png)
+      ![image4](./media/oracle-cloud-tutorial/config08.png)
 
 1. On the **Set up Oracle Cloud Infrastructure Console** section, copy the appropriate URL(s) based on your requirement.
 
    ![Copy configuration URLs](common/copy-configuration-urls.png)
-
-
 
 ### Create an Azure AD test user
 
@@ -152,15 +147,9 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Oracle Cloud Infrastructure Console**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-   ![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B. Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Oracle Cloud Infrastructure Console
@@ -169,15 +158,15 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
 1. Click on the left side of the menu and click on **Identity** then navigate to **Federation**.
 
-   ![Configuration](./media/oracle-cloud-tutorial/config01.png)
+   ![Configuration1](./media/oracle-cloud-tutorial/config01.png)
 
 1. Save the **Service Provider metadata file** by clicking the **Download this document** link and upload it into the **Basic SAML Configuration** section of Azure portal and then click on **Add Identity Provider**.
 
-   ![Configuration](./media/oracle-cloud-tutorial/config02.png)
+   ![Configuration2](./media/oracle-cloud-tutorial/config02.png)
 
 1. On the **Add Identity Provider** pop-up, perform the following steps:
 
-   ![Configuration](./media/oracle-cloud-tutorial/config03.png)
+   ![Configuration3](./media/oracle-cloud-tutorial/config03.png)
 
    1. In the **NAME** text box, enter your name.
 
@@ -189,9 +178,9 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
    1. Click **Continue** and on the **Edit Identity Provider** section perform the following steps:
 
-      ![Configuration](./media/oracle-cloud-tutorial/config09.png)
+      ![Configuration4](./media/oracle-cloud-tutorial/configure-09.png)
 
-   1. The **IDENTITY PROVIDER GROUP** should be selected as Custom Group. The GROUP ID should be the GUID of the group from Azure Active Directory. The group needs to be mapped with corresponding group in **OCI GROUP** field.
+   1. The **IDENTITY PROVIDER GROUP** should be selected as Azure AD Group Object ID. The GROUP ID should be the GUID of the group from Azure Active Directory. The group needs to be mapped with corresponding group in **OCI GROUP** field.
 
    1. You can map multiple groups as per your setup in Azure portal and your organization need. Click on **+ Add mapping** to add as many groups as you need.
 
@@ -203,16 +192,10 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
 ### Test SSO
 
-When you select the Oracle Cloud Infrastructure Console tile in the Access Panel, you will be redirected to the Oracle Cloud Infrastructure Console sign in page. Select the **IDENTITY PROVIDER** from the drop-down menu and click **Continue** as shown below to sign in. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Oracle Cloud Infrastructure Console tile in the Access Panel, you will be redirected to the Oracle Cloud Infrastructure Console sign in page. Select the **IDENTITY PROVIDER** from the drop-down menu and click **Continue** as shown below to sign in. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ![Configuration](./media/oracle-cloud-tutorial/config10.png)
 
-## Additional resources
+## Next steps
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [How to protect Oracle Cloud Infrastructure Console with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+Once you configure the Oracle Cloud Infrastructure Console you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

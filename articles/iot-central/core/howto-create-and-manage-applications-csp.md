@@ -59,7 +59,7 @@ Since Azure IoT Central has context that you came to manage the customer you sel
 
 An Azure Active Directory tenant contains user identities, credentials, and other organizational information. Multiple Azure subscriptions can be associated with a single Azure Active Directory tenant.
 
-To learn more, see [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+To learn more, see [Azure Active Directory](../../active-directory/index.yml).
 
 ## Azure subscription
 
@@ -67,7 +67,7 @@ An Azure subscription enables you to create instances of Azure services. Azure I
 
 If you don't have an Azure subscription, you can create one in the Microsoft Partner Center. After you create the Azure subscription, navigate back to the **Create Application** page. Your new subscription appears in the **Azure Subscription** drop-down.
 
-To learn more, see [Azure subscriptions](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
+To learn more, see [Azure subscriptions](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing).
 
 ## Location
 

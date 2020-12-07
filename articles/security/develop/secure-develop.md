@@ -18,7 +18,7 @@ ms.workload: na
 
 # Develop secure applications on Azure
 In this article we present security activities and controls to consider when you develop applications for the cloud. Security questions and concepts to consider during the implementation and verification phases of the Microsoft [Security Development Lifecycle
-(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) are covered. The goal is to help you define activities and Azure services that you can use to develop a more secure application.
+(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) are covered. The goal is to help you define activities and Azure services that you can use to develop a more secure application.
 
 The following SDL phases are covered in this article:
 
@@ -34,7 +34,7 @@ misuse of your application.
 
 ### Perform code reviews
 
-Before you check in code, conduct [code reviews](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) to increase overall code quality and reduce the risk of creating bugs. You can use [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) to manage the code review process.
+Before you check in code, conduct [code reviews](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) to increase overall code quality and reduce the risk of creating bugs. You can use [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) to manage the code review process.
 
 ### Perform static code analysis
 
@@ -149,8 +149,8 @@ Antimalware protection helps identify and remove viruses, spyware, and
 other malicious software. You can install [Microsoft Antimalware](../fundamentals/antimalware.md)
 or a Microsoft partner's endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/),
 [Broadcom](https://www.broadcom.com/products),
-[McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10),
-and [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
+[McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10),
+and [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 [Microsoft Antimalware](../fundamentals/antimalware.md)
 includes features like real-time protection, scheduled scanning, malware

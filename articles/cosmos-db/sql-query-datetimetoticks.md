@@ -3,12 +3,14 @@ title: DateTimeToTicks in Azure Cosmos DB query language
 description: Learn about SQL system function DateTimeToTicks in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
 ---
 # DateTimeToTicks (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Converts the specified DateTime to ticks. A single tick represents one hundred nanoseconds or one ten-millionth of a second. 
 

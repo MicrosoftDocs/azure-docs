@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
-ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python"
+ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli"
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 
@@ -23,7 +23,7 @@ To complete this tutorial:
 
 - <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
+- <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2019</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2019 already:
     - Install the latest updates in Visual Studio by clicking **Help** > **Check for Updates**.
     - Add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
@@ -223,31 +223,16 @@ Completing this tutorial incurs a small charge in your Azure account for the con
 
 ## Set up your initial environment
 
-* Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
-* Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher, with which you run commands in any shell to provision and configure Azure resources.
+- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- This tutorial requires version 2.0.80 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-After installing Docker and the Azure CLI, open a terminal window and verify that docker is installed:
+After installing Docker or running Azure Cloud Shell, open a terminal window and verify that docker is installed:
 
 ```bash
 docker --version
 ```
-
-Also verify that your Azure CLI version is 2.0.80 or higher:
-
-```azurecli
-az --version
-```
-
-Then sign in to Azure through the CLI:
-
-```azurecli
-az login
-```
-
-The `az login` command opens a browser to gather your credentials. When the command completes, it shows JSON output containing information about your subscriptions.
-
-Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
 
 ## Clone or download the sample app
 
@@ -314,6 +299,10 @@ ENTRYPOINT ["init.sh"]
 
 ## Build and test the image locally
 
+> [!NOTE]
+> Docker Hub has [quotas on the number of anonymous pulls per IP and the number of authenticated pulls per free user (see **Data transfer**)](https://www.docker.com/pricing). If you notice your pulls from Docker Hub are being limited, try `docker login` if you're not already logged in.
+> 
+
 1. Run the following command to build the image:
 
     ```bash
@@ -334,8 +323,6 @@ ENTRYPOINT ["init.sh"]
 1. Browse to `http://localhost:8000` to verify the web app and container are functioning correctly.
 
     ![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
-
-[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## Create a resource group
 

@@ -77,7 +77,7 @@ The Snapshot Debugger collects snapshots of the most frequent exceptions in your
 
 3. The first call that has valid values is **ValidZipCode**, and we can see that a zip code was provided with letters that isn't able to be translated into an integer.  This appears to be the error in the code that needs to be corrected.
 
-	![Debug snapshot](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+	![Screenshot that shows an error in the code that needs to be corrected.	](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
 4. You then have the option to download this snapshot into Visual Studio where we can locate the actual code that needs to be corrected. To do so, click **Download Snapshot**.
 5. The snapshot is loaded into Visual Studio.

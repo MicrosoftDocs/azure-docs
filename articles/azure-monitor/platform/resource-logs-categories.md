@@ -23,13 +23,6 @@ Some categories may only be supported for specific types of resources. See the r
 
 If you still something is missing, you can open a GitHub comment at the bottom of this article.
 
-## microsoft.aadiam/tenants
-
-|Category|Category Display Name|
-|---|---|
-|Signin|Signin|
-
-
 ## Microsoft.AnalysisServices/servers
 
 |Category|Category Display Name|
@@ -83,6 +76,8 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|
 |---|---|
 |BlockchainApplication|Blockchain Application|
+|FabricOrderer|Fabric Orderer|
+|FabricPeer|Fabric Peer|
 |Proxy|Proxy|
 
 
@@ -127,6 +122,15 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |---|---|
 |Audit|Audit Logs|
 |RequestResponse|Request and Response Logs|
+|Trace|Trace Logs|
+
+
+## Microsoft.ContainerRegistry/registries
+
+|Category|Category Display Name|
+|---|---|
+|ContainerRegistryLoginEvents|Login Events|
+|ContainerRegistryRepositoryEvents|RepositoryEvent logs|
 
 
 ## Microsoft.ContainerService/managedClusters
@@ -198,12 +202,27 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |MySqlSlowLogs|MariaDB Server Logs|
 
 
+## Microsoft.DBforMySQL/flexibleServers
+
+|Category|Category Display Name|
+|---|---|
+|MySqlAuditLogs|MySQL Audit Logs|
+|MySqlSlowLogs|MySQL Slow Logs|
+
+
 ## Microsoft.DBforMySQL/servers
 
 |Category|Category Display Name|
 |---|---|
 |MySqlAuditLogs|MySQL Audit Logs|
 |MySqlSlowLogs|MySQL Server Logs|
+
+
+## Microsoft.DBforPostgreSQL/flexibleServers
+
+|Category|Category Display Name|
+|---|---|
+|PostgreSQLLogs|PostgreSQL Server Logs|
 
 
 ## Microsoft.DBforPostgreSQL/servers
@@ -287,6 +306,7 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |CassandraRequests|CassandraRequests|
 |ControlPlaneRequests|ControlPlaneRequests|
 |DataPlaneRequests|DataPlaneRequests|
+|GremlinRequests|GremlinRequests|
 |MongoRequests|MongoRequests|
 |PartitionKeyRUConsumption|PartitionKeyRUConsumption|
 |PartitionKeyStatistics|PartitionKeyStatistics|
@@ -366,6 +386,19 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|
 |---|---|
 |AuditEvent|Audit Logs|
+
+
+## Microsoft.Kusto/Clusters
+
+|Category|Category Display Name|
+|---|---|
+|Command|Command|
+|FailedIngestion|Failed ingest operations|
+|IngestionBatching|Ingestion batching|
+|Query|Query|
+|SucceededIngestion|Successful ingest operations|
+|TableDetails|Table details|
+|TableUsageStatistics|Table usage statistics|
 
 
 ## Microsoft.Logic/integrationAccounts

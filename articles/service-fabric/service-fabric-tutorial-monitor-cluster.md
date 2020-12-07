@@ -52,7 +52,7 @@ Select the resource **ServiceFabric(mysfomsworkspace)**.
 
 In **Overview** you see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
 
-![Service Fabric solution](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
+![Screenshot that shows the Service Fabric graph.](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
 The following image shows the home page of the Service Fabric Analytics solution. This home page provides a snapshot view of what's happening in your cluster.
 

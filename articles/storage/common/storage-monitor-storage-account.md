@@ -21,7 +21,7 @@ We recommend you review [Azure Monitor for Storage](../../azure-monitor/insights
 >
 > Azure Files currently supports Storage Analytics metrics, but does not yet support logging.
 >
-> Premium performance block blob storage accounts don't support Storage Analytic metrics but they do support logging. You can enable logging programmatically via the REST API or the client library. If you want to view metrics with premium performance blob blob storage accounts, consider using [Azure Storage Metrics in Azure Monitor](storage-metrics-in-azure-monitor.md).
+> Premium performance block blob storage accounts don't support Storage Analytic metrics but they do support logging. You can enable logging programmatically via the REST API or the client library. If you want to view metrics with premium performance blob blob storage accounts, consider using [Azure Storage Metrics in Azure Monitor](../blobs/monitor-blob-storage.md).
 >
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -31,7 +31,7 @@ We recommend you review [Azure Monitor for Storage](../../azure-monitor/insights
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the storage account name to open the account dashboard.
 1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
 
-    ![MonitoringOptions](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
+    ![Screenshot that highlights the Diagnostic settings (classic) option under the Monitoring (Classic) section.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 
 1. Select the **type** of metrics data for each **service** you wish to monitor, and the **retention policy** for the data. You can also disable monitoring by setting **Status** to **Off**.
 

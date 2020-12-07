@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 #Customer intent: As a developer or data scientist familiar with cURL, I want to learn how to use Form Recognizer to extract my form data.
 ---
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [cURL](https://curl.haxx.se/windows/) installed.
-- A set of at least six forms of the same type. You will use five of these to train the model, and then you'll test it with the sixth form. Your forms can be of different file types but must be the same type of document. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account. You can put the testing files in a separate folder.
+- A set of at least six forms of the same type. You will use five of these to train the model, and then you'll test it with the sixth form. Your forms can be of different file types but must be the same type of document. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account. You can put the testing files in a separate folder.
 
 ## Create a Form Recognizer resource
 
@@ -259,7 +259,7 @@ This sample JSON output has been shortened for simplicity.
               }
             ]
           }, 
-		...
+        ...
         ]
       }
     ],
@@ -286,7 +286,7 @@ This sample JSON output has been shortened for simplicity.
             },
             "confidence": 1
           },
-		 ...
+         ...
         ],
         "tables": [
           {
@@ -317,7 +317,7 @@ This sample JSON output has been shortened for simplicity.
                 "isHeader": true,
                 "isFooter": false
               },
-			  ...
+              ...
             ]
           }
         ], 
@@ -386,7 +386,7 @@ This sample JSON output has been shortened for simplicity.
               }
             ]
           }, 
-		  ...
+          ...
         ] 
       }
     ],
@@ -429,7 +429,7 @@ This sample JSON output has been shortened for simplicity.
             },
             "confidence": 1
           },
-		  ...
+          ...
         ], 
         "tables": [
           {
@@ -460,7 +460,7 @@ This sample JSON output has been shortened for simplicity.
                 "isHeader": true,
                 "isFooter": false
               },
-			  ...
+              ...
             ]
           }
         ], 

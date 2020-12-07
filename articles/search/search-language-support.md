@@ -63,4 +63,4 @@ Sometimes the language of the agent issuing a query is not known, in which case 
 
 ## Next steps
 
-If you're a .NET developer, note that you can configure language analyzers using the [Azure Cognitive Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) and the [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer) property.
+If you're a .NET developer, note that you can configure language analyzers using the [Azure Cognitive Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) and the [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) property.

@@ -8,7 +8,7 @@ ms.date: 06/30/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 ---
 
@@ -18,12 +18,10 @@ Try out Azure IoT Edge in this quickstart by deploying containerized code to a v
 
 In this quickstart you learn how to:
 
-> [!div class="checklist"]
->
-> * Create an IoT hub.
-> * Register an IoT Edge device to your IoT hub.
-> * Install and start the IoT Edge runtime on your virtual device.
-> * Remotely deploy a module to an IoT Edge device and send telemetry to IoT Hub.
+* Create an IoT hub.
+* Register an IoT Edge device to your IoT hub.
+* Install and start the IoT Edge runtime on your virtual device.
+* Remotely deploy a module to an IoT Edge device and send telemetry to IoT Hub.
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart/install-edge-full.png)
 
@@ -31,23 +29,23 @@ This quickstart walks you through creating a Windows virtual machine and configu
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-You use the Azure CLI to complete many of the steps in this quickstart. Azure IoT has an extension to enable additional functionality.
-
-Add the Azure IoT extension to the Cloud Shell instance.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Prerequisites
 
+Prepare your environment for the Azure CLI.
+
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell) using the PowerShell environment.
+
+   [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
+- If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
+   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for additional sign-in options.
+  - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  - Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
+
 Cloud resources:
 
-* A resource group to manage all the resources you use in this quickstart.
+- A resource group to manage all the resources you use in this quickstart.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -55,7 +53,7 @@ Cloud resources:
 
 IoT Edge device:
 
-* A Windows virtual machine to act as your IoT Edge device. You can create this virtual machine using the following command, replacing `{password}` with a secure password:
+- A Windows virtual machine to act as your IoT Edge device. You can create this virtual machine using the following command, replacing `{password}` with a secure password:
 
   ```azurecli-interactive
   az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
@@ -72,11 +70,11 @@ IoT Edge device:
   Open this file with Remote Desktop Connection to connect to your Windows virtual machine using the administrator name and password you specified with the `az vm create` command.
 
 > [!NOTE]
-> Your Windows virtual machine starts with Windows version 1809 (build 17763), which is the latest [Windows long-term support build](https://docs.microsoft.com/windows/release-information/). Windows automatically checks for updates every 22 hours by default. After a check on your virtual machine, Windows pushes a version update that is incompatible with IoT Edge for Windows, which prevents further use of IoT Edge for Windows features. We recommend limiting use of your virtual machine to within 22 hours or [temporarily pausing Windows updates](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
+> Your Windows virtual machine starts with Windows version 1809 (build 17763), which is the latest [Windows long-term support build](/windows/release-information/). Windows automatically checks for updates every 22 hours by default. After a check on your virtual machine, Windows pushes a version update that is incompatible with IoT Edge for Windows, which prevents further use of IoT Edge for Windows features. We recommend limiting use of your virtual machine to within 22 hours or [temporarily pausing Windows updates](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
 >
 > This quickstart uses a Windows desktop virtual machine for simplicity. For information about which Windows operating systems are generally available for production scenarios, see [Azure IoT Edge supported systems](support.md).
 >
-> If you're ready to configure your own Windows device for IoT Edge, including devices running IoT Core, follow the steps in [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
+> If you want to configure your own Windows device for IoT Edge, including devices running IoT Core, follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md).
 
 ## Create an IoT hub
 
@@ -140,9 +138,7 @@ The steps in this section all take place on your IoT Edge device, so you want to
 
 Use PowerShell to download and install the IoT Edge runtime. Use the device connection string that you retrieved from IoT Hub to configure your device.
 
-1. If you haven't already, follow the steps in [Register a new Azure IoT Edge device](how-to-register-device.md) to register your device and retrieve the device connection string.
-
-2. In the virtual machine, run PowerShell as an administrator.
+1. In the virtual machine, run PowerShell as an administrator.
 
    >[!NOTE]
    >Use an AMD64 session of PowerShell to install IoT Edge, not PowerShell (x86). If you're not sure which session type you're using, run the following command:
@@ -151,25 +147,25 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, downloads the Moby runtime, and then downloads the IoT Edge runtime.
+2. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, downloads the Moby runtime, and then downloads the IoT Edge runtime.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge -ContainerOs Windows
    ```
 
-4. Your machine may restart automatically. If you are prompted by the Deploy-IoTEdge command to reboot, do so now.
+3. Your machine may restart automatically. If you are prompted by the Deploy-IoTEdge command to reboot, do so now.
 
-5. Run PowerShell as an administrator again.
+4. Run PowerShell as an administrator again.
 
-6. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers.
+5. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -ContainerOs Windows
    ```
 
-7. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string.
+6. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string.
 
 ### View the IoT Edge runtime status
 

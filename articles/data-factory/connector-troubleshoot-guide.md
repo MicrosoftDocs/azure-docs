@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 12/02/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
@@ -202,7 +202,7 @@ busy to handle requests, it returns an HTTP error 503.
 - **Resolution**: Rerun the copy activity after several minutes.
 			      
 
-## Azure Synapse Analytics (formerly SQL Data Warehouse)/Azure SQL Database/SQL Server
+## Azure Synapse Analytics/Azure SQL Database/SQL Server
 
 ### Error code:  SqlFailedToConnect
 
@@ -223,7 +223,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: If the error message contains "SqlException", SQL Database throws the error indicating some specific operation failed.
 
-- **Recommendation**:  If SQL error is not clear, please try to alter the database to latest compatibility level '150'. It can throw latest version SQL errors. Refer the [detail doc](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat).
+- **Recommendation**:  If SQL error is not clear, please try to alter the database to latest compatibility level '150'. It can throw latest version SQL errors. Refer the [detail doc](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat).
 
 	For troubleshooting SQL issues, please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
 
@@ -437,7 +437,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA,, ColumnB'.
+- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA, ColumnB'.
 
 - **Recommendation**:  Check the first row, and fix the value if there is empty value.
 
@@ -446,7 +446,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
 
-- **Cause**: The problematic row's column count is large than the first row's column count. It may be caused by data issue or incorrect column delimiter/quote char settings.
+- **Cause**: The problematic row's column count is larger than the first row's column count. It may be caused by data issue or incorrect column delimiter/quote char settings.
 
 - **Recommendation**:  Get the row count in error message, check the row's column and fix the data.
 
@@ -485,7 +485,28 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Recommendation**:  Rerun the pipeline. If keep failing, try to reduce the parallelism. If still fail, please contact dynamics support.
 
+## Excel Format
 
+### Timeout or slow performance when parsing large Excel file
+
+- **Symptoms**:
+
+    1. When you create Excel dataset and import schema from connection/store, preview data, list or refresh worksheets, you may hit timeout error if the excel file is large in size.
+    2. When you use copy activity to copy data from large Excel file (>= 100MB) into other data store, you may experience slow performance or OOM issue.
+
+- **Cause**: 
+
+    1. For operations like importing schema, previewing data and listing worksheets on excel dataset, the timeout is 100s and static. For large Excel file, these operations may not finish within the timeout value.
+
+    2. ADF copy activity reads the whole Excel file into memory then locate the specified worksheet and cells to read data. This behavior is due to the underlying SDK ADF uses.
+
+- **Resolution**: 
+
+    1. For importing schema, you can generate a smaller sample file which is a subset of original file, and choose "import schema from sample file" instead of "import schema from connection/store".
+
+    2. For listing workseet, in the worksheet dropdown, you can click "Edit" and input the sheet name/index instead.
+
+    3. To copy large excel file (>100MB) into other store, you can use Data Flow Excel source which sport streaming read and perform better.
 
 ## JSON Format
 
@@ -643,6 +664,29 @@ busy to handle requests, it returns an HTTP error 503.
 - **Recommendation**:  Remove 'CompressionType' in payload.
 
 
+## REST
+
+### Unexpected network response from REST connector
+
+- **Symptoms**: Endpoint sometimes receives unexpected response (400 / 401 / 403 / 500) from REST connector.
+
+- **Cause**: The REST source connector uses URL and HTTP method/header/body from linked service/dataset/copy source as parameters when constructing an HTTP request. The issue is most likely caused by some mistakes in one or more specified parameters.
+
+- **Resolution**: 
+    - Use 'curl' in cmd window to check if parameter is the cause or not (**Accept** and **User-Agent** headers should always be included):
+        ```
+        curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
+        ```
+      If the command returns the same unexpected response, please fix above parameters with 'curl' until it returns the expected response. 
+
+      Also you can use 'curl --help' for more advanced usage of the command.
+
+    - If only ADF REST connector returns unexpected response, please contact Microsoft support for further troubleshooting.
+    
+    - Please note that 'curl' may not be suitable to reproduce SSL certificate validation issue. In some scenarios, 'curl' command was executed successfully without hitting any SSL cert validation issue. But when the same URL is executed in browser, no SSL cert is actually returned in the first place for client to establish trust with server.
+
+      Tools like **Postman** and **Fiddler** are recommended for the above case.
+
 
 ## General Copy Activity Error
 
@@ -691,7 +735,6 @@ For more troubleshooting help, try these resources:
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-            

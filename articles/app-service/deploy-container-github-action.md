@@ -3,9 +3,10 @@ title: Custom container CI/CD from GitHub Actions
 description: Learn how to use GitHub Actions to deploy your custom Linux container to App Service from a CI/CD pipeline.
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
+ms.custom: github-actions-azure
 
 ---
 
@@ -26,10 +27,10 @@ For an Azure App Service container workflow, the file has three sections:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
-- A working container registry and Azure App Service app for containers. This example uses Azure Container Registry. 
-    - [Learn how to create a containerized Node.js application using Docker, push the container image to a registry, and then deploy the image to Azure App Service](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01)
-
+- A GitHub account. If you don't have one, sign up for [free](https://github.com/join). You need to have code in a GitHub repository to deploy to Azure App Service. 
+- A working container registry and Azure App Service app for containers. This example uses Azure Container Registry. Make sure to complete the full deployment to Azure App Service for containers. Unlike regular web apps, web apps for containers do not have a default landing page. Publish the container to have a working example.
+    - [Learn how to create a containerized Node.js application using Docker, push the container image to a registry, and then deploy the image to Azure App Service](/azure/developer/javascript/tutorial-vscode-docker-node-01)
+  		
 ## Generate deployment credentials
 
 The recommended way to authenticate with Azure App Services for GitHub Actions is with a publish profile. You can also authenticate with a service principal but the process requires more steps. 
@@ -43,6 +44,9 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 1. Go to your app service in the Azure portal. 
 
 1. On the **Overview** page, select **Get Publish profile**.
+
+    > [!NOTE]
+    > As of October 2020, Linux web apps will need the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the file**. This requirement will be removed in the future. See [Configure an App Service app in the Azure portal](/azure/app-service/configure-common), to learn how to configure common web app settings.  
 
 1. Save the downloaded file. You'll use the contents of the file to create a GitHub secret.
 
@@ -72,21 +76,6 @@ In the example, replace the placeholders with your subscription ID, resource gro
 > It is always a good practice to grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
 
 ---
-
-## Configure the GitHub secret
-
-In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
-
-Paste the contents of the JSON output as the value of secret variable. Give the secret the name like `AZURE_CREDENTIALS`.
-
-When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
-
-```yaml
-- uses: azure/login@v1
-  with:
-    creds: ${{ secrets.AZURE_CREDENTIALS }}
-```
-
 ## Configure the GitHub secret for authentication
 
 # [Publish profile](#tab/publish-profile)
@@ -121,9 +110,9 @@ When you configure the workflow file later, you use the secret for the input `cr
 
 ## Configure GitHub secrets for your registry
 
-Define secrets to use with the Docker Login action. 
+Define secrets to use with the Docker Login action. The example in this document uses Azure Container Registry for the container registry. 
 
-1. Go to your container in the Azure portal or Docker and copy the username and password. 
+1. Go to your container in the Azure portal or Docker and copy the username and password. You can find the Azure Container Registry username and password in the Azure portal under **Settings** > **Access keys** for your registry. 
 
 2. Define a new secret for the registry username named `REGISTRY_USERNAME`. 
 
@@ -132,10 +121,6 @@ Define secrets to use with the Docker Login action.
 ## Build the Container image
 
 The following example show part of the workflow that builds a Node.JS Docker image. Use [Docker Login](https://github.com/azure/docker-login) to log into a private container registry. This example uses Azure Container Registry but the same action works for other registries. 
-
-# [Publish profile](#tab/publish-profile)
-
-This example shows how to build a Node.JS Docker image using a publish profile for authentication.
 
 
 ```yaml
@@ -159,7 +144,7 @@ jobs:
         docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
 ```
 
-You can also use [Docker Login](https://github.com/azure/docker-login) to log into multiple container registries at the same time. This example includes two new GitHub secrets for authentication with docker.io.
+You can also use [Docker Login](https://github.com/azure/docker-login) to log into multiple container registries at the same time. This example includes two new GitHub secrets for authentication with docker.io. The example assumes that there is a Dockerfile at the root level of the registry. 
 
 ```yml
 name: Linux Container Node Workflow
@@ -186,53 +171,20 @@ jobs:
         docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
         docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
 ```
-# [Service principal](#tab/service-principal)
-
-This example shows how to build a Node.JS Docker image using a service principal for authentication. 
-
-```yaml
-on: [push]
-
-name: Linux_Container_Node_Workflow
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    # checkout the repo
-    - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
-
-    - name: 'Login via Azure CLI'
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}   
-    - uses: azure/docker-login@v1
-      with:
-        login-server: mycontainer.azurecr.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}  
-    - run: |
-        docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
-        docker push mycontainer.azurecr.io/myapp:${{ github.sha }}      
-    - name: Azure logout
-      run: |
-        az logout
-```
-
----
 
 ## Deploy to an App Service container
 
-To deploy your image to a custom container in App Service, use the `azure/webapps-deploy@v2` action. This action has five parameters:
+To deploy your image to a custom container in App Service, use the `azure/webapps-deploy@v2` action. This action has seven parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
 | **app-name** | (Required) Name of the App Service app | 
-| **publish-profile** | (Optional) Publish profile file contents with Web Deploy secrets |
-| **images** | Fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For multi-container scenario multiple container image names can be provided (multi-line separated) |
+| **publish-profile** | (Optional) Applies to Web Apps(Windows and Linux) and Web App Containers(linux). Multi container scenario not supported. Publish profile (\*.publishsettings) file contents with Web Deploy secrets | 
 | **slot-name** | (Optional) Enter an existing Slot other than the Production slot |
-| **configuration-file** | (Optional) Path of the Docker-Compose file |
+| **package** | (Optional) Applies to Web App only: Path to package or folder. \*.zip, \*.war, \*.jar or a folder to deploy |
+| **images** | (Required) Applies to Web App Containers only: Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For a multi-container app, multiple container image names can be provided (multi-line separated) |
+| **configuration-file** | (Optional) Applies to Web App Containers only: Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container apps. |
+| **startup-command** | (Optional) Enter the start-up command. For ex. dotnet run or dotnet filename.dll |
 
 # [Publish profile](#tab/publish-profile)
 
@@ -277,7 +229,7 @@ jobs:
     steps:
     # checkout the repo
     - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
+      uses: actions/checkout@main
     
     - name: 'Login via Azure CLI'
       uses: azure/login@v1

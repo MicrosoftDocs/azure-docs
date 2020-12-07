@@ -31,7 +31,7 @@ This problem typically happens if the application vendor has changed their sign-
 
 While Microsoft has technologies to automatically detect when integrations break, it might not be possible to find the issues right away, or the issues take some time to fix. In the case when one of these integrations does not work correctly, open a support case so it can be fixed as quickly as possible.
 
-**If you are in contact with this application’s vendor,** send them our way so Microsoft can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md) to get them started.
+**If you are in contact with this application’s vendor,** send them our way so Microsoft can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md) to get them started.
 
 ## Credentials are filled in and submitted, but the page indicates the credentials are incorrect
 
@@ -57,7 +57,7 @@ In case the previous suggestions do not work, it could be the case that a change
 
 While Microsoft has technologies to automatically detect when application integrations break, it might not be possible to find the issues right away, or the issues might take some time to fix. When an integration does not work correctly, you can open a support case to get it fixed as quickly as possible. 
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md) to get them started.
 
 ## Check if the application’s login page has changed recently or requires an additional field
 
@@ -65,7 +65,7 @@ If the application’s login page has changed drastically, sometimes this causes
 
 While Microsoft has technologies to automatically detect when application integrations break, it might not be possible to find the issues right away, or the issues might take some time to fix. When an integration does not work correctly, you can open a support case to get it fixed as quickly as possible. 
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md) to get them started.
 
 ## Capture sign-in fields for an app
 
@@ -145,6 +145,13 @@ If you experience any of these problems, do the following things:
 - Make sure that your users aren't trying to sign in to the app from My Apps while in *incognito*, *inPrivate*, or *Private mode*.
 - Try the manual capture process again. Make sure that the red markers are over the correct fields.
 - If the manual capture process seems to stop responding or the sign-in page doesn’t respond, try the manual capture process again. But this time, after completing the process, press the F12 key to open your browser’s developer console. Select the **console** tab. Type **window.location="*&lt;the sign-in URL that you specified when configuring the app&gt;*"**, and then press Enter. This forces a page redirect that ends the capture process and stores the fields that were captured.
+
+### I can't add another user to my Password-based SSO app
+
+Password-based SSO app has a limit of 48 users. Thus, it has a limit of 48 keys for username/password pairs per app.
+If you want to add additional users you can either:
+-	Add additional instance of the app
+-	Remove users who are no longer using the app first
 
 ## Request support 
 If you get an error message when you set up SSO and assign users, open a support ticket. Include as much of the following information as possible:

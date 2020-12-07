@@ -17,7 +17,7 @@ The resulting wizard has multiple pages to complete.
 
 In the **Basics** blade, select the desired resource group, name, and region for your private endpoint. These can be whatever you want, they don't have to match the storage account in any way, although you must create the private endpoint in the same region as the virtual network you wish to create the private endpoint in.
 
-![A screenshot of the Basics section of the create private endpoint section](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-1.png)
+![A screenshot of the Basics section in the create private endpoint section](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-1.png)
 
 In the **Resource** blade, select the radio button for **Connect to an Azure resource in my directory**. Under **Resource type**, select **Microsoft.Storage/storageAccounts** for the resource type. The **Resource** field is the storage account with the Azure file share you wish to connect to. Target sub-resource is **file**, since this is for Azure Files.
 
