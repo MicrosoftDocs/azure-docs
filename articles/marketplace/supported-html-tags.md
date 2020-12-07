@@ -1,8 +1,8 @@
 ---
 title: Supported HTML tags for offer descriptions in offers | Microsoft commercial marketplace 
 description: Learn which HTML tags are supported in offer descriptions in commercial marketplace. 
-author: jasonwhowell 
-ms.author: jasonh
+author: mingshen-ms 
+ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
