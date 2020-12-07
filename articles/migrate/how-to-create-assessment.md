@@ -1,11 +1,12 @@
 ---
 title: Create an Azure VM assessment with Azure Migrate Server Assessment | Microsoft Docs
 description: Describes how to create an Azure VM assessment with the Azure Migrate Server Assessment tool
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/15/2019
-ms.author: raynew
+
 ---
 
 
