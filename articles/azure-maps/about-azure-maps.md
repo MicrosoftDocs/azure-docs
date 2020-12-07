@@ -55,7 +55,7 @@ Use the Azure Maps Android SDK to create mobile mapping applications.
 
 Azure Maps consists of the following services that can provide geographic context to your Azure applications.
 
-### Data service
+### Data service (Preview)
 
 Data is imperative for maps. Use the Data service to upload and store geospatial data for use with spatial operations or image composition.  Bringing customer data closer to the Azure Maps service will reduce latency, increase productivity, and create new scenarios in your applications. For details on this service, see the [Data service documentation](/rest/api/maps/data).
 
