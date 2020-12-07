@@ -66,6 +66,8 @@
       href: sap-hana-backup-support-matrix.md
     - name: Azure file share backup support matrix
       href: azure-file-share-support-matrix.md
+    - name: Active Directory domain controllers
+      href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy  
       href: backup-azure-policy-supported-skus.md
   - name: Frequently asked questions (FAQ)
@@ -88,10 +90,6 @@
       href: backup-azure-dpm-azure-server-faq.md
     - name: FAQ-Azure Backup monitor alert
       href: backup-azure-monitor-alert-faq.md
-  - name: Workloads
-    items:
-    - name: Active Directory
-      href: active-directory-backup-restore.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices

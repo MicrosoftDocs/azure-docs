@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 07/08/2020
 ---
 
-# Back up and restore Active Directory
+# Back up and restore Active Directory domain controllers
 
 Backing up Active Directory, and ensuring successful restores in cases of corruption, compromise or disaster is a critical part of Active Directory maintenance.
 
