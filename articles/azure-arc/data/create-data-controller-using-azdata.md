@@ -57,6 +57,12 @@ kubectl config current-context
 > [!NOTE]
 > You can use a different value for the `--namespace` parameter of the azdata arc dc create command in the examples below, but be sure to use that namespace name for the `--namespace parameter` in all other commands below.
 
+
+### Connectivity modes
+As described in [Connectivity modes and requirements](https://docs.microsoft.com/azure/azure-arc/data/connectivity), Azure Arc data controller can be deployed either in ```direct``` connected mode or in ```indirect``` connected mode. In ```direct``` connected mode usage data is automatically and continuously sent to Azure. 
+If you are deploying the Azure Arc data controller in ```direct``` connected mode, Service Principal credentials are required to upload data to Azure. Follow the steps detailed in [Upload prerequisites](https://docs.microsoft.com/azure/azure-arc/data/upload-metrics-and-logs-to-azure-monitor?pivots=client-operating-system-windows-command) to create the Service Principal and set the appropriate environment variables. If these environment variables are not set prior to deploying the data controller, the installation will prompt for these values.  
+
+
 Follow the appropriate section below depending on your target platform to configure your creation.
 
 [Create on Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks)
