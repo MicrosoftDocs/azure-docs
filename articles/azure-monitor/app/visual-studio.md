@@ -48,12 +48,12 @@ Exception reports show in the Search window. (In some older types of ASP.NET app
 
 Click an exception to get a stack trace. If the code of the app is open in Visual Studio, you can click through from the stack trace to the relevant line of the code.
 
-![Exception stack trace](./media/visual-studio/17.png)
+![Screenshot shows the About object in a stack trace.](./media/visual-studio/17.png)
 
 ## View request and exception summaries in the code
 In the Code Lens line above each handler method, you see a count of the requests and exceptions logged by Application Insights in the past 24 h.
 
-![Exception stack trace](./media/visual-studio/21.png)
+![Screenshot shows an exception in a context dialog box.](./media/visual-studio/21.png)
 
 > [!NOTE] 
 > Code Lens shows Application Insights data only if you have [configured your app to send telemetry to the Application Insights portal](./asp-net.md).

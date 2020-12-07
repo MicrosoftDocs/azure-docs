@@ -84,6 +84,5 @@ To get a list of watchlist aliases, from the Azure portal, navigate to **Azure S
 ## Next steps
 In this document, you learned how to use watchlists in Azure Sentinel to enrich data and improve investigations. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
-

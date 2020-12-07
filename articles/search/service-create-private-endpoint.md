@@ -204,7 +204,7 @@ When the search service endpoint is private, some portal features are disabled. 
     Aliases:  [search service name].search.windows.net
     ```
 
-1. From the VM, connect to the search service and create an index. You can follow this [quickstart](search-get-started-postman.md) to create a new search index in your service in Postman using the REST API. Setting up requests from Postman requires the search service endpoint (https://[search service name].search.windows.net) and the admin api-key you copied in a previous step.
+1. From the VM, connect to the search service and create an index. You can follow this [quickstart](search-get-started-rest.md) to create a new search index in your service using the REST API. Setting up requests from a Web API test tool requires the search service endpoint (https://[search service name].search.windows.net) and the admin api-key you copied in a previous step.
 
 1. Completing the quickstart from the VM is your confirmation that the service is fully operational.
 

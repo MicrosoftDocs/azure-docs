@@ -3,6 +3,7 @@ title: Azure Linux VM Agent Overview
 description: Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller.
 author: axayjo
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/17/2016

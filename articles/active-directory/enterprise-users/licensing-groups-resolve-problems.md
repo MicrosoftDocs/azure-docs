@@ -8,10 +8,10 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -175,8 +175,8 @@ For example, after you resolve duplicate proxy address problem for an affected u
 To learn more about other scenarios for license management through groups, see the following:
 
 * [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Assigning licenses to a group in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+* [Assigning licenses to a group in Azure Active Directory](./licensing-groups-assign.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
 * [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)
-* [Azure Active Directory group-based licensing additional scenarios](../users-groups-roles/licensing-group-advanced.md)
+* [Azure Active Directory group-based licensing additional scenarios](./licensing-group-advanced.md)
 * [PowerShell examples for group-based licensing in Azure Active Directory](licensing-ps-examples.md)

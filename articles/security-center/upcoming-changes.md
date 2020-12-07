@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: memildin
 
 ---
@@ -27,7 +27,8 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-Nothing to share at this time. 
+There are no upcoming important changes that require advance notice at this time. 
+
 
 ## Next steps
 

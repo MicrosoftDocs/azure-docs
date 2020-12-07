@@ -61,7 +61,7 @@ For more details, please see the [Azure Government blog post on this migration](
 
 **Protocol impacted**: All user flows.
 
-Users with passwords longer than 256 characters that sign in directly to Azure AD (as opposed to a federated IDP like ADFS) will be unable to sign in starting March 13, 2020, and be asked to reset their password instead.  Admins may recieve requests to help reset the users password.
+Users with passwords longer than 256 characters that sign in directly to Azure AD (as opposed to a federated IDP like ADFS) will be unable to sign in starting March 13, 2020, and be asked to reset their password instead.  Admins may receive requests to help reset the users password.
 
 The error in the sign in logs will be AADSTS 50052: InvalidPasswordExceedsMaxLength
 

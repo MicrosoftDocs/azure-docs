@@ -4,6 +4,7 @@ description: In this tutorial, you access and retrieve secrets from your Azure k
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
 ---
@@ -46,6 +47,12 @@ This operation returns a series of key/value pairs:
 ![Screenshot showing the appId and password for contosoServicePrincipal](../media/kubernetes-key-vault-1.png)
 
 Copy the **appId** and **password** credentials for later use.
+
+## Flow for using Managed Identity
+
+This diagram illustrates the AKS–Key Vault integration flow for Managed Identity:
+
+![Diagram that shows the AKS–Key Vault integration flow for Managed Identity](../media/aks-key-vault-integration-flow.png)
 
 ## Deploy an Azure Kubernetes Service (AKS) cluster by using the Azure CLI
 
@@ -351,4 +358,4 @@ Verify that the contents of the secret are displayed.
 
 To help ensure that your key vault is recoverable, see:
 > [!div class="nextstepaction"]
-> [Turn on soft delete](./soft-delete-cli.md)
+> [Turn on soft delete](./key-vault-recovery.md)

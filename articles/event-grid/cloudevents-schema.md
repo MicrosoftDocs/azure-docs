@@ -2,7 +2,7 @@
 title: Use Azure Event Grid with events in CloudEvents schema
 description: Describes how to use the CloudEvents schema for events in Azure Event Grid. The service supports events in the JSON implementation of Cloud Events. 
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
 ---
 
@@ -148,15 +148,15 @@ The following sample C# code for an HTTP trigger simulates Event Grid trigger be
 
 ```csharp
 [FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
-    if (req.Method == "OPTIONS")
+    if (req.Method == HttpMethod.Options)
     {
         // If the request is for subscription validation, send back the validation code
         
         var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Add("Webhook-Allowed-Origin", "eventgrid.azure.net");
+        response.Headers.Add("Webhook-Allowed-Origin", "eventgrid.azure.net");
 
         return response;
     }

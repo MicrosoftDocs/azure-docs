@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
-ms.custom: seodec18
+ms.custom: seodec18, "seo-nov-2020"
 ---
 # Change feed in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

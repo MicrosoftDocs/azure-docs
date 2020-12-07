@@ -98,7 +98,7 @@ This enables the following scenarios:
 
 All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs. For Azure Monitor log samples, see [Azure Monitor logs for Azure Firewall](log-analytics-samples.md).
 
-For more information, see [Tutorial: Monitor Azure Firewall logs and metrics](tutorial-diagnostics.md). 
+For more information, see [Tutorial: Monitor Azure Firewall logs and metrics](./firewall-diagnostics.md). 
 
 Azure Firewall Workbook provides a flexible canvas for Azure Firewall data analysis. You can use it to create rich visual reports within the Azure portal. For more information, see [Monitor logs using Azure Firewall Workbook](firewall-workbook.md).
 

@@ -19,7 +19,7 @@ By default, projects run on the **Free Compute** tier, which is limited to 4 GB 
 
 ## Create a DSVM instance
 
-To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). For more information including pricing details, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md). For more information including pricing details, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
 ## Connect to the DSVM
 
@@ -64,4 +64,4 @@ If multiple users share a DSVM, you can avoid blocking each other by creating an
 
 ## Next steps
 
-Learn more about DSVMs on [Introduction to Azure Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).
+Learn more about DSVMs on [Introduction to Azure Data Science Virtual Machines](../machine-learning/data-science-virtual-machine/overview.md).

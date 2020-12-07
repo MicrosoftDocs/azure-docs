@@ -261,7 +261,7 @@
     href: /azure/architecture/reference-architectures/iot
     items:
     - name: Download
-      href: https://aka.ms/iotrefarchitecture
+      href: /azure/architecture/reference-architectures/iot
     - name: Partner implementations
       items:
       - name: Intel Connected Logistics Platform

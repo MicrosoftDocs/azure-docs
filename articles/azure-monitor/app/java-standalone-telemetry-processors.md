@@ -3,7 +3,9 @@ title: Telemetry processors (preview) - Azure Monitor Application Insights Java
 description: Telemetry processors for Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 10/29/2020
-
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
 ---
 
 # Telemetry processors (preview) for Azure Monitor Application Insights Java
@@ -305,7 +307,7 @@ Let's assume the input span name is /api/v1/document/12345678/update. Applying t
         "name": {
           "toAttributes": {
             "rules": [
-              "^/api/v1/document/(?P<documentId>.*)/update$"
+              "^/api/v1/document/(?<documentId>.*)/update$"
             ]
           }
         }
@@ -340,7 +342,7 @@ The following demonstrates renaming the span name to "{operation_website}" and a
         "name": {
           "toAttributes": {
             "rules": [
-              "(?P<operation_website>.*?)$"
+              "(?<operation_website>.*?)$"
             ]
           }
         }

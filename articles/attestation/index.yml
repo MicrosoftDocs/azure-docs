@@ -68,6 +68,6 @@ landingContent:
             url: faq.md  
           - text: REST
             url: /rest/api/attestation/ 
-          - text: Azure PowerShell
-            url: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+          - text: Troubleshoot issues
+            url: troubleshoot-guide.md
 

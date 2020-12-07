@@ -72,8 +72,8 @@ The output of the command is `Running...` if valid, after sometime the output ch
 > [!TIP]
 > Pay close attention to the locations of public preview Azure Cognitive Service offerings, as the YAML will needed to be adjusted accordingly to match the location.
 
-[azure-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
-[template-format]: https://docs.microsoft.com/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
+[azure-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
+[template-format]: /azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
 [aci-yaml-ref]: ../../../container-instances/container-instances-reference-yaml.md
 [repositories-and-images]: ../../cognitive-services-container-support.md#container-repositories-and-images
 [location-to-resource]: ../../../container-instances/container-instances-region-availability.md

@@ -2,25 +2,25 @@
 title: Concepts - Identity and access
 description: Learn about the identity and access concepts of Azure VMware Solution
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 11/11/2020
 ---
 
 # Azure VMware Solution identity concepts
 
-When deploying a private cloud, a vCenter server and NSX-T manager get provisioned. You use vCenter to manage virtual machine (VM) workloads. You use NSX-T manager to extend the private cloud software-defined network.
+Azure VMware Solution private clouds are provisioned with a vCenter server and NSX-T Manager. You use vCenter to manage virtual machine (VM) workloads. You use the NSX-T manager to extend the private cloud.
 
-Access and identity management use CloudAdmin group privileges for vCenter and restricted administrator rights for NSX-T manager. It ensures that your private cloud platform upgrades automatically with the newest features and patches.  For more information, see [private cloud upgrades concepts article][concepts-upgrades].
+Access and identity management use CloudAdmin group privileges for vCenter and restricted administrator rights for NSX-T Manager. It ensures that your private cloud platform upgrades automatically with the newest features and patches.  For more information, see [private cloud upgrades concepts article][concepts-upgrades].
 
 ## vCenter access and identity
 
-Privileges in vCenter are provided through the CloudAdmin group. That group can be managed locally in vCenter, or through integration of vCenter LDAP single sign-on with Azure Active Directory. You're provided with the ability to enable that integration after you deploy a private cloud.
+The CloudAdmin group provides the privileges in vCenter. You manage the group locally in vCenter. Another option is through the integration of vCenter LDAP single sign-on with Azure Active Directory. You enable that integration after you deploy your private cloud. 
 
-The CloudAdmin and CloudGlobalAdmin privileges are shown in the table below.
+The table shows **CloudAdmin** and **CloudGlobalAdmin** privileges.
 
 |  Privilege Set           | CloudAdmin | CloudGlobalAdmin | Comment |
 | :---                     |    :---:   |       :---:      |   :--:  |
 |  Alarms                  | A CloudAdmin user has all Alarms privileges for alarms in the Compute-ResourcePool and VMs.     |          --        |  -- |
-|  Auto Deploy	           |  --  |        --        |  Microsoft does host management.  |
+|  Auto Deploy             |  --  |        --        |  Microsoft does host management.  |
 |  Certificates            |  --  |        --       |  Microsoft does certificate management.  |
 |  Content Library         | A CloudAdmin user has privileges to create and use files in a Content Library.    |         Enabled with SSO.         |  Microsoft will distribute files in the Content Library to ESXi hosts.  |
 |  Datacenter              |  --  |        --          |  Microsoft does all data center operations.  |

@@ -43,7 +43,7 @@ This article assumes you have the following resources:
 * A virtual machine with the packet capture extension enabled.
 
 > [!IMPORTANT]
-> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
+> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
 ## Install VM extension
 
@@ -276,17 +276,3 @@ Learn how to automate packet captures with Virtual machine alerts by viewing [Cr
 Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

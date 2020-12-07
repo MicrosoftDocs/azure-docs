@@ -291,5 +291,5 @@ client_id=<CLIENT_ID>
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Calling a web API](scenario-mobile-call-api.md)
+Move on to the next article in this scenario,
+[Calling a web API](scenario-mobile-call-api.md).

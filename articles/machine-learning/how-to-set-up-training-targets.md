@@ -1,7 +1,7 @@
 ---
 title: Configure a training run
 titleSuffix: Azure Machine Learning
-description: Train your machine learning model on various training environments (compute targets). You can easily switch between training environments. Start training locally. If you need to scale out, switch to a cloud-based compute target.
+description: Train your machine learning model on various training environments (compute targets). You can easily switch between training environments. 
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python, contperfq1
 
 # Configure and submit training runs
 
-In this article, you learn how to configure and submit Azure Machine Learning runs to train your models.
+In this article, you learn how to configure and submit Azure Machine Learning runs to train your models. Snippets of code explain the key parts of configuration and submission of a training script.  Then use one of the [example notebooks](#notebooks) to find the full end-to-end working examples.
 
 When training, it is common to start on your local computer, and then later scale out to a cloud-based cluster. With Azure Machine Learning, you can run your script on various compute targets without having to change your training script.
 
@@ -161,7 +161,7 @@ run.wait_for_completion(show_output=True)
 
 When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
-## Notebook examples
+## <a name="notebooks"></a>Notebook examples
 
 See these notebooks for examples of configuring runs for various training scenarios:
 * [Training on various compute targets](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)

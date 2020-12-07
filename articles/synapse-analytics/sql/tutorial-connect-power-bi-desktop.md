@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
 
@@ -153,7 +153,7 @@ Once you're done using this report, delete the resources with the following step
 1. Delete the credential for the storage account
 
    ```sql
-   DROP EXTENAL DATA SOURCE AzureOpenData
+   DROP EXTERNAL DATA SOURCE AzureOpenData
    ```
 
 2. Delete the view

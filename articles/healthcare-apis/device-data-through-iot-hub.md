@@ -6,13 +6,13 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 08/03/2020
+ms.date: 11/13/2020
 ms.author: punagpal
 ---
 
 # Tutorial: Receive device data through Azure IoT Hub
 
-Azure IoT Connector for FHIR* provides you the capability to ingest data from Internet of Medical Things (IoMT) devices into Azure API for FHIR. The [Deploy Azure IoT Connector for FHIR (preview) using Azure portal](iot-fhir-portal-quickstart.md) quickstart showed an example of device managed by Azure IoT Central [sending telemetry](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) to Azure IoT Connector for FHIR. Azure IoT Connector for FHIR can also work with devices provisioned and managed through Azure IoT Hub. This tutorial provides the procedure to connect and route device data from Azure IoT Hub to Azure IoT Connector for FHIR.
+Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* provides you the capability to ingest data from Internet of Medical Things (IoMT) devices into Azure API for FHIR. The [Deploy Azure IoT Connector for FHIR (preview) using Azure portal](iot-fhir-portal-quickstart.md) quickstart showed an example of device managed by Azure IoT Central [sending telemetry](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) to Azure IoT Connector for FHIR. Azure IoT Connector for FHIR can also work with devices provisioned and managed through Azure IoT Hub. This tutorial provides the procedure to connect and route device data from Azure IoT Hub to Azure IoT Connector for FHIR.
 
 ## Prerequisites
 
@@ -108,6 +108,4 @@ Learn how to configure IoT Connector using device and FHIR mapping templates.
 >[!div class="nextstepaction"]
 >[Azure IoT Connector for FHIR mapping templates](iot-mapping-templates.md)
 
-*In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
-
-FHIR is the registered trademark of HL7 and is used with the permission of HL7.
+*In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.

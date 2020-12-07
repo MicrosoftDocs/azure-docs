@@ -53,7 +53,7 @@ The text and graphical representation of your UI should now look like this:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Also replace the string `YourServiceRegion` with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription.
+1. Also replace the string `YourServiceRegion` with the **Region identifier** from [region](../../../../regions.md) associated with your subscription.
 
 ## Build and run the app
 

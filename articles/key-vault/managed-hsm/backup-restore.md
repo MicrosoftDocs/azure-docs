@@ -48,6 +48,10 @@ end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mhsmdemobackup --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
 
+# Create a container
+
+az storage container create --account-name  mhsmdemobackup --name mhsmdemobackupcontainer  --account-key $skey
+
 # Generate a container sas token
 
 sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-name mhsmdemobackup --permissions crdw --expiry $end --account-key $skey -o tsv --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)

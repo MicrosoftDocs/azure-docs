@@ -29,8 +29,7 @@ You can create application using following steps
 
 1. Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot showing how to select the digital distribution center application template](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    :::image type="content" source="media/tutorial-iot-central-ddc/iotc-retail-homepage.png" alt-text="Digital distribution center application template":::
 
 2. Select **Retail** tab and select **Create app** under **digital distribution center application**
 
@@ -40,11 +39,9 @@ You can create application using following steps
    **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
    **Create**: Select create at the bottom of the page to deploy your application.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot showing how to create an app from the digital distribution center application template](./media/tutorial-iot-central-ddc/ddc-create.png)
+   :::image type="content" source="media/tutorial-iot-central-ddc/ddc-create.png" alt-text="Screenshot showing how to create an app from the digital distribution center application template":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot showing the billing options when you create the application](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+   :::image type="content" source="media/tutorial-iot-central-ddc/ddc-create-billinginfo.png" alt-text="Screenshot showing the billing options when you create the application":::
 
 ## Walk through the application dashboard 
 

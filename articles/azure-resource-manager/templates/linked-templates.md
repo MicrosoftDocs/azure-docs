@@ -2,7 +2,7 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/06/2020
 ---
 # Using linked and nested templates when deploying Azure resources
 
@@ -277,7 +277,7 @@ The following example deploys a SQL server and retrieves a key vault secret to u
 
 ## Linked template
 
-To link a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the **templateLink** property, specify the URI of the template to include. The following example links to a template that deploys a new storage account.
+To link a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the **templateLink** property, specify the URI of the template to include. The following example links to a template that is in a storage account.
 
 ```json
 {
@@ -304,16 +304,17 @@ To link a template, add a [deployments resource](/azure/templates/microsoft.reso
 }
 ```
 
-When referencing a linked template, the value of `uri` must not be a local file or a file that is only available on your local network. You must provide a URI value that downloadable as **http** or **https**.
+When referencing a linked template, the value of `uri` can't be a local file or a file that is only available on your local network. Azure Resource Manager must be able to access the template. Provide a URI value that downloadable as **http** or **https**. 
 
-> [!NOTE]
->
-> You may reference templates using parameters that ultimately resolve
-> to something that uses **http** or **https**, for example, using the
-> `_artifactsLocation` parameter like so:
-> `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+You may reference templates using parameters that include **http** or **https**. For example, a common pattern is to use the `_artifactsLocation` parameter. You can set the linked template with an expression like:
 
-Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item.
+```json
+"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
+```
+
+If you're linking to a template in GitHub, use the raw URL. The link has the format: `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json`. To get the raw link, select **Raw**.
+
+:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Select raw URL":::
 
 ### Parameters for linked template
 

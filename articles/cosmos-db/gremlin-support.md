@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 10/13/2020
+ms.date: 11/11/2020
 ms.author: sngun
 ---
 
@@ -27,6 +27,7 @@ The following table shows popular Gremlin drivers that you can use against Azure
 | [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Create Graph using Node.js](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Create Graph using Python](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP on GitHub](https://github.com/PommeVerte/gremlin-php) | [Create Graph using PHP](create-graph-php.md) | 3.1.0 |
+| [Go Lang](https://github.com/supplyon/gremcos/) | [Go Lang](https://github.com/supplyon/gremcos/) | | This library is built by external contributors. The Azure Cosmos DB team doesn't offer any support or maintain the library. |
 | [Gremlin console](https://tinkerpop.apache.org/downloads.html) | [TinkerPop docs](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Create Graph using Gremlin Console](create-graph-gremlin-console.md) | 3.2.0 + |
 
 ## Supported Graph Objects

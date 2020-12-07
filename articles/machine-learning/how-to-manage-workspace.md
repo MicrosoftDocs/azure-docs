@@ -24,6 +24,10 @@ As your needs change or requirements for automation increase you can also create
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 * If using the Python SDK, [install the SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
+## Limitations
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
 ## Create a workspace
 
 # [Python](#tab/python)
@@ -127,8 +131,12 @@ If you have problems in accessing your subscription, see [Set up authentication 
    Subscription |Select the Azure subscription that you want to use.
    Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. You need *contributor* or *owner* role to use an existing resource group.  For more information about access, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
    Region | Select the Azure region closest to your users and the data resources to create your workspace.
+   | Storage account | The default storage account for the workspace. By default, a new one is created. |
+   | Key Vault | The Azure Key Vault used by the workspace. By default, a new one is created. |
+   | Application Insights | The application insights instance for the workspace. By default, a new one is created. |
+   | Container Registry | The Azure Container Registry for the workspace. By default, a new one is _not_ initially created for the workspace. Instead, it is created once you need it when creating a Docker image during training or deployment. |
 
-    ![Configure your workspace](./media/how-to-manage-workspace/create-workspace-form.png)
+   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configure your workspace.":::
 
 1. When you're finished configuring the workspace, select **Review + Create**. Optionally, use the [Networking](#networking) and [Advanced](#advanced) sections to configure more settings for the workspace.
 
@@ -187,16 +195,16 @@ Azure Security Center provides unified security management and advanced threat p
 
 ### Advanced
 
-By default, metrics and metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys.
+By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys.
 
-To limit the data that Microsoft collects on your workspace, select __High business impact workspace__ in the portal, or set `hbi_workspace=true ` in Python. For more information on this setting, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
+To limit the data that Microsoft collects on your workspace, select __High business impact workspace__ in the portal, or set `hbi_workspace=true ` in Python. For more information on this setting, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]	
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.	
 
 #### Use your own key
 
-You can provide your own key for data encryption. Doing so creates the Azure Cosmos DB instance that stores metrics and metadata in your Azure subscription.
+You can provide your own key for data encryption. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription.
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
