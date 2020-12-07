@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/04/2020
+ms.date: 12/07/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -53,7 +53,7 @@ You can track the progress as the reviewers complete their reviews.
 
     Click on a group to see the progress of the review on that group.
 
-   ![review guest access across Microsoft 365 groups](./media/complete-access-review/progress-group-review.png)
+   ![review guest access across Microsoft 365 groups in detail](./media/complete-access-review/progress-group-review.png)
 
 1. If you want to stop an access review before it has reached the scheduled end date, click the **Stop** button.
 
