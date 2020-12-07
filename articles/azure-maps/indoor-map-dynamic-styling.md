@@ -1,16 +1,21 @@
 ---
-title: Implement dynamic styling for Azure Maps Creator indoor maps
-description: Learn how to Implement dynamic styling for Creator indoor maps 
+title: Implement dynamic styling for Azure Maps Creator (Preview) indoor maps
+description: Learn how to Implement dynamic styling for Creator (Preview) indoor maps 
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Implement dynamic styling for Creator indoor maps
+# Implement dynamic styling for Creator (Preview) indoor maps
+
+> [!IMPORTANT]
+> Azure Maps Creator services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure (Preview) s](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Maps Creator [Feature State service](/rest/api/maps/featurestate) lets you apply styles based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. In this article, we'll show you how to dynamically render indoor map features with the [Feature State service](/rest/api/maps/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
 
@@ -18,7 +23,7 @@ Azure Maps Creator [Feature State service](/rest/api/maps/featurestate) lets you
 
 1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
-3. [Create a Creator resource](how-to-manage-creator.md)
+3. [Create a Creator (Preview) resource](how-to-manage-creator.md)
 4. Download the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 5. [Create an indoor map](tutorial-creator-indoor-maps.md) to obtain a `tilesetId` and `statesetId`.
 6. Build a web application by following the steps in [How to use the Indoor Map module](how-to-use-indoor-module.md).
@@ -108,7 +113,7 @@ The web application you previously opened in a browser should now reflect the up
 Learn more by reading:
 
 > [!div class="nextstepaction"]
-> [Creator for indoor mapping](creator-indoor-maps.md)
+> [Creator (Preview) for indoor mapping](creator-indoor-maps.md)
 
 See to the references for the APIs mentioned in this article:
 

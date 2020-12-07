@@ -1,22 +1,28 @@
 ---
-title: Mobility (transit) coverage
-description: Learn which level of coverage the Azure Maps Mobility service provides in which regions for public transit features, such as routing and service alerts.
+title: Mobility (transit) coverage in Microsoft Azure Maps Mobility services (Preview) 
+description: Learn which level of coverage the Azure Maps Mobility services (Preview) provides in which regions for public transit features, such as routing and service alerts.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/23/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Azure Maps Mobility coverage
+# Azure Maps Mobility services (Preview) coverage
 
-The Azure Maps [Mobility service](/rest/api/maps/mobility) improves the development time for applications with public transit features, such as transit routing and search for nearby public transit stops. Users can retrieve detailed information about transit stops, lines, and schedules. The Mobility service also allows users to retrieve stop and line geometries, alerts for stops, lines, and service areas, and real-time public transit arrivals and service alerts. Additionally, the Mobility service provides routing capabilities with multimodal trip planning options. Multimodal trip planning incorporates walking, bicycling, and public transit options, all into one trip. Users can also access detailed multimodal step-by-step itineraries. 
+> [!IMPORTANT]
+> Azure Maps Mobility services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure (Preview) s](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+The Azure Maps [Mobility services](/rest/api/maps/mobility) improves the development time for applications with public transit features, such as transit routing and search for nearby public transit stops. Users can retrieve detailed information about transit stops, lines, and schedules. The Mobility services also allow users to retrieve stop and line geometries, alerts for stops, lines, and service areas, and real-time public transit arrivals and service alerts. Additionally, the Mobility services provide routing capabilities with multimodal trip planning options. Multimodal trip planning incorporates walking, bicycling, and public transit options, all into one trip. Users can also access detailed multimodal step-by-step itineraries.
 
 Azure Maps doesn't provide the same level of information and accuracy for all cities and countries/regions. The ability to call public transit data depends on the metro area. In addition, the map data may not include all public transit options and agencies that serve the metro area.
 
-The following table provides coverage information for Azure Maps Mobility service.
+The following table provides coverage information for Azure Maps Mobility services.
 
 | Symbol | Meaning |
 |--------|---------|
@@ -144,17 +150,17 @@ The following table provides coverage information for Azure Maps Mobility serv
 
 ## Next steps
 
-Learn how to request transit data using Mobility Service:
+Learn how to request transit data using Mobility services (Preview) :
 
 > [!div class="nextstepaction"]
 > [How to request transit data](how-to-request-transit-data.md)
 
-Learn how to request real-time data using Mobility Service:
+Learn how to request real-time data using Mobility services (Preview) :
 
 > [!div class="nextstepaction"]
 > [How to request real-time data](how-to-request-real-time-data.md)
 
-Explore the Azure Maps Mobility Service API documentation
+Explore the Azure Maps Mobility services (Preview) API documentation
 
 > [!div class="nextstepaction"]
-> [Mobility Service API documentation](/rest/api/maps/mobility)
+> [Mobility services API documentation](/rest/api/maps/mobility)

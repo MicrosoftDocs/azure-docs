@@ -1,18 +1,23 @@
 ---
-title: Microsoft Azure Maps Weather services frequently asked questions (FAQ) 
-description: Find answer to common questions about Azure Maps Weather services data and features.
+title: Microsoft Azure Maps Weather services (Preview) frequently asked questions (FAQ) 
+description: Find answer to common questions about Azure Maps Weather services (Preview) data and features.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/04/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Azure Maps Weather services frequently asked questions (FAQ)
+# Azure Maps Weather services (Preview) frequently asked questions (FAQ)
 
-This article answers to common questions about [Azure Maps Weather services](https://docs.microsoft.com/rest/api/maps/weather) data and features. The following topics are covered:
+> [!IMPORTANT]
+> Azure Maps Weather services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure (Preview) s](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This article answers to common questions about Azure Maps [Weather services](https://docs.microsoft.com/rest/api/maps/weather) data and features. The following topics are covered:
 
 * Data sources and data models
 * Weather services coverage and availability
@@ -46,7 +51,7 @@ These datasets are reviewed in real time for accuracy for the Digital Forecast S
 
 Numerous weather forecast guidance systems are utilized to formulate global forecasts. Over 150 numerical forecast models are used each day, both external and internal datasets. This includes government models such as the European Centre ECMWF and the U.S. Global Forecast System (GFS). Additionally, AccuWeather incorporates proprietary high-resolution models that downscale forecasts to specific locations and strategic regional domains to predict weather with further accuracy. AccuWeather’s unique blending and weighting algorithms   have been developed over the last several decades. These algorithms optimally leverage the numerous forecast inputs to provide highly accurate forecasts.
 
-## Weather services coverage and availability
+## Weather services (Preview) coverage and availability
 
 **What kind of coverage can I expect for different countries/regions?**
 
@@ -68,11 +73,11 @@ Azure Maps Forecast APIs are cached for up to 30 mins. To see when the cached re
 
 ## Developing with Azure Maps SDKs
 
-**Does Azure Maps  Web SDK  natively support Weather services integration?**
+**Does Azure Maps  Web SDK  natively support Weather services (Preview) integration?**
 
 The Azure Maps Web SDK provides a services module. The services module is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications. by using JavaScript or TypeScript. To get started, see our [documentation](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module).
 
-**Does Azure Maps Android SDK natively support Weather services integration?**
+**Does Azure Maps Android SDK natively support Weather services (Preview) integration?**
 
 The Azure Maps Android SDKs supports Mercator tile layers, which can have x/y/zoom notation, quad key notation, or EPSG 3857 bounding box notation.
 
@@ -94,7 +99,7 @@ Yes. In addition to real-time radar and satellite tiles, Azure Maps customers ca
 
 **Do you offer icons for different weather conditions?**
 
-Yes. You can find icons and their respective codes [here](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons). Notice that only some of the Weather service APIs, such as  [Get Current Conditions API](https://aka.ms/azuremapsweathercurrentconditions), return the *iconCode* in the response. For more information, see the Current WeatherConditions open-source [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location).
+Yes. You can find icons and their respective codes [here](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons). Notice that only some of the Weather service (Preview) APIs, such as  [Get Current Conditions API](https://aka.ms/azuremapsweathercurrentconditions), return the *iconCode* in the response. For more information, see the Current WeatherConditions open-source [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location).
 
 ## Next steps
 
@@ -105,15 +110,15 @@ If this FAQ doesn’t answer your question, you can contact us through the follo
 * Microsoft Support. To create a new support request, in the [Azure portal](https://portal.azure.com/), on the Help tab, select the **Help +** support button, and then select **New support request**.
 * [Azure Maps UserVoice](https://feedback.azure.com/forums/909172-azure-maps) to submit feature requests.
 
-Learn how to request real-time and forecasted weather data using Azure Maps Weather services:
+Learn how to request real-time and forecasted weather data using Azure Maps Weather services (Preview) :
 > [!div class="nextstepaction"]
 > [Request Real-time weather data ](how-to-request-weather-data.md)
 
-Azure Maps Weather services concepts article:
+Azure Maps Weather services (Preview) concepts article:
 > [!div class="nextstepaction"]
 > [Weather services concepts](weather-coverage.md)
 
-Explore the Azure Maps Weather services API documentation:
+Explore the Azure Maps Weather services (Preview) API documentation:
 
 > [!div class="nextstepaction"]
 > [Azure Maps Weather services](/rest/api/maps/weather)

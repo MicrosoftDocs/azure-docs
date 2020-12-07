@@ -3,7 +3,7 @@ title: 'Tutorial: Migrate web services from Bing Maps | Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Bing Maps to Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 9/10/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -41,7 +41,7 @@ The following service APIs are not currently available in Azure Maps:
 
 Azure Maps has several additional REST web services that may be of interest;
 
--   [Azure Maps Creator](./creator-indoor-maps.md) – Create a custom private digital twin of buildings and spaces.
+-   [Azure Maps Creator (Preview) ](./creator-indoor-maps.md) – Create a custom private digital twin of buildings and spaces.
 -   [Spatial operations](/rest/api/maps/spatial) – Offload complex spatial calculations and operations, such as geofencing, to a service.
 -   [Map Tiles](/rest/api/maps/render/getmaptile) – Access road and imagery tiles from Azure Maps as raster and vector tiles.
 -   [Batch routing](/rest/api/maps/route/postroutedirectionsbatchpreview) – Allows up to 1,000 route requests to be made in a single batch over a period of time. Routes are calculated in parallel on the server for faster processing.
@@ -181,7 +181,7 @@ The Azure Maps routing service provides the following APIs for calculating route
 
 -   [Calculate route](/rest/api/maps/route/getroutedirections): Calculate a route and have the request processed immediately. This API supports both GET and POST requests. POST requests are recommended when specifying a large number of waypoints or when using lots of the route options to ensure that the URL request doesn’t become too long and cause issues.
 -   [Batch route](/rest/api/maps/route/postroutedirectionsbatchpreview): Create a request containing up to 1,000 route request and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
--   [Mobility services](/rest/api/maps/mobility): Calculate routes and directions using public transit.
+-   [Mobility services (Preview) ](/rest/api/maps/mobility): Calculate routes and directions using public transit.
 
 The following table cross-references the Bing Maps API parameters with the comparable API parameters in Azure Maps.
 

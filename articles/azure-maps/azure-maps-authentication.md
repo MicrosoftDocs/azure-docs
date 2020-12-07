@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: "Learn about two ways of authenticating requests in Azure Maps: shared key authentication and Azure Active Directory (Azure AD) authentication."
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/27/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -87,8 +87,8 @@ The following role definition types exist to support application scenarios.
 
 | Azure Role Definition       | Description                                                                                              |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
-| Azure Maps Data Reader      | Provides access to immutable Azure Maps REST APIs.                                                       |
-| Azure Maps Data Contributor | Provides access to mutable Azure Maps REST APIs. Mutability is defined by the actions: write and delete. |
+| Azure Maps Data (Preview) Reader      | Provides access to immutable Azure Maps REST APIs.                                                       |
+| Azure Maps Data (Preview) Contributor | Provides access to mutable Azure Maps REST APIs. Mutability is defined by the actions: write and delete. |
 | Custom Role Definition      | Create a crafted role to enable flexible restricted access to Azure Maps REST APIs.                      |
 
 Some Azure Maps services may require elevated privileges to perform write or delete actions on Azure Maps REST APIs. Azure Maps Data Contributor role is required for services which provide write or delete actions. The following table describes which services Azure Maps Data Contributor is applicable for when using write or delete actions on the given service. If only read actions are used on the service, then Azure Maps Data Reader can be used instead of Azure Maps Data Contributor.
