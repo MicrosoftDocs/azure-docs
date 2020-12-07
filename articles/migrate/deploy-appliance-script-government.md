@@ -1,7 +1,10 @@
 ---
 title: Set up an Azure Migrate appliance in Azure Government
 description: Learn how to set up an Azure Migrate appliance in Azure Government
-ms.topic: article
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/16/2020
 ---
 

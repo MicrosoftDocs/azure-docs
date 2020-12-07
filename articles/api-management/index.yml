@@ -64,7 +64,7 @@ landingContent:
           - text: 8. Publish multiple versions of your API
             url: api-management-get-started-publish-versions.md
           - text: 9. Customize the style of the Developer portal pages
-            url: api-management-customize-styles.md
+            url: api-management-howto-developer-portal-customize.md
 
   # Card
   - title: Samples

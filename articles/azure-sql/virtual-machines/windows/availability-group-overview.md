@@ -35,9 +35,12 @@ The following diagram illustrates an availability group for SQL Server on Azure 
 
 ## VM redundancy 
 
-To increase redundancy and high availability, the SQL Server VMs should either be in the same [availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview), or different [availability zones](../../../availability-zones/az-overview.md).
+To increase redundancy and high availability, SQL Server VMs should either be in the same [availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview), or different [availability zones](../../../availability-zones/az-overview.md).
 
-An availability set is a grouping of resources which are configured such that no two land in the same availability zone. This prevents impacting multiple resources in the group during deployment roll outs. 
+Placing a set of VMs in the same availability set protects from outages within a datacenter caused by equipment failure (VMs within an Availability Set do not share resources) or from updates (VMs within an Availability Set are not updated at the same time). 
+Availability Zones protect against the failure of an entire datacenter, with each Zone representing a set of datacenters within a region.  By ensuring resources are placed in different Availability Zones, no datacenter-level outage can take all of your VMs offline.
+
+When creating Azure VMs, you must choose between configuring Availability Sets vs Availability Zones.  An Azure Vm cannnot participate in both.
 
 
 ## Connectivity 
@@ -70,27 +73,26 @@ To get started, see [configure a DNN listener](availability-group-distributed-ne
 
 There are multiple options for deploying an availability group to SQL Server on Azure VMs, some with more automation than others. 
 
-The following table provides a comparison of the options available: 
+The following table provides a comparison of the options available:
 
-| |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](./availability-group-az-commandline-configure.md)**|**[Quickstart Templates](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Azure portal | Azure CLI / PowerShell | Quickstart Templates | Manual |
+|---------|---------|---------|---------|---------|
 |**SQL Server version** |2016 + |2016 +|2016 +|2012 +|
 |**SQL Server edition** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|**Windows Server version**| 2016 + | 2016 + | 2016 + | All| 
+|**Windows Server version**| 2016 + | 2016 + | 2016 + | All|
 |**Creates the cluster for you**|Yes|Yes | Yes |No|
 |**Creates the availability group for you** |Yes |No|No|No|
 |**Creates listener and load balancer independently** |No|No|No|Yes|
 |**Possible to create DNN listener using this method?**|No|No|No|Yes|
-|**WSFC quorum configuratio**n|Cloud witness|Cloud witness|Cloud witness|All|
+|**WSFC quorum configuration**|Cloud witness|Cloud witness|Cloud witness|All|
 |**DR with multiple regions** |No|No|No|Yes|
 |**Multisubnet support** |Yes|Yes|Yes|Yes|
 |**Support for an existing AD**|Yes|Yes|Yes|Yes|
 |**DR with multizone in the same region**|Yes|Yes|Yes|Yes|
 |**Distributed AG with no AD**|No|No|No|Yes|
 |**Distributed AG with no cluster** |No|No|No|Yes|
-||||||
 
-
+For more information, see [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md), and [Manual](availability-group-manually-configure-prerequisites-tutorial.md).
 
 ## Considerations 
 

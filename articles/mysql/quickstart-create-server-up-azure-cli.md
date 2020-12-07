@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create Azure Database for MySQL using az mysql up'
 description: Quickstart guide to create Azure Database for MySQL server using Azure CLI (command line interface) up command.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart

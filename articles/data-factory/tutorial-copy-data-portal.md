@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
+ms.date: 11/11/2020
 ms.author: jingwang
 ---
 # Copy data from Azure Blob storage to a database in Azure SQL Database by using Azure Data Factory
@@ -76,7 +76,7 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory.
 
 1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**.
+2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**.
 3. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 
    The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
@@ -219,19 +219,17 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
 
     a. Under **Name**, enter **RunEveryMinute**.
 
-    b. Under **End**, select **On Date**.
+    b. Update the **Start date** for your trigger. If the date is before current datetime, the trigger will start to take effect once the change is published. 
 
-    c. Under **End On**, select the drop-down list.
+    c. Under **Time zone**, select the drop-down list.
 
-    d. Select the **current day** option. By default, the end day is set to the next day.
+    d. Set the **Recurrence** to **Every 1 Minute(s)**.
 
-    e. Update the **End Time** part to be a few minutes past the current datetime. The trigger is activated only after you publish the changes. If you set it to only a couple of minutes apart, and you don't publish it by then, you don't see a trigger run.
+    e. Select the checkbox for **Specify an end date**, and update the **End On** part to be a few minutes past the current datetime. The trigger is activated only after you publish the changes. If you set it to only a couple of minutes apart, and you don't publish it by then, you don't see a trigger run.
 
-    f. Select **OK**.
+    f. For **Activated** option, select **Yes**.
 
-    g. For **Activated** option, select **Yes**.
-
-    h. Select **OK**.
+    g. Select **OK**.
 
     > [!IMPORTANT]
     > A cost is associated with each pipeline run, so set the end date appropriately.

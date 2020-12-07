@@ -102,7 +102,7 @@ from azureml.core import ScriptRunConfig
 src = ScriptRunConfig(source_directory=script_folder,
                       script='train_titanic.py',
                       # pass dataset as an input with friendly name 'titanic'
-                      arguments=['--input-dataset', titanic_ds],
+                      arguments=['--input-data', titanic_ds.as_named_input('titanic')],
                       compute_target=compute_target,
                       environment=myenv)
                              
@@ -252,7 +252,8 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 ## Notebook examples
 
-The [dataset notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article.
++ The [dataset notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article.
++ See how to [parametize datasets in your ML pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
 
 ## Next steps
 

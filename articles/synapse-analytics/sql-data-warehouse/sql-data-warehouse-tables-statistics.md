@@ -10,7 +10,7 @@ ms.subservice: sql-dw
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # Table statistics for dedicated SQL pool in Azure Synapse Analytics
@@ -307,11 +307,11 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### Use a stored procedure to create statistics on all columns in a database
+### Use a stored procedure to create statistics on all columns in a SQL pool
 
-Dedicated SQL pool does not have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
+Dedicated SQL pool does not have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column in a SQL pool that doesn't already have statistics.
 
-The following example will help you get started with your database design. Feel free to adapt it to your needs.
+The following example will help you get started with your SQL pool design. Feel free to adapt it to your needs.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]

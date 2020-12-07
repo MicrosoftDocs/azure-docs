@@ -225,15 +225,25 @@ Once inheritance is applied, the extending interface exposes all properties from
 
 The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot redefine a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *mass*, the extending interface cannot contain a declaration of *mass*, even if it's also a `double`.
 
-## Validating models
+## Best practices for designing models
+
+While designing models to reflect the entities in your environment, it can be useful to look ahead and consider the [query](concepts-query-language.md) implications of your design. You may want to design properties in a way that will avoid large result sets from graph traversal. You may also want to model relationships that will to be answered in a single query as single-level relationships.
+
+### Validating models
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## Converting industry-standard models
+## Integrating with industry-standard models
 
-If you have existing models outside of Azure Digital Twins that are based on an industry standard, such as RDF or OWL, you'll need to **convert them to DTDL** to use them with Azure Digital Twins. The DTDL version will then become the source of truth for the model within Azure Digital Twins.
+Using models that are based on industry standards or use standard ontology representation, such as RDF or OWL, provides a rich starting point when designing your Azure Digital Twins models. Using industry models also helps with standardization and information sharing.
 
-For more on this process, see [*How-to: Convert industry-standard models*](how-to-convert-models.md).
+To be used with Azure Digital Twins, a model must be represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). Therefore, this article describes how to represent your industry-standard models in DTDL, integrating the existing industry concepts with DTDL semantics so that Azure Digital Twins can use them. The DTDL model then serves as the source of truth for the model within Azure Digital Twins.
+
+There are two main paths to integrating industry-standard models with DTDL, depending on your situation:
+* If you have yet to create your models, you can design them around **existing starter DTDL ontologies** that contain language specific to your industry.
+* If you already have existing models that are based on an industry standard, you'll need to **convert them to DTDL** in order to bring them into Azure Digital Twins.
+
+For more on both of these processes, see [*How-to: Integrate industry-standard models*](how-to-integrate-models.md).
 
 ## Next steps
 

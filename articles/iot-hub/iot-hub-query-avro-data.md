@@ -50,7 +50,7 @@ In this section, you query Avro data and export it to a CSV file in Azure Blob s
 
 6. In Visual Studio, create a U-SQL project.
 
-   !Create a U-SQL project](./media/iot-hub-query-avro-data/query-avro-data-6.png)
+   ![Create a U-SQL project](./media/iot-hub-query-avro-data/query-avro-data-6.png)
 
 7. Paste the content of the following script into the newly created file. Modify the three highlighted sections: your Data Lake Analytics account, the associated DLL file paths, and the correct path for your storage account.
 

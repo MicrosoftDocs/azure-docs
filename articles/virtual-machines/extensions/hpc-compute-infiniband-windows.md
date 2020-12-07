@@ -5,9 +5,9 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
 editor: ''
-
 ms.assetid:
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services

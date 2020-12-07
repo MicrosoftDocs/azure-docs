@@ -74,7 +74,7 @@ conceptualContent:
         - url: ../azure-functions/functions-monitoring.md
           itemType: how-to-guide
           text: Azure Functions 
-        - url: ./app/kubernetes.md
+        - url: ./app/kubernetes-codeless.md
           itemType: how-to-guide
           text: Kubernetes applications
         - url: ./app/cloudservices.md

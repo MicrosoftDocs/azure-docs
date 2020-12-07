@@ -1,11 +1,12 @@
 ---
 title: Agent-based migration in Azure Migrate Server Migration
 description: Provides an overview of agent-based VMware VM migration in Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: raynew
+
 ---
 
 

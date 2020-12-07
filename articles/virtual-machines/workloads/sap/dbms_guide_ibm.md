@@ -7,6 +7,7 @@ manager: bburns
 tags: azure-resource-manager
 keywords: 'Azure, Db2, SAP, IBM'
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

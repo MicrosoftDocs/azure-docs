@@ -29,23 +29,23 @@ This quickstart walks you through how to set up your Azure Edge for Linux on Win
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-You use the Azure CLI to complete many of the steps in this quickstart. Azure IoT has an extension to enable additional functionality.
-
-Add the Azure IoT extension to the Cloud Shell instance.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Prerequisites
 
+Prepare your environment for the Azure CLI.
+
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell) using the PowerShell environment.
+
+   [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
+- If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
+   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for additional sign-in options.
+  - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  - Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
+
 Cloud resources:
 
-* A resource group to manage all the resources you use in this quickstart.
+- A resource group to manage all the resources you use in this quickstart.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -53,9 +53,6 @@ Cloud resources:
 
 IoT Edge device:
 * In this module, you will be using your own device to set up the IoT Edge device for Linux on Windows.
-
-1. Download Windows Admin Center (WAC)
-2. Install the Azure IoT Edge Extension for WAC
 
 ## Create an IoT hub
 

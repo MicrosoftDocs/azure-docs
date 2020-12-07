@@ -5,10 +5,10 @@ services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand 
 ms.reviewer: krbain
 ms.custom: "it-pro, seo-update-azuread-jan"

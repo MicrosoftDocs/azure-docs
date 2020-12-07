@@ -7,12 +7,11 @@ author: curtand
 manager: mtillman
 
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 12/02/2020
 ms.author: curtand
-
 ms.reviewer: addimitu
 ms.custom: it-pro
 

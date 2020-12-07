@@ -1,7 +1,7 @@
 ---
 title: 'Build & train models'
 titleSuffix: Azure Machine Learning
-description: Learn how to train models with Azure Machine Learning, including working with popular frameworks like Scikit-learn, TensorFlow, and PyTorch. Machine Learning pipelines make it easy to schedule unattended runs, use heterogeneous compute environments, and reuse parts of your workflow. And run configurations provide granular control over the compute targets that the training process runs on.
+description: Learn how to train models with Azure Machine Learning. Explore the different training methods and choose the right one for your project.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist

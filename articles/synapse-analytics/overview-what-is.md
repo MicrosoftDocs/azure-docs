@@ -11,13 +11,11 @@ ms.author: saveenr
 ms.reviewer: jrasnick
 ---
 
-# What is Azure Synapse Analytics (workspaces preview)?
-
-[!INCLUDE [preview](includes/note-preview.md)]
+# What is Azure Synapse Analytics?
 
 Enterprise analytics must work at massive scale on any kind of data, whether raw, refined, or highly curated. This typically requires enterprises to stitch together big data and data warehousing technologies into complex data pipelines that work across data in relational stores and data lakes. These kinds of solutions are difficult to build, maintain, and secure. Their complexity delays delivering the insight enterprises need.
 
-**Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, and **Pipelines** for data integration and ETL/ELT. **Synapse Studio** provides a unified experience for management, monitoring, coding, and security. Synapse has deep integration with other Azure services such as **PowerBI**, **CosmosDB**, and **AzureML**.
+**Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, and **Pipelines** for data integration and ETL/ELT. **Synapse Studio** provides a unified experience for management, monitoring, coding, and security. Synapse has deep integration with other Azure services such as **Power BI**, **CosmosDB**, and **AzureML**.
 
 ## Key features & benefits
 
@@ -49,7 +47,7 @@ Azure Synapse removes the traditional technology barriers between using SQL and 
 
 ### Built-in data integration via pipelines
 
-Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Synapse Analytics.
+Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Azure Synapse Analytics.
 
 * Ingest data from 90+ data sources
 * Code-Free ETL with Data flow activities
@@ -70,6 +68,11 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 * Build an end-to-end analytics solution in one place: ingest, explore, prepare, orchestrate, visualize
 * Industry-leading productivity for data engineers writing SQL or Spark code: authoring, debugging, and performance optimization
 * Integrate with enterprise CI/CD processes
+
+## Engage with the Synapse engineering team
+
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Ask development questions.
+- [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Ask technical questions.
 
 ## Next steps
 

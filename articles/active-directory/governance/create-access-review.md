@@ -31,6 +31,8 @@ This article describes how to create one or more access reviews for group member
 
 - Azure AD Premium P2
 - Global administrator or User administrator
+- (Preview) Resource owners of Microsoft 365 Groups can create reviews on the Microsoft 365 groups they own
+- (Preview) Resource owners of Azure AD Security Groups can create reviews on the Azure AD Security groups they own
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 

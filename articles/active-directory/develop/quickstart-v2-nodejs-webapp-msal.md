@@ -18,7 +18,9 @@ ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
 
 # Quickstart: Sign in users and get an access token in a Node web app using the auth code flow
 
-In this quickstart, you run a code sample that demonstrates how a Node.js web app can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow. The code sample also demonstrates obtaining an access token to call a web API, in this case the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
+In this quickstart, you download and run a code sample that demonstrates how a Node.js web app can sign in users using the authorization code flow. The code sample also demonstrates how to get an access token to call Microsoft Graph API. 
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node) with the authorization code flow.
 
@@ -37,15 +39,14 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > #### Step 1: Register your application
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com).
-> 1. If your account gives you access to more than one tenant, select your account at the top right, and then set your portal session to the Azure AD tenant you want to use.
-> 1. Select [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter a name for your application.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Set the **Redirect URI** value to `http://localhost:3000/redirect`.
 > 1. Select **Register**. 
 > 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
-> 1. Under **Certificates & secrets**, select **New client secret**.  Leave the description blank and default expiration, and then click **Add**.
+> 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.  Leave the description blank and default expiration, and then select **Add**.
 > 1. Note the **Value** of the **Client Secret** for later use.
 
 #### Step 2: Download the project
@@ -138,4 +139,4 @@ npm install @azure/msal-node
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Adding Auth to an existing web app - GitHub code sample >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code/readme.md)
+> [Adding Auth to an existing web app - GitHub code sample >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code)

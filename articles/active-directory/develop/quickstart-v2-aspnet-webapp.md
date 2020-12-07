@@ -17,7 +17,10 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 ---
 
 # Quickstart: Add Microsoft identity platform sign-in to an ASP.NET web app
-In this quickstart, you use a code sample to learn how an ASP.NET web app to sign in personal accounts (hotmail.com, outlook.com, others) and work and school accounts from any Azure Active Directory (Azure AD) instance.  (See [How the sample works](#how-the-sample-works) for an illustration.)
+
+In this quickstart, you download and run a code sample that demonstrates how an ASP.NET web app can sign in users from any Azure Active Directory (Azure AD) organization. 
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 > [!div renderon="docs"]
 > ## Prerequisites
 >
@@ -33,7 +36,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET web app to sig
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
 > 1. Go to the new  [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) pane.
-> 1. Enter a name for your application and click **Register**.
+> 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application for you in one click.
 >
 > ### Option 2: Register and manually configure your application and code sample
@@ -41,16 +44,15 @@ In this quickstart, you use a code sample to learn how an ASP.NET web app to sig
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter your application's registration information:
->      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ASPNET-Quickstart`.
->      - Add `https://localhost:44368/` in **Redirect URI**, and click **Register**.
->      - From the left navigation pane under the Manage section, select **Authentication**
->          - Under the **Implicit Grant** sub-section, select **ID tokens**.
->          - And then select **Save**.
+> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application, for example `ASPNET-Quickstart`. Users of your app might see this name, and you can change it later.
+> 1. Add `https://localhost:44368/` in **Redirect URI**, and select **Register**.
+> 1. From the left navigation pane under the Manage section, select **Authentication**
+> 1. Under the **Implicit Grant** sub-section, select **ID tokens**.
+> 1. Select **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
@@ -66,9 +68,9 @@ In this quickstart, you use a code sample to learn how an ASP.NET web app to sig
 > [!div renderon="docs"]
 > [Download the Visual Studio 2019 solution](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-> [!div renderon="portal"]
+> [!div renderon="portal" class="sxs-lookup"]
 > Run the project using Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
