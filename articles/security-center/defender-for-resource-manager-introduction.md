@@ -12,9 +12,9 @@ manager: rkarlin
 
 # Introduction to Azure Defender for Resource Manager
 
-[Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
-The cloud management layer is a crucial service connected to all your cloud resources. Because of this, it is also a potential target for attackers. Consequently, we recommend security operations teams monitor the ARM layer closely. 
+The cloud management layer is a crucial service connected to all your cloud resources. Because of this, it is also a potential target for attackers. Consequently, we recommend security operations teams monitor the resource management layer closely. 
 
 Azure Defender for Resource Manager automatically monitors the resource management operations in your organization, whether they're performed through the Azure portal, Azure REST APIs, Azure CLI, or other Azure programmatic clients. Azure Defender runs advanced security analytics to detect threats and alert you about suspicious activity.
 
@@ -42,7 +42,7 @@ A full list of the alerts provided by Azure Defender for Resource Manager is on 
 
  ## How to investigate alerts from Azure Defender for Resource Manager
 
-Security alerts from Azure Defender for Resource Manager are based on threats detected by monitoring Azure Resource Manager operations. Azure Defender uses and internal log sources of ARM as well as Azure Activity log, a platform log in Azure that provides insight into subscription-level events.
+Security alerts from Azure Defender for Resource Manager are based on threats detected by monitoring Azure Resource Manager operations. Azure Defender uses and internal log sources of Azure Resource Manager as well as Azure Activity log, a platform log in Azure that provides insight into subscription-level events.
 
 Learn more about [Azure Activity log](../azure-monitor/platform/activity-log.md).
 
