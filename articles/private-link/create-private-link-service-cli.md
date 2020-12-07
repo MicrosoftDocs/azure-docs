@@ -46,7 +46,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 
 ### Create a load balancer health probe
 
-A health probe checks all virtual machine instances to make sure they can receive network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) to monitor the health of the virtual machines. 
+A health probe checks all virtual machine instances to make sure they can receive network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe?view=azure-cli-latest) to monitor the health of the virtual machines. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -59,7 +59,7 @@ A health probe checks all virtual machine instances to make sure they can receiv
 
 ### Create a load balancer rule
 
-A load balancer rule defines the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myHTTPRule* with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) for listening to port 80 in the frontend pool *myFrontEnd* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
+A load balancer rule defines the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myHTTPRule* with [az network lb rule create](/cli/azure/network/lb/rule?view=azure-cli-latest) for listening to port 80 in the frontend pool *myFrontEnd* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -75,7 +75,7 @@ A load balancer rule defines the front-end IP configuration for the incoming tra
 ```
 ### Create backend servers
 
-In this example, we don't cover virtual machine creation. You can follow the steps in [Quickstart: Create an internal load balancer to load balance VMs using Azure CLI](/azure/load-balancer/quickstart-load-balancer-standard-internal-cli) to create two virtual machines to be used as backend servers for the load balancer. 
+In this example, we don't cover virtual machine creation. You can follow the steps in [Quickstart: Create an internal load balancer to load balance VMs using Azure CLI](../load-balancer/quickstart-load-balancer-standard-internal-cli.md) to create two virtual machines to be used as backend servers for the load balancer. 
 
 
 ### Disable Private Link service network policies on subnet 
@@ -159,4 +159,3 @@ az network private-link-service show --resource-group myResourceGroup --name myP
 ```
 ## Next steps
 - Learn more about [Azure Private Link service](private-link-service-overview.md)
- 

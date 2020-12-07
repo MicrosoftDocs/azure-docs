@@ -25,7 +25,7 @@ Use the information you gathered in the [Planning the Azure VMware Solution depl
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
 >[!NOTE]
->For an end-to-end overview of this step, view the [Azure VMware Solution: Deployment](https://www.youtube.com/embed/1JLB3L2WDWI) video. 
+>For an end-to-end overview of this step, view the [Azure VMware Solution: Deployment](https://www.youtube.com/embed/gng7JjxgayI) video.
 
 ## Create the jump box
 

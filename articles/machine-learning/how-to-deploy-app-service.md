@@ -25,7 +25,7 @@ Learn how to deploy a model from Azure Machine Learning as a web app in Azure Ap
 With Azure Machine Learning, you can create Docker images from trained machine learning models. This image contains a web service that receives data, submits it to the model, and then returns the response. Azure App Service can be used to deploy the image, and provides the following features:
 
 * Advanced [authentication](../app-service/configure-authentication-provider-aad.md) for enhanced security. Authentication methods include both Azure Active Directory and multi-factor auth.
-* [Autoscale](../azure-monitor/platform/autoscale-get-started.md?toc=%252fazure%252fapp-service%252ftoc.json) without having to redeploy.
+* [Autoscale](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) without having to redeploy.
 * [TLS support](../app-service/configure-ssl-certificate-in-code.md) for secure communications between clients and the service.
 
 For more information on features provided by Azure App Service, see the [App Service overview](../app-service/overview.md).
@@ -267,7 +267,7 @@ print(response.json())
 ## Next steps
 
 * Learn to configure your Web App in the [App Service on Linux](/azure/app-service/containers/) documentation.
-* Learn more about scaling in [Get started with Autoscale in Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%252fazure%252fapp-service%252ftoc.json).
+* Learn more about scaling in [Get started with Autoscale in Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
 * [Use a TLS/SSL certificate in your Azure App Service](../app-service/configure-ssl-certificate-in-code.md).
 * [Configure your App Service app to use Azure Active Directory sign-in](../app-service/configure-authentication-provider-aad.md).
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)

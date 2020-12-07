@@ -35,7 +35,7 @@ ms.custom: devx-track-java
 This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports synchronous operations.
 
 > [!IMPORTANT]  
-> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide. 
+> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide. 
 >
 
 | |  |
@@ -170,7 +170,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 * Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
 
 ### <a name="1.9.5"></a>1.9.5
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-query-aggregates.md).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-query-aggregate-functions.md).
 * Added support for change feed.
 * Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
 * Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.

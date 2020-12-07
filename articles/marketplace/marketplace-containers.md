@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/04/2020
+ms.date: 11/30/2020
 ---
 
-# Publishing guide for container offers
+# Publishing guide for Azure container offers
 
-Container offers help you publish your container image to Azure Marketplace. Use this guide to understand the requirements for this offer. 
+Azure container offers help you publish your container image to Azure Marketplace. Use this guide to understand the requirements for this offer type.
 
-Container offers are transaction offers that are deployed and billed through Azure Marketplace. The listing option that a user sees is "Get It Now."
+Azure container offers are transaction offers that are deployed and billed through Azure Marketplace. The listing option that a user sees is "Get It Now."
 
-Use the *Container* offer type when your solution is a Docker container image that's set up as a Kubernetes-based Azure container service instance. 
+Use the Azure Container offer type when your solution is a Docker container image that's set up as a Kubernetes-based Azure Container instance.
 
 > [!NOTE]
-> Examples of Kubernetes-based Azure container service instances are Azure Kubernetes Service or Azure Container Instances, the choice of Azure customers for a Kubernetes-based container runtime.  
+> An Azure Container instance is a run time docker instance that provides the fastest and simplest way to run a container in Azure, without having to manage any virtual machines and without having to adopt a higher-level service. Container instances can be deployed directly to Azure or orchestrated by Azure Kubernetes Services or Azure Kubernetes Service Engine.  
 
 Microsoft currently supports free and bring-your-own-license (BYOL) licensing models.
 
@@ -34,9 +34,6 @@ Microsoft currently supports free and bring-your-own-license (BYOL) licensing mo
 
 ## Next steps
 
-If you haven't already done so, learn how to [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- To prepare technical assets for a container offer, see [Create Azure container technical assets](create-azure-container-technical-assets.md).
 
-To register for and start working in Partner Center:
-
-- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- See [create an Azure container offer](./partner-center-portal/create-azure-container-offer.md) for more information.
+- To create an Azure container offer, see [Create an Azure container offer in Azure Marketplace](create-azure-container-offer.md) for more information.

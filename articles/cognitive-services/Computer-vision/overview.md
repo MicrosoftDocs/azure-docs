@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 11/13/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: [seodec18, cog-serv-seo-aug-2020]
 keywords: computer vision, computer vision applications, computer vision service
@@ -85,13 +85,12 @@ Analyze the contents of an image to return the coordinates of the *area of inter
 
 You can use Computer Vision to [detect adult content](concept-detecting-adult-content.md) in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.
 
-## Use containers
+## Deploy on premises using Docker containers
 
-Use Computer Vision Docker containers to use the service on-premises. Currently there are two containers available:
+Use Computer Vision containers to deploy API features on-premises. These Docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. Computer Vision offers the following containers:
 
-* The [Computer Vision read container](computer-vision-how-to-install-containers.md) lets you recognize printed and handwritten text in images.
-
-* The [Computer Vision spatial analysis container](spatial-analysis-container.md) lets you to analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments.
+* The [Computer Vision read OCR container (preview)](computer-vision-how-to-install-containers.md) lets you recognize printed and handwritten text in images.
+* The [Computer Vision spatial analysis container (preview)](spatial-analysis-container.md) lets you to analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments.
 
 ## Image requirements
 
@@ -110,4 +109,4 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 Get started with Computer Vision by following the quickstart guide in your preferred development language:
 
-- [Quickstart: Computer Vision client library](./quickstarts-sdk/client-library.md)
+- [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/client-library.md)
