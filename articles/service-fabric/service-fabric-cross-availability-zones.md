@@ -362,7 +362,7 @@ To enable zones on a virtual machine scale set you must include the following th
 The Service Fabric nodeType must be enabled to support multiple availability zones.
 
 * The first value is **multipleAvailabilityZones** which should be set to true for the nodeType.
-* The second value is **sfZonalUpgradeMode** and is optional. This property can’t be modified if a nodetype with multiple AZ’s is present in the cluster.
+* The second value is **sfZonalUpgradeMode** and is optional. This property can’t be modified if a nodetype with multiple AZ’s is already present in the cluster.
       The property controls the logical grouping of VMs in upgrade domains.
           If value is set to false (flat mode): VMs under the node type will be grouped in UD ignoring the zone info in 5 UDs.
           If value is omitted or set to true (hierarchical mode): VMs will be grouped to reflect the zonal distribution in up to 15 UDs. Each of the 3 zones will have 5 UDs.
