@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 12/06/2020
 ---
-# Register and scan Teradata source (Preview)
+# Register and scan Teradata source (preview)
 
 This article outlines how to register a Teradata source in Purview and set up a scan.
 
