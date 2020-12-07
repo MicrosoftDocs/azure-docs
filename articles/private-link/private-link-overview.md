@@ -31,7 +31,6 @@ Azure Private Link provides the following benefits:
  
 - **Extend to your own services**: Enable the same experience and functionality to render your service privately to consumers in Azure. By placing your service behind a standard Azure Load Balancer, you can enable it for Private Link. The consumer can then connect directly to your service using a private endpoint in their own virtual network. You can manage the connection requests using an approval call flow. Azure Private Link works for consumers and services belonging to different Azure Active Directory tenants. 
 
-
 ## Availability 
  The following table lists the Private Link services and the regions where they're available. 
 
@@ -67,14 +66,11 @@ Azure Private Link provides the following benefits:
 | Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
 | Azure Batch | All public regions except: Germany CENTRAL, Germany NORTHEAST <br/> All Government regions  | | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
 |Azure Data Factory | All public regions<br/> All Government regions<br/>All China regions    | Credentials need to be stored in an Azure key vault| GA   <br/> [Learn how to create a private endpoint for Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
-|Azure Managed Disks | All public regions<br/> All Government regions<br/>All China regions    | [Click here for known limitations](../virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | GA   <br/> [Learn how to create a private endpoint for Azure Data Factory.](../virtual-machines/disks-enable-private-links-for-import-export-portal)   |
+|Azure Managed Disks | All public regions<br/> All Government regions<br/>All China regions    | [Click here for known limitations](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | GA   <br/> [Learn how to create a private endpoint for Azure Data Factory.](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
 
 
 
 For the most up-to-date notifications, check the [Azure Private Link updates page](https://azure.microsoft.com/updates/?product=private-link).
-
-
-
 
 ## Logging and monitoring
 
