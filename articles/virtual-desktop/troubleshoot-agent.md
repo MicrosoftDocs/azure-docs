@@ -190,7 +190,7 @@ The agent cannot connect to the broker and is unable to reach a particular URL. 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of unsuccessful loaded broker access](media/unsuccessful-broker-uri.PNG)
 
-8. If the network is blocking these URLs, you will need to whitelist the required URLs. See [Safe URL List](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list) for instructions on how to do this.
+8. If the network is blocking these URLs, you will need to unblock the required URLs. See [Safe URL List](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list) for instructions on how to do this.
 
 ## Trying to operate an unsupported VM OS.
 
@@ -216,7 +216,7 @@ The side-by-side stack is only supported by Windows Enterprise or Windows Server
 
 #### Create a VM that is Windows Enterprise or Windows Server
 
-1. Follow steps 1-12 under [Virtual Machine Details](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-azure-marketplace#virtual-machine-details). Note that the recommended images for your VM are:
+1. Follow steps 1-12 under [Virtual Machine Details](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace#virtual-machine-details). Note that the recommended images for your VM are:
    - Windows 10 Enterprise multi-session, Version 1909
    - Windows 10 Enterprise multi-session, Version 1909 + Microsoft 365 Apps
    - Windows Server 2019 Datacenter
@@ -270,7 +270,7 @@ You may be facing this disconnection issue if your server is missing a heartbeat
 
 ### Why are you getting this error?
 
-This error is raised when the RD Gateway URL cannot be reached during orchestration. To ensure connectivity on your session host and allow network traffic to these endpoints to bypass restrictions, you must whitelist the URLs from the [Safe URL List](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list). You should also ensure that your firewall or proxy settings do not block these URLs. Doing this is a prerequisite to using WVD.
+This error is raised when the RD Gateway URL cannot be reached during orchestration. To ensure connectivity on your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Safe URL List](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list). You should also ensure that your firewall or proxy settings do not block these URLs. Doing this is a prerequisite to using WVD.
 
 ### Resolution
 
@@ -298,7 +298,7 @@ This error indicates that the broker was unable to find an endpoint to establish
 
 1. Go to the [Azure Portal](https://portal.azure.com).
 2. Go to the *Overview* page for your specific VM(s).
-3. Verify that your VMs are on. If you do not have VMs, you need to [create one](#Create-a-VM-that-is-Windows-Enterprise). If your VM is not powered on, you need to select *Start*.
+3. Verify that your VMs are on. If you do not have VMs, you need to [create one](https://docs.microsoft.com/azure/virtual-desktop/expand-existing-host-pool#add-virtual-machines-with-the-azure-portal). If your VM is not powered on, you need to select *Start*.
    - Note that if the *Status* for your VM says *Running* and the *Start* button is greyed out, your VM is on.
 
    > [!div class="mx-imgBorder"]
