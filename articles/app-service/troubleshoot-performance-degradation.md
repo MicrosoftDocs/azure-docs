@@ -129,7 +129,7 @@ Some of the things that Kudu provides are:
 * environment settings for your application
 * log stream
 * diagnostic dump
-* debug console in which you can run Powershell cmdlets and basic DOS commands.
+* debug console in which you can run PowerShell cmdlets and basic DOS commands.
 
 Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your app.
 
@@ -158,5 +158,5 @@ Restarting is often the simplest way to recover from one-time issues. On the [Az
 
  ![restart app to solve performance issues](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-You can also manage your app using Azure Powershell. For more information, see
+You can also manage your app using Azure PowerShell. For more information, see
 [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
