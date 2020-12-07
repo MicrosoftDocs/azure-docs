@@ -14,7 +14,7 @@ Many customers use System Center Operations Manager for monitoring their on-prem
 
 The [Cloud Monitoring Guide](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/) recommends a [Hybrid cloud monitoring](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) strategy that allows you to make a gradual transition to the cloud, using each platform to monitor a different set of workloads in your environment. Using multiple monitoring tools does add complexity to your environment, but it allows you to take advantage of Azure Monitor's ability to monitor next generation Platform as a Service (PaaS) workloads while retaining Operations Manager's ability to monitor Infrastructure as a Service (IaaS) workloads. 
 
- This article provides guidance on which workloads in your environment are best monitored by each platform. It assumes that your ultimate goal is a full transition into the cloud, replacing as much Operations Manager functionality as possible with Azure Monitor, as long as it meets your business requirements. There is a cost to implementing several features described here, so you should evaluate their value before implementing across your entire environment. The specific recommendations made in this article may change as Azure Monitor and Operations Manager add features. The fundamental strategy though will remain consistent.
+ This article provides guidance on which workloads in your environment are best monitored by each platform. It assumes that your ultimate goal is a full transition into the cloud, replacing as much Operations Manager functionality as possible with Azure Monitor, as long as it meets your business and IT operational requirements. There is a cost to implementing several features described here, so you should evaluate their value before implementing across your entire environment. The specific recommendations made in this article may change as Azure Monitor and Operations Manager add features. The fundamental strategy though will remain consistent.
 
 ## Quick comparison
 For a complete comparison between Azure Monitor and Operations Manager, see [Cloud monitoring guide: Monitoring platforms overview](/azure/cloud-adoption-framework/manage/monitor/platform-overview). That article describes specific feature differences between to the two to help you understand some of the recommendations made here. 
@@ -30,6 +30,31 @@ Infrastructure as a Service (IaaS) workloads may be running in virtual machines 
 ![Workload summary](media/azure-monitor-scom/workloads.png)
 
 The diagram includes a high level recommendation for the method used to monitor the workload in a hybrid monitoring strategy. The rest of the article describes these recommendations in more details.
+
+**Business applications.** Applications that provide functionality specific to your business. They may be internal or external and are often developed internally using custom code. Your legacy applications will typically be based on virtual or physical machines, while your newer applications will be based on app services such as Azure Web Apps and Azure Functions in the cloud as you migrate into Azure.
+
+**Server software.** Software running on virtual and physical machines that support your business applications or packaged applications that provide general functionality to your business. Examples include Internet Information Server (IIS), SQL Server, Exchange, and SharePoint. This is also includes the Windows or Linux operating system on your virtual and physical machines.
+
+**Azure services.** PaaS resources in Azure that support your business applications that have migrated to the cloud. This includes services such as Azure Storage, Azure SQL, and Azure IoT. This does include Azure virtual machines since they are monitored like other Azure services, but the applications and software running on the guest operating system of those virtual machines are monitored separately than the host.
+
+## Legacy environments
+
+## Business applications
+You typically require custom management packs to monitor applications in your IaaS environment with Operations Manager, leveraging agents installed on each virtual machine. Application Insights in Azure Monitor monitors both IaaS and PaaS web based applications in Azure, other clouds, or on-premises. Application Insights provides the following benefits over custom management packs:
+
+- Automatically discover and monitor application components.
+- Collect detailed application usage and performance data such as response time, failure rates, and request rates.
+- Collect browser data such as page views and load performance.
+- Detect exceptions and drill into stack trace and related requests.
+- Perform advanced analysis using features such as [distributed tracing](app/distributed-tracing.md) and [smart detection](app/proactive-diagnostics.md).
+- Use [log queries](log-query/log-query-overview.md) to interactively analyze collected telemetry together with data collected for Azure services and Azure Monitor for VMs.
+- Use [metrics explorer](platform/metrics-getting-started.md) to interactively analyze performance data using a graphical interface.
+
+### Recommendations
+
+**Configure Application Insights for each application.** Replace custom management packs for each of your applications with Application Insights. Use codeless monitoring for an easier implementation with no changes to your application code or use code-based monitoring for additional features. 
+
+**Create availability tests for public applications.** Create [availability tests](app/monitor-web-app-availability.md) to monitor and alert on the availability and responsiveness of your public applications. Continue to use [Web Application Availability Monitors](/system-center/scom/web-application-availability-monitoring-template) in Operations Manager to monitor internal applications.
 
 ## Azure services (PaaS)
 Azure services actually require Azure Monitor to collect telemetry, and it's enabled the moment that you create an Azure subscription. The [Activity log](platform/activity-log.md) is automatically collected for the subscription, and [platform metrics](platform/data-platform-metrics.md) are automatically collected from any Azure resources you create. Add a [diagnostic setting](platform/diagnostic-settings.md) for each resource to send [resource logs](platform/resource-logs.md) to a Log Analytics workspace.
@@ -73,22 +98,7 @@ Azure Monitor for VMs may be sufficient for some virtual machines in your enviro
 
 **Create policy to enable Azure Monitor for VMs.** Once you've determined the virtual machines that you'll monitor with both management packs and Azure Monitor for VMs, [create an Azure Policy](deploy-scale.md#azure-monitor-for-vms) to deploy the agent to existing and new virtual machines. 
 
-## Custom applications and app services (IaaS and PaaS)
-You typically require custom management packs to monitor applications in your IaaS environment with Operations Manager, leveraging agents installed on each virtual machine. Application Insights in Azure Monitor monitors both IaaS and PaaS web based applications in Azure, other clouds, or on-premises. Application Insights provides the following benefits over custom management packs:
-
-- Automatically discover and monitor application components.
-- Collect detailed application usage and performance data such as response time, failure rates, and request rates.
-- Collect browser data such as page views and load performance.
-- Detect exceptions and drill into stack trace and related requests.
-- Perform advanced analysis using features such as [distributed tracing](app/distributed-tracing.md) and [smart detection](app/proactive-diagnostics.md).
-- Use [log queries](log-query/log-query-overview.md) to interactively analyze collected telemetry together with data collected for Azure services and Azure Monitor for VMs.
-- Use [metrics explorer](platform/metrics-getting-started.md) to interactively analyze performance data using a graphical interface.
-
-### Recommendations
-
-**Configure Application Insights for each application.** Replace custom management packs for each of your applications with Application Insights. Use codeless monitoring for an easier implementation with no changes to your application code or use code-based monitoring for additional features. 
-
-**Create availability tests for public applications.** Create [availability tests](app/monitor-web-app-availability.md) to monitor and alert on the availability and responsiveness of your public applications. Continue to use [Web Application Availability Monitors](/system-center/scom/web-application-availability-monitoring-template) in Operations Manager to monitor internal applications. 
+ 
 
 
 ## Next steps
