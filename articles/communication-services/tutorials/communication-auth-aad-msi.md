@@ -55,6 +55,8 @@ When your code is running in the development environment, authentication may be 
 
 Other development tools may prompt you to login via a web browser.
 
+### Set up
+
 ## Install client library packages
 
 ```console
@@ -65,8 +67,9 @@ dotnet add package Azure.Identity
 ## .NET code example
 
 ```csharp
+     bool isLocal = string.IsNullOrEmpty(Environment.GetEnvironmentVariable("WEBSITE_INSTANCE_ID"));
      string ResourceEndpoint = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_RESOURCE");
-     ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredential();
+     TokenCredential credential = isLocal ? new DefaultAzureCredential : new ManagedIdentityCredential();
      var client = new CommunicationIdentityClient(managedIdentityCredential, ResourceEndpoint);
      var identityResponse = await client.CreateUserAsync();
      var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
