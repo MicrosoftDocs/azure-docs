@@ -272,12 +272,9 @@ R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
 func start
 ```
 ::: zone-end 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
+
 Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
-::: zone-end
-::: zone pivot="programming-language-other"
-Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample`. The browser should display a "Hello world" message.
-::: zone-end
+
 Use **Ctrl**-**C** to stop the host.
 
 ## Build the container image and test locally
