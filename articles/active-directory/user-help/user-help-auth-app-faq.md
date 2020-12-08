@@ -204,7 +204,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **A**: You first have to make sure you've chosen to share your analytics with us. If you're a TestFlight user, you're already signed up. Otherwise, you can go to **Settings > Privacy > Analytics** and select both the **Share iPhone & Watch analytics** and the **Share with App Developers** options.<br>After you sign up, you can try to reproduce your crash so your crash logs are automatically sent to us for investigation. However, if you can't reproduce your crash, you can manually copy your log files and send them to us.<ol><li>Open the Watch app on your phone, go to **Settings > General**, and then click **Copy Watch Analytics**.</li><li>Find the corresponding crash under **Settings > Privacy > Analytics > Analytics Data**, and then manually copy the entire text.</li><li>Open Authenticator on your phone and paste that copied text into the **Share with App Developers** text box on the **Send logs** page.</li></ol>
 
-## Autofill for device users
+## Autofill for phone users
 
 Autofill in Authenticator app now securely stores and autofills your Microsoft account passwords on apps and websites you visit on your phone. A Microsoft account is an account from services such as an Outlook.com, Hotmail.com, or Live.com. You can use Autofill to sync and autofill your passwords on their iOS and Android devices. After setting up the Authenticator app as an autofill provider on your phone, it offers to save your passwords when you enter them on a site or app sign-in page. The passwords are saved under your Microsoft account (at myaccount.microsoft.com), and are also available when you sign in to Microsoft Edge with your Microsoft account.
 
@@ -233,7 +233,7 @@ Autofill in Authenticator app now securely stores and autofills your Microsoft a
 1. Go to the **Passwords** tab inside the app, and sign in using a Microsoft account. A Microsoft account is an account from services such as Outlook.com, Hotmail.com, or Live.com.
 1. Under **Settings**, select **How to turn on Autofill** in the **Autofill settings** section to set Authenticator as the default autofill provider.
 
-**Q**: What if “Autofill” toggle is grayed out for me in Settings?
+**Q**: What if **Autofill** switch is grayed out for me in Settings?
 
 **A**: Autofill is currently in public preview and has not yet been enabled for all organizations or account types. If the **Autofill** switch in **Settings** is grayed out for you, it is likely because you are using Authenticator app with your work account. You can use this feature on a device where your work account isn’t added. If your organization works with Microsoft to be allowed to use this feature, the **Autofill** switch will be enabled even when a work account is added to Authenticator.
 
