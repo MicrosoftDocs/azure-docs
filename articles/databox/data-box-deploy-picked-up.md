@@ -132,7 +132,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 2. Power off the device and remove the cables.
 3. Spool and securely place the power cord that was provided with the device in the back of the device.
 4. Write your company name and address information on the consignment note as your sender information.
-5. Email Quantium solution using the following email template.
+5. Email Quantium Solutions using the following email template.
 
     * If Japan Post Chakubarai consignment note wasn't included or is missing, note that in this email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
     * If you have multiple orders, email to ensure individual pickup.
@@ -149,9 +149,9 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
     d. 17：00-19：00 
     ```
 
-6. Receive an email confirmation from Quantium solutions after you've booked a pickup. The email confirmation also includes information on the Chakubarai consignment note.
+6. Receive an email confirmation from Quantium Solutions after you've booked a pickup. The email confirmation also includes information on the Chakubarai consignment note.
 
-If needed, you can contact Quantium Solution Support (Japanese language) at the following information: 
+If needed, you can contact Quantium Solutions Support (Japanese language) at the following information:
 
 * Email：Customerservice.JP@quantiumsolutions.com 
 * Telephone：03-5755-0150 
@@ -171,7 +171,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ## [Singapore](#tab/in-singapore)
 
 1. Keep the original box used to ship the device for return shipment.
-2. Note down the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). This is available after the **Prepare to ship** step successfully completes. Download the shipping label from this page and paste on the packing box.
+2. Note down the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). The tracking number is available after the **Prepare to ship** step completes successfully. Download the shipping label from this page and paste on the packing box.
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device. 
 5. Email SingPost Customer Service using the following email template with the tracking number.
@@ -207,7 +207,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 1. Pack the device for return shipment in the original box.
 2. Spool and securely place the power cord that was provided with the device in the back of the device.
-3. Note the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). This is available after the "Prepare to ship" step completes successfully. Download the shipping label from this page, and paste it on the packing box.
+3. Note the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). The tracking number is available after the "Prepare to ship" step completes successfully. Download the shipping label from this page, and paste it on the packing box.
 4. Request a return code from Azure Data Box Operations. A return code is required for delivering the package back to the datacenter. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com). Note this code on the shipping label next to the return address, where it is clearly visible.
 5. Book a pickup with DHL using one of the following methods:
  
@@ -247,16 +247,16 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 1. Pack the device for return shipment in the original box.
 2. Spool and securely place the power cord that was provided with the device in the back of the device.
-3. Call **Quantium Solutions** hotline at **(852) 2318 1213** during office hours (9am to 6pm, Monday to Friday).  
+3. Call the **Quantium Solutions** hotline at **(852) 2318 1213** during office hours (9am to 6pm, Monday to Friday).  
 4. Quote Microsoft Azure pickup and the reference number and tracking number (above barcode) on the return shipping label to arrange for a collection.
 5. You'll get a verbal confirmation of the pickup schedule. If the courier doesn't arrive for collection, call the Quantium Solutions hotline for alternate arrangements.
-6. Upon booking a pickup with Quantium, share the confirmation with [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) using the following template:
+6. Upon booking a pickup with Quantium Solutions, share the confirmation with [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) using the following template:
 
     ```output
     To: adbo@microsoft.com
     Subject: Microsoft Data Box Job: [order name] has completed copy
     Body:
-    We have confirmed the pickup details with Quantium.
+    We have confirmed the pickup details with Quantium Solutions.
 
        * Requestor name:
        * Requestor contact number:
@@ -264,7 +264,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
        * Pickup time:
     ```
 
-Should you come across any issues, email Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) providing job name in subject header and the issue encountered.
+If you come across any issues, email Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) with details of the issue(s), and put the job name in the Subject: line.
 
 ::: zone target="chromeless"
 
@@ -281,7 +281,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 <!--## [In Korea](#tab/in-korea) 
 
 1. Retain the original box used to ship the device for return shipment.
-2. Note down the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). This is available after the **Prepare to ship** step successfully completes. Download the shipping label from this page and paste on the packing box. 
+2. Note down the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). The tracking number is available after the **Prepare to ship** step successfully completes. Download the shipping label from this page and paste on the packing box. 
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device. 
 
@@ -320,9 +320,9 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## [Self-Managed](#tab/in-selfmanaged)
 
-If you're using Data Box in US Government, Japan, Singapore, Korea, India, South Africa, or West Europe and have selected the self-managed shipping option during order creation, follow these instructions. 
+If you're using Data Box in US Government, Japan, Singapore, Korea, India, South Africa, or West Europe, and you selected self-managed shipping when you created your order, follow these instructions.
 
-1. Note down the Authorization code shown on the **Prepare to Ship** page of the Data Box local web UI after this step successfully completes.
+1. Write down the Authorization code that's shown on the **Prepare to Ship** page of the local web UI for the Data Box after the step completes successfully.
 2. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device at the back of the device.
 3. When you're ready to return the device, send an email to the Azure Data Box Operations team using the template below.
 
