@@ -1,21 +1,23 @@
 ---
-title: 'Tutorial: Deploy WordPress on AKS cluster with MySQL Flexible Server by using Azure CLI'
-description: Learn how to quickly build and deploy WordPress  on AKS with Azure Database for MySQL - Flexible Server.
-ms.service: mysql
+title: 'Tutorial: Deploy Django on AKS cluster with PostgreSQL Flexible Server by using Azure CLI'
+description: Learn how to quickly build and deploy Django  on AKS with Azure Database for PostgreSQL - Flexible Server.
+ms.service: postgresql
 author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 12/10/2020
 ms.custom: mvc
 ---
 
-# Tutorial: Deploy WordPress app on AKS with Azure Database for MySQL - Flexible Server
+# Tutorial: Deploy Django app on AKS with Azure Database for PostgreSQL - Flexible Server
 
-In this quickstart, you deploy a WordPress application on Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL - Flexible Server (Preview) using the Azure CLI. [AKS](../../aks/intro-kubernetes.md) is a managed Kubernetes service that lets you quickly deploy and manage clusters. [Azure Database for MySQL - Flexible Server (Preview)](overview.md) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. Currently Flexible server is in Preview.
+In this quickstart, you deploy a Django application on Azure Kubernetes Service (AKS) cluster with Azure Database for PostgreSQL - Flexible Server (Preview) using the Azure CLI.
+
+**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for PostgreSQL - Flexible Server (Preview)](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
 
 > [!NOTE]
-> - Azure Database for MySQL Flexible Server is currently in public preview
-> - This quickstart assumes a basic understanding of Kubernetes concepts, WordPress and MySQL.
+> - Azure Database for PostgreSQL Flexible Server is currently in public preview
+> - This quickstart assumes a basic understanding of Kubernetes concepts, Django and PostgreSQL.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,10 +30,10 @@ In this quickstart, you deploy a WordPress application on Azure Kubernetes Servi
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group, *wordpress-project* using the [az group create][az-group-create] command  in the *eastus* location.
+An Azure resource group is a logical group in which Azure resources are deployed and managed. Let's create a resource group, *django-project* using the [az group create][az-group-create] command  in the *eastus* location.
 
 ```azurecli-interactive
-az group create --name wordpress-project --location eastus
+az group create --name django-project --location eastus
 ```
 
 > [!NOTE]
@@ -41,10 +43,10 @@ The following example output shows the resource group created successfully:
 
 ```json
 {
-  "id": "/subscriptions/<guid>/resourceGroups/wordpress-project",
+  "id": "/subscriptions/<guid>/resourceGroups/django-project",
   "location": "eastus",
   "managedBy": null,
-  "name": "wordpress-project",
+  "name": "django-project",
   "properties": {
     "provisioningState": "Succeeded"
   },
@@ -57,7 +59,7 @@ The following example output shows the resource group created successfully:
 Use the [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
 
 ```azurecli-interactive
-az aks create --resource-group wordpress-project --name wordpresscluster--node-count 1 --generate-ssh-keys
+az aks create --resource-group django-project --name djangoappcluster--node-count 1 --generate-ssh-keys
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -76,7 +78,7 @@ az aks install-cli
 To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group wordpress-project --name wordpresscluster
+az aks get-credentials --resource-group django-project --name djangoappcluster
 ```
 
 > [!NOTE]
@@ -95,91 +97,96 @@ NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
-## Create an Azure Database for MySQL - Flexible Server
-Create a flexible server with the [az mysql flexible-server create](/cli/azure/mysql/flexible-server?view=azure-cli-latest&preserve-view=true)command. The following command creates a server using service defaults and values from your Azure CLI's local context:
+## Create an Azure Database for PostgreSQL - Flexible Server
+Create a flexible server with the [az PostgreSQL flexible-server create](/cli/azure/PostgreSQL/flexible-server?view=azure-cli-latest&preserve-view=true)command. The following command creates a server using service defaults and values from your Azure CLI's local context:
 
 ```azurecli-interactive
-az mysql flexible-server create --public-access <YOUR-IP-ADDRESS>
+az postgres flexible-server create --public-access <YOUR-IP-ADDRESS>
 ```
 
 The server created has the below attributes:
-- A new empty database, ```flexibleserverdb``` is created when the server is first provisioned. In this quickstart we will use this database.
+- A new empty database, ```postgres``` is created when the server is first provisioned. In this quickstart we will use this database.
 - Autogenerated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group
-- Service defaults for remaining server configurations: compute tier (Burstable), compute size/SKU (B1MS), backup retention period (7 days), and MySQL version (5.7)
+- Service defaults for remaining server configurations: compute tier (Burstable), compute size/SKU (B1MS), backup retention period (7 days), and PostgreSQL version (5.7)
 - Using public-access argument allow you to create a server with public access protected by firewall rules. By providing your IP address to add the firewall rule to allow access from your client machine.
-- Since the command is using Local context it will create the server in the resource group ```wordpress-project``` and in the region ```eastus```.
+- Since the command is using Local context it will create the server in the resource group ```django-project``` and in the region ```eastus```.
 
 
-### Build your WordPress docker image
+## Build your Django docker image
 
-Download the [latest WordPress](https://wordpress.org/download/) version. Create new directory ```my-wordpress-app``` for your project and use this simple folder structure
+Create a new [Django application](https://docs.djangoproject.com/en/3.1/intro/) or use your existing Django project. Make sure your code is in this folder structure.
 
 ```
-└───my-wordpress-app
-    └───public
-        ├───wp-admin
-        │   ├───css
+└───my-djangoapp
+    └───views.py
+    └───models.py
+    └───forms.py
+    ├───templates
       	. . . . . . .
-        ├───wp-content
-        │   ├───plugins
-     	  . . . . . . .
-        └───wp-includes
-        . . . . . . .
-        ├───wp-config-sample.php
-        ├───index.php
+    ├───static
+     	. . . . . . .
+└───my-django-project
+    └───settings.py
+    └───urls.py
+    └───wsgi.py
         . . . . . . .
     └─── Dockerfile
+    └─── requirements.txt
 
 ```
 
 
-Rename ```wp-config-sample.php```  to ```wp-config.php``` and replace lines 21 to 32 with this code snippet. The code snippet below is reading the database host , username and password from the Kubernetes manifest file.
+Update ```DATABASES={ }``` section in the ```settings.py```  file. The code snippet below is reading the database host , username and password from the Kubernetes manifest file.
 
-```php
-//Using environment variables for DB connection information
+```python
+DATABASES={
+   'default':{
+      'ENGINE':'django.db.backends.postgresql_psycopg2',
+      'NAME':os.getenv('DATABASE_NAME'),
+      'USER':os.getenv('DATABASE_USER'),
+      'PASSWORD':os.getenv('DATABASE_PASSWORD'),
+      'HOST':os.getenv('DATABASE_HOST'),
+      'PORT':'5432',
+   }
+}
+```
 
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
+### Generate a requirements.txt file
+Create a ```requirements.txt``` file to list out the dependencies for the Django Application. Here is an example ```requirements.txt``` file. You can use [``` pip freeze > requirements.txt```](https://pip.pypa.io/en/stable/reference/pip_freeze/) to generate a requirements.txt file for your existing application.
 
-$connectstr_dbhost = getenv('DATABASE_HOST');
-$connectstr_dbusername = getenv('DATABASE_USERNAME');
-$connectstr_dbpassword = getenv('DATABASE_PASSWORD');
-
-/** MySQL database name */
-define('DB_NAME', 'flexibleserverdb');
-
-/** MySQL database username */
-define('DB_USER', $connectstr_dbusername);
-
-/** MySQL database password */
-define('DB_PASSWORD',$connectstr_dbpassword);
-
-/** MySQL hostname */
-define('DB_HOST', $connectstr_dbhost);
-
-/** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
-
-/** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
-
-
-/** SSL*/
-define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
+``` text
+Django==2.2.17
+postgres==3.0.0
+psycopg2-binary==2.8.6
+psycopg2-pool==1.1
+pytz==2020.4
 ```
 
 ### Create a Dockerfile
-Create a new Dockerfile and copy this code snippet. This Dockerfile in setting up Apache web server with PHP and enabling mysqli extension.
+Create a new file named ```Dockerfile``` and copy the code snippet below. This Dockerfile in setting up Python 3.8 and installing all the requirements listed in requirements.txt file.
 
 ```docker
-FROM php:7.2-apache
-COPY public/ /var/www/html/
-RUN docker-php-ext-install mysqli
-RUN docker-php-ext-enable mysqli
+# Use the official Python image from the Docker Hub
+FROM python:3.8.2
+
+# Make a new directory to put our code in.
+RUN mkdir /code
+
+# Change the working directory.
+WORKDIR /code
+
+# Copy to code folder
+COPY . /code/
+
+# Install the requirements.
+RUN pip install -r requirements.txt
+
+# Run the application:
+CMD python manage.py runserver 0.0.0.0:8000
 ```
 
-### Build your docker image
-Make sure you're in the directory ```my-wordpress-app``` in a terminal using the ```cd``` command. Run the following command to build your bulletin board image:
+### Build your image
+Make sure you're in the directory ```my-django-app``` in a terminal using the ```cd``` command. Run the following command to build your bulletin board image:
 
 ``` bash
 
@@ -193,47 +200,48 @@ Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#cre
 >If you are using Azure container regdistry (ACR), then run the ```az aks update``` command to attach ACR account with the AKS cluster.
 >
 >```azurecli-interactive
->az aks update -n myAKSCluster -g wordpress-project --attach-acr <your-acr-name>
+>az aks update -n myAKSCluster -g django-project --attach-acr <your-acr-name>
 > ```
 >
 
 ## Create Kubernetes manifest file
 
-A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. Let's create a manifest file named `mywordpress.yaml` and copy in the following YAML definition.
+A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. Let's create a manifest file named ```djangoapp.yaml``` and copy in the following YAML definition.
 
 >[!IMPORTANT]
-> - Replace ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` with your actual WordPress docker image name and tag, for example ```docker-hub-user/myblog:latest```.
-> - Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` of your MySQL flexible server.
+> - Replace ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` with your actual Django docker image name and tag, for example ```docker-hub-user/myblog:latest```.
+> - Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` of your PostgreSQL flexible server.
+
 
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress-blog
+  name: django-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wordpress-blog
+      app: django-app
   template:
     metadata:
       labels:
-        app: wordpress-blog
+        app: django-app
     spec:
       containers:
-      - name: wordpress-blog
+      - name: django-app
         image: [DOCKER-HUB-USER-OR-ACR-ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]
         ports:
         - containerPort: 80
         env:
         - name: DATABASE_HOST
-          value: "SERVERNAME.mysql.database.azure.com"
+          value: "SERVERNAME.PostgreSQL.database.azure.com"
         - name: DATABASE_USERNAME
           value: "YOUR-DATABASE-USERNAME"
         - name: DATABASE_PASSWORD
           value: "YOUR-DATABASE-PASSWORD"
         - name: DATABASE_NAME
-          value: "flexibleserverdb"
+          value: "postgres"
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -242,33 +250,33 @@ spec:
                   - key: "app"
                     operator: In
                     values:
-                    - wordpress-blog
+                    - django-app
               topologyKey: "kubernetes.io/hostname"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: php-svc
+  name: python-svc
 spec:
   type: LoadBalancer
   ports:
-    - port: 80
+    - port: 8000
   selector:
-    app: wordpress-blog
+    app: django-app
 ```
 
-## Deploy WordPress to AKS cluster
+## Deploy Django to AKS cluster
 Deploy the application using the [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command and specify the name of your YAML manifest:
 
 ```console
-kubectl apply -f mywordpress.yaml
+kubectl apply -f djangoapp.yaml
 ```
 
 The following example output shows the Deployments and Services created successfully:
 
 ```output
-deployment "wordpress-blog" created
-service "php-svc" created
+deployment "django-app" created
+service "python-svc" created
 ```
 
 ## Test the application
@@ -278,30 +286,30 @@ When the application runs, a Kubernetes service exposes the application front en
 To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```azurecli-interactive
-kubectl get service wordpress-blog --watch
+kubectl get service django-app --watch
 ```
 
-Initially the *EXTERNAL-IP* for the *wordpress-blog* service is shown as *pending*.
+Initially the *EXTERNAL-IP* for the *django-app* service is shown as *pending*.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
-wordpress-blog   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
+django-app   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
 ```output
-wordpress-blog  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
+django-app  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-### Browse WordPress
+### Browse Django
 
-Open a web browser to the external IP address of your service to see your WordPress installation page.
+Open a web browser to the external IP address of your service to see your Django installation page.
 
-   :::image type="content" source="./media/tutorial-deploy-wordpress-on-aks/wordpress-aks-installed-success.png" alt-text="Wordpress installation success on AKS and MySQL flexible server":::
+   :::image type="content" source="./media/tutorial-django-aks-postgres/django-aks-installed-success.png" alt-text="Django installation success on AKS and PostgreSQL flexible server":::
 
 >[!NOTE]
-> - Currently the WordPress site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
+> - Currently the Django site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
 > - You can enable [HTTP routing](../../aks/http-application-routing.md) for your cluster.
 
 ## Clean up the resources
@@ -309,7 +317,7 @@ Open a web browser to the external IP address of your service to see your WordPr
 To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete) command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
-az group delete --name wordpress-project --yes --no-wait
+az group delete --name django-project --yes --no-wait
 ```
 
 > [!NOTE]
@@ -319,6 +327,5 @@ az group delete --name wordpress-project --yes --no-wait
 
 - Learn how to [access the Kubernetes web dashboard](../../aks/kubernetes-dashboard.md) for your AKS cluster
 - Learn how to [scale your cluster](../../aks/tutorial-kubernetes-scale.md)
-- Learn how to manage your [MySQL flexible server](./quickstart-create-server-cli.md)
+- Learn how to manage your [PostgreSQL flexible server](./quickstart-create-server-cli.md)
 - Learn how to [configure server parameters](./how-to-configure-server-parameters-cli.md) for your database server.
-
