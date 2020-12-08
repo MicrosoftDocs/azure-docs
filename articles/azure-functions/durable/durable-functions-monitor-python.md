@@ -35,7 +35,7 @@ This sample monitors the count of issues in a GitHub repo and alerts the user if
 This article explains the following functions in the sample app:
 
 * `E3_Monitor`: An [orchestrator function](durable-functions-bindings.md#orchestration-trigger) that calls `E3_TooManyOpenIssues` periodically. It calls `E3_SendAlert` if the return value of `E3_TooManyOpenIssues` is `True`.
-* `E3_TooManyOpenIssues`: An [activity function](durable-functions-bindings.md#activity-trigger) that checks if a repository has too many open issues. For demo'ing purposes, we consider having more than 3 open issues to be too many.
+* `E3_TooManyOpenIssues`: An [activity function](durable-functions-bindings.md#activity-trigger) that checks if a repository has too many open issues. For demoing purposes, we consider having more than 3 open issues to be too many.
 * `E3_SendAlert`: An activity function that sends an SMS message via Twilio.
 
 ### E3_Monitor orchestrator function
@@ -61,7 +61,8 @@ This orchestrator function performs the following actions:
 5. Creates a durable timer to resume the orchestration at the next polling interval. The sample uses a hard-coded value for brevity.
 6. Continues running until the current UTC time passes the monitor's expiration time, or an SMS alert is sent.
 
-Multiple orchestrator instances can run simultaneously by calling the orchestrator function multiple times. The repo to monitor and the phone number to send an SMS alert to can be specified.
+Multiple orchestrator instances can run simultaneously by calling the orchestrator function multiple times. The repo to monitor and the phone number to send an SMS alert to can be specified. Finally, do note that the orchestrator function is *not* running while waiting for the timer, so you will not get charged for it.
+
 
 ### E3_TooManyOpenIssues activity function
 
@@ -138,7 +139,7 @@ called via the host APIs.', Id=93772f6b-f4f0-405a-9d7b-be9eb7a38aa6)
 (...trimmed...)
 ```
 
-The orchestration will complete once its timeout is reached or more than 3 open issues are detected. You can also use the `terminate` API inside another function or invoke the **terminatePostUri** HTTP POST webhook referenced in the 202 response above, replacing `{text}` with the reason for termination, to terminate the orchestration instance early:
+The orchestration will complete once its timeout is reached or more than 3 open issues are detected. You can also use the `terminate` API inside another function or invoke the **terminatePostUri** HTTP POST webhook referenced in the 202 response above. To use the webhook, replace `{text}` with the reason for the early termination. The HTTP POST URL will look roughly as follows:
 
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

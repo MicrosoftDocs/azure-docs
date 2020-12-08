@@ -116,7 +116,7 @@ The *function.json* file for the activity function `E1_SayHello` is similar to t
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/function.json)]
 
 > [!NOTE]
-> Any function called by an orchestration function must use the `activityTrigger` binding.
+> All activity functions called by an orchestration function must use the `activityTrigger` binding.
 
 The implementation of `E1_SayHello` is a relatively trivial string formatting operation.
 
@@ -135,7 +135,7 @@ The *function.json* file for the activity function `E1_SayHello` is similar to t
 [!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/function.json)]
 
 > [!NOTE]
-> Any function called by an orchestration function must use the `activityTrigger` binding.
+> All activity functions called by an orchestration function must use the `activityTrigger` binding.
 
 The implementation of `E1_SayHello` is a relatively trivial string formatting operation.
 
