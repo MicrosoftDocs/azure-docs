@@ -32,10 +32,10 @@ The following table provides the Azure Maps service APIs that provide similar fu
 | Spatial Data Services (SDS)           | [Search](/rest/api/maps/search) + [Route](/rest/api/maps/route) + other Azure Services |
 | Time Zone                             | [Time Zone](/rest/api/maps/timezone)  |
 | Traffic Incidents                     | [Traffic Incident Details](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
+| Elevation                             | [Elevation (Preview)](/rest/api/maps/elevation)
 
 The following service APIs are not currently available in Azure Maps:
 
--   Elevation - Planned
 -   Optimized Itinerary Routes - Planned. Azure Maps Route API does support traveling salesmen optimization for a single vehicle.
 -   Imagery Metadata – Primarily used for getting tile URLs in Bing Maps. Azure Maps has a standalone service for directly accessing map tiles.
 
