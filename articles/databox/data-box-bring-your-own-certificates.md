@@ -40,6 +40,7 @@ The certificates must meet the following requirements:
 - The certificates must be changed if the device name or the DNS domain name changes.
 - Use the following table when creating endpoint certificates:
 
+    [!div class="mx-tdCol4BreakAll"]    
     |Type |Subject name (SN)  |Subject alternative name (SAN)  |Subject name example |
     |---------|---------|---------|---------|
     |Local UI| `<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`| `mydevice1.microsoftdatabox.com` |
@@ -107,7 +108,7 @@ After you add a certificate to your Data Box device, you need to import the cert
 
 To import a certificate on a Windows client, follow these steps:
 
-1. In File Explorer, right-click the certificate file (with .cer format), and select **Install certificate**. This action starts the Certificate Import Wizard.
+1. In File Explorer, right-click the certificate file (with `.cer` format), and select **Install certificate**. This action starts the Certificate Import Wizard.
 
     ![Import certificate 1](media/data-box-bring-your-own-certificates/import-cert-01.png)
 
