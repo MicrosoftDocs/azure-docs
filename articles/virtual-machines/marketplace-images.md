@@ -20,7 +20,7 @@ For more information about finding and using Marketplace images, see [Find and u
 
 
 ## Get the source VM information
-If you still have the original VM, you can get the plan name, publisher, and product information from it using Get-AzVM. This example gets a VM named *myVM* in the *myResourceGroup* resource group and then displays the purchase plan information.
+If you still have the original VM, you can get the plan name, publisher, and product information from it using Get-AzVM. This example gets a VM named *myVM* in the *myResourceGroup* resource group and then displays the purchase plan information for the VM.
 
 ```azurepowershell-interactive
 $vm = Get-azvm `
