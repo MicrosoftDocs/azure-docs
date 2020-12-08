@@ -4,9 +4,9 @@ description: Learn how to migrate co-sell solutions from OCP GTM to Partner Cent
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
-ms.date: 12/04/2020
+author: vamahtan
+ms.author: vamahtan
+ms.date: 12/07/2020
 ---
 
 # Migration of co-sell solutions from OCP GTM to the commercial marketplace
