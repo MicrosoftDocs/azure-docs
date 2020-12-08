@@ -64,34 +64,12 @@ Next, you'll need to download and configure the the MSIX app attach management i
 
 To set up the management interface:
 
-1. [Load the extensions](https://portal.azure.com/?feature.msixapplications=true&feature.customportal=false&feature.canmodifyextensions=true).
+1. [Open the preview portal](https://preview.portal.azure.com/?feature.msixapplications=true#home).
 2. If you get a prompt asking if you consider the extension trustworthy, select **Allow**.
 
       > [!div class="mx-imgBorder"]
       > ![A screenshot of the untrusted extensions window. "Allow" is highlighted in red.](media/untrusted-extensions.png)
 
-3. Open the portal and press the **F12** key to open the developer tools.
-4. In the developer tools console, enter the following command:
-
-      ```cmd
-      Q().then(function () {
-
-      console.warn("Unregistering existing extensions...");
-
-      return MsPortalImpl.Extension.unregisterAll();
-
-      }).then(function () {
-
-      console.warn("Registering WVD extension...");
-
-      return MsPortalImpl.Extension.registerTestExtension({name: "Microsoft_Azure_WVD", uri: "https://msixappattach.azurewebsites.net"});
-
-      }).finally(function () {
-
-      window.location.reload();
-
-      });
-      ```
 
 ## Add an MSIX image to the host pool
 
