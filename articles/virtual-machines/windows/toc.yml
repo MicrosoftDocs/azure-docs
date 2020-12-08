@@ -74,7 +74,7 @@
     - name: Availability
       href: ../availability.md
     - name: Co-location
-      href: co-location.md
+      href: ./windows/co-location.md
     - name: Network performance
       href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: VM types and sizes
