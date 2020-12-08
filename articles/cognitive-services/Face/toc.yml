@@ -7,28 +7,8 @@
     href: Overview.md
 - name: Quickstarts
   items:
-  - name: Using the client library
+  - name: Using the client library or REST API
     href: Quickstarts/client-libraries.md
-  - name: Using the REST API  
-    items:
-    - name: Detect faces in an image  
-      items:
-      - name: C#
-        href: QuickStarts/CSharp.md
-      - name: Go
-        href: QuickStarts/go.md
-      - name: Java
-        href: QuickStarts/Java.md
-      - name: JavaScript
-        href: QuickStarts/JavaScript.md
-      - name: Node.js
-        href: QuickStarts/node.md
-      - name: PHP
-        href: QuickStarts/PHP.md
-      - name: Python
-        href: QuickStarts/Python.md
-      - name: Ruby
-        href: QuickStarts/Ruby.md
 - name: Tutorials
   items:
   - name: Using the client SDK
