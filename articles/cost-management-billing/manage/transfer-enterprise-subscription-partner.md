@@ -30,7 +30,7 @@ Azure EA monetary commitment funds don't transfer to CSP and are lost after migr
 
 If the customer is a large Azure consumer, their CSP migration may not be automatically permitted. You may need to contact with your Microsoft PDM (Partner Development Manager) and the customer's Microsoft Account Executive. Talking to them can help ensure that the migration to CSP is the best-suited for the customer. The approval can take weeks to complete.
 
-### Do the migration
+## Do the migration
 
 The migration process is a _no downtime_ migration, it's just a billing change on the Azure back end.
 
@@ -42,7 +42,7 @@ The subscription migrates as a single unit, not individual resources. The subscr
 
 Create an Azure plan for the customer using the CSP portal *before* you do a migration from EA to CSP v2 for any customer subscriptions. For more information, see [Purchase the Azure plan for customers &amp; access the latest Azure services at pay-as-you-go rates](/partner-center/purchase-azure-plan).
 
-### Required user permissions
+## Required user permissions
 
 For the CSP, you must have either the Global admin or Admin agent role in the Partner Center.
 
@@ -56,11 +56,11 @@ The user account that the customer signs in with to complete their part of the m
 
 All your Azure RBAC permissions are preserved. Nothing changes during the migration process.
 
-### After migration
+## After migration
 
 After migration in the CSP perspective, you can't use Delegated Admin Access (DAP) to customer subscriptions. That's even though you can see them from a billing perspective in the CSP portal. It's intended, so you have to manually find the CSP Foreign Principal ID. Then apply it as Owner (Azure role) to each subscription. The action can only be done by a user who is the native Azure AD Tenant with Owner permissions. You also need to do the same action as a CSP to get any Partner Earned Credit (PEC) back for the customer's Azure Consumed Revenue (ACR).
 
-### CSP foreign principal PowerShell script
+## CSP foreign principal PowerShell script
 
 After migration, you can use the following PowerShell script to help apply the CSP foreign principal permissions.
 
