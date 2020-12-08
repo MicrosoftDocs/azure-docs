@@ -95,7 +95,7 @@ Storage auto-grow is not yet available for Azure Database for MySQL Flexible Ser
 
 ## IOPS
 
-Azure Database for MySQL – Flexible Server now supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can also increase or decrease the number of IOPS based on your workload requirements at any time. 
+Azure Database for MySQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. 
 
 The minimum IOPS is 100 across all compute sizes and the maximum IOPS is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
 
