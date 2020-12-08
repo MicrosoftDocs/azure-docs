@@ -45,7 +45,7 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
 1. On the **Sync to other databases** page, select **New Sync Group**. The **New sync group** page opens with **Create sync group (step 1)**.
 
-   ![Set up new sync group with private link](./media/sql-data-sync-sql-server-configure/new-sync-group-privatelink.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/new-sync-group-privatelink.png" alt-text = "Set up new sync group with private link":::
 
    On the **Create Data Sync Group** page, change the following settings:
 
