@@ -119,7 +119,7 @@ Get the fully qualified server name for your server in the Azure portal. Later y
 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is sqlpoolservername.database.windows.net.
 
-    ![connection information](./media/create-data-warehouse-portal/find-server-name-copy.png)
+    ![connection information](./media/create-data-warehouse-portal/find-server-name.png)
 
 ## Connect to the server as server admin
 
