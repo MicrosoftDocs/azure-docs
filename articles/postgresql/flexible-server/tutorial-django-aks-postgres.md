@@ -134,7 +134,11 @@ Create a new [Django application](https://docs.djangoproject.com/en/3.1/intro/) 
     └─── requirements.txt
 
 ```
+Update ```ALLOWED_HOSTS``` in ```settings.py``` to make sure the Django application uses the external IP that gets assgined to kubernetes app.
 
+```python
+ALLOWED_HOSTS = ['*']
+```
 
 Update ```DATABASES={ }``` section in the ```settings.py```  file. The code snippet below is reading the database host , username and password from the Kubernetes manifest file.
 
