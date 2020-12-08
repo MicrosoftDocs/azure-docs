@@ -115,7 +115,7 @@ As an example, you can set the assetNamePattern on the asset sink as follows:
 "assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}
 ```
 
-For event-based video recording-generated assets, the recommended naming pattern is "&lt;anytext&gt;-${System.DateTime}". The system variable ensures that assets don not get overwritten if events happen at same time. As an example, you can set the assetNamePattern on the Asset Sink as follows:
+For event-based video recording-generated assets, the recommended naming pattern is "&lt;anytext&gt;-${System.DateTime}". The system variable ensures that assets do not get overwritten if events happen at same time. As an example, you can set the assetNamePattern on the Asset Sink as follows:
 
 ```
 "assetNamePattern": "sampleAssetFromEVR-LVAEdge-${System.DateTime}"
