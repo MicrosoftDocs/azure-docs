@@ -208,7 +208,26 @@ Following are some common system functions that don't use the index and must loa
 
 ------
 
-Other parts of the query might still use the index even though the system functions don't.
+If a system function uses indexes and still has a high RU charge, you can try adding `ORDER BY` to the query. In some cases, adding `ORDER BY` can improve system function index utilization, particularly if the query is long-running or spans multiple pages.
+
+For example, consider the below query with `CONTAINS`. `CONTAINS` should use an index but let's imagine that, in this case, after adding the relevant index, you still observe a very high RU charge when running the below query:
+
+Original query:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+Updated query with `ORDER BY`:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
 
 ### Understand which aggregate queries use the index
 

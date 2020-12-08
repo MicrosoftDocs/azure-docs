@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/07/2020
 ms.author: tisande
 ---
 
@@ -196,6 +196,7 @@ The following considerations are used when creating composite indexes for querie
 - When creating a composite index to optimize queries with multiple filters, the `ORDER` of the composite index will have no impact on the results. This property is optional.
 - If you do not define a composite index for a query with filters on multiple properties, the query will still succeed. However, the RU cost of the query can be reduced with a composite index.
 - Queries with both aggregates (for example, COUNT or SUM) and filters also benefit from composite indexes.
+- Filter expressions can use multiple composite indexes.
 
 Consider the following examples where a composite index is defined on properties name, age, and timestamp:
 
@@ -208,6 +209,7 @@ Consider the following examples where a composite index is defined on properties
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+| ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```No```            |
 
 ### Queries with a filter as well as an ORDER BY clause
 
