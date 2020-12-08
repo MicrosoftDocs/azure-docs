@@ -38,17 +38,25 @@ azdata login --endpoint https://<external IP address of host/data controller>:30
 #### 2. Show the connection endpoints
 Run the following command:
 ```console
-azdata arc postgres server show -n <server group name>
+azdata arc postgres endpoint list -n <server group name>
 ```
-It shows the configuration of the server group. At the bottom of the output, you will see the endpoints in the "Status" section. For example: 
+For example:
 ```console
-[ "status": {
-    "externalEndpoint": "12.345.567.89:5432",
-    "logSearchDashboard": "https://23.456.78.900:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))",
-    "metricsDashboard": "https://23.456.78.900:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01",
-    "readyPods": "3/3",
-    "state": "Ready"
-]
+azdata arc postgres endpoint list -n postgres01
+```
+
+It shows the list of endpoints: the PostgreSQL endpoint that you use to connect your application and use the database, Kibana and Grafana endpoints for log analytics and monitoring. For example: 
+```console
+Arc
+ ===================================================================================================================
+ Postgres01 Instance
+ -------------------------------------------------------------------------------------------------------------------
+ Description           Endpoint
+
+ PostgreSQL Instance   postgresql://postgres:<replace with password>@12.345.567.89:5432
+ Log Search Dashboard  https://89.345.712.81:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))
+ Metrics Dashboard     https://89.345.712.81:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
+
 ```
 Use these end points to:
 - Form your connection strings and connect with your client tools or applications
@@ -142,11 +150,6 @@ dbname='postgres' user='postgres' host='192.168.1.121' password='{your_password_
 ```ruby
 host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} port=24276 sslmode=require
 ```
-
-### Web App
-
-```webapp
-Database=postgres; Data Source=192.168.1.121; User Id=postgres; Password={your_password_here}
 ```
 
 ## Next steps
