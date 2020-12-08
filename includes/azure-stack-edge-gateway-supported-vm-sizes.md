@@ -39,6 +39,9 @@ The following VMs are supported for creation on Azure Stack Edge device.
 For more information, go to [Dv2 series on General Purpose VM sizes](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
 
 ### NCasT4_v3-series (Preview)
+
+These sizes are supported for GPU VMs on your device.
+
 |Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | GPU | GPU memory (GiB) | Max data disks / throughput (IOPS) | Max NICs |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_NC4as_T4_v3** |4   |28  |180   |1 |16   |4 / 4x2300    |2 |
