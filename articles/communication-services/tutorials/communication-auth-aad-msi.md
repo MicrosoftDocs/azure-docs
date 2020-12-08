@@ -100,6 +100,8 @@ The following code example shows how to create a service client object with Azur
           var identityResponse = await client.CreateUserAsync();
      
           var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+
+          return tokenResponse;
      }
 ```
 
