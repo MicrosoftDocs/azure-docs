@@ -18,7 +18,7 @@ Migration tools validate your source SQL Server instance by running a number of 
 
 This article provides a list of the rules used to assess the feasibility of migrating your SQL Server database to Azure SQL Database. 
 
-## Issues
+## Table 1
 
 |Rule ID  |Description  |Recommendation  |
 |---------|---------|---------|
@@ -45,7 +45,9 @@ This article provides a list of the rules used to assess the feasibility of migr
 |**RAISERROR**|**Title: Legacy style RAISERROR calls should be replaced with modern equivalents.** </br></br> RAISERROR calls like the below example are termed as legacy-style because they do not include the commas and the parenthesis.RAISERROR 50001 'this is a test'. This method of calling RAISERROR is discontinued and removed in Azure SQL Database. More information: []()  |Rewrite the statement using the current RAISERROR syntax, or evaluate if the modern approach of TRY...CATCH...THROW is feasible.|
 |**DatabaseCompatibility**|**Title: Azure SQL Database doesn't support compatibility levels below 100.** </br></br> Azure SQL Database doesn't support compatibility levels below 100. More information: []()  |Consider upgrading the database compatibility or migrating to SQL Server on Azure Virtual Machines.|
 
-|Rule ID  |Description  |Recommendation  |
+## Table 2
+
+|Description  |Recommendation  |
 |---------|---------|---------|
 | **Title: Azure SQL Database does not support database size greater than 100 TB.** </br>Rule ID: SQLDBDatabaseSize  </br></br> The size of the database is greater than the maximum supported size of 100 TB. More information: [vCore resource limits](../../database/resource-limits-vcore-single-databases.md) | Evaluate if the data can be archived or compressed or sharded into multiple database(s).|
 |**Title: xp_cmdshell is not supported in Azure SQL Database.** </br>Rule ID: XpCmdshell </br></br> needs to be rewritten  | Review impacted objects section to see all objects using xp_cmdshell and evaluate if the reference to xp_cmdshell or the impacted object can be removed. Also consider exploring Azure Automation that delivers cloud based automation and configuration service.  |
@@ -69,6 +71,9 @@ This article provides a list of the rules used to assess the feasibility of migr
 |**Title: Non ANSI style right outer join is discontinued and has been removed.** </br>Rule ID: NonANSIRightOuterJoinSyntax</br></br> Non ANSI style right outer join is discontinued and has been removed in Azure SQL Database. More information: []()  | Use ANSI join syntax.|
 |**Title: Legacy style RAISERROR calls should be replaced with modern equivalents.** </br>Rule ID: RAISERROR</br></br> RAISERROR calls like the below example are termed as legacy-style because they do not include the commas and the parenthesis.RAISERROR 50001 'this is a test'. This method of calling RAISERROR is discontinued and removed in Azure SQL Database. More information: []()  |Rewrite the statement using the current RAISERROR syntax, or evaluate if the modern approach of TRY...CATCH...THROW is feasible.|
 |**Title: Azure SQL Database doesn't support compatibility levels below 100.** </br>Rule ID: DatabaseCompatibility</br></br> Azure SQL Database doesn't support compatibility levels below 100. More information: []()  |Consider upgrading the database compatibility or migrating to SQL Server on Azure Virtual Machines.|
+
+
+## Table 3
 
 :::row:::
    :::column span="":::
