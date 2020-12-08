@@ -1,16 +1,17 @@
 ---
 title: Delete an Azure Migrate project
-description: Describes how to create an Azure Migrate project and add an assessment/migration tool.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+description: In this article, learn how you can delete an Azure Migrate project by using the Azure portal.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 10/22/2019
-ms.author: raynew
+
 ---
 
 # Delete an Azure Migrate project
 
-This article describes how to delete an [Azure Migrate](migrate-overview.md) project.
+This article describes how to delete an [Azure Migrate](./migrate-services-overview.md) project.
 
 
 ## Before you start

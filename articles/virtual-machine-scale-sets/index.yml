@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Virtual Machine Scale Sets documentation
-summary: Azure virtual machine scale sets let you create and manage a group of identical, load balanced, and autoscaling VMs.
+summary: Azure virtual machine scale sets let you create and manage a group of load balanced and autoscaling VMs.
 
 metadata:
   title: Virtual Machine Scale Sets documentation
@@ -85,6 +85,6 @@ landingContent:
       - linkListType: learn
         links:
           - text: Build a scalable application with virtual machine scale sets
-            url: https://docs.microsoft.com/learn/modules/build-app-with-scale-sets/
+            url: /learn/modules/build-app-with-scale-sets/
           - text:  Create a Windows virtual machine in Azure
-            url: https://docs.microsoft.com/learn/modules/create-windows-virtual-machine-in-azure/
+            url: /learn/modules/create-windows-virtual-machine-in-azure/

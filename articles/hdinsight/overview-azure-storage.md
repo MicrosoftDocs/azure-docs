@@ -26,11 +26,11 @@ The following diagram provides an abstract view of the HDInsight architecture of
 
 HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed by using the fully qualified URI, for example:
 
-    hdfs://<namenodehost>/<path>
+`hdfs://<namenodehost>/<path>`
 
 Through HDInsight, you can also access data in Azure Storage. The syntax is as follows:
 
-    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
+`wasb://<containername>@<accountname>.blob.core.windows.net/<path>`
 
 Consider the following principles when using an Azure Storage account with HDInsight clusters:
 
@@ -39,7 +39,7 @@ Consider the following principles when using an Azure Storage account with HDIns
 * **Public containers or public blobs in storage accounts that aren't connected to a cluster:** You have read-only permission to the blobs in the containers.
   
   > [!NOTE]  
-  > Public containers allow you to get a list of all blobs that are available in that container and to get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see [Manage anonymous read access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md).
+  > Public containers allow you to get a list of all blobs that are available in that container and to get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see [Manage anonymous read access to containers and blobs](../storage/blobs/anonymous-read-access-configure.md).
 
 * **Private containers in storage accounts that aren't connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs.
 

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with SAP Business ByDesign | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Business ByDesign.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 82938920-33ba-47cb-b141-511b46d19e66
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SAP Business ByDesign
 
@@ -28,7 +21,7 @@ Integrating SAP Business ByDesign with Azure AD provides you with the following 
 * You can enable your users to be automatically signed-in to SAP Business ByDesign (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -113,11 +106,11 @@ To configure Azure AD single sign-on with SAP Business ByDesign, perform the fol
 
 5. SAP Business ByDesign application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot that shows the "User Attributes" dialog with the "Edit" button selected.](common/edit-attribute.png)
 
 6. Click on the **Edit** icon to edit the **Name identifier value**.
 
-	![image](media/sapbusinessbydesign-tutorial/mail-prefix1.png)
+	![Screenshot that shows the "User Attributes & Claims" page with the "Edit" icon selected.](media/sapbusinessbydesign-tutorial/mail-prefix1.png)
 
 7. On the **Manage user claims** section, perform the following steps:
 	![image](media/sapbusinessbydesign-tutorial/mail-prefix2.png)
@@ -152,7 +145,7 @@ To configure Azure AD single sign-on with SAP Business ByDesign, perform the fol
 
 3. Click **New Identity Provider** and select the metadata XML file that you have downloaded from the Azure portal. By importing the metadata, the system automatically uploads the required signature certificate and encryption certificate.
 
-	![Configure Single Sign-On](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
+	![Screenshot that shows the "Configure Single Sign-On" page with the "Identity Provider" tab selected, and the "New Identity Provider" action selected.](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
 
 4. To include the **Assertion Consumer Service URL** into the SAML request, select **Include Assertion Consumer Service URL**.
 
@@ -162,7 +155,7 @@ To configure Azure AD single sign-on with SAP Business ByDesign, perform the fol
 
 7. Click the **My System** tab.
 
-    ![Configure Single Sign-On](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
+    ![Screenshot that shows the "Configure Single Sign-On" page with the "My System" tab selected.](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
 
 8. In the **Azure AD Sign On URL** textbox, paste **Login URL** value, which you have copied from the Azure portal.
 
@@ -248,12 +241,12 @@ In this section, you create a user called Britta Simon in SAP Business ByDesign.
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the SAP Business ByDesign tile in the Access Panel, you should be automatically signed in to the SAP Business ByDesign for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the SAP Business ByDesign tile in the Access Panel, you should be automatically signed in to the SAP Business ByDesign for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

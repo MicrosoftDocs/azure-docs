@@ -65,6 +65,7 @@ Follow these steps to create a new resource using the Azure portal:
 
 6. Now let's configure your Docker container. All fields are required unless otherwise noted:
 
+    # [v2.0](#tab/v2-0)  
    * Options - Select **Single Container**
    * Image Source - Select **Private Registry** 
    * Server URL - Set this to `https://mcr.microsoft.com`
@@ -74,6 +75,18 @@ Follow these steps to create a new resource using the Azure portal:
    * Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
    * Startup command - Set this to `./run.sh eula=accept`
 
+    # [v2.1 preview](#tab/v2-1) 
+   * Options - Select **Single Container**
+   * Image Source - Select **Private Registry** 
+   * Server URL - Set this to `https://mcr.microsoft.com`
+   * Username (Optional) - Create a username. 
+   * Password (Optional) - Create a secure password that you'll remember.
+   * Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
+   * Startup command - Set this to `./run.sh eula=accept`
+    
+    ---
+
    > [!div class="mx-imgBorder"]
    > ![Configure Docker](./media/quickstarts/formre-configure-docker.png)
 
@@ -82,9 +95,12 @@ Follow these steps to create a new resource using the Azure portal:
 > [!NOTE]
 > When creating your web app, you can also configure authorization/authentication. This is not necessary to get started. 
 
+> [!IMPORTANT]
+> You may need to enable TLS for your web app in order to view it at its `https` address. Follow the instructions in [Enable a TLS endpoint](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) to set up a sidecar container than enables TLS/SSL for your web app.
+
 ### Azure CLI
 
-As an alternative to using the Azure portal, you can create a resource using the Azure CLI. Before you continue, you'll need to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). You can skip this step if you're already working with the Azure CLI. 
+As an alternative to using the Azure portal, you can create a resource using the Azure CLI. Before you continue, you'll need to install the [Azure CLI](/cli/azure/install-azure-cli). You can skip this step if you're already working with the Azure CLI. 
 
 There's a few things you need know about this command:
 
@@ -95,6 +111,8 @@ There's a few things you need know about this command:
 
 From the Azure CLI, run this command to create a web app resource for the sample labeling tool: 
 
+
+# [v2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -108,11 +126,28 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
+``` 
+# [v2.1 preview](#tab/v2-1)    
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
 ```
+
+---
 
 ### Connect to Azure AD for authorization
 
-It's recommended that you connect your web app to Azure Active Directory. This ensures that only users with valid credentials can sign in and use your web app. Follow the instructions in [Configure your App Service app](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) to connect to Azure Active Directory.
+It's recommended that you connect your web app to Azure Active Directory. This ensures that only users with valid credentials can sign in and use your web app. Follow the instructions in [Configure your App Service app](../../app-service/configure-authentication-provider-aad.md) to connect to Azure Active Directory.
 
 ## Open source on GitHub
 

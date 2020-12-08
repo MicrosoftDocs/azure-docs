@@ -1,11 +1,11 @@
 ---
 title: Phoenix performance in Azure HDInsight 
 description: Best practices to optimize Apache Phoenix performance for Azure HDInsight clusters
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
 ---
@@ -77,13 +77,17 @@ Phoenix enables you to control the number of regions where your data is distribu
 
 To salt a table during creation, specify the number of salt buckets:
 
-    CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```sql
+CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```
 
 This salting splits the table along the values of primary keys, choosing the values automatically. 
 
 To control where the table splits occur, you can pre-split the table by providing the range values along which the splitting occurs. For example, to create a table split along three regions:
 
-    CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```sql
+CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```
 
 ## Index design
 
@@ -115,11 +119,15 @@ For example, in the example contact table you could create a secondary index on 
 
 However, if you typically want to look up the firstName and lastName given the socialSecurityNum, you could create a covered index that includes the firstName and lastName as actual data in the index table:
 
-    CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```sql
+CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```
 
 This covered index enables the following query to acquire all data just by reading from the table containing the secondary index:
 
-    SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```sql
+SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```
 
 ### Use functional indexes
 
@@ -127,7 +135,9 @@ Functional indexes allow you to create an index on an arbitrary expression that 
 
 For example, you could create an index to allow you to do case-insensitive searches on the combined first name and last name of a person:
 
-     CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```sql
+CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```
 
 ## Query design
 
@@ -150,44 +160,62 @@ As an example, say you have a table called FLIGHTS that stores flight delay info
 
 To select all the flights with an airlineid of `19805`, where airlineid is a field that isn't in the primary key or in any index:
 
-    select * from "FLIGHTS" where airlineid = '19805';
+```sql
+select * from "FLIGHTS" where airlineid = '19805';
+```
 
 Run the explain command as follows:
 
-    explain select * from "FLIGHTS" where airlineid = '19805';
+```sql
+explain select * from "FLIGHTS" where airlineid = '19805';
+```
 
 The query plan looks like this:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
-        SERVER FILTER BY AIRLINEID = '19805'
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
+   SERVER FILTER BY AIRLINEID = '19805'
+```
 
 In this plan, note the phrase FULL SCAN OVER FLIGHTS. This phrase indicates the execution does a TABLE SCAN over all rows in the table, rather than using the more efficient RANGE SCAN or SKIP SCAN option.
 
 Now, say you want to query for flights on January 2, 2014 for the carrier `AA` where its flightnum was greater than 1. Let's assume that the columns year, month, dayofmonth, carrier, and flightnum exist in the example table, and are all part of the composite primary key. The query would look as follows:
 
-    select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 Let's examine the plan for this query with:
 
-    explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 The resulting plan is:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```
 
 The values in square brackets are the range of values for the primary keys. In this case, the range values are fixed with year 2014, month 1, and dayofmonth 2, but allow values for flightnum starting with 2 and on up (`*`). This query plan confirms that the primary key is being used as expected.
 
 Next, create an index on the FLIGHTS table named `carrier2_idx` that is on the carrier field only. This index also includes flightdate, tailnum, origin, and flightnum as covered columns whose data is also stored in the index.
 
-    CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```sql
+CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```
 
 Say you want to get the carrier along with the flightdate and tailnum, as in the following query:
 
-    explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```sql
+explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```
 
 You should see this index being used:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```
 
 For a complete listing of the items that can appear in explain plan results, see the Explain Plans section in the [Apache Phoenix Tuning Guide](https://phoenix.apache.org/tuning_guide.html).
 
@@ -217,7 +245,9 @@ When deleting a large data set, turn on autoCommit before issuing the DELETE que
 
 If your scenario favors write speed over data integrity, consider disabling the write-ahead log when creating your tables:
 
-    CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```sql
+CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```
 
 For details on this and other options, see [Apache Phoenix Grammar](https://phoenix.apache.org/language/index.html#options).
 

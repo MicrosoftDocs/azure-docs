@@ -75,6 +75,9 @@
                 if (!NotificationsSupported)
                     throw new Exception(GetPlayServicesError());
 
+                if (string.isNullOrWhitespace(Token))
+                    throw new Exception("Unable to resolve token for FCM");
+
                 var installation = new DeviceInstallation
                 {
                     InstallationId = GetDeviceId(),
@@ -103,7 +106,7 @@
     ```
 
     > [!NOTE]
-    > This class provides a unique ID (using [Secure.AndroidId](https://docs.microsoft.com/dotnet/api/android.provider.settings.secure.androidid?view=xamarin-android-sdk-9)) as part of the notification hub registration payload.
+    > This class provides a unique ID (using [Secure.AndroidId](/dotnet/api/android.provider.settings.secure.androidid?view=xamarin-android-sdk-9)) as part of the notification hub registration payload.
 
 1. Add another **Empty Class** to the **Services** folder called *PushNotificationFirebaseMessagingService.cs*, then add the following implementation.
 
@@ -233,7 +236,7 @@
     }
     ```
 
-1. Override the **OnNewIntent** method to call **CheckIntentForNotificationActions** method.
+1. Override the **OnNewIntent** method to call **ProcessNotificationActions** method.
 
     ```csharp
     protected override void OnNewIntent(Intent intent)

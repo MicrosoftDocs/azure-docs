@@ -15,8 +15,8 @@ ms.date: 04/09/2020
 # THIS ARTICLE SHOWS A SAS TOKEN THAT EXPIRES IN 2025
 ---
 
-# Tutorial: Create a labeling project (preview) for multi-class image classification 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# Tutorial: Create a labeling project for multi-class image classification 
+
 
 This tutorial shows you how to manage the process of labeling (also referred to as tagging) images to be used as data for building machine learning models. Data labeling in Azure Machine Learning is in public preview.
 
@@ -40,7 +40,7 @@ In this tutorial, you'll use images of cats and dogs.  Since each image is eithe
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service.
 
-You create a workspace via the Azure portal, a web-based console for managing your Azure resources.
+There are many [ways to create a workspace](how-to-manage-workspace.md). In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -128,7 +128,7 @@ Select **Next** to continue.
 
 1. Select **Next**.
 
-1. On the **ML assisted labeling** form, leave the checkbox unchecked. ML assisted labeling requires more data than you'll be using in this tutorial.
+1. In the **ML assisted labeling** section, leave the checkbox unchecked. ML assisted labeling requires more data than you'll be using in this tutorial.
 
 1. Select **Create project**.
 
@@ -144,9 +144,7 @@ In this part of the tutorial, you'll switch roles from the *project administrato
 
 1. In [Machine Learning studio](https://ml.azure.com), select **Data labeling** on the left-hand side to find your project.  
 
-1. Select the project name in the list.
-
-1. Below the project name, select **Label data**.
+1. Select **Label link** for the project.
 
 1. Read the instructions, then select **Tasks**.
 

@@ -1,19 +1,19 @@
 ---
 title: Evaluate the impact of a new Azure Policy definition
 description: Understand the process to follow when introducing a new policy definition into your Azure environment.
-ms.date: 05/20/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
 ---
 # Evaluate the impact of a new Azure Policy definition
 
 Azure Policy is a powerful tool for managing your Azure resources to business standards and to meet
 compliance needs. When people, processes, or pipelines create or update resources, Azure Policy
-reviews the request. When the policy definition effect is [Append](./effects.md#deny) or
-[DeployIfNotExists](./effects.md#deployifnotexists), Policy alters the request or adds to it. When
-the policy definition effect is [Audit](./effects.md#audit) or
-[AuditIfNotExists](./effects.md#auditifnotexists), Policy causes an Activity log entry to be
-created. And when the policy definition effect is [Deny](./effects.md#deny), Policy stops the
-creation or alteration of the request.
+reviews the request. When the policy definition effect is [Modify](./effects.md#modify),
+[Append](./effects.md#deny) or [DeployIfNotExists](./effects.md#deployifnotexists), Policy alters
+the request or adds to it. When the policy definition effect is [Audit](./effects.md#audit) or
+[AuditIfNotExists](./effects.md#auditifnotexists), Policy causes an Activity log entry to be created
+for new and updated resources. And when the policy definition effect is [Deny](./effects.md#deny),
+Policy stops the creation or alteration of the request.
 
 These outcomes are exactly as desired when you know the policy is defined correctly. However, it's
 important to validate a new policy works as intended before allowing it to change or block work. The

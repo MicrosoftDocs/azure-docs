@@ -6,7 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 09/23/2019
+ms.date: 09/23/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure HDInsight: Azure CLI samples
@@ -20,13 +21,13 @@ This article provides sample scripts for common tasks. For each example, update 
 
 ## Prerequisites
 
-* Azure CLI. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for steps.
+* Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli) for steps.
 
-* Optional: Bash. The examples in this article use the Bash shell on Windows 10. See [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) for installation steps.  The examples will work from a Windows Command prompt with some slight modifications.
+* Optional: Bash. The examples in this article use the Bash shell on Windows 10. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  The examples will work from a Windows Command prompt with some slight modifications.
 
 ## az login
 
-[Log in to Azure](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
+[Log in to Azure](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login
@@ -37,7 +38,7 @@ az login
 
 ## az hdinsight create
 
-[Creates a new cluster](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
+[Creates a new cluster](/cli/azure/hdinsight#az-hdinsight-create).
 
 ### Create a cluster with an existing storage account
 
@@ -170,7 +171,7 @@ az hdinsight create \
 
 ## az hdinsight application create
 
-[Create an application for a HDInsight cluster](https://docs.microsoft.com/cli/azure/hdinsight/application?view=azure-cli-latest#az-hdinsight-application-create).
+[Create an application for a HDInsight cluster](/cli/azure/hdinsight/application#az-hdinsight-application-create).
 
 ### Create an application with a script URI
 
@@ -237,7 +238,7 @@ az hdinsight application create \
 
 ## az hdinsight script-action execute
 
-[Execute script actions on the specified HDInsight cluster](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).
+[Execute script actions on the specified HDInsight cluster](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute).
 
 ### Execute a script action and persist on success
 

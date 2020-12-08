@@ -5,7 +5,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Azure Australia security explained
@@ -22,7 +22,7 @@ Microsoft makes our audit, assessment, and ACSC certification documents availabl
 
 ## Dissemination Limiting Markers and PROTECTED certification
 
-The process of having systems, including cloud services, approved for use by government organisations is defined in the [Information Security Manual (ISM)](https://acsc.gov.au/infosec/ism/) that's produced and published by the ACSC. The ACSC is the entity within the Australian Signals Directorate (ASD) that's responsible for cyber security and cloud certification.
+The process of having systems, including cloud services, approved for use by government organisations is defined in the [Information Security Manual (ISM)](https://www.cyber.gov.au/acsc/view-all-content/ism) that's produced and published by the ACSC. The ACSC is the entity within the Australian Signals Directorate (ASD) that's responsible for cyber security and cloud certification.
 
 There are two steps to the approval process:
 
@@ -59,7 +59,7 @@ The infrastructure that supports Azure potentially serves data of multiple class
 
 To assure our customers that one tenant in Azure isn't at risk from other tenants, Microsoft implements comprehensive defence-in-depth controls.
 
-Beyond the capabilities implemented within the Microsoft Azure platform, additional customer configurable controls, such as encryption with customer-managed keys, nested virtualisation, and just-in-time administrative access, can further reduce the risk. Within the Azure Government Australia regions in Canberra, a process for formal whitelisting only Australian and New Zealand government and national critical infrastructure organisations is in place. This community cloud provides additional assurance to organisations that are sensitive to cotenant risks.
+Beyond the capabilities implemented within the Microsoft Azure platform, additional customer configurable controls, such as encryption with customer-managed keys, nested virtualisation, and just-in-time administrative access, can further reduce the risk. Within the Azure Government Australia regions in Canberra, a process for formal approving only Australian and New Zealand government and national critical infrastructure organisations is in place. This community cloud provides additional assurance to organisations that are sensitive to cotenant risks.
 
 The Microsoft Azure PROTECTED Certification Report confirms that these controls are effective for the storage and processing of PROTECTED classified data and their isolation.
 
@@ -123,7 +123,7 @@ Microsoft has produced guidance on implementing Azure-based capabilities that pr
 
 Microsoft operates our services globally with screened and trained security personnel. Personnel that have unescorted physical access to facilities in Sydney and Melbourne have Australian Government Baseline security clearances. Personnel within the Australia Central and Australia Central 2 regions have minimum Negative Vetting 1 (NV1) clearances (as appropriate for SECRET data). These clearance requirements provide additional assurance to customers that personnel within data centres operating Azure are highly trustworthy.
 
-Microsoft has a zero standing access policy with access granted through a system of just in time and just enough administration based on role-based access controls. In the vast majority of cases, our administrators don't require access or privileges to customer data in order to troubleshoot and maintain the service. High degrees of automation and scripting of tasks for remote execution negate the need for direct access to customer data.
+Microsoft has a zero standing access policy with access granted through a system of just in time and just enough administration based on Azure role-based access control (Azure RBAC). In the vast majority of cases, our administrators don't require access or privileges to customer data in order to troubleshoot and maintain the service. High degrees of automation and scripting of tasks for remote execution negate the need for direct access to customer data.
 
 The Attorney General's Department has confirmed that Microsoft's personnel security policies and procedures within Azure are consistent with the intent of the PSPF Access to Information provisions in INFOSEC-9.
 

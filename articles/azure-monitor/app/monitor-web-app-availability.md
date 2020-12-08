@@ -9,7 +9,7 @@ ms.reviewer: sdash
 
 # Monitor the availability of any website
 
-After you've deployed your web app/website, you can set up recurring tests to monitor availability and responsiveness. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding, or if it responds too slowly.
+After you've deployed your web app/website, you can set up recurring tests to monitor availability and responsiveness. [Azure Application Insights](./app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding, or if it responds too slowly.
 
 You can set up availability tests for any HTTP or HTTPS endpoint that is accessible from the public internet. You don't have to make any changes to the website you're testing. In fact, it doesn't even have to be a site you own. You can test the availability of a REST API that your service depends on.
 
@@ -19,7 +19,7 @@ There are three types of availability tests:
 
 * [URL ping test](#create-a-url-ping-test): a simple test that you can create in the Azure portal.
 * [Multi-step web test](availability-multistep.md): A recording of a sequence of web requests, which can be played back to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal for execution.
-* [Custom Track Availability Tests](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): If you decide to create a custom application to run availability tests, the `TrackAvailability()` method can be used to send the results to Application Insights.
+* [Custom Track Availability Tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): If you decide to create a custom application to run availability tests, the `TrackAvailability()` method can be used to send the results to Application Insights.
 
 **You can create up to 100 availability tests per Application Insights resource.**
 
@@ -47,7 +47,7 @@ To create your first availability request, open the Availability pane and select
 |**Test frequency**| Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.|
 |**Test locations**| Are the places from where our servers send web requests to your URL. **Our minimum number of recommended test locations is five** in order to insure that you can distinguish problems in your website from network issues. You can select up to 16 locations.
 
-**If your URL is not visible from the public internet, you can choose to selectively open up your firewall to allow only the test transactions through**. To learn more about the firewall exceptions for our availability test agents, consult the [IP address guide](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+**If your URL is not visible from the public internet, you can choose to selectively open up your firewall to allow only the test transactions through**. To learn more about the firewall exceptions for our availability test agents, consult the [IP address guide](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
 > We strongly recommend testing from multiple locations with **a minimum of five locations**. This is to prevent false alarms that may result from transient issues with a specific location. In addition we have found that the optimal configuration is to have the **number of test locations be equal to the alert location threshold + 2**.
@@ -68,13 +68,62 @@ To create your first availability request, open the Availability pane and select
 |**Classic** | We no longer recommended using classic alerts for new availability tests.|
 |**Alert location threshold**|We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.**|
 
+### Location population tags
+
+The following population tags can be used for the geo-location attribute when deploying an availability URL ping test using Azure Resource Manager.
+
+#### Azure Gov
+
+| Display Name   | Population Name     |
+|----------------|---------------------|
+| USGov Virginia | usgov-va-azr        |
+| USGov Arizona  | usgov-phx-azr       |
+| USGov Texas    | usgov-tx-azr        |
+| USDoD East     | usgov-ddeast-azr    |
+| USDoD Central  | usgov-ddcentral-azr |
+
+#### US Sec
+
+| Display Name | Population Name |
+|--------------|-----------------|
+| USSec West   | ussec-west-azr  |
+| USSec East   | ussec-east-azr  |
+
+#### US Nat
+
+| Display Name | Population Name |
+|--------------|-----------------|
+| USNat East   | usnat-east-azr  |
+| USNat West   | usnat-west-azr  |
+
+#### Azure
+
+| Display Name                           | Population Name   |
+|----------------------------------------|-------------------|
+| Australia East                         | emea-au-syd-edge  |
+| Brazil South                           | latam-br-gru-edge |
+| Central US                             | us-fl-mia-edge    |
+| East Asia                              | apac-hk-hkn-azr   |
+| East US                                | us-va-ash-azr     |
+| France South (Formerly France Central) | emea-ch-zrh-edge  |
+| France Central                         | emea-fr-pra-edge  |
+| Japan East                             | apac-jp-kaw-edge  |
+| North Europe                           | emea-gb-db3-azr   |
+| North Central US                       | us-il-ch1-azr     |
+| South Central US                       | us-tx-sn1-azr     |
+| Southeast Asia                         | apac-sg-sin-azr   |
+| UK West                                | emea-se-sto-edge  |
+| West Europe                            | emea-nl-ams-azr   |
+| West US                                | us-ca-sjc-azr     |
+| UK South                               | emea-ru-msa-edge  |
+
 ## See your availability test results
 
 Availability test results can be visualized with both line and scatter plot views.
 
 After a few minutes, click **Refresh** to see your test results.
 
-![Line view](./media/monitor-web-app-availability/availability-refresh-002.png)
+![Screenshot shows the Availability page with the Refresh button highlighted.](./media/monitor-web-app-availability/availability-refresh-002.png)
 
 The scatterplot view shows samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green/red dots to see the test, test name, and location.
 
@@ -103,21 +152,21 @@ From an availability test result, you can see the transaction details across all
 * Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
-Learn more about the end to end transaction diagnostics experience [here](../../azure-monitor/app/transaction-diagnostics.md).
+Learn more about the end to end transaction diagnostics experience [here](./transaction-diagnostics.md).
 
-Click on the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](../../azure-monitor/app/snapshot-debugger.md) for richer code level diagnostics.
+Click on the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](./snapshot-debugger.md) for richer code level diagnostics.
 
 ![Server-side diagnostics](./media/monitor-web-app-availability/open-instance-4.png)
 
-In addition to the raw results, you can also view two key Availability metrics in [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started):
+In addition to the raw results, you can also view two key Availability metrics in [Metrics Explorer](../platform/metrics-getting-started.md):
 
 1. Availability: Percentage of the tests that were successful, across all test executions.
 2. Test Duration: Average test duration across all test executions.
 
 ## Automation
 
-* [Use PowerShell scripts to set up an availability test](../../azure-monitor/app/powershell.md#add-an-availability-test) automatically.
-* Set up a [webhook](../../azure-monitor/platform/alerts-webhooks.md) that is called when an alert is raised.
+* [Use PowerShell scripts to set up an availability test](./powershell.md#add-an-availability-test) automatically.
+* Set up a [webhook](../platform/alerts-webhooks.md) that is called when an alert is raised.
 
 ## Troubleshooting
 
@@ -127,5 +176,4 @@ Dedicated [troubleshooting article](troubleshoot-availability.md).
 
 * [Availability Alerts](availability-alerts.md)
 * [Multi-step web tests](availability-multistep.md)
-
 

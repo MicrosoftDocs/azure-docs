@@ -1,28 +1,14 @@
 ---
-title: SQLRuleAction syntax reference in Azure Service Bus
-description: This article provides a reference for SQLRuleAction syntax. The actions are written in SQL-language based syntax that is performed against a brokered message.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 
-ms.service: service-bus-messaging
-ms.devlang: na
+title: Azure Service Bus Subscription Rule SQL Action syntax  | Microsoft Docs
+description: This article provides a reference for SQL rule action syntax. The actions are written in SQL-language based syntax that is performed against a message.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-
+ms.date: 11/24/2020
 ---
 
-# SQLRuleAction syntax reference for Azure Service Bus
+# Subscription Rule SQL Action Syntax
 
-A *SqlRuleAction* is an instance of the [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) class, and represents set of actions written in SQL-language based syntax that is performed against a [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+A *SQL action* is used to manipulate message metadata after a message has been selected by a filter of a subscription rule. It is a text expression that leans on a subset of the SQL-92 standard. Action expressions are used with the `sqlExpression` element of the 'action' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) argument, and several SDK functions that allow managing subscription rules.
   
-This article lists details about the SQL rule action grammar.  
   
 ```  
 <statements> ::=
@@ -219,5 +205,9 @@ The `property(name)` function returns the value of the property referenced by `n
 
 ## Next steps
 
-- [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [SQLFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLRuleAction class (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SQLRuleAction class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
+- [SqlRuleAction class (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
+- [SqlRuleAction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
+- [az servicebus topic subscription rule](/cli/azure/servicebus/topic/subscription/rule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

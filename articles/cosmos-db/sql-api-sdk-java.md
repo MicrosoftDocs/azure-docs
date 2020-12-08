@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 06/03/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
-
-
+ms.custom: devx-track-java
 ---
+
 # Azure Cosmos DB Java SDK for SQL API: Release notes and resources
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -21,17 +22,20 @@ ms.author: anfeldma
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [REST](/rest/api/cosmos-db/)
+> * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
+> * [SQL](./sql-query-getting-started.md)
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports synchronous operations.
 
 > [!IMPORTANT]  
-> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide. 
+> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide. 
 >
 
 | |  |
@@ -39,14 +43,14 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 |**SDK Download**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**API documentation**|[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Get started**|[Get started with the Java SDK](sql-api-java-get-started.md)|
+|**Get started**|[Get started with the Java SDK](./create-sql-api-java.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-java-application.md)|
-|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
+|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## Release notes
 
 ### <a name="2.5.1"></a>2.5.1
-* Fixes master partition cache issue on documentCollection query.
+* Fixes primary partition cache issue on documentCollection query.
 
 ### <a name="2.5.0"></a>2.5.0
 * Added support for 449 retry custom configuration.
@@ -111,7 +115,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 ### <a name="1.16.4"></a>1.16.4
 * Fixed a bug in Read partition Key ranges for a query.
 
-### <a name="1.16.3"/>1.16.3
+### <a name="1.16.3"></a>1.16.3
 * Fixed a bug in setting continuation token header size in DirectHttps mode.
 
 ### <a name="1.16.2"></a>1.16.2
@@ -166,7 +170,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 * Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
 
 ### <a name="1.9.5"></a>1.9.5
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-query-aggregates.md).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-query-aggregate-functions.md).
 * Added support for change feed.
 * Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
 * Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.
@@ -224,7 +228,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 * Added time to live (TTL) support for documents.
 
 ### <a name="1.6.0"></a>1.6.0
-* Implemented [partitioned collections](partition-data.md) and [user-defined performance levels](performance-levels.md).
+* Implemented [partitioned collections](partitioning-overview.md) and [user-defined performance levels](performance-levels.md).
 
 ### <a name="1.5.1"></a>1.5.1
 * Fixed a bug in HashPartitionResolver to generate hash values in little-endian to be consistent with other SDKs.
@@ -251,23 +255,14 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 * GA SDK
 
 ## Release and retirement dates
-Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
-New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible.
-
-Any request to Cosmos DB using a retired SDK will be rejected by the service.
+Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible.
 
 > [!WARNING]
-> All versions **1.x** of the SQL SDK for Java will be retired on **May 30, 2020**.
-> 
+> After 30 May 2020, Azure Cosmos DB will no longer make bug fixes, add new features, and provide support to versions 1.x of the Azure Cosmos DB Java SDK for SQL API. If you prefer not to upgrade, requests sent from version 1.x of the SDK will continue to be served by the Azure Cosmos DB service.
 >
+> After 29 February 2016, Azure Cosmos DB will no longer make bug fixes, add new features, and provide support to versions 0.x of the Azure Cosmos DB Java SDK for SQL API. If you prefer not to upgrade, requests sent from version 0.x of the SDK will continue to be served by the Azure Cosmos DB service.
 
-> [!WARNING]
-> All versions of the SQL SDK for Java prior to version **1.0.0** were retired on **February 29, 2016**.
-> 
-> 
-
-<br/>
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
@@ -332,4 +327,3 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
-

@@ -19,9 +19,6 @@ Using private endpoints for your App Configuration store enables you to:
 - Increase security for the virtual network (VNet) ensuring data doesn't escape from the VNet.
 - Securely connect to the App Configuration store from on-premises networks that connect to the VNet using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
 
-> [!NOTE]
-> Azure App Configuration offers the use of private endpoints as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.
-
 ## Conceptual overview
 
 A private endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your App Config store, it provides secure connectivity between clients on your VNet and your configuration store. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the configuration store uses a secure private link.
@@ -70,5 +67,5 @@ Learn more about creating a private endpoint for your App Configuration store, r
 
 Learn to configure your DNS server with private endpoints:
 
-- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for Private Endpoints](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for Private Endpoints](../private-link/private-endpoint-overview.md#dns-configuration)

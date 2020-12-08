@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ---
@@ -22,7 +22,7 @@ An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark
 
 ## Submit an Apache Livy Spark batch job
 
-Before you submit a batch job, you must upload the application jar on the cluster storage associated with the cluster. You can use [AzCopy](../../storage/common/storage-use-azcopy.md), a command-line utility, to do so. There are various other clients you can use to upload data. You can find more about them at [Upload data for Apache Hadoop jobs in HDInsight](../hdinsight-upload-data.md).
+Before you submit a batch job, you must upload the application jar on the cluster storage associated with the cluster. You can use [AzCopy](../../storage/common/storage-use-azcopy-v10.md), a command-line utility, to do so. There are various other clients you can use to upload data. You can find more about them at [Upload data for Apache Hadoop jobs in HDInsight](../hdinsight-upload-data.md).
 
 ```cmd
 curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"

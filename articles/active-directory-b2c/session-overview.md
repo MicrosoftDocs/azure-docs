@@ -1,6 +1,6 @@
 ---
 title: SSO sessions in Azure Active Directory B2C | Microsoft Docs
-description: Configure session behavior in Azure Active Directory B2C.
+description: An overview of configuring session behavior in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -92,8 +92,12 @@ Upon a sign-out request, Azure AD B2C:
 1. Invalidates the Azure AD B2C cookie-based session.
 1. Attempts to sign out from federated identity providers:
    - OpenId Connect - If the identity provider well-known configuration endpoint specifies an `end_session_endpoint` location.
-   - SAML - If the identity provider metadata contains the `SingleLogoutService` location.
+   - OAuth2 - If the [identity provider metadata](oauth2-technical-profile.md#metadata) contains the `end_session_endpoint` location.
+   - SAML - If the [identity provider metadata](saml-identity-provider-technical-profile.md#metadata) contains the `SingleLogoutService` location.
 1. Optionally, signs-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
+
+> [!NOTE]
+> Using [custom policies](custom-policy-overview.md), you can disable the sign out from federated identity providers, by setting the identity provider technical profile metadata `SingleLogoutEnabled` to `false`.
 
 The sign-out clears the user's single sign-on state with Azure AD B2C, but it might not sign the user out of their social identity provider session. If the user selects the same identity provider during a subsequent sign-in, they might reauthenticate without entering their credentials. If a user wants to sign out of the application, it doesn't necessarily mean they want to sign out of their Facebook account. However, if local accounts are used, the user's session ends properly.
 

@@ -8,8 +8,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 12/13/2018
+ms.topic: how-to
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -34,7 +34,7 @@ Complete the steps in [Get started with custom policies in Active Directory B2C]
         <ClaimType Id="oldPassword">
           <DisplayName>Old Password</DisplayName>
           <DataType>string</DataType>
-          <UserHelpText>Enter password</UserHelpText>
+          <UserHelpText>Enter your old password</UserHelpText>
           <UserInputType>Password</UserInputType>
         </ClaimType>
       </ClaimsSchema>
@@ -61,6 +61,7 @@ Complete the steps in [Get started with custom policies in Active Directory B2C]
               <Item Key="response_types">id_token</Item>
               <Item Key="response_mode">query</Item>
               <Item Key="scope">email openid</Item>
+              <Item Key="grant_type">password</Item>
               <Item Key="UsePolicyInRedirectUri">false</Item>
               <Item Key="HttpBinding">POST</Item>
               <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
@@ -174,7 +175,7 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 
 1. Open the policy that you changed. For example, *B2C_1A_profile_edit_password_change*.
 2. For **Application**, select your application that you previously registered. To see the token, the **Reply URL** should show `https://jwt.ms`.
-3. Click **Run now**. Sign in with the acouunt that you previously created. You should now have the opportunity to change the password.
+3. Click **Run now**. Sign in with the account that you previously created. You should now have the opportunity to change the password.
 
 ## Next steps
 

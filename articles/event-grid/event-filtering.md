@@ -1,13 +1,8 @@
 ---
 title: Event filtering for Azure Event Grid
 description: Describes how to filter events when creating an Azure Event Grid subscription.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.author: spelluru
+ms.date: 12/03/2020
 ---
 
 # Understand event filtering for Event Grid subscriptions
@@ -72,7 +67,7 @@ If you specify a single filter with multiple values, an **OR** operation is perf
 ]
 ```
 
-If you specify multiple different filters, an **AND** operation is performed, so each filter condition must be met. Here is an example: 
+If you specify multiple different filters, an **AND** operation is done, so each filter condition must be met. Here's an example: 
 
 ```json
 "advancedFilters": [
@@ -115,7 +110,24 @@ The available operators for **strings** are:
 * StringIn
 * StringNotIn
 
-All string comparisons are **not** case sensitive.
+All string comparisons are **not** case-sensitive.
+
+> [!NOTE]
+> If the event JSON doesn't contain the advanced filter key, filter is evaulated as **not matched** for the following operators: 
+> - NumberGreaterThan
+> - NumberGreaterThanOrEquals
+> - NumberLessThan
+> - NumberLessThanOrEquals
+> - NumberIn
+> - BoolEquals
+> - StringContains
+> - StringBeginsWith
+> - StringEndsWith
+> - StringIn
+> 
+>The filter is evaulated as **matched** for the following operators:
+> - NumberNotIn
+> - StringNotIn
 
 ### Key
 
@@ -154,7 +166,7 @@ Advanced filtering has the following limitations:
 * 5 advanced filters and 25 filter values across all the filters per event grid subscription
 * 512 characters per string value
 * Five values for **in** and **not in** operators
-* Keys with **`.` (dot)** character in them. For example: `http://schemas.microsoft.com/claims/authnclassreference` or `john.doe@contoso.com`. Currently, there is no support for escape characters in keys. 
+* Keys with **`.` (dot)** character in them. For example: `http://schemas.microsoft.com/claims/authnclassreference` or `john.doe@contoso.com`. Currently, there's no support for escape characters in keys. 
 
 The same key can be used in more than one filter.
 

@@ -1,7 +1,6 @@
 ---
 title: Service Fabric programming model overview 
 description: 'Service Fabric offers two frameworks for building services: the actor framework and the services framework. They offer distinct trade-offs in simplicity and control.'
-author: vturecek
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
@@ -20,7 +19,7 @@ Get started with guest executables by deploying your first [guest executable app
 
 By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in [containers](service-fabric-containers-overview.md). Service Fabric supports deployment of Linux containers and Windows containers on Windows Server 2016 and later. Container images can be pulled from any container repository and deployed to the machine. You can deploy existing applications as guest executables, Service Fabric stateless or stateful Reliable services or Reliable Actors in containers, and you can mix services in processes and services in containers in the same application.
 
-[Learn more about containerizing your services in Windows or Linux](service-fabric-deploy-container.md)
+[Learn more about containerizing your services in Windows or Linux](./service-fabric-get-started-containers.md)
 
 ## Reliable Services
 

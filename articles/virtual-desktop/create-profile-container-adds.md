@@ -1,10 +1,7 @@
 ---
 title: Create FSLogix profile container Azure Files Active Directory Domain Services - Azure
 description: This article describes how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
@@ -89,14 +86,15 @@ To get the Storage Account access key:
 
     This will download an RDP file that will let you sign in to the VM with its own credentials.
 
-    ![A screenshot of the RDP tab of the Connect to virtual machine window.](media/rdp-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the RDP tab of the Connect to virtual machine window.](media/rdp-tab.png)
 
 6. When you've signed in to the VM, run a command prompt as an administrator.
 
 7. Run the following command:
 
      ```cmd
-     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
+     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
      ```
 
     - Replace `<desired-drive-letter>` with a drive letter of your choice (for example, `y:`).
@@ -110,19 +108,25 @@ To get the Storage Account access key:
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
 
-8. Run the following command to grant the user full access to the Azure Files share.
+8. Run the following commands to allow your Windows Virtual Desktop users to create their own profile container while blocking access to the profile containers from other users.
 
      ```cmd
-     icacls <mounted-drive-letter>: /grant <user-email>:(f)
+     icacls <mounted-drive-letter>: /grant <user-email>:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-    - Replace `<mounted-drive-letter>` with the letter of the drive you want the user to use.
-    - Replace `<user-email>` with the UPN of the user who will use this profile to access the session host VMs.
+    - Replace `<mounted-drive-letter>` with the letter of the drive you used to map the drive.
+    - Replace `<user-email>` with the UPN of the user or Active Directory group that contains the users that will require access to the share.
 
     For example:
 
      ```cmd
-     icacls y: /grant john.doe@contoso.com:(f)
+     icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
 ## Create a profile container
@@ -152,11 +156,13 @@ To configure a FSLogix profile container:
 
 9.  Right-click on **Profiles**, select **New**, and then select **DWORD (32-bit) Value.** Name the value **Enabled** and set the **Data** value to **1**.
 
-    ![A screenshot of the Profiles key. The REG_DWORD file is highlighted and its Data value is set to 1.](media/dword-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Profiles key. The REG_DWORD file is highlighted and its Data value is set to 1.](media/dword-value.png)
 
 10. Right-click on **Profiles**, select **New**, and then select **Multi-String Value**. Name the value **VHDLocations** and set enter the URI for the Azure Files share `\\fsprofile.file.core.windows.net\share` as the Data value.
 
-    ![A screenshot of the Profiles key showing the VHDLocations file. Its Data value shows the URI for the Azure Files share.](media/multi-string-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Profiles key showing the VHDLocations file. Its Data value shows the URI for the Azure Files share.](media/multi-string-value.png)
 
 ## Assign users to a session host
 

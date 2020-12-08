@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 08/03/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Users and groups
 
-A Conditional Access policy must include a user assignment as one of the signals in the decision process. Users can be included or excluded from Conditional Access policies. 
+A Conditional Access policy must include a user assignment as one of the signals in the decision process. Users can be included or excluded from Conditional Access policies. Azure Active Directory evaluates all policies and ensures that all requirements are met before granting access to the user.
 
 ![User as a signal in the decisions made by Conditional Access](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
@@ -37,13 +37,19 @@ The following options are available to include when creating a Conditional Acces
    - Directory roles
       - Allows administrators to select specific Azure AD directory roles used to determine assignment. For example, organizations may create a more restrictive policy on users assigned the global administrator role.
    - Users and groups
-      - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups.
+      - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups. Policy will be applied to nested users and groups.
+
+> [!WARNING]
+> If users or groups are a member of over 2048 groups their access may be blocked. This limit applies to both direct and nested group membership.
+
+> [!WARNING]
+> Conditional Access policies do not support users assigned a directory role [scoped to an administrative unit](../roles/admin-units-assign-roles.md) or directory roles scoped directly to an object, like through [custom roles](../roles/custom-create.md).
 
 ## Exclude users
 
 When organizations both include and exclude a user or group the user or group is excluded from the policy, as an exclude action overrides an include in policy. Exclusions are commonly used for emergency access or break-glass accounts. More information about emergency access accounts and why they are important can be found in the following articles: 
 
-* [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
 * [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 The following options are available to exclude when creating a Conditional Access policy.
@@ -64,6 +70,8 @@ To prevent an administrator from locking themselves out of their directory when 
 By default the policy will provide an option to exclude the current user from the policy, but this default can be overridden by the administrator as shown in the following image. 
 
 ![Warning, don't lock yourself out!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
+
+[What to do if you are locked out of the Azure portal?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## Next steps
 

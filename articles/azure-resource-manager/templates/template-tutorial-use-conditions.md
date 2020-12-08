@@ -36,7 +36,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create ARM templates](use-vs-code-to-create-template.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```console
@@ -83,7 +83,7 @@ Here is the procedure to make the changes:
 1. Replace the three **variables('storageAccountName')** with **parameters('storageAccountName')** in the whole template.
 1. Remove the following variable definition:
 
-    ![Resource Manager template use condition diagram](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Screenshot that highlights the variable definitions that you need to remove.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 1. Add the following two parameters to the beginning of the parameters section:
 
@@ -116,7 +116,7 @@ Here is the procedure to make the changes:
 
     The updated storage account definition looks like:
 
-    ![Resource Manager use condition](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+    ![Screenshot that shows the updated storage account definition.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 1. Update the **storageUri** property of the virtual machine resource definition with the following value:
 
     ```json

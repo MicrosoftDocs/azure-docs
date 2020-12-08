@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 ---
 
 # Reference - IoT Hub endpoints
@@ -31,11 +31,11 @@ The following list describes the endpoints:
 
 * **Device identity management**. Each IoT hub exposes a set of HTTPS REST endpoints to manage device identities (create, retrieve, update, and delete). [Device identities](iot-hub-devguide-identity-registry.md) are used for device authentication and access control.
 
-* **Device twin management**. Each IoT hub exposes a set of service-facing HTTPS REST endpoint to query and update [device twins](iot-hub-devguide-device-twins.md) (update tags and properties).
+* **Device twin management**. Each IoT hub exposes a set of service-facing HTTPS REST endpoint to query and update [device twins](iot-hub-devguide-device-twins.md) (update tags and properties). 
 
 * **Jobs management**. Each IoT hub exposes a set of service-facing HTTPS REST endpoint to query and manage [jobs](iot-hub-devguide-jobs.md).
 
-* **Device endpoints**. For each device in the identity registry, IoT Hub exposes a set of endpoints:
+* **Device endpoints**. For each device in the identity registry, IoT Hub exposes a set of endpoints. Except where noted, these endpoints are exposed using [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1, and [AMQP 1.0](https://www.amqp.org/) protocols. AMQP and MQTT are also available over [WebSockets](https://tools.ietf.org/html/rfc6455) on port 443.
 
   * *Send device-to-cloud messages*. A device uses this endpoint to [send device-to-cloud messages](iot-hub-devguide-messages-d2c.md).
 
@@ -43,11 +43,11 @@ The following list describes the endpoints:
 
   * *Initiate file uploads*. A device uses this endpoint to receive an Azure Storage SAS URI from IoT Hub to [upload a file](iot-hub-devguide-file-upload.md).
 
-  * *Retrieve and update device twin properties*. A device uses this endpoint to access its [device twin](iot-hub-devguide-device-twins.md)'s properties.
+  * *Retrieve and update device twin properties*. A device uses this endpoint to access its [device twin](iot-hub-devguide-device-twins.md)'s properties. HTTPS is not supported.
 
-  * *Receive direct method requests*. A device uses this endpoint to listen for [direct method](iot-hub-devguide-direct-methods.md)'s requests.
+  * *Receive direct method requests*. A device uses this endpoint to listen for [direct method](iot-hub-devguide-direct-methods.md)'s requests. HTTPS is not supported.
 
-    These endpoints are exposed using [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1, and [AMQP 1.0](https://www.amqp.org/) protocols. AMQP and MQTT are also available over [WebSockets](https://tools.ietf.org/html/rfc6455) on port 443.
+  [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 * **Service endpoints**. Each IoT hub exposes a set of endpoints  for your solution back end to communicate with your devices. With one exception, these endpoints are only exposed using the [AMQP](https://www.amqp.org/) and AMQP over WebSockets protocols. The direct method invocation endpoint is exposed over the HTTPS protocol.
   
@@ -86,7 +86,7 @@ For the limits on the number of endpoints you can add, see [Quotas and throttlin
 
 In an IoT solution, a *field gateway* sits between your devices and your IoT Hub endpoints. It is typically located close to your devices. Your devices communicate directly with the field gateway by using a protocol supported by the devices. The field gateway connects to an IoT Hub endpoint using a protocol that is supported by IoT Hub. A field gateway might be a dedicated hardware device or a low-power computer running custom gateway software.
 
-You can use [Azure IoT Edge](/azure/iot-edge/) to implement a field gateway. IoT Edge offers functionality such as multiplexing communications from multiple devices onto the same IoT Hub connection.
+You can use [Azure IoT Edge](../iot-edge/index.yml) to implement a field gateway. IoT Edge offers functionality such as multiplexing communications from multiple devices onto the same IoT Hub connection.
 
 ## Next steps
 

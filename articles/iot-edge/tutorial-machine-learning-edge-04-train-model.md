@@ -11,9 +11,6 @@ services: iot-edge
 ---
 # Tutorial: Train and deploy an Azure Machine Learning model
 
-> [!NOTE]
-> This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. If you have arrived at this article directly, we encourage you to begin with the [first article](tutorial-machine-learning-edge-01-intro.md) in the series for the best results.
-
 In this article, we do the following tasks:
 
 * Use Azure Notebooks to train a machine learning model.
@@ -24,6 +21,10 @@ The Azure Notebooks take advantage of an Azure Machine Learning workspace, a fou
 
 The steps in this article might be typically performed by data scientists.
 
+## Prerequisites
+
+This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.
+
 ## Set up Azure Notebooks
 
 We use Azure Notebooks to host the two Jupyter Notebooks and supporting files. Here we create and configure an Azure Notebooks project. If you have not used Jupyter and/or Azure Notebooks, here are a couple of introductory documents:
@@ -31,7 +32,7 @@ We use Azure Notebooks to host the two Jupyter Notebooks and supporting files. H
 * **Quickstart:** [Create and share a notebook](../notebooks/quickstart-create-share-jupyter-notebook.md)
 * **Tutorial:** [Create and run a Jupyter notebook with Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
 
-Using Azure notebooks ensures a consistent environment for the exercise.
+Using Azure Notebooks ensures a consistent environment for the exercise.
 
 > [!NOTE]
 > Once set up, the Azure Notebooks service can be accessed from any machine. During setup, you should use the development VM, which has all of the files that you will need.
@@ -40,7 +41,7 @@ Using Azure notebooks ensures a consistent environment for the exercise.
 
 To use Azure Notebooks, you need to create an account. Azure Notebook accounts are independent from Azure subscriptions.
 
-1. Navigate to [Azure notebooks](https://notebooks.azure.com).
+1. Navigate to [Azure Notebooks](https://notebooks.azure.com).
 
 1. Click **Sign In** in the upper right corner of the page.
 
@@ -74,7 +75,7 @@ We will upload sample notebook files into a new Azure Notebooks project.
 
 1. Select **Upload** to begin uploading and then select **Done** once the process is complete.
 
-### Azure notebook files
+### Azure Notebook files
 
 Let's review the files you uploaded into your Azure Notebooks project. The activities in this portion of the tutorial span across two notebook files, which use a few supporting files.
 
@@ -172,6 +173,10 @@ To verify that the notebooks have completed successfully, verify that a few item
 You can insert Python statements into the notebook for debugging, such as the `print()` command to show values. If you see variables or objects that are not defined, run the cells where they are first declared or instantiated.
 
 You may have to delete previously created files and Azure resources if you need to redo the notebooks.
+
+## Clean up resources
+
+This tutorial is part of a set where each article builds on the work done in the previous ones. Please wait to clean up any resources until you complete the final tutorial.
 
 ## Next steps
 

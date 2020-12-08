@@ -3,13 +3,14 @@ title: Azure Cosmos DB bulk executor library overview
 description: Perform bulk operations in Azure Cosmos DB through bulk import and bulk update APIs offered by the bulk executor library.
 author: tknandu
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ---
 
 # Azure Cosmos DB bulk executor library overview
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
  
 Azure Cosmos DB is a fast, flexible, and globally distributed database service that is designed to elastically scale out to support: 
 
@@ -20,6 +21,9 @@ The bulk executor library helps you leverage this massive throughput and storage
 
 > [!NOTE] 
 > Currently, bulk executor library supports import and update operations and this library is supported by Azure Cosmos DB SQL API and Gremlin API accounts only.
+
+> [!IMPORTANT]
+> The bulk executor library is not currently supported on [serverless](serverless.md) accounts. On .NET, it is recommended to use the [bulk support](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk/) available in the V3 version of the SDK.
  
 ## Key features of the bulk executor library  
  

@@ -3,7 +3,7 @@ title: StorSimple 1200 migration to Azure File Sync
 description: Learn how to migrate a StorSimple 1200 series virtual appliance to Azure File Sync.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
@@ -27,7 +27,7 @@ Azure File Sync is a Microsoft cloud service, based on two main components:
 
 This article focuses on the migration steps. If before migrating you'd like to learn more about Azure File Sync, we recommend the following articles:
 
-* [Azure File Sync - overview](https://aka.ms/AFS "Overview")
+* [Azure File Sync - overview](./storage-sync-files-planning.md "Overview")
 * [Azure File Sync - deployment guide](storage-sync-files-deployment-guide.md)
 
 ## Migration goals
@@ -228,6 +228,6 @@ Migration content:
 
 Azure File Sync content:
 
-* [AFS overview](https://aka.ms/AFS)
+* [AFS overview](./storage-sync-files-planning.md)
 * [AFS deployment guide](storage-files-deployment-guide.md)
 * [AFS troubleshooting](storage-sync-files-troubleshoot.md)

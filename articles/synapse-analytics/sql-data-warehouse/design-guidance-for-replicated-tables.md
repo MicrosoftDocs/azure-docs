@@ -27,13 +27,13 @@ As part of table design, understand as much as possible about your data and how 
 
 - How large is the table?
 - How often is the table refreshed?
-- Do I have fact and dimension tables in a SQL pool database?
+- Do I have fact and dimension tables in a SQL pool?
 
 ## What is a replicated table?
 
 A replicated table has a full copy of the table accessible on each Compute node. Replicating a table removes the need to transfer data among Compute nodes before a join or aggregation. Since the table has multiple copies, replicated tables work best when the table size is less than 2 GB compressed.  2 GB is not a hard limit.  If the data is static and does not change, you can replicate larger tables.
 
-The following diagram shows a replicated table that is accessible on each Compute node. In SQL pool, the replicated table is fully copied to a distribution database on each Compute node.
+The following diagram shows a replicated table that is accessible on each Compute node. In SQL pool, the replicated table is fully copied to a distribution database on each compute node.
 
 ![Replicated table](./media/design-guidance-for-replicated-tables/replicated-table.png "Replicated table")  
 
@@ -47,7 +47,7 @@ Consider using a replicated table when:
 Replicated tables may not yield the best query performance when:
 
 - The table has frequent insert, update, and delete operations. The data manipulation language (DML) operations require a rebuild of the replicated table. Rebuilding frequently can cause slower performance.
-- The SQL pool database is scaled frequently. Scaling a SQL pool database changes the number of Compute nodes, which incurs rebuilding the replicated table.
+- The SQL pool is scaled frequently. Scaling a SQL pool changes the number of Compute nodes, which incurs rebuilding the replicated table.
 - The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL pool only moves data for the requested columns.
 
 ## Use replicated tables with simple query predicates
@@ -144,9 +144,9 @@ When loading data into replicated tables, try to minimize rebuilds by batching l
 
 For example, this load pattern loads data from four sources and invokes four rebuilds.
 
-        Load from source 1.
+- Load from source 1.
 - Select statement triggers rebuild 1.
-        Load from source 2.
+- Load from source 2.
 - Select statement triggers rebuild 2.
 - Load from source 3.
 - Select statement triggers rebuild 3.

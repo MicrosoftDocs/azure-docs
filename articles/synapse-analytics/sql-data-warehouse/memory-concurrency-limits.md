@@ -1,6 +1,6 @@
 ---
 title: Memory and concurrency limits
-description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.
+description: View the memory and concurrency limits allocated to the various performance levels and resource classes for dedicated SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -14,7 +14,7 @@ ms.custom: azure-synapse
 ---
 
 
-# Memory and concurrency limits for Azure Synapse Analytics
+# Memory and concurrency limits for dedicated SQL pool in Azure Synapse Analytics
 
 View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.  
 
@@ -121,7 +121,7 @@ The following table shows the maximum concurrent queries and concurrency slots f
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-When there are not enough concurrency slots free to start query execution, queries are queued and executed based on importance.  If there is equivalent importance, queries are executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots fall below the limits, SQL Data Warehouse releases queued queries.
+When there are not enough concurrency slots free to start query execution, queries are queued and executed based on importance.  If there is equivalent importance, queries are executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots fall below the limits, Azure Synapse Analytics releases queued queries.
 
 ## Next steps
 

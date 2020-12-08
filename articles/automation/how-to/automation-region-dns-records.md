@@ -3,7 +3,7 @@ title: Azure Datacenter DNS records used by Azure Automation | Microsoft Docs
 description: This article provides the DNS records required by Azure Automation features when restricting communication to a specific Azure region hosting that Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/22/2020
+ms.date: 11/25/2020
 ms.topic: conceptual
 ---
 
@@ -79,7 +79,21 @@ To support [Private Link](../../private-link/private-link-overview.md) in Azure 
 | US Gov Texas |`https://<accountId>.webhook.ussc.azure-automation.us`<br>`https://<accountId>.agentsvc.ussc.azure-automation.us`<br>`https://<accountId>.jrds.ussc.azure-automation.us` |
 | US Gov Arizona |`https://<accountId>.webhook.phx.azure-automation.us`<br>`https://<accountId>.agentsvc.phx.azure-automation.us`<br>`https://<accountId>.jrds.phx.azure-automation.us` |
 
-We recommend that you use the addresses listed when defining [exceptions](../automation-runbook-execution.md#exceptions). For a list of region IP addresses instead of region names, download the [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) XML file from the Microsoft Download Center. An updated IP address file is posted weekly.
+Replace `<accountId>` in the DNS record with GUID representing your Automation Account ID from the value **URL**. You can get the ID required from **Keys** under **Account Settings** in the Azure portal.
+
+![Automation account primary key page](./media/automation-region-dns-records/automation-account-keys.png)
+
+Copy the value after *accounts/* from the **URL** field - `https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
+
+> [!NOTE]
+> All of the Webhook and agentservice DNS records have been updated to the new style DNS records to support Private Link. For JRDS DNS records, both old and new style DNS records are supported. If you are not using Private Link, you will see the old style DNS records, while those using Private Link will see new style of DNS records.
+
+We recommend that you use the addresses listed when defining [exceptions](../automation-runbook-execution.md#exceptions). For a list of region IP addresses instead of region names, download the JSON file from the Microsoft Download Center for the following cloud environments:
+
+* [Azure IP Ranges and Service Tags - Azure public](https://www.microsoft.com/download/details.aspx?id=56519)
+* [Azure IP Ranges and Service Tags- Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
+* [Azure IP Ranges and Service Tags - Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)
+* [Azure IP Ranges and Service Tags – Azure China Vianet 21](https://www.microsoft.com/download/details.aspx?id=57062)
 
 The IP address file lists the IP address ranges that are used in the Microsoft Azure datacenters. It includes compute, SQL, and storage ranges, and reflects currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week.
 

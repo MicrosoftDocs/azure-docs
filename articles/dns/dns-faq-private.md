@@ -22,21 +22,29 @@ For information on other internal DNS options in Azure, see [Name resolution for
 
 Yes. Private Zones is supported for DNS resolution between virtual networks across Azure regions. Private Zones works even without explicitly peering the virtual networks. All the virtual networks must be linked to the private DNS zone.
 
-## Is connectivity to the Internet from virtual networks required for private zones?
+## Is connectivity to the internet from virtual networks required for private zones?
 
 No. Private zones work along with virtual networks. You use them to manage domains for virtual machines or other resources within and across virtual networks. Internet connectivity isn't required for name resolution.
 
 ## Can the same private zone be used for several virtual networks for resolution?
 
-Yes. You can link a private DNS zone with thousands of virtual networks. For more information, see [Azure DNS Limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+Yes. You can link a private DNS zone with thousands of virtual networks. For more information, see [Azure DNS Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## Can a virtual network that belongs to a different subscription be linked to a private zone?
 
-Yes. You must have write operation permission on the virtual networks and the private DNS zone. The write permission can be granted to several RBAC roles. For example, the Classic Network Contributor RBAC role has write permissions to virtual networks and Private DNS zones Contributor role has write permissions on the private DNS zones. For more information on RBAC roles, see [Role-based access control](../role-based-access-control/overview.md).
+Yes. You must have write operation permission on the virtual networks and the private DNS zone. The write permission can be granted to several Azure roles. For example, the Classic Network Contributor Azure role has write permissions to virtual networks and Private DNS zones Contributor role has write permissions on the private DNS zones. For more information on Azure roles, see [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 ## Will the automatically registered virtual machine DNS records in a private zone be automatically deleted when you delete the virtual machine?
 
 Yes. If you delete a virtual machine within a linked virtual network with autoregistration enabled, the registered records are automatically deleted.
+
+## I've reconfigured the OS in my virtual machine to have a new host name or static IP address. Why don't I see that change reflected in the private zone?
+
+The private zone's records are populated by the Azure DHCP service; client registration messages are ignored. If you have disabled DHCP client support in the VM by configuring a static IP address, changes to the host name or static IP in the VM aren't reflected in the zone.
+
+## I have configured a preferred DNS suffix in my Windows virtual machine. Why are my records still registered in the zone linked to the virtual network?
+
+The Azure DHCP service ignores any DNS suffix when it registers the private DNS zone. For example, if your virtual machine is configured for `contoso.com` as the primary DNS suffix, but the virtual network is linked to the `fabrikam.com` private DNS zone, the virtual machine's registration appears in the `fabrikam.com` private DNS zone.
 
 ## Can an automatically registered virtual machine record in a private zone from a linked virtual network be deleted manually?
 
@@ -61,11 +69,11 @@ Yes. Private Zones don't replace the default Azure-provided internal.cloudapp.ne
 ## Will the DNS suffix on virtual machines within a linked virtual network be changed to that of the private zone?
 
 No. The DNS suffix on the virtual machines in your linked virtual network stays as the default Azure-provided suffix ("*.internal.cloudapp.net"). You can manually change this DNS suffix on your virtual machines to that of the private zone.
-For guidance on how to change this suffix refer to [Use dynamic DNS to register hostnames in your own DNS server](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-ddns#windows-clients)
+For guidance on how to change this suffix refer to [Use dynamic DNS to register hostnames in your own DNS server](../virtual-network/virtual-networks-name-resolution-ddns.md#windows-clients)
 
 ## What are the usage limits for Azure DNS Private zones?
 
-Refer to [Azure DNS limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) for details on the usage limits for Azure DNS private zones.
+Refer to [Azure DNS limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits) for details on the usage limits for Azure DNS private zones.
 
 ## Why don’t my existing private DNS zones show up in new portal experience?
 

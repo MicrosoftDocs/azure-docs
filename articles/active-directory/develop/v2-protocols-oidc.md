@@ -245,7 +245,7 @@ Response parameters mean the same thing regardless of the flow used to acquire t
 
 | Parameter | Description |
 | --- | --- |
-| `token` | The token that will be used to call the UserInfo endpoint.|
+| `access_token` | The token that will be used to call the UserInfo endpoint.|
 | `token_type` | Always "Bearer" |
 | `expires_in`| How long until the access token expires, in seconds. |
 | `scope` | The permissions granted on the access token.  Note that since the UserInfo endpoint is hosted on MS Graph, there may be additional Graph scopes listed here (e.g. user.read) if they were previously granted to the app.  That's because a token for a given resource always includes every permission currently granted to the client.  |

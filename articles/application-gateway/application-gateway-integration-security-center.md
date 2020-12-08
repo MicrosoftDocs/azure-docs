@@ -13,7 +13,7 @@ ms.date: 06/07/2017
 
 # Overview of integration between Application Gateway and Azure Security Center
 
-Learn how Application Gateway and Security Center help protect your web application resources. Application gateway web application firewall (WAF) integrates with [Security Center](../security-center/security-center-intro.md) to provide a seamless view to prevent, detect, and respond to threats to unprotected web applications in your environment.
+Learn how Application Gateway and Security Center help protect your web application resources. Application gateway web application firewall (WAF) integrates with [Security Center](../security-center/security-center-introduction.md) to provide a seamless view to prevent, detect, and respond to threats to unprotected web applications in your environment.
 
 ## Overview
 
@@ -39,7 +39,7 @@ If you do not have an existing Application Gateway, or want to create a new one,
 
 If you have an existing application gateway, you can choose it under **Use existing solution**
 
-![Page to add a web application firewall][4]
+![Screenshot of the Add a Web Application Firewall page. Under Use existing solution, an application gateway is visible.][4]
 
 Adding a web application to an application gateway through Security Center does not add the resource as a backend pool member. This must be done on the application gateway resource directly.
 
@@ -57,7 +57,7 @@ Click **Link app** to open **Link Applications**, here you are given the options
 
 Security Center tracks applications added to an application gateway as a protected resource.  It monitors the health of this resource and ensures that it is protected by an application gateway. The next step is to add the private IP, public IP, or NIC of your virtual machine to the backend pool of the application gateway. Until this is done an additional recommendation of **Finalize application protection** is shown until the resource is added.
 
-![Page to add a web application firewall][5]
+![Screenshot of the Finalize application protection page, with one application visible. Text explains which steps to take to protect the application.][5]
 
 ## Security Alerts
 
@@ -71,7 +71,7 @@ Selecting a rule will provide a list of alerts for that specific WAF rule. Each 
 
 ## Next steps
 
-To learn how to enable web application firewall on an existing application gateway, visit [Create or update an Azure Application Gateway with web application firewall](application-gateway-web-application-firewall-portal.md).
+To learn how to enable web application firewall on an existing application gateway, visit [Create or update an Azure Application Gateway with web application firewall](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

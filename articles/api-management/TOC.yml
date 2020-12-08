@@ -11,10 +11,17 @@
 - name: Quickstarts
   expanded: true
   items:
+      - name: Create an instance - CLI
+        href: get-started-create-service-instance-cli.md
       - name: Create an instance - Portal
         href: get-started-create-service-instance.md
       - name: Create an instance - PowerShell
         href: powershell-create-service-instance.md
+      - name: Create an instance - Visual Studio Code
+        href: vscode-create-service-instance.md
+      - name: Create an instance - ARM template
+        displayName: Resource Manager
+        href: quickstart-arm-template.md
 - name: Tutorials
   items:
       - name: 1 - Import your first API
@@ -41,8 +48,6 @@
         href: ./policies/index.md
       - name: Azure PowerShell
         href: powershell-samples.md
-      - name: Azure Policy built-ins
-        href: ./policy-samples.md
 - name: Concepts
   items:
       - name: Terminology
@@ -53,22 +58,30 @@
               href: api-management-howto-policies.md
             - name: Policy reference index
               href: api-management-policies.md
+            - name: Error handling
+              href: api-management-error-handling-policies.md  
       - name: Security
         items:
             - name: Security baseline
-              href: security-baseline.md        
-            - name: Built-in security controls
-              href: api-management-security-controls.md
+              href: security-baseline.md
       - name: Subscriptions
         href: api-management-subscriptions.md
+      - name: Versions
+        href: api-management-versions.md
+      - name: Revisions
+        href: api-management-revisions.md
       - name: Manage using automation
         href: automation-manage-api-management.md
-      - name: Error handling
-        href: api-management-error-handling-policies.md
       - name: API import restrictions
         href: api-management-api-import-restrictions.md
       - name: Self-hosted gateway overview
         href: self-hosted-gateway-overview.md
+      - name: Observability
+        href: observability.md
+      - name: CI/CD using ARM templates
+        href: devops-api-development-templates.md
+      - name: Soft-delete
+        href: soft-delete.md
 
 - name: How-to guides
   items:
@@ -148,6 +161,8 @@
         items:
             - name: Understand the developer portal
               href: api-management-howto-developer-portal.md
+            - name: Migrate from deprecated to new developer portal
+              href: developer-portal-deprecated-migration.md
             - name: Authenticate with Azure AD
               href: api-management-howto-aad.md
             - name: Authenticate with Azure AD B2C
@@ -158,13 +173,13 @@
               href: api-management-howto-configure-notifications.md
             - name: Enable console OAuth support
               href: api-management-howto-oauth2.md
-            - name: Legacy portal - customize the portal
+            - name: Deprecated portal - customize the portal
               href: api-management-customize-styles.md
-            - name: Legacy portal - modify pages and layouts
+            - name: Deprecated portal - modify pages and layouts
               href: api-management-modify-content-layout.md
-            - name: Legacy portal - customize with templates
+            - name: Deprecated portal - customize with templates
               href: api-management-developer-portal-templates.md
-      - name: Legacy portal templates
+      - name: Deprecated portal templates
         items:
             - name: Data model reference
               href: api-management-template-data-model-reference.md
@@ -190,6 +205,8 @@
         items:
             - name: Set or edit policies
               href: set-edit-policies.md
+            - name: Debug policies
+              href: api-management-debug-policies.md
             - name: Policy expressions
               href: api-management-policy-expressions.md
             - name: Custom caching
@@ -214,6 +231,8 @@
               href: api-management-cross-domain-policies.md
             - name: Transformation policies
               href: api-management-transformation-policies.md
+            - name: Distributed Application Runtime (Dapr) integration policies
+              href: api-management-dapr-policies.md
       - name: Manage in production
         items:
             - name: Export APIs to the Power Platform
@@ -222,6 +241,8 @@
               href: api-management-howto-create-groups.md
             - name: Retrieve IP addresses
               href: api-management-howto-ip-addresses.md
+            - name: Get API analytics
+              href: howto-use-analytics.md
             - name: Log events to Azure Event Hubs
               href: api-management-howto-log-event-hubs.md
             - name: Log requests with Azure Application Insights
@@ -250,14 +271,21 @@
                     href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
 - name: Reference
   items:
+      - name: Azure CLI
+        href: /cli/azure/apim
       - name: Azure PowerShell
-        href: /powershell/module/az.apimanagement/?view=azps-2.6.0
+        href: /powershell/module/az.apimanagement/
       - name: REST
         href: /rest/api/apimanagement/
       - name: REST (original)
         href: /rest/api/apimanagement/ApiManagementREST/api-management-REST
       - name: Resource Manager template
         href: /azure/templates/microsoft.apimanagement/allversions
+      - name: Azure Policy built-ins
+        displayName: samples, policies, definitions
+        href: ./policy-reference.md
+      - name: Resource log schema
+        href: gateway-log-schema-reference.md
 - name: Resources
   items:
       - name: FAQ
@@ -273,12 +301,16 @@
       - name: Videos
         href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
       - name: Microsoft Q&A question page
-        href: https://docs.microsoft.com/answers/topics/azure-api-management.html
+        href: /answers/topics/azure-api-management.html
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-api-management
       - name: API design guidance
-        href: https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
+        href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
       - name: API implementation guidance
-        href: https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
-      - name: Troubleshoot failed to update hostnames error
-        href: api-management-troubleshoot-cannot-add-custom-domain.md
+        href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
+      - name: Troubleshooting
+        items:
+          - name: Troubleshoot failed to update hostnames error
+            href: api-management-troubleshoot-cannot-add-custom-domain.md
+          - name: Troubleshoot response timeouts and errors
+            href: troubleshoot-response-timeout-and-errors.md

@@ -7,10 +7,10 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 12/04/2018
 ---
 # Determine the management endpoint IP address - Azure SQL Managed Instance 

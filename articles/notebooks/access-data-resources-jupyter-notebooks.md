@@ -3,17 +3,17 @@ title: Access data in Jupyter notebooks - Azure Notebooks Preview
 description: Learn how to access files, REST APIs, databases, and different Azure Storage resources from a Jupyter notebook.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 # Access cloud data in a notebook
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Doing interesting work in a Jupyter notebook requires data. Data, indeed, is the lifeblood of notebooks.
 
 You can certainly [import data files into a project](work-with-project-data-files.md), even using commands like `curl` from within a notebook to download a file directly. It's likely, however, that you need to work with much more extensive data that's available from non-file sources such as REST APIs, relational databases, and cloud storage such as Azure tables.
 
 This article briefly outlines these different options. Because data access is best seen in action, you can find runnable code in the [Azure Notebooks Samples - Access your data](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## REST APIs
 
@@ -36,11 +36,11 @@ if response.status_code == 200:
     print(dataframe_rest2)
 ```
 
-## Azure SQL databases
+## Azure SQL Database and SQL Managed Instance
 
-You can access SQL Server databases with the assistance of the pyodbc or pymssql libraries.
+You can access databases in SQL Database or SQL Managed Instance with the assistance of the pyodbc or pymssql libraries.
 
-[Use Python to query an Azure SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) gives you instructions on creating a database containing AdventureWorks data, and shows how to query that data. The same code is shown in the sample notebook for this article.
+[Use Python to query an Azure SQL database](../azure-sql/database/connect-query-python.md) gives you instructions on creating a database in SQL Database containing AdventureWorks data, and shows how to query that data. The same code is shown in the sample notebook for this article.
 
 ## Azure Storage
 
@@ -55,11 +55,11 @@ The sample notebook demonstrates working with both tables and blobs, including h
 
 Azure Cosmos DB provides a fully indexed NoSQL store for JSON documents). The following articles provide a number of different ways to work with Cosmos DB from Python:
 
-- [Build a SQL API app with Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Build a Flask app with the Azure Cosmos DB's API for MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
-- [Create a graph database using Python and the Gremlin API](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
-- [Build a Cassandra app with Python and Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
-- [Build a Table API app with Python and Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
+- [Build a SQL API app with Python](../cosmos-db/create-sql-api-python.md)
+- [Build a Flask app with the Azure Cosmos DB's API for MongoDB](../cosmos-db/create-mongodb-flask.md)
+- [Create a graph database using Python and the Gremlin API](../cosmos-db/create-graph-python.md)
+- [Build a Cassandra app with Python and Azure Cosmos DB](../cosmos-db/create-cassandra-python.md)
+- [Build a Table API app with Python and Azure Cosmos DB](../cosmos-db/table-storage-how-to-use-python.md)
 
 When working with Cosmos DB, you can use the [azure-cosmosdb-table](https://pypi.org/project/azure-cosmosdb-table/) library.
 
@@ -67,9 +67,9 @@ When working with Cosmos DB, you can use the [azure-cosmosdb-table](https://pypi
 
 Azure provides a number of other database types that you can use. The articles below provide guidance for accessing those databases from Python:
 
-- [Azure Database for PostgreSQL: Use Python to connect and query data](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Quickstart: Use Azure Redis Cache with Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Azure Database for MySQL: Use Python to connect and query data](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Azure Database for PostgreSQL: Use Python to connect and query data](../postgresql/connect-python.md)
+- [Quickstart: Use Azure Redis Cache with Python](../azure-cache-for-redis/cache-python-get-started.md)
+- [Azure Database for MySQL: Use Python to connect and query data](../mysql/connect-python.md)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Copy Wizard for Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 

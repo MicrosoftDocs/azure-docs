@@ -1,23 +1,11 @@
 ---
-title: Classroom Labs concepts - Azure Lab Services | Microsoft Docs
+title: Labs concepts - Azure Lab Services | Microsoft Docs
 description: Learn the basic concepts of Lab Services, and how it can make it easy to create and manage labs. 
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
-# Classroom Labs concepts
+# Labs concepts
 
 The following list contains key Lab Services concepts and definitions:
 
@@ -55,7 +43,7 @@ Typically, an IT administrator of organization's cloud resources, who owns the A
 
 ### Educator
 
-Typically, users such as a teacher or an online trainer creates classroom labs under a lab account. An educator does the following tasks:
+Typically, users such as a teacher or an online trainer creates labs under a lab account. An educator does the following tasks:
 
 - Creates a classroom lab.
 - Creates virtual machines in the lab.

@@ -1,20 +1,17 @@
 ---
-title: Deploy the diagnostics tool for Windows Virtual Desktop - Azure
-description: How to deploy the diagnostics UX tool for Windows Virtual Desktop.
-services: virtual-desktop
+title: Deploy the diagnostics tool for Windows Virtual Desktop (classic) - Azure
+description: How to deploy the diagnostics UX tool for Windows Virtual Desktop (classic).
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
 
-# Deploy the diagnostics tool
+# Deploy the Windows Virtual Desktop (classic) diagnostics tool
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 >[!IMPORTANT]
 >As of March 16, 2020, we've temporarily disabled diagnostic queries that impacted user experience due to increased demand on the service. This will cause the tool to stop working because it relies on those queries to function. We'll update this article when diagnostic queries are available again.
@@ -119,7 +116,7 @@ Here's how to manually configure the recommended performance counters:
     -   Processor Information(\*)\\Processor Time
     -   User Input Delay per Session(\*)\\Max Input Delay
 
-Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
+Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](../../azure-monitor/platform/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Any additional counters you configure won't show up in the diagnostics tool itself. To make it appear in the diagnostics tool, you need to configure the tool's config file. Instructions for how to do this with advanced administration will be available in GitHub at a later date.
@@ -191,9 +188,10 @@ To set the Redirect URI:
 6. Select **Web** in the drop-down menu under Type.
 7. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   ![The redirect URI page](../media/redirect-uri-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![The redirect URI page](../media/redirect-uri-page.png)
 
-8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was `contosoapp45`, then your associated URL is <https://contosoapp45.azurewebsites.net>).
+8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was `contosoapp45`, then your associated URL is <http://contoso.azurewebsites.net>).
 9. Sign in using the appropriate Azure Active Directory user account.
 10.   Select **Accept**.
 
@@ -201,7 +199,7 @@ To set the Redirect URI:
 
 Before you make the diagnostics tool available to your users, make sure they have the following permissions:
 
-- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
+- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
 -  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
 You also need to give your users the following information:

@@ -1,15 +1,11 @@
 ---
 title: 'Quickstart: Send custom events to Event Hubs - Event Grid, Azure CLI'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. An event hub is used for the endpoint.' 
-services: event-grid 
-keywords: 
-author: spelluru
-ms.author: spelluru
-ms.date: 11/05/2019
-ms.topic: quickstart
-ms.service: event-grid
-ms.custom: seodec18
+ms.date: 07/07/2020
+ms.topic: quickstart 
+ms.custom: devx-track-azurecli
 ---
+
 # Quickstart: Route custom events to Azure Event Hubs with Azure CLI and Event Grid
 
 Azure Event Grid is an eventing service for the cloud. Azure Event Hubs is one of the supported event handlers. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to an event hub.
@@ -61,10 +57,10 @@ The following script gets the resource ID for the event hub, and subscribes to a
 
 ```azurecli-interactive
 hubid=$(az eventhubs eventhub show --name $hubname --namespace-name $namespace --resource-group gridResourceGroup --query id --output tsv)
+topicid=$(az eventgrid topic show --name $topicname -g gridResourceGroup --query id --output tsv)
 
 az eventgrid event-subscription create \
-  --topic-name $topicname \
-  -g gridResourceGroup \
+  --source-resource-id $topicid \
   --name subtoeventhub \
   --endpoint-type eventhub \
   --endpoint $hubid
@@ -97,8 +93,8 @@ Navigate to the event hub in the portal, and notice that Event Grid sent those t
 
 Typically, you create an application that retrieves the events from the event hub. To create an application that gets messages from an event hub, see:
 
-* [Get started receiving messages with the Event Processor Host in .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
-* [Receive events from Azure Event Hubs using Java](../event-hubs/event-hubs-java-get-started-receive-eph.md)
+* [Get started receiving messages with the Event Processor Host in .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* [Receive events from Azure Event Hubs using Java](../event-hubs/event-hubs-java-get-started-send.md)
 * [Receive events from Event Hubs using Apache Storm](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
 ## Clean up resources

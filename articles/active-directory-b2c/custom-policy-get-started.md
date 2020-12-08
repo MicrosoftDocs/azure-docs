@@ -8,8 +8,9 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -82,7 +83,7 @@ To register an application in your Azure AD B2C tenant, you can use the **App re
 
 Next, expose the API by adding a scope:
 
-1. Under **Manage**, select **Expose an API**.
+1. In the left menu, under **Manage**, select **Expose an API**.
 1. Select **Add a scope**, then select **Save and continue** to accept the default application ID URI.
 1. Enter the following values to create a scope that allows custom policy execution in your Azure AD B2C tenant:
     * **Scope name**: `user_impersonation`
@@ -105,13 +106,13 @@ Next, expose the API by adding a scope:
 
 Next, specify that the application should be treated as a public client:
 
-1. Under **Manage**, select **Authentication**.
+1. In the left menu, under **Manage**, select **Authentication**.
 1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**). Ensure that **"allowPublicClient": true** is set in the application manifest. 
 1. Select **Save**.
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:
 
-1. Under **Manage**, select **API permissions**.
+1. In the left menu, under **Manage**, select **API permissions**.
 1. Under **Configured permissions**, select **Add a permission**.
 1. Select the **My APIs** tab, then select the **IdentityExperienceFramework** application.
 1. Under **Permission**, select the **user_impersonation** scope that you defined earlier.
@@ -208,6 +209,6 @@ As mentioned in [Prerequisites](#prerequisites), Facebook is *not* required for 
 
 ## Next steps
 
-Next, try adding Azure Active Directory (Azure AD) as an identity provider. The base file used in this getting started guide already contains some of the content that you need for adding other identity providers like Azure AD.
+Next, try adding Azure Active Directory (Azure AD) as an identity provider. The base file used in this getting started guide already contains some of the content that you need for adding other identity providers like Azure AD. For information about setting up Azure AD as an identity provider, see [Set up sign-up and sign-in with an Azure Active Directory account using Active Directory B2C custom policies](identity-provider-azure-ad-single-tenant-custom.md). 
 
-For information about setting up Azure AD as and identity provider, see [Set up sign-up and sign-in with an Azure Active Directory account using Active Directory B2C custom policies](identity-provider-azure-ad-single-tenant-custom.md).
+Visit our [partner gallery](partner-gallery.md) to learn more on how to implement ISV integration using custom policies. 

@@ -1,19 +1,8 @@
 ---
 title: Start machines using Automation runbooks in Azure DevTest Labs
 description: Learn how to start virtual machines in a lab in Azure DevTest Labs by using Azure Automation runbooks. 
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Start virtual machines in a lab in order by using Azure Automation runbooks
@@ -26,7 +15,7 @@ In this example, VMs in the lab need to have the tag **StartupOrder** added with
 Create an Azure Automation account by following instructions in [this article](../automation/automation-create-standalone-account.md). Choose the **Run As Accounts** option when creating the account. Once the automation account is created, open the **Modules** page, and select **Update Azure Modules** on the menu bar. The default modules are several versions old and without the update the script may not function.
 
 ## Add a runbook
-Now, to add a runbook to the automation account, select **Runbooks** on the left menu. Select **Add a runbook** on the menu, and follow instructions to [create a PowerShell runbook](../automation/automation-first-runbook-textual-powershell.md).
+Now, to add a runbook to the automation account, select **Runbooks** on the left menu. Select **Add a runbook** on the menu, and follow instructions to [create a PowerShell runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
 
 ## PowerShell script
 The following script takes the subscription name, the lab name as parameters. The flow of the script is to get all the VMs in the lab, and then parse out the tag information to create a list of the VM names and their startup order. The script walks through the VMs in order and starts the VMs. If there are multiple VMs in a specific order number, they are started asynchronously using PowerShell jobs. For those VMs that don’t have a tag, set startup value to be the last (10), they will be started last, by default.  If the lab doesn’t want the VM to be autostarted, set the tag value to 11 and it will be ignored.

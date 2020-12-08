@@ -1,17 +1,11 @@
 ---
 title: Create partitioned Azure Service Bus queues and topics | Microsoft Docs
 description: Describes how to partition Service Bus queues and topics by using multiple message brokers.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/17/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
+
 # Partitioned queues and topics
 
 Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus *partitions* enable queues and topics, or *messaging entities*, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
@@ -30,6 +24,8 @@ When a client wants to receive a message from a partitioned queue, or from a sub
 The peek operation on a non-partitioned entity always returns the oldest message, but not on a partitioned entity. Instead, it returns the oldest message in one of the partitions whose message broker responded first. There is no guarantee that the returned message is the oldest one across all partitions. 
 
 There is no additional cost when sending a message to, or receiving a message from, a partitioned queue or topic.
+>[!NOTE]
+> The peek operation returns the oldest message from the partion based on its SequenceNumber. For partioned entities, the sequence number is issued relative to the partition. For more information, see [Message sequencing and timestamps](../service-bus-messaging/message-sequencing.md).
 
 ## Enable partitioning
 
@@ -151,4 +147,4 @@ Read about the core concepts of the AMQP 1.0 messaging specification in the [AMQ
 [QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
 [TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md

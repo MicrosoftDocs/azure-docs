@@ -14,7 +14,7 @@ FTP and local Git can deploy to an Azure web app by using a *deployment user*. O
 
 To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) command in Azure Cloud Shell. Replace \<username> and \<password> with a deployment user username and password. 
 
-- The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol. 
+- The username must be unique within Azure, and for local Git pushes, must not contain the ‘\@’ symbol. 
 - The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols. 
 
 ```azurecli-interactive

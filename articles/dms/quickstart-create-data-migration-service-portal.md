@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: quickstart
-ms.date: 01/08/2020
+ms.date: 07/21/2020
 ---
 
 # Quickstart: Create an instance of the Azure Database Migration Service by using the Azure portal
@@ -25,6 +25,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Open your web browser, navigate to the [Microsoft Azure portal](https://portal.azure.com/), and then enter your credentials to sign in to the portal.
 
 The default view is your service dashboard.
+
+> [!NOTE]
+> You can create up to 10 instances of DMS per subscription. If you require a greater number of instances, please create a support ticket.
 
 ## Register the resource provider
 
@@ -54,7 +57,7 @@ Register the Microsoft.DataMigration resource provider before you create your fi
 
         The virtual network provides Azure Database Migration Service with access to the source database and target environment.
 
-        For more information on how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/vnet).
+        For more information on how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
     - Select Basic: 1 vCore for the **Pricing tier**.
 

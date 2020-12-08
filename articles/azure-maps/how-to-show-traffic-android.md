@@ -1,10 +1,10 @@
 ---
 title: Show traffic data on android map | Microsoft Azure Maps
 description: In this article you'll learn, how to display traffic data on a map using the Microsoft Azure Maps Android SDK.
-author: philmea
-ms.author: philmea
-ms.date: 02/27/2020
-ms.topic: conceptual
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 11/25/2020
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
@@ -16,9 +16,11 @@ Flow data and incidents data are the two types of traffic data that can be displ
 
 ## Prerequisites
 
-Before you can show traffic on the map, you need to [make an Azure Account](quick-demo-map-app.md#create-an-account-with-azure-maps)and [obtain a subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). Then, you need to install the [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) and load a map.
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+3. Download and install the [Azure Maps Android SDK](./how-to-use-android-map-control-library.md).
 
-## Incidents traffic data 
+## Incidents traffic data
 
 You'll need to import the following libraries to call `setTraffic` and `incidents`:
 
@@ -48,7 +50,7 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 
 Use the following code snippet to set traffic flow data. Similar to the code in the previous section, we pass the return value of the `flow` method to the `setTraffic` method. There are four values that can be passed to `flow`, and each value would trigger `flow` to return the respective value. The return value of `flow` will then be passed as the argument to `setTraffic`. See the table below for these four values:
 
-| | |
+|Flow Value | Description|
 | :-- | :-- |
 | TrafficFlow.NONE | Doesn't display traffic data on the map |
 | TrafficFlow.RELATIVE | Shows traffic data that's relative to the free-flow speed of the road |
@@ -68,7 +70,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 To obtain the incidents for a specific feature, you can use the code below. When a feature is clicked, the code logic checks for incidents and builds a message about the incident. A message shows up at the bottom of the screen with the details.
 
-1. First, you need to edit **res > layout > activity_main.xml**, so that it looks like the one below. You may replace the `mapcontrol_centerLat`, `mapcontrol_centerLng`, and `mapcontrol_zoom` with your desired values. Recall, the zoom level is a value between 0 and 22. At zoom level 0, the entire world fits on a single tile.
+1. First, you need to edit `res > layout > activity_main.xml`, so that it looks like the one below. You may replace the `mapcontrol_centerLat`, `mapcontrol_centerLng`, and `mapcontrol_zoom` with your desired values. Recall, the zoom level is a value between 0 and 22. At zoom level 0, the entire world fits on a single tile.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -218,11 +220,9 @@ To obtain the incidents for a specific feature, you can use the code below. When
 
 3. Once you incorporate the above code in your application, you'll be able to click on a feature and see the details of the traffic incidents. Depending on the latitude, longitude, and the zoom level values that you used in your **activity_main.xml** file, you'll see results similar to the following image:
 
-   <center>
 
-   ![Incident-traffic-on-the-map](./media/how-to-show-traffic-android/android-traffic.png)
+    ![Incident-traffic-on-the-map](./media/how-to-show-traffic-android/android-traffic.png)
 
-   </center>
 
 ## Next steps
 

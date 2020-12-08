@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -77,7 +77,7 @@ You can define an Amazon account as a claims provider by adding it to the **Clai
           <Item Key="ClaimsEndpoint">https://api.amazon.com/user/profile</Item>
           <Item Key="scope">profile</Item>
           <Item Key="HttpBinding">POST</Item>
-          <Item Key="UsePolicyInRedirectUri">0</Item>
+          <Item Key="UsePolicyInRedirectUri">false</Item>
           <Item Key="client_id">Your Amazon application client ID</Item>
         </Metadata>
         <CryptographicKeys>

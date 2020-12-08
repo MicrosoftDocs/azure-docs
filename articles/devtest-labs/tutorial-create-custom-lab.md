@@ -1,22 +1,10 @@
 ---
 title: Create a lab using Azure DevTest Labs | Microsoft Docs
 description: In this tutorial, you create a lab in Azure DevTest Labs by using the Azure portal. A lab admin sets up a lab, creates VMs in the lab, and configures policies.
-services: devtest-lab, lab-services, virtual-machines
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 01/24/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Tutorial: Set up a lab by using Azure DevTest Labs
 In this tutorial, you create a lab by using the Azure portal. A lab admin sets up a lab in an organization, creates VMs in the lab, and configures policies. Lab users (for example: developer and testers) claim VMs in the lab, connect to them, and use them. 
 
@@ -63,7 +51,7 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
     2. For **User name**, enter a name for the user that has access to the virtual machine. 
     3. For **Password**, enter the password for the user. 
 
-        ![Choose a base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+        ![Screenshot that shows the "Create lab resource" page Basic Settings.](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 1. Select **Advanced settings** tab.
     1. For **Make this machine claimable**, select **Yes**.
     2. Confirm that the **instance count** is set to **1**. If you set it to **2**, 2 VMs are created with names: `<base image name>00' and <base image name>01`. For example: `win10vm00` and `win10vm01`.     

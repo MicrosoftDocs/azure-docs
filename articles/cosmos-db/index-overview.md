@@ -3,14 +3,16 @@ title: Indexing in Azure Cosmos DB
 description: Understand how indexing works in Azure Cosmos DB, different kinds of indexes such as Range, Spatial, composite indexes supported. 
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
 ---
 
 # Indexing in Azure Cosmos DB - Overview
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB is a schema-agnostic database that allows you to iterate on your application without having to deal with schema or index management. By default, Azure Cosmos DB automatically indexes every property for all items in your [container](databases-containers-items.md#azure-cosmos-containers) without having to define any schema or configure secondary indexes.
+Azure Cosmos DB is a schema-agnostic database that allows you to iterate on your application without having to deal with schema or index management. By default, Azure Cosmos DB automatically indexes every property for all items in your [container](account-databases-containers-items.md#azure-cosmos-containers) without having to define any schema or configure secondary indexes.
 
 The goal of this article is to explain how Azure Cosmos DB indexes data and how it uses indexes to improve query performance. It is recommended to go through this section before exploring how to customize [indexing policies](index-policy.md).
 
@@ -46,14 +48,14 @@ The reason why Azure Cosmos DB transforms items into trees is because it allows 
 
 Here are the paths for each property from the example item described above:
 
-    /locations/0/country: "Germany"
-    /locations/0/city: "Berlin"
-    /locations/1/country: "France"
-    /locations/1/city: "Paris"
-    /headquarters/country: "Belgium"
-    /headquarters/employees: 250
-    /exports/0/city: "Moscow"
-    /exports/1/city: "Athens"
+- /locations/0/country: "Germany"
+- /locations/0/city: "Berlin"
+- /locations/1/country: "France"
+- /locations/1/city: "Paris"
+- /headquarters/country: "Belgium"
+- /headquarters/employees: 250
+- /exports/0/city: "Moscow"
+- /exports/1/city: "Athens"
 
 When an item is written, Azure Cosmos DB effectively indexes each property's path and its corresponding value.
 
@@ -130,7 +132,7 @@ Range indexes can be used on scalar values (string or number).
 - Geospatial within queries:
 
    ```sql
-   SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
+   SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] })
    ```
 
 - Geospatial intersect queries:
@@ -139,7 +141,7 @@ Range indexes can be used on scalar values (string or number).
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-Spatial indexes can be used on correctly formatted [GeoJSON](geospatial.md) objects. Points, LineStrings, Polygons, and MultiPolygons are currently supported.
+Spatial indexes can be used on correctly formatted [GeoJSON](./sql-query-geospatial-intro.md) objects. Points, LineStrings, Polygons, and MultiPolygons are currently supported.
 
 ### Composite indexes
 
@@ -168,7 +170,6 @@ As long as one filter predicate uses one of the index kind, the query engine wil
 * The above query will first filter for entries where firstName = "Andrew" by using the index. It then pass all of the firstName = "Andrew" entries through a subsequent pipeline to evaluate the CONTAINS filter predicate.
 
 * You can speed up queries and avoid full container scans when using functions that don't use the index (e.g. CONTAINS) by adding additional filter predicates that do use the index. The order of filter clauses isn't important. The query engine is will figure out which predicates are more selective and run the query accordingly.
-
 
 ## Querying with indexes
 

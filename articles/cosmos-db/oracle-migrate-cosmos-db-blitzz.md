@@ -3,13 +3,15 @@ title: Migrate data from Oracle to Azure Cosmos DB Cassandra API using Blitzz
 description: Learn how to migrate data from Oracle database to Azure Cosmos DB Cassandra API using Blitzz.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.subservice: cosmosdb-cassandra
+ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
 ---
 
 # Migrate data from Oracle to Azure Cosmos DB Cassandra API account using Blitzz
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads that are running on Oracle for a variety of reasons such as:
 

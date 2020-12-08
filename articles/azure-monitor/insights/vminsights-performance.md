@@ -17,7 +17,7 @@ Azure Monitor for VMs includes a set of performance charts that target several k
 Following are limitations in performance collection with Azure Monitor for VMs.
 
 - **Available memory** is not available for virtual machines running Red Hat Linux (RHEL) 6. This metric is calculated from **MemAvailable** which was introduced in [kernel version 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html).
-- Metrics are only available for data disks on Linux virtual machines using EXT filesystem family (EXT2, EXT3, EXT4).
+- Metrics are only available for data disks on Linux virtual machines using XFS filesystem or EXT filesystem family (EXT2, EXT3, EXT4).
 
 ## Multi-VM perspective from Azure Monitor
 

@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
 ---
@@ -58,7 +58,6 @@ Ambari offers many predefined alerts related to availability, including:
 | Percent JournalNodes Available    | This alert is triggered if the number of down JournalNodes in the cluster is greater than the configured critical threshold. It aggregates the results of JournalNode process checks. |
 | Percent DataNodes Available       | This alert is triggered if the number of down DataNodes in the cluster is greater than the configured critical threshold. It aggregates the results of DataNode process checks.|
 
-A full list of Ambari alerts that help monitor the availability of a cluster can be found [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui),
 
 To view details for an alert or modify criteria, select the **name** of the alert. Take **DataNode Health Summary** as an example. You can see a description of the alert as well as the specific criteria that will trigger a 'warning' or 'critical' alert and the check interval for the criteria. To edit the configuration, select the **Edit** button in the upper-right corner of the Configuration box.
 
@@ -83,7 +82,7 @@ A dialog for managing alert notifications will open. Select the **+** at the bot
 
 ## Next steps
 
-- [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md)
+- [Availability and reliability of Apache Hadoop clusters in HDInsight](./hdinsight-business-continuity.md)
 - [Cluster availability - Azure Monitor logs](./cluster-availability-monitor-logs.md)
 - [Use Azure Monitor logs](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 - [Apache Ambari email notifications](apache-ambari-email.md)

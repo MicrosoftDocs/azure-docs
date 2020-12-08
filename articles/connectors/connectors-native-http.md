@@ -5,23 +5,27 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 09/14/2020
 tags: connectors
 ---
 
 # Call service endpoints over HTTP or HTTPS from Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP trigger or action, you can create automated tasks and workflows that send requests to service endpoints over HTTP or HTTPS. For example, you can monitor the service endpoint for your website by checking that endpoint on a specific schedule. When the specified event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the actions in that workflow. If you want to receive and respond to inbound HTTPS calls instead, use the built-in [Request trigger or Response action](../connectors/connectors-native-reqres.md).
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP trigger or action, you can create automated tasks and workflows that can send outbound requests to endpoints on other services and systems over HTTP or HTTPS. To receive and respond to inbound HTTPS calls instead, use the built-in [Request trigger and Response action](../connectors/connectors-native-reqres.md).
+
+For example, you can monitor a service endpoint for your website by checking that endpoint on a specific schedule. When the specified event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the actions in that workflow.
 
 * To check or *poll* an endpoint on a recurring schedule, [add the HTTP trigger](#http-trigger) as the first step in your workflow. Each time that the trigger checks the endpoint, the trigger calls or sends a *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes any content from the endpoint's response to the actions in your logic app.
 
 * To call an endpoint from anywhere else in your workflow, [add the HTTP action](#http-action). The endpoint's response determines how your workflow's remaining actions run.
 
-This article shows how to add an HTTP trigger or action to your logic app's workflow.
+This article shows how to use the HTTP trigger and HTTP action so that your logic app can send outbound calls to other services and systems.
+
+For information about encryption, security, and authorization for outbound calls from your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), self-signed certificates, or [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * The URL for the target endpoint that you want to call
 
@@ -91,21 +95,27 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
 1. When you're done, remember to save your logic app. On the designer toolbar, select **Save**.
 
-<a name="tls-support"></a>
+## Trigger and action outputs
 
-## Transport Layer Security (TLS)
+Here is more information about the outputs from an HTTP trigger or action, which returns this information:
 
-Based the target endpoint's capability, outbound calls support Transport Layer Security (TLS), which was previously Secure Sockets Layer (SSL), versions 1.0, 1.1, and 1.2. Logic Apps negotiates with the endpoint over using the highest supported version possible.
+| Property | Type | Description |
+|----------|------|-------------|
+| `headers` | JSON object | The headers from the request |
+| `body` | JSON object | The object with the body content from the request |
+| `status code` | Integer | The status code from the request |
+|||
 
-For example, if the endpoint supports 1.2, the HTTP connector uses 1.2 first. Otherwise, the connector uses the next highest supported version.
-
-<a name="self-signed"></a>
-
-## Self-signed certificates
-
-* For logic apps in the global, multi-tenant Azure environment, the HTTP connector doesn't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
-
-* For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the HTTP connector permits self-signed certificates for TLS/SSL handshakes. However, you must first [enable self-signed certificate support](../logic-apps/create-integration-service-environment-rest-api.md#request-body) for an existing ISE or new ISE by using the Logic Apps REST API, and install the public certificate at the `TrustedRoot` location.
+| Status code | Description |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Accepted |
+| 400 | Bad request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 500 | Internal server error. Unknown error occurred. |
+|||
 
 ## Content with multipart/form-data type
 
@@ -153,11 +163,19 @@ Here is the same example that shows the HTTP action's JSON definition in the und
 }
 ```
 
+## Content with application/x-www-form-urlencoded type
+
+To provide form-urlencoded data in the body for an HTTP request, you have to specify that the data has the `application/x-www-form-urlencoded` content type. In the HTTP trigger or action, add the `content-type` header. Set the header value to `application/x-www-form-urlencoded`.
+
+For example, suppose you have a logic app that sends an HTTP POST request to a website, which supports the `application/x-www-form-urlencoded` type. Here's how this action might look:
+
+![Screenshot that shows an HTTP request with the 'content-type' header set to 'application/x-www-form-urlencoded'](./media/connectors-native-http/http-action-urlencoded.png)
+
 <a name="asynchronous-pattern"></a>
 
 ## Asynchronous request-response behavior
 
-By default, all HTTP-based actions in Azure Logic Apps follow the standard [asynchronous operation pattern](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). This pattern specifies that after an HTTP action calls or sends a request to an endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URL and a refresh ID that the caller can use to poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. However, the caller doesn't have to wait for the request to finish processing and can continue to run the next action. For more information, see [Asynchronous microservice integration enforces microservice autonomy](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+By default, all HTTP-based actions in Azure Logic Apps follow the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply). This pattern specifies that after an HTTP action calls or sends a request to an endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URL and a refresh ID that the caller can use to poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. However, the caller doesn't have to wait for the request to finish processing and can continue to run the next action. For more information, see [Asynchronous microservice integration enforces microservice autonomy](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
 * In the Logic App Designer, the HTTP action, but not trigger, has an **Asynchronous Pattern** setting, which is enabled by default. This setting specifies that the caller doesn't wait for processing to finish and can move on to the next action but continues checking the status until processing stops. If disabled, this setting specifies that the caller waits for processing to finish before moving on to the next action.
 
@@ -224,7 +242,7 @@ Some endpoints, services, systems, or APIs return a "202 ACCEPTED" response that
 
 If an HTTP trigger or action includes these headers, Logic Apps removes these headers from the generated request message without showing any warning or error:
 
-* `Accept-*`
+* `Accept-*` headers except for `Accept-version`
 * `Allow`
 * `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
 * `Cookie`
@@ -244,28 +262,7 @@ For more information about trigger and action parameters, see these sections:
 * [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-### Output details
-
-Here is more information about the outputs from an HTTP trigger or action, which returns this information:
-
-| Property | Type | Description |
-|----------|------|-------------|
-| `headers` | JSON object | The headers from the request |
-| `body` | JSON object | The object with the body content from the request |
-| `status code` | Integer | The status code from the request |
-|||
-
-| Status code | Description |
-|-------------|-------------|
-| 200 | OK |
-| 202 | Accepted |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 500 | Internal server error. Unknown error occurred. |
-|||
-
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
+* [Connectors for Logic Apps](../connectors/apis-list.md)

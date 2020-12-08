@@ -6,7 +6,7 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/02/2020
+ms.date: 12/03/2020
 ---
 
 # Data flow script (DFS)
@@ -171,13 +171,13 @@ aggregate(groupBy(movie),
 Use this code in your data flow script to create a new derived column called ```DWhash``` that produces a ```sha1``` hash of three columns.
 
 ```
-derive(DWhash = sha1(Name,ProductNumber,Color))
+derive(DWhash = sha1(Name,ProductNumber,Color)) ~> DWHash
 ```
 
 You can also use this script below to generate a row hash using all columns that are present in your stream, without needing to name each column:
 
 ```
-derive(DWhash = sha1(columns()))
+derive(DWhash = sha1(columns())) ~> DWHash
 ```
 
 ### String_agg equivalent
@@ -186,17 +186,60 @@ This code will act like the T-SQL ```string_agg()``` function and will aggregate
 ```
 source1 aggregate(groupBy(year),
 	string_agg = collect(title)) ~> Aggregate1
-Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+Aggregate1 derive(string_agg = toString(string_agg)) ~> StringAgg
 ```
 
 ### Count number of updates, upserts, inserts, deletes
-When using an Alter Row transformation, you may want to count the number of updates, upserts, inserts, deletes that result from your Alter Row policies. Add an Aggregate transformation after your alter row and paste this Data Flow Script into the aggregate definition for those counts:
+When using an Alter Row transformation, you may want to count the number of updates, upserts, inserts, deletes that result from your Alter Row policies. Add an Aggregate transformation after your alter row and paste this Data Flow Script into the aggregate definition for those counts.
 
 ```
 aggregate(updates = countIf(isUpdate(), 1),
 		inserts = countIf(isInsert(), 1),
 		upserts = countIf(isUpsert(), 1),
 		deletes = countIf(isDelete(),1)) ~> RowCount
+```
+
+### Distinct row using all columns
+This snippet will add a new Aggregate transformation to your data flow which will take all incoming columns, generate a hash that is used for grouping to eliminate duplicates, then provide the first occurrence of each duplicate as output. You do not need to explicitly name the columns, they will be automatically generated from your incoming data stream.
+
+```
+aggregate(groupBy(mycols = sha2(256,columns())),
+    each(match(true()), $$ = first($$))) ~> DistinctRows
+```
+
+### Check for NULLs in all columns
+This is a snippet that you can paste into your data flow to generically check all of your columns for NULL values. This technique leverages schema drift to look through all columns in all rows and uses a Conditional Split to separate the rows with NULLs from the rows with no NULLs. 
+
+```
+split(contains(array(columns()),isNull(#item)),
+	disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
+```
+
+### AutoMap schema drift with a select
+When you need to load an existing database schema from an unknown or dynamic set of incoming columns, you must map the right-side columns in the Sink transformation. This is only needed when you are loading an existing table. Add this snippet before your Sink to create a Select that auto-maps your columns. Leave your Sink mapping to auto-map.
+
+```
+select(mapColumn(
+		each(match(true()))
+	),
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> automap
+```
+
+### Persist column data types
+Add this script inside a Derived Column definition to store the column names and data types from your data flow to a persistent store using a sink.
+
+```
+derive(each(match(type=='string'), $$ = 'string'),
+	each(match(type=='integer'), $$ = 'integer'),
+	each(match(type=='short'), $$ = 'short'),
+	each(match(type=='complex'), $$ = 'complex'),
+	each(match(type=='array'), $$ = 'array'),
+	each(match(type=='float'), $$ = 'float'),
+	each(match(type=='date'), $$ = 'date'),
+	each(match(type=='timestamp'), $$ = 'timestamp'),
+	each(match(type=='boolean'), $$ = 'boolean'),
+	each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
 ```
 
 ## Next steps

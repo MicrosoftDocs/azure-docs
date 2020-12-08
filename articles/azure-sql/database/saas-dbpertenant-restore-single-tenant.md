@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
@@ -23,7 +23,7 @@ In this tutorial, you learn two data recovery patterns:
 > * Restore a database into a parallel database (side by side).
 > * Restore a database in place, replacing the existing database.
 
-|||
+| Pattern | Description |
 |:--|:--|
 | Restore into a parallel database | This pattern can be used for tasks such as review, auditing, and compliance to allow a tenant to inspect their data from an earlier point. The tenant's current database remains online and unchanged. |
 | Restore in place | This pattern is typically used to recover a tenant to an earlier point, after a tenant accidentally deletes or corrupts data. The original database is taken off line and replaced with the restored database. |
@@ -31,8 +31,8 @@ In this tutorial, you learn two data recovery patterns:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](../../sql-database/saas-dbpertenant-get-started-deploy.md).
-* Azure PowerShell is installed. For details, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](./saas-dbpertenant-get-started-deploy.md).
+* Azure PowerShell is installed. For details, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## Introduction to the SaaS tenant restore patterns
 

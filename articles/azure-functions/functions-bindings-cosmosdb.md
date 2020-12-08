@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB bindings for Functions 1.x
-description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
+description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions 1.x.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
-ms.custom: seodec18
+ms.custom: "devx-track-csharp, seodec18"
 ---
 
 # Azure Cosmos DB bindings for Azure Functions 1.x
@@ -209,6 +209,8 @@ The trigger doesn't indicate whether a document was updated or inserted, it just
 ## Input
 
 The Azure Cosmos DB input binding uses the SQL API to retrieve one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function.
+
+## Input - example
 
 # [C#](#tab/csharp)
 
@@ -1142,6 +1144,8 @@ Updates are not made automatically upon function exit. Instead, use `context.bin
 
 The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API.
 
+## Output - example
+
 # [C#](#tab/csharp)
 
 This section contains the following examples:
@@ -1472,7 +1476,7 @@ By default, when you write to the output parameter in your function, a document 
 
 | Binding | Reference |
 |---|---|
-| CosmosDB | [CosmosDB Error Codes](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [CosmosDB Error Codes](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## Next steps
 

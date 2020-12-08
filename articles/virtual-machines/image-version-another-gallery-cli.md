@@ -1,5 +1,5 @@
 ---
-title: Copy an image version from another gallery
+title: Copy an image version from another gallery using the CLI
 description: Copy an image version from another gallery with the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
@@ -12,7 +12,7 @@ ms.reviewer: akjosh
 
 ---
 
-# Copy an image from another gallery
+# Copy an image from another gallery using the Azure CLI
 
 If you have multiple galleries in your organization, you can also create image versions from existing image versions stored in other galleries. For example, you might have a development and test gallery for creating and testing new images. When they are ready to be used in production, you can copy them into a production gallery using this example. You can also create an image from an image in another gallery using [Azure PowerShell](image-version-another-gallery-powershell.md).
 
@@ -150,7 +150,7 @@ az sig image-version create \
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
 >
-> You can also store your image in Premiun storage by a adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type  standard_zrs` when you create the image version.
+> You can also store your image in Premium storage by adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](../storage/common/storage-redundancy.md) by adding `--storage-account-type  standard_zrs` when you create the image version.
 >
 
 ## Next steps
@@ -158,3 +158,5 @@ az sig image-version create \
 Create a VM from a [generalized](vm-generalized-image-version-cli.md) or a [specialized](vm-specialized-image-version-cli.md) image version.
 
 Also, try out [Azure Image Builder (preview)](./linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
+
+For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).

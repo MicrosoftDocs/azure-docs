@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AskYourTeam | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and AskYourTeam.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1cef6764-de54-4920-b0ad-e560c214c72e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with AskYourTeam
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate AskYourTeam with Azure Active Di
 * Enable your users to be automatically signed-in to AskYourTeam with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -41,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * AskYourTeam supports **SP and IDP** initiated SSO.
-* Once you configure AskYourTeam you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure AskYourTeam you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding AskYourTeam from the gallery
 
@@ -134,19 +128,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **My Organisation**.
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/user1.png)
+    ![Screenshot shows the My Organisation link.](./media/askyourteam-tutorial/user1.png)
 
 1. Click on **Integrations**.
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/configure1.png)
+    ![Screenshot shows the Integrations link.](./media/askyourteam-tutorial/configure1.png)
 
 1. Click on **Edit Settings**.
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/configure2.png)
+    ![Screenshot shows the Single Sign-On message with an Edit Settings button.](./media/askyourteam-tutorial/configure2.png)
 
 1. On the **Edit Single Sign-On Integration** page, perform the following steps: 
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/configure3.png)
+    ![Screenshot shows Edit Single Sign-On Integration where you can enter the values for this step.](./media/askyourteam-tutorial/configure3.png)
 
     a. In the **SAML Single Sign-On Service URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
@@ -171,15 +165,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **My Organisation**.
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/user1.png)
+    ![Screenshot shows the My Organisation link where you begin this task.](./media/askyourteam-tutorial/user1.png)
 
 1. Click **Users** and select **New User**.
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/user2.png)
+    ![Screenshot shows the Users link with New User.](./media/askyourteam-tutorial/user2.png)
 
 1. On the **New user** section, perform the following steps:
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/user3.png)
+    ![Screenshot shows a New User section where you enter user information.](./media/askyourteam-tutorial/user3.png)
 
     1. In the **First name** textbox, enter the first name of the user.
 
@@ -195,16 +189,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the AskYourTeam tile in the Access Panel, you should be automatically signed in to the AskYourTeam for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the AskYourTeam tile in the Access Panel, you should be automatically signed in to the AskYourTeam for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try AskYourTeam with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

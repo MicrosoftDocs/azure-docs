@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -80,6 +80,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | authorization_endpoint | Yes | The URL of the authorization endpoint as per RFC 6749. |
 | AccessTokenEndpoint | Yes | The URL of the token endpoint as per RFC 6749. |
 | ClaimsEndpoint | Yes | The URL of the user information endpoint as per RFC 6749. |
+| end_session_endpoint | Yes | The URL of the end session endpoint as per RFC 6749. |
 | AccessTokenResponseFormat | No | The format of the access token endpoint call. For example, Facebook requires an HTTP GET method, but the access token response is in JSON format. |
 | AdditionalRequestQueryParameters | No | Additional request query parameters. For example, you may want to send additional parameters to your identity provider. You can include multiple parameters using comma delimiter. |
 | ClaimsEndpointAccessTokenName | No | The name of the access token query string parameter. Some identity providers' claims endpoints support GET HTTP request. In this case, the bearer token is sent by using a query string parameter instead of the authorization header. |
@@ -94,6 +95,8 @@ The technical profile also returns claims that aren't returned by the identity p
 | ExtraParamsInClaimsEndpointRequest | No | Contains the extra parameters that can be returned in the **ClaimsEndpoint** request by some identity providers. Multiple parameter names should be escaped and separated by the comma ',' delimiter. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 | ResolveJsonPathsInJsonTokens  | No | Indicates whether the technical profile resolves JSON paths. Possible values: `true`, or `false` (default). Use this metadata to read data from a nested JSON element. In an [OutputClaim](technicalprofiles.md#outputclaims), set the `PartnerClaimType` to the JSON path element you want to output. For example: `firstName.localized`, or `data.0.to.0.email`.|
+|token_endpoint_auth_method| No| Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), and `client_secret_basic` (public preview). For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+|SingleLogoutEnabled| No| Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](session-overview.md#sign-out).  Possible values: `true` (default), or `false`.|
 
 ## Cryptographic keys
 
@@ -105,23 +108,8 @@ The **CryptographicKeys** element contains the following attribute:
 
 ## Redirect URI
 
-When you configure the redirect URL of your identity provider, enter `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`. Make sure to replace **tenant** with your tenant's name (for example, contosob2c.onmicrosoft.com) and **policyId** with the identifier of your policy (for example, b2c_1a_policy). The redirect URI needs to be in all lowercase.
-
-If you are using the **b2clogin.com** domain instead of **login.microsoftonline.com** Make sure to use b2clogin.com instead of login.microsoftonline.com.
+When you configure the redirect URI of your identity provider, enter `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/oauth2/authresp`. Make sure to replace `{tenant-name}` with your tenant's name (for example, contosob2c). The redirect URI needs to be in all lowercase.
 
 Examples:
 
 - [Add Google+ as an OAuth2 identity provider using custom policies](identity-provider-google-custom.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Fluxx Labs | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Fluxx Labs.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d8fac770-bb57-4e1f-b50b-9ffeae239d07
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Fluxx Labs
@@ -26,7 +21,7 @@ In this tutorial, you'll learn how to integrate Fluxx Labs with Azure Active Dir
 * Enable your users to be automatically signed-in to Fluxx Labs with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -40,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Fluxx Labs supports **IDP** initiated SSO
-* Once you configure Fluxx Labs you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Fluxx Labs you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Fluxx Labs from the gallery
 
@@ -139,15 +134,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Select **Admin** below the **Settings** section.
 
-	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config1.png)
+	![Screenshot that shows the "Settings" section with "Admin" selected.](./media/fluxxlabs-tutorial/config1.png)
 
 3. In the Admin Panel, Select **Plug-ins** > **Integrations** and then select **SAML SSO-(Disabled)**
 
-	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config2.png)
+	![Screenshot that shows the "Integrations" tab with "S A M L S S O- (Disabled) selected.](./media/fluxxlabs-tutorial/config2.png)
 
 4. In the attribute section, perform the following steps:
 
-	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config3.png)
+	![Screenshot that shows the "Attributes" section with "S A M L S S O" checked, values entered in fields, and the "Save" button selected.](./media/fluxxlabs-tutorial/config3.png)
 
 	a. Select the **SAML SSO** checkbox.
 
@@ -180,11 +175,11 @@ To enable Azure AD users to sign in to Fluxx Labs, they must be provisioned into
 
 2. Click on the  below displayed **icon**.
 
-	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config6.png)
+	![Screenshot that shows administrator options with the "Plus" icon selected under "Your Dashboard is Empty".](./media/fluxxlabs-tutorial/config6.png)
 
 3. On the dashboard, click on the below displayed icon to open the **New PEOPLE** card.
 
-    ![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config4.png)
+    ![Screenshot that shows the "Contact Management" menu with the "Plus" icon next to "People" selected.](./media/fluxxlabs-tutorial/config4.png)
 
 4. On the **NEW PEOPLE** section, perform the following steps:
 
@@ -198,18 +193,18 @@ To enable Azure AD users to sign in to Fluxx Labs, they must be provisioned into
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Fluxx Labs tile in the Access Panel, you should be automatically signed in to the Fluxx Labs for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Fluxx Labs tile in the Access Panel, you should be automatically signed in to the Fluxx Labs for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Fluxx Labs with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Fluxx Labs with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect Fluxx Labs with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

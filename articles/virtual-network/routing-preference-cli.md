@@ -1,7 +1,7 @@
 ---
 title: Configure routing preference for a public IP address using Azure CLI
 titlesuffix: Azure Virtual Network
-description: Learn how to create a public IP with an Internet traffic routing preference
+description: Learn how to create a public IP with an Internet traffic routing preference by using the Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,8 +11,9 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
-ms.author: mnayak
+ms.date: 12/02/2020
+ms.author: mnayak 
+ms.custom: devx-track-azurecli
 
 ---
 # Configure routing preference for a public IP address using Azure CLI
@@ -33,16 +34,11 @@ By default, the routing preference for public IP address is set to the Microsoft
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.49 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Register the feature for your subscription
-The Routing Preference feature is currently in preview. Register the feature for your subscription as follows:
-```azurecli
-az feature register --namespace Microsoft.Network --name AllowRoutingPreferenceFeature
-```
+- This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the **East US** Azure region:
@@ -52,7 +48,7 @@ Create a resource group with the [az group create](/cli/azure/group#az-group-cre
 ```
 ## Create a public IP address
 
-Create a Public IP Address with routing preference of "Internet" type using command [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create), with the format as shown below.
+Create a Public IP Address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create), with the format as shown below.
 
 The following command creates a new public IP with **Internet** routing preference in the **East US** Azure region.
 

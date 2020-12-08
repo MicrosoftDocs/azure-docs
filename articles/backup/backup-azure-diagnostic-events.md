@@ -24,13 +24,15 @@ Azure Backup provides the following diagnostics events. Each event provides deta
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-For more information, see [Data model for Azure Backup diagnostics events](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model).
+If you are still using the [legacy event](#legacy-event) AzureBackupReport, we recommend switching to using the events above.
+
+For more information, see [Data model for Azure Backup diagnostics events](./backup-azure-reports-data-model.md).
 
 Data for these events can be sent to either a storage account, a Log Analytics workspace, or an event hub. If you're sending this data to a Log Analytics workspace, select the **Resource specific** toggle on the **Diagnostics settings** screen. For more information, see the following sections.
 
 ## Use diagnostics settings with Log Analytics
 
-You can now use Azure Backup to send vault diagnostics data to dedicated Log Analytics tables for backup. These tables are called [resource-specific tables](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific).
+You can now use Azure Backup to send vault diagnostics data to dedicated Log Analytics tables for backup. These tables are called [resource-specific tables](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 To send your vault diagnostics data to Log Analytics:
 
@@ -45,23 +47,23 @@ To send your vault diagnostics data to Log Analytics:
 After data flows into the Log Analytics workspace, dedicated tables for each of these events are created in your workspace. You can query any of these tables directly. You can also perform joins or unions between these tables if necessary.
 
 > [!IMPORTANT]
-> The six events, namely, CoreAzureBackup, AddonAzureBackupJobs, AddonAzureBackupAlerts, AddonAzureBackupPolicy, AddonAzureBackupStorage, and AddonAzureBackupProtectedInstance, are supported *only* in the resource-specific mode in [Backup reports](https://docs.microsoft.com/azure/backup/configure-reports). *If you try to send data for these six events in Azure diagnostics mode, no data will be visible in Backup reports.*
+> The six events, namely, CoreAzureBackup, AddonAzureBackupJobs, AddonAzureBackupAlerts, AddonAzureBackupPolicy, AddonAzureBackupStorage, and AddonAzureBackupProtectedInstance, are supported *only* in the resource-specific mode in [Backup reports](./configure-reports.md). *If you try to send data for these six events in Azure diagnostics mode, no data will be visible in Backup reports.*
 
 ## Legacy event
 
 Traditionally, all backup-related diagnostics data for a vault was contained in a single event called AzureBackupReport. The six events described here are, in essence, a decomposition of all the data contained in AzureBackupReport.
 
-Currently, we continue to support the AzureBackupReport event for backward compatibility in cases where users have existing custom queries on this event. Examples are custom log alerts and custom visualizations. *We recommend that you move to the [new events](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users) as early as possible*. The new events:
+Currently, we continue to support the AzureBackupReport event for backward compatibility in cases where users have existing custom queries on this event. Examples are custom log alerts and custom visualizations. *We recommend that you move to the [new events](#diagnostics-events-available-for-azure-backup-users) as early as possible*. The new events:
 
 * Make the data much easier to work with in log queries.
 * Provide better discoverability of schemas and their structure.
 * Improve performance across both ingestion latency and query times.
 
-*The legacy event in Azure diagnostics mode will eventually be deprecated. Choosing the new events might help you to avoid complex migrations at a later date*. Our [reporting solution](https://docs.microsoft.com/azure/backup/configure-reports) that uses Log Analytics will also stop supporting data from the legacy event.
+*The legacy event in Azure diagnostics mode will eventually be deprecated. Choosing the new events might help you to avoid complex migrations at a later date*. Our [reporting solution](./configure-reports.md) that uses Log Analytics will also stop supporting data from the legacy event.
 
 ### Steps to move to new diagnostics settings for a Log Analytics workspace
 
-1. Identify which vaults are sending data to the Log Analytics workspaces by using the legacy event and the subscriptions they belong to. Run the following workspaces to identify these vaults and subscriptions.
+1. Identify which vaults are sending data to the Log Analytics workspaces by using the legacy event and the subscriptions they belong to. Run the following query in each of your workspaces to identify these vaults and subscriptions.
 
     ````Kusto
     let RangeStart = startofday(ago(3d));
@@ -75,9 +77,9 @@ Currently, we continue to support the AzureBackupReport event for backward compa
         | where TimeGenerated >= RangeStart | where OperationName == "Vault"
         | summarize arg_max(TimeGenerated, *) by ResourceId
         | project ResourceId, Category};
-        // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
+        // Some Workspaces will not have AzureDiagnostics Table, so you need to use isFuzzy
     let CombinedVaultTable = (){
-        CombinedTable | union isfuzzy = true
+        union isfuzzy = true
         (VaultUnderAzureDiagnostics() ),
         (VaultUnderResourceSpecific() )
         | distinct ResourceId, Category};
@@ -89,9 +91,13 @@ Currently, we continue to support the AzureBackupReport event for backward compa
     | project ResourceId, SubscriptionId, VaultName
     ````
 
-1. Use the [built-in Azure Policy definitions](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics) in Azure Backup to add a new diagnostics setting for all vaults in a specified scope. This policy adds a new diagnostics setting to vaults that either don't have a diagnostics setting or have only a legacy diagnostics setting. This policy can be assigned to an entire subscription or resource group at a time. You must have Owner access to each subscription for which the policy is assigned.
+    Below is a screenshot of the query being run in one of the workspaces:
 
-You might choose to have separate diagnostics settings for AzureBackupReport and the six new events until you have migrated all of your custom queries to use data from the new tables. The following image shows an example of a vault that has two diagnostic settings. The first setting, named **Setting1**, sends data of an AzureBackupReport event to a Log Analytics workspace in Azure diagnostics mode. The second setting, named **Setting2**, sends data of the six new Azure Backup events to a Log Analytics workspace in the resource-specific mode.
+    ![Workspace query](./media/backup-azure-diagnostics-events/workspace-query.png)
+
+2. Use the [built-in Azure Policy definitions](./azure-policy-configure-diagnostics.md) in Azure Backup to add a new diagnostics setting for all vaults in a specified scope. This policy adds a new diagnostics setting to vaults that either don't have a diagnostics setting or have only a legacy diagnostics setting. This policy can be assigned to an entire subscription or resource group at a time. You must have Owner access to each subscription for which the policy is assigned.
+
+You might choose to have separate diagnostics settings for AzureBackupReport and the six new events until you've migrated all of your custom queries to use data from the new tables. The following image shows an example of a vault that has two diagnostic settings. The first setting, named **Setting1**, sends data of an AzureBackupReport event to a Log Analytics workspace in Azure diagnostics mode. The second setting, named **Setting2**, sends data of the six new Azure Backup events to a Log Analytics workspace in the resource-specific mode.
 
 ![Two settings](./media/backup-azure-diagnostics-events/two-settings-example.png)
 
@@ -99,7 +105,7 @@ You might choose to have separate diagnostics settings for AzureBackupReport and
 > The AzureBackupReport event is supported *only* in Azure diagnostics mode. *If you try to send data for this event in the resource-specific mode, no data will flow to the Log Analytics workspace.*
 
 > [!NOTE]
-> The toggle for **Azure diagnostics** or **Resource specific** appears only if the user selects **Send to Log Analytics**. To send data to a storage account or an event hub, a user selects the required destination and selects the check boxes for any of the desired events, without any additional inputs. Again, we recommend that you do not choose the legacy event AzureBackupReport going forward.
+> The toggle for **Azure diagnostics** or **Resource specific** appears only if the user selects **Send to Log Analytics**. To send data to a storage account or an event hub, a user selects the required destination and selects the check boxes for any of the desired events, without any additional inputs. Again, we recommend that you don't choose the legacy event AzureBackupReport going forward.
 
 ## Send Azure Site Recovery events to Log Analytics
 
@@ -119,4 +125,4 @@ The following image shows an example of a user who has three diagnostics setting
 
 ## Next steps
 
-[Learn the Log Analytics data model for the diagnostics events](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
+[Learn the Log Analytics data model for the diagnostics events](./backup-azure-reports-data-model.md)

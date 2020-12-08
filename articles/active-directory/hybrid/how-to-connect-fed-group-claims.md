@@ -8,7 +8,7 @@ manager: daveba
 ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
@@ -53,7 +53,7 @@ However, if an existing application expects to consume group information via cla
 
 - When using group membership for in-application authorization purposes it is preferable to use the Group ObjectID. The Group ObjectID is immutable and unique in Azure Active Directory and available for all groups.
 - If using the on-premises group sAMAccountName for authorization, use domain qualified names;  there’s less chance of names clashing. sAMAccountName may be unique within an Active Directory domain, but if more than one Active Directory domain is synchronized with an Azure Active Directory tenant there is a possibility for more than one group to have the same name.
-- Consider using [Application Roles](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) to provide a layer of indirection between the group membership and the application.   The application then makes internal authorization decisions based on role clams in the token.
+- Consider using [Application Roles](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) to provide a layer of indirection between the group membership and the application.   The application then makes internal authorization decisions based on role claims in the token.
 - If the application is configured to get group attributes that are synced from Active Directory and a Group doesn't contain those attributes, it won't be included in the claims.
 - Group claims in tokens include nested groups except when using the option to restrict the group claims to groups assigned to the application.  If a user is a member of GroupB and GroupB is a member of GroupA, then the group claims for the user will contain both GroupA and GroupB. When an organization's users have large numbers of group memberships, the number of groups listed in the token can grow the token size.  Azure Active Directory limits the number of groups it will emit in a token to 150 for SAML assertions, and 200 for JWT.  If a user is a member of a larger number of groups, the groups are omitted and a link to the Graph endpoint to obtain group information is included instead.
 
@@ -75,11 +75,11 @@ To configure Group Claims for a Gallery or Non-Gallery SAML application, open **
 
 Click on **Add a group claim**  
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
+![Screenshot that shows the "User Attributes & Claims" page with "Add a group claim" selected.](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
 Use the radio buttons to select which groups should be included in the token
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+![Screenshot that shows the "Group Claims" window with "Security groups" selected.](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
 | Selection | Description |
 |----------|-------------|
@@ -90,15 +90,15 @@ Use the radio buttons to select which groups should be included in the token
 
 For example, to emit all the Security Groups the user is a member of, select Security Groups
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+![Screenshot that shows the "Group Claims" window with "Security groups" selected and the "Source attribute" drop-down menu open.](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
 To emit groups using Active Directory attributes synced from Active Directory instead of Azure AD objectIDs select the required format from the drop-down. Only groups synchronized from Active Directory will be included in the claims.
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+![Screenshot that shows the "Source attribute" drop-down menu open.](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
 To emit only groups assigned to the application, select **Groups Assigned to the application**
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+![Screenshot that shows the "Group Claims" window with "Groups assigned to the application" selected.](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
 Groups assigned to the application will be included in the token.  Other groups the user is a member of will be omitted.  With this option nested groups are not included and the user must be a direct member of the group assigned to the application.
 
@@ -112,11 +112,11 @@ The way group claims are emitted can be modified by the settings under Advanced 
 
 Customize the name of the group claim:  If selected, a different claim type can be specified for group claims.   Enter the claim type in the Name field and the optional namespace for the claim in the namespace field.
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
+![Screenshot that shows the "Advanced options" section with "Customize the name of the group claim" selected and "Name" and "Namespace" values entered.](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
 Some applications require the group membership information to appear in the 'role' claim. You can optionally emit the user's groups as roles by checking the 'Emit groups a role claims' box.
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
+![Screenshot that shows the "Advanced options" section with "Customize the name of the group claim" and "Emit groups as role claims" selected.](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 > [!NOTE]
 > If the option to emit group data as roles is used, only groups will appear in the role claim.  Any Application Roles the user is assigned will not appear in the role claim.
@@ -141,8 +141,9 @@ Valid values are:
 |----------|-------------|
 | **"All"** | Emits security groups, distribution lists and roles |
 | **"SecurityGroup"** | Emits security groups the user is a member of in the groups claim |
-| **"DirectoryRole** | If the user is assigned directory roles, they are emitted as a 'wids' claim (groups claim won't be emitted) |
-| **"ApplicationGroup** | Emits only the groups that are explicitly assigned to the application and the user is a member of |
+| **"DirectoryRole"** | If the user is assigned directory roles, they are emitted as a 'wids' claim (groups claim won't be emitted) |
+| **"ApplicationGroup"** | Emits only the groups that are explicitly assigned to the application and the user is a member of |
+| **"None"** | No Groups are returned.(Its not case-sensetive so none works as well and it can be set directly in the application manifest.) |
 
    For example:
 

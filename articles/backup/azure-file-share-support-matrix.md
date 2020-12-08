@@ -8,7 +8,7 @@ ms.custom: references_regions
 
 # Support matrix for Azure file share backup
 
-You can use the [Azure Backup service](https://docs.microsoft.com/azure/backup/backup-overview) to back up Azure file shares. This article summarizes support settings when you back up Azure file shares with Azure Backup.
+You can use the [Azure Backup service](./backup-overview.md) to back up Azure file shares. This article summarizes support settings when you back up Azure file shares with Azure Backup.
 
 ## Supported regions
 
@@ -16,17 +16,14 @@ You can use the [Azure Backup service](https://docs.microsoft.com/azure/backup/b
 
 Azure file shares backup is available in all regions **except** for: Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China East 2, China North, China North 2, US Gov Iowa
 
-### Supported regions for accidental delete protection
-
-West Central US, Australia South East , Canada Central
-
 ## Supported storage accounts
 
 | Storage  account details | Support                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Account  Kind            | Azure  Backup supports Azure file shares present in general-purpose v1, general-purpose v2 and file storage type storage accounts |
+| Account  Kind            | Azure  Backup supports Azure file shares present in general-purpose v1, general-purpose v2, and file storage type storage accounts |
 | Performance              | Azure  Backup supports file shares in both standard and Premium Storage accounts |
-| Replication              | Azure  files shares in Storage Accounts with any replication type are  supported |
+| Replication              | Azure  file shares in storage accounts with any replication type are  supported |
+| Firewall enabled         | Azure file shares in storage accounts with Firewall rules that allow Microsoft Azure Services to access storage account are supported|
 
 ## Supported file shares
 
@@ -41,8 +38,10 @@ West Central US, Australia South East , Canada Central
 
 | Setting                                                      | Limit |
 | ------------------------------------------------------------ | ----- |
-| Maximum  number of file shares that can be protected per day per vault | 200   |
+| Maximum  number of file shares that can be protected per vault per day| 200   |
 | Maximum  number of storage accounts that can be registered per vault per day | 50    |
+| Maximum  number of file shares that can be protected  per vault | 2000   |
+| Maximum  number of storage accounts that can be registered per vault | 200   |
 
 ## Backup limits
 

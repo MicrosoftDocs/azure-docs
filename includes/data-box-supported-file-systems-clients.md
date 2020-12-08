@@ -3,11 +3,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod   
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 09/30/2020
 ms.author: alkohli
 ---
 
-| **Protocols** | **Versions** |
+| **Protocol** | **Versions** |
 | --- | --- |
-| SMB |2.X and later |
+| SMB | 3.0 and 2.0 |
 | NFS | All versions up to and including 4.1|

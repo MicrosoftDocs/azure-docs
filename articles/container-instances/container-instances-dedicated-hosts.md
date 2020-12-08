@@ -3,8 +3,8 @@ title: Deploy on dedicated host
 description: Use a dedicated host to achieve true host-level isolation for your Azure Container Instances workloads
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
+author: macolso
+ms.author: macolso
 ---
 
 # Deploy on dedicated hosts
@@ -23,7 +23,7 @@ The dedicated sku is appropriate for container workloads that require workload i
 > Using the dedicated sku is only available in the latest API version (2019-12-01) that is currently rolling out. Specify this API version in your deployment template.
 >
 
-Starting with API version 2019-12-01, there is a `sku` property under the container group properties section of a deployment template, which is required for an ACI deployment. Currently, you can use this property as part of an Azure Resource Manager deployment template for ACI. Learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Starting with API version 2019-12-01, there is a `sku` property under the container group properties section of a deployment template, which is required for an ACI deployment. Currently, you can use this property as part of an Azure Resource Manager deployment template for ACI. Learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](./container-instances-multi-container-group.md). 
 
 The `sku` property can have one of the following values:
 * `Standard` - the standard ACI deployment choice, which still guarantees hypervisor-level security 
@@ -132,17 +132,17 @@ Create a resource group with the [az group create][az-group-create] command.
 az group create --name myResourceGroup --location eastus
 ```
 
-Deploy the template with the [az group deployment create][az-group-deployment-create] command.
+Deploy the template with the [az deployment group create][az-deployment-group-create] command.
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
+az deployment group create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
 Within a few seconds, you should receive an initial response from Azure. A successful deployment takes place on a dedicated host.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

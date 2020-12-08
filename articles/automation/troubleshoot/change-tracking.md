@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Troubleshoot Change Tracking and Inventory issues
 
-This article describes how to troubleshoot and resolve Azure Automation Change Tracking and Inventory issues. For general information about Change Tracking and Inventory, see [Change Tracking and Inventory overview](../change-tracking.md).
+This article describes how to troubleshoot and resolve Azure Automation Change Tracking and Inventory issues. For general information about Change Tracking and Inventory, see [Change Tracking and Inventory overview](../change-tracking/overview.md).
 
 ## Windows
 
@@ -94,19 +94,19 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-If you don't see your machine in query results, it hasn't recently checked in. There's probably a local configuration issue and you should reinstall the agent. For information about installation and configuration, see [Collect log data with the Log Analytics agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+If you don't see your machine in query results, it hasn't recently checked in. There's probably a local configuration issue and you should reinstall the agent. For information about installation and configuration, see [Collect log data with the Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md).
 
-If your machine shows up in the query results, verify the scope configuration. See [Targeting monitoring solutions in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting).
+If your machine shows up in the query results, verify the scope configuration. See [Targeting monitoring solutions in Azure Monitor](../../azure-monitor/insights/solution-targeting.md).
 
-For more troubleshooting of this issue, see [Issue: You are not seeing any Linux data](https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux-troubleshoot#issue-you-are-not-seeing-any-linux-data).
+For more troubleshooting of this issue, see [Issue: You are not seeing any Linux data](../../azure-monitor/platform/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
 
 ##### Log Analytics agent for Linux not configured correctly
 
-The Log Analytics agent for Linux might not be configured correctly for log and command-line output collection by using the OMS Log Collector tool. See [Change Tracking and Inventory overview](../change-tracking.md).
+The Log Analytics agent for Linux might not be configured correctly for log and command-line output collection by using the OMS Log Collector tool. See [Change Tracking and Inventory overview](../change-tracking/overview.md).
 
 ##### FIM conflicts
 
-Azure Security Center's FIM feature might be incorrectly validating the integrity of your Linux files. Verify that FIM is operational and correctly configured for Linux file monitoring. See [Change Tracking and Inventory overview](../change-tracking.md).
+Azure Security Center's FIM feature might be incorrectly validating the integrity of your Linux files. Verify that FIM is operational and correctly configured for Linux file monitoring. See [Change Tracking and Inventory overview](../change-tracking/overview.md).
 
 ## Next steps
 

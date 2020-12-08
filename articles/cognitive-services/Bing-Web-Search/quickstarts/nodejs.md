@@ -10,11 +10,16 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
+ms.custom: seodec2018, devx-track-js
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Node.js.
 ---
 
 # Quickstart: Search the web using the Bing Web Search REST API and Node.js
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Use this quickstart to make your first call to the Bing Web Search API. This Node.js application sends a search request to the API, and shows the JSON response. Although this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
@@ -39,7 +44,7 @@ const https = require('https')
 
 ## Set the subscription key
 
-This code snippet uses the `AZURE_SUBSCRIPTION_KEY` environment variable to store your subscription key, which is a good practice to prevent the accidental exposure of your keys when deploying code. To look up your subscription key, see [Your APIs](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7).
+This code snippet uses the `AZURE_SUBSCRIPTION_KEY` environment variable to store your subscription key, which is a good practice to prevent the accidental exposure of your keys when deploying code.
 
 If you're unfamiliar with the use of environment variables, or you want to run this app as fast as possible, replace `process.env['AZURE_SUBSCRIPTION_KEY']` with your subscription key set as a string.
 

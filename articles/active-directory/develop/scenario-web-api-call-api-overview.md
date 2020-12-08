@@ -21,7 +21,7 @@ Learn what you need to know to build a web API that calls web APIs.
 
 ## Prerequisites
 
-This scenario, in which a protected web API calls web APIs, builds on top of the "Protect a web API" scenario. To learn more about this foundational scenario, see [Scenario: Protected web API](scenario-protected-web-api-overview.md).
+This scenario, in which a protected web API calls other web APIs, builds on [Scenario: Protected web API](scenario-protected-web-api-overview.md).
 
 ## Overview
 
@@ -37,5 +37,5 @@ The app registration part that's related to API permissions is classical. The ap
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [App registration](scenario-web-api-call-api-app-registration.md)
+Move on to the next article in this scenario,
+[App registration](scenario-web-api-call-api-app-registration.md).

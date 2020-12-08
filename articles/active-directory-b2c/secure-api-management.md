@@ -7,8 +7,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 04/10/2020
+ms.topic: how-to
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -31,7 +31,7 @@ You need the following resources in place before continuing with the steps in th
 
 When you secure an API in Azure API Management with Azure AD B2C, you need several values for the [inbound policy](../api-management/api-management-howto-policies.md) that you create in APIM. First, record the application ID of an application you've previously created in your Azure AD B2C tenant. If you're using the application you created in the prerequisites, use the application ID for *webbapp1*.
 
-To register an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
+To register an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
 
 #### [App registrations](#tab/app-reg-ga/)
 
@@ -56,7 +56,7 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 Next, get the well-known config URL for one of your Azure AD B2C user flows. You also need the token issuer endpoint URI you want to support in Azure API Management.
 
 1. Browse to your Azure AD B2C tenant in the [Azure portal](https://portal.azure.com).
-1. Under **Policies**, select **User flows (policies)**.
+1. Under **Policies**, select **User flows**.
 1. Select an existing policy, for example *B2C_1_signupsignin1*, then select **Run user flow**.
 1. Record the URL in hyperlink displayed under the **Run user flow** heading near the top of the page. This URL is the OpenID Connect well-known discovery endpoint for the user flow, and you use it in the next section when you configure the inbound policy in Azure API Management.
 
@@ -122,7 +122,7 @@ To call the API, you need both an access token issued by Azure AD B2C, and an AP
 You first need a token issued by Azure AD B2C to use in the `Authorization` header in Postman. You can get one by using the **Run now** feature of your sign-up/sign-in user flow you should have created as one of the prerequisites.
 
 1. Browse to your Azure AD B2C tenant in the [Azure portal](https://portal.azure.com).
-1. Under **Policies**, select **User flows (policies)**.
+1. Under **Policies**, select **User flows**.
 1. Select an existing sign-up/sign-in user flow, for example *B2C_1_signupsignin1*.
 1. For **Application**, select *webapp1*.
 1. For **Reply URL**, choose `https://jwt.ms`.

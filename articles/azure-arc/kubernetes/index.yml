@@ -1,47 +1,40 @@
 ### YamlMime:Landing
-title: Azure Arc enabled Kubernetes
-summary: Azure Arc extends Azure Resource Manager capabilities to Kubernetes clusters on any infrastructure across on-premises, multi-cloud, and the edge.
+title: Azure Arc Kubernetes (preview)
+summary: Learn how to manage Kubernetes clusters with Azure Arc
 
 metadata:
-  title: Azure Arc enabled Kubernetes
-  description: Learn about how to manage Kubernetes clusters 
-  author: mlearned  
-  manager: carmonm
+  title: Azure Arc Kubernetes
+  description: Learn about how to manage on-premises machines in Azure
+  author: 
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 05/19/2020
-  ms.author: mlearned
+  ms.date: 06/26/2020
+  ms.author: 
 
 landingContent:
-  
-  - title: Azure Arc overview
-    linkLists:
-     - linkListType: overview
-       links:
-          - text: Learn more about Azure Arc
-            url: https://azure.microsoft.com/services/azure-arc/
-  
   - title: Connect Kubernetes clusters to Azure using Azure Arc
     linkLists: 
       - linkListType: overview
         links:
           - text: What is Azure Arc enabled Kubernetes?
-            url: ./overview.md 
-      - linkListType: how-to-guide
+            url: overview.md 
+      - linkListType: quickstart
         links:
           - text: Connect cluster
-            url: ./connect-cluster.md
-          - text: Use GitOps in a connected cluster
-            url: ./use-gitops-connected-cluster.md
-          - text: Use GitOps with Helm
-            url: ./use-gitops-with-helm.md
-          - text: Use Azure monitor for containers
-            url: ../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
-          - text: Use Azure Policy
-            url: ./use-azure-policy.md
+            url: connect-cluster.md
+      - linkListType: how-to-guide
+        links:  
+          - text: Deploy configurations using GitOps
+            url: use-gitops-connected-cluster.md
+          - text: Deploy Helm charts using GitOps
+            url: use-gitops-with-helm.md
+          - text: Enforce GitOps using Azure Policy
+            url: use-azure-policy.md
           - text: Deploy Azure IoT edge workloads
-            url: ./deploy-azure-iot-edge-workloads.md
-          - text: Onboarding service principal
-            url: ./create-onboarding-service-principal.md
-
-         
+            url: deploy-azure-iot-edge-workloads.md
+  - title: Reference architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Manage deployments and configurations for hybrid Kubernetes clusters
+            url: /azure/architecture/hybrid/arc-hybrid-kubernetes

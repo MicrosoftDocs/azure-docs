@@ -77,7 +77,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 4. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
 
-    ![Custom domains list](./media/cdn-custom-ssl/cdn-custom-domain.png)
+    ![Screenshot shows the Custom domain page with the option to Use my own certificate.](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
     The **Custom domain** page appears.
 
@@ -179,7 +179,7 @@ Your CNAME record should be in the following format, where *Name* is your custom
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
-For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
+For more information about CNAME records, see [Create the CNAME DNS record](./cdn-map-content-to-custom-domain.md).
 
 If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a dedicated certificate for your domain name. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
 
@@ -334,4 +334,3 @@ Advance to the next tutorial to learn how to configure caching on your CDN endpo
 
 > [!div class="nextstepaction"]
 > [Tutorial: Set Azure CDN caching rules](cdn-caching-rules-tutorial.md)
-

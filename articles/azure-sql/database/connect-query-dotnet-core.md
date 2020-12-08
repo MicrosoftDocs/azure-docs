@@ -5,7 +5,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=2
+ms.custom: "sqldbrb=2, devx-track-csharp"
 ms.devlang: dotnet
 ms.topic: quickstart
 author: stevestein
@@ -19,7 +19,7 @@ ms.date: 05/29/2020
 In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C# code to connect to a database. You'll then run a Transact-SQL statement to query data.
 
 > [!TIP]
-> The following Microsoft Learn module helps you learn for free how to [Develop and configure an ASP.NET application that queries a database in Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+> The following Microsoft Learn module helps you learn for free how to [Develop and configure an ASP.NET application that queries a database in Azure SQL Database](/learn/modules/develop-app-that-queries-azure-sql/)
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ To complete this quickstart, you need:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - A database. You can use one of these quickstarts to create and then configure a database:
 
-  || SQL Database | SQL Managed Instance | SQL Server on Azure VM |
+  | Action | SQL Database | SQL Managed Instance | SQL Server on Azure VM |
   |:--- |:--- |:---|:---|
   | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -204,4 +204,4 @@ namespace sqltest
 - [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).
 - Learn how to [connect and query Azure SQL Database or Azure SQL Managed Instance, by using the .NET Framework and Visual Studio](connect-query-dotnet-visual-studio.md).  
 - Learn how to [Design your first database with SSMS](design-first-database-tutorial.md) or [Design a database and connect with C# and ADO.NET](design-first-database-csharp-tutorial.md).
-- For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).
+- For more information about .NET, see [.NET documentation](/dotnet/).
