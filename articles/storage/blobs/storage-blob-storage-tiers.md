@@ -108,6 +108,11 @@ When a blob is moved to a warmer tier (archive->cool, archive->hot, or cool->hot
 
 Any blob that is moved into the cool tier (GPv2 accounts only) is subject to a cool early deletion period of 30 days. Any blob that is moved into the archive tier is subject to an archive early deletion period of 180 days. This charge is prorated. For example, if a blob is moved to archive and then deleted or moved to the hot tier after 45 days, you'll be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in archive.
 
+There are some details when moving between the cool and archive tiers:
+
+1. If a blob is inferred as cool based on the storage account's default access tier and the blob is moved to archive, there is no early deletion charge.
+1. If the blob is explicitly moved to the cool tier and then moved to archive, the early deletion charge applies.
+
 You may calculate the early deletion by using the blob property, **Last-Modified**, if there has been no access tier changes. Otherwise you can use when the access tier was last modified to cool or archive by viewing the blob property: **access-tier-change-time**. For more information on blob properties, see [Get Blob Properties](/rest/api/storageservices/get-blob-properties).
 
 ## Comparing block blob storage options
