@@ -155,7 +155,7 @@ Define a swappable relationship between two deployments.
     Switch-AzCloudService -SourceCloudService $sourceCloudServiceId -TargetCloudService $targetCloudServiceId    
     ```
 
-To update the swappable relationship for a Cloud Service deployment, call the `update-AzCloudService` command with `-SwappableCloudServiceId` property containing the Cloud Services Id of the newer deployment.
+To update the swappable relationship for a Cloud Service deployment, call the `update-AzCloudService` command with `-SwappableCloudServiceId` property containing the Cloud Services ID of the newer deployment.
 
 ## RDP using plugin or extension
 
