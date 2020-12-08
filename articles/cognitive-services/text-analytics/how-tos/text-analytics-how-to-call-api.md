@@ -16,6 +16,19 @@ ms.author: aahi
 
 In this article, we use the Text Analytics REST API and [Postman](https://www.postman.com/downloads/) to demonstrate key concepts. The API provides several synchronous and asynchronous endpoints for using the features of the service. 
 
+## Create a Text Analytics resource
+
+> [!NOTE]
+> * You will need a Text Analytics resource using a Standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) if you want to use the `/analyze` or `/health` endpoints. The `/analyze` endpoint is included in your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+Before you use the Text Analytics API, you will need to create a Azure resource with a key and endpoint for your applications. 
+
+1.	First, go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and create a new Text Analytics resource, if you don't have one already. Choose a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+2.	Select the region you want to use for your endpoint.  Please note the `/analyze` and `/health` endpoints are only available in the following regions: West US 2, East US 2, Central US, North Europe and West Europe.
+
+3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
+
 ## Using the API synchronously
 
 You can call Text Analytics synchornously (for low latency scenarios). You have to call each API (feature) separately when using synchronous API. If you need to call multiple features then check out below section on how to call Text Analytics asynchronously. 
@@ -47,25 +60,16 @@ See the table below to see which features can be used asynchronously. Note that 
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-## Create a Text Analytics resource
-
-> [!NOTE]
-> * You will need a Text Analytics resource using a Standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) if you want to use the `/analyze` or `/health` endpoints. The `/analyze` endpoint is included in your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
-
-Before you use the Text Analytics API, you will need to create a Azure resource with a key and endpoint for your applications. 
-
-1.	First, go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and create a new Text Analytics resource, if you don't have one already. Choose a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
-
-2.	Select the region you want to use for your endpoint.  Please note the `/analyze` and `/health` endpoints are only available in the following regions: West US 2, East US 2, Central US, North Europe and West Europe.
-
-3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
-
 
 <a name="json-schema"></a>
 
-## API request format
+## API request formats
+
+You can send both synchronous and asyncronous calls to the Tenxt Analytics API.
 
 #### [Synchronous](#tab/synchronous)
+
+### Synchronous requests
 
 The format for API requests is the same for all synchronous operations. Documents are submitted in a JSON object as raw unstructured text. XML is not supported. The JSON schema consists of the elements described below.
 
@@ -89,7 +93,9 @@ The following is an example of an API request for the synchronous Text Analytics
 }
 ```
 
-#### [Analyze](#tab/analyze)
+#### [Asynchronous](#tab/asynchronous)
+
+### Asynchronous requests to the `/analyze` endpoint
 
 > [!NOTE]
 > The latest prerelease of the Text Analytics client library enables you to call Asynchronous Analyze operations using a client object. You can find examples on GitHub:
@@ -154,7 +160,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 
 ```
 
-#### [Text Analytics for health](#tab/health)
+### Asynchronous requests to the `/health` endpoint
 
 The format for API requests to the Text Analytics for health hosted API is the same as for its container. Documents are submitted in a JSON object as raw unstructured text. XML is not supported. The JSON schema consists of the elements described below.  Please fill out and submit the [Cognitive Services request form](https://aka.ms/csgate) to request access to the Text Analytics for health public preview. You will not be billed for Text Analytics for health usage. 
 
@@ -194,6 +200,8 @@ In Postman (or another web API test tool), add the endpoint for the feature you 
 
 #### [Synchronous](#tab/synchronous)
 
+### Endpoints for sending synchronous requests
+
 | Feature | Request type | Resource endpoints |
 |--|--|--|
 | Language detection | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
@@ -204,14 +212,16 @@ In Postman (or another web API test tool), add the endpoint for the feature you 
 | Named entity recognition - PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
 | Named entity recognition - PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
 
-#### [Analyze](#tab/analyze)
+#### [Asynchronous](#tab/asynchronous)
+
+### Endpoints for sending asynchronous requests to the `/analyze` endpoint
 
 | Feature | Request type | Resource endpoints |
 |--|--|--|
 | Submit analysis job | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
 | Get analysis status and results | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
 
-#### [Text Analytics for health](#tab/health)
+### Endpoints for sending asynchronous requests to the `/health` endpoint
 
 | Feature | Request type | Resource endpoints |
 |--|--|--|
@@ -267,6 +277,8 @@ Please note that for both asynchronous `/analyze` or `/health` operations, the r
  
 # [Synchronous](#tab/synchronous)
 
+### Example responses for synchronous operation
+
 The synchronous endpoint responses will vary depending on the endpoint you use. See the following articles for example responses.
 
 + [Language detection](text-analytics-how-to-language-detection.md#step-3-view-the-results)
@@ -274,7 +286,12 @@ The synchronous endpoint responses will vary depending on the endpoint you use. 
 + [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [Entity recognition](text-analytics-how-to-entity-linking.md#view-results)
 
-# [Analyze](#tab/analyze)
+# [Asynchronous](#tab/asynchronous)
+
+### Example responses for asynchronous operations
+
+> [!NOTE]
+> See the [Text Analytics for health](text-analytics-for-health.md#hosted-asynchronous-web-api-response) article for more information on the Text Analytics for health asynchronous API response.
 
 If successful, the GET request to the `/analyze` endpoint will return an object containing the assigned tasks. For example `keyPhraseExtractionTasks`. These tasks contain the response object from the appropriate Text Analytics feature. See the following articles for more information.
 
@@ -331,13 +348,6 @@ If successful, the GET request to the `/analyze` endpoint will return an object 
   }
 }
 ```
-
-# [Text Analytics for health](#tab/health)
-
-See the following article for more information for the Text Analytics for health asynchronous API response:
-
-+ [Text Analytics for health](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
-
 
 --- 
 
