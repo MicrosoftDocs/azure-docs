@@ -45,7 +45,7 @@ In this tutorial, you will learn about topics such as:
 Before you begin, make sure:
 
 * You've have completed the [Tutorial: Copy data to Azure Data Box and verify](data-box-deploy-copy-data.md).
-* Copy jobs are complete and there are no errors on the **Connect and copy** page. Prepare to ship can't run if copy jobs are in progress or there are errors in the **Connect and copy** page.
+* Copy jobs are complete and there are no errors on the **Connect and copy** page. **Prepare to ship** can't run if copy jobs are in progress or there are errors in the **Connect and copy** page.
 
 ## Prepare to ship
 
@@ -61,8 +61,8 @@ After the data copy is complete, you prepare and ship the device. When the devic
 
 Before you prepare to ship, make sure that copy jobs are complete.
 
-1. Go to **Prepare to ship** page in the local web UI and start the ship preparation. 
-2. Turn off the device from the local web UI. Remove the cables from the device. 
+1. Go to **Prepare to ship** page in the local web UI and start the ship preparation.
+2. Turn off the device from the local web UI. Remove the cables from the device.
 
 The next steps are determined by where you are returning the device.
 
@@ -72,7 +72,7 @@ The next steps are determined by where you are returning the device.
 
 ## Ship Data Box back
 
-Ensure that the data copy to device is complete and **Prepare to ship** run is successful. Based on the region where you are shipping the device, the procedure is different.
+Ensure that the data copy to device is complete and the **Prepare to ship** run is successful. Based on the region where you are shipping the device, the procedure is different.
 
 ::: zone-end
 
@@ -80,14 +80,14 @@ Ensure that the data copy to device is complete and **Prepare to ship** run is s
 
 Take the following steps if returning the device in US, Canada, or Europe.
 
-1. Make sure that the device is powered off and cables are removed. 
+1. Make sure that the device is powered off and cables are removed.
 2. Spool and securely place the power cord that was provided with device in the back of the device.
 3. Ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, contact Microsoft Support. If the Support suggests, then you can go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device. 
 4. Schedule a pickup with UPS if returning the device. To schedule a pickup:
 
     * Call the local UPS (country/region-specific toll free number).
     * In your call, quote the reverse shipment tracking number as shown in the E-ink display or your printed label. If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
-    * If you face any issues while scheduling a pickup, or you are asked to pay additional fees, please contact Azure Data Box Operations. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com).
+    * If you face any issues while scheduling a pickup, or you are asked to pay additional fees, contact Azure Data Box Operations. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com).
 
     Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
@@ -171,7 +171,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ## [Singapore](#tab/in-singapore)
 
 1. Retain the original box used to ship the device for return shipment.
-2. Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste on the packing box.
+2. Note down the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). This is available after the **Prepare to ship** step successfully completes. Download the shipping label from this page and paste on the packing box.
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device. 
 5. Email SingPost Customer Service using the following email template with the tracking number.
@@ -281,7 +281,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 <!--## [In Korea](#tab/in-korea) 
 
 1. Retain the original box used to ship the device for return shipment.
-2. Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste on the packing box. 
+2. Note down the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). This is available after the **Prepare to ship** step successfully completes. Download the shipping label from this page and paste on the packing box. 
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device. 
 
@@ -322,7 +322,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 If you are using Data Box in US Government, Japan, Singapore, Korea, India, South Africa, or West Europe and have selected the self-managed shipping option during order creation, follow these instructions. 
 
-1. Note down the Authorization code shown on the Prepare to Ship page of the Data Box local web UI after this step successfully completes.
+1. Note down the Authorization code shown on the **Prepare to Ship** page of the Data Box local web UI after this step successfully completes.
 2. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device at the back of the device.
 3. Send an email to the Azure Data Box Operations team using the below template when you are ready to return the device.
 
