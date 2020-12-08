@@ -513,7 +513,9 @@ In this case, open the **local.settings.json** file at your project's root level
 
 `"FUNCTIONS_V2_COMPATIBILITY_MODE": "true"`
 
-When you stop the debugging session or workflow run, the subscriptions still persist in storage. If you don't want to keep these subscriptions, either delete them or clear your local storage. For example, if you're using the Azure Storage Emulator, run this command to clear your storage:
+When you stop the debugging session or workflow run, the subscriptions persist in storage. If you don't want to keep these subscriptions, either delete them or clear your local storage.
+
+For example, if you're using the Azure Storage Emulator, run this command to clear your storage:
 
 `AzureStorageEmulator.exe clear all`
 
