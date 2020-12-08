@@ -889,8 +889,6 @@ You can publish your logic app as a new resource, which automatically creates an
 
    ![Screenshot that shows a message that deployment to Azure successfully completed.](./media/create-stateful-stateless-workflows-visual-studio-code/deployment-to-azure-completed.png)
 
-1. Before you continue or close the confirmation message, select **Upload settings** so that you upload your local project settings to Azure.
-
    Congratulations, your logic app is now live in Azure and enabled by default.
 
 Next, you can learn how to perform these tasks:
