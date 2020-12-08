@@ -122,7 +122,7 @@ You should see the text moderation results displayed as JSON data in the console
 
 You'll use a command like the following to call the Content Moderator API to moderate a remote image and print the results to the console.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/content-moderator/quickstart.sh" ID="textmod":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/content-moderator/quickstart.sh" ID="imagemod":::
 
 Copy the command to a text editor and make the following changes:
 
