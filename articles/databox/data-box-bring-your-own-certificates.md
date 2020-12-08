@@ -15,11 +15,11 @@ ms.author: alkohli
 
 During order processing, self-signed certificates are generated for accessing the local web UI and Blob storage for a Data Box or Data Box Heavy device. If you'd rather communicate with your device over a trusted channel, you can use your own certificates.
 
-The article explains certificate requirements and describes how to install a certificate on the device and client computer and how to revert to default certificates before returning a device to the datacenter.
+The article desribes how to install your own certificates and how to revert to the default certificates before returning your device to the datacenter. It also gives a summary of certificate requirements.
 
 ## About certificates
 
-A certificate provides a link between a **public key** and an entity (such as domain name) that has been **signed** (verified) by a trusted third party (such as a **certificate authority**).  A certificate provides a convenient way of distributing trusted public encryption keys. Certificates thereby ensure that your communication is trusted and that you're sending encrypted information to the right server.
+A certificate provides a link between a **public key** and an entity (such as domain name) that has been **signed** (verified) by a trusted third party (such as a **certificate authority**).  A certificate provides a convenient way of distributing trusted public encryption keys. In this way, certificates ensure that your communication is trusted and that you're sending encrypted information to the right server.
 
 When your Data Box device is initially configured, self-signed certificates are automatically generated. Optionally, you can bring your own certificates. There are guidelines that you need to follow if you plan to bring your own certificates.
 
