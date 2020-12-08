@@ -7,7 +7,7 @@ ms.date: 09/28/2020
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
-1. Navigate to the private cloud you created in the previous tutorial and select **Connectivity** under **Manage**, select the **ExpressRoute** tab.
+1. Navigate to the private cloud you created in the [Deploy vSphere Cluster in Azure](../tutorial-create-private-cloud.md) tutorial. Select **Connectivity** under **Manage**, select the **ExpressRoute** tab.
 
 1. Copy the authorization key. If there isn't an authorization key, you need to create one, select **+ Request an authorization key**.
 
