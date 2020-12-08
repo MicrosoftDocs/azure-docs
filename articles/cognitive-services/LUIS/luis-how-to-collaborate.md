@@ -9,19 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 11/19/2019
+ms.date: 12/08/2020
 
 ---
 
 # Add contributors to your app
 
-An app owner can add contributors to apps. These contributors can modify the model, train, and publish the app.
-
-[!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
+An app owners can add contributors to apps. These contributors can modify the model, train, and publish the app. Once you have [migrated](../luis-migration-authoring.md) your account, _contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Add a user, using the collaborator's email address and the _contributor_ role.
 
 ## Add contributor to Azure authoring resource
-
-The following procedure is for all users that have **migrated** to use the Azure authoring resource.
 
 You have migrated if your LUIS authoring experience is tied to an Authoring resource on the **Manage -> Azure resources** page in the LUIS portal.
 
@@ -40,7 +36,9 @@ You have migrated if your LUIS authoring experience is tied to an Authoring reso
 
 ## View the app as a contributor
 
-After you have been added as a contributor, [sign in to the LUIS portal](sign-in-luis-portal.md). You may need to switch to a different Azure directory to see apps you've been shared on.
+After you have been added as a contributor, [sign in to the LUIS portal](sign-in-luis-portal.md).
+
+[!INCLUDE [switch azure directories](includes/switch-azure-directories.md)]
 
 1. Click the avatar in the top right corner of the screen. Then click **Switch to a different Azure directory**. 
 1. In the window that appears, be sure to select the Azure directory that contains the LUIS resource that was shared with you. 
