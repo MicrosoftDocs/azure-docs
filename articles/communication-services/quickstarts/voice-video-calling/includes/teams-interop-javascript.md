@@ -23,79 +23,90 @@ You must be a member of the owning organization of both entities to use this fea
 
 ## Add the Teams UI controls
 
-Add a new text box and button within your HTML. The text box will be used to enter the Teams meeting context and the button will be used to join the specified meeting:
+Replace code in index.html with following snippet.
+The text box will be used to enter the Teams meeting context and the button will be used to join the specified meeting:
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Communication Client - Calling Sample</title>
-  </head>
-  <body>
+</head>
+<body>
     <h4>Azure Communication Services</h4>
-    <h1>Calling Quickstart</h1>
-    <input 
-      id="callee-id-input"
-      type="text"
-      placeholder="Who would you like to call?"
-      style="margin-bottom:1em; width: 200px;"
-    />
-    <input 
-      id="teams-id-input"
-      type="text"
-      placeholder="Teams meeting context"
-      style="margin-bottom:1em; width: 300px;"
-    />
+    <h1>Teams meeting join quickstart</h1>
+    <input id="teams-link-input" type="text" placeholder="Teams meeting link"
+        style="margin-bottom:1em; width: 300px;" />
+        <p>Call state <span style="font-weight: bold" id="call-state">-</span></p>
     <div>
-      <button id="call-button" type="button" disabled="true">
-        Start Call
-      </button>
-      &nbsp;
-      <button id="hang-up-button" type="button" disabled="true">
-        Hang Up
-      </button>
-         <button id="meeting-button" type="button" disabled="false">
-        Join Teams Meeting
-      </button>
+        <button id="join-meeting-button" type="button" disabled="false">
+            Join Teams Meeting
+        </button>
+        <button id="hang-up-button" type="button" disabled="true">
+            Hang Up
+        </button>
     </div>
     <script src="./bundle.js"></script>
-  </body>
+</body>
+
 </html>
 ```
 
 ## Enable the Teams UI controls
 
-We can now bind the **Join Teams Meeting** button to the code that joins the provided Teams meeting:
+Replace content of client.js file with following snippet.
 
 ```javascript
-meetingButton.addEventListener("click", () => {
+import { CallClient } from "@azure/communication-calling";
+import { AzureCommunicationUserCredential } from '@azure/communication-common';
+
+let call;
+let callAgent;
+const meetingLinkInput = document.getElementById('teams-link-input');
+const hangUpButton = document.getElementById('hang-up-button');
+const teamsMeetingJoinButton = document.getElementById('join-meeting-button');
+const callStateElement = document.getElementById('call-state');
+
+async function init() {
+    const callClient = new CallClient();
+    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    callAgent = await callClient.createCallAgent(tokenCredential);
+    teamsMeetingJoinButton.disabled = false;
+}
+init();
+
+hangUpButton.addEventListener("click", async () => {
+    // end the current call
+    await call.hangUp();
+  
+    // toggle button states
+    hangUpButton.disabled = true;
+    teamsMeetingJoinButton.disabled = false;
+    callStateElement.innerText = '-';
+  });
+
+teamsMeetingJoinButton.addEventListener("click", () => {
     
     // set display name in the meeting
-    callAgent.updateDisplayName('YOUR_NAME');
+    callAgent.updateDisplayName('ACS user');
     
     // join with meeting link
-    call = callAgent.join({meetingLink: 'MEETING_LINK'}, {});
-
-     // join with meeting coordinates
-     call = callAgent.join({
-        threadId: 'CHAT_THREAD_ID',
-        organizerId: 'ORGANIZER_ID',
-        tenantId: 'TENANT_ID',
-        messageId: 'MESSAGE_ID'
-    }, {})
+    call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
     
+    call.on('callStateChanged', () => {
+        callStateElement.innerText = call.state;
+    })
     // toggle button states
     hangUpButton.disabled = false;
-    callButton.disabled = true;
-    meetingButton.disabled = true;
+    teamsMeetingJoinButton.disabled = true;
 });
 ```
 
-## Get the meeting context
+## Get the Teams meeting link
 
-The Teams context can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-
-You can also get the required meeting information from the **Join Meeting** URL in the meeting invite itself.
+The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
+ACS Calling SDK accepts a full Teams meeting link, it is returned as part of onlineMeeting resource, accessible under [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta)
+You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
 ## Run the code
 
