@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Use the REST APIs"
 description: This tutorial describes how to use the Azure Purview REST APIs to access the contents of your catalog.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
