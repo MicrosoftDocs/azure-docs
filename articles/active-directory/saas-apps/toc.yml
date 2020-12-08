@@ -417,6 +417,8 @@
         href: corptax-tutorial.md
       - name: Costpoint
         href: costpoint-tutorial.md
+      - name: Count Me In - Operations Dashboard
+        href: count-me-in-operations-dashboard-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
       - name: Coupa Risk Assess
@@ -648,8 +650,8 @@
         href: formcom-tutorial.md
       - name: Fortes Change Cloud
         href: fortes-change-cloud-tutorial.md
-      - name: FortiWeb Web Application Firewall
-        href: fortiweb-web-application-firewall-tutorial.md
+      - name: FortiGate SSL VPN
+        href: fortigate-ssl-vpn-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
