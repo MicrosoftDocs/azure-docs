@@ -1,12 +1,12 @@
 ### YamlMime:Landing
 
 title: BareMetal Infrastructure documentation
-summary: Learn how to use BareMetal Infrastructure to create, deploy, and manage virtual machines in Azure.
+summary: Learn how to use BareMetal Infrastructure to create, deploy, and manage virtual machines in Microsoft Azure.
 
 metadata:
   title: BareMetal Infrastructure documentation 
-  description: Learn how to use BareMetal Infrastructure to create, deploy, and manage virtual machines in Azure.
-  services: virtual-machines-windows # 12/1/2020 this will likely change
+  description: Learn how to use BareMetal Infrastructure to create, deploy, and manage virtual machines in Microsoft Azure.
+  services: virtual-machines # 12/1/2020 this will likely change
   ms.service: baremetal-infrastructure #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   author: shortpatti
