@@ -244,7 +244,7 @@ Before you can create your logic app, create a local project so that you can man
 
    ![Screenshot that shows the "Create new Stateful Workflow (3/3)" box and "Fabrikam-Stateful-Workflow" as the workflow name.](./media/create-stateful-stateless-workflows-visual-studio-code/name-your-workflow.png)
 
-   Visual Studio Code finishes creating your project and opens the **workflow.json** file for you workflow.
+   Visual Studio Code finishes creating your project and opens the **workflow.json** file for your workflow.
 
 1. From the Visual Studio toolbar, open the Explorer pane, if not already open.
 
@@ -279,7 +279,7 @@ Before you can create your logic app, create a local project so that you can man
 
    ![Screenshot that shows Explorer pane and shortcut window for the workflow.json file with "Open in Designer" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/open-definition-file-in-designer.png)
 
-   If you get the error message that the `Workflow design time could not be started`, check the following:
+   If you get the error message that the `Workflow design time could not be started`, check the following conditions:
 
    * **Windows or Linux**: Make sure that the Azure Storage Emulator is running. Otherwise, see [Troubleshoot problems and errors](#troubleshooting).
 
@@ -509,7 +509,7 @@ After your workflow starts running, the terminal window might show errors like t
 
 `message='Http request failed with unhandled exception of type 'InvalidOperationException' and message: 'System.InvalidOperationException: Synchronous operations are disallowed. Call ReadAsync or set AllowSynchronousIO to true instead.`
 
-In this case, open the **local.settings.json** file at your project's root level ,and make sure that the property is set to `true`:
+In this case, open the **local.settings.json** file at your project's root level, and make sure that the property is set to `true`:
 
 `"FUNCTIONS_V2_COMPATIBILITY_MODE": "true"`
 
