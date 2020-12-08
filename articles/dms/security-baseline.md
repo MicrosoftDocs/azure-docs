@@ -89,7 +89,7 @@ Your organization's resources, such as applications on Azure or your corporate n
 
 Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
 
-Note: Azure AD supports external identities that allow users without a Microsoft account to sign in to their applications and resources with their external identity.
+Azure AD supports external identities that allow users without a Microsoft account to sign in to their applications and resources with their external identity.
 
 - [Tenancy in Azure Active Directory](../active-directory/develop/single-and-multi-tenant-apps.md) 
 
@@ -267,7 +267,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 Use built-in roles to allocate permission and only create custom role when required.
 
-What is Azure role-based access control (Azure RBAC) ../role-based-access-control/overview.md 
+- [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)
 
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
 
@@ -312,7 +312,7 @@ Depending on how security team responsibilities are structured, monitoring for s
 
 Security Reader permissions can be applied broadly to an entire tenant (Root Management Group) or scoped to management groups or specific subscriptions. 
 
-Note: Additional permissions might be required to get visibility into workloads and services. 
+Additional permissions might be required to get visibility into workloads and services. 
 
 - [Overview of Security Reader Role](../role-based-access-control/built-in-roles.md#security-reader)
 
@@ -380,8 +380,7 @@ Users flagged for risk - A risky user is an indicator for a user account that mi
 
 Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability gives you visibility on account anomalies inside the individual resources.
 
-Audit activity reports in the Azure Active Directory
-../active-directory/reports-monitoring/concept-audit-logs.md 
+- [Audit activity reports in the Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md)
 
 - [Enable Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) 
 
@@ -395,7 +394,7 @@ Audit activity reports in the Azure Active Directory
 
 **Guidance**: Enable and collect network security group (NSG) resource logs, NSG flow logs, Azure Firewall logs, and Web Application Firewall (WAF) logs for security analysis to support incident investigations, threat hunting, and security alert generation. You can send the flow logs to an Azure Monitor Log Analytics workspace and then use Traffic Analytics to provide insights.
 
-Note: Azure Database Migration Service does not produce or process DNS query logs which would need to be enabled.
+Azure Database Migration Service does not produce or process DNS query logs which would need to be enabled.
 
 - [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
 
