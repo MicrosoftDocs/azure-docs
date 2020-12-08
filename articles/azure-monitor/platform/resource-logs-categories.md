@@ -29,7 +29,8 @@ Some categories may only be supported for specific types of resources. See the r
 If you still something is missing, you can open a GitHub comment at the bottom of this article.
 ## Microsoft.AnalysisServices/servers
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |Engine|Engine|
@@ -38,7 +39,8 @@ Cost: Free
 
 ## Microsoft.ApiManagement/service
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |GatewayLogs|Logs related to ApiManagement Gateway|
@@ -46,7 +48,8 @@ Cost: Free
 
 ## Microsoft.AppPlatform/Spring
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |ApplicationConsole|Application Console|
@@ -55,7 +58,8 @@ Cost: Free
 
 ## Microsoft.Automation/automationAccounts
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |DscNodeStatus|Dsc Node Status|
@@ -65,7 +69,8 @@ Cost: Free
 
 ## Microsoft.Batch/batchAccounts
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |ServiceLog|Service Logs|
@@ -73,7 +78,8 @@ Cost: Free
 
 ## Microsoft.BatchAI/workspaces
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |BaiClusterEvent|BaiClusterEvent|
@@ -83,7 +89,8 @@ Cost: Free
 
 ## Microsoft.Blockchain/blockchainMembers
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |BlockchainApplication|Blockchain Application|
@@ -94,7 +101,8 @@ Cost: Free
 
 ## Microsoft.Blockchain/cordaMembers
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |BlockchainApplication|Blockchain Application|
@@ -102,7 +110,8 @@ Cost: Free
 
 ## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |WebApplicationFirewallLogs|Web Appliation Firewall Logs|
@@ -110,7 +119,8 @@ Cost: Free
 
 ## Microsoft.Cdn/profiles
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |AzureCdnAccessLog|Azure Cdn Access Log|
@@ -118,7 +128,8 @@ Cost: Free
 
 ## Microsoft.Cdn/profiles/endpoints
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
@@ -126,7 +137,8 @@ Cost: Free
 
 ## Microsoft.ClassicNetwork/networksecuritygroups
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|
@@ -134,7 +146,8 @@ Cost: Free
 
 ## Microsoft.CognitiveServices/accounts
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |Audit|Audit Logs|
@@ -144,7 +157,8 @@ Cost: Free
 
 ## Microsoft.ContainerRegistry/registries
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |ContainerRegistryLoginEvents|Login Events|
@@ -153,7 +167,8 @@ Cost: Free
 
 ## Microsoft.ContainerService/managedClusters
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |cluster-autoscaler|Kubernetes Cluster Autoscaler|
@@ -165,7 +180,8 @@ Cost: Free
 
 ## Microsoft.CustomProviders/resourceproviders
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |AuditLogs|Audit logs for MiniRP calls|
@@ -173,7 +189,8 @@ Cost: Free
 
 ## Microsoft.Databricks/workspaces
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |accounts|Databricks Accounts|
@@ -190,7 +207,8 @@ Cost: Free
 
 ## Microsoft.DataFactory/factories
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |ActivityRuns|Pipeline activity runs log|
@@ -200,7 +218,8 @@ Cost: Free
 
 ## Microsoft.DataLakeStore/accounts
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |Audit|Audit Logs|
@@ -209,7 +228,8 @@ Cost: Free
 
 ## Microsoft.DataShare/accounts
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |ReceivedShareSnapshots|Received Share Snapshots|
@@ -220,7 +240,8 @@ Cost: Free
 
 ## Microsoft.DBforMariaDB/servers
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |MySqlAuditLogs|MariaDB Audit Logs|
@@ -229,7 +250,8 @@ Cost: Free
 
 ## Microsoft.DBforMySQL/flexibleServers
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |MySqlAuditLogs|MySQL Audit Logs|
@@ -238,7 +260,8 @@ Cost: Free
 
 ## Microsoft.DBforMySQL/servers
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |MySqlAuditLogs|MySQL Audit Logs|
@@ -247,7 +270,8 @@ Cost: Free
 
 ## Microsoft.DBforPostgreSQL/flexibleServers
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |PostgreSQLLogs|PostgreSQL Server Logs|
@@ -255,7 +279,8 @@ Cost: Free
 
 ## Microsoft.DBforPostgreSQL/servers
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |PostgreSQLLogs|PostgreSQL Server Logs|
@@ -265,7 +290,8 @@ Cost: Free
 
 ## Microsoft.DBforPostgreSQL/serversv2
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |PostgreSQLLogs|PostgreSQL Server Logs|
@@ -273,7 +299,8 @@ Cost: Free
 
 ## Microsoft.DesktopVirtualization/applicationgroups
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |Checkpoint|Checkpoint|
@@ -283,7 +310,8 @@ Cost: Free
 
 ## Microsoft.DesktopVirtualization/hostpools
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |Checkpoint|Checkpoint|
@@ -295,7 +323,8 @@ Cost: Free
 
 ## Microsoft.DesktopVirtualization/workspaces
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |Checkpoint|Checkpoint|
@@ -306,7 +335,8 @@ Cost: Free
 
 ## Microsoft.Devices/IotHubs
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |C2DCommands|C2D Commands|
@@ -327,7 +357,8 @@ Cost: Free
 
 ## Microsoft.Devices/provisioningServices
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |DeviceOperations|Device Operations|
@@ -336,7 +367,8 @@ Cost: Free
 
 ## Microsoft.DocumentDB/databaseAccounts
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |CassandraRequests|CassandraRequests|
@@ -351,7 +383,8 @@ Cost: Free
 
 ## Microsoft.EventGrid/domains
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |DeliveryFailures|Delivery Failure Logs|
@@ -360,7 +393,8 @@ Cost: Free
 
 ## Microsoft.EventGrid/systemTopics
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |DeliveryFailures|Delivery Failure Logs|
@@ -368,7 +402,8 @@ Cost: Free
 
 ## Microsoft.EventGrid/topics
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |DeliveryFailures|Delivery Failure Logs|
@@ -377,7 +412,8 @@ Cost: Free
 
 ## Microsoft.EventHub/namespaces
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |ArchiveLogs|Archive Logs|
@@ -391,7 +427,8 @@ Cost: Free
 
 ## Microsoft.HealthcareApis/services
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |AuditLogs|Audit logs|
@@ -399,7 +436,8 @@ Cost: Free
 
 ## Microsoft.Insights/AutoscaleSettings
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |AutoscaleEvaluations|Autoscale Evaluations|
@@ -408,7 +446,8 @@ Cost: Free
 
 ## Microsoft.Insights/Components
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |AppAvailabilityResults|Availability results|
@@ -426,7 +465,8 @@ Cost: Free
 
 ## Microsoft.KeyVault/vaults
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |AuditEvent|Audit Logs|
@@ -434,7 +474,8 @@ Cost: Free
 
 ## Microsoft.Kusto/Clusters
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |Command|Command|
@@ -448,7 +489,8 @@ Cost: Free
 
 ## Microsoft.Logic/integrationAccounts
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |IntegrationAccountTrackingEvents|Integration Account track events|
@@ -456,7 +498,8 @@ Cost: Free
 
 ## Microsoft.Logic/workflows
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |WorkflowRuntime|Workflow runtime diagnostic events|
@@ -464,7 +507,8 @@ Cost: Free
 
 ## Microsoft.MachineLearningServices/workspaces
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |AmlComputeClusterEvent|AmlComputeClusterEvent|
@@ -476,7 +520,8 @@ Cost: Free
 
 ## Microsoft.Media/mediaservices
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |KeyDeliveryRequests|Key Delivery Requests|
@@ -484,7 +529,8 @@ Cost: Free
 
 ## Microsoft.Network/applicationGateways
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |ApplicationGatewayAccessLog|Application Gateway Access Log|
@@ -494,7 +540,8 @@ Cost: Free
 
 ## Microsoft.Network/azurefirewalls
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |AzureFirewallApplicationRule|Azure Firewall Application Rule|
@@ -503,7 +550,8 @@ Cost: Free
 
 ## Microsoft.Network/bastionHosts
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |BastionAuditLogs|Bastion Audit Logs|
@@ -511,7 +559,8 @@ Cost: Free
 
 ## Microsoft.Network/expressRouteCircuits
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |PeeringRouteLog|Peering Route Table Logs|
@@ -519,7 +568,8 @@ Cost: Free
 
 ## Microsoft.Network/frontdoors
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |FrontdoorAccessLog|Frontdoor Access Log|
@@ -528,7 +578,8 @@ Cost: Free
 
 ## Microsoft.Network/loadBalancers
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |LoadBalancerAlertEvent|Load Balancer Alert Events|
@@ -537,7 +588,8 @@ Cost: Free
 
 ## Microsoft.Network/networksecuritygroups
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |NetworkSecurityGroupEvent|Network Security Group Event|
@@ -547,7 +599,8 @@ Cost: Free
 
 ## Microsoft.Network/publicIPAddresses
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |DDoSMitigationFlowLogs|Flow logs of DDoS mitigation decisions|
@@ -557,7 +610,8 @@ Cost: Free
 
 ## Microsoft.Network/trafficManagerProfiles
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |ProbeHealthStatusEvents|Traffic Manager Probe Health Results Event|
@@ -565,7 +619,8 @@ Cost: Free
 
 ## Microsoft.Network/virtualNetworkGateways
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |GatewayDiagnosticLog|Gateway Diagnostic Logs|
@@ -577,7 +632,8 @@ Cost: Free
 
 ## Microsoft.Network/virtualNetworks
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |VMProtectionAlerts|VM protection alerts|
@@ -585,7 +641,8 @@ Cost: Free
 
 ## Microsoft.PowerBIDedicated/capacities
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |Engine|Engine|
@@ -593,7 +650,8 @@ Cost: Free
 
 ## Microsoft.RecoveryServices/Vaults
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |AddonAzureBackupAlerts|Addon Azure Backup Alert Data|
@@ -614,7 +672,8 @@ Cost: Free
 
 ## Microsoft.Relay/namespaces
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |HybridConnectionsEvent|HybridConnections Events|
@@ -622,7 +681,8 @@ Cost: Free
 
 ## Microsoft.Search/searchServices
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |OperationLogs|Operation Logs|
@@ -630,7 +690,8 @@ Cost: Free
 
 ## Microsoft.ServiceBus/namespaces
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |OperationalLogs|Operational Logs|
@@ -638,7 +699,8 @@ Cost: Free
 
 ## Microsoft.SignalRService/SignalR
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |AllLogs|Azure SignalR Service Logs.|
@@ -646,7 +708,8 @@ Cost: Free
 
 ## Microsoft.Sql/managedInstances
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |DevOpsOperationsAudit|Devops operations Audit Logs|
@@ -656,7 +719,8 @@ Cost: Free
 
 ## Microsoft.Sql/managedInstances/databases
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |Errors|Errors|
@@ -667,7 +731,8 @@ Cost: Free
 
 ## Microsoft.Sql/servers/databases
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |AutomaticTuning|Automatic tuning|
@@ -734,7 +799,8 @@ Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.]
 
 ## Microsoft.StreamAnalytics/streamingjobs
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |Authoring|Authoring|
@@ -743,7 +809,8 @@ Cost: Free
 
 ## Microsoft.Synapse/workspaces
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |BuiltinSqlReqsEnded|Built-in Sql Pool Requests Ended|
@@ -754,7 +821,8 @@ Cost: Free
 
 ## Microsoft.Synapse/workspaces/bigDataPools
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |BigDataPoolAppsEnded|Big Data Pool Applications Ended|
@@ -762,7 +830,8 @@ Cost: Free
 
 ## Microsoft.Synapse/workspaces/sqlPools
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |DmsWorkers|Dms Workers|
@@ -775,7 +844,8 @@ Cost: Free
 
 ## microsoft.web/hostingenvironments
 
-Cost: Free
+Cost: Free 
+
 |Category |Category Display Name|
 |---|---|
 |AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|
@@ -783,7 +853,9 @@ Cost: Free
 
 ## microsoft.web/sites
 
-Cost: Free
+Cost: Free 
+
+
 |Category |Category Display Name|
 |---|---|
 |AppServiceAppLogs|App Service Application Logs|
@@ -796,7 +868,9 @@ Cost: Free
 
 ## microsoft.web/sites/slots
 
-Cost: Free
+Cost: Free 
+
+
 |Category |Category Display Name|
 |---|---|
 |AppServiceAppLogs|App Service Application Logs|
