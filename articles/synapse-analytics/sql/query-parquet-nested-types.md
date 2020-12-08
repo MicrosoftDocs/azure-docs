@@ -1,6 +1,6 @@
 ---
-title: Query Parquet nested types using serverless SQL pool (preview)
-description: In this article, you'll learn how to query Parquet nested types by using serverless SQL pool (preview).
+title: Query Parquet nested types using serverless SQL pool
+description: In this article, you'll learn how to query Parquet nested types by using serverless SQL pool.
 services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
 
-# Query nested types in Parquet and JSON files by using serverless SQL pool (preview) in Azure Synapse Analytics
+# Query nested types in Parquet and JSON files by using serverless SQL pool in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query by using serverless SQL pool (preview) in Azure Synapse Analytics. The query will read Parquet nested types.
+In this article, you'll learn how to write a query by using serverless SQL pool in Azure Synapse Analytics. The query will read Parquet nested types.
 Nested types are complex structures that represent objects or arrays. Nested types can be stored in: 
 - [Parquet](query-parquet-files.md), where you can have multiple complex columns that contain arrays and objects.
 - Hierarchical [JSON files](query-json-files.md), where you can read a complex JSON document as a single column.

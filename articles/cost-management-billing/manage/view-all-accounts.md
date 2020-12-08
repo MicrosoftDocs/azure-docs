@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/30/2020
 ms.author: banders
 ---
 
@@ -28,6 +28,12 @@ To determine the type of your billing account, see [Check the type of your billi
 
 ## Scopes for billing accounts
 A scope is a node within a billing account that you use to view and manage billing. It is where you manage billing data, payments, invoices, and conduct general account management.
+
+If you don't have access to view or manage billing accounts, you probably don't have permission to access. You can ask your billing account administrator to grant you access. For more information, see the following articles:
+
+- [Microsoft Online Services Program access](manage-billing-access.md)
+- [Microsoft Customer Agreement access](understand-mca-roles.md)
+- [Enterprise Agreement access](understand-ea-roles.md)
 
 ### Microsoft Online Services Program
 
@@ -67,7 +73,7 @@ A scope is a node within a billing account that you use to view and manage billi
 |Billing account     |   Represents a partner agreement to manage customers' Microsoft products and services in the new commerce experience. It contains one or more billing profiles and customers.   |
 |Billing profile     |   Represents an invoice for a currency.     |
 |Customer    |   Represents a customer for a Cloud Solution Provider (CSP) partner.  Azure subscriptions and other purchases such as Azure Marketplace and App source products are associated to this scope.  |
-|Reseller    |   Reseller that provides services to a customer. It is an optional field for a subscription and is applicable only for Indirect providers in the CSP two-tier model.     |
+|Reseller    |   Reseller that provides services to a customer. It's an optional field for a subscription and is applicable only for Indirect providers in the CSP two-tier model.     |
 
 ## Switch billing scope in the Azure portal
 

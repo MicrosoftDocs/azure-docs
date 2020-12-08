@@ -63,7 +63,7 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **Can I create a subscription in an ARM template?**
 
-  Yes, for more information, see [Programmatically create Azure subscriptions with the latest APIs](../../cost-management-billing/manage/programmatically-create-subscription.md).
+  Yes, for more information, see [Programmatically create Azure subscriptions with the latest APIs](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md).
 
 * **How can I test my template before deploying it?**
 

@@ -114,7 +114,7 @@ To configure Azure AD single sign-on with Carlson Wagonlit Travel, perform the f
 
 ### Configure Carlson Wagonlit Travel Single Sign-On
 
-To configure single sign-on on **Carlson Wagonlit Travel** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Carlson Wagonlit Travel support team](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Carlson Wagonlit Travel** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Carlson Wagonlit Travel support team](https://www.mycwt.com/traveler-help/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -169,7 +169,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Carlson Wagonlit Travel test user
 
-In this section, you create a user called Britta Simon in Carlson Wagonlit Travel. Work with [Carlson Wagonlit Travel support team](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html) to add the users in the Carlson Wagonlit Travel platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Carlson Wagonlit Travel. Work with [Carlson Wagonlit Travel support team](https://www.mycwt.com/traveler-help/) to add the users in the Carlson Wagonlit Travel platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 

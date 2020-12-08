@@ -35,7 +35,8 @@ When a Communication Services user joins the Teams meeting, the display name pro
 
 Communication Services users can join scheduled Teams meetings as long as anonymous joins are enabled in the [meeting settings](/microsoftteams/meeting-settings-in-teams).
 
-
+## Teams in Government Clouds (GCC)
+Azure Communication Services interoperability is not allowed to Teams deployments using [Microsoft 365 government clouds (GCC)](https://docs.microsoft.com/MicrosoftTeams/plan-for-government-gcc) at this time. 
 
 ## Next steps
 
