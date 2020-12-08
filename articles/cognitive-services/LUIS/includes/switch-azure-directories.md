@@ -16,4 +16,4 @@ If you don't see an app that was created by you or shared with you, you may need
 1. Click the avatar in the top right corner of the screen. Then click **Switch to a different Azure directory**. 
 2. In the window that appears, be sure to select the Azure directory that contains the LUIS resource that was shared with you. 
 
-    :::image type="content" source="../media/migrate-authoring-key/switch-directories.png" alt-text="Switch directories" lightbox="../media/migrate-authoring-key/switch-directories.png":::
+    :::image type="content" source="../media/migrate-authoring-key/switch-directories.png" alt-text="Switch to another azure directory" lightbox="../media/migrate-authoring-key/switch-directories.png":::
