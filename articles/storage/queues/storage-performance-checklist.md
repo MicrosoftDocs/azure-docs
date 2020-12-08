@@ -31,12 +31,12 @@ This article organizes proven practices for performance into a checklist you can
 | &nbsp; | Direct client access | [Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
 | &nbsp; | .NET configuration | [Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
 | &nbsp; | .NET configuration | [Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
-| &nbsp; | .NET configuration | [For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
+| &nbsp; | .NET configuration | [For .NET applications, have you configured .NET to use a sufficient number of threads?](#increase-the-minimum-number-of-threads) |
 | &nbsp; | Parallelism | [Have you ensured that parallelism is bounded appropriately so that you don't overload your client's capabilities or approach the scalability targets?](#unbounded-parallelism) |
 | &nbsp; | Tools | [Are you using the latest versions of Microsoft-provided client libraries and tools?](#client-libraries-and-tools) |
 | &nbsp; | Retries | [Are you using a retry policy with an exponential backoff for throttling errors and timeouts?](#timeout-and-server-busy-errors) |
 | &nbsp; | Retries | [Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
-| &nbsp; | Configuration | [Have you turned off Nagle's algorithm to improve the performance of small requests?](#disable-nagle) |
+| &nbsp; | Configuration | [Have you turned off Nagle's algorithm to improve the performance of small requests?](#disable-nagles-algorithm) |
 | &nbsp; | Message size | [Are your messages compact to improve the performance of the queue?](#message-size) |
 | &nbsp; | Bulk retrieval | [Are you retrieving multiple messages in a single get operation?](#batch-retrieval) |
 | &nbsp; | Polling frequency | [Are you polling frequently enough to reduce the perceived latency of your application?](#queue-polling-interval) |

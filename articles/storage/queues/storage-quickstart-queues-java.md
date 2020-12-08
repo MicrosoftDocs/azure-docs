@@ -214,7 +214,7 @@ Decide on a name for the new queue. The code below appends a GUID value to the q
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
-Create an instance of the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class. Then, call the [`Create](/java/api/com.azure.storage.queue.queueclient.create) method to create the queue in your storage account.
+Create an instance of the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class. Then, call the [`Create`](/java/api/com.azure.storage.queue.queueclient.create) method to create the queue in your storage account.
 
 Add this code to the end of the `main` method:
 

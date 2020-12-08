@@ -114,7 +114,7 @@ azure_queue_service.delete_message("test-queue",
 
 ## How to: Change the contents of a queued message
 
-You can change the contents of a message in-place in the queue. The code below uses the `update_message()` method to update a message. The method will return a tuple which contains the pop receipt of the queue message and a utc date time value that represents when the message will be visible on the queue.
+You can change the contents of a message in-place in the queue. The code below uses the `update_message()` method to update a message. The method will return a tuple which contains the pop receipt of the queue message and a UTC `DateTime` value that represents when the message will be visible on the queue.
 
 ```ruby
 message = azure_queue_service.list_messages("test-queue", 30)

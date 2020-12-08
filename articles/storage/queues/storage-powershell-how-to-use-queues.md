@@ -129,7 +129,7 @@ This **invisibility timeout** defines how long the message remains invisible bef
 
 Your code reads a message from the queue in two steps. When you call the [`Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) method, you get the next message in the queue. A message returned from `GetMessage` becomes invisible to any other code reading messages from this queue. To finish removing the message from the queue, you call the [`Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) method.
 
-In the following example, you read through the three queue messages, then wait 10 seconds (the invisibility timeout). Then you read the three messages again, deleting the messages after reading them by calling `DeleteMessage`. If you try to read the queue after the messages are deleted, `$queuemessage` will be returned as `null`.
+In the following example, you read through the three queue messages, then wait 10 seconds (the invisibility timeout). Then you read the three messages again, deleting the messages after reading them by calling `DeleteMessage`. If you try to read the queue after the messages are deleted, `$queueMessage` will be returned as `$null`.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
