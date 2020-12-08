@@ -70,7 +70,8 @@ The following table shows data collection methods and other details about how da
 
    ![Screenshot of the Diagnostics Settings config for Application Gateway resource.](media/azure-networking-analytics/diagnostic-settings-1.png)
 
-   ![Screenshot of the page for configuring Diagnostics settings. The option for Send to Log Analytics is selected as are three Log types and a Metric.](media/azure-networking-analytics/diagnostic-settings-2.png)
+   [ ![Screenshot of the page for configuring Diagnostics settings. The option for Send to Log Analytics is selected as are three Log types and a Metric.](media/azure-networking-analytics/diagnostic-settings-2.png)](media/azure-networking-analytics/diagnostic-settings-2.png#lightbox)
+
 5. Click the checkbox for *Send to Log Analytics*.
 6. Select an existing Log Analytics workspace, or create a workspace.
 7. Click the checkbox under **Log** for each of the log types to collect.
@@ -97,26 +98,24 @@ Application insights can be accessed via the insights tab within your Applicatio
 
 The "view detailed metrics" tab will open up the pre-populated workbook summarizing the data from your Application Gateway.
 
-![Screenshot of Application Gateway workbook ](media/azure-networking-analytics/azure-appgw-workbook.png
-)
+[ ![Screenshot of Application Gateway workbook ](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/azure-appgw-workbook.png#lightbox)
 
 ## Migrating from Azure Gateway analytics solution to Azure Monitor workbooks
 
 > [!NOTE]
 > The Azure Application Gateway analytics solution is outdated and the recommended way for consuming analytics is via workbooks exposed through Azure Monitor Network insights for the Application Gateway resource.
 
-1. If diagnostics setting is already enabled to store logs into a Log Analytics workspace, Azure Monitor Network insights workbook can consume data from the same location. There is no new configuration required.
+* If diagnostics setting is already enabled to store logs into a Log Analytics workspace, Azure Monitor Network insights workbook can consume data from the same location. There is no new configuration required.
 
-2. All past data is already available within the workbook from the point diagnostic settings were enabled. There is no data transfer required.
+* All past data is already available within the workbook from the point diagnostic settings were enabled. There is no data transfer required.
 
-3. There is no active toggle required to switch to workbooks. Both the analytics solution and Network insight workbook can work in parallel.
+* There is no active toggle required to switch to workbooks. Both the analytics solution and Network insight workbook can work in parallel.
 
-4. There are no additional costs associated with Azure Monitor workbooks. Log Analytics workspace will continue to be billed as per usage.
+* There are no additional costs associated with Azure Monitor workbooks. Log Analytics workspace will continue to be billed as per usage.
 
-5. To clean up the Azure Gateway analytics solution from your workspace, you can delete the solution from the solution resource page.
+* To clean up the Azure Gateway analytics solution from your workspace, you can delete the solution from the solution resource page.
 
-![Screenshot of the delete option for Azure Application Gateway analytics solution.](media/azure-networking-analytics/azure-appgw-analytics-delete.png
-)
+[ ![Screenshot of the delete option for Azure Application Gateway analytics solution.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/azure-appgw-analytics-delete.png#lightbox)
 
 ## Azure Network Security Group analytics solution in Azure Monitor
 
