@@ -81,6 +81,7 @@ There's a 99.9% [Service Level Agreement for IoT Hub](https://azure.microsoft.co
 Use the [Azure IoT device SDK](./iot-hub-devguide-sdks.md) libraries to build applications that run on your devices and interact with IoT Hub. Supported platforms include multiple Linux distributions, Windows, and real-time operating systems. Supported languages include:
 
 * C
+* Embedded C
 * C#
 * Java
 * Python

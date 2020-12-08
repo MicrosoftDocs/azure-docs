@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 Azure Synapse SQL is a big data analytic service that enables you to query and analyze your data using the T-SQL language. You can use standard ANSI-compliant dialect of SQL language used on SQL Server and Azure SQL Database for data analysis. 
 
-Transact-SQL language is used in Synapse SQL serverless and dedicated model can reference different objects and has some differences in the set of supported features. In this page, you can find high-level Transact-SQL language differences between consumption models of Synapse SQL.
+Transact-SQL language is used in serverless SQL pool and dedicated model can reference different objects and has some differences in the set of supported features. In this page, you can find high-level Transact-SQL language differences between consumption models of Synapse SQL.
 
 ## Database objects
 
@@ -114,7 +114,7 @@ You can use various tools to connect to Synapse SQL to query data.
 | **SQL Server Management Studio** | Yes | Yes, version 18.5 or higher |
 
 > [!NOTE]
-> You can use SSMS to connect to serverless SQL pool (preview) and query. It is partially supported starting from version 18.5, you can use it to connect and query only.
+> You can use SSMS to connect to serverless SQL pool and query. It is partially supported starting from version 18.5, you can use it to connect and query only.
 
 Most of the applications use standard Transact-SQL language can query both dedicated and serverless consumption models of Synapse SQL.
 

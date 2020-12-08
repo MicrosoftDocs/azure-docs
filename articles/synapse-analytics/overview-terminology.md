@@ -1,5 +1,5 @@
 ---
-title: Terminology - Azure Synapse Analytics (workspaces preview)
+title: Terminology - Azure Synapse Analytics
 description: Reference guide walking user through Azure Synapse Analytics 
 services: synapse-analytics 
 author: saveenr 
@@ -12,8 +12,6 @@ ms.reviewer: jrasnick
 ---
 
 # Azure Synapse Analytics terminology
-
-[!INCLUDE [preview](includes/note-preview.md)]
 
 This document guides you through the basic concepts of Azure Synapse Analytics.
 

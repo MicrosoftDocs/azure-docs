@@ -13,7 +13,7 @@ ms.subservice: spark
 
 # Manage libraries for Apache Spark in Azure Synapse Analytics
 
-Libraries provide reusable code that you may want to include in your programs or projects. To make third party or locally-built code available to your applications, you can install a library onto one of your serverless Apache Spark Pools (preview). Once a library is installed for a Spark pool, it is available for all sessions using the same pool. 
+Libraries provide reusable code that you may want to include in your programs or projects. To make third party or locally-built code available to your applications, you can install a library onto one of your serverless Apache Spark pools. Once a library is installed for a Spark pool, it is available for all sessions using the same pool. 
 
 ## Before you begin
 - To install and update libraries, you must have the **Storage Blob Data Contributor** or **Storage Blob Data Owner** permissions on the primary Gen2 Storage account that is linked to the Azure Synapse Analytics workspace.
@@ -21,11 +21,11 @@ Libraries provide reusable code that you may want to include in your programs or
 ## Default Installation
 Apache Spark in Azure Synapse Analytics has a full Anacondas install plus additional libraries. The full libraries list can be found at [Apache Spark version support](apache-spark-version-support.md). 
 
-When a Spark instance starts up, these libraries will automatically be included. Additional Python and custom built packages can be added at the Spark pool (preview) level.
+When a Spark instance starts up, these libraries will automatically be included. Additional Python and custom built packages can be added at the Spark pool level.
 
 
 ## Manage Python packages
-Once you have identified the libraries that you would like to use for your Spark application, you can install them into a Spark pool (preview). 
+Once you have identified the libraries that you would like to use for your Spark application, you can install them into a Spark pool. 
 
  A *requirements.txt* file (output from the `pip freeze` command) can be used to upgrade the virtual environment. The packages listed in this file for install or upgrade are downloaded from PyPi at the time of pool startup. This requirements file is used every time a Spark instance is created from that Spark pool.
 
@@ -49,7 +49,7 @@ alabaster==0.7.10
 As you develop your Spark application, you may find that you need to update existing or install new libraries. Libraries can be updated during or after pool creation.
 
 #### Install packages during pool creation
-To install libraries onto a Spark pool (preview) during pool creation:
+To install libraries onto a Spark pool during pool creation:
    
 1. Navigate to your Azure Synapse Analytics workspace from the Azure portal.
    
@@ -61,7 +61,7 @@ To install libraries onto a Spark pool (preview) during pool creation:
  
 
 #### Install packages from the Synapse Workspace
-To update or add additional libraries to a Spark pool (preview) from the Azure Synapse Analytics portal:
+To update or add additional libraries to a Spark pool from the Azure Synapse Analytics portal:
 
 1.  Navigate to your Azure Synapse Analytics workspace from the Azure portal.
    
@@ -74,7 +74,7 @@ To update or add additional libraries to a Spark pool (preview) from the Azure S
     ![Add Python libraries in synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### Install packages from the Azure portal
-To install a library onto a Spark pool (preview) directly from the Azure portal:
+To install a library onto a Spark pool directly from the Azure portal:
    
  1. Navigate to your Azure Synapse Analytics workspace from the Azure portal.
    

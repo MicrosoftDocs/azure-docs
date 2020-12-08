@@ -130,9 +130,11 @@
     href: ../../load-balancer/security-baseline.md
   - name: Azure Machine Learning security baseline
     href: ../../machine-learning/security-baseline.md
+  - name: Azure Managed Applications security baseline
+    href: ../../azure-resource-manager/managed-applications/security-baseline.md
   - name: Azure Monitor security baseline
     href: ../../azure-monitor/security-baseline.md
-  - name: Azure Migrate Learning security baseline
+  - name: Azure Migrate security baseline
     href: ../../migrate/security-baseline.md
   - name: Azure Policy security baseline
     href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
@@ -188,6 +190,10 @@
     href: ../../key-vault/general/security-baseline.md
   - name: Logic Apps security baseline
     href: ../../logic-apps/security-baseline.md
+  - name: Microsoft Cloud App Security baseline
+    href: /cloud-app-security/security-baseline.md
+  - name: Microsoft Defender for Identity security baseline
+    href: /defender-for-identity/security-baseline.md
   - name: Network Watcher security baseline
     href: ../../network-watcher/security-baseline.md
   - name: Power BI baseline
@@ -202,7 +208,7 @@
     href: ../../site-recovery/security-baseline.md
   - name: Stream Analytics baseline
     href: ../../stream-analytics/security-baseline.md
-  - name: Synapse Analytics security baseline
+  - name: Azure Synapse Analytics security baseline
     href: ../../synapse-analytics/security-baseline.md
   - name: Traffic Manager security baseline
     href: ../../traffic-manager/security-baseline.md

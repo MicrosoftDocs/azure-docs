@@ -2,10 +2,10 @@
 title: Create an AVS assessment with Azure Migrate Server Assessment | Microsoft Docs
 description: Describes how to create an AVS assessment with the Azure Migrate Server Assessment tool
 author: rashi-ms
-ms.service: azure-migrate
-ms.topic: article
-ms.date: 06/26/2020
 ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
+ms.date: 06/26/2020
 ---
 
 
@@ -18,7 +18,7 @@ This article describes how to create an Azure VMware Solution (AVS) assessment f
 
 ## Before you start
 
-- Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
+- Make sure you've [created](./create-manage-projects.md) an Azure Migrate project.
 - If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool.
 - To create an assessment, you need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md), which discovers the on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. [Learn more](migrate-appliance.md).
 - You could also [import the server metadata](./tutorial-discover-import.md) in comma-separated values (CSV) format.

@@ -67,6 +67,8 @@
     items:
     - name: Edit QnA pair
       href: How-To/edit-knowledge-base.md
+    - name: Add metadata tags 
+      href: Quickstarts/add-question-metadata-portal.md
     - name: Add follow-up prompts
       href: How-To/multiturn-conversation.md
       displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
