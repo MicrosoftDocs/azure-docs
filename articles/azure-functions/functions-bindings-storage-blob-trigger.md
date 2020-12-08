@@ -342,7 +342,7 @@ Access blob data using `context.bindings.<NAME>` where `<NAME>` matches the valu
 
 # [Python](#tab/python)
 
-TODO
+Access the blob data via a parameter that matches the name designated by binding's name parameter in the _function.json_ file.
 
 # [Python](#tab/python)
 
