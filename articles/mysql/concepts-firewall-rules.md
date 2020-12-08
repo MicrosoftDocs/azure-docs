@@ -66,7 +66,7 @@ Consider the following points when access to the Microsoft Azure Database for My
    For example, you may see the following error if you are connecting from an Azure VM in a subnet that has **Microsoft.Sql** enabled but has no corresponding VNet rule:
    `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
-* **Firewall rule is not available for IPv6 address:** Only IPv4 address can be added in the firewall rules. If you specify the IPv6 address, it will show the validation error.
+* **Firewall rule is not available for IPv6 format:** The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, it will show the validation error.
 
 ## Next steps
 
