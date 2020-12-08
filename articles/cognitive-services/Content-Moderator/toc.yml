@@ -36,7 +36,7 @@
   items:
   - name: Moderate content
     items:
-    - name: REST API
+    - name: API console
       items:
       - name: Images - API console
         href: try-image-api.md
@@ -58,7 +58,7 @@
     items:
     - name: Review tool (browser)
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: REST API
+    - name: API console
       href: try-review-api-review.md
     - name: Video reviews (.NET)
       href: video-reviews-quickstart-dotnet.md
@@ -68,11 +68,11 @@
     items:
     - name: Review tool (browser)
       href: Review-Tool-User-Guide/Workflows.md
-    - name: REST API
+    - name: API console
       href: try-review-api-workflow.md
   - name: Define and use jobs
     items:
-    - name: REST API
+    - name: API console
       href: try-review-api-job.md
     - name: .NET SDK
       href: moderation-jobs-quickstart-dotnet.md
