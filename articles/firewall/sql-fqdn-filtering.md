@@ -58,7 +58,7 @@ If you use non-default ports for SQL IaaS traffic, you can configure those ports
 3. Create a new rule collection with an application rule using SQL FQDN to allow access to a SQL server:
 
    ```azurepowershell
-   $AzFw = Get-AzFirewall -Name "docs-vnet-fw" -ResourceGroupName "docs-fw-rg"
+   $AzFw = Get-AzFirewall -Name "azfirewall" -ResourceGroupName "FWRG"
     
    $sqlRule = @{
       Name          = "sqlRule"
