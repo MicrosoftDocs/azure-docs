@@ -69,6 +69,9 @@ Consider the following points when access to the Microsoft Azure Database for Po
    For example, you may see the following error if you are connecting from an Azure VM in a subnet that has **Microsoft.Sql** enabled but has no corresponding VNet rule:
    `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
+* **Firewall rule is not available for IPv6 address:** Only IPv4 address can be addeed in the firewall rules. If you specify the IPv6 address, it will show the validation error.
+
+
 ## Next steps
 * [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-manage-firewall-using-portal.md)
 * [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md)
