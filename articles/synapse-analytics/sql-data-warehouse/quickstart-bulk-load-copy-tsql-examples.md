@@ -17,12 +17,14 @@ This article highlights and provides examples on the secure authentication mecha
 ## Supported authentication mechanisms
 
 The following matrix describes the supported authentication methods for each file type and storage account. This applies to the source storage location and the error file location.
+|                          |                CSV                |                      Parquet                       |                        ORC                         |
+| :----------------------: | :-------------------------------: | :------------------------------------------------: | :------------------------------------------------: |
+|  **Azure blob storage**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |                      SAS/KEY                       |                      SAS/KEY                       |
+| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS (blob<sup>1</sup>)/MSI (dfs<sup>2</sup>)/SERVICE PRINCIPAL/KEY/AAD | SAS (blob<sup>1</sup>)/MSI (dfs<sup>2</sup>)/SERVICE PRINCIPAL/KEY/AAD |
 
-|                          |                CSV                |              Parquet               |                ORC                 |
-| :----------------------: | :-------------------------------: | :-------------------------------:  | :-------------------------------:  |
-|  **Azure blob storage**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/KEY               |              SAS/KEY               |
-| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS (blob endpoint)/MSI (dfs endpoint)/SERVICE PRINCIPAL/KEY/AAD | SAS (blob endpoint)/MSI (dfs endpoint)/SERVICE PRINCIPAL/KEY/AAD |
+1: The .blob endpoint (**.blob**.core.windows.net) in your external location path is required for this authentication method.
 
+2: The .dfs endpoint (**.dfs**.core.windows.net) in your external location path is required for this authentication method.
 
 ## A. Storage account key with LF as the row terminator (Unix-style new line)
 
@@ -88,6 +90,8 @@ Managed Identity authentication is required when your storage account is attache
    2. Go to the Managed identities blade 
    3. Make sure the "Allow Pipelines" option is enabled
    
+   ![Register workspace system msi](./media/quickstart-bulk-load-copy-tsql-examples/msi-register-example.png)
+
 1. Create a **general-purpose v2 Storage Account** using this [guide](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
