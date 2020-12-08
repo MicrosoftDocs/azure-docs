@@ -24,7 +24,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 To create a queue in the Azure portal, follow these steps:
 
 1. Navigate to your new storage account in the Azure portal.
-2. In the left menu for the storage account, scroll to the **Queue service** section, then select **Queues**.
+2. In the left menu for the storage account, scroll to the **Queue Storage** section, then select **Queues**.
 3. Select the **+ Queue** button.
 4. Type a name for your new queue. The queue name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character.
 6. Select **OK** to create the queue.
@@ -62,4 +62,4 @@ Dequeueing always removes the oldest message in the queue.
 In this quickstart, you learned how to create a queue, add a message, view message properties, and dequeue a message in the Azure portal.
 
 > [!div class="nextstepaction"]
-> [What are Azure Queues?](storage-queues-introduction.md)
+> [What is Azure Queue Storage?](storage-queues-introduction.md)

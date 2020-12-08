@@ -1,10 +1,9 @@
 ---
 title: Run PowerShell commands with Azure AD credentials to access queue data
 titleSuffix: Azure Storage
-description: PowerShell supports signing in with Azure AD credentials to run commands on Azure Storage queue data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the Azure role assigned to the Azure AD security principal.
-services: storage
+description: PowerShell supports signing in with Azure AD credentials to run commands on Azure Queue Storage data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the Azure role assigned to the Azure AD security principal.
 author: tamram
-
+services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 09/14/2020
@@ -15,13 +14,13 @@ ms.subservice: queues
 
 # Run PowerShell commands with Azure AD credentials to access queue data
 
-Azure Storage provides extensions for PowerShell that enable you to sign in and run scripting commands with Azure Active Directory (Azure AD) credentials. When you sign in to PowerShell with Azure AD credentials, an OAuth 2.0 access token is returned. That token is automatically used by PowerShell to authorize subsequent data operations against Queue storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
+Azure Storage provides extensions for PowerShell that enable you to sign in and run scripting commands with Azure Active Directory (Azure AD) credentials. When you sign in to PowerShell with Azure AD credentials, an OAuth 2.0 access token is returned. That token is automatically used by PowerShell to authorize subsequent data operations against Queue Storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
 You can assign permissions to queue data to an Azure AD security principal via Azure role-based access control (Azure RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
 
 ## Supported operations
 
-The Azure Storage extensions are supported for operations on queue data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to PowerShell. Permissions to Azure Storage queues are assigned via Azure RBAC. For example, if you have been assigned the **Queue Data Reader** role, then you can run scripting commands that read data from a queue. If you have been assigned the **Queue Data Contributor** role, then you can run scripting commands that read, write, or delete a queue or the data they contain.
+The Azure Storage extensions are supported for operations on queue data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to PowerShell. Permissions to queues are assigned via Azure RBAC. For example, if you have been assigned the **Queue Data Reader** role, then you can run scripting commands that read data from a queue. If you have been assigned the **Queue Data Contributor** role, then you can run scripting commands that read, write, or delete a queue or the data they contain.
 
 For details about the permissions required for each Azure Storage operation on a queue, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 

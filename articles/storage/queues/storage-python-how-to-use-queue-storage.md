@@ -1,8 +1,7 @@
 ---
-title: How to use Azure Queue storage from Python - Azure Storage
-description: Learn to use the Azure Queue service from Python to create and delete queues, and insert, get, and delete messages.
+title: How to use Azure Queue Storage from Python - Azure Storage
+description: Learn to use the Azure Queue Storage from Python to create and delete queues, and insert, get, and delete messages.
 author: mhopkins-msft
-
 ms.author: mhopkins
 ms.date: 08/25/2020
 ms.service: storage
@@ -12,15 +11,15 @@ ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, devx-track-python
 ---
 
-# How to use Azure Queue storage from Python
+# How to use Azure Queue Storage from Python
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 ## Overview
 
-This article demonstrates common scenarios using the Azure Queue storage service. The scenarios that are covered include inserting, peeking, getting, and deleting queue messages. Code for creating and deleting queues is also covered.
+This article demonstrates common scenarios using the Azure Queue Storage service. The scenarios that are covered include inserting, peeking, getting, and deleting queue messages. Code for creating and deleting queues is also covered.
 
-The examples in this article are written in Python and use the [Azure Queue storage client library for Python]. For more information on queues, see the [Next steps](#next-steps) section.
+The examples in this article are written in Python and use the [Azure Queue Storage client library for Python](https://github.com/Azure/Azure-SDK-for-Python/tree/master/sdk/storage/azure-storage-queue). For more information on queues, see the [next steps](#next-steps) section.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -51,21 +50,21 @@ pip install azure-storage-queue==2.1.0
 > [!NOTE]
 > If you are upgrading from the Azure Storage SDK for Python version 0.36 or earlier, uninstall the older SDK using `pip uninstall azure-storage` before installing the latest package.
 
-For alternative installation methods, see [Azure SDK for Python].
+For alternative installation methods, see [Azure SDK for Python](https://github.com/Azure/Azure-SDK-for-Python).
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-## Configure your application to access queue storage
+## Configure your application to access Queue Storage
 
 # [Python v12](#tab/python)
 
-The [QueueClient](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient) object lets you work with a queue. Add the following code near the top of any Python file in which you wish to programmatically access an Azure queue:
+The [`QueueClient`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient) object lets you work with a queue. Add the following code near the top of any Python file in which you wish to programmatically access an Azure queue:
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_ImportStatements":::
 
 # [Python v2](#tab/python2)
 
-The [QueueService](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2) object lets you work with queues. The following code creates a `QueueService` object. Add the following code near the top of any Python file in which you wish to programmatically access Azure Storage:
+The [`QueueService`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2) object lets you work with queues. The following code creates a `QueueService` object. Add the following code near the top of any Python file in which you wish to programmatically access Azure Storage:
 
 ```python
 from azure.storage.queue import (
@@ -126,24 +125,24 @@ To insert a message into a queue, use the [send_message](/azure/developer/python
 To insert a message into a queue, use the [put_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) method to create a new message and add it to the queue.
 
 ```python
-message = u"Hello World"
+message = u"Hello, World"
 print("Adding message: " + message)
 queue_service.put_message(queue_name, message)
 ```
 
 ---
 
-Azure queue messages are stored as text. If you want to store binary data, setup Base64 encoding and decoding functions before putting a message in the queue.
+Azure queue messages are stored as text. If you want to store binary data, setup base64 encoding and decoding functions before putting a message in the queue.
 
 # [Python v12](#tab/python)
 
-Configure Base64 encoding and decoding functions on the queue client object.
+Configure base64 encoding and decoding functions on the queue client object.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
 
 # [Python v2](#tab/python2)
 
-Configure Base64 encoding and decoding functions on the queue service object.
+Configure Base64 encoding and decoding functions on Queue Storage object.
 
 ```python
 # Setup Base64 encoding and decoding functions
@@ -193,7 +192,7 @@ messages = queue_service.get_messages(queue_name)
 
 for message in messages:
     queue_service.update_message(
-        queue_name, message.id, message.pop_receipt, 0, u"Hello World Again")
+        queue_name, message.id, message.pop_receipt, 0, u"Hello, World Again")
 ```
 
 ---
@@ -204,13 +203,13 @@ You can get an estimate of the number of messages in a queue.
 
 # [Python v12](#tab/python)
 
-The [get_queue_properties](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#get-queue-properties---kwargs-) method asks the queue service to return properties about the queue, including the `approximate_message_count`.
+The [get_queue_properties](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#get-queue-properties---kwargs-) method asks Queue Storage to return properties about the queue, including the `approximate_message_count`.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_GetQueueLength":::
 
 # [Python v2](#tab/python2)
 
-The [get_queue_metadata](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-) method asks the queue service to return metadata about the queue, including the `approximate_message_count`.
+The [`get_queue_metadata`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-) method asks Queue Storage to return metadata about the queue, including the `approximate_message_count`.
 
 ```python
 metadata = queue_service.get_queue_metadata(queue_name)
@@ -220,7 +219,7 @@ print("Message count: " + str(count))
 
 ---
 
-The result is only approximate because messages can be added or removed after the queue service responds to your request.
+The result is only approximate because messages can be added or removed after Queue Storage responds to your request.
 
 ## Dequeue messages
 
@@ -291,12 +290,8 @@ queue_service.delete_queue(queue_name)
 
 ## Next steps
 
-Now that you've learned the basics of queue storage, follow these links to learn more.
+Now that you've learned the basics of Queue Storage, follow these links to learn more.
 
-- [Azure Queues Python API reference](/python/api/azure-storage-queue)
-- [Python Developer Center](https://azure.microsoft.com/develop/python/)
-- [Azure Storage Services REST API](/rest/api/storageservices/)
-
-[Azure Queue storage client library for Python]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
-[Azure SDK for Python]: https://github.com/azure/azure-sdk-for-python
-[Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog
+- [Azure Queue Storage Python API reference](/python/api/azure-storage-queue)
+- [Python developer center](https://azure.microsoft.com/develop/python/)
+- [Azure Storage REST API Reference](/rest/api/storageservices/)

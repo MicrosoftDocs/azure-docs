@@ -1,6 +1,6 @@
 ---
-title: Azure Queue storage reference
-description: Find Azure Queue storage API reference, readme files, and client library packages.
+title: Azure Queue Storage reference
+description: Find Azure Queue Storage API reference, README files, and client library packages.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.reviewer: ripohane
 ---
 
-# Azure Queue storage reference
+# Azure Queue Storage reference
 
-Find Azure Queue storage API reference, library packages, readme files, and getting started articles.
+Find Azure Queue Storage API reference, library packages, README files, and getting started articles.
 
 ## .NET client libraries
 
-The following table lists reference and sample documentation for Azure Queue storage .NET APIs.
+The following table lists reference and sample documentation for Azure Queue Storage .NET APIs.
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure.Storage.Queues Namespace](/dotnet/api/azure.storage.queues) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/) | [Quickstart: Azure Queue storage client library v12 for .NET](./storage-quickstart-queues-dotnet.md) |
-| 11.x | [Microsoft.Azure.Storage.Queue Namespace](/dotnet/api/microsoft.azure.storage.queue) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/) | [Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue](./storage-quickstart-queues-dotnet-legacy.md) |
+| 12.x | [Azure.Storage.Queues namespace](/dotnet/api/azure.storage.queues) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/) | [Quickstart: Azure Queue Storage client library v12 for .NET](./storage-quickstart-queues-dotnet.md) |
+| 11.x | [Microsoft.Azure.Storage.Queue namespace](/dotnet/api/microsoft.azure.storage.queue) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/) | [Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue](./storage-quickstart-queues-dotnet-legacy.md) |
 
 ### Storage management
 
@@ -42,11 +42,11 @@ The following table lists reference documentation for Azure Storage data movemen
 
 ## Java client libraries
 
-The following table lists reference and sample documentation for Azure Queue storage Java APIs.
+The following table lists reference and sample documentation for Azure Queue Storage Java APIs.
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure Storage Queue client library for Java](/java/api/overview/azure/storage-queue-readme) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Quickstart: Azure Queue storage client library v12 for Java](./storage-quickstart-queues-java.md) |
+| 12.x | [Azure Queue Storage client library for Java](/java/api/overview/azure/storage-queue-readme) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Quickstart: Azure Queue Storage client library v12 for Java](./storage-quickstart-queues-java.md) |
 | 8.x | [com.microsoft.azure.storage.queue](/java/api/com.microsoft.azure.storage.queue) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Quickstart: Manage blobs with Java v8 SDK](../blobs/storage-quickstart-blobs-java-legacy.md) |
 
 ### Storage management
@@ -59,29 +59,29 @@ The following table lists reference documentation for Azure Storage management J
 
 ## Python client libraries
 
-The following table lists reference and sample documentation for Azure Queue storage Python APIs.
+The following table lists reference and sample documentation for Azure Queue Storage Python APIs.
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure Storage client libraries v12 for Python](/azure/developer/python/sdk/storage/overview) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Quickstart: Azure Queue storage client library v12 for Python](./storage-quickstart-queues-python.md) |
-| 2.x | [Azure Storage client libraries v2 for Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [How to use Azure Queue storage v2.1 from Python](./storage-python-how-to-use-queue-storage.md) |
+| 12.x | [Azure Storage client libraries v12 for Python](/azure/developer/python/sdk/storage/overview) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Quickstart: Azure Queue Storage client library v12 for Python](./storage-quickstart-queues-python.md) |
+| 2.x | [Azure Storage client libraries v2 for Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [How to use Azure Queue Storage v2.1 from Python](./storage-python-how-to-use-queue-storage.md) |
 
 ## JavaScript client libraries
 
-The following table lists reference and sample documentation for Azure Queue storage JavaScript APIs.
+The following table lists reference and sample documentation for Azure Queue Storage JavaScript APIs.
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure Storage Queue client library for JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Quickstart: Azure Queue storage client library v12 for JavaScript](./storage-quickstart-queues-nodejs.md) |
-| 10.x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Use Azure Queue Service to create and delete queues from Node.js](./storage-nodejs-how-to-use-queues.md) |
+| 12.x | [Azure Queue Storage client library for JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Quickstart: Azure Queue Storage client library v12 for JavaScript](./storage-quickstart-queues-nodejs.md) |
+| 10.x | [@Azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Use Azure Queue Storage to create and delete queues from Node.js](./storage-nodejs-how-to-use-queues.md) |
 
 ## REST APIs
 
-The following table lists reference and sample documentation for Azure Queue storage REST APIs.
+The following table lists reference and sample documentation for Azure Queue Storage REST APIs.
 
 | Reference documentation | Overview |
 | ----------------------- | -------- |
-| [Queue service REST API](/rest/api/storageservices/queue-service-rest-api) | [Queue service concepts](/rest/api/storageservices/queue-service-concepts) |
+| [Queue Storage REST API reference](/rest/api/storageservices/queue-service-rest-api) | [Queue Storage concepts](/rest/api/storageservices/queue-service-concepts) |
 
 ### Other REST reference
 

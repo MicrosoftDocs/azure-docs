@@ -1,8 +1,7 @@
 ---
-title: "Quickstart: Azure Queue storage library v12 - Python"
-description: Learn how to use the Azure Queue Python v12 library to create a queue and add messages to the queue. Next, you learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
+title: "Quickstart: Azure Queue Storage client library v12 - Python"
+description: Learn how to use the Azure Queue Storage client library v12 for Python to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
 author: mhopkins-msft
-
 ms.author: mhopkins
 ms.date: 12/10/2019
 ms.service: storage
@@ -11,11 +10,11 @@ ms.topic: quickstart
 ms.custom: devx-track-python
 ---
 
-# Quickstart: Azure Queue storage client library v12 for Python
+# Quickstart: Azure Queue Storage client library v12 for Python
 
-Get started with the Azure Queue storage client library version 12 for Python. Azure Queue storage is a service for storing large numbers of messages for later retrieval and processing. Follow these steps to install the package and try out example code for basic tasks.
+Get started with the Azure Queue Storage client library v12 for Python. Azure Queue Storage is a service for storing large numbers of messages for later retrieval and processing. Follow these steps to install the package and try out example code for basic tasks.
 
-Use the Azure Queue storage client library v12 for Python to:
+Use the Azure Queue Storage client library v12 for Python to:
 
 - Create a queue
 - Add messages to a queue
@@ -35,16 +34,16 @@ Additional resources:
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Azure storage account - [create a storage account](../common/storage-account-create.md)
+- Azure Storage account - [create a storage account](../common/storage-account-create.md)
 - [Python](https://www.python.org/downloads/) for your operating system - 2.7, 3.5 or above
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Queue storage client library v12 for Python.
+This section walks you through preparing a project to work with the Azure Queue Storage client library v12 for Python.
 
 ### Create the project
 
-Create a Python application named *queues-quickstart-v12*.
+Create a Python application named `queues-quickstart-v12`.
 
 1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project.
 
@@ -66,7 +65,7 @@ Install the Azure Blob storage client library for Python package by using the `p
 pip install azure-storage-queue
 ```
 
-This command installs the Azure Queue storage client library for Python package and all the libraries on which it depends. In this case, that is just the Azure core library for Python.
+This command installs the Azure Queue Storage client library for Python package and all the libraries on which it depends. In this case, that's only the Azure core library for Python.
 
 ### Set up the app framework
 
@@ -95,7 +94,7 @@ This command installs the Azure Queue storage client library for Python package 
 
 ## Object model
 
-Azure Queue storage is a service for storing large numbers of messages. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. Queue storage offers three types of resources:
+Azure Queue Storage is a service for storing large numbers of messages. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. Queue Storage offers three types of resources:
 
 - The storage account
 - A queue in the storage account
@@ -107,13 +106,13 @@ The following diagram shows the relationship between these resources.
 
 Use the following Python classes to interact with these resources:
 
-- [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
-- [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
-- [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): The `QueueMessage` class represents the individual objects returned when calling [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) on a queue.
+- [`QueueServiceClient`](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
+- [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
+- [`QueueMessage`](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): The `QueueMessage` class represents the individual objects returned when calling [`receive_messages`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) on a queue.
 
 ## Code examples
 
-These example code snippets show you how to do the following actions with the Azure Queue storage client library for Python:
+These example code snippets show you how to do the following actions with the Azure Queue Storage client library for Python:
 
 - [Get the connection string](#get-the-connection-string)
 - [Create a queue](#create-a-queue)
@@ -126,7 +125,7 @@ These example code snippets show you how to do the following actions with the Az
 
 ### Get the connection string
 
-The code below retrieves the connection string for the storage account. The connection string is stored the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
+The code below retrieves the connection string for the storage account. The connection string is stored the environment variable created in the [configure your storage connection string](#configure-your-storage-connection-string) section.
 
 Add this code inside the `try` block:
 
@@ -145,9 +144,9 @@ Add this code inside the `try` block:
 Decide on a name for the new queue. The code below appends a UUID value to the queue name to ensure that it's unique.
 
 > [!IMPORTANT]
-> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/naming-queues-and-metadata).
+> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
-Create an instance of the [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient) class. Then, call the [create_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) method to create the queue in your storage account.
+Create an instance of the [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient) class. Then, call the [`create_queue`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) method to create the queue in your storage account.
 
 Add this code to the end of the `try` block:
 
@@ -167,7 +166,7 @@ Add this code to the end of the `try` block:
 
 ### Add messages to a queue
 
-The following code snippet adds messages to queue by calling the [send_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) method. It also saves the [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage) returned from the third `send_message` call. The `saved_message` is used to update the message content later in the program.
+The following code snippet adds messages to queue by calling the [`send_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) method. It also saves the [`QueueMessage`](/python/api/azure-storage-queue/azure.storage.queue.queuemessage) returned from the third `send_message` call. The `saved_message` is used to update the message content later in the program.
 
 Add this code to the end of the `try` block:
 
@@ -310,7 +309,7 @@ In this quickstart, you learned how to create a queue and add messages to it usi
 For tutorials, samples, quick starts and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure for Python Developers](/azure/python/)
+> [Azure for Python developers](/azure/python/)
 
 - To learn more, see the [Azure Storage libraries for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
-- To see more Azure Queue storage sample apps, continue to [Azure Queue storage v12 Python client library samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
+- To see more Azure Queue Storage sample apps, continue to [Azure Queue Storage v12 Python client library samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
