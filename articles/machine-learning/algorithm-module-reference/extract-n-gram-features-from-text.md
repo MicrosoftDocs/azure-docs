@@ -23,7 +23,7 @@ The module supports the following scenarios for using an n-gram dictionary:
 
 * [Use an existing set of text features](#use-an-existing-n-gram-dictionary) to featurize a free text column.
 
-* [Score or publish a model](#score-or-publish-a-model-that-uses-n-grams) that uses n-grams.
+* [Score or deploy a model](#build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint) that uses n-grams.
 
 ### Create a new n-gram dictionary
 
