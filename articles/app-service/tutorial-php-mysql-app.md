@@ -42,11 +42,12 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-* [Install Git](https://git-scm.com/)
-* [Install PHP 5.6.4 or above](https://php.net/downloads.php)
-* [Install Composer](https://getcomposer.org/doc/00-intro.md)
-* Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
-* [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+- [Install Git](https://git-scm.com/)
+- [Install PHP 5.6.4 or above](https://php.net/downloads.php)
+- [Install Composer](https://getcomposer.org/doc/00-intro.md)
+- Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+- [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## Prepare local MySQL
 
@@ -144,8 +145,6 @@ Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 ![PHP connects successfully to MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
 To stop PHP, type `Ctrl + C` in the terminal.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create MySQL in Azure
 
@@ -448,7 +447,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -479,7 +478,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -631,7 +630,7 @@ Commit all the changes in Git, and then push the code changes to Azure.
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 Once the `git push` is complete, navigate to the Azure app and test the new functionality.

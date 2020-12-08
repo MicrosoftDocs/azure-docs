@@ -43,11 +43,12 @@ What you'll learn:
 
 To complete this tutorial:
 
-1. [Install Git](https://git-scm.com/)
-2. [Install Node.js and NPM](https://nodejs.org/)
-3. [Install Bower](https://bower.io/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-4. [Install Gulp.js](https://gulpjs.com/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-5. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
+- [Install Git](https://git-scm.com/)
+- [Install Node.js and NPM](https://nodejs.org/)
+- [Install Bower](https://bower.io/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+- [Install Gulp.js](https://gulpjs.com/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+- [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## Test local MongoDB
 
@@ -112,8 +113,6 @@ The MEAN.js sample application stores user data in the database. If you are succ
 Select **Admin > Manage Articles** to add some articles.
 
 To stop Node.js at any time, press `Ctrl+C` in the terminal. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create production MongoDB
 
@@ -311,7 +310,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (5/5), done.
 Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done.
 Total 5 (delta 3), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '6c7c716eee'.
 remote: Running custom deployment command...
@@ -322,7 +321,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 </pre>
 
 You may notice that the deployment process runs [Gulp](https://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it: 
@@ -473,7 +472,7 @@ In the local terminal window, commit your changes in Git, then push the code cha
 
 ```bash
 git commit -am "added article comment"
-git push azure master
+git push azure main
 ```
 
 Once the `git push` is complete, navigate to your Azure app and try out the new functionality.
