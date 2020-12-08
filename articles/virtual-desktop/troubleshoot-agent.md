@@ -437,7 +437,7 @@ Verify [the agent can talk to the broker.](#the-wvd-agent-cannot-talk-to-the-bro
 
 ### Why are you getting this error?
 
-Whenever you create a registration token, you set an expiration date for it. Receiving this error indicates that you have exceeded this expiration data and need to create another registration token.
+Whenever you create a registration token, you set an expiration date for it. Receiving this error indicates that you have reached or surpassed this expiration date and need to create another registration token.
 
 ### Resolution
 
