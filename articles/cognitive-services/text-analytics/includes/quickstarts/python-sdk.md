@@ -30,8 +30,7 @@ ms.author: aahi
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* To use the Analyze feature and Text Analytics for health, you will need a Text Analytics resource with the standard (S) pricing tier.
-* To use Text Analytics for health, you will also need to [request access to the gated preview](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health#request-access-to-the-public-preview). 
+* To use the Analyze feature, you will need a Text Analytics resource with the standard (S) pricing tier.
 
 ## Setting up
 
@@ -915,97 +914,6 @@ Document ID: 4
 ```
 
 ---
-
-## Recognize healthcare entities with Text Analytics for health 
-
-# [Version 3.1 preview](#tab/version-3-1)
-
-> [!NOTE]
-> To use Text Analytics for health, you will need to [request access to the gated preview](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health#request-access-to-the-public-preview). you will also need a Text Analytics Resource with the standard (S) pricing tier.
-
-Create a new function called `analyze_healthcare_example()` that takes the client as an argument, then calls the `begin_analyze_healthcare()` function. The result will be a long running operation which will be polled for results.
-
-```python
-def analyze_healthcare_example(client):
-		documents = [
-				"Subject is taking 100mg of ibuprofen twice daily"
-		]
-
-		poller = client.begin_analyze_healthcare(documents, show_stats=True)
-		result = poller.result()
-		
-		docs = [doc for doc in result if not doc.is_error]
-
-		print("Results of Healthcare Analysis:")
-		for idx, doc in enumerate(docs):
-				for entity in doc.entities:
-						print("Entity: {}".format(entity.text))
-						print("...Category: {}".format(entity.category))
-						print("...Subcategory: {}".format(entity.subcategory))
-						print("...Offset: {}".format(entity.offset))
-						print("...Confidence score: {}".format(entity.confidence_score))
-						if entity.links is not None:
-								print("...Links:")
-								for link in entity.links:
-										print("......ID: {}".format(link.id))
-										print("......Data source: {}".format(link.data_source))
-				for relation in doc.relations:
-						print("Relation:")
-						print("...Source: {}".format(relation.source.text))
-						print("...Target: {}".format(relation.target.text))
-						print("...Type: {}".format(relation.relation_type))
-						print("...Bidirectional: {}".format(relation.is_bidirectional))
-
-analyze_healthcare_example(client)
-```
-
-### Output
-
-> [!NOTE]
-> To keep the output short, only the first two links in the response are shown below. The rest are omitted.
-
-```console    
-Results of Healthcare Analysis:
-Entity: 100mg
-...Category: Dosage
-...Subcategory: None
-...Offset: 18
-...Confidence score: 1.0
-Entity: ibuprofen
-...Category: MedicationName
-...Subcategory: None
-...Offset: 27
-...Confidence score: 1.0
-...Links:
-......ID: C0020740
-......Data source: UMLS
-......ID: 0000019879
-......Data source: AOD
-Entity: twice daily
-...Category: Frequency
-...Subcategory: None
-...Offset: 37
-...Confidence score: 1.0
-Relation:
-...Source: 100mg
-...Target: ibuprofen
-...Type: DosageOfMedication
-...Bidirectional: False
-Relation:
-...Source: twice daily
-...Target: ibuprofen
-...Type: FrequencyOfMedication
-...Bidirectional: False
-```
-
-# [Version 3.0](#tab/version-3)
-
-This feature is not available in version 3.0.
-
-# [Version 2.1](#tab/version-2)
-
-This feature is not available in version 2.1.
-
 
 ## Use the API asynchronously with the Analyze operation
 

@@ -35,8 +35,7 @@ This article only describes version 3.x of the API.
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* To use the Analyze feature and Text Analytics for health, you will need a Text Analytics resource with the standard (S) pricing tier.
-* To use Text Analytics for health, you will also need to [request access to the gated preview](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health#request-access-to-the-public-preview). 
+* To use the Analyze feature, you will need a Text Analytics resource with the standard (S) pricing tier.
 
 ## Setting up
 
@@ -596,95 +595,6 @@ Recognized phrases:
 cat
 veterinarian
 ```
----
-
-## Recognize healthcare entities with Text Analytics for health 
-
-# [Version 3.1 preview](#tab/version-3-1)
-
-> [!NOTE]
-> To use Text Analytics for health, you will need to [request access to the gated preview](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health#request-access-to-the-public-preview). you will also need a Text Analytics Resource with the standard (S) pricing tier.
-
-```csharp
-static void RecognizeHealthcareEntitiesExample(TextAnalyticsClient client)
-{
-		List<TextDocumentInput> documents = new ArrayList<>();
-		for (int i = 0; i < 3; i++) {
-				documents.add(new TextDocumentInput(Integer.toString(i),
-						"Subject is taking 100mg of ibuprofen twice daily"));
-		}
-
-		// Request options: show statistics and model version
-		RecognizeHealthcareEntityOptions options = new RecognizeHealthcareEntityOptions()
-				.setIncludeStatistics(true);
-
-		client.beginAnalyzeHealthcare(documents, options)
-				.flatMap(AsyncPollResponse::getFinalResult)
-				.subscribe(healthcareTaskResultPagedFlux ->
-						healthcareTaskResultPagedFlux.subscribe(
-								healthcareTaskResult -> {
-										System.out.printf("Job display name: %s, job ID: %s.%n", healthcareTaskResult.getDisplayName(),
-												healthcareTaskResult.getJobId());
-
-										RecognizeHealthcareEntitiesResultCollection healthcareEntitiesResultCollection = healthcareTaskResult.getResult();
-										// Model version
-										System.out.printf("Results of Azure Text Analytics \"Analyze Healthcare\" Model, version: %s%n",
-												healthcareEntitiesResultCollection.getModelVersion());
-
-										// Batch statistics
-										TextDocumentBatchStatistics batchStatistics = healthcareEntitiesResultCollection.getStatistics();
-										System.out.printf("Documents statistics: document count = %s, erroneous document count = %s, transaction count = %s, valid document count = %s.%n",
-												batchStatistics.getDocumentCount(), batchStatistics.getInvalidDocumentCount(),
-												batchStatistics.getTransactionCount(), batchStatistics.getValidDocumentCount());
-
-										healthcareEntitiesResultCollection.forEach(healthcareEntitiesResult -> {
-												System.out.println("Document id = " + healthcareEntitiesResult.getId());
-												System.out.println("Document entities: ");
-												HealthcareEntityCollection healthcareEntities = healthcareEntitiesResult.getEntities();
-												AtomicInteger ct = new AtomicInteger();
-												healthcareEntities.forEach(healthcareEntity -> {
-														System.out.printf("\ti = %d, Text: %s, category: %s, subcategory: %s, confidence score: %f.%n",
-																ct.getAndIncrement(),
-																healthcareEntity.getText(), healthcareEntity.getCategory(), healthcareEntity.getSubcategory(),
-																healthcareEntity.getConfidenceScore());
-												});
-
-												healthcareEntities.getEntityRelations().forEach(
-														healthcareEntityRelation ->
-																System.out.printf("Is bidirectional: %s, target: %s, source: %s, relation type: %s.%n",
-																		healthcareEntityRelation.isBidirectional(),
-																		healthcareEntityRelation.getTargetLink(),
-																		healthcareEntityRelation.getSourceLink(),
-																		healthcareEntityRelation.getRelationType()));
-										});
-								}
-						));
-}
-```
-
-### Output
-
-```console
-Job display name: null, job ID: b27979b0-9f26-4ca4-a164-bef1338ef06d.
-Results of Azure Text Analytics "Analyze Healthcare" Model, version: 2020-09-03
-Documents statistics: document count = 1, erroneous document count = 0, transaction count = 1, valid document count = 1.
-Document id = 0
-Document entities: 
-    i = 0, Text: 100mg, category: Dosage, subcategory: null, confidence score: 1.000000.
-    i = 1, Text: ibuprofen, category: MedicationName, subcategory: null, confidence score: 1.000000.
-    i = 2, Text: twice daily, category: Frequency, subcategory: null, confidence score: 1.000000.
-Is bidirectional: false, target: #/results/documents/0/entities/1, source: #/results/documents/0/entities/0, relation type: DosageOfMedication.
-Is bidirectional: false, target: #/results/documents/0/entities/1, source: #/results/documents/0/entities/2, relation type: FrequencyOfMedication.
-```
-
-# [Version 3.0](#tab/version-3)
-
-This feature is not available in version 3.0.
-
-# [Version 2.1](#tab/version-2)
-
-This feature is not available in version 2.1.
-
 ---
 
 ## Use the API asynchronously with the Analyze operation

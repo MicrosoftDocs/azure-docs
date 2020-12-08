@@ -34,8 +34,7 @@ ms.reviewer: assafi
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* To use the Analyze feature and Text Analytics for health, you will need a Text Analytics resource with the standard (S) pricing tier.
-* To use Text Analytics for health, you will also need to [request access to the gated preview](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health#request-access-to-the-public-preview). 
+* To use the Analyze feature, you will need a Text Analytics resource with the standard (S) pricing tier.
 
 ## Setting up
 
@@ -98,10 +97,8 @@ static void Main(string[] args)
     EntityLinkingExample(client);
     RecognizePIIExample(client);
     KeyPhraseExtractionExample(client);
-    // Using AnalyzeOperationExample() and RecognizeHealthcareEntitiesExample() requires a Text Analytics resource with the standard (S) pricing tier.
-    // Using RecognizeHealthcareEntitiesExample() also requires submitting a request to access the gated preview for this feature.
+    // Using AnalyzeOperationExample() requires a Text Analytics resource with the standard (S) pricing tier.
     //await AnalyzeOperationExample(client).ConfigureAwait(false);
-    //await RecognizeHealthcareEntitiesExample(client).ConfigureAwait(false);
 
     Console.Write("Press any key to exit.");
     Console.ReadKey();
@@ -805,98 +802,6 @@ Key phrases:
     cat
     veterinarian
 ```
-
----
-
-## Recognize healthcare entities with Text Analytics for health 
-
-# [Version 3.1 preview](#tab/version-3-1)
-
-> [!NOTE]
-> To use Text Analytics for health, you will need to [request access to the gated preview](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health#request-access-to-the-public-preview). you will also need a Text Analytics Resource with the standard (S) pricing tier.
-
-Create a new function called `RecognizeHealthcareEntitiesExample()` that takes the client that you created earlier, and call its `StartHealthcare()` function. The returned `HealthcareOperation` object will contain the `Operation` interface object for `RecognizeHealthcareEntitiesResultCollection`. As it is a Long Running Operation, `await` on the `healthOperation.WaitForCompletionAsync()` for the value to be updated. Once the `WaitForCompletionAsync()` is finishes, the collection should be updated in the `healthOperation.Value`. If there was an error, it will throw a `RequestFailedException`.
-
-```csharp
-static async Task RecognizeHealthcareEntitiesExample(TextAnalyticsClient client)
-{
-    string inputText = "Subject is taking 100mg of ibuprofen twice daily";
-    HealthcareOperation operation = await client.StartHealthcareAsync(inputText);
-
-    await operation.WaitForCompletionAsync();
-
-    RecognizeHealthcareEntitiesResultCollection results = operation.Value;
-
-    Console.WriteLine($"Results of Azure Text Analytics \"Healthcare\" Model, version: \"{results.ModelVersion}\"");
-    Console.WriteLine("");
-
-    foreach (DocumentHealthcareResult result in results)
-    {
-        Console.WriteLine($"    Recognized the following {result.Entities.Count} healthcare entities:");
-
-        foreach (HealthcareEntity entity in result.Entities)
-        {
-            Console.WriteLine($"    Entity: {entity.Text}");
-            Console.WriteLine($"    Subcategory: {entity.Subcategory}");
-            Console.WriteLine($"    Offset: {entity.Offset}");
-            Console.WriteLine($"    Length: {entity.Length}");
-            Console.WriteLine($"    IsNegated: {entity.IsNegated}");
-            Console.WriteLine($"    Links:");
-
-            foreach (HealthcareEntityLink healthcareEntityLink in entity.Links)
-            {
-                Console.WriteLine($"        ID: {healthcareEntityLink.Id}");
-                Console.WriteLine($"        DataSource: {healthcareEntityLink.DataSource}");
-            }
-        }
-        Console.WriteLine("");
-    }
-}
-```
-
-### Output
-
-> [!NOTE]
-> To keep the output short, only the first two links in the response are shown below. The rest are omitted.
-
-```console
-Test Name:	Healthcare
-Test Outcome:	Passed
-Result StandardOutput:	
-Results of Azure Text Analytics "Healthcare" Model, version: "2020-09-03"
-
-    Recognized the following 3 healthcare entities:
-    Entity: 100mg
-    Subcategory: 
-    Offset: 18
-    Length: 5
-    IsNegated: False
-    Links:
-    Entity: ibuprofen
-    Subcategory: 
-    Offset: 27
-    Length: 9
-    IsNegated: False
-    Links:
-        ID: C0020740
-        DataSource: UMLS
-        ID: 0000019879
-        DataSource: AOD
-    Entity: twice daily
-    Subcategory: 
-    Offset: 37
-    Length: 11
-    IsNegated: False
-    Links:
-```
-
-# [Version 3.0](#tab/version-3)
-
-This feature is not available in version 3.0.
-
-# [Version 2.1](#tab/version-2)
-
-This feature is not available in version 2.1.
 
 ---
 
