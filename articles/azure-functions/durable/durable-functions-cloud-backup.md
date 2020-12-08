@@ -163,7 +163,7 @@ The implementation loads the file from disk and asynchronously streams the conte
 
 ## Run the sample
 
-You can start the orchestration by sending the following HTTP POST request.
+You can start the orchestration, on Windows, by sending the following HTTP POST request.
 
 ```
 POST http://{host}/orchestrators/E2_BackupSiteContent
@@ -171,6 +171,16 @@ Content-Type: application/json
 Content-Length: 20
 
 "D:\\home\\LogFiles"
+```
+
+Alternatively, on a Linux Function App (Python currently only runs on Linux for App Service), you can start the orchestration like so:
+
+```
+POST http://{host}/orchestrators/E2_BackupSiteContent
+Content-Type: application/json
+Content-Length: 20
+
+"/home/site/wwwroot"
 ```
 
 > [!NOTE]
