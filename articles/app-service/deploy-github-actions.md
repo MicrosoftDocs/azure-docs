@@ -51,7 +51,7 @@ You can quickly get started with GitHub Actions by using the App Service Deploym
 
 This will commit the workflow file to the repository. The workflow to build and deploy your app will start immediately.
 
-## Set up a work manually
+## Set up a workflow manually
 
 You can also deploy a workflow without using the Deployment Center. To do so, you will need to first generate deployment credentials. 
 

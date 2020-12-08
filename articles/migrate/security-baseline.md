@@ -2,7 +2,6 @@
 title: Azure security baseline for Azure Migrate
 description: The Azure Migrate security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: mbaldwin
