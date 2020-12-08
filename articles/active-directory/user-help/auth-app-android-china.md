@@ -53,7 +53,7 @@ MFA registration/authentication using TOTP/verification codes only | Yes
 Phone Sign-in Registration | No
 Existing Phone Sign-in using push notifications | No
 Existing Phone Sign-in verification by performing manual check for authentication requests | Yes
-Support for the Authenticator app for personal Microsoft Accounts | No
+Support for the Authenticator app for personal Microsoft accounts | No
 
 ## Next steps
 
