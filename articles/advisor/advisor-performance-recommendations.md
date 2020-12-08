@@ -171,6 +171,9 @@ We have determined that your VMs are located in a region different or far from w
 We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
 Learn more about [Immersive reader SDK](../cognitive-services/immersive-reader/index.yml).
 
+## Improve VM performance and connectivity by changing the max session limit for your depth first load balanced host pool.
+Advisor detects that you have a host pool that has depth first set as the load balancing algorithm, and that host pool's max session limit is greater than or equal to 99999. Depth first load balancing uses the max session limit to determine the maximum number of users that can have concurrent sessions on a single session host. If the max session limit is too high, all user sessions will be directed to the same session host, and this will cause performance and reliability issues. Therefore, when setting a host pool to have depth first load balancing, you must set an appropriate max session limit according to the configuration of your deployment and capacity of your VMs. 
+[Learn more about WVD Load Balancing.](https://docs.microsoft.com/azure/virtual-desktop/configure-host-pool-load-balancing?WT.mc_id=Portal-Microsoft_Azure_Expert)
 
 ## How to access performance recommendations in Advisor
 
