@@ -95,6 +95,9 @@ Follow these steps to create a new resource using the Azure portal:
 > [!NOTE]
 > When creating your web app, you can also configure authorization/authentication. This is not necessary to get started. 
 
+> [!IMPORTANT]
+> You may need to enable TLS for your web app in order to view it at its `https` address. Follow the instructions in [Enable a TLS endpoint](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) to set up a sidecar container than enables TLS/SSL for your web app.
+
 ### Azure CLI
 
 As an alternative to using the Azure portal, you can create a resource using the Azure CLI. Before you continue, you'll need to install the [Azure CLI](/cli/azure/install-azure-cli). You can skip this step if you're already working with the Azure CLI. 
