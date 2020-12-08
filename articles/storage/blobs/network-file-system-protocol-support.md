@@ -16,7 +16,7 @@ ms.custom: references_regions
 Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Windows or Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. 
 
 > [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview and is available in the following regions: US East, US Central, US West Central, Australia Southeast, North Europe, UK West, Korea Central, Korea South, and Canada Central.
+> NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance in the following regions: Australia East, Korea Central, and South Central US. The preview also suppports block blob with premium performance tier in all public regions.
 
 ## General workflow: Mounting a storage account container
 
