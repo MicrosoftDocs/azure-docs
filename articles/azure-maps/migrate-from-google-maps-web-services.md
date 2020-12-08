@@ -35,15 +35,15 @@ The table shows the Azure Maps service APIs, which have a similar functionality 
 
 | Google Maps service API | Azure Maps service API                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Directions              | [Route](/rest/api/maps/route)                                     |                         |
-| Distance Matrix         | [Route Matrix](/rest/api/maps/route/postroutematrixpreview)       |                         |
-| Geocoding               | [Search](/rest/api/maps/search)                                   |                         |
-| Places Search           | [Search](/rest/api/maps/search)                                   |                         |
-| Place Autocomplete      | [Search](/rest/api/maps/search)                                   |                         |
-| Snap to Road            | See [Calculate routes and directions](#calculate-routes-and-directions) section.            |
-| Speed Limits            | See [Reverse geocode a coordinate](#reverse-geocode-a-coordinate) section.                  |
-| Static Map              | [Render](/rest/api/maps/render/getmapimage)                       |                         |
-| Time Zone               | [Time Zone](/rest/api/maps/timezone)                              |                         |
+| Directions              | [Route](/rest/api/maps/route)                                     |                         
+| Distance Matrix         | [Route Matrix](/rest/api/maps/route/postroutematrixpreview)       |                         
+| Geocoding               | [Search](/rest/api/maps/search)                                   |                         
+| Places Search           | [Search](/rest/api/maps/search)                                   |                         
+| Place Autocomplete      | [Search](/rest/api/maps/search)                                   |                         
+| Snap to Road            | See [Calculate routes and directions](#calculate-routes-and-directions) section.            
+| Speed Limits            | See [Reverse geocode a coordinate](#reverse-geocode-a-coordinate) section.                  
+| Static Map              | [Render](/rest/api/maps/render/getmapimage)                       |                         
+| Time Zone               | [Time Zone](/rest/api/maps/timezone)                              |                         
 | Elevation               | [Elevation (Preview)](/rest/api/maps/elevation)                   |                         |
 
 The following service APIs aren't currently available in Azure Maps:
