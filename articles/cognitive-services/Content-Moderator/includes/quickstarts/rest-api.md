@@ -117,6 +117,7 @@ You should see the text moderation results displayed as JSON data in the console
 }
 ```
 
+For more information on the text attributes that Content Moderator screens for, see the [Text moderation concepts](../../text-moderation-api.md) guide.
 
 ## Moderate images
 
@@ -130,15 +131,14 @@ Copy the command to a text editor and make the following changes:
 1. Change the first part of the query URL to match the endpoint that corresponds to your subscription key.
 1. Optionally change the `"Value"` URL in the request body to whatever remote image you'd like to moderate.
 
-> [!NOTE]
+> [!TIP]
 > You can also moderate local images by passing their byte data into the request body. See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) to learn how to do this.
 
 Once you've made your changes, open a command prompt and enter the new command. 
 
 ### Examine the results
 
-You should see the image moderation results displayed as JSON data in the console window. For more information on the image attributes that Content Moderator screens for, see the [Image moderation concepts](../../image-moderation-api.md) guide.
-
+You should see the image moderation results displayed as JSON data in the console window. 
 
 ```json
 {
@@ -156,6 +156,8 @@ You should see the image moderation results displayed as JSON data in the consol
   "TrackingId": "<Request Tracking Id>"
 }
 ```
+
+For more information on the image attributes that Content Moderator screens for, see the [Image moderation concepts](../../image-moderation-api.md) guide.
 
 ## Clean up resources
 
