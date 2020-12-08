@@ -18,7 +18,7 @@ Consider the following information when configuring scaling of your Cloud Servic
 - Scaling impacts core usage. Larger role instances consume more cores and you can only scale within the core limit of your subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 - Scaling based on queue messaging threshold is supported. For more information, see [Get started with Azure Queue storage](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues).
 - To ensure high availability of your Cloud Service (extended support) applications, ensure to deploy with two or more role instances. For more information, see [Service level agreements](https://azure.microsoft.com/support/legal/sla/).
-- Customer autoscale can only occur when all roles are in a **Ready** state.
+- Custom autoscale can only occur when all roles are in a **Ready** state.
 
 ## Configure and manage scaling
 
@@ -39,7 +39,7 @@ Consider the following information when configuring scaling of your Cloud Servic
 
 		4. The scaling operation will begin immediately. 
 		
-	- **Autoscale** will allow you to set rules that govern how much or how little to scale. 
+	- **Custom Autoscale** will allow you to set rules that govern how much or how little to scale. 
 		1. Select **Custom autoscale**
 		2. Choose to scale based on a metric or instance count.
 
