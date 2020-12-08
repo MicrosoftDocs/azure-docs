@@ -1,6 +1,6 @@
 ---
 title: Work with alerts on the on-premises management console
-description: 
+description: The on-premises management console aggregates alerts from all connected Sensors. This provides an enterprise view of recent threats in your network and helps you better understand how Sensor users are handling them.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -29,7 +29,7 @@ You can perform the following from the management console Alerts window:
 
 ## View alerts in the on-premises management console
 
-The on-premises management console aggregates alerts from all connected sensors. This provides an enterprise view of recent threats in your network and helps you better understand how Sensor users are handling them.
+The on-premises management console aggregates alerts from all connected sensors. This provides an enterprise view of recent threats in your network and helps you better understand how sensor users are handling them.
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-with-samples.png" alt-text="Screenshot of the Alerts window.":::
 
@@ -221,3 +221,7 @@ Define the sensors, engines, start, and end times to apply the rule.
 Rules you create using the API appear in the exclusion rule window as RO.
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Screenshot of edit exclusion rule view.":::
+
+## See also
+
+[Work with alerts on your sensor](how-to-work-with-alerts-on-your-sensor.md)

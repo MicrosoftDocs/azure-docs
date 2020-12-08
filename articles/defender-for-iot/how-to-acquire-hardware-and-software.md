@@ -1,29 +1,19 @@
 ---
 title: Acquire hardware and software 
-description: 
+description: Learn about software and hardware for certified Defender for IoT sensors and the on-premises management console. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/6/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
-# Prepare your network
+# Acquire hardware and software
 
-## About Defender for IoT
+This article provides information on certified Defender for IoT sensor appliances. This includes certified *pre-configured* appliances, on which software is already installed, as well as non-configured certified appliances on which you can download and install required software.
 
-The Defender for IoT delivers continuous ICS threat monitoring and device discovery. The platform includes the Defender for IoT sensors and the on-premises management console.
-
-Defender for IoT sensor: The Defender for IoT sensor's collect ICS network traffic using passive (agentless) monitoring. Passive and nonintrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network.
-
-Defender for IoT On-premises management console: The on-premises management console lets you carry out device management, risk, and vulnerability management, as well as threat monitoring and incident response across your enterprise. It provides a unified view of all network devices, key IoT, and OT risk indicators and alerts detected in facilities where sensors are deployed. You can use the on-premises management console to view and manage sensors in air gapped networks.
-
-## Getting started
-
-This guide provides information on certified Defender for IoT sensor appliances. This includes certified *pre-configured* appliances, on which software is already installed, as well as non-configured certified appliances on which you can download and install required software.
-
-The guide also provides details about on-premises management console appliance specifications. The on-premises management console is not available as a pre-configured appliance.
+The article also provides details about on-premises management console appliance specifications. The on-premises management console is not available as a pre-configured appliance.
 
 - If you want to purchase a pre-configured sensor, review the models available in the sensor Appliances section and then proceed with the purchase.
 
@@ -31,11 +21,12 @@ The guide also provides details about on-premises management console appliance s
 
 - If you want to purchase the on-premises management console, review the information in on-premises management console appliance. After acquiring the device, you can download and install the software.
 
+Once you have completed the tasks here, you can install the software and set up your network.
 ## Sensor appliances
 
 Defender for IoT supports both physical and virtual deployments.
 
-## Physical sensors
+### Physical sensors
 
 This article provides an overview of physical sensor models available. You can purchase sensors with preconfigured software or purchase sensors that are not preconfigured.
 
@@ -57,7 +48,7 @@ About Bringing your Own Appliance: Review supported models described here. After
 
 <a id="anchortext">1</a> Bandwidth capacity may vary depending on protocols distribution.
 
-## Virtual sensors
+### Virtual sensors
 
 This article provides an overview of the virtual sensors that are available.
 
@@ -229,7 +220,7 @@ This article details additional appliances that were certified by Microsoft but 
 | Max Bandwidth [1](#anchortext2)| 1G Mb/Sec |
 | Max Protected Devices | 10,000 |
 
-<a id="anchortext2">1</a> Bandwidth capacity may vary depending on protocols distribution.
+<a id="anchortext2">One</a> Bandwidth capacity may vary depending on protocols distribution.
 
 After purchasing the appliance, navigate to **Defender for IoT** > **Network Sensors ISO** > **Installation** to download the software.
 
@@ -278,21 +269,8 @@ After purchasing the appliance, navigate to **Defender for IoT** > **Network Sen
 | Shock | Operating, 50 Grms, Half-sine 11 ms Duration (w/ SSD, according to IEC60068-2-27) |
 | EMC | CE/FCC Class A, according to EN 55022, EN 55024 & EN 55032 |
 
-## # Line deployment – Compulab Fitlet2
+## Next steps
 
-| Type | Technical specifications |
-|--|--|
-| Construction | Aluminum | zinc die cast parts, Fanless & Dust-proof Design |
-| Dimensions | 112mm (W) x 112mm (D) x 25mm (H) |
-| Weight | 0.35kg |
-| CPU | Intel Atom® x7-E3950 Processor |
-| Memory | 8GB SODIMM 1 x 204-pin DDR3L non-ECC 1866 (1.35V) |
-| Storage | 128GB M.2 M-key 2260* | 2242 (SATA 3 6 Gbps) |
-| Network controller | 2x 1GbE LAN Ports |
-| Device access | 2 x USB 2.0, 2 X USB 3.0 |
-| Power Adapter | 9V-36V DC / 5W-15W Power Adapter |
-| Mounting | VESA / wall or Din Rail mounting kit |
-| Temperature | 0°C ~ 70°C |
-| Humidity | 5%~95%, non-condensing |
-| Vibration | IEC TR 60721-4-7:2001+A1:03, Class 7M1 |
-| EMC | CE/FCC Class B |
+[About the Defender for IoT Installation](how-to-install-software.md)
+
+[About Azure Defender for IoT Network Setup](how-to-set-up-your-network.md)
