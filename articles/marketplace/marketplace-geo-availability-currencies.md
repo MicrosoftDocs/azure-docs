@@ -1,12 +1,12 @@
 ---
-title: Geographic availability and currency support for Microsoft commercial marketplace
+title: Geographic availability and currency support for the Microsoft commercial marketplace
 description: The geographic availability and currency support for transactions in the commercial marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 07/29/2020
+ms.date: 12/07/2020
 ---
 
 # Geographic availability and currency support for the commercial marketplace
@@ -41,22 +41,22 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Brunei                              | BN        | USD          | BND, EUR, SGD, USD |
 | Bulgaria                            | BG        | EUR          | BGN, EUR, USD |
 | Cabo Verde                          | CV        | USD          | CVE, EUR, USD |
-| Cameroon                            | CM        | USD          | XAF, EUR, USD |
-| Canada                              | CA        | CAD          | CAD, EUR, USD  |
-| Cayman Islands                      | KY        | USD          | KYD, EUR, USD |
+| Cameroon                            | CM        | USD          | EUR, USD, XAF |
+| Canada                              | CA        | CAD          | CAD, EUR, USD |
+| Cayman Islands                      | KY        | USD          | EUR, KYD, USD |
 | Chile                               | CL        | USD          | CLP, EUR, USD |
 | China\**                            | CN        | N/A          | N/A |
 | Colombia                            | CO        | USD          | COP, EUR, USD |
 | Costa Rica                          | CR        | USD          | CRC, EUR, USD |
-| Côte d'Ivoire                       | CI        | USD          | XOF, EUR, USD |
-| Croatia                             | HR        | EUR          | HRK, EUR, USD |
+| Côte d'Ivoire                       | CI        | USD          | EUR, USD, XOF |
+| Croatia                             | HR        | EUR          | EUR, HRK, USD |
 | Curaçao                             | CW        | USD          | ANG, EUR, USD |
 | Cyprus                              | CY        | EUR          | EUR, USD  |
-| Czechia                             | CZ        | EUR          | EUR, USD, CZK |
+| Czechia                             | CZ        | EUR          | CZK, EUR, USD |
 | Denmark                             | DK        | DKK          | DKK, EUR, USD |
 | Dominican Republic                  | DO        | USD          | DOP, EUR, USD |
 | Ecuador                             | EC        | USD          | EUR, USD |
-| Egypt                               | EG        | USD          | EUR, USD EGP |
+| Egypt                               | EG        | USD          | EGP, EUR, USD |
 | El Salvador                         | SV        | USD          | EUR, USD |
 | Estonia                             | EE        | EUR          | EUR, USD |
 | Ethiopia                            | ET        | USD          | ETB, EUR, USD |
@@ -86,7 +86,7 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Kenya                               | KE        | USD          | EUR, KES, USD |
 | Korea (South)                       | KR        | KRW          | EUR, KRW, USD |
 | Kuwait                              | KW        | USD          | EUR, KWD, USD |
-| Kyrgyzstan                          | KG        | USD          | USD, EUR, KGS |
+| Kyrgyzstan                          | KG        | USD          | EUR, KGS, USD |
 | Latvia                              | LV        | EUR          | EUR, USD |
 | Lebanon                             | LB        | USD          | EUR, LBP, USD |
 | Libya                               | LY        | USD          | EUR, LYD, USD |
@@ -134,8 +134,8 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Slovenia                            | SI        | EUR          | EUR, USD |
 | South Africa                        | ZA        | USD          | EUR, USD, ZAR |
 | Spain                               | ES        | EUR          | EUR, USD |
-| Sri Lanka                           | LK        | USD          | EUR, USD, LKR |
-| Sweden                              | SE        | SEK          | EUR, USD, SEK |
+| Sri Lanka                           | LK        | USD          | EUR, LKR, USD |
+| Sweden                              | SE        | SEK          | EUR, SEK, USD  |
 | Switzerland                         | CH        | CHF          | CHF, EUR, USD |
 | Taiwan                              | TW        | TWD          | EUR, TWD, USD |
 | Tajikistan                          | TJ        | USD          | EUR, TJS, USD |
@@ -146,7 +146,7 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Turkey                              | TR        | USD          | EUR, TRY, USD |
 | Turkmenistan                        | TM        | USD          | EUR, TMT, USD |
 | Uganda                              | UG        | USD          | EUR, UGX, USD |
-| Ukraine                             | UA        | USD          | EUR, UAH, RUB, USD |
+| Ukraine                             | UA        | USD          | EUR, RUB, UAH, USD |
 | United Arab Emirates                | AE        | USD          | AED, EUR, USD |
 | United Kingdom                      | GB        | GBP          | EUR, GBP, USD |
 | United States                       | US        | USD          | EUR, USD |
