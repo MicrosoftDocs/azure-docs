@@ -3,8 +3,9 @@ title: Multi-site and multi-region federation - Azure Event Hubs | Microsoft Doc
 description: This article provides an overview of multi-site and multi-region federation with Azure Event Hubs. 
 ms.topic: article
 ms.date: 12/01/2020
+ms.author: clemensv
 ---
-# Multi-site and multi-region federation and stream transformations
+# Multi-site and multi-region federation
 
 Many sophisticated solutions require the same event streams to be made available
 for consumption in multiple locations and/or event streams to be collected in
@@ -127,7 +128,7 @@ You can't accelerate the speed of light, but you can reduce the number of
 high-latency round trips to interact with data.
 
 Guidance: 
-- [Replication pattern](event-hubs-federation-patterns.md#replication)
+- [Replication pattern][4]
 
 ### Validation, reduction, and enrichment
 
@@ -151,7 +152,7 @@ Any of these operations may occur as part of replication, consolidation, or
 merge flows. 
 
 Guidance: 
-- [Editor pattern](event-hubs-federation-patterns.md#editor)
+- [Editor pattern][6]
 
 ### Integration with analytics services
 
@@ -171,7 +172,7 @@ for Service Bus you follow the [Service Bus replication
 guidance](../service-bus-messaging/service-bus-federation-event-hubs.md).
 
 Guidance: 
-- [Replication pattern](event-hubs-federation-patterns.md#replication)
+- [Replication pattern][4]
 
 ### Consolidation and normalization of event streams
 
@@ -193,8 +194,8 @@ encrypted payloads and re-encrypting it with different keys and algorithms for
 the downstream consumer audience. 
 
 Guidance: 
-- [Merge pattern](event-hubs-federation-patterns.md#merge)
-- [Editor pattern](event-hubs-federation-patterns.md#editor)
+- [Merge pattern][5]
+- [Editor pattern][6]
 
 ### Splitting and routing of event streams
 
@@ -222,7 +223,7 @@ messages arriving in an Event Hub and cherry-picks just a few for onward routing
 and might differentiate routing targets by event metadata or content. 
 
 Guidance:
-- [Routing pattern](event-hubs-federation-patterns.md#routing)
+- [Routing pattern][7]
 
 ### Log projections 
 
@@ -256,7 +257,7 @@ authoritative view and there is never any good reason to rebuild it from the log
 contents once built. 
 
 Guidance:
-- [Log projection](event-hubs-federation-patterns.md#log-projection)
+- [Log projection][8]
 
 ## Replication applications in Azure Functions
 
@@ -286,11 +287,15 @@ Hubs](../azure-functions/functions-bindings-event-hubs.md), [Azure IoT
 Hub](../azure-functions/functions-bindings-event-iot.md), [Azure Service
 Bus](../azure-functions/functions-bindings-service-bus.md), [Azure Event
 Grid](../azure-functions/functions-bindings-event-grid.md), and [Azure Queue
-Storage](/azure-functions/functions-bindings-storage-queue.md), as well as
+Storage](../azure-functions/functions-bindings-storage-queue.md), as well as
 custom extensions for
 [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension), and
 [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). Most
 triggers will dynamically adapt to the throughput needs by scaling the number of concurrently executing instances up and down based on documented metrics. 
+
+For building log projections, Azure Functions supports output bindings for
+[Cosmos DB](../azure-functions/azure-functions-bindings-functions-bindings-cosmosdb-v2-output.md)
+and [Azure Table Storage](../azure-functions/functions-bindings-storage-table-output.md).
 
 With the Azure Functions consumption plan, the prebuilt triggers can even scale
 down to zero while no messages are available for replication, which means you
@@ -327,3 +332,6 @@ various other eventing and messaging systems:
 [3]: event-hubs-federation-service-bus.md
 [4]: event-hubs-federation-patterns.md#replication
 [5]: event-hubs-federation-patterns.md#merge
+[6]: event-hubs-federation-patterns.md#editor
+[7]: event-hubs-federation-patterns.md#routing
+[8]: event-hubs-federation-patterns.md#log-projection
