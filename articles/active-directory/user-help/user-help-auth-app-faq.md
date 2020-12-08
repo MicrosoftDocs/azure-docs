@@ -209,9 +209,11 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 Autofill in Authenticator app now securely stores and autofills your Microsoft account passwords on apps and websites you visit on your phone. A Microsoft account is an account from services such as an Outlook.com, Hotmail.com, or Live.com. You can use Autofill to sync and autofill your passwords on their iOS and Android devices. After setting up the Authenticator app as an autofill provider on your phone, it offers to save your passwords when you enter them on a site or app sign-in page. The passwords are saved under your Microsoft account (at myaccount.microsoft.com), and are also available when you sign in to Microsoft Edge with your Microsoft account.
 
 **Q**: What information can Authenticator autofill for me?
+
 **A**: Authenticator can autofill only usernames and passwords for your Microsoft account on sites and apps.
 
 **Q**: How do I turn on password autofill in Authenticator on my phone?
+
 **A**:
 
 1. Open the Authenticator app.
@@ -232,12 +234,15 @@ Autofill in Authenticator app now securely stores and autofills your Microsoft a
 1. Under **Settings**, select **How to turn on Autofill** in the **Autofill settings** section to set Authenticator as the default autofill provider.
 
 **Q**: What if “Autofill” toggle is grayed out for me in Settings?
-Autofill feature is currently in public preview and has not yet been enabled for all organizations or account types. If the **Autofill** switch in **Settings** is grayed out for you, it is likely because you are using Authenticator app with your work account. You can use this feature on a device where your work account isn’t added. If your organization works with Microsoft to be allowed to use this feature, the **Autofill** switch will be enabled even when a work account is added to Authenticator.
+
+**A**: Autofill is currently in public preview and has not yet been enabled for all organizations or account types. If the **Autofill** switch in **Settings** is grayed out for you, it is likely because you are using Authenticator app with your work account. You can use this feature on a device where your work account isn’t added. If your organization works with Microsoft to be allowed to use this feature, the **Autofill** switch will be enabled even when a work account is added to Authenticator.
 
 **Q**: How do I stop syncing passwords?
+
 **A**: To stop syncing passwords in the Authenticator app, open **Settings** > **Autofill settings** > **Sync account**. On the next screen, you can select on **Stop sync and remove all autofill data**. This will remove passwords and other autofill data from the device. Removing passwords and other autofill data doesn't affect multi-factor authentication.
 
 **Q**: How are my passwords protected by the Authenticator app?
+
 **A**: Authenticator app already provides a high level of security for multi-factor authentication and account management, and the same high security bar is also extended to managing your passwords.
 
 - **Strong authentication is needed by Authenticator app**: Signing into Authenticator requires a second factor. This means that your passwords inside Authenticator app can't be accessed even if someone has your Microsoft account password.
@@ -248,18 +253,23 @@ Autofill feature is currently in public preview and has not yet been enabled for
 ## Autofill for IT admins
 
 **Q**: Will my employees or students get to use password autofill in Authenticator app?
+
 **A**: No. Autofill feature is currently in public preview and has not yet been enabled for all organizations or account types. If your employee or student has added their work or school account into Microsoft Authenticator app, passwords autofill will not be accessible to them. The one exception to this restriction is when your employee or student adds their work or school account into Microsoft cloud-based multi-factor authentication as an external or third-party account.
 
 **Q**: Can I make autofill feature available to my employees (or students)?
+
 **A**: Yes. To enable your employees or students your enterprise or school can be added to an allow-list. Reach out to your support or CxP contact to get added to the allow-List. Additionally, if you’re an IT administrator for your organization, you can also fill out a form to express your interest in joining at [Allow-list enterprise for Autofill in Authenticator](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR34CGCVbcWBHqj8OSnNiIK5UQ1c1S0NIVzlLUEwwQ0lWRExRMTdSM05HTC4u).
 
 **Q**: Will my users’ work or school account password get automatically synced?
+
 **A**: No. Password autofill won't sync work or school account password for your users. When users visit a site or an app, Authenticator will offer to save the password for that site or app, and password is saved only when user chooses to.
   
 **Q**: Can I allow-list only certain users of my organization for Autofill?
+
 **A**: No. Enterprises can only enable passwords autofill for all or none of their employees at this time. We will gradually expand these controls.
 
 **Q**: What if my employee or student has multiple work or school accounts? For example, my employee has accounts from multiple enterprises or schools in their Microsoft Authenticator.
+
 **A**: All enterprises or schools added in the Authenticator app need to be allow-listed for Autofill in Authenticator for the app owner to be able to use it. The one exception to this restriction is when your employee or student adds their work or school account into Microsoft cloud-based multi-factor authentication as an external or third-party account.
 
 ## Next steps
