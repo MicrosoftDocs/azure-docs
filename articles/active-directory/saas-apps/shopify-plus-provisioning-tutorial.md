@@ -47,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Login to [Shopify Plus organization admin](https://shopify.plus ). Navigate to **Users > Security**.
 
-2. Naviagte to the **SCIM Integration** section, click **Generate API token**.
+2. Navigate to the **SCIM Integration** section, click **Generate API token**.
 
 3. Copy and save the generated token. This value will be entered in the **Secret Token** field in the Provisioning tab of your Shopify Plus application in the Azure portal.
 
