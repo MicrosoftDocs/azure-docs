@@ -156,10 +156,10 @@ For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ## Next steps
 
-- Find more examples in these articles:
+Find more examples in these articles:
 
 - [Examples: Upload](storage-use-azcopy-blobs-upload.md)
-- [Examples: Copy between accounts](storage-use-azcopy-blobs-download.md)
+- [Examples: Copy between account](storage-use-azcopy-blobs-copy)
 - [Examples: Synchronize](storage-use-azcopy-blobs-synchronize.md)
 - [Examples: Amazon S3 buckets](storage-use-azcopy-s3.md)
 - [Examples: Azure Files](storage-use-azcopy-files.md)
