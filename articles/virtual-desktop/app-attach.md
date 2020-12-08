@@ -3,7 +3,7 @@ title: Configure Windows Virtual Desktop MSIX app attach PowerShell scripts - Az
 description: How to create PowerShell scripts for MSIX app attach for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 12/10/2020
 ms.author: helohr
 manager: lizross
 ---
