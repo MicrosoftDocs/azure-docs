@@ -456,7 +456,7 @@ When you use a webhook-based trigger or action, such as **HTTP Webhook**, with a
 
 To locally run webhook-based triggers and actions in Visual Studio Code, you need to set up a public URL that exposes your localhost server and securely forwards calls from the service endpoint to the webhook callback URL. You can use a forwarding service and tool such as [**ngrok**](https://ngrok.com/), which opens an HTTP tunnel to your localhost port, or you can use your own tool.
 
-### Set up call forwarding using **ngrok**
+#### Set up call forwarding using **ngrok**
 
 1. [Sign up for an **ngrok** account](https://dashboard.ngrok.com/signup) if you don't have one. Otherwise, [sign in to your account](https://dashboard.ngrok.com/login).
 
@@ -484,7 +484,7 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
 
 1. Copy and save the URL that has this format: `http://<domain>.ngrok.io`
 
-### Set up the forwarding URL in your app settings
+#### Set up the forwarding URL in your app settings
 
 1. In Visual Studio Code, at your project's root level, open the **local.settings.json** file.
 
