@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/4/2020
+ms.date: 12/04/2020
 ms.author: duau
 ---
 
@@ -52,6 +52,7 @@ Any headers sent to Front Door from the backend are also passed through to the c
 | X-Cache | *X-Cache: TCP_HIT* </br> This header describes the cache status of the request, which enables you to identify if the response content is being served from the cache of the Front Door. |
 
 You need to send "X-Azure-DebugInfo: 1" request header to enable the following optional response headers:
+
 | Header  | Example and description |
 | ------------- | ------------- |
 | X-Azure-OriginStatusCode |  *X-Azure-OriginStatusCode: 503* </br> This header contains the HTTP status code returned by the backend. Using this header you can identify the HTTP status code returned by the application running in your backend without going through backend logs. This status code might be different from the HTTP status code in the response sent to the client by Front Door. This header allows you to determine if the backend is misbehaving or if the issue is with the Front Door service. |
