@@ -423,8 +423,10 @@
     items:
     - name: Azure VM
       href: backup-azure-vms-troubleshoot.md
+    - name: Azure VM file recovery
+      href: backup-azure-vm-file-recovery-troubleshoot.md
     - name: Azure Backup agent or VM extension timed out
-      href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+      href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md     
     - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
     - name: Files and folders backup is slow
