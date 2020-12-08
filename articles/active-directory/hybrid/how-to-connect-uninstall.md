@@ -26,9 +26,9 @@ The first thing you need to do is remove Azure AD Connect from the server that i
 3. Select **Azure AD Connect**.
 ![](media/how-to-connect-uninstall/uninstall2.png)</br>
 4. When prompted, click **Yes** to confirm.
-5. This will bring up the Azure AD Connect screen.  Click **Remove**.
+5. This confirmation will bring up the Azure AD Connect screen.  Click **Remove**.
 6. ![](media/how-to-connect-uninstall/uninstall3.png)</br>
-7. Once this completes, click **Exit**.
+7. Once this action completes, click **Exit**.
 8. ![](media/how-to-connect-uninstall/uninstall4.png)</br>
 9. Back in **Control Panel** click **Refresh** and all of the components should have been removed.
 
