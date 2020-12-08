@@ -690,7 +690,8 @@ Cost: Free
 
 ## Microsoft.Storage/storageAccounts/blobServices
 
-Cost: Free
+Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
+
 |Category |Category Display Name|
 |---|---|
 |StorageDelete|StorageDelete|
@@ -700,7 +701,8 @@ Cost: Free
 
 ## Microsoft.Storage/storageAccounts/fileServices
 
-Cost: Free
+Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
+
 |Category |Category Display Name|
 |---|---|
 |StorageDelete|StorageDelete|
@@ -710,7 +712,8 @@ Cost: Free
 
 ## Microsoft.Storage/storageAccounts/queueServices
 
-Cost: Free
+Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
+ 
 |Category |Category Display Name|
 |---|---|
 |StorageDelete|StorageDelete|
@@ -720,7 +723,8 @@ Cost: Free
 
 ## Microsoft.Storage/storageAccounts/tableServices
 
-Cost: Free
+Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
+ 
 |Category |Category Display Name|
 |---|---|
 |StorageDelete|StorageDelete|
