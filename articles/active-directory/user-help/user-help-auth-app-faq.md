@@ -236,7 +236,6 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 **Q**: What if **Autofill** switch is grayed out for me in Settings?
 
 **A**: Autofill is currently in beta and has not yet been enabled for all organizations or account types. If the **Autofill** switch in **Settings** is grayed out for you, it is likely because you are using Authenticator app with your work account. You can use this feature on a device where your work account isn’t added. If your organization works with Microsoft, the **Autofill** switch will be enabled even when a work account is added to Authenticator.
-If you organization works with Microsoft, the Autofill switch will be enabled even when a work account is added to Authenticator.
 
 **Q**: How do I stop syncing passwords?
 
