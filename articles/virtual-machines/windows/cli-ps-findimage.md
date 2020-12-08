@@ -10,7 +10,7 @@ ms.date: 12/07/2020
 ms.author: cynthn
 
 ---
-# Find and use Azure Marketplace VM images with Azure PowerShell
+# Find and use Azure Marketplace VM images with Azure PowerShell     
 
 This article describes how to use Azure PowerShell to find VM images in the Azure Marketplace. You can then specify a Marketplace image and plan information when you create a VM.
 
