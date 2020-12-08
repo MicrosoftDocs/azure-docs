@@ -11,7 +11,8 @@ ms.custom: "include file"
 
 ---
 
-![Application overview](media/event-grid-event-hubs-functions-synapse-analytics/overview.png)
+:::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/overview.png" alt-text="Application overview":::
+![]()
 
 This diagram depicts the workflow of the solution you build in this tutorial: 
 
@@ -54,17 +55,17 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. Select **Cloud Shell** button at the top.
 
-    ![Azure portal](media/event-grid-event-hubs-functions-synapse-analytics/azure-portal.png)
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/azure-portal.png" alt-text="Azure portal":::
 3. You see the Cloud Shell opened at the bottom of the browser.
 
-    ![Cloud Shell](media/event-grid-event-hubs-functions-synapse-analytics/launch-cloud-shell.png) 
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/launch-cloud-shell.png" alt-text="Cloud Shell":::
 4. In the Cloud Shell, if you see an option to select between **Bash** and **PowerShell**, select **Bash**. 
 5. If you are using the Cloud Shell for the first time, create a storage account by selecting **Create storage**. Azure Cloud Shell requires an Azure storage account to store some files. 
 
-    ![Screenshot that shows the "You have no storage mounted" dialog with the "Create storage" button selected.](media/event-grid-event-hubs-functions-synapse-analytics/create-storage-cloud-shell.png)
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/create-storage-cloud-shell.png" alt-text="Create storage for cloud shell":::
 6. Wait until the Cloud Shell is initialized. 
 
-    ![Create storage for cloud shell](media/event-grid-event-hubs-functions-synapse-analytics/cloud-shell-initialized.png)
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/cloud-shell-initialized.png" alt-text="Cloud shell initialized":::
 1. Create an Azure resource group by running the following CLI command: 
     1. Copy and paste the following command into the Cloud Shell window. Change the resource group name and location if you want.
 
@@ -104,7 +105,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 
 
         ```azurecli
-        az group deployment create \
+        az deployment group create \
             --resource-group rgDataMigration \
             --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json \
             --parameters eventHubNamespaceName=<event-hub-namespace> eventHubName=hubdatamigration sqlServerName=<sql-server-name> sqlServerUserName=<user-name> sqlServerPassword=<password> sqlServerDatabaseName=<database-name> storageName=<unique-storage-name> functionAppName=<app-name>
@@ -118,18 +119,18 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 2. Filter the list of resource groups by entering the name of your resource group in the search box. 
 3. Select your resource group in the list.
 
-    ![Select your resource group](media/event-grid-event-hubs-functions-synapse-analytics/select-resource-group.png)
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/select-resource-group.png" alt-text="Select your resource group":::
 4. Confirm that you see the following resources in the resource group:
 
-    ![Resources in the resource group](media/event-grid-event-hubs-functions-synapse-analytics/resources-in-resource-group.png)
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/resources-in-resource-group.png" alt-text="Resources in the resource group" lightbox="media/event-grid-event-hubs-functions-synapse-analytics/resources-in-resource-group.png":::
 
 ### Create a table in Azure Synapse Analytics
 Create a table in your data warehouse by running the [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) script. To run the script, you can use Visual Studio or the Query Editor in the portal. The following steps show you how to use the Query Editor: 
 
 1. In the list of resources in the resource group, select your **dedicated SQL pool**. 
-2. On the **Dedicated SQL pool** page, in the **Common Tasks** section in the left menu, select **Query editor (preview)**. 
+2. On the **Dedicated SQL pool** page, in the **Common Tasks** section on the left menu, select **Query editor (preview)**. 
 
-    ![Azure Synapse Analytics page](media/event-grid-event-hubs-functions-synapse-analytics/sql-data-warehouse-page.png)
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/sql-data-warehouse-page.png" alt-text="Azure Synapse Analytics page":::
 2. Enter the name of **user** and **password** for the SQL server, and select **OK**. If you see a message about allowing your client to access the SQL server, follow these steps:
     1. Select the link: **Set server firewall**. 
     2. On the **Firewall settings** page, select **Add client IP** on the toolbar, and then select **Save** on the toolbar. 
@@ -149,17 +150,18 @@ Create a table in your data warehouse by running the [CreateDataWarehouseTable.s
     WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
     ```
 
-    ![Run SQL query](media/event-grid-event-hubs-functions-synapse-analytics/run-sql-query.png)
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/run-sql-query.png" alt-text="Run SQL query":::
 5. Keep this tab or window open so that you can verify that the data is created at the end of the tutorial. 
 
 ### Update the function runtime version
 
+1. Open another tab in the web browser, and navigate to [Azure portal](https://portal.azure.com).
 1. In the Azure portal, select **Resource groups** on the left menu.
-2. Select the resource group in which the function app exists. 
-3. Select the **function app** in the list of resources in the resource group.
-4. Select **Configuration** under **Settings** on the left menu. 
-5. Switch to the **Function runtime settings** tab in the right pane. 
-5. Update the **runtime version** to **~3**. 
+1. Select the resource group in which the function app exists. 
+1. Select the **function app** in the list of resources in the resource group.
+1. Select **Configuration** under **Settings** on the left menu. 
+1. Switch to the **Function runtime settings** tab in the right pane. 
+1. Update the **runtime version** to **~3**. 
 
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/function-runtime-version.png" alt-text="Update function runtime version":::
 6. Select **Save** on the toolbar. 
@@ -177,7 +179,7 @@ Create a table in your data warehouse by running the [CreateDataWarehouseTable.s
 6. Select **Azure Function App (Windows)**, and select **Next**.
 7. On the **Functions instance** tab, select your Azure subscription, expand the resource group, and select you function app, and then select **Finish**. You need to sign into your Azure account if you haven't already done so. 
 
-   ![Select your function app](media/event-grid-event-hubs-functions-synapse-analytics/publish-select-function-app.png)
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/publish-select-function-app.png" alt-text="Select your function app":::
 8. On the **Publish** page, in the **Service Dependencies** section, select **Configure** for **Storage**. 
 
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/publish-storage-configure-link.png" alt-text="Select configure link for storage service dependency":::
@@ -193,7 +195,10 @@ Create a table in your data warehouse by running the [CreateDataWarehouseTable.s
         :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/dependency-storage-changes-summary.png" alt-text="Review summary of changes":::
 1. When Visual Studio has configured the profile, select **Publish**.
 
-   ![Select publish](media/event-grid-event-hubs-functions-synapse-analytics/select-publish.png)
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/select-publish.png" alt-text="Select publish":::
+2. In the tab that has the **Azure Function** page open, select  **Functions** on the left menu. Confirm that the **EventGridTriggerMigrateData** function shows up in the list. If you don't see it, try publishing from Visual Studio again, and then refresh the page int he portal. 
+
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/confirm-function-creation.png" alt-text="Confirm function creation":::    
 
 After publishing the function, you're ready to subscribe to the event.
 
@@ -234,7 +239,9 @@ You've finished setting up your event hub, dedicate SQL pool (formerly SQL Data 
 2. Select the Event Hubs namespace.
 3. In the **Event Hubs Namespace** page, select **Shared access policies** on the left menu.
 4. Select **RootManageSharedAccessKey** in the list of policies. 
-5. Select the copy button next to the **Connection string-primary key** text box. 
+
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/event-hub-namespace-shared-access-policies.png" alt-text="Shared access policies page for an Event Hubs namespace":::    
+1. Select the copy button next to the **Connection string-primary key** text box. 
 1. Go back to your Visual Studio solution. 
 1. Right-click **WindTurbineDataGenerator** project, and select **Set as Startup project**. 
 1. In the WindTurbineDataGenerator project, open **program.cs**.
@@ -247,6 +254,10 @@ You've finished setting up your event hub, dedicate SQL pool (formerly SQL Data 
    ```
 6. Build the solution. Run the **WindTurbineGenerator.exe** application. 
 7. After a couple of minutes, in the other browser tab where you have the query window open, query the table in your data warehouse for the migrated data.
+
+    ```sql
+    select * from [dbo].[Fact_WindTurbineMetrics]    
+    ```
 
     ![Query results](media/event-grid-event-hubs-functions-synapse-analytics/query-results.png)
 
@@ -272,8 +283,8 @@ This section helps you with monitoring or troubleshooting the solution.
 1. Select **Configure** to configure application insights to capture invocation logs. 
 1. Create a new **Application Insights** resource or use an existing resource. 
 1. Navigate back to the **Monitor** page for the function. 
-1. Confirm that the client application (**WindTurbineDataGenerator) that's sending the events is still running. If not, run the app. 
-1. Wait for a few minutes and select the **Refresh** button to see function invocations.    
+1. Confirm that the client application (**WindTurbineDataGenerator**) that's sending the events is still running. If not, run the app. 
+1. Wait for a few minutes (5 minutes or more) and select the **Refresh** button to see function invocations.    
 
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/function-invocations.png" alt-text="Function invocations":::
 1. Select an invocation to see details.
