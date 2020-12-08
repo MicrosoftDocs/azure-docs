@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and acce
 
 - Internal resources, such as apps on your corporate network and intranet, along with any cloud apps developed by your own organization. For more information about creating a tenant for your organization, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-To learn the difference between Azure AD and Active Directory Domain Services, see [Compare Active Directory to Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). You can also use the various [Microsoft Cloud for Enterprise Architects Series](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) posters to better understand the core identity services in Azure, Azure AD, and Microsoft 365.
+To learn the difference between Azure AD and Active Directory Domain Services, see [Compare Active Directory to Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). You can also use the various [Microsoft Cloud for Enterprise Architects Series](/microsoft-365/solutions/cloud-architecture-models) posters to better understand the core identity services in Azure, Azure AD, and Microsoft 365.
 
 ## Who uses Azure AD?
 
