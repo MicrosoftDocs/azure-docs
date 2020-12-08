@@ -131,7 +131,7 @@ The **Site Manager** window displays disconnect information if sensors disconnec
 
 - Sensor not communicating with on-premises management console. Check network connectivity.
 
-:::image type="content" source="media/how-to-view-sensor-connection-status-to-the-on-premise-manager/edit-system-settings-screen.png" alt-text="Screenshot of the Zone 1 view":::
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/edit-system-settings-screen.png" alt-text="Screenshot of the zone 1 view.":::
 
 ## Enable or disable sensors
 
