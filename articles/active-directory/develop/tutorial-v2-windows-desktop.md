@@ -256,6 +256,7 @@ In this section, you use MSAL to get a token for the Microsoft Graph API.
                 this.SignOutButton.Visibility = Visibility.Visible;
             }
         }
+        }
     ```
 
 ### More information
