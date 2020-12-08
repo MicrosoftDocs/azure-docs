@@ -152,7 +152,7 @@ Skip this step if you will connect via Storage Explorer using *http*. If you are
 
 Make sure that you have a virtual disk image that you can use to upload in the later step. Follow the steps in [Create a VM image](azure-stack-edge-j-series-create-virtual-machine-image.md). 
 
-Copy any disk images to be used into page blobs in the local storage account that you created in the earlier steps. You can use a tool such as [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) or [AzCopy to upload the VHD to the storage account](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md#upload-a-vhd) that you created in earlier steps. 
+Copy any disk images to be used into page blobs in the local storage account that you created in the earlier steps. You can use a tool such as [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) or [AzCopy to upload the VHD to the storage account](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) that you created in earlier steps. 
 
 ### Use Storage Explorer for upload
 

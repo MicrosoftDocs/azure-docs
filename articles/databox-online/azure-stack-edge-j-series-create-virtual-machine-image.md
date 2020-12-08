@@ -22,7 +22,7 @@ To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create
 
 The workflow requires you to create a virtual machine in Azure, customize the VM, generalize, and then download the VHD corresponding to that VM. This generalized VHD is uploaded to Azure Stack Edge Pro, managed disk is created from that VHD, image is created from managed disk, and finally VMs are created from that image.   
 
-For more information, go to [Deploy a VM on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+For more information, go to [Deploy a VM on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
 
 
 ## Create a Windows custom VM image
@@ -78,4 +78,4 @@ For a full list of Azure Marketplace images that could work (presently not teste
 
 ## Next steps
 
-[Deploy VMs on your Azure Stack Edge Pro device](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Deploy VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).

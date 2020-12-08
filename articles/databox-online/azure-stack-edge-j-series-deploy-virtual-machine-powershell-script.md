@@ -115,4 +115,4 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 ## Next steps
 
-[Deploy VMs using Azure PowerShell cmdlets](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md)
+[Deploy VMs using Azure PowerShell cmdlets](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)

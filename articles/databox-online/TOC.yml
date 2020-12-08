@@ -218,7 +218,7 @@
       - name: Deploy VMs - Templates
         href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md 
       - name: Deploy VMs - Azure PowerShell cmdlets
-        href: azure-stack-edge-j-series-deploy-virtual-machine-powershell.md 
+        href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md 
       - name: Deploy VMs - Azure PowerShell script
         href: azure-stack-edge-j-series-deploy-virtual-machine-powershell-script.md 
       - name: Deploy VMs - Azure CLI/Python
