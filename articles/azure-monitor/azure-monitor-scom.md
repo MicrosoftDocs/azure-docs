@@ -37,7 +37,8 @@ The diagram includes a high level recommendation for the method used to monitor 
 
 **Azure services.** PaaS resources in Azure that support your business applications that have migrated to the cloud. This includes services such as Azure Storage, Azure SQL, and Azure IoT. This does include Azure virtual machines since they are monitored like other Azure services, but the applications and software running on the guest operating system of those virtual machines are monitored separately than the host.
 
-## Legacy environments
+## Legacy applications and environments
+Prior to migrating into Azure, you may 
 
 ## Business applications
 You typically require custom management packs to monitor applications in your IaaS environment with Operations Manager, leveraging agents installed on each virtual machine. Application Insights in Azure Monitor monitors both IaaS and PaaS web based applications in Azure, other clouds, or on-premises. Application Insights provides the following benefits over custom management packs:
