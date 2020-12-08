@@ -15,6 +15,12 @@ that you familiarize yourself with them before continuing with this article.
 In this article, we detail implementation guidance for several of the patterns
 highlighted in the overview section. 
 
+- [Replication](#replication)
+- [Merge](#merge)
+- [Editor](#editor)
+- [Routing](#routing)
+- [Log projection](#log-projection) 
+
 ## Replication 
 
 The Replication pattern copies events from one Event Hub to the next, or from an
@@ -205,4 +211,5 @@ public static async Task Run(
 The routing function will consider the message metadata and/or the message
 payload and then pick one of the available destinations to send to. 
 
-## Merging
+## Log projection
+
