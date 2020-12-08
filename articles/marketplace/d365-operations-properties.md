@@ -5,11 +5,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
-ms.author: mingshen
-ms.date: 11/25/2020
+ms.author: navits
+ms.date: 12/08/2020
 ---
 
-# How to configure Dynamics 365 for Operations offer properties
+# Configure Dynamics 365 for Operations offer properties
 
 This page lets you define the categories used to group your Dynamics 365 for Operations offer on Microsoft AppSource, your application version, and the legal contracts that support your offer.
 
@@ -37,4 +37,4 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Configure Dynamics 365 for Operations offer listing](d365-operations-create-listing.md)
+- [Configure Dynamics 365 for Operations offer listing](d365-operations-offer-listing.md)

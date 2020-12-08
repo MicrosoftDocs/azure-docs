@@ -9,15 +9,15 @@ ms.author: mingshen
 ms.date: 11/25/2020
 ---
 
-# How to create a Dynamics 365 for Operations offer
+# Create a Dynamics 365 for Operations offer
 
 This article describes how to create a [Dynamics 365 for Operations](https://dynamics.microsoft.com/finance-and-operations) offer. This offer type is an enterprise resource planning (ERP) service that supports advanced operations, finance, manufacturing, and supply chain management. All offers for Dynamics 365 go through our certification process.
 
-Before you start, [create a commercial marketplace account in Partner Center](partner-center-portal/create-account.md). Ensure that your account is enrolled in the commercial marketplace program.
+Before you start, create a commercial marketplace account in [Partner Center](partner-center-portal/create-account.md) and ensure it is enrolled in the commercial marketplace program.
 
 ## Before you begin
 
-If you haven't done so yet, review [Plan a Dynamics 365 for Operations offer](marketplace-dynamics-365.md). It will explain the technical requirements for your offer and list the information and assets you’ll need when you create your offer.
+Review [Plan a Dynamics 365 for Operations offer](marketplace-dynamics-365.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 
 ## Create a new offer
 
@@ -25,10 +25,10 @@ If you haven't done so yet, review [Plan a Dynamics 365 for Operations offer](ma
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Dynamics 365 for operations**.
 
-    ![Screenshot showing the left pane menu options and the "New offer" button.](media/dynamics-365/new-offer-dynamics-365-operations.png)
+    :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-operations.png" alt-text="The left pane menu options and the 'New offer' button.":::
 
 > [!NOTE]
-> After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after making changes to it.
+> After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.
 
 ## New offer
 
@@ -48,7 +48,7 @@ Select **Create** to generate the offer. Partner Center opens the **Offer setup*
 
 ## Alias
 
-Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name navigate, see the [Offer listing](d365-operations-create-listing.md) page.
+Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, see the [Offer listing](d365-operations-offer-listing.md) page.
 
 ## Setup details
 
@@ -74,7 +74,7 @@ A test drive is a great way to showcase your offer to potential customers by giv
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
-To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. With test drive, configuring a CRM is required (see next section). To remove test drive from your offer, clear this check box.
+To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. <font color="red">[ Need to do this ]</font>With test drive, configuring a CRM is required (see next section). To remove test drive from your offer, clear this check box.
 
 ## Customer leads
 
@@ -92,5 +92,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [How to configure Dynamics 365 for Operations offer properties](d365-operations-create-properties.md)
+- [Configure Dynamics 365 for Operations offer properties](d365-operations-properties.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)

@@ -4,14 +4,14 @@ description: Step-by-step publishing guide for publishing Dynamics 365 apps to M
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: trkeya
-ms.author: trkeya
+author: navits
+ms.author: navits
 ms.date: 12/04/2020
 ---
 
-# How to plan Microsoft Dynamics 365 offers
+# Planning a Microsoft Dynamics 365 offer
 
-This article explains the different options and features of a Dynamics 365 offer in Microsoft AppSource in the commercial marketplace. AppSource includes offers that build on or extend Microsoft 365, Dynamics 365, Power Apps, and Power BI. AppSource allows paid (*Get It Now*), list (*Contact Me*), and trial (*Try It Now*) offers.
+This article explains the different options and features of a Dynamics 365 offer in Microsoft AppSource in the commercial marketplace. AppSource includes offers that build on or extend Microsoft 365, Dynamics 365, PowerApps, and Power BI. AppSource allows paid (*Get It Now*), list (*Contact Me*), and trial (*Try It Now*) offers.
 
 Before you start, [Create a commercial marketplace account in Partner Center](./partner-center-portal/create-account.md) and ensure your account is enrolled in the commercial marketplace program.
 
@@ -48,7 +48,7 @@ Here's an example of how offer information appears in Microsoft AppSource (any l
 
 :::image type="content" source="media/dynamics-365/example-azure-marketplace-d365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
-##### Call-out descriptions
+###### Call-out descriptions
 
 1. Logo
 2. Products
@@ -64,7 +64,7 @@ Here's an example of how offer information appears in Microsoft AppSource (any l
 > [!NOTE]
 > Offer listing content is not required to be in English if the offer description begins with the phrase "This application is available only in [non-English language]".
 
-To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.
+To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.<font color="red">[ TAKEN FROM VM ]</font>
 
 - **Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
 - **Search results summary**: Describe the purpose or function of your offer as a single sentence with no line breaks in 100 characters or less. This summary is used in the commercial marketplace listing(s) search results.
@@ -81,23 +81,19 @@ To help create your offer more easily, prepare some of these items ahead of time
   - **CSP Program contact** (optional): Provide the name, phone, and email if you opt in to the CSP program, so those partners can contact you with any questions. You can also include a URL to your marketing materials.
 - **Useful links** (optional): You can provide links to various resources for users of your offer. For example, forums, FAQs, and release notes.
 - **Supporting documents**: You can provide up to three customer-facing documents, such as whitepapers, brochures, checklists, or PowerPoint presentations.
-- **Media – Logos**: Provide a PNG file for the **Large** logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
+- **Media – Logos**: Provide a PNG file for the **Large** logo. Partner Center will use this to create other required logo sizes. You can optionally replace these with different images later.
 
-   - Large (from 216 x 216 to 350 x 350 px, required)
-   - Medium (90 x 90 px, optional)
-   - Small (48 x 48 px, optional)
+These logos are used in different places in the online stores:
 
-  These logos are used in different places in the online stores:
-
-  - The Small logo appears in AppSource search results and on the AppSource main page and search results page.
-  - The Medium logo appears when you create a new resource in Microsoft Azure.
+  - A small logo appears in AppSource search results and on the AppSource main page and search results page.
+  - A medium logo appears when you create a new resource in Microsoft Azure.
   - The Large logo appears on your offer listing page in AppSource.
 
-- **Media - Screenshots**: You must add at least one and up to five screenshots with the following requirements, that show how your offer works:
+- **Media - Screenshots**: You must add at least one and up to five screenshots that show how your offer works. Images must be:
   - 1280 x 720 pixels
   - PNG file type
-  - Must include a caption
-- **Media - Videos** (optional): You can add up to four videos with the following requirements, that demonstrate your offer:
+  - Include a caption
+- **Media - Videos** (optional): You can add up to four videos that demonstrate your offer. Videos must include:
   - Name
   - URL: Must be hosted on YouTube or Vimeo only.
   - Thumbnail: 1280 x 720 PNG file
@@ -119,14 +115,14 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 
 ## Next steps
 
-After you've considered the planning items described above, select one of the following (also available in the table of contents on the left) to begin creating your offer.
+After you've considered the planning items described above, select one of the following (also available in the table of contents on the left) to begin creating your offer. <font color="red">[ I think the 2nd column should be deleted and the first column should link to the Create topics in the Azure-docs collection, like Ops, Biz Central, and CE are ]</font>
 
 | Publishing guide    | Notes  |
 | :------------------- | :-------------------|
 | <strike>Microsoft 365</strike> | <strike>Review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center).</strike> |
-| [Dynamics 365 for Operations and Finance](d365-operations-create.md) | When you're building for Enterprise Edition, first review the [publishing process and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). |
+| [Dynamics 365 for Operations](d365-operations-offer-setup.md) | When you're building for Enterprise Edition, first review the [publishing process and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). |
 | [Dynamics 365 for Business Central](./partner-center-portal/create-new-business-central-offer.md) |   |
 | [Dynamics 365 for Customer Engagement](./partner-center-portal/create-new-customer-engagement-offer.md) | First review the [publishing process and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
-| <strike>Power Apps</strike> | <strike>Learn how to [let customers test drive your app on AppSource](https://powerapps.microsoft.com/blog/appsource-test-drive/).</strike> |
-| <strike>Power BI | <strike>Review the [publishing process and guidelines](/power-bi/developer/office-store).</strike> |
+| Power Apps | <font color="red">[ If this is a D365 offer, where should it link to? ] </font>|
+| [Power BI](partner-center-portal/create-power-bi-app-offer.md) | Review the publishing process and guidelines](/power-bi/developer/office-store). |
 |

@@ -1,15 +1,15 @@
 ---
 title: Configure Dynamics 365 for Operations offer availability on Microsoft AppSource
-description: Learn how to configure Dynamics 365 for Operations offer availability on Microsoft AppSource.
+description: Configure Dynamics 365 for Operations offer availability on Microsoft AppSource.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
-ms.author: mingshen
-ms.date: 12/01/2020
+ms.author: navits
+ms.date: 12/08/2020
 ---
 
-# How to configure Dynamics 365 for Operations offer availability
+# Configure Dynamics 365 for Operations offer availability
 
 This page lets you define where and how to make your offer available, including markets and preview audience.
 
@@ -34,4 +34,4 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Set offer technical configuration](d365-operations-create-technical-configuration.md)
+- [Set offer technical configuration](d365-operations-technical-configuration.md)
