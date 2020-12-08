@@ -26,18 +26,15 @@ By early Q2 2021, two Revision 4 (Rev 4) stamp regions will be converted to Bare
 >**Rev 4.2** is the latest rebranded BareMetal Infrastructure using Rev 4 architecture.  Rev 4 provides closer proximity to the Azure virtual machine (VM) hosts and lowers the latency between Azure VMs and BareMetal Instance units. You can access and manage your BareMetal instances through the Azure portal. 
 
 ## Support
-It is your responsibility for operating system (OS) license, patching (OS and installed software), installing third-party software, acquiring licenses for third-party software, and supportability of the installed software applications.
+BareMetal Infrastructure is ISO 27001, ISO 27017, SOC 1, and SOC 2 compliant and uses a bring-your-own-license (BYOL) model: OS, specialized workload, and third-party applications.  
 
-- Microsoft provides certified hardware for specialized workloads.  Select the SKU based on your specialized workload type.
-- BareMetal Infrastructure uses a bring-your-own-license (BYOL) model: OS, specialized workload, and third-party applications.
-- Microsoft provisions the OS for you.
-- You have root access and full control.
-- ISO 27001, ISO 27017, SOC 1, and SOC 2 compliant.
+As soon as you receive root access and full control, you assume all responsibility for:
+- Designing and implementing backup and recovery solutions, high availability, and disaster recovery
+- Licensing, security, and support for OS and third-party software.
 
-It is your responsibility to design and implement back up and recovery solutions, high availability, and disaster recovery.
-
->[!IMPORTANT]
->As soon as you receive root access, you assume all responsibility for licensing, security, and support for OS and third-party software. 
+Microsoft is responsible for:
+- Providing certified hardware for specialized workloads. 
+- Provisioning the OS.
 
 [image]
 
