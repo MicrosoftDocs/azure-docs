@@ -24,6 +24,10 @@ Private cluster is available in public regions, Azure Government, and Azure Chin
 
 * The Azure CLI version 2.2.0 or later
 
+No PrivateDNSZone
+* The Azure CLI version 0.4.67 or later
+* The api version 2020-11-01 or later
+
 ## Create a private AKS cluster
 
 ### Create a resource group
@@ -59,6 +63,15 @@ Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 
 > [!NOTE]
 > If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address appropriately.
+
+### No PrivateDNSZone
+
+```azurecli-interactive
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system]
+```
+> [!NOTE]
+> "system" is the default value, if the --private-dns-zone argument is ommitted.  AKS will manage a private dns zone in MC resource group.
+> "none" means no additional private dns zone is created.  Could be used with BYO dns server and configure the dns resolution for the private FQDN. If you don't configure dns resolution, dns is only resolvable within the agent nodes because AKS adds entries in hosts file for those agent nodes.
 
 ## Options for connecting to the private cluster
 
@@ -112,7 +125,11 @@ As mentioned, virtual network peering is one way to access your private cluster.
 * No support for converting existing AKS clusters into private clusters
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning. 
 * Azure Monitor for containers Live Data isn't currently supported.
-* Uptime SLA is supported in US West Central, North Central US, and East US.
+
+No PrivateDNSZone
+* Because hosts file changes won't take effect until hostNetwork Pods and default-DNSPolicy Pods are restarted, even after customers have updated the A record on their own DNS servers, those Pods would still resolve apiserver FQDN to older IP after migration until they're restarted.
+* Hence, customers need to restart hostNetwork Pods and default-DNSPolicy Pods after CCP migration.
+* The hosts file changes are only for clusters without PrivateDNSZone and Pods connecting to apiserver FQDN, hence the requirements from customer operations should be OK since this would happen rarely.
 
 
 <!-- LINKS - internal -->
