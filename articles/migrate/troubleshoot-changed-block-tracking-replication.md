@@ -2,8 +2,8 @@
 title: Troubleshoot replication issues in agentless VMware VM migration
 description: Get help with replication cycle failures
 author: anvar-ms
-ms.manager: bsiva
 ms.author: anvar
+ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
 ---
