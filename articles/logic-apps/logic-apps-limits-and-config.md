@@ -264,6 +264,7 @@ Here are the limits for a logic app that starts with a Request trigger and enabl
 | ---- | ----- | ----- |
 | Azure AD authorization policies | 5 | |
 | Claims per authorization policy | 10 | |
+| Claim value - Maximum number of characters | 150 |
 ||||
 
 <a name="custom-connector-limits"></a>
