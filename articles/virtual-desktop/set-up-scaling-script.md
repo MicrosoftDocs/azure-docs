@@ -242,7 +242,7 @@ Now that you've created your scaling tool, you can access its output. This secti
 
 You can view a summarized status of all runbook jobs or view a more in-depth status of a specific runbook job in the Azure portal.
 
-On the right of your selected Azure Automation account, under "Job Statistics," you can view a list of summaries of all runbook jobs. Opening the **Jobs** page on the left side of the window shows current job statuses, start times, and completion times.
+On the right of your selected Azure Automation account, under "Process Automation," you can view a list of summaries of all runbook jobs. Opening the **Jobs** page on the left side of the window shows current job statuses, start times, and completion times.
 
 >[!div class="mx-imgBorder"]
 >![A screenshot of the job status page.](media/jobs-status.png)
