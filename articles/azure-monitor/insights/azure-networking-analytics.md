@@ -70,7 +70,7 @@ The following table shows data collection methods and other details about how da
 
    ![Screenshot of the Diagnostics Settings config for Application Gateway resource.](media/azure-networking-analytics/diagnostic-settings-1.png)
 
-   [ ![Screenshot of the page for configuring Diagnostics settings. The option for Send to Log Analytics is selected as are three Log types and a Metric.](media/azure-networking-analytics/diagnostic-settings-2.png)](media/azure-networking-analytics/diagnostic-settings-2.png#lightbox)
+   [ ![Screenshot of the page for configuring Diagnostics settings.](media/azure-networking-analytics/diagnostic-settings-2.png)](media/azure-networking-analytics/application-gateway-diagnostics-2.png#lightbox)
 
 5. Click the checkbox for *Send to Log Analytics*.
 6. Select an existing Log Analytics workspace, or create a workspace.
@@ -98,7 +98,7 @@ Application insights can be accessed via the insights tab within your Applicatio
 
 The "view detailed metrics" tab will open up the pre-populated workbook summarizing the data from your Application Gateway.
 
-[ ![Screenshot of Application Gateway workbook ](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/azure-appgw-workbook.png#lightbox)
+[ ![Screenshot of Application Gateway workbook ](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
 
 ## Migrating from Azure Gateway analytics solution to Azure Monitor workbooks
 
@@ -115,7 +115,7 @@ The "view detailed metrics" tab will open up the pre-populated workbook summariz
 
 * To clean up the Azure Gateway analytics solution from your workspace, you can delete the solution from the solution resource page.
 
-[ ![Screenshot of the delete option for Azure Application Gateway analytics solution.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/azure-appgw-analytics-delete.png#lightbox)
+[ ![Screenshot of the delete option for Azure Application Gateway analytics solution.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
 
 ## Azure Network Security Group analytics solution in Azure Monitor
 
