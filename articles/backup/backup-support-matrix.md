@@ -20,7 +20,7 @@ Other support matrices are available:
 
 ## Vault support
 
-Azure Backup uses Recovery Services vaults to orchestrate and manage backups. It also uses vaults to store backed-up data.
+Azure Backup uses Recovery Services vaults to orchestrate and manage backups for the following workload types - Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Azure File shares and on-premises workloads using Azure Backup Agent, Azure Backup Server and System Center DPM. It also uses Recovery Services vaults to store backed-up data for these workloads.
 
 The following table describes the features of Recovery Services vaults:
 
@@ -145,8 +145,8 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Yes.   Supported for encrypted VMs and VMs with lesser than 4-TB  disks | All Azure public regions and sovereign clouds.  |
-| SQL /SAP HANA | Yes                                                          | West US 2 (WUS2), West Central US (WCUS), Canada Central (CNC), Canada East (CNE), East US (EUS), West US (WUS), Japan East (JPE), Japan East (JPE) |
+| Azure VM               | Yes.   Supported for encrypted VMs and VMs with lesser than 4-TB  disks | All Azure public regions.  |
+| SQL /SAP HANA | Yes                                                          | All public regions except France |
 | MARS Agent/On premises  | No                                                           | N/A               |
 | AFS (Azure file shares)                 | No                                                           | N/A               |
 

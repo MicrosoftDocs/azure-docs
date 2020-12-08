@@ -5,10 +5,11 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 11/10/2020
 ---
 
 # Introduction to provisioned throughput in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB allows you to set provisioned throughput on your databases and containers. There are two types of provisioned throughput, standard (manual) or autoscale. This article gives an overview of how provisioned throughput works. 
 
@@ -39,9 +40,6 @@ The following image shows how a physical partition hosts one or more logical par
 
 ## Set throughput on a database
 
-> [!NOTE]
-> Provisioning throughput on an Azure Cosmos database is currently not possible in accounts where [customer-managed keys](how-to-setup-cmk.md) are enabled.
-
 When you provision throughput on an Azure Cosmos database, the throughput is shared across all the containers (called shared database containers) in the database. An exception is if you specified a provisioned throughput on specific containers in the database. Sharing the database-level provisioned throughput among its containers is analogous to hosting a database on a cluster of machines. Because all containers within a database share the resources available on a machine, you naturally do not get predictable performance on any specific container. To learn how to configure provisioned throughput on a database, see [Configure provisioned throughput on an Azure Cosmos database](how-to-provision-database-throughput.md). To learn how to configure autoscale throughput on a database, see [Provision autoscale throughput](how-to-provision-autoscale-throughput.md).
 
 Because all containers within the database share the provisioned throughput, Azure Cosmos DB doesn't provide any predictable throughput guarantees for a particular container in that database. The portion of the throughput that a specific container can receive is dependent on:
@@ -62,7 +60,7 @@ All containers created inside a database with provisioned throughput must be cre
 
 If the workload on a logical partition consumes more than the throughput that's allocated to a specific logical partition, your operations are rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire database or retry the operations. For more information on partitioning, see [Logical partitions](partitioning-overview.md).
 
-Containers in a shared throughput database share the throughput (RU/s) allocated to that database. You can have up to four containers with a minimum of 400 RU/s on the database. With standard (manual) provisioned throughput, each new container after the first four will require an additional 100 RU/s minimum. For example, if you have a shared throughput database with eight containers, the minimum RU/s on the database will be 800 RU/s. With autoscale provisioned throughput, you can have up to 25 containers in a database with autoscale max 4000 RU/s (scales between 400 - 4000 RU/s).
+Containers in a shared throughput database share the throughput (RU/s) allocated to that database. With standard (manual) provisioned throughput, you can have up to 25 containers with a minimum of 400 RU/s on the database. With autoscale provisioned throughput, you can have up to 25 containers in a database with autoscale max 4000 RU/s (scales between 400 - 4000 RU/s).
 
 > [!NOTE]
 > In February 2020, we introduced a change that allows you to have a maximum of 25 containers in a shared throughput database, which  better enables throughput sharing across the containers. After the first 25 containers, you can add more containers to the database only if they are [provisioned with dedicated throughput](#set-throughput-on-a-database-and-a-container), which is separate from the shared throughput of the database.<br>
@@ -91,7 +89,7 @@ You can combine the two models. Provisioning throughput on both the database and
 
 After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container.
 
-### Current provisioned throughput
+### <a id="current-provisioned-throughput"></a> Current provisioned throughput
 
 You can retrieve the provisioned throughput of a container or a database in the Azure portal or by using the SDKs:
 
@@ -106,9 +104,8 @@ The response of those methods also contains the [minimum provisioned throughput]
 The actual minimum RU/s may vary depending on your account configuration. But generally it's the maximum of:
 
 * 400 RU/s 
-* Current storage in GB * 10 RU/s
+* Current storage in GB * 10 RU/s (unless your container or database contains more than 1 TB of data, see our [high storage / low throughput program](#high-storage-low-throughput-program))
 * Highest RU/s provisioned on the database or container / 100
-* Container count * 100 RU/s (shared throughput database only)
 
 ### Changing the provisioned throughput
 
@@ -131,13 +128,21 @@ You can programmatically check the scaling progress by reading the [current prov
 
 You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
 
+## <a id="high-storage-low-throughput-program"></a> High storage / low throughput program
+
+As described in the [Current provisioned throughput](#current-provisioned-throughput) section above, the minimum throughput you can provision on a container or database depends on a number of factors. One of them is the amount of data currently stored, as Azure Cosmos DB enforces a minimum throughput of 10 RU/s per GB of storage.
+
+This can be a concern in situations where you need to store large amounts of data, but have low throughput requirements in comparison. To better accommodate these scenarios, Azure Cosmos DB has introduced a **"high storage / low throughput" program** that decreases the RU/s per GB constraint on eligible accounts.
+
+You currently need to have at least 1 container or shared-throughput database containing more than 1 TB of data in your account to be eligible. To join this program and assess your full eligibility, all you have to do is to fill [this survey](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). The Azure Cosmos DB team will then follow up and proceed with your onboarding.
+
 ## Comparison of models
 This table shows a comparison between provisioning standard (manual) throughput on a database vs. on a container. 
 
 |**Parameter**  |**Standard (manual) throughput on a database**  |**Standard (manual) throughput on a container**|**Autoscale throughput on a database** | **Autoscale throughput on a container**|
 |---------|---------|---------|---------|---------|
-|Entry point (minimum RU/s) |400 RU/s. After the first four containers, each additional container requires a minimum of 100 RU/s</li> |400| Autoscale between 400 - 4000 RU/s. Can have up to 25 containers with no RU/s minimum per container</li> | Autoscale between 400 - 4000 RU/s.|
-|Minimum RU/s per container|100|400|--|Autoscale between 400 - 4000 RU/s|
+|Entry point (minimum RU/s) |400 RU/s. Can have up to 25 containers with no RU/s minimum per container.</li> |400| Autoscale between 400 - 4000 RU/s. Can have up to 25 containers with no RU/s minimum per container.</li> | Autoscale between 400 - 4000 RU/s.|
+|Minimum RU/s per container|--|400|--|Autoscale between 400 - 4000 RU/s|
 |Maximum RUs|Unlimited, on the database.|Unlimited, on the container.|Unlimited, on the database.|Unlimited, on the container.
 |RUs assigned or available to a specific container|No guarantees. RUs assigned to a given container depend on the properties. Properties can be the choice of partition keys of containers that share the throughput, the distribution of the workload, and the number of containers. |All the RUs configured on the container are exclusively reserved for the container.|No guarantees. RUs assigned to a given container depend on the properties. Properties can be the choice of partition keys of containers that share the throughput, the distribution of the workload, and the number of containers. |All the RUs configured on the container are exclusively reserved for the container.|
 |Maximum storage for a container|Unlimited.|Unlimited|Unlimited|Unlimited|

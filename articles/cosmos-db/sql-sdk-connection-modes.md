@@ -3,14 +3,16 @@ title: Azure Cosmos DB SQL SDK connectivity modes
 description: Learn about the different connectivity modes available on the Azure Cosmos DB SQL SDKs.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, contperfq2
 
 ---
 
 # Azure Cosmos DB SQL SDK connectivity modes
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 How a client connects to Azure Cosmos DB has important performance implications, especially for observed client-side latency. Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS called gateway mode. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and uses TLS for initial authentication and encrypting traffic, called direct mode.
 
@@ -41,7 +43,7 @@ The following table shows a summary of the connectivity modes available for vari
 |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
 |---------|---------|---------|---------|
 |Gateway  |   HTTPS    |  All SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443) <br> The port 10250 maps to a default Azure Cosmos DB API for MongoDB instance without geo-replication. Whereas the ports 10255 and 10256 map to the instance that has geo-replication.   |
-|Direct    |     TCP    |  .NET SDK    | When using public/service endpoints: ports in the 10000 through 20000 range<br>When using private endpoints: ports in the 0 through 65535 range |
+|Direct    |     TCP    |  .NET SDK Java SDK    | When using public/service endpoints: ports in the 10000 through 20000 range<br>When using private endpoints: ports in the 0 through 65535 range |
 
 ## Next steps
 

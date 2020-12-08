@@ -281,7 +281,7 @@ To create or work with an Azure subscription, you must have an Azure account. An
 
 Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. To learn more, see [How Azure subscriptions are associated with Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-As well as defining individual Azure account identities, also called *users*, you can define *groups* in Azure AD. Creating user groups is a good way to manage access to resources in a subscription by using role-based access control (RBAC). To learn how to create groups, see [Create a group in Azure Active Directory preview](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). You can also create and manage groups by [using PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
+As well as defining individual Azure account identities, also called *users*, you can define *groups* in Azure AD. Creating user groups is a good way to manage access to resources in a subscription by using role-based access control (RBAC). To learn how to create groups, see [Create a group in Azure Active Directory preview](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). You can also create and manage groups by [using PowerShell](../../active-directory/enterprise-users/groups-settings-v2-cmdlets.md).
 
 ### Manage your subscriptions
 
@@ -297,11 +297,11 @@ The Azure Resource Explorer is a great tool for visualizing the resources that y
 
 When you allow access to Azure resources, it’s always a best practice to provide users with the least privilege that’s required to do a given task.
 
-- **Role-based access control (RBAC)**: In Azure, you can grant access to user accounts (principals) at a specified scope: subscription, resource group, or individual resources. RBAC lets you deploy resources into a resource group and grant permissions to a specific user or group. It also lets you limit access to only the resources that belong to the target resource group. You can also grant access to a single resource, such as a virtual machine or virtual network. To grant access, you assign a role to the user, group, or service principal. There are many predefined roles, and you can also define your own custom roles. To learn more, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
+- **Azure role-based access control (Azure RBAC)**: In Azure, you can grant access to user accounts (principals) at a specified scope: subscription, resource group, or individual resources. Azure RBAC lets you deploy resources into a resource group and grant permissions to a specific user or group. It also lets you limit access to only the resources that belong to the target resource group. You can also grant access to a single resource, such as a virtual machine or virtual network. To grant access, you assign a role to the user, group, or service principal. There are many predefined roles, and you can also define your own custom roles. To learn more, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
   > **When to use**: When you need fine-grained access management for users and groups or when you need to make a user an owner of a subscription.
   >
-  > **Get started**: To learn more, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+  > **Get started**: To learn more, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 - **Service principal objects**: Along with providing access to user principals and groups, you can grant the same access to a service principal.
 

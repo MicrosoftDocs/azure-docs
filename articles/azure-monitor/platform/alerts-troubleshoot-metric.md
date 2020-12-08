@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/05/2020
+ms.date: 11/25/2020
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -222,7 +222,7 @@ Make sure that you're using the right CLI commands for metric alerts:
 To create a metric alert rule, you’ll need to have the following permissions:
 
 - Read permission on the target resource of the alert rule
-- Write permission on the resource group in which the alert rule is created (if you’re creating the alert rule from the Azure portal, the alert rule is created in the same resource group in which the target resource resides)
+- Write permission on the resource group in which the alert rule is created (if you’re creating the alert rule from the Azure portal, the alert rule is created by default in the same resource group in which the target resource resides)
 - Read permission on any action group associated to the alert rule (if applicable)
 
 
@@ -235,6 +235,8 @@ Consider the following restrictions for metric alert rule names:
 - Metric alert rule names can’t contain the following characters: * # & + : < > ? @ % { } \ / 
 - Metric alert rule names can’t end with a space or a period
 
+> [!NOTE] 
+> If the alert rule name contains characters that aren't alphabetic or numeric (for example: spaces, punctuation marks or symbols), these characters may be URL-encoded when retrieved by certain clients.
 
 ## Restrictions when using dimensions in a metric alert rule with multiple conditions
 

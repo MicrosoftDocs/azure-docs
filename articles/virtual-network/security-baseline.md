@@ -118,7 +118,7 @@ Use Application Security Groups to help simplify complex security configuration.
 
 Refer to the default policy for Security Center which contains available security recommendations related to your virtual networks.
 
-Use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (Azure RBAC) assignments, and policies, in a single blueprint definition. Azure Blueprint can be applied to new subscriptions for fine-tuned control and management through versioning. 
+Use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC) assignments, and policies, in a single blueprint definition. Azure Blueprint can be applied to new subscriptions for fine-tuned control and management through versioning. 
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -410,13 +410,13 @@ Additionally, "encryption by default" using MACsec (an IEEE standard at the data
 
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to manage access to resources 
+### 4.6: Use Azure RBAC to manage access to resources 
 
 **Guidance**: Use Azure role-based access control (Azure RBAC) to manage access to data and resources. Otherwise use service-specific access-control methods. 
 
 Choose built-in roles like Owner, Contributor, or Network contributor and assign the role to the appropriate scope. For example, you can assign a subset of virtual network capabilities with the specific permissions required for virtual networks to any of these roles. 
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Plan virtual networks](virtual-network-vnet-plan-design-arm.md#permissions)
 

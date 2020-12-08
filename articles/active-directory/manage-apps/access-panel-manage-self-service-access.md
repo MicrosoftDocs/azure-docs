@@ -62,4 +62,4 @@ These approvals support single approval workflows only, meaning that if you spec
 -   If self-service application access was recently configured, try to sign in and out again into the user’s My Apps after a few minutes to see if the self-service access changes have appeared.
 
 ## Next steps
-[Setting up Azure Active Directory for self-service group management](../users-groups-roles/groups-self-service-management.md)
+[Setting up Azure Active Directory for self-service group management](../enterprise-users/groups-self-service-management.md)

@@ -21,7 +21,7 @@ To help you set up the most common identity tasks for your applications, the Azu
 
 - Account types used for sign-in, such as social accounts like a Facebook or local accounts
 - Attributes to be collected from the consumer, such as first name, postal code, and shoe size
-- Azure Multi-Factor Authentication
+- Azure AD Multi-Factor Authentication
 - Customization of the user interface
 - Information that the application receives as claims in a token
 

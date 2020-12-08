@@ -8,6 +8,10 @@
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
+      "xref_query_tags": [
+        "/dotnet",
+        "/python"
+      ],
       "open_to_public_contributors": true,
       "type_mapping": {
         "ZonePivotGroups": "Toc",
@@ -59,21 +63,13 @@
       "path_to_root": "cli_scripts",
       "url": "https://github.com/Azure/azure-docs-cli-python-samples",
       "branch": "master",
-      "branch_mapping": {
-        "release-build-mysql": "release-build",
-        "release-build-postgresql": "release-build",
-        "release-build-stellar": "release-build"
-      }
+      "branch_mapping": {}
     },
     {
       "path_to_root": "powershell_scripts",
       "url": "https://github.com/Azure/azure-docs-powershell-samples",
       "branch": "master",
-      "branch_mapping": {
-        "release-build-mysql": "release-build",
-        "release-build-postgresql": "release-build",
-        "release-build-stellar": "release-build"
-      }
+      "branch_mapping": {}
     },
     {
       "path_to_root": "policy-templates",
@@ -411,23 +407,23 @@
     {
       "path_to_root": "cosmos-dotnet-getting-started",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-getting-started",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "cosmos-dotnet-v4-getting-started",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-v4-getting-started",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "cosmos-dotnet-bulk-import",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "samples-cosmosdb-dotnet-web-app",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-todo-app",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "samples-cosmosdb-dotnet-v3",
@@ -442,22 +438,22 @@
     {
       "path_to_root": "samples-cosmosdb-java-v4-web-app",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "samples-cosmosdb-dotnet-change-feed-processor",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "samples-cosmosdb-dotnet-core-web-app",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "samples-cosmosdb-xamarin",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "cosmosdb-python-sdk",
@@ -467,17 +463,17 @@
     {
       "path_to_root": "cosmosdb-cassandra-python-sample",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "cosmosdb-nodejs-get-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "azure-cosmos-db-python-getting-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "cognitive-services-content-moderator-samples",
@@ -533,27 +529,27 @@
     {
       "path_to_root": "azure-cosmosdb-graph-dotnet",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "azure-cosmosdb-java-v4-getting-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-getting-started",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "azure-cosmosdb-dotnet-table",
       "url": "https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "azure-cosmos-java-sql-api-samples",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples",
-      "branch": "master"
+      "branch": "main"
     }, 
     {
       "path_to_root": "azure-cosmos-java-sql-app-example",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example",
-      "branch": "master"
+      "branch": "main"
     },         
     {
       "path_to_root": "azure-storage-snippets",

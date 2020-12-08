@@ -18,7 +18,7 @@ Azure Data Lake Storage Gen2 implements an access control model that supports bo
 
 ## About ACLs
 
-You can associate a [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) with an access level for files and directories. These associations are captured in an *access control list (ACL)*. Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, An ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.
+You can associate a [security principal](../../role-based-access-control/overview.md#security-principal) with an access level for files and directories. These associations are captured in an *access control list (ACL)*. Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, An ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.
 
 > [!NOTE]
 > ACLs apply only to security principals in the same tenant, and they don't apply to users who use Shared Key or shared access signature (SAS) token authentication. That's because no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.  
@@ -35,7 +35,7 @@ To set file and directory level permissions, see any of the following articles:
 |Python|[Use Python to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
 |PowerShell|[Use PowerShell to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
 |Azure CLI|[Use Azure CLI to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
-|REST API |[Path - Update](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|REST API |[Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > If the security principal is a *service* principal, it's important to use the object ID of the service principal and not the object ID of the related app registration. To get the object ID of the service principal open the Azure CLI, and then use this command: `az ad sp show --id <Your App ID> --query objectId`. make sure to replace the `<Your App ID>` placeholder with the App ID of your app registration.
@@ -87,8 +87,8 @@ The following table shows you the ACL entries required to enable a security prin
 
 This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. 
 
-> [!IMPORANT] 
-> This table assumes that you are using **only** ACLs without any Azure RBAC role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> [!IMPORTANT]
+> This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Operation             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -157,36 +157,36 @@ def access_check( user, desired_perms, path ) :
   # path is the file or directory
   # Note: the "sticky bit" isn't illustrated in this algorithm
   
-# Handle super users.
+  # Handle super users.
   if (is_superuser(user)) :
     return True
 
-# Handle the owning user. Note that mask isn't used.
-entry = get_acl_entry( path, OWNER )
-if (user == entry.identity)
-    return ( (desired_perms & entry.permissions) == desired_perms )
+  # Handle the owning user. Note that mask isn't used.
+  entry = get_acl_entry( path, OWNER )
+  if (user == entry.identity)
+      return ( (desired_perms & entry.permissions) == desired_perms )
 
-# Handle the named users. Note that mask IS used.
-entries = get_acl_entries( path, NAMED_USER )
-for entry in entries:
-    if (user == entry.identity ) :
-        mask = get_mask( path )
-        return ( (desired_perms & entry.permissions & mask) == desired_perms)
+  # Handle the named users. Note that mask IS used.
+  entries = get_acl_entries( path, NAMED_USER )
+  for entry in entries:
+      if (user == entry.identity ) :
+          mask = get_mask( path )
+          return ( (desired_perms & entry.permissions & mask) == desired_perms)
 
-# Handle named groups and owning group
-member_count = 0
-perms = 0
-entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
-mask = get_mask( path )
-for entry in entries:
-if (user_is_member_of_group(user, entry.identity)) :
-    if ((desired_perms & entry.permissions & mask) == desired_perms)
-        return True 
+  # Handle named groups and owning group
+  member_count = 0
+  perms = 0
+  entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
+  mask = get_mask( path )
+  for entry in entries:
+    if (user_is_member_of_group(user, entry.identity)) :
+        if ((desired_perms & entry.permissions & mask) == desired_perms)
+            return True 
         
-# Handle other
-perms = get_perms_for_other(path)
-mask = get_mask( path )
-return ( (desired_perms & perms & mask ) == desired_perms)
+  # Handle other
+  perms = get_perms_for_other(path)
+  mask = get_mask( path )
+  return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
 ### The mask
@@ -266,7 +266,7 @@ If HNS is turned OFF, the Azure Azure RBAC authorization rules still apply.
 
 To learn how the system evaluates Azure RBAC and ACLs together to make authorization decisions for storage account resources, see [How permissions are evaluated](data-lake-storage-access-control-model.md#how-permissions-are-evaluated).
 
-### What are the limits for Azure RBAC role assignments and ACL entries?
+### What are the limits for Azure role assignments and ACL entries?
 
 The following table provides a summary view of the limits to consider while using Azure RBAC to manage "coarse-grained" permissions (permissions that apply to storage accounts or containers) and using ACLs to manage "fine-grained" permissions (permissions that apply to files and directories). Use security groups for ACL assignments. By using groups, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACl entries per file or directory. 
 
@@ -322,6 +322,11 @@ OID will be displayed.
 
 When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**.
 
+### Can I set the ACL of a container?
+
+No. A container does not have an ACL. However, you can set the ACL of the container’s root directory. Every container has a root directory, and it shares the same name as the container. For example, if the container is named `my-container`, then the root directory  is named `myContainer/`. 
+
+The Azure Storage REST API does contain an operation named [Set Container ACL](/rest/api/storageservices/set-container-acl), but that operation cannot be used to set the ACL of a container or the root directory of a container. Instead, that operation is used to indicate whether blobs in a container [may be accessed publicly](anonymous-read-access-configure.md). 
 
 ### Where can I learn more about POSIX access control model?
 

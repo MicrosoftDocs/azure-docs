@@ -6,7 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
@@ -52,9 +52,19 @@ The following procedure sets up the config server using the Azure portal to depl
 
 2. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics-config".
 
-3. Select **Apply** to save your changes.
+3. Click **Validate**.
 
-    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Navigate to config server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+4. When validation is complete, click **Apply** to save your changes.
+
+    ![Validating config server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+5. Updating the configuration can take a few minutes.
+ 
+    ![Updating config server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+6. You should get a notification when the configuration is complete.
 
 #### [CLI](#tab/Azure-CLI)
 
@@ -65,9 +75,36 @@ Set up your config-server with the location of the git repository for the projec
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
-
 ---
 ::: zone-end
+
+> [!TIP]
+> If you are using a private repository for config server, please refer to our [tutorial on setting up authentication](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server).
+
+## Troubleshooting of Azure Spring Cloud config server
+
+The following procedure explains how to troubleshoot config server settings.
+
+1. In the Azure portal, go to the service **Overview** page and select **Logs**. 
+1. Select **Queries** and **Show the application logs that contain the "error" or "exception" terms"**. 
+1. Click **Run**. 
+1. If you find the error **java.lang.illegalStateException** in logs, this indicates that spring cloud service cannot locate properties from config server.
+
+    [ ![ASC portal run query](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+
+1. Go to the service **Overview** page.
+1. Select **Diagnose and solve problems**. 
+1. Select **Config Server** detector.
+
+    [ ![ASC portal diagnose problems](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+
+3. Click **Config Server Health Check**.
+
+    [ ![ASC portal genie](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+
+4. Click **Config Server Status** to see more details from the detector.
+
+    [ ![ASC portal health status](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
 ## Next steps
 

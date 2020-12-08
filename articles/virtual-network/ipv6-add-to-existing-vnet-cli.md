@@ -19,13 +19,13 @@ ms.author: kumud
 
 This article shows you how to add IPv6 addresses to an application that is using IPv4 public IP address in an Azure virtual network for a Standard Load Balancer using Azure CLI. The in-place upgrade includes a virtual network and subnet, a Standard Load Balancer with IPv4 + IPV6 frontend configurations, VMs with NICs that have a IPv4 + IPv6 configurations, network security group, and public IPs.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.28 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
-
 ## Prerequisites
 
-This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
+- This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create IPv6 addresses
 
@@ -88,13 +88,13 @@ Add IPv6 address ranges to the virtual network and subnet hosting the load balan
 az network vnet update \
 --name myVnet  \
 --resource-group MyResourceGroupSLB \
---address-prefixes  "10.0.0.0/16"  "ace:cab:deca::/48"
+--address-prefixes  "10.0.0.0/16"  "fd00:db8:deca::/48"
 
 az network vnet subnet update \
 --vnet-name myVnet \
 --name mySubnet \
 --resource-group MyResourceGroupSLB \
---address-prefixes  "10.0.0.0/24"  "ace:cab:deca:deed::/64"  
+--address-prefixes  "10.0.0.0/24"  "fd00:db8:deca:deed::/64"  
 ```
 
 ## Add IPv6 configuration to NICs

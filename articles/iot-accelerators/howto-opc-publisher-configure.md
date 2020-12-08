@@ -140,7 +140,7 @@ OPC Publisher implements the following IoT Hub direct method calls:
 - ExitApplication
 - GetInfo
 
-The format of the JSON payload of the method request and responses are defined in [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/HubMethodModel.cs).
+The format of the JSON payload of the method request and responses are defined in [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/tree/master/opcpublisher).
 
 If you call an unknown method on the module, it responds with a string that says the method isn't implemented. You can call an unknown method as a way to ping the module.
 

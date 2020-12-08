@@ -54,7 +54,7 @@ There are two common tools used to create a SAS address (URL):
 
 ### Using Tool 2: Azure CLI
 
-1. Download and install [Microsoft Azure CL](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)I. Versions are available for Windows, macOS, and various distros of Linux.
+1. Download and install [Microsoft Azure CL](/cli/azure/install-azure-cli)I. Versions are available for Windows, macOS, and various distros of Linux.
 2. Create a PowerShell file (.ps1 file extension), copy in the following code, then save it locally.
 
     ```JSON
@@ -77,7 +77,7 @@ There are two common tools used to create a SAS address (URL):
 2. Using one of the following methods, run this script with administrative privileges to create a SAS connection string for container-level access:
 
     - Run the script from the console. In Windows, right-click the script and select **Run as administrator**.
-    - Run the script from a PowerShell script editor such as [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). This screen shows the creation of a SAS connection string within this editor:
+    - Run the script from a PowerShell script editor such as [Windows PowerShell ISE](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). This screen shows the creation of a SAS connection string within this editor:
 
     [![creation of a SAS connection string within the PowerShell editor](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 

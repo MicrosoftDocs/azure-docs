@@ -147,11 +147,11 @@ Your resources in zones not affected by failure will be available. Your service 
   - When a zone fails, does your service understand this failure and if the state is lost, how will you recover?
   - When a zone returns, does your application understand how to converge safely?
 
-Review [Azure cloud design patterns](https://docs.microsoft.com/azure/architecture/patterns/) to improve the resiliency of your application to failure scenarios.
+Review [Azure cloud design patterns](/azure/architecture/patterns/) to improve the resiliency of your application to failure scenarios.
 
 ## Next steps
 - Learn more about [Availability Zones](../availability-zones/az-overview.md)
-- Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
-- Learn how to [load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](load-balancer-standard-public-zonal-cli.md)
-- Learn how to [load balance VMs across zones using a Standard Load Balancer with a zone-redundant frontend](load-balancer-standard-public-zone-redundant-cli.md)
-- Learn about [Azure cloud design patterns](https://docs.microsoft.com/azure/architecture/patterns/) to improve the resiliency of your application to failure scenarios.
+- Learn more about [Standard Load Balancer](./load-balancer-overview.md)
+- Learn how to [load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](./quickstart-load-balancer-standard-public-cli.md)
+- Learn how to [load balance VMs across zones using a Standard Load Balancer with a zone-redundant frontend](./quickstart-load-balancer-standard-public-cli.md)
+- Learn about [Azure cloud design patterns](/azure/architecture/patterns/) to improve the resiliency of your application to failure scenarios.

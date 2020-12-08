@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/16/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -81,6 +81,16 @@ The following example shows the Key Descriptor section of the SAML metadata used
 ## Protocol
 
 The **Name** attribute of the Protocol element needs to be set to `SAML2`.
+
+## Input claims
+
+The **InputClaims** element is used to send a **NameId** within the **Subject** of the SAML AuthN Request. To achieve this add an input claim with a **PartnerClaimType** set to `subject` as shown below.
+
+```xml
+<InputClaims>
+	<InputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="subject" />
+</InputClaims>
+```
 
 ## Output claims
 
@@ -154,6 +164,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 | IncludeAuthnContextClassReferences | No | Specifies one or more URI references identifying authentication context classes. For example, to allow a user to sign in with username and password only, set the value to `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. To allow sign-in through username and password over a protected session (SSL/TLS), specify `PasswordProtectedTransport`. Look at your identity provider’s documentation for guidance about the **AuthnContextClassRef** URIs that are supported. Specify multiple URIs as a comma-delimited list. |
 | IncludeKeyInfo | No | Indicates whether the SAML authentication request contains the public key of the certificate when the binding is set to `HTTP-POST`. Possible values: `true` or `false`. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
+|SingleLogoutEnabled| No| Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](session-overview.md#sign-out).  Possible values: `true` (default), or `false`.|
 
 ## Cryptographic keys
 

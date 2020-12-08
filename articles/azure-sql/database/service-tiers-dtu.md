@@ -48,7 +48,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 >
 
 > [!TIP]
-> To see actual [resource governance](resource-limits-logical-server.md#resource-governance) limits for a database or elastic pool, query the [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) view.
+> To see actual [resource governance](resource-limits-logical-server.md#resource-governance) limits for a database or elastic pool, query the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) view.
 
 > [!NOTE]
 > You can get a free database in Azure SQL Database at the Basic service tier in conjunction with an Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).

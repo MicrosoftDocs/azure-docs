@@ -47,10 +47,6 @@ Examples of these file formats are available in the
 - Policy definition: [Add a tag to resources](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Initiative definition: [Billing Tags](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
-Also, review [Export Azure Policy resources](../how-to/export-resources.md) to get your existing
-definitions and assignments into the source code management environment
-[GitHub](https://www.github.com).
-
 ## Workflow overview
 
 The recommended general workflow of Azure Policy as Code looks like this diagram:
@@ -69,27 +65,28 @@ in source control.
 ```text
 .
 |
-|- policies/  ________________________ # Root folder for policies
+|- policies/  ________________________ # Root folder for policy resources
 |  |- policy1/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
-|
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |  |- policy2/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |
 ```
 
 When a new policy is added or an existing one updated, the workflow should automatically update the
 policy definition in Azure. Testing of the new or updated policy definition comes in a later step.
+
+Also, review [Export Azure Policy resources](../how-to/export-resources.md) to get your existing
+definitions and assignments into the source code management environment
+[GitHub](https://www.github.com).
 
 ### Create and update initiative definitions
 
@@ -107,17 +104,15 @@ definitions in source control:
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 |  |- init2/ _________________________ # Subfolder for an initiative
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 ```
 
@@ -144,8 +139,10 @@ specifically for validating policies.
 > REST API calls, compliant and non-compliant resources, and edge cases like a property missing from
 > the resource.
 
-After the assignment is deployed, use the Azure Policy SDK or the
-[Azure Policy Compliance Scan GitHub Action](https://github.com/marketplace/actions/azure-policy-compliance-scan)
+After the assignment is deployed, use the Azure Policy SDK, the
+[Azure Policy Compliance Scan GitHub Action](https://github.com/marketplace/actions/azure-policy-compliance-scan),
+or the
+[Azure Pipelines Security and Compliance Assessment task](/azure/devops/pipelines/tasks/deploy/azure-policy)
 to [get compliance data](../how-to/get-compliance-data.md) for the new assignment. The environment
 used to test the policies and assignments should have both compliant and non-compliant resources.
 Like a good unit test for code, you want to test that resources are as expected and that you also

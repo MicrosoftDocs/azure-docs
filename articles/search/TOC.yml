@@ -32,10 +32,10 @@
     href: search-get-started-dotnet.md
   - name: Java
     href: search-get-started-java.md
-  - name : Node.js
-    href: search-get-started-nodejs.md
-  - name: Postman
-    href: search-get-started-postman.md
+  - name : JavaScript
+    href: search-get-started-javascript.md
+  - name: REST
+    href: search-get-started-rest.md
   - name: PowerShell
     href: search-get-started-powershell.md
   - name: Python
@@ -81,19 +81,21 @@
 - name: Samples
   items:
   - name: C# samples
-    href: /samples/browse/?languages=csharp&products=azure-cognitive-search
+    href: samples-dotnet.md
   - name: Java samples
-    href: /samples/browse/?languages=java&products=azure-cognitive-search
+    href: samples-java.md
   - name: JavaScript samples
-    href: /samples/browse/?languages=javascript&products=azure-cognitive-search
+    href: samples-javascript.md
   - name: Python samples
-    href: /samples/browse/?languages=python&products=azure-cognitive-search
+    href: samples-python.md
   - name: REST samples
     href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
 - name: Concepts
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
+  - name: Relevance scoring
+    href: index-similarity-and-scoring.md
   - name: Indexers
     href: search-indexer-overview.md
   - name: AI enrichment
@@ -294,8 +296,6 @@
     items:
     - name: Work with results
       href: search-pagination-page-layout.md
-    - name: Relevance scoring
-      href: index-similarity-and-scoring.md
     - name: Scoring profiles 
       href: index-add-scoring-profiles.md
     - name: Similarity algorithm
@@ -320,9 +320,11 @@
       href: search-api-preview.md
     - name: Develop in .NET
       items:
-      - name: Use Microsoft.Azure.Search (v10)
+      - name: Use Azure.Search.Documents
         href: search-howto-dotnet-sdk.md
-      - name: Get started (v10)
+      - name: Use Microsoft.Azure.Search
+        href: search-howto-dotnet-sdk-v10.md
+      - name: Legacy quickstart (Microsoft.Azure.Search)
         href: search-get-started-dotnet-v10.md
     - name: Upgrade the SDK
       items:

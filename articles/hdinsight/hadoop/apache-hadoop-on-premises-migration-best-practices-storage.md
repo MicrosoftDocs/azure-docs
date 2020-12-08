@@ -36,11 +36,11 @@ One of the following formats can be used to access data that is stored in Azure 
 
 [Scalability targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md) lists the current limits on Azure Storage accounts. If the needs of the application exceed the scalability targets of a single storage account, the application can be built to use multiple storage accounts and then partition data objects across those storage accounts.
 
-[Azure Storage Analytics](../../storage/storage-analytics.md) provides metrics for all storage services and Azure portal can be configured collect metrics to be visualized through charts. Alerts can be created to notify when thresholds have been reached for storage resource metrics.
+[Azure Storage Analytics](../../storage/common/storage-analytics.md) provides metrics for all storage services and Azure portal can be configured collect metrics to be visualized through charts. Alerts can be created to notify when thresholds have been reached for storage resource metrics.
 
-Azure Storage offers [soft delete for blob objects](../../storage/blobs/storage-blob-soft-delete.md) to help recover data when it's accidentally modified or deleted by an application or other storage account user.
+Azure Storage offers [soft delete for blob objects](../../storage/blobs/soft-delete-blob-overview.md) to help recover data when it's accidentally modified or deleted by an application or other storage account user.
 
-You can create [blob snapshots](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). A snapshot is a read-only version of a blob that's taken at a point in time and it provides a way to back up a blob. Once a snapshot has been created, it can be read, copied, or deleted, but not modified.
+You can create [blob snapshots](/rest/api/storageservices/creating-a-snapshot-of-a-blob). A snapshot is a read-only version of a blob that's taken at a point in time and it provides a way to back up a blob. Once a snapshot has been created, it can be read, copied, or deleted, but not modified.
 
 > [!Note]
 > For older versions of on-premises Hadoop Distributions that don't have the "wasbs" certificate, they need to be imported to the Java trust store.
@@ -70,7 +70,7 @@ For more information, see the following articles:
 - [Use Azure Storage with Azure HDInsight clusters](../hdinsight-hadoop-use-blob-storage.md)
 - [Scalability targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md)
 - [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md)
-- [Microsoft Azure Storage Performance and Scalability Checklist](../../storage/common/storage-performance-checklist.md)
+- [Microsoft Azure Storage Performance and Scalability Checklist](../../storage/blobs/storage-performance-checklist.md)
 - [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Monitor a storage account in the Azure portal](../../storage/common/storage-monitor-storage-account.md)
 
@@ -89,19 +89,19 @@ Azure Data Lake Storage Gen2 is the latest storage offering. It unifies the core
 
 Azure Data Lake Storage Gen 2 is built on top of [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md) and allows you to interface with data using both file system and object storage paradigms. Features from [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), such as file system semantics, file-level security, and scale are combined with low-cost, tiered storage, high availability/disaster recovery capabilities, and a large SDK/tooling ecosystem from [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md). In Data Lake Storage Gen2, all the qualities of object storage remain while adding the advantages of a file system interface optimized for analytics workloads.
 
-A fundamental feature of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](../../storage/data-lake-storage/namespace.md) to the Blob storage service, which organizes objects/files into a hierarchy of directories for performant data access. The hierarchical structure enables operations such as renaming or deleting a directory to be single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory.
+A fundamental feature of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](../../storage/blobs/data-lake-storage-namespace.md) to the Blob storage service, which organizes objects/files into a hierarchy of directories for performant data access. The hierarchical structure enables operations such as renaming or deleting a directory to be single atomic metadata operations on the directory rather than enumerating and processing all objects that share the name prefix of the directory.
 
 In the past, cloud-based analytics had to compromise in areas of performance, management, and security. The Key features of Azure Data Lake Storage (ADLS) Gen2 are as follows:
 
-- **Hadoop compatible access**: Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](../../storage/data-lake-storage/abfs-driver.md) is available within all Apache Hadoop environments that are included in [Azure HDInsight](../index.yml). This driver allows you to access data stored in Data Lake Storage Gen2.
+- **Hadoop compatible access**: Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](../../storage/blobs/data-lake-storage-abfs-driver.md) is available within all Apache Hadoop environments that are included in [Azure HDInsight](../index.yml). This driver allows you to access data stored in Data Lake Storage Gen2.
 
 - **A superset of POSIX permissions**: The security model for Data Lake Gen2 fully supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through admin tools or through frameworks like Hive and Spark.
 
-- **Cost effective**: Data Lake Storage Gen2 features low-cost storage capacity and transactions. As data transitions through its complete life-cycle, billing rates change to minimize costs via built-in features such as [Azure Blob storage life cycle](../../storage/common/storage-lifecycle-management-concepts.md).
+- **Cost effective**: Data Lake Storage Gen2 features low-cost storage capacity and transactions. As data transitions through its complete life-cycle, billing rates change to minimize costs via built-in features such as [Azure Blob storage life cycle](../../storage/blobs/storage-lifecycle-management-concepts.md).
 
 - **Works with Blob storage tools, frameworks, and apps**: Data Lake Storage Gen2 continues to work with a wide array of tools, frameworks, and applications that exist today for Blob storage.
 
-- **Optimized driver**: The Azure Blob Filesystem driver (ABFS) is [optimized specifically](../../storage/data-lake-storage/abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the dfs endpoint, dfs.core.windows.net.
+- **Optimized driver**: The Azure Blob Filesystem driver (ABFS) is [optimized specifically](../../storage/blobs/data-lake-storage-abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the dfs endpoint, dfs.core.windows.net.
 
 One of the following formats can be used to access data that is stored in ADLS Gen2:
 - `abfs:///`: Access the default Data Lake Storage for the cluster.
@@ -109,8 +109,8 @@ One of the following formats can be used to access data that is stored in ADLS G
 
 For more information, see the following articles:
 
-- [Introduction to Azure Data Lake Storage Gen2](../../storage/data-lake-storage/introduction.md)
-- [The Azure Blob Filesystem driver (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
+- [Introduction to Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)
+- [The Azure Blob Filesystem driver (ABFS.md)](../../storage/blobs/data-lake-storage-abfs-driver.md)
 - [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ## Secure Azure Storage keys within on-premises Hadoop cluster configuration
@@ -192,9 +192,9 @@ For more information, see [Use Azure Storage Shared Access Signatures to restric
 
 All data written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). The data in the Azure Storage account is always replicated for high availability. When you create a storage account, you can choose one of the following replication options:
 
-- [Locally redundant storage (LRS)](../../storage/common/storage-redundancy-lrs.md)
-- [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy-zrs.md)
-- [Geo-redundant storage (GRS)](../../storage/common/storage-redundancy-grs.md)
+- [Locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage)
+- [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage)
+- [Geo-redundant storage (GRS)](../../storage/common/storage-redundancy.md#geo-redundant-storage)
 - [Read-access geo-redundant storage (RA-GRS)](../../storage/common/storage-redundancy.md)
 
 Azure Storage provides locally redundant storage (LRS) but you should also copy critical data to another Azure Storage account in another region with a frequency aligned to the needs of the disaster recovery plan. There are different methods to copy data including [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), or [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). It's also recommended to enforce access policies for Azure Storage account to prevent accidental deletion.

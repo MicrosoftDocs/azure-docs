@@ -3,7 +3,7 @@ title: Quickstart - Send events to Event Grid
 description: In this quickstart, you enable Event Grid events for your container registry, then send container image push and delete events to a sample application.
 ms.topic: article
 ms.date: 08/23/2018
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 # Customer intent: As a container registry owner, I want to send events to Event Grid
 # when container images are pushed to or deleted from my container registry so that
 # downstream applications can react to those events.
@@ -17,11 +17,11 @@ After you complete the steps in this article, events sent from your container re
 
 ![Web browser rendering the sample web application with three received events][sample-app-01]
 
-If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-The Azure CLI commands in this article are formatted for the **Bash** shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses variables to minimize the amount of command editing required.
+- The Azure CLI commands in this article are formatted for the **Bash** shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses variables to minimize the amount of command editing required.
 
 ## Create a resource group
 

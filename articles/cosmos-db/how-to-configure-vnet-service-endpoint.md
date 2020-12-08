@@ -11,6 +11,7 @@ ms.custom: devx-track-azurecli
 ---
 
 # Configure access to Azure Cosmos DB from virtual networks (VNet)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 You can configure the Azure Cosmos account to allow access only from a specific subnet of virtual network (VNet). By enabling [Service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to access Azure Cosmos DB on the subnet within a virtual network, the traffic from that subnet is sent to Azure Cosmos DB with the identity of the subnet and Virtual Network. Once the Azure Cosmos DB service endpoint is enabled, you can limit access to the subnet by adding it to your Azure Cosmos account.
 
@@ -89,7 +90,7 @@ To ensure that you have access to Azure Cosmos DB metrics from the portal, you n
 
 Use the following steps to configure a service endpoint to an Azure Cosmos DB account by using Azure PowerShell:  
 
-1. Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) and [sign in](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
+1. Install [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).  
 
 1. Enable the service endpoint for an existing subnet of a virtual network.  
 
@@ -313,11 +314,11 @@ Here are some frequently asked questions about configuring access from virtual n
 
 ### Are Notebooks and Mongo/Cassandra Shell currently compatible with Virtual Network enabled accounts?
 
-At the moment the [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) and [Cassandra shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) integrations in the Cosmos DB Data Explorer, and the [Jupyter Notebooks service](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks), are not supported with VNET access. This is currently in active development.
+At the moment the [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) and [Cassandra shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) integrations in the Cosmos DB Data Explorer, and the [Jupyter Notebooks service](./cosmosdb-jupyter-notebooks.md), are not supported with VNET access. This is currently in active development.
 
 ### Can I specify both virtual network service endpoint and IP access control policy on an Azure Cosmos account? 
 
-You can enable both the virtual network service endpoint and an IP access control policy (aka firewall) on your Azure Cosmos account. These two features are complementary and collectively ensure isolation and security of your Azure Cosmos account. Using IP firewall ensures that static IPs can access your account. 
+You can enable both the virtual network service endpoint and an IP access control policy (also known as firewall) on your Azure Cosmos account. These two features are complementary and collectively ensure isolation and security of your Azure Cosmos account. Using IP firewall ensures that static IPs can access your account. 
 
 ### How do I limit access to subnet within a virtual network? 
 
@@ -331,7 +332,7 @@ When IP firewall or virtual network access rules are added, only requests from a
 
 Once service endpoint for Azure Cosmos DB is enabled on a subnet, the source of the traffic reaching the account switches from public IP to virtual network and subnet. If your Azure Cosmos account has IP-based firewall only, traffic from service enabled subnet would no longer match the IP firewall rules and therefore be rejected. Go over the steps to seamlessly migrate from IP-based firewall to virtual network-based access control.
 
-### Are additional RBAC permissions needed for Azure Cosmos accounts with VNET service endpoints?
+### Are additional Azure RBAC permissions needed for Azure Cosmos accounts with VNET service endpoints?
 
 After you add the VNet service endpoints to an Azure Cosmos account, to make any changes to the account settings, you need access to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` action for all the VNETs configured on your Azure Cosmos account. This permission is required because the authorization process validates access to resources (such as database and virtual network resources) before evaluating any properties.
  

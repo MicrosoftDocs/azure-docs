@@ -4,12 +4,14 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB's
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
+ms.subservice: cosmosdb-mongo
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
 ---
 
 # Troubleshoot query issues when using the Azure Cosmos DB API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB's API for MongoDB. If you are using the Azure Cosmos DB core (SQL) API, see the [SQL API query troubleshooting guide](troubleshoot-query-performance.md) article.
 
@@ -111,7 +113,7 @@ The `$explain` command output is lengthy and has detailed information about quer
 | `timeInclusiveMS` | Backend query latency |
 | `pathsIndexed` | Shows indexes that the query used | 
 | `pathsNotIndexed` | Shows indexes that the query could have used, if available | 
-| `shardInformation` | Summary of query performance for a particular [physical partition](partition-data.md#physical-partitions) | 
+| `shardInformation` | Summary of query performance for a particular [physical partition](./partitioning-overview.md#physical-partitions) | 
 | `retrievedDocumentCount` | Number of documents loaded by the query engine | 
 | `outputDocumentCount` | Number of documents returned in the query results | 
 | `estimatedDelayFromRateLimitingInMilliseconds` | Estimated additional query latency due to rate limiting | 
@@ -251,7 +253,7 @@ Indexing best practices in Azure Cosmos DB's API for MongoDB are different from 
 
 [Wildcard indexes](mongodb-indexing.md#wildcard-indexes) can simplify indexing. Unlike in MongoDB, wildcard indexes can support multiple fields in query predicates. There will not be a difference in query performance if you use one single wildcard index instead of creating a separate index for each property. Adding a wildcard index for all properties is the easiest way to optimize all of your queries.
 
-You can add new indexes at any time, with no effect on write or read availability. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+You can add new indexes at any time, with no effect on write or read availability. You can [track index transformation progress](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### Understand which aggregation operations use the index
 

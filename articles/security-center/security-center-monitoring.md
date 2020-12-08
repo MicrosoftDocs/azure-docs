@@ -33,4 +33,4 @@ In this article, you learned how to use monitoring capabilities in Azure Securit
 
 * [Setting security policies in Azure Security Center](tutorial-security-policy.md): Learn how to configure security settings in Azure Security Center.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md): Learn how to manage and respond to security alerts.
-* [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
+* [Monitoring partner solutions with Azure Security Center](./security-center-partner-integration.md): Learn how to monitor the health status of your partner solutions.

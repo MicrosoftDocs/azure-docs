@@ -69,22 +69,33 @@ Managed Identity authentication is required when your storage account is attache
 1. Install Azure PowerShell using this [guide](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 3. You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Refer to this [guide](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions) for more information.
+
 #### Steps
 
-1. In PowerShell, **register your SQL server** with Azure Active Directory:
+1. If you have a standalone dedicated SQL pool, register your SQL server with Azure Active Directory (AAD) using PowerShell: 
 
    ```powershell
    Connect-AzAccount
-   Select-AzSubscription -SubscriptionId your-subscriptionId
-   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   Select-AzSubscription -SubscriptionId <subscriptionId>
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-2. Create a **general-purpose v2 Storage Account** using this [guide](../../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+   This step is not required for dedicated SQL pools within a Synapse workspace.
+
+1. If you have a Synapse workspace, register your workspace's system-managed identity:
+
+   1. Go to your Synapse workspace in the Azure portal
+   2. Go to the Managed identities blade 
+   3. Make sure the "Allow Pipelines" option is enabled
+   
+1. Create a **general-purpose v2 Storage Account** using this [guide](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
-   > If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+   >
+   > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](../../storage/common/storage-account-upgrade.md).
+   > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](../../storage/blobs/data-lake-storage-known-issues.md).
 
-3. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** Azure role to your SQL server.
+1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** Azure role to the server or workspace hosting your dedicated SQL pool which you've registered with Azure Active Directory (AAD).
 
    > [!NOTE]
    > Only members with Owner privilege can perform this step. For various Azure built-in roles, refer to this [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -92,7 +103,7 @@ Managed Identity authentication is required when your storage account is attache
     > [!IMPORTANT]
     > Specify the **Storage** **Blob Data** Owner, Contributor, or Reader Azure role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader. 
 
-    ![Granting RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![Granting Azure RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 4. You can now run the COPY statement specifying "Managed Identity":
 
@@ -113,7 +124,7 @@ Managed Identity authentication is required when your storage account is attache
     > [!IMPORTANT]
     > Specify the **Storage** **Blob Data** Owner, Contributor, or Reader Azure role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader.
 
-    ![Granting RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![Granting Azure RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. Configure Azure AD authentication by going through the following [documentation](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
 

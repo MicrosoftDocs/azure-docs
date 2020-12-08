@@ -9,6 +9,7 @@ ms.date: 05/21/2019
 ---
 
 # Common Azure Cosmos DB use cases
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article provides an overview of several common use cases for Azure Cosmos DB.  The recommendations in this article serve as a starting point as you develop your application with Cosmos DB.
 
@@ -23,7 +24,7 @@ After reading this article, you'll be able to answer the following questions:
 
 [Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft’s fast NoSQL database with open APIs for any scale. The service is designed to allow customers to elastically (and independently) scale throughput and storage across any number of geographical regions. Azure Cosmos DB is the first globally distributed database service in the market today to offer comprehensive [service level agreements](https://azure.microsoft.com/support/legal/sla/cosmos-db/) encompassing throughput, latency, availability, and consistency.
 
-Azure Cosmos DB is a global distributed, multi-model database that is used in a wide range of applications and use cases. It is a good choice for any [serverless](https://azure.com/serverless) application that needs low order-of-millisecond response times, and needs to scale rapidly and globally. It supports multiple data models (key-value, documents, graphs and columnar) and many APIs for data access including [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin API](graph-introduction.md), and [Tables API](table-introduction.md) natively, and in an extensible manner. 
+Azure Cosmos DB is a global distributed, multi-model database that is used in a wide range of applications and use cases. It is a good choice for any [serverless](https://azure.com/serverless) application that needs low order-of-millisecond response times, and needs to scale rapidly and globally. It supports multiple data models (key-value, documents, graphs and columnar) and many APIs for data access including [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md), [SQL API](./introduction.md), [Gremlin API](graph-introduction.md), and [Tables API](table-introduction.md) natively, and in an extensible manner. 
 
 The following are some attributes of Azure Cosmos DB that make it well-suited for high-performance applications with global ambition.
 
@@ -86,7 +87,7 @@ Applications that integrate with third-party social networks must respond to cha
 
 Many of the social applications run at global scale and can exhibit unpredictable usage patterns. Flexibility in scaling the data store is essential as the application layer scales to match usage demand.  You can scale out by adding additional data partitions under a Cosmos DB account.  In addition, you can also create additional Cosmos DB accounts across multiple regions. For Cosmos DB service region availability, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
-:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="Azure Cosmos DB web app reference architecture" border="false":::
+:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="Diagram that shows the Azure Cosmos DB web app reference architecture." border="false":::
 
 ### Personalization
 Nowadays, modern applications come with complex views and experiences. These are typically dynamic, catering to user preferences or moods and branding needs. Hence, applications need to be able to retrieve personalized settings effectively to render UI elements and experiences quickly. 

@@ -229,7 +229,7 @@ Verify that configurations and secrets were set successfully by accessing the [K
 
 One secret, **password**, stores as Key Vault reference in App Configuration was also added into Kubernetes Secrets. 
 
-![Quickstart app launch local](./media/kubernetes-dashboard-secrets.png)
+![Screenshot that highlights the password in the Data section.](./media/kubernetes-dashboard-secrets.png)
 
 ## Clean up resources
 

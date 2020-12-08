@@ -66,15 +66,15 @@ You can also go to your Azure Storage account in Azure portal and select the **D
 ## Next steps
 
 - [Get an introduction to Azure Storage Explorer](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
-- [Read an overview of AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
+- [Read an overview of AzCopy](./storage-use-azcopy-v10.md).
 - [Quickstart: Upload, download, and list blobs with PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Quickstart: Create, download, and list blobs with Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 - Learn about:
 
-    - [Azure Data Box, Azure Data Box Disk, and Azure Data Box Heavy for offline transfers](https://docs.microsoft.com/azure/databox/).
-    - [Azure Data Box Gateway and Azure Stack Edge for online transfers](https://docs.microsoft.com/azure/databox-online/).
-- [Learn what is Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
+    - [Azure Data Box, Azure Data Box Disk, and Azure Data Box Heavy for offline transfers](../../databox/index.yml).
+    - [Azure Data Box Gateway and Azure Stack Edge for online transfers](../../databox-online/index.yml).
+- [Learn what is Azure Data Factory](../../data-factory/copy-activity-overview.md).
 - Use the REST APIs to transfer data
 
-    - [In .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [In Java](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [In .NET](/dotnet/api/overview/azure/storage)
+    - [In Java](/java/api/overview/azure/storage)

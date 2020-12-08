@@ -4,10 +4,10 @@ description: Learn how to create an Azure file share that can be mounted using t
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # How to create an NFS share
@@ -33,7 +33,7 @@ Azure file shares are fully managed file shares that live in the cloud. They can
     - [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md).
     - [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
     - Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
-- If you intend to use the Azure CLI, [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Register the NFS 4.1 protocol
 
@@ -59,7 +59,7 @@ az feature register --name AllowNfsFileShares \
 az provider register --namespace Microsoft.Storage
 ```
 
-## Verify that the feature is registered
+## Verify feature registration
 
 Registration approval can take up to an hour. To verify that the registration is complete, use the following commands:
 
@@ -75,6 +75,34 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNfs
 az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscription <yourSubscriptionIDHere>
 ```
 
+## Verify storage account kind
+
+Currently, only FileStorage accounts can create NFS shares. 
+
+# [Portal](#tab/azure-portal)
+
+To verify what kind of storage account you have, navigate to it in the Azure portal. Then, from your storage account, select **Properties**. From the properties blade, examine the value under **Account kind**, the value should be **FileStorage**.
+
+# [PowerShell](#tab/azure-powershell)
+To verify you have a FileStorage account, you can use the following command:
+
+```azurepowershell
+$accountKind=Get-AzStorageAccount -ResourceGroupName "yourResourceGroup" -Name "yourStorageAccountName"
+$accountKind.Kind
+```
+
+The output should be **FileStorage**, if it is not, then your storage account is the incorrect type. To create a **FileStorage** account, see [How to create an Azure premium file share](storage-how-to-create-premium-fileshare.md).
+
+# [Azure CLI](#tab/azure-cli)
+To verify you have a FileStorage account, you can use the following command:
+
+```azurecli
+az storage account show -g yourResourceGroup -n yourStorageAccountName
+```
+
+The output should contain **"kind": "FileStorage"**, if does not, then your storage account is the incorrect type. To create a **FileStorage** account, see [How to create an Azure premium file share](storage-how-to-create-premium-fileshare.md).
+
+---
 ## Create an NFS share
 
 # [Portal](#tab/azure-portal)
@@ -105,7 +133,7 @@ Now that you have created a FileStorage account and configured the networking, y
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
     
 1. Install the latest version of the PowershellGet module.
 
@@ -121,7 +149,7 @@ Now that you have created a FileStorage account and configured the networking, y
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-3.0.0)
    
 1. To create a premium file share with the Azure PowerShell module, use the [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) cmdlet.
 
@@ -147,10 +175,9 @@ To create a premium file share with the Azure CLI, use the [az storage share cre
 
 ```azurecli-interactive
 az storage share-rm create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
+    --storage-account $STORAGEACCT \
     --enabled-protocol NFS \
-    --root-access RootSquash \
+    --root-squash RootSquash \
     --name "myshare" 
 ```
 ---

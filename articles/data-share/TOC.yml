@@ -8,7 +8,6 @@
   - name: Supported data stores
     href: supported-data-stores.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Share data - Azure portal
     href: share-your-data-portal.md
@@ -16,13 +15,20 @@
     displayName: Resource Manager
     href: share-your-data-arm.md
 - name: Tutorials
+  expanded: true
   items:
     - name: Share data
       href: share-your-data.md
+      displayName: Azure CLI, az datashare account create, az datashare create
     - name: Accept and receive data
       href: subscribe-to-data-share.md
+      displayName: Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Azure Data Share terminology
     href: terminology.md
   - name: Roles and requirements
@@ -39,15 +45,11 @@
     items:
     - name: Share from Azure Storage
       href: how-to-share-from-storage.md
-    - name: Share from Azure SQL Database or Synapse Analytics
+    - name: Share from Azure SQL Database or Azure Synapse Analytics
       href: how-to-share-from-sql.md
     - name: Share from Azure Data Explorer
       href: /azure/data-explorer/data-share
       maintainContext: true
-  - name: Monitor
-    href: how-to-monitor.md
-  - name: Troubleshoot
-    href: data-share-troubleshoot.md
   - name: Add datasets
     href: how-to-add-datasets.md
   - name: Configure dataset mappings
@@ -58,10 +60,14 @@
     href: how-to-delete-invitation.md
   - name: Revoke a share subscription
     href: how-to-revoke-share-subscription.md
+  - name: Monitor
+    href: how-to-monitor.md
   - name: Security
     href: security.md
   - name: Disaster recovery
     href: disaster-recovery.md
+  - name: Troubleshoot
+    href: data-share-troubleshoot.md
 
 - name: Reference
   items:

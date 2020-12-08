@@ -108,7 +108,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1.  In the configure proxy selection, select the default option, select **Continue**, and then select **Enter**.
      
-     ![Select how to manage upgrades](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
+     ![Screenshot that shows where to select Continue and then select Enter.](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Select **No automatic updates** option in the selection for managing upgrades on your system, and then select **Enter**.
 

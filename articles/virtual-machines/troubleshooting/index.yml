@@ -145,7 +145,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text:  Troubleshooting shared image galleries-replication is slow
-            url: ../troubleshooting-shared-images.md#replication-is-slow
+            url: ../troubleshooting-shared-images.md#replication-speed
         
    # Card
   - title: VM Extension issues

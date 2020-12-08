@@ -25,7 +25,7 @@ If you need a multi-language LUIS client application such as a chatbot, you have
 
 LUIS understands utterances in the following languages:
 
-| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment and<br>Keywords)|
+| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](../text-analytics/language-support.md)<br>(Sentiment and<br>Keywords)|
 |--|--|:--:|:--:|:--:|:--:|
 | English (United States) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabic (preview - modern standard Arabic) |`ar-AR`|-|-|-|-|
@@ -66,7 +66,7 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
 See Speech [Supported languages](../speech-service/speech-to-text.md) for Speech dictation mode languages.
 
 ### Bing Spell Check supported languages
-See Bing Spell Check [Supported languages](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) for a list of supported languages and status.
+See Bing Spell Check [Supported languages](../bing-spell-check/language-support.md) for a list of supported languages and status.
 
 ## Rare or foreign words in an application
 In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](luis-how-to-add-features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature.

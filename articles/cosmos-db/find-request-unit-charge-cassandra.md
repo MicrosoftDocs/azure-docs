@@ -10,6 +10,7 @@ ms.author: thweiss
 ms.custom: devx-track-js
 ---
 # Find the request unit charge for operations executed in Azure Cosmos DB Cassandra API
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, and Table. Each API has its own set of database operations. These operations range from simple point reads and writes to complex queries. Each database operation consumes system resources based on the complexity of the operation.
 
@@ -47,4 +48,4 @@ To learn about optimizing your RU consumption, see these articles:
 
 * [Request units and throughput in Azure Cosmos DB](request-units.md)
 * [Optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md)
-* [Optimize query cost in Azure Cosmos DB](optimize-cost-queries.md)
+* [Optimize query cost in Azure Cosmos DB](./optimize-cost-reads-writes.md)

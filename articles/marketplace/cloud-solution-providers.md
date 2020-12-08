@@ -76,7 +76,7 @@ Select **Save draft** to register your changes.
 If this offer is unpublished, you'll need to publish your offer to make it available to your selected partners.
 
 >[!NOTE]
->If you authorize a partner in the CSP program in a given region, they can sell the offer to any customer that belongs to that particular region. For more information on how CSP offers are classified under regions, see [Cloud Solution Provider program regional markets and currency](https://docs.microsoft.com/partner-center/regional-authorization-overview).
+>If you authorize a partner in the CSP program in a given region, they can sell the offer to any customer that belongs to that particular region. For more information on how CSP offers are classified under regions, see [Cloud Solution Provider program regional markets and currency](/partner-center/regional-authorization-overview).
 
 If you're updating the CSP list of an already published offer, add the additional partners and select **Sync CSP audience**.
 

@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 01/01/2020
+  ms.date: 11/21/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -75,15 +75,10 @@ landingContent:
       links:
       - text: Use cost alerts
         url: costs/cost-mgt-alerts-monitor-usage-spending.md
-      - text: Allocate costs
-        url: costs/allocate-costs.md
       - text: View and download your Azure invoice
         url: understand/download-azure-invoice.md
       - text: View and download your Azure usage and charges
         url: understand/download-azure-daily-usage.md
-      - text: View external service charges
-        url: understand/understand-azure-marketplace-charges.md
-
 
   # Card (optional)
   - title: Optimize your costs
@@ -152,25 +147,3 @@ landingContent:
         url: understand/mca-download-tax-document.md
       - text: Pay your Microsoft Customer Agreement bill
         url: understand/pay-bill.md
-
-  # Card (optional)
-  - title: Buy reservations
-    linkLists:
-    - linkListType: concept
-      links:
-      - text: Choose a reservation to purchase
-        url: reservations/determine-reservation-purchase.md
-      - text: Reservation exchanges and refunds
-        url: reservations/exchange-and-refund-azure-reservations.md
-    - linkListType: how-to-guide
-      links:
-      - text: Buy a reservation
-        url: reservations/prepare-buy-reservation.md
-      - text: Manage reservations
-        url: reservations/manage-reserved-vm-instance.md
-      - text: View reservation purchases
-        url: reservations/view-purchase-refunds.md
-      - text: Charge back reservations
-        url: reservations/charge-back-usage.md
-      - text: Renew reservations
-        url: reservations/reservation-renew.md

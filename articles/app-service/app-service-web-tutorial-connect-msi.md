@@ -5,7 +5,7 @@ description: Learn how to make database connectivity more secure by using a mana
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
-ms.custom: "devx-track-csharp, mvc, cli-validate"
+ms.custom: "devx-track-csharp, mvc, cli-validate, devx-track-azurecli"
 ---
 # Tutorial: Secure Azure SQL Database connection from App Service using a managed identity
 
@@ -42,7 +42,9 @@ This article continues where you left off in [Tutorial: Build an ASP.NET app in 
 
 To debug your app using SQL Database as the back end, make sure that you've allowed client connection from your computer. If not, add the client IP by following the steps at [Manage server-level IP firewall rules using the Azure portal](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Prepare your environment for the Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Grant database access to Azure AD user
 
@@ -82,7 +84,7 @@ Visual Studio for Mac is not integrated with Azure AD authentication. However, t
 
 Once Azure CLI is installed on your local machine, sign in to Azure CLI with the following command using your Azure AD user:
 
-```bash
+```azurecli
 az login --allow-no-subscriptions
 ```
 You're now ready to develop and debug your app with the SQL Database as the back end, using Azure AD authentication.
@@ -146,8 +148,8 @@ In the [ASP.NET Core and SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md
 Next, you supply the Entity Framework database context with the access token for the SQL Database. In *Data\MyDatabaseContext.cs*, add the following code inside the curly braces of the empty `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` constructor:
 
 ```csharp
-var conn = (Microsoft.Data.SqlClient.SqlConnection)Database.GetDbConnection();
-conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
+var connection = (SqlConnection)Database.GetDbConnection();
+connection.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
 > [!NOTE]
@@ -201,7 +203,7 @@ Here's an example of the output:
 
 In the Cloud Shell, sign in to SQL Database by using the SQLCMD command. Replace _\<server-name>_ with your server name, _\<db-name>_ with the database name your app uses, and _\<aad-user-name>_ and _\<aad-password>_ with your Azure AD user's credentials.
 
-```azurecli-interactive
+```bash
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 
@@ -244,7 +246,7 @@ In the publish page, click **Publish**.
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 When the new webpage shows your to-do list, your app is connecting to the database using the managed identity.

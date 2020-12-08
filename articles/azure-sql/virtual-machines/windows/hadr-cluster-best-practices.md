@@ -27,6 +27,10 @@ This article provides cluster configuration best practices for both [failover cl
 
 Use a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
 
+### Tuning Failover Cluster Network Thresholds
+
+When running Windows Failover Cluster nodes in Azure Vms with SQL Server AlwaysOn, changing the cluster setting to a more relaxed monitoring state is recommended.  This will make the cluster much more stable and reliable.  For details on this, see [IaaS with SQL AlwaysOn - Tuning Failover Cluster Network Thresholds](/windows-server/troubleshoot/iaas-sql-failover-cluster).
+
 ## Quorum
 
 Although a two-node cluster will function without a [quorum resource](/windows-server/storage/storage-spaces/understand-quorum), customers are strictly required to use a quorum resource to have production support. Cluster validation won't pass any cluster without a quorum resource. 
@@ -131,7 +135,7 @@ Consider the following limitations when you're working with FCI or availability 
 
 ### MSDTC 
 
-Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) or on SQL Server VMs that are using Azure shared disks. 
+Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and [Azure Standard Load Balancer](../../../load-balancer/load-balancer-overview.md) or on SQL Server VMs that are using Azure shared disks. 
 
 On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earlier with Clustered Shared Volumes because:
 
@@ -141,5 +145,4 @@ On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earl
 
 ## Next steps
 
-After you've determined the appropriate best practices for your solution, get started by [preparing your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md) or by creating your availability group by using the [Azure portal](availability-group-azure-portal-configure.md), the [Azure CLI / PowerShell](availability-group-az-cli-configure.md), or [Azure quickstart templates](availability-group-quickstart-template-configure.md). 
-
+After you've determined the appropriate best practices for your solution, get started by [preparing your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md) or by creating your availability group by using the [Azure portal](availability-group-azure-portal-configure.md), the [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), or [Azure quickstart templates](availability-group-quickstart-template-configure.md).

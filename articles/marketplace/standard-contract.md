@@ -4,8 +4,8 @@ description: Standard Contract for Azure Marketplace and AppSource in Partner Ce
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 05/20/2020
 ---
 

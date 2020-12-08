@@ -24,7 +24,7 @@ ms.custom:
 
 You can use the REST API to retrieve the set of IPs for Verizon’s point of presence (POP) servers. These POP servers  make requests to origin servers that are associated with Azure Content Delivery Network (CDN) endpoints on a Verizon profile (**Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon**). Note that this set of IPs is different from the IPs that a client would see when making requests to the POPs. 
 
-For the syntax of the REST API operation for retrieving the POP list, see [Edge Nodes - List](https://docs.microsoft.com/rest/api/cdn/edgenodes/list).
+For the syntax of the REST API operation for retrieving the POP list, see [Edge Nodes - List](/rest/api/cdn/edgenodes/list).
 
 ## Retrieve the current Microsoft POP IP list for Azure CDN
 
@@ -44,4 +44,4 @@ For security purposes, you can use this IP list to enforce that requests to your
 
 ## Next steps
 
-For information about the REST API, see [Azure CDN REST API](https://docs.microsoft.com/rest/api/cdn/).
+For information about the REST API, see [Azure CDN REST API](/rest/api/cdn/).

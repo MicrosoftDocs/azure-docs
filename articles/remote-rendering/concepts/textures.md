@@ -21,7 +21,7 @@ Different texture types have different use cases:
 
 ## Supported texture formats
 
-All textures given to ARR have to be in [DDS format](https://en.wikipedia.org/wiki/DirectDraw_Surface). Preferably with mipmaps and texture compression. See [the TexConv command-line tool](../resources/tools/tex-conv.md) if you want to automate the conversion process.
+All textures given to ARR have to be in [DDS format](https://en.wikipedia.org/wiki/DirectDraw_Surface). Preferably with mipmaps and texture compression.
 
 ## Loading textures
 
