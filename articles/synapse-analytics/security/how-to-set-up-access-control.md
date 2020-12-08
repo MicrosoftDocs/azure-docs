@@ -158,7 +158,7 @@ To grant access to the serverless SQL pool, 'Built-in', the scripts can be run b
 
 ### STEP 7.1: Serverless SQL pool, Built-in
 
-In this section, you can find examples on how to give a user a permission to a particular database or to all databases in the serverless SQL pool, 'Built-in'.
+In this section, there are script examples showing how to give a user permission to access a particular database or to all databases in the serverless SQL pool, 'Built-in'.
 
 > [!NOTE]
 > In the script examples, replace *alias* with the alias of the user or group being granted access, and *domain* with the company domain you are using.
@@ -196,10 +196,12 @@ To grant access to a user to a **single** serverless SQL database, follow the st
 
 To grant full access to **all** serverless SQL pools in the workspace, use the script in this example:
 
-```sql
-CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-ALTER SERVER ROLE sysadmin ADD MEMBER [alias@domain.com];
-```
+    ```sql
+    use master
+    go
+    CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
+    ALTER SERVER ROLE sysadmin ADD MEMBER [alias@domain.com];
+    ```
 
 ### STEP 7.2: Dedicated SQL pools
 
@@ -225,9 +227,9 @@ To grant access to a **single** dedicated SQL pool database, follow these steps 
 
 After creating the users, run queries to validate that the serverless SQL pool can query the storage account.
 
-### STEP 7.3: SQL access control for workspace pipeline runs
+### STEP 7.3: SQL access control for Synapse pipeline runs
 
-### Workspace-managed identity
+### Workspace managed identity
 
 > [!IMPORTANT]
 > To run pipelines successfully that include datasets or activities that reference a SQL pool, the workspace identity needs to be granted access to the SQL pool.
