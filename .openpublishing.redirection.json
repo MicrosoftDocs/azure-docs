@@ -53784,6 +53784,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/CSharp.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/rest/detect.cs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/go.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/Face/rest/detect.go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/Java.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/Face/rest/detect.java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/node.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/rest/detect.js",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/JavaScript.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/rest/js-native-quickstart.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/PHP.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/php/Face/rest/detect.php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/Python.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/rest/detect.py",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/Ruby.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/ruby/Face/rest/detect.rb",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/text-analytics/vs-text-connected-service.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/",
       "redirect_document_id": false
