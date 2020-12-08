@@ -49,7 +49,7 @@ To complete this quickstart, you'll need:
 
 ## Configure Go environment
 
-Perform the following steps to set up your Go environment to find the Speech SDK. In both steps, replace <architecture> with the processor architecture of your CPU. This will be `x86`, `x64`, `arm32`, or `arm64`.
+Perform the following steps to set up your Go environment to find the Speech SDK. In both steps, replace `<architecture>` with the processor architecture of your CPU. This will be `x86`, `x64`, `arm32`, or `arm64`.
 
 1. Since the bindings rely on `cgo`, you need to set the environment variables so Go can find the SDK:
 
