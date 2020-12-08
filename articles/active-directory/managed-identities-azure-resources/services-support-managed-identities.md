@@ -247,7 +247,7 @@ Refer to the following list to configure managed identity for Azure Policy (in r
 
 - [Azure portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
-- [Azure CLI](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [Azure CLI](/cli/azure/policy/assignment#az-policy-assignment-create)
 - [Azure Resource Manager templates](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/resources/policyassignments/create)
 
