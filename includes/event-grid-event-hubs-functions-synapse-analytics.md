@@ -62,10 +62,10 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 4. In the Cloud Shell, if you see an option to select between **Bash** and **PowerShell**, select **Bash**. 
 5. If you are using the Cloud Shell for the first time, create a storage account by selecting **Create storage**. Azure Cloud Shell requires an Azure storage account to store some files. 
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/create-storage-cloud-shell.png" alt-text="Create storage for cloud shell":::
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/create-storage-cloud-shell.png" alt-text="Create storage for Cloud Shell":::
 6. Wait until the Cloud Shell is initialized. 
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/cloud-shell-initialized.png" alt-text="Cloud shell initialized":::
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/cloud-shell-initialized.png" alt-text="Cloud Shell initialized":::
 1. Create an Azure resource group by running the following CLI command: 
     1. Copy and paste the following command into the Cloud Shell window. Change the resource group name and location if you want.
 
@@ -196,7 +196,7 @@ Create a table in your data warehouse by running the [CreateDataWarehouseTable.s
 1. When Visual Studio has configured the profile, select **Publish**.
 
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/select-publish.png" alt-text="Select publish":::
-2. In the tab that has the **Azure Function** page open, select  **Functions** on the left menu. Confirm that the **EventGridTriggerMigrateData** function shows up in the list. If you don't see it, try publishing from Visual Studio again, and then refresh the page int he portal. 
+2. In the tab that has the **Azure Function** page open, select  **Functions** on the left menu. Confirm that the **EventGridTriggerMigrateData** function shows up in the list. If you don't see it, try publishing from Visual Studio again, and then refresh the page in the portal. 
 
     :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/confirm-function-creation.png" alt-text="Confirm function creation":::    
 
