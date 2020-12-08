@@ -24,8 +24,6 @@ Uptime SLA is available in public regions and Azure Government regions where [AK
 
 ## Limitations
 
-Once enabled, customers will not be able to remove Uptime SLA themselves.  In this scenario please open a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) for Microsoft to remove Uptime SLA on the backend. 
-
 ## SLA terms and conditions
 
 Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
