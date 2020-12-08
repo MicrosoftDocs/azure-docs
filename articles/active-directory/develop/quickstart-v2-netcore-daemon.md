@@ -54,8 +54,7 @@ This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/
 > 1. Select **Register** to create the application.
 > 1. Under **Manage**, select **Certificates & secrets**.
 > 1. Under **Client secrets**, select **+ New client secret**. Give it a name and select **Add**. Copy the secret on a safe location. You will need it to use in your code, and it will not be displayed again in the portal.
-> 1. Under **Manage**, select **API Permissions** > **+ Add a permission**. 
-
+> 1. Under **Manage**, select **API Permissions** > **+ Add a permission**. Select **Microsoft Graph**.
 > 1. Select **Application permissions**.
 > 1. Under **User** node, select **User.Read.All**, then select **Add permissions**.
 
