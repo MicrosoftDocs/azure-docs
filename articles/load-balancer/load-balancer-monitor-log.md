@@ -79,7 +79,11 @@ You can view and analyze activity log data by using either of the following meth
 ## View and analyze metrics as logs
 By using the export functionality in Azure Monitor, you can export your Load Balancer metrics. These metrics will generate a log entry for each one-minute sampling interval.
 
-Metrics-to-logs export is enabled on a per-resource level. To enable these logs, go to the **Diagnostic Settings** pane, filter by resource group, and select the Load Balancer instance that you want to enable metrics export for. When the diagnostic settings page for Load Balancer is up, select **AllMetrics** to export eligible metrics as logs.
+Metrics-to-logs export is enabled on a per-resource level. To enable these logs:
+
+1. Go to the **Diagnostic Settings** pane.
+1. Filter by resource group, and then select the Load Balancer instance that you want to enable metrics export for. 
+1. When the diagnostic settings page for Load Balancer is up, select **AllMetrics** to export eligible metrics as logs.
 
 For metric export limitations, see the [Limitations](#limitations) section of this article.
 
