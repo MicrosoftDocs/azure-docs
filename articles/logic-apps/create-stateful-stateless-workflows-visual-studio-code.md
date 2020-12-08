@@ -104,7 +104,7 @@ When you later try to open the designer for a workflow in your logic app, you ge
 
   * [Azure Logic Apps (Preview) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). This extension provides the capability for you to create logic apps where you can build stateful and stateless workflows that locally run in Visual Studio Code and then deploy those logic apps directly to Azure or to Docker containers.
 
-    Currently, you can have both the original Azure Logic Apps extension and the Public Preview extension installed in Visual Studio Code. Although the development experiences differ in some ways between the extensions, your Azure subscription can include both logic app types that you create with the extensions. The Explorer pane shows you all the deployed logic apps in your Azure subscription, but organizes them by resource type into different sections, **Logic Apps** and **Azure Logic Apps (Preview)**.
+    Currently, you can have both the original Azure Logic Apps extension and the Public Preview extension installed in Visual Studio Code. Although the development experiences differ in some ways between the extensions, your Azure subscription can include both logic app types that you create with the extensions. Visual Studio Code shows all the deployed logic apps in your Azure subscription, but organizes them into different sections by extension names, **Logic Apps** and **Azure Logic Apps (Preview)**.
 
     > [!IMPORTANT]
     > If you created logic apps with the earlier Private Preview extension, these logic apps won't work with the Public
@@ -971,7 +971,17 @@ In the Azure portal, you can view all the deployed logic apps that are in your A
 
 <a name="add-workflow-existing project"></a>
 
-To add another workflow to your project, on the 
+To add a blank workflow to your project, follow these steps:
+
+1. On the Visual Studio Code Activity Bar, select the Azure icon.
+
+1. In the Azure pane, next to **Azure: Logic Apps (Preview)**, select **Create Workflow** (icon for Azure Logic Apps).
+
+1. Select the workflow type that you want to add, **Stateful** or **Stateless**.
+
+1. Provide a name for your workflow.
+
+When you're done, a new workflow folder appears in your project along with a **workflow.json** file for the workflow definition.
 
 <a name="add-workflow-portal"></a>
 
