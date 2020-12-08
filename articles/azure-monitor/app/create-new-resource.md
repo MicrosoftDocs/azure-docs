@@ -36,11 +36,9 @@ Enter the appropriate values into the required fields, and then select **Review 
 
 When your app has been created, a new pane opens. This pane is where you see performance and usage data about your monitored application. 
 
-## Copy the instrumentation key
+## Copy the connection string
 
-The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need to copy the instrumentation key and add it to your application's code.
-
-![Click and copy the instrumentation key](./media/create-new-resource/instrumentation-key.png)
+The [connection string](./sdk-connection-string.md?tabs=net) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
 ## Install the SDK in your app
 
