@@ -88,9 +88,11 @@ The examples below are using the [DefaultAzureCredential](https://docs.microsoft
 
 ### Administration SDK example (create identity and issue token)
 
+The following code example shows how to create a service client object with Azure AD tokens, then use the client to issue a token for a new user:
+
 ```csharp
      
-     public async Task<> CreateIdentityAndIssueTokenAsync(string resourceEdnpoint) 
+     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(string resourceEdnpoint) 
      {
           TokenCredential credential = new DefaultAzureCredential();
      
@@ -105,6 +107,7 @@ More details about [Creating user access tokens](../quickstarts/access-tokens.md
 
 ### SMS SDK example (send SMS)
 
+The following code example shows how to create a service client object with Azure AD tokens, then use the client to send an SMS:
 
 ```csharp
 
@@ -131,6 +134,7 @@ More details about [Send an SMS message](../quickstarts/telephony-sms/send.md).
 
 You may also want to:
 
+- [Learn more about Azure role-based access control](https://docs.microsoft.com/azure/role-based-access-control)
 - [Creating user access tokens](../quickstarts/access-tokens.md)
 - [Send an SMS message](../quickstarts/telephony-sms/send.md)
 - [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
