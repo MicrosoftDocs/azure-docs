@@ -28,7 +28,7 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
     - **Disconnected**: The data factory has access to the catalog, but it's connected to another catalog. As a result, data lineage won't be reported to the catalog automatically.
     - **CannotAccess**: The current user doesn't have access to the data factory, so the connection status is unknown.
  >[!Note]
- >In order to view the Data Factory connections, you need to be assigned any one of the Azure build-in roles:
+ >In order to view the Data Factory connections, you need to be assigned any one of Purview roles:
  >- Contributor
  >- Owner
  >- Reader
@@ -66,9 +66,10 @@ To remove a data factory connection, do the following:
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
 >[!Note]
->In order to add or remove the Data Factory connections, you need to be assigned any one of the Azure build-in roles:
+>In order to add or remove the Data Factory connections, you need to be assigned any one of Purview roles:
 >- Owner
 >- User Access Administrator
+> Besides, it requires the users to be the data factory’s “Owner”, or “Contributor”, or “Data Factory contributor”. 
 
 ## Configure a self-hosted IR to collect lineage from on-prem SQL
 
