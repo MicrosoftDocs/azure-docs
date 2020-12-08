@@ -53,7 +53,7 @@ To set up authentication, create a security group and add the catalog's managed 
     > [!Important]
     > You need to be a Power BI Admin to see the tenant settings page.
 
-1. Select **Developer settings** > **Allow service principals to use read-only Power BI APIs (Preview)**.
+1. Select **Developer settings** > **Allow service principals to use read-only Power BI admin APIs (Preview)**.
 1. Select **Specific security groups**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Image showing how to allow service principals to get read-only Power BI admin API permissions":::
