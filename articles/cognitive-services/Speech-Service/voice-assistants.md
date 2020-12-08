@@ -67,7 +67,7 @@ Sample code for creating a voice assistant is available on GitHub. These samples
 
 Voice assistants built using Azure Speech services can use the full range of customization options.
 
-* [Custom Speech](how-to-custom-speech.md)
+* [Custom Speech](./custom-speech-overview.md)
 * [Custom Voice](how-to-custom-voice.md)
 * [Custom Keyword](custom-keyword-overview.md)
 

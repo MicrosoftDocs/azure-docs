@@ -283,7 +283,7 @@ If legacy authentication is widely used in your environment, you should plan to 
 
 #### Legacy authentication recommended reading
 
-- [Enable or disable POP3 or IMAP4 access to mailboxes in Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Enable or disable POP3 or IMAP4 access to mailboxes in Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access)
 
 ### Consent grants
 

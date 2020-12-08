@@ -31,9 +31,11 @@ For PowerShell, CLI and Azure Resource Manager template deployments, the Windows
 ## Qualify for Multi-tenant hosting rights 
 To qualify for multi-tenant hosting rights and to run Windows 10 images on Azure users must have one of the following subscriptions: 
 
--	Microsoft 365 E3/E5/F3/A3/A5
--	Windows 10 Enterprise E3/E5 
--	Windows 10 Education A3/A5
+-	Microsoft 365 E3/E5 
+-	Microsoft 365 F3 
+-	Microsoft 365 A3/A5 
+-	Windows 10 Enterprise E3/E5
+-	Windows 10 Education A3/A5 
 -	Windows VDA E3/E5
 
 
@@ -107,7 +109,7 @@ LicenseType              :
 
 ## Additional Information about joining Azure AD
 >[!NOTE]
->Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join AAD. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link is the *Next Steps* section to learn more.
+>Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join AAD. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
 >
 >
 

@@ -30,9 +30,7 @@ The sample application is a command-line based `todo` management tool written in
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with the connection string `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
 - [Go](https://golang.org/) installed on your computer, and a working knowledge of Go.
 - [Git](https://git-scm.com/downloads).
-- If you don't want to use Azure Cloud Shell, [Azure CLI 2.0+](/cli/azure/install-azure-cli).
-
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Clone the sample application
 

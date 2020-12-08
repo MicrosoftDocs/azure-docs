@@ -321,5 +321,5 @@ phraseList.Clear();
 
 Phrase lists are only one option to improve recognition accuracy. You can also: 
 
-* [Improve accuracy with Custom Speech](../../../how-to-custom-speech.md)
+* [Improve accuracy with Custom Speech](../../../custom-speech-overview.md)
 * [Improve accuracy with tenant models](../../../tutorial-tenant-model.md)

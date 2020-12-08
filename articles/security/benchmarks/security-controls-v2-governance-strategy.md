@@ -41,11 +41,11 @@ This strategy should include documented guidance, policy, and standards for the 
 - Appropriate cryptographic standards
 
 For more information, see the following references:
-- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%252fsecurity%252fcompass%252fbreadcrumb%252ftoc.json&toc=%252fsecurity%252fcompass%252ftoc.json)
+- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Azure data security and encryption best practices](../fundamentals/data-encryption-best-practices.md?amp;bc=%252fazure%252fcloud-adoption-framework%252f_bread%252ftoc.json&toc=%252fazure%252fcloud-adoption-framework%252ftoc.json)
+- [Cloud Adoption Framework - Azure data security and encryption best practices](../fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark - Asset management](security-controls-v2-asset-management.md)
 

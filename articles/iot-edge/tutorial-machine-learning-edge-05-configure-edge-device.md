@@ -289,6 +289,10 @@ Next we will update the certificates and hostname by directly editing the config
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
+## Clean up resources
+
+This tutorial is part of a set where each article builds on the work done in the previous ones. Please wait to clean up any resources until you complete the final tutorial.
+
 ## Next steps
 
 We just completed configuring an Azure VM as Azure IoT Edge Transparent Gateway. We started by generating test certificates that we uploaded to Azure Key Vault. Next, we used a script and Resource Manager template to deploy the VM with the "Ubuntu Server 16.04 LTS + Azure IoT Edge runtime" image from the Azure Marketplace. With the VM up and running we connected via SSH, we signed into Azure and downloaded certificates from Key Vault. We made several updates to the configuration of the IoT Edge Runtime by updating the config.yaml file.
