@@ -303,7 +303,7 @@ When the *EXTERNAL-IP* address changes from *pending* to an actual public IP add
 django-app  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Now open a web browser to the external IP address of your service view the Django application.
+Now open a web browser to the external IP address of your service view the Django application.  
 
 >[!NOTE]
 > - Currently the Django site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
@@ -322,6 +322,8 @@ You will see an output like this
 NAME                             READY   STATUS          RESTARTS   AGE
 django-app-5d9cd6cd8-l6x4b     1/1     Running              0       2m
 ```
+
+If you run into issues, please run ```kubectl logs <pod-name>```  to see what exception is beign thrown by your application.
 
 Once the pod name has been found you can run django database migrations using this command:
 ```bash
