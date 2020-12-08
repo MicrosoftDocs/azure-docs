@@ -83,6 +83,7 @@ Notice the `yield context.task_all(tasks);` line. All the individual calls to th
 > Although tasks are conceptually similar to Python awaitables, orchestrator functions should use `yield` as well as the `context.task_all` and `context.task_any` APIs to manage task parallelization.
 
 After yielding from `context.task_all`, we know that all function calls have completed and have returned values back to us. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so we can calculate the sum total byte count by adding all the return values together.
+
 ---
 
 ### Helper activity functions
