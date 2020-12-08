@@ -1,5 +1,5 @@
 ---
-title: Work with maps
+title: Work with the sensor device map
 description: The Device Map provides a graphical representation of network devices detected. Use the map to analyze, and manage device information, network slices and generate reports.
 author: shhazam-ms
 manager: rkarlin
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: azure
 ---
 
-# Investigate sensor detections in the device map
+# Investigate sensor detections in the Device Map
 
 The Device Map provides a graphical representation of network devices detected. Use the map to:
 
@@ -25,7 +25,7 @@ To access the map:
 
   - Select **Device Map** from the console main screen.
 
-### Map search and layout tools
+## Map search and layout tools
 
 The following tools are used to working in the map.
 
@@ -46,7 +46,7 @@ Your user role determines which tools are available in the Device Map window. Se
 | :::image type="icon" source="media/how-to-work-with-maps/properties-icon.png" alt-text="properties" border="false"::: | View basic device properties for selected devices. |
 | :::image type="icon" source="media/how-to-work-with-maps/zoom-in-icon.png" alt-text="Zoom In" border="false"::: or :::image type="icon" source="media/how-to-work-with-maps/zoom-out-icon.png" alt-text="Zoom Out" border="false"::: | Zoom in or out of devices in the map. |
 
-#### View OT elements only
+## View OT elements only
 
 By default, IT devices are automatically aggregated by subnet, so that the map view is focused on OT and ICS networks. The presentation of the IT network elements is collapsed to a minimum, which reduces the total number of the devices presented on the map and provides a clear picture of the OT and ICS network elements.
 
@@ -101,7 +101,7 @@ To collapse an IT subnet:
 
    The :::image type="content" source="media/how-to-work-with-maps/notify-icon.png" alt-text="icon"::: icon is displayed with the updated number of expanded IT subnets.
 
-#### View or highlight device groups
+## View or highlight device groups
 
 You can customize the map display based on device Groups. For example, groups of devices associated with a specific VLAN or subnet. Predefined groups are available and custom groups can be created.
 
@@ -141,7 +141,7 @@ To highlight or filter devices:
 
 4. Select **Highlight** or **Filter**.
 
-### Define custom groups
+## Define custom groups
 
 In addition to viewing predefined groups, you can define custom groups. The groups appear in the Device Map, Device Inventory, and Data Mining Reports.
 
@@ -167,7 +167,7 @@ To create a group:
 
 6. Select **Add group**.
 
-#### Add devices to a custom group
+### Add devices to a custom group
 
 You can add devices to a custom group or create a new custom group and the device.
 
@@ -181,7 +181,7 @@ You can add devices to a custom group or create a new custom group and the devic
 
 4. Add devices to a group by repeating steps 1-3.
 
-### Map zoom views
+## Map zoom views
 
 Working with map views help expedite forensics when analyzing large networks.
 
@@ -193,7 +193,7 @@ Three device detail views can be displayed:
 
   - [Detailed view](#detailed-view)
 
-#### Bird’s-eye view
+### Bird’s-eye view
 
 This view provides an at-a-glance view of devices represented as follows:
 
@@ -205,7 +205,7 @@ This view provides an at-a-glance view of devices represented as follows:
 
 :::image type="content" source="media/how-to-work-with-maps/colored-dots.png" alt-text="Bird eye view":::
 
-#### Device type and connection view 
+### Device type and connection view 
 
 This view presents devices represented as icons on the map in order to highlight devices with alerts, device types, and connected devices.
 
@@ -219,19 +219,19 @@ The device type icon is shown with connected devices.
 
 :::image type="content" source="media/how-to-work-with-maps/colored-rings.png" alt-text="connection view":::
 
-#### Detailed view 
+### Detailed view 
 
 The detailed view presents devices and device labels and indicators with the following information:
 
 :::image type="content" source="media/how-to-work-with-maps/device-map.png" alt-text="Detailed view":::
 
-#### Control the zoom view
+### Control the zoom view
 
 The map view displayed depends on the map zoom-level. Switching between the map views is done by changing the zoom levels.
 
 :::image type="content" source="media/how-to-work-with-maps/zoom-in-out.png" alt-text="Control the zoom view":::
 
-#### Enabling simplified zoom views
+### Enable simplified zoom views
 
 Administrators who want security analysts and RO users to access Brid’s-eye and device and type connection views, should enable the simplified view option.
 
@@ -241,7 +241,7 @@ To enable simplified map views:
 
 :::image type="content" source="media/how-to-work-with-maps/simplify-view.png" alt-text="Simplify map view":::
 
-### Learn more about devices
+## Learn more about devices
 
 An extensive range of tools are available to learn more about devices form the Device Map:
 
@@ -259,7 +259,7 @@ An extensive range of tools are available to learn more about devices form the D
 
 - [Analyze Programming Details and Changes](#analyze-programming-details-and-changes)
 
-#### Device labels and indicators
+### Device labels and indicators
 
 The following labels and indicators may appear on devices on the map:
 
@@ -273,7 +273,7 @@ The following labels and indicators may appear on devices on the map:
 | Solid line | Logical connection between devices |
 | :::image type="content" source="media/how-to-work-with-maps/new.png" alt-text="New device"::: | New device discovered after Learning is complete. |
 
-#### Device quick views
+### Device quick views
 
 Access device properties and connections from the map.
 
@@ -281,19 +281,19 @@ To open the quick properties menu:
 
   - Select the quick properties menu :::image type="content" source="media/how-to-work-with-maps/properties.png" alt-text="quick properties menu":::.
 
-##### Quick device properties
+#### Quick device properties
 
 Select a device or multiple devices while the Quick Properties screen is open to see the highlights of those devices:
 
 :::image type="content" source="media/how-to-work-with-maps/device-information.png" alt-text="Quick device properties":::
 
-##### Quick connection properties
+#### Quick connection properties
 
 Select a connection while the Quick Properties screen is open to see the protocols that are utilized in this connection and when they were last seen:
 
 :::image type="content" source="media/how-to-work-with-maps/connection-details.png" alt-text="Quick connection properties":::
 
-#### View and manage device properties
+## View and manage device properties
 
 You can view device proprieties for each device displayed on the map. For example, the device name, type or OS, or the firmware or vendor.
 
@@ -345,7 +345,7 @@ To view the device information:
 
 3. Select on the required alert at the bottom of this window to view detailed information about alerts for this device.
 
-#### View device types
+### View device types
 
 The Device Type is automatically identified by the sensor during the device discovery process. You can change the type manually.
 
@@ -368,7 +368,7 @@ To view the device information:
 
 3. Select on the required alert at the bottom of this window to view detailed information about alerts for this device.
 
-#### Backplane properties
+### Backplane properties
 
 If a PLC contains multiple modules separated into racks and slots, the characteristics might vary between the module cards. For example, if the IP address and the MAC address are the same, the firmware might be different.
 
@@ -402,7 +402,7 @@ To view the underlying devices behind the slot, select **VIEW ON MAP**. The slot
 
 :::image type="content" source="media/how-to-work-with-maps/map-appearance.png" alt-text="VIEW ON MAP":::
 
-#### View a timeline of events for the device
+## View a timeline of events for the device
 
 View a timeline of events associated with a device.
 
@@ -414,7 +414,7 @@ To view the timeline:
 
 See [Event Timeline](#event-timeline) for details.
 
-### Analyze programming details and changes
+## Analyze programming details and changes
 
 Enhance forensics by displaying programming events carried out on your network devices and analyzing code changes. This information helps you discover suspicious programming activity, for example:
 
@@ -428,7 +428,7 @@ You can display a programmed device and scroll through various programming chang
 
 View code that was added, changed, removed, or unchanged by the programming device. Search for programming changes based on file types, dates, or times of interest.
 
-#### When to review programming activity 
+### When to review programming activity 
 
 You may need to review programming activity:
 
@@ -446,13 +446,13 @@ Additional options let you:
 
   - Download a *.txt file with the current code.
 
-#### About authorized vs unauthorized programming events 
+### About authorized vs unauthorized programming events 
 
 Unauthorized programming events are carried out by devices that have not been learned or manually defined as programming devices. Authorized programming events are carried out by devices that were resolved or manually defined as programming devices.
 
 The Programming Analysis window displays both authorized and unauthorized programming events.
 
-#### Accessing programming details and changes
+### Accessing programming details and changes
 
 Access the Programming Analysis window from the:
 
@@ -460,13 +460,13 @@ Access the Programming Analysis window from the:
 
 - [Unauthorized Programming Alerts](#unauthorized-programming-alerts)
 
-#### Event timeline
+### Event timeline
 
 Use the event timeline to display a timeline of events in which programming changes were detected.
 
 :::image type="content" source="media/how-to-work-with-maps/timeline.png" alt-text="A view of the event timeline.":::
 
-#### Unauthorized programming alerts
+### Unauthorized programming alerts
 
 Alerts are triggered when unauthorized programming devices carry out programming activities.
 
@@ -475,7 +475,7 @@ Alerts are triggered when unauthorized programming devices carry out programming
 > [!NOTE]
 > You can also view basic programming information in the Device Properties window and Device Inventory. See [Device Programming Information: Additional Locations](#device-programming-information-additional-locations) for details.
 
-#### Working in the programming timeline window
+### Working in the programming timeline window
 
 This section describes how to view programming files and compare versions. Search for specific files sent to a programmed device. Search for files based on:
 
@@ -496,7 +496,7 @@ This section describes how to view programming files and compare versions. Searc
 | :::image type="icon" source="media/how-to-work-with-maps/download-text.png" border="false"::: | Download a text file of the code displayed. |
 | :::image type="icon" source="media/how-to-work-with-maps/compare.png" border="false"::: | Compare the current file with the file detected on a selected date. |
 
-#### Choose a file to review
+### Choose a file to review
 
 This section describes how to choose a file to review.
 
@@ -508,7 +508,7 @@ To choose a file to review:
 
 :::image type="content" source="media/how-to-work-with-maps/choose-file.png" alt-text="Select the file to work with.":::
 
-#### Compare files
+### Compare files
 
 This section describes how to compare programming files.
 
@@ -536,7 +536,7 @@ To compare:
 
 5. The file selected from the Recent Events/Files pane always appears on the right.
 
-#### Device programming information: additional locations
+### Device programming information: additional locations
 
 In addition to reviewing details in the Programming Timeline, you can access programming information in the Device Properties window and the Device Inventory.
 
@@ -639,7 +639,7 @@ You can mark significant network devices as important, for example business crit
 
 :::image type="icon" source="media/how-to-work-with-maps/star-one.png" border="false"::: :::image type="icon" source="media/how-to-work-with-maps/star-two.png" border="false"::: :::image type="icon" source="media/how-to-work-with-maps/star-3.png" border="false":::
 
-#### Important devices - attack vectors and risk assessment reports
+### Important devices - attack vectors and risk assessment reports
 
 Important devices are calculated when generating Risk Assessment reports and Attack Vectors reports.
 
@@ -647,9 +647,7 @@ Important devices are calculated when generating Risk Assessment reports and Att
 
   - Risk Assessment Reports: Devices marked as important are calculated when providing the security score in the Risk Assessment report.
 
-## Generate reports from the map
-
-### Activity reports
+## Generate Activity reports from the map
 
 Generate an activity report for a selected device over the 1, 6, 12 or 24 hours. The following information is available:
 
@@ -673,7 +671,7 @@ To generate an activity report for a device:
 
    :::image type="content" source="media/how-to-work-with-maps/activity-report.png" alt-text="View a report of your activity.":::
 
-### Attack vector reports
+## Generate Attack Vector reports from the map
 
 Simulate an Attack Vector report to learn if a device on the map you select is a vulnerable attack target.
 
@@ -689,7 +687,7 @@ To view a device in an Attack Vector reports:
 
 3. Add the remaining parameters to the dialog box and select **Add Simulation**.
 
-### Export device information
+## Export device information from the map
 
 Export the following device information from the Map.
 
@@ -705,11 +703,9 @@ To export:
 
 2. Select an export option.
 
-## Gain insight into global, regional, and local threats
+# Gain insight into global, regional, and local threats
 
-### The on-premises management console map
-
-With Defender for Iot on-premises management console, you can plan how to achieve full security coverage by dividing your network into geographical and logical segments that reflect your business typology.
+The on-premises management console helps you achieve full security coverage by dividing your network into geographical and logical segments that reflect your business typology.
 
 - **Geographical facility level:** A Site is a number of devices grouped according to geographical location presented on the map. By default, Defender for Iot provides you with a world map. You can change it to the map relevant to your organization: a country map, a city map and so on. The map is empty by default. You need to add sites to the map to reflect your company structure.
 
@@ -729,7 +725,7 @@ With Defender for Iot on-premises management console, you can plan how to achiev
 
 - **Local view level:** A single Defender for Iot installation that provides insight into the operational and security status of the devices connected Defender for Iot.
 
-### Understanding the map views
+## Site map views
 
 The Defender for Iot on-premises management console provides an overall view of your industrial network in a context-related map. The general map view presents the global map of your organization with geographical location of each site.
 
@@ -765,12 +761,12 @@ To switch between the map views:
 
 :::image type="content" source="media/how-to-work-with-maps/map-views.png" alt-text="Screenshot of Site Map Default View":::
 
-### Updating the map image 
+## Update the site map image
 
 A default world map is provided. You can change it to reflect your organization: a country map or a city map for example. 
 
-To replace the map: 
+To replace the map:
 
-1. In the left pane, select **System Settings**. 
+1. In the left pane, select **System Settings**.
 
-2. Select the **Change Site Map** and upload the graphic file to replace the default map. 
+2. Select the **Change Site Map** and upload the graphic file to replace the default map.

@@ -4,7 +4,7 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/18/2020
+ms.date: 12/08/2020
 ms.topic: article
 ms.service: azure
 ---
@@ -29,7 +29,7 @@ For example, allow Security Analysts from an Active Directory group access to al
 
 :::image type="content" source="media/how-to-define-global-user-access-control/image101.png" alt-text="Diagram of Security Analyst Active Directory Group":::
 
-Before you create Access Groups it is recommended to:
+Before you create Access Groups, it is recommended to:
 
 - Carefully set up your business topology. See ***Understanding the Map Views*** for details.
 
@@ -49,7 +49,7 @@ This section describes how to create access groups. Default global business unit
 
 1. Select **Access Groups** from the on-premises management console side menu.
 
-2. *Add a group name:* Select :::image type="content" source="media/how-to-define-global-user-access-control/image102.png" alt-text="Icon of Add button":::. In the Add Access Group dialog box enter an Access Group name. 64 characters are supported. Assign the name in a way that will help you easily distinguish this group from other groups.
+2. *Add a group name:* Select :::image type="content" source="media/how-to-define-global-user-access-control/image102.png" alt-text="Icon of Add button":::. In the Add Access Group dialog box, enter an Access Group name. 64 characters are supported. Assign the name in a way that will help you easily distinguish this group from other groups.
 
 :::image type="content" source="media/how-to-define-global-user-access-control/image103.png" alt-text="Screenshot of Add Access Group view":::
 
@@ -57,7 +57,7 @@ This section describes how to create access groups. Default global business unit
 
 :::image type="content" source="media/how-to-define-global-user-access-control/image103.png" alt-text="Screenshot of Add Access Group view":::
 
-4. If the option does not appear, and you want to include Active Directory groups in Access Groups, select **System Settings>Integrations** pane and define groups. This should be entered exactly as it appears in the Active Directory configurations, and in lower case
+4. If the option does not appear, and you want to include Active Directory groups in Access Groups, select **System Settings>Integrations** and define groups. Enter the name exactly as it appears in the Active Directory configurations, and in lower case
 
 5. *Assign individual users to the group (Users page):* You can assign as many users as required to the group and can assign users to different groups. If you work this way, you must create and save the Access Group and rules, and then assign user to the group from the Users pane.
 
@@ -84,3 +84,8 @@ This section describes the information you should know when creating rules.
 - If you change an entity and the change impacts the rule logic, the rule will be deleted. If changes made to a topology entity impacts the rule logic as such that all rules are deleted, the access group remains but the users cannot log in to the on-premises management console. Users are notified to log in to contact their Administrator.
 
 - If no Business Units or Region is selected, the user will have access to all Business Units and Regions defined.
+
+## See also
+
+[About Defender for IoT console users](how-to-create-and-manage-users.md)
+

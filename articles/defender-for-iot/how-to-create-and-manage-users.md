@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: azure
 ---
 
-# Overview
+# About Defender for IoT console users
 
 This article describes how to create and manage sensor and on-premises management console users. Users can be assigned the role of either an Administrator, Security Analyst or Read Only user. Each role is associated with a range of permissions to sensor and on-premises management console tools. Roles are designed to facilitate granular, secure access to Defender for IoT.
 
@@ -146,5 +146,6 @@ To view user activity:
 
     :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/User-login-attempts.png" alt-text="View a user's activity.":::
 
-See also
+## See also
+
 [Track sensor activity](how-to-track-sensor-activity.md)
