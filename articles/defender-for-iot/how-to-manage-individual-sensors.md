@@ -1,6 +1,6 @@
 ---
 title: Manage individual sensors
-description: Learn how-to activate and set up a sensor, as well as perform sensor management tasks, for example backup and restore. 
+description: Learn how to activate and set up a sensor, as well as perform sensor management tasks, for example backup and restore. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

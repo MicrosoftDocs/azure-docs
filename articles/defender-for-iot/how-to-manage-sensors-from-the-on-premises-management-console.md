@@ -139,33 +139,33 @@ Sensors are protected by five Defenders for IoT engines. You can enable or disab
 
 | Engine | Description | Example scenario |
 |--|--|--|
-| **Protocol violation engine** | A protocol violation occurs when the packet structure or field values don't comply with the protocol specification. | Illegal MODBUS Operation (Function Code Zero) alert. This alert indicates that the primary device sent a request with function code 0 to a secondary device. This is not allowed according to the protocol specification and the secondary device might not handle the input correctly. |
-| **Policy violation engine** | A policy violation occurs with a deviation from baseline behavior defined in the learned or configured policy. | Unauthorized HTTP User Agent alert. This alert indicates that an application that was not learned or approved by the policy is used as an HTTP client on a device. This may be a new web browser or application on that device. |
-| **Malware engine** | The malware engine detects malicious network activity. | Suspicion of Malicious Activity (Stuxnet) alert. This alert indicates that the sensor found suspicious network activity known to be related to the Stuxnet malware, which is an advanced persistent threat aimed at industrial control and SCADA networks. |
-| **Anomaly engine** | The malware engine detects anomaly in network behavior. | Periodic behavior in Communication Channel alert. This is a component that inspects network connections and finds periodic and cyclic behavior of data transmission, which is very common in industrial networks. |
-| **Operational engine** | Operational incidents or malfunctioning entities. | Device is Suspected to be Disconnected (Unresponsive) alert. This alert is raised when a device is not responding to any kind of request for a predefined period, this may indicate on a device shutdown, disconnection, or malfunction. |
- 	 	 
-To enable or disable: 
+| Protocol Violation Engine | A protocol violation occurs when the packet structure or field values don't comply with the protocol specification. | "Illegal MODBUS Operation (Function Code Zero)" alert. This alert indicates that a primary device sent a request with function code 0 to a secondary device. This is not allowed according to the protocol specification and the secondary device might not handle the input correctly. |
+| Policy Violation Engine | A policy violation occurs with a deviation from baseline behavior defined in the learned or configured policy. | "Unauthorized HTTP User Agent" alert. This alert indicates that an application that was not learned or approved by the policy is used as an HTTP client on an device. This may be a new web browser or application on that device. |
+| Malware Engine | The malware engine detects malicious network activity. | "Suspicion of Malicious Activity (Stuxnet)" alert. This alert indicates that the sensor found suspicious network activity known to be related to the Stuxnet malware, which is an advanced persistent threat aimed at industrial control / SCADA networks. |
+| Anomaly Engine | The malware engine detects anomaly in network behavior. | "Periodic Behavior in Communication Channel." This is a component that inspects network connections and finds periodic/cyclic behavior of data transmission, which is very common in industrial networks. |
+| Operational Engine | Operational incidents or malfunctioning entities. | “Asset is Suspected to be Disconnected (Unresponsive)" alert. This alert triggered when a device is not responding to any requests for a pre-defined period, this may indicate on an device shutdown, disconnection or malfunction.
+|
+To enable or disable:
 
-1. In the console left pane, select **System Settings**. 
+1. In the console left pane, select **System Settings**.
 
-2. In the **Sensor Engine Configuration** section, **Enable** or **Disable** engines for connected sensors. 		 		
+2. In the Sensor Engine Configuration section, **Enable** or **Disable** engines for connected sensors.
  	 	 
-3. Select **Save Changes**. 
+3. Select **SAVE CHANGES**.
 
    A red exclamation mark appears if there is a mismatch of enabled engines on one of your enterprise sensors. The engine may have been disabled directly form the sensor.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/red-exclamation-example.png" alt-text="Mismatch of enabled engines "::: 
 
-## Define sensor backup schedules 
+## Define sensor backup schedules
 
-You can schedule sensor backups and perform on-demand sensor backups from the on-premises management console. This provides safety and protection against hard drive failures and data loss. 
+You can schedule sensor backups and perform on-demand sensor backups from the on-premises management console. This provides safety and protection against hard drive failures and data loss.
 
-What is backed up: Configurations and data. 
+What is backed up: Configurations and data.
 
-What is not backed up: PCAP files and logs. Backup and restore of PCAPs and logs can be done manually. 
+What is not backed up: PCAP files and logs. Backup and restore of PCAPs and logs can be done manually.
 
-By default, sensors are automatically backed up at 3:00 AM daily. The sensor Backup Schedule feature lets you collect these backups and store them up on the on-premises management console, or an external backup server. Copying files from sensors to the on-premises management console is carried out over an encrypted channel. 
+By default, sensors are automatically backed up at 3:00 AM daily. The sensor Backup Schedule feature lets you collect these backups and store them up on the on-premises management console, or an external backup server. Copying files from sensors to the on-premises management console is carried out over an encrypted channel.
 
 :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-backup-schedule-screen.png" alt-text="A view of the sensor backup screen":::
 

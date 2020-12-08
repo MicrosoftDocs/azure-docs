@@ -84,3 +84,7 @@ This article describes the information you should know when creating rules.
 - If you change an entity and the change impacts the rule logic, the rule will be deleted. If changes made to a topology entity impact the rule logic as such that all rules are deleted, the access group remains but the users cannot sign-in to the on-premises management console. Users are notified to sign-in to contact their administrator.
 
 - If no business units or region is selected, the user will have access to all business units and regions defined.
+
+## See also
+
+[About Defender for IoT console users](how-to-create-and-manage-users.md)

@@ -51,8 +51,6 @@
       href: concept-key-advantages.md
     - name: Air gapped networks
       href: concept-air-gapped-networks.md
-    - name: Learning modes
-      href: concept-learning-modes.md
     - name: Integrations
       href: concept-integrations.md
     - name: Proprietary protocols
@@ -175,10 +173,12 @@
         href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
       - name: Investigate sensor detections in a device inventory
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-    - name: Work with maps
-      href: how-to-work-with-maps.md
+    - name: Work with the sensor device map
+      href: how-to-work-with-the-sensor-device-map.md
     - name: Work with alerts detected by a sensor
       items:
+      - name: Gain insight into global, regional, and local threats
+        href: how-to-gain-insight-into-global-regional-and-local-threats.md
       - name: Work with alert on your sensor
         href: how-to-work-with-alerts-on-your-sensor.md
       - name: Views alerts
@@ -191,7 +191,7 @@
         href: how-to-accelerate-alert-incident-response.md
       - name: Forward alert information
         href: how-to-forward-alert-information-to-partners.md
-    - name: Work with alerts on the on-premises management console
+      - name: Work with alerts on the on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Enrich asset information
       items: 
@@ -233,8 +233,6 @@
       href: how-to-define-access-tokens.md
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
-    - name: Set up active directory
-      href: how-to-set-up-active-directory.md
     - name: Manage proprietary protocols (Horizon)
       href: how-to-manage-proprietary-protocols.md  
   - name: Device builder

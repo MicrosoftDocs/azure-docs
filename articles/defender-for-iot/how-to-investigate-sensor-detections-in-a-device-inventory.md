@@ -64,17 +64,17 @@ To hide and display columns, customize the Device Inventory table:
 
 ### Create temporary device inventory filters
 
-You can set a filters that define what information is displayed in the table. For example, you can decide that you want to view only the PLC devices information.
+You can set a filter that define what information is displayed in the table. For example, you can decide that you want to view only the PLC devices information.
 
 :::image type="content" source="media/how-to-work-with-asset-inventory-information/devices-learning.png" alt-text="Devices learning.":::
 
-The filter is not saved when you leave the inventory window.
+The filter is not saved when you leave the Inventory.
 
 ### Save device inventory filters
 
 You can save a filter or a combination of filters that you need and reapply them in the Device Inventory. Create broader filters based on a certain device type, or more narrow filters based on a specific type and a specific protocol.
 
-The filters you save are also saved as Device Map groups. This provided an additional level of granularity in viewing network devices on the map.
+The filters you save are also saved as Device Map groups. This provides an additional level of granularity in viewing network devices on the map.
 
 To create filters:
 

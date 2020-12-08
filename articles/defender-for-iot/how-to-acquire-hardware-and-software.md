@@ -22,6 +22,7 @@ The article also provides details about on-premises management console appliance
 - If you want to purchase the on-premises management console, review the information in on-premises management console appliance. After acquiring the device, you can download and install the software.
 
 Once you have completed the tasks here, you can install the software and set up your network.
+
 ## Sensor appliances
 
 Defender for IoT supports both physical and virtual deployments.

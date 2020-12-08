@@ -4,14 +4,13 @@ description: The threat intelligence data package is provided with each new Defe
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/6/2020
+ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
 ---
 
 # Threat intelligence research and packages
 
-## About threat intelligence research and packages
 Proprietary ICS Threat Intelligence (TI) and vulnerability research is carried out by:
 
 **MSTIC (Microsoft Threat Intelligence Center)**
