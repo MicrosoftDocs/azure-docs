@@ -42,7 +42,7 @@ There could be some rare situations when a data center experiences extended outa
 
 ## Monitor service health
 
-As Azure Digital Twins instances are failed over and recovered, you can monitor the process using the [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview) tool. Service Health tracks the health of your Azure services across different regions and subscriptions, and is the best place to look for service-impacting communications about outages and downtimes.
+As Azure Digital Twins instances are failed over and recovered, you can monitor the process using the [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview) tool. Service Health tracks the health of your Azure services across different regions and subscriptions, and shares service-impacting communications about outages and downtimes.
 
 During a failover event, Service Health can provide an indication of when your service is down, and when it's back up.
 
@@ -61,7 +61,7 @@ To view Service Health events...
     :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="On the Health History page, the Issue Updates tab is highlighted. The tab displays several entries showing current status from a day ago.":::
 
 
-Note that the information displayed in this tool isn't specific to one Azure Digital instance. One way to take this monitoring a step further is to use Service Health to understand what's going with the Azure Digital Twins service in a certain region or subscription, and then use the [Resource health tool](troubleshoot-resource-health.md) to drill down further and see if any of your instances are impacted.
+Note that the information displayed in this tool isn't specific to one Azure Digital instance. After using Service Health to understand what's going with the Azure Digital Twins service in a certain region or subscription, you can take monitoring a step further by using the [Resource health tool](troubleshoot-resource-health.md) to drill down into specific instances and see whether they're impacted.
 
 ## Best practices
 
