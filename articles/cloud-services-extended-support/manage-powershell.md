@@ -41,7 +41,6 @@ Invoke-AzCloudServiceReimage -ResourceGroupName $resourceGroupName -CloudService
 ```PowerShell
 Invoke-AzCloudServiceRebuild -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName
 ```
- 
 
 ## Role instance
 

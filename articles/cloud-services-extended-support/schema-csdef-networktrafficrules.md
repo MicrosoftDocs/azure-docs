@@ -49,7 +49,7 @@ The `NetworkTrafficRules` node of the service definition file includes these ele
 
 [RoleEndpoint Element](#RoleEndpoint)
 
-AllowAllTraffic Element
+[AllowAllTraffic Element](#AllowAllTraffic)
 
 [WhenSource Element](#WhenSource)
 
