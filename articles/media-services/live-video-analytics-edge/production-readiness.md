@@ -57,9 +57,9 @@ Next, in the deployment manifest, you can set the LOCAL_USER_ID and LOCAL_GROUP_
 
 The Live Video Analytics on IoT Edge module requires the ability to write files to the local file system when:
 
-* Using a module twin property [[applicationDataDirectory](module-twin-configuration-schema.md#module-twin-properties)], where you should specify a directory on the local file system for storing configuration data.
+* Using a module twin property [`applicationDataDirectory`](module-twin-configuration-schema.md#module-twin-properties), where you should specify a directory on the local file system for storing configuration data.
 * Using a media graph to record video to the cloud, the module requires the use of a directory on the edge device as a cache (see [Continuous video recording](continuous-video-recording-concept.md) article for more information).
-* [Recording to a local file](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources),where you should specify a file path for the recorded video.
+* [Recording to a local file](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources), where you should specify a file path for the recorded video.
 
 If you intend to make use of any of the above, you should ensure that the above user account has access to the relevant directory. 
 Consider applicationDataDirectory for example. You can create a directory on the edge device and link device storage to module storage. 
@@ -111,7 +111,7 @@ Media graphs allows for creation of assets in the cloud or mp4 files on the edge
 "assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}
 ```
 
-For event-based video recording-generated assets, the recommended naming pattern is "&lt;anytext&gt;-${System.DateTime}". The system variable ensures that assets don not get overwritten if events happen at same time. As an example, you can set the assetNamePattern on the Asset Sink as follows:
+For event-based video recording-generated assets, the recommended naming pattern is "&lt;anytext&gt;-${System.DateTime}". The system variable ensures that assets do not get overwritten if events happen at same time. As an example, you can set the assetNamePattern on the Asset Sink as follows:
 
 ```
 "assetNamePattern": "sampleAssetFromEVR-LVAEdge-${System.DateTime}"
@@ -120,7 +120,7 @@ For event-based video recording-generated assets, the recommended naming pattern
 If you are running multiple instances of the same graph, you can use the graph topology name and instance name to differentiate. As an example, you can set the assetNamePattern on the asset sink as follows:
 
 ```
-"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName} -${System.DateTime}"
+"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName}-${System.DateTime}"
 ```
 
 For event-based video recording-generated mp4 video clips on the edge, the recommended naming pattern should include DateTime and for multiple instances of the same graph recommend using the system variables GraphTopologyName and GraphInstanceName. As an example, you can set filePathPattern on file sink as follows: 
