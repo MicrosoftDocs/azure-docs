@@ -4,7 +4,7 @@ description: Learn to configure common settings for an App Service app in the Az
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 12/03/2020
+ms.date: 12/07/2020
 ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
 
 ---
@@ -116,7 +116,7 @@ For ASP.NET and ASP.NET Core developers, setting connection strings in App Servi
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. 
 
 > [!NOTE]
-> There is one case where you may want to use connection strings for non-.NET languages: certain Azure database types are backed up along with the app _only_ if you configure their connection strings in your app. For more information, see [What gets backed up](manage-backup.md#what-gets-backed-up). If you don't need this automated backup, then use app settings.
+> There is one case where you may want to use connection strings instead of app settings for non-.NET languages: certain Azure database types are backed up along with the app _only_ if you configure a connection string for the database in your App Service app. For more information, see [What gets backed up](manage-backup.md#what-gets-backed-up). If you don't need this automated backup, then use app settings.
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
@@ -243,8 +243,8 @@ Each app has the default root path (`/`) mapped to `D:\home\site\wwwroot`, where
 
 From the **Path mappings** tab, click **New virtual application or directory**. 
 
-- To configure virtual applications and directories, leave the **Directory** checkbox selected and specify each virtual directory and its corresponding relative (physical) path to the website root (`D:\home`). 
-- To mark a virtual _directory_ as an **application**, clear the **Directory** checkbox.
+- To map a virtual directory to a physical path, leave the **Directory** checkbox selected. Specify the virtual directory and the corresponding relative (physical) path to the website root (`D:\home`).
+- To mark a virtual directory as a web application, clear the **Directory** checkbox.
   
   ![Directory checkbox](./media/configure-common/directory-checkbox.png)
 
