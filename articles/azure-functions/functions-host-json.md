@@ -394,7 +394,7 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 
 ## watchFiles
 
-An array or one or more names of files that are monitored for changes that require your app to restart.  This guarantees that when code in these files are changed, the updates are picked up by your functions.
+An array of one or more names of files that are monitored for changes that require your app to restart.  This guarantees that when code in these files are changed, the updates are picked up by your functions.
 
 ```json
 {
