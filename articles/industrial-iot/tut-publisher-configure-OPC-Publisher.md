@@ -76,7 +76,7 @@ Both settings can be enabled globally via command line options, too.
 
 ### Configuration via Command Line Arguments
 
-There are several command line arguments that can be used to set global settings for OPC Publisher. They are described [here](CommandLineArguments.md).
+There are several command line arguments that can be used to set global settings for OPC Publisher. They are described [here](ref-command-line-arguments.md).
 
 
 ### Configuration via the built-in OPC UA Server Interface
@@ -115,7 +115,7 @@ We have provided a [sample configuration application](https://github.com/Azure-S
 
 A cloud-based, companion microservice with a REST interface is described and available [here](https://github.com/Azure/Industrial-IoT/blob/master/docs/services/publisher.md). It can be used to configure OPC Publisher via an OpenAPI-compatible interface, for example through Swagger.
 
-# Next steps
+## Next steps
 Now that you have configured the OPC Publisher, the next step is to learn how to tune the performance and memory of the Edge module:
 
 > [!div class="nextstepaction"]

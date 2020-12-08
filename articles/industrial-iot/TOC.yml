@@ -9,6 +9,20 @@
     href: overview-what-is-OPC-Publisher.md
   - name: What is the Industrial IoT Platform?
     href: overview-what-is-Industrial-IoT-Platform.md
+- name: Tutorials
+  items:
+  - name: OPC Publisher standalone tutorials
+    items:
+    - name: Deploy OPC publisher standalone mode
+      href: tut-publisher-deploy-OPC-Publisher.md
+    - name: Configure OPC Publisher
+      href: tut-publisher-configure-OPC-Publisher.md
+    - name: Performance and Memory Tuning of the OPC Publisher
+      href: tut-publisher-performance-memory-tuning-OPC-Publisher.md
+- name: Reference
+  items:
+    - name: Command Line Arguments
+      href: ref-command-line-arguments.md
 - name: Resources 
   items:
   - name: OPC Publisher GitHub repository

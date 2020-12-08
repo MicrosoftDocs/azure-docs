@@ -1,6 +1,6 @@
 ---
 title: Azure Industrial IoT Platform
-description: This article provides an overview of Industrial IoT. It explains the connected factory floor connectivity and security components in IIoT.
+description: This article provides an overview of the Industrial IoT Platform and its components.
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot

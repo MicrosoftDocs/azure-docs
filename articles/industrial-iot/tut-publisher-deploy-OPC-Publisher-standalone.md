@@ -10,9 +10,9 @@ ms.date: 12/07/2020
 
 # Tutorial: Deploy the OPC Publisher
 
-OPC Publisher is a fully supported Microsoft product, developed in the open, that bridges the gap between industrial assets and the Microsoft Azure cloud. It does so by connecting to OPC UA-enabled assets or industrial connectivity software and publishes telemetry data to [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) in various formats, including IEC62541 OPC UA PubSub standard format (from version 2.6 onwards).
+OPC Publisher is a fully supported Microsoft product, developed in the open, that bridges the gap between industrial assets and the Microsoft Azure cloud. It does so by connecting to OPC UA-enabled assets or industrial connectivity software and publishes telemetry data to [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) in various formats, including IEC62541 OPC UA PubSub standard format (from version 2.6 onwards).
 
-It runs on [Azure IoT Edge](https://azure.microsoft.com/en-us/services/iot-edge/) as a Module or on plain Docker as a container. Since it leverages the [.Net cross-platform runtime](https://docs.microsoft.com/en-us/dotnet/core/introduction), it also runs natively on Linux and Windows 10.
+It runs on [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) as a Module or on plain Docker as a container. Since it leverages the [.Net cross-platform runtime](https://docs.microsoft.com/dotnet/core/introduction), it also runs natively on Linux and Windows 10.
 
 In this tutorial, you learn how to:
 
@@ -88,7 +88,7 @@ A connection to an OPC UA server using its hostname without a DNS server configu
 }
 ```
 
-# Next steps 
+## Next steps 
 Now that you have deployed the OPC Publisher Edge module, the next step is to configure it:
 
 > [!div class="nextstepaction"]
