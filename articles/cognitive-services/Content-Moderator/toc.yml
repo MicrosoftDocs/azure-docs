@@ -12,7 +12,7 @@
   items:
   - name: Try Content Moderator on web
     href: quick-start.md
-  - name: Using the client library
+  - name: Using the client library or REST API
     href: client-libraries.md
 - name: Tutorials
   items:
