@@ -38319,7 +38319,12 @@
     },
     {
       "source_path": "articles/iot-suite/iot-suite-faq-rm-v2.md",
-      "redirect_url": "/azure/iot-accelerators/iot-accelerators-faq-rm-v2",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-faq-rm-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-suite-faq-rm-v2.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-faq-rm-v2",
       "redirect_document_id": false
     },
     {
@@ -52258,6 +52263,236 @@
     {
       "source_path": "articles/iot-accelerators/iot-accelerators-architecture-overview.md",
       "redirect_url": "/azure/architecture/reference-architectures/iot/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connecting-devices-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connecting-devices-node.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connecting-devices-node",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connecting-devices.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connecting-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connecting-pi-c.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connecting-pi-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connecting-pi-node.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connecting-pi-node",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-integrate-data-lake.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-integrate-data-lake",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-integrate-data-powerbi.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-integrate-data-powerbi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-microservices-example.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-microservices-example",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-predictive-walkthrough.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-predictive-walkthrough",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-add-edge-device.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-add-edge-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-architectural-choices.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-architectural-choices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-automate.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-bulk-configuration-update.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-bulk-configuration-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-create-simulated-device.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-create-simulated-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-customize-flyout.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize-flyout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-customize-grid.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize-grid",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-customize-page.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-customize-panel.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize-panel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-customize-service.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-cli.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-docker.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-docker",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-java.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-vscode.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-vscode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-simulated-device.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-simulated-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-schema",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-edge.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-email-actions.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-email-actions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-import-adm-package.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-import-adm-package",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-import-edge-package.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-import-edge-package",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-integrate-time-series-insights.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-integrate-time-series-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-maintain.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-maintain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-manage.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-monitor.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-rbac-tsi.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-rbac-tsi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-rbac.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-rbac",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-root-cause-analysis.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-root-cause-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-sample-walkthrough.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-sample-walkthrough",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-telefonica-sim.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-telefonica-sim",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/quickstart-remote-monitoring-deploy.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/about-iot-accelerators",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/quickstart-predictive-maintenance-deploy.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/about-iot-accelerators",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/quickstart-device-simulation-deploy.md",
+      "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-deploy-image.md",
+      "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-overview",
       "redirect_document_id": false
     },
     {
