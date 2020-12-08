@@ -313,7 +313,7 @@ Connect your **sub_client** MQTT client to the MQTT broker and subscribe to the 
 ```bash
 mosquitto_sub \
     -t "test_topic" \
-    -i "sub_client" \
+    -i "<iot_hub_name>.azure-devices.net/sub_client" \
     -u "<iot_hub_name>.azure-devices.net/sub_client/?api-version=2018-06-30" \
     -P "<sas_token>" \
     -h "<edge_device_address>" \
@@ -334,7 +334,7 @@ Connect your **pub_client** MQTT client to the MQTT broker and publishes a messa
 ```bash
 mosquitto_pub \
     -t "test_topic" \
-    -i "pub_client" \
+    -i "<iot_hub_name>.azure-devices.net/pub_client" \
     -u "<iot_hub_name>.azure-devices.net/pub_client/?api-version=2018-06-30" \
     -P "<sas_token>" \
     -h "<edge_device_address>" \
