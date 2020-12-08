@@ -40,12 +40,11 @@ The certificates must meet the following requirements:
 - The certificates must be changed if the device name or the DNS domain name changes.
 - Use the following table when creating endpoint certificates:
 
-    [!div class="mx-tdCol4BreakAll"]    
-    |Type |Subject name (SN)  |Subject alternative name (SAN)  |Subject name example |
-    |---------|---------|---------|---------|
-    |Local UI| `<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`| `mydevice1.microsoftdatabox.com` |
-    |Blob storage|`*.blob.<DeviceName>.<DNSdomain>`|`*.blob.< DeviceName>.<DNSdomain>`|`*.blob.mydevice1.microsoftdatabox.com` |
-    |Multi-SAN single certificate|`<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`<br>`login.<DeviceName>.<DNSdomain>`<br>`management.<DeviceName>.<DNSdomain>`<br>`*.blob.<DeviceName>.<DNSdomain>`|`mydevice1.microsoftdatabox.com` |
+  |Type |Subject name (SN)  |Subject alternative name (SAN)  |Subject name example |
+  |---------|---------|---------|---------|
+  |Local UI| `<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`| `mydevice1.microsoftdatabox.com` |
+  |Blob storage|`*.blob.<DeviceName>.<DNSdomain>`|`*.blob.< DeviceName>.<DNSdomain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+  |Multi-SAN single certificate|`<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`<br>`login.<DeviceName>.<DNSdomain>`<br>`management.<DeviceName>.<DNSdomain>`<br>`*.blob.<DeviceName>.<DNSdomain>`|`mydevice1.microsoftdatabox.com` |
 
 For more information, see [Certificate requirements](../../articles/databox-online/azure-stack-edge-j-series-certificate-requirements.md).
 
