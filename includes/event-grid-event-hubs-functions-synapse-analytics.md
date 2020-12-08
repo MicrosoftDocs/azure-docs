@@ -271,7 +271,7 @@ This section helps you with monitoring or troubleshooting the solution.
 1. Open the folder named same as your event hub (**hubdatamigration**). 
 1. Drill through the folders and you see the AVRO files. Here's an example:
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/stroage-catpured-file.png" alt-text="Captured file in the storage" lightbox="media/event-grid-event-hubs-functions-synapse-analytics/stroage-catpured-file.png":::
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/storage-captured-file.png" alt-text="Captured file in the storage" lightbox="media/event-grid-event-hubs-functions-synapse-analytics/storage-captured-file.png":::
     
 
 ### Verify that the Event Grid trigger invoked the function
