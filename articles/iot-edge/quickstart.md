@@ -74,8 +74,6 @@ IoT Edge device:
 >
 > If you want to configure your own Windows device for IoT Edge, including devices running IoT Core, follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md).
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 ## Create an IoT hub
 
 Start the quickstart by creating an IoT hub with Azure CLI.

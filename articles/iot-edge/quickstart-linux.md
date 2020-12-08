@@ -42,8 +42,6 @@ Cloud resources:
    az group create --name IoTEdgeResources --location westus2
    ```
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 ## Create an IoT hub
 
 Start the quickstart by creating an IoT hub with Azure CLI.
