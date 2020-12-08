@@ -13,17 +13,15 @@ ms.author: alkohli
 
 # Use your own certificates with Data Box and Data Box Heavy devices
 
-When an Azure Data Box order is processed, self-signed certificates are generated for accessing the local web UI and blob storage. If you'd rather communicate with your device over a trusted channel, you can use your own certificates.
+During order processing, self-signed certificates are generated for accessing the local web UI and Blob storage for a Data Box or Data Box Heavy device. If you'd rather communicate with your device over a trusted channel, you can use your own certificates.
 
-This article describes how to install your own certificates and how to revert to the default certificates before returning your device to the datacenter. It also gives a summary of certificate requirements.
-
-This article applies to both Data Box devices and Data Box Heavy devices.
+The article explains certificate requirements and describes how to install a certificate on the device and client computer and how to revert to default certificates before returning a device to the datacenter.
 
 ## About certificates
 
-A certificate provides a link between a **public key** and an entity (such as domain name) that has been **signed** (verified) by a trusted third party (such as a **certificate authority**).  A certificate provides a convenient way of distributing trusted public encryption keys. In this way, certificates ensure that your communication is trusted and that you're sending encrypted information to the right server.
+A certificate provides a link between a **public key** and an entity (such as domain name) that has been **signed** (verified) by a trusted third party (such as a **certificate authority**).  A certificate provides a convenient way of distributing trusted public encryption keys. Certificates thereby ensure that your communication is trusted and that you're sending encrypted information to the right server.
 
-When your Data Box device is initially configured, self-signed certificates are automatically generated. Optionally, you can bring your own certificates.
+When your Data Box device is initially configured, self-signed certificates are automatically generated. Optionally, you can bring your own certificates. There are guidelines that you need to follow if you plan to bring your own certificates.
 
 On a Data Box or Data Box Heavy device, two types of endpoint certificates are used:
 
@@ -32,13 +30,13 @@ On a Data Box or Data Box Heavy device, two types of endpoint certificates are u
 
 ### Certificate requirements
 
-The certificates for a Data Box device must meet the following requirements:
+The certificates must meet the following requirements:
 
 - The endpoint certificate needs to be in `.pfx` format with a private key that can be exported.
 - You can use an individual certificate for each endpoint, a multidomain certificate for multiple endpoints, or a wildcard endpoint certificate.
-- The properties of an endpoint certificate are similar to teh properties of a typical SSL certificate.
+- The properties of an endpoint certificate are similar to those of a typical SSL certificate.
 - A corresponding certificate in DER format (`.cer` filename extension) is required on the client machine.
-- After you upload the local UI certificate, you'll need to restart the browser and clear the cache. Refer to specific instructions for your browser.
+- After you upload the local UI certificate, you'll need to restart the browser adn clear the cache. Refer to specific instructions for your browser.
 - The certificates must be changed if the device name or the DNS domain name changes.
 - Use the following table when creating endpoint certificates:
 
@@ -81,7 +79,7 @@ To add your own certificate to your device, follow these steps:
 
    ![Settings for adding a Blob endpoint certificate to a Data Box](media/data-box-bring-your-own-certificates/certificates-add-blob-cert.png)
 
-   After the certificate is successfully added, the **Certificates** screen shows the thumbprint for the new certificate. The certificate's status is **Valid**.
+   After the certificate isgit  successfully added, the **Certificates** screen shows the thumbprint for the new certificate. The certificate's status is **Valid**.
 
    ![A valid new certificate that's been successfully added](media/data-box-bring-your-own-certificates/certificates-view-new-certificate.png)
 
@@ -107,7 +105,7 @@ To add your own certificate to your device, follow these steps:
 
 After you add a certificate to your Data Box device, you need to import the certificate to the client computer you use to access the device. You'll import the certificate to the Trusted Root Certificate Authority store for Local Machine.
 
-To import a certificate on a Windows client, take the following steps:
+To import a certificate on a Windows client, follow these steps:
 
 1. In File Explorer, right-click the certificate file (with .cer format), and select **Install certificate**. This action starts the Certificate Import Wizard.
 
