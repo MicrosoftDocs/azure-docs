@@ -6,7 +6,7 @@ ms.date: 12/07/2020
 ---
 
 # Reports in Azure Monitor for containers
-Reports in Azure Monitor for containers are [Azure workbooks](../platform/workbooks-overview.md) that combine text, log queries, metrics, and parameters into rich interactive reports that can be edited by different team members depending on the particular requirements of your organization. This article describes the different reports that are available and how to access them.
+Reports in Azure Monitor for containers are recommended out-of-the-box [Azure workbooks](../platform/workbooks-overview.md). This article describes the different reports that are available and how to access them.
 
 ## Viewing reports
 From the **Azure Monitor** menu in the Azure portal, select **Containers**. Select **Insights** in the **Monitoring** section, choose a particular cluster, and then select the **Reports (preview)** page. 

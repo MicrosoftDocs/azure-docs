@@ -1014,7 +1014,7 @@
       href: insights/container-insights-deployment-hpa-metrics.md
     - name: Monitor Persistent Volumes (PVs)
       href: insights/container-insights-persistent-volumes.md
-    - name: Reports
+    - name: Reports tab
       href: insights/container-insights-reports.md
     - name: View live data
       items:
