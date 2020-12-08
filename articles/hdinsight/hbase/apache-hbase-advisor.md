@@ -19,6 +19,7 @@ Ensure that the following configs are tuned
 2.  Increase the `hbase.hstore.compactionThreshold` value so that you can avoid the compaction from kicking in. By default this is `3`. You can increase it to a higher value like `10`.
 3. If you are doing #2 then change `hbase.hstore.compaction.max` to a higher value for eg `100`.
 4. If you are sure that you are interested only in the recent data then turn ON `hbase.rs.cachecompactedblocksonwrite` configuration so that even if compaction happens then we are sure that the data is in cache. These configs can be set at the family level also.
+5. Block cache can be turned off for a given family in a table. Ensure that it is turned ON for families that have most recent data reads.
 
 The above configurations helps to ensure that as far as possible the data is in cache and that the recent data does not undergo compaction. If a TTL is possible in your usecase then mind considering Date tiered compaction. For more details on what is Date Tiered compaction check the below link,
   ```
@@ -30,7 +31,7 @@ The advisory may indicate that your flushes may need tuning. This happens due to
 
 In the region server UI keep an eye on the flush queue and if it grows beyond 100 then it means that the flushes are slower and you may have to tune the  configuration  `hbase.hstore.flusher.count`. By default the value is 2. Ensure that the max flusher threads do not increase 10.
 
-The most prominent reason why you have blocked updates is that the region count might be more than the configured heap size. Generally how to tune the heap size, memstore size and the region count? Lets see with an example
+The most prominent reason why you have blocked updates is that the region count might be more than the optimally supported heap size. Generally how to tune the heap size, memstore size and the region count? Lets see with an example
 
 Assume the heap size for the region server is 10GB. By default the `hbase.hregion.memstore.flush.size` is `128M`. The default value for `hbase.regionserver.global.memstore.size` is `0.4`. Which means that out of 10G, `4G` is allocated for memstore (globally).
 The configuration `hbase.hregion.memstore.block.multiplier` (default value 4) is the maximum size upto which a given region can grow which is (128*4) = 512M. Once this size is reached the updates to this region is blocked and the client will get `RegionTooBusyException`. This inturn might indicate hotspotting of a region. Avoiding hotspots is a different topic. We won't discuss on that here in this section.
@@ -49,4 +50,3 @@ For ensuring the scans do not use cache use the below API while creating your sc
   ```
     scan#setCaching(false)
   ```
-
