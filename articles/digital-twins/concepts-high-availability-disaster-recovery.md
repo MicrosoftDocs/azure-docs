@@ -40,6 +40,29 @@ There could be some rare situations when a data center experiences extended outa
 >[!NOTE]
 > Some Azure services also provide an additional option called **customer-initiated failover**, which enables customers to initiate a failover just for their instance, such as to run a DR drill. This mechanism is currently **not supported** by Azure Digital Twins. 
 
+## Monitor service health
+
+As Azure Digital Twins instances are failed over and recovered, you can monitor the process using the [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview) tool. Service Health tracks the health of your Azure services across different regions and subscriptions, and is the best place to look for service-impacting communications about outages and downtimes.
+
+During a failover event, Service Health can provide an indication of when your service is down, and when it's back up.
+
+To view Service Health events...
+1. Navigate to [Service Health](https://portal.azure.com/?feature.customportal=false#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues) in the Azure portal (you can use this link or search for it using the portal search bar).
+1. Use the left menu to switch to the *Health history* page.
+1. Look for an *Issue Name* beginning with **Azure Digital Twins**, and select it.
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/navigate.png" alt-text="Screenshot of the Azure portal showing the Health History page. There is a list of several issues from the past few days and an issue called 'Azure Digital Twins - West Europe - Mitigated' is highlighted.":::
+
+1. For general information about the outage, view the *Summary* tab.
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="On the Health History page, the Summary tab is highlighted. The tab displays general information such as the resource that was affected, its region, and its subscription.":::
+1. For more information and updates on the issue over time, view the *Issue updates* tab.
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="On the Health History page, the Issue Updates tab is highlighted. The tab displays several entries showing current status from a day ago.":::
+
+
+Note that the information displayed in this tool isn't specific to one Azure Digital instance. One way to take this monitoring a step further is to use Service Health to understand what's going with the Azure Digital Twins service in a certain region or subscription, and then use the [Resource health tool](troubleshoot-resource-health.md) to drill down further and see if any of your instances are impacted.
+
 ## Best practices
 
 For best practices on HA/DR, see the following Azure guidance on this topic: 
