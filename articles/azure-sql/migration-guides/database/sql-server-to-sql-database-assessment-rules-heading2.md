@@ -26,8 +26,6 @@ Rule ID: SQLDBDatabaseSize
 
 
 
-
-
 :::row:::
    :::column span="":::
      **Description**:   
@@ -43,23 +41,18 @@ Rule ID: SQLDBDatabaseSize
 ## XpCmdshell
 
 
-
-
 **Title: xp_cmdshell is not supported in Azure SQL Database.**   
 Rule ID: XpCmdshell
 
-**Description**:   
-needs to be rewritten 
-
-**Recommendation**:   
-Review impacted objects section to see all objects using xp_cmdshell and evaluate if the reference to xp_cmdshell or the impacted object can be removed. Also consider exploring Azure Automation that delivers cloud based automation and configuration service. 
 
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   needs to be rewritten 
    :::column-end:::
    :::column span="":::
-      Recommendation
+    **Recommendation**:   
+    Review impacted objects section to see all objects using xp_cmdshell and evaluate if the reference to xp_cmdshell or the impacted object can be removed. Also consider exploring Azure Automation that delivers cloud based automation and configuration service. 
    :::column-end:::
 :::row-end:::
 
@@ -69,18 +62,18 @@ Review impacted objects section to see all objects using xp_cmdshell and evaluat
 **Title: Change Data Capture (CDC) is not supported in Azure SQL Database**   
 Rule ID: CDC
 
-**Description**:   
-needs to be rewritten. More information: [Enable Azure SQL change tracking](https://social.technet.microsoft.com/wiki/contents/articles/2976.azure-sql-how-to-enable-change-tracking.aspx)
+
 
 **Recommendation**:   
-Change Data Capture (CDC) is not supported in Azure SQL Database. Evaluate if Change Tracking can be used instead or consider migrating to Azure SQL Managed Instance.
+
 
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+    needs to be rewritten. More information: [Enable Azure SQL change tracking](https://social.technet.microsoft.com/wiki/contents/articles/2976.azure-sql-how-to-enable-change-tracking.aspx)
    :::column-end:::
    :::column span="":::
-      Recommendation
+    Change Data Capture (CDC) is not supported in Azure SQL Database. Evaluate if Change Tracking can be used instead or consider migrating to Azure SQL Managed Instance.
    :::column-end:::
 :::row-end:::
 
@@ -89,18 +82,18 @@ Change Data Capture (CDC) is not supported in Azure SQL Database. Evaluate if Ch
 **Title: Cross-database queries are not supported in Azure SQL Database**   
 Rule ID: CrossDataseReferences
 
-**Description**:   
-Some selected databases on this server use cross-database queries, which are not supported in Azure SQL Database. More information: [Check Azure SQL Database elastic database query (Preview)](../../database/elastic-query-overview.md)
 
-**Recommendation**:   
-Azure SQL Database does not support cross-database queries. The following actions are recommended: Consider migrating to Azure SQL Managed Instance, Consider migrating the dependent database(s) to Azure SQL Database and use 'Elastic Database Query' (preview) functionality to query across Azure SQL databases, Consider moving the dependent datasets from other databases into the database that is being migrated.
+
+
 
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   Some selected databases on this server use cross-database queries, which are not supported in Azure SQL Database. More information: [Check Azure SQL Database elastic database query (Preview)](../../database/elastic-query-overview.md)
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Azure SQL Database does not support cross-database queries. The following actions are recommended: Consider migrating to Azure SQL Managed Instance, Consider migrating the dependent database(s) to Azure SQL Database and use 'Elastic Database Query' (preview) functionality to query across Azure SQL databases, Consider moving the dependent datasets from other databases into the database that is being migrated.
    :::column-end:::
 :::row-end:::
 
