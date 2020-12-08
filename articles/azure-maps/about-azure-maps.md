@@ -17,13 +17,13 @@ ms.custom: mvc, references_regions
 Azure Maps is a collection of geospatial services and SDKs that use fresh mapping data to provide geographic context to web and mobile applications. Azure Maps provides:
 
 * REST APIs to render vector and raster maps in multiple styles and satellite imagery.
-* Creator services to create and render maps based on private indoor map data.
+* Creator services (Preview) to create and render maps based on private indoor map data.
 * Search services to locate addresses, places, and points of interest around the world.
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, electric vehicle, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require real-time traffic information.
 * Mobility services (Preview) to request public transit information, plan routes by blending different travel modes and real-time arrivals.
-* Time zone and geolocation services.
-* Elevation services with Digital Elevation Model
+* Time zone and Geolocation (Preview) services.
+* Elevation services (Preview) with Digital Elevation Model
 * Geofencing service and mapping data storage, with location information hosted in Azure.
 * Location intelligence through geospatial analytics.
 
