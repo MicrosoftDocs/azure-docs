@@ -48,9 +48,9 @@ For the CSP, you must have either the Global admin or Admin agent role in the Pa
 
 For the customer, you must you have:
 
-    - Global admin role for each Azure AD tenant
-    - Owner permission for each Azure subscription
-    - Enterprise Account Owner, for the enrollment where the subscriptions are held
+- Global admin role for each Azure AD tenant
+- Owner permission for each Azure subscription
+- Enterprise Account Owner, for the enrollment where the subscriptions are held
 
 The user account that the customer signs in with to complete their part of the migration from must be an account that's in same or native Azure AD tenant. It can't be a guest account invited to the tenant.
 
