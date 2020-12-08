@@ -230,9 +230,9 @@ After you export a database as a *.bacpac* file and import the file to create a 
 
 For frequently asked questions about the client agent, see [Agent FAQ](sql-data-sync-agent-overview.md#agent-faq).
 
-**Is it necessary to manually approve the private link?**
+**Is it necessary to manually approve the private link before I can start using it?**
 
-Yes, you must manually approve the service managed private endpoint before you can start using it. 
+Yes, you must manually approve the service managed private endpoint, in the Private endpoint connections page of the Azure portal during the sync group deployment or by using PowerShell.
 
 ## Next steps
 
