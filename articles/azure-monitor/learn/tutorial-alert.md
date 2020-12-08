@@ -24,7 +24,7 @@ You learn how to:
 
 To complete this tutorial:
 
-Create an [Application Insights resource](./dotnetcore-quick-start.md#enable-application-insights).
+Create an [Application Insights resource](../app/create-new-resource.md).
 
 ## Sign in to Azure
 

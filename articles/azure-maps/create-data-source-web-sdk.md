@@ -1,9 +1,9 @@
 ---
-title: Create a data source for a map | Microsoft Azure Maps
+title: Create a data source for a map in Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps Web SDK uses: GeoJSON sources and vector tiles."
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/08/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -81,7 +81,7 @@ Azure Maps adheres to the [Mapbox Vector Tile Specification](https://github.com/
 - Road tiles [documentation](/rest/api/maps/renderv2/getmaptilepreview) | [data format details](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
 - Traffic incidents [documentation](/rest/api/maps/traffic/gettrafficincidenttile) | [data format details](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
 - Traffic flow [documentation](/rest/api/maps/traffic/gettrafficflowtile) | [data format details](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Get Tile Render V2](/rest/api/maps/renderv2/getmaptilepreview)
+- Azure Maps Creator (Preview) also allows custom vector tiles to be created and accessed through the [Get Tile Render V2](/rest/api/maps/renderv2/getmaptilepreview)
 
 > [!TIP]
 > When using vector or raster image tiles from the Azure Maps render service with the web SDK, you can replace `atlas.microsoft.com` with the placeholder `{azMapsDomain}`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Azure Active Directory authentication.
