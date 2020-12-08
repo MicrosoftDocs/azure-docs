@@ -56,7 +56,7 @@ Alternatively go to the [Azure Storage PHP client library](https://github.com/Az
 
 To use the APIs for Azure Queue Storage, you need to:
 
-1. Reference the autoloader file by using the [require_once](https://www.php.net/manual/en/function.require-once.php) statement.
+1. Reference the autoloader file by using the [`require_once`](https://www.php.net/manual/en/function.require-once.php) statement.
 2. Reference any classes that you might use.
 
 The following example shows how to include the autoloader file and reference the `QueueRestProxy` class.
@@ -140,7 +140,7 @@ catch(ServiceException $e){
 
 ## Add a message to a queue
 
-To add a message to a queue, use `QueueRestProxy->CreateMessage`. The method takes the queue name, the message text, and message options (which are optional).
+To add a message to a queue, use `QueueRestProxy->createMessage`. The method takes the queue name, the message text, and message options (which are optional).
 
 ```php
 require_once 'vendor/autoload.php';
@@ -170,7 +170,7 @@ catch(ServiceException $e){
 
 ## Peek at the next message
 
-You can peek at one or more messages at the front of a queue without removing them from the queue by calling `QueueRestProxy->PeekMessages`. By default, the `peekMessage` method returns a single message, but you can change that value by using the `PeekMessagesOptions->setNumberOfMessages` method.
+You can peek at one or more messages at the front of a queue without removing them from the queue by calling `QueueRestProxy->peekMessages`. By default, the `peekMessage` method returns a single message, but you can change that value by using the `PeekMessagesOptions->setNumberOfMessages` method.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -358,7 +358,7 @@ catch(ServiceException $e){
 
 ## Get queue length
 
-You can get an estimate of the number of messages in a queue. The `QueueRestProxy->GetQueueMetadata` method asks Queue Storage to return metadata about the queue. Calling the `getApproximateMessageCount` method on the returned object provides a count of how many messages are in a queue. The count is only approximate because messages can be added or removed after Queue Storage responds to your request.
+You can get an estimate of the number of messages in a queue. The `QueueRestProxy->getQueueMetadata` method asks Queue Storage to return metadata about the queue. Calling the `getApproximateMessageCount` method on the returned object provides a count of how many messages are in a queue. The count is only approximate because messages can be added or removed after Queue Storage responds to your request.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -390,7 +390,7 @@ echo $approx_msg_count;
 
 ## Delete a queue
 
-To delete a queue and all the messages in it, call the `QueueRestProxy->DeleteQueue** method.
+To delete a queue and all the messages in it, call the `QueueRestProxy->deleteQueue` method.
 
 ```php
 require_once 'vendor/autoload.php';

@@ -51,7 +51,7 @@ Create a Python application named `queues-quickstart-v12`.
     mkdir queues-quickstart-v12
     ```
 
-1. Switch to the newly created `queues-quickstart-v12` directory.
+1. Switch to the newly created _queues-quickstart-v12_ directory.
 
     ```console
     cd queues-quickstart-v12
@@ -88,7 +88,7 @@ This command installs the Azure Queue Storage client library for Python package 
 
     ```
 
-1. Save the new file as `queues-quickstart-v12.py` in the `queues-quickstart-v12` directory.
+1. Save the new file as _queues-quickstart-v12.py_ in the _queues-quickstart-v12_ directory.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 

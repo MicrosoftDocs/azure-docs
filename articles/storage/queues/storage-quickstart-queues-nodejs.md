@@ -113,7 +113,7 @@ From the project directory:
 
     ```
 
-1. Save the new file as `queues-quickstart-v12.js` in the `queues-quickstart-v12` directory.
+1. Save the new file as _queues-quickstart-v12.js_ in the _queues-quickstart-v12_ directory.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 

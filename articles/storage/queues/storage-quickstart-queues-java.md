@@ -108,7 +108,7 @@ Create a Java application named `queues-quickstart-v12`.
     [INFO] ------------------------------------------------------------------------
     ```
 
-1. Switch to the newly created `queues-quickstart-v12` directory.
+1. Switch to the newly created _queues-quickstart-v12_ directory.
 
    ```console
    cd queues-quickstart-v12

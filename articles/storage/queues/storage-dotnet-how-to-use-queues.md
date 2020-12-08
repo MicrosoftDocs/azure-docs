@@ -119,7 +119,7 @@ For more information about connection strings, see [Configure a connection strin
 > [!NOTE]
 > Your storage account key is similar to the root password for your storage account. Always be careful to protect your storage account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your key by using the Azure portal if you believe it may have been compromised.
 
-The best way to maintain your storage connection string is in a configuration file. To configure your connection string, open the _app.config_ file from Solution Explorer in Visual Studio. Add the contents of the `\<appSettings\>` element shown below. Replace `connection-string` with the value you copied from your storage account in the portal:
+The best way to maintain your storage connection string is in a configuration file. To configure your connection string, open the _app.config_ file from Solution Explorer in Visual Studio. Add the contents of the `<appSettings>` element shown below. Replace `connection-string` with the value you copied from your storage account in the portal:
 
 ```xml
 <configuration>
@@ -146,7 +146,7 @@ To target the Azurite storage emulator, you can use a shortcut that maps to the 
 
 ### Add using directives
 
-Add the following `using` directives to the top of the `Program.cs` file:
+Add the following `using` directives to the top of the _Program.cs_ file:
 
 # [\.NET v12](#tab/dotnet)
 
@@ -219,13 +219,14 @@ queue.CreateIfNotExists();
 
 # [\.NET v12](#tab/dotnet)
 
-To insert a message into an existing queue, call the [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage) method. A message can be either a `string` (in UTF-8 format) or a `byte` array. The following code creates a queue (if it doesn't exist) and inserts a message:
+To insert a message into an existing queue, call the [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage) method. A message can be either a string (in UTF-8 format) or a byte array. The following code creates a queue (if it doesn't exist) and inserts a message:
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_InsertMessage":::
 
 # [\.NET v11](#tab/dotnetv11)
 
-To insert a message into an existing queue, first create a new [`CloudQueueMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Next, call the [`AddMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) method. A `CloudQueueMessage` can be created from either a `string` (in UTF-8 format) or a `byte` array. Here is code which creates a queue (if it doesn't exist) and inserts the message `Hello, World`:
+To insert a message into an existing queue, first create a new [`CloudQueueMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Next, call the [`AddMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array. Here is code which creates a queue (if it doesn't exist) and inserts the message `Hello, World`:
+To insert a message into an existing queue, first create a new [`CloudQueueMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Next, call the [`AddMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array. Here is code which creates a queue (if it doesn't exist) and inserts the message `Hello, World`:
 
 ```csharp
 // Retrieve storage account from connection string

@@ -51,7 +51,7 @@ Create a .NET Core application named `QueuesQuickstartV12`.
    dotnet new console -n QueuesQuickstartV12
    ```
 
-1. Switch to the newly created `QueuesQuickstartV12` directory.
+1. Switch to the newly created _QueuesQuickstartV12_ directory.
 
    ```console
    cd QueuesQuickstartV12
@@ -69,7 +69,7 @@ dotnet add package Azure.Storage.Queues
 
 From the project directory:
 
-1. Open the `Program.cs` file in your editor
+1. Open the _Program.cs_ file in your editor
 1. Remove the `Console.WriteLine("Hello, World");` statement
 1. Add `using` directives
 1. Update the `Main` method declaration to [support async code](/dotnet/csharp/whats-new/csharp-7#async-main)

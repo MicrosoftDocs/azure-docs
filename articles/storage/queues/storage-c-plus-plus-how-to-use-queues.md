@@ -109,7 +109,7 @@ queue.create_if_not_exists();
 
 ## How to: Insert a message into a queue
 
-To insert a message into an existing queue, first create a new `cloud_queue_message`. Next, call the `add_message` method. A `cloud_queue_message` can be created from either a string or a `byte` array. Here is code which creates a queue (if it doesn't exist) and inserts the message `Hello, World`:
+To insert a message into an existing queue, first create a new `cloud_queue_message`. Next, call the `add_message` method. A `cloud_queue_message` can be created from either a string (in UTF-8 format) or a byte array. Here is code which creates a queue (if it doesn't exist) and inserts the message `Hello, World`:
 
 ```cpp
 // Retrieve storage account from connection-string.
