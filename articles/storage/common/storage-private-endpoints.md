@@ -122,10 +122,6 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 Keep in mind the following known issues about private endpoints for Azure Storage.
 
-### Copy Blob support
-
-If the storage account is protected by a firewall and the account is accessed through private endpoints, then that account cannot serve as the source of a [Copy Blob](/rest/api/storageservices/copy-blob) operation.
-
 ### Storage access constraints for clients in VNets with private endpoints
 
 Clients in VNets with existing private endpoints face constraints when accessing other storage accounts that have private endpoints. For instance, suppose a VNet N1 has a private endpoint for a storage account A1 for Blob storage. If storage account A2 has a private endpoint in a VNet N2 for Blob storage, then clients in VNet N1 must also access Blob storage in account A2 using a private endpoint. If storage account A2 does not have any private endpoints for Blob storage, then clients in VNet N1 can access Blob storage in that account without a private endpoint.

@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial - Migrate a web app from Google Maps | Microsoft Azure Maps'
+title: 'Tutorial - Migrate a web app from Google Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate a web app from Google Maps to Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/18/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -71,7 +71,7 @@ The table lists key API features in the Google Maps V3 JavaScript SDK and the su
 | Geocoder service        | ✓                          |
 | Directions service      | ✓                          |
 | Distance Matrix service | ✓                          |
-| Elevation service       | Planned                     |
+| Elevation service       | ✓                          |
 
 ## Notable differences in the web SDKs
 
