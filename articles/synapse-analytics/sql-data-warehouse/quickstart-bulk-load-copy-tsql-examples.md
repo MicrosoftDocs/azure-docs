@@ -17,6 +17,7 @@ This article highlights and provides examples on the secure authentication mecha
 ## Supported authentication mechanisms
 
 The following matrix describes the supported authentication methods for each file type and storage account. This applies to the source storage location and the error file location.
+
 |                          |                CSV                |                      Parquet                       |                        ORC                         |
 | :----------------------: | :-------------------------------: | :------------------------------------------------: | :------------------------------------------------: |
 |  **Azure blob storage**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |                      SAS/KEY                       |                      SAS/KEY                       |
