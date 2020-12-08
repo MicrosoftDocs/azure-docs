@@ -1,5 +1,5 @@
 ---
-title: Connect and query - Single Server PostgreSQL
+title: Connect and query - Flexible Server PostgreSQL
 description: Links to quickstarts showing how to connect to your Azure Database for PostgreSQL Flexible Server and run queries.
 services: postgresql
 ms.service: postgresql
@@ -21,7 +21,7 @@ The following document includes links to examples showing how to connect and que
 | Quickstart | Description |
 |---|---|
 |[Pgadmin](https://www.pgadmin.org/)|You can use pgadmin to connect to the server and it simplifies the creation, maintenance and use of database objects.|
-|[psql in Azure Cloud Shell](quickstart-create-server-database-azure-cli.md#connect-to-the-azure-database-for-postgresql-server-by-using-psql)|This article shows how to run [**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) in [Azure Cloud Shell](../../cloud-shell/overview.md) to connect to your server and then run statements to query, insert, update, and delete data in the database.You can run **psql** if installed on your development environment|
+|[psql in Azure Cloud Shell](./quickstart-create-server-cli.md#connect-using-postgresql-command-line-client)|This article shows how to run [**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) in [Azure Cloud Shell](../../cloud-shell/overview.md) to connect to your server and then run statements to query, insert, update, and delete data in the database.You can run **psql** if installed on your development environment|
 |[Python](connect-python.md)|This quickstart demonstrates how to use Python to connect to a database and use work with database objects to query data. |
 |[Django with App Service](tutorial-django-app-service-postgres.md)|This tutorial demonstrates how to use Ruby to create a program to connect to a database and use work with database objects to query data.|
 
