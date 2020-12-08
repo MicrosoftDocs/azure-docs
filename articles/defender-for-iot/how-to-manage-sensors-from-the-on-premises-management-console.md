@@ -97,7 +97,7 @@ To update several sensors:
 
 10. During the update process, the update status of each sensor appears in the **Site Management** window.
 
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/image10.png" alt-text="Observe the progress of your update.":::
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/progress.png" alt-text="Observe the progress of your update.":::
 
 ## Update Threat Intelligence packages 
 
@@ -131,7 +131,7 @@ The **Site Manager** window displays disconnect information if sensors disconnec
 
 - Sensor not communicating with on-premises management console. Check network connectivity.
 
-:::image type="content" source="media/how-to-view-sensor-connection-status-to-the-on-premise-manager/image36.png" alt-text="Screenshot of the Zone 1 view":::
+:::image type="content" source="media/how-to-view-sensor-connection-status-to-the-on-premise-manager/edit-system-settings-screen.png" alt-text="Screenshot of the Zone 1 view":::
 
 ## Enable or disable sensors
 
@@ -145,6 +145,7 @@ Sensors are protected by five Defenders for IoT engines. You can enable or disab
 | Anomaly Engine | The malware engine detects anomaly in network behavior. | "Periodic Behavior in Communication Channel." This is a component that inspects network connections and finds periodic/cyclic behavior of data transmission, which is very common in industrial networks. |
 | Operational Engine | Operational incidents or malfunctioning entities. | “Asset is Suspected to be Disconnected (Unresponsive)" alert. This alert triggered when a device is not responding to any requests for a pre-defined period, this may indicate on an device shutdown, disconnection or malfunction.
 |
+
 To enable or disable:
 
 1. In the console left pane, select **System Settings**.

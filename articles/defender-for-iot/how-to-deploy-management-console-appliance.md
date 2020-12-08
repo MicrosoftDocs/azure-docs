@@ -1,10 +1,10 @@
 ---
-title: Log in and activate 
+title: Sign in and activate 
 description: Learn about how to deploy the management console in Azure Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: rkarlin
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 
@@ -12,23 +12,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/14/2020
-ms.author: rkarlin
+ms.date: 12/08/2020
+ms.author: shhazam
 ---
 
-# Log in and activate
+# Sign in and activate
 
-This article describes how to deploy and activate the Azure Defender for IoT on-premises management console.
+This article describes how to deploy and activate the Defender for IoT on-premises management console.
 
 Verify that you have installed the software on a certified appliance.
 
-**To log in to the manaegment console:**
+To sign in to the management console:
 
 1.
 
-**To activate the manaegment console:**
+2.
+
+To activate the management console:
 
 1.
+
+2.
 
 ## Next steps
 

@@ -55,9 +55,10 @@ You can change the configuration or change the subnet information manually by ex
 
 In some cases, such as environments that use public ranges as internal ranges, you can instruct the sensor to resolve all subnets as internal subnets by selecting the **Do Not Detect Internet Activity** option. When selected:
 
-- *Public IP addresses will be treated as local addresses.*
+- Public IP addresses will be treated as local addresses.
 
 - No alerts will be sent about unauthorized internet activity, which reduces notifications and alerts received on external addresses.
+
 To configure subnets:
 
 1. On the side menu, select **System Settings**.

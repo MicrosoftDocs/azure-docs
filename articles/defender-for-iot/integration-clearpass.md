@@ -1,7 +1,7 @@
 ---
 title: ClearPass integration
 description: 
-Author: shhazam-ms
+author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.date: 11/11/2020

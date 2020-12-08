@@ -48,6 +48,7 @@ User roles are designed to facilitate granular access to console tools. The foll
 Console tools are accessed from the side menu.
 
 **Navigation** 
+
 | Window | Icon | Description |
 | -----------|--|--|
 | Dashboard | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Provides an intuitive snapshot of the state of the network's security. |
@@ -63,6 +64,7 @@ Console tools are accessed from the side menu.
 | Event timeline | :::image type="icon" source="media/concept-sensor-console-overview/event-timeline-icon-azure.png" border="false"::: | Contains a timeline with information regarding, alerts, network events (informational), user operations such, as user login, and user deletion.|
 
 **Navigation**
+
 | Window | Icon | Description |
 |---|---|---|
 | Data mining | :::image type="icon" source="media/concept-sensor-console-overview/data-mining-icon-azure.png" border="false"::: | Data mining tools let you generate comprehensive and granular information regarding your network's devices at various layers. |
@@ -70,6 +72,7 @@ Console tools are accessed from the side menu.
 | Risk Assessment | :::image type="icon" source="media/concept-sensor-console-overview/vulnerabilities-icon-azure.png" border="false"::: | Displays the vulnerabilities window. |
 
 **Admin**
+
 | Window | Icon | Description |
 |---|---|---|
 | Users | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Define users and roles with various access levels. |
@@ -78,6 +81,7 @@ Console tools are accessed from the side menu.
 | Import settings | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | Displays the Import Settings window. You can perform manual changes in a device's information.<br /> See [Import device information](how-to-import-device-information.md) for details. |
 
 **Support**
+
 | Window| Icon | Description |
 |----|---|---|
 | Support | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contact support.microsoft.com for help. |
