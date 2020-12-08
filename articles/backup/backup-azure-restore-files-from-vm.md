@@ -2,7 +2,7 @@
 title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/12/2020
 ms.custom: references_regions
 ---
 # Recover files from Azure virtual machine backup
@@ -150,7 +150,7 @@ When you run the executable, the operating system mounts the new volumes and ass
 
    ![Recovery volumes attached](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
-**For backed-up VMs with large disks (Windows)**
+#### For backed-up VMs with large disks (Windows)
 
 If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
   
@@ -176,7 +176,7 @@ In Linux, the volumes of the recovery point are mounted to the folder where the 
   ![Linux File recovery menu](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
 
 
-**For backed-up VMs with large disks (Linux)**
+#### For backed-up VMs with large disks (Linux)**
 
 If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
 
