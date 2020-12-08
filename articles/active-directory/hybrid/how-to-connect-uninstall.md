@@ -20,17 +20,21 @@ This document describes how to correctly uninstall Azure AD Connect.
 ## Uninstall Azure AD Connect from the server
 The first thing you need to do is remove Azure AD Connect from the server that it is running on.  Use the following steps:
 
-1. On the server running Azure AD Connect, navigate to **Control Panel**.
-2. Click **Uninstall a program**
-![](media/how-to-connect-uninstall/uninstall1.png)</br>
-3. Select **Azure AD Connect**.
-![](media/how-to-connect-uninstall/uninstall2.png)</br>
-4. When prompted, click **Yes** to confirm.
-5. This confirmation will bring up the Azure AD Connect screen.  Click **Remove**.
-6. ![](media/how-to-connect-uninstall/uninstall3.png)</br>
-7. Once this action completes, click **Exit**.
-8. ![](media/how-to-connect-uninstall/uninstall4.png)</br>
-9. Back in **Control Panel** click **Refresh** and all of the components should have been removed.
+ 1. On the server running Azure AD Connect, navigate to **Control Panel**.
+ 2. Click **Uninstall a program**
+ ![](media/how-to-connect-uninstall/uninstall1.png)</br>
+ 
+ 3. Select **Azure AD Connect**.
+ ![](media/how-to-connect-uninstall/uninstall2.png)</br>
+ 
+ 4. When prompted, click **Yes** to confirm.
+ 5. This confirmation will bring up the Azure AD Connect screen.  Click **Remove**.
+ 6. ![](media/how-to-connect-uninstall/uninstall3.png)</br>
+ 
+ 7. Once this action completes, click **Exit**.
+ 8. ![](media/how-to-connect-uninstall/uninstall4.png)</br>
+ 
+ 9. Back in **Control Panel** click **Refresh** and all of the components should have been removed.
 
 
 ## Next steps
