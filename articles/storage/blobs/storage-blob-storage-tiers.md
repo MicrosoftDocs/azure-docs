@@ -4,7 +4,7 @@ description: Read about hot, cool, and archive access tiers for Azure Blob Stora
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -111,7 +111,7 @@ Any blob that is moved into the cool tier (GPv2 accounts only) is subject to a c
 There are some details when moving between the cool and archive tiers:
 
 1. If a blob is inferred as cool based on the storage account's default access tier and the blob is moved to archive, there is no early deletion charge.
-1. If the blob is explicitly moved to the cool tier and then moved to archive, the early deletion charge applies.
+1. If a blob is explicitly moved to the cool tier and then moved to archive, the early deletion charge applies.
 
 You may calculate the early deletion by using the blob property, **Last-Modified**, if there has been no access tier changes. Otherwise you can use when the access tier was last modified to cool or archive by viewing the blob property: **access-tier-change-time**. For more information on blob properties, see [Get Blob Properties](/rest/api/storageservices/get-blob-properties).
 
