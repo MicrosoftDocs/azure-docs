@@ -503,21 +503,18 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
    }
    ```
 
-When you locally start a debugging session or run the workflow without debugging for the first time, the Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the workflow already exists in local storage.
+The first time that you start a local debugging session or run the workflow without debugging, the Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the subscription registration already exists in local storage.
 
-After your workflow starts running, the terminal window might show errors like this example:
+When you stop the debugging session for a workflow run that uses locally-run webhook-based triggers or actions, the existing subscription registrations aren't deleted. So, you might have to manually remove these subscription registrations.
 
-`message='Http request failed with unhandled exception of type 'InvalidOperationException' and message: 'System.InvalidOperationException: Synchronous operations are disallowed. Call ReadAsync or set AllowSynchronousIO to true instead.`
-
-In this case, open the **local.settings.json** file at your project's root level, and make sure that the property is set to `true`:
-
-`"FUNCTIONS_V2_COMPATIBILITY_MODE": "true"`
-
-When you stop the debugging session or workflow run, the subscriptions persist in storage. If you don't want to keep these subscriptions, either delete them or clear your local storage.
-
-For example, if you're using the Azure Storage Emulator, run this command to clear your storage:
-
-`AzureStorageEmulator.exe clear all`
+> [!NOTE]
+> After your workflow starts running, the terminal window might show errors like this example:
+>
+> `message='Http request failed with unhandled exception of type 'InvalidOperationException' and message: 'System.InvalidOperationException: Synchronous operations are disallowed. Call ReadAsync or set AllowSynchronousIO to true instead.`
+>
+> In this case, open the **local.settings.json** file at your project's root level, and make sure that the property is set to `true`:
+>
+> `"FUNCTIONS_V2_COMPATIBILITY_MODE": "true"`
 
 <a name="manage-breakpoints"></a>
 
