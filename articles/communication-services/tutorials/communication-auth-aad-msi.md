@@ -22,7 +22,7 @@ Administration and SMS SDKs support Azure Active Directory (Azure AD) authentica
 By using managed identities for Azure resources together with Azure AD authentication, you can:
 
 1. Avoid storing credentials with your applications that run in the cloud
-1. Use [Azure role-based access control](https://docs.microsoft.com/azure/role-based-access-control) for fine grained access management 
+1. Use [Azure role-based access control](../../articles/role-based-access-control/index.yml) for fine grained access management 
 
 ## Enable managed identities on a VM or App service
 
@@ -37,7 +37,7 @@ Before you can use managed identities for Azure Resources to authorize, access t
 
 ### Assign Azure roles for access to APIs
 
-When an Azure AD security principal attempts to access an API, that security principal must have permissions to the resource. The security principal (managed or dev environment Azure AD identity) must be assigned an Azure role that grants access. For information about assigning permissions via [Azure role-based access control](https://docs.microsoft.com/azure/role-based-access-control).
+When an Azure AD security principal attempts to access an API, that security principal must have permissions to the resource. The security principal (managed or dev environment Azure AD identity) must be assigned an Azure role that grants access. For information about assigning permissions via [Azure role-based access control](../../articles/role-based-access-control/index.yml).
 
 #### Azure portal
 
@@ -136,7 +136,7 @@ More details about [Send an SMS message](../quickstarts/telephony-sms/send.md).
 
 You may also want to:
 
-- [Learn more about Azure role-based access control](https://docs.microsoft.com/azure/role-based-access-control)
+- [Learn more about Azure role-based access control](../../articles/role-based-access-control/index.yml)
 - [Creating user access tokens](../quickstarts/access-tokens.md)
 - [Send an SMS message](../quickstarts/telephony-sms/send.md)
 - [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
