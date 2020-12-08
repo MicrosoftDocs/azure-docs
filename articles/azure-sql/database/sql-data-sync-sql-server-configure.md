@@ -62,7 +62,7 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
    Select **OK** and wait for the sync group to be created and deployed.
    
-1. On the **New Sync Group** page, if you selected "Use private link", you will need to approve the private endpoint connection. The link in the info message will take you to the private endpoint connections experience where you can approve the connection. 
+1. On the **New Sync Group** page, if you selected **Use private link**, you will need to approve the private endpoint connection. The link in the info message will take you to the private endpoint connections experience where you can approve the connection. 
 
    ![Approve private link](./media/sql-data-sync-sql-server-configure/approve-pl.png)
 
@@ -89,7 +89,7 @@ In the **Member Database** section, optionally add a database in Azure SQL Datab
   | **Azure SQL Database** | Select the existing database in SQL Database. |
   | **Sync Directions** | Select **Bi-directional Sync**, **To the Hub**, or **From the Hub**. |
   | **Username** and **Password** | Enter the existing credentials for the server on which the member database is located. Don't enter *new* credentials in this section. |
-  | **Use private link** | Choose a service managed private endpoint to establish a secure connection between the sync service and the member database. |
+  | **Use private link** | Choose a **service managed private endpoint** to establish a secure connection between the sync service and the member database. |
 
   Select **OK** and wait for the new sync member to be created and deployed.
 
