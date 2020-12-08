@@ -28,8 +28,6 @@ This quickstart walks you through creating a Linux virtual machine that's config
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 ## Prerequisites
 
 Prepare your environment for the Azure CLI.
@@ -43,6 +41,8 @@ Cloud resources:
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
    ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Create an IoT hub
 
