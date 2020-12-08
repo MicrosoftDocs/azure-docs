@@ -169,7 +169,7 @@ az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016D
 
 ### Create an ultra disk with 512 sector size - CLI
 
-Alternatively, if you wanted to create an ultra disk with 512 sector size, you can use the following command:
+Alternatively, if you wanted to create a VM with an ultra disk that has a 512 sector size, you can use the following commands:
 
 ```azurecli
 #create an ultra disk with 512 sector size
@@ -231,7 +231,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 ### Create an ultra disk with 512 sector size - PowerShell
 
-Alternatively, if you wanted to create an ultra disk with 512 sector size, you can use the following command:
+Alternatively, if you wanted to create a VM with an ultra disk that has a 512 sector size, you can use the following command:
 
 ```powershell
 # Set parameters and select subscription
