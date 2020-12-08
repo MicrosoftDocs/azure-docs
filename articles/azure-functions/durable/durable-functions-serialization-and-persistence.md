@@ -9,7 +9,7 @@ ms.author: azfuncdf
 #I can customize it when it doesn't work the way my app needs it to.
 ---
 
-# Data persistence
+# Data persistence and serialization in Durable Functions (Azure Functions)
 
 Durable Functions automatically persists various parameters and state to a durable backend in order to provide reliable orchestration and entity executions. Data persisted to durable storage can impact application performance, storage transaction costs, and data privacy policies.
 
@@ -19,9 +19,9 @@ By default, Durable Functions persists data to Azure Storage.
 
 ### Queues
 
-Most Durable Functions APIs initially persist data Azure Storage queues.  Once the messages are processed successfully, the queue message is deleted, and the data is persisted to either Azure Storage Tables or Azure Storage Blobs.
+Most Durable Functions APIs initially persist data Azure Storage queues. Once Durable Functions processes the queue message, it deletes the queue message and persists the data to either Azure Storage Tables or Azure Storage Blobs.
 
-Durable Functions creates and writes to queues named `<taskhub>-workitem` and `<taskhub>-control-0` through `<taskhub>-control-<n-1>`, where `n` is equal to the number of partitions configured for your application.
+Durable Functions creates and writes to the work item queue `<taskhub>-workitem` and the control queues `<taskhub>-control-##`. The number of control queues is equal to the number of partitions configured for your application.
 
 ### Tables
 
@@ -29,17 +29,17 @@ Once orchestrations process messages successfully, the data is persisted to the 
 
 ### Blobs
 
-In most cases, Durable Functions does not use Azure Storage Blobs to persist data. However, queues and tables have size limits that can prevent Durable Functions from persisting all of the data into a storage row or queue message. When a piece of data that needs to be persisted is greater than 45 KB when serialized, Durable Functions will compress the data and store it in a blob instead. Durable Function stores a reference to that blob in the table row or queue message, and when Durable Functions needs to retrieve the data it will automatically fetch it from the blob. These blobs are stored in the blob container `taskhub>-largemessages`.
+In most cases, Durable Functions doesn't use Azure Storage Blobs to persist data. However, queues and tables have size limits that can prevent Durable Functions from persisting all of the data into a storage row or queue message. When a piece of data that needs to be persisted is greater than 45 KB when serialized, Durable Functions will compress the data and store it in a blob instead. Durable Function stores a reference to that blob in the table row or queue message, and when Durable Functions needs to retrieve the data it will automatically fetch it from the blob. These blobs are stored in the blob container `taskhub>-largemessages`.
 
 > [!NOTE]
 > The extra compression and blob operation steps for large messages can be expensive in terms of CPU usage and IO latency. Additionally, Durable Functions can store persisted data in memory for many function executions at a time, so persisting large pieces of data can cause high memory usage as well. In these cases, it is often preferable to persist large pieces of data manually, and instead pass around references to this data. This way your code can fetch the data only when needed to avoid consistently taking a performance hit.
 
 ## Data-persisting APIs
 
-The following APIs persist data to the backend used by the Durable Task Framework. If your application deals with sensitive data that needs encryption or you would prefer to store sensitive data in some other matter consider one of the following approaches:
+The following APIs persist data to the backend used by the Durable Task Framework. If your application deals with sensitive data that needs encryption or needs to be stored in some other manner,consider one of the following approaches:
 
-- Override [the default serialization logic](#customizing-serialization) and encrypt the data as part of the serialization.
-- Instead of passing the sensitive data into these APIs, manually handle data persistence with your own code, and pass along references to the sensitive data so it can be accessed inside of your activity functions.
+- Override [the default serialization logic](#customizing-serialization-and-deserialization) and encrypt the data as part of the serialization.
+- Instead of passing the sensitive data into these APIs, manually handle data persistence with your own code, and pass along references to the sensitive data so it can be accessed in your activity functions.
 
 # [C#](#tab/csharp)
 
@@ -327,7 +327,7 @@ module.exports = df.entity(function (context) {
 
 Durable Functions internally uses [Json.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) to serialize orchestration and entity data to JSON. The default settings Durable Functions uses for Json.NET are:
 
-**Inputs, Outputs and State:**
+**Inputs, Outputs, and State:**
 
 ```csharp
 JsonSerializerSettings
@@ -356,7 +356,7 @@ When serializing data, Json.NET looks for [various attributes](https://www.newto
 
 ## Customizing with Dependency Injection
 
-Function apps that target .NET and run on the Functions V3 runtime can use Dependency Injection (DI) to customize how data and exceptions are serialized. The sample classes below demonstrate how to utilize DI to override the default serialization settings using custom [IMessageSerializerSettingsFactory](https://docs.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.imessageserializersettingsfactory?view=azure-dotnet) and [IErrorSerializerSettingsFactory](https://docs.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.ierrorserializersettingsfactory?view=azure-dotnet) service interfaces.
+Function apps that target .NET and run on the Functions V3 runtime can use Dependency Injection (DI) to customize how data and exceptions are serialized. The sample classes below demonstrate how to use DI to override the default serialization settings using custom implementations of the `IMessageSerializerSettingsFactory` and `IErrorSerializerSettingsFactory` service interfaces.
 
 ```csharp
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
