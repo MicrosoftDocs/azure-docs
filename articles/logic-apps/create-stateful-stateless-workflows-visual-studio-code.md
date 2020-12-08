@@ -903,9 +903,9 @@ Next, you can learn how to perform these tasks:
 
 <a name="add-workflow-existing-project"></a>
 
-## Add another blank workflow to project
+## Add blank workflow to project
 
-To add a blank workflow to your project, follow these steps:
+You can have multiple workflows in your logic app project. To add a blank workflow to your project, follow these steps:
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon.
 
