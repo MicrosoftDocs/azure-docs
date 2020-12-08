@@ -16,7 +16,7 @@ ms.custom: mvc
 > [!IMPORTANT]
 > Azure Maps Mobility services are currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure (Preview) s](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 This article shows you how to use Azure Maps [Mobility services](/rest/api/maps/mobility) to request real-time public transit data.

@@ -15,7 +15,7 @@ manager: philmea
 > [!IMPORTANT]
 > Azure Maps Weather services are currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure (Preview) s](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article answers to common questions about Azure Maps [Weather services](https://docs.microsoft.com/rest/api/maps/weather) data and features. The following topics are covered:
 
