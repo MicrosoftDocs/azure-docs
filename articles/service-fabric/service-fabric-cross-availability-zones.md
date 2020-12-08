@@ -354,9 +354,9 @@ To enable zones on a virtual machine scale set you must include the following th
 ```
 
 >[!NOTE]
-> * The VMSS should be configured with atleast 3 Availability zones.
-> * VMSS with Silver durability and above, should have atleast 5 VMs per Availability zone.
-> * VMSS with Bronze durability (i.e non-primary nodeTypes), should have atleast 2 VMs per Availability zone.
+> * The AZ spanning VMSS should be configured with atleast 3 Availability zones irrespective of the durabilityLevel. **Primary nodeTypes should have durability as Silver or above.**
+> * VMSS with Silver durability (or above), should have atleast 15 VMs in the VMSS.
+> * VMSS with Bronze durability (i.e secondary nodeTypes), should have atleast 6 VMs in the VMSS.
 
 ### Enabling the support for multiple zones in the Service Fabric nodeType
 The Service Fabric nodeType must be enabled to support multiple availability zones.
