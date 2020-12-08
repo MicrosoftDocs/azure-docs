@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 11/12/2020
+ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
 
@@ -96,7 +96,7 @@ The following requirements apply when creating a virtual machine scale set in a 
 - The supported VM sizes for your dedicated hosts should match the one used for your scale set.
 
 Not all scale-set orchestration and optimizations settings are supported by dedicated hosts. Apply the following settings to your scale set: 
-- Disable overprovisioning.
+- Overprovisioning is not recommended, and it is disabled by default. You can enable overprovisioning, but the scale set allocation will fail if the host group does not have capacity for all of the VMs, including the overprovisioned instances. 
 - Use the ScaleSetVM orchestration mode 
 - Do not use proximity placement groups for co-location
 
