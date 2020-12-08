@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 12/08/2020
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -49,11 +49,10 @@ The scope only applies to individual subscriptions with pay-as-you-go rates (off
 
 ## Add or change users who can manage a reservation
 
-You can delegate reservation management by adding people to roles on the reservation order or the reservation. By default, the person that places the reservation order and the account administrator have the Owner role on the reservation order and the reservation.
+Following users can view and manage reservations
+- Users who purchase the reservation and the account administrator of the subscription used for billing the reservation get the Owner role on the reservation order and the reservation. To allow other people to view the reservation, you must add them as an **Owner** or **Reader** on the Reservation order or reservation. Adding someone to the subscription that's provided for billing the reservation, does not add them to reservation automatically.
 
-You can manage access to reservations orders and reservations *independently from the subscriptions* that get the reservation discount. When you give someone permissions to manage a reservation order or the reservation, it doesn't give them permission to manage the subscription. Similarly, if you give someone permissions to manage a subscription in the reservation's scope, it doesn't give them rights to manage the reservation order or the reservation.
-
-To perform an exchange or refund, the user must have access to the reservation order. When granting someone permissions, it’s best to grant permissions to the reservation order, not the reservation.
+To perform an exchange or refund, the user must have access to the reservation order. When granting someone permissions, it’s best to grant permissions to the reservation order, not the reservation. If you give someone permissions to manage a subscription in the reservation's scope, it doesn't give them rights to manage the reservation order or the reservation.
 
 To delegate access management for a reservation:
 
@@ -64,6 +63,19 @@ To delegate access management for a reservation:
 5. Select **Add role assignment** > **Role** > **Owner**. Or, if you want to give limited access, select a different role.
 6. Type the email address of the user you want to add as owner.
 7. Select the user, and then select **Save**.
+
+- Additional permissions related to Enterprise Agreement (EA) only : Users with "Enterprise Administrator" role can view and manage all reservations that are applying to the Enterprise agreement, users with "Enterprise Administrator (read only)" role can only view the reservation. 
+
+If you have a billing role on an enterprise agreement and want to view or manage the reservations:
+1. Go to Cost Management + Billing > Reservation Transactions
+2. Click on the banner
+3. If you have required billing permissions you will be able to see and manage reservations. If you don't see reservations, make sure that you are logged in using the AAD tenant under which the reservations are created. 
+
+Department admins and account owners cannot see reservations unless they are explicitly added to them using IAM. See [Managing Azure Enterprise roles](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-ea-roles)
+
+You will be able to take ownership of the reservation order and will be able to add other users to the reservation using Access control (IAM). 
+
+- Additional permissions related to Microsoft cloud agreement (MCA) only: Users with billing profile owner or billing profile contributor roles can manage all reservations  purchases made using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid using the billing profile but cannot make changes to the reservations. Go to Cost Management + Billing > Billing Profile > Reservation Transactions and click on the banner to see reservation. Make sure that you are logged in using the AAD tenant under which the reservations are created, otherwise you will not see the reservations. See [Billing profile roles and tasks](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles#billing-profile-roles-and-tasks)
 
 ## Split a single reservation into two reservations
 
