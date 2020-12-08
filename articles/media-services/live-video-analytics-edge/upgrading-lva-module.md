@@ -17,7 +17,7 @@ This article covers the differences and the different things to consider when up
 > [!div class="mx-tdCol4BreakAll"]
 > |Title|Live Video Analytics 1.0|Live Video Analytics 2.0|Description|
 > |-------------|----------|---------|---------|
-> |Release Tag|mcr.microsoft.com/media/live-video-analytics:1.0.0|mcr.microsoft.com/media/live-video-analytics:2.0.0|Microsoft Published docker images for Live Video Analytics on Azure IoT Edge|
+> |Container Image|mcr.microsoft.com/media/live-video-analytics:1.0.0|mcr.microsoft.com/media/live-video-analytics:2.0.0|Microsoft Published docker images for Live Video Analytics on Azure IoT Edge|
 > |**MediaGraph nodes** |    |   |   |
 > |Sources|:::image type="icon" source="./././media/upgrading-lva/check.png"::: RTSP Source </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: IoT Hub Message Source |:::image type="icon" source="./././media/upgrading-lva/check.png"::: RTSP Source </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: IoT Hub Message Source | MediaGraph nodes that act as sources for media ingestion and messages.|
 > |Processors|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion detection processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Frame rate filter processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Http extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Grpc extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Signal gate processor |:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion detection processor </br>:::image type="icon" source="./././media/upgrading-lva/remove.png"::: **Frame rate filter processor**</br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Http extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Grpc extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Signal gate processor | MediaGraph nodes that enable you to format the media before sending to AI inference servers.|
@@ -27,7 +27,7 @@ This article covers the differences and the different things to consider when up
 
 ## Upgrading the Live Video Analytics on IoT Edge module from 1.0 to 2.0
 When upgrading the Live Video Analytics on IoT Edge module, make sure you update the following information.
-### MCR Image information
+### Container Image
 In your deployment template, look for your Live Video Analytics on IoT Edge module under the `modules` node and update the `image` field as:
 ```
 "image": "mcr.microsoft.com/media/live-video-analytics:2"
@@ -44,11 +44,11 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
 * Audio from your camera source can now be passed downstream along with video. You can pass **audio-only** or **video-only** or **audio and video both** with the help of **`outputSelectors`** to any graph node. For example, if you want to select video only from the RTSP source and pass it downstream, then add the following to the RTSP source node:
     ```
     "outputSelectors": [
-                {
-                  "property": "mediaType",
-                  "operator": "is",
-                  "value": "video"
-                }
+      {
+        "property": "mediaType",
+        "operator": "is",
+        "value": "video"
+      }
     ```
 >[!NOTE]
 >The **`outputSelectors`** is an optional property. If this is not used, then the media graph will pass the audio (if enabled) and video from the RTSP camera downstream. 
@@ -88,7 +88,7 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
             }
         ```
         >[!NOTE]
-        > Possible values include: `yuv420p`,`rgb565be`, `rgb565le`, `rgb555be`, `rgb555le`, `rgb24`, `bgr24`, `argb`, `rgba`, `abgr`, `bgra`  
+        > Possible values of pixelFormat include: `yuv420p`,`rgb565be`, `rgb565le`, `rgb555be`, `rgb555le`, `rgb24`, `bgr24`, `argb`, `rgba`, `abgr`, `bgra`  
 
     * **extensionConfiguration for Grpc extension processor**  
         * In `MediaGraphGrpcExtension` processor, a new property called **`extensionConfiguration`** is available, which is an optional string that can be used as a part of the gRPC contract. This field can be used to pass any data to the inference server and you can define how the inference server uses that data.  
@@ -98,7 +98,7 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
         * Live Video Analytics 2.0 now supports using more than one media graph extension processor within a topology. You can pass the media frames from the RTSP camera to different AI models either sequentially, in parallel or in a combination of both. Please see a sample topology showing two AI models being used sequentially.
 
 
-* In your File sink node, you can now specify how much disk space the Live Video Analytics on IoT Edge module can use to store the processed images. To do so, add the **`maximumSizeMiB`** field to the FileSink node. A sample File Sink node is as follows:
+* In your **File sink** node, you can now specify how much disk space the Live Video Analytics on IoT Edge module can use to store the processed images. To do so, add the **`maximumSizeMiB`** field to the FileSink node. A sample File Sink node is as follows:
     ```
     "sinks": [
       {
@@ -122,7 +122,7 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
       }
     ]
     ```
-* In your Asset sink node, you can specify how much disk space the Live Video Analytics on IoT Edge module can use to store the processed images. To do so, add the **`localMediaCacheMaximumSizeMiB`** field to the Asset Sink node. A sample Asset Sink node is as follows:
+* In your **Asset sink** node, you can specify how much disk space the Live Video Analytics on IoT Edge module can use to store the processed images. To do so, add the **`localMediaCacheMaximumSizeMiB`** field to the Asset Sink node. A sample Asset Sink node is as follows:
     ```
     "sinks": [
       {
@@ -141,11 +141,14 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
           }
         ],
         "assetNamePattern": "sampleAsset-${System.GraphInstanceName}",
+        "segmentLength": "PT30S",
         "localMediaCacheMaximumSizeMiB":"200",
-        "baseDirectoryPath":"/var/media"
+        "localMediaCachePath":"/var/lib/azuremediaservices/tmp/"
       }
     ]
     ```
+    >[!NOTE]
+    >  The **File sink** path is split into base directory path and file name pattern, whereas the **Asset sink** path includes the base directory path.  
 
 * **`MediaGraphFrameRateFilterProcessor`** is deprecated in **Live Video Analytics on IoT Edge 2.0** module.
     * To sample the incoming video for processing, add the **`samplingOptions`** property to the MediaGraph extension processors (`MediaGraphHttpExtension` or `MediaGraphGrpcExtension`)  

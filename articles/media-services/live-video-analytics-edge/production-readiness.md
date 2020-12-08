@@ -167,7 +167,7 @@ The Linux VM that you are using as an edge device can become unresponsive if it 
 
     The auto remove option removes packages that were automatically installed because some other package required them but, with those other packages removed, they are no longer needed
 1. `sudo docker image ls` – Provides a list of Docker images on your edge system
-1. `sudo docker system prune `
+1. `sudo docker system prune`
 
     Docker takes a conservative approach to cleaning up unused objects (often referred to as “garbage collection”), such as images, containers, volumes, and networks: these objects are generally not removed unless you explicitly ask Docker to do so. This can cause Docker to use extra disk space. For each type of object, Docker provides a prune command. In addition, you can use docker system prune to clean up multiple types of objects at once. For more information, refer to [Prune unused Docker objects](https://docs.docker.com/config/pruning/).
 1. `sudo docker rmi REPOSITORY:TAG`
