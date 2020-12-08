@@ -481,7 +481,7 @@ Disable the following policies:
 
 ### Why are you getting this error?
 
-This exception is thrown when there is a policy enabled that blocks cmd.exe from launching. This blocks the ability to run the console window, which is what is used to restart the service. 
+This exception is thrown when there is a policy enabled that blocks cmd.exe from launching. This blocks the ability to run the console window, which is what is used to restart the service when there is an agent update. 
 
 ### Resolution
 
