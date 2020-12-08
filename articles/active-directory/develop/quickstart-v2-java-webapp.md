@@ -52,7 +52,7 @@ To run this sample you will need:
 > 1. On the **Overview** page, note the **Application (client) ID** and the **Directory (tenant) ID** for later use.
 > 1. Under **Manage**, select **Authentication**.
 > 1. Select **Add a platform** > **Web**.
-> 1. Add `https://localhost:8443/msal4jsample/secure/aad` and  as **Redirect URIs**.
+> 1. From the **Redirect URIs** section, add `https://localhost:8443/msal4jsample/secure/aad`.
 > 1. Select **Configure**.
 > 1. From the **Web** section, add `https://localhost:8443/msal4jsample/graph/me` as a second **Redirect URIs**.
 > 1. Under **Manage**, select the **Certificates & secrets**  and from the **Client secrets** section, select **New client secret**.
