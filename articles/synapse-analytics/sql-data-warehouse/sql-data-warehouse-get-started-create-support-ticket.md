@@ -112,7 +112,7 @@ To enable region access for a subscription, you'll need to complete the followin
 
 Select **Other quota request** from the quota type drop-down menu for other quota request types:
 
-![Other quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-other-request.png)
+![Other quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
 
 ## Submit your request
 
