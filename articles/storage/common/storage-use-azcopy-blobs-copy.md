@@ -4,7 +4,7 @@ description: This article contains a collection of AzCopy example commands that 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -12,7 +12,7 @@ ms.reviewer: dineshm
 
 # Copy blobs between Azure storage accounts by using AzCopy v10
 
-You can copy blobs, directories, and containers between storage accounts by by using the AzCopy v10 command-line utility. 
+You can copy blobs, directories, and containers between storage accounts by using the AzCopy v10 command-line utility. 
 
 To see examples for other types of tasks such as uploading files, downloading blobs, and synchronizing with Blob storage, see the links presented in the [Next Steps](#next-steps) section of this article.
 
@@ -36,7 +36,7 @@ Apply the following guidelines to your AzCopy commands.
 
 - You can increase the throughput of copy operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Optimize throughput](storage-use-azcopy-configure.md#optimize-throughput). 
 
-- If the source blobs have index tags, and you want to retain those tags, you'll have to re-apply them to the destination blobs. For information about how to set index tags, see the [Copy blobs to another storage account with index tags](#copy-between-accounts-and-add-index-tags) section of this article.
+- If the source blobs have index tags, and you want to retain those tags, you'll have to reapply them to the destination blobs. For information about how to set index tags, see the [Copy blobs to another storage account with index tags](#copy-between-accounts-and-add-index-tags) section of this article.
 
 ## Copy a blob
 
@@ -104,7 +104,7 @@ If you're using Azure AD authorization, your security principal must be assigned
 
 To add tags, use the `--blob-tags` option along with a URL encoded key-value pair. 
 
-For example, to add the a key `my tag` and a value `my tag value`, you would add `--blob-tags='my%20tag=my%20tag%20value'` to the destination parameter. 
+For example, to add the key `my tag` and a value `my tag value`, you would add `--blob-tags='my%20tag=my%20tag%20value'` to the destination parameter. 
 
 Separate multiple index tags by using an ampersand (`&`).  For example, if you want to add a key `my second tag` and a value `my second tag value`, the complete option string would be `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`.
 

@@ -4,7 +4,7 @@ description: This article contains a collection of AzCopy example commands that 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -71,7 +71,7 @@ You can download the contents of a directory without copying the containing dire
 | **Syntax** | `azcopy copy 'https://<storage-account-name>.blob.core.windows.net/<container-name>/*' '<local-directory-path>/'` |
 | **Example** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/*' 'C:\myDirectory'` |
 
-Append the `--recursive` flag to download files in all sub-directories.
+Append the `--recursive` flag to download files in all subdirectories.
 
 ## Download specific blobs
 
@@ -90,7 +90,7 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 | **Example** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 | **Example** (hierarchical namespace) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt'--recursive` |
 
-In this example, AzCopy transfers the `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` directory and the `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/documents/myFile.txt` file. You need to include the `--recursive` option to transfer all blobs in the `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` directory.
+In this example, AzCopy transfers the `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` directory and the `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/documents/myFile.txt` file. Include the `--recursive` option to transfer all blobs in the `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` directory.
 
 You can also exclude blobs by using the `--exclude-path` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
