@@ -187,6 +187,10 @@ resources
 | project subscriptionId, resourceGroup, name, allowSharedKeyAccess
 ```
 
+## Permissions for allowing or disallowing Shared Key access
+
+
+
 ## Understand how disallowing Shared Key affects SAS tokens
 
 When Shared Key is disallowed for the storage account, Azure Storage handles SAS tokens based on the type of SAS and the service that is targeted by the request. The following table shows how each type of SAS is authorized and how Azure Storage will handle that SAS when the **AllowSharedKeyAccess** property for the storage account is **false**.
