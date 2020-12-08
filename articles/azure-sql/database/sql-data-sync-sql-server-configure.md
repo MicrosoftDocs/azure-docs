@@ -55,7 +55,7 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
    | **Sync Metadata Database** | Choose to create a database (recommended) or to use an existing database.<br/><br/>If you choose **New database**, select **Create new database.** Then on the **SQL Database** page, name and configure the new database and select **OK**.<br/><br/>If you choose **Use existing database**, select the database from the list. |
    | **Automatic Sync** | Select **On** or **Off**.<br/><br/>If you choose **On**, enter a number and select **Seconds**, **Minutes**, **Hours**, or **Days** in the **Sync Frequency** section.<br/> The first sync begins after the selected interval period elapses from the time the configuration is saved.|
    | **Conflict Resolution** | Select **Hub win** or **Member win**.<br/><br/>**Hub win** means when conflicts occur, data in the hub database overwrites conflicting data in the member database.<br/><br/>**Member win** means when conflicts occur, data in the member database overwrites conflicting data in the hub database. |
-   | **Use private link** | Choose a **service managed private endpoint** to establish a secure connection between the sync service and the hub database. |
+   | **Use private link** | Choose a service managed private endpoint to establish a secure connection between the sync service and the hub database. |
 
    > [!NOTE]
    > Microsoft recommends to create a new, empty database for use as the **Sync Metadata Database**. Data Sync creates tables in this database and runs a frequent workload. This database is shared as the **Sync Metadata Database** for all sync groups in a selected region and subscription. You can't change the database or its name without removing all sync groups and sync agents in the region.
@@ -89,7 +89,7 @@ In the **Member Database** section, optionally add a database in Azure SQL Datab
   | **Azure SQL Database** | Select the existing database in SQL Database. |
   | **Sync Directions** | Select **Bi-directional Sync**, **To the Hub**, or **From the Hub**. |
   | **Username** and **Password** | Enter the existing credentials for the server on which the member database is located. Don't enter *new* credentials in this section. |
-  | **Use private link** | Choose a **service managed private endpoint** to establish a secure connection between the sync service and the member database. |
+  | **Use private link** | Choose a service managed private endpoint to establish a secure connection between the sync service and the member database. |
 
   Select **OK** and wait for the new sync member to be created and deployed.
 
