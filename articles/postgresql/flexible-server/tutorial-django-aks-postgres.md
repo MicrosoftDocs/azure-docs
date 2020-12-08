@@ -323,12 +323,26 @@ NAME                             READY   STATUS          RESTARTS   AGE
 django-app-5d9cd6cd8-l6x4b     1/1     Running              0       2m
 ```
 
-If you run into issues, please run ```kubectl logs <pod-name>```  to see what exception is beign thrown by your application.
-
 Once the pod name has been found you can run django database migrations using this command:
 ```bash
 $ kubectl exec django-app-5d9cd6cd8-l6x4b -- python /app/manage.py migrate
 ```
+If you run into issues, please run ```kubectl logs <pod-name>```  to see what exception is beign thrown by your application. If the application is working successfully you would see an output like this when running ```kubectl logs```.
+
+```output
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 17 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+December 08, 2020 - 23:24:14
+Django version 2.2.17, using settings 'django_postgres_app.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+```
+
 
 ## Clean up the resources
 
