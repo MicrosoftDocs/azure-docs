@@ -27,7 +27,7 @@ Azure Kubernetes Service (AKS) provides a managed Kubernetes service that reduce
 
 A Kubernetes cluster is divided into two components:
 
-- *Control plane* which provides the core Kubernetes services and orchestration of application workloads.
+- The *Control plane* provides the core Kubernetes services and orchestration of application workloads.
 - *Nodes* which run your application workloads.
 
 ![Kubernetes control plane and node components](media/concepts-clusters-workloads/control-plane-and-nodes.png)
