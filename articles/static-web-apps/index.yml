@@ -67,7 +67,7 @@ landingContent:
         links:
           - text: Publish a static web app with Gatsby
             url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
-          - text: Publish a static web app with Gatsby
+          - text: Publish a static web app with Blazor
             url: /learn/modules/publish-app-service-static-web-app-api-dotnet
   - title: Key concepts
     linkLists:
