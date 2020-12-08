@@ -13,7 +13,7 @@ ms.date: 12/08/2020
 
 Providing information on the **Co-sell with Microsoft** tab is entirely optional. It is required to achieve [Co-sell Ready and IP Co-sell Incentivized status](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). The information you provide will be used by Microsoft sales teams to learn more about your offer when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [Co-sell with Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
-The Co-sell option in Partner Center is currently available for the following offer types.
+The Co-sell option in Partner Center is available for the following offer types.
 
 - Azure Application
 - Azure Container
