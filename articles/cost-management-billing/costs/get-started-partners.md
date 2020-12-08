@@ -257,7 +257,7 @@ You can also group and filter by the **PartnerEarnedCreditApplied** property usi
 
 ## Export cost data to Azure Storage
 
-Partners with access to billing scopes in a partner tenant can export their cost and usage data to an Azure Storage blob. The blob must be on a subscription in the partner tenant that's not a [shared service subscription](https://docs.microsoft.com/en-us/partner-center/shared-services) or a customer’s subscription. To enable cost data export, we recommended that you set up an independent pay-as-you-go subscription in the partner tenant to host the exported cost data. The export storage account is created on the Azure Storage blob hosted in the pay-as-you-go subscription. Based on the scope where the partner creates the export, the associated data is exported to the storage account automatically on a recurring basis.
+Partners with access to billing scopes in a partner tenant can export their cost and usage data to an Azure Storage blob. The blob must be on a subscription in the partner tenant that's not a [shared service subscription](/partner-center/shared-services) or a customer’s subscription. To enable cost data export, we recommended that you set up an independent pay-as-you-go subscription in the partner tenant to host the exported cost data. The export storage account is created on the Azure Storage blob hosted in the pay-as-you-go subscription. Based on the scope where the partner creates the export, the associated data is exported to the storage account automatically on a recurring basis.
 
 Users with Azure RBAC access to the subscription can also export the cost data to an Azure storage blob hosted in any subscription in the customer tenant.
 
