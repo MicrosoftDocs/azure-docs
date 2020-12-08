@@ -680,8 +680,11 @@
               href: app/java-standalone-telemetry-processors.md
             - name: JVM arguments setup
               href: app/java-standalone-arguments.md
-            - name: Upgrade from 2.x
+            - name: Upgrade from 2.x SDK
               href: app/java-standalone-upgrade-from-2x.md
+            - name: Troubleshooting
+              href: app/java-standalone-troubleshoot.md
+
       - name: On-Premises servers
         items:
         - name: ASP.NET
@@ -890,8 +893,6 @@
         items:
         - name: Deep diagnostics for web apps and services
           href: app/devops.md
-        - name: Monitor performance in web applications
-          href: app/web-monitor-performance.md
         - name: Separate development, test, and production
           href: app/separate-resources.md
         - name: How do I ... in Application Insights?
