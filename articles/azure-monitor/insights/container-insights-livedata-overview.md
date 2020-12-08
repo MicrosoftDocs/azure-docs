@@ -17,27 +17,7 @@ This article provides a detailed overview and helps you understand how to use th
 
 For help setting up or troubleshooting the Live Data (preview) feature, review our [setup guide](container-insights-livedata-setup.md). This feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-## Live Data (preview) functionality overview
-
-### Search
-
-![Live Data console pane filter example](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
-
-The Live Data (preview) feature includes search functionality. In the **Search** field, you can filter results by typing a key word or term and any matching results are highlighted to allow quick review. While viewing events, you can additionally limit the results using the **Filter** pill found to the right of the search bar. Depending on what resource you have selected, the pill lists a Pod, Namespace, or cluster to chose from.
-
-### Scroll Lock and Pause
-
-To suspend autoscroll and control the behavior of the pane, allowing you to manually scroll through the new data read, you can use the **Scroll** option. To re-enable autoscroll, simply select the **Scroll** option again. You can also pause retrieval of log or event data by selecting the the **Pause** option, and when you are ready to resume, simply select **Play**.
-
-![Live Data console pane pause live view](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
-
->[!IMPORTANT]
->We recommend only suspending or pausing autoscroll for a short period of time while troubleshooting an issue. These requests may impact the availability and throttling of the Kubernetes API on your cluster.
-
->[!IMPORTANT]
->No data is stored permanently during operation of this feature. All information captured during the session is deleted when you close your browser or navigate away from it. Data only remains present for visualization inside the five minute window of the metrics feature; any metrics older than five minutes are also deleted. The Live Data (preview) buffer queries within reasonable memory usage limits.
-
-## View deployment logs
+## View deployment live logs (preview)
 
 1. In the Azure portal, browse to the AKS cluster resource group and select your AKS resource.
 
