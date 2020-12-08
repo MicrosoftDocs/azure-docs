@@ -27,11 +27,10 @@ Following is a list of the types of logs available for each resource type.
 Some categories may only be supported for specific types of resources. See the resource-specific documentation if you feel you are missing a resource. For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 If you still something is missing, you can open a GitHub comment at the bottom of this article.
-
 ## Microsoft.AnalysisServices/servers
 
-Export cost:  Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |Engine|Engine|
 |Service|Service|
@@ -39,16 +38,16 @@ Export cost:  Free
 
 ## Microsoft.ApiManagement/service
 
-Export cost:  Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |GatewayLogs|Logs related to ApiManagement Gateway|
 
 
 ## Microsoft.AppPlatform/Spring
 
-Export cost:  Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |ApplicationConsole|Application Console|
 |SystemLogs|System Logs|
@@ -56,8 +55,8 @@ Export cost:  Free
 
 ## Microsoft.Automation/automationAccounts
 
-Export cost:  Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |DscNodeStatus|Dsc Node Status|
 |JobLogs|Job Logs|
@@ -66,16 +65,16 @@ Export cost:  Free
 
 ## Microsoft.Batch/batchAccounts
 
-Export cost:  Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |ServiceLog|Service Logs|
 
 
 ## Microsoft.BatchAI/workspaces
 
-Export cost:  Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |BaiClusterEvent|BaiClusterEvent|
 |BaiClusterNodeEvent|BaiClusterNodeEvent|
@@ -84,8 +83,8 @@ Export cost:  Free
 
 ## Microsoft.Blockchain/blockchainMembers
 
-Export cost:  Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |BlockchainApplication|Blockchain Application|
 |FabricOrderer|Fabric Orderer|
@@ -95,48 +94,48 @@ Export cost:  Free
 
 ## Microsoft.Blockchain/cordaMembers
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |BlockchainApplication|Blockchain Application|
 
 
 ## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |WebApplicationFirewallLogs|Web Appliation Firewall Logs|
 
 
 ## Microsoft.Cdn/profiles
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AzureCdnAccessLog|Azure Cdn Access Log|
 
 
 ## Microsoft.Cdn/profiles/endpoints
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
 
 
 ## Microsoft.ClassicNetwork/networksecuritygroups
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|
 
 
 ## Microsoft.CognitiveServices/accounts
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |Audit|Audit Logs|
 |RequestResponse|Request and Response Logs|
@@ -145,8 +144,8 @@ Export cost: Free
 
 ## Microsoft.ContainerRegistry/registries
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |ContainerRegistryLoginEvents|Login Events|
 |ContainerRegistryRepositoryEvents|RepositoryEvent logs|
@@ -154,8 +153,8 @@ Export cost: Free
 
 ## Microsoft.ContainerService/managedClusters
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |cluster-autoscaler|Kubernetes Cluster Autoscaler|
 |kube-apiserver|Kubernetes API Server|
@@ -166,16 +165,16 @@ Export cost: Free
 
 ## Microsoft.CustomProviders/resourceproviders
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AuditLogs|Audit logs for MiniRP calls|
 
 
 ## Microsoft.Databricks/workspaces
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |accounts|Databricks Accounts|
 |clusters|Databricks Clusters|
@@ -191,8 +190,8 @@ Export cost: Free
 
 ## Microsoft.DataFactory/factories
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |ActivityRuns|Pipeline activity runs log|
 |PipelineRuns|Pipeline runs log|
@@ -201,8 +200,8 @@ Export cost: Free
 
 ## Microsoft.DataLakeStore/accounts
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |Audit|Audit Logs|
 |Requests|Request Logs|
@@ -210,8 +209,8 @@ Export cost: Free
 
 ## Microsoft.DataShare/accounts
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |ReceivedShareSnapshots|Received Share Snapshots|
 |SentShareSnapshots|Sent Share Snapshots|
@@ -221,8 +220,8 @@ Export cost: Free
 
 ## Microsoft.DBforMariaDB/servers
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |MySqlAuditLogs|MariaDB Audit Logs|
 |MySqlSlowLogs|MariaDB Server Logs|
@@ -230,8 +229,8 @@ Export cost: Free
 
 ## Microsoft.DBforMySQL/flexibleServers
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |MySqlAuditLogs|MySQL Audit Logs|
 |MySqlSlowLogs|MySQL Slow Logs|
@@ -239,8 +238,8 @@ Export cost: Free
 
 ## Microsoft.DBforMySQL/servers
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |MySqlAuditLogs|MySQL Audit Logs|
 |MySqlSlowLogs|MySQL Server Logs|
@@ -248,16 +247,16 @@ Export cost: Free
 
 ## Microsoft.DBforPostgreSQL/flexibleServers
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |PostgreSQLLogs|PostgreSQL Server Logs|
 
 
 ## Microsoft.DBforPostgreSQL/servers
 
-Export cost: Free 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |PostgreSQLLogs|PostgreSQL Server Logs|
 |QueryStoreRuntimeStatistics|PostgreSQL Query Store Runtime Statistics|
@@ -266,16 +265,16 @@ Export cost: Free
 
 ## Microsoft.DBforPostgreSQL/serversv2
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |PostgreSQLLogs|PostgreSQL Server Logs|
 
 
 ## Microsoft.DesktopVirtualization/applicationgroups
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |Checkpoint|Checkpoint|
 |Error|Error|
@@ -284,8 +283,8 @@ Export cost: Free
 
 ## Microsoft.DesktopVirtualization/hostpools
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |Checkpoint|Checkpoint|
 |Connection|Connection|
@@ -296,8 +295,8 @@ Export cost: Free
 
 ## Microsoft.DesktopVirtualization/workspaces
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |Checkpoint|Checkpoint|
 |Error|Error|
@@ -307,8 +306,8 @@ Export cost: Free
 
 ## Microsoft.Devices/IotHubs
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |C2DCommands|C2D Commands|
 |C2DTwinOperations|C2D Twin Operations|
@@ -328,8 +327,8 @@ Export cost: Free
 
 ## Microsoft.Devices/provisioningServices
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |DeviceOperations|Device Operations|
 |ServiceOperations|Service Operations|
@@ -337,8 +336,8 @@ Export cost: Free
 
 ## Microsoft.DocumentDB/databaseAccounts
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |CassandraRequests|CassandraRequests|
 |ControlPlaneRequests|ControlPlaneRequests|
@@ -352,8 +351,8 @@ Export cost: Free
 
 ## Microsoft.EventGrid/domains
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |DeliveryFailures|Delivery Failure Logs|
 |PublishFailures|Publish Failure Logs|
@@ -361,16 +360,16 @@ Export cost: Free
 
 ## Microsoft.EventGrid/systemTopics
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |DeliveryFailures|Delivery Failure Logs|
 
 
 ## Microsoft.EventGrid/topics
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |DeliveryFailures|Delivery Failure Logs|
 |PublishFailures|Publish Failure Logs|
@@ -378,8 +377,8 @@ Export cost: Free
 
 ## Microsoft.EventHub/namespaces
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |ArchiveLogs|Archive Logs|
 |AutoScaleLogs|Auto Scale Logs|
@@ -392,16 +391,16 @@ Export cost: Free
 
 ## Microsoft.HealthcareApis/services
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AuditLogs|Audit logs|
 
 
 ## Microsoft.Insights/AutoscaleSettings
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AutoscaleEvaluations|Autoscale Evaluations|
 |AutoscaleScaleActions|Autoscale Scale Actions|
@@ -409,8 +408,8 @@ Export cost: Free
 
 ## Microsoft.Insights/Components
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AppAvailabilityResults|Availability results|
 |AppBrowserTimings|Browser timings|
@@ -427,16 +426,16 @@ Export cost: Free
 
 ## Microsoft.KeyVault/vaults
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AuditEvent|Audit Logs|
 
 
 ## Microsoft.Kusto/Clusters
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |Command|Command|
 |FailedIngestion|Failed ingest operations|
@@ -449,24 +448,24 @@ Export cost: Free
 
 ## Microsoft.Logic/integrationAccounts
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |IntegrationAccountTrackingEvents|Integration Account track events|
 
 
 ## Microsoft.Logic/workflows
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |WorkflowRuntime|Workflow runtime diagnostic events|
 
 
 ## Microsoft.MachineLearningServices/workspaces
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AmlComputeClusterEvent|AmlComputeClusterEvent|
 |AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|
@@ -477,16 +476,16 @@ Export cost: Free
 
 ## Microsoft.Media/mediaservices
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |KeyDeliveryRequests|Key Delivery Requests|
 
 
 ## Microsoft.Network/applicationGateways
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |ApplicationGatewayAccessLog|Application Gateway Access Log|
 |ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
@@ -495,8 +494,8 @@ Export cost: Free
 
 ## Microsoft.Network/azurefirewalls
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AzureFirewallApplicationRule|Azure Firewall Application Rule|
 |AzureFirewallNetworkRule|Azure Firewall Network Rule|
@@ -504,24 +503,24 @@ Export cost: Free
 
 ## Microsoft.Network/bastionHosts
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |BastionAuditLogs|Bastion Audit Logs|
 
 
 ## Microsoft.Network/expressRouteCircuits
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |PeeringRouteLog|Peering Route Table Logs|
 
 
 ## Microsoft.Network/frontdoors
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |FrontdoorAccessLog|Frontdoor Access Log|
 |FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall Log|
@@ -529,8 +528,8 @@ Export cost: Free
 
 ## Microsoft.Network/loadBalancers
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |LoadBalancerAlertEvent|Load Balancer Alert Events|
 |LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
@@ -538,8 +537,8 @@ Export cost: Free
 
 ## Microsoft.Network/networksecuritygroups
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |NetworkSecurityGroupEvent|Network Security Group Event|
 |NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
@@ -548,8 +547,8 @@ Export cost: Free
 
 ## Microsoft.Network/publicIPAddresses
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |DDoSMitigationFlowLogs|Flow logs of DDoS mitigation decisions|
 |DDoSMitigationReports|Reports of DDoS mitigations|
@@ -558,16 +557,16 @@ Export cost: Free
 
 ## Microsoft.Network/trafficManagerProfiles
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |ProbeHealthStatusEvents|Traffic Manager Probe Health Results Event|
 
 
 ## Microsoft.Network/virtualNetworkGateways
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |GatewayDiagnosticLog|Gateway Diagnostic Logs|
 |IKEDiagnosticLog|IKE Diagnostic Logs|
@@ -578,24 +577,24 @@ Export cost: Free
 
 ## Microsoft.Network/virtualNetworks
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |VMProtectionAlerts|VM protection alerts|
 
 
 ## Microsoft.PowerBIDedicated/capacities
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |Engine|Engine|
 
 
 ## Microsoft.RecoveryServices/Vaults
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AddonAzureBackupAlerts|Addon Azure Backup Alert Data|
 |AddonAzureBackupJobs|Addon Azure Backup Job Data|
@@ -615,40 +614,40 @@ Export cost: Free
 
 ## Microsoft.Relay/namespaces
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |HybridConnectionsEvent|HybridConnections Events|
 
 
 ## Microsoft.Search/searchServices
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |OperationLogs|Operation Logs|
 
 
 ## Microsoft.ServiceBus/namespaces
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |OperationalLogs|Operational Logs|
 
 
 ## Microsoft.SignalRService/SignalR
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AllLogs|Azure SignalR Service Logs.|
 
 
 ## Microsoft.Sql/managedInstances
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |DevOpsOperationsAudit|Devops operations Audit Logs|
 |ResourceUsageStats|Resource Usage Statistics|
@@ -657,8 +656,8 @@ Export cost: Free
 
 ## Microsoft.Sql/managedInstances/databases
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |Errors|Errors|
 |QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
@@ -668,8 +667,8 @@ Export cost: Free
 
 ## Microsoft.Sql/servers/databases
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AutomaticTuning|Automatic tuning|
 |Blocks|Blocks|
@@ -691,8 +690,8 @@ Export cost: Free
 
 ## Microsoft.Storage/storageAccounts/blobServices
 
-Export cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -701,8 +700,8 @@ Export cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing
 
 ## Microsoft.Storage/storageAccounts/fileServices
 
-Export cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -711,8 +710,8 @@ Export cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing
 
 ## Microsoft.Storage/storageAccounts/queueServices
 
-Export cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/)
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -721,8 +720,8 @@ Export cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing
 
 ## Microsoft.Storage/storageAccounts/tableServices
 
-Export cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/)
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -731,25 +730,57 @@ Export cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing
 
 ## Microsoft.StreamAnalytics/streamingjobs
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |Authoring|Authoring|
 |Execution|Execution|
 
 
-## Microsoft.web/hostingenvironments
+## Microsoft.Synapse/workspaces
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
+|---|---|
+|BuiltinSqlReqsEnded|Built-in Sql Pool Requests Ended|
+|GatewayApiRequests|Synapse Gateway Api Requests|
+|SQLSecurityAuditEvents|SQL Security Audit Event|
+|SynapseRbacOperations|Synapse RBAC Operations|
+
+
+## Microsoft.Synapse/workspaces/bigDataPools
+
+Cost: Free
+|Category |Category Display Name|
+|---|---|
+|BigDataPoolAppsEnded|Big Data Pool Applications Ended|
+
+
+## Microsoft.Synapse/workspaces/sqlPools
+
+Cost: Free
+|Category |Category Display Name|
+|---|---|
+|DmsWorkers|Dms Workers|
+|ExecRequests|Exec Requests|
+|RequestSteps|Request Steps|
+|SqlRequests|Sql Requests|
+|SQLSecurityAuditEvents|Sql Security Audit Event|
+|Waits|Waits|
+
+
+## microsoft.web/hostingenvironments
+
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|
 
 
-## Microsoft.web/sites
+## microsoft.web/sites
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AppServiceAppLogs|App Service Application Logs|
 |AppServiceAuditLogs|Access Audit Logs|
@@ -759,10 +790,10 @@ Export cost: Free
 |FunctionAppLogs|Function Application Logs|
 
 
-## Microsoft.web/sites/slots
+## microsoft.web/sites/slots
 
-Export cost: Free
-|Category|Category Display Name|
+Cost: Free
+|Category |Category Display Name|
 |---|---|
 |AppServiceAppLogs|App Service Application Logs|
 |AppServiceAuditLogs|Access Audit Logs|

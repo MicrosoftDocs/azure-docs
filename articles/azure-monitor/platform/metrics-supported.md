@@ -895,6 +895,33 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |storage_used|Yes|Storage used|Bytes|Average|Storage used|No Dimensions|
 
 
+## Microsoft.DBforPostgreSQL/flexibleServers
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|active_connections|Yes|Active Connections|Count|Average|Active Connections|No Dimensions|
+|backup_storage_used|Yes|Backup Storage Used|Bytes|Average|Backup Storage Used|No Dimensions|
+|connections_failed|Yes|Failed Connections|Count|Total|Failed Connections|No Dimensions|
+|connections_succeeded|Yes|Succeeded Connections|Count|Total|Succeeded Connections|No Dimensions|
+|cpu_credits_consumed|Yes|CPU Credits Consumed|Count|Average|Total number of credits consumed by the database server|No Dimensions|
+|cpu_credits_remaining|Yes|CPU Credits Remaining|Count|Average|Total number of credits available to burst|No Dimensions|
+|cpu_percent|Yes|CPU percent|Percent|Average|CPU percent|No Dimensions|
+|disk_queue_depth|Yes|Disk Queue Depth|Count|Average|Number of outstanding I/O operations to the data disk|No Dimensions|
+|iops|Yes|IOPS|Count|Average|IO Operations per second|No Dimensions|
+|maximum_used_transactionIDs|Yes|Maximum Used Transaction IDs|Count|Average|Maximum Used Transaction IDs|No Dimensions|
+|memory_percent|Yes|Memory percent|Percent|Average|Memory percent|No Dimensions|
+|network_bytes_egress|Yes|Network Out|Bytes|Total|Network Out across active connections|No Dimensions|
+|network_bytes_ingress|Yes|Network In|Bytes|Total|Network In across active connections|No Dimensions|
+|read_iops|Yes|Read IOPS|Count|Average|Number of data disk I/O read operations per second|No Dimensions|
+|read_throughput|Yes|Read Throughput Bytes/Sec|Count|Average|Bytes read per second from the data disk during monitoring period|No Dimensions|
+|storage_free|Yes|Storage Free|Bytes|Average|Storage Free|No Dimensions|
+|storage_percent|Yes|Storage percent|Percent|Average|Storage percent|No Dimensions|
+|storage_used|Yes|Storage used|Bytes|Average|Storage used|No Dimensions|
+|txlogs_storage_used|Yes|Transaction Log Storage Used|Bytes|Average|Transaction Log Storage Used|No Dimensions|
+|write_iops|Yes|Write IOPS|Count|Average|Number of data disk I/O write operations per second|No Dimensions|
+|write_throughput|Yes|Write Throughput Bytes/Sec|Count|Average|Bytes written per second to the data disk during monitoring period|No Dimensions|
+
+
 ## Microsoft.DBforPostgreSQL/servers
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -2237,19 +2264,44 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |ResourceUtilization|Yes|SU % Utilization|Percent|Maximum|SU % Utilization|LogicalName, PartitionId|
 
 
+## Microsoft.Synapse/workspaces
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BuiltinSqlPoolDataProcessedBytes|No|Data processed (bytes)|Bytes|Total|Amount of data processed by queries|No Dimensions|
+|BuiltinSqlPoolLoginAttempts|No|Login attempts|Count|Total|Count of login attempts that succeded or failed|Result|
+|BuiltinSqlPoolRequestsEnded|No|Requests ended|Count|Total|Count of Requests that succeeded, failed, or were cancelled|Result|
+|IntegrationActivityRunsEnded|No|Activity runs ended|Count|Total|Count of integration activities that succeeded, failed, or were cancelled|Result, FailureType, Activity, ActivityType, Pipeline|
+|IntegrationPipelineRunsEnded|No|Pipeline runs ended|Count|Total|Count of integration pipeline runs that succeeded, failed, or were cancelled|Result, FailureType, Pipeline|
+|IntegrationTriggerRunsEnded|No|Trigger Runs ended|Count|Total|Count of integration triggers that succeeded, failed, or were cancelled|Result, FailureType, Trigger|
+
+
+## Microsoft.Synapse/workspaces/bigDataPools
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BigDataPoolAllocatedCores|No|vCores allocated|Count|Maximum|Allocated vCores for an Apache Spark Pool|SubmitterId|
+|BigDataPoolAllocatedMemory|No|Memory allocated (GB)|Count|Maximum|Allocated Memory for Apach Spark Pool (GB)|SubmitterId|
+|BigDataPoolApplicationsActive|No|Active Apache Spark applications|Count|Count|Total Active Apache Spark Pool Applications|JobState|
+|BigDataPoolApplicationsEnded|No|Ended Apache Spark applications|Count|Count|Count of Apache Spark pool applications ended|JobType, JobResult|
+
+
 ## Microsoft.Synapse/workspaces/sqlPools
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
+|ActiveQueries|No|Active queries|Count|Total|The active queries. Using this metric unfiltered and unsplit displays all active queries running on the system|IsUserDefined|
 |AdaptiveCacheHitPercent|No|Adaptive cache hit percentage|Percent|Maximum|Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache hit percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache|No Dimensions|
 |AdaptiveCacheUsedPercent|No|Adaptive cache used percentage|Percent|Maximum|Measures how well workloads are utilizing the adaptive cache. Use this metric with the cache used percentage metric to determine whether to scale for additional capacity or rerun workloads to hydrate the cache|No Dimensions|
 |Connections|Yes|Connections|Count|Total|Count of Total logins to the SQL pool|Result|
 |ConnectionsBlockedByFirewall|No|Connections blocked by firewall|Count|Total|Count of connections blocked by firewall rules. Revisit access control policies for your SQL pool and monitor these connections if the count is high|No Dimensions|
+|CPUPercent|No|CPU used percentage|Percent|Maximum|CPU utilization across all nodes in the SQL pool|No Dimensions|
 |DWULimit|No|DWU limit|Count|Maximum|Service level objective of the SQL pool|No Dimensions|
 |DWUUsed|No|DWU used|Count|Maximum|Represents a high-level representation of usage across the SQL pool. Measured by DWU limit * DWU percentage|No Dimensions|
 |DWUUsedPercent|No|DWU used percentage|Percent|Maximum|Represents a high-level representation of usage across the SQL pool. Measured by taking the maximum between CPU percentage and Data IO percentage|No Dimensions|
 |LocalTempDBUsedPercent|No|Local tempdb used percentage|Percent|Maximum|Local tempdb utilization across all compute nodes - values are emitted every five minute|No Dimensions|
 |MemoryUsedPercent|No|Memory used percentage|Percent|Maximum|Memory utilization across all nodes in the SQL pool|No Dimensions|
+|QueuedQueries|No|Queued queries|Count|Total|Cumulative count of requests queued after the max concurrency limit was reached|IsUserDefined|
 |wlg_effective_min_resource_percent|Yes|Effective min resource percent|Percent|Minimum|The effective min resource percentage setting allowed considering the service level and the workload group settings. The effective min_percentage_resource can be adjusted higher on lower service levels|IsUserDefined, WorkloadGroup|
 |WLGActiveQueries|No|Workload group active queries|Count|Total|The active queries within the workload group. Using this metric unfiltered and unsplit displays all active queries running on the system|IsUserDefined, WorkloadGroup|
 |WLGActiveQueriesTimeouts|No|Workload group query timeouts|Count|Total|Queries for the workload group that have timed out. Query timeouts reported by this metric are only once the query has started executing (it does not include wait time due to locking or resource waits)|IsUserDefined, WorkloadGroup|
@@ -2422,6 +2474,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |TotalAppDomains|Yes|Total App Domains|Count|Average|The current number of AppDomains loaded in this application.|Instance|
 |TotalAppDomainsUnloaded|Yes|Total App Domains Unloaded|Count|Average|The total number of AppDomains unloaded since the start of the application.|Instance|
 
+
 ## Microsoft.Web/sites/slots
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -2464,6 +2517,7 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |Threads|Yes|Thread Count|Count|Average|The number of threads currently active in the app process.|Instance|
 |TotalAppDomains|Yes|Total App Domains|Count|Average|The current number of AppDomains loaded in this application.|Instance|
 |TotalAppDomainsUnloaded|Yes|Total App Domains Unloaded|Count|Average|The total number of AppDomains unloaded since the start of the application.|Instance|
+
 
 ## Next steps
 
