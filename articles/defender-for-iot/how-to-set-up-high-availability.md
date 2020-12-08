@@ -1,6 +1,6 @@
 ---
 title: Set up high availability
-description: Increase the resiliency of your Defender for Iot deployment by installing an on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
+description: Increase the resiliency of your Defender for IoT deployment by installing a on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -10,7 +10,7 @@ ms.service: azure
 ---
 # About high availability
 
-Increase the resiliency of your Defender for Iot deployment by installing an on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
+Increase the resiliency of your Defender for IoT deployment by installing a on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 
 This deployment is implemented with an on-premises management console pair that includes a primary and secondary appliance.
 
@@ -44,7 +44,7 @@ The installation and configuration procedures are performed in four main stages:
 
 2. Configure the on-premises management console primary appliance. For example, scheduled backup settings, VLAN settings. See the on-premises management console user guide for details. All settings are applied to the secondary appliance automatically after pairing.
 
-3. Install an on-premises management console secondary appliance. See the Defender for Iot installation guide for details.
+3. Install a on-premises management console secondary appliance. For more information see, [About the Defender for IoT Installation](how-to-install-software.md).
 
 4. Pair the primary and secondary on-premises management console appliances as described [here](/create-the-primary-and-secondary-pair.md). The primary on-premises management console must manage at least two sensors in order to carry out the setup.
 
@@ -62,7 +62,7 @@ Verify that you have met the following high availability requirements:
 
 - Both the primary and secondary on-premises management console appliances must be running identical hardware models and software versions.
 
-- The high availability system can be set up by Defender for Iot users only, using CLI tools.
+- The high availability system can be set up by Defender for IoT users only, using CLI tools.
 
 ### Network access requirements
 
@@ -80,7 +80,7 @@ Verify that both the primary and secondary on-premises management console applia
 
 ### On the primary
 
-1. Sign in to the CLI as a Defender for Iot user.
+1. Sign in to the CLI as a Defender for IoT user.
 
 2. Run the following command on the primary:
 
@@ -111,7 +111,7 @@ This allows the connection between the primary and secondary appliances for back
 
 ### On the secondary
 
-1. Sign in to the CLI as an Defender for Iot user.
+1. Sign in to the CLI as an Defender for IoT user.
 
 2. Run the following command on the secondary. **Do not run with sudo**:
 
@@ -123,9 +123,9 @@ This allows the connection between the Primary and Secondary appliances for bac
 
 3. Enter the IP address of the primary and press Enter.
 
-### Tracking high availability activity
+### Track high availability activity
 
-The core application logs can be exported to the Defender for Iot support team to handle any high availability issues.  
+The core application logs can be exported to the Defender for IoT support team to handle any high availability issues.  
 
 To access the core logs:
 
@@ -142,7 +142,6 @@ To update with high availability:
 2. Update the secondary on-premises management console.
 
 3. Update the sensors.
-
 
 ## See also
 

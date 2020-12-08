@@ -147,25 +147,25 @@ Sensors are protected by five Defenders for IoT engines. You can enable or disab
 |
 To enable or disable:
 
-1. In the console left pane, select **System Settings**. 
+1. In the console left pane, select **System Settings**.
 
-2. In the Sensor Engine Configuration section, **Enable** or **Disable** engines for connected sensors. 		 		
+2. In the Sensor Engine Configuration section, **Enable** or **Disable** engines for connected sensors.
  	 	 
-3. Select **SAVE CHANGES**. 
+3. Select **SAVE CHANGES**.
 
    A red exclamation mark appears if there is a mismatch of enabled engines on one of your enterprise sensors. The engine may have been disabled directly form the sensor.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/red-exclamation-example.png" alt-text="Mismatch of enabled engines "::: 
 
-## Define sensor backup schedules 
+## Define sensor backup schedules
 
-You can schedule sensor backups and perform on-demand sensor backups from the on-premises management console. This provides safety and protection against hard drive failures and data loss. 
+You can schedule sensor backups and perform on-demand sensor backups from the on-premises management console. This provides safety and protection against hard drive failures and data loss.
 
-What is backed up: Configurations and data. 
+What is backed up: Configurations and data.
 
-What is not backed up: PCAP files and logs. Backup and restore of PCAPs and logs can be done manually. 
+What is not backed up: PCAP files and logs. Backup and restore of PCAPs and logs can be done manually.
 
-By default, sensors are automatically backed up at 3:00 AM daily. The sensor Backup Schedule feature lets you collect these backups and store them up on the on-premises management console, or an external backup server. Copying files from sensors to the on-premises management console is carried out over an encrypted channel. 
+By default, sensors are automatically backed up at 3:00 AM daily. The sensor Backup Schedule feature lets you collect these backups and store them up on the on-premises management console, or an external backup server. Copying files from sensors to the on-premises management console is carried out over an encrypted channel.
 
 :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-backup-schedule-screen.png" alt-text="A view of the sensor backup screen":::
 

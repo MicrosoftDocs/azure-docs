@@ -1,17 +1,17 @@
 ---
 title: Manage individual sensors
-description: Learn how-to activate and set up a sensor, as well as perform sensor management tasks, for example back up and restore. 
+description: Learn how to activate and set up a sensor, as well as perform sensor management tasks, for example backup and restore. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/6/2020
+ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
 # Manage individual sensors
 
-This article describes how to activate and set up a sensor, as well as perform sensor management tasks, for example  back up and restore.
+This article describes how to activate and set up a sensor, as well as perform sensor management tasks, for example  backup and restore.
 
 ## Manage sensor activation files
 
@@ -19,9 +19,9 @@ Your sensor was onboarded with the Defender for IoT from the Azure portal. Each 
 
 A unique activation file should have been uploaded to each sensor you deploy. 
 
-For more information regarding when and how to use a new file see [Upload new activation files](#upload-new-activation files).
+For more information regarding when and how to use a new file, see [Upload new activation files](#upload-new-activation files).
 
-See [Activation file upload troubleshooting](#activation-file-upload-troubleshooting) if you cannot upload the file.
+If you can't upload the file, see [Activation file upload troubleshooting](#activation-file-upload-troubleshooting).
 
 ### About locally connected sensor activation files
 
@@ -29,11 +29,11 @@ Locally connected sensors are associated with an Azure subscription. The activ
 
    :::image type="content" source="media/how-to-manage-individual-sensors/system-setting-screenshot.png" alt-text="The screenshot of the system settings.":::
 
-You can continue working with Defender for Iot features even if the activation file has expired. 
+You can continue working with Defender for IoT features even if the activation file has expired. 
 
 ### About cloud connected sensor activation files
 
-Sensors that are cloud connected are associated with the Defender for IoT hub. These sensors are not limited by activation file time periods. The activation file for cloud connected sensors is used to ensure connection to the Defender for Iot hub.
+Sensors that are cloud connected are associated with the Defender for IoT hub. These sensors are not limited by activation file time periods. The activation file for cloud connected sensors is used to ensure connection to the Defender for IoT hub.
 
 ### Upload new activation files
 
@@ -43,7 +43,7 @@ You may need to upload a new activation file for an onboarded sensor when: 
 
 - You want to work in a different sensor management mode. 
 
- - You want to assign a new Defender for Iot hub to a cloud connected sensor.  
+ - You want to assign a new Defender for IoT hub to a cloud connected sensor.  
 
 To add a new activation file:
 
@@ -53,7 +53,7 @@ To add a new activation file:
 
 3. Delete it.
 
-4. Onboard the sensor again from the Onboarding page in the new mode or with a new Defender for Iot hub.
+4. Onboard the sensor again from the Onboarding page in the new mode or with a new Defender for IoT hub.
 
 5. Download the activation file from the Download Activation file page.
 
@@ -61,7 +61,7 @@ To add a new activation file:
 
     :::image type="content" source="media/how-to-manage-individual-sensors/download-activation-file.png" alt-text="Download the activation file from the Defender for IoT hub.":::
 
-7. Sign in to the Defender for Iot sensor console.
+7. Sign in to the Defender for IoT sensor console.
 
 8. In the sensor console, select **System Settings** and then select **Reactivation**.
 
@@ -77,13 +77,13 @@ To add a new activation file:
 
 You will receive an error message if the activation file could not be uploaded. The following events may have occurred.
 
-**For locally connected sensors:** The activation file is not valid. If the file is not valid, go to the Defender for Iot portal, Sensor Management page. Select the sensor with the invalid file and download a new activation file.
+**For locally connected sensors:** The activation file is not valid. If the file is not valid, go to the Defender for IoT portal, Sensor Management page. Select the sensor with the invalid file and download a new activation file.
 
-**For cloud connected sensors:** The sensor cannot connect to the Internet. Check the sensor network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly in the Sensor Network Configuration screen. Verify that *.azure-devices.net:443 is allowed in the firewall, and, or proxy. If wildcards are not supported or you want more control, the specific Defender for Iot hub FQDN should be opened in your Firewall, and, or Proxy. For details see [https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-endpoints](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fiot-hub%2Fiot-hub-devguide-endpoints&data=02%7C01%7Cshhazam%40microsoft.com%7C54abec3c770244100bf008d85577bc05%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637353320025591548&sdata=Bt%2BcKHNkS8pPamoqnCLtx6m3P9%2BmR9U11M2sCrtDEm0%3D&reserved=0).  
+**For cloud connected sensors:** The sensor cannot connect to the Internet. Check the sensor network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly in the Sensor Network Configuration screen. Verify that *.azure-devices.net:443 is allowed in the firewall, and, or proxy. If wildcards are not supported or you want more control, the specific Defender for IoT hub FQDN should be opened in your Firewall, and, or Proxy. For details see [https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-endpoints](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fiot-hub%2Fiot-hub-devguide-endpoints&data=02%7C01%7Cshhazam%40microsoft.com%7C54abec3c770244100bf008d85577bc05%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637353320025591548&sdata=Bt%2BcKHNkS8pPamoqnCLtx6m3P9%2BmR9U11M2sCrtDEm0%3D&reserved=0).  
 
-- **For cloud connected sensors**: The activation file is valid but Defender for Iot rejected it.
+- **For cloud connected sensors**: The activation file is valid but Defender for IoT rejected it.
 
-If you cannot resolve this issue, you can download another activation from the Defender for Iot portal, Sensor Management page. If this does not work, contact support.
+If you cannot resolve this issue, you can download another activation from the Defender for IoT portal, Sensor Management page. If this does not work, contact support.
 
 ## Connect a sensor to the management console
 
@@ -258,11 +258,11 @@ The following procedure describes how to update a standalone sensor using the se
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
-2. Go to Defender for Iot.
+2. Go to Defender for IoT.
 
 3. Go to the **Updates** page.
 
-   :::image type="content" source="media/how-to-manage-individual-sensors/updates-page.png" alt-text="Screenshot of Updates page of Defender for Iot.":::
+   :::image type="content" source="media/how-to-manage-individual-sensors/updates-page.png" alt-text="Screenshot of Updates page of Defender for IoT.":::
 
 4. Select **Download** from the Sensors section and save the file.
 
@@ -272,13 +272,13 @@ The following procedure describes how to update a standalone sensor using the se
 
     :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane.png" alt-text="Screenshot of the upgrade pane.":::
 
-7. Select the file you downloaded from the Defender for Iot Updates page.
+7. Select the file you downloaded from the Defender for IoT Updates page.
 
 8. The update process starts, during which time the system is rebooted twice.
 
-9. After the first reboot (before the completion of the update process), the system opens with the sign-in window. After the sign-in, displays  at the bottom left of the sidebar:
+9. After the first reboot (before the completion of the update process), the system opens with the sign in window. After the sign in, displays  at the bottom left of the sidebar:
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after login.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after signing in.":::
 
 ## Adjust system properties
 
