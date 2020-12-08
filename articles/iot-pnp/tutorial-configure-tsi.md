@@ -109,9 +109,9 @@ In the Explorer, you see three instances:
 
 Next, you translate your DTDL device model to the asset model in Azure Time Series Insights. In Time Series Insights, the Time Series Model is a semantic modeling tool for data contextualization. The model has three core components:
 
-* [Time series model instances](../time-series-insights/concepts-model-overview.md#time-series-model-instances) are virtual representations of the time series themselves. Instances are uniquely identified by your Time Series ID.
-* [Time series model hierarchies](../time-series-insights/concepts-model-overview.md#time-series-model-hierarchies) organize instances by specifying property names and their relationships.
-* [Time series model types](../time-series-insights/concepts-model-overview.md#time-series-model-types) help you define [variables](../time-series-insights/concepts-variables.md) or formulas for computations. Types are associated with a specific instance.
+* [Time Series Model instances](../time-series-insights/concepts-model-overview.md#time-series-model-instances) are virtual representations of the time series themselves. Instances are uniquely identified by your Time Series ID.
+* [Time Series Model hierarchies](../time-series-insights/concepts-model-overview.md#time-series-model-hierarchies) organize instances by specifying property names and their relationships.
+* [Time Series Model types](../time-series-insights/concepts-model-overview.md#time-series-model-types) help you define [variables](../time-series-insights/concepts-variables.md) or formulas for computations. Types are associated with a specific instance.
 
 ### Define your types
 
@@ -127,7 +127,7 @@ The following details outline the simplest method to synchronize your device DTD
 * The variable name can be either the telemetry name or the display name.
 * When you define the Time Series Expression variable, refer to the telemetry's name on the wire and to the telemetry's data type.
 
-| DTDL JSON | Time series model type JSON | Example value |
+| DTDL JSON | Time Series Model type JSON | Example value |
 |-----------|------------------|-------------|
 | `@id` | `id` | `dtmi:com:example:TemperatureController;1` |
 | `displayName`    | `name`   |   `Temperature Controller`  |
@@ -223,6 +223,6 @@ Go back to the charting pane and expand **Device Fleet** > your device. Select *
 
 * To learn more about the various charting options, including interval sizing and y-axis controls, see [Azure Time Series Insights Explorer](../time-series-insights/concepts-ux-panels.md).
 
-* For an in-depth overview of your environment's Time Series Model, see [Time series model in Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md).
+* For an in-depth overview of your environment's Time Series Model, see [Time Series Model in Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md).
 
 * To dive into the query APIs and the Time Series Expression syntax, see [Azure Time Series Insights Gen2 Query APIs](/rest/api/time-series-insights/reference-query-apis).
