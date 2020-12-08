@@ -15,11 +15,11 @@ ms.author: alkohli
 
 During order processing, self-signed certificates are generated for accessing the local web UI and Blob storage for a Data Box or Data Box Heavy device. If you'd rather communicate with your device over a trusted channel, you can use your own certificates.
 
-The article desribes how to install your own certificates and how to revert to the default certificates before returning your device to the datacenter. It also gives a summary of certificate requirements.
+The article describes how to install your own certificates and how to revert to the default certificates before returning your device to the datacenter. It also gives a summary of certificate requirements.
 
 ## About certificates
 
-A certificate provides a link between a **public key** and an entity (such as domain name) that has been **signed** (verified) by a trusted third party (such as a **certificate authority**).  A certificate provides a convenient way of distributing trusted public encryption keys. In this way, certificates ensure that your communication is trusted and that you're sending encrypted information to the right server.
+A certificate provides a link between a **public key** and an entity (such as domain name) that has been **signed** (verified) by a trusted third party such as a **certificate authority**.  A certificate provides a convenient way of distributing trusted public encryption keys. In this way, certificates ensure your communication is trusted and you're sending encrypted information to the right server.
 
 When your Data Box device is initially configured, self-signed certificates are automatically generated. Optionally, you can bring your own certificates. There are guidelines that you need to follow if you plan to bring your own certificates.
 
@@ -89,7 +89,7 @@ To add your own certificate to your device, follow these steps:
 
    If you changed the local web UI certificate, you'll see the following error. This error will go away when you install the new certificate on the client computer.
 
-   ![Error after a new Local web UI certificate is added to a Data Box device](media/data-box-bring-your-own-certificates/certificates-unable-to-communicate-error.png)<!--View in build; then reduce size.-->
+   ![Error after a new Local web UI certificate is added to a Data Box device](media/data-box-bring-your-own-certificates/certificates-unable-to-communicate-error.png)
 
 6. Install the new certificate on the client computer you're using to access the local web UI. For instructions, see [Import certificates to client](#import-certificates-to-client), below.
 
@@ -105,7 +105,7 @@ To add your own certificate to your device, follow these steps:
 
 After you add a certificate to your Data Box device, you need to import the certificate to the client computer you use to access the device. You'll import the certificate to the Trusted Root Certificate Authority store for Local Machine.
 
-To import a certificate on a Windows client, follow thesegit stat steps:
+To import a certificate on a Windows client, follow these steps:
 
 1. In File Explorer, right-click the certificate file (with .cer format), and select **Install certificate**. This action starts the Certificate Import Wizard.
 
