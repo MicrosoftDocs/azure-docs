@@ -23,6 +23,7 @@ In this article, you learn how to register new data sources, manage collections 
 * Azure Synapse Analytics (formerly SQL DW)
 * Azure Cosmos DB
 * Power BI
+* Teradata (Preview)
 
 ## Register a new source
 

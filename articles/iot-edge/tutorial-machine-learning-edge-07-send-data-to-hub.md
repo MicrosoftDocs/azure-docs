@@ -232,10 +232,7 @@ If you plan to explore the resources used by this end-to-end tutorial, wait unti
 
 In this article, we used our development VM to simulate a leaf device sending sensor and operational data to our IoT Edge device. We validated that the modules on the device routed, classified, persisted, and uploaded the data by examining the real-time operation of the edge device and by looking at the files uploaded to the storage account.
 
-More information can be found at the following pages:
+To continue learning about IoT Edge capabilities, try this tutorial next:
 
 > [!div class="nextstepaction"]
-> [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md)
-
-> [!div class="nextstepaction"]
-> [Store data at the edge with Azure Blob Storage on IoT Edge (preview)](how-to-store-data-blob.md)
+> [Create a hierarchy of IoT Edge devices (Preview)](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)
