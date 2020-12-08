@@ -444,13 +444,13 @@ The workflow in this example uses this trigger and these actions:
 1. On the designer, select **Save**.
 
 > [!IMPORTANT]
-> If you want to use webhook-based triggers, such as the [built-in HTTP Webhook trigger or action](../connectors/connectors-native-webhook.md) 
-> and run them locally in Visual Studio Code, you need to [set up forwarding for the webhook callback URL](#webhook-setup) 
-> before you can run your workflow.
+> To locally run a workflow that uses a webhook-based trigger or actions, such as the 
+> [built-in HTTP Webhook trigger or action](../connectors/connectors-native-webhook.md), 
+> you must enable this capability by [setting up forwarding for the webhook's callback URL](#webhook-setup).
 
 <a name="webhook-setup"></a>
 
-## Set up callback URL forwarding for webhooks
+## Enable locally-running webhooks
 
 When you use a webhook-based trigger or action, such as **HTTP Webhook**, with a logic app running in Azure, the Logic Apps runtime subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, when you're working in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your localhost server, which is private so the service endpoint can't call this URL.
 
