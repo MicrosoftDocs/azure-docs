@@ -34,7 +34,7 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
 1. Select the database you want to use as the hub database for Data Sync.
 
-    ![Select from the database list, Microsoft Azure portal](./media/sql-data-sync-sql-server-configure/select-sql-database.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/select-sql-database.png" alt-text = "Select from the database list, Microsoft Azure portal":::
 
     > [!NOTE]
     > The hub database is a sync topology's central endpoint, in which a sync group has multiple database endpoints. All other member databases with endpoints in the sync group, sync with the hub database.
