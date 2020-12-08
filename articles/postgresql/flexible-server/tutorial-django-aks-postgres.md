@@ -308,6 +308,25 @@ Now open a web browser to the external IP address of your service view the Djang
 > - Currently the Django site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
 > - You can enable [HTTP routing](../../aks/http-application-routing.md) for your cluster.
 
+## Run database migrations
+
+Migrations can also be executed from the shell of a running container using the kubectl exec command. In order to run the migrations, we need to get the name of the running pod of interest by:
+
+```bash
+$ kubectl get pods
+```
+
+You will see an output like this
+```output
+NAME                             READY   STATUS          RESTARTS   AGE
+django-app-5d9cd6cd8-l6x4b     1/1     Running              0       2m
+```
+
+Once the pod name has been found you can run django database migrations using this command:
+```bash
+$ kubectl exec django-app-5d9cd6cd8-l6x4b -- python /app/manage.py migrate
+```
+
 ## Clean up the resources
 
 To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete) command to remove the resource group, container service, and all related resources.
