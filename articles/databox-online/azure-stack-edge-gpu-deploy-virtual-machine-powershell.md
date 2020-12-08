@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 12/08/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -22,7 +22,7 @@ This tutorial describes how to create and manage a VM on your Azure Stack Edge P
 
 The deployment workflow is illustrated in the following diagram.
 
-![VM deployment workflow](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
+![VM deployment workflow](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow_r.svg)
 
 ## Prerequisites
 
