@@ -58,6 +58,14 @@ Welcome to what's new in the Cognitive Services docs from November 1, 2020 throu
 - [Metrics Advisor frequently asked questions](/azure/cognitive-services/metrics-advisor/faq.md)
 - [Quickstart: Use the client libraries or REST APIs to customize your solution](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library.md)
 
+# QnA Maker 
+
+### New articles 
+
+* [QnAMaker managed public preview announcement](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575)
+* [Create a new QnAMaker managed service](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v2)
+* [Migrate your existing knowledge base to QnAMaker managed](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/migrate-knowledge-base)
+
 ## Text Analytics
 
 ### Updated articles
