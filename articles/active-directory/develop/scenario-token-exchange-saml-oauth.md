@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform token exchange scenarios with SAML and OAuth
-description: Learn about common token exchange scenarios when working with SAML and OAuth in the Microsoft identity platform.
+title: Microsoft identity platform token exchange scenarios with SAML and OIDC/OAuth
+description: Learn about common token exchange scenarios when working with SAML and OIDC/OAuth in the Microsoft identity platform.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -8,43 +8,24 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ---
 
-# Microsoft identity platform token exchange scenarios with SAML and OAuth
+# Microsoft identity platform token exchange scenarios with SAML and OIDC/OAuth
 
-DO A REVIEW LOOP WITH KYLE AND MATHIAS.
+SAML and OpenID Connect (OIDC) / OAuth are popular protocols used to implement Single Sign-On (SSO). Some apps might only implement SAML and others might only implement OIDC/OAuth. Both protocols use tokens to communicate secrets. To learn more about SAML, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md). To learn more about OIDC/OAuth, see [OAuth 2.0 and OpenID Connect protocols on Microsoft identity platform](active-directory-v2-protocols.md).
 
-SAML and OpenID Connect (OIDC) / OAuth are popular protocols used to implement Single Sign-On (SSO). Some apps might only implement SAML and others might only implement OIDC/OAuth. Both protocols use tokens to communicate secrets.
+This article outlines a common scenario where an app implements SAML but you need to call into the Graph API which uses OIDC/OAuth. Basic guidance is provided in order to provide direction for those working with this scenario.
 
-This article outlines common scenarios where you need to exchange tokens between SAML and OIDC/OAuth. Basic guidance is provided including what is supported, what is not supported, and what is possible though not recommended.
+## Scenario: You have a SAML token and want to call the Graph API
+Many apps are implemented with SAML. However, the Graph API uses the OIDC/OAuth protocols. It is possible, though not trivial, to add OIDC/OAuth functionality to a SAML app in order to work with the Graph API.
 
-## Scenario: You have a SAML token and want to call Graph using an OAuth token
+The general strategy is to add the OIDC/OAuth stack to your app. With your app that implements both standards you can use a session cookie. You are not exchanging a token explicitly. You are logging a user in with SAML which generates a session cookie. When the Graph API invokes an OAuth flow you use the session cookie to authenticate. This strategy assumes the Certificate Authority checks pass and the user is authorized. 
 
-Most people finding article are looking for a way to get at Graph with a SAML token.
-
-Is this scenario supported? Yes, but not simple, but doable with some caveats. You need to add OAuth stack into your app. Can do this with the right libraries. Might or might not be trivial. Assumption is that can be done (400 level stuff). Have to add in code to do the following...
-
-Main idea is that there is no explicit token exchange. Rely on the session cookie. Sign in using SAML and get SAML token. Also have a session cookie in the browser. If you can invoke an OAuth flow and when it comes to ask user for credentials you find the session and CA passes and user is authorized, etc... then use the session to issue the OAuth token. 
-
-There is a POC that calls endpoints directly. Couple people have worked on doing it with a library.
-
-By definition this is adding OAuth stack into the app. Have SAML and adding OAuth stack. Should use MSAL to do this.
-
-Can point to more extensive docs later on... 
-
-
-### AD FS (on premises based identity management) compared to Azure AD (cloud based identity management)
-
-Basic guidance on how to do it? Should we cover using AD FS vs. AAD and also ADAL vs. MSAL? Doesn't matter for this scenario. AD FS or AAD will provide the session cookie. Should work in both cases.
-
-### ADAL vs MSAL (version 1 compared to version 2 of identity library)
-Using ADAL library (often called v1 of Microsoft's identity library) compared to using MSAL (often called v2 of Microsoft's identity library). For more information about ADAL versus MSAL, see [Overview of Microsoft Authentication Library (MSAL)](msal-overview.md).
-
-Think you can do this scenario with either ADAL or MSAL. Just invoking the regular authorization code flows for OAuth and requesting a Graph token. Unless things have changed. We should probably push the MSAL version since we are moving away from ADAL. 
-
+> [!NOTE]
+> The recommended library for adding OIDC/OAuth behavior is the MicroSoft Authentication Library (MSAL). To learn more about MSAL, see [Overview of Microsoft Authentication Library (MSAL)](msal-overview.md). The previous library was called Active Directory Authentication Library (ADAL), however it is not recommended as MSAL is replacing it.
 
 
 ## Scenario: You have an OAuth token and you want to call into an app implemented with SAML
