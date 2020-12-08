@@ -60,8 +60,6 @@ Data Sync isn't the preferred solution for the following scenarios:
 | Migration from SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
-
-
 ## How it works
 
 - **Tracking data changes:** Data Sync tracks changes using insert, update, and delete triggers. The changes are recorded in a side table in the user database. Note that BULK INSERT doesn't fire triggers by default. If FIRE_TRIGGERS isn't specified, no insert triggers execute. Add the FIRE_TRIGGERS option so Data Sync can track those inserts. 
@@ -84,11 +82,11 @@ Before setting up private link, read the [general requirements](sql-data-sync-da
 ![Private link for Data Sync](./media/sql-data-sync-data-sql-server-sql-database/sync-private-link-overview.png)
 
 > [!NOTE]
-> You must manually approve the service managed private endpoint during the sync configuration process, within the “Private endpoint connections” section in the Azure Portal or through PowerShell.
+> You must manually approve the service managed private endpoint in the **Private endpoint connections** page of the Azure portal during the sync group deployment or by using PowerShell.
 
 ## Get started 
 
-### Set up Data Sync in the Azure Portal
+### Set up Data Sync in the Azure portal
 
 - [Set up Azure SQL Data Sync](sql-data-sync-sql-server-configure.md)
 - Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-data-sync-agent-overview.md)
@@ -131,7 +129,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 
 - Snapshot isolation must be enabled for both Sync members and hub. For more info, see [Snapshot Isolation in SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
-- In order to use private link with Data Sync, both the member and hub databases must be hosted in Azure (same or different regions), in the same cloud type (e.g. both in public cloud or both in government cloud). Additionally, to use private link, Microsoft.Network resource providers must be Registered for the subscriptions that host the hub and member servers. Lastly, you must manually approve the private link for Data Sync during the sync configuration, within the “Private endpoint connections” section in the Azure Portal or through PowerShell. Once you approve the service managed private endpoint, all communication between the sync service and the member/hub databases will happen over the private link. Existing sync groups can be updated to have this feature enabled.
+- In order to use private link with Data Sync, both the member and hub databases must be hosted in Azure (same or different regions), in the same cloud type (e.g. both in public cloud or both in government cloud). Additionally, to use private link, Microsoft.Network resource providers must be Registered for the subscriptions that host the hub and member servers. Lastly, you must manually approve the private link for Data Sync during the sync configuration, within the “Private endpoint connections” section in the Azure portal or through PowerShell. Once you approve the service managed private endpoint, all communication between the sync service and the member/hub databases will happen over the private link. Existing sync groups can be updated to have this feature enabled.
 
 ### General limitations
 
