@@ -17,7 +17,7 @@ Before you start, create a commercial marketplace account in [Partner Center](pa
 
 ## Before you begin
 
-Review [Plan a Dynamics 365 for Operations offer](marketplace-dynamics-365.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
+Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 
 ## Create a new offer
 

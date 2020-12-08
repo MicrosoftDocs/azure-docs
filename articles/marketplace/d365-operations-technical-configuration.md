@@ -22,7 +22,7 @@ Provide the solution identifier (GUID) for your solution. To find your solution 
 
 ## Release version
 
-Select the version of Dynamics 365 for Operations and Finance that this solution works with.
+Select the version of Dynamics 365 for Operations this solution works with.
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell partner engagement](marketplace-co-sell.md).
 
