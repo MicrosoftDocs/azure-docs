@@ -113,15 +113,15 @@ The following code example shows how to create a service client object with Azur
 
 ```csharp
 
-     public async Task SendSmsAsync(string resourceEndpoint)
+     public async Task SendSmsAsync(string resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
      {
           TokenCredential credential = new DefaultAzureCredential();
      
           SmsClient smsClient = new SmsClient(credential, resourceEndpoint);
           smsClient.Send(
-               from: new PhoneNumber("<leased-phone-number>"),
-               to: new PhoneNumber("<to-phone-number>"),
-               message: "Hello World via SMS",
+               from: from,
+               to: to,
+               message: message,
                new SendSmsOptions { EnableDeliveryReport = true } // optional
           );
      }
