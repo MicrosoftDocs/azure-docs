@@ -12,9 +12,9 @@ This article shows how the [Azure portal](https://portal.azure.com/) displays [B
 ## Register the BareMetalInfrastructure resource provider
 An Azure resource provider for BareMetal Instances provides visibility of the instances in the Azure portal, currently in public preview. By default, the Azure subscription you use for BareMetal Instance deployments registers the *BareMetalInfrastructure* resource provider. If you don't see your deployed BareMetal Instance units, you must register the resource provider with your subscription. There are two ways to register the BareMetal Instance resource provider:
  
-* Azure CLI
+* [Azure CLI](#azure-cli)
  
-* Azure portal
+* [Azure portal](#azure-portal)
  
 ### Azure CLI
  
@@ -164,3 +164,4 @@ You can submit support requests specifically for a BareMetal Instance unit.
 It takes up to five business days for a support representative to confirm your request.
 
 ## Next steps
+
