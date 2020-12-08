@@ -93,7 +93,7 @@ The sample application creates a queue and adds a message to it. The application
 
 ### Windows
 
-If you are using Visual Studio as your editor, you can press **F5** to run.
+If you are using Visual Studio as your editor, you can press `F5` to run.
 
 Otherwise, navigate to your application directory and run the application with the `dotnet run` command.
 

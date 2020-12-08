@@ -51,7 +51,7 @@ Create a Python application named `queues-quickstart-v12`.
     mkdir queues-quickstart-v12
     ```
 
-1. Switch to the newly created *queues-quickstart-v12* directory.
+1. Switch to the newly created `queues-quickstart-v12` directory.
 
     ```console
     cd queues-quickstart-v12
@@ -88,7 +88,7 @@ This command installs the Azure Queue Storage client library for Python package 
 
     ```
 
-1. Save the new file as *queues-quickstart-v12.py* in the *queues-quickstart-v12* directory.
+1. Save the new file as `queues-quickstart-v12.py` in the `queues-quickstart-v12` directory.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -263,7 +263,7 @@ Add this code to the end of the `try` block and save the file:
 
 This app creates and adds three messages to an Azure queue. The code lists the messages in the queue, then retrieves and deletes them, before finally deleting the queue.
 
-In your console window, navigate to the directory containing the *queues-quickstart-v12.py* file, then execute the following `python` command to run the app.
+In your console window, navigate to the directory containing the _queues-quickstart-v12.py_ file, then execute the following `python` command to run the app.
 
 ```console
 python queues-quickstart-v12.py
@@ -300,7 +300,7 @@ Done
 
 When the app pauses before receiving messages, check your storage account in the [Azure portal](https://portal.azure.com). Verify the messages are in the queue.
 
-Press the **Enter** key to receive and delete the messages. When prompted, press the **Enter** key again to delete the queue and finish the demo.
+Press the `Enter` key to receive and delete the messages. When prompted, press the `Enter` key again to delete the queue and finish the demo.
 
 ## Next steps
 

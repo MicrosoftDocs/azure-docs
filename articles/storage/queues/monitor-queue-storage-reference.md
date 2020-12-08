@@ -35,9 +35,9 @@ This table shows [Queue Storage metrics](../../azure-monitor/platform/metrics-su
 
 | Metric | Description |
 | ------------------- | ----------------- |
-| **QueueCapacity** | The amount of Queue Storage used by the storage account. <br/><br/> Unit: bytes <br/> Aggregation type: average <br/> Value example: 1024 |
-| **QueueCount** | The number of queues in the storage account. <br/><br/> Unit: Count <br/> Aggregation type: Average <br/> Value example: 1024 |
-| **QueueMessageCount** | The approximate number of queue messages in the storage account. <br/><br/> Unit: Count <br/> Aggregation type: Average <br/> Value example: 1024 |
+| **QueueCapacity** | The amount of Queue Storage used by the storage account. <br><br> Unit: bytes <br> Aggregation type: `Average` <br> Value example: `1024` |
+| **QueueCount** | The number of queues in the storage account. <br><br> Unit: Count <br> Aggregation type: `Average` <br> Value example: `1024` |
+| **QueueMessageCount** | The approximate number of queue messages in the storage account. <br><br> Unit: `Count` <br> Aggregation type: `Average` <br> Value example: `1024` |
 
 ### Transaction metrics
 

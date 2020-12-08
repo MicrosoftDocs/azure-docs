@@ -214,7 +214,7 @@ az monitor diagnostic-settings create --name <setting-name> --storage-account <s
 
 Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the queue. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
 
-You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **category** parameter.
+You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the `category` parameter.
 
 Here's an example:
 

@@ -45,7 +45,7 @@ This article organizes proven practices for performance into a checklist you can
 
 ## Scalability targets
 
-If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (`Server busy`) or 500 (`Operation timeout`) error codes. Avoiding these errors by staying within the limits of the scalability targets is an important part of enhancing your application's performance.
+If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (`Server Busy`) or 500 (`Operation Timeout`) error codes. Avoiding these errors by staying within the limits of the scalability targets is an important part of enhancing your application's performance.
 
 For more information about scalability targets for Queue Storage, see [Azure Storage scalability and performance targets](./scalability-targets.md#scale-targets-for-queue-storage).
 
@@ -150,13 +150,13 @@ Azure Storage returns an error when the service cannot process a request. Unders
 
 ### Timeout and Server Busy errors
 
-Azure Storage may throttle your application if it approaches the scalability limits. In some cases, Azure Storage may be unable to handle a request due to some transient condition. In both cases, the service may return a 503 (`Server busy`) or 500 (`Timeout`) error. These errors can also occur if the service is rebalancing data partitions to allow for higher throughput. The client application should typically retry the operation that causes one of these errors. However, if Azure Storage is throttling your application because it is exceeding scalability targets, or even if the service was unable to serve the request for some other reason, aggressive retries may make the problem worse. Using an exponential back off retry policy is recommended, and the client libraries default to this behavior. For example, your application may retry after 2 seconds, then 4 seconds, then 10 seconds, then 30 seconds, and then give up completely. In this way, your application significantly reduces its load on the service, rather than exacerbating behavior that could lead to throttling.
+Azure Storage may throttle your application if it approaches the scalability limits. In some cases, Azure Storage may be unable to handle a request due to some transient condition. In both cases, the service may return a 503 (`Server Busy`) or 500 (`Timeout`) error. These errors can also occur if the service is rebalancing data partitions to allow for higher throughput. The client application should typically retry the operation that causes one of these errors. However, if Azure Storage is throttling your application because it is exceeding scalability targets, or even if the service was unable to serve the request for some other reason, aggressive retries may make the problem worse. Using an exponential back off retry policy is recommended, and the client libraries default to this behavior. For example, your application may retry after 2 seconds, then 4 seconds, then 10 seconds, then 30 seconds, and then give up completely. In this way, your application significantly reduces its load on the service, rather than exacerbating behavior that could lead to throttling.
 
 Connectivity errors can be retried immediately, because they are not the result of throttling and are expected to be transient.
 
 ### Non-retryable errors
 
-The client libraries handle retries with an awareness of which errors can be retried and which cannot. However, if you are calling the Azure Storage REST API directly, there are some errors that you should not retry. For example, a 400 (`Bad request`) error indicates that the client application sent a request that could not be processed because it was not in the expected form. Resending this request results the same response every time, so there is no point in retrying it. If you are calling the Azure Storage REST API directly, be aware of potential errors and whether they should be retried.
+The client libraries handle retries with an awareness of which errors can be retried and which cannot. However, if you are calling the Azure Storage REST API directly, there are some errors that you should not retry. For example, a 400 (`Bad Request`) error indicates that the client application sent a request that could not be processed because it was not in the expected form. Resending this request results the same response every time, so there is no point in retrying it. If you are calling the Azure Storage REST API directly, be aware of potential errors and whether they should be retried.
 
 For more information on Azure Storage error codes, see [Status and error codes](/rest/api/storageservices/status-and-error-codes2).
 
@@ -170,7 +170,7 @@ Queue performance and scalability decrease as message size increases. Put only t
 
 ## Batch retrieval
 
-You can retrieve up to 32 messages from a queue in a single operation. Batch retrieval can reduce the number of roundtrips from the client application, which is especially useful for environments, such as mobile devices, with high latency.
+You can retrieve up to 32 messages from a queue in a single operation. Batch retrieval can reduce the number of round trips from the client application, which is especially useful for environments, such as mobile devices, with high latency.
 
 ## Queue polling interval
 

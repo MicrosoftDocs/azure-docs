@@ -31,7 +31,7 @@ First, verify that your development system meets the prerequisites listed in [Az
 
 To create a Java application named `queues-how-to-v12`:
 
-1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *queues-how-to-v12*. Type the following `mvn` command to create a "hello world" Java project.
+1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name `queues-how-to-v12`. Type the following `mvn` command to create a "hello world" Java project.
 
    ```bash
     mvn archetype:generate \
@@ -242,7 +242,7 @@ catch (Exception e)
 
 ## How to: Peek at the next message
 
-You can peek at the message in the front of a queue without removing it from the queue by calling **peekMessage**.
+You can peek at the message in the front of a queue without removing it from the queue by calling `peekMessage`.
 
 # [Java v12](#tab/java)
 

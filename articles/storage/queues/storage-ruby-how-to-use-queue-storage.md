@@ -70,7 +70,7 @@ The following code creates a `Azure::QueueService` object, which enables you to 
 azure_queue_service = Azure::QueueService.new
 ```
 
-Use the **create_queue()** method to create a queue with the specified name.
+Use the `create_queue()` method to create a queue with the specified name.
 
 ```ruby
 begin

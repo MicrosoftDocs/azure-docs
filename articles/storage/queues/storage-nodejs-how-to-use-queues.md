@@ -162,7 +162,7 @@ Change the contents of a message in-place in the queue by calling [`updateMessag
 
 # [JavaScript v2](#tab/javascript2)
 
-Change the contents of a message in-place in the queue by calling **updateMessage**.
+Change the contents of a message in-place in the queue by calling `updateMessage`.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -323,7 +323,7 @@ To clear all messages from a queue without deleting it, call [`ClearMessages`](/
 
 # [JavaScript v2](#tab/javascript2)
 
-To delete a queue and all the messages contained in it, call the **deleteQueue** method on the queue object.
+To delete a queue and all the messages contained in it, call the `deleteQueue` method on the queue object.
 
 ```javascript
 queueSvc.deleteQueue(queueName, function(error, response){
@@ -333,7 +333,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 });
 ```
 
-To clear all messages from a queue without deleting it, call **clearMessages**.
+To clear all messages from a queue without deleting it, call `clearMessages`.
 
 ---
 

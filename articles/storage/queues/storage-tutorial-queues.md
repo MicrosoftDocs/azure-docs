@@ -122,7 +122,7 @@ Create a .NET Core application named `QueueApp`. For simplicity, this app will b
 
 1. From the command line in the project directory, type `code .` to open Visual Studio Code in the current directory. Keep the command-line window open. There will be more commands to execute later. If you're prompted to add C# assets required to build and debug, click the **Yes** button.
 
-1. Open the **Program.cs** source file and add the following namespaces right after the `using System;` statement. This app uses types from these namespaces to connect to Azure Storage and work with queues.
+1. Open the _Program.cs_ source file and add the following namespaces right after the `using System;` statement. This app uses types from these namespaces to connect to Azure Storage and work with queues.
 
    # [\.NET v12](#tab/dotnet)
 
@@ -132,19 +132,19 @@ Create a .NET Core application named `QueueApp`. For simplicity, this app will b
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
-1. Save the **Program.cs** file.
+1. Save the _Program.cs_ file.
 
 ## Add support for asynchronous code
 
 Since the app uses cloud resources, the code runs asynchronously.
 
-1. Update the **Main** method to run asynchronously. Replace **void** with an **async Task** return value.
+1. Update the `Main` method to run asynchronously. Replace `void` with an `async Task` return value.
 
    ```csharp
    static async Task Main(string[] args)
    ```
 
-1. Save the **Program.cs** file.
+1. Save the _Program.cs_ file.
 
 ## Create a queue
 
@@ -168,7 +168,7 @@ Add the connection string into the app so it can access the storage account.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
 
-1. Add the following code to **Main** to create a queue object, which is later passed into the send and receive methods.
+1. Add the following code to `Main` to create a queue object, which is later passed into the send and receive methods.
 
    # [\.NET v12](#tab/dotnet)
 
@@ -184,7 +184,7 @@ Add the connection string into the app so it can access the storage account.
 
 Create a new method to send a message into the queue.
 
-1. Add the following `InsertMessageAsync` method to your **Program** class.
+1. Add the following `InsertMessageAsync` method to your `Program` class.
 
    # [\.NET v12](#tab/dotnet)
 
@@ -260,9 +260,9 @@ If there are any command-line arguments passed into the app, assume they're a me
 
 If there are no command-line arguments, attempt a retrieve operation. Call the `RetrieveNextMessageAsync` method to retrieve the next message in the queue.
 
-Finally, wait for user input before exiting by calling **Console.ReadLine**.
+Finally, wait for user input before exiting by calling `Console.ReadLine`.
 
-1. Expand the **Main** method to check for command-line arguments and wait for user input.
+1. Expand the `Main` method to check for command-line arguments and wait for user input.
 
    # [\.NET v12](#tab/dotnet)
 

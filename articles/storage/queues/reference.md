@@ -73,7 +73,7 @@ The following table lists reference and sample documentation for Azure Queue Sto
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Azure Queue Storage client library for JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Quickstart: Azure Queue Storage client library v12 for JavaScript](./storage-quickstart-queues-nodejs.md) |
-| 10.x | [@Azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Use Azure Queue Storage to create and delete queues from Node.js](./storage-nodejs-how-to-use-queues.md) |
+| 10.x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [Package (NPM)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Use Azure Queue Storage to create and delete queues from Node.js](./storage-nodejs-how-to-use-queues.md) |
 
 ## REST APIs
 

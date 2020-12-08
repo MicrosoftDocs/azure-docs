@@ -108,7 +108,7 @@ Create a Java application named `queues-quickstart-v12`.
     [INFO] ------------------------------------------------------------------------
     ```
 
-1. Switch to the newly created *queues-quickstart-v12* directory.
+1. Switch to the newly created `queues-quickstart-v12` directory.
 
    ```console
    cd queues-quickstart-v12
@@ -116,7 +116,7 @@ Create a Java application named `queues-quickstart-v12`.
 
 ### Install the package
 
-Open the *pom.xml* file in your text editor. Add the following dependency element to the group of dependencies.
+Open the _pom.xml_ file in your text editor. Add the following dependency element to the group of dependencies.
 
 ```xml
 <dependency>
@@ -130,8 +130,8 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 
 From the project directory:
 
-1. Navigate to the */src/main/java/com/queues/quickstart* directory
-1. Open the *App.java* file in your editor
+1. Navigate to the _/src/main/java/com/queues/quickstart_ directory
+1. Open the _App.java_ file in your editor
 1. Delete the `System.out.println("Hello, world");` statement
 1. Add `import` directives
 

@@ -261,7 +261,7 @@ catch(ServiceException $e){
 
 ## Change the contents of a queued message
 
-You can change the contents of a message in-place in the queue by calling `QueueRestProxy->updateMessage`. If the message represents a work task, you could use this feature to update the status of the work task. The following code updates the queue message with new contents, and it sets the visibility timeout to extend another 60 seconds. This saves the state of work that's associated with the message, and it gives the client another minute to continue working on the message. You could use this technique to track multistep workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure. Typically, you would keep a retry count as well, and if the message is retried more than *n* times, you would delete it. This protects against a message that triggers an application error each time it is processed.
+You can change the contents of a message in-place in the queue by calling `QueueRestProxy->updateMessage`. If the message represents a work task, you could use this feature to update the status of the work task. The following code updates the queue message with new contents, and it sets the visibility timeout to extend another 60 seconds. This saves the state of work that's associated with the message, and it gives the client another minute to continue working on the message. You could use this technique to track multistep workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure. Typically, you would keep a retry count as well, and if the message is retried more than _n_ times, you would delete it. This protects against a message that triggers an application error each time it is processed.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -307,7 +307,7 @@ catch(ServiceException $e){
 
 ## Additional options for dequeuing messages
 
-There are two ways that you can customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter visibility timeout, allowing your code more or less time to fully process each message. The following code example uses the **getMessages** method to get 16 messages in one call. Then it processes each message by using a **for** loop. It also sets the invisibility timeout to five minutes for each message.
+There are two ways that you can customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter visibility timeout, allowing your code more or less time to fully process each message. The following code example uses the `getMessages` method to get 16 messages in one call. Then it processes each message by using a `for` loop. It also sets the invisibility timeout to five minutes for each message.
 
 ```php
 require_once 'vendor/autoload.php';

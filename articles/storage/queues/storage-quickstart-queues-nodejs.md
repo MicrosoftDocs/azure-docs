@@ -51,13 +51,13 @@ Create a Node.js application named `queues-quickstart-v12`
     mkdir queues-quickstart-v12
     ```
 
-1. Switch to the newly created *queues-quickstart-v12* directory.
+1. Switch to the newly created _queues-quickstart-v12_ directory.
 
     ```console
     cd queues-quickstart-v12
     ```
 
-1. Create a new text file called *package.json*. This file defines the Node.js project. Save this file in the *queues-quickstart-v12* directory. Here are the contents of the file:
+1. Create a new text file called _package.json_. This file defines the Node.js project. Save this file in the _queues-quickstart-v12_ directory. Here are the contents of the file:
 
     ```json
     {
@@ -113,7 +113,7 @@ From the project directory:
 
     ```
 
-1. Save the new file as *queues-quickstart-v12.js* in the *queues-quickstart-v12* directory.
+1. Save the new file as `queues-quickstart-v12.js` in the `queues-quickstart-v12` directory.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -299,7 +299,7 @@ console.log("Queue deleted, requestId:", deleteQueueResponse.requestId);
 
 This app creates and adds three messages to an Azure queue. The code lists the messages in the queue, then retrieves and deletes them, before finally deleting the queue.
 
-In your console window, navigate to the directory containing the *queues-quickstart-v12.js* file, then execute the following `node` command to run the app.
+In your console window, navigate to the directory containing the _queues-quickstart-v12.js_ file, then execute the following `node` command to run the app.
 
 ```console
 node queues-quickstart-v12.js
