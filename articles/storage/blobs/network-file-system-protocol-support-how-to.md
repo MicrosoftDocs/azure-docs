@@ -71,11 +71,11 @@ To secure the data in your account, see these recommendations: [Network security
 
 To mount a container by using NFS 3.0, You must create a storage account **after** you register the feature with your subscription. You can't enable accounts that existed before you registered the feature. 
 
-In the preview release of this feature, NFS 3.0 protocol is supported in [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) or [general-purpose V2](../common/storage-account-overview.md#general-purpose-v2-accounts) accounts.
+In the preview release of this feature, NFS 3.0 protocol is supported in [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) and [general-purpose V2](../common/storage-account-overview.md#general-purpose-v2-accounts) accounts.
 
 As you configure the account, choose these values:
 
-|Setting | Premium Performance | Standard Performance  
+|Setting | Premium performance | Standard performance  
 |----|---|---|
 |Location|All available regions |One of the following regions: Australia East, Korea Central, and South Central US   
 |Performance|Premium| Standard
