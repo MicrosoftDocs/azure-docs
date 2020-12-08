@@ -43,7 +43,7 @@ We've released version 2.0.1 of the Windows Virtual Desktop cmdlets. This update
 
 ### Azure Advisor updates
 
-Azure Advisor now has a new recommendation for proximity guidance in Windows Virtual Desktop. Learn more at [the Azure website](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
+Azure Advisor now has a new recommendation for proximity guidance in Windows Virtual Desktop, and a new recommendation for optimizing performance in depth first load balanced host pools. Learn more at [the Azure website](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
 
 ## October 2020
 
