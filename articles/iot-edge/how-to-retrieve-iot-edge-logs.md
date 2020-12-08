@@ -27,7 +27,7 @@ While not required, for best compatibility with this feature, the recommended lo
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` should follow the [Syslog severity level format](https://wikipedia.org/wiki/Syslog#Severity_level) and `{Timestamp}` should be formatted as `yyyy-mm-dd hh:mm:ss.fff zzz`.
+`{Log Level}` should follow the [Syslog severity level format](https://wikipedia.org/wiki/Syslog#Severity_level) and `{Timestamp}` should be formatted as `yyyy-MM-dd hh:mm:ss.fff zzz`.
 
 The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) serves as a canonical implementation.
 

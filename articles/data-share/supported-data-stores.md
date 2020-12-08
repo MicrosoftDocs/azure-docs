@@ -5,7 +5,7 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 12/7/2020
 ---
 # Supported data stores in Azure Data Share
 
@@ -24,7 +24,7 @@ The below table details the supported data sources for Azure Data Share.
 | Azure Data Lake Storage Gen2 |✓ |✓ ||
 | Azure SQL Database |✓ | | |
 | Azure Synapse Analytics (formerly Azure SQL DW) |✓ | | |
-| Azure Synapse Analytics (workspace) SQL pool | Public Preview | | |
+| Azure Synapse Analytics (workspace) dedicated SQL pool |✓ | | |
 | Azure Data Explorer | | |✓ |
 
 ## Data store support matrix
@@ -33,14 +33,14 @@ Azure Data Share offers data consumers flexibility when deciding on a data store
 
 The below table details different combinations and choices that data consumers have when accepting and configuring their data share. For more information on how to configure dataset mappings, see [how to configure dataset mappings](how-to-configure-mapping.md).
 
-| Data store | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics (formerly Azure SQL DW) | Azure Synapse Analytics (workspace) SQL pool | Azure Data Explorer
+| Data store | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics (formerly Azure SQL DW) | Azure Synapse Analytics (workspace) dedicated SQL pool | Azure Data Explorer
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- | :--- |
 | Azure Blob storage | ✓ || ✓ |||
 | Azure Data Lake Storage Gen1 | ✓ | | ✓ |||
 | Azure Data Lake Storage Gen2 | ✓ | | ✓ |||
 | Azure SQL Database | ✓ | | ✓ | ✓ | ✓ | ✓ ||
 | Azure Synapse Analytics (formerly Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Azure Synapse Analytics (workspace) SQL pool | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Azure Synapse Analytics (workspace) dedicated SQL pool | ✓ | | ✓ | ✓ | ✓ | ✓ ||
 | Azure Data Explorer ||||||| ✓ |
 
 ## Share from a storage account
