@@ -16,7 +16,6 @@ ms.author: alkohli
 
 This article describes the supported sizes for the virtual machines running on your Azure Stack Edge Pro devices. Use this article before you deploy virtual machines on your Azure Stack Edge Pro devices.
 
-
 ## Supported VM sizes
 
 [!INCLUDE [azure-stack-edge-gateway-supported-vm-sizes](../../includes/azure-stack-edge-gateway-supported-vm-sizes.md)]
