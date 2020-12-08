@@ -673,9 +673,9 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
 <a name="return-response"></a>
 
-## Return a response to the caller
+## Return a response
 
-To return a response back to the caller that sent a request to your logic app, you can use the built-in [Response action](../connectors/connectors-native-reqres.md) for a workflow that starts with the Request trigger.
+To return a response to the caller that sent a request to your logic app, you can use the built-in [Response action](../connectors/connectors-native-reqres.md) for a workflow that starts with the Request trigger.
 
 1. On the workflow designer, under the **Send an email** action, select **New step**.
 
@@ -893,11 +893,29 @@ You can publish your logic app as a new resource, which automatically creates an
 
 Next, you can learn how to perform these tasks:
 
+* [Add a blank workflow to your project](#add-workflow-existing-project).
+
 * [Manage deployed logic apps in Visual Studio Code](#manage-deployed-apps-vs-code) or by using the [Azure portal](#manage-deployed-apps-portal).
 
 * [Enable run history on stateless workflows](#enable-run-history-stateless).
 
 * [Enable monitoring view in the Azure portal for a deployed logic app](#enable-monitoring).
+
+<a name="add-workflow-existing project"></a>
+
+## Add another blank workflow to project
+
+To add a blank workflow to your project, follow these steps:
+
+1. On the Visual Studio Code Activity Bar, select the Azure icon.
+
+1. In the Azure pane, next to **Azure: Logic Apps (Preview)**, select **Create Workflow** (icon for Azure Logic Apps).
+
+1. Select the workflow type that you want to add, **Stateful** or **Stateless**.
+
+1. Provide a name for your workflow.
+
+When you're done, a new workflow folder appears in your project along with a **workflow.json** file for the workflow definition.
 
 <a name="manage-deployed-apps-vs-code"></a>
 
@@ -968,20 +986,6 @@ In the Azure portal, you can view all the deployed logic apps that are in your A
    The workflow designer opens and shows the workflow that you built in Visual Studio Code. You can now make changes to this workflow in the Azure portal.
 
    ![Screenshot that shows the workflow designer and workflow deployed from Visual Studio Code.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-workflow-designer.png)
-
-<a name="add-workflow-existing project"></a>
-
-To add a blank workflow to your project, follow these steps:
-
-1. On the Visual Studio Code Activity Bar, select the Azure icon.
-
-1. In the Azure pane, next to **Azure: Logic Apps (Preview)**, select **Create Workflow** (icon for Azure Logic Apps).
-
-1. Select the workflow type that you want to add, **Stateful** or **Stateless**.
-
-1. Provide a name for your workflow.
-
-When you're done, a new workflow folder appears in your project along with a **workflow.json** file for the workflow definition.
 
 <a name="add-workflow-portal"></a>
 
