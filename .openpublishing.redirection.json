@@ -54662,7 +54662,7 @@
     },
     {
       "source_path": "articles/cognitive-services/Face/QuickStarts/PHP.md",
-      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/php/Face/rest/detect.php",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/php/face/rest/detect.php",
       "redirect_document_id": false
     },
     {
@@ -54672,7 +54672,7 @@
     },
     {
       "source_path": "articles/cognitive-services/Face/QuickStarts/Ruby.md",
-      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/ruby/Face/rest/detect.rb",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/ruby/face/rest/detect.rb",
       "redirect_document_id": false
     },
     {
