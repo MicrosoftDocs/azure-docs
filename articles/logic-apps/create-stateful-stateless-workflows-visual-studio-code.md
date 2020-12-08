@@ -505,7 +505,7 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
 
 The first time that you start a local debugging session or run the workflow without debugging, the Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the subscription registration already exists in local storage.
 
-When you stop the debugging session for a workflow run that uses locally-run webhook-based triggers or actions, the existing subscription registrations aren't deleted. So, you might have to manually remove these subscription registrations.
+When you stop the debugging session for a workflow run that uses locally-run webhook-based triggers or actions, the existing subscription registrations aren't deleted. To unregister, you have to manually remove or delete the subscription registrations.
 
 > [!NOTE]
 > After your workflow starts running, the terminal window might show errors like this example:
