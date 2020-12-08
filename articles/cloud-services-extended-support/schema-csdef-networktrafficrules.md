@@ -72,7 +72,7 @@ The `RoleEndpoint` element describes an endpoint on a role to allow communicatio
 | `endpointName` | `string` | Required. The name of the endpoint to allow traffic to.|
 | `roleName`     | `string` | Required. The name of the web role to allow communication to.|
 
-## AllowAllTraffic element
+## <a name="AllowAllTraffic"></a> AllowAllTraffic element
 The `AllowAllTraffic` element is a rule that allows all roles to communicate with the endpoints defined in the `Destinations` node.
 
 ##  <a name="WhenSource"></a> WhenSource element
