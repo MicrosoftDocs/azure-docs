@@ -94,7 +94,7 @@ This interface can be accessed using an OPC UA client application, for example [
 
 **Please note: This feature is only available in version 2.5 and below of OPC Publisher.**
 
-OPC Publisher implements the following [IoT Hub Direct Methods](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-direct-methods) which can be called from an application (from anywhere in the world) leveraging the [IoT Hub Device SDK](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks):
+OPC Publisher implements the following [IoT Hub Direct Methods](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods) which can be called from an application (from anywhere in the world) leveraging the [IoT Hub Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks):
 
   - PublishNodes
   - UnpublishNodes

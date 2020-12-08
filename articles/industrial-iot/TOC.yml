@@ -14,7 +14,7 @@
   - name: OPC Publisher standalone tutorials
     items:
     - name: Deploy OPC publisher standalone mode
-      href: tut-publisher-deploy-OPC-Publisher.md
+      href: tut-publisher-deploy-OPC-Publisher-standalone.md
     - name: Configure OPC Publisher
       href: tut-publisher-configure-OPC-Publisher.md
     - name: Performance and Memory Tuning of the OPC Publisher

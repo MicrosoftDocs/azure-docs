@@ -8,26 +8,31 @@ ms.topic: reference
 ms.date: 12/08/2020
 ---
 
-### OPC Publisher Command Line Arguments for Version 2.5 and below
+# Command Line Arguments
 
-        Usage: opcpublisher.exe <applicationname> [<iothubconnectionstring>] [<options>]
+## OPC Publisher Command Line Arguments for Version 2.5 and below
+
+* Usage: opcpublisher.exe <applicationname> [<iothubconnectionstring>] [<options>]
     
-        applicationname: the OPC UA application name to use, required
+* applicationname: the OPC UA application name to use, required
                          The application name is also used to register the publisher under this name in the
-                         IoTHub device registry.
+                         IoT Hub device registry.
     
-        iothubconnectionstring: the IoTHub owner connectionstring, optional. Typically you specify the IoTHub owner connectionstring only on the first start of the application. The connection string is encrypted and stored in the platforms certificiate store.
-    	On subsequent calls it is read from there and reused. If you specify the connectionstring on each start, the device which is created for the application in the IoTHub device registry is removed and recreated each time.
+* iothubconnectionstring: the IoT Hub owner connectionstring, optional. Typically you specify the IoTHub owner connectionstring only on the first start of the application. The connection string is encrypted and stored in the platforms certificiate store.
+On subsequent calls it is read from there and reused. If you specify the connectionstring on each start, the device which is created for the application in the IoT Hub device registry is removed and recreated each time.
     
-        There are a couple of environment variables which can be used to control the application:
+There are a couple of environment variables which can be used to control the application:
+```
         _HUB_CS: sets the IoTHub owner connectionstring
         _GW_LOGP: sets the filename of the log file to use
         _TPC_SP: sets the path to store certificates of trusted stations
         _GW_PNFP: sets the filename of the publishing configuration file
+```
+
+> [!NOTE] 
+> Command line arguments overrule environment variable settings.
     
-        Command line arguments overrule environment variable settings.
-    
-        Options:
+```
               --pf, --publishfile=VALUE
                                        the filename to configure the nodes to publish.
                                        Default: '/appdata/publishednodes.json'
@@ -319,11 +324,11 @@ ms.date: 12/08/2020
                                        ignored.
                                        the trusted issuer cert store always
                                        resides in a directory.
+```
 
 
-
-### OPC Publisher Command Line Arguments for Version 2.6 and above
-
+## OPC Publisher Command Line Arguments for Version 2.6 and above
+```
              --pf, --publishfile=VALUE
                                        the filename to configure the nodes  to publish.
                                        If this Option is specified it puts OPC Publisher into stadalone  mode.
@@ -382,5 +387,5 @@ ms.date: 12/08/2020
                                        the publisher certificate is put into the  trusted store automatically.
              --at, --appcertstoretype=VALUE
                                        the own application cert store type  (allowed: Directory, X509Store).
-
+```
  
