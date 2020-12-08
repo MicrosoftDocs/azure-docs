@@ -1,7 +1,7 @@
 ---
 title: "Image classification tutorial: Train models"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to train an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part one of two. 
+description: Use Azure Machine Learning to train an image classification model with scikit-learn in a Python Jupyter Notebook. This tutorial is part one of two. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,13 +11,13 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
+#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
 # Tutorial: Train image classification models with MNIST data and scikit-learn 
 
 
-In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
+In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning in a Python Jupyter Notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
 This tutorial trains a simple logistic regression by using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](https://scikit-learn.org) with Azure Machine Learning. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28 x 28 pixels, representing a number from zero to nine. The goal is to create a multi-class classifier to identify the digit a given image represents.
 
@@ -51,7 +51,7 @@ The tutorial and accompanying **utils.py** file is also available on [GitHub](ht
 > [!Important]
 > The rest of this article contains the same content as you see in the notebook.  
 >
-> Switch to the Jupyter notebook now if you want to read along as you run the code. 
+> Switch to the Jupyter Notebook now if you want to read along as you run the code. 
 > To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
 ## <a name="start"></a>Set up your development environment
