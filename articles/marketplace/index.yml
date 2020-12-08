@@ -78,16 +78,16 @@ landingContent:
       links:
       - text: SaaS offers
         url: plan-saas-offer.md
-      - text: Virtual machines offers
+      - text: Virtual machine offers
         url: ./marketplace-virtual-machines.md
       - text: Azure application offers
         url: ./create-new-azure-apps-offer.md
-      - text: Dynamics 365 for Customer Engagement & PowerApps offers
+      - text: Dynamics 365 for Operations
+        url: ./d365-operations-offer-setup.md
+      - text: Dynamics 365 for Customer Engagement & PowerApps
         url: ./partner-center-portal/create-new-customer-engagement-offer.md
-      - text: Dynamics 365 Business Central offers
+      - text: Dynamics 365 for Business Central
         url: ./partner-center-portal/create-new-business-central-offer.md
-      - text: Dynamics 365 for Operations offers
-        url: ./d365-operations-create.md
       - text: More offer types
         url: ./publisher-guide-by-offer-type.md
 

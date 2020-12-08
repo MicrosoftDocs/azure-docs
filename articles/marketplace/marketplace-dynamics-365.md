@@ -13,7 +13,7 @@ ms.date: 12/04/2020
 
 This article explains the different options and features of a Dynamics 365 offer in Microsoft AppSource in the commercial marketplace. AppSource includes offers that build on or extend Microsoft 365, Dynamics 365, PowerApps, and Power BI. AppSource allows paid (*Get It Now*), list (*Contact Me*), and trial (*Try It Now*) offers.
 
-Before you start, [Create a commercial marketplace account in Partner Center](./partner-center-portal/create-account.md) and ensure your account is enrolled in the commercial marketplace program.
+Before you start, create a commercial marketplace account in [Partner Center](./partner-center-portal/create-account.md) and ensure it is enrolled in the commercial marketplace program.
 
 Also, learn how to [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).<font color="red">[ keep? ]</font>
 

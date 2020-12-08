@@ -188,19 +188,19 @@
       - name: Create a Dynamics 365 for Operations offer
         items: 
         - name: Create the offer
-          href: d365-operations-create.md
+          href: d365-operations-offer-setup.md
         - name: Set properties
-          href: d365-operations-create-properties.md
+          href: d365-operations-properties.md
         - name: Set up the offer listing
-          href: d365-operations-create-listing.md
+          href: d365-operations-offer-listing.md
         - name: Set the availability
-          href: d365-operations-create-availability.md
+          href: d365-operations-availability.md
         - name: Set up technical configuration
-          href: d365-operations-create-technical-configuration.md
+          href: d365-operations-technical-configuration.md
         - name: Set up supplemental content
-          href: d365-operations-create-supplemental-content.md
+          href: d365-operations-supplemental-content.md
         - name: Functional validation
-          href: d365-create-operations-validation.md
+          href: d365-operations-validation.md
       - name: Create a Dynamics 365 Business Central offer
         href: partner-center-portal/create-new-business-central-offer.md
   - name: IoT Edge module offers
