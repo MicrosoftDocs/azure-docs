@@ -97,11 +97,11 @@ Storage auto-grow is not yet available for Azure Database for MySQL Flexible Ser
 
 Azure Database for MySQL – Flexible Server now supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can also increase or decrease the number of IOPS based on your workload requirements at any time. 
 
-The minimum effective IOPS is 100 across all compute sizes and the max IOPS is determined by the selected compute size. In preview, the max effective IOPS supported is 20,000 IOPS.
+The minimum IOPS is 100 across all compute sizes and the maximum IOPS is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
 
-To learn more about the max IOPS per compute size is shown below: 
+To learn more about the maximum IOPS per compute size is shown below: 
 
-| Compute size         | Max effective IOPS  | 
+| Compute size         | Maximum IOPS        | 
 |----------------------|---------------------|
 | **Burstable**        |                     |
 | Standard_B1s         | 320                 |
@@ -125,6 +125,11 @@ To learn more about the max IOPS per compute size is shown below:
 | Standard_E64ds_v4    | 20000               |  
 
 The maximum IOPS is dependent on the maximum available IOPS per compute size. Refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation.
+
+> [!Important]
+> **Complimentary IOPS** are equal to MINIMUM("Max uncached disk throughput: IOPS/MBps" of compute size, storage provisioned in GiB * 3)<br>
+> **Minimum IOPS** is 100 across all compute sizes<br>
+> **Maximum IOPS** is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
 
 You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS then the max IOPS based on compute then you need to scale your server's compute.
 
