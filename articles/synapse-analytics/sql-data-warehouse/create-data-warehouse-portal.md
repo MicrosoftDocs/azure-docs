@@ -40,7 +40,7 @@ Follow these steps to create a dedicated SQL pool (formerly SQL DW) that contain
 
    ![create a resource in Azure portal](./media/create-data-warehouse-portal/create-a-resource.png)
 
-2. In the search bar type "dedicated SQL pool (formerly SQL DW)". Select **Create** on the page that opens.
+2. In the search bar type "dedicated SQL pool" select dedicated SQL pool (formerly SQL DW). Select **Create** on the page that opens.
 
    ![create empty data warehouse](./media/create-data-warehouse-portal/create-a-data-warehouse.png)
 
