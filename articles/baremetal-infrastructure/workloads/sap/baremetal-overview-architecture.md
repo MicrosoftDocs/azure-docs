@@ -39,3 +39,4 @@ Microsoft is responsible for:
 [image]
 
 ## Compute
+BareMetal Infrastructure offers multiple SKUs certified for the specialized workload. We have a range of SKUs available from the smaller two-socket system going up-to 24 socket system. Use the workload-specific certified SKUs for your specialized workload.
