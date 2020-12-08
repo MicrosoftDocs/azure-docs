@@ -34,9 +34,9 @@ The certificates must meet the following requirements:
 
 - The endpoint certificate needs to be in `.pfx` format with a private key that can be exported.
 - You can use an individual certificate for each endpoint, a multidomain certificate for multiple endpoints, or a wildcard endpoint certificate.
-- The properties of an endpoint certificate are similar to those of a typical SSL certificate.
+- The properties of an endpoint certificate are similar to the properties of a typical SSL certificate.
 - A corresponding certificate in DER format (`.cer` filename extension) is required on the client machine.
-- After you upload the local UI certificate, you'll need to restart the browser adn clear the cache. Refer to specific instructions for your browser.
+- After you upload the local UI certificate, you'll need to restart the browser and clear the cache. Refer to specific instructions for your browser.
 - The certificates must be changed if the device name or the DNS domain name changes.
 - Use the following table when creating endpoint certificates:
 
@@ -79,7 +79,7 @@ To add your own certificate to your device, follow these steps:
 
    ![Settings for adding a Blob endpoint certificate to a Data Box](media/data-box-bring-your-own-certificates/certificates-add-blob-cert.png)
 
-   After the certificate isgit  successfully added, the **Certificates** screen shows the thumbprint for the new certificate. The certificate's status is **Valid**.
+   After the certificate is successfully added, the **Certificates** screen shows the thumbprint for the new certificate. The certificate's status is **Valid**.
 
    ![A valid new certificate that's been successfully added](media/data-box-bring-your-own-certificates/certificates-view-new-certificate.png)
 
@@ -105,7 +105,7 @@ To add your own certificate to your device, follow these steps:
 
 After you add a certificate to your Data Box device, you need to import the certificate to the client computer you use to access the device. You'll import the certificate to the Trusted Root Certificate Authority store for Local Machine.
 
-To import a certificate on a Windows client, follow these steps:
+To import a certificate on a Windows client, follow thesegit stat steps:
 
 1. In File Explorer, right-click the certificate file (with .cer format), and select **Install certificate**. This action starts the Certificate Import Wizard.
 
