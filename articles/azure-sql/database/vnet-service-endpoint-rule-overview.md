@@ -46,8 +46,8 @@ Each virtual network rule applies to your whole server, not just to one particul
 
 There is a separation of security roles in the administration of Virtual Network service endpoints. Action is required from each of the following roles:
 
-- **Network Admin:** &nbsp; Turn on the endpoint.
-- **Database Admin:** &nbsp; Update the access control list (ACL) to add the given subnet to the server.
+- **Network Admin ([Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor) role):** &nbsp; Turn on the endpoint.
+- **Database Admin ([SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role):** &nbsp; Update the access control list (ACL) to add the given subnet to the server.
 
 *Azure RBAC alternative:*
 
