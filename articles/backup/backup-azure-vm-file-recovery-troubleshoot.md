@@ -27,7 +27,7 @@ Recommended action: The script is invalid after 12 hours from the time it was do
 
 ## Troubleshooting common issues
 
-This section provides steps to troublshoot issues encountered while downloading and executing the script for file recovery.
+This section provides steps to troubleshoot issues encountered while downloading and executing the script for file recovery.
 
 ## Cannot download the script
 
@@ -71,8 +71,8 @@ Ensure you have the [right machine to run the script](https://docs.microsoft.com
 
 ### On Windows VM
 
-**Storage pool on VM gets attached in read only mode**<br>
-For Windows 2012 R2 and Windows 2016(with storage pool), while running the script for the first time, the storage pool attached to the VM may go into read only state.<br>
+**Storage pool on VM gets attached in read-only mode**<br>
+For Windows 2012 R2 and Windows 2016(with storage pool), while running the script for the first time, the storage pool attached to the VM may go into read-only state.<br>
 
 To resolve this issue, we need to manually set the Read-Write Access to the storage pool for the first time and attach the virtual disks, follow the steps below:<br>
 
@@ -87,7 +87,7 @@ Step 1: Set Read-Write Access<br>
 ![Windows Storage Read Write](./media/backup-azure-restore-files-from-vm/Windows-Storage-Read-Write-2.png)
 
 Step 2: Attach the virtual disk <br>
-After storage pool is assigned with read/write access, we need to attach the virtual disk. To attach virtual disk follow the steps listed below:
+After storage pool is assigned with read/write access, we need to attach the virtual disk. To attach virtual disk, follow the steps listed below:
 
 - In the **Server Manager UI** under the Virtual Disks section, right-click to select **Attach Virtual Disk** option.<br>
 
@@ -97,7 +97,7 @@ After storage pool is assigned with read/write access, we need to attach the vir
 
 #### File recovery fails to auto mount because disk does not contain volumes** <br>
 
-While performing file recovery, the backup service detects volumes and auto mounts. However, if the backed up disks have raw partitions then those disks are not auto-mounted and we are unable to see the data disk for recovery.
+While performing file recovery, the backup service detects volumes and auto mounts. However, if the backedup disks have raw partitions then those disks are not auto-mounted and we are unable to see the data disk for recovery.
 
 To solve this issue, follow the steps documented in this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms)
  
@@ -106,14 +106,14 @@ To solve this issue, follow the steps documented in this [article](https://docs.
 While running the File recovery script data disk failed to attach with the below error: <br>
 *The following partitions failed to mount since the OS couldn't identify the filesystem*
 
-- To resolve this issue, check if the Volume is encrypted with a third party application. If encrypted, then the disk/VM wont show up as encrypted on the portal
-- Login to the backed up VM and run the command:<br>
+- To resolve this issue, check if the Volume is encrypted with a third party application. If encrypted, then the disk or VM wont show up as encrypted on the portal
+- Login to the backedup VM and run the command:<br>
 *lsblk -f*<br>
 
 ![Disk without volume](./media/backup-azure-restore-files-from-vm/Disk-without-volume-5.png)
 
 - Verify the filesystem and encryption
-- If the volume is encrypted then file recovery is not supported. [Learn more](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore)
+- If the volume is encrypted, then file recovery is not supported. [Learn more](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore)
 
 ## Disks are attached, but unable to mount volumes
 
@@ -121,14 +121,14 @@ While running the File recovery script data disk failed to attach with the below
 
 ### On windows VM
 
-While running the file recovery script for windows there is a message that ***0 volumes are attached***, but the disks get discovered in disk management console. While attaching volumes through iSCSI, some volumes which get detected go to offline state. When the iSCSI channel communicates between the VM and service, it detects these volumes and bring them online, but they are not mounted
+While running the file recovery script for windows there is a message that ***0 volumes are attached***, but the disks get discovered in disk management console. While attaching volumes through iSCSI, some volumes that get detected go to offline state. When the iSCSI channel communicates between the VM and service, it detects these volumes and bring them online, but they are not mounted
 
 ![Disk not attached](./media/backup-azure-restore-files-from-vm/Disk-Not-attached-6.png)
 
-To identify and resolve this issue perform the following steps:
+To identify and resolve this issue, perform the following steps:
 
 - Go to **Disk Management** by running **diskmgmt** command in cmd window
-- Check whether any additional disks are displayed. In the below example Disk 2 is additional disk.
+- Check whether any additional disks are displayed. In the below example, Disk 2 is an additional disk.
 
 ![Disk management](./media/backup-azure-restore-files-from-vm/Disk-Management-7.PNG)
 
@@ -140,7 +140,7 @@ To identify and resolve this issue perform the following steps:
 
 ![Disk management2](./media/backup-azure-restore-files-from-vm/Disk-Management-9.png)
 
-- From the File explorer you can view the Drive  
+- From the File explorer, you can view the Drive  
 
 ![Disk management3](./media/backup-azure-restore-files-from-vm/Disk-Management-10.png)
 
@@ -148,7 +148,7 @@ The new volumes should get attached.  
 
 ![Disk not mountiing](./media/backup-azure-restore-files-from-vm/Disk-not-mounting-11.png)
 
-In the file explorer the new volumes will be visible after re-running the script.
+In the file explorer, the new volumes will be visible after rerunning the script.
 
 ![Disk not mounting1](./media/backup-azure-restore-files-from-vm/Disk-Not-Mounting-12.png)
 
@@ -157,8 +157,8 @@ In the file explorer the new volumes will be visible after re-running the script
 #### On Linux VMs 
 
 - Ensure you have the [right machine to run the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)
-- If the protected Linux VM uses LVM and/or RAID Arrays then, follow the steps listed in this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms)
+- If the protected Linux VM uses LVM and/or RAID Arrays, then follow the steps listed in this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms)    
 
 ## Cannot copy the files from mounted Volumes
 
-The copy might fail with an error 0x80070780: The file cannot be accessed by the system. In this case, check if the source server has disk deduplication enabled. Then ensure the restore server also have deduplication enabled on the drives. You can leave the deduplication role unconfigured so that you do not deduplicate the drives on the restore server.
+The copy might fail with an error 0x80070780: The file cannot be accessed by the system. In this case, check if the source server has disk deduplication enabled. Then ensure the restore server also has deduplication enabled on the drives. You can leave the deduplication role unconfigured so that you do not deduplicate the drives on the restore server.
