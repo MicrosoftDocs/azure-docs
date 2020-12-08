@@ -52,7 +52,7 @@ There are no changes to the design, architecture or components of the role insta
 ### How will guest os updates change?
  There are no changes to the rollout method. Cloud Services (classic) and Cloud Services (extended support) will get the same updates.
  
-### Doess Cloud Services (extended support) support stopped-allocated and stopped-deallocated states?
+### Does Cloud Services (extended support) support stopped-allocated and stopped-deallocated states?
 
 Cloud Services (extended support) deployment only supports the Stopped- Allocated state which appears as "stopped" in the Azure portal. Stopped- Deallocated state is not supported. 
 
