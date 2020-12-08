@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/troubleshooting/os-disk-full-linux.md",
+      "redirect_url": "https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/boot-error-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/download-template.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/download-template",
       "redirect_document_id": false
