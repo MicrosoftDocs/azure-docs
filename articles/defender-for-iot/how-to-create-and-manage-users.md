@@ -4,14 +4,14 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/03/2020
+ms.date: 12/08/2020
 ms.topic: article
 ms.service: azure
 ---
 
 # About Defender for IoT console users
 
-This article describes how to create and manage sensor and on-premises management console users. Users can be assigned the role of either an Administrator, Security Analyst or Read Only user. Each role is associated with a range of permissions to sensor and on-premises management console tools. Roles are designed to facilitate granular, secure access to Defender for IoT.
+This article describes how to create and manage sensor and on-premises management console users. Users can be assigned the role of an Administrator, Security Analyst or Read Only user. Each role is associated with a range of permissions to sensor and on-premises management console tools. Roles are designed to facilitate granular, secure access to Defender for IoT.
 
 Features also available to track user activity and enable Active Directory sign in.
 
@@ -20,11 +20,12 @@ By default, each sensor and on-premises management console are installed with a 
 ## Role-based permissions
  The following user role are available:
 
-- **Read only** – Read Only users perform tasks such as viewing alerts and devices on the Device map. These users have access to options displayed on the **Navigation** pages.
+- **Read only** – Read Only users perform tasks such as viewing alerts and devices on the Device map. These users have access to options displayed under **Navigation**.
 
-- **Security analyst** – The security analyst has the permissions of the RO user and can also perform actions on devices, investigate and acknowledge alerts, use the investigation features. Security analysts can see the **Navigation** and **Analysis** sections.
+- **Security analyst** – Security Analysts have Read Only user permissions and can also perform actions on devices, acknowledge alerts, and use investigation tools. These users have access to options displayed under **Navigation** and **Analysis** windows.
 
-- **Administrator** – The administrator has all the permissions of the RO and the security analyst and can also manage the system configuration, create, and delete users and create notifications. Administrators can see the **Navigation, Analysis**, and **Administration** sections.
+- **Administrator** – Administrators have access to all tools, including defining system configurations, creating and managing users, and more. These users have access to options displayed under **Navigation, Analysis**, and **Administration**.
+
 ### Role-based permissions to on-premises management console tools
 
 This section describes permissions available to on-premises management console Administrators, Security analysts and Read only users.  
@@ -47,9 +48,9 @@ This section describes permissions available to on-premises management console A
 
 #### Assign users to access groups
 
-When creating on-premises management console users, Administrators can further enhance user access control by assigning users to specific *access groups*. These groups represent zones, sites, regions, and business units to which a sensor is assigned. For example, a global glass enterprise with several factories on different continents. By assigning users to access groups, administrators gain specific control over where specific roles manage and analyze devices in Defender for IoT.  Working this way accommodates large organizations where user permissions can be complex and may be determined by a global organizational structure, in addition to the standard site or zone structure. See [Define Global Access Control](how-to-define-global-user-access-control.md) for more information.
+Administrators can enhance Defender for IoT user access control by assigning users to specific *access groups*. Access groups are assigned to zones, sites, regions, and business units at which a sensor is located. By assigning users to access groups, administrators gain specific control over where users manage and analyze device detections.  Working this way accommodates large organizations where user permissions can be complex or determined by a global organizational security policy. For more information, see [Define Global Access Control](how-to-define-global-user-access-control.md).
 
-### Role-based permission to sensor tools 
+### Role-based permission to sensor tools
 
 This section describes permissions available to sensor Administrators, Security analysts and Read only users.  
 
@@ -135,6 +136,10 @@ To update sign out counting periods:
 - Adjust the `= <number>` to the time required.
 
 
+
+
+
+
 ## Track user activity
 
 User activity can be tracked in the Event Timeline on each sensor. The timeline displays the event or impacted device, and the time and date the user carried out the activity.
@@ -146,6 +151,52 @@ To view user activity:
 
     :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/User-login-attempts.png" alt-text="View a user's activity.":::
 
+## Integrate with Active Directory servers 
+
+Configure the sensor or on-premises management console to work with Active Directory. This allows Active Directory users to access the Defender for IoT consoles using their Active Directory credentials.
+
+Two types of LDAP-based authentication are supported:
+
+  - **Full authentication:** User details are retrieved from the LDAP server. For example, the first name, last name, email, and user permissions.
+
+  - **Trusted user:** only the user password is retrieved. Other user details retrieved are based on users defined in the sensor.
+
+### Active Directory and Defender for IoT permissions
+
+Active Directory groups defined here can be associated with specific permission levels. For example, configure a specific Active Directory group and assign all users in the group RO permissions. See [Create and manage users](how-to-create-and-manage-users.md) for details.
+
+**To configure Active Directory:**
+
+1. From the left navigation pane, select **System Settings**.
+
+    :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings.png" alt-text="View your Active Directory system settings.":::
+
+2. In the System Settings pane, select **Active Directory**.
+
+    :::image type="content" source="media/how-to-setup-active-directory/ad-configurations.png" alt-text="Edit your Active Directory configurations.":::
+
+3. In the Edit Active Directory Configuration dialog box, select **Active Directory Integration Enabled** and select **Save**. The Edit Active Directory Configuration dialog box expands, and you can now enter the parameters to configure Active Directory.
+
+    :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled.png" alt-text="Enter the parameters to configure Active Directory.":::
+
+    > [!NOTE]
+    > - You must define the LDAP parameters here exactly as they appear in Active Directory.
+    > -	For all the Active Directory parameters use lower case only, including when the configurations in your Active Directory use upper case.
+    > -	You cannot configure both LDAP and LDAPS for the same domain. You can, however, use both for different domains at the same time.
+
+4. Set the Active Directory server parameters, as follows:
+
+| Server parameter | Description |
+|--|--|
+| Domain controller FQDN | Set the Fully Qualified Domain Name (FQDN) exactly as it appears on your LDAP server, for example, `host1.subdomain.domain.com` |
+| Domain controller port | Define the port on which your LDAP is configured. |
+| Primary domain | Set the domain name, for example, `subdomain.domain.com`, and the connection type according to your LDAP configuration. |
+| Active directory groups | Type the group names that are defined in your Active Directory configuration on the LDAP server. |
+| Trusted domains | To add a trusted domain, add the domain name and the connection type of a trusted domain. <br />You can configure trusted domains only for users that were defined under users. |
+
+5. Select **Save**.
+
+6. To add a trusted server, select the **Add Server** and configure another server.
 ## See also
 
 [Track sensor activity](how-to-track-sensor-activity.md)

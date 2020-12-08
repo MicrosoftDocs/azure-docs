@@ -233,8 +233,6 @@
       href: how-to-define-access-tokens.md
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
-    - name: Set up active directory
-      href: how-to-set-up-active-directory.md
     - name: Manage proprietary protocols (Horizon)
       href: how-to-manage-proprietary-protocols.md  
   - name: Device builder
