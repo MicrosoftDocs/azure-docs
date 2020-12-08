@@ -6,7 +6,7 @@ author: santoshc
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
@@ -386,6 +386,7 @@ The **Allow trusted Microsoft services...** setting also allows a particular ins
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | Enables Api Management service access to storage accounts behind firewall using policies. [Learn more](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Enables Cognitive Search services to access storage accounts for indexing, processing and querying. |
+| Azure Cognitive Services       | Microsoft.CognitiveService             | Enables Cognitive Services to access storage accounts. |
 | Azure Container Registry Tasks | Microsoft.ContainerRegistry/registries | ACR Tasks can access storage accounts when building container images. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Allows access to storage accounts through the ADF runtime. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Allows access to storage accounts through Data Share. |
