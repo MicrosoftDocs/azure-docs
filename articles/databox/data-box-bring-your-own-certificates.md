@@ -7,30 +7,26 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 12/08/2020
 ms.author: alkohli
 ---
 
 # Use your own certificates with Data Box and Data Box Heavy devices
 
-When an Azure Data Box order is processed, self-signed certificates are generated for accessing the local web UI and blob storage. If you'd rather communicate with your device over a trusted channel, you can use your own certificates.
+During order processing, self-signed certificates are generated for accessing the local web UI and Blob storage for a Data Box or Data Box Heavy device. If you'd rather communicate with your device over a trusted channel, you can use your own certificates.
 
-This article describes how to install your own certificates and how to revert to the default certificates before returning your device to the datacenter. It also gives a summary of basic certificate requirements.
-
-This article applies to both Data Box devices and Data Box Heavy devices.
+The article explains certificate requirements and describes how to install a certificate on the device and client computer and how to revert to default certificates before returning a device to the datacenter.
 
 ## About certificates
 
-A certificate provides a link between a **public key** and an entity (such as domain name) that has been **signed** (verified) by a trusted third party (such as a **certificate authority**).  A certificate provides a convenient way of distributing trusted public encryption keys. In this way, certificates ensure that your communication is trusted and that you're sending encrypted information to the right server.
+A certificate provides a link between a **public key** and an entity (such as domain name) that has been **signed** (verified) by a trusted third party (such as a **certificate authority**).  A certificate provides a convenient way of distributing trusted public encryption keys. Certificates thereby ensure that your communication is trusted and that you're sending encrypted information to the right server.
 
 When your Data Box device is initially configured, self-signed certificates are automatically generated. Optionally, you can bring your own certificates. There are guidelines that you need to follow if you plan to bring your own certificates.
 
 On a Data Box or Data Box Heavy device, two types of endpoint certificates are used:
 
-- Blob storage certificate: Used when accessing blob storage via the REST APIs.
-- Local UI certificate: Used to access the local web UI on your device using a browser.
-
-This section gives a summary of basic requirements for the certificates. For more information, see [Certificate requirements](../../articles/databox-online/azure-stack-edge-j-series-certificate-requirements.md).
+- Blob storage certificate
+- Local UI certificate
 
 ### Certificate requirements
 
@@ -40,26 +36,28 @@ The certificates must meet the following requirements:
 - You can use an individual certificate for each endpoint, a multidomain certificate for multiple endpoints, or a wildcard endpoint certificate.
 - The properties of an endpoint certificate are similar to those of a typical SSL certificate.
 - A corresponding certificate in DER format (`.cer` filename extension) is required on the client machine.
-- After you upload the local UI certificate, you'll need to restart the browser and clear the cache. Refer to the specific instructions for your browser.
-- The certificate must be changed if the device name or the DNS domain name changes.
+- After you upload the local UI certificate, you'll need to restart the browser adn clear the cache. Refer to specific instructions for your browser.
+- The certificates must be changed if the device name or the DNS domain name changes.
 - Use the following table when creating endpoint certificates:
 
     |Type |Subject name (SN)  |Subject alternative name (SAN)  |Subject name example |
     |---------|---------|---------|---------|
-    |Local web UI| `<Device name>.<DNS domain>`|`<Device name>.<DNS domain>`| `mydevice1.microsoftdatabox.com` |
-    |Blob storage|`*.blob.<Device name>.<DNS domain>`|`*.blob.< Device name>.<DNS domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
-    |Multi-SAN single certificate for more than one endpoint|`<Device name>.<DNS domain>`|`<Device name>.<DNS domain>`<br>`login.<Device name>.<DNS domain>`<br>`management.<Device name>.<DNS domain>`<br>`*.blob.<Device name>.<DNS domain>`|`mydevice1.microsoftdatabox.com` |
+    |Local UI| `<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`| `mydevice1.microsoftdatabox.com` |
+    |Blob storage|`*.blob.<DeviceName>.<DNSdomain>`|`*.blob.< DeviceName>.<DNSdomain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Multi-SAN single certificate|`<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`<br>`login.<DeviceName>.<DNSdomain>`<br>`management.<DeviceName>.<DNSdomain>`<br>`*.blob.<DeviceName>.<DNSdomain>`|`mydevice1.microsoftdatabox.com` |
+
+For more information about these certificates, see [Certificate requirements](../../databox-online/azure-stack-edge-j-series-certificate-requirements).
 
 ## Add certificates to device
 
-You can use your own certificates for accessing the local web UI and for accessing blob storage.
+You can use your own certificates for accessing the local web UI and for accessing Blob storage.
 
 > [!IMPORTANT]
-> If the device name or the DNS domain for the device is changed, new certificates must be created. The client certificates and the device certificates should then be updated with the new device name and DNS domain.
+> If the device name or DNS domain is changed, new certificates must be created. The client certificates and the device certificates should then be updated with the new device name and DNS domain.
 
 To add your own certificate to your device, follow these steps:
 
-1. In the local web UI, go to **Manage** > **Certificates**.
+1. Go to **Manage** > **Certificates**.
 
    **Name** shows the device name. **DNS domain** shows the domain name for the DNS server.
 
@@ -67,35 +65,41 @@ To add your own certificate to your device, follow these steps:
 
    ![Certificates page for a Data Box device](media/data-box-bring-your-own-certificates/certificates-manage-certs.png)
 
-2. To add a certificate, select **Add certificate** to open the **Add certificate** panel. Then select the **Certificate type** - either **Blob storage** or **Local web UI**.
+2. If you need to change the **Name** (device name) or **DNS domain** (the domain of the DNS server for the device), do that now, before you add the certificate. Then select **Apply**.
+
+   The certificate must be changed if the device name or the DNS domain name changes.
+
+   ![Apply a new device name and DNS domain for a Data Box](media/data-box-bring-your-own-certificates/certificates-device-name-dns.png)
+
+3. To add a certificate, select **Add certificate** to open the **Add certificate** panel. Then select the **Certificate type** - either **Blob storage** or **Local web UI**.
 
    ![Add certificates panel on the Certificates page for a Data Box device](media/data-box-bring-your-own-certificates/certificates-add-certificate-cert-type.png)
 
-3. Select the certificate file (in `.pfx` format), and enter the password to use for the certificate. Then select **Validate & Add**.
+4. Choose the certificate file (in `.pfx` format), and enter that password that was set when the certificate was exported. Then select **Validate & Add**.
 
-   Choose the certificate file in `.pfx` format, and enter the password set when the certificate was exported.
+   ![Settings for adding a Blob endpoint certificate to a Data Box](media/data-box-bring-your-own-certificates/certificates-add-blob-cert.png)
 
-   ![Settings for adding a blob endpoint certificate to a Data Box](media/data-box-bring-your-own-certificates/certificates-add-blob-cert.png)
-
-   After the certificate's successfully added, the **Certificates** screen shows the thumbprint for the new certificate. The certificate's status is **Valid**.
+   After the certificate is successfully added, the **Certificates** screen shows the thumbprint for the new certificate. The certificate's status is **Valid**.
 
    ![A valid new certificate that's been successfully added](media/data-box-bring-your-own-certificates/certificates-view-new-certificate.png)
 
-   If you changed the local web UI certificate, you'll see the following error. This error will go away when you install the new certificate on the client computer you're using to access the local web UI.
-
-   ![Error after a new Local web UI certificate is added to a Data Box device](media/data-box-bring-your-own-certificates/certificates-unable-to-communicate-error.png)
-
-4. To see certificate details, click the certificate name. The certificate will expire after a year.<!--Is this standard for all certs applied to a device?-->
+5. To see certificate details, select and click the certificate name. The certificate will expire after a year.
 
    ![View certificate details for a Data Box device](media/data-box-bring-your-own-certificates/certificates-cert-details.png)
 
-5. Install the new certificate on the client computer you're using to access the local web UI. For instructions, see [Import certificates to client](#import-certificates-to-client), below.
+   If you changed the local web UI certificate, you'll see the following error. This error will go away when you install the new certificate on the client computer.
 
-6. If you changed the certificate for the local Web UI, you need to restart the local web UI. Go to **Shut down or restart**, and select **Restart**. This step is needed to avoid any SSL cache issues.
+   ![Error after a new Local web UI certificate is added to a Data Box device](media/data-box-bring-your-own-certificates/certificates-unable-to-communicate-error.png)<!--View in build; then reduce size.-->
+
+6. Install the new certificate on the client computer you're using to access the local web UI. For instructions, see [Import certificates to client](#import-certificates-to-client), below.
+
+7. If you changed the certificate for the local Web UI, you need to restart the local web UI. Go to **Shut down or restart**, and select **Restart**. This step is needed to avoid any SSL cache issues.
 
    ![Shut down or restart local web UI for a Data Box device](media/data-box-bring-your-own-certificates/certificates-restart-ui.png)
 
    Wait a few minutes, and sign in again.
+
+   The communication error should be gone from the **Certificates** screen.
 
 ## Import certificates to client
 
@@ -103,7 +107,7 @@ After you add a certificate to your Data Box device, you need to import the cert
 
 To import a certificate on a Windows client, take the following steps:
 
-1. In File Explorer, right-click the certificate file (with `.cer` format), and select **Install certificate**. This action starts the Certificate Import Wizard.
+1. In File Explorer, right-click the certificate file (with .cer format), and select **Install certificate**. This action starts the Certificate Import Wizard.
 
     ![Import certificate 1](media/data-box-bring-your-own-certificates/import-cert-01.png)
 
@@ -123,7 +127,7 @@ To import a certificate on a Windows client, take the following steps:
 
 Before you return your device to the Azure datacenter, you should revert to the original certificates that were generated during order processing.
 
-To revert to the original certificates for the device, follow these steps:
+To revert to the certificates generated during order processing, follow these steps:
 
 1. Go to **Manage** > **Certificates**, and select **Revert certificates**.
 
