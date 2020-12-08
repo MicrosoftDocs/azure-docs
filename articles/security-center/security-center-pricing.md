@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/24/2020
+ms.date: 12/06/2020
 ms.author: memildin
 ---
 
@@ -32,7 +32,9 @@ Security Center is offered in two modes:
     - **Hybrid security** – Get a unified view of security across all of your on-premises and cloud workloads. Apply security policies and continuously assess the security of your hybrid cloud workloads to ensure compliance with security standards. Collect, search, and analyze security data from multiple sources, including firewalls and other partner solutions.
     - **Threat protection alerts** - Advanced behavioral analytics and the Microsoft Intelligent Security Graph provide an edge over evolving cyber-attacks. Built-in behavioral analytics and machine learning can identify attacks and zero-day exploits. Monitor networks, machines, and cloud services for incoming attacks and post-breach activity. Streamline investigation with interactive tools and contextual threat intelligence.
     - **Access and application controls** (AAC) - Block malware and other unwanted applications by applying machine learning powered recommendations adapted to your specific workloads to create allow and deny lists. Reduce the network attack surface with just-in-time, controlled access to management ports on Azure VMs. AAC drastically reduces exposure to brute force and other network attacks.
-    - **Container security features** - Benefit from vulnerability management and real-time threat protection on your containerized environments. When enabling the **Azure Defender for container registries**, it may take up to 12 hrs until all the features are enabled. Charges are based on the number of unique container images pushed to your connected registry. After an image has been scanned once, you won't be charged for it again unless it's modified and pushed once more. 
+    - **Container security features** - Benefit from vulnerability management and real-time threat protection on your containerized environments. When enabling the **Azure Defender for container registries**, it may take up to 12 hrs until all the features are enabled. Charges are based on the number of unique container images pushed to your connected registry. After an image has been scanned once, you won't be charged for it again unless it's modified and pushed once more.
+    - **Breadth threat protection for resources connected to the Azure environment** - Azure Defender includes Azure-native breadth threat protection for the Azure services common to all of your resources: Azure Resource Manager, Azure DNS, Azure network layer, and Azure Key Vault. Azure Defender has unique visibility into the Azure management layer and the Azure DNS layer, and can therefore protect cloud resources that are connected to those layers.
+
 
 ## Try Azure Defender free for 30 days
 Azure Defender is free for the first 30 days. At the end of 30 days, should you choose to continue using the service, we'll automatically start charging for usage.

@@ -17,6 +17,9 @@ SMB Multichannel for Azure file shares is currently only available in the follow
 - Central India
 - France Central
 - Germany West Central
+- North Central US
 - South Central US
 - UAE North
+- UK South
+- West Central US
 - West India

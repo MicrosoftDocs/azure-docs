@@ -70,7 +70,7 @@ This [template](https://github.com/Azure/Azure-Network-Security/tree/master/Azur
 
 ### Azure Sentinel data connector
 
-You can connect your to Azure Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Azure Sentinel, see [Connect to Azure Sentinel](../sentinel/connect-azure-ddos-protection.md). 
+You can connect attack mitigation flow logs to Azure Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Azure Sentinel, see [Connect to Azure Sentinel](../sentinel/connect-azure-ddos-protection.md). 
 
 ![Azure Sentinel DDoS Connector](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
 
