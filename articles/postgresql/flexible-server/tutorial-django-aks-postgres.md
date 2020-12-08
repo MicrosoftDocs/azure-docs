@@ -302,11 +302,7 @@ When the *EXTERNAL-IP* address changes from *pending* to an actual public IP add
 django-app  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-### Browse Django
-
-Open a web browser to the external IP address of your service to see your Django installation page.
-
-   :::image type="content" source="./media/tutorial-django-aks-postgres/django-aks-installed-success.png" alt-text="Django installation success on AKS and PostgreSQL flexible server":::
+Now open a web browser to the external IP address of your service view the Django application.
 
 >[!NOTE]
 > - Currently the Django site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
