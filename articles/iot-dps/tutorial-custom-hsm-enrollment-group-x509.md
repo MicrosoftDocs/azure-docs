@@ -22,7 +22,7 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 
 This tutorial is similar to the previous tutorials demonstrating how to use enrollment groups to provision sets of devices. However, X.509 certificates will be used in this tutorial instead of symmetric keys. Review the previous tutorials in this section for a simple approach using [symmetric keys](./concepts-symmetric-key-attestation.md).
 
-This tutorial will demonstrate the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) that provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets is strongly recommended.
+This tutorial will demonstrate the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) that provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets is not required, but strongly recommended to help protect sensitive information like your device certificate's private key.
 
 If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md) before continuing with this tutorial. 
 
@@ -222,7 +222,9 @@ To create the certificate chain:
 
 ## Configure the custom HSM stub code
 
-The specifics of interacting with actual secure hardware-based storage vary depending on the hardware. As a result, the certificate chain used by the device in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods shown in this sample would then be implemented to read the secrets from that hardware-based storage.
+The specifics of interacting with actual secure hardware-based storage vary depending on the hardware. As a result, the certificate chain used by the device in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods shown in this sample would then be implemented to read the secrets from that hardware-based storage. 
+
+While HSM hardware is not required, it is not recommended to have sensitive information, like the certificate's private key, checked into source code. This exposes the key to anyone that can view the code. This is only done in this article to assist with learning.
 
 To update the custom HSM stub code for this tutorial:
 
@@ -284,7 +286,7 @@ To update the custom HSM stub code for this tutorial:
 
 ## Verify ownership of the root certificate
 
-1. Using the directions from [Register the public part of an X.509 certificate and get a verification code](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), upload the root certificate and get a verification code from DPS.
+1. Using the directions from [Register the public part of an X.509 certificate and get a verification code](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`) and get a verification code from DPS.
 
 2. Once you have a verification code from DPS for the root certificate, run the following command from your certificate script working directory to generate a verification certificate.
  
@@ -294,7 +296,7 @@ To update the custom HSM stub code for this tutorial:
     ./certGen.sh create_verification_certificate 1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F    
     ```    
 
-    This script creates a certificate signed by the root certificate with subject name set to the verification code. This certificate allows DPS to verify you have access to the private key of the root certificate. Notice the location of the verification certificate in the output of the script.
+    This script creates a certificate signed by the root certificate with subject name set to the verification code. This certificate allows DPS to verify you have access to the private key of the root certificate. Notice the location of the verification certificate in the output of the script. This certificate is generated in `.pfx` format.
 
     ```output
     Leaf Device PFX Certificate Generated At:
