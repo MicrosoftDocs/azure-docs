@@ -64,7 +64,7 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
    
 1. On the **New Sync Group** page, if you selected **Use private link**, you will need to approve the private endpoint connection. The link in the info message will take you to the private endpoint connections experience where you can approve the connection. 
 
-   ![Approve private link](./media/sql-data-sync-sql-server-configure/approve-pl.png)
+   ![Approve private link](./media/sql-data-sync-sql-server-configure/approve-privatelink.png)
 
 ## Add sync members
 
