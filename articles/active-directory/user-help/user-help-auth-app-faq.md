@@ -112,7 +112,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: Do notifications work for non-Microsoft accounts?
 
-**A**: No, notifications only work with Microsoft accounts and Azure Active Directory accounts. If your work or school uses Azure AD accounts, they can turn off this feature.
+**A**: No, notifications only work with Microsoft accounts and Azure Active Directory accounts. If your work or school uses Azure AD accounts, they are able to turn off this feature.
 
 ### Backup and recovery
 
@@ -208,11 +208,11 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: What is Autofill in Authenticator?
 
-**A**: Autofill in Authenticator app now securely stores and autofills [your Microsoft account] passwords on apps and websites you visit on your phone. You can use Autofill to sync and autofill your passwords on their iOS and Android devices. After setting up the Authenticator app as an autofill provider on your phone, it offers to save your passwords when you enter them on a site or app sign-in page. The passwords are saved as part of your Microsoft account and are also available when you sign in to Microsoft Edge with your Microsoft account.
+**A**: Autofill in Authenticator app now securely stores and autofills passwords on apps and websites you visit on your phone. You can use Autofill to sync and autofill your passwords on their iOS and Android devices. After setting up the Authenticator app as an autofill provider on your phone, it offers to save your passwords when you enter them on a site or app sign-in page. The passwords are saved as part of [your Microsoft account](https://account.microsoft.com/account) and are also available when you sign in to Microsoft Edge with your Microsoft account.
 
 **Q**: What information can Authenticator autofill for me?
 
-**A**: Authenticator can autofill usernames and passwords on sites and app you visit on your phone.
+**A**: Authenticator can autofill usernames and passwords on sites and apps you visit on your phone.
 
 **Q**: How do I turn on password autofill in Authenticator on my phone?
 
@@ -220,15 +220,18 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 1. Open the Authenticator app.
 1. In **Settings** under **Beta**, turn on **Autofill**.
-1. On the **Passwords** tab in Authenticator, select **Sign in with Microsoft** and sign in using your Microsoft account. This feature currently supports only Microsoft accounts and doesn't yet support work or school accounts. A Microsoft account is an account from services such as Outlook.com, Hotmail.com, or Live.com.
+1. On the **Passwords** tab in Authenticator, select **Sign in with Microsoft** and sign in using [your Microsoft account](https://account.microsoft.com/account). This feature currently supports only Microsoft accounts and doesn't yet support work or school accounts.
 
 **Q**: How do I make Authenticator the default autofill provider on my phone?
 
 **A**: Follow these steps:
 
 1. Open Authenticator **Settings**, and under **Beta** turn on **Autofill**.
-1. On the **Passwords** tab inside the app, sign in using a Microsoft account. A Microsoft account is an account from services such as Outlook.com, Hotmail.com, or Live.com.
-1. Under Settings, select **How to turn on Autofill** in the Autofill settings section to set Authenticator as the default autofill provider.
+1. On the **Passwords** tab inside the app, sign in using [your Microsoft account](https://account.microsoft.com/account).
+1. Do one of the following:
+
+   - On iOS, Under Settings, select How to turn on Autofill in the Autofill settings section to learn how to set Authenticator as the default autofill provider.
+   - On Android, Under Settings, select Set as Autofill provider in the Autofill settings section to set Authenticator as the default autofill provider.
 
 **Q**: What if **Autofill** switch is grayed out for me in Settings?
 
