@@ -17,7 +17,7 @@ This procedure is applicable to all the models of StorSimple 8000 series devices
 > This procedure cannot be used for a StorSimple Cloud Appliance. For more information, see how to configure host servers for your cloud appliance.
 
 > [!NOTE]
-> This article contains references to the terms *blacklisted* and *whitelisted*, terms that Microsoft no longer use. When these terms are removed from the software, we'll remove them from this article.
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 
 ## About multipathing
