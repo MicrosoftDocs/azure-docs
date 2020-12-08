@@ -18,15 +18,19 @@ This article provides a detailed overview and helps you understand how to use th
 For help setting up or troubleshooting the Live Data (preview) feature, review our [setup guide](container-insights-livedata-setup.md). This feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
 ## View deployment live logs (preview)
-Use the following procedure to view the live logs for deployments that are parto of AKS clusters that are not monitored by Azure Monitor for containers. If your cluster uses Azure Monitor for containers then use the process below to view the live data for nodes, controllers, containers, and deployments.
+Use the following procedure to view the live logs for deployments that are part of of AKS clusters that are not monitored by Azure Monitor for containers. If your cluster uses Azure Monitor for containers then use the process below to view the live data for nodes, controllers, containers, and deployments.
 
 1. In the Azure portal, browse to the AKS cluster resource group and select your AKS resource.
+
 2. Select **Workloads** in the **Kubernetes resources** section of the menu.
+
 3. Select a deployment from the **Deployments** tab.
+
 4. Select **Live Logs (preview)** from the deployment's menu.
+
 5. Select a pod to start collection of the live data.
 
-![Deployment live logs](./media/container-insights-livedata-overview/livedata-deployment.png)
+    ![Deployment live logs](./media/container-insights-livedata-overview/livedata-deployment.png)
 
 ## View logs
 
@@ -99,10 +103,9 @@ After successfully authenticating, the Live Data (preview) console pane will app
 The following sections describe functionality that you can use in the different live data views.
 
 ### Search
+The Live Data (preview) feature includes search functionality. In the **Search** field, you can filter results by typing a key word or term and any matching results are highlighted to allow quick review. While viewing events, you can additionally limit the results using the **Filter** pill found to the right of the search bar. Depending on what resource you have selected, the pill lists a Pod, Namespace, or cluster to chose from.
 
 ![Live Data console pane filter example](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
-
-The Live Data (preview) feature includes search functionality. In the **Search** field, you can filter results by typing a key word or term and any matching results are highlighted to allow quick review. While viewing events, you can additionally limit the results using the **Filter** pill found to the right of the search bar. Depending on what resource you have selected, the pill lists a Pod, Namespace, or cluster to chose from.
 
 ### Scroll Lock and Pause
 
