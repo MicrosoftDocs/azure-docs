@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/20/2020
+ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -71,16 +71,22 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |streetAddress   |String|The street address of the user's place of business. Max length 1024.|Yes|Yes|Persisted, Output|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|The secondary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
 |strongAuthenticationEmailAddress<sup>1</sup>|String|The SMTP address for the user. Example: "bob@contoso.com" This attribute is used for sign-in with username policy, to store the user email address. The email address then used in a password reset flow.|Yes|No|Persisted, Output|
-|strongAuthenticationPhoneNumber<sup>1</sup>|String|The primary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
+|strongAuthenticationPhoneNumber<sup>2</sup>|String|The primary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
 |surname         |String|The user's surname (family name or last name). Max length 64.|Yes|Yes|Persisted, Output|
 |telephoneNumber (first entry of businessPhones)|String|The primary telephone number of the user's place of business.|Yes|No|Persisted, Output|
 |userPrincipalName    |String|The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. The domain must be present in the tenant's collection of verified domains. This property is required when an account is created. Immutable.|No|No|Input, Persisted, Output|
 |usageLocation   |String|Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries/regions. Not nullable. A two letter country/region code (ISO standard 3166). Examples: "US", "JP", and "GB".|Yes|No|Persisted, Output|
 |userType        |String|A string value that can be used to classify user types in your directory. Value must be Member. Read-only.|Read only|No|Persisted, Output|
-|userState (externalUserState)<sup>2</sup>|String|For Azure AD B2B account only, indicates whether the invitation is PendingAcceptance or Accepted.|No|No|Persisted, Output|
+|userState (externalUserState)<sup>3</sup>|String|For Azure AD B2B account only, indicates whether the invitation is PendingAcceptance or Accepted.|No|No|Persisted, Output|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Shows the timestamp for the latest change to the UserState property.|No|No|Persisted, Output|
-|<sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>Should not be used with Azure AD B2C||||||
 
+<sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>For more information, see [MFA phone number attribute](#mfa-phone-number-attribute)<br><sup>3 </sup>Should not be used with Azure AD B2C
+
+## MFA phone number attribute
+
+When using a phone for multi-factor authentication (MFA), the mobile phone is used to verify the user identity. To [add](https://docs.microsoft.com/graph/api/authentication-post-phonemethods) a new phone number programatically, [update](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [get](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get), or [delete](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) the phone number, use MS Graph API [phone authentication method](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod).
+
+In Azure AD B2C [custom policies](custom-policy-overview.md), the phone number is available through `strongAuthenticationPhoneNumber` claim type.
 
 ## Extension attributes
 
