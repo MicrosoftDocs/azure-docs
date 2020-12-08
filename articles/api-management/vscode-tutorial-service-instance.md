@@ -93,6 +93,8 @@ Alternately, you can select **Delete API Management** to only delete the API Man
 
 ![Delete API Management instance from VS Code](./media/vscode-create-service-instance/vscode-apim-delete.png)
 
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
