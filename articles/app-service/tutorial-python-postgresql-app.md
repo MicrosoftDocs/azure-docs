@@ -142,11 +142,7 @@ This command performs the following actions, which may take a few minutes:
 
 You can do all the steps separately with other `az postgres` and `psql` commands, but `az postgres up` does all the steps together.
 
-<<<<<<< HEAD
-When the command completes, it outputs a JSON object that contains different connection strings for the database along with the server URL, a generated user name (such as "joyfulKoala@msdocs-djangodb-12345"), and a GUID password. Copy the short user name (before the @) and password to a temporary text file as you need them later in this tutorial.
-=======
 When the command completes, it outputs a JSON object that contains different connection strings for the database along with the server URL, a generated user name (such as "joyfulKoala@msdocs-djangodb-12345"), and a GUID password. **Copy the user name and password to a temporary text file** as you need them later in this tutorial.
->>>>>>> 0b241ff2e2bbd58b54b29eaf544c8b896111f8dc
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
