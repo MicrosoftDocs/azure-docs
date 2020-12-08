@@ -114,10 +114,10 @@ More details about [Creating user access tokens](../quickstarts/access-tokens.md
      
           SmsClient smsClient = new SmsClient(credential, resourceEndpoint);
           smsClient.Send(
-          from: new PhoneNumber("<leased-phone-number>"),
-          to: new PhoneNumber("<to-phone-number>"),
-          message: "Hello World via SMS",
-          new SendSmsOptions { EnableDeliveryReport = true } // optional
+               from: new PhoneNumber("<leased-phone-number>"),
+               to: new PhoneNumber("<to-phone-number>"),
+               message: "Hello World via SMS",
+               new SendSmsOptions { EnableDeliveryReport = true } // optional
           );
      }
 ```
