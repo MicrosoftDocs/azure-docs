@@ -161,10 +161,8 @@ For [Java agent 3.0](./java-in-process-agent.md) the cloud role name is set as f
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "roleName": "my cloud role name"
-    }
+  "role": {
+    "name": "my cloud role name"
   }
 }
 ```
