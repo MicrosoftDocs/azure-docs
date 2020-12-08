@@ -214,7 +214,7 @@ Autofill in Authenticator app now securely stores and autofills your Microsoft a
 
 **Q**: How do I turn on password autofill in Authenticator on my phone?
 
-**A**:
+**A**: Follow these steps:
 
 1. Open the Authenticator app.
 1. In **Settings** under **Beta**, turn on **Autofill**.
@@ -222,7 +222,7 @@ Autofill in Authenticator app now securely stores and autofills your Microsoft a
 
 **Q**: How do I make Authenticator the default autofill provider on my phone?
 
-**A**:
+**A**: Follow these steps:
 
 1. Open the Authenticator app settings:
 
