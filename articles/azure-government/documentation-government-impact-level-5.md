@@ -55,7 +55,7 @@ Be sure to review the entry for each service you're using and ensure that all is
 
 ### [Azure Bot Service](/azure/bot-service/)
 
-Azure Bot Service supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Azure Bot Service supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
@@ -83,7 +83,7 @@ Azure Machine Learning supports Impact Level 5 workloads in Azure Government wit
 
 ### [Cognitive Services: Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) 
 
-Computer Vision supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Computer Vision supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -121,7 +121,7 @@ The Cognitive Services Language Understanding service supports Impact Level 5 wo
 
 ### [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
 
-Text Analytics supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Text Analytics supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
@@ -207,7 +207,7 @@ Azure Synapse Analytics supports Impact Level 5 workloads in Azure Government wi
 
 ### [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/)
 
-Power BI Embedded supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Power BI Embedded supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -215,7 +215,7 @@ Power BI Embedded supports Impact Level 5 workloads in Azure Government with no 
 
 ### [Power Automate](https://flow.microsoft.com/)
 
-Power Automate supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Power Automate supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
@@ -245,7 +245,7 @@ Azure Batch supports Impact Level 5 workloads in Azure Government with this conf
 
 ### [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 
 
-Azure Cloud Services supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Azure Cloud Services supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -263,7 +263,7 @@ Azure Functions supports Impact Level 5 workloads in Azure Government with this 
 
 ### [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/)
 
-Azure Service Fabric supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Azure Service Fabric supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -415,7 +415,7 @@ Azure Database for PostgreSQL supports Impact Level 5 workloads in Azure Governm
 
 ### [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/)
 
-Azure DevTest Labs supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Azure DevTest Labs supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -427,7 +427,7 @@ Azure DevTest Labs supports Impact Level 5 workloads in Azure Government with no
 
 You can protect data via storage accounts because your device is associated with a storage account that's used as a destination for your data in Azure. Access to the storage account is controlled by the subscription and FIPS-compliant storage access keys associated with the storage account. For more information, see [Protect your data](https://docs.microsoft.com/azure/databox-online/data-box-edge-security#protect-your-data).
 
-Azure Stack Edge supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Azure Stack Edge supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -439,7 +439,7 @@ Azure Stack Edge supports Impact Level 5 workloads in Azure Government with no a
 
 ### [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 
-Azure Logic Apps supports all impact levels in Azure Government with no additional configuration in these regions:
+Azure Logic Apps supports all impact levels in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -451,7 +451,7 @@ For more information, see [Secure access and data in Azure Logic Apps: Isolation
 
 Azure Event Grid can persist customer content for no more than 24 hours. For more information, see [Authenticate event delivery to event handlers](https://docs.microsoft.com/azure/event-grid/security-authentication#encryption-at-rest).  All data written to disk is encrypted with Microsoft-managed keys. 
 
-Azure Event Grid supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Azure Event Grid supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -470,7 +470,7 @@ Azure Service Bus supports Impact Level 5 workloads in Azure Government in these
 
 ### [Azure API Management](https://azure.microsoft.com/services/api-management/)
 
-Azure API Management supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Azure API Management supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -490,7 +490,7 @@ Azure IoT Hub supports Impact Level 5 workloads in Azure Government with this co
 
 ### [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) 
 
-Azure Notification Hubs supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Azure Notification Hubs supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -515,7 +515,7 @@ Automation supports Impact Level 5 workloads in Azure Government in these config
 
 ### [Azure Advisor](https://azure.microsoft.com/services/advisor/) 
 
-Azure Advisor supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Azure Advisor supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
@@ -523,7 +523,7 @@ Azure Advisor supports Impact Level 5 workloads in Azure Government with no addi
 
 ### [Azure Backup](https://azure.microsoft.com/services/backup/)
 
-Azure Backup supports all impact levels in Azure Government with no additional configuration in these regions:
+Azure Backup supports all impact levels in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -531,7 +531,7 @@ Azure Backup supports all impact levels in Azure Government with no additional c
 
 ### [Azure Blueprints](https://azure.microsoft.com/services/blueprints/)
 
-Azure Blueprints supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Azure Blueprints supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -539,7 +539,7 @@ Azure Blueprints supports Impact Level 5 workloads in Azure Government with no a
 
 ### [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) 
 
-Azure Cloud Shell supports all impact levels in Azure Government with no additional configuration in these regions:
+Azure Cloud Shell supports all impact levels in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -547,7 +547,7 @@ Azure Cloud Shell supports all impact levels in Azure Government with no additio
 
 ### [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management/) 
 
-Azure Cost Management and Billing supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Azure Cost Management and Billing supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -555,7 +555,7 @@ Azure Cost Management and Billing supports Impact Level 5 workloads in Azure Gov
 
 ### [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/)
 
-Azure Lighthouse supports Impact Level 5 workloads in Azure Government with no additional configuration in these regions:
+Azure Lighthouse supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
@@ -565,93 +565,93 @@ Azure Lighthouse supports Impact Level 5 workloads in Azure Government with no a
 
 Azure Managed Applications supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- You can store your managed application definition in a storage account that you provide when you create the application so that you can manage its location and access for your regulatory needs. (https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-service-catalog-app#bring-your-own-storage-for-the-managed-application-definition)
+- You can store your managed application definition in a storage account that you provide when you create the application so that you can manage its location and access for your regulatory needs. For more information, see [Bring your own storage](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-service-catalog-app#bring-your-own-storage-for-the-managed-application-definition).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Managed Applications** | X | X | X | X | X | 
 
 ### [Azure Monitor](https://azure.microsoft.com/services/monitor/)
 
-Azure Monitor can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
+Azure Monitor supports all impact levels in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Monitor** | X | X | X | X | X |
 
 ### [Azure Policy](https://azure.microsoft.com/services/azure-policy/)
 
-Azure Policy can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Azure Policy supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Policy** | X | X | X |  |  | 
 
 ### [Azure Policy Guest Configuration](../governance/policy/concepts/guest-configuration.md)
 
-Azure Policy Guest Configuration can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Azure Policy Guest Configuration supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Policy Guest Configuration** | X | X | X |  |  |
 
-### [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/)
+### [Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
-Microsoft Azure portal can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+You can add a markdown tile to your Azure dashboards to display custom static content. For example, you can show basic instructions, an image, or a set of hyperlinks on a [markdown tile](https://docs.microsoft.com/azure/azure-portal/azure-portal-markdown-tile).
 
-You can add a markdown tile to your Azure dashboards to display custom, static content. For example, you can show basic instructions, an image, or a set of hyperlinks on a markdown tile (https://docs.microsoft.com/azure/azure-portal/azure-portal-markdown-tile)
+The Azure portal supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
-| **Microsoft Azure portal** | X | X | X | X | X | 
+| **Azure portal** | X | X | X | X | X | 
 
 ### [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) 
 
-Azure Resource Manager can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Azure Resource Manager supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Resource Manager** | X | X | X | X | X |
 
 ### [Azure Resource Graph](../governance/resource-graph/overview.md)
 
-Azure Resource Graph can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Azure Resource Graph supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Resource Graph** | X | X | X |  |  |
 
 ### [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
 
-Azure Site Recovery can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Azure Site Recovery supports Impact Level 5 workloads in Azure Government in this configuration:
 
-You can replicate Azure VMs with Customer-Managed Keys (CMK) enabled managed disks, from one Azure region to another (https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks)
+- You can replicate Azure VMs with managed disks enabled for customer-managed keys from one Azure region to another. For more information, see [Replicate machines with customer-managed key disks](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Site Recovery** | X | X | X | X | X | 
 
 ### [Log Analytics](../azure-monitor/platform/data-platform-logs.md)
 
-Log Analytics can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Log Analytics supports Impact Level 5 workloads in Azure Government in this configuration:
 
-Configure Customer-Managed Keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key.(https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)
+- Configure customer-managed keys for your Log Analytics workspaces and Application Insights components. With this configuration, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Log Analytics** | X | X | X |  |  | 
 
 ### Azure Scheduler
 
-Azure Scheduler is being retired and replaced by [Azure Logic Apps](#logic-apps). To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible by following this article, [Migrate Azure Scheduler jobs to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
+Azure Scheduler is being retired and replaced by [Azure Logic Apps](#logic-apps). To continue working with the jobs that you set up in Scheduler, please [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible.
 
 ## Media services
 
 ### [Azure Media Services](https://azure.microsoft.com/services/media-services/)
 
-Azure Media Services can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Azure Media Services supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Media Services** |   |   |   | X | X |
 
@@ -659,19 +659,19 @@ Azure Media Services can be used in Azure Government supporting Impact Level 5 w
 
 ### [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)
 
-Azure Migrate can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Azure Migrate supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure Migrate using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/migrate/how-to-migrate-vmware-vms-with-cmk-disks)
+- Configure encryption at rest of content in Azure Migrate by [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/migrate/how-to-migrate-vmware-vms-with-cmk-disks).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Migrate** | X | X | X |  |  |
 
 ### [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/)
 
-Azure Database Migration Service can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Azure Database Migration Service supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Database Migration Service** | X | X | X |  |  |
 
@@ -679,81 +679,81 @@ Azure Database Migration Service can be used in Azure Government supporting Impa
 
 ### [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/)
 
-Application Gateway can be used in Azure Government supporting all impact levels with no additional configuration required between regions:
+Azure Application Gateway supports all impact levels in Azure Government with no additional configuration required between regions.
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Application Gateway** | X | X | X | X | X | 
 
 ### [Azure DNS](https://azure.microsoft.com/services/dns/)
 
-Azure DNS can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+Azure DNS supports all impact levels in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure DNS** | X | X | X | X | X | 
 
 ### [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
 
-ExpressRoute can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+ExpressRoute supports all impact levels in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **ExpressRoute** | X | X | X | X | X | 
 
 ### [Azure Front Door](https://azure.microsoft.com/services/frontdoor/)
 
-Azure Front Door can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Azure Front Door supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Front Door** | X | X | X |  |  |
 
 ### [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)
 
-Azure Firewall can be used in Azure Government supporting all impact levels with no additional configuration required between regions:
+Azure Firewall supports all impact levels in Azure Government with no additional configuration required between regions.
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Firewall** | X | X | X | X | X |
 
 ### [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer/)
 
-Load Balancer can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+Azure Load Balancer supports all impact levels in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Load Balancer** | X | X | X | X | X | 
 
 ### [Network Watcher](https://azure.microsoft.com/services/network-watcher/)
 
-Network Watcher and Network Watcher Traffic Analytics can be used in Azure Government supporting all impact levels with no additional configuration required between regions:
+Azure Network Watcher and Network Watcher traffic analytics support all impact levels in Azure Government with no additional configuration required between regions.
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Network Watcher** | X | X | X | X | X | 
 
 ### [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)
 
-Azure Traffic Manager can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+Azure Traffic Manager supports all impact levels in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Traffic Manager** | X | X | X | X | X |
 
 ### [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/)
 
-Azure Virtual Network can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+Azure Virtual Network supports all impact levels in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Virtual Network** | X | X | X | X | X | 
 
 ### [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
 
-Azure VPN Gateway can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+Azure VPN Gateway supports all impact levels in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **VPN Gateway** | X | X | X | X | X | 
 
@@ -761,61 +761,61 @@ Azure VPN Gateway can be used in Azure Government supporting all impact levels w
 
 ### [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-Azure Active Directory can be used in all Azure Government regions, supporting all impact levels with no additional configuration required in the following regions:
+Azure Active Directory can be used in all Azure Government regions. It supports all impact levels in the following regions, with no additional configuration required:
 
-| **Service** | **USGov VA** |  **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** |  **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Active Directory** | X | X | X | X | X | 
 
-### [Azure Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection/)
+### [Defender for Identity](https://azure.microsoft.com/features/azure-advanced-threat-protection/)
 
-Azure Advanced Threat Protection can be used in all Azure Government regions, supporting all impact levels with no additional configuration required in the following regions:
+Defender for Identity can be used in all Azure Government regions. It supports all impact levels in the following regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure Advanced Threat Protection** | X | X | X |  |  |
+| **Defender for Identity** | X | X | X |  |  |
 
 ### [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/)
 
-Azure Dedicated HSM can be used in all Azure Government regions, supporting all impact levels with no additional configuration required in the following regions:
+Azure Dedicated HSM can be used in all Azure Government regions. It supports all impact levels in the following regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Dedicated HSM** | X | X | X |  |  | 
 
 ### [Azure Security Center](https://azure.microsoft.com/services/security-center/)
 
-Azure Security Center can be used in all Azure Government regions, supporting all impact levels with no additional configuration required in the following regions:
+Azure Security Center can be used in all Azure Government regions. It supports all impact levels in the following regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Security Center** | X | X | X |  |  |
 
 ### [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)
 
-Azure Sentinel can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Azure Sentinel supports Impact Level 5 workloads in Azure Government in this configuration:
 
-- Configure encryption at rest of content in Azure Sentinel using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/sentinel/customer-managed-keys)
+- Configure encryption at rest of content in Azure Sentinel by [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/sentinel/customer-managed-keys).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Sentinel** | X | X | X |  |  |
 
 ### [Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md)
 
-Customer Lockbox can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Customer Lockbox supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Customer Lockbox** | X | X | X |  |  |
 
-### [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) 
+### [Multifactor authentication](../active-directory/authentication/concept-mfa-howitworks.md) 
 
-Multi-Factor Authentication can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Multifactor authentication supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
-| **Multi-Factor Authentication** | X | X | X | X | X |
+| **Multifactor authentication** | X | X | X | X | X |
 
 ### [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 
 
