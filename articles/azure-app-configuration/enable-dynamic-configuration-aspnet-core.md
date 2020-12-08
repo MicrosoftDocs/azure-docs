@@ -154,6 +154,7 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     {
         services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
         services.AddControllersWithViews();
+        services.AddAzureAppConfiguration();
     }
     ```
     ---
