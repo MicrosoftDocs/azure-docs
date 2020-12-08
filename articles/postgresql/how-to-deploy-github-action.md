@@ -2,7 +2,7 @@
 title: 'Quickstart: Connect to Azure PostgreSQL with GitHub Actions'
 description: Use Azure PostgreSQL from a GitHub Actions workflow
 author: mksuni
-ms.service: postgres
+ms.service: postgresql
 ms.topic: quickstart
 ms.author: sumuth
 ms.date: 10/12/2020
@@ -12,7 +12,7 @@ ms.custom: github-actions-azure
 
 # Quickstart: Use GitHub Actions to connect to Azure PostgreSQL
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-single-flexible-server](applies-to-postgres-single-flexible-server.md)]
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/).
 
