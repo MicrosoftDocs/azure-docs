@@ -71,7 +71,7 @@ The below table lists the properties supported by a delta sink. You can edit the
 | Compression type | The compression type of the delta table | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | Compression level | Choose whether the compression completes as quickly as possible or if the resulting file should be optimally compressed. | required if `compressedType` is specified. | `Optimal` or `Fastest` | compressionLevel |
 | Vacuum | Specify retention threshold in hours for older versions of table. A value of 0 or less defaults to 30 days | yes | Integer | vacuum |
-| Update method | Specify which update operations are allowed on the delta lake. For methods that aren't insert, a preceding alter row transformation is required to mark rows. | yes | `true` or `false` | deletable <br> insertable <br> updateable <br> upsertable |
+| Update method | Specify which update operations are allowed on the delta lake. For methods that aren't insert, a preceding alter row transformation is required to mark rows. | yes | `true` or `false` | deletable <br> insertable <br> updateable <br> merge |
 
 ### Delta sink script example
 
