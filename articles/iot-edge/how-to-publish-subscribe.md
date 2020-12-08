@@ -171,7 +171,6 @@ A couple of things to keep in mind when writing your authorization policy:
 Authorization for IoT hub topics are handled slightly differently than user-defined topics. Here are the key points to remember:
 - Azure IoT devices or modules need an explicit authorization rule to connect to IoT Edge hub MQTT broker. A default connect authorization policy is provided below.
 - Azure IoT devices or modules can access their own IoT hub topics by default without any explicit authorization rule. However, authorizations stem from parent/child relationships in that case and these relationships must be set. IoT Edge modules are automatically set as children of their IoT Edge device but devices need to explicitly be set as children of their IoT Edge gateway.
-- Azure IoT devices or modules can access the topics, including IoT hub topics, of other devices or modules providing that appropriate explicit authorization rules are defined.
 
 Here is a default authorization policy that can be used to enable all Azure IoT devices or modules to **connect** to the broker:
 
