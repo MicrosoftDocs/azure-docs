@@ -147,6 +147,7 @@ DATABASES={
       'PASSWORD':os.getenv('DATABASE_PASSWORD'),
       'HOST':os.getenv('DATABASE_HOST'),
       'PORT':'5432',
+      'OPTIONS': {'sslmode': 'require'}
    }
 }
 ```
