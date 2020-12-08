@@ -71,7 +71,7 @@ $vmConfig = Set-AzVMPlan -VM $vmConfig -Publisher $publisherName -Product $produ
 ...
 ```
 
-You'll then pass the VM configuration along with the other configuration objects to the `New-AzVM` cmdlet. For a detailed example of using a VM configuration with Powershell, see this [script](https://github.com/Azure/azure-docs-powershell-samples/blob/master/virtual-machine/create-vm-detailed/create-windows-vm-detailed.ps1).
+You'll then pass the VM configuration along with the other configuration objects to the `New-AzVM` cmdlet. For a detailed example of using a VM configuration with PowerShell, see this [script](https://github.com/Azure/azure-docs-powershell-samples/blob/master/virtual-machine/create-vm-detailed/create-windows-vm-detailed.ps1).
 
 If you get a message about accepting the terms of the image, see the section [Accept the terms](#accept-the-terms) later in this article.
 
