@@ -62,17 +62,13 @@ Rule ID: XpCmdshell
 **Title: Change Data Capture (CDC) is not supported in Azure SQL Database**   
 Rule ID: CDC
 
-
-
-**Recommendation**:   
-
-
 :::row:::
    :::column span="":::
    **Description**:   
     needs to be rewritten. More information: [Enable Azure SQL change tracking](https://social.technet.microsoft.com/wiki/contents/articles/2976.azure-sql-how-to-enable-change-tracking.aspx)
    :::column-end:::
    :::column span="":::
+   **Recommendation**:   
     Change Data Capture (CDC) is not supported in Azure SQL Database. Evaluate if Change Tracking can be used instead or consider migrating to Azure SQL Managed Instance.
    :::column-end:::
 :::row-end:::
@@ -81,9 +77,6 @@ Rule ID: CDC
 
 **Title: Cross-database queries are not supported in Azure SQL Database**   
 Rule ID: CrossDataseReferences
-
-
-
 
 
 :::row:::
@@ -102,18 +95,16 @@ Rule ID: CrossDataseReferences
 **Title: Filestream is not supported in Azure SQL Database**   
 Rule ID: FileStream
 
-**Description**:   
-The Filestream feature, which allows you to store unstructured data such as text documents, images, and videos in NTFS file system, is not supported in Azure SQL Database. More information: [Streaming blobs to and from Azure SQL blog](https://azure.microsoft.com/en-us/blog/streaming-blobs-to-and-from-sql-azure/)
 
-**Recommendation**:   
-Consider migrating to SQL Server on Azure Virtual machines or Upload the unstructured files to Azure Blob storage and store metadata related to these files (name, type, URL location, storage key etc.) in Azure SQL Database. You may have to re-engineer your application to enable streaming blobs to and from Azure SQL Database. 
 
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+    The Filestream feature, which allows you to store unstructured data such as text documents, images, and videos in NTFS file system, is not supported in Azure SQL Database. More information: [Streaming blobs to and from Azure SQL blog](https://azure.microsoft.com/en-us/blog/streaming-blobs-to-and-from-sql-azure/)
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Consider migrating to SQL Server on Azure Virtual machines or Upload the unstructured files to Azure Blob storage and store metadata related to these files (name, type, URL location, storage key etc.) in Azure SQL Database. You may have to re-engineer your application to enable streaming blobs to and from Azure SQL Database. 
    :::column-end:::
 :::row-end:::
 
@@ -123,18 +114,14 @@ Consider migrating to SQL Server on Azure Virtual machines or Upload the unstruc
 **Title: Linked server functionality is not supported in Azure SQL Database**   
 Rule ID: LinkedServer
 
-**Description**:   
-Linked servers enable the SQL Server Database Engine to execute commands against OLE DB data sources outside of the instance of SQL Server. 
-
-**Recommendation**:   
-Azure SQL Database does not support linked server functionality. The following actions are recommended to eliminate the need for linked servers: 1. Identify the dependent datasets from remote SQL servers and consider moving these into the database being migrated. 2. Migrate the dependent database(s) to Azure and use 'Elastic Database Query' (preview) functionality to query across databases in Azure SQL Database. More information: [Check Azure SQL Database elastic query (Preview)](../../database/elastic-query-overview.md) 
-
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   Linked servers enable the SQL Server Database Engine to execute commands against OLE DB data sources outside of the instance of SQL Server. 
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Azure SQL Database does not support linked server functionality. The following actions are recommended to eliminate the need for linked servers: 1. Identify the dependent datasets from remote SQL servers and consider moving these into the database being migrated. 2. Migrate the dependent database(s) to Azure and use 'Elastic Database Query' (preview) functionality to query across databases in Azure SQL Database. More information: [Check Azure SQL Database elastic query (Preview)](../../database/elastic-query-overview.md) 
    :::column-end:::
 :::row-end:::
 
@@ -144,18 +131,18 @@ Azure SQL Database does not support linked server functionality. The following a
 **Title: Service Broker feature is not supported in Azure SQL Database**   
 Rule ID: ServiceBroker
 
-**Description**:   
-SQL Server Service Broker provides native support for messaging and queuing applications in the SQL Server Database Engine. 
 
-**Recommendation**:   
-Service Broker feature is not supported in Azure SQL Database. Consider migrating to Azure SQL Managed Instance that supports service broker within the same instance.  
+
+
 
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   SQL Server Service Broker provides native support for messaging and queuing applications in the SQL Server Database Engine. 
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Service Broker feature is not supported in Azure SQL Database. Consider migrating to Azure SQL Managed Instance that supports service broker within the same instance.  
    :::column-end:::
 :::row-end:::
 
@@ -164,18 +151,14 @@ Service Broker feature is not supported in Azure SQL Database. Consider migratin
 **Title: OpenRowSet used in bulk operation with non blob data source is not supported in Azure SQL Database.**   
 Rule ID: OpenRowsetWithNonBlobDataSourceBulk 
 
-**Description**:   
-This method is an alternative to accessing tables in a linked server and is a one-time, ad hoc method of connecting and accessing remote data by using OLE DB.) 
-
-**Recommendation**:   
-Azure SQL Database supports OPENROWSET only to import from Azure blob storage.
-
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   This method is an alternative to accessing tables in a linked server and is a one-time, ad hoc method of connecting and accessing remote data by using OLE DB.) 
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Azure SQL Database supports OPENROWSET only to import from Azure blob storage.
    :::column-end:::
 :::row-end:::
 
@@ -185,18 +168,16 @@ Azure SQL Database supports OPENROWSET only to import from Azure blob storage.
 **Title: OpenRowSet with SQL or non SQL provider is not supported in Azure SQL Database.**   
 Rule ID: OpenRowsetWithSQLAndNonSQLProvider 
 
-**Description**:   
-This method is an alternative to accessing tables in a linked server and is a one-time, ad hoc method of connecting and accessing remote data by using OLE DB. 
 
-**Recommendation**:   
-Azure SQL Database supports OPENROWSET only to import from Azure blob storage.
 
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+    This method is an alternative to accessing tables in a linked server and is a one-time, ad hoc method of connecting and accessing remote data by using OLE DB. 
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Azure SQL Database supports OPENROWSET only to import from Azure blob storage.
    :::column-end:::
 :::row-end:::
 
@@ -207,18 +188,14 @@ Azure SQL Database supports OPENROWSET only to import from Azure blob storage.
 **Title: SQL CLR assemblies are not supported in Azure SQL Database**   
 Rule ID: ClrAssemblies 
 
-**Description**:   
-For security reasons, Azure SQL Database does not support SQL CLR assemblies. More information: []()  
-
-**Recommendation**:   
-Currently, there is no way to achieve this in Azure SQL Database. The recommended alternative solutions will require application code and database changes to use only assemblies supported by Azure SQL Database or consider migrating to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines.
-
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   For security reasons, Azure SQL Database does not support SQL CLR assemblies. More information: []()  
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Currently, there is no way to achieve this in Azure SQL Database. The recommended alternative solutions will require application code and database changes to use only assemblies supported by Azure SQL Database or consider migrating to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines.
    :::column-end:::
 :::row-end:::
 
@@ -227,18 +204,15 @@ Currently, there is no way to achieve this in Azure SQL Database. The recommende
 **Title: BULK INSERT with non Azure blob data source is not supported in Azure SQL Database.**   
 Rule ID: BulkInsert 
 
-**Description**:   
-Azure SQL Database cannot access file shares or Windows folders. See the "Impacted Objects" section for the specific uses of BULK INSERT statements that do not reference an Azure blob. Objects with 'BULK INSERT' where the source is not Azure blob storage will not work after migrating to Azure SQL Database. More information: []() 
-
-**Recommendation**:   
-You will need to convert BULK INSERT statements that use local files or file shares to use files from Azure blob storage instead, when migrating to Azure SQL Database.
 
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   Azure SQL Database cannot access file shares or Windows folders. See the "Impacted Objects" section for the specific uses of BULK INSERT statements that do not reference an Azure blob. Objects with 'BULK INSERT' where the source is not Azure blob storage will not work after migrating to Azure SQL Database. More information: []() 
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   You will need to convert BULK INSERT statements that use local files or file shares to use files from Azure blob storage instead, when migrating to Azure SQL Database.
    :::column-end:::
 :::row-end:::
 
@@ -248,38 +222,33 @@ You will need to convert BULK INSERT statements that use local files or file sha
 **Title: A use of CREATE CRYPTOGRAPHIC PROVIDER or ALTER CRYPTOGRAPHIC PROVIDER was found, which is not supported in Azure SQL Database**   
 Rule ID: CryptographicProvider 
 
-**Description**:   
- Azure SQL Database does not support CRYPTOGRAPHIC PROVIDER statements because it cannot access files. See the Impacted Objects section for the specific uses of CRYPTOGRAPHIC PROVIDER statements. Objects with 'CREATE CRYPTOGRAPHIC PROVIDER' or 'ALTER CRYPTOGRAPHIC PROVIDER' will not work correctly after migrating to Azure SQL Database. More information: []() 
-
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   Azure SQL Database does not support CRYPTOGRAPHIC PROVIDER statements because it cannot access files. See the Impacted Objects section for the specific uses of CRYPTOGRAPHIC PROVIDER statements. Objects with 'CREATE CRYPTOGRAPHIC PROVIDER' or 'ALTER CRYPTOGRAPHIC PROVIDER' will not work correctly after migrating to Azure SQL Database. More information: []() 
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Review objects with 'CREATE CRYPTOGRAPHIC PROVIDER' or 'ALTER CRYPTOGRAPHIC PROVIDER'. In any such objects that are required, remove the uses of these features.
    :::column-end:::
 :::row-end:::
 
-**Recommendation**:   
-Review objects with 'CREATE CRYPTOGRAPHIC PROVIDER' or 'ALTER CRYPTOGRAPHIC PROVIDER'. In any such objects that are required, remove the uses of these features.
+
 
 ## MSDTCTransactSQL
 
 **Title: BEGIN DISTRIBUTED TRANSACTION is not supported in Azure SQL Database.**   
 Rule ID: MSDTCTransactSQL
 
-**Description**:   
- Distributed transaction started by Transact SQL BEGIN DISTRIBUTED TRANSACTION and managed by Microsoft Distributed Transaction Coordinator (MS DTC) is not supported in Azure SQL Database. More information: []() 
-
-**Recommendation**:   
-Review impacted objects section to see all objects using BEGIN DISTRUBUTED TRANSACTION. Consider migrating the participant databases to Azure SQL Managed Instance where distributed transactions across multiple instances are supported (Currently in preview).
 
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   Distributed transaction started by Transact SQL BEGIN DISTRIBUTED TRANSACTION and managed by Microsoft Distributed Transaction Coordinator (MS DTC) is not supported in Azure SQL Database. More information: []() 
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Review impacted objects section to see all objects using BEGIN DISTRUBUTED TRANSACTION. Consider migrating the participant databases to Azure SQL Managed Instance where distributed transactions across multiple instances are supported (Currently in preview).
    :::column-end:::
 :::row-end:::
 
@@ -289,32 +258,28 @@ Review impacted objects section to see all objects using BEGIN DISTRUBUTED TRANS
 Rule ID: ComputeClause
 
 
-
-
-
-
 :::row:::
    :::column span="":::
      **Description**:   
       The COMPUTE clause generates totals that appear as additional summary columns at the end of the result set. However, this clause is no longer supported in Azure SQL Database. More information: []() 
    :::column-end:::
    :::column span="":::
-    **Recommendation**:   
+   **Recommendation**:   
 
-    The T-SQL module needs to be re-written using the ROLLUP operator instead. The code below demonstrates how COMPUTE can be replaced with ROLLUP : 
+   The T-SQL module needs to be re-written using the ROLLUP operator instead. The code below demonstrates how COMPUTE can be replaced with ROLLUP : 
+  
+   ```sql 
+   USE AdventureWorks 
+   GO;  
    
-    ```sql 
-    USE AdventureWorks 
-    GO;  
-    
-    SELECT SalesOrderID, UnitPrice, UnitPriceDiscount 
-    FROM Sales.SalesOrderDetail 
-    ORDER BY SalesOrderID COMPUTE SUM(UnitPrice), SUM(UnitPriceDiscount) BY SalesOrderID GO; 
-    
-    SELECT SalesOrderID, UnitPrice, UnitPriceDiscount,SUM(UnitPrice) as UnitPrice , 
-    SUM(UnitPriceDiscount) as UnitPriceDiscount 
-    FROM Sales.SalesOrderDetail 
-    GROUP BY SalesOrderID, UnitPrice, UnitPriceDiscount WITH ROLLUP; 
+   SELECT SalesOrderID, UnitPrice, UnitPriceDiscount 
+   FROM Sales.SalesOrderDetail 
+   ORDER BY SalesOrderID COMPUTE SUM(UnitPrice), SUM(UnitPriceDiscount) BY SalesOrderID GO; 
+   
+   SELECT SalesOrderID, UnitPrice, UnitPriceDiscount,SUM(UnitPrice) as UnitPrice , 
+   SUM(UnitPriceDiscount) as UnitPriceDiscount 
+   FROM Sales.SalesOrderDetail 
+   GROUP BY SalesOrderID, UnitPrice, UnitPriceDiscount WITH ROLLUP; 
    ```
    :::column-end:::
 :::row-end:::
@@ -324,18 +289,18 @@ Rule ID: ComputeClause
 **Title: SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed.**   
 Rule ID: DatabasePrincipalAlias
 
-**Description**:   
-SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed in Azure SQL Database. More information: []() 
 
-**Recommendation**:   
-Use roles instead of aliases.
+
+
 
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+    SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed in Azure SQL Database. More information: []() 
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Use roles instead of aliases.
    :::column-end:::
 :::row-end:::
 
@@ -345,15 +310,16 @@ Use roles instead of aliases.
 **Title: SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed.**   
 Rule ID: DisableDefCNSTCHK 
 
-**Description**:   
-SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed in Azure SQL Database. More information: []() 
+
 
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed in Azure SQL Database. More information: []() 
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Description**:   
+   SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed in Azure SQL Database. More information: []() 
    :::column-end:::
 :::row-end:::
 
@@ -362,18 +328,18 @@ SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed in Azure S
 **Title: FASTFIRSTROW query hint is discontinued and has been removed.**   
 Rule ID: FastFirstRowHint
 
-**Description**:   
-FASTFIRSTROW query hint is discontinued and has been removed in Azure SQL Database. More information: []() 
 
-**Recommendation**:   
-Instead of FASTFIRSTROW query hint use OPTION (FAST n).
+
+
 
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   FASTFIRSTROW query hint is discontinued and has been removed in Azure SQL Database. More information: []() 
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Instead of FASTFIRSTROW query hint use OPTION (FAST n).
    :::column-end:::
 :::row-end:::
 
@@ -382,18 +348,15 @@ Instead of FASTFIRSTROW query hint use OPTION (FAST n).
 **Title: Tables and Columns named NEXT will lead to an error In Azure SQL Database.**   
 Rule ID: NextColumn
 
-**Description**:   
-Tables or columns named NEXT were detected. Sequences, introduced in Microsoft SQL Server, use the ANSI standard NEXT VALUE FOR function. If a table or a column is named NEXT and the column is aliased as VALUE, and if the ANSI standard AS is omitted, the resulting statement can cause an error. More information: []() 
-
-**Recommendation**:   
-Rewrite statements to include the ANSI standard AS keyword when aliasing a table or column. For example, when a column is named NEXT and that column is aliased as VALUE, the query SELECT NEXT VALUE FROM TABLE will cause an error and should be rewritten as SELECT NEXT AS VALUE FROM TABLE. Similarly, when a table is named NEXT and that table is aliased as VALUE, the query SELECT Col1 FROM NEXT VALUE will cause an error and should be rewritten as SELECT Col1 FROM NEXT AS VALUE.
 
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   Tables or columns named NEXT were detected. Sequences, introduced in Microsoft SQL Server, use the ANSI standard NEXT VALUE FOR function. If a table or a column is named NEXT and the column is aliased as VALUE, and if the ANSI standard AS is omitted, the resulting statement can cause an error. More information: []() 
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Rewrite statements to include the ANSI standard AS keyword when aliasing a table or column. For example, when a column is named NEXT and that column is aliased as VALUE, the query SELECT NEXT VALUE FROM TABLE will cause an error and should be rewritten as SELECT NEXT AS VALUE FROM TABLE. Similarly, when a table is named NEXT and that table is aliased as VALUE, the query SELECT Col1 FROM NEXT VALUE will cause an error and should be rewritten as SELECT Col1 FROM NEXT AS VALUE.
    :::column-end:::
 :::row-end:::
 
@@ -402,18 +365,14 @@ Rewrite statements to include the ANSI standard AS keyword when aliasing a table
 **Title: Non ANSI style left outer join is discontinued and has been removed.**   
 Rule ID: NonANSILeftOuterJoinSyntax
 
-**Description**:   
-Non ANSI style left outer join is discontinued and has been removed in Azure SQL Database. More information: []()
-
-**Recommendation**:   
-Use ANSI join syntax.
-
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   Non ANSI style left outer join is discontinued and has been removed in Azure SQL Database. More information: []()
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Use ANSI join syntax.
    :::column-end:::
 :::row-end:::
 
@@ -423,18 +382,15 @@ Use ANSI join syntax.
 **Title: Non ANSI style right outer join is discontinued and has been removed.**   
 Rule ID: NonANSIRightOuterJoinSyntax
 
-**Description**:   
-Non ANSI style right outer join is discontinued and has been removed in Azure SQL Database. More information: []()
-
-**Recommendation**:   
-Use ANSI join syntax.
 
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   Non ANSI style right outer join is discontinued and has been removed in Azure SQL Database. More information: []()
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Use ANSI join syntax.
    :::column-end:::
 :::row-end:::
 
@@ -444,18 +400,14 @@ Use ANSI join syntax.
 **Title: Legacy style RAISERROR calls should be replaced with modern equivalents.**   
 Rule ID: RAISERROR
 
-**Description**:   
-RAISERROR calls like the below example are termed as legacy-style because they do not include the commas and the parenthesis.RAISERROR 50001 'this is a test'. This method of calling RAISERROR is discontinued and removed in Azure SQL Database. More information: []()
-
-**Recommendation**:   
-Rewrite the statement using the current RAISERROR syntax, or evaluate if the modern approach of TRY...CATCH...THROW is feasible.
-
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+   RAISERROR calls like the below example are termed as legacy-style because they do not include the commas and the parenthesis.RAISERROR 50001 'this is a test'. This method of calling RAISERROR is discontinued and removed in Azure SQL Database. More information: []()
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Rewrite the statement using the current RAISERROR syntax, or evaluate if the modern approach of TRY...CATCH...THROW is feasible.
    :::column-end:::
 :::row-end:::
 
@@ -464,18 +416,14 @@ Rewrite the statement using the current RAISERROR syntax, or evaluate if the mod
 **Title: Azure SQL Database doesn't support compatibility levels below 100.**   
 Rule ID: DatabaseCompatibility
 
-**Description**:   
-Azure SQL Database doesn't support compatibility levels below 100. More information: []() 
-
-**Recommendation**:   
-Consider upgrading the database compatibility or migrating to SQL Server on Azure Virtual Machines.
-
 :::row:::
    :::column span="":::
-     Description
+   **Description**:   
+    Azure SQL Database doesn't support compatibility levels below 100. More information: []() 
    :::column-end:::
    :::column span="":::
-      Recommendation
+   **Recommendation**:   
+   Consider upgrading the database compatibility or migrating to SQL Server on Azure Virtual Machines.
    :::column-end:::
 :::row-end:::
 
