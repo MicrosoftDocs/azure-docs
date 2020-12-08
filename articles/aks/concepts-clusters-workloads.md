@@ -3,7 +3,7 @@ title: Concepts - Kubernetes basics for Azure Kubernetes Services (AKS)
 description: Learn the basic cluster and workload components of Kubernetes and how they relate to features in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 12/07/2020
 
 ---
 
@@ -27,8 +27,8 @@ Azure Kubernetes Service (AKS) provides a managed Kubernetes service that reduce
 
 A Kubernetes cluster is divided into two components:
 
-- *Control plane* nodes provide the core Kubernetes services and orchestration of application workloads.
-- *Nodes* run your application workloads.
+- *Control plane* which provides the core Kubernetes services and orchestration of application workloads.
+- *Nodes* which run your application workloads.
 
 ![Kubernetes control plane and node components](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
