@@ -40,8 +40,8 @@ Refer to the following list to configure managed identity for Azure API Manageme
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | ![Available][check] | Not Available | Not Available |
-| User assigned | ![Available][check] | ![Available][check]  | Not Available  | Not Available |
+| System assigned | ![Available][check] | ![Available][check] | Not Available | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check]  | Not Available  | ![Available][check] |
 
 Refer to the following list to configure managed identity for Azure App Configuration (in regions where available):
 
@@ -269,7 +269,7 @@ Refer to the following list to configure managed identity for Azure Service Fabr
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | Not Available | Not Available | Not Available |
+| System assigned | ![Available][check] | Not Available | Not Available | ![Available][check] |
 | User assigned | Not Available | Not Available | Not Available | Not Available |
 
 
