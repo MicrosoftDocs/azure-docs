@@ -52,7 +52,6 @@
       href: costs/get-started-partners.md
     - name: Migrate from EA reporting to Azure Resource Manager APIs
       href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
-
   - name: Reservations
     items:
     - name: What are Azure Reservations?
@@ -121,12 +120,20 @@
       href: understand/mca-overview.md
     - name: Billing accounts for Microsoft Partner Agreement
       href: understand/mpa-overview.md
-    - name: About transferring subscriptions
-      href: understand/subscription-transfer.md
-    - name: Transfer subscriptions between partners (Preview)
-      href: manage/azure-plan-subscription-transfer-partners.md
     - name: Get started in the Azure EA portal
       href: manage/ea-portal-get-started.md
+    - name: Migrate and transfer subscriptions
+      items:
+      - name: Azure subscription migration
+        href: manage/subscription-migration.md
+      - name: About transferring subscriptions
+        href: understand/subscription-transfer.md
+      - name: Transfer subscriptions between partners (Preview)
+        href: manage/azure-plan-subscription-transfer-partners.md
+      - name: Azure Enterprise transfers
+        href: manage/ea-transfers.md
+      - name: Transfer EA subscriptions to a partner
+        href: manage/transfer-enterprise-subscription-partner.md
   - name: Security
     items:
     - name: Security baseline
@@ -223,8 +230,6 @@
         href: manage/ea-portal-administration.md
       - name: Azure EA portal administration for partners
         href: manage/ea-partner-portal-administration.md
-      - name: Azure Enterprise transfers
-        href: manage/ea-transfers.md
       - name: EA tasks in Microsoft Customer Agreement
         href: manage/mca-enterprise-operations.md
       - name: Azure EA agreements and amendments
