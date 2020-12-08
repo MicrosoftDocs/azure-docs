@@ -21,7 +21,7 @@ By default, Durable Functions persists data to Azure Storage.
 
 Most Durable Functions APIs initially persist data Azure Storage queues.  Once the messages are processed successfully, the queue message is deleted, and the data is persisted to either Azure Storage Tables or Azure Storage Blobs.
 
-Durable Functions creates and writes to queues named `<taskhub>-workitem` and `<taskhub>-control-0`..`<taskhub>-control-<n-1>`, where `n` is equal to the number of partitions configured for your application.
+Durable Functions creates and writes to queues named `<taskhub>-workitem` and `<taskhub>-control-0` through `<taskhub>-control-<n-1>`, where `n` is equal to the number of partitions configured for your application.
 
 ### Tables
 
@@ -87,7 +87,7 @@ public static async Task<string> Run(
     string activityOutput = await context.CallActivityAsync<string>(functionName: "Activity", input: inputs.ActivityInput);
 
     // The function name, instance id, and sub-orchestration inputs are all persisted.
-    string subOrchOutput = await context.CallSubOrchestrationAsync<string>(functionName: "SubOrchestration", instanceId: context.ExecutionId + ":0", input: inputs.Activity);
+    string subOrchOutput = await context.CallSubOrchestrationAsync<string>(functionName: "SubOrchestration", instanceId: context.ExecutionId + ":0", input: inputs.SubOrchInput);
 
     // The fire-at datetime and state parameters are persisted.
     await context.CreateTimer<string>(fireAt: context.CurrentUtcDateTime, state: "TimerState", cancelToken = CancellationToken.None);
@@ -180,6 +180,141 @@ public static void Entity([EntityTrigger] IDurableEntityContext ctx)
             ctx.StartNewOrchestration(functionName: name, input: input, instanceId: id);
     }
 }
+```
+
+# [JavaScript](#tab/javascript)
+
+### Client Function APIs
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context, req) {
+    const client = df.getClient(context);
+
+    // The orchestrator function name, orchestration input, and instance id are all persisted to backend storage
+    const instanceId = await client.startNew(req.params.functionName, undefined, req.body.orchestrationInput);
+
+    // The instance id, event name, and event data are all persisted to backend storage
+    const eventName = "SampleEvent";
+    await client.raiseEvent(instanceId, eventName, httpBody.EventData);
+
+
+    // The instance id and reason are persisted to backend storage
+    const reason = "Completed";
+    await client.Terminate(instanceId, reason);
+
+    // The entity name, entity key, schedule time, operation name, and operation input are all persisted
+    const entityId = new df.EntityId(httpBody.EntityName, httpBody.EntityKey);
+    const scheduledTimeUtc = DateTime.UtcNow;
+    await client.signalEntity(
+        entityId,
+        scheduledTimeUtc,
+        httpBody.EntityOpName,
+        httpBody.EntityOpInput);
+
+    return "";
+};
+
+```
+
+### Orchestrator Functions
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function* (context) {
+
+    const inputs = context.getInput();
+
+    // The function name and activity input are persisted.
+    const activityOutput = yield context.callActivity("ActivityName", inputs.activityInput);
+
+    // The function name, instance id, and sub-orchestration inputs are all persisted.
+    const orchestrationName = "SubOrchestration";
+    const instanceId = context.ExecutionId + ":0";
+    const subOrchOutput = yield context.callSubOrchestrator(orchestrationName, instanceId, inputs.subOrchInput);
+
+    // The fire-at datetime parameter is persisted.
+    const fireAt = context.currentUtcDateTime;
+    yield context.createTimer(fireAt);
+
+    
+    // For both APIs, the entity name, entity key, operation name, and operation inputs are persisted.
+    const entityId = new df.EntityId("EntityName", "EntityKey");
+    const entityResponse = yield context.callEntity(entityId, inputs.entityOpName, inputs.entityOpInput);
+    // TODO: signalEntity is not implemented yet by DurableJS
+    context.signalEntity(entityId, inputs.entityOpName, inputs.entityOpInput);
+
+    // The method, status code, headers, and content parameters are all persisted
+    const httpResponse = yield context.callHttp(
+        "POST",
+        inputs.httpUri,
+        inputs.httpContent,
+        inputs.httpHeaders
+    );
+
+    // The custom status is persisted
+    context.setCustomStatus(inputs.customStatus);
+
+    // All errors thrown by the exception are serialized
+    if (inputs.throwException)
+    {
+        // All errors thrown by the orchestration are serialized and persisted.
+        throw new Error("This exception is serialized and persisted!");
+    }
+
+    // The output is persisted.
+    return "output";
+}
+```
+
+### Activity Functions
+
+```javascript
+
+const df = require("durable-functions");
+
+module.exports = async function (context, throwError) {
+    if (throwError) 
+    {
+        // All error thrown by the activity are serialized and persisted.
+        throw new Error("This error is serialized and persisted!");
+    }
+
+    // Outputs returned from activity functions are persisted.
+    return "Output"
+};
+```
+
+### Entity Functions
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function (context) {
+    switch (context.df.operationName) {
+        case "get":
+            let result = context.df.getState(() => 0);
+
+            // result is persisted
+            context.df.return(result);
+            break;
+        case "set":
+            let state = context.df.getInput();
+
+            // state is persisted
+            context.df.setState(state);
+            break;
+        case "signal":
+            let entityOp = context.df.getInput();
+
+            // Entity name, entity key, and input are all persisted
+            context.df.signalEntity(new df.EntityId("Entity", entityOp.Key), entityOp.Input);
+            break;
+    }
+
+});
 ```
 
 ---
