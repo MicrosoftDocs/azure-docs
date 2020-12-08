@@ -167,19 +167,26 @@ In a text editor, create a file in the project folder named *handler.R*. Add the
 library(httpuv)
 
 PORTEnv <- Sys.getenv("FUNCTIONS_CUSTOMHANDLER_PORT")
-PORT = strtoi(PORTEnv , base = 0L)
+PORT <- strtoi(PORTEnv , base = 0L)
 
 http_not_found <- list(
   status=404,
   body='404 Not Found'
 )
+
 http_method_not_allowed <- list(
   status=405,
   body='405 Method Not Allowed'
 )
 
 hello_handler <- list(
-  GET = function (request) list(body="Hello world")
+  GET = function (request) {
+    list(body=paste(
+      "Hello,",
+      if(substr(request$QUERY_STRING,1,6)=="?name=") 
+        substr(request$QUERY_STRING,7,40) else "World",
+      sep=" "))
+  }
 )
 
 routes <- list(
