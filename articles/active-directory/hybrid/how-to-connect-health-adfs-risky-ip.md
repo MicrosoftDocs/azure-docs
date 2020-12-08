@@ -31,7 +31,10 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 > [!NOTE]
 > To use this report, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
 > To access preview, Global Admin or [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) permission is required.  
-> 
+>
+
+> [!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## What is in the report?
 The failed sign in activity client IP addresses are aggregated through Web Application Proxy servers. Each item in the Risky IP report shows aggregated information about failed AD FS sign-in activities which exceed designated threshold. It provides the following information:

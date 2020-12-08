@@ -24,6 +24,9 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) Seamless Single Sign-On (Seamless SSO) automatically signs in users when they are on their corporate desktops that are connected to your corporate network. Seamless SSO provides your users with easy access to your cloud-based applications without needing any additional on-premises components.
 
+> [!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
 To deploy Seamless SSO, follow these steps.
 
 ## Step 1: Check the prerequisites
