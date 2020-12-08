@@ -53,11 +53,10 @@ If this method does not the resolve the problem, follow these steps to restore t
     $osDiskName = "ProblemOsDisk"
     # Set the EncryptionSettingsEnabled property to false, so you can attach the disk to the recovery VM.
     New-AzDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzDisk -diskName $osDiskName -ResourceGroupName $rgName
+    $osDisk = Get-AzDisk -ResourceGroupName $rgName -DiskName $osDiskName;
 
     $recoveryVMName = "myRecoveryVM" 
     $recoveryVMRG = "RecoveryVMRG" 
-    $OSDisk = Get-AzDisk -ResourceGroupName $rgName -DiskName $osDiskName;
-
     $vm = get-AzVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
 
     Add-AzVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
