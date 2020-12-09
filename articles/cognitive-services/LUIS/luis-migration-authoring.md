@@ -26,31 +26,18 @@ Migration is the process of changing authoring authentication from an email acco
 
 Migration has to be done from the [LUIS portal](https://www.luis.ai). If you create the authoring keys by using the LUIS CLI, for example, you'll need to complete the migration process in the LUIS portal. You can still have co-authors on your applications after migration, but these will be added on the Azure resource level instead of the application level. Migrating your account can't be reversed.
 
-## Notes before you migrate
-
-* Before migration, coauthors are known as _collaborators_ on the LUIS app level. After migration, the Azure role of _contributor_ is used for the same functionality on the Azure resource level.
-* If you have signed-in to more than one [LUIS regional portal](./luis-reference-regions.md#luis-authoring-regions), you will be asked to migrate in multiple regions at once.
-* Applications will automatically migrate with you if you're the owner of the application. Applications will not migrate with you if you're a collaborator on the application. However, collaborators will be prompted to export the apps they need.
-
-* Application owners can't choose a subset of apps to migrate and there is no way for an owner to know if collaborators have migrated.
-* Migration does not automatically move or add collaborators to the Azure authoring resource. The app owner is the one who needs to complete this step after migration. This step requires [permissions to the Azure authoring resource](./luis-how-to-collaborate.md).
-* After contributors are assigned to the Azure resource, they will need to migrate before they can access applications. Otherwise, they won't have access to author the applications.
-* A migrated user can't be added as a collaborator of the application.
-
-
 > [!Note]
-> If you need to create a prediction runtime resource, there's [a separate process](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) to create it.
+> * If you need to create a prediction runtime resource, there's [a separate process](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) to create it.
+> * See the [Migration notes](#migration-notes) section below for information on how your apps will 
+> * Authoring your LUIS app is free, as indicated by the F0 tier. Learn [more about pricing tiers](luis-limits.md#key-limits).
 
 ## Migration prerequisites
 
-* You need to be associated with a valid Azure subscription. Ask your tenant admin to add you on the subscription, or [sign up for a free one](https://azure.microsoft.com/free/cognitive-services).
-* You need to create a LUIS Azure authoring resource from the LUIS portal or from the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne). Creating an authoring resource from the LUIS portal is part of the migration process described in the next section.
-* If you're a collaborator on applications, applications won't automatically migrate. You will be prompted to export these apps while going through the migration flow. You can also use the [export API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). You can import the app back into LUIS after migration. The import process creates a new app with a new app ID, for which you're the owner.
-* If you're the owner of the application, you won't need to export your apps because they'll migrate automatically. An email template with a list of all collaborators for each application is provided, so they can be notified of the migration process.
-
-> [!Note]
-> Authoring your LUIS app is free, as indicated by the F0 tier. Learn [more about pricing tiers](luis-limits.md#key-limits).
-
+* A valid Azure subscription. Ask your tenant admin to add you on the subscription, or [sign up for a free one](https://azure.microsoft.com/free/cognitive-services).
+* A LUIS Azure authoring resource from the LUIS portal or from the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne). 
+    * Creating an authoring resource from the LUIS portal is part of the migration process described in the next section.
+* If you're a collaborator on applications, applications won't automatically migrate. You will be prompted to export these apps while going through migration. You can also use the [export API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). 
+    * You can import the app back into LUIS after migration. The import process creates a new app with a new app ID, for which you're the owner. If you're the owner of the application, you won't need to export your apps because they'll migrate automatically. An email template with a list of all collaborators for each application is provided, so they can be notified of the migration process.
 
 ## Migration steps
 
@@ -108,6 +95,16 @@ A `*` symbol will appear next to the application name if you have a prediction r
 
 6. After you have successfully migrated in all regions, click on finish. You will now have access to your applications. You can continue authoring and maintaining all your applications in all regions within the portal.
 
+## Migration notes
+
+* Before migration, coauthors are known as _collaborators_ on the LUIS app level. After migration, the Azure role of _contributor_ is used for the same functionality on the Azure resource level.
+* If you have signed-in to more than one [LUIS regional portal](./luis-reference-regions.md#luis-authoring-regions), you will be asked to migrate in multiple regions at once.
+* Applications will automatically migrate with you if you're the owner of the application. Applications will not migrate with you if you're a collaborator on the application. However, collaborators will be prompted to export the apps they need.
+* Application owners can't choose a subset of apps to migrate and there is no way for an owner to know if collaborators have migrated.
+* Migration does not automatically move or add collaborators to the Azure authoring resource. The app owner is the one who needs to complete this step after migration. This step requires [permissions to the Azure authoring resource](./luis-how-to-collaborate.md).
+* After contributors are assigned to the Azure resource, they will need to migrate before they can access applications. Otherwise, they won't have access to author the applications.
+* A migrated user can't be added as a collaborator of the application.
+
 
 ## Using apps after migration
 
@@ -130,7 +127,6 @@ You can add contributors to the authoring resource from the Azure portal, on the
 
 > [!Note]
 > If the owner of the LUIS app migrated and added the collaborator as a contributor on the Azure resource, the collaborator will still have no access to the app unless they also migrate.
-
 
 ## Troubleshooting the migration process
 
