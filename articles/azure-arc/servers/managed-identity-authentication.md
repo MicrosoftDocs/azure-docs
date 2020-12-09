@@ -2,7 +2,7 @@
 title: Authenticate against Azure resources with Arc enabled servers
 description: This article describes Azure Instance Metadata Service support for Arc enabled servers and how you can authenticate against Azure resources and local using a secret.
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ---
 
 # Authenticate against Azure resources with Arc enabled servers
@@ -80,13 +80,15 @@ The following response is an example that is returned:
 
 :::image type="content" source="media/managed-identity-authentication/powershell-token-output-example.png" alt-text="A successful retrieval of the access token.":::
 
-For an Arc enabled Linux server, using Bash, you invoke the web request to get the token from the local host in the specific port. Specify the following request using the IP address or the environmental variable **IDENTITY_ENDPOINT**. To complete this step, you need an SSH client.
+For an Arc enabled Linux server, using Bash, you invoke the web request to get the token from the local host in the specific port. Specify the following request using the IP address or the environmental variable **IDENTITY_ENDPOINT**. To complete this step, you need an SSH client and the *jq* command-line tool to parse JSON files.
 
 ```bash
-ChallengeToken=$(curl -s -D - -H Metadata:true "http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com" | grep Www-Authenticate | cut -d '=' -f2)
-response=$(curl -s -D - -H Metadata:true -H "Authorization: Basic <ACCESS_TOKEN>" "http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com" | grep Www-Authenticate | cut -d '=' -f2)
-if [$response -ne ""]
-  token = $(echo $response | jq .access_token)
+ChallengeTokenPath=$(curl -s -D - -H Metadata:true "http://127.0.0.1:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com" | grep Www-Authenticate | cut -d "=" -f 2 | tr -d "[:cntrl:]")
+ChallengeToken=$(cat $ChallengeTokenPath)
+if [ $? -ne 0 ]; then
+    echo "Could not retrieve challenge token, double check that this command is run with root privileges."
+else
+    curl -s -H Metadata:true -H "Authorization: Basic $ChallengeToken" "http://127.0.0.1:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com" | jq .access_token
 fi
 ```
 
