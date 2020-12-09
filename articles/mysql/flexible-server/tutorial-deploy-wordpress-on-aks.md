@@ -180,7 +180,7 @@ RUN docker-php-ext-enable mysqli
 ```
 
 ### Build your docker image
-Make sure you're in the directory ```my-wordpress-app``` in a terminal using the ```cd``` command. Run the following command to build your bulletin board image:
+Make sure you're in the directory ```my-wordpress-app``` in a terminal using the ```cd``` command. Run the following command to build the image:
 
 ``` bash
 
