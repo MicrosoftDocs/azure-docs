@@ -30,7 +30,7 @@ Use the following procedure to view the live logs for deployments that are part 
 
 5. Select a pod to start collection of the live data.
 
-    ![Deployment live logs](./media/container-insights-livedata-overview/live-data-deployment.png)
+    [![Deployment live logs](./media/container-insights-livedata-overview/live-data-deployment.png)](./media/container-insights-livedata-overview/live-data-deployment.png#lightbox)
 
 ## View logs
 
@@ -107,11 +107,17 @@ The Live Data (preview) feature includes search functionality. In the **Search**
 
 ![Live Data console pane filter example](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
+![Live Data console pane pause live view](./media/container-insights-livedata-overview/live-data-deployment-search.png)
+
 ### Scroll Lock and Pause
 
 To suspend autoscroll and control the behavior of the pane, allowing you to manually scroll through the new data read, you can use the **Scroll** option. To re-enable autoscroll, simply select the **Scroll** option again. You can also pause retrieval of log or event data by selecting the the **Pause** option, and when you are ready to resume, simply select **Play**.
 
 ![Live Data console pane pause live view](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
+
+![Live Data console pane pause live view](./media/container-insights-livedata-overview/live-data-deployment-pause.png)
+
+
 
 >[!IMPORTANT]
 >We recommend only suspending or pausing autoscroll for a short period of time while troubleshooting an issue. These requests may impact the availability and throttling of the Kubernetes API on your cluster.
