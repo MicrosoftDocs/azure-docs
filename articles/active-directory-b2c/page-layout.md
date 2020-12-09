@@ -43,7 +43,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 - The username/email and password fields now use the `form` HTML element to allow Edge and Internet Explorer (IE) to properly save this information.
 - Added a configurable user input validation delay for improved user experience.
 - Fixed an accessibility issue so that error messages are now read by Narrator. 
-- Put focus on password field when email is verified. 
+- Focus is now placed on the password field after the email is verified.
 - Removed `autofocus` from checkbox control. 
 - Support display widget for phone number verification. 
 - You can now add the `data-preload="true"` attribute [in your HTML tags](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
