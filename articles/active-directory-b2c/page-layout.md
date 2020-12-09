@@ -42,7 +42,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 - The username/email and password fields now use the `form` HTML element to allow Edge and Internet Explorer (IE) to properly save this information.
 - Added a configurable user input validation delay for improved user experience.
-- Fixed an accessibility issue where error message won't be read by narrator.
+- Fixed an accessibility issue so that error messages are now read by Narrator. 
 - Put focus on password field when email is verified. 
 - Removed `autofocus` from checkbox control. 
 - Support display widget for phone number verification. 
