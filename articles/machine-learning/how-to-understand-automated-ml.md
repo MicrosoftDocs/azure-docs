@@ -177,17 +177,9 @@ An over-confident model will over-predict probabilities close to zero and one, r
 
 ## Regression/forecasting metrics
 
-Automated ML provides similar metrics for regression and forecasting models. 
+Automated ML calculates the same performance metrics for each  model generated, regardless if it is a regression or forecasting experiment. These metrics also undergo normalization to enable comparison between models trained on data with different ranges. To learn more, see [metric normalization](#metric-normalization)  
 
-### Metric normalization
-
-Normalizing regression and forecasting metrics enables comparison between models trained on data with different ranges. A model trained on a data with a larger range will have higher error than the same model trained on data with a smaller range unless that error is normalized.
-
-While there is no standard method of normalizing error metrics, automated ML takes the common approach of dividing the error by the range of the data: `normalized_error = error / (y_max - y_min)`
-
-When evaluating a forecasting model on time series data automated ML takes extra steps to ensure that normalization happens per time series ID (grain) as each time series will likely have a different distribution of target values.
-
-The following table summarizes the model performance metrics generated for regression and forecasting experiments.
+The following table summarizes the model performance metrics generated for regression and forecasting experiments. Like classification metrics, these metrics are also based on the scikit learn implementations. The appropriate scikit learn documentation is linked accordingly, in the **Calculation** field.
 
 |Metric|Description|Calculation|
 --|--|--|
@@ -198,6 +190,14 @@ r2_score|R^2 is the coefficient of determination or the percent reduction in squ
 root_mean_squared_error |Root mean squared error (RMSE) is the square root of the expected squared difference between the target and the prediction. For an unbiased estimator, RMSE is equal to the standard deviation.<br> <br> **Objective:** Closer to 0 the better <br> **Range:** [0, inf)<br><br>Types:<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: the root_mean_squared_error divided by the range of the data. |[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
 root_mean_squared_log_error|Root mean squared log error is the square root of the expected squared logarithmic error.<br><br>**Objective:** Closer to 0 the better <br> **Range:** [0, inf) <br> <br>Types: <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: the root_mean_squared_log_error divided by the range of the data.  |[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
 spearman_correlation| Spearman correlation is a nonparametric measure of the monotonicity of the relationship between two datasets. Unlike the Pearson correlation, the Spearman correlation does not assume that both datasets are normally distributed. Like other correlation coefficients, Spearman varies between -1 and 1 with 0 implying no correlation. Correlations of -1 or 1 imply an exact monotonic relationship. <br><br> Spearman is a rank-order correlation metric meaning that changes to predicted or actual values will not change the Spearman result if they do not change the rank order of predicted or actual values.<br> <br> **Objective:** Closer to 1 the better <br> **Range:** [-1, 1]|[Calculation](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|
+
+### Metric normalization
+
+Automated ML normalizes regression and forecasting metrics which enables comparison between models trained on data with different ranges. A model trained on a data with a larger range has higher error than the same model trained on data with a smaller range, unless that error is normalized.
+
+While there is no standard method of normalizing error metrics, automated ML takes the common approach of dividing the error by the range of the data: `normalized_error = error / (y_max - y_min)`
+
+When evaluating a forecasting model on time series data, automated ML takes extra steps to ensure that normalization happens per time series ID (grain), because each time series likely has a different distribution of target values.
 ## Residuals
 
 The residuals chart is a histogram of the prediction errors (residuals) generated for regression and forecasting experiments. Residuals are calculated as `y_predicted - y_true` for all samples and then displayed as a histogram to show model bias.
