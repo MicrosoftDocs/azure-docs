@@ -1,6 +1,6 @@
 ---
 title: Uninstall Azure AD Connect
-description: This document describes how to move the Azure AD Connect database from the local SQL Server Express server to a remote SQL Server.
+description: This document describes how to uninstall Azure AD Connect.
 services: active-directory
 author: billmath
 manager: daveba
