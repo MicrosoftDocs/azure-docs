@@ -382,6 +382,10 @@ Category Root | Description | Version Introduced
 
 ## Versions
 
+> [!NOTE]
+> This feature was released alongside version 2020-10-01, which is currently being rolled out and may not yet be available in every region.
+</details>
+
 ### List API Versions
 
 Returns the set of supported API versions.
@@ -1192,9 +1196,6 @@ Metadata calls must be made from the primary IP address assigned to the primary 
 ## Support
 
 If you aren't able to get a metadata response after multiple attempts, you can create a support issue in the Azure portal.
-For **Problem Type**, select **Management**. For **Category**, select **Instance Metadata Service**.
-
-![Screenshot of Instance Metadata Service support](./media/instance-metadata-service/InstanceMetadata-support.png)
 
 ## Product Feedback
 
