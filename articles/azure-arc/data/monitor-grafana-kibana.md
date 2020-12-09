@@ -20,7 +20,7 @@ Kibana and Grafana web dashboards are provided to bring insight and clarity to t
 
 ## Monitor Azure SQL managed instances on Azure Arc
 
-To access the logs and monitoring dashboards for Arc enabled SQL Managed Instance, run the following `azdata` cli command
+To access the logs and monitoring dashboards for Arc enabled SQL Managed Instance, run the following `azdata` CLI command
 
 ```bash
 
@@ -43,7 +43,7 @@ The relevant Grafana dashboards are:
 
 ## Monitor Azure Database for PostgreSQL Hyperscale on Azure Arc
 
-To access the logs and monitoring dashboards for PostgreSQL Hyperscale, run the following `azdata` cli command
+To access the logs and monitoring dashboards for PostgreSQL Hyperscale, run the following `azdata` CLI command
 
 ```bash
 
