@@ -27,7 +27,6 @@ For a complete comparison between Azure Monitor and Operations Manager, see [Clo
 The following diagram illustrates the different category of workloads that need to be monitored in a typical environment. Platform as a Service (PaaS) workloads are applications and services running in Azure. 
 Infrastructure as a Service (IaaS) workloads may be running in virtual machines in Azure, another cloud, or on-premises. [Azure Arc](azure/azure-arc/servers/) is required for virtual machines outside of Azure, but other than this requirement, they are monitored the same as Azure virtual machines.
 
-![Workload summary](media/azure-monitor-scom/workloads.png)
 
 The diagram includes a high level recommendation for the method used to monitor the workload in a hybrid monitoring strategy. The rest of the article describes these recommendations in more details.
 
@@ -37,19 +36,36 @@ The diagram includes a high level recommendation for the method used to monitor 
 
 **Azure services.** PaaS resources in Azure that support your business applications that have migrated to the cloud. This includes services such as Azure Storage, Azure SQL, and Azure IoT. This does include Azure virtual machines since they are monitored like other Azure services, but the applications and software running on the guest operating system of those virtual machines are monitored separately than the host.
 
-## Virtual and physical machines
-Your environment prior to starting a migration into Azure is most likely based on virtual or physical machines. You rely on Operations Manager to monitor your business applications, server software, and other infrastructure components in your environment such as physical servers and networks. You use standard management packs for server software such as IIS, SQL Server, and SharePoint and tune those management packs for your specific requirements. You also develop business processes to respond to alerts from these management packs.
+## Basic strategy
+Your environment prior to starting a migration into Azure is most likely based on virtual and physical machines. You rely on Operations Manager to monitor your business applications, server software, and other infrastructure components in your environment such as bare metal servers and networks. You use standard management packs for server software such as IIS, SQL Server, and SharePoint and tune those management packs for your specific requirements. You create custom management packs for your business applications and other components in your environment that don't have existing management packs. You also develop business processes to manage alerts from these management packs.
+
+### IaaS
+Your initial migration may be to move virtual machines into Azure with minimal changes to the applications themselves. The monitoring requirements for these applications and the server software they depend on don't change, although you XXX. You can continue using Operations Manager on these servers as long as their agent can communicate back to your management servers. 
+
+
+## Azure Monitor for VMs
+[Azure Monitor for VMs](insights/vminsights-overview.md) collects performance data from the guest operating system of virtual machines in addition to relationships between virtual machines and their external dependencies. You can also [configure additional logs and metrics to be collected](platform/agent-data-sources.md) which is some of the same data used by management packs. There aren't preexisting rules though to identify and alert on issues for the business applications and server software running in the virtual machine. You must create your own alert rules to be proactively notified of any detected issues. 
 
 
 
-Your initial migration may be to move virtual machines into Azure with minimal changes to the applications themselves. The monitoring requirements for these applications and the server software they depend on don't change 
+Operations Manager was designed for workloads running on virtual machines, and an extensive collection of management packs is available to monitor various applications. Each includes predefined logic to discover different components of the application, measure their health, and generate alerts when issues are detected. You may have also have considerable investment in tuning existing management packs and even developing your own to your specific requirements and in developing custom management packs for any custom requirements.
+
+
+A new [guest health feature for Azure Monitor for VMs](insights/vminsights-health-overview.md) is now in public preview and does alert based on the health state of a set of performance metrics. This is currently limited though to a specific set of performance counters related to the guest operating system and not applications or other workloads running in the virtual machine.
+
+Azure Monitor for VMs may be sufficient for some virtual machines in your environment that only require basic monitoring. Continue to use Operations Manager for virtual machines that require management packs, but consider also using Azure Monitor for VMs. This does add complexity for those virtual machines, but it provides additional features including the following:
+
+- View aggregated performance data across multiple virtual machines in interactive charts and workbooks.
+- Use [log queries](log-query/log-query-overview.md) to interactively analyze collected performance data, and event data if you configure it.
+- Create [log alert rules](platform/alerts-log-query.md) based on complex logic across multiple virtual machines.
+- Discover relationships between agents and dependencies on external resources and allows you to work with them in a graphical tool. 
+- Use the new guest health feature (preview) to view and alert on the health of a virtual machine based on a set of performance counters.
+
 
 ## Azure management pack
-The [Azure management pack](https://www.microsoft.com/download/details.aspx?id=50013) allows Operations Manager to discover Azure resources and monitor their health. This is a limited view though based on platform metric values that are sent to Azure Storage and collected through the Azure API from the management pack. It doesn't include other telemetry such as resource logs which provide details about the internal operation of each resource. 
+The [Azure management pack](https://www.microsoft.com/download/details.aspx?id=50013) allows Operations Manager to discover Azure resources and monitor their health. You can set a threshold for each resource to determine a health state and create alerts. This is a limited view though based on platform metric values that are sent to Azure Storage and collected through the Azure API from the management pack. It doesn't include other telemetry such as resource logs which provide details about the internal operation of each resource. 
 
- You can set a threshold for each resource to determine a health state and create alerts. This is a limited view of each resource though since it doesn't include resource logs and isn't able to perform detailed analysis beyond a limited set of performance counters.
-
-You may choose to use the Azure Management pack if you want visibility for certain Azure resources in the Operations console. 
+ You may choose to use the Azure Management pack if you want visibility for certain Azure resources in the Operations console and to integrate some basic alerting with your existing processes. You should look to Azure Monitor though for complete monitoring of your Azure resources.
 
 ## Business applications
 You typically require custom management packs to monitor applications in your IaaS environment with Operations Manager, leveraging agents installed on each virtual machine. Application Insights in Azure Monitor monitors both IaaS and PaaS web based applications in Azure, other clouds, or on-premises. Application Insights provides the following benefits over custom management packs:
@@ -84,19 +100,6 @@ Operations Manager can discover Azure resources and monitor their health based o
 ## Packaged applications (IaaS)
 Infrastructure as a Service (IaaS) workloads are services running in virtual machines that support your custom applications in addition to the guest operating system they rely on. This includes such applications as Internet Information Services (IIS), SQL Server, or Microsoft Exchange.
 
-Operations Manager was designed for workloads running on virtual machines, and an extensive collection of management packs is available to monitor various applications. Each includes predefined logic to discover different components of the application, measure their health, and generate alerts when issues are detected. You may have also have considerable investment in tuning existing management packs and even developing your own to your specific requirements and in developing custom management packs for any custom requirements.
-
-[Azure Monitor for VMs](insights/vminsights-overview.md) collects performance data from the guest operating system of virtual machines in addition to relationships between virtual machines and their external dependencies. You can also [configure additional logs and metrics to be collected](platform/agent-data-sources.md) which is some of the same data used by management packs. There aren't preexisting rules though to identify and alert on issues in the virtual machine. You must create your own alert rules to be proactively notified of any detected issues. 
-
-A new [guest health feature for Azure Monitor for VMs](insights/vminsights-health-overview.md) is now in public preview and does alert based on the health state of a set of performance metrics. This is currently limited though to a specific set of performance counters related to the guest operating system and not applications or other workloads running in the virtual machine.
-
-Azure Monitor for VMs may be sufficient for some virtual machines in your environment that only require basic monitoring. Continue to use Operations Manager for virtual machines that require management packs, but consider also using Azure Monitor for VMs. This does add complexity for those virtual machines, but it provides additional features including the following:
-
-- View aggregated performance data across multiple virtual machines in interactive charts and workbooks.
-- Use [log queries](log-query/log-query-overview.md) to interactively analyze collected performance data, and event data if you configure it.
-- Create [log alert rules](platform/alerts-log-query.md) based on complex logic across multiple virtual machines.
-- Discover relationships between agents and dependencies on external resources and allows you to work with them in a graphical tool. 
-- Use the new guest health feature (preview) to view and alert on the health of a virtual machine based on a set of performance counters.
 
 ### Recommendations
 
