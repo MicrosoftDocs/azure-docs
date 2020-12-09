@@ -45,7 +45,7 @@ You'll need to list your subscription in the Azure portal and double-click on th
 >[!NOTE]
 >If the resource provider is not registered, select **Register**.
  
-:::image type="content" source="media/baremetal-infra-portal/register-resource-provider-azure-portal.png" alt-text="Screenshot that shows the BareMetal Instance unit registered" lightbox="media/baremetal-infra-portal/register-resource-provider-azure-portal.png":::
+:::image type="content" source="media/baremetal-infra-portal/register-resource-provider-azure-portal.png" alt-text="Screenshot that shows the BareMetal Instance unit registered":::
  
 ## BareMetal Instance units in the Azure portal
  
@@ -125,7 +125,7 @@ There are various situations where the OS won't finish a restart, which requires
  
 Select **Restart** and then **Yes** to confirm the restart of the unit.
  
-:::image type="content" source="media/baremetal-infra-portal/baremetal-instance-restart.png" alt-text="Screenshot that shows how to restart the BareMetal Instance unit" lightbox="media/baremetal-infra-portal/baremetal-instance-restart.png":::
+:::image type="content" source="media/baremetal-infra-portal/baremetal-instance-restart.png" alt-text="Screenshot that shows how to restart the BareMetal Instance unit":::
  
 When you restart a BareMetal Instance unit, you'll experience a delay. During this delay, the power state moves from **Starting** to **Started**, which means the OS has started up completely. As a result, after a restart, you can't log into the unit as soon as the state switches to **Started**.
  
