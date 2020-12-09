@@ -25208,6 +25208,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/develop/v2-saml-bearer-assertion.md",
+      "redirect_url": "/azure/active-directory/develop/scenario-token-exchange-saml-oauth",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/develop/active-directory-devhowto-adal-error-handling.md",
       "redirect_url": "/azure/active-directory/azuread-dev/active-directory-devhowto-adal-error-handling",
       "redirect_document_id": true
