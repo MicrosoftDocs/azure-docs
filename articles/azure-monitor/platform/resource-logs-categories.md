@@ -3,7 +3,7 @@ title: Azure Monitor Resource Logs supported services and categories
 description: Reference of Azure Monitor Understand the supported services and event schema for Azure resource logs.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 06/03/2020
+ms.date: 12/09/2020
 ---
 
 # Supported categories for Azure Resource Logs
@@ -18,7 +18,7 @@ A combination of the resource type (available in the `resourceId` property) and 
 
 ## Costs
 
- There are costs associated with sending and storing any data into into Log Analytics and/or Event hub. Resource logs are one type of data you can send to these locations. There is an additional [cost to export some categories of resource logs](https://azure.microsoft.com/pricing/details/monitor/). Others are free of export costs. Specifics are listed in the table below.
+There are costs associated with sending and storing any data into into Log Analytics, Azure Storage and/or Event hub. You may pay for the cost to get the data into these locations and for keeping it there.  Resource logs are one type of data you can send to these locations. There is an additional [cost to export some categories of resource logs](https://azure.microsoft.com/pricing/details/monitor/) into these locations, while others are free of export costs. Export cost specifics are listed in the table below.
 
 ## Supported log categories per resource type
 
