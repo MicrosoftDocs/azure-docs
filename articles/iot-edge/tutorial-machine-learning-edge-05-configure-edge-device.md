@@ -22,7 +22,7 @@ In this section of the tutorial, you learn how to:
 >
 > * Create certificates to allow your gateway device to connect securely to your downstream devices.
 > * Create an IoT Edge device.
-> * Create an Azure Virtual Machine to simulate your IoT Edge device.
+> * Create an Azure virtual machine to simulate your IoT Edge device.
 
 ## Prerequisites
 

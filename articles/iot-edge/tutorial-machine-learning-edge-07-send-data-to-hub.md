@@ -25,6 +25,7 @@ In this section of the tutorial, you learn how to:
 >
 > * Build and run a leaf device.
 > * Verify that generated data is being stored in your Azure Blob storage.
+> * Validate that the machine learning model classified the device data.
 
 ## Prerequisites
 

@@ -42,7 +42,8 @@ In this section of the tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Integrate the DeviceHarness project into your development environment.
+> * Incorporate an external project into your development environment.
+> * Use the sample DeviceHarness project to generate simulated IoT device data.
 > * View generated data in your IoT Hub.
 
 ## Prerequisites

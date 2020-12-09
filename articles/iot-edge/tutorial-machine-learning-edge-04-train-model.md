@@ -25,9 +25,9 @@ In this section of the tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Create an Azure Notebooks project.
-> * Run an Azure Notebooks project.
-> * Debug an Azure Notebooks project.
+> * Create an Azure Notebooks project to train a machine learning model.
+> * Containerize the trained machine learning model.
+> * Create an Azure IoT Edge module from the containerized machine learning model.
 
 ## Prerequisites
 
