@@ -16,10 +16,13 @@ In this article, we detail implementation guidance for several of the patterns
 highlighted in the overview section. 
 
 - [Replication](#replication)
+  - [Sequences and order preservation](#sequences-and-order-preservation)
+  - [Service-assigned metadata](#service-assigned-metadata)
+  - [Failover](#failover)
 - [Merge](#merge)
 - [Editor](#editor)
 - [Routing](#routing)
-- [Log projection](#log-projection) 
+- [Log projection](#log-projection)
 
 ## Replication 
 
@@ -41,28 +44,27 @@ communicates this by grouping related events with the same partition key and
 same partition](event-hubs-features.md#partitions).
 
 The pre-built replication functions ensure that event sequences with the same
-partition key (streams) retrieved from a source partition are submitted
-as a batch in the original sequence and with the same partition key into the
-target Event Hub. 
+partition key (=streams) retrieved from a source partition are submitted into
+the target Event Hub as a batch in the original sequence and with the same
+partition key. 
 
 If the partition count of the source and target Event Hub is identical, all
 streams in the target will map to the same partitions as they did in the source.
 If the partition count is different, which matters in some of the further
-patterns described in the following, the mapping will obviously differ, but
-streams are always kept together and in order. 
+patterns described in the following, the mapping will differ, but streams are
+always kept together and in order. 
 
 The relative order of events belonging to different streams or of independent
-events without a partition key in a target partition may differ from the
+events without a partition key in a target partition may always differ from the
 source partition. 
-
 ### Service-assigned metadata 
 
 The service-assigned metadata of an event obtained from the source Event Hub,
 the original enqueue time, sequence number, and offset, are replaced by new
 service-assigned values in the target Event Hub, but with the default
-replication tasks that are provided in our samples, they are preserved in user
-properties: `repl-enqueue-time` (ISO8601 string), `repl-sequence`,
-`repl-offset`. 
+replication tasks that are provided in our samples, the original values are
+preserved in user properties: `repl-enqueue-time` (ISO8601 string),
+`repl-sequence`, `repl-offset`. 
 
 Those properties are of type string and contain the stringified
 value of the respective original properties.  If the event is forwarded multiple
@@ -73,23 +75,106 @@ already existing properties, with values separated by semicolons.
 
 If you are using replication for disaster recovery purposes, to protect against
 regional availability events in the Event Hubs service, or against network
-interruptions and will you want to perform a failover from one Event Hub to the
-next, telling producers and consumers to use the prepared replica.
+interruptions, any such failure scenario will require performing a failover from
+one Event Hub to the next, telling producers and/or consumers to use the
+secondary endpoint.
 
-For producers, this is trivial if you keep the Event Hub endpoint information in
-a central configuration location (which might be as simple as returning the
-endpoint DNS name or even a connection string from a HTTP GET endpoint) and
-restart the producers. 
+For all failover scenarios it is assumed that the required elements of the
+namespaces are structurally identical, meaning that Event Hubs and Consumer
+Groups are identically named and that shared access signature rules and/or
+role-based access control rules are set up in the same way. You can create (and
+update) a secondary namespace by following the [guidance for moving
+namespaces](move-across-regions.md) and omitting the cleanup step.
 
-For consumers, the failover strategy depends on the needs of the event
-processor. 
+To force producers and consumers to switch, you need to make the information
+about which namespace to use available for lookup in a location that is easy to
+reach and update. If producers or consumers encounter frequent or persistent
+errors, they should consult that location and adjust their configuration. There
+are numerous ways to share that configuration, but we point out two in the
+following: DNS and file shares.
 
-If there is a disaster that requires rebuilding a system, including
-databases, from backup data, and the databases are fed directly or via
-intermediate processing from the events held in the Event Hub, you will restore
-the backup and then want to start replaying events into the system from the
-moment at which the backup was created and not from the moment the original
-system was destroyed.
+#### DNS based failover configuration
+
+One candidate approach is to hold the information in DNS SRV records in a DNS
+you control and point to the respective Event Hub endpoints. Mind that Event
+Hubs does not allow for its endpoints to be directly aliased with CNAME records,
+which means you will use DNS as a resilient lookup mechanism for endpoint
+addresses and not to directly resolve IP address information. 
+
+Assume you own the domain `example.com` and, for your application, a zone
+`test.example.com`. For two alternate Event Hubs, you will now create two
+further nested zones, and a SRV record in each. 
+
+The SRV records are, following common convention, prefixed with
+`_azure_eventhubs._amqp` and hold two endpoint records: One for AMQP-over-TLS on
+port 5671 and one for AMQP-over-WebSockets on port 443, both pointing to the
+Event Hubs endpoint of the namespace corresponding to the zone.
+
+| Zone                 | SRV record
+|----------------------|-------------------------------------------------------------
+| `eh1.test.example.com` | **`_azure_servicebus._amqp.eh1.test.example.com`**<br>`1 1 5671 eh1-test-example-com.servicebus.windows.net`<br>`2 2 443 eh1-test-example-com.servicebus.windows.net`
+| `eh2.test.example.com` | **`_azure_servicebus._amqp.eh2.test.example.com`**<br>`1 1 5671 eh2-test-example-com.servicebus.windows.net`<br>`2 2 443 eh2-test-example-com.servicebus.windows.net`
+
+In your application's zone, you will then create a CNAME entry that points to
+the subordinate zone corresponding to your primary Event Hub:
+
+| CNAME record                 | Alias
+|------------------------------|-------------------------------------------------------------
+| `eventhub.test.example.com`  | `test1.test.example.com`
+
+Using a DNS client that allows for querying CNAME and SRV records explicitly
+(the built-in clients of Java and .NET only allow for simple resolution of names
+to IP addresses), you can then resolve the desired endpoint. With
+[DnsClient.NET](https://dnsclient.michaco.net/), for instance, the lookup
+function is:
+
+``` C#
+static string GetEventHubName(string aliasName)
+{
+    const string SrvRecordPrefix = "_azure_eventhub._amqp.";
+    LookupClient lookup = new LookupClient();
+
+    return (from CNameRecord alias in (lookup.Query(aliasName, QueryType.CNAME).Answers)
+            from SrvRecord srv in lookup.Query(SrvRecordPrefix + alias.CanonicalName, QueryType.SRV).Answers
+            where srv.Port == 5671
+            select srv.Target).FirstOrDefault()?.Value.TrimEnd('.');
+}
+```
+
+The function returns the target host name registered for port 5671 of the zone
+currently aliased with the CNAME as shown above. 
+
+Performing a failover requires editing the CNAME record and pointing it to the
+alternate zone. 
+
+The advantage of using DNS, and specifically [Azure
+DNS](../dns/dns-overview.md), is that Azure DNS information is globally
+replicated and therefore resilient against single-region outages.
+
+This procedure is similar to how the [Event Hubs Geo-DR](event-hubs-geo-dr.md)
+works, but fully under your own control and also works with active/active scenarios.
+
+#### File share based failover configuration
+
+The simplest alternative to using DNS for sharing endpoint information is to put
+the name of the primary endpoint into a plain-text file and serve the file from
+an infrastructure that is robust against outages and still allows updates. 
+
+If you already run a highly available web site infrastructure with global
+availability and content replication, adding such a file there and republish the
+file if a switch is needed.
+
+#### Extra considerations for failing over consumers 
+
+For Event Hub consumers, further considerations for the failover strategy
+depends on the needs of the event processor. 
+
+If there is a disaster that requires rebuilding a system, including databases,
+from backup data, and the databases are fed directly or via intermediate
+processing from the events held in the Event Hub, you will restore the backup
+and then want to start replaying events into the system from the moment at which
+the database backup was created and not from the moment the original system was
+destroyed.
 
 If a failure only affects a slice of a system or indeed only a single Event Hub
 which has become unreachable, you will likely want to continue processing events
@@ -98,7 +183,7 @@ from about the same position where processing was interrupted.
 To realize either scenario and using the event processor of your respective
 Azure SDK, [you will create a new checkpoint
 store](event-processor-balance-partition-load.md#checkpointing) and provide an
-initial partition position, based on the timestamp that you want to resume
+initial partition position, based on the *timestamp* that you want to resume
 processing from. 
 
 If you still have access to the checkpoint store of the Event Hub you're
@@ -109,7 +194,8 @@ resume precisely from where you last left off.
 ## Merge
 
 The merge pattern has one or more replication tasks pointing to one target,
-while regular producers might also send event to the target at the same time. 
+possibly concurrently with regular producers also sending events to the same
+target. 
 
 Variations of this patters are:
 - Two or more replication functions concurrently acquiring events from separate sources and
@@ -129,55 +215,55 @@ sample.
 
 ## Editor
 
-The editor pattern builds on the [replication](#replication) pattern, but you
-don't forward messages unchanged, but modify them before forwarding. Examples
-for such modifications are:
+The editor pattern builds on the [replication](#replication) pattern, but
+messages are modified before they are forwarded. Examples for such modifications
+are:
 
-- *Transcoding* - If the event content (also referred to as "body" or "payload")
-  arrives from the source encoded using the Apache Avro format or some
+- ***Transcoding*** - If the event content (also referred to as "body" or "payload")
+  arrives from the source encoded using the *Apache Avro* format or some
   proprietary serialization format, but the expectation of the system owning the
-  target is for the content to be JSON encoded, a transcoding replication task
-  will first deserialize the payload from Apache Avro into an in-memory object
-  graph and then serialize that graph into the JSON format for the event that is
-  being forwarded. Transcoding also includes content compression and
+  target is for the content to be *JSON* encoded, a transcoding replication task
+  will first deserialize the payload from *Apache Avro* into an in-memory object
+  graph and then serialize that graph into the *JSON* format for the event that is
+  being forwarded. Transcoding also includes **content compression** and
   decompression tasks.
-- *Transformation* - Events that contain structured data may require reshaping
+- ***Transformation*** - Events that contain structured data may require reshaping
   of that data for easier consumption by downstream consumers. This may involve
   work like flattening nested structures, pruning extraneous data elements, or
   reshaping the payload to exactly fit a given schema.
-- *Batching* - Events may be received in batches (multiple events in a single
+- ***Batching*** - Events may be received in batches (multiple events in a single
   transfer) from a source, but have to be forwarded singly to a target, or vice
   versa. A task may therefore forward multiple events based on a single input
   event transfer or aggregate a set of events that are then transferred
   together. 
-- *Validation* - Event data from external sources often need to be checked for
+- ***Validation*** - Event data from external sources often need to be checked for
   whether they are in compliance with a set of rules before they may be
   forwarded. The rules may be expressed using schemas or code. Events that are
   found not to be in compliance may be dropped, with the issue noted in logs, or
   may be forwarded to a special target destination to handle them further.   
-- *Enrichment* - Event data coming from some sources may require enrichment with
+- ***Enrichment*** - Event data coming from some sources may require enrichment with
   further context for it to be usable in target systems. This may involve
   looking up reference data and embedding that data with the event, or adding
   information about the source that is known to the replication task, but not
   contained in the events. 
-- *Filtering* - Some events arriving from a source might have to be withheld
+- ***Filtering*** - Some events arriving from a source might have to be withheld
   from the target based on some rule. A filter tests the event against a rule
   and drops the event if the event does not match the rule. Filtering out
   duplicate events by observing certain criteria and dropping subsequent events
   with the same values is a form of filtering.
-- *Routing and Partitioning* - Some replication tasks may allow for two or more
+- ***Routing and Partitioning*** - Some replication tasks may allow for two or more
   alternative targets, and define rules for which replication target is chosen
   for any particular event based on the metadata or content of the event. A
   special form of routing is partitioning, where the task explicitly assigns
   partitions in one replication target based on rules.
-- *Cryptography* - A replication task may have to decrypt content arriving from
+- ***Cryptography*** - A replication task may have to decrypt content arriving from
   the source and/or encrypt content forwarded onwards to a target, and/or it may
   have to verify the integrity of content and metadata relative to a signature
   carried in the event, or attach such a signature. 
-- *Attestation* - A replication task may attach metadata, potentially protected
+- ***Attestation*** - A replication task may attach metadata, potentially protected
   by a digital signature, to an event that attests that the event has been
   received through a specific channel or at a specific time.     
-- *Chaining* - A replication task may apply signatures to sequences of events
+- ***Chaining*** - A replication task may apply signatures to sequences of events
   such that the integrity of the sequence is protected and missing events can be
   detected.
 
@@ -209,7 +295,50 @@ public static async Task Run(
 ```
 
 The routing function will consider the message metadata and/or the message
-payload and then pick one of the available destinations to send to. 
+payload and then pick one of the available destinations to send to.
 
 ## Log projection
 
+The log projection pattern flattens the event stream onto an indexed database,
+with events becoming records in the database. Typically, events are added to the
+same collection or table, and the Event Hub partition key becomes party of the
+the primary key looking for making the record unique.
+
+Log projection can produce a time-series historian of your event data or a
+compacted view, whereby only the latest event is retained for each partition
+key. The shape of the target database is ultimately up to you and your
+application's needs. This pattern is also referred to as "event sourcing". 
+
+For example, the following Azure Function projects the contents of an Event Hub
+compacted into an Azure CosmosDB collection.  
+
+``` C#
+[FunctionName("Eh1ToCosmosDb1Json")]
+[ExponentialBackoffRetry(-1, "00:00:05", "00:05:00")]
+public static async Task Eh1ToCosmosDb1Json(
+    [EventHubTrigger("eh1", ConsumerGroup = "Eh1ToCosmosDb1", Connection = "Eh1ToCosmosDb1-source-connection")] EventData[] input,
+    [CosmosDB(databaseName: "SampleDb", collectionName: "foo", ConnectionStringSetting = "CosmosDBConnection")] IAsyncCollector<object> output,
+    ILogger log)
+{
+    foreach (var ev in input)
+    {
+        if (!string.IsNullOrEmpty(ev.SystemProperties.PartitionKey))
+        {
+            var record = new
+            {
+                id = ev.SystemProperties.PartitionKey,
+                data = JsonDocument.Parse(ev.Body),
+                properties = ev.Properties
+            };
+            await output.AddAsync(record);
+        }
+    }
+}
+```
+
+
+## Next steps
+
+- [Event replicator applications in Azure Functions][1]
+- [Replicating events between Event Hubs][2]
+- [Replicating events to Azure Service Bus][3]

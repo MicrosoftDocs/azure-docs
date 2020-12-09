@@ -232,8 +232,8 @@ Guidance:
 In some scenarios, you will want to have access to the latest value sent for any
 substream of an event, and commonly distinguished by the partition key. In
 Apache Kafka, this is often achieved by enabling "log compaction" on a topic,
-which discards all but the latest event for each key. That approach has three
-compounding disadvantages: 
+which discards all but the latest event labeled with any unique key. The log
+compaction approach has three compounding disadvantages: 
 
 - The compaction requires a continuous reorganization of the log, which is an
   excessively expensive operation for a broker that is optimized for
@@ -243,7 +243,7 @@ compounding disadvantages:
 - A compacted stream still has a sequential access model, meaning that finding
   the desired value in the log requires reading the entire log in the worst
   case, which typically leads to optimizations that implement the exact pattern
-  implemented here. 
+  presented here: projecting the log contents into a database or cache. 
 
 Ultimately, a compacted log is a key-value store and as such, it is the worst
 possible implementation option for such a store. It is far more efficient for
