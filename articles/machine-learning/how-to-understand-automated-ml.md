@@ -246,3 +246,4 @@ To view the interpretability dashboard in the studio:
 ## Next steps
 * Try the [automated machine learning model explanation sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
 * Learn more about [responsible AI offerings in automated ML](how-to-machine-learning-interpretability-automl.md).
+* For automated ML specific questions, reach out to askautomatedml@microsoft.com.
