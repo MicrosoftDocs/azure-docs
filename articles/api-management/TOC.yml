@@ -58,6 +58,8 @@
               href: api-management-howto-policies.md
             - name: Policy reference index
               href: api-management-policies.md
+            - name: Error handling
+              href: api-management-error-handling-policies.md  
       - name: Security
         items:
             - name: Security baseline
@@ -70,8 +72,6 @@
         href: api-management-revisions.md
       - name: Manage using automation
         href: automation-manage-api-management.md
-      - name: Error handling
-        href: api-management-error-handling-policies.md
       - name: API import restrictions
         href: api-management-api-import-restrictions.md
       - name: Self-hosted gateway overview
