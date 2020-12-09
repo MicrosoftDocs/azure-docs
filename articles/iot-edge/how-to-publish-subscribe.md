@@ -268,7 +268,7 @@ To authorize the publisher and subscriber, edit the IoT Edge hub twin either via
                },
                {
                   "identities": [
-                     "sub_client"
+                     "<iot_hub_name>.azure-devices.net/sub_client"
                   ],
                   "allow":[
                      {
@@ -283,7 +283,7 @@ To authorize the publisher and subscriber, edit the IoT Edge hub twin either via
                },
                {
                   "identities": [
-                     "pub_client"
+                     "<iot_hub_name>.azure-devices.net/pub_client"
                   ],
                   "allow":[
                      {
@@ -312,7 +312,7 @@ Connect your **sub_client** MQTT client to the MQTT broker and subscribe to the 
 ```bash
 mosquitto_sub \
     -t "test_topic" \
-    -i "<iot_hub_name>.azure-devices.net/sub_client" \
+    -i "sub_client" \
     -u "<iot_hub_name>.azure-devices.net/sub_client/?api-version=2018-06-30" \
     -P "<sas_token>" \
     -h "<edge_device_address>" \
@@ -333,7 +333,7 @@ Connect your **pub_client** MQTT client to the MQTT broker and publishes a messa
 ```bash
 mosquitto_pub \
     -t "test_topic" \
-    -i "<iot_hub_name>.azure-devices.net/pub_client" \
+    -i "pub_client" \
     -u "<iot_hub_name>.azure-devices.net/pub_client/?api-version=2018-06-30" \
     -P "<sas_token>" \
     -h "<edge_device_address>" \
