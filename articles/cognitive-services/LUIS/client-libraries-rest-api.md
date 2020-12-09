@@ -2,7 +2,7 @@
 title: "Quickstart: Language Understanding (LUIS) SDK client libraries and REST API"
 description: Create and query a LUIS app with the LUIS SDK client libraries and REST API.
 ms.topic: quickstart
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, LUIS, azure luis, natural language understanding, ai chatbot, chatbot maker,  understanding natural language
@@ -15,8 +15,8 @@ Create and query an Azure LUIS artificial intelligence (AI) app with the LUIS SD
 
 Language Understanding (LUIS) enables you to apply natural language processing (NLP) to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 
-* The **authoring SDK** client library allows you to create, edit, train, and publish your LUIS app.
-* The **prediction runtime SDK** client library allows you to query the published app.
+* The **authoring** client library and REST API allows you to create, edit, train, and publish your LUIS app.
+* The **prediction runtime** client library and REST API allows you to query the published app.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [LUIS development with C# SDK](./includes/sdk-csharp.md)]
