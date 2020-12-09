@@ -128,7 +128,7 @@ custom_dimensions = {
 }
 
 # Assumes AzureLogHandler was already registered above
-logger.info("I will be sent to Application Insights with Custom Dimensions", custom_dimensions)
+logger.info("I will be sent to Application Insights with Custom Dimensions", extra= {"custom_dimensions":custom_dimensions})
 ```
 
 ## OpenCensus Python logging considerations
