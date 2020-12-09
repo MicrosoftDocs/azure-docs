@@ -13,9 +13,19 @@ ms.author: mbaldwin
 
 Get started with Azure Attestation by using Azure CLI to set up attestation.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
 ## Get started
+
+1. Install this extension using the below CLI command
+
+   ```azurecli
+   az extension add --name attestation
+   ```
+   
+1. Check the version
+
+   ```azurecli
+   az extension show --name attestation --query version
+   ```
 
 1. Use the following command to sign into Azure:
 
