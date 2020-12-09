@@ -4,7 +4,10 @@ description: Create and query a LUIS app with the LUIS SDK client libraries and 
 ms.topic: quickstart
 ms.date: 12/09/2020
 ms.service: cognitive-services
+ms.author: aahi
+manager: nitinme
 ms.subservice: language-understanding
+author: aahill
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, LUIS, azure luis, natural language understanding, ai chatbot, chatbot maker,  understanding natural language
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-luis
