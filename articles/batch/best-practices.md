@@ -1,16 +1,13 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 12/10/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
 ---
 
 # Azure Batch best practices
 
 This article discusses a collection of best practices and useful tips for using the Azure Batch service effectively, based on real-life experiences with Batch. These tips can help you enhance performance and avoid design pitfalls in your Azure Batch solutions.
-
-> [!TIP]
-> For additional guidance related to security features in Azure Batch, see [Batch security and compliance best practices](security-best-practices.md).
 
 ## Pools
 
