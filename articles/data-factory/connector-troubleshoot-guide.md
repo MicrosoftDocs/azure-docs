@@ -497,7 +497,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### SQL Table cannot be found 
 
-- **Symptoms**: Error occurred when copying data from Hybrid into On-prem SQL Server table：`Cannot find the object "dbo.OneProfileMCIDList" because it does not exist or you do not have permissions.`
+- **Symptoms**: Error occurred when copying data from Hybrid into On-prem SQL Server table：`Cannot find the object "dbo.Contoso" because it does not exist or you do not have permissions.`
 
 - **Cause**: The current SQL account does not have enough permission to execute requests issued by .NET SqlBulkCopy.WriteToServer.
 
@@ -621,7 +621,7 @@ busy to handle requests, it returns an HTTP error 503.
 
     ![Uncheck Use System Trust Store](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
 
-    2. Double check the registry to make sure the setting has been applied.
+    2. Registry key will be generated after you change the setting.
 
     ![System Trust Store registry](./media/connector-troubleshoot-guide/system-trust-store-registry.png)
 
@@ -816,13 +816,13 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### No enum constant
 
-- **Symptoms**: Error message occurred when copying data to Parquet format: `java.lang.IllegalArgumentException:field ended by &apos;;&apos;`, or: `java.lang.IllegalArgumentException:No enum constant org.apache.parquet.schema.OriginalType.hierarchy`.
+- **Symptoms**: Error message occurred when copying data to Parquet format: `java.lang.IllegalArgumentException:field ended by &apos;;&apos;`, or: `java.lang.IllegalArgumentException:No enum constant org.apache.parquet.schema.OriginalType.test`.
 
 - **Cause**: 
 
-    The issue could be caused by white spaces in column name, as Parquet doesn't support such format. 
+    The issue could be caused by white spaces or unsupported characters (such as ,;{}()\n\t=) in column name in column name, as Parquet doesn't support such format. 
 
-    For example, column name like `corporate_brand_(hierarchy)` will parse the type in brackets from [code](https://github.com/apache/parquet-mr/blob/master/parquet-column/src/main/java/org/apache/parquet/schema/MessageTypeParser.java) `Tokenizer st = new Tokenizer(schemaString, " ;{}()\n\t");`. The error will be raised as there is no such type.
+    For example, column name like *contoso(test)* will parse the type in brackets from [code](https://github.com/apache/parquet-mr/blob/master/parquet-column/src/main/java/org/apache/parquet/schema/MessageTypeParser.java) `Tokenizer st = new Tokenizer(schemaString, " ;{}()\n\t");`. The error will be raised as there is no such "test" type.
 
     To check supported types, you can check them [here](https://github.com/apache/parquet-mr/blob/master/parquet-column/src/main/java/org/apache/parquet/schema/OriginalType.java).
 
@@ -832,7 +832,7 @@ busy to handle requests, it returns an HTTP error 503.
 
     1. Double check if the first row with white spaces is used as column name.
 
-    1. Double check the exception such as No enum constant. 
+    1. Double check the type OriginalType is supported or not. Above special symbols are not suggested. 
 
 
 ## REST
