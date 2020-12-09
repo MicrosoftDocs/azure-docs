@@ -165,3 +165,4 @@ It takes up to five business days for a support representative to confirm your r
 
 ## Next steps
 
+If you want to learn more about instances, see [SAP HANA on Azure (Large Instances)](../../../virtual-machines/workloads/sap/get-started.md).
