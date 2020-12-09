@@ -94,26 +94,12 @@ az attestation delete --name "myattestationprovider" --resource-group "sample-re
 
 ## Policy management
 
-To manage policies, an Azure AD user requires the following permissions for `Actions`:
+Use the commands described here to provide policy management for an attestation provider, one attestation type at a time.
 
-- `Microsoft.Attestation/attestationProviders/attestation/read`
-- `Microsoft.Attestation/attestationProviders/attestation/write`
-- `Microsoft.Attestation/attestationProviders/attestation/delete`
-
-These permissions can be assigned to an Azure AD user through a role such as `Owner` (wildcard permissions), `Contributor` (wildcard permissions), or `Attestation Contributor` (specific permissions for Azure Attestation only).  
-
-To read policies, an Azure AD user requires the following permission for `Actions`:
-
-- `Microsoft.Attestation/attestationProviders/attestation/read`
-
-This permission can be assigned to an Azure AD user through a role such as `Reader` (wildcard permissions) or `Attestation Reader` (specific permissions for Azure Attestation only).
-
-Use the commands described here to provide policy management for an attestation provider, one TEE at a time.
-
-The [az attestation policy show](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_show) command returns the current policy for the specified TEE:
+The [az attestation policy show](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_show) command returns the current policy for the specified TEE:
 
 ```azurecli
-az attestation policy show --resource-group attestationrg --name attestationProvider --tee SgxEnclave
+az attestation policy show --name "myattestationprovider" --resource-group "MyResourceGroup" --attestation-type SGX-IntelSDK
 ```
 
 > [!NOTE]
@@ -121,28 +107,18 @@ az attestation policy show --resource-group attestationrg --name attestationProv
 
 The following are supported TEE types:
 
-- `CyResComponent`
-- `OpenEnclave`
-- `SgxEnclave`
-- `VSMEnclave`
+- `SGX-IntelSDK`
+- `SGX-OpenEnclaveSDK`
+- `TPM`
 
-Use the [az attestation policy set](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_set) command to set a new policy for the specified TEE.
+Use the [az attestation policy set](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_set) command to set a new policy for the specified attestation type.
 
-```azurecli
-az attestation policy set --resource-group attestationrg --name attestationProvider --tee SgxEnclave \
-   --new-attestation-policy newAttestationPolicyname
-```
-
-The attestation policy in JWT format must contain a claim named `AttestationPolicy`. A signed policy must be signed with a key that corresponds to any of the existing policy signer certificates.
-
-For policy samples, see [Examples of an attestation policy](policy-examples.md).
-
-The [az attestation policy reset](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_reset) command sets a new policy for the specified TEE.
+To set text policy for a given kind of attestation type using file name:
 
 ```azurecli
-az attestation policy reset --resource-group attestationrg --name attestationProvider --tee SgxEnclave \
-   --policy-jws "eyJhbGciOiJub25lIn0.."
+az attestation policy set --name testatt1 --resource-group testrg --attestation-type SGX-IntelSDK -f "{local_path}\text_sgx_policy.txt"
 ```
+
 
 ## Next steps
 
