@@ -81,6 +81,7 @@ For a basic setup, these five groups are sufficient. Later, you can  add securit
 A Synapse workspace uses a default storage container for:
   - Storing the backing data files for Spark tables
   - Execution logs for Spark jobs
+  - Managing libraries that you choose to install
 
 Identify the following information about your storage:
 
@@ -234,23 +235,26 @@ After creating the users, run queries to validate that the serverless SQL pool c
 > [!IMPORTANT]
 > To run pipelines successfully that include datasets or activities that reference a SQL pool, the workspace identity needs to be granted access to the SQL pool.
 
-Run the following commands on each SQL pool to allow the workspace managed system identity to run pipelines on the SQL pool database(s):
+Run the following commands on each SQL pool to allow the workspace managed system identity to run pipelines on the SQL pool database(s):  
+
+>[!note]
+>In the scripts below, for a dedicated SQL pool database, databasename is the same as the pool name.  For a database in the serverless SQL pool 'Built-in', databasename is the name of the database.
 
 ```sql
---Create user for the workspace MSI in database
+--Create a SQL user for the workspace MSI in database
 CREATE USER [<workspacename>] FROM EXTERNAL PROVIDER;
 
 --Granting permission to the identity
-GRANT CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+GRANT CONTROL ON DATABASE::<databasename> TO <workspacename>;
 ```
 
 This permission can be removed by running the following script on the same SQL pool:
 
 ```sql
---Revoking permission granted to the workspace MSI
-REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
+--Revoke permission granted to the workspace MSI
+REVOKE CONTROL ON DATABASE::<databasename> TO <workspacename>;
 
---Deleting the workspace MSI user in the database
+--Delete the workspace MSI user in the database
 DROP USER [<workspacename>];
 ```
 
