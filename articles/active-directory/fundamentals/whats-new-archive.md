@@ -425,7 +425,7 @@ Delta query for oAuth2PermissionGrant is available for public preview! You can n
 
 **Product capability:** Developer Experience
 
-Delta query for organizational contacts is generally available! You can now track changes in production apps without having to continuously poll Microsoft Graph. Replace any existing code that continuously polls orgContact data by delta query to significantly improve performance. [Learn more.](/graph/api/orgcontact-delta?tabs=http&view=graph-rest-1.0)
+Delta query for organizational contacts is generally available! You can now track changes in production apps without having to continuously poll Microsoft Graph. Replace any existing code that continuously polls orgContact data by delta query to significantly improve performance. [Learn more.](/graph/api/orgcontact-delta?tabs=http)
 
 ---
 
@@ -437,7 +437,7 @@ Delta query for organizational contacts is generally available! You can now trac
 
 **Product capability:** Developer Experience
 
-Delta query for applications is generally available! You can now track changes in production apps without having to continuously poll Microsoft Graph. Replace any existing code that continuously polls application data by delta query to significantly improve performance. [Learn more.](/graph/api/application-delta?view=graph-rest-1.0)
+Delta query for applications is generally available! You can now track changes in production apps without having to continuously poll Microsoft Graph. Replace any existing code that continuously polls application data by delta query to significantly improve performance. [Learn more.](/graph/api/application-delta)
 
 ---
 
@@ -656,7 +656,7 @@ Added improvement actions:
 - Ensure all users can complete multi-factor authentication for secure access
 - Require MFA for administrative roles
 
-These new improvement actions require registering your users or admins for multi-factor authentication (MFA) across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. That can take the form of having multiple policies that apply scoped decisions, or setting security defaults (as of March 16th) that let Microsoft decide when to challenge users for MFA. [Read more about what's new in Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide#whats-new).
+These new improvement actions require registering your users or admins for multi-factor authentication (MFA) across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. That can take the form of having multiple policies that apply scoped decisions, or setting security defaults (as of March 16th) that let Microsoft decide when to challenge users for MFA. [Read more about what's new in Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score#whats-new).
 
 ---
 
@@ -846,7 +846,7 @@ The following improvement actions will be added:
 - Ensure all users can complete MFA for secure access
 - Require MFA for administrative roles
 
-These new improvement actions will require registering your users or admins for MFA across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. This can take the form of setting security defaults that let Microsoft decide when to challenge users for MFA, or having multiple policies that apply scoped decisions. As part of these improvement action updates, Baseline protection policies will no longer be included in scoring calculations. [Read more about what's coming in Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score-whats-coming?view=o365-worldwide).
+These new improvement actions will require registering your users or admins for MFA across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. This can take the form of setting security defaults that let Microsoft decide when to challenge users for MFA, or having multiple policies that apply scoped decisions. As part of these improvement action updates, Baseline protection policies will no longer be included in scoring calculations. [Read more about what's coming in Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score-whats-coming).
 
 ---
 
@@ -2340,7 +2340,7 @@ For more information, see [Enforce a Naming Policy for Office 365 groups](../ent
 
 We're happy to announce general availability of Microsoft Graph API endpoints support for Azure AD activity logs. With this release, you can now use Version 1.0 of both the Azure AD audit logs, as well as the sign-in logs APIs.
 
-For more information, see [Azure AD audit log API overview](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0).
+For more information, see [Azure AD audit log API overview](/graph/api/resources/azure-ad-auditlog-overview).
 
 ---
 
@@ -4210,7 +4210,7 @@ For more information, see:
 
 Support for Application Proxy cmdlets is now in the PowerShell GA Module! This does require you to stay updated on PowerShell modules - if you become more than a year behind, some cmdlets may stop working.
 
-For more information, see [AzureAD](/powershell/module/Azuread/?view=azureadps-2.0).
+For more information, see [AzureAD](/powershell/module/Azuread/).
 
 ---
 
