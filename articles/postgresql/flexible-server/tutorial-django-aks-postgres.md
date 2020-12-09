@@ -134,7 +134,7 @@ Create a new [Django application](https://docs.djangoproject.com/en/3.1/intro/) 
     └─── requirements.txt
 
 ```
-Update ```ALLOWED_HOSTS``` in ```settings.py``` to make sure the Django application uses the external IP that gets assgined to kubernetes app.
+Update ```ALLOWED_HOSTS``` in ```settings.py``` to make sure the Django application uses the external IP that gets assigned to kubernetes app.
 
 ```python
 ALLOWED_HOSTS = ['*']
@@ -357,7 +357,7 @@ Running migrations:
   Applying sessions.0001_initial... OK
 ```
 
-If you run into issues, please run ```kubectl logs <pod-name>```  to see what exception is beign thrown by your application. If the application is working successfully you would see an output like this when running ```kubectl logs```.
+If you run into issues, please run ```kubectl logs <pod-name>```  to see what exception is thrown by your application. If the application is working successfully you would see an output like this when running ```kubectl logs```.
 
 ```output
 Watching for file changes with StatReloader
