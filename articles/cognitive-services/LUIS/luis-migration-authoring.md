@@ -22,25 +22,19 @@ Language Understanding (LUIS) authoring authentication has changed from an email
 
 ## What is migration?
 
-Migration is the process of changing authoring authentication from an email account to an Azure resource. Your account will be linked to an Azure subscription and an Azure authoring resource after you migrate. *All LUIS users (app owners and collaborators) will eventually need to migrate.*
+Migration is the process of changing authoring authentication from an email account to an Azure resource. Your account will be linked to an Azure subscription and an Azure authoring resource after you migrate.
 
-Migration has to be done from the [LUIS portal](https://www.luis.ai). If you create the authoring keys by using the LUIS CLI, for example, you'll need to complete the migration process in the LUIS portal. You can still have co-authors on your applications after migration, but these will be added on the Azure resource level instead of the application level.
-
-> [!Note]
-> Before migration, coauthors are known as _collaborators_ on the LUIS app level. After migration, the Azure role of _contributor_ is used for the same functionality on the Azure resource level.
+Migration has to be done from the [LUIS portal](https://www.luis.ai). If you create the authoring keys by using the LUIS CLI, for example, you'll need to complete the migration process in the LUIS portal. You can still have co-authors on your applications after migration, but these will be added on the Azure resource level instead of the application level. Migrating your account can't be reversed.
 
 ## Notes before you migrate
 
-* Migration can't be reversed.
+* Before migration, coauthors are known as _collaborators_ on the LUIS app level. After migration, the Azure role of _contributor_ is used for the same functionality on the Azure resource level.
 * If you have signed-in to more than one [LUIS regional portal](./luis-reference-regions.md#luis-authoring-regions), you will be asked to migrate in multiple regions at once.
-* Applications will automatically migrate with you if you're the owner of the application.
-* The owner can't choose a subset of apps to migrate, and the process isn't reversible.
-* Applications will disappear from the collaborator's account after the owner migrates.
-* Owners are prompted to send emails to collaborators to inform them of the migration.
-* Applications will not migrate with you if you're a collaborator on the application. However, collaborators will be prompted to export the apps they need.
-* There is no way for an owner to know if collaborators have migrated.
+* Applications will automatically migrate with you if you're the owner of the application. Applications will not migrate with you if you're a collaborator on the application. However, collaborators will be prompted to export the apps they need.
+
+* Application owners can't choose a subset of apps to migrate and there is no way for an owner to know if collaborators have migrated.
 * Migration does not automatically move or add collaborators to the Azure authoring resource. The app owner is the one who needs to complete this step after migration. This step requires [permissions to the Azure authoring resource](./luis-how-to-collaborate.md).
-* After collaborators are assigned to the Azure resource, they will need to migrate before they can access applications. Otherwise, they won't have access to author the applications.
+* After contributors are assigned to the Azure resource, they will need to migrate before they can access applications. Otherwise, they won't have access to author the applications.
 * A migrated user can't be added as a collaborator of the application.
 
 
