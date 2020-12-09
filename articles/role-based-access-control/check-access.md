@@ -17,7 +17,7 @@ ms.custom: contperfq2
 
 # Quickstart: Check access for a user to Azure resources
 
-Sometimes you need to check who has access to a set of Azure resources. You check their access by listing their Azure role assignments. A quick way to check the access for a single user is to use the **Check access** feature on the **Access control (IAM)** page.
+Sometimes you need to check who has access to a set of Azure resources. You check their access by listing their assignments. A quick way to check the access for a single user is to use the **Check access** feature on the **Access control (IAM)** page.
 
 ## Step 1: Open the Azure resources
 
@@ -37,31 +37,15 @@ Follow these steps to open the set of Azure resources that you want to check acc
 
     ![Resource group overview](./media/check-access/rg-overview.png)
 
-## Step 2: Check your access
+## Step 2: Check access for a user
 
-Follow these steps to view your access to a set of Azure resources. If you want to check access for a different user, skip down to Step 3.
+Follow these steps to check the access for a single user, group, service principal, or managed identity to the previously selected Azure resources.
 
 1. Click **Access control (IAM)**.
 
     The following shows an example of the Access control (IAM) page for a resource group.
 
     ![Resource group access control - Check access tab](./media/check-access/rg-access-control.png)
-
-1. On the **Check access** tab, click the **View my access** button.
-
-    An assignments pane appears that lists your access at this scope and inherited to this scope. Assignments at lower scopes are not listed. You see the following assignments:
-
-    - Role assignments added with Azure RBAC.
-    - Deny assignments added using Azure Blueprints or Azure managed apps.
-    - Classic Service Administrator or Co-Administrator assignments for classic deployments. 
-
-    ![Role and deny assignments pane](./media/check-access/rg-check-access-assignments.png)
-
-## Step 3: Check access for a user
-
-You can also check the access for a single user, group, service principal, or managed identity. Follow these steps to check the access for a security principal to a set of Azure resources.
-
-1. Click **Access control (IAM)**.
 
 1. On the **Check access** tab, in the **Find** list, select the user, group, service principal, or managed identity you want to check access for.
 
@@ -71,9 +55,25 @@ You can also check the access for a single user, group, service principal, or ma
 
 1. Click the security principal to open the **assignments** pane.
 
-    On this pane, you can see the access for the selected security principal at this scope and inherited to this scope. Assignments at lower scopes are not listed.
+    On this pane, you can see the access for the selected security principal at this scope and inherited to this scope. Assignments at lower scopes are not listed. You see the following assignments:
+
+    - Role assignments added with Azure RBAC.
+    - Deny assignments added using Azure Blueprints or Azure managed apps.
+    - Classic Service Administrator or Co-Administrator assignments for classic deployments. 
 
     ![Role and deny assignments pane for a user](./media/shared/rg-check-access-assignments-user.png)
+
+## Step 3: Check your access
+
+Follow these steps to check your access to the previously selected Azure resources.
+
+1. Click **Access control (IAM)**.
+
+1. On the **Check access** tab, click the **View my access** button.
+
+    An assignments pane appears that lists your access at this scope and inherited to this scope. Assignments at lower scopes are not listed.
+
+    ![Role and deny assignments pane](./media/check-access/rg-check-access-assignments.png)
 
 ## Next steps
 
