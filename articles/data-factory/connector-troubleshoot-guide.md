@@ -820,7 +820,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: 
 
-    The issue could be caused by white spaces or unsupported characters (such as ,;{}()\n\t=) in column name in column name, as Parquet doesn't support such format. 
+    The issue could be caused by white spaces or unsupported characters (such as ,;{}()\n\t=) in column name, as Parquet doesn't support such format. 
 
     For example, column name like *contoso(test)* will parse the type in brackets from [code](https://github.com/apache/parquet-mr/blob/master/parquet-column/src/main/java/org/apache/parquet/schema/MessageTypeParser.java) `Tokenizer st = new Tokenizer(schemaString, " ;{}()\n\t");`. The error will be raised as there is no such "test" type.
 
@@ -832,7 +832,7 @@ busy to handle requests, it returns an HTTP error 503.
 
     1. Double check if the first row with white spaces is used as column name.
 
-    1. Double check the type OriginalType is supported or not. Above special symbols are not suggested. 
+    1. Double check the type OriginalType is supported or not. Try to avoid these special symbols. 
 
 
 ## REST
