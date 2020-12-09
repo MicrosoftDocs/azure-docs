@@ -8,3 +8,7 @@
   items:
   - name: Manage BareMetal Instance units in Azure
     href: baremetal-infrastructure-portal.md
+- name: Reference
+  items:
+  - name: SAP HANA on Azure (Large Instances)
+    href: ../../virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/context/context

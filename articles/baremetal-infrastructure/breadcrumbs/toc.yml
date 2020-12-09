@@ -1,0 +1,13 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: BareMetal Infrastructure
+    tocHref: /azure/
+    topicHref: /azure/baremetal-infrastructure/index
+    items: 
+     - name: Reference
+       tocHref: ../virtual-machines/workloads/sap/get-started
+       topicHref: /azure/baremetal-infrastructure/index
+
+
