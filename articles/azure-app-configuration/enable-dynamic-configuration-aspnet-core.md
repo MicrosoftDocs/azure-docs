@@ -219,6 +219,9 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     
     The middleware uses the refresh configuration specified in the `AddAzureAppConfiguration` method in `Program.cs` to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration setting has expired. If it's expired, it's refreshed.
 
+    > [!NOTE]
+    > To ensure the configuration is refreshed, add the middleware as early as appropriate to your request pipeline so it will not be short-circuited by another middleware in your application.
+
 ## Use the latest configuration data
 
 1. Open *HomeController.cs* in the Controllers directory, and add a reference to the `Microsoft.Extensions.Options` package.
