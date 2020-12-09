@@ -78,7 +78,7 @@ In the **Hub Database** section, enter existing credentials for the server on wh
 
 In the **Member Database** section, optionally add a database in Azure SQL Database to the sync group by selecting **Add an Azure SQL Database**. The **Configure Azure SQL Database** page opens.
   
-   :::image type="content" source="./media/sql-data-sync-sql-server-configure/steptwo-configure.png" alt-text = "Add a database to the sync group":::
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/step-two-configure.png" alt-text = "Add a database to the sync group":::
    
   On the **Configure Azure SQL Database** page, change the following settings:
 
