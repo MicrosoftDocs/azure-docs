@@ -3,22 +3,43 @@ title: Use dynamic configuration in a Spring Boot app
 titleSuffix: Azure App Configuration
 description: Learn how to dynamically update configuration data for Spring Boot apps
 services: azure-app-configuration
-author: AlexandraKemperMS
+author: mrm9084
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 08/06/2020
+ms.date: 12/09/2020
 ms.custom: devx-track-java
-ms.author: alkemper
+ms.author: mametcal
 
 #Customer intent: As a Java Spring developer, I want to dynamically update my app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration in a Java Spring app
 
-The App Configuration Spring Boot client library supports updating a set of configuration settings on demand, without causing an application to restart. The client library caches each setting to avoid too many calls to the configuration store. The refresh operation doesn't update the value until the cached value has expired, even when the value has changed in the configuration store. The default expiration time for each request is 30 seconds. It can be overridden if necessary.
+App Configuration has two libraries for Spring. `spring-cloud-azure-appconfiguration-config` requires Spring Boot and takes a dependency on `spring-cloud-context`. `spring-cloud-azure-appconfiguration-config-web` requires Spring Web along with Spring Boot. `spring-cloud-azure-appconfiguration-config` requires manual triggering of refresh, while `spring-cloud-azure-appconfiguration-config-web` adds automatically checking for refresh, along with the ability to manually check for refresh. Automated refresh is the only difference between the two packages.
 
-You can check for updated settings on demand by calling `AppConfigurationRefresh`'s `refreshConfigurations()` method.
+Refresh enables refreshing configurations without causing an application to restart, though it will cause all bean in the `@RefreshScope` to be recreated. The client library caches a hash id of the currently loaded configurations to avoid too many calls to the configuration store. The refresh operation doesn't update the value until the cached value has expired, even when the value has changed in the configuration store. The default expiration time for each request is 30 seconds. It can be overridden if necessary.
 
-Alternatively, you can use the `spring-cloud-azure-appconfiguration-config-web` package, which takes a dependency on `spring-web` to handle automated refresh.
+`spring-cloud-azure-appconfiguration-config-web`'s automated refresh is triggered based off activity. Specifically Spring Web's `ServletRequestHandledEvent`. If a `ServletRequestHandledEvent` is not triggered `spring-cloud-azure-appconfiguration-config-web`'s automated refresh will not trigger a refresh even if the cache expiration time is expired.
+
+## Use manual refresh
+
+App Configuration exposes `AppConfigurationRefresh` which can be used to check if the cache is expired and if it is expired trigger a refresh.
+
+```java
+import com.microsoft.azure.spring.cloud.config.AppConfigurationRefresh;
+
+...
+
+@Autowired
+private AppConfigurationRefresh appConfigurationRefresh;
+
+...
+
+public void myConfigurationRefreshCheck() {
+    Future<Boolean> triggeredRefresh = appConfigurationRefresh.refreshConfigurations();
+}
+```
+
+`AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Future` that is true if a refresh has been triggered, and false if not. False means either the cache expiration time hasn't expired, their was no change, or another thread is currently checking for a refresh.
 
 ## Use automated refresh
 
@@ -55,7 +76,7 @@ Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `sp
     mvn spring-boot:run
     ```
 
-1. Open a browser window, and go to the URL: `http://localhost:8080`.  You will see the message associated with your key. 
+1. Open a browser window, and go to the URL: `http://localhost:8080`.  You will see the message associated with your key.
 
     You can also use *curl* to test your application, for example: 
     
