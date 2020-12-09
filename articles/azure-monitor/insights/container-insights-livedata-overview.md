@@ -30,7 +30,7 @@ Use the following procedure to view the live logs for deployments that are part 
 
 5. Select a pod to start collection of the live data.
 
-    ![Deployment live logs](./media/container-insights-livedata-overview/livedata-deployment.png)
+    ![Deployment live logs](./media/container-insights-livedata-overview/live-data-deployment.png)
 
 ## View logs
 
