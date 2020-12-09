@@ -1,20 +1,22 @@
 ﻿---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Implement widgets
+description: placeholder description text Implement widgets
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
 
+# Implement widgets
+
 In this tutorial, you're going to implement a widget that consumes data from an external API and displays it on the portal.
 
-The widget will retrieve session description from the sample [Conference API](`https://conferenceapi.azurewebsites.net/?format=json`). The session identifier will be set through a designated widget editor.
+The widget will retrieve session description from the sample [Conference API](https://conferenceapi.azurewebsites.net/?format=json). The session identifier will be set through a designated widget editor.
 
 If you are lost in the development process, refer to the completed widget located in the `examples` folder of the repository: `/examples/widgets/conference-session`.
 
-![Widget published](media/Implement-widgets/widget-published.png)
+![Widget published](media/dev-portal/widget-published.png)
 
 ## Prerequisites
 
@@ -92,7 +94,7 @@ You're now ready to plug in the duplicated scaffold and use it in the developer 
 1. Execute the command `npm start`.
 1. When the application loads, place the new widget on a page. You can find it under the name `Your widget` in the `Community` category in the widget selector.
 
-    ![Widget selector](media/Implement-widgets/widget-selector.png)
+    ![Widget selector](media/dev-portal/widget-selector.png)
 1. Save the page by pressing `Ctrl+S` (or `⌘+S` on Apple computers).
 
 > **Note:** In design-time, you can still interact with the website by holding `Ctrl` (or `⌘`) key.
@@ -294,7 +296,7 @@ Allow the session id to be configured through a widget editor:
 
 1. Run `npm start` again. You should be able to change `sessionNumber` in the widget editor. Change the id to `108`, save the changes, and refresh the browser's tab. If you're experiencing problems, you may need to re-add the widget onto the page.
 
-    ![Widget editor](media/Implement-widgets/widget-editor.png)
+    ![Widget editor](media/dev-portal/widget-editor.png)
 
 ### 11. Rename the widget
 

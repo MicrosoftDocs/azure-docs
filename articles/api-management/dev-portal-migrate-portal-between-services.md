@@ -1,14 +1,16 @@
 ---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Migrate portal between services
+description: placeholder description text Migrate portal between services
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
 
-Developer portal supports programmatic access to content. It allows you to import data to or export it from an API Management service through [the content management REST API](Content-management-REST-API). The REST API access works for both managed and self-hosted portals.
+# Migrate portal between services
+
+Developer portal supports programmatic access to content. It allows you to import data to or export it from an API Management service through the [content management REST API](dev-portal-content-management-api.md). The REST API access works for both managed and self-hosted portals.
 
 You can use the API to automate migration of content between two API Management services - for example, a service in the test environment and a service in the production environment. The [`scripts.v2/migrate.js` script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts.v2/migrate.js) simplifies this automation process.
 
@@ -25,4 +27,4 @@ The script performs the following steps:
 
 After the script is successfully executed, the target API Management service should contain the same portal content as the source service and you'll be able to see it as an administrator.
 
-If you're using a managed portal, you can set the script to auto-publish the destination portal to make the migrated version automatically available to the visitors. If you're using a self-hosted portal, you need to publish the destination portal manually. You can follow the publishing and hosting instructions from [the general self-hosted portal tutorial](Self-hosting-the-portal).
+If you're using a managed portal, you can set the script to auto-publish the destination portal to make the migrated version automatically available to the visitors. If you're using a self-hosted portal, you need to publish the destination portal manually. You can follow the publishing and hosting instructions from [the general self-hosted portal tutorial](dev-portal-self-hosting-the-portal.md).

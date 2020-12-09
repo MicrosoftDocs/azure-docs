@@ -1,12 +1,14 @@
 ---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Integrate application insights
+description: placeholder description text Integrate application insights
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
+
+# Integrate application insights
 
 Application Insights, a feature of Azure Monitor, is an extensible Application Performance Management service for developers and DevOps professionals. Use it to monitor your developer portal and detect performance anomalies. Application Insights includes powerful analytics tools to help you understand what users actually do while visiting your developer portal.
 

@@ -1,16 +1,18 @@
 ---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Alternative processes for self hosted portal
+description: placeholder description text Alternative processes for self hosted portal
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
 
+# Alternative processes for self hosted portal
+
 ## Edit content through files, not visual editor
 
-In the [self-hosting tutorial](Self-hosting-the-portal) we described the workflow of editing content and customizing the portal through the built-in visual editor. You can also use REST API to fetch the underlying data files, edit them directly in a text editor, and upload new versions through API calls.
+In the [self-hosting tutorial](dev-portal-self-hosting-the-portal.md) we described the workflow of editing content and customizing the portal through the built-in visual editor. You can also use REST API to fetch the underlying data files, edit them directly in a text editor, and upload new versions through API calls.
 
 ## Bring your own CMS
 
@@ -40,13 +42,13 @@ npm run build-publisher
 
 ## Using Function App to publish the portal
 
-![API Management developer portal development - publish external portal](media/readme-dev-publish-external.png)
+![API Management developer portal development - publish external portal](media/dev-portal/readme-dev-publish-external.png)
 
 Running the publishing step in the cloud is an alternative to executing it locally.
 
 To implement it with an Azure Function App, you will need to first:
 
-- [Create an Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function). The Function needs to be a JavaScript language Function.
+- [Create an Azure Function](../azure-functions/functions-create-first-azure-function.md). The Function needs to be a JavaScript language Function.
 - Install Azure Functions Core Tools:
     ```sh
     npm install –g azure-function-core-tools

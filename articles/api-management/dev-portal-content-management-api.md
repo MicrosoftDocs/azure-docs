@@ -1,19 +1,21 @@
 ---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Content management API
+description: placeholder description text Content management API
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
 
+# Content management API
+
 New developer portal is a static web application, which relies on the content management API to save and retrieve content. Unlike classic CMSes, which store content in form of HTML, the developer portal outputs structured JSON. Every element from a page layout to a hyperlink has a strictly-defined contract. This approach allows to abstract data from its representation, ensure content consistency, avoid mixing different types of data, build JSON-based ARM templates, and more.
 
-The content management API is an endpoint in the [Azure API Management REST API](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest). You can find API reference along with samples in the official Azure documentation:
+The content management API is an endpoint in the [Azure API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest). You can find API reference along with samples in the official Azure documentation:
 
-- [Content Types](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/contenttypes), [Content Type](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/contenttype) - a content type is an entity describing a content item, its properties, validation rules, and constraints.
-- [Content Item](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/contentitem) - a content item represents data, which is described by a content type it belongs to.
+- [Content Types](/rest/api/apimanagement/2019-12-01/contenttypes), [Content Type](/rest/api/apimanagement/2019-12-01/contenttype) - a content type is an entity describing a content item, its properties, validation rules, and constraints.
+- [Content Item](/rest/api/apimanagement/2019-12-01/contentitem) - a content item represents data, which is described by a content type it belongs to.
 
 Note:
 
@@ -22,7 +24,7 @@ Note:
 
 ## Authentication
 
-You can use the official rest API via Azure Resource Manager (ARM) or via the direct access API in API Management, in which case you need to [obtain a direct API access token](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
+You can use the official rest API via Azure Resource Manager (ARM) or via the direct access API in API Management, in which case you need to [obtain a direct API access token](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
 
 ## OData support
 

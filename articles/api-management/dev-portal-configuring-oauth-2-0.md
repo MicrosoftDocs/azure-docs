@@ -1,12 +1,14 @@
 ---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Configuring OAuth 2.0
+description: placeholder description text Configuring OAuth 2.0
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
+
+# Configuring OAuth 2.0
 
 ## Azure Active Directory example
 

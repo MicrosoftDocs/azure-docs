@@ -1,12 +1,14 @@
 ---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Architectural concepts
+description: placeholder description text Architectural concepts
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
+
+# Architectural concepts
 
 ## Portal architectural concepts
 

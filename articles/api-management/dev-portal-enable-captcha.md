@@ -1,12 +1,14 @@
 ---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Enable CAPTCHA
+description: placeholder description text Enable CAPTCHA
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
+
+# Enable CAPTCHA
 
 In the previous tutorial ([[Self-hosting the portal]]), we recommended disabling CAPTCHA through the setting `"useHipCaptcha": false`. Communication with CAPTCHA happens through an endpoint, which allows CORS only for the managed developer portal hostname. If your portal is self-hosted, it uses a different hostname and the communication won't be allowed.
 
