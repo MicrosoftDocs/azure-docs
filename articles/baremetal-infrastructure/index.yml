@@ -34,7 +34,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: SAP HANA on Azure (Large Instances)
-            url: ../virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/context/context
+            url: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/context/context
 
 
 # card 3
