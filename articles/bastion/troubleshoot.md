@@ -78,7 +78,7 @@ The key's randomart image is:
 
 ## <a name="blackscreen"></a>Black screen in the Azure portal
 
-**Q:** When I try to connect using Azure Bastion, I get a black screen in the Azure portal.
+**Q:** When I try to connect using Azure Bastion, I can not connnecto to the target VM and get a black screen in the Azure portal.
 
 **A:** This happens when there is either a network connectivity issue between your web browser and Azure Bastion (your client Internet firewall may be blocking WebSockets traffic or similar), or between the Azure Bastion and your target VM. Most cases include an NSG applied either to AzureBastionSubnet, or on your target VM subnet that is blocking the RDP/SSH traffic in your virtual network. Allow WebSockets traffic on your client internet firewall, and check the NSGs on your target VM subnet.
 
