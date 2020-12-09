@@ -41,7 +41,7 @@ The relevant Grafana dashboards are:
 >  You will be prompted with a certificate warning because the certificates used in preview are self-signed certificates.
 
 
-## Monitor Azure Database for PostgreSQL Hyperscale - Azure Arc
+## Monitor Azure Database for PostgreSQL Hyperscale on Azure Arc
 
 To access the logs and monitoring dashboards for PostgreSQL Hyperscale, run the following `azdata` cli command
 
