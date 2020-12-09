@@ -65,11 +65,11 @@ In the left navigation pane, click **Application Insights** to jump to the **Ove
 
 * In the left navigation pane, click **Failures** to see if something unexpected from your applications.
 
-  [ ![IPA 6](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)](media/spring-cloud-application-insights/insights-process-agent-failures.png)
+  [ ![IPA 6](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)
 
 * Finally, you can click **Metrics** in the left navigation pane of the **Application Insights** page and select `customer | azure.applicationInsights` namespace.
 
-  [ ![IPA 7](media/spring-cloud-application-insights/insights-process-agent-7.PNG)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
+  [ ![IPA 7](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
 
 ## ARM Template
 To use the Azure Resource Manager template, copy following content to `azuredeploy.json`.
