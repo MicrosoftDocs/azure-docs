@@ -145,7 +145,7 @@ In this section, a user called Britta Simon is created in Software AG Cloud. Sof
 
 In this section, you test your Azure AD single sign-on configuration with following option. 
 
-* Assuming that the Microsoft Azure is configured as a provider in Software AG Cloud, navigate to `www.softwareag.cloud` and click on Login button and enter the environment name. In the next screen, click on "Log in with <IDP NAME>" link and enter the credentials. Once authenticated, you will be logged in and taken to the Software AG Cloud home page.
+Assuming that the Microsoft Azure is configured as a provider in Software AG Cloud, navigate to `www.softwareag.cloud` and click on Login button and enter the environment name. In the next screen, click on "Log in with <IDP NAME>" link and enter the credentials. Once authenticated, you will be logged in and taken to the Software AG Cloud home page.
 
 ## Next steps
 
