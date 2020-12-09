@@ -603,11 +603,6 @@ Allowed to view, set and reset authentication method information for any non-adm
 
 Can create attack payloads that can be deployed by an administrator later.
 
-> [!NOTE]
-> This role has additional permissions outside of Azure Active Directory. For more information, see [role description](#attack-payload-author) above.
->
->
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator. |
@@ -616,11 +611,6 @@ Can create attack payloads that can be deployed by an administrator later.
 ### Attack Simulation Administrator permissions
 
 Can create and manage all aspects of attack simulation campaigns.
-
-> [!NOTE]
-> This role has additional permissions outside of Azure Active Directory. For more information, see [role description](#attack-simulation-administrator) above.
->
->
 
 | **Actions** | **Description** |
 | --- | --- |
