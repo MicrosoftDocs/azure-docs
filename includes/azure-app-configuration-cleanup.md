@@ -2,12 +2,12 @@
 title: include file
 description: include file
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 1/31/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: include file
 ---
 
