@@ -60,6 +60,11 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 
 ### Known issues
 
+### Platform
+
+- On Azure Kubernetes Service (AKS), Kubernetes version 1.19.x is not supported.
+- On Kubernetes 1.19 containerd is not supported.
+
 #### PostgreSQL
 
 - Azure Arc enabled PostgreSQL Hyperscale returns an inaccurate error message when it cannot restore to the relative point in time you indicate. For example, if you specified a point in time to restore that is older than what your backups contain, the restore will fail with an error message like:
@@ -121,6 +126,8 @@ For instructions see [What are Azure Arc enabled data services?](overview.md)
 
 ## Known limitations and issues
 
+- On Azure Kubernetes Service (AKS), Kubernetes version 1.19.x is not supported.
+- On Kubernetes 1.19 containerd is not supported.
 - Instance names can't be greater than 13 characters
 - No in-place upgrade for the Azure Arc data controller or database instances.
 - Arc enabled data services container images are not signed.  You may need to configure your Kubernetes nodes to allow unsigned container images to be pulled.  For example, if you are using Docker as the container runtime, you can set the DOCKER_CONTENT_TRUST=0 environment variable and restart.  Other container runtimes have similar options such as in [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration).
