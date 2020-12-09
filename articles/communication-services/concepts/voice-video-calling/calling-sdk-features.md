@@ -86,8 +86,14 @@ For example, this iframe allows both camera and microphone access:
 <iframe allow="camera *; microphone *">
 ```
 
-## Current limitations ACS Calling SDK on web
+## Current limitations ACS Calling SDK
 > There can currently be no more than one outgoing local video stream. You can render only 1 incoming video stream and additionally only 1 incoming screen share video stream ( so max 2 incoming video streams ) at any given time
+
+|           |Web | Android/iOS|
+|-----------|----|------------|
+|# of outgoing stream that can be send simultaneously | 1 video + 1 screen sharing | 1 video + 1 screen sharing|
+|# of incoming streams that can be rendered simultaneously |1 video + 1 screen sharing| up to 6 video + 1 |
+
 
 ## Next steps
 
