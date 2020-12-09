@@ -681,6 +681,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machine-scale-sets/co-location.md",
+      "redirect_url": "/azure/virtual-machines/co-location",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/co-location.md",
+      "redirect_url": "/azure/virtual-machines/co-location",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/co-location.md",
+      "redirect_url": "/azure/virtual-machines/co-location",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/backup-recovery.md",
       "redirect_url": "/azure/virtual-machines/backup-recovery",
       "redirect_document_id": false
@@ -25190,6 +25205,11 @@
     {
       "source_path": "articles/active-directory/develop/active-directory-authentication-libraries.md",
       "redirect_url": "/azure/active-directory/azuread-dev/active-directory-authentication-libraries",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/v2-saml-bearer-assertion.md",
+      "redirect_url": "/azure/active-directory/develop/scenario-token-exchange-saml-oauth",
       "redirect_document_id": true
     },
     {
