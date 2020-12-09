@@ -28,7 +28,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Added disclaimers on self-asserted page.
 - Focus is now placed on the first editable field when the page loads.
 - Focus is now placed on the first error field when multiple fields have errors.
-- Focus will be placed on 'change' button once email verification code is verified.
+- Focus is now placed on the 'change' button after the email verification code is verified.
 
 **2.1.0**
 
