@@ -18,7 +18,13 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 To request the billing ownership, you must be an **invoice section owner** or **invoice section contributor**. To learn more, see [invoice section roles tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
 
-The person that you're requesting billing ownership from must be a Billing Owner. For more information, see [view your billing accounts in Azure portal](view-all-accounts.md).
+The person that you're requesting billing ownership from must have one of the following roles:
+
+- For an Enterprise Microsoft Customer Agreement, the user be a Billing Owner.
+- For an Enterprise Agreement, the user must be an Account Owner.
+- For a Microsoft Online Service Program billing account, the user must be an Account Administrator.
+
+For more information, see [view your billing accounts in Azure portal](view-all-accounts.md).
 
 ## Request billing ownership
 
