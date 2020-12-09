@@ -113,12 +113,18 @@ The following are supported TEE types:
 
 Use the [az attestation policy set](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_set) command to set a new policy for the specified attestation type.
 
-To set text policy for a given kind of attestation type using file name:
+To set policy in text format for a given kind of attestation type using file path:
 
 ```azurecli
-az attestation policy set --name testatt1 --resource-group testrg --attestation-type SGX-IntelSDK -f "{local_path}\text_sgx_policy.txt"
+az attestation policy set --name testatt1 --resource-group testrg --attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}"
 ```
 
+To set policy in JWT format for a given kind of attestation type using file path:
+
+```azurecli
+az attestation policy set --name "myattestationprovider" --resource-group "MyResourceGroup" \
+--attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}" --policy-format JWT
+```
 
 ## Next steps
 
