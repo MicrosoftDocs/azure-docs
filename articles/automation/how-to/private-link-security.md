@@ -4,7 +4,7 @@ description: Use Azure Private Link to securely connect networks to Azure Automa
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 11/25/2020
+ms.date: 12/09/2020
 ms.subservice: 
 ---
 
@@ -29,7 +29,7 @@ With Private Link you can:
 - Connect privately to Azure Monitor Log Analytics workspace without opening any public network access.
 
     >[!NOTE]
-    >This is required if your Automation account is linked to a Log Analytics workspace to forward job data, and when you have enabled features such as Update Management, Change Tracking and Inventory, State Configuration, or Start/Stop VMs during off-hours. For more information about Private Link for Azure Monitor, see [Use Azure Private Link to securely connect networks to Azure Monitor](../../azure-monitor/platform/private-link-security.md).
+    >A separate private endpoint for your Log Analytics workspace is required if your Automation account is linked to a Log Analytics workspace to forward job data, and when you have enabled features such as Update Management, Change Tracking and Inventory, State Configuration, or Start/Stop VMs during off-hours. For more information about Private Link for Azure Monitor, see [Use Azure Private Link to securely connect networks to Azure Monitor](../../azure-monitor/platform/private-link-security.md).
 
 - Ensure your Automation data is only accessed through authorized private networks.
 - Prevent data exfiltration from your private networks by defining your Azure Automation resource that connects through your private endpoint.
@@ -63,7 +63,7 @@ The system Hybrid Runbook Worker supports a set of hidden runbooks used by the U
 
 To understand & configure Update Management review [About Update Management](../update-management/overview.md). The Update Management feature has a dependency on a Log Analytics workspace, and therefore requires linking the workspace with an Automation account. A Log Analytics workspace stores data collected by the solution, and host its log searches and views.
 
-If you want your machines configured for Update management to connect to Automation & Log Analytics workspace in a secure manner over Private Link channel, you have to enable Private Link for the Log Analytics workspace linked to the Automation Account configured with Private Link. 
+If you want your machines configured for Update management to connect to Automation & Log Analytics workspace in a secure manner over Private Link channel, you have to enable Private Link for the Log Analytics workspace linked to the Automation Account configured with Private Link.
 
 You can control how a Log Analytics workspace can be reached from outside of the Private Link scopes by following the steps described in [Configure Log Analytics](../../azure-monitor/platform/private-link-security.md#configure-log-analytics). If you set **Allow public network access for ingestion** to **No**, then machines outside of the connected scopes cannot upload data to this workspace. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this workspace.
 
