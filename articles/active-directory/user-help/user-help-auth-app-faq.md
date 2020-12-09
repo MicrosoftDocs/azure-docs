@@ -258,7 +258,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: Can I make autofill feature available to my employees (or students)?
 
-**A**: Yes. To enable your employees or students your enterprise or school can be added to an allowlist. Reach out to your support or Microsoft contact to get added to the allowlist. Additionally, if you’re an IT administrator for your organization, you can also fill out a form to express your interest in joining at [Allow-list enterprise for Autofill in Authenticator](https://aka.ms/RequestAutofillInAuthenticator).
+**A**: Yes. To enable your employees or students your enterprise or school can be added to an allow list. Reach out to your support or Microsoft contact to get added to the allow list. Additionally, if you’re an IT administrator for your organization, you can also fill out a form to express your interest in joining at [Allow-list enterprise for Autofill in Authenticator](https://aka.ms/RequestAutofillInAuthenticator).
 
 **Q**: Will my users’ work or school account password get automatically synced?
 
