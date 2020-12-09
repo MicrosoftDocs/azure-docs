@@ -224,7 +224,7 @@
       - name: Deploy VMs - Azure CLI/Python
         href: azure-stack-edge-j-series-deploy-virtual-machine-cli-python.md 
       - name: Create VM image
-        href: azure-stack-edge-j-series-create-virtual-machine-image.md 
+        href: azure-stack-edge-gpu-create-virtual-machine-image.md 
       - name: Supported VM sizes, types
         href: azure-stack-edge-gpu-virtual-machine-sizes.md 
     - name: Manage certificates
