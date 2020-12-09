@@ -5,7 +5,7 @@ description: Learn how to configure per-site Web Application Firewall policies o
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 12/08/2020
+ms.date: 12/09/2020
 ms.author: victorh
 ms.topic: how-to
 ---
@@ -306,7 +306,7 @@ $backendPool = Get-AzApplicationGatewayBackendAddressPool `
 
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $vnet.Subnets[0].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
 $vmssConfig = New-AzVmssConfig `
