@@ -30,7 +30,7 @@ For more information, see the article [Azure resource providers and types](../..
  
 You can register the BareMetalInfrastructure resource provider through the Azure portal.
  
-You'll need to list your subscription in the Azure portal and double-click on the subscription used to deploy your BareMetal Instance units.
+You'll need to list your subscription in the Azure portal and then double-click on the subscription used to deploy your BareMetal Instance units.
  
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
