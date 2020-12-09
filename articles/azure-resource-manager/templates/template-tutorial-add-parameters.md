@@ -1,16 +1,16 @@
 ---
 title: Tutorial - add parameters to template
-description: Add parameters to your Azure Resource Manager template to make it reusable.
+description: Add parameters to your Azure Resource Manager template (ARM template) to make it reusable.
 author: mumian
 ms.date: 03/31/2020
 ms.topic: tutorial
-ms.author: jgao 
+ms.author: jgao
 ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Add parameters to your ARM template
 
-In the [previous tutorial](template-tutorial-add-resource.md), you learned how to add a storage account to the template and deploy it. In this tutorial, you learn how to improve the Azure Resource Manager (ARM) template by adding parameters. This tutorial takes about **14 minutes** to complete.
+In the [previous tutorial](template-tutorial-add-resource.md), you learned how to add a storage account to the template and deploy it. In this tutorial, you learn how to improve the Azure Resource Manager template (ARM template) by adding parameters. This tutorial takes about **14 minutes** to complete.
 
 ## Prerequisites
 

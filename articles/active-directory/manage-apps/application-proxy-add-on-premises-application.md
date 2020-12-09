@@ -186,7 +186,7 @@ Now that you've prepared your environment and installed a connector, you're read
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).
 2. In the left navigation panel, select **Azure Active Directory**.
 3. Select **Enterprise applications**, and then select **New application**.
-4. In the **On-premises applications** section, select **Add an on-premises application**.
+4. In the **Create your own application** section, select **Configure Application Proxy for secure remote access to an on-premise application**.
 5. In the **Add your own on-premises application** section, provide the following information about your application:
 
     | Field | Description |
