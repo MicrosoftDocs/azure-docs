@@ -6,7 +6,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.date: 2/1/2019
-ms.author: ripohane
+ms.author: jafreebe
 ms.reviewer: dineshm
 ---
 
