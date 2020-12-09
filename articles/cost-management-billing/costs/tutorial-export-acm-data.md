@@ -158,7 +158,7 @@ Start by preparing your environment for Azure PowerShell:
   Install-Module -Name Az.CostManagement
   ```
 
-1. After you sign in, to see your current exports, use the `Get-AzCostManagementExport` cmdlet:
+1. After you sign in, to see your current exports, use the [Get-AzCostManagementExport](/powershell/module/Az.CostManagement/get-azcostmanagementexport) cmdlet:
 
    ```azurepowershell-interactive
    Get-AzCostManagementExport -Scope 'subscriptions/00000000-0000-0000-0000-000000000000'
@@ -181,7 +181,7 @@ Start by preparing your environment for Azure PowerShell:
    New-AzStorageAccount -ResourceGroupName TreyNetwork -AccountName cmdemo -SkuName Standard_RAGRS -Location eastus
    ```
 
-1. Run the `New-AzCostManagementExport` cmdlet to create the export:
+1. Run the [New-AzCostManagementExport](/powershell/module/Az.CostManagement/new-azcostmanagementexport) cmdlet to create the export:
 
    ```azurepowershell-interactive
    $Params = @{
@@ -211,7 +211,7 @@ Start by preparing your environment for Azure PowerShell:
    Get-AzCostManagementExport -Scope 'subscriptions/00000000-0000-0000-0000-000000000000'
    ```
 
-1. Update an export by using the `Update-AzCostManagementExport` cmdlet:
+1. Update an export by using the [Update-AzCostManagementExport](/powershell/module/Az.CostManagement/update-azcostmanagementexport) cmdlet:
 
    ```azurepowershell-interactive
    Update-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-0000-0000-0000-000000000000' -DestinationRootFolderPath demodirectory02
@@ -222,7 +222,7 @@ Start by preparing your environment for Azure PowerShell:
 >[!NOTE]
 >Initially, it can take 12-24 hours before the export runs. However, it can take longer before data is shown in exported files.
 
-You can delete an export by using the `Remove-AzCostManagementExport` cmdlet:
+You can delete an export by using the [Remove-AzCostManagementExport](/powershell/module/Az.CostManagement/remove-azcostmanagementexport) cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-0000-0000-0000-000000000000'
