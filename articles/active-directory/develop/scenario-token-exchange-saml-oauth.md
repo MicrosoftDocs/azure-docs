@@ -22,10 +22,10 @@ This article outlines a common scenario where an app implements SAML but you nee
 ## Scenario: You have a SAML token and want to call the Graph API
 Many apps are implemented with SAML. However, the Graph API uses the OIDC/OAuth protocols. It is possible, though not trivial, to add OIDC/OAuth functionality to a SAML app in order to work with the Graph API.
 
-The general strategy is to add the OIDC/OAuth stack to your app. With your app that implements both standards you can use a session cookie. You are not exchanging a token explicitly. You are logging a user in with SAML which generates a session cookie. When the Graph API invokes an OAuth flow you use the session cookie to authenticate. This strategy assumes the Certificate Authority checks pass and the user is authorized.
+The general strategy is to add the OIDC/OAuth stack to your app. With your app that implements both standards you can use a session cookie. You are not exchanging a token explicitly. You are logging a user in with SAML which generates a session cookie. When the Graph API invokes an OAuth flow you use the session cookie to authenticate. This strategy assumes the Conditional Access checks pass and the user is authorized.
 
 > [!NOTE]
-> The recommended library for adding OIDC/OAuth behavior is the MicroSoft Authentication Library (MSAL). To learn more about MSAL, see [Overview of Microsoft Authentication Library (MSAL)](msal-overview.md). The previous library was called Active Directory Authentication Library (ADAL), however it is not recommended as MSAL is replacing it.
+> The recommended library for adding OIDC/OAuth behavior is the Microsoft Authentication Library (MSAL). To learn more about MSAL, see [Overview of Microsoft Authentication Library (MSAL)](msal-overview.md). The previous library was called Active Directory Authentication Library (ADAL), however it is not recommended as MSAL is replacing it.
 
 ## Next steps
 - [authentication flows and application scenarios](authentication-flows-app-scenarios.md)
