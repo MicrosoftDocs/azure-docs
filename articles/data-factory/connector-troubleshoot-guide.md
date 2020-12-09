@@ -602,7 +602,7 @@ busy to handle requests, it returns an HTTP error 503.
 
     1. For importing schema, you can generate a smaller sample file which is a subset of original file, and choose "import schema from sample file" instead of "import schema from connection/store".
 
-    2. For listing workseet, in the worksheet dropdown, you can click "Edit" and input the sheet name/index instead.
+    2. For listing worksheet, in the worksheet dropdown, you can click "Edit" and input the sheet name/index instead.
 
     3. To copy large excel file (>100MB) into other store, you can use Data Flow Excel source which sport streaming read and perform better.
 
