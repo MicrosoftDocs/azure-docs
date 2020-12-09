@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Check the access a user has to Azure resources - Azure RBAC
+title: Quickstart - Check access for a user to Azure resources - Azure RBAC
 description: In this quickstart, you learn how to check the access for yourself or another user to Azure resources using the Azure portal and Azure role-based access control (Azure RBAC).
 services: role-based-access-control
 author: rolyon
@@ -15,11 +15,11 @@ ms.custom: contperfq2
 
 ---
 
-# Quickstart: Check the access a user has to Azure resources
+# Quickstart: Check access for a user to Azure resources
 
 You can use the **Access control (IAM)** page in [Azure role-based access control (Azure RBAC)](overview.md) to check the access a user or another security principal has to Azure resources. The easiest way to check the access is to use the **Check access** feature.
 
-## View my access
+## Check my access
 
 The way that you view your access is to list your role assignments and any deny assignments. Follow these steps to view your access to a set of Azure resources.
 
