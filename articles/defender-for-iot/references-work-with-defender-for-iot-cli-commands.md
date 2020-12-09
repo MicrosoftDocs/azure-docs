@@ -1,6 +1,6 @@
 ---
 title: Work with Defender for IoT CLI commands
-description: 
+description: The Defender for IoT sensor enables customer business continuity with respect to cyberattacks and improves everyday operations and uptime by automatically modeling the SCADA network as a state machine. Multiple proprietary and patented analysis engines continually monitor and alert you on any suspicious network activity.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: azure
 ---
 
-# Overview
+# Work with Defender for IoT CLI command
 
 The Defender for IoT sensor enables customer business continuity with respect to cyberattacks and improves everyday operations and uptime by automatically modeling the SCADA network as a state machine. Multiple proprietary and patented analysis engines continually monitor and alert you on any suspicious network activity.
 
