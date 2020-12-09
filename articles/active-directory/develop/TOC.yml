@@ -565,6 +565,8 @@
         href: v2-oauth-ropc.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
+      - name: Token exchange scenarios
+        href: scenario-token-exchange-saml-oauth.md
       - name: ID tokens
         href: id-tokens.md
       - name: Access tokens
