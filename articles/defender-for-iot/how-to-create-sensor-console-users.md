@@ -1,6 +1,6 @@
 ---
 title: Create and manage sensor console users
-description: 
+description: Create and manage sensor users. User management allows three permissions levels.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: azure
 ---
 
-# Manage users
+# Manage sensor console users
 
 This article describes how to create and manage sensor users. User management allows three permissions levels:
 

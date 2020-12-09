@@ -1,6 +1,6 @@
 ---
 title: Install software
-description: 
+description: Install various programs on your sensors and on-premises management console. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

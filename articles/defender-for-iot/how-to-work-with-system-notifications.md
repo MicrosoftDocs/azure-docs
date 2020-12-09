@@ -1,6 +1,6 @@
 ---
 title: Work with system notifications
-description: 
+description: Send system notifications to 3rd party systems that provide details.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

@@ -61,7 +61,7 @@ and build a road map to plan security improvements.
 To choose a map view:
 
 1. Select **Default View** from the map.
-1. Select a view.
+2. Select a view.
 
 :::image type="content" source="media/how-to-work-with-maps/map-views.png" alt-text="Screenshot of Site Map Default View":::
 

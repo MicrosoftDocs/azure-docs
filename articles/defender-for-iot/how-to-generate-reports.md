@@ -509,4 +509,4 @@ To import a company logo:*
 :::image type="content" source="media/how-to-generate-reports/import-logo-screenshat.png" alt-text="Import your logo through the risk assessment view.":::
 
 ## See also
-[Investigate sensor detections in the device map](how-to-work-with-maps.md)
+[Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views)

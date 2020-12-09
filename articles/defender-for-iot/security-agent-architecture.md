@@ -42,11 +42,11 @@ Defender for IoT Security agents are developed as open-source projects, and are 
 
 Defender for IoT offers different installer agents for 32bit and 64bit Windows, and the same for 32bit and 64bit Linux. Make sure you have the correct agent installer for each of your devices according to the following table:
 
-| Architecture | Linux | Windows |    Details|
-|----------|----------------------------------------------|-------------|-------------------------------------------|
-| 32bit  | C  | C#  ||
-| 64bit  | C# or C           | C#      | We recommend using the C agent for devices with more restricted or minimal device resources.|
-|
+| Architecture | Linux | Windows | Details |
+|--|--|--|--|
+| 32bit | C | C# |  |
+| 64bit | C# or C | C# | We recommend using the C agent for devices with more restricted or minimal device resources. |
+
 
 ## Next steps
 
@@ -56,6 +56,6 @@ To continue getting started with Defender for IoT deployment, use the following 
 
 - Understand [security agent authentication methods](concept-security-agent-authentication-methods.md)
 - Select and deploy a [security agent](how-to-deploy-agent.md)
-- Review the Defender for IoT [service prerequisites](service-prerequisites.md)
+- Review the Defender for IoT [system prerequisites](quickstart-system-prerequisites.md)
 - Learn how to [enable Defender for IoT service in your IoT Hub](quickstart-onboard-iot-hub.md)
 - Learn more about the service from the [Defender for IoT FAQ](resources-frequently-asked-questions.md)

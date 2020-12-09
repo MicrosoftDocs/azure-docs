@@ -1,6 +1,6 @@
 ---
 title: View information provided in alerts
-description: 
+description: Select an alert from the Alerts window to review alert details.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: azure
 ---
 
-# Overview
+# Set up SNMP MIB monitoring
 
 ## Configuring SNMP MIB monitoring
 

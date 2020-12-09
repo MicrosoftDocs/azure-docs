@@ -1,6 +1,6 @@
 ---
 title: Activate and set up your sensor
-description: 
+description: After completing Defender for IoT sensor deployment, and the onboarding and network setup, you will be able to, sign in to the Defender for IoT sensor console, upload an activation file generated for your sensor, and start working with your sensor.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

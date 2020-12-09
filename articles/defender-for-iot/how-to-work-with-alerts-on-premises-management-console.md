@@ -136,7 +136,7 @@ Create alert exclusion rules when you want Defender for IoT to ignore activity t
 ****
 For example, if you know that all the OT devices monitored by a specific sensor will be going through maintenance procedures for two days, you can define an exclusion rule that instructs Defender for IoT to suppress alerts detected by this sensor during the predefined period.
 
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alert-exclusions.png" alt-text="Screenshot of create exclusion rule view.":::
+:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alert-exclusions.png" alt-text="Create alert exclusion rule window.":::
 
 ### Alert exclusion logic
 

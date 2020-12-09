@@ -151,8 +151,6 @@
       items:
       - name: Manage sensors from the on-premises management console
         href: how-to-manage-sensors-from-the-on-premises-management-console.md
-      - name: View sensor connection status to the on-premises manager
-        href: how-to-view-sensor-connection-status-to-the-on-premises-manager.md
       - name: Access sensors using a proxy
         href: how-to-access-sensors-using-a-proxy.md
     - name: Manage individual sensors

@@ -31,7 +31,7 @@ For example, allow Security Analysts from an Active Directory group access to al
 
 Before you create Access Groups, it is recommended to:
 
-- Carefully set up your business topology. For more information about business topology, see [Understanding the map views](how-to-work-with-maps.md#understanding-the-map-views) for details.
+- Carefully set up your business topology. For more information about business topology, see [Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views) for details.
 
 - Plan which users are associated with the Access Groups you create. Two options are available for assigning users to Access Groups:
 
