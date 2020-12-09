@@ -165,6 +165,8 @@
         href: etouches-tutorial.md
       - name: AwardSpring
         href: awardspring-tutorial.md
+      - name: AwareGo
+        href: awarego-tutorial.md
       - name: AWS ClientVPN
         href: aws-clientvpn-tutorial.md
       - name: Axiad Cloud
@@ -417,6 +419,8 @@
         href: corptax-tutorial.md
       - name: Costpoint
         href: costpoint-tutorial.md
+      - name: Count Me In - Operations Dashboard
+        href: count-me-in-operations-dashboard-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
       - name: Coupa Risk Assess
@@ -648,8 +652,8 @@
         href: formcom-tutorial.md
       - name: Fortes Change Cloud
         href: fortes-change-cloud-tutorial.md
-      - name: FortiWeb Web Application Firewall
-        href: fortiweb-web-application-firewall-tutorial.md
+      - name: FortiGate SSL VPN
+        href: fortigate-ssl-vpn-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
@@ -900,6 +904,8 @@
         href: jedox-tutorial.md
       - name: JFrog Artifactory
         href: jfrog-artifactory-tutorial.md
+      - name: JLL TRIRIGA
+        href: jll-tririga-tutorial.md
       - name: JIRA SAML SSO by Microsoft
         href: jiramicrosoft-tutorial.md
       - name: JIRA SAML SSO by Microsoft (V5.2)
@@ -1606,6 +1612,8 @@
         href: snowflake-tutorial.md
       - name: Softeon WMS
         href: softeon-tutorial.md
+      - name: Software AG Cloud
+        href: software-ag-cloud-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-tutorial.md
       - name: Sonarqube
@@ -1812,6 +1820,8 @@
         href: vocoli-tutorial.md
       - name: Vodeclic
         href: vodeclic-tutorial.md
+      - name: vonage
+        href: vonage-tutorial.md
       - name: Voyance
         href: voyance-tutorial.md
       - name: Vtiger CRM (SAML)
@@ -2141,6 +2151,8 @@
         href: sap-successfactors-writeback-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
+      - name: Shopify Plus
+        href: shopify-plus-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
       - name: Snowflake

@@ -1,23 +1,23 @@
 ---
 title: Import device information
-description: 
+description: Defender for IoT sensors monitor and analyze mirrored traffic. In these cases, you may want to import data to enrich information on devices already detected.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/2/2020
+ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
-# Import device information
+# Import device information to a sensor
 
 The sensor monitors and analyzes mirrored traffic. In some cases, because of organization-specific network configuration policies, some information may not be transmitted.
 
-In these cases, you may want to import data to enrich device information on devices already detected. Two options are available for importing information to sensors.
+In these cases, you may want to import data to enrich information on devices already detected. Two options are available for importing information to sensors.
 
   - **Import from the Map:** Update the device name, type, group, or Purdue layer to the map.
 
-  - **Import from Import Settings.** Import device OS, IP address, patch level or authorization status.
+  - **Import from Import Settings:** Import device OS, IP address, patch level or authorization status.
 
 ## Import from the map
 
@@ -54,13 +54,13 @@ To import:
 
 6. Select **Import Devices** and select the CSV file that you want to import. The import status messages appear on-screen until the Import Devices box closes.
 
-## Import from import settings 
+## Import from import settings
 
 This section describes how to import device IP address, OS, patch level or authorization statuses to the device map. This is done from the Import Settings dialog box.
 
 To import the IP address, OS, patch level:
 
-1. Download the [assets_info_2.2.8 and up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the [TBD](TBD) and enter the information as follows:
+1. Download the [assets_info_2.2.8 and up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the [Help Center](https://cyberx-labs.zendesk.com/hc/en-us) and enter the information as follows:
 
    - **IP Address:** The device IP address
 
@@ -78,7 +78,7 @@ To import the IP address, OS, patch level:
 
 To import the authorization status:
 
-1. Download and save the [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the  Defender for Iot help center. Verify that you saved the file as a csv.
+1. Download and save the [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the  Defender for IoT help center. Verify that you saved the file as a csv.
 
 2. Enter the information as:
 
@@ -141,11 +141,11 @@ To import:
 
 ### Import from import settings 
 
-This section describes how to import device IP address, OS, patch level or authorization statuses to the device map. This is done from the Import Settings dialog box.
+This section describes how to import device IP address, OS, patch level, or authorization statuses to the device map. This is done from the Import Settings dialog box.
 
 To import the IP address, OS, patch level:
 
-1. Download the [assets_info_2.2.8 and up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the [TBD](TBD) and enter the information as follows:
+1. Download the [assets_info_2.2.8 and up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the [Help Center ](https://cyberx-labs.zendesk.com/hc/en-us)and enter the information as follows:
 
    - **IP Address:** The device IP address
 
@@ -163,13 +163,13 @@ To import the IP address, OS, patch level:
 
 To import the authorization status:
 
-1. Download and save the [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the  Defender for Iot help center. Verify that you saved the file as a csv.
+1. Download and save the [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the  Defender for IoT help center. Verify that you saved the file as a csv.
 
 2. Enter the information as:
 
    - **IP Address:** The device IP address
 
-   - **Name:** The authorized device name. Make sure that names are accurate. Names given to the devices in the imported list overwrite names shown in the device map.
+   - **Name:** The authorized device name. Verify that names are accurate. Names given to the devices in the imported list overwrite names shown in the device map.
 
      :::image type="content" source="media/how-to-import-device-information/device-map-file.png" alt-text="The import list to the device map.":::
 
@@ -178,3 +178,9 @@ To import the authorization status:
 4. In the Authorized Devices section, select **Add** and upload the CSV file that you saved.
 
 When the information is imported, you receive alerts about unauthorized devices for all the devices that do not appear on this list.
+
+## See also
+
+[Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
+
+[Investigate sensor detections in a Device Inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)

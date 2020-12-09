@@ -87,7 +87,7 @@ compatible. The following table shows a list of supported operating systems on A
 
 |Publisher|Name|Versions|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 and later|
+|Canonical|Ubuntu Server|14.04 - 18.04|
 |Credativ|Debian|8 and later|
 |Microsoft|Windows Server|2012 and later|
 |Microsoft|Windows Client|Windows 10|

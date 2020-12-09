@@ -93,6 +93,6 @@ Investigate the recommendations in order to enrich OS classification. This infor
 
 When you accept a recommendation, the OS type information will be updated in the sensor.
 
-## See also,
+## See also
 
 [View alerts](how-to-view-alerts.md)

@@ -37,13 +37,13 @@ CyberX delivers out-of-the-box integration with Azure Sentinel to provide real-t
 
 IoT/OT security threats are identified by CyberX security engines, which provide immediate alert response to malware attacks, network and security baseline deviations, as well as operational and protocol anomalies.
 
-![Screenshot of alert response to malware attacks.](media/integration-sentinel-syslog/image3.png)
+:::image type="content" source="media/integration-sentinel-syslog/image3.png" alt-text="Screenshot of alert response to malware attacks.":::
 
 Threat information is displayed in **Microsoft Azure Sentinel.**
 
-![Screenshot of graphic display of Threat information in Microsoft Azure Sentinel.](media/integration-sentinel-syslog/image4.png)
+:::image type="content" source="media/integration-sentinel-syslog/image4.png" alt-text="Screenshot of graphic display of Threat information in Microsoft Azure Sentinel.":::
 
-![Screenshot of Threat information report based on time range.](media/integration-sentinel-syslog/image5.png)
+:::image type="content" source="media/integration-sentinel-syslog/image5.png" alt-text="Screenshot of Threat information report based on time range.":::
 
 These bridged platforms help SOC Administrators, IT teams and analysts:
 
@@ -61,7 +61,7 @@ These bridged platforms help SOC Administrators, IT teams and analysts:
 
   - For additional troubleshooting information, contact <support@cyberx-labs.com>.
 
-  - To access the CyberX User Guide from the Console, select ![Icon to select user guide](media/integration-sentinel-syslog/image6.png) and select **Download User Guide**.
+  - To access the CyberX User Guide from the Console, select :::image type="content" source="media/integration-sentinel-syslog/image6.png" alt-text="Icon to select user guide"::: and select **Download User Guide**.
 
 ## System Requirements and Architecture 
 
@@ -83,7 +83,7 @@ The system is composed of the following components:
 
   - Proxy (CEF Collector)
 
-![Screenshot of the Azure Sentinel architecture](media/integration-sentinel-syslog/image7.png)
+:::image type="content" source="media/integration-sentinel-syslog/image7.png" alt-text="Screenshot of the Azure Sentinel architecture":::
 
 ### CyberX Sensors/Central Manager 
 
@@ -124,11 +124,11 @@ To define the Forwarding rule:
 
 1.  In the CyberX Platform left pane, select **Forwarding**.
 
-    ![Dialog that allows creating forwarding rules.](media/integration-sentinel-syslog/image8.png)
+    :::image type="content" source="media/integration-sentinel-syslog/image8.png" alt-text="Dialog that allows creating forwarding rules.":::
 
 2.  In the **Forwarding** pane, select **Create Forwarding Rule**.
 
-    ![Dialog to create a new forwarding rule.](media/integration-sentinel-syslog/image9.png)
+    :::image type="content" source="media/integration-sentinel-syslog/image9.png" alt-text="Dialog to create a new forwarding rule.":::
 
 3.  Add a rule name in the **Name** field.
 
@@ -144,15 +144,15 @@ To define the Forwarding rule:
 
 6.  Send threat information based on severity levels that you want to handle. Severity levels reflect the minimum-security level incident to forward. For example, if *Minor* is selected, information regarding minor threats <span class="underline">and any threat alert above this severity level will be forwarded.</span> Levels are pre-defined by CyberX. Select the **Severity** drop-down arrow and choose a level.
 
-    ![Dialog to select pre-defined severity level.](media/integration-sentinel-syslog/image10.png)
+    :::image type="content" source="media/integration-sentinel-syslog/image10.png" alt-text="Dialog to select pre-defined severity level.":::
 
 7.  Select **Send to Sentinel** from the **Action** list.
 
-    ![Dialog showing various options to set actions while creating forwarding rules. ](media/integration-sentinel-syslog/image11.png)
+    :::image type="content" source="media/integration-sentinel-syslog/image11.png" alt-text="Dialog showing various options to set actions while creating forwarding rules. ":::
 
     The **Sentinel** integration parameters appear in the **Actions** pane.
 
-    ![Dialog of action pane for sentinel integration parameters](media/integration-sentinel-syslog/image12.png)
+    :::image type="content" source="media/integration-sentinel-syslog/image12.png" alt-text="Dialog of action pane for sentinel integration parameters":::
 
 8.  Enter the *Proxy* **Host** and **Port** that will receive the threat alert information.
 
@@ -175,7 +175,7 @@ To test:
 
 2.  Select **More** and then select **Send Test Message**.
 
-    ![Screenshot of more dropdown menu showing options to manage messages.](media/integration-sentinel-syslog/image13.png)
+    :::image type="content" source="media/integration-sentinel-syslog/image13.png" alt-text="Screenshot of more dropdown menu showing options to manage messages.":::
 
 3. A test message is sent to the Proxy.
 

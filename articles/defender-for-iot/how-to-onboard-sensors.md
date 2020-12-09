@@ -46,11 +46,11 @@ To deploy a sensor:
 
 3. In the **Discover your network** section, select **Set up**.
 
-   ![Azure Defender for IoT discover your network view](media/updates/image5.png)
+   :::image type="content" source="media/updates/image5.png" alt-text="Azure Defender for IoT discover your network view":::
 
 4. Select an option for acquiring a sensor.
 
-   ![Azure Defender for IoT network sensor view](media/updates/image6.png)
+   :::image type="content" source="media/updates/image6.png" alt-text="Azure Defender for IoT network sensor view":::
 
   - **Buy a preconfigured sensor**: Microsoft and Arrow have partnered to provide preconfigured sensors. To purchase a preconfigured sensor, contact Arrow at: <hardware.sales@arrow.com>. The sensor will be delivered to your facility. The most current version is installed.
 
@@ -76,11 +76,11 @@ Sensors need to be onboarded to the Azure Defender for IoT portal. Onboarding is
 
 2. Select **2) Onboard** from the Azure Defender for IoT.
 
-   ![Screenshot of Overboard page view](media/updates/image7.png)
+   :::image type="content" source="media/updates/image7.png" alt-text="Screenshot of Overboard page view":::
 
 3. The **Onboard sensor** page opens. It provides options to register the sensor and download the activation file.
 
-   ![Screenshot of Overboard Sensor page view](media/quickstart/onboard-sensors.png)
+   :::image type="content" source="media/quickstart/onboard-sensors.png" alt-text="Screenshot of Overboard Sensor page view":::
 
 **To register the sensor:**
 
@@ -100,7 +100,7 @@ Sensors need to be onboarded to the Azure Defender for IoT portal. Onboarding is
 
 6. In Download activation file page select **Download activation** file.
 
-   ![Screenshot of Onboard Sensor view](media/updates/image9.png)
+   :::image type="content" source="media/updates/image9.png" alt-text="Screenshot of Onboard Sensor view":::
 
 7. Save the file. The file name is format is: `<hub_name>_<sensor_name>`. The sensor name refers to the name you defined above.
 
@@ -136,11 +136,11 @@ For details about IoT Hubs, see [About IoT Hub](../iot-hub/about-iot-hub.md).
 
 3. Log in to the Azure Defender for IoT sensor console.
 
-   ![Azure Defender for IoT console log in view](media/updates/image11.png)
+   :::image type="content" source="media/updates/image11.png" alt-text="Azure Defender for IoT console log in view":::
 
 4. After successful login, the Activation screen opens. Select Upload and choose the activation file you saved.
 
-   ![Azure Defender for IoT Activation view](media/updates/image12.png)
+   :::image type="content" source="media/updates/image12.png" alt-text="Azure Defender for IoT Activation view":::
 
 5. Approve the terms and conditions.
 
@@ -158,7 +158,7 @@ For details about IoT Hubs, see [About IoT Hub](../iot-hub/about-iot-hub.md).
 
 7. Select the **Sensor Network Configuration** link form the Activation dialog box.  
 
-   ![Screenshot of Edit Network Configuration view](media/updates/image13.png)
+   :::image type="content" source="media/updates/image13.png" alt-text="Screenshot of Edit Network Configuration view":::
 
 8. The parameters defined during installation are displayed. An option is also available define proxy. Update as required and select **Save**.
  

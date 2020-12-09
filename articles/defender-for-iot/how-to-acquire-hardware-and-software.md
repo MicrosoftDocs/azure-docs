@@ -1,70 +1,62 @@
 ---
 title: Acquire hardware and software 
-description: 
+description: Learn about software and hardware for certified Defender for IoT sensors and the on-premises management console. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/18/2020
-ms.topic: article
+ms.date: 12/07/2020
+ms.topic: how-to
 ms.service: azure
 ---
 
-# Prepare your network
+# Acquire hardware and software
 
-## About Azure Defender for IoT
+This article provides information on certified Defender for IoT sensor appliances. This includes certified *pre-configured* appliances, on which software is already installed, as well as non-configured certified appliances on which you can download and install required software.
 
-The Azure Defender for IoT delivers continuous ICS threat monitoring and device discovery. The platform includes the Azure Defender for IoT sensors and the on-premises management console.
+The article also provides details about on-premises management console appliance specifications. The on-premises management console is not available as a pre-configured appliance.
 
-**Defender for IoT sensor:** The Azure Defender for IoT sensor's collect ICS network traffic using passive (agentless) monitoring. Passive and nonintrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network.
+- If you want to purchase a pre-configured sensor, review the models available in the sensor Appliances section and then proceed with the purchase.
 
-**Azure Defender for IoT On-premises management console:** The on-premises management console lets you carry out device management, risk, and vulnerability management, as well as threat monitoring and incident response across your enterprise. It provides a unified view of all network devices, key IoT, and OT risk indicators and alerts detected in facilities where sensors are deployed. You can use the on-premises management console to view and manage sensors in air gapped networks.
+- If you want to purchase your own appliance, review the models available in the sensor appliances section and in the additional certified appliances section. After acquiring the appliance, you can download and install the software.
 
-## Getting started
+- If you want to purchase the on-premises management console, review the information in on-premises management console appliance. After acquiring the device, you can download and install the software.
 
-This guide provides information on certified Defender for IoT sensor appliances. This includes certified *pre-configured* appliances, on which software is already installed, as well as non-configured certified appliances on which you can download and install required software.
-
-The guide also provides details about on-premises management console appliance specifications. The on-premises management console is not available as a pre-configured appliance.
-
-- If you want to **purchase a pre-configured sensor**, review the models available in the Sensor Appliances section and then proceed with the purchase.
-
-- If you want to **purchase your own appliance**, review the models available in the Sensor Appliances section and in the Additional Certified Appliances section. After acquiring the appliance, you can download and install the software.
-
-- If you want to **purchase the on-premises management console**, review the information in On-Premises Management Console Appliance. After acquiring the device, you can download and install the software.
+Once you have completed the tasks here, you can install the software and set up your network.
 
 ## Sensor appliances
 
-Azure Defender for IoT supports both physical and virtual deployments.
+Defender for IoT supports both physical and virtual deployments.
 
-## Physical sensors
+### Physical sensors
 
 This article provides an overview of physical sensor models available. You can purchase sensors with preconfigured software or purchase sensors that are not preconfigured.
 
-| Deployment Type | Corporate | Enterprise | SMB |
+| Deployment type | Corporate | Enterprise | SMB |
 |--|--|--|--|
-| **Image** | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png" alt-text="Corporate](media/how-to-prepare-your-network/corporate-hpe-proliant-dl360.png) | ![Enterprise](media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png) | ![SMB"::: |
-| **Model** | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 |
-| **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 8 RJ45 or 6 OPT | 4 RJ45 |
-| **Max Bandwidth<sup>1</sup>** | 3 Gb/Sec | 1 Gb/Sec | 200 Mb/Sec |
-| **Max Protected Devices** | 30,000 | 15,000 | 1,000 |
+| Image | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360.png" alt-text="The Corporate level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png" alt-text="The Enterprise-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png" alt-text="The SMB level model."::: |
+| Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 |
+| Monitoring ports | up to 15 RJ45 or 8 OPT | up to 8 RJ45 or 6 OPT | 4 RJ45 |
+| Max Bandwidth [1](#anchortext) | 3 Gb per second | 1 Gb per second | 200 Mb per second |
+| Max Protected Devices | 30,000 | 15,000 | 1,000 |
 
 See appliance specifications for vendor details.
 
-**About Preconfigured Sensors**: Microsoft has partnered with Arrow to provide preconfigured sensors. In order to purchase a preconfigured sensor, contact Arrow at the following address: <hardware.sales@arrow.com>
+About Preconfigured sensors: Microsoft has partnered with Arrow to provide preconfigured sensors. In order to purchase a preconfigured sensor, contact Arrow at the following address: <hardware.sales@arrow.com>
 
-**About Bringing your Own Appliance:** Review supported models described here. After you have acquired your appliance, navigate to **Azure Defender for IoT > Network Sensors ISO > Installation** to download the software.
+About Bringing your Own Appliance: Review supported models described here. After you have acquired your appliance, navigate to **Defender for IoT** > **Network Sensors ISO** > **Installation** to download the software.
 
-:::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Network Sensors ISO":::
+:::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Network sensors ISO":::
 
-<sup>1</sup> Bandwidth capacity may vary depending on protocols distribution.
+<a id="anchortext">1</a> Bandwidth capacity may vary depending on protocols distribution.
 
-## Virtual sensors
+### Virtual sensors
 
 This article provides an overview of the virtual sensors that are available.
 
-| Deployment Type | Corporate | Enterprise | SMB |
+| Deployment type | Corporate | Enterprise | SMB |
 |--|--|--|--|
-| **Max Bandwidth** | 2.5 Gb/Sec | 800 Mb/Sec | 160 Mb/Sec |
-| **Max protected devices** | 30,000 | 10,000 | 2,500 |
+| Max Bandwidth | 2.5 Gb/Sec | 800 Mb/Sec | 160 Mb/Sec |
+| Max protected devices | 30,000 | 10,000 | 2,500 |
 
 ## On-premises management console appliance
 
@@ -72,10 +64,10 @@ The management console is available as a virtual deployment.
 
 | Deployment type | Enterprise |
 |--|--|
-| **Appliance Type** | HPE DL20, VM |
-| **Number of Managed Sensors** | Up to 300 |
+| Appliance Type | HPE DL20, VM |
+| Number of Managed sensors | Up to 300 |
 
-After acquiring an on-premises management console, go to **Azure Defender for IoT > On-premises management console > ISO Installation** to download the ISO.
+After acquiring an on-premises management console, go to **Defender for IoT** > **On-premises management console** > **ISO Installation** to download the ISO.
 
 :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-iso-download-screen.png" alt-text="On-premises management console":::
 
@@ -83,17 +75,17 @@ After acquiring an on-premises management console, go to **Azure Defender for Io
 
 This article describes hardware specifications for the following appliances:
 
-- ***Corporate Deployment – HPE ProLiant DL360***
+- Corporate Deployment – HPE ProLiant DL360
 
-- ***Enterprise Deployment – HPE ProLiant DL20***
+- Enterprise Deployment – HPE ProLiant DL20
 
-- ***SMB Deployment – HPE ProLiant DL20***
+- SMB Deployment – HPE ProLiant DL20
 
-- ***Virtual Appliance Specifications***
+- Virtual Appliance Specifications
 
 ## Corporate deployment – HPE ProLiant DL360
 
-| Component | Technical Specifications |
+| Component | Technical specifications |
 |--|--|
 | Chassis | 1U rack server |
 | Dimensions | 42.9 x 43.46 x 70.7 (cm)/1.69” x 17.11” x 27.83” (in) |
@@ -104,13 +96,13 @@ This article describes hardware specifications for the following appliances:
 | Storage | 6 x 1.2-TB SAS 12G Enterprise 10K SFF (2.5in) in Hot-plug Hard Drive - RAID 5 |
 | Network controller | On-board: 2 x 1 Gb Broadcom BCM5720<br>On-board LOM: iDRAC Port Card 1 Gb Broadcom BCM5720<br><br>External: 1 x Intel Ethernet i350 QP 1 Gb Server Adapter, Low Profile |
 | Management | HPE iLO Advanced |
-| Device access | 2 rear USB 3.0<br>1 front USB 2.0<br>1 internal USB 3.0 |
+| Device access | two rear USB 3.0<br>One front USB 2.0<br>One internal USB 3.0 |
 | Power | 2 x HPE 500 W Flex Slot Platinum Hot Plug Low Halogen Power Supply Kit |
 | Rack support | HPE 1U Gen10 SFF Easy Install Rail Kit |
 
 ### Appliance BOM
 
-| PN | Description | Qty |
+| PN | Description | Quantity |
 |--|--|--|
 | P19766-B21 | HPE DL360 Gen10 8SFF NC CTO Svr | 1 |
 | P19766-B21 | Europe - Multilingual Localization | 1 |
@@ -129,16 +121,16 @@ This article describes hardware specifications for the following appliances:
 
 ## Enterprise deployment – HPE ProLiant DL20
 
-| Component | Technical Specifications |
+| Component | Technical specifications |
 |--|--|
 | Chassis | 1U rack server |
 | Dimensions (Height x Width x Depth) | 4.32 x 43.46 x 38.22 cm/1.70 x 17.11 x 15.05 inch |
 | Weight | 7.9 kg/17.41 lb |
-| Processor | Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71W |
+| Processor | Intel Xeon E-2234, 3.6 GHz, 4C/8T, 71 W |
 | Chipset | Intel C242 |
 | Memory | 2x16GB Dual Rank x8 DDR4-2666 |
-| Storage | 3 x 1 TB SATA 6G Midline 7.2 K SFF (2.5in) – RAID 5 with Smart Array P408i-a SR Controller |
-| Network controller | On-board: 2 x 1 Gb <br>On-board: iLO Port Card 1 Gb <br>External: 1 x HPE Ethernet 1 Gb 4-port 366FLR Adapter |
+| Storage | 3 x 1-TB SATA 6G Midline 7.2 K SFF (2.5in) – RAID 5 with Smart Array P408i-a SR Controller |
+| Network controller | On-board: 2 x 1 Gb <br>On-board: iLO Port Card 1 Gb <br>External: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter |
 | Management | HPE iLO Advanced |
 | Device access | Front: 1xUSB 3.0, 1xUSB iLO Service Port <br>Rear: 2xUSB 3.0 <br>Internal: 1x USB 3.0 |
 | Power | Dual Hot Plug Power Supplies 500 W |
@@ -146,7 +138,7 @@ This article describes hardware specifications for the following appliances:
 
 ### Appliance BOM
 
-| PN | Description- High End | Qty |
+| PN | Description - high end | Quantity |
 |--|--|--|
 | P06963-B21 | HPE DL20 Gen10 4SFF CTO Svr | 1 |
 | P06963-B21 | HPE DL20 Gen10 4SFF CTO Svr | 1 |
@@ -164,14 +156,14 @@ This article describes hardware specifications for the following appliances:
 
 ## SMB deployment – HPE ProLiant DL20
 
-| Component | Technical Specifications |
+| Component | Technical specifications |
 |--|--|
 | Chassis | 1U rack server |
 | Dimensions (Height x Width x Depth) | 4.32 x 43.46 x 38.22 cm/1.70 x 17.11 x 15.05 inch |
 | Weight | 7.88 kg/17.37 lb |
 | Processor | Intel Xeon E-2224, 3.4 GHz, 4C, 71 W |
 | Chipset | Intel C242 |
-| Memory | 1x8GB Dual Rank x8 DDR4-2666 |
+| Memory | 1 x 8GB Dual Rank x8 DDR4-2666 |
 | Storage | 2 x 1-TB SATA 6G Midline 7.2 K SFF (2.5in) – RAID 1 with Smart Array P208i-a |
 | Network controller | On-board: 2 x 1 Gb <br>On-board: iLO Port Card 1 Gb <br>External: 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter |
 | Management | HPE iLO Advanced |
@@ -181,7 +173,7 @@ This article describes hardware specifications for the following appliances:
 
 ### Appliance BOM
 
-| PN | Description | Qty |
+| PN | Description | Quantity |
 |--|--|--|
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Svr | 1 |
 | P06961-B21 | HPE DL20 Gen10 NHP 2LFF CTO Svr | 1 |
@@ -202,42 +194,42 @@ This article describes hardware specifications for the following appliances:
 
 | Type | Corporate | Enterprise | SMB |
 |--|--|--|--|
-| **vCPU** | 32 | 8 | 4 |
-| **Memory** | 32 GB | 32 GB | 8 GB |
-| **Storage** | 5.6 TB | 1.8 TB | 500 GB |
+| vCPU | 32 | 8 | 4 |
+| Memory | 32 GB | 32 GB | 8 GB |
+| Storage | 5.6 TB | 1.8 TB | 500 GB |
 
 ### On-premises management console appliance
 
 | Type | Enterprise |
 |--|--|
-| **Description** | Virtual appliance for enterprise deployment types |
-| **vCPU** | 8 |
-| **Memory** | 32 GB |
-| **Storage** | 1.8 TB |
+| Description | Virtual appliance for enterprise deployment types |
+| vCPU | 8 |
+| Memory | 32 GB |
+| Storage | 1.8 TB |
 
-Supported Hypervisors: VMware ESXi version 5.0 and above, Hyper-V
+Supported hypervisors: VMware ESXi version 5.0 and above, Hyper-V
 
 ## Additional certified appliances
 
 This article details additional appliances that were certified by Microsoft but are not offered as preconfigured appliances.
 
-| Deployment Type | Enterprise |
+| Deployment type | Enterprise |
 |--|--|
-| **Image** | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot.png" alt-text="Enterprise"::: |
-| **Model** | Dell PowerEdge R340 XL |
-| **Monitoring ports** | up to 9 RJ45 or 6 OPT |
-| **Max Bandwidth<sup>1</sup>** | 1G Mb/Sec |
-| **Max Protected Devices** | 10,000 |
+| Image | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot.png" alt-text="Enterprise deployment type."::: |
+| Model | Dell PowerEdge R340 XL |
+| Monitoring ports | up to nine RJ45 or six OPT |
+| Max Bandwidth [1](#anchortext2)| 1G Mb/Sec |
+| Max Protected Devices | 10,000 |
 
-<sup>1</sup> Bandwidth capacity may vary depending on protocols distribution.
+<a id="anchortext2">One</a> Bandwidth capacity may vary depending on protocols distribution.
 
-After purchasing the appliance, navigate to **Azure Defender for IoT > Network Sensors ISO > Installation** to download the software.
+After purchasing the appliance, navigate to **Defender for IoT** > **Network Sensors ISO** > **Installation** to download the software.
 
-:::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Network Sensors ISO":::
+:::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Network sensors ISO":::
 
 ## Enterprise deployment - Dell PowerEdge R340 XL
 
-| Component | Technical Specifications |
+| Component | Technical specifications |
 |--|--|
 | Chassis | 1U rack server |
 | Dimensions | 42.8 x 434.0 x 596 (mm) /1.67” x 17.09” x 23.5” (in) |
@@ -247,8 +239,8 @@ After purchasing the appliance, navigate to **Azure Defender for IoT > Network S
 | Memory | 32 GB = 2 x 16 GB 2666MT/s DDR4 ECC UDIMM |
 | Storage | 3 X 2 TB 7.2 K RPM SATA 6 Gbps 512n 3.5in Hot-plug Hard Drive - RAID 5 |
 | Network controller | On-board: 2 x 1 Gb Broadcom BCM5720<br>On-board LOM: iDRAC Port Card 1 Gb Broadcom BCM5720 <br><br>External: 1 x Intel Ethernet i350 QP 1 Gb Server Adapter, Low Profile |
-| Management | iDRAC 9 Enterprise |
-| Device access | 2 rear USB 3.0 <br> 1 front USB 3.0 |
+| Management | iDRAC nine Enterprise |
+| Device access | two rear USB 3.0 <br> One front USB 3.0 |
 | Power | Dual Hot Plug Power Supplies 350 W |
 | Rack support | ReadyRails™ II sliding rails for tool-less mounting in 4-post racks with square or unthreaded round holes or tooled mounting in 4-post threaded hole racks, with support for optional tool-less cable management arm. |
 
@@ -258,17 +250,17 @@ After purchasing the appliance, navigate to **Azure Defender for IoT > Network S
 
 ## SMB deployment - Neousys Nuvo-5006LP
 
-| Component | Technical Specifications |
+| Component | Technical specifications |
 |--|--|
 | Construction | Aluminum, Fanless & Dust-proof Design |
-| Dimensions | 240mm (W) x 225mm (D) x 77mm (H) |
-| Weight | 3.1kg (incl. CPU, memory and HDD) |
+| Dimensions | 240 mm (W) x 225 mm (D) x 77 mm (H) |
+| Weight | 3.1 kg (incl. CPU, memory, and HDD) |
 | CPU | Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151 |
 | Chipset | Intel® Q170 Platform Controller Hub |
-| Memory | 8GB DDR4 2133MHz Wide Temperature SODIMM |
-| Storage | 128GB 3ME3 Wide Temperature mSATA SSD |
+| Memory | 8 GB DDR4 2133 MHz Wide Temperature SODIMM |
+| Storage | 128 GB 3ME3 Wide Temperature mSATA SSD |
 | Network controller | 6x Gigabit Ethernet ports by Intel® I219 |
-| Device access | 4 USBs: 2 fronts; 2 rears; 1 internal |
+| Device access | 4 USBs: Two fronts; two rears; 1 internal |
 | Power Adapter | 120/240VAC-20VDC/6A |
 | Mounting | Mounting kit, Din Rail |
 | Operating Temperature | \-25°C ~ 70°C |
@@ -278,21 +270,8 @@ After purchasing the appliance, navigate to **Azure Defender for IoT > Network S
 | Shock | Operating, 50 Grms, Half-sine 11 ms Duration (w/ SSD, according to IEC60068-2-27) |
 | EMC | CE/FCC Class A, according to EN 55022, EN 55024 & EN 55032 |
 
-## # Line deployment – Compulab Fitlet2
+## Next steps
 
-| Type | Technical Specifications |
-|--|--|
-| Construction | Aluminum | zinc die cast parts, Fanless & Dust-proof Design |
-| Dimensions | 112mm (W) x 112mm (D) x 25mm (H) |
-| Weight | 0.35kg |
-| CPU | Intel Atom® x7-E3950 Processor |
-| Memory | 8GB SODIMM 1 x 204-pin DDR3L non-ECC 1866 (1.35V) |
-| Storage | 128GB M.2 M-key 2260* | 2242 (SATA 3 6 Gbps) |
-| Network controller | 2x 1GbE LAN Ports |
-| Device access | 2 x USB 2.0, 2 X USB 3.0 |
-| Power Adapter | 9V-36V DC / 5W-15W Power Adapter |
-| Mounting | VESA / wall or Din Rail mounting kit |
-| Temperature | 0°C ~ 70°C |
-| Humidity | 5%~95%, non-condensing |
-| Vibration | IEC TR 60721-4-7:2001+A1:03, Class 7M1 |
-| EMC | CE/FCC Class B |
+[About the Defender for IoT Installation](how-to-install-software.md)
+
+[About Azure Defender for IoT Network Setup](how-to-set-up-your-network.md)

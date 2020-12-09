@@ -1,10 +1,10 @@
 ---
 title: Track sensor activity
-description: This is a filler description and needs to be changed
+description: Event Timeline presents a timeline of activity detected on your network, including alerts and alert management actions, network events and user operations such as user sign-in and user deletion.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/10/2020
+ms.date: 12/07/2020
 ms.topic: article
 ms.service: azure
 ---

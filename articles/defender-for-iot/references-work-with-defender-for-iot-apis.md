@@ -1,48 +1,48 @@
 ---
 title: Work with Defender for IoT APIs
-description: 
+description: Defender for IoT allows external systems to access the discovered data and perform actions with that data using external REST API over SSL connections.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/15/2020
-ms.topic: article
+ms.date: 12/07/2020
+ms.topic: reference
 ms.service: azure
 ---
 
 # Overview
 
-CyberX allows external systems to access the discovered data and perform actions with that data using external REST API over SSL connections.
+Defender for IoT allows external systems to access the discovered data and perform actions with that data using external REST API over SSL connections.
 
 ## Getting started
 
-In general, when using an external API on the CyberX Sensor or Central Manager, you need to generate an access token. Tokens, however, are not required for Sensor and Central Manager authentication APIs.
+In general, when using an external API on the Defender for IoT sensor or on-premises management console, you need to generate an access token. Tokens are not required for sensor and on-premises management console authentication APIs.
 
-**To generate a token**:
+To generate a token:
 
 1. In the **System Settings** window, select **Access Tokens**.
-    :::image type="content" source="media/references-work-with-defender-for-iot-apis/image3.png" alt-text="Screenshot of System Settings view":::
+    :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-tokens.png" alt-text="Screenshot of System Settings windows highlighting the access token button.":::
 
 2. Select **Generate new token**.
-    :::image type="content" source="media/references-work-with-defender-for-iot-apis/image4.png" alt-text="Screenshot of Access Tokens view":::
+    :::image type="content" source="media/references-work-with-defender-for-iot-apis/new-token.png" alt-text="Select the button to generate a new token.":::
 
 3. Describe the purpose of the new token and select **Next**.
-    :::image type="content" source="media/references-work-with-defender-for-iot-apis/image5.png" alt-text="Screenshot of Generate new token view":::
+    :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-name.png" alt-text="Generate a new token and enter the name of the integration associated with it.":::
 
 4. The access token appears. Copy it as it will not be displayed again.
-    :::image type="content" source="media/references-work-with-defender-for-iot-apis/image6.png" alt-text="Screenshot of New Asset Token view":::
+    :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-code.png" alt-text="Copy your access token for your integration.":::
 
 5. Select **Finish**. The tokens you create appear in the Access Tokens dialog box.
-    :::image type="content" source="media/references-work-with-defender-for-iot-apis/image7.png" alt-text="Screenshot of Asset Tokens Dialog view":::
+    :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Screenshot of Asset Tokens Dialog view with filled out tokens":::
 
     **Used** indicates the last time an external call with this token was received.
 
-    If **N/A** is displayed in the **Used** field for this token, the connection between the Sensor and the connected server is not working.
+    If **N/A** is displayed in the **Used** field for this token, the connection between the sensor and the connected server is not working.
 
-6. Add an http header entitled **‘Authorization’** to your request to and set its value to the token you generated.
+6. Add an http header entitled **Authorization** to your request to and set its value to the token you generated.
 
-## CyberX Sensor API specifications
+## Defender for IoT sensor API specifications
 
-This section describes the following Sensor APIs.
+This section describes the following sensor APIs.
 
 - **/api/v1/devices**
 
@@ -66,9 +66,9 @@ This section describes the following Sensor APIs.
 
 - **/external/authentication/set_password_by_admin**
 
-## Retrieve asset information
+## Retrieve device information
 
-Use this API to request a list of all assets detected by a CyberX Sensor.
+Use this API to request a list of all devices detected by a Defender for IoT sensor.
 
 ### /api/v1/devices
 
@@ -76,11 +76,11 @@ Use this API to request a list of all assets detected by a CyberX Sensor.
 
 **GET**
 
-Requests a list of all the assets detected by the CyberX Sensor.
+Requests a list of all the devices detected by the Defender for IoT sensor.
 
 #### Query params
 
-- authorized - to filter only authorized / unauthorized devices
+- authorized - to filter only authorized and unauthorized devices
 
 **Example**:
 
@@ -94,47 +94,44 @@ Requests a list of all the assets detected by the CyberX Sensor.
 
 #### Response content
 
-Array of JSON Objects representing assets.
+Array of JSON Objects representing devices.
 
-#### Asset fields
+#### Device fields
 
-                    |  |  |  |
- ------------------ |--|--|--|
- Name               | Type | Nullable | List of Values |
- id                 | Numeric | No |  |
- ipAddresses        | JSON array | Yes | IP Addresses (can be more than one address in case of internet addresses or a device with dual NIC) |
- name               | String | No |  |
- type               | String | No | Unknown / Engineering Station / PLC / HMI / Historian / Domain Controller / DB Server / Wireless Access Point / Router / Switch / Server / Workstation / IP Camera / Printer / Firewall / Terminal station / VPN Gateway / Internet / Multicast\Broadcast |
- macAddresses       | JSON array | Yes | MAC Addresses (can be more than one address in case of a device with dual NIC) |
- operatingSystem    | String | Yes |  |
- engineeringStation | Boolean | No | true/false |
- scanner            | Boolean | No | true/false |
- authorized         | Boolean | No | true/false |
- vendor             | String | Yes |  |
- protocols          | JSON array | Yes | Protocol object |
- firmware           | JSON array | Yes | Firmware object |
+| Name | Type | Nullable | List of Values |
+|--|--|--|--|
+| **id** | Numeric | No | - |
+| **ipAddresses** | JSON array | Yes | IP Addresses (can be more than one address in case of internet addresses or a device with dual NIC) |
+| **name** | String | No | - |
+| **type** | String | No | Unknown, Engineering Station, PLC, HMI, Historian, Domain Controller, DB Server, Wireless Access Point, Router, Switch, Server, Workstation, IP Camera, Printer, Firewall, Terminal station, VPN Gateway, Internet, Multicast and Broadcast |
+| **macAddresses** | JSON array | Yes | MAC Addresses (can be more than one address in case of a device with dual NIC) |
+| **operatingSystem** | String | Yes | - |
+| **engineeringStation** | Boolean | No | True, or false |
+| **scanner** | Boolean | No | True, or false |
+| **authorized** | Boolean | No | True, or false |
+| **vendor** | String | Yes | - |
+| **protocols** | JSON array | Yes | Protocol object |
+| **firmware** | JSON array | Yes | Firmware object |
 
 #### Protocol fields
 
-|           |            |          |                         |
-| --------- | ---------- | -------- | ----------------------- |
-| Name      | Type       | Nullable | List Of Values          |
-| Name      | String     | No       |                         |
-| Addresses | JSON Array | Yes      | Master / Numeric values |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **Name** | String | No |  |
+| **Addresses** | JSON Array | Yes | Master, or Numeric values |
 
 #### Firmware fields
 
-|                 |        |          |                        |
-| --------------- | ------ | -------- | ---------------------- |
-| Name            | Type   | Nullable | List Of Values         |
-| serial          | String | No       | N/A / The actual value |
-| model           | String | No       | N/A / The actual value |
-| firmwareVersion | Double | No       | N/A / The actual value |
-| additionalData  | String | No       | N/A / The actual value |
-| moduleAddress   | String | No       | N/A / The actual value |
-| rack            | String | No       | N/A / The actual value |
-| slot            | String | No       | N/A / The actual value |
-| address         | String | No       | N/A / The actual value |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **serial** | String | No | N/A, or The actual value |
+| **model** | String | No | N/A, or The actual value |
+| **firmwareVersion** | Double | No | N/A, or The actual value |
+| **additionalData** | String | No | N/A, or The actual value |
+| **moduleAddress** | String | No | N/A, or The actual value |
+| **rack** | String | No | N/A, or The actual value |
+| **slot** | String | No | N/A, or The actual value |
+| **address** | String | No | N/A, or The actual value |
 
 ### Response example
 
@@ -270,9 +267,9 @@ Array of JSON Objects representing assets.
 ]
 ```
 
-## Retrieve asset connection information
+## Retrieve device connection information
 
-Use this API to request a list of all the connections per asset.
+Use this API to request a list of all the connections per device.
 
 ### /api/v1/devices/connections
 
@@ -282,31 +279,31 @@ Use this API to request a list of all the connections per asset.
 
 #### Query params
 
-- Without setting the query parameters all the asset connections are returned.
+- Without setting the query parameters all the device connections are returned.
 
 **Example**:
 
 `/api/v1/devices/connections`
 
-- *deviceId* - Filter by a specific asset ID, to view its connections.
+- **deviceId** - Filter by a specific device ID, to view its connections.
 
 **Example**:
 
 `/api/v1/devices/<deviceId>/connections`
 
-- *lastActiveInMinutes* - Time frame from now backwards, by minute, during which the connections were active.
+- **lastActiveInMinutes** - Time frame from now backwards, by minute, during which the connections were active.
 
 **Example**:
 
 `/api/v1/devices/2/connections?lastActiveInMinutes=20`
 
-- *discoveredBefore*- Filter only connections that were detected before a specific time (in milliseconds, UTC).
+- **discoveredBefore**- Filter only connections that were detected before a specific time (in milliseconds, UTC).
 
 **Example**:
 
 `/api/v1/devices/2/connections?discoveredBefore=<epoch>`
 
-- *discoveredAfter*- Filter only connections that were detected after a specific time (in milliseconds, UTC).
+- **discoveredAfter**- Filter only connections that were detected after a specific time (in milliseconds, UTC).
 
 **Example**:
 
@@ -318,27 +315,25 @@ Use this API to request a list of all the connections per asset.
 
 #### Response content
 
-Array of JSON Objects representing asset connections.
+Array of JSON Objects representing device connections.
 
 #### Fields
 
-|                |              |          |                |
-| -------------- | ------------ | -------- | -------------- |
-| Name           | Type         | Nullable | List Of Values |
-| firstDeviceId  | Numeric      | No       |                |
-| secondDeviceId | Numeric      | No       |                |
-| lastSeen       | Numeric      | No       | Epoch (UTC)    |
-| discovered     | Numeric      | No       | Epoch (UTC)    |
-| ports          | Number Array | No       |                |
-| protocols      | JSON Array   | No       | Protocol Field |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **firstDeviceId** | Numeric | No | - |
+| **secondDeviceId** | Numeric | No | - |
+| **lastSeen** | Numeric | No | Epoch (UTC) |
+| **discovered** | Numeric | No | Epoch (UTC) |
+| **ports** | Number Array | No | - |
+| **protocols** | JSON Array | No | Protocol Field |
 
 #### Protocol field
 
-|          |              |          |                |
-| -------- | ------------ | -------- | -------------- |
-| Name     | Type         | Nullable | List Of Values |
-| name     | String       | No       |                |
-| commands | String Array | No       |                |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **name** | String | No | - |
+| **commands** | String Array | No | - |
 
 ### Response example
 
@@ -442,7 +437,7 @@ Array of JSON Objects representing asset connections.
 
 ## Retrieve information on CVEs
 
-Use this API to request a list of all known CVEs discovered on assets in the network.
+Use this API to request a list of all known CVEs discovered on devices in the network.
 
 ### /api/v1/devices/cves
 
@@ -458,13 +453,13 @@ Use this API to request a list of all known CVEs discovered on assets in the net
 
 `/api/v1/devices/cves`
 
-- *deviceId* - Filter by a specific device IP address, to get up to 100 top scored CVEs identified on that specific device.
+- **deviceId** - Filter by a specific device IP address, to get up to 100 top scored CVEs identified on that specific device.
 
 **Example**:
 
 `/api/v1/devices/<ipAddress>/cves`
 
-- *top* - how many top scored CVEs to retrieve for each device IP address.
+- **top** - how many top scored CVEs to retrieve for each device IP address.
 
 **Example**:
 
@@ -482,14 +477,13 @@ Array of JSON Objects representing CVEs identified on ip addresses.
 
 #### Fields
 
-|              |        |          |                                               |
-| ------------ | ------ | -------- | --------------------------------------------- |
-| Name         | Type   | Nullable | List Of Values                                |
-| cveId        | String | No       |                                               |
-| ipAddress    | String | No       | IP Address                                    |
-| score        | String | No       | 0.0 - 10.0                                    |
-| attackVector | String | No       | Network / Adjacent Network / Local / Physical |
-| description  | String | No       |                                               |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **cveId** | String | No | - |
+| **ipAddress** | String | No | IP Address |
+| **score** | String | No | 0.0 - 10.0 |
+| **attackVector** | String | No | Network, Adjacent Network, Local, or Physical |
+| **description** | String | No | - |
 
 ### Response example
 
@@ -553,7 +547,7 @@ Array of JSON Objects representing CVEs identified on ip addresses.
 
 ## Retrieve alert information
 
-Use this API to request a list of all the alerts detected by the CyberX sensor.
+Use this API to request a list of all the alerts detected by the Defender for IoT sensor.
 
 ### /api/v1/alerts
 
@@ -563,25 +557,25 @@ Use this API to request a list of all the alerts detected by the CyberX sensor.
 
 #### Query params
 
-- *state* - to filter only handled / unhandled alerts
+- **state** - to filter only handled, or unhandled alerts
 
 **Example**:
 
 `/api/v1/alerts?state=handled`
 
-- *fromTime* - to filter alerts created from a specific time (in milliseconds, UTC)
+- **fromTime** - to filter alerts created from a specific time (in milliseconds, UTC)
 
 **Example**:
 
 `/api/v1/alerts?fromTime=<epoch>`
 
-- *toTime* - to filter alerts created only before a specific time (in milliseconds, UTC)
+- **toTime** - to filter alerts created only before a specific time (in milliseconds, UTC)
 
 **Example**:
 
 `/api/v1/alerts?toTime=<epoch>`
 
-- *type* - to filter alerts by a specific type. Existing types to filter by: unexpected_new_devices / disconnections
+- **type** - to filter alerts by a specific type. Existing types to filter by: unexpected_new_devices / disconnections
 
 **Example**:
 
@@ -597,26 +591,24 @@ Array of JSON Objects representing alerts.
 
 #### Alert fields
 
-                       |  |  |  |
- --------------------- |--|--|--|
- Name                  | Type | Nullable | List Of Values |
- id                    | Numeric | No |  |
- time                  | Numeric | No | Epoch (UTC) |
- title                 | String | No |  |
- message               | String | No |  |
- severity              | String | No | Warning / Minor / Major / Critical |
- engine                | String | No | Protocol Violation / Policy Violation / Malware / Anomaly / Operational |
- sourceDevice          | Numeric | Yes | Device id |
- destinationDevice     | Numeric | Yes | Device id |
- additionalInformation | Additional Information Obect | Yes |  |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **ID** | Numeric | No | - |
+| **time** | Numeric | No | Epoch (UTC) |
+| **title** | String | No | - |
+| **message** | String | No | - |
+| **severity** | String | No | Warning, Minor, Major, or Critical |
+| **engine** | String | No | Protocol Violation, Policy Violation, Malware, Anomaly, or Operational |
+| **sourceDevice** | Numeric | Yes | Device ID |
+| **destinationDevice** | Numeric | Yes | Device ID |
+| **additionalInformation** | Additional Information Object | Yes | - |
 
 #### Additional information fields
 
-|             |            |          |                |
-| ----------- | ---------- | -------- | -------------- |
-| Name        | Type       | Nullable | List Of Values |
-| description | String     | No       |                |
-| information | JSON Array | No       | String         |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **description** | String | No | - |
+| **information** | JSON Array | No | String |
 
 ### Response example
 
@@ -683,7 +675,7 @@ Array of JSON Objects representing alerts.
 
 ## Retrieve timeline events
 
-Use this API to request a list of events reported to the Event Timeline.
+Use this API to request a list of events reported to the **Event Timeline**.
 
 ### /api/v1/events
 
@@ -693,13 +685,13 @@ Use this API to request a list of events reported to the Event Timeline.
 
 #### Query params:
 
-- *minutesTimeFrame* - Time frame from now backwards, by minute, in which the events were reported
+- **minutesTimeFrame** - Time frame from now backwards, by minute, in which the events were reported
 
 **Example**:
 
 `/api/v1/events?minutesTimeFrame=20`
 
-- *type* - to filter the events list by a specific type
+- **type** - to filter the events list by a specific type
 
 **Examples**:
 
@@ -717,14 +709,13 @@ Array of JSON Objects representing alerts.
 
 #### Event fields
 
-           |  |  |  |
- --------- |--|--|--|
- Name      | Type | Nullable | List Of Values |
- timestamp | Numeric | No | Epoch (UTC) |
- title     | String | No |  |
- severity  | String | No | INFO / NOTICE / ALERT |
- owner     | String | Yes | If the event was created manually, this field will include the username that created the event |
- content   | String | No |  |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|--|
+| **timestamp** | Numeric | No | Epoch (UTC) |
+| **title** | String | No | - |
+| **severity** | String | No | INFO, NOTICE, or ALERT |
+| **owner** | String | Yes | If the event was created manually, this field will include the username that created the event |
+| **content** | String | No | - |
 
 ### Response example
 
@@ -801,7 +792,7 @@ Array of JSON Objects representing alerts.
 
 ## Retrieve vulnerability information
 
-Use this API to request vulnerability assessment results for each asset.
+Use this API to request vulnerability assessment results for each device.
 
 ### /api/v1/reports/vulnerabilities/devices
 
@@ -815,9 +806,9 @@ Use this API to request vulnerability assessment results for each asset.
 
 #### Response content
 
-Array of JSON Objects representing assessed assets.
+Array of JSON Objects representing assessed devices.
 
-The asset object contains:
+The device object contains:
 
 - General data
 
@@ -825,84 +816,78 @@ The asset object contains:
 
 - Vulnerabilities
 
-#### Asset fields
+#### Device fields
 
-|                       |                         |          |                |
-| --------------------- | ----------------------- | -------- | -------------- |
-| Name                  | Type                    | Nullable | List Of Values |
-| name                  | String                  | No       |                |
-| ipAddresses           | Json array              | No       |                |
-| securityScore         | Numeric                 | No       |                |
-| vendor                | String                  | Yes      |                |
-| firmwareVersion       | String                  | Yes      |                |
-| model                 | String                  | Yes      |                |
-| isWirelessAccessPoint | Boolean                 | No       | True / False   |
-| operatingSystem       | Operating System Object | Yes      |                |
-| vulnerabilities       | Vulnerabilities object  | Yes      |                |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **name** | String | No | - |
+| **ipAddresses** | Json array | No | - |
+| **securityScore** | Numeric | No | - |
+| **vendor** | String | Yes |  |
+| **firmwareVersion** | String | Yes | - |
+| **model** | String | Yes | - |
+| **isWirelessAccessPoint** | Boolean | No | True, or False |
+| **operatingSystem** | Operating System Object | Yes | - |
+| **vulnerabilities** | Vulnerabilities object | Yes | - |
 
 #### Operating System fields
 
-|               |        |          |                |
-| ------------- | ------ | -------- | -------------- |
-| Name          | Type   | Nullable | List Of Values |
-| Name          | String | Yes      |                |
-| Type          | String | Yes      |                |
-| Version       | String | Yes      |                |
-| latestVersion | String | Yes      |                |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **Name** | String | Yes | - |
+| **Type** | String | Yes | - |
+| **Version** | String | Yes | - |
+| **latestVersion** | String | Yes | - |
 
 #### Vulnerabilities fields
-
-                            |  |  |  |
- -------------------------- |--|--|--|
- Name                       | Type | Nullable | List Of Values |
- antiViruses                | Json array | Yes | AV names |
- plainTextPasswords         | Json array | Yes | Password Objects |
- remoteAccess               | Json array | Yes | Remote Access Objects |
- isBackupServer             | boolean | No | true/false |
- openedPorts                | Json array | Yes | Opened Port objects |
- isEngineeringStation       | boolean | No | true/false |
- isKnownScanner             | boolean | No | true/false |
- cves                       | Json array | Yes | CVE objects |
- isUnauthorized             | boolean | No | true/false |
- malwareIndicationsDetected | boolean | No | true/false |
- weakAuthentication         | Json array | Yes | Detected applications that are using weak authentication |
+ 
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **antiViruses** | Json array | Yes | AV names |
+| **plainTextPasswords** | Json array | Yes | Password objects |
+| **remoteAccess** | Json array | Yes | Remote access objects |
+| **isBackupServer** | Boolean | No | True, or false |
+| **openedPorts** | Json array | Yes | Opened Port objects |
+| **isEngineeringStation** | Boolean | No | True, or false |
+| **isKnownScanner** | Boolean | No | True, or false |
+| **cves** | Json array | Yes | CVE objects |
+| **isUnauthorized** | Boolean | No | True, or false |
+| **malwareIndicationsDetected** | Boolean | No | True, or false |
+| **weakAuthentication** | Json array | Yes | Detected applications that are using weak authentication |
 
 #### Password fields
 
-| Name     | Type   | Nullable | List Of Values                            |
-| -------- | ------ | -------- | ----------------------------------------- |
-| password | String | No       |  |
-| protocol | String | No       |  |
-| strength | String | No       | Very weak /<br />Weak /<br />Medium /<br />Strong |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **password** | String | No | - |
+| **protocol** | String | No | - |
+| **strength** | String | No | Very weak, Weak, Medium, or Strong |
 
 #### Remote access fields
 
-|                |         |          |                                                  |
-| -------------- | ------- | -------- | ------------------------------------------------ |
-| Name           | Type    | Nullable | List Of Values                                   |
-| port           | Numeric | No       |                                                  |
-| transport      | String  | No       | TCP / UDP                                        |
-| client         | String  | No       | IP Address                                       |
-| clientSoftware | String  | No       | SSH / VNC / Remote desktop / Team viewer, etc... |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **port** | Numeric | No | - |
+| **transport** | String | No | TCP, or UDP |
+| **client** | String | No | IP Address |
+| **clientSoftware** | String | No | SSH, VNC, Remote desktop, or Team viewer |
 
 #### Open port fields
 
-|                           |         |          |                |
-| ------------------------- | ------- | -------- | -------------- |
-| Name                      | Type    | Nullable | List Of Values |
-| port                      | numeric | No       |                |
-| transport                 | string  | No       | TCP / UDP      |
-| protocol                  | string  | Yes      |                |
-| isConflictingWithFirewall | boolean | No       | true / false   |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **port** | numeric | No | - |
+| **transport** | string | No | TCP, or UDP |
+| **protocol** | string | Yes | - |
+| **isConflictingWithFirewall** | Boolean | No | True, or false |
 
 #### CVE fields
 
-|             |         |          |                |
-| ----------- | ------- | -------- | -------------- |
-| Name        | Type    | Nullable | List Of Values |
-| id          | String  | No       |                |
-| score       | Numeric | No       | Double         |
-| description | String  | No       |                |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **ID** | String | No | - |
+| **score** | Numeric | No | Double |
+| **description** | String | No | - |
 
 ### Response example
 
@@ -1059,7 +1044,7 @@ The asset object contains:
 
 Use this API to request general vulnerability assessment results. This provides insight your system security level.
 
-This assessment is based on general network/system information and not on a specific asset evaluation.
+This assessment is based on general network and system information and not on a specific device evaluation.
 
 ### /api/v1/reports/vulnerabilities/security
 
@@ -1077,33 +1062,66 @@ JSON Object representing assessed results. Each key can be nullable, otherwise, 
 
 ### Result fields
 
-| Key | Field Name | Type | List Of Values |
-| --- | ---------- | ---- | -------------- |
-| unauthorizedDevices | address | String | IP Address |
-|  | name | String |  |
-|  | firstDetectionTime | Numeric | Epoch (UTC) |
-|  | lastSeen | Numeric | Epoch (UTC) |
-| illegalTrafficByFirewallRules | server | String | IP Address |
-|  | client | String | IP Address |
-|  | port | Numeric |  |
-|  | transport | String | TCP / UDP / ICMP |
-| weakFirewallRules | sources | Json array of sources. Each source can be in any of 4 formats | “Any” /<br />“&lt;ip address&gt; (Host)” /<br />“&lt;from ip&gt;-&lt;to ip&gt; (RANGE)” /<br />“&lt;ip address&gt;/&lt;subnet mask&gt; (NETWORK)” |
-|  | destinations | Json array of destinations. Each destination can be in any of 4 formats | “Any” /<br />“&lt;ip address&gt; (Host)” /<br />“&lt;from ip&gt;-&lt;to ip&gt; (RANGE)” /<br />“&lt;ip address&gt;/&lt;subnet mask&gt; (NETWORK)” |
-|  | ports | Json array of ports in any of 3 formats | “Any” /<br />&lt;port&gt; (&lt;protocol, if detected&gt;)/<br />&lt;from port&gt;-&lt;to port&gt; (&lt;protocol, if detected&gt;) |
-| accessPoints | macAddress | String | MAC Address |
-|  | vendor | String | Vendor name |
-|  | ipAddress | String | IP Address / N/A |
-|  | name | String | Device Name / N/A |
-|  | wireless | String | No / Suspected / Yes |
-| connectionsBetweenSubnets | server | String | IP Address |
-|  | client | String | IP Address |
-| industrialMalwareIndicators | detectionTime | Numeric | Epoch (UTC) |
-|  | alertMessage | String |  |
-|  | description | String |  |
-|  | assets | Json array | Device names |
-| internetConnections | internalAddress | String | IP Address |
-|  | authorized | Boolean | Yes / No |
-|  | externalAddresses | Json array | IP Adresses |
+**Keys**
+
+1. **unauthorizedDevices**
+
+| Field Name | Type | List Of Values |
+| ---------- | ---- | -------------- |
+| **address** | String | IP Address |
+| **name** | String | - |
+| **firstDetectionTime** | Numeric | Epoch (UTC) |
+| lastSeen | Numeric | Epoch (UTC) |
+
+2. **illegalTrafficByFirewallRules**
+
+| Field Name | Type | List Of Values |
+| ---------- | ---- | -------------- |
+| **server** | String | IP Address |
+| **client** | String | IP Address |
+| **port** | Numeric | - |
+| **transport** | String | TCP, UDP, or ICMP |
+
+3. **weakFirewallRules**
+
+| Field Name | Type | List Of Values |
+| ---------- | ---- | -------------- |
+| **sources** | Json array of sources. Each source can be in any of 4 formats | “Any”, “ip address (Host)”, from ip-to ip (RANGE)”, "ip address, subnet mask (NETWORK)” |
+| **destinations** | Json array of destinations. Each destination can be in any of 4 formats | “Any”, “ip address (Host)”, “from ip-to ip (RANGE)”, “ip address, subnet mask (NETWORK)” |
+| **ports** | Json array of ports in any of 3 formats | “Any”, port (protocol, if detected), from port-to port (protocol, if detected) |
+
+4. **accessPoints**
+
+| Field Name | Type | List Of Values |
+| ---------- | ---- | -------------- |
+| **macAddress** | String | MAC Address |
+| **vendor** | String | Vendor name |
+| **ipAddress** | String | IP Address, or N/A |
+| **name** | String | Device Name, or N/A |
+| **wireless** | String | No, Suspected, or Yes |
+
+5. **connectionsBetweenSubnets**
+
+| Field Name | Type | List Of Values |
+| ---------- | ---- | -------------- |
+| **server** | String | IP Address |
+| **client** | String | IP Address |
+
+6. **industrialMalwareIndicators**
+
+| Field Name | Type | List Of Values |
+| ---------- | ---- | -------------- |
+| **detectionTime** | Numeric | Epoch (UTC) |
+| **alertMessage** | String | - |
+| **description** | String | - |
+| **devices** | Json array | Device names | 
+
+7. **internetConnections**
+| Field Name | Type | List Of Values |
+| ---------- | ---- | -------------- |
+| **internalAddress** | String | IP Address |
+| **authorized** | Boolean | Yes, or No | 
+| **externalAddresses** | Json array | IP Adresses |
 
 ### Response example
 
@@ -1266,7 +1284,7 @@ JSON Object representing assessed results. Each key can be nullable, otherwise, 
 
 ## Retrieve operational vulnerabilities
 
-Use this API to request general vulnerability assessment results. This provides insight into the operational status of your network. This assessment is based on general network/system information and not on a specific asset evaluation.
+Use this API to request general vulnerability assessment results. This provides insight into the operational status of your network. This assessment is based on general network and system information and not on a specific device evaluation.
 
 ### /api/v1/reports/vulnerabilities/operational
 
@@ -1284,28 +1302,51 @@ JSON Object representing assessed results. Each key contains a JSON Array of res
 
 #### Result fields
 
-|                     |                       |            |                        |
-| ------------------- | --------------------- | ---------- | ---------------------- |
-| Key                 | Field Name            | Type       | List Of Values         |
-| backupServer        | source                | String     | IP Address             |
-|                     | destination           | String     | IP Address             |
-|                     | port                  | Numeric    |                        |
-|                     | transport             | String     | TCP / UDP              |
-|                     | backupMaximalInterval | String     |                        |
-|                     | lastSeenBackup        | Numeric    | Epoch (UTC)            |
-| ipNetworks          | addresses             | Numeric    |                        |
-|                     | network               | String     | IP Address             |
-|                     | mask                  | String     | Subnet mask            |
-| protocolProblems    | protocol              | String     |                        |
-|                     | addresses             | Json Array | IP Addresses           |
-|                     | alert                 | String     |                        |
-|                     | reportTime            | Numeric    | Epoch (UTC)            |
-| protocolDataVolumes | protocol              | String     |                        |
-|                     | volume                | String     | “&lt;volume number&gt; MB” |
-| disconnections      | assetAddress          | String     | IP Address             |
-|                     | assetName             | String     |                        |
-|                     | lastDetectionTime     | Numeric    | Epoch (UTC)            |
-|                     | backToNormalTime      | Numeric    | Epoch (UTC)            |
+**Keys**
+
+1. **backupServer**
+
+| Field Name | Type | List Of Values |
+|--|--|--|
+| **source** | String | IP Address |
+| **destination** | String | IP Address |
+| **port** | Numeric | - |
+| **transport** | String | TCP, or UDP |
+| **backupMaximalInterval** | String | - |
+| **lastSeenBackup** | Numeric | Epoch (UTC) |
+
+2. **ipNetworks**
+
+| Field Name | Type | List Of Values |
+|--|--|--|
+| **addresse**s | Numeric | - |
+| **network** | String | IP Address |
+| **mask** | String | Subnet mask |
+
+3. **protocolProblems**
+
+| Field Name | Type | List Of Values |
+|--|--|--|
+| **protocol** | String | - |
+| **addresses** | Json Array | IP Addresses |
+| **alert** | String | - |
+| **reportTime** | Numeric | Epoch (UTC) |
+
+4. **protocolDataVolumes**
+
+| Field Name | Type | List Of Values |
+|--|--|--|
+| protocol | String | - |
+| volume | String | “volume number MB” |
+
+5. **disconnections**
+
+| Field Name | Type | List Of Values |
+|--|--|--|
+| **assetAddress** | String | IP Address |
+| **assetName** | String | - |
+| **lastDetectionTime** | Numeric | Epoch (UTC) |
+| **backToNormalTime** | Numeric | Epoch (UTC) |     
 
 ### Response example
 
@@ -1436,9 +1477,9 @@ JSON Object representing assessed results. Each key contains a JSON Array of res
 
 ## Validate user credentials
 
-Use this API to validate a CyberX username and password. All CyberX user roles can work with the API.
+Use this API to validate a Defender for IoT username and password. All Defender for IoT user roles can work with the API.
 
-You do not need a CyberX access token to use this API.
+You do not need a Defender for IoT access token to use this API.
 
 ### /api/external/authentication/validation
 
@@ -1453,9 +1494,9 @@ You do not need a CyberX access token to use this API.
 #### Query params
 
 | **Name** | **Type** | **Nullable** |
-| -------- | -------- | ------------ |
-| username | String   | No           |
-| password | String   | No           |
+|--|--|--|
+| **username** | String | No |
+| **password** | String | No |
 
 #### Request example
 
@@ -1480,9 +1521,9 @@ request:
 
 Message string with the operation status details:
 
-- *Success* – msg: Authentication succeeded
+- **Success** – msg: Authentication succeeded
 
-- *Failure* – error: Credentials Validation Failed
+- **Failure** – error: Credentials Validation Failed
 
 #### Response example
 
@@ -1499,7 +1540,7 @@ response:
 
 ## Change password
 
-Use this API to let users to change their own passwords. All CyberX user roles can work with the API. You do not need a CyberX access token to use this API.
+Use this API to let users  change their own passwords. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
 ### /external/authentication/set_password
 
@@ -1536,11 +1577,11 @@ request:
 
 Message string with the operation status details:
 
-- *Success – msg*: password has been replaced
+- **Success – msg**: password has been replaced
 
-- *Failure – error*: user authentication failure
+- **Failure – error**: user authentication failure
 
-- *Failure – error*: password does not match security policy  
+- **Failure – error**: password does not match security policy  
 
 #### Response example
 
@@ -1559,17 +1600,17 @@ response:
 
 ```
 
-#### Asset fields
+#### Device fields
 
-| **Name**      | **Type** | **Nullable** |
-| ------------- | -------- | ------------ |
-| username      | String   | No           |
-| password      | String   | No           |
-| new_password | String   | No           |
+| **Name** | **Type** | **Nullable** |
+|--|--|--|
+| **username** | String | No |
+| **password** | String | No |
+| **new_password** | String | No |
 
 ## User password update by system admin
 
-Use this API to let system administrators change passwords for specified users. CyberX Admin user roles can work with the API. You do not need a CyberX access token to use this API.
+Use this API to let system administrators change passwords for specified users. Defender for IoT administrator user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
 ### /external/authentication/set_password_by_admin
 
@@ -1605,15 +1646,15 @@ request:
 
 Message string with the operation status details:
 
-- *Success – msg*: password has been replaced
+- **Success – msg**: password has been replaced
 
-- *Failure – error*: user authentication failure
+- **Failure – error**: user authentication failure
 
-- *Failure – error*: user does not exist
+- **Failure – error**: user does not exist
 
-- *Failure – error*: password doesn’t match security policy
+- **Failure – error**: password doesn’t match security policy
 
-- *Failure – error*: User does not have the permissions to change password
+- **Failure – error**: User does not have the permissions to change password
 
 #### Response example
 
@@ -1634,28 +1675,28 @@ response:
 
 ```
 
-#### Asset fields
+#### Device fields
 
-| **Name**        | **Type** | **Nullable** |
-| --------------- | -------- | ------------ |
-| admin_username | String   | No           |
-| admin_password | String   | No           |
-| username        | String   | No           |
-| new_password   | String   | No           |
+| **Name** | **Type** | **Nullable** |
+|--|--|--|
+| **admin_username** | String | No |
+| **admin_password** | String | No |
+| **username** | String | No |
+| **new_password** | String | No |
 
-## Central Manager API specifications
+## On-premises management console API specifications
 
-This section describes the following Central Manager APIs.
+This section describes the following on-premises management console APIs.
 
 - **/external/v1/alerts/<UUID>**
 
 - **Alert Exclusions (Maintenance Window)**
 
-:::image type="content" source="media/references-work-with-defender-for-iot-apis/image8.png" alt-text="Screenshot of Alert Exclusion view":::
+:::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="The alert exclusion window showing active rules.":::
 
-Define conditions under which alerts will not be sent. For example, define and update stop and start times, assets or subnets that should be excluded when triggering alerts, or CyberX engines that should be excluded. For example, during a maintenance window, you may want to stop alert delivery of all alerts, except for malware alerts on critical assets.
+Define conditions under which alerts will not be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you may want to stop alert delivery of all alerts, except for malware alerts on critical devices.
 
-The APIs you define here appear in the Central Manager, Alert Exclusion rule window as a read-only exclusion rule
+The APIs you define here appear in the on-premises management console, Alert Exclusion rule window as a read-only exclusion rule
 
 ### /external/v1/maintenanceWindow
 
@@ -1674,19 +1715,19 @@ The APIs you define here appear in the Central Manager, Alert Exclusion rule win
 
 ### Change Password
 
-Use this API to let users to change their own passwords. All CyberX user roles can work with the API. You do not need a CyberX access token to use this API.
+Use this API to let users  change their own passwords. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
 - **/external/authentication/set_password**
 
 - **User Password Update by System Admin**
 
-Use this API to let system administrators change passwords for specific users. CyberX Admin user roles can work with the API. You do not need a CyberX access token to use this API.
+Use this API to let system administrators change passwords for specific users. Defender for IoT Admin user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
 - **/external/authentication/set_password_by_admin**
 
-## Retrieve asset information
+## Retrieve device information
 
-This API requests a list of all assets detected by CyberX Sensors connected to a Central Manager.
+This API requests a list of all devices detected by Defender for IoT sensors connected to an on-premises management console.
 
 ### /external/v1/devices
 
@@ -1700,19 +1741,19 @@ This API requests a list of all assets detected by CyberX Sensors connected to a
 
 #### Response content
 
-Array of JSON Objects representing assets.
+Array of JSON Objects representing devices.
 
 #### Query params
 
-- **authorized** - to filter only authorized / unauthorized devices
+- **authorized** - to filter only authorized and unauthorized devices
 
 - **siteId** - to filter only devices related to specific sites.
 
-- **zoneId** - to filter only devices related to specific zones. *
+- **zoneId** - to filter only devices related to specific zones. [1](#1)
 
-- **sensorId** - to filter only devices detected by specific sensors. *
+- **sensorId** - to filter only devices detected by specific sensors. [1](#1)
 
-* *You may not have the Site and zone ID. If this is the case, query all devices to retrieve the Site and Zone ID.*
+###### <a id="1">1</a> *You may not have the Site and zone ID. If this is the case, query all devices to retrieve the Site and Zone ID.*
 
 #### Query params example
 
@@ -1726,48 +1767,44 @@ Array of JSON Objects representing assets.
 
 `/external/v1/devices?sensorId=8`
 
-#### Asset fields
+#### Device fields
 
-                    |  |  |  |
- ------------------ |--|--|--|
- Name               | Type | Nullable | List of Values |
- id                 | Numeric | No |  |
- sensorId           | Numeric | No |  |
- zoneId             | Numeric | Yes |  |
- siteId             | Numeric | Yes |  |
- ipAddresses        | JSON array | Yes | IP Addresses (can be more than one address in case of internet addresses or a device with dual NIC) |
- name               | String | No |  |
- type               | String | No | Unknown / Engineering Station / PLC / HMI / Historian / Domain Controller / DB Server / Wireless Access Point / Router / Switch / Server / Workstation / IP Camera / Printer / Firewall / Terminal station / VPN Gateway / Internet / Multicast\Broadcast |
- macAddresses       | JSON array | Yes | MAC Addresses (can be more than one address in case of a device with dual NIC) |
- operatingSystem    | String | Yes |  |
- engineeringStation | Boolean | No | true/false |
- scanner            | Boolean | No | true/false |
- authorized         | Boolean | No | true/false |
- vendor             | String | Yes |  |
- Protocols          | JSON array | Yes | Protocol object |
- firmware           | JSON array | Yes | Firmware object |
+| Name | Type | Nullable | List of Values |
+|--|--|--|--|
+| **sensorId** | Numeric | No | - |
+| **zoneId** | Numeric | Yes | - |
+| **siteId** | Numeric | Yes | - |
+| **ipAddresses** | JSON array | Yes | IP Addresses (can be more than one address in case of internet addresses or a device with dual NIC) |
+| **name** | String | No | - |
+| **type** | String | No | Unknown, Engineering Station, PLC, HMI, Historian, Domain Controller, DB Server, Wireless Access Point, Router, Switch, Server, Workstation, IP Camera, Printer, Firewall, Terminal station, VPN Gateway, Internet, or Multicast and Broadcast |
+| **macAddresses** | JSON array | Yes | MAC Addresses (can be more than one address in case of a device with dual NIC) |
+| **operatingSystem** | String | Yes | - |
+| **engineeringStation** | Boolean | No | True, or false |
+| **scanner** | Boolean | No | True, or false |
+| **authorized** | Boolean | No | True, or false |
+| **vendor** | String | Yes | - |
+| **Protocols** | JSON array | Yes | Protocol object |
+| **firmware** | JSON array | Yes | Firmware object |
 
 #### Protocol fields
 
-|           |            |          |                         |
-| --------- | ---------- | -------- | ----------------------- |
-| Name      | Type       | Nullable | List Of Values          |
-| Name      | String     | No       |                         |
-| Addresses | JSON Array | Yes      | Master / Numeric values |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| Name | String | No | - |
+| Addresses | JSON Array | Yes | Master, or Numeric values |
 
 #### Firmware fields
 
-|                 |        |          |                        |
-| --------------- | ------ | -------- | ---------------------- |
-| Name            | Type   | Nullable | List Of Values         |
-| serial          | String | No       | N/A / The actual value |
-| model           | String | No       | N/A / The actual value |
-| firmwareVersion | Double | No       | N/A / The actual value |
-| additionalData  | String | No       | N/A / The actual value |
-| moduleAddress   | String | No       | N/A / The actual value |
-| rack            | String | No       | N/A / The actual value |
-| slot            | String | No       | N/A / The actual value |
-| address         | String | No       | N/A / The actual value |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **serial** | String | No | N/A, or The actual value |
+| **model** | String | No | N/A, or The actual value |
+| **firmwareVersion** | Double | No | N/A, or The actual value |
+| **additionalData** | String | No | N/A, or The actual value |
+| **moduleAddress** | String | No | N/A, or The actual value |
+| **rack** | String | No | N/A, or The actual value |
+| **slot** | String | No | N/A, or The actual value |
+| **address** | String | No | N/A, or The actual value |
 
 ### Response example
 
@@ -1911,7 +1948,7 @@ Array of JSON Objects representing assets.
 
 ## Retrieve alert information
 
-Use this API to retrieve all or filtered alerts from a Central Manager.
+Use this API to retrieve all or filtered alerts from an on-premises management console.
 
 ### /external/v1/alerts
 
@@ -1921,54 +1958,52 @@ Use this API to retrieve all or filtered alerts from a Central Manager.
 
 #### Query params
 
-- *state* - to filter only handled / unhandled alerts
+- **state** - to filter only handled and unhandled alerts
 
 **Example**:
 
 `/api/v1/alerts?state=handled`
 
-- *fromTime* - to filter alerts created from a specific time (in milliseconds, UTC)
+- **fromTime** - to filter alerts created from a specific time (in milliseconds, UTC)
 
 **Example**:
 
 `/api/v1/alerts?fromTime=<epoch>`
 
-- *toTime* - to filter alerts created only before a specific time (in milliseconds, UTC)
+- **toTime** - to filter alerts created only before a specific time (in milliseconds, UTC)
 
 **Example**:
 
 `/api/v1/alerts?toTime=<epoch>`
 
-- **siteId:** The site on which the alert was discovered. *
+- **siteId:** The site on which the alert was discovered. [2](#2)
 
-- **zoneId**: The zone on which the alert was discovered. *
+- **zoneId**: The zone on which the alert was discovered. [2](#2)
 
-- **sensor**: The Sensor on which the alert was discovered.
+- **sensor**: The sensor on which the alert was discovered.
 
-&#42; *You may not have the Site and zone ID. If this is the case, query all devices to retrieve the Site and Zone ID.*
+##### <a id="2">2</a> You may not have the Site and zone ID. If this is the case, query all devices to retrieve the Site and Zone ID.*
 
 ### Alert fields
 
-                       |  |  |  |
- --------------------- |--|--|--|
- Name                  | Type | Nullable | List Of Values |
- id                    | Numeric | No |  |
- time                  | Numeric | No | Epoch (UTC) |
- title                 | String | No |  |
- message               | String | No |  |
- severity              | String | No | Warning / Minor / Major / Critical |
- engine                | String | No | Protocol Violation / Policy Violation / Malware / Anomaly / Operational |
- sourceDevice          | Numeric | Yes | Device id |
- destinationDevice     | Numeric | Yes | Device id |
- additionalInformation | Additional Information Obect | Yes |  |                                                                     |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **ID** | Numeric | No | - |
+| **time** | Numeric | No | Epoch (UTC) |
+| **title** | String | No | - |
+| **message** | String | No | - |
+| **severity** | String | No | Warning, Minor, Major, or Critical |
+| **engine** | String | No | Protocol Violation, Policy Violation, Malware, Anomaly, or Operational |
+| **sourceDevice** | Numeric | Yes | Device ID |
+| **destinationDevice** | Numeric | Yes | Device ID |
+| **additionalInformation** | Additional Information Object | Yes | - |
 
 ### Additional information fields
 
-|             |            |          |                |
-| ----------- | ---------- | -------- | -------------- |
-| Name        | Type       | Nullable | List Of Values |
-| description | String     | No       |                |
-| information | JSON Array | No       | String         |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **description** | String | No | - |
+| **information** | JSON Array | No | String |
 
 ### Response example
 
@@ -1981,7 +2016,7 @@ Use this API to retrieve all or filtered alerts from a Central Manager.
         
         "handled": false,
         
-        "title": "Traffic Detected on Sensor Interface",
+        "title": "Traffic Detected on sensor Interface",
         
         "additionalInformation": null,
         
@@ -2068,14 +2103,13 @@ Use this API to retrieve all or filtered alerts from a Central Manager.
 ]
 ```
 
-
 ## QRadar alerts
 
-Allows QRadar integration with CyberX to identify the alerts generated by CyberX and perform actions with these alerts. QRadar receives the data from CyberX and then contacts the public API Central Management component.
+Allows QRadar integration with Defender for IoT to identify the alerts generated by Defender for IoT and perform actions with these alerts. QRadar receives the data from Defender for IoT and then contacts the public API on-premises management console component.
 
-To send the data discovered by CyberX to QRadar, define a forwarding rule in the CyberX system and select the **Remote support alert handling** option.
+To send the data discovered by Defender for IoT to QRadar, define a forwarding rule in the Defender for IoT system and select the **Remote support alert handling** option.
 
-:::image type="content" source="media/references-work-with-defender-for-iot-apis/image9.png" alt-text="Screenshot of Edit Forwarding Rules view":::
+:::image type="content" source="media/references-work-with-defender-for-iot-apis/edit-forwarding-rules.png" alt-text="Edit the forwarding rules to match your needs.":::
 
 When this option is selected during the forwarding rule configuration process, the following additional fields appear in QRadar:
 
@@ -2088,7 +2122,7 @@ When this option is selected during the forwarding rule configuration process, t
 Example of the payload sent to QRadar:
 
 ```
-<9>May 5 12:29:23 Sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=Sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
+<9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
 ```
 
 ### /external/v1/alerts/&lt;UUID&gt;
@@ -2107,10 +2141,9 @@ JSON object representing the action to perform on alert containing the UUID.
 
 #### Action fields:
 
-|        |        |          |                        |
-| ------ | ------ | -------- | ---------------------- |
-| Name   | Type   | Nullable | List Of Values         |
-| action | String | No       | handle, handleAndLearn |
+| Name | Type | Nullable | List Of Values |
+|--|--|--|--|
+| **action** | String | No | handle, or handleAndLearn |
 
 #### Request example:
 
@@ -2131,10 +2164,10 @@ Array of JSON Objects representing devices
 
 #### Response fields
 
-                 |  |  |  |
- --------------- |--|--|--|
- Name            | Type | Nullable | Description |
- content / error | String | No | If the request is successful, the content property appears. Otherwise, the error property appears. |
+
+| Name | Type | Nullable | Description |
+|--|--|--|--|
+| **content / error** | String | No | If the request is successful, the content property appears. Otherwise, the error property appears. |
 
 #### Possible content values
 
@@ -2169,11 +2202,11 @@ Array of JSON Objects representing devices
 
 ## Alert exclusions (maintenance window)
 
-Define conditions under which alerts will not be sent. For example, define and update stop and start times, assets or subnets that should be excluded when triggering alerts, or CyberX engines that should be excluded. For example, during a maintenance window, you may want to stop alert delivery of all alerts, except for malware alerts on critical assets.
+Define conditions under which alerts will not be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you may want to stop alert delivery of all alerts, except for malware alerts on critical devices.
 
-The APIs you define here appear in the Central Manager, Alert Exclusion rule window as a read-only exclusion rule.
+The APIs you define here appear in the on-premises management console, Alert Exclusion rule window as a read-only exclusion rule.
 
-:::image type="content" source="media/references-work-with-defender-for-iot-apis/image8.png" alt-text="Screenshot of Alert Exclusion view":::
+:::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="The alert exclusions window showing a list of all the exclusion rules. ":::
 
 ### /external/v1/maintenanceWindow
 
@@ -2197,7 +2230,7 @@ The APIs you define here appear in the Central Manager, Alert Exclusion rule win
 
    - PROTOCOL_VIOLATION
 
-- **sensorIds**: Defines from which CyberX sensor to suppress alerts during the maintenance process. It is the same ID retrieved from /api/v1/appliances (GET).
+- **sensorIds**: Defines from which Defender for IoT sensor to suppress alerts during the maintenance process. It is the same ID retrieved from /api/v1/appliances (GET).
 
 - **subnets**: Defines from which subnet to suppress alerts during the maintenance process. The subnet is sent in the following format: 192.168.0.0/16.
 
@@ -2278,7 +2311,7 @@ Closes an existing maintenance window.
 
 ### Method - GET
 
-Retrieve a log of all the open/close/update actions that were performed in the system during the maintenance. You can retrieve a log only for maintenance windows that were active in the past and have been closed.
+Retrieve a log of all the open, close, and update actions that were performed in the system during the maintenance. You can retrieve a log only for maintenance windows that were active in the past and have been closed.
 
 #### Query parameters 
 
@@ -2310,20 +2343,20 @@ Array of JSON Objects representing maintenance window operations.
 
 #### Response structure
 
-| Name          | Type            | Comment                                         | Nullable |
-| ------------- | --------------- | ----------------------------------------------- | -------- |
-| dateTime      | string          | Example: “2012-04-23T18:25:43.511Z”             | no       |
-| ticketId      | string          | Example: “9a5fe99c-d914-4bda-9332-307384fe40bf” | no       |
-| tokenName     | string          |                                                 | no       |
-| engines       | Array of string |                                                 | yes      |
-| sensorIds     | Array of string |                                                 | yes      |
-| subnets       | Array of string |                                                 | yes      |
-| ttl           | numeric         |                                                 | yes      |
-| operationType | string          | Values are “OPEN”, “UPDATE” and “CLOSE”         | no       |
+| Name | Type | Comment | Nullable |
+|--|--|--|--|
+| **dateTime** | string | Example: “2012-04-23T18:25:43.511Z” | no |
+| **ticketId** | string | Example: “9a5fe99c-d914-4bda-9332-307384fe40bf” | no |
+| **tokenName** | string | - | no |
+| **engines** | Array of string | - | yes |
+| **sensorIds** | Array of string | - | yes |
+| **subnets** | Array of string | - | yes |
+| **ttl** | numeric | - | yes |
+| **operationType** | string | Values are “OPEN”, “UPDATE” and “CLOSE” | no |
 
 ## Authenticate user credentials
 
-Use this API to validate user credentials. All CyberX user roles can work with the API. You do not need a CyberX access token to use this API.
+Use this API to validate user credentials. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
 ### /external/authentication/validation
 
@@ -2361,12 +2394,12 @@ Message string with the operation status details:
 
 - *Failure – error*: Credentials Validation Failed
 
-#### Asset fields
+#### Device fields
 
 | **Name** | **Type** | **Nullable** |
-| -------- | -------- | ------------ |
-| username | String   | No           |
-| password | String   | No           |
+|--|--|--|
+| **username** | String | No |
+| **password** | String | No |
 
 #### Response example
 
@@ -2382,7 +2415,7 @@ response:
 
 ## Change password
 
-Use this API to let users to change their own passwords. All CyberX user roles can work with the API. You do not need a CyberX access token to use this API.
+Use this API to let users  change their own passwords. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
 ### /external/authentication/set_password
 
@@ -2419,11 +2452,11 @@ request:
 
 Message string with the operation status details:
 
-- *Success – msg*: password has been replaced
+- **Success – msg**: password has been replaced
 
-- *Failure – error*: user authentication failure
+- **Failure – error**: user authentication failure
 
-- *Failure – error*: password does not match security policy  
+- **Failure – error**: password does not match security policy  
 
 #### Response example
 
@@ -2442,17 +2475,17 @@ response:
 
 ```
 
-#### Asset fields
+#### Device fields
 
 | **Name** | **Type** | **Nullable** |
 |--|--|--|
-| username | String | No |
-| password | String | No |
-| new_password | String | No |
+| **username** | String | No |
+| **password** | String | No |
+| **new_password** | String | No |
 
 ## User password update by system admin
 
-Use this API to let system administrators change passwords for specified users. CyberX Admin user roles can work with the API. You do not need a CyberX access token to use this API.
+Use this API to let system administrators change passwords for specified users. Defender for IoT Admin user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
 ### /external/authentication/set_password_by_admin
 
@@ -2488,15 +2521,15 @@ request:
 
 Message string with the operation status details:
 
-- *Success – msg*: password has been replaced
+- **Success – msg**: password has been replaced
 
-- *Failure – error*: user authentication failure
+- **Failure – error**: user authentication failure
 
-- *Failure – error*: user does not exist
+- **Failure – error**: user does not exist
 
-- *Failure – error*: password doesn’t match security policy
+- **Failure – error**: password doesn’t match security policy
 
-- *Failure – error*: User does not have the permissions to change password
+- **Failure – error**: User does not have the permissions to change password
 
 #### Response example
 
@@ -2517,11 +2550,11 @@ response:
 
 ```
 
-#### Asset fields
+#### Device fields
 
 | **Name** | **Type** | **Nullable** |
 |--|--|--|
-| admin_username | String | No |
-| admin_password | String | No |
-| username | String | No |
-| new_password | String | No |
+| **admin_username** | String | No |
+| **admin_password** | String | No |
+| **username** | String | No |
+| **new_password** | String | No |

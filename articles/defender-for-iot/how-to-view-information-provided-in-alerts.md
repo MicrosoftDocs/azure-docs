@@ -4,10 +4,9 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/30/2020
-ms.topic: article
-ms.service: azure
+ms.date: 12/03/2020
 ms.topic: how-to
+ms.service: azure
 ---
 
 # View information provided in alerts

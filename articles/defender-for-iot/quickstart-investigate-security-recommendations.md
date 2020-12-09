@@ -34,7 +34,7 @@ The IoT Hub recommendations list displays all of the aggregated security recomme
 
 1.  From the **Security** menu, select **Recommendations**. All of the security recommendations for the IoT Hub will display, and the recommendations with a **New** flag, mark your recommendations from the past 24 hours. 
 
-    [ ![Investigate security recommendations with ASC for IoT](media/quickstart/investigate-security-recommendations-inline.png)](media/quickstart/investigate-security-recommendations-expanded.png#lightbox)
+    [ :::image type="content" source="media/quickstart/investigate-security-recommendations-expanded.png#lightbox" alt-text="Investigate security recommendations with ASC for IoT](media/quickstart/investigate-security-recommendations-inline.png)":::
 
 
 1.  Select and open any recommendation from the list to open the recommendation details and drill down to the specifics.
@@ -49,12 +49,12 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
 1.  After reviewing recommendation specifics, use the **manual remediation step** instructions to help remediate and resolve the issue that caused the recommendation. 
 
-    [ ![Remediate security recommendations with ASC for IoT](media/quickstart/remediate-security-recommendations-inline.png)](media/quickstart/remediate-security-recommendations-expanded.png#lightbox)
+    [ :::image type="content" source="media/quickstart/remediate-security-recommendations-expanded.png#lightbox" alt-text="Remediate security recommendations with ASC for IoT](media/quickstart/remediate-security-recommendations-inline.png)":::
 
 
 1.  Explore the recommendation details for a specific device by selecting the desired device in the drill-down page.
 
-    [ ![Investigate specific security recommendations for a device with ASC for IoT](media/quickstart/explore-security-recommendation-detail-inline.png)](media/quickstart/explore-security-recommendation-detail-expanded.png#lightbox)
+    [ :::image type="content" source="media/quickstart/explore-security-recommendation-detail-expanded.png#lightbox" alt-text="Investigate specific security recommendations for a device with ASC for IoT](media/quickstart/explore-security-recommendation-detail-inline.png)":::
 
 
 1.  If further investigation is required, **Investigate the recommendation in Log Analytics** using the link. 

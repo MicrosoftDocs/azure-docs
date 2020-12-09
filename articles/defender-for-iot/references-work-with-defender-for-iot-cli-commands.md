@@ -4,18 +4,18 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/15/2020
+ms.date: 12/08/2020
 ms.topic: article
 ms.service: azure
 ---
 
 # Overview
 
-The Azure Defender for IoT sensor enables customer business continuity with respect to cyberattacks and improves everyday operations and uptime by automatically modeling the SCADA network as a state machine. Multiple proprietary and patented analysis engines continually monitor and alert you on any suspicious network activity.
+The Defender for IoT sensor enables customer business continuity with respect to cyberattacks and improves everyday operations and uptime by automatically modeling the SCADA network as a state machine. Multiple proprietary and patented analysis engines continually monitor and alert you on any suspicious network activity.
 
-The Central Manager provides centralized deployment of software, threat intelligence, and configuration updates across all of Azure Defender for IoT sensors in the organization.
+The on-premises management console provides centralized deployment of software, threat intelligence, and configuration updates across all of Defender for IoT sensors in the organization.
 
-Both, the Central Manager and the sensors, are managed through the user-friendly GUI. You can also can configure Azure Defender for IoT with the CLI.
+Both, the on-premises management console and the sensors, are managed through the user friendly GUI. You can also can configure Defender for IoT with the CLI.
 
 Most of the GUI configuration options can be performed also using the CLI. There are highly technical configuration options that can be performed using the CLI only.
 
@@ -25,7 +25,7 @@ This guide is written for administrator level users.
 
 ## Managing local alert exclusion rules
 
-This article describes how to manage local alerts in Azure Defender for IoT. You can decide which alerts will appear and under which situations they will be generated. You can utilize exclusion rules when planning maintenance activities or network events that you do not want to receive alerts for.
+This article describes how to manage local alerts in Defender for IoT. You can decide which alerts will appear and under which situations they will be generated. You can utilize exclusion rules when planning maintenance activities or network events that you do not want to receive alerts for.
 
 ## Create local alert exclusion rules
 
@@ -38,14 +38,14 @@ alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 
 The attributes that can be defined within the alert exclusion rules are as follows:
 
-| Attribute                        | Description |
-| -------------------------------- | ------------------------------------- |
-| [-h] | Prints the help information for the command |
-| -n NAME | The name of the rule being created |
-| [-ts TIMES] | The time span for which the rule is active. This should be specified as:<br>```xx:yy-xx:yy```<br>You can define more that one time period by using a comma between them. For example, ```xx:yy-xx:yy, xx:yy-xx:yy``` |
-| [-dir DIRECTION] | The direction in which the rule is applied. This should be specified as:<br>```both | src | dst``` |
-| [-dev DEVICES] | The IP address and the address type of the devices to be excluded by the rule, specified as:<br>```ip-x.x.x.x```<br>```mac-xx:xx:xx:xx:xx:xx```<br>```subnet: x.x.x.x/x``` |
-| [-a ALERTS] | The name of the alert to be excluded by the rule:<br>```0x00000```<br>```0x000001``` |
+| Attribute | Description |
+|--|--|
+| [-h] | Prints the help information for the command. |
+| -n NAME | The name of the rule being created. |
+| [-ts TIMES] | The time span for which the rule is active. This should be specified as:<br />`xx:yy-xx:yy`<br />You can define more that one time period by using a comma between them. For example, `xx:yy-xx:yy, xx:yy-xx:yy`. |
+| [-dir DIRECTION] | The direction in which the rule is applied. This should be specified as:<br />`both | src | dst`. |
+| [-dev DEVICES] | The IP address and the address type of the devices to be excluded by the rule, specified as:<br />`ip-x.x.x.x`<br />`mac-xx:xx:xx:xx:xx:xx`<br />`subnet: x.x.x.x/x` |
+| [-a ALERTS] | The name of the alert to be excluded by the rule:<br />`0x00000`<br />`0x000001`. |
 
 ## Append local alert exclusion rules
 
@@ -78,9 +78,9 @@ alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 
 The following attribute can be used with the alert exclusion rules:
 
-| Attribute | Description                        |
+| Attribute | Description|
 | --------- | ---------------------------------- |
-| -n NAME | The name of the rule to be deleted |
+| -n NAME | The name of the rule to be deleted. |
 
 ## Sync time from NTP server
 
@@ -108,23 +108,23 @@ The attribute that can be defined within the command is the IP address of the NT
 
 ## Network configuration
 
-This article describes all of the commands available to configure your network options for Azure Defender for IoT.
+This article describes all of the commands available to configure your network options for Defender for IoT.
 
 ## Network configuration commands
 
 |Name|Command|Description|
 |-----------|-------|-----------|
-|Ping|`ping IP `| Ping addresses outside the Azure Defender for IoT platform|
-|Blink|`network blink`|Enables changing the network configuration parameters|
-|Reconfigure the network |`network edit-settings`| Enables changing the network configuration parameters |
-|Show network settings |`network list`|Displays the network adapter parameters |
-|Validate the network configuration |`network validate` |Presents the output network settings <br> <br>For example: <br> <br>Current Network Settings: <br> interface: eth0 <br> ip: 10.100.100.1 <br>subnet: 255.255.255.0 <br>default gateway: 10.100.100.254 <br>dns: 10.100.100.254 <br>monitor interfaces: eth1|
+|Ping|`ping IP `| Ping addresses outside the Defender for IoT platform.|
+|Blink|`network blink`|Enables changing the network configuration parameters.|
+|Reconfigure the network |`network edit-settings`| Enables changing the network configuration parameters. |
+|Show network settings |`network list`|Displays the network adapter parameters. |
+|Validate the network configuration |`network validate` |Presents the output network settings <br /> <br />For example: <br /> <br />Current Network Settings: <br /> interface: eth0 <br /> ip: 10.100.100.1 <br />subnet: 255.255.255.0 <br />default gateway: 10.100.100.254 <br />dns: 10.100.100.254 <br />monitor interfaces: eth1|
 |Import a certificate |`certificate import FILE` |Imports the HTTPS certificate. You will need to specify the full path which leads to a *.crt file |
 |Show the date |`date` |Returns the current date on the host in GMT format |
 
 ## Filter network configurations
 
-The network capture-filter command allows administrators to eliminate network traffic noise that the devices receive but do not need to analyze.
+The network capture filter command allows administrators to eliminate network traffic noise that the devices receive but do not need to analyze.
 
 This capability delivers the ability to filter using an include list and, or an exclude list.
 
@@ -134,36 +134,36 @@ network capture-filter
 
 After entering the command you will be prompted with the following question:
 
->Would you like to supply devices and subnet masks you wish to **include** in the capture filter? [Y/N]:*
+>Would you like to supply devices and subnet masks you wish to include in the capture filter? [Y/N]:
 
-Select **Yes** which will open a nano file where you can add assets, channels, ports and subsets according to the following syntax:
+Select **Yes** which will open a nano file where you can add device, channels, ports and subsets according to the following syntax:
 
-| Attribute       | Description                               |
-| --------------- | ----------------------------------------- |
-| 1.1.1.1| Includes all the traffic for this asset |
-| 1.1.1.1,2.2.2.2| Includes all the traffic for this channel |
-|1.1.1,2.2.2| Includes all the traffic for this subnet |
+| Attribute | Description |
+|--|--|
+| 1.1.1.1 | Includes all of the traffic for this device. |
+| 1.1.1.1,2.2.2.2 | Includes all of the traffic for this channel. |
+| 1.1.1,2.2.2 | Includes all of the traffic for this subnet. |
 
 Arguments should be separated by dropping a row.
 
-When you include an asset, channel or subnet, the sensor processes all the traffic valid for that argument, including ports and traffic that would not usually be processed.
+When you include an device, channel or subnet, the sensor processes all the traffic valid for that argument, including ports and traffic that would not usually be processed.
 
 You will then be asked the following:
->Would you like to supply devices and subnet masks you wish to **exclude** from the capture filter? [Y/N]:*
+>Would you like to supply devices and subnet masks you wish to exclude from the capture filter? [Y/N]:
 
-Select **Yes** to open a nano file where you can add assets, channels, ports and subsets according to the following syntax:
+Select **Yes** to open a nano file where you can add device, channels, ports and subsets according to the following syntax:
 
-| Attribute   |  Description          |
-| ------------------- | ------------------------------------------------------------ |
-| 1.1.1.1             | Excludes all the traffic for this asset |
-| 1.1.1.1,2.2.2.2     | Excludes all the traffic for this channel, meaning all the traffic between two assets |
-| 1.1.1.1,2.2.2.2,443 | Excludes all the traffic for this channel by port |
-| 1.1.1               | Excludes all the traffic for this subnet |
-| 1.1.1,2.2.2         | Excludes all the traffic for between subnets |
+| Attribute | Description |
+|--|--|
+| 1.1.1.1 | Excludes all the traffic for this device. |
+| 1.1.1.1,2.2.2.2 | Excludes all the traffic for this channel, meaning all the traffic between two devices. |
+| 1.1.1.1,2.2.2.2,443 | Excludes all the traffic for this channel by port. |
+| 1.1.1 | Excludes all the traffic for this subnet. |
+| 1.1.1,2.2.2 | Excludes all the traffic for between subnets. |
 
-Divide arguments by dropping a row.
+Arguments should be separated by dropping a row.
 
-When you exclude an asset, channel or subnet, the will sensor excludes all the traffic valid for that argument.
+When you exclude an device, channel or subnet, the will sensor excludes all the traffic valid for that argument.
 
 **ports**:
 
@@ -185,7 +185,7 @@ Include or exclude UDP and TCP ports is executed for all the traffic.
 
 *In which component do you wish to apply this capture filter?*
 
-Your options are: `all, dissector, collector, statistics-collector, rpc-parser, smb-parser`
+Your options are: all, dissector, collector, statistics-collector, rpc-parser, or smb-parser.
 
 In most use-cases, select `all`.
 
@@ -209,14 +209,14 @@ Select **Yes**  for all of the following options. All of the filters are added t
 
 If you choose to exclude a subnet, for example 1.1.1.
 
-- *internal* will exclude only that subnet.
+- **Internal** will exclude only that subnet.
 
-- *all connected* will exclude that subnet and all the traffic to and from that subnet.
+- **All connected** will exclude that subnet and all the traffic to and from that subnet.
 
-We recommend that you select *internal*.
+We recommend that you select **Internal**.
 
 > [!NOTE]
-> All connected and *internal* are for all the filters in the tool, and are not session dependent, meaning you can't ever choose to do *internal* for some filters and *all connected* for others.
+> All connected and internal are used for all the filters in the tool, and are not session dependent, meaning you can't ever choose to do internal for some filters, and all connected for others.
 
 **Comments**:
 
@@ -242,7 +242,7 @@ sudo cyberx-xsense-capture-filter -p all -m all-connected
 
 ## Define a client and server hosts
 
-If Azure Defender for IoT did not automatically detect the client and server hosts, enter the following command to set the client and server hosts.
+If Defender for IoT did not automatically detect the client and server hosts, enter the following command to set the client and server hosts.
 
 ```azurecli-interactive
 directions [-h] [--identifier IDENTIFIER] [--port PORT] [--remove] [--add]  
@@ -251,64 +251,27 @@ directions [-h] [--identifier IDENTIFIER] [--port PORT] [--remove] [--add]
 
 The following attributes can be used with the directions command:
 
-| Attribute                 | Description                                        |
-| ------------------------- | -------------------------------------------------- |
-| [-h]| Prints help information for the command |
-| [--identifier IDENTIFIER] | The server identifier|
-| [--port PORT]| The server port |
-| [--remove]| Removes a client or server host from the list|
-| [--add]| Adds a client or server host to the list|
-| [--tcp]| Use TCP protocol when communicating with this host |
-| [--udp]| Use UDP protocol when communicating with this host |
+| Attribute | Description |
+|--|--|
+| [-h] | Prints help information for the command. |
+| [--identifier IDENTIFIER] | The server identifier. |
+| [--port PORT] | The server port. |
+| [--remove] | Removes a client or server host from the list. |
+| [--add] | Adds a client or server host to the list. |
+| [--tcp] | Use TCP protocol when communicating with this host. |
+| [--udp] | Use UDP protocol when communicating with this host. |
 
 ## System actions
-This article describes the commands available to perform various system actions within Azure Defender for IoT.
+This article describes the commands available to perform various system actions within Defender for IoT.
 
-## System Action Commands
+## System action commands
 
 |Name|Code|Description|
 |----|----|-----------|
-|Reboot the host|```system reboot```|Reboots the host device|
-|Shut the host down|```system shutdown```|Shuts down the host|
-|Back up the system|```system backup```|Initiates an immediate backup (a non-scheduled backup)|
-|Restore the system from a backup|```system restore```|Restores from the most recent backup|
-|List the backup files|```system backup-list```|Lists the available backup files|
-|Display the status of all Azure Defender for IoT platform services|```system sanity```|Checks the sanity of the system, by listing the current status of all Azure Defender for IoT platform services|
-|Show the software version|```system version```|Displays the version of the software currently running on the system|
-
-## Glossary
-
-| Abbreviation | Meaning                                   |
-| ------------ | ----------------------------------------- |
-| AD           | Active Directory                          |
-| DB           | Database                                  |
-| CM           | Central Manager                           |
-| DHCP         | Dynamic Host Configuration Protocol       |
-| DMZ          | Demilitarized Zone                        |
-| DNS          | Domain Name System                        |
-| DR           | Disaster Recovery                         |
-| FW           | Firewall                                  |
-| Gbps         | Billions of bits per second               |
-| HA           | High Availability                         |
-| HDD          | Hard Disc Drive                           |
-| HMI          | Human Machine Interface                   |
-| ICS          | Industrialized Control System             |
-| M2M          | Machine to Machine                        |
-| SOC          | Security Operations Center                |
-| NTP          | Network Time Protocol                     |
-| OPC          | Open Platform Communications              |
-| OT           | Operational Technology                    |
-| PCAP         | Packet Capture Application Programming    |
-| PLC          | Programmable Logic Controller             |
-| SCADA        | Supervisory Control and Data Acquisition  |
-| SIEM         | Security Information and Event Management |
-| SNMP         | Simple Network Management Protocol        |
-| SOC          | Security Operations Center                |
-| SPAN         | Switched Port Analyzer                    |
-| SYSLOG       | System Logging Protocol                   |
-| TCP          | Transmission Control Protocol             |
-| UI           | User Interface                            |
-| VLAN         | Virtual Local Area Network                |
-| VM           | Virtual Machine                           |
-| VNET         | Virtual Network                           |
-
+|Reboot the host|`system reboot`|Reboots the host device.|
+|Shut the host down|`system shutdown`|Shuts down the host.|
+|Back up the system|`system backup`|Initiates an immediate backup (a non-scheduled backup).|
+|Restore the system from a backup|`system restore`|Restores from the most recent backup.|
+|List the backup files|`system backup-list`|Lists the available backup files.|
+|Display the status of all Defender for IoT platform services|`system sanity`|Checks the sanity of the system, by listing the current status of all Defender for IoT platform services.|
+|Show the software version|`system version`|Displays the version of the software currently running on the system.|
