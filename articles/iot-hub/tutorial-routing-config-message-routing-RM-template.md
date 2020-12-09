@@ -84,7 +84,7 @@ These values are used in the template, and are mostly derived from parameters.
 
 **service_bus_queue**: This field is the Service Bus queue name after having randomValue concatenated.
 
-**sbVersion**: THe version of the Service Bus API to use. In this case, it is "2017-04-01".
+**sbVersion**: The version of the Service Bus API to use. In this case, it is "2017-04-01".
 
 ### Resources: Storage account and container
 
