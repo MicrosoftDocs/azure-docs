@@ -14,7 +14,7 @@ zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 
 # Upload usage data to Azure Monitor
 
-Periodically, you can export out usage information. The export and upload of of this information creates and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
+Periodically, you can export out usage information. The export and upload of of this information creates and update the data controller, SQL managed instance and PostgreSQL Hyperscale server group resources in Azure.
 
 > [!NOTE] 
 > During the preview period, there is no cost for using Azure Arc enabled data services.
