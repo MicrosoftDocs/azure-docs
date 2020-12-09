@@ -218,12 +218,6 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
-## Create an Azure AD B2C application
-
-Communication with Azure AD B2C occurs through an application that you register in your B2C tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
-
-[!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
-
 ## Update and test the relying party file
 
 Update the relying party (RP) file that initiates the user journey that you just created:

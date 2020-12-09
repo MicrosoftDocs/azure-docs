@@ -23,19 +23,11 @@ On the sign-up or sign-in page, Azure AD B2C presents a list of external identit
 
 ![Mobile sign-in example with a social account (Facebook)](media/add-identity-provider/external-idp.png)
 
-In your applications, you may want to enable users to sign in with different identity providers. An *identity provider* creates, maintains, and manages identity information while providing authentication services to applications. You can add identity providers that are supported by Azure Active Directory B2C (Azure AD B2C) to your [user flows](user-flow-overview.md) using the Azure portal.
-
-In this article, you learn how to:
-
-> [!div class="checklist"]
-> * Create the identity provider applications
-> * Add the identity providers to your tenant 
-> * Add the identity providers to your user flow, or custom policy
-
+You can add identity providers that are supported by Azure Active Directory B2C (Azure AD B2C) to your [user flows](user-flow-overview.md) using the Azure portal. You can also add identity providers to your [custom policies](custom-policy-get-started.md).
 
 ## Select an identity provider
 
-You typically use only one identity provider in your applications, but you have the option to add more. This tutorial shows you how to add an Azure AD identity provider and a Facebook identity provider to your application. Adding both of these identity providers to your application is optional. You can also add other identity providers, such as:
+You typically use only one identity provider in your applications, but you have the option to add more. The how-to articles below show you how to create the identity provider application, add the identity provider to your tenant, and add the identity provider to your user flow or custom policy.
 
 * [AD FS](identity-provider-adfs.md)
 * [Amazon](identity-provider-amazon.md)

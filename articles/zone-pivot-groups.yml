@@ -956,4 +956,12 @@ groups:
     title: Python
   - id: programming-languages-objectivec-swift
     title: Objective-C/Swift
-  
+# Owner: mimart
+- id: b2c-policy-type
+  title: Azure AD B2C policy type
+  prompt: Choose a policy type
+  pivots:
+  - id: b2c-user-flow
+    title: User flow
+  - id: b2c-custom-policy
+    title: Custom policy    

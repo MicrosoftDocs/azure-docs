@@ -96,12 +96,6 @@ To use a Facebook account as an [identity provider](authorization-code-flow.md) 
 
 ::: zone-end
 
-## Create an Azure AD B2C application
-
-Communication with Azure AD B2C occurs through an application that you register in your B2C tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
-
-[!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
-
 ::: zone pivot="b2c-user-flow"
 
 ## Add Facebook identity provider to a user flow 
