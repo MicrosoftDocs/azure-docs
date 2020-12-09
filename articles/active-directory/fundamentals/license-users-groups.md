@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 12/09/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
@@ -45,11 +45,14 @@ You can view your available service plans, including the individual licenses, ch
 
 1. Select **Azure Active Directory**, and then select **Licenses**.
 
-    ![Licenses page, with number of purchased services and assigned licenses](media/license-users-groups/license-details-blade.png)
+    <kbd>![Licenses page, with number of purchased services and assigned licenses](media/license-users-groups/license-details-blade.png)</kbd>
 
-1. Select the **Purchased** link to view the **Products** page and to see the **Assigned**, **Available**, and **Expiring soon** numbers for your license plans.
+1. Select **All products** to view the All Products page and to see the **Total**, **Assigned**, **Available**, and **Expiring soon** numbers for your license plans.
 
-    ![services page, with service license plans and associated license info](media/license-users-groups/license-products-blade-with-products.png)
+    <kbd>![services page, with service license plans and associated license info](media/license-users-groups/license-products-blade-with-products.png)</kbd>
+
+    > !NOTE
+    > The numbers are defined as: <ul><li>Total: Total number of licenses purchased<li>Assigned: Number of licenses assigned to users<li>Available: Number of licenses available for assignment including expiring soon<li>Expiring soon: Number of licenses expiring soon</li></ul>
 
 1. Select a plan name to see its licensed users and groups.
 
