@@ -37,8 +37,19 @@ The diagram includes a high level recommendation for the method used to monitor 
 
 **Azure services.** PaaS resources in Azure that support your business applications that have migrated to the cloud. This includes services such as Azure Storage, Azure SQL, and Azure IoT. This does include Azure virtual machines since they are monitored like other Azure services, but the applications and software running on the guest operating system of those virtual machines are monitored separately than the host.
 
-## Legacy applications and environments
-Prior to migrating into Azure, you may 
+## Virtual and physical machines
+Your environment prior to starting a migration into Azure is most likely based on virtual or physical machines. You rely on Operations Manager to monitor your business applications, server software, and other infrastructure components in your environment such as physical servers and networks. You use standard management packs for server software such as IIS, SQL Server, and SharePoint and tune those management packs for your specific requirements. You also develop business processes to respond to alerts from these management packs.
+
+
+
+Your initial migration may be to move virtual machines into Azure with minimal changes to the applications themselves. The monitoring requirements for these applications and the server software they depend on don't change 
+
+## Azure management pack
+The [Azure management pack](https://www.microsoft.com/download/details.aspx?id=50013) allows Operations Manager to discover Azure resources and monitor their health. This is a limited view though based on platform metric values that are sent to Azure Storage and collected through the Azure API from the management pack. It doesn't include other telemetry such as resource logs which provide details about the internal operation of each resource. 
+
+ You can set a threshold for each resource to determine a health state and create alerts. This is a limited view of each resource though since it doesn't include resource logs and isn't able to perform detailed analysis beyond a limited set of performance counters.
+
+You may choose to use the Azure Management pack if you want visibility for certain Azure resources in the Operations console. 
 
 ## Business applications
 You typically require custom management packs to monitor applications in your IaaS environment with Operations Manager, leveraging agents installed on each virtual machine. Application Insights in Azure Monitor monitors both IaaS and PaaS web based applications in Azure, other clouds, or on-premises. Application Insights provides the following benefits over custom management packs:
