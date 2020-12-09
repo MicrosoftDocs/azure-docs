@@ -6,6 +6,6 @@
     tocHref: /azure/
     topicHref: /azure/virtual-machines/index
     items: 
-     - name: SAP
+     - name: Overview
        tocHref: /azure/baremetal-infrastructure/workloads/sap/
        topicHref: /azure/virtual-machines/index
