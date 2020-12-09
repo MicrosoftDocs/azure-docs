@@ -8728,6 +8728,47 @@
       "redirect_url": "/azure/active-directory-b2c/saml-identity-provider-technical-profile",
       "redirect_document_id": false
     },
+    ,
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-amazon-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-amazon",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-azure-ad-single-tenant-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-azure-ad-multi-tenant-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-multi-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-google-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-google",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-microsoft-account-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-microsoft-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-twitter-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-twitter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-adfs2016-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-adfs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-salesforce-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-salesforce",
+      "redirect_document_id": false
+    }
     {
       "source_path": "articles/active-directory-b2c/custom-policy-manage-sso-and-token-config.md",
       "redirect_url": "/azure/active-directory-b2c/configure-tokens-custom-policy",

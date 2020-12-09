@@ -3836,7 +3836,7 @@ We've added Microsoft Graph APIs for administration operation of Azure AD terms 
 **Service category:** B2C - Consumer Identity Management
 **Product capability:** B2B/B2C
 
-Using custom policies, you can now add the Azure AD common endpoint as an identity provider in Azure AD B2C. This allows you to have a single point of entry for all Azure AD users that are signing into your applications. For more information, see [Azure Active Directory B2C: Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](../../active-directory-b2c/identity-provider-azure-ad-multi-tenant-custom.md).
+Using custom policies, you can now add the Azure AD common endpoint as an identity provider in Azure AD B2C. This allows you to have a single point of entry for all Azure AD users that are signing into your applications. For more information, see [Azure Active Directory B2C: Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](../../active-directory-b2c/identity-provider-azure-ad-multi-tenant.md).
 
 ---
 

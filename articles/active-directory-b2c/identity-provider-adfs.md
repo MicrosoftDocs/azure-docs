@@ -9,12 +9,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Add AD FS as a SAML identity provider using custom policies in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -23,7 +34,7 @@ This article shows you how to enable sign-in for an AD FS user account by using 
 ## Prerequisites
 
 - Complete the steps in [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md).
-- Make sure that you have access to a certificate .pfx file with a private key. You can generate your own signed certificate and upload it to Azure AD B2C. Azure AD B2C uses this certificate to sign the SAML request sent to your SAML identity provider. For more information about how to generate a certificate, see [Generate a signing certificate](identity-provider-salesforce-custom.md#generate-a-signing-certificate).
+- Make sure that you have access to a certificate .pfx file with a private key. You can generate your own signed certificate and upload it to Azure AD B2C. Azure AD B2C uses this certificate to sign the SAML request sent to your SAML identity provider. For more information about how to generate a certificate, see [Generate a signing certificate](identity-provider-salesforce.md#generate-a-signing-certificate).
 - In order for Azure to accept the .pfx file password, the password must be encrypted with the TripleDES-SHA1 option in Windows Certificate Store Export utility as opposed to AES256-SHA256.
 
 ## Create a policy key
@@ -252,3 +263,4 @@ Alternatively, you can configure the expected the SAML request signature algorit
 1. Select **Properties**, then select **Advance**
 1. Configure the **Secure hash algorithm**, and select **OK** to save the changes.
 
+::: zone-end
