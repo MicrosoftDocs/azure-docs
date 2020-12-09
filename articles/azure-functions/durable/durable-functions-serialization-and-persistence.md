@@ -403,4 +403,12 @@ namespace MyApplication
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
+### Serialization and deserialization logic.
+
+Azure Functions Node applications use [`JSON.stringify()` for serialization](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) and [`JSON.Parse()` for deserialization](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse). Most types should serialize and deserialize seamlessly. In cases where the default logic is insufficient, defining a `toJSON()` method on the object will hijack the serialization logic. However, no analogue exists for object deserialization.
+
+For full customization of the serialization/deserialization pipeline, consider handling the serialization and deserialization with your own code and passing around data as strings.
+
 ---
