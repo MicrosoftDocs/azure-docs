@@ -13,16 +13,15 @@ ms.topic: how-to
 
 # Back up and restore Azure Arc enabled PostgreSQL Hyperscale server groups
 
-When you back up or restore your Azure Arc enabled PostgreSQL Hyperscale server group, the entire set of databases on all the nodes of your server group is backed-up and/or restored.
+When you backup or restore your Azure Arc enabled PostgreSQL Hyperscale server group, the entire set of databases on all the PostgreSQL nodes of your server group is backed-up and/or restored.
+
 To take a backup and restore it, you need to make sure that a backup storage class is configured for your server group. For now, you need to indicate a backup storage class at the time you create the server group. It is not yet possible to configure your server group to use a backup storage class after it has been created.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Verify configuration
 
-First, verify that your server group has been configured to use backup storage class.
-
-Run the following command after setting the name of your server group:
+First, verify that your server group has been configured to use backup storage class. To do this, run the following command after setting the name of your server group:
 ```console
  azdata arc postgres server show -n postgres01
 ```
@@ -64,12 +63,12 @@ or
         }
 ...
 ```
-If you see  the name of a storage class indicated in the "backups" section or a volume of type "backup" indicated in the "VolumeClaimMounts" section, it means your server group is ready backups and restores. If not, you need to delete and recreate your server group to configure backup storage class. At this point, it is not yet possible to configure a backup storage class after the server group has been created.
+If you see  the name of a storage class indicated in the "backups" section or a volume of type "backup" indicated in the "VolumeClaimMounts" section, it means your server group is ready for backups and restores. If not, you need to delete and recreate your server group to configure backup storage class. At this point, it is not yet possible to configure a backup storage class after the server group has been created.
 
 >[!IMPORTANT]
 >If your server group is already configured to use a backup storage class, skip the next step and go directly to step "Take manual full backup".
 
-## Create a server group ready for backups and restores
+## Create a server group that is ready for backups and restores
 
 This section guides you to create a server group with a storage class dedicated to backups and restores. In this example, it assumes that your server group is hosted in an Azure Kubernetes Service (AKS) cluster. This example uses azurefile-premium as storage class name. You may adjust the below example to match your environment. Note that it is required to use ReadWriteMany as accessModes.  
 
@@ -104,10 +103,9 @@ azdata arc postgres server create -n postgres01 --workers 2 -vcm backup-pvc:back
 
 The general format of create server group command is documented [here](/sql/azdata/reference/reference-azdata-arc-postgres-server?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json).
 
-## Take manual full backup
+## Take a manual full backup
 
 To take a full backup of the entire data and log folders of your server group, run the following command:
-
 ```console
 azdata arc postgres backup create [--name <backup name>] --server-name <server group name> [--no-wait] 
 ```
@@ -124,9 +122,8 @@ For example:
 azdata arc postgres backup create --name backup12082020-0250pm --server-name postgres01
 ```
 
-When the backup completes, the ID, name, and state of the backup will be returned. For example:
-
-```json
+When the backup completes, the ID, name, size, state and timestamp of the backup will be returned. For example:
+```console
 {
   "ID": "8085723fcbae4aafb24798c1458f4bb7",
   "name": "backup12082020-0250pm",
@@ -168,13 +165,12 @@ a304c6ef99694645a2a90ce339e94714  backup12072020-0822pm  9.1 MiB    Done     202
 8085723fcbae4aafb24798c1458f4bb7  backup12082020-0250pm  9.04 MiB   Done     2020-12-08 22:50:22+00:00
 ```
 
-Timestamp indicates the point in time UTC at which the backup was taken.
+The Timestamp column indicates the point in time UTC at which the backup was taken.
 
 ## Restore a backup
 In this section we are showing you how to do a full restore or a point in time restore. When you restore a full backup, you restore the entire content of the backup. When you do a point in time restore, you restore up to the point in time you indicate. Any transaction that was done later than this point in time is not restored.
 
 ### Restore a full backup
-
 To restore the entire content of a backup run the command:
 ```console
 azdata arc postgres backup restore --server-name <target server group name> [--source-server-name <source server group name> --backup-id <backup id>]
@@ -202,8 +198,7 @@ __Restore the server group postgres01 to a different server group postgres02:__
 ```console
 azdata arc postgres backup restore -sn postgres02 -ssn postgres01 --backup-id d134f51aa87f4044b5fb07cf95cf797f
 ```
-
-This operation is supported for any version of PostgreSQL starting version 11. The target server group must be created before the restore operation and must be using the same backup PVC as the source server group.
+This operation is supported for any version of PostgreSQL starting version 11. The target server group must be created before the restore operation, must be of the same configuration and must be using the same backup PVC as the source server group.
 
 When the restore operation is complete, it will return an output like this to the command line:
 
@@ -222,8 +217,7 @@ When the restore operation is complete, it will return an output like this to th
 
 ### Do a point in time restore
 
-To restore the backup to a specific point time, run the command:
-
+To restore a server group up to a specific point time, run the command:
 ```console
 azdata arc postgres backup restore --server-name <target server group name> --source-server-name <source server group name> --time <point in time to restore to>
 or
@@ -239,8 +233,7 @@ __Do a point in time restore of the server group postgres01 onto itself:__
 
 It is not yet possible to do point in time restore of a server group onto itself.
 
-__Do a point in time restore the server group postgres01 to a different server group postgres02 to a specific timestamp:__
-
+__Do a point in time restore of the server group postgres01 to a different server group postgres02 to a specific timestamp:__
 ```console
 azdata arc postgres backup restore -sn postgres02 -ssn postgres01 -t "2020-12-08 04:23:48.751326+00"
 ``` 
@@ -253,8 +246,7 @@ For example:
 This operation is supported for any version of PostgreSQL starting version 11. The target server group must be created before the restore operation and must be using the same backup PVC as the source server group.
 
 
-__Do a point in time restore the server group postgres01 to a different server group postgres02 to a specific amount of time in the past:__
-
+__Do a point in time restore of the server group postgres01 to a different server group postgres02 to a specific amount of time in the past:__
 ```console
 azdata arc postgres backup restore -sn postgres02 -ssn postgres01 -t "22m"
 ```
