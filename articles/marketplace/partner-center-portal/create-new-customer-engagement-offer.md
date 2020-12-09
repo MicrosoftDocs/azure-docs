@@ -255,7 +255,7 @@ Check this box to enable configuration of CRM Secure Store or Server-to-Server (
 
 ### Application configuration URL
 
-Provide the URL for the configuration web page that enables the customer to configure your app.
+Ensure that this field remains blank. It will be used for future use. 
 
 ### CRM package
 

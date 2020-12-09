@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With a SAML technical profile you can federate with a SAML-based identity provider, such as [ADFS](identity-provider-adfs2016-custom.md) and [Salesforce](identity-provider-salesforce-custom.md). This federation allows your users to sign in with their existing social or enterprise identities.
+Azure Active Directory B2C (Azure AD B2C) provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With a SAML technical profile you can federate with a SAML-based identity provider, such as [ADFS](identity-provider-adfs2016-custom.md) and [Salesforce](identity-provider-salesforce.md). This federation allows your users to sign in with their existing social or enterprise identities.
 
 ## Metadata exchange
 
@@ -212,5 +212,5 @@ Example:
 
 See the following articles for examples of working with SAML identity providers in Azure AD B2C:
 
-- [Add ADFS as a SAML identity provider using custom policies](identity-provider-adfs2016-custom.md)
-- [Sign in by using Salesforce accounts via SAML](identity-provider-salesforce-custom.md)
+- [Add ADFS as a SAML identity provider using custom policies](identity-provider-adfs.md)
+- [Sign in by using Salesforce accounts via SAML](identity-provider-salesforce.md)
