@@ -305,5 +305,5 @@ In this article, you learned concepts and workflow for entity linking using Text
 ## Next steps
 
 * [Text Analytics overview](../overview.md)
-* [Using the Text Analytics client library](../quickstarts/get-started-text-analytics.md)
+* [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)

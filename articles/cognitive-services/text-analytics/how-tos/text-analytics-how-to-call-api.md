@@ -341,5 +341,5 @@ See the following article for more information for the Text Analytics for health
 * [Text Analytics overview](../overview.md)
 * [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
 * [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712)
-* [Using the Text Analytics client library](../quickstarts/get-started-text-analytics.md)
+* [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)
