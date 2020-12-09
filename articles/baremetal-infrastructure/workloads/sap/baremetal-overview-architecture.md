@@ -1,11 +1,12 @@
 ---
-title: Overview of BareMetal Infrastructure in Azure
+title: Overview of BareMetal Infrastructure Preview in Azure
 description: Overview of how to deploy BareMetal Infrastructure in Azure.
+ms.custom: references_regions
 ms.topic: conceptual
 ms.date: 12/18/2020
 ---
 
-#  What is BareMetal Infrastructure on Azure?
+#  What is BareMetal Infrastructure Preview on Azure?
 
 Azure BareMetal Infrastructure provides a secure solution for migrating enterprise custom workloads. The BareMetal instances are non-shared host/server hardware assigned to you. It unlocks porting your on-prem solution with specialized workloads requiring certified hardware, licensing, and support agreements. Azure handles infrastructure monitoring and maintenance for you, while in-guest operating system (OS) monitoring and application monitoring fall within your ownership.
 
@@ -17,10 +18,6 @@ BareMetal Infrastructure for specialized and general-purpose workloads is availa
 - North Europe
 - East US 2
 - South Central US
-
-By early Q2 2021, two Revision 4 (Rev 4) stamp regions will be converted to BareMetal Infrastructure regions:
-- West US2
-- East US2
 
 >[!NOTE]
 >**Rev 4.2** is the latest rebranded BareMetal Infrastructure using Rev 4 architecture.  Rev 4 provides closer proximity to the Azure virtual machine (VM) hosts and lowers the latency between Azure VMs and BareMetal Instance units. You can access and manage your BareMetal instances through the Azure portal. 
