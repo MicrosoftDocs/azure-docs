@@ -50,7 +50,7 @@ The following are the differentiated features that Azure Cosmos DB Gremlin API o
 
 * **Automatic indexing**
 
-  By default, Azure Cosmos DB automatically indexes all the properties within nodes (also called as vertices) and edges in the graph and doesn't expect or require any schema or creation of secondary indices. Learn more about [indexing in Azure Cosmos DB](/azure/cosmos-db/index-overview).
+  By default, Azure Cosmos DB automatically indexes all the properties within nodes (also called as vertices) and edges in the graph and doesn't expect or require any schema or creation of secondary indices. Learn more about [indexing in Azure Cosmos DB](./index-overview.md).
 
 * **Compatibility with Apache TinkerPop**
 

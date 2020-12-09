@@ -97,29 +97,28 @@ Dmgcmd.exe is included in the self-hosted installer. It's typically located in t
 Use the application as follows:
 
 ```powershell
-dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["<password>"] -Loglevel <logLevel> ]
+dmgcmd ACTION args...
 ```
 
-Here are details of the application's parameters and properties: 
+Here are details of the application's actions and arguments: 
 
-| Property                                                    | Description                                                  | Required |
-| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| **RegisterNewNode** "`<AuthenticationKey>`"                     | Register a self-hosted integration runtime node with the specified authentication key. | No       |
-| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Register a self-hosted integration runtime node with the specified authentication key and node name. | No       |
-| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Enable remote access on the current node to set up a high-availability cluster. Or enable setting credentials directly against the self-hosted IR without going through Azure Data Factory. You do the latter by using the **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet from a remote machine in the same network. | No       |
-| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Enable remote access to the current node when the node runs in a container. | No       |
-| **DisableRemoteAccess**                                         | Disable remote access to the current node. Remote access is needed for multinode setup. The **New-AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet still works even when remote access is disabled. This behavior is true as long as the cmdlet is executed on the same machine as the self-hosted IR node. | No       |
-| **Key** "`<AuthenticationKey>`"                                 | Overwrite or update the previous authentication key. Be careful with this action. Your previous self-hosted IR node can go offline if the key is of a new integration runtime. | No       |
-| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Generate a backup file for the current node. The backup file includes the node key and data-store credentials. | No       |
-| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Restore the node from a backup file.                          | No       |
-| **Restart**                                                     | Restart the self-hosted integration runtime host service.   | No       |
-| **Start**                                                       | Start the self-hosted integration runtime host service.     | No       |
-| **Stop**                                                        | Stop the self-hosted integration runtime host service.        | No       |
-| **StartUpgradeService**                                         | Start the self-hosted integration runtime upgrade service.       | No       |
-| **StopUpgradeService**                                          | Stop the self-hosted integration runtime upgrade service.        | No       |
-| **TurnOnAutoUpdate**                                            | Turn on the self-hosted integration runtime auto-update.        | No       |
-| **TurnOffAutoUpdate**                                           | Turn off the self-hosted integration runtime auto-update.       | No       |
-| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Set DIAHostService to run as a new account. Use the empty password "" for system accounts and virtual accounts. | No       |
+|ACTION|args|Description|
+|------|----|-----------|
+|-rn,<br/>-RegisterNewNode|"`<AuthenticationKey>`" ["`<NodeName>`"]|Register a self-hosted integration runtime node with the specified authentication key and node name.|
+|-era,<br/>-EnableRemoteAccess|"`<port>`" ["`<thumbprint>`"]|Enable remote access on the current node to set up a high-availability cluster. Or enable setting credentials directly against the self-hosted IR without going through Azure Data Factory. You do the latter by using the **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet from a remote machine in the same network.|
+|-erac,<br/>-EnableRemoteAccessInContainer|"`<port>`" ["`<thumbprint>`"]|Enable remote access to the current node when the node runs in a container.|
+|-dra,<br/>-DisableRemoteAccess||Disable remote access to the current node. Remote access is needed for multinode setup. The **New-AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet still works even when remote access is disabled. This behavior is true as long as the cmdlet is executed on the same machine as the self-hosted IR node.|
+|-k,<br/>-Key|"`<AuthenticationKey>`"|Overwrite or update the previous authentication key. Be careful with this action. Your previous self-hosted IR node can go offline if the key is of a new integration runtime.|
+|-gbf,<br/>-GenerateBackupFile|"`<filePath>`" "`<password>`"|Generate a backup file for the current node. The backup file includes the node key and data-store credentials.|
+|-ibf,<br/>-ImportBackupFile|"`<filePath>`" "`<password>`"|Restore the node from a backup file.|
+|-r,<br/>-Restart||Restart the self-hosted integration runtime host service.|
+|-s,<br/>-Start||Start the self-hosted integration runtime host service.|
+|-t,<br/>-Stop||Stop the self-hosted integration runtime host service.|
+|-sus,<br/>-StartUpgradeService||Start the self-hosted integration runtime upgrade service.|
+|-tus,<br/>-StopUpgradeService||Stop the self-hosted integration runtime upgrade service.|
+|-tonau,<br/>-TurnOnAutoUpdate||Turn on the self-hosted integration runtime auto-update.|
+|-toffau,<br/>-TurnOffAutoUpdate||Turn off the self-hosted integration runtime auto-update.|
+|-ssa,<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|Set DIAHostService to run as a new account. Use the empty password "" for system accounts and virtual accounts.|
 
 
 ## Command flow and data flow
@@ -145,7 +144,7 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
 - Use a self-hosted integration runtime to support data integration within an Azure virtual network.
 - Treat your data source as an on-premises data source that is behind a firewall, even when you use Azure ExpressRoute. Use the self-hosted integration runtime to connect the service to the data source.
 - Use the self-hosted integration runtime even if the data store is in the cloud on an Azure Infrastructure as a Service (IaaS) virtual machine.
-- Tasks might fail in a self-hosted integration runtime that you installed on a Windows server for which FIPS-compliant encryption is enabled. To work around this problem, you have two options: store credentials/secret values in an Azure Key Vault or disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry subkey's value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. If you use the [self-hosted integration runtime as a proxy for SSIS integration runtime](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis), FIPS-compliant encryption can be enabled and will be used when moving data from on premises to Azure Blob Storage as a staging area.
+- Tasks might fail in a self-hosted integration runtime that you installed on a Windows server for which FIPS-compliant encryption is enabled. To work around this problem, you have two options: store credentials/secret values in an Azure Key Vault or disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry subkey's value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. If you use the [self-hosted integration runtime as a proxy for SSIS integration runtime](./self-hosted-integration-runtime-proxy-ssis.md), FIPS-compliant encryption can be enabled and will be used when moving data from on premises to Azure Blob Storage as a staging area.
 
 ## Prerequisites
 
@@ -326,7 +325,7 @@ At the Windows firewall level or machine level, these outbound ports are normall
 
 Ensure that you properly enable firewall rules on the corporate firewall, the Windows firewall of the self-hosted integration runtime machine, and the data store itself. Enabling these rules lets the self-hosted integration runtime successfully connect to both source and sink. Enable rules for each data store that is involved in the copy operation.
 
-For example, to copy from an on-premises data store to a SQL Database sink or an Azure Synapse Analytics (formerly SQL Data Warehouse) sink, take the following steps:
+For example, to copy from an on-premises data store to a SQL Database sink or an Azure Synapse Analytics sink, take the following steps:
 
 1. Allow outbound TCP communication on port 1433 for both the Windows firewall and the corporate firewall.
 1. Configure the firewall settings of the SQL Database to add the IP address of the self-hosted integration runtime machine to the list of allowed IP addresses.

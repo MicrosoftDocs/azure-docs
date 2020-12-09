@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos Emulator download and release notes
-description: Get the Azure Cosmos Emulator release notes for different versions and download information. 
+title: Azure Cosmos DB Emulator download and release notes
+description: Get the Azure Cosmos DB Emulator release notes for different versions and download information. 
 ms.service: cosmos-db
 ms.topic: conceptual
 author: milismsft
@@ -8,10 +8,10 @@ ms.author: adrianmi
 ms.date: 09/21/2020
 ---
 
-# Azure Cosmos Emulator - Release notes and download information
+# Azure Cosmos DB Emulator - Release notes and download information
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-This article shows the Azure Cosmos Emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of emulator to download and use.
+This article shows the Azure Cosmos DB Emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of emulator to download and use.
 
 ## Download
 
@@ -21,6 +21,12 @@ This article shows the Azure Cosmos Emulator release notes with a list of featur
 |**Get started**|[Develop locally with Azure Cosmos Emulator](local-emulator.md)|
 
 ## Release notes
+
+### 2.11.9 (3 December 2020)
+
+ - This release addresses couple issues with the Azure Cosmos DB Emulator functionality in addition to the general content update reflecting the latest features and improvements in Azure Cosmos DB:
+ * Fix for an issue where large document payload requests fail when using Direct mode and Java client applications.
+ * Fix for a connectivity issue with MongoDB endpoint version 3.6 when targeted by .NET based applications.
 
 ### 2.11.8 (6 November 2020)
 

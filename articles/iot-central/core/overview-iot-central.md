@@ -3,11 +3,11 @@ title: What is Azure IoT Central | Microsoft Docs
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions and helps to reduce the burden and cost of IoT management operations, and development. This article provides an overview of the features of Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/10/2019
+ms.date: 11/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: mvc, contperfq2
 ---
 
 # What is Azure IoT Central?
@@ -29,7 +29,7 @@ This article outlines, for IoT Central:
 
 The IoT Central documentation refers to four personas who interact with an IoT Central application:
 
-- A _solution builder_ is responsible for [defining the types of devices](howto-set-up-template.md) that connect to the application and customizing the application for the operator.
+- A _solution builder_ is responsible for [creating an application](quick-deploy-iot-central.md), [configuring rules and actions](quick-configure-rules.md), [defining integrations with other services](howto-export-data.md), and further customizing the application for operators and device developers.
 - An _operator_ [manages the devices](howto-manage-devices.md) connected to the application.
 - An _administrator_ is responsible for administrative tasks such as managing [user roles and permissions](howto-administer.md) within the application.
 - A _device developer_ [creates the code that runs on a device](concepts-telemetry-properties-commands.md) or [IoT Edge module](concepts-iot-edge.md) connected to your application.
@@ -132,7 +132,7 @@ IoT Central applications are fully hosted by Microsoft, which reduces the admini
 You can create IoT Central application using a 7-day free trial, or use a standard pricing plan.
 
 - Applications you create using the *free* plan are free for seven days and support up to five devices. You can convert them to use a standard pricing plan at any time before they expire.
-- Applications you create using the *standard* plan are billed on a per device basis, you can choose either **Standard 1** or **Standard 2** pricing plan with the first two devices being free. Learn more about [IoT Central pricing](https://aka.ms/iotcentral-pricing).
+- Applications you create using the *standard* plan are billed on a per device basis, you can choose either **Standard 0**, **Standard 1**, or **Standard 2** pricing plan with the first two devices being free. Learn more about [IoT Central pricing](https://aka.ms/iotcentral-pricing).
 
 ## Quotas
 

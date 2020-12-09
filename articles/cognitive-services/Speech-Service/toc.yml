@@ -37,6 +37,8 @@
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
+        - name: Migrate from v2.0 to v3.0 
+          href: migrate-v2-to-v3.md
         - name: Assess pronunciation
           href: how-to-pronunciation-assessment.md
     - name: Tutorials
@@ -65,22 +67,22 @@
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: https://aka.ms/csspeech/cppref
+          href: /cpp/cognitive-services/speech/
         - name: 'C#'
           displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
-          href: https://aka.ms/csspeech/csharpref
+          href: /dotnet/api/microsoft.cognitiveservices.speech
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: https://aka.ms/csspeech/javaref
+          href: /java/api/com.microsoft.cognitiveservices.speech
         - name: JavaScript
           displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
-          href: https://aka.ms/csspeech/javascriptref
+          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
         - name: Objective-C
           displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
-          href: https://aka.ms/csspeech/objectivecref
+          href: /objectivec/cognitive-services/speech/
         - name: Python
           displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
-          href: https://aka.ms/csspeech/pythonref
+          href: /python/api/azure-cognitiveservices-speech/
         - name: Release notes
           displayName: 'release notes,updates,what''s new,what is new,changes'
           href: releasenotes.md
@@ -118,13 +120,13 @@
             - name: Deployment of synthetic technology
               href: concepts-guidelines-responsible-deployment-synthetic.md
             - name: Disclosure for voice talent
-              href: https://aka.ms/disclosure-voice-talent
+              href: /legal/cognitive-services/speech-service/disclosure-voice-talent
             - name: Disclosure design guidelines
               href: concepts-disclosure-guidelines.md
             - name: Disclosure design patterns
               href: concepts-disclosure-patterns.md
             - name: Code of conduct
-              href: https://aka.ms/custom-neural-code-of-conduct
+              href: /legal/cognitive-services/speech-service/tts-code-of-conduct
         - name: Custom Voice portal
           items:
             - name: Get started with Custom Voice
@@ -144,22 +146,22 @@
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: https://aka.ms/csspeech/cppref
+          href: /cpp/cognitive-services/speech/
         - name: 'C#'
           displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
-          href: https://aka.ms/csspeech/csharpref
+          href: /dotnet/api/microsoft.cognitiveservices.speech
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: https://aka.ms/csspeech/javaref
+          href: /java/api/com.microsoft.cognitiveservices.speech
         - name: JavaScript
           displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
-          href: https://aka.ms/csspeech/javascriptref
+          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
         - name: Objective-C
           displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
-          href: https://aka.ms/csspeech/objectivecref
+          href: /objectivec/cognitive-services/speech/
         - name: Python
           displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
-          href: https://aka.ms/csspeech/pythonref
+          href: /python/api/azure-cognitiveservices-speech/
         - name: Release notes
           displayName: 'release notes,updates,what''s new,what is new,changes'
           href: releasenotes.md
@@ -194,22 +196,22 @@
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: https://aka.ms/csspeech/cppref
+          href: /cpp/cognitive-services/speech/
         - name: 'C#'
           displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
-          href: https://aka.ms/csspeech/csharpref
+          href: /dotnet/api/microsoft.cognitiveservices.speech
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: https://aka.ms/csspeech/javaref
+          href: /java/api/com.microsoft.cognitiveservices.speech
         - name: JavaScript
           displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
-          href: https://aka.ms/csspeech/javascriptref
+          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
         - name: Objective-C
           displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
-          href: https://aka.ms/csspeech/objectivecref
+          href: /objectivec/cognitive-services/speech/
         - name: Python
           displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
-          href: https://aka.ms/csspeech/pythonref
+          href: /python/api/azure-cognitiveservices-speech/
         - name: Release notes
           displayName: 'release notes,updates,what''s new,what is new,changes'
           href: releasenotes.md
@@ -239,22 +241,22 @@
           items:
             - name: C++
               displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-              href: https://aka.ms/csspeech/cppref
+              href: /cpp/cognitive-services/speech/
             - name: 'C#'
               displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
-              href: https://aka.ms/csspeech/csharpref
+              href: /dotnet/api/microsoft.cognitiveservices.speech
             - name: Java
               displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-              href: https://aka.ms/csspeech/javaref
+              href: /java/api/com.microsoft.cognitiveservices.speech
             - name: JavaScript
               displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
-              href: https://aka.ms/csspeech/javascriptref
+              href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
             - name: Objective-C
               displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
-              href: https://aka.ms/csspeech/objectivecref
+              href: /objectivec/cognitive-services/speech/
             - name: Python
               displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
-              href: https://aka.ms/csspeech/pythonref
+              href: /python/api/azure-cognitiveservices-speech/
             - name: Release notes
               displayName: 'release notes,updates,what''s new,what is new,changes'
               href: releasenotes.md
@@ -310,22 +312,22 @@
                   items:
                     - name: C++
                       displayName: C++ SDK,C++ dev kit,reference,reference docs,ref documentation
-                      href: https://aka.ms/csspeech/cppref
+                      href: /cpp/cognitive-services/speech/
                     - name: 'C#'
                       displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
-                      href: https://aka.ms/csspeech/csharpref
+                      href: /dotnet/api/microsoft.cognitiveservices.speech
                     - name: Java
                       displayName: Java SDK,Java dev kit,reference,reference docs,ref documentation
-                      href: https://aka.ms/csspeech/javaref
+                      href: /java/api/com.microsoft.cognitiveservices.speech
                     - name: JavaScript
                       displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
-                      href: https://aka.ms/csspeech/javascriptref
+                      href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
                     - name: Objective-C
                       displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
-                      href: https://aka.ms/csspeech/objectivecref
+                      href: /objectivec/cognitive-services/speech/
                     - name: Python
                       displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
-                      href: https://aka.ms/csspeech/pythonref
+                      href: /python/api/azure-cognitiveservices-speech/
                     - name: Release notes
                       displayName: 'release notes,updates,what''s new,what is new,changes'
                       href: releasenotes.md
@@ -344,11 +346,11 @@
                 - name: Speech SDK
                   items:
                     - name: C++
-                      href: https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace
+                      href: /cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace
                     - name: 'C#'
-                      href: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription
+                      href: /dotnet/api/microsoft.cognitiveservices.speech.transcription
                     - name: 'Java'
-                      href: https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription
+                      href: /java/api/com.microsoft.cognitiveservices.speech.transcription
     - name: Voice assistants
       items:
         - name: Voice assistants documentation
@@ -468,17 +470,17 @@
       - name: Reference
         items:
           - name: C++
-            href: https://aka.ms/csspeech/cppref
+            href: /cpp/cognitive-services/speech/
           - name: 'C#'
-            href: https://aka.ms/csspeech/csharpref
+            href: /dotnet/api/microsoft.cognitiveservices.speech
           - name: Java
-            href: https://aka.ms/csspeech/javaref
+            href: /java/api/com.microsoft.cognitiveservices.speech
           - name: JavaScript
-            href: https://aka.ms/csspeech/javascriptref
+            href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
           - name: Objective-C
-            href: https://aka.ms/csspeech/objectivecref
+            href: /objectivec/cognitive-services/speech/
           - name: Python
-            href: https://aka.ms/csspeech/pythonref
+            href: /python/api/azure-cognitiveservices-speech/
           - name: Go
             href: https://github.com/microsoft/cognitive-services-speech-sdk-go
   - name: Speech CLI

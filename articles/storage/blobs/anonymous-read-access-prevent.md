@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
@@ -162,6 +162,8 @@ New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 
 To check the public access setting across a set of storage accounts with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
 
+The **AllowBlobPublicAccess** property is not set for a storage account by default and does not return a value until you explicitly set it. The storage account permits public access when the property value is either **null** or **true**.
+
 Running the following query in the Resource Graph Explorer returns a list of storage accounts and displays public access setting for each account:
 
 ```kusto
@@ -170,6 +172,10 @@ resources
 | extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
 | project subscriptionId, resourceGroup, name, allowBlobPublicAccess
 ```
+
+The following image shows the results of a query across a subscription. Note that for storage accounts where the **AllowBlobPublicAccess** property has been explicitly set, it appears in the results as **true** or **false**. If the **AllowBlobPublicAccess** property has not been set for a storage account, it appears as blank (or null) in the query results.
+
+:::image type="content" source="media/anonymous-read-access-prevent/check-public-access-setting-accounts.png" alt-text="Screenshot showing query results for public access setting across storage accounts":::
 
 ## Use Azure Policy to audit for compliance
 

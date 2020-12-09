@@ -8,9 +8,10 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
+ms.custom: azureday1
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
 ---
 
@@ -91,7 +92,7 @@ graphResourceId=$(az ad sp list --display-name "Microsoft Graph" --query [0].obj
 
 appRoleId=$(az ad sp list --display-name "Microsoft Graph" --query "[0].appRoles[?value=='User.Read.All' && contains(allowedMemberTypes, 'Application')].id" --output tsv)
 
-uri=https://graph.microsoft.com/v1.0/servicePrincipals/$spID/appRoleAssignments
+uri=https://graph.microsoft.com/v1.0/servicePrincipals/$spId/appRoleAssignments
 
 body="{'principalId':'$spId','resourceId':'$graphResourceId','appRoleId':'$appRoleId'}"
 
@@ -117,6 +118,8 @@ In **Overview**, select **Permissions**, and you'll see the added permissions fo
 ## Call Microsoft Graph (.NET)
 
 The [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class is used to get a token credential for your code to authorize requests to Microsoft Graph. Create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class, which uses the managed identity to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which gets the users in the group.
+
+To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
 
 ### Install the Microsoft.Graph client library package
 
