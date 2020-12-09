@@ -21,8 +21,7 @@ The following ITSM products/services are supported. Select the product to view d
 
 > [!NOTE]
 > 
-> As of 1-Oct-2020 Cherwell and Provance ITSM integrations with Azure Alert will no longer will be enabled for new customers. New ITSM Connections will not be supported. 
-> Existing ITSM connections will be supported.
+> We propose our Cherwell and Provance customers to use [Webhook action](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) to Cherwell and Provance endpoint as another solution to the integration.
 
 ## Connect System Center Service Manager to IT Service Management Connector in Azure
 
