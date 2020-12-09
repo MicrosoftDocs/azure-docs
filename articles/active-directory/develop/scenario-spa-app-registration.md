@@ -41,7 +41,7 @@ Next, configure the app registration with a **Redirect URI** to specify where th
 Follow these steps to add a redirect URI for an app that uses MSAL.js 2.0 or later. MSAL.js 2.0+ supports the authorization code flow with PKCE and CORS in response to [browser third party cookie restrictions](reference-third-party-cookies-spas.md). The implicit grant flow is not supported in MSAL.js 2.0+.
 
 1. In the Azure portal, select the app registration you created earlier in [Create the app registration](#create-the-app-registration).
-1. Under **Manage**, select **Authentication**, and then select **Add a platform**.
+1. Under **Manage**, select **Authentication** > **Add a platform**.
 1. Under **Web applications**, select the **Single-page application** tile.
 1. Under **Redirect URIs**, enter a [redirect URI](reply-url.md). Do **NOT** select either checkbox under **Implicit grant**.
 1. Select **Configure** to finish adding the redirect URI.
@@ -55,7 +55,7 @@ Follow the [tutorial](tutorial-v2-javascript-auth-code.md) for further guidance.
 Follow these steps to add a redirect URI for a single-page app that uses MSAL.js 1.3 or earlier and the implicit grant flow. Applications that use MSAL.js 1.3 or earlier do not support the auth code flow.
 
 1. In the Azure portal, select the app registration you created earlier in [Create the app registration](#create-the-app-registration).
-1. Under **Manage**, select **Authentication**, and then select **Add a platform**.
+1. Under **Manage**, select **Authentication** > **Add a platform**.
 1. Under **Web applications**, select **Single-page application** tile.
 1. Under **Redirect URIs**, enter a [redirect URI](reply-url.md).
 1. Enable the **Implicit flow**:
@@ -77,4 +77,4 @@ When all your production single-page applications represented by an app registra
 
 ## Next steps
 
-Next, configure your app's code to use the app registration you created in the previous steps: [App's code configuration](scenario-spa-app-configuration.md).
+Configure your app's code to use the app registration you created in the previous steps: [App's code configuration](scenario-spa-app-configuration.md).

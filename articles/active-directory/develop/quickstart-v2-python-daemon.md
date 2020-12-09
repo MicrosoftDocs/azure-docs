@@ -56,7 +56,7 @@ To run this sample, you need:
 > 1. Enter a **Name** for your application, for example `Daemon-console`. Users of your app might see this name, and you can change it later.
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Certificates & secrets**.
-> 1. Under **Client secrets**, select **+ New client secret**. Give it a name and select **Add**. Copy the secret on a safe location. You will need it to use in your code.
+> 1. Under **Client secrets**, select **+ New client secret**. Give it a name and select **Add**. Copy the secret on a safe location for later use.
 > 1. Under **Manage**, select **API Permissions** > **+ Add a permission**. Select **Microsoft Graph**.
 > 1. Select **Application permissions**.
 > 1. Under **User** node, select **User.Read.All**, then select **Add permissions**.
