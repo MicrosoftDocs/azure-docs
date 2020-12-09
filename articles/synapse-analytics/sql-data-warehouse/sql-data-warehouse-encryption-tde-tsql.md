@@ -49,7 +49,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> A paused SQL pool must be resumed before making changes to the TDE settings.
+> A paused dedicated SQL pool must be resumed before making changes to the TDE settings.
 
 ## Verifying Encryption
 

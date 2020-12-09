@@ -178,7 +178,7 @@ Use any of the built-in Azure Policy tagging-related definitions, for example, "
 
 Choose to allow or deny specific network paths within the cluster based on namespaces and label selectors with network policies. Use these namespaces and labels as descriptors for traffic configuration rules. Use Azure PowerShell or Azure command-line interface (CLI) to look up or perform actions on resources based on their tags.
 
-- [Azure Policy with CLI](/cli/azure/policy?view=azure-cli-latest)
+- [Azure Policy with CLI](/cli/azure/policy)
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -386,7 +386,7 @@ Use Azure CLI for operations like ‘Get access credentials for a managed Kubern
 
 - [How to integrate AKS with Azure AD](./azure-ad-integration-cli.md)
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [How to monitor identity and access with Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -739,7 +739,7 @@ Note that the process to keep Windows Server nodes up to date differs from nodes
 
 Use the PowerShell cmdlet "Get-AzSecurityTask" to automate the retrieval of security tasks that Security Center recommends you to perform in order to strengthen your security posture and remediation vulnerability scan findings.
 
-- [How to use PowerShell to view vulnerabilities discovered by Azure Security Center](/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
+- [How to use PowerShell to view vulnerabilities discovered by Azure Security Center](/powershell/module/az.security/get-azsecuritytask)
 
 **Azure Security Center monitoring**: Yes
 
@@ -767,7 +767,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -933,15 +933,15 @@ Grant users or groups access to Kubernetes resources within a namespace or acros
 
 Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of your AKS administrative groups and use it to reconcile access on a regular basis. Use Azure CLI for operations such as ‘Get access credentials for a managed Kubernetes cluster. Implement Security Center Identity and Access Management recommendations.
 
-- [Manage AKS with Azure CLI](/cli/azure/aks?view=azure-cli-latest)
+- [Manage AKS with Azure CLI](/cli/azure/aks)
 
 - [Understand AKS and Azure AD integration](concepts-identity.md)
 
 - [How to integrate AKS with Azure AD](./azure-ad-integration-cli.md)
 
-- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [How to monitor identity and access with Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -1061,7 +1061,7 @@ Security hardening for AKS agent node host OS
 
 security-hardened-vm-host-image.md
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 **Azure Security Center monitoring**: Not applicable
 
