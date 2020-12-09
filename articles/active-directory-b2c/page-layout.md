@@ -66,7 +66,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 ## Unified sign-in sign-up page with password reset link (unifiedssp)
 
 **2.1.1**
-- Added a UXString `heading` in addtion to `intro` to show on page as a title. This will be hidden by default.
+- Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.
 - Allow picking DOM layout via policy or querystring parameter `pageFlavor`: classic, oceanBlue, slateGray.
 - Allow using password from iOS Keychain.
 - Focus will be placed on the first error field when multiple fields are errored.
