@@ -60,19 +60,16 @@ Get started with Azure Attestation by using Azure CLI to set up attestation.
 
 Follow this procedure to create and manage an attestation provider.
 
-1. Run the [az attestation create](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_create) command to create an attestation provider:
+1. Run the [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) command to create an attestation provider:
 
    ```azurecli
-   az attestation create --resource-group attestationrg --name attestationProvider --location uksouth \
-      --attestation-policy SgxDisableDebugMode --certs-input-path C:\test\policySignersCertificates.pem
+   az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" -l westus
    ```
-
-   The **--certs-input-path** parameter specifies a set of trusted signing keys. If you specify a filename for this parameter, the attestation provider must be configured only with policies in signed JWT format. Otherwise, the policy can be configured in text or an unsigned JWT format. For information about JWT, see [Basic Concepts](basic-concepts.md). For certificate samples, see [Examples of an attestation policy signer certificate](policy-signer-examples.md).
-
-1. Run the [az attestation show](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_show) command to retrieve attestation provider properties such as status and AttestURI:
+   
+1. Run the [az attestation show](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_show) command to retrieve attestation provider properties such as status and AttestURI:
 
    ```azurecli
-   az attestation show --resource-group attestationrg --name attestationProvider
+   az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
    ```
 
    This command displays values like the following output:
@@ -89,10 +86,10 @@ Follow this procedure to create and manage an attestation provider.
    TagsTable:
    ```
 
-You can delete an attestation provider by using the [az attestation delete](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_delete) command:
+You can delete an attestation provider by using the [az attestation delete](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_delete) command:
 
 ```azurecli
-az attestation delete --resource-group attestationrg --name attestationProvider
+az attestation delete --name "myattestationprovider" --resource-group "sample-resource-group"
 ```
 
 ## Policy management
