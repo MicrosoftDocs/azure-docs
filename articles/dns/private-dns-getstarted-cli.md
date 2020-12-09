@@ -21,10 +21,9 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 
 ## Prerequisites
 
-- If you prefer, you can complete this quickstart using [Azure PowerShell](private-dns-getstarted-powershell.md).
-
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
+- You can also complete this quickstart using [Azure PowerShell](private-dns-getstarted-powershell.md).
 
 ## Create the resource group
 
