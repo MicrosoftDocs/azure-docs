@@ -1,22 +1,20 @@
 ---
-title: Deploy VMs on your Azure Stack Edge Pro device via templates
-description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge Pro device using templates.
+title: Overview and deployment of GPU VMs on your Azure Stack Edge Pro device
+description: Describes how to create and manage GPU virtual machines (VMs) on an Azure Stack Edge Pro device using templates.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 12/09/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
-# Deploy VMs on your Azure Stack Edge Pro GPU device via templates
+# GPU VMs for your Azure Stack Edge Pro device
 
-This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using templates. These templates are JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your VM. In these templates, you specify the resources to deploy and the properties for those resources.
-
-Templates are flexible in different environments as they can take parameters as input at runtime from a file. The standard naming structure is `TemplateName.json` for the template and `TemplateName.parameters.json` for the parameters file. For more information on ARM templates, go to [What are Azure Resource Manager templates?](../azure-resource-manager/templates/overview.md).
+This article provides an overview of GPU virtual machines (VMs) and describes how to create a GPU VM on your Azure Stack Edge Pro device using templates. 
 
 In this tutorial, we’ll use pre-written sample templates for creating resources. You won’t need to edit the template file and you can modify just the `.parameters.json` files to customize the deployment to your machine. 
 

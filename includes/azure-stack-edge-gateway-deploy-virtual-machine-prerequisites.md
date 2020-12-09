@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 08/31/2020
+ms.date: 12/08/2020
 ms.author: alkohli
 ---
 
@@ -28,6 +28,9 @@ Make sure that the following steps can be used to access the device from your cl
     ![Enable compute settings 1](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-templates/enable-compute-setting.png)
 
     Enable compute on the network interface. Azure Stack Edge will create and manage a virtual switch corresponding to that network interface. Do not enter specific IPs for Kubernetes at this time. It can take several minutes to enable compute.
+
+    > [!NOTE]
+    > If creating GPU VMs, select a network interface connected to the Internet. This allows you to install GPU extension on your device.
 
     <!--If you decide to use another network interface for compute, make sure that you:
     
