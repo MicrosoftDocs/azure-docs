@@ -125,7 +125,7 @@ Let's assume you create an Azure Cosmos container in West US. The container is c
 |**Item** |**Usage (month)**|**Rate** |**Monthly Cost** |
 |---------|---------|---------|-------|
 |Throughput bill for container in West US (all regions are writable)       | 10K RU/sec * 24 * 30    |$0.016 per 100 RU/sec per hour    |$1,152 |
-|Throughput bill for 3 additional regions - East US, North Europe, and East Asia (all regions are writable)        | (3 + 1) * 10K RU/sec * 24 * 30    |$0.016 per 100 RU/sec per hour   |$4,608 |
+|Throughput bill for 3 additional regions - East US, North Europe, and East Asia (all regions are writable)        | 3 * 10K RU/sec * 24 * 30    |$0.016 per 100 RU/sec per hour   |$3,456 |
 |Storage bill for container in West US      | 250 GB    |$0.25/GB  |$62.50|
 |Storage bill for 3 additional regions - East US, North Europe, and East Asia      | 3 * 250 GB    |$0.25/GB  |$187.50|
 |**Total**     |     |  |**$6,010**|

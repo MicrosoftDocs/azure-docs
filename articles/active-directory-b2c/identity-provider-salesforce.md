@@ -9,12 +9,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/27/2020
+ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up sign-in with a Salesforce SAML provider by using custom policies in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-user-flow"
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -208,12 +218,6 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
-## Create an Azure AD B2C application
-
-Communication with Azure AD B2C occurs through an application that you register in your B2C tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
-
-[!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
-
 ## Update and test the relying party file
 
 Update the relying party (RP) file that initiates the user journey that you just created:
@@ -224,3 +228,5 @@ Update the relying party (RP) file that initiates the user journey that you just
 4. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the new user journey that you created (SignUpSignInSalesforce).
 5. Save your changes, upload the file, and then select the new policy in the list.
 6. Make sure that Azure AD B2C application that you created is selected in the **Select application** field, and then test it by clicking **Run now**.
+
+::: zone-end
