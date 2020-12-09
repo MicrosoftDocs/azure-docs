@@ -208,7 +208,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: What is Autofill in Authenticator?
 
-**A**: THe Authenticator app now securely stores and autofills passwords on apps and websites you visit on your phone. You can use Autofill to sync and autofill your passwords on their iOS and Android devices. After setting up the Authenticator app as an autofill provider on your phone, it offers to save your passwords when you enter them on a site or app sign-in page. The passwords are saved as part of [your Microsoft account](https://account.microsoft.com/account) and are also available when you sign in to Microsoft Edge with your Microsoft account.
+**A**: The Authenticator app now securely stores and autofills passwords on apps and websites you visit on your phone. You can use Autofill to sync and autofill your passwords on your iOS and Android devices. After setting up the Authenticator app as an autofill provider on your phone, it offers to save your passwords when you enter them on a site or app sign-in page. The passwords are saved as part of [your Microsoft account](https://account.microsoft.com/account) and are also available when you sign in to Microsoft Edge with your Microsoft account.
 
 **Q**: What information can Authenticator autofill for me?
 
