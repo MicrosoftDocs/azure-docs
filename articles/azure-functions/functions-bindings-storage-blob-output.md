@@ -372,9 +372,9 @@ The `@BlobOutput` attribute gives you access to the blob that triggered the func
 
 Attributes are not supported by JavaScript.
 
-# [Python](#tab/python)
+# [PowerShell](#tab/powershell)
 
-Attributes are not supported by Python.
+Attributes are not supported by PowerShell.
 
 # [Python](#tab/python)
 
