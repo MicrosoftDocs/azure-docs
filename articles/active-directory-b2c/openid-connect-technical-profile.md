@@ -128,6 +128,6 @@ When you configure the redirect URI of your identity provider, enter `https://{y
 
 Examples:
 
-- [Add Microsoft Account (MSA) as an identity provider using custom policies](identity-provider-microsoft-account-custom.md)
-- [Sign in by using Azure AD accounts](identity-provider-azure-ad-single-tenant-custom.md)
-- [Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](identity-provider-azure-ad-multi-tenant-custom.md)
+- [Add Microsoft Account (MSA) as an identity provider using custom policies](identity-provider-microsoft-account.md)
+- [Sign in by using Azure AD accounts](identity-provider-azure-ad-single-tenant.md)
+- [Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies](identity-provider-azure-ad-multi-tenant.md)
