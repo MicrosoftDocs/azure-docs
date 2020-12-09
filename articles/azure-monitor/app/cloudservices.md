@@ -108,9 +108,6 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
 
 1. To configure the SDK to send data to the Application Insights resource:
 
-> [!IMPORTANT]
-> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=net) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
-
     a. In a suitable startup function, set the instrumentation key from the configuration setting in the *.cscfg* file:
  
     ```csharp
