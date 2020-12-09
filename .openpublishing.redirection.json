@@ -9071,7 +9071,7 @@
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-li-idp.md",
-      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin-custom",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
       "redirect_document_id": true
     },
     {
@@ -9087,11 +9087,6 @@
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-github-app.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-github",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
-      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
       "redirect_document_id": true
     },
     {
