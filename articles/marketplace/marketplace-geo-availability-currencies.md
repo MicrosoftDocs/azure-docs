@@ -52,7 +52,7 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Croatia                             | HR        | EUR          |
 | Curaçao                             | CW        | USD          |
 | Cyprus                              | CY        | EUR          |
-| Czechia                      | CZ        | EUR          |
+| Czechia                             | CZ        | EUR          |
 | Denmark                             | DK        | DKK          |
 | Dominican Republic                  | DO        | USD          |
 | Ecuador                             | EC        | USD          |
@@ -194,7 +194,7 @@ For details on how to enter prices for specific offer types, refer to these arti
 - [Create an Azure virtual machine offer](azure-vm-create.md)
 - [Create a consulting service offer](./create-consulting-service-offer.md)
 - [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer.md)
-- [Create a Dynamics 365 for Operations offer](d365-operations-create.md)
+- [Create a Dynamics 365 for Operations offer](d365-operations-offer-setup.md)
 - [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md)
 - [Create an IoT Edge module offer](partner-center-portal/azure-iot-edge-module-creation.md)
 - [Create a Managed Service offer](partner-center-portal/create-new-managed-service-offer.md)

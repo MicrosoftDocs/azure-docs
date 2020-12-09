@@ -1,12 +1,12 @@
 ---
-title: What is a test drive? Microsoft commercial marketplace
-description: Explanation of Marketplace test drive feature
+title: What is a test drive in Microsoft AppSource?
+description: Explanation of the Microsoft AppSource test drive feature.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 06/19/2020
+ms.date: 12/08/2020
 ---
 
 # What is a test drive?
@@ -56,7 +56,7 @@ This deployment template contains all the Azure resources that comprise your sol
 A hosted test drive removes the complexity of setup by letting Microsoft host and maintain the service that performs the test drive user provisioning, and de-provisioning. If you have an offer on Microsoft AppSource, build your test drive to connect with a Dynamics AX/CRM instance. You can use the following AppSource offers types:
 
 - Use [Dynamics 365 for Customer Engagement](partner-center-portal/create-new-customer-engagement-offer.md) for customer engagement systems such as sales, service, project service, and field service.
-- Use [Dynamics 365 for Operations](d365-operations-create.md) for enterprise resource planning systems such as finance, operations, manufacturing, and supply chain.
+- Use [Dynamics 365 for Operations](d365-operations-offer-setup.md) for enterprise resource planning systems such as finance, operations, manufacturing, and supply chain.
 
 ### Logic app test drive
 
@@ -89,6 +89,6 @@ Additional test drive resources:
 - [Test Drive best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; make sure your pop-up blocker is off)
 
-## Next step
+## Next steps
 
 - [Test drive technical configuration](test-drive-technical-configuration.md)

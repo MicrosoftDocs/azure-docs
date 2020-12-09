@@ -131,7 +131,7 @@ For more information, see the [Tracking Azure customer usage with GUIDs FAQ](../
 
 ## Create a billing profile
 
-If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](./create-new-customer-engagement-offer.md) or [Dynamics 365 for Operations](../d365-operations-create.md) offer, you need to complete your **billing profile**.
+If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](./create-new-customer-engagement-offer.md) or [Dynamics 365 for Operations](../d365-operations-offer-setup.md) offer, you need to complete your **billing profile**.
 
 The billing address is pre-populated from your legal entity, and you can update this address later. The TAX and VAT ID fields are optional.  The country/region name and company name cannot be edited.
 

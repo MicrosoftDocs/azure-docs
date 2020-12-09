@@ -1,15 +1,15 @@
 ---
-title: Migrate accounts from Cloud Partner Portal to Microsoft commercial marketplace
-description: Learn how to migrate your account from Cloud Partner Portal to Partner Center in Microsoft commercial marketplace for Azure
+title: Migrate accounts from Cloud Partner Portal to the commercial marketplace
+description: Migrate your account from Cloud Partner Portal to Partner Center for Azure Marketplace
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 09/23/2019
+ms.date: 12/08/2020
 ---
 
-# How to migrate your account from Cloud Partner Portal to Partner Center
+# Migrate your account from Cloud Partner Portal to Partner Center
 
 If you have an existing Cloud Partner Portal (CPP) account, your account settings need to be migrated to Partner Center.
 
@@ -67,7 +67,7 @@ For specific information on what needs to be done by **October 15, 2019** for yo
 
 1. If your MPN membership account was originally created in Partner Membership Center (PMC), sign in to [Partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) to confirm that your account has been migrated. If you see a profile screen with your MPN ID, you're ready to continue. If not, you need to start your account migration by following the prompts in the [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). If you need help, visit [support](https://partner.microsoft.com/support?issueid=100-0077).
 2. Go to the [Commercial Marketplace overview page in Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). If you see "Commercial Marketplace" in the left navigation pane, you're enrolled and should continue to the next step. If not, [enroll in the commercial marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) now.
-3. Confirm your offers are in AppSource by [searching for your offers](https://appsource.microsoft.com/). If your offers are already in AppSource, continue to the next step. For any offer not in AppSource, create a [Dynamics 365 Customer Engagement offer](create-new-customer-engagement-offer.md) or a [Dynamics 365 for Operations offer](../d365-operations-create.md).
+3. Confirm your offers are in AppSource by [searching for your offers](https://appsource.microsoft.com/). If your offers are already in AppSource, continue to the next step. For any offer not in AppSource, create a [Dynamics 365 Customer Engagement offer](create-new-customer-engagement-offer.md) or a [Dynamics 365 for Operations offer](../d365-operations-offer-setup.md).
 4. On Partner Center's [Agreements page](https://partner.microsoft.com/dashboard/account/agreements), make sure you've reviewed and accepted the **Business Applications ISV Addendum**.
 5. In Partner Center's [Account settings](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile), make sure your billing information is complete.
 6. Submit each new and existing offer for certification and publication, even if your offers were previously certified.

@@ -180,7 +180,7 @@
   - name: Dynamics 365 offers
     items: 
     - name: Plan a Dynamics 365 offer
-      href: appsource-offer-publishing-guide.md
+      href: marketplace-dynamics-365.md
     - name: Create and publish a Dynamics 365 offer
       items:
       - name: Create a Dynamics 365 Customer Engagement & Power Apps offer

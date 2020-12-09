@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 10/27/2020
+ms.date: 12/08/2020
 ---
 
-# How to review and publish an offer to the commercial marketplace
+# Review and publish an offer to the commercial marketplace
 
-This article shows you how to use Partner Center to submit your offer for publishing, preview your offer, and then publish it to the commercial marketplace. We also cover how to check your publishing status as it proceeds through the publishing steps. You must have already created an offer that you want to publish.
+This article shows you how to use Partner Center to submit your offer for publishing, preview your offer, and then publish it to the commercial marketplace. It also covers how to check your publishing status as it proceeds through the publishing steps. You must have already created an offer you want to publish.
 
 ## Offer status
 
@@ -52,7 +52,7 @@ After all pages are complete and you have entered applicable testing notes,  sel
 
 For more information about validation in Azure Marketplace, see [Azure Marketplace listing guidelines](marketplace-criteria-content-validation.md).
 
-For more information about testing instructions and completing a first publish in Microsoft AppSource, see [AppSource Dynamics 365 Finance and Operations functional validation](dynamics-365-finance-operations-functional-validation.md).
+For more information about testing instructions and completing a first publish in Microsoft AppSource, see [Dynamics 365 Operations functional validation](d365-operations-validation.md).
 
 ## Automated validation phase
 

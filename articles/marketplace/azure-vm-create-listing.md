@@ -1,12 +1,12 @@
 ---
-title: Configure Dynamics 365 for Operations offer listing details on Microsoft AppSource
-description: Learn how to configure Dynamics 365 for Operations offer listing details on Microsoft AppSource.
+title: Configure virtual machine offer listing details on Azure Marketplace
+description: Configure  virtual machine offer listing details on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 12/01/2020
+ms.date: 10/19/2020
 ---
 
 # How to configure virtual machine offer listing details
