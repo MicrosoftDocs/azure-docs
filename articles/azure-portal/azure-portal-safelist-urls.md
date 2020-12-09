@@ -1,15 +1,8 @@
 ---
 title: Safelist the Azure portal URLs on your firewall or proxy server
 description: Add these URLs to proxy server bypass to communicate with the Azure portal and its services
-services: azure-portal
-keywords:
-author: mgblythe
-ms.author: mblythe
 ms.date: 04/10/2020
 ms.topic: conceptual
-
-ms.service: azure-portal
-manager:  mtillman
 ---
 
 # Safelist the Azure portal URLs on your firewall or proxy server

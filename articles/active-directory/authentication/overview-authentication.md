@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: overview
 ms.date: 07/13/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: sahenry, michmcla
 

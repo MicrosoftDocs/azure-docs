@@ -76,12 +76,13 @@ Accumulated cost | How much have I spent so far this month? Will I stay within m
 Daily cost | Have there been any increases in the costs per day for the last 30 days?
 Cost by service | How has my monthly usage vary over the past three invoices?
 Cost by resource | Which resources cost the most so far this month?
+Invoice details | What charges did I have on my last invoice?
 
 ![View selector showing an example selection for this month](./media/quick-acm-cost-analysis/view-selector.png)
 
 However, there are many cases where you need deeper analysis. Customization starts at the top of the page, with the date selection.
 
-Cost analysis shows data for the current month by default. Use the date selector to switch to common date ranges quickly. Examples include the last seven days, the last month, the current year, or a custom date range. Pay-as-you-go subscriptions also include date ranges based on your billing period, which isn't bound to the calendar month, like the current billing period or last invoice. Use the **<PREVIOUS** and **NEXT>** links at the top of the menu to jump to the previous or next period, respectively. For example, **<PREVIOUS** will switch from the **Last 7 days** to **8-14 days ago** or **15-21 days ago**.
+Cost analysis shows data for the current month by default. Use the date selector to switch to common date ranges quickly. Examples include the last seven days, the last month, the current year, or a custom date range. Pay-as-you-go subscriptions also include date ranges based on your billing period, which isn't bound to the calendar month, like the current billing period or last invoice. Use the **<PREVIOUS** and **NEXT>** links at the top of the menu to jump to the previous or next period, respectively. For example, **<PREVIOUS** will switch from the **Last 7 days** to **8-14 days ago** or **15-21 days ago**. When selecting a custom date range, keep in mind that you can select up to a full year (e.g. January 1-December 31).
 
 ![Date selector showing an example selection for this month](./media/quick-acm-cost-analysis/date-selector.png)
 

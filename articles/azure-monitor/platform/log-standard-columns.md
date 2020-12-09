@@ -76,7 +76,7 @@ The **\_ItemId** column holds a unique identifier for the record.
 ## \_ResourceId
 The **\_ResourceId** column holds a unique identifier for the resource that the record is associated with. This gives you a standard column to use to scope your query to only records from a particular resource, or to join related data across multiple tables.
 
-For Azure resources, the value of **_ResourceId** is the [Azure resource ID URL](../../azure-resource-manager/templates/template-functions-resource.md). The column is currently limited to Azure resources, but it will be extended to resources outside of Azure such as on-premises computers.
+For Azure resources, the value of **_ResourceId** is the [Azure resource ID URL](../../azure-resource-manager/templates/template-functions-resource.md). The column is limited to Azure resources, including [Azure Arc](../../azure-arc/overview.md) resources, or to custom logs that indicated the Resource ID during ingestion.
 
 > [!NOTE]
 > Some data types already have fields that contain Azure resource ID or at least parts of it like subscription ID. While these fields are kept for backward compatibility, it is recommended to use the _ResourceId to perform cross correlation since it will be more consistent.
@@ -107,17 +107,47 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-The following query parses **_ResourceId** and aggregates billed data volumes per Azure subscription.
+The following query parses **_ResourceId** and aggregates billed data volumes per Azure Resource Group.
 
 ```Kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by resourceGroup | sort by Bytes nulls last 
 ```
 
 Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute.
+
+It is always more efficient to use the \_SubscriptionId column than extracting it by parsing the \_ResourceId column.
+
+## \_SubstriptionId
+The **\_SubscriptionId** column holds the subscription ID of the resource that the record is associated with. This gives you a standard column to use to scope your query to only records from a particular subscription, or to compare different subscriptions.
+
+For Azure resources, the value of **__SubscriptionId** is the subscription part of the [Azure resource ID URL](../../azure-resource-manager/templates/template-functions-resource.md). The column is limited to Azure resources, including [Azure Arc](../../azure-arc/overview.md) resources, or to custom logs that indicated the Resource ID during ingestion.
+
+> [!NOTE]
+> Some data types already have fields that contain Azure subscription ID . While these fields are kept for backward compatibility, it is recommended to use the \_SubscriptionId column to perform cross correlation since it will be more consistent.
+### Examples
+The following query examines performance data for computers of a specific subscription. 
+
+```Kusto
+Perf 
+| where TimeGenerated > ago(24h) and CounterName == "memoryAllocatableBytes"
+| where _SubscriptionId == "57366bcb3-7fde-4caf-8629-41dc15e3b352"
+| summarize avgMemoryAllocatableBytes = avg(CounterValue) by Computer
+```
+
+The following query parses **_ResourceId** and aggregates billed data volumes per Azure subscription.
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _SubscriptionId | sort by Bytes nulls last 
+```
+
+Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute.
+
 
 ## \_IsBillable
 The **\_IsBillable** column specifies whether ingested data is billable. Data with **\_IsBillable** equal to `false` are collected for free and not billed to your Azure account.
@@ -164,8 +194,7 @@ To see the size of billable events ingested per subscription, use the following 
 ```Kusto
 union withsource=table * 
 | where _IsBillable == true 
-| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId | sort by Bytes nulls last 
 ```
 
 To see the size of billable events ingested per resource group, use the following query:
@@ -174,7 +203,7 @@ To see the size of billable events ingested per resource group, use the followin
 union withsource=table * 
 | where _IsBillable == true 
 | parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
 
 ```
 

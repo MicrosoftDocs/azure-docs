@@ -107,8 +107,8 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
     
 > [!IMPORTANT]
 > 
-> There is a `publicNetworkAccess` flag which is `Enabled` by default. 
-> This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` with the following PATCH request.
+> There is a `publicNetworkAccess` flag which is `Disabled` by default. 
+> This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` or `Enabled` with the following PATCH request. Edit the value to reflect which flag you want for your cache.
 > ```http
 > PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 > {    "properties": {
@@ -208,9 +208,10 @@ If your cache is already a VNet injected cache, private endpoints cannot be used
 ### What features are not supported with private endpoints?
 Geo-replication, firewall rules, portal console support, multiple endpoints per clustered cache, persistence to firewall rules and zone redundancy. 
 
-### How can I change my private endpoint to be disabled from public network access?
-There is a `publicNetworkAccess` flag which is `Enabled` by default. 
-This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` with the following PATCH request.
+### How can I change my private endpoint to be disabled or enabled from public network access?
+There is a `publicNetworkAccess` flag which is `Disabled` by default. 
+This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` or `Enabled` with the following PATCH request. Edit the value to reflect which flag you want for your cache.
+
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 {    "properties": {

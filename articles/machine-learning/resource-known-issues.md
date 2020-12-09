@@ -206,7 +206,10 @@ If you are using file share for other workloads, such as data transfer, the re
     If you don't include the leading forward slash, '/',  you'll need to prefix the working directory e.g. `/mnt/batch/.../tmp/dataset` on the compute target to indicate where you want the dataset to be mounted.
 
 ### Mount dataset
-* **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: Re-try logic has been added in `azureml-sdk >=1.12.0` to mitigate the issue. If you are on previous azureml-sdk versions, please upgrade to the latest version. If you are already on `azureml-sdk>=1.12.0`, please recreate your environment so that you have the latest patch with the fix.
+* **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: 
+  * If you don't have any outbound [network security group](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) rules and are using `azureml-sdk>=1.12.0`, please update `azureml-dataset-runtime` and it's dependencies to be the latest for the specific minor version, or if you are using it in a run, please recreate your environment so it can have the latest patch with the fix. 
+  * If you are using `azureml-sdk<1.12.0`, please upgrade to the latest version.
+  * If you have outbound NSG rules, please make sure there is a outbound rule that allows all traffic for the service tag `AzureResourceMonitor`.
 
 ### Data labeling projects
 
