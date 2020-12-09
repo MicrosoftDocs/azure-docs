@@ -17,17 +17,29 @@ ms.custom: contperfq2
 
 # Quickstart: Check access for a user to Azure resources
 
-Sometimes you need to check who has access to a set of Azure resources. You check their access by listing their Azure role assignments. A quick way to check the access for a single user is to use the **Check access** feature.
+Sometimes you need to check who has access to a set of Azure resources. You check their access by listing their Azure role assignments. A quick way to check the access for a single user is to use the **Check access** feature on the **Access control (IAM)** page.
 
-## Check my access
+## Step 1: Open the Azure resources
 
-Follow these steps to view your access to a set of Azure resources.
+To check the access for a user, you first need to open the Azure resources you want to check access for. Azure resources are organized into levels that are typically called the *scope*. In Azure, you can specify a scope at four levels from broad to narrow: management group, subscription, resource group, and resource.
 
-1. Open the Azure portal.
+![Scope levels for Azure RBAC](../../includes/role-based-access-control/media/scope-levels.png)
 
-1. Open the set of resources that you want to check access for, such as **Subscriptions**, **Resource groups**, or a particular resource. This is called the [scope](scope-overview.md).
+Follow these steps to open the set of Azure resources that you want to check access for.
 
-1. Click your subscription, resource group, or resource.
+1. Open the [Azure portal](https://portal.azure.com).
+
+1. Open the set of Azure resources, such as **Management groups**, **Subscriptions**, **Resource groups**, or a particular resource.
+
+1. Click the specific resource in that scope.
+
+    The following shows an example resource group.
+
+    ![Resource group overview](./media/check-access/rg-overview.png)
+
+## Step 2: Check your access
+
+Follow these steps to view your access to a set of Azure resources. If you want to check access for a different user, skip down to Step 3.
 
 1. Click **Access control (IAM)**.
 
@@ -45,19 +57,11 @@ Follow these steps to view your access to a set of Azure resources.
 
     ![Role and deny assignments pane](./media/check-access/rg-check-access-assignments.png)
 
-## Check access for a security principal
+## Step 3: Check access for a user
 
 You can also check the access for a single user, group, service principal, or managed identity. Follow these steps to check the access for a security principal to a set of Azure resources.
 
-1. Open the Azure portal.
-
-1. Open the set of resources that you want to check access for, such as **Subscriptions**, **Resource groups**, or a particular resource. This is called the [scope](scope-overview.md).
-
-1. Click your subscription, resource group, or resource.
-
 1. Click **Access control (IAM)**.
-
-    ![Resource group access control - Check access tab for security principal](./media/check-access/rg-access-control.png)
 
 1. On the **Check access** tab, in the **Find** list, select the user, group, service principal, or managed identity you want to check access for.
 
@@ -69,7 +73,7 @@ You can also check the access for a single user, group, service principal, or ma
 
     On this pane, you can see the access for the selected security principal at this scope and inherited to this scope. Assignments at lower scopes are not listed.
 
-    ![Role and deny assignments pane for a security principal](./media/shared/rg-check-access-assignments-security-principal.png)
+    ![Role and deny assignments pane for a user](./media/shared/rg-check-access-assignments-user.png)
 
 ## Next steps
 

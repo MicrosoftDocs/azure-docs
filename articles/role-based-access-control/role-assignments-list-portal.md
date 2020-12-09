@@ -20,7 +20,7 @@ ms.author: rolyon
 
 ## List role assignments for a user or group
 
-An quick way to see the roles assigned to a user or group in a subscription is to use the **Azure role assignments** pane.
+A quick way to see the roles assigned to a user or group in a subscription is to use the **Azure role assignments** pane.
 
 1. In the Azure portal, select **All services** from the Azure portal menu.
 
@@ -94,7 +94,7 @@ To list access for a user, group, service principal, or managed identity, you li
     - Deny assignments added using Azure Blueprints or Azure managed apps.
     - Classic Service Administrator or Co-Administrator assignments for classic deployments. 
 
-    ![assignments pane](./media/shared/rg-check-access-assignments-security-principal.png)
+    ![assignments pane](./media/shared/rg-check-access-assignments-user.png)
 
 ## List role assignments for a managed identity
 
