@@ -11,4 +11,4 @@
 - name: Reference
   items:
   - name: SAP HANA on Azure (Large Instances)
-    href: ../../../virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/context/context
+    href: ../../virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/context/context
