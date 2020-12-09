@@ -284,6 +284,7 @@ azdata arc postgres backup delete -sn postgres01 -n MyBackup091720200110am
   "name": "MyBackup091720200110am",
   "state": "Done"
 }
+```
 
 You can retrieve the name and the ID of your backups by running the list backup command as explained in the previous paragraph.
 
