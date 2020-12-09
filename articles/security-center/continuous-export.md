@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 12/08/2020
 ms.author: memildin
 
 ---
@@ -67,6 +67,7 @@ The steps below are necessary whether you're setting up a continuous export to L
     - Vulnerability Assessment findings on your SQL servers on machines should be remediated (Preview)
     - Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)
     - Vulnerabilities in your virtual machines should be remediated
+    - System updates should be installed on your machines
 
     To include the findings with these recommendations, enable the **include security findings** option.
 
