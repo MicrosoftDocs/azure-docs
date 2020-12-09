@@ -20,7 +20,11 @@ ms.topic: conceptual
 
 Azure Data CLI (`azdata`) version number: 20.2.5. Download at [https://aka.ms/azdata](https://aka.ms/azdata).
 
+Azure Arc enabled PostgreSQL Hyperscale now supports point in time restore in addition of full backup restore for both versions 11 and 12 of PostgreSQL. The point in time restore capability allows you to indicate a specific date and time to restore to.
+
 ### Breaking change
+
+#### New resource provider
 
 This release introduces an updated [resource provider](../../azure-resource-manager/management/azure-services-resource-providers.md) called `Microsoft.AzureArcData`. Before you can use this feature, you need to register this resource provider. 
 
@@ -33,6 +37,15 @@ To register this resource provider:
 
 You can review detailed steps at [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). This change also removes all your existing shadow resources that you have uploaded to the Azure portal. In order to use the resource provider, you need to update the data controller and use the latest `azdata` CLI.  
 
+#### PostgreSQL
+
+- The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed. It is now of the form ServergroupName{r, s}-_n_. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
+    - postgres02r-0 (coordinator node)
+    - postgres02s-0 (worker node)
+    - postgres02s-1 (worker node)
+- The issue about backups of Azure Arc enabled PostgreSQL Hyperscale on Azure Kubernetes Service (AKS) is now solved.
+- The issue about backups of Azure Arc enabled PosgreSQL Hyperscale with the version 11 of PostgreSQL is now solved.
+
 ### Platform release notes
 
 #### Direct connectivity mode
@@ -44,6 +57,16 @@ You can specify direct connectivity when you create the data controller. The fol
 ```console
 azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
+
+### Known issues
+
+#### PostgreSQL
+
+- Azure Arc enabled PostgreSQL Hyperscale returns an inaccurate error message when it cannot restore to the relative point in time you indicate. For example, if you specified a point in time to restore that is older than what your backups contain, the restore will fail with an error message like:
+ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}
+When this happens, restart the command after indicating a point in time that is within the range of dates for which you have backups. You will determine this range by listing your backups and by looking at the dates at which they were taken.
+- Point in time restore is supported only across server groups. The target server of a point in time restore operation cannot be the server from which you took the backup. It has to be a different server group. However, full restore is supported to the same server group.
+- A backup-id is required when doing a full restore. By default, if you are not indicating a backup-id the latest backup will be used. This does not work in this release.
 
 ## October 2020 
 
