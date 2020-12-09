@@ -39,7 +39,7 @@ After you've deployed your policies, data will be logged in the Log Analytics wo
 
 ## Next steps
 
-- Explore this [MVP-built sample workbook](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), which tracks patch compliance reporting by [querying Update Management logs](../../automation/update-management/update-mgmt-query-logs.md) across multiple Log Analytics workspaces. 
+- Explore this [MVP-built sample workbook](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), which tracks patch compliance reporting by [querying Update Management logs](../../automation/update-management/query-logs.md) across multiple Log Analytics workspaces. 
 - Learn about [Azure Monitor](../../azure-monitor/index.yml).
 - Learn about [Azure Monitor Logs](../../azure-monitor/platform/data-platform-logs.md).
 - Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).

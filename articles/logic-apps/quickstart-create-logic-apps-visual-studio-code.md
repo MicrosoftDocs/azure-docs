@@ -313,4 +313,4 @@ In Visual Studio Code, you can open and review the earlier versions for your log
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create stateful or stateless logic apps in Visual Studio Code (Preview)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)
+> [Create stateful and stateless logic apps in Visual Studio Code (Preview)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)
