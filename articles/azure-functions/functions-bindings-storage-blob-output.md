@@ -421,8 +421,6 @@ Access the blob data using `context.bindings.<BINDING_NAME>`, where the binding 
 
 # [PowerShell](#tab/powershell)
 
-Access the blob data using either the byte array passed by the trigger to the param or as a named input binding.
-
 Access the blob data via a parameter that matches the name designated by binding's name parameter in the _function.json_ file.
 
 # [Python](#tab/python)

@@ -402,6 +402,10 @@ If the blob is named *{20140101}-soundfile.mp3*, the `name` variable value in th
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
+# [Java](#tab/java)
+
+Metadata is not available in Java.
+
 # [JavaScript](#tab/javascript)
 
 ```javascript
@@ -411,13 +415,13 @@ module.exports = function (context, myBlob) {
 };
 ```
 
+# [PowerShell](#tab/powershell)
+
+**TODO**
+
 # [Python](#tab/python)
 
 Metadata is not available in Python.
-
-# [Java](#tab/java)
-
-Metadata is not available in Java.
 
 ---
 

@@ -324,7 +324,7 @@ The `@BlobInput` attribute gives you access to the blob that triggered the funct
 
 Attributes are not supported by JavaScript.
 
-# [Python](#tab/python)
+# [Python](#tab/powershell)
 
 Attributes are not supported by PowerShell.
 
@@ -360,17 +360,21 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
+# [Java](#tab/java)
+
+The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [input example](#example) for details.
+
 # [JavaScript](#tab/javascript)
 
 Access blob data using `context.bindings.<NAME>` where `<NAME>` matches the value defined in *function.json*.
 
+# [PowerShell](#tab/powershell)
+
+Access the blob data via a parameter that matches the name designated by binding's name parameter in the _function.json_ file.
+
 # [Python](#tab/python)
 
-Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Refer to the [input example](#example) for details.
-
-# [Java](#tab/java)
-
-The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [input example](#example) for details.
+Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true). Refer to the [input example](#example) for details.
 
 ---
 
