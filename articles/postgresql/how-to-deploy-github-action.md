@@ -12,7 +12,7 @@ ms.custom: github-actions-azure
 
 # Quickstart: Use GitHub Actions to connect to Azure PostgreSQL
 
-[!INCLUDE[applies-to-single-flexible-server](./includes/applies-to-postgres-single-flexible-server.md)]
+<Token>**APPLIES TO:** :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Single Server :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Flexible Server </Token>
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/).
 
