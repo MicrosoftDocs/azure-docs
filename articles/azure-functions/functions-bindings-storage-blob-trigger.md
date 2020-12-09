@@ -340,7 +340,7 @@ The `@BlobTrigger` attribute is used to give you access to the blob that trigger
 
 Access blob data using `context.bindings.<NAME>` where `<NAME>` matches the value defined in *function.json*.
 
-# [Python](#tab/python)
+# [PowerShell](#tab/powershell)
 
 Access the blob data via a parameter that matches the name designated by binding's name parameter in the _function.json_ file.
 
