@@ -147,26 +147,6 @@ az attestation policy reset --resource-group attestationrg --name attestationPro
    --policy-jws "eyJhbGciOiJub25lIn0.."
 ```
 
-## Policy signer certificates management
-
-Use the following commands to manage the policy signer certificates for an attestation provider:
-
-```azurecli
-az attestation signer list --resource-group attestationrg --name attestationProvider
-
-az attestation signer add --resource-group attestationrg --name attestationProvider \
-   --signer "eyAiYWxnIjoiUlMyNTYiLCAie..."
-
-az attestation signer remove --resource-group attestationrg --name attestationProvider \
-   --signer "eyAiYWxnIjoiUlMyNTYiLCAie..."
-```
-
-A policy signer certificate is a signed JWT with a claim named `maa-policyCertificate`. The value of the claim is a JWK, which contains the trusted signing key to add. The JWT must be signed with a private key that corresponds to any of the existing policy signer certificates. For information about JWT and JWK, see [Basic Concepts](basic-concepts.md).
-
-All semantic manipulation of the policy signer certificate must be done outside of Azure CLI. As far as Azure CLI is concerned, it's a simple string.
-
-For certificate samples, see [Examples of an attestation policy signer certificate](policy-signer-examples.md).
-
 ## Next steps
 
 - [How to author and sign an attestation policy](author-sign-policy.md)
