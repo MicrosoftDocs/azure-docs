@@ -1052,7 +1052,7 @@
   - name: Image builder (preview)
     items:
     - name: Overview
-      href: ./linux/image-builder-overview.md
+      href: image-builder-overview.md
     - name: Use Azure CLI
       href: ./linux/image-builder.md
     - name: Use a VNET
@@ -1327,7 +1327,7 @@
     - name: Shared disks
       items:
       - name: Overview
-        href: ./linux/disks-shared.md
+        href: disks-shared.md
       - name: Enable shared disks
         href: disks-shared-enable.md
     - name: Upload a vhd to a disk
@@ -1350,6 +1350,12 @@
         href: ./windows/expand-os-disk.md
     - name: Use Storage Explorer to manage disks
       href: disks-use-storage-explorer-managed-disks.md
+    - name: Find a disk
+      items:
+      - name: Linux
+        href: ./linux/azure-to-guest-disk-mapping.md
+      - name: Windows
+        href: ./windows/azure-to-guest-disk-mapping.md
     - name: Snapshot a disk
       items:
       - name: CLI
@@ -1676,6 +1682,8 @@
   items:
   - name: Overview
     href: backup-recovery.md
+  - name: Service disruptions 
+    href: virtual-machines-disaster-recovery-guidance.md
   - name: Back up VMs
     items: 
     - name: Overview
