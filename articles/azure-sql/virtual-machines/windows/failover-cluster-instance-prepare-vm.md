@@ -43,12 +43,14 @@ The failover cluster feature requires virtual machines to be placed in an [avail
 
 Carefully select the VM availability option that matches your intended cluster configuration: 
 
- - **Azure shared disks**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) in different fault/update domains for Premium SSDs placed inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md), or [availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) for Ultra Disks, but they must be placed in the same availability zone which reduces the availability. 
- - **Premium file shares**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or [availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
- - **Storage Spaces Direct**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+- **Azure shared disks**: the availability option varies if you're using Premium SSDs or UltraDisk:
+   - Premium SSD: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) in different fault/update domains for Premium SSDs placed inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+   - Ultra Disk: [Availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) but the VMs must be placed in the same availability zone which reduces availability of the cluster to 99.9%. 
+- **Premium file shares**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or [availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
+- **Storage Spaces Direct**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
->[!IMPORTANT]
->You can't set or change the availability set after you've created a virtual machine.
+> [!IMPORTANT]
+> You can't set or change the availability set after you've created a virtual machine.
 
 ## Create the virtual machines
 
