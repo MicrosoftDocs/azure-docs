@@ -8728,7 +8728,6 @@
       "redirect_url": "/azure/active-directory-b2c/saml-identity-provider-technical-profile",
       "redirect_document_id": false
     },
-    ,
     {
       "source_path": "articles/active-directory-b2c/identity-provider-amazon-custom.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-amazon",
