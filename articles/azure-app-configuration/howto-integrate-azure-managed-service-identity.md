@@ -18,7 +18,7 @@ Azure App Configuration and its .NET Core, .NET Framework, and Java Spring clien
 This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue,  [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
 > [!NOTE]
-> This article uses Azure App Service as an example, but the same concept applies to any other Azure services that support managed identity, for example, [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity), [Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm), and [Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-managed-identity). If your workload is hosted in one of those services, you can leverage their managed identity support too.
+> This article uses Azure App Service as an example, but the same concept applies to any other Azure services that support managed identity, for example, [Azure Kubernetes Service](/azure/aks/use-azure-ad-pod-identity), [Azure Virtual Machine](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm), and [Azure Container Instances](/azure/container-instances/container-instances-managed-identity). If your workload is hosted in one of those services, you can leverage their managed identity support too.
 
 This article also shows how you can use the managed identity in conjunction with App Configuration's Key Vault references. With a single managed identity, you can seamlessly access both secrets from Key Vault and configuration values from App Configuration. If you wish to explore this capability, finish [Use Key Vault References with ASP.NET Core](./use-key-vault-references-dotnet-core.md) first.
 
@@ -185,8 +185,8 @@ To set up a managed identity in the portal, you first create an application and 
 
     You can now access Key Vault references just like any other App Configuration key. The config provider will use the `ManagedIdentityCredential` to authenticate to Key Vault and retrieve the value.
 
-> [!NOTE]
-> The `ManagedIdentityCredential` works only in Azure environments of services that support managed identity authentication. It doesn't work in the local environment. Use [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) for the code to work in both local and Azure environments as it will fall back to a few authentication options including managed identity.
+    > [!NOTE]
+    > The `ManagedIdentityCredential` works only in Azure environments of services that support managed identity authentication. It doesn't work in the local environment. Use [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) for the code to work in both local and Azure environments as it will fall back to a few authentication options including managed identity.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
