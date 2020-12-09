@@ -24,7 +24,7 @@ The structure of how to do this consists of the following steps.  They are:
 - [Start sync job](#start-sync-job)
 - [Review status](#review-status)
 
-Use these [Microsoft Azure Active Directory Module for Windows PowerShell](https://docs.microsoft.com/powershell/module/msonline/?view=azureadps-1.0) commands to enable synchronization for a production tenant, a pre-requisite for being able to call the Administration Web Service for that tenant.
+Use these [Microsoft Azure Active Directory Module for Windows PowerShell](https://docs.microsoft.com/powershell/module/msonline/) commands to enable synchronization for a production tenant, a pre-requisite for being able to call the Administration Web Service for that tenant.
 
 ## Basic setup
 

@@ -64,7 +64,7 @@ or if you use dep, within your repo run:
 dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision
 ```
 
-### Create a Go application
+### Create a Go application 
 
 Next, create a file in the **src** directory named `sample-app.go`:
 
@@ -82,6 +82,9 @@ Also, declare a context at the root of your script. You'll need this object to e
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_context)]
 
 Next, you'll begin adding code to carry out different Computer Vision operations.
+
+> [!div class="nextstepaction"]
+> [I set up the client](?success=set-up-client#object-model) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=set-up-client)
 
 ## Object model
 
@@ -110,6 +113,9 @@ These code snippets show you how to do the following tasks with the Computer Vis
 Create a `main` function and add the following code to it to instantiate a client with your endpoint and key.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
+
+> [!div class="nextstepaction"]
+> [I authenticated the client](?success=authenticate-client#analyze-an-image) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## Analyze an image
 
@@ -202,6 +208,9 @@ The following function prints information about the type of image&mdash;whether 
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
 
+> [!div class="nextstepaction"]
+> [I analyzed an image](?success=analyze-image#read-printed-and-handwritten-text) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## Read printed and handwritten text
 
 Computer Vision can read visible text in an image and convert it to a character stream. The code in this section defines a function, `RecognizeTextReadAPIRemoteImage`, which uses the client object to detect and extract printed or handwritten text in the image.
@@ -231,6 +240,9 @@ Add the following code to parse and display the retrieved text data, and finish 
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
 
+> [!div class="nextstepaction"]
+> [I read text](?success=read-printed-handwritten-text#run-the-application) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## Run the application
 
 Run the application from your application directory with the `go run` command.
@@ -239,6 +251,9 @@ Run the application from your application directory with the `go run` command.
 go run sample-app.go
 ```
 
+> [!div class="nextstepaction"]
+> [I ran the application](?success=run-the-application#clean-up-resources) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## Clean up resources
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
@@ -246,10 +261,14 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [I cleaned up resources](?success=clean-up-resources#next-steps) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Computer Vision API reference (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
+
 
 * [What is Computer Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

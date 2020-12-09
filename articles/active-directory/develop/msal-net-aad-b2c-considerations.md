@@ -164,7 +164,7 @@ We'll provide an update to this [issue](https://github.com/AzureAD/microsoft-aut
 
 ### Known issue with Azure AD B2C
 
-MSAL.NET supports a [token cache](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). The token caching key is based on the claims returned by the identity provider (IdP).
+MSAL.NET supports a [token cache](/dotnet/api/microsoft.identity.client.tokencache). The token caching key is based on the claims returned by the identity provider (IdP).
 
 Currently, MSAL.NET needs two claims to build a token cache key:
 

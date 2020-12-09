@@ -16,7 +16,7 @@ ms.date: 11/14/2019
 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*Virtual network rules* are a firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-paas-overview.md) or for your databases in [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your database in SQL Database and Azure Synapse Analytics.
+*Virtual network rules* are a firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-paas-overview.md) or for your databases in [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your database in SQL Database and Azure Synapse Analytics.
 
 > [!NOTE]
 > This article applies to both SQL Database and Azure Synapse Analytics. For simplicity, the term *database* refers to both databases in SQL Database and Azure Synapse Analytics. Likewise, any references to *server* refer to the [logical SQL server](logical-servers.md) that hosts SQL Database and Azure Synapse Analytics.
@@ -47,8 +47,8 @@ Each virtual network rule applies to your whole server, not just to one particul
 
 There's a separation of security roles in the administration of virtual network service endpoints. Action is required from each of the following roles:
 
-- **Network Admin**: Turn on the endpoint.
-- **Database Admin**: Update the access control list (ACL) to add the given subnet to the server.
+- **Network Admin ([Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor) role):** &nbsp;Turn on the endpoint.
+- **Database Admin ([SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role):** &nbsp;Update the access control list (ACL) to add the given subnet to the server.
 
 #### Azure RBAC alternative
 
@@ -85,8 +85,8 @@ When you use service endpoints for SQL Database, review the following considerat
 
 ### ExpressRoute
 
-If you use [ExpressRoute](../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) from your premises, for public peering or Microsoft peering, you will need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP addresses that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. Learn more about [NAT for ExpressRoute public and Microsoft peering.](../../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
-  
+If you use [ExpressRoute](../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) from your premises, for public peering or Microsoft peering, you'll need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP addresses that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. Learn more about [NAT for ExpressRoute public and Microsoft peering](../../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
+
 To allow communication from your circuit to SQL Database, you must create IP network rules for the public IP addresses of your NAT.
 
 <!--
@@ -98,14 +98,14 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 Azure Storage has implemented the same feature that allows you to limit connectivity to your Azure Storage account. If you choose to use this feature with an Azure Storage account that's being used by SQL Database, you can run into issues. Next is a list and discussion of SQL Database and Azure Synapse Analytics features that are affected by this.
 
-### Azure Synapse PolyBase and COPY statement
+### Azure Synapse Analytics PolyBase and COPY statement
 
 PolyBase and the COPY statement are commonly used to load data into Azure Synapse Analytics from Azure Storage accounts for high throughput data ingestion. If the Azure Storage account that you're loading data from limits accesses only to a set of virtual network subnets, connectivity when you use PolyBase and the COPY statement to the storage account will break. For enabling import and export scenarios by using COPY and PolyBase with Azure Synapse Analytics connecting to Azure Storage that's secured to a virtual network, follow the steps in this section.
 
 #### Prerequisites
 
 - Install Azure PowerShell by using [this guide](/powershell/azure/install-az-ps).
-- If you have a general-purpose v1 or Azure Blob Storage account, you must first upgrade to general-purpose v2 by using [this guide](../../storage/common/storage-account-upgrade.md).
+- If you have a general-purpose v1 or Azure Blob Storage account, you must first upgrade to general-purpose v2 by following the steps in [Upgrade to a general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md).
 - You must have **Allow trusted Microsoft services to access this storage account** turned on under the Azure Storage account **Firewalls and Virtual networks** settings menu. Enabling this configuration will allow PolyBase and the COPY statement to connect to the storage account by using strong authentication where network traffic remains on the Azure backbone. For more information, see [this guide](../../storage/common/storage-network-security.md#exceptions).
 
 > [!IMPORTANT]
@@ -113,7 +113,7 @@ PolyBase and the COPY statement are commonly used to load data into Azure Synaps
 
 #### Steps
 
-1. In PowerShell, register your server hosting Azure Synapse Analytics with Azure AD.
+1. If you have a standalone dedicated SQL pool, register your SQL server with Azure AD by using PowerShell:
 
    ```powershell
    Connect-AzAccount
@@ -121,17 +121,25 @@ PolyBase and the COPY statement are commonly used to load data into Azure Synaps
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-1. Create a general-purpose v2 storage account by using [this guide](../../storage/common/storage-account-create.md).
+   This step isn't required for dedicated SQL pools within an Azure Synapse Analytics workspace.
+
+1. If you have an Azure Synapse Analytics workspace, register your workspace's system-managed identity:
+
+   1. Go to your Azure Synapse Analytics workspace in the Azure portal.
+   2. Go to the **Managed identities** pane.
+   3. Make sure the **Allow Pipelines** option is enabled.
+   
+1. Create a **general-purpose v2 Storage Account** by following the steps in [Create a storage account](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
    >
-   > - If you have a general-purpose v1 or Blob Storage account, you must *first upgrade to v2* by using [this guide](../../storage/common/storage-account-upgrade.md).
-   > - For known issues with Azure Data Lake Storage Gen2, see [this guide](../../storage/blobs/data-lake-storage-known-issues.md).
+   > - If you have a general-purpose v1 or Blob Storage account, you must *first upgrade to v2* by following the steps in [Upgrade to a general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md).
+   > - For known issues with Azure Data Lake Storage Gen2, see [Known issues with Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Under your storage account, go to **Access Control (IAM)**, and select **Add role assignment**. Assign the **Storage Blob Data Contributor** Azure role to the server hosting your Azure Synapse Analytics instance, which you've registered with Azure AD as in step 1.
+1. Under your storage account, go to **Access Control (IAM)**, and select **Add role assignment**. Assign the **Storage Blob Data Contributor** Azure role to the server or workspace hosting your dedicated SQL pool, which you've registered with Azure AD.
 
    > [!NOTE]
-   > Only members with Owner privilege on the storage account can perform this step. For various Azure built-in roles, see [this guide](../../role-based-access-control/built-in-roles.md).
+   > Only members with Owner privilege on the storage account can perform this step. For various Azure built-in roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
   
 1. To enable PolyBase connectivity to the Azure Storage account:
 
@@ -161,7 +169,7 @@ PolyBase and the COPY statement are commonly used to load data into Azure Synaps
        > [!NOTE]
        >
        > - If you already have external tables associated with a general-purpose v1 or Blob Storage account, you should first drop those external tables. Then drop the corresponding external data source. Next, create an external data source with the `abfss://` scheme that connects to a general-purpose v2 storage account, as previously shown. Then re-create all the external tables by using this new external data source. You could use the [Generate and Publish Scripts Wizard](/sql/ssms/scripting/generate-and-publish-scripts-wizard) to generate create-scripts for all the external tables for ease.
-       > - For more information on the `abfss://` scheme, see [this guide](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
+       > - For more information on the `abfss://` scheme, see [Use the Azure Data Lake Storage Gen2 URI](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
        > - For more information on CREATE EXTERNAL DATA SOURCE, see [this guide](/sql/t-sql/statements/create-external-data-source-transact-sql).
 
    1. Query as normal by using [external tables](/sql/t-sql/statements/create-external-table-transact-sql).

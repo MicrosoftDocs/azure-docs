@@ -3,7 +3,7 @@ title: Windows Virtual Desktop troubleshooting overview - Azure
 description: An overview for troubleshooting issues while setting up a Windows Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/05/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -39,7 +39,7 @@ Use the following table to identify and resolve issues you may encounter when se
 | Connecting clients                                                                    | See [Windows Virtual Desktop service connections](troubleshoot-service-connection.md) and if that doesn't solve your issue, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md). |
 | Responsiveness of remote applications or desktop                                      | If issues are tied to a specific application or product, contact the team responsible for that product. |
 | Licensing messages or errors                                                          | If issues are tied to a specific application or product, contact the team responsible for that product. |
-| Issues with third-party authentication methods | Verify that your third-party provider supports Windows Virtual Desktop scenarios and approach them regarding any known issues. |
+| Issues with third-party authentication methods or tools | Verify that your third-party provider supports Windows Virtual Desktop scenarios and approach them regarding any known issues. |
 | Issues using Log Analytics for Windows Virtual Desktop | For issues with the diagnostics schema, [open an Azure support request](https://azure.microsoft.com/support/create-ticket/).<br><br>For queries, visualization, or other issues in Log Analytics, select the appropriate problem type under Log Analytics. |
 | Issues using M365 apps | Contact the M365 admin center with one of the [M365 admin center help options](/microsoft-365/admin/contact-support-for-business-products/). |
 

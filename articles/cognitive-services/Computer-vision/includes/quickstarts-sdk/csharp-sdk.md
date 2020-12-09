@@ -11,7 +11,7 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ---
-
+ 
 <a name="HOLTop"></a>
 
 Use the Computer Vision client library to:
@@ -100,6 +100,9 @@ In the application's `Main` method, add calls for the methods used in this quick
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
 
+> [!div class="nextstepaction"]
+> [I set up the client](?success=set-up-client#object-model) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+
 ## Object model
 
 The following classes and interfaces handle some of the major features of the Computer Vision .NET SDK.
@@ -127,7 +130,8 @@ In a new method, instantiate a client with your endpoint and key. Create a **[Ap
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
-
+> [!div class="nextstepaction"]
+> [I authenticated the client](?success=authenticate-client#analyze-an-image) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## Analyze an image
 
@@ -228,6 +232,9 @@ The following code prints information about the type of image&mdash;whether it i
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_type)]
 
+> [!div class="nextstepaction"]
+> [I analyzed an image](?success=analyze-image#read-printed-and-handwritten-text) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## Read printed and handwritten text
 
 Computer Vision can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR)](../../concept-recognizing-text.md#read-api) conceptual doc. The code in this section uses the latest [Computer Vision SDK release for Read 3.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1) and defines a method, `BatchReadFileUrl`, which uses the client object to detect and extract text in the image.
@@ -259,6 +266,9 @@ Add the following code to parse and display the retrieved text data, and finish 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_display)]
 
+> [!div class="nextstepaction"]
+> [I read text](?success=read-printed-handwritten-text#run-the-application) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## Run the application
 
 #### [Visual Studio IDE](#tab/visual-studio)
@@ -274,6 +284,8 @@ dotnet run
 ```
 
 ---
+> [!div class="nextstepaction"]
+> [I ran the application](?success=run-the-application#clean-up-resources) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=run-the-application)
 
 ## Clean up resources
 
@@ -282,10 +294,14 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [I cleaned up resources](?success=clean-up-resources#next-steps) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=clean-up-resources) 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
 >[Computer Vision API reference (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
+
 
 * [What is Computer Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/28/2020
+ms.date: 12/08/2020
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory
@@ -372,7 +372,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
 | type                     | The **type** property under `storeSettings` must be set to **AzureBlobStorageReadSettings**. | Yes                                           |
 | ***Locate the files to copy:*** |  |  |
 | OPTION 1: static path<br> | Copy from the given container or folder/file path specified in the dataset. If you want to copy all blobs from a container or folder, additionally specify `wildcardFileName` as `*`. |  |
-| OPTION 2: blob prefix<br>- prefix | Prefix for the blob name under the given container configured in a dataset to filter source blobs. Blobs whose names start with `container_in_dataset/this_prefix` are selected. It utilizes the service-side filter for Blob storage, which provides better performance than a wildcard filter. | No                                                          |
+| OPTION 2: blob prefix<br>- prefix | Prefix for the blob name under the given container configured in a dataset to filter source blobs. Blobs whose names start with `container_in_dataset/this_prefix` are selected. It utilizes the service-side filter for Blob storage, which provides better performance than a wildcard filter.<br><br>When you use prefix and choose to copy to file-based sink with preserving hierarchy, note the sub-path after the last "/" in prefix will be preserved. For example, you have source  `container/folder/subfolder/file.txt`, and configure prefix as `folder/sub`, then the preserved file path is `subfolder/file.txt`. | No                                                          |
 | OPTION 3: wildcard<br>- wildcardFolderPath | The folder path with wildcard characters under the given container configured in a dataset to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your folder name has wildcard or this escape character inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
 | OPTION 3: wildcard<br>- wildcardFileName | The file name with wildcard characters under the given container and folder path (or wildcard folder path) to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your folder name has a wildcard or this escape character inside. See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
 | OPTION 4: a list of files<br>- fileListPath | Indicates to copy a given file set. Point to a text file that includes a list of files you want to copy, one file per line, which is the relative path to the path configured in the dataset.<br/>When you're using this option, do not specify a file name in the dataset. See more examples in [File list examples](#file-list-examples). |No |
