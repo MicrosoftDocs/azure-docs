@@ -22,7 +22,7 @@
   - name: Use browser
     href: luis-get-started-get-intent-from-browser.md
   - name: Use the client libraries and REST API
-    href: azure-sdk-quickstart.md
+    href: client-libraries-rest-api.md
 - name: Tutorials
   items:
   - name: Build decomposable app

@@ -1923,27 +1923,32 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/quickstart-sdk.md",
-      "redirect_url": "/azure/cognitive-services/luis/azure-sdk-quickstart",
+      "redirect_url": "/azure/cognitive-services/luis/client-libraries-rest-api",
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/azure-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api?pivots=rest-api",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-rest-get-intent.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/azure-sdk-quickstart?pivots=rest-api",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api?pivots=rest-api",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-rest-get-model.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/azure-sdk-quickstart?pivots=rest-api",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api?pivots=rest-api",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/LUIS/sdk-authoring.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/azure-sdk-quickstart",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/LUIS/sdk-query-prediction-endpoint.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/azure-sdk-quickstart",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api",
       "redirect_document_id": false
     },
     {
