@@ -37,7 +37,7 @@ See [Install tools](./install-client-tools.md).
 
 ## Register the resource provider
 
-Prior to uploading metrics or user data to Azure, you need to ensure that your Azure subscription has the `Microsoft.AzureData` resource provider registered.
+Prior to uploading metrics or user data to Azure, you need to ensure that your Azure subscription has the `Microsoft.AzureArcData` resource provider registered.
 
 To verify the resource provider, run the following command:
 
