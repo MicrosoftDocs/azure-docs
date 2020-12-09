@@ -24,10 +24,6 @@ Private cluster is available in public regions, Azure Government, and Azure Chin
 
 * The Azure CLI version 2.2.0 or later
 
-No PrivateDNSZone
-* The Azure CLI version 0.4.67 or later
-* The api version 2020-11-01 or later
-
 ## Create a private AKS cluster
 
 ### Create a resource group
@@ -65,6 +61,13 @@ Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 > If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address appropriately.
 
 ### No PrivateDNSZone
+
+## Prerequisites
+No PrivateDNSZone
+* The Azure CLI version 0.4.67 or later
+* The api version 2020-11-01 or later
+
+## Create a private AKS cluster
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system]
@@ -129,8 +132,6 @@ As mentioned, virtual network peering is one way to access your private cluster.
 No PrivateDNSZone
 * Because hosts file changes won't take effect until hostNetwork Pods and default-DNSPolicy Pods are restarted, even after customers have updated the A record on their own DNS servers, those Pods would still resolve apiserver FQDN to older IP after migration until they're restarted.
 * Hence, customers need to restart hostNetwork Pods and default-DNSPolicy Pods after CCP migration.
-* The hosts file changes are only for clusters without PrivateDNSZone and Pods connecting to apiserver FQDN, hence the requirements from customer operations should be OK since this would happen rarely.
-
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
