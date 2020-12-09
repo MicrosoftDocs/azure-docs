@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/18/2019
+ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
@@ -28,21 +28,6 @@ When an Azure AD security principal attempts to access blob data, that security 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
 To learn more about how to authenticate with the Azure Identity client library from Azure Storage, see the section titled **Authenticate with the Azure Identity library** in [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
-
-## Add using directives
-
-Add the following `using` directives to your code to use the Azure Identity and Azure Storage client libraries.
-
-```csharp
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using Azure;
-using Azure.Identity;
-using Azure.Storage.Sas;
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
-```
 
 ## Get an authenticated token credential
 
@@ -119,7 +104,7 @@ UriBuilder fullUri = new UriBuilder()
 };
 ```
 
-## Example: Get a user delegation SAS
+## Example: Get a user delegation SAS for a blob
 
 The following example method shows the complete code for authenticating the security principal and creating the user delegation SAS:
 
@@ -228,6 +213,11 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
     }
 }
 ```
+
+## Example: Get a user delegation SAS for a container
+
+
+
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
