@@ -89,7 +89,7 @@ When using service endpoints for Azure SQL Database, review the following consid
 ### ExpressRoute
 
 If you are using [ExpressRoute](../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) from your premises, for public peering or Microsoft peering, you will need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP address(es) that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. Learn more about [NAT for ExpressRoute public and Microsoft peering.](../../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
-  
+
 To allow communication from your circuit to Azure SQL Database, you must create IP network rules for the public IP addresses of your NAT.
 
 <!--
@@ -116,7 +116,7 @@ PolyBase and the COPY statement is commonly used to load data into Azure Synapse
 
 #### Steps
 
-1. In PowerShell, **register your server** hosting Azure Synapse with Azure Active Directory (AAD):
+1. If you have a standalone dedicated SQL pool, register your SQL server with Azure Active Directory (AAD) using PowerShell: 
 
    ```powershell
    Connect-AzAccount
@@ -124,6 +124,14 @@ PolyBase and the COPY statement is commonly used to load data into Azure Synapse
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
+   This step is not required for dedicated SQL pools within a Synapse workspace.
+
+1. If you have a Synapse workspace, register your workspace's system-managed identity:
+
+   1. Go to your Synapse workspace in the Azure portal
+   2. Go to the Managed identities blade 
+   3. Make sure the "Allow Pipelines" option is enabled
+   
 1. Create a **general-purpose v2 Storage Account** using this [guide](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
@@ -131,7 +139,7 @@ PolyBase and the COPY statement is commonly used to load data into Azure Synapse
    > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](../../storage/common/storage-account-upgrade.md).
    > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** Azure role to the server hosting your Azure Synapse Analytics which you've registered with Azure Active Directory (AAD) as in step #1.
+1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** Azure role to the server or workspace hosting your dedicated SQL pool which you've registered with Azure Active Directory (AAD).
 
    > [!NOTE]
    > Only members with Owner privilege  on the storage account can perform this step. For various Azure built-in roles, refer to this [guide](../../role-based-access-control/built-in-roles.md).
