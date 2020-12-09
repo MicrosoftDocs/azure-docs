@@ -1,7 +1,7 @@
 ---
 title: Migrate from v2 to v3 REST API - Speech service
 titleSuffix: Azure Cognitive Services
-description: Compared to v2, the new API version v3 contains a set of smaller breaking changes. This document will help migrating to the new major version in no time.
+description: This document helps developers migrate code from v2 to v3 of in the Speech services speech-to-text REST API.
 services: cognitive-services
 author: bexxx
 manager: nitinme
@@ -13,33 +13,29 @@ ms.author: rbeckers
 ms.custom: devx-track-csharp
 ---
 
-# Migration from v2.0 to v3.0 of speech to text REST API
+# Migrate code from v2.0 to v3.0 of the REST API
 
-The v3 version of the speech REST API improves over the previous API version in respect to reliability and ease of use. The API layout aligns more closely with other Azure or Cognitive Services APIs. This helps you applying your existing skills when using our speech API.
-
-The API overview is available as a [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). This is ideal to give you an API overview and test the new API.
-
-We're providing samples for C# and Python. For batch transcriptions you will find the samples in the [GitHub sample repository](https://aka.ms/csspeech/samples) inside the `samples/batch` subdirectory.
+Compared to v2, the v3 version of the Speech services REST API for speech-to-text is more reliable, easier to use, and more consistent with APIs for similar services. Most teams can migrate from v2 to v3 in a day or two.
 
 ## Forward compatibility
 
-To ensure a smooth migration to v3, all entities from v2 can be also found in the v3 API under the same identity. If there is a result schema change (for example, transcriptions), the responses for a GET in v3 version of the API will be in the v3 schema. If you perform the GET in v2 version of the API, the result schema will be in the v2 format. Newly created entities on v3 **are not** available on v2.
+All entities from v2 can be also found in the v3 API under the same identity. Where the schema of a result has changed, (for example, transcriptions), the result of a GET in the v3 version of the API uses the v3 schema. The result of a GET in the v2 version of the API uses the same v2 schema. Newly created entities on v3 are **not** available in results from v2 APIs.
 
 ## Breaking changes
 
-The list of breaking changes has been sorted by the magnitude of changes required to adapt. There are only a few changes that require a non-trivial change in the calling code. Most changes require simple renames. The time it took for teams to migrate from v2 to v3 varied between a couple of hours to a couple of days. However, the benefits of increased stability, simpler code, faster responses quickly offset the investment. 
+The list of breaking changes has been sorted by the magnitude of changes required to adapt. Only a few changes require non-trivial changes in the calling code. Most changes just require a change to item names.
 
 ### Host name changes
 
-The host names have changed from {region}.cris.ai to {region}.api.cognitive.microsoft.com. In this change, the paths do no longer contain "api/" because it's part of the hostname. See the [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) for a full description of regions and paths.
+Endpoint host names have changed from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com`. Paths to the new endpoints no longer contain `api/` because it's part of the hostname. The [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) lists valid regions and paths.
 
 ### Identity of an entity
 
-The property `id` was replaced with `self`. In v2, an API user had to know how our paths on the API are being created. This was non-extensible and required unnecessary work from the user. The property `id` (uuid) is replaced by `self` (string), which is location of the entity (URL). The value is still unique between all your entities. If `id` is stored as a string in your code, a simple rename is enough to support the new schema. You can now use the `self` content as URL for all your REST calls for your entity (GET, PATCH, DELETE).
+The property `id` is now `self`. In v2, an API user had to know how our paths on the API are being created. This was non-extensible and required unnecessary work from the user. The property `id` (uuid) is replaced by `self` (string), which is location of the entity (URL). The value is still unique between all your entities. If `id` is stored as a string in your code, a rename is enough to support the new schema. You can now use the `self` content as the URL for the `GET`, `PATCH`, and `DELETE` REST calls for your entity.
 
-If the entity has additional functionality available under other paths, they are listed under `links`. A good example is a transcription, which has a separate method to `GET` the content of the transcription.
+If the entity has additional functionality available through other paths, they are listed under `links`. The following example for transcription shows a separate method to `GET` the content of the transcription:
 
-v2 transcription:
+**v2 transcription:**
 
 ```json
 {
@@ -52,7 +48,7 @@ v2 transcription:
 }
 ```
 
-v3 transcription:
+**v3 transcription:**
 
 ```json
 {
@@ -68,11 +64,11 @@ v3 transcription:
 }
 ```
 
-Depending on your client implementation, it may not be enough to rename the property. We recommend to take advantage of using the returned values of `self` and `links` as the target urls of your rest calls, and not to generate the paths in your client. By using the returned URLs, you can be sure that future changes in paths will not break your client code.
+Depending on your code's implementation, it may not be enough to rename the property. We recommend using the returned `self` and `links` values as the target urls of your REST calls, rather than generating paths in your client. By using the returned URLs, you can be sure that future changes in paths will not break your client code.
 
 ### Working with collections of entities
 
-Previously the v2 API returned all available entities in a response. To allow a more fine grained control over the expected response size, in v3 all responses of collections are paginated. You have control over the count of returned entities and the offset of the page. This behavior makes it easy to predict the runtime of the response processor and it's consistent with other Azure APIs.
+Previously the v2 API returned all available entities in a result. To allow a more fine grained control over the expected response size in v3, all collection results are paginated. You have control over the count of returned entities and the starting offset of the page. This behavior makes it easy to predict the runtime of the response processor.
 
 The basic shape of the response is the same for all collections:
 
@@ -86,20 +82,20 @@ The basic shape of the response is the same for all collections:
 }
 ```
 
-The property `values` contains a subset of the available collection entities. The count and offset can be controlled by using the query parameters `skip` and `top`. When `@nextLink` is not null, there's more data available and the next batch of data can be retrieved by doing a GET on `$.@nextLink`.
+The `values` property contains a subset of the available collection entities. The count and offset can be controlled using the `skip` and `top` query parameters. When `@nextLink` is not `null`, there's more data available and the next batch of data can be retrieved by doing a GET on `$.@nextLink`.
 
 This change requires calling the `GET` for the collection in a loop until all elements have been returned.
 
 ### Creating transcriptions
 
-A detailed description on how to create transcription can be found in [Batch transcription How-to](./batch-transcription.md).
+A detailed description on how to create batches of transcriptions can be found in [Batch transcription How-to](./batch-transcription.md).
 
-The creation of transcriptions has been changed in v3 to enable setting specific transcription options explicitly. All (optional) configuration properties can now be set in the `properties` property.
-Also version v3 now supports multiple input files and therefore requires a list of URLs and not a single URL as required by v2. The property name was renamed from `recordingsUrl` to `contentUrls`. The functionality of analyzing sentiment in transcriptions has been removed on v3. We recommend to use the Microsoft Cognitive Service [Text Analysis](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) instead.
+The v3 transcription API lets you set specific transcription options explicitly. All (optional) configuration properties can now be set in the `properties` property.
+Version v3 also supports multiple input files, so it requires a list of URLs rather than a single URL as v2 did. The v2 property name `recordingsUrl` is now `contentUrls` in v3. The functionality of analyzing sentiment in transcriptions has been removed in v3. See Microsoft Cognitive Service [Text Analysis](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) for sentiment analysis options.
 
-The new property `timeToLive` under `properties` can help to prune the existing completed entities. The `timeToLive` specifies a duration after which a completed entity will be automatically deleted. Set it to a high value (for example `PT12H`) when the entities are continuously tracked, consumed, and deleted and therefore usually processed long before 12 hours passed.
+The new property `timeToLive` under `properties` can help prune the existing completed entities. The `timeToLive` specifies a duration after which a completed entity will be deleted automatically. Set it to a high value (for example `PT12H`) when the entities are continuously tracked, consumed, and deleted and therefore usually processed long before 12 hours have passed.
 
-v2 transcription POST request body:
+**v2 transcription POST request body:**
 
 ```json
 {
@@ -115,7 +111,7 @@ v2 transcription POST request body:
 }
 ```
 
-v3 transcription POST request body:
+**v3 transcription POST request body:**
 
 ```json
 {
@@ -136,9 +132,9 @@ v3 transcription POST request body:
 
 ### Format of v3 transcription results
 
-The schema of transcription results has been slightly changed to align with the transcriptions created by real-time endpoints. An in-depth description of the new format can be found in the [Batch transcription How-to](./batch-transcription.md). The schema of the result is published in our [GitHub sample repository](https://aka.ms/csspeech/samples) under `samples/batch/transcriptionresult_v3.schema.json`.
+The schema of transcription results has changed slightly to align with transcriptions created by real-time endpoints. Find an in-depth description of the new format in the [Batch transcription How-to](./batch-transcription.md). The schema of the result is published in our [GitHub sample repository](https://aka.ms/csspeech/samples) under `samples/batch/transcriptionresult_v3.schema.json`.
 
-The property names are now camel-cased and the values for channel and speaker are using integer types. To align the format of durations with other Azure APIs, it is now in formatted as described in ISO 8601.
+Property names are now camel-cased and the values for `channel` and `speaker` now use integer types. Format for durations now use the structure described in ISO 8601, which matches duration formatting used in other Azure APIs.
 
 Sample of a v3 transcription result. The differences are described in the comments.
 
@@ -203,12 +199,12 @@ Sample of a v3 transcription result. The differences are described in the commen
 
 ### Getting the content of entities and the results
 
-In v2, the links to the input or result files have been inlined with the rest of the entity metadata. As an improvement in v3, there is a clear separation between entity metadata, which is returned by a GET on `$.self` and the details and credentials to access the result files. This separation helps protecting customer data and allows fine control over the duration of validity of the credentials.
+In v2, the links to the input or result files have been inlined with the rest of the entity metadata. As an improvement in v3, there is a clear separation between entity metadata (which is returned by a GET on `$.self`) and the details and credentials to access the result files. This separation helps protect customer data and allows fine control over the duration of validity of the credentials.
 
-In v3, there is a property called `files` under links in case the entity exposes data (datasets, transcriptions, endpoints, evaluations). A GET on `$.links.files` will return a list of files and SAS URL
+In v3, `links` include a sub-property called `files` in case the entity exposes data (datasets, transcriptions, endpoints, or evaluations). A GET on `$.links.files` will return a list of files and a SAS URL
 to access the content of each file. To control the validity duration of the SAS URLs, the query parameter `sasValidityInSeconds` can be used to specify the lifetime.
 
-v2 transcription:
+**v2 transcription:**
 
 ```json
 {
@@ -222,7 +218,7 @@ v2 transcription:
 }
 ```
 
-v3 transcription:
+**v3 transcription:**
 
 ```json
 {
@@ -233,7 +229,7 @@ v3 transcription:
 }
 ```
 
-Then a GET on `$.links.files` would result in:
+**A GET on `$.links.files` would result in:**
 
 ```json
 {
@@ -267,28 +263,28 @@ Then a GET on `$.links.files` would result in:
 }
 ```
 
-The `kind` indicates the format of content of the file. For transcriptions, the files of kind `TranscriptionReport` are the summary of the job and files of the kind `Transcription` are the result of the job itself.
+The `kind` property indicates the format of content of the file. For transcriptions, the files of kind `TranscriptionReport` are the summary of the job and files of the kind `Transcription` are the result of the job itself.
 
 ### Customizing models
 
-Before v3, there was a distinction between an "Acoustic model" and a "Language model" when a model was being trained. This distinction resulted in the need to specify multiple models when creating endpoints or transcriptions. To simplify this process for a caller, we removed the differences and made all dependent on the content of the datasets that are being used for model training. With this change, the model creation now supports mixed datasets (language data and acoustic data). Endpoints and transcriptions now require only one model only.
+Before v3, there was a distinction between an _acoustic model_ and a _language model_ when a model was being trained. This distinction resulted in the need to specify multiple models when creating endpoints or transcriptions. To simplify this process for a caller, we removed the differences and made everything depend on the content of the datasets that are being used for model training. With this change, the model creation now supports mixed datasets (language data and acoustic data). Endpoints and transcriptions now require only one model.
 
-With this change, the need for a `kind` in the POST has been removed and the `datasets[]` can now contain multiple datasets of the same or mixed kinds.
+With this change, the need for a `kind` in the `POST` operation has been removed and the `datasets[]` array can now contain multiple datasets of the same or mixed kinds.
 
-To improve the results of a trained model, the acoustic data is automatically used internally for the language training. In general, models created through the v3 API deliver more accurate results than models created with the v2 API.
+To improve the results of a trained model, the acoustic data is automatically used internally during language training. In general, models created through the v3 API deliver more accurate results than models created with the v2 API.
 
 ### Retrieving base and custom models
 
-In order to simplify getting the available models, v3 has separated the collections of "base models" from the customer owned "customized models". The two routes are now
+To simplify getting the available models, v3 has separated the collections of "base models" from the customer owned "customized models". The two routes are now
 `GET /speechtotext/v3.0/models/base` and `GET /speechtotext/v3.0/models/`.
 
-Previously all models have been returned together in a single response.
+In v2, all models were returned together in a single response.
 
 ### Name of an entity
 
-The name of the property `name` is renamed to `displayName`. This is aligned to other Azure APIs to not indicate identity properties. The value of this property must not be unique and can be changed after entity creation with a `PATCH`.
+The `name` property is now `displayName`. This is consistent with other Azure APIs to not indicate identity properties. The value of this property must not be unique and can be changed after entity creation with a `PATCH` operation.
 
-v2 transcription:
+**v2 transcription:**
 
 ```json
 {
@@ -296,7 +292,7 @@ v2 transcription:
 }
 ```
 
-v3 transcription:
+**v3 transcription:**
 
 ```json
 {
@@ -306,9 +302,9 @@ v3 transcription:
 
 ### Accessing referenced entities
 
-In v2 referenced entities have always been inlined, for example the used models of an endpoint. The nesting of entities resulted in large responses and consumers rarely consumed the nested content. To shrink the response size and improve performance for all API users, the referenced entities are no longer inlined in the response. Instead a reference to the other entity is being used, which can directly be used. This reference can be used for a subsequent `GET` (it's a URL as well), following the same pattern as the `self` link.
+In v2, referenced entities were always inlined, for example the used models of an endpoint. The nesting of entities resulted in large responses and consumers rarely consumed the nested content. To shrink the response size and improve performance, the referenced entities are no longer inlined in the response. Instead, a reference to the other entity appears, and can directly be used for a subsequent `GET` (it's a URL as well), following the same pattern as the `self` link.
 
-v2 transcription:
+**v2 transcription:**
 
 ```json
 {
@@ -332,7 +328,6 @@ v2 transcription:
           "createdDateTime": "2019-01-07T11:34:12Z",
           "locale": "en-US",
           "name": "Language dataset",
-          
         }
       ]
     },
@@ -340,7 +335,7 @@ v2 transcription:
 }
 ```
 
-v3 transcription:
+**v3 transcription:**
 
 ```json
 {
@@ -351,13 +346,13 @@ v3 transcription:
 }
 ```
 
-In case you need to consume the details of a referenced model as shown in the above example, simplify issue a GET on `$.model.self`.
+If you need to consume the details of a referenced model as shown in the above example, just issue a GET on `$.model.self`.
 
 ### Retrieving endpoint logs
 
-Version v2 of the service supported logging the responses of endpoints. To retrieve the results of an endpoint with v2, one had to create a "data export", which represented a snapshot of the results defined by a time range. The process of exporting batches of data has become inflexible. The v3 API gives access to each individual file and allows iteration through them.
+Version v2 of the service supported logging endpoint results. To retrieve the results of an endpoint with v2, you would create a "data export", which represented a snapshot of the results defined by a time range. The process of exporting batches of data was inflexible. The v3 API gives access to each individual file and allows iteration through them.
 
-A successfully running v3 endpoint:
+**A successfully running v3 endpoint:**
 
 ```json
 {
@@ -368,7 +363,7 @@ A successfully running v3 endpoint:
 }
 ```
 
-Response of GET `$.links.logs`:
+**Response of GET `$.links.logs`:**
 
 ```json
 {
@@ -390,15 +385,15 @@ Response of GET `$.links.logs`:
 }
 ```
 
-Pagination for endpoint logs works similar to all other collections, except that no offset can be specified. Due to the large amount of available data, server driven pagination had to be implemented.
+Pagination for endpoint logs works similar to all other collections, except that no offset can be specified. Due to the large amount of available data, pagination is determined by the server.
 
-In v3, each endpoint log can be deleted individually by issuing a DELETE on the `self` of a file, or by using DELETE on `$.links.logs`. To specify an end data, the query parameter `endDate` can be added to the request.
+In v3, each endpoint log can be deleted individually by issuing a `DELETE` operation on the `self` of a file, or by using `DELETE` on `$.links.logs`. To specify an end date, the query parameter `endDate` can be added to the request.
 
-### Using "custom" properties
+### Using custom properties
 
-To separate custom properties from the optional configuration properties, all explicitly named properties are now located in the `properties` property and all properties defined the callers are now located in the `customProperties` property.
+To separate custom properties from the optional configuration properties, all explicitly named properties are now located in the `properties` property and all properties defined by the callers are now located in the `customProperties` property.
 
-v2 transcription entity
+**v2 transcription entity:**
 
 ```json
 {
@@ -410,7 +405,7 @@ v2 transcription entity
 }
 ```
 
-v3 transcription entity
+**v3 transcription entity:**
 
 ```json
 {
@@ -424,14 +419,22 @@ v3 transcription entity
 }
 ```
 
-This change also enabled the usage of correct types on all explicitly named properties under `properties` (for example bool instead of string).
+This change also lets you use correct types on all explicitly named properties under `properties` (for example boolean instead of string).
 
 ### Response headers
 
-v3 no longer returns the header `Operation-Location` in addition to the header `Location` on POST requests. The value of both headers used to be the exact same. Now only `Location` is being returned.
+v3 no longer returns the `Operation-Location` header in addition to the `Location` header on `POST` requests. The value of both headers in v2 was the same. Now only `Location` is returned.
 
 Because the new API version is now managed by Azure API management (APIM), the throttling related headers `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset` aren't contained in the response headers.
 
 ### Accuracy tests
 
-Accuracy tests have been renamed to evaluations because the new name describes better what they represent. The news paths are for example "https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations".
+Accuracy tests have been renamed to evaluations because the new name describes better what they represent. The new paths are: `https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations`.
+
+## Next steps
+
+Examine all features of these commonly used REST APIs provided by Speech services:
+
+* [Speech-to-text REST API](rest-speech-to-text.md)
+* [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) for v3 of the REST API
+* For sample code to perform batch transcriptions, view the the [GitHub sample repository](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
