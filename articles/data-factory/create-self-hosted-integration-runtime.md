@@ -96,7 +96,7 @@ Dmgcmd.exe is included in the self-hosted installer. It's typically located in t
 
 Use the application as follows:
 
-```Powershell
+```powershell
 dmgcmd ACTION args...
 ```
 
