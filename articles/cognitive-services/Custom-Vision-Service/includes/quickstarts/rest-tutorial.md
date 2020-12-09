@@ -29,29 +29,82 @@ Use the Custom Vision client library for .NET to:
 
 ## Create a new Custom Vision project
 
-This next bit of code creates an image classification project. The created project will show up on the [Custom Vision website](https://customvision.ai/). See the [CreateProject](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__&preserve-view=true) method to specify other options when you create your project (explained in the [Build a classifier](../../getting-started-build-a-classifier.md) web portal guide).  
+You'll use a command like the following to create an image classification project. The created project will show up on the [Custom Vision website](https://customvision.ai/).
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_create)]
 
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="createproject":::
+
+Copy the command to a text editor and make the following changes:
+
+1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
+1. Change the first part of the query URL to match the endpoint that corresponds to your subscription key.
+   [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
+1. Set the `name` parameter to the name of your project.
+1. Optionally set other URL parameters to configure what type of model your project will use. See the [CreatProject method](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) for options.
+
+You'll receive a JSON response like the following. Save the `"id"` value of your project to a temporary location.
+
+```json
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": "string",
+  "description": "string",
+  "settings": {
+    "domainId": "00000000-0000-0000-0000-000000000000",
+    "classificationType": "Multiclass",
+    "targetExportPlatforms": [
+      "CoreML"
+    ],
+    "useNegativeSet": true,
+    "detectionParameters": "string",
+    "imageProcessingSettings": {
+      "augmentationMethods": {}
+    }
+  },
+  "created": "string",
+  "lastModified": "string",
+  "thumbnailUri": "string",
+  "drModeEnabled": true,
+  "status": "Succeeded"
+}
+```
 
 ## Add tags to the project
 
-This method defines the tags that you will train the model on.
+Use the following command to define the tags that you will train the model on.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_addtags)]
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="createtag":::
+
+1. Again, insert your own key and endpoint URL.
+1. Replace `{projectId}` with your own project ID.
+1. Assign `name` to the name of the tag you want to use.
+
+Repeat this process for all the tags you'd like to use in your project. If you'd like to use the example images provided, add the tags "Hemlock" and "Japanese Cherry".
+
+You'll get a JSON response like the following. Save the `"id"` value of each tag to a temporary location.
+
+```json
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": "string",
+  "description": "string",
+  "type": "Regular",
+  "imageCount": 0
+}
+```
 
 ## Upload and tag images
 
-First, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) to your local device.
+Next, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) to your local device.
 
-Then define a helper method to upload the images in this directory. You may need to edit the **GetFiles** argument to point to the location where your images are saved.
+Use the following command to upload the images and apply tags.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_loadimages)]
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="uploadimages":::
 
-Next, define a method to upload the images, applying tags according to their folder location (the images are already sorted). You can upload and tag images iteratively, or in a batch (up to 64 per batch). This code snippet contains examples of both. 
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_upload)]
-
+1. Again, insert your own key and endpoint URL.
+1. Replace `{projectId}` with your own project ID.
+1. Assign `tagIds` parameter to the ID of a tag.
+1. Then, populate the body of the request with the multipart form data of the images 
 
 ## Train the project
 
@@ -121,3 +174,4 @@ Now you've done every step of the image classification process in code. This sam
 * [What is Custom Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/CustomVision/ObjectDetection/Program.cs)
 * [SDK reference documentation](/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)
+                                                                                                                                                        
