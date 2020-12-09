@@ -96,4 +96,5 @@ landingContent:
           - text: Get started with the Group Calling hero sample
             url: samples/calling-hero-sample.md
           - text: Get started with the Chat hero sample
-            url: samples/chat-hero-sample.md 
+            url: samples/chat-hero-sample.md
+            
