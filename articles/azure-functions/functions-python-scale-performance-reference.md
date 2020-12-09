@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
 ---
-# Scale and performance in Python functions apps
+# Improve scale and performance of Python apps in Azure Functions
 
 It's important to understand how your functions perform and how that performance affects the way your function app gets scaled. This is particularly important when designing highly performant apps. The following are several factors to consider when designing, writing and configuring your functions apps.
 
