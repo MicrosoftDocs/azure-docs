@@ -9,20 +9,40 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up sign-in for multi-tenant Azure Active Directory using custom policies in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-custom-policy"
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for users using the multi-tenant endpoint for Azure Active Directory (Azure AD) by using [custom policies](custom-policy-overview.md) in Azure AD B2C. This allows users from multiple Azure AD tenants to sign in using Azure AD B2C, without you having to configure an identity provider for each tenant. However, guest members in any of these tenants **will not** be able to sign in. For that, you need to [individually configure each tenant](identity-provider-azure-ad-single-tenant-custom.md).
+::: zone-end
 
 ## Prerequisites
 
-Complete the steps in [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md).
+::: zone pivot="b2c-user-flow"
+
+* [Create a user flow](tutorial-create-user-flows.md) to enable users to sign up and sign in to your application.
+* If you haven't already done so, [add a web API application to your Azure Active Directory B2C tenant](add-web-api-application.md).
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+* Complete the steps in the [Get started with custom policies in Active Directory B2C](custom-policy-get-started.md).
+* If you haven't already done so, [add a web API application to your Azure Active Directory B2C tenant](add-web-api-application.md).
+
+::: zone-end
+
+This article shows you how to enable sign-in for users using the multi-tenant endpoint for Azure Active Directory (Azure AD). This allows users from multiple Azure AD tenants to sign in using Azure AD B2C, without you having to configure an identity provider for each tenant. However, guest members in any of these tenants **will not** be able to sign in. For that, you need to [individually configure each tenant](identity-provider-azure-ad-single-tenant.md).
+
 
 ## Register an application
 
@@ -58,6 +78,41 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
 1. For the **Token type**, select **ID**.
 1. Select the optional claims to add, `family_name` and `given_name`.
 1. Click **Add**.
+
+::: zone pivot="b2c-user-flow"
+
+## Configure Azure AD as an identity provider
+
+1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **Identity providers**, and then select **New OpenID Connect provider**.
+1. Enter a **Name**. For example, enter *Contoso Azure AD*.
+1. For **Metadata url**, enter the following URL replacing `{tenant}` with the domain name of your Azure AD tenant:
+
+    ```
+    https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
+    ```
+
+    For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
+    For example, `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
+
+1. For **Client ID**, enter the application ID that you previously recorded.
+1. For **Client secret**, enter the client secret that you previously recorded.
+1. For the **Scope**, enter the `openid profile`.
+1. Leave the default values for **Response type**, **Response mode**, and **Domain hint**.
+1. Under **Identity provider claims mapping**, select the following claims:
+
+    - **User ID**: *oid*
+    - **Display name**: *name*
+    - **Given name**: *given_name*
+    - **Surname**: *family_name*
+    - **Email**: *preferred_username*
+
+1. Select **Save**.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 ## Create a policy key
 
@@ -196,11 +251,23 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
-## Create an Azure AD B2C application
+::: zone-end
 
-Communication with Azure AD B2C occurs through an application that you register in your B2C tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
+::: zone pivot="b2c-user-flow"
 
-[!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
+## Add Azure AD identity provider to a user flow 
+
+1. In your Azure AD B2C tenant, select **User flows**.
+1. Click the user flow that you want to the Azure AD identity provider.
+1. Under the **Social identity providers**, select **Contoso Azure AD**.
+1. Select **Save**.
+1. To test your policy, select **Run user flow**.
+1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. Click **Run user flow**
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 ## Update and test the relying party file
 
@@ -225,3 +292,5 @@ To test the multi-tenant sign-in capability, perform the last two steps using th
 When working with custom policies, you might sometimes need additional information when troubleshooting a policy during its development.
 
 To help diagnose issues, you can temporarily put the policy into "developer mode" and collect logs with Azure Application Insights. Find out how in [Azure Active Directory B2C: Collecting Logs](troubleshoot-with-application-insights.md).
+
+::: zone-end
