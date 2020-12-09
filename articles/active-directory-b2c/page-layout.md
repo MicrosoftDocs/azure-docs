@@ -70,7 +70,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Added support for using policy or the QueryString parameter `pageFlavor` to select the layout (classic, oceanBlue, or slateGray).
 - Added support for saving passwords to iCloud Keychain.
 - Focus is now placed on the first error field when multiple fields have errors.
-- Focus will be placed on the first editable field on page load.
+- Focus is now placed on the first editable field when the page loads.
 - Added a new location for the claims provider selection link `bottomUnderFormClaimsProviderSelections`.
 - Removed UXStrings that are no longer used.
 
