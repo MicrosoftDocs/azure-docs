@@ -60487,7 +60487,7 @@
     },
     {
       "source_path": "articles/purview/register-scan-teradata-source.md",
-      "redirect_url": "azure/purview/manage-data-sources",
+      "redirect_url": "/azure/purview/manage-data-sources",
       "redirect_document_id": false
     }
     
