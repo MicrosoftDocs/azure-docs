@@ -59,7 +59,7 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 ### Known issues
 
 - On Azure Kubernetes Service (AKS), Kubernetes version 1.19.x is not supported.
-- On Kubernetes 1.19 containerd is not supported.
+- On Kubernetes 1.19 `containerd` is not supported.
 - The data controller resource in Azure is currently an Azure resource. Any updates such as delete is not propagated back to the kubernetes cluster.
 - Instance names can't be greater than 13 characters
 - No in-place upgrade for the Azure Arc data controller or database instances.
