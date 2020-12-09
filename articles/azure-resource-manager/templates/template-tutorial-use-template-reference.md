@@ -1,6 +1,6 @@
 ---
 title: Use template reference
-description: Use the Azure Resource Manager template reference to create a template.
+description: Use the Azure Resource Manager template (ARM template) reference to create a template.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
@@ -8,9 +8,9 @@ ms.author: jgao
 ms.custom: seodec18
 ---
 
-# Tutorial: Utilize the Resource Manager template reference
+# Tutorial: Utilize the ARM template reference
 
-Learn how to find the template schema information, and use the information to create Azure Resource Manager (ARM) templates.
+Learn how to find the template schema information, and use the information to create Azure Resource Manager templates (ARM templates).
 
 In this tutorial, you use a base template from Azure Quickstart templates. Using template reference documentation, you customize the template.
 
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Open a Quickstart template
 
