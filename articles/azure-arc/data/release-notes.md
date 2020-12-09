@@ -39,7 +39,7 @@ You can review detailed steps at [Azure resource providers and types](../../azur
 
 #### PostgreSQL
 
-- The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed. It is now of the form <servergroup name>{r, s}-_n_. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
+- The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed. It is now of the form ServergroupName{r, s}-_n_. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
     - postgres02r-0 (coordinator node)
     - postgres02s-0 (worker node)
     - postgres02s-1 (worker node)
@@ -62,10 +62,10 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 
 #### PostgreSQL
 
-- Azure Arc enabled PostgreSQL Hyperscale returns an inaccurate error message when it cannot restore to the relative point in time you indicate. For example, if you specified a point in time to restore to that is older than your backups contain, the restore will fail with an error message like:
+- Azure Arc enabled PostgreSQL Hyperscale returns an inaccurate error message when it cannot restore to the relative point in time you indicate. For example, if you specified a point in time to restore that is older than what your backups contain, the restore will fail with an error message like:
 ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}
-When this happens, restart the command after indicating a point in time that is within the range of dates for which you have backups. You will determine this range by listing your backups and looking at the dates they were taken.
-- Point in time restore is supported only across server groups. The target server of a point in time restore operation cannot be the server from which you took the backup. It has to be a different server group. However, full restore is supported on the same server group.
+When this happens, restart the command after indicating a point in time that is within the range of dates for which you have backups. You will determine this range by listing your backups and by looking at the dates at which they were taken.
+- Point in time restore is supported only across server groups. The target server of a point in time restore operation cannot be the server from which you took the backup. It has to be a different server group. However, full restore is supported to the same server group.
 - A backup-id is required when doing a full restore. By default, if you are not indicating a backup-id the latest backup will be used. This does not work in this release.
 
 ## October 2020 
