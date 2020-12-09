@@ -68,7 +68,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 **2.1.1**
 - Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.
 - Added support for using policy or the QueryString parameter `pageFlavor` to select the layout (classic, oceanBlue, or slateGray).
-- Allow using password from iOS Keychain.
+- Added support for saving passwords to iCloud Keychain.
 - Focus is now placed on the first error field when multiple fields have errors.
 - Focus will be placed on the first editable field on page load.
 - Added a new location for the claims provider selection link `bottomUnderFormClaimsProviderSelections`.
