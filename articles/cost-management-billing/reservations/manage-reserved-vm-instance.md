@@ -13,7 +13,7 @@ ms.author: banders
 
 After you buy an Azure reservation, you may need to apply the reservation to a different subscription, change who can manage the reservation, or change the scope of the reservation. You can also split a reservation into two reservations to apply some of the instances you bought to another subscription.
 
-If you bought Azure Reserved Virtual Machine Instances, you may change the optimize setting for the reservation. The reservation discount can apply to VMs in the same series or you can reserve data center capacity for a specific VM size. And, you should try to optimize reservations so that they are fully used.
+If you bought Azure Reserved Virtual Machine Instances, you can change the optimize setting for the reservation. The reservation discount can apply to VMs in the same series or you can reserve data center capacity for a specific VM size. And, you should try to optimize reservations so that they're fully used.
 
 *Permission needed to manage a reservation is separate from subscription permission.*
 
@@ -25,7 +25,7 @@ When you purchase a reservation, two objects are created: **Reservation Order** 
 
 At the time of purchase, a Reservation Order has one Reservation under it. Actions such as split, merge, partial refund, or exchange create new reservations under the **Reservation Order**.
 
-To view a Reservation Order, go to **Reservations** > select the reservation, and then click the **Reservation order ID**.
+To view a Reservation Order, go to **Reservations** > select the reservation, and then select the **Reservation order ID**.
 
 ![Example of reservation order details showing Reservation order ID ](./media/manage-reserved-vm-instance/reservation-order-details.png)
 
@@ -43,16 +43,19 @@ To update the scope of a reservation:
 4. Select **Settings** > **Configuration**.
 5. Change the scope.
 
-If you change from shared to single scope, you can only select subscriptions where you're the owner. Only subscriptions within the same billing context as the reservation, can be selected.
+If you change from shared to single scope, you can only select subscriptions where you're the owner. Only subscriptions within the same billing context as the reservation can be selected.
 
 The scope only applies to individual subscriptions with pay-as-you-go rates (offers MS-AZR-0003P or MS-AZR-0023P), Enterprise offer MS-AZR-0017P or MS-AZR-0148P, or CSP subscription types.
 
 ## Add or change users who can manage a reservation
 
-Following users can view and manage reservations
-- Users who purchase the reservation and the account administrator of the subscription used for billing the reservation get the Owner role on the reservation order and the reservation. To allow other people to view the reservation, you must add them as an **Owner** or **Reader** on the Reservation order or reservation. Adding someone to the subscription that's provided for billing the reservation, does not add them to reservation automatically.
+The following users can view and manage reservations:
 
-To perform an exchange or refund, the user must have access to the reservation order. When granting someone permissions, it’s best to grant permissions to the reservation order, not the reservation. If you give someone permissions to manage a subscription in the reservation's scope, it doesn't give them rights to manage the reservation order or the reservation.
+Two users get the Owner role for the reservation order and the reservation. The owners are the user that bought the reservation and the billing account administrator of the subscription where the reservation was bought. Both users can view and manage reservations.
+
+To allow other people to view the reservation, you must add them as an **Owner** or a **Reader** for the Reservation order or the reservation. Adding someone to the subscription where the reservation was bought doesn't automatically add them to the reservation.
+
+To do an exchange or refund, a user must have access to the reservation order. Because of that requirement, when granting someone permissions it’s best to grant permissions to the reservation order, not the reservation. Note that if you give someone permissions to manage a subscription in the reservation's scope, it doesn't give them rights to manage the reservation order or the reservation.
 
 To delegate access management for a reservation:
 
@@ -60,26 +63,37 @@ To delegate access management for a reservation:
 2. Select **All Services** > **Reservation** to list reservations that you have access to.
 3. Select the reservation that you want to delegate access to other users.
 4. Select **Access control (IAM)**.
-5. Select **Add role assignment** > **Role** > **Owner**. Or, if you want to give limited access, select a different role.
+5. Select **Add role assignment** > **Role** > **Owner**. If you want to give limited access, select a different role.
 6. Type the email address of the user you want to add as owner.
 7. Select the user, and then select **Save**.
 
-- Additional permissions related to Enterprise Agreement (EA) only : Users with "Enterprise Administrator" role can view and manage all reservations that are applying to the Enterprise agreement, users with "Enterprise Administrator (read only)" role can only view the reservation. 
+### Enterprise Agreement 
 
-If you have a billing role on an enterprise agreement and want to view or manage the reservations:
-1. Go to Cost Management + Billing > Reservation Transactions
-2. Click on the banner
-3. If you have required billing permissions you will be able to see and manage reservations. If you don't see reservations, make sure that you are logged in using the AAD tenant under which the reservations are created. 
+There are additional permissions related to Enterprise Agreement (EA) only. Users with the _Enterprise Administrator_ role can view and manage all reservations that apply to the Enterprise Agreement. Users with _Enterprise Administrator (read only)_ role can only view the reservation. 
 
-Department admins and account owners cannot see reservations unless they are explicitly added to them using IAM. See [Managing Azure Enterprise roles](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-ea-roles)
+To view or manage reservations:
 
-You will be able to take ownership of the reservation order and will be able to add other users to the reservation using Access control (IAM). 
+1. Go to **Cost Management + Billing** and then on left side of the page, select **Reservation Transactions**.
+2. If you have the required billing permissions, you can view and manage reservations. If you don't see any reservations, make sure that you're signed in using the Azure AD tenant where the reservations were created. 
 
-- Additional permissions related to Microsoft cloud agreement (MCA) only: Users with billing profile owner or billing profile contributor roles can manage all reservations  purchases made using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid using the billing profile but cannot make changes to the reservations. Go to Cost Management + Billing > Billing Profile > Reservation Transactions and click on the banner to see reservation. Make sure that you are logged in using the AAD tenant under which the reservations are created, otherwise you will not see the reservations. See [Billing profile roles and tasks](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles#billing-profile-roles-and-tasks)
+Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
+
+Enterprise Administrators can take ownership a reservation order and can add other users a reservation using Access control (IAM). 
+
+### Microsoft Customer Agreement
+
+There are additional permissions related to Microsoft Customer Agreement only. Users with the billing profile owner role or the billing profile contributor role can manage all reservation purchases made using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid for with the billing profile. However, they can't make changes to reservations. 
+
+To view or manage reservations:
+
+1. Go to **Cost Management + Billing** and then on the left side of the page, select **Reservation Transactions**.
+2. If you have the required billing permissions, you can view and manage reservations. If you don't see any reservations, make sure that you're signed in using the Azure AD tenant where the reservations were created. 
+
+For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks)
 
 ## Split a single reservation into two reservations
 
- After you buy more than one resource instance within a reservation, you may want to assign instances within that reservation to different subscriptions. By default, all instances have one scope - either single subscription, resource group or shared. Lets say, you bought a reservation for 10 VM instances and specified the scope to be subscription A. You now want to change the scope for 7 VM instances to subscription A and the remaining three to subscription B. Splitting a reservation allows you todo that. After you split a reservation, the original ReservationID is cancelled and two new reservations are created. Split doesn't impact the reservation order - there is no new commercial transaction with split and the new reservations have the same end date as the one that was split.
+ After you buy more than one resource instance within a reservation, you may want to assign instances within that reservation to different subscriptions. By default, all instances have one scope - either single subscription, resource group or shared. Lets say, you bought a reservation for 10 VM instances and specified the scope to be subscription A. You now want to change the scope for seven VM instances to subscription A and the remaining three to subscription B. Splitting a reservation allows you todo that. After you split a reservation, the original ReservationID is canceled and two new reservations are created. Split doesn't impact the reservation order - there's no new commercial transaction with split and the new reservations have the same end date as the one that was split.
 
  You can split a reservation into two reservations though PowerShell, CLI, or through the API.
 
