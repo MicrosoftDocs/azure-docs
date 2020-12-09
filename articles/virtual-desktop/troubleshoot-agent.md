@@ -397,10 +397,11 @@ The name of your VM has already been registered and is probably a duplicate.
 
 ### Resolution
 
-1. Follow steps 1-5 to [remove the session host from the host pool](#remove-the-session-host-from-the-host-pool).
-2. Go to the *Overview* page for the host pool that your VM is in in the [Azure Portal](https://portal.azure.com). 
-3. Go to the *Session Hosts* tab to see the list of all session hosts in that host pool.
-4. Wait for 5-10 minutes for the session host to show *Available*.
+1. Follow steps 1-4 to [remove the session host from the host pool](#remove-the-session-host-from-the-host-pool).
+2. [Create another VM](https://docs.microsoft.com/azure/virtual-desktop/expand-existing-host-pool#add-virtual-machines-with-the-azure-portal). Make sure to choose a name for this VM that is different from all the other names in the host pool.
+1. Go to the *Overview* page for the host pool that your VM was in in the [Azure Portal](https://portal.azure.com). 
+1. Go to the *Session Hosts* tab to see the list of all session hosts in that host pool.
+1. Wait for 5-10 minutes for the session host to show *Available*.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of available session host](media/host-available.PNG)
@@ -468,6 +469,27 @@ Disable the following policies:
 >[!NOTE]
 >This is not a comprehensive list of policies, just the ones that we have come across, and generally you should not enable any policy that blocks the installation of msiexec.exe files.
 
+## DownloadMsiException
+
+### Diagnosis
+
+1. Open the Event Viewer (in Start menu, type *event viewer*).
+2. Select *Windows Logs*.
+3. Double-click *Application*. This will show a list of events.
+4. On the right-hand side of the window, select *Filter Current Log...*.
+5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
+6. In the filtered list, you will see an event that includes *DownloadMsiException* in the general description if you have received this error.
+
+### Why are you getting this error?
+
+This exception is thrown when there is not enough space on the disk for the RDAgent to be downloaded.
+
+### Resolution
+
+Make space on your  disk by:
+   - Deleting files that are no longer in user
+   - Increasing the storage capacity of your VM
+
 ## Win32Exception
 
 ### Diagnosis
@@ -477,7 +499,7 @@ Disable the following policies:
 3. Double-click *Application*. This will show a list of events.
 4. On the right-hand side of the window, select *Filter Current Log...*.
 5. In the text field that says *\<All Event IDs\>*, type *3277*, and select *Ok*.
-6. In the filtered list, you will see an event that includes *Win32Exception* in the general description if you have received this error.
+6. In the filtered list, you will see an event that includes *Win32Exception. This program is blocked by group policy* in the general description if you have received this error.
 
 ### Why are you getting this error?
 
