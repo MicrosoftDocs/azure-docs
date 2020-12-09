@@ -4788,7 +4788,7 @@
     },
     {
       "source_path": "articles/active-directory/develop/msal-handling-exceptions.md",
-      "redirect_url": "articles/active-directory/develop/msal-error-handling-dotnet",
+      "redirect_url": "/azure/active-directory/develop/msal-error-handling-dotnet",
       "redirect_document_id": false
     },
     {
