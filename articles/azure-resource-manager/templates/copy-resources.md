@@ -1,20 +1,20 @@
 ---
 title: Deploy multiple instances of resources
-description: Use copy operation and arrays in an Azure Resource Manager template to deploy resource type many times.
+description: Use copy operation and arrays in an Azure Resource Manager template (ARM template) to deploy resource type many times.
 ms.topic: conceptual
 ms.date: 09/21/2020
 ---
 # Resource iteration in ARM templates
 
-This article shows you how to create more than one instance of a resource in your Azure Resource Manager (ARM) template. By adding the **copy** element to the resources section of your template, you can dynamically set the number of resources to deploy. You also avoid having to repeat template syntax.
+This article shows you how to create more than one instance of a resource in your Azure Resource Manager template (ARM template). By adding the `copy` element to the resources section of your template, you can dynamically set the number of resources to deploy. You also avoid having to repeat template syntax.
 
-You can also use copy with [properties](copy-properties.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
+You can also use `copy` with [properties](copy-properties.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
 ## Syntax
 
-The copy element has the following general format:
+The `copy` element has the following general format:
 
 ```json
 "copy": {
@@ -25,9 +25,9 @@ The copy element has the following general format:
 }
 ```
 
-The **name** property is any value that identifies the loop. The **count** property specifies the number of iterations you want for the resource type.
+The `name` property is any value that identifies the loop. The `count` property specifies the number of iterations you want for the resource type.
 
-Use the **mode** and **batchSize** properties to specify if the resources are deployed in parallel or in sequence. These properties are described in [Serial or Parallel](#serial-or-parallel).
+Use the `mode` and `batchSize` properties to specify if the resources are deployed in parallel or in sequence. These properties are described in [Serial or Parallel](#serial-or-parallel).
 
 ## Copy limits
 
@@ -46,7 +46,7 @@ Be careful using [complete mode deployment](deployment-modes.md) with copy. If y
 
 ## Resource iteration
 
-The following example creates the number of storage accounts specified in the **storageCount** parameter.
+The following example creates the number of storage accounts specified in the `storageCount` parameter.
 
 ```json
 {
@@ -91,7 +91,7 @@ Creates these names:
 * storage1
 * storage2.
 
-To offset the index value, you can pass a value in the copyIndex() function. The number of iterations is still specified in the copy element, but the value of copyIndex is offset by the specified value. So, the following example:
+To offset the index value, you can pass a value in the `copyIndex()` function. The number of iterations is still specified in the copy element, but the value of `copyIndex` is offset by the specified value. So, the following example:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -181,7 +181,7 @@ For example, to serially deploy storage accounts two at a time, use:
 }
 ```
 
-The mode property also accepts **parallel**, which is the default value.
+The `mode` property also accepts **parallel**, which is the default value.
 
 ## Depend on resources in a loop
 
@@ -285,12 +285,11 @@ The following examples show common scenarios for creating more than one instance
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create multiple resource instances using ARM templates](template-tutorial-create-multiple-instances.md).
+* To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
 * For other uses of the copy element, see:
   * [Property iteration in ARM templates](copy-properties.md)
   * [Variable iteration in ARM templates](copy-variables.md)
   * [Output iteration in ARM templates](copy-outputs.md)
 * For information about using copy with nested templates, see [Using copy](linked-templates.md#using-copy).
-* If you want to learn about the sections of a template, see [Authoring ARM templates](template-syntax.md).
-* To learn how to deploy your template, see [Deploy an application with ARM template](deploy-powershell.md).
-
+* If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
