@@ -114,6 +114,10 @@ If you have configured your Storage Account to allow access from selected networ
 A data export rule defines data to be exported for a set of tables to a single destination. You can create a rule for each destination.
 
 
+# [Azure portal](#tab/portal)
+
+N/A
+
 # [Azure CLI](#tab/azure-cli)
 
 Use the following CLI command to view tables in your workspace. It can help copy the tables you want and include in data export rule.
@@ -199,6 +203,10 @@ Following is a sample body for the REST request for an event hub where event hub
 
 ## View data export configuration
 
+# [Azure portal](#tab/portal)
+
+N/A
+
 # [Azure CLI](#tab/azure-cli)
 
 Use the following command to view the configuration of a data export rule using CLI.
@@ -217,6 +225,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ---
 
 ## Disable an export rule
+
+# [Azure portal](#tab/portal)
+
+N/A
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -252,6 +264,10 @@ Content-type: application/json
 
 ## Delete an export rule
 
+# [Azure portal](#tab/portal)
+
+N/A
+
 # [Azure CLI](#tab/azure-cli)
 
 Use the following command to delete a data export rule using CLI.
@@ -270,6 +286,10 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 ---
 
 ## View all data export rules in a workspace
+
+# [Azure portal](#tab/portal)
+
+N/A
 
 # [Azure CLI](#tab/azure-cli)
 

@@ -223,7 +223,7 @@ Take the following steps to cable your device for power and network.
 7. Connect one or more of PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 to the datacenter network/Internet.
 
     - If connecting PORT 2, use the 1-GbE RJ-45 network cable.
-    - For the 10/25-GbE network interfaces, use the SFP+ copper cables.
+    - For the 10/25-GbE network interfaces, use the SFP+ copper cables or fiber. If using fiber, use an optical to SFP adapter.
 
 ## Next steps
 

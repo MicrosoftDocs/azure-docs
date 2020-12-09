@@ -4,7 +4,6 @@ description: Learn how Azure Service Fabric node types relate to virtual machine
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
-ms.custom: sfrev
 ---
 # Azure Service Fabric node types and virtual machine scale sets
 

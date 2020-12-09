@@ -21,9 +21,9 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to and query Synapse SQL in Azure Synapse Analytics through either serverless SQL pool (preview) or dedicated SQL pool resources. 
+You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to and query Synapse SQL in Azure Synapse Analytics through either serverless SQL pool or dedicated SQL pool resources. 
 
-### Supported tools for serverless SQL pool (preview)
+### Supported tools for serverless SQL pool
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. SSMS is partially supported starting from version 18.5, you can use it to connect and query only.
 
@@ -59,7 +59,7 @@ To connect to Synapse SQL using dedicated SQL pool, follow these steps:
     ![Explore AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### Serverless SQL pool (preview)
+### Serverless SQL pool
 
 To connect to Synapse SQL using serverless SQL pool, follow these steps: 
 

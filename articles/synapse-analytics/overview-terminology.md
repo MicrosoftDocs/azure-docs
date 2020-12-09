@@ -1,5 +1,5 @@
 ---
-title: Terminology - Azure Synapse Analytics (workspaces preview)
+title: Terminology - Azure Synapse Analytics
 description: Reference guide walking user through Azure Synapse Analytics 
 services: synapse-analytics 
 author: saveenr 
@@ -12,8 +12,6 @@ ms.reviewer: jrasnick
 ---
 
 # Azure Synapse Analytics terminology
-
-[!INCLUDE [preview](includes/note-preview.md)]
 
 This document guides you through the basic concepts of Azure Synapse Analytics.
 
@@ -31,8 +29,7 @@ A workspace can contain any number of **Linked service**, essentially connection
 
 **Synapse SQL** is the ability to do T-SQL based analytics in Synapse workspace. Synapse SQL has two consumption models: dedicated and serverless.  For the dedicated model, use **dedicated SQL pools**. A workspace can have any number of these pools. To use the serverless model, use the **serverless SQL pools**. Every workspace has one of these pools.
 
-* **SQL Request** - Operation such as a query run through dedicated SQL pool or serverless SQL pool.
-* **SQL script** - Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.
+Inside Synapse Studio, you can work with SQL pools by creating and running **SQL scripts** .
 
 ## Apache Spark for Synapse
 

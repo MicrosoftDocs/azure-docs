@@ -3,7 +3,6 @@ title: Configure managed identity support in an existing Service Fabric cluster
 description: Here's how to enable managed identities support in an existing Azure Service Fabric cluster
 ms.topic: article
 ms.date: 03/11/2019
-ms.custom: sfrev
 ---
 
 # Configure managed identity support in an existing Service Fabric cluster

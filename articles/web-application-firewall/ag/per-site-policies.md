@@ -5,9 +5,9 @@ description: Learn how to configure per-site Web Application Firewall policies o
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 09/16/2020
+ms.date: 12/08/2020
 ms.author: victorh
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Configure per-site WAF policies using Azure PowerShell
@@ -23,7 +23,7 @@ In this article, you learn how to:
 * Set up the network
 * Create a WAF policy
 * Create an application gateway with WAF enabled
-* Apply the WAF policy globally, per-site, and per-URI (preview)
+* Apply the WAF policy globally, per-site, and per-URI 
 * Create a virtual machine scale set
 * Create a storage account and configure diagnostics
 * Test the application gateway
@@ -244,7 +244,7 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### Apply a per-URI policy (preview)
+### Apply a per-URI policy
 
 To apply a per-URI policy, simply create a new policy and apply it to the path rule config. 
 
