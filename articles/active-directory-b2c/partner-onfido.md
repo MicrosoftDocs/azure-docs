@@ -69,7 +69,7 @@ For more information about Onfido, see [Onfido API documentation](https://docume
 
 ### Part 1 - Deploy the API
 
-- Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+- Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
 - Set-up CORS, add **Allowed Origin** as https://{your_tenant_name}.b2clogin.com
 
 >[!NOTE]
@@ -137,7 +137,7 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 
 ### Part 4 - Configure the Azure AD B2C policy
 
-Refer to this [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) for instructions on how to set up your Azure AD B2C tenant and configure policies.
+Refer to this [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack#custom-policy-starter-pack) for instructions on how to set up your Azure AD B2C tenant and configure policies.
 
 >[!NOTE]
 > As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be send to third-party services for Identity verification.

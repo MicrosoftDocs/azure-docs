@@ -72,7 +72,7 @@ The following architecture diagram shows the implementation.
 
 ### Part 1 - Deploy the API
 
-Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >You'll need the URL of the deployed service to configure Azure AD with the required settings.
@@ -128,7 +128,7 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 
 ### Part 6 - Configure the Azure AD B2C policy
 
-Refer to this [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) for instructions on how to set up your Azure AD B2C tenant and configure policies.
+Refer to this [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack#custom-policy-starter-pack) for instructions on how to set up your Azure AD B2C tenant and configure policies.
 
 >[!NOTE]
 >This sample policy is based on [Local Accounts starter

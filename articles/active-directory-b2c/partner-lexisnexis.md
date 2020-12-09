@@ -68,7 +68,7 @@ Once an account is created, you'll receive the information you need for API conf
 
 ### Part 1 - Deploy the API
 
-Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >You'll need the URL of the deployed service to configure Azure AD with the required settings.
@@ -117,7 +117,7 @@ In the provided [TrustFrameworkExtensions policy](https://github.com/azure-ad-b2
 
 ### Part 7 - Configure the Azure AD B2C policy
 
-Refer to this [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) to download [Local Accounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the [policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) for the Azure AD B2C tenant.
+Refer to this [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack#custom-policy-starter-pack) to download [Local Accounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the [policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) for the Azure AD B2C tenant.
 
 >[!NOTE]
 >Update the provided policies to relate to your specific tenant.
