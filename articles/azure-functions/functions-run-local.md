@@ -151,7 +151,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 ## Create a local Functions project
 
-A function's project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file), along with subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
+A Functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file), along with subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
 Version 3.x/2.x requires you to select a default language for your project when it is initialized. In version 3.x/2.x, all functions added use default language templates. In version 1.x, you specify the language each time you create a function.
 
