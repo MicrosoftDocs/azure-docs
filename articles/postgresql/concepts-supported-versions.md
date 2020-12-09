@@ -35,7 +35,7 @@ The PostgreSQL project regularly issues minor releases to fix reported bugs. Azu
 Automatic in-place upgrades for major versions are not supported. To upgrade to the next major version, you can 
    * See various methods to perform [major version upgrades using dump and restore](./how-to-upgrade-using-dump-and-restore.md)
    * Use [pg_dump and pg_restore](./howto-migrate-using-dump-and-restore.md) to move a database to a server created with the new engine version
-   * Alternatively, you can upgrade from PostgreSQL 10 to 11 using the [Azure Database Migration service](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md)
+   * You can do online upgrade using [Azure Database Migration service](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md)
 
 ### Version syntax
 Before PostgreSQL version 10, the [PostgreSQL versioning policy](https://www.postgresql.org/support/versioning/) considered a _major version_ upgrade to be an increase in the first _or_ second number. For example, 9.5 to 9.6 was considered a _major_ version upgrade. As of version 10, only a change in the first number is considered a major version upgrade. For example, 10.0 to 10.1 is a _minor_ release upgrade. Version 10 to 11 is a _major_ version upgrade.
