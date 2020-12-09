@@ -167,19 +167,26 @@ In a text editor, create a file in the project folder named *handler.R*. Add the
 library(httpuv)
 
 PORTEnv <- Sys.getenv("FUNCTIONS_CUSTOMHANDLER_PORT")
-PORT = strtoi(PORTEnv , base = 0L)
+PORT <- strtoi(PORTEnv , base = 0L)
 
 http_not_found <- list(
   status=404,
   body='404 Not Found'
 )
+
 http_method_not_allowed <- list(
   status=405,
   body='405 Method Not Allowed'
 )
 
 hello_handler <- list(
-  GET = function (request) list(body="Hello world")
+  GET = function (request) {
+    list(body=paste(
+      "Hello,",
+      if(substr(request$QUERY_STRING,1,6)=="?name=") 
+        substr(request$QUERY_STRING,7,40) else "World",
+      sep=" "))
+  }
 )
 
 routes <- list(
@@ -265,12 +272,9 @@ R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
 func start
 ```
 ::: zone-end 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
+
 Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
-::: zone-end
-::: zone pivot="programming-language-other"
-Once you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample`. The browser should display a "Hello world" message.
-::: zone-end
+
 Use **Ctrl**-**C** to stop the host.
 
 ## Build the container image and test locally
