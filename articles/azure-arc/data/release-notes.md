@@ -128,6 +128,7 @@ For instructions see [What are Azure Arc enabled data services?](overview.md)
 
 - On Azure Kubernetes Service (AKS), Kubernetes version 1.19.x is not supported.
 - On Kubernetes 1.19 containerd is not supported.
+- The data controller resource in Azure is currently a shadow resource. Any updates such as delete is not propagated back to the kubernetes cluster.
 - Instance names can't be greater than 13 characters
 - No in-place upgrade for the Azure Arc data controller or database instances.
 - Arc enabled data services container images are not signed.  You may need to configure your Kubernetes nodes to allow unsigned container images to be pulled.  For example, if you are using Docker as the container runtime, you can set the DOCKER_CONTENT_TRUST=0 environment variable and restart.  Other container runtimes have similar options such as in [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration).
