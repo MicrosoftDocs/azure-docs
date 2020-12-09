@@ -1,0 +1,43 @@
+### YamlMime:Landing
+
+title: BareMetal Infrastructure documentation
+summary: Learn how to use BareMetal Infrastructure to create, deploy, and manage virtual machines in Microsoft Azure.
+
+metadata:
+  title: BareMetal Infrastructure documentation 
+  description: Learn how to use BareMetal Infrastructure to create, deploy, and manage virtual machines in Microsoft Azure.
+  services: virtual-machines # 12/1/2020 this will likely change
+  ms.service: baremetal-infrastructure #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: shortpatti
+  ms.author: v-patsho
+  ms.date: 12/18/2020 
+
+# card 1
+landingContent:
+  - title: About BareMetal Infrastructure
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is BareMetal Infrastructure in Azure?
+            url: workloads/sap/baremetal-overview-architecture.md
+#  - title: BareMetal Instance units
+#    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage BareMetal Instance units in Azure
+            url: workloads/sap/baremetal-infrastructure-portal.md
+            
+# card 2
+  - title: Workload types 
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: SAP HANA on Azure (Large Instances)
+            url: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/context/context
+
+
+# card 3
+
+
+
