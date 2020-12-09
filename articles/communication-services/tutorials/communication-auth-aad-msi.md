@@ -3,7 +3,7 @@ title: Authorize access to data with a managed identity
 titleSuffix: An Azure Communication Services tutorial
 description: Use managed identities for Azure resources to authorize Azure Communication Services access from applications running in Azure VMs, function apps, and others.
 services: azure-communication-services
-author: gistefan
+author: stefang931
 ms.service: azure-communication-services
 ms.topic: how-to
 ms.date: 12/04/2020
