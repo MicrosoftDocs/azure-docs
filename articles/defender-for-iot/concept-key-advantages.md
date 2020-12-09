@@ -42,3 +42,30 @@ ms.service: azure
 - **Data mining for investigations, forensics, and threat hunting:** The platform provides an intuitive data mining interface for granular searching of historical traffic across all relevant dimensions. For example, time period, IP address, MAC address, ports, in addition to protocol-specific queries based on function codes, protocol services, modules. Full-fidelity PCAPs are also provided for further drill-down analysis.
 
 - **Localization:** Many console features support an extensive range of languages.
+
+- **Integrations:** You can expand Defender for IoT's capabilities by sharing both device and alert information with partner systems. Integrations help enterprises bridge previously siloed security solutions to significantly enhance device visibility and threat intelligence, as well as accelerate the system-wide responses and mitigate risks faster. Integrations reduce complexity and eliminate IT and OT silos by integrating them into your existing SOC workflows and security stack. For example:
+
+    - SIEMs such as IBM QRadar, Splunk, ArcSight, LogRhythm, RSA NetWitness.
+
+    - Security orchestration and ticketing systems such as ServiceNow, IBM Resilient.
+
+    - Secure remote access solutions such as CyberArk Privileged Session Manager (PSM), BeyondTrust.
+
+    - Secure network access control (NAC) systems such as Aruba ClearPass, Forescout CounterACT.
+
+    - Firewalls such as Fortinet and Checkpoint.
+
+:::image type="content" source="media/concept-integrations/sample-integration-screens.png" alt-text="Integration samples for Defender for IoT":::
+
+- **Complete Protocol Support:** In addition to embedded protocol support, you can secure IoT and ICS devices running proprietary and custom protocols, or protocols that deviate from any standard. Using the Horizon Open Development Environment (ODE) SDK, developers can create dissector plugins that decode network traffic based on defined protocols. Traffic is analyzed by services to provide complete monitoring, alerting and reporting. Use Horizon to:
+
+    - **Expand** visibility and control without the need to upgrade to new versions.
+
+    - **Secure** proprietary information by developing on-site as an external plugin.
+
+    - **Localize** text for alerts, events, and protocol parameters
+
+**High availability:** Increase the resiliency of your Defender for IoT deployment by installing a on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
+
+This deployment is implemented with a on-premises management console pair that includes a primary and secondary appliance.
+

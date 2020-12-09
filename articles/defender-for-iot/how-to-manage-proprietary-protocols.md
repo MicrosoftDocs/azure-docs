@@ -20,12 +20,13 @@ Horizon provides:
   - A tool that exponentially expands OT visibility and control, without the need to upgrade to new versions.
   - The security of allowing proprietary development without divulging sensitive information.
 
+Use the Horizon SDK to design dissector plugins that decode network traffic so it can be processed by automated Defender for IoT network analysis programs. 
 
-Use the Horizon SDK to design dissector plugins that decode network traffic so it can be processed by automated Defender for IoT network analysis programs.   
+Protocol dissectors are developed as external plugins and are integrated with an extensive range of Defender for IoT services, for example services that provide monitoring, alerting, and reporting capabilities.
 
-Protocol dissectors are developed as external plugins and are integrated with an extensive range of Defender for IoT services, for example services that provide monitoring, alerting, and reporting capabilities.  
+For information on working with the SDK, contact support.microsoft.com. 
 
-Use the Horizon web console to: 
+Use the Horizon web console to:
 
   - Upload your plugin
   - Enable and disable plugins  

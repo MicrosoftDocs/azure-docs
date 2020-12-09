@@ -79,9 +79,7 @@ To expand an IT subnet:
 
    :::image type="content" source="media/how-to-work-with-maps/expand-network.png" alt-text="Expand your view of your network.":::
 
-4. A confirmation box appears, notifying you that this action cannot be undone.
-
-   :::image type="content" source="media/how-to-work-with-maps/confirmation.png" alt-text="confirmation box":::
+4. A confirmation box appears, notifying you that the layout change cannot be redone.
 
 5. Select **OK**. The IT subnet elements appear on the map.
 
@@ -91,7 +89,7 @@ To collapse an IT subnet:
 
 1.  From the left pane, select **Devices**.
 
-2. In the Devices window, select :::image type="content" source="media/how-to-work-with-maps/red-number.png" alt-text="Number in red indicates how many expanded IT subnets currently appear on the map.":::
+2. In the Devices window, select the collapse icon. The number in red indicates how many expanded IT subnets currently appear on the map.
 
    :::image type="content" source="media/how-to-work-with-maps/devices-notifications.png" alt-text="Device window":::
 
@@ -99,7 +97,7 @@ To collapse an IT subnet:
 
    :::image type="content" source="media/how-to-work-with-maps/close-all-subnets.png" alt-text="Collapse All":::
 
-   The :::image type="content" source="media/how-to-work-with-maps/notify-icon.png" alt-text="icon"::: icon is displayed with the updated number of expanded IT subnets.
+The collapse icon is updated with the updated number of expanded IT subnets.
 
 ## View or highlight device groups
 
@@ -127,7 +125,7 @@ The following predefined groups are available:
 | **VLAN** | Devices associated with a specific VLAN ID. |
 | **Connection between subnets** | Devices associated with cross subnet connection. |
 | **Pinned alerts** | Devices for which the user has pinned an alert. |
-| **Attack vector simulations** | Vulnerable devices detected in attack vector reports. In order to view these devices on the map, select the **Display on Device Map** checkbox when generating the Attack Vector. :::image type="content" source="media/how-to-work-with-maps/add-attack.png" alt-text="Add Attack Vector Simulations"::: |
+| **Attack vector simulations** | Vulnerable devices detected in attack vector reports. In order to view these devices on the map, select the **Display on Device Map** checkbox when generating the Attack Vector.|
 | **Last seen** | Devices grouped by the time frame they were last seen, for example: One hour, six hours, one day, seven days. |
 | **Not In Active Directory** | All non-PLC devices that are not communicating with the Active Directory. |
 
@@ -135,7 +133,7 @@ To highlight or filter devices:
 
 1. Select **Device Map** on the side menu.
 
-2. Select :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="Menu":::.
+2. Select the filter icon. :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="Menu":::
 
 3. From the Groups pane, select the group you want to highlight or filter devices.
 
@@ -175,7 +173,7 @@ You can add devices to a custom group or create a new custom group and the devic
 
 2. Select **Add to group**.
 
-3. Enter a group name in the group field and select :::image type="content" source="media/how-to-work-with-maps/green-plus-icon.png" alt-text="add":::. The new group appears. If the group already exists, it will be added to the existing custom group.
+3. Enter a group name in the group field and select +. The new group appears. If the group already exists, it will be added to the existing custom group.
 
    :::image type="content" source="media/how-to-work-with-maps/groups-section.png" alt-text="Group name":::
 
@@ -543,7 +541,7 @@ In addition to reviewing details in the Programming Timeline, you can access pro
 | Device type | Description |
 |--|--|
 | Device properties | The device properties window provides information on the last programming event detected on the device\. :::image type="content" source="media/how-to-work-with-maps/information-from-device.png" alt-text="Your device's properties"::: |
-| The device inventory | The device inventory indicates if the device is a programming device\.                                    :::image type="content" source="media/how-to-work-with-maps/inventory.png" alt-text="The inventory of devices"::: |
+| The device inventory | The device inventory indicates if the device is a programming device\.|
 
 ## Manage device information from the map
 
@@ -699,9 +697,9 @@ Export the following device information from the Map.
 
 To export:
 
-1. Select the :::image type="icon" source="media/how-to-work-with-maps/file-icon.png" border="false"::: icon from the Map.
+1. Select the Export icon from the Map.
 
-2. Select an export option.
+1. Select an export option.
 
 ## See also
 

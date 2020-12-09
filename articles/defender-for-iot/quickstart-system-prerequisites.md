@@ -24,3 +24,8 @@ ms.service: azure
 For more information see, [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub) 
 
 Defender for IoT routes all traffic from all European regions to the West Europe regional data center and all remaining regions to the Central US regional data center.
+
+## See also
+
+- [Acquire hardware and software](how-to-acquire-hardware-and-software.md)
+- [About Azure Defender for IoT Network Setup](how-to-set-up-your-network.md)

@@ -1,5 +1,5 @@
 ---
-title: Updating the threat intelligence data
+title: Update the threat intelligence data
 description: The threat intelligence data package is provided with each new Defender for IoT version, or if needed in between releases.
 author: shhazam-ms
 manager: rkarlin
@@ -69,3 +69,7 @@ Packages you download from the Defender for IoT portal can be manually uploaded 
 6. In the  Select Threat Intelligence Data section, select the **+**.
 
 7. Upload the package.
+
+## See also
+
+[Update versions](how-to-manage-sensors-from-the-on-premises-management-console.md#update-versions)

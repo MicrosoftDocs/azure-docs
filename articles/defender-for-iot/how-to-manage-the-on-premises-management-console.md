@@ -63,4 +63,9 @@ You can automatically transfer this file to the internal network.
 
    - `sudo nano /var/cyberx/properties/backup.properties` 
 
-   - `set Backup.shared_location to <backup_folder_name_on_server>` 
+   - `set Backup.shared_location to <backup_folder_name_on_server>`
+   
+## See also
+
+- [Manage individual sensors](how-to-manage-individual-sensors.md)
+- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)

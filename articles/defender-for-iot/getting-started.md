@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/08/2020
+ms.date: 12/09/2020
 ms.author: shhazam
 ---
 
@@ -43,7 +43,7 @@ Complete the following steps to get Defender for IoT up and running.
 
 ## 3. Perform network setup for sensor monitoring and management
 
-- Connect your sensor to the network. Described in the [Network setup guide](https://aka.ms/AzureDefenderForIoTNetworkSetup).
+- Connect your sensors to the network. 
 
 ## 4. Start discovering your network
 
@@ -60,8 +60,6 @@ For more information, see the [Defender for IoT Sensor User Guide](https://aka.m
 
 ## Next steps
 
-- Enable [Defender for IoT](quickstart-onboard-iot-hub.md)
-- Configure your [solution](quickstart-configure-your-solution.md)
-- [Create security modules](quickstart-create-security-twin.md)
-- Configure [custom alerts](quickstart-create-custom-alerts.md)
-- [Deploy a security agent](how-to-deploy-agent.md)
+- [Acquire hardware and software](how-to-acquire-hardware-and-software.md)
+- [About the Defender for IoT Installation](how-to-install-software.md)
+- [About Azure Defender for IoT Network Setup](how-to-set-up-your-network.md)

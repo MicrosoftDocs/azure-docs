@@ -128,4 +128,6 @@ Defender for IoT recommendations and alerts (analytics pipeline output) is writt
 
 ## See also
 
- [Defender for IoT FAQ](resources-frequently-asked-questions.md)
+[Defender for IoT FAQ](resources-frequently-asked-questions.md)
+
+[System prerequisites](quickstart-system-prerequisites.md)

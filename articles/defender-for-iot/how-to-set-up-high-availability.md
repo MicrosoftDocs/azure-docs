@@ -85,13 +85,13 @@ Verify that both the primary and secondary on-premises management console applia
 2. Run the following command on the primary:
 
 ```azurecli-interactive
-sudo cyberx-management-trusted-hosts-add -ip <Slave ip>
+sudo cyberx-management-trusted-hosts-add -ip <Secondary ip>
 ```
 
 >[!NOTE]
 >In this document, the principal on-premises management console is referred to as the primary, and the agent is referred to as the secondary.
 
-3. Enter the IP address of the secondary appliance in the ```<Slave ip>``` field and select Enter. The IP address is then validated, and the SSL certificate is downloaded to the primary. Entering the IP address also associates the sensors to the secondary appliance.
+3. Enter the IP address of the secondary appliance in the ```<Secondary ip>``` field and select Enter. The IP address is then validated, and the SSL certificate is downloaded to the primary. Entering the IP address also associates the sensors to the secondary appliance.
 
 4. Run the following command on the primary to verify that the certificate is installed properly:
 
@@ -102,7 +102,7 @@ sudo cyberx-management-trusted-hosts-apply
 5. Run the following command on the primary. **Do not run with sudo.**
 
 ```azurecli-interactive
-cyberx-management-deploy-ssh-key <Slave ip>
+cyberx-management-deploy-ssh-key <Secondary ip>
 ```
 
 This allows the connection between the primary and secondary appliances for backup and restoration purposes between them.
@@ -116,7 +116,7 @@ This allows the connection between the primary and secondary appliances for back
 2. Run the following command on the secondary. **Do not run with sudo**:
 
 ```azurecli-interactive
-cyberx-management-deploy-ssh-key <Master's ip>
+cyberx-management-deploy-ssh-key <Primary ip>
 ```
 
 This allows the connection between the Primary and Secondary appliances for backup and restore purposes between them.
@@ -137,7 +137,7 @@ Perform the high availability update in the following order. Make sure each step
 
 To update with high availability:
 
-1.  Update the primary on-premises management console.
+1. Update the primary on-premises management console.
 
 2. Update the secondary on-premises management console.
 

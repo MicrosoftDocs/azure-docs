@@ -16,7 +16,9 @@ ms.workload: na
 ms.date: 10/10/2020
 ms.author: rkarlin
 ---
-# Quickstart: Prepare your network for Azure Defender for IoT deployment
+# Prepare your network for Azure Defender for IoT deployment
+
+This article provides an overview of the steps required to deploy IoT Defender for IoT.
 
 ## Choose your hardware
 Azure Defender for IoT supports various certified appliances, including:

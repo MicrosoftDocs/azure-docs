@@ -133,11 +133,7 @@ To update sign out counting periods:
 - Adjust the `= <number>` to the time required.
 
 
-
-
-
-
-## Track user activity
+## Track user activity 
 
 User activity can be tracked in the Event Timeline on each sensor. The timeline displays the event or impacted device, and the time and date the user carried out the activity.
 

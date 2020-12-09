@@ -77,7 +77,7 @@ Select the down arrow **V** at the bottom of an alert box to display the alert e
 
 - Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/excel-icon.png" alt-text="Excel"::: to export a CSV file about the alert.
 
-- **Administrators and Security Analysts Only** — If desired, select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/approve-all-icon.png" alt-text="Acknowledge all"::: to **Acknowledge All** associated alerts.
+- Administrators and Security Analysts Only — Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/approve-all-icon.png" alt-text="Acknowledge all"::: to **Acknowledge All** associated alerts.
 
 - Select the alert entry to view the type and the description of the alert:
 
@@ -91,6 +91,10 @@ Select the down arrow **V** at the bottom of an alert box to display the alert e
 
 - Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/navigate-icon.png" alt-text="Navigation"::: to navigate to the event timeline at the time of the requested alert.
 
-- **Administrators and Security Analysts only** - change the state of the alert from unacknowledged to acknowledged by selecting :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/acknowledge-icon.png" alt-text="Acknowledge"::: and learn the alert by selecting :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/learn-icon.png" alt-text="Learn":::.
+- Administrators and Security Analysts only - change the status of the alert from unacknowledged to acknowledged. Select Learn to approve detected activity.
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/unauthorized-internet-connectivity-detection.png" alt-text="Unauthorized Internet connectivity detected":::
+
+## See also
+
+[About the Defender for IoT sensor console](concept-sensor-console-overview.md)

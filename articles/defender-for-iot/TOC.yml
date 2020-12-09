@@ -51,12 +51,8 @@
       href: concept-key-advantages.md
     - name: Air gapped networks
       href: concept-air-gapped-networks.md
-    - name: Integrations
-      href: concept-integrations.md
     - name: Proprietary protocols
       href: concept-proprietary-protocols.md
-    - name: High availability
-      href: concept-high-availability.md
     - name: Sensor console overview
       href: concept-sensor-console-overview.md
   - name: Device builder
@@ -137,9 +133,6 @@
         href: how-to-set-up-high-availability.md
     - name: Change the name of your console
       href: how-to-change-the-name-of-your-console.md
-    - name: Create and manage sensor console users
-      href: how-to-create-sensor-console-users.md  
-    - name: Create and manage on-premises management console users
       items:
       - name: Create and manage users
         href: how-to-create-and-manage-users.md

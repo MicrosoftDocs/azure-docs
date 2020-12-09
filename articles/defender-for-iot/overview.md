@@ -11,16 +11,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 12/09/2020
 
 ---
 
-# Introducing Azure Defender for IoT Preview
-
-> [!IMPORTANT]
-> Azure Defender for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Welcome to Azure Defender for IoT
 
 As enterprises implement digital transformation for greater efficiency and productivity, boards and management teams are increasingly concerned about the liability and financial risk resulting from the deployment of massive numbers of unmanaged Internet of Things (IoT) and Operational Technology (OT) devices.
 Threat actors targeting this expanded attack surface can cause substantial corporate impact including safety and environmental incidents, costly production downtime, and theft of sensitive intellectual property.
@@ -51,9 +46,6 @@ Use Defender for IoT to continuously monitor the security of machines, networks,
 
 Use advanced analytics and the Microsoft Intelligent Security Graph to get an edge over evolving cyberattacks. Built-in behavioral analytics and machine learning identify attacks and zero-day exploits. Monitor your IoT solution for incoming attacks and post-breach activity. Streamline device investigation and remediation with interactive tools and contextual threat intelligence.
 
-## Next steps
+## See also
 
-In this overview, you learned about the features and services of Defender for IoT. To learn more about Defender for IoT architecture, prerequisites, and learn how to get started, see the following articles:
-
-- [Architecture](architecture.md)
-- [Getting started](getting-started.md)
+[Azure Defender for IoT architecture](architecture.md)
