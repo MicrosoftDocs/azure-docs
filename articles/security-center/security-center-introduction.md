@@ -1,6 +1,6 @@
 ---
 title: What is Azure Security Center?| Microsoft Docs
-description: This page describes Security Center's key benefits - discovering your security state, and improving it with coverage of cloud and on-prem resources.
+description: This page describes Security Center's key benefits - discovering your security state, and improving it with coverage of cloud and on-premises resources.
 services: security-center
 documentationcenter: na
 author: memildin

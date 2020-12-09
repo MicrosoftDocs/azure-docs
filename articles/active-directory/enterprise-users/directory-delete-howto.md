@@ -7,12 +7,11 @@ author: curtand
 manager: mtillman
 
 ms.service: active-directory
-ms.workload: identity
 ms.subservice: enterprise-users
+ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand
-
 ms.reviewer: addimitu
 ms.custom: it-pro
 
@@ -82,7 +81,7 @@ You can put a subscription into the **Deprovisioned** state to be deleted in thr
 
    ![Delete link for deleting subscription](./media/directory-delete-howto/delete-command.png)
 
-6. Select **Delete subscription** to delete the subscription and accept the terms and conditions. All data is permanently deleted within three days. You can [reactivate the subscription](/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) during the three-day period if you change your mind.
+6. Select **Delete subscription** to delete the subscription and accept the terms and conditions. All data is permanently deleted within three days. You can [reactivate the subscription](/office365/admin/subscriptions-and-billing/reactivate-your-subscription) during the three-day period if you change your mind.
   
    ![carefully read terms and conditions](./media/directory-delete-howto/delete-terms.png)
 
@@ -94,7 +93,7 @@ You can put a subscription into the **Deprovisioned** state to be deleted in thr
 
 ## I have a trial subscription that blocks deletion
 
-There are [self-service sign-up products](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) like Microsoft Power BI, Rights Management Services, Microsoft Power Apps, or Dynamics 365, individual users can sign up via Microsoft 365, which also creates a guest user for authentication in your Azure AD organization. These self-service products block directory deletions until the products are fully deleted from the organization, to avoid data loss. They can be deleted only by the Azure AD admin whether the user signed up individually or was assigned the product.
+There are [self-service sign-up products](/office365/admin/misc/self-service-sign-up) like Microsoft Power BI, Rights Management Services, Microsoft Power Apps, or Dynamics 365, individual users can sign up via Microsoft 365, which also creates a guest user for authentication in your Azure AD organization. These self-service products block directory deletions until the products are fully deleted from the organization, to avoid data loss. They can be deleted only by the Azure AD admin whether the user signed up individually or was assigned the product.
 
 There are two types of self-service sign-up products in how they are assigned: 
 
@@ -103,9 +102,9 @@ There are two types of self-service sign-up products in how they are assigned:
 
 When you begin the deletion of the self-service sign-up product, the action permanently deletes the data and removes all user access to the service. Any user that was assigned the offer individually or on the organization level is then blocked from signing in or accessing any existing data. If you want to prevent data loss with the self-service sign-up product like [Microsoft Power BI dashboards](/power-bi/service-export-to-pbix) or [Rights Management Services policy configuration](/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), ensure that the data is backed up and saved elsewhere.
 
-For more information about currently available self-service sign-up products and services, see [Available self-service programs](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
+For more information about currently available self-service sign-up products and services, see [Available self-service programs](/office365/admin/misc/self-service-sign-up#available-self-service-programs).
 
-For what to expect when a trial Microsoft 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Microsoft 365 data retention and subscription lifecycle, see [What happens to my data and access when my Microsoft 365 for business subscription ends?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+For what to expect when a trial Microsoft 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Microsoft 365 data retention and subscription lifecycle, see [What happens to my data and access when my Microsoft 365 for business subscription ends?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires).
 
 Product state | Data | Access to data
 ------------- | ---- | --------------

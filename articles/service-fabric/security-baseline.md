@@ -74,7 +74,7 @@ Consider deploying Azure Web Application Firewall (WAF) in front of critical web
 
 **Guidance**: For protections from DDoS attacks, enable Azure DDoS Standard protection on the virtual network where your Azure Service Fabric cluster is deployed. Use Azure Security Center integrated threat intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-* [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 * [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
@@ -142,7 +142,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Define and implement standard security configurations for network resources related to your Azure Service Fabric cluster. Use Azure Policy aliases in the "Microsoft.ServiceFabric" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Service Fabric cluster.
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 * [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -624,7 +624,7 @@ Alternately, to test OS patches first before going to production, use the manual
 
 * [How to bring VMs up-to-date with the latest scale set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
-* [Azure Automation Update Management overview](../automation/update-management/update-mgmt-overview.md)
+* [Azure Automation Update Management overview](../automation/update-management/overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 

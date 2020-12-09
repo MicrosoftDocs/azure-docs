@@ -135,7 +135,17 @@ You can use the *C:\home* directory in your app's file system to persist files a
 
 When persistent storage is disabled, writes to the `C:\home` directory aren't persisted. [Docker host logs and container logs](#access-diagnostic-logs) are saved in a default persistent shared storage that is not attached to the container. When persistent storage is enabled, all writes to the `C:\home` directory are persisted and can be accessed by all instances of a scaled-out app, and log are accessible at `C:\home\LogFiles`.
 
-By default, persistent storage is *disabled* and the setting is not exposed in the Application Settings. To enable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting via the [Cloud Shell](https://shell.azure.com). In Bash:
+::: zone-end
+
+::: zone pivot="container-linux"
+
+You can use the */home* directory in your app's file system to persist files across restarts and share them across instances. The `/home` in your app is provided to enable your container app to access persistent storage.
+
+When persistent storage is disabled, then writes to the `/home` directory aren't persisted across app restarts or across multiple instances. The only exception is the `/home/LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app.
+
+::: zone-end
+
+By default, persistent storage is disabled and the setting is not exposed in the app settings. To enable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
@@ -146,28 +156,6 @@ In PowerShell:
 ```azurepowershell-interactive
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
 ```
-
-::: zone-end
-
-::: zone pivot="container-linux"
-
-You can use the */home* directory in your app's file system to persist files across restarts and share them across instances. The `/home` in your app is provided to enable your container app to access persistent storage.
-
-When persistent storage is disabled, then writes to the `/home` directory aren't persisted across app restarts or across multiple instances. The only exception is the `/home/LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app.
-
-By default, persistent storage is *enabled* and the setting is not exposed in the Application Settings. To disable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting via the [Cloud Shell](https://shell.azure.com). In Bash:
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
-```
-
-In PowerShell:
-
-```azurepowershell-interactive
-Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=false}
-```
-
-::: zone-end
 
 > [!NOTE]
 > You can also [configure your own persistent storage](configure-connect-to-azure-storage.md).

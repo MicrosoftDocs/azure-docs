@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed through your own tenant using Azure delegated resource management.
-ms.date: 09/24/2020
+ms.date: 12/04/2020
 ms.topic: how-to
 ---
 
@@ -281,6 +281,11 @@ In the customer's tenant:
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
 Get-AzContext
+
+# Confirm successful onboarding for Azure Lighthouse
+
+Get-AzManagedServicesDefinition
+Get-AzManagedServicesAssignment
 ```
 
 ### Azure CLI
@@ -291,8 +296,9 @@ Get-AzContext
 az account list
 ```
 
+If you need to make changes after the customer has been onboarded, you can [update the delegation](update-delegation.md). You can also [remove access to the delegation](remove-delegation.md) completely.
+
 ## Next steps
 
 - Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
 - [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
-- Learn how to [remove access to a delegation](remove-delegation.md) that was previously onboarded.

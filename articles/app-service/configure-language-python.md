@@ -2,14 +2,14 @@
 title: Configure Linux Python apps
 description: Learn how to configure the Python container in which web apps are run, using both the Azure portal and the Azure CLI. 
 ms.topic: quickstart
-ms.date: 11/06/2020
+ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
 ---
 
 # Configure a Linux Python app for Azure App Service
 
-This article describes how [Azure App Service](overview.md) runs Python apps, and how you can customize the behavior of App Service when needed. Python apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
+This article describes how [Azure App Service](overview.md) runs Python apps, how you can migrate existing apps to Azure, and how you can customize the behavior of App Service when needed. Python apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
 
 The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](deploy-local-git.md), or a [zip package](deploy-zip.md).
 
@@ -89,7 +89,31 @@ For more information on how App Service runs and builds Python apps in Linux, se
 > [!NOTE]
 > Always use relative paths in all pre- and post-build scripts because the build container in which Oryx runs is different from the runtime container in which the app runs. Never rely on the exact placement of your app project folder within the container (for example, that it's placed under *site/wwwroot*).
 
-## Production settings for Django apps
+## Migrate existing applications to Azure
+
+Existing web applications can be redeployed to Azure as follows:
+
+1. **Source repository**: Maintain your source code in a suitable repository like GitHub, which enables you to set up continuous deployment later in this process.
+    1. Your *requirements.txt* file must be at the root of your repository for App Service to automatically install the necessary packages.    
+
+1. **Database**: If you app depends on a database, provision the necessary resources on Azure as well. See [Tutorial: Deploy a Django web app with PostgreSQL - create a database](tutorial-python-postgresql-app.md#3-create-postgres-database-in-azure) for an example.
+
+1. **App service resources**: Create a resource group, App Service Plan, and App Service web app to host your application. You can most easily do this by doing an initial deployment of your code through the Azure CLI command `az webapp up`, as shown on [Tutorial: Deploy a Django web app with PostgreSQL - deploy the code](tutorial-python-postgresql-app.md#4-deploy-the-code-to-azure-app-service). Replace the names of the resource group, App Service Plan, and the web app to be more suitable for your application.
+
+1. **Environment variables**: If your application requires any environment variables, create equivalent [App Service application settings](configure-common.md#configure-app-settings). These App Service settings appear to your code as environment variables, as described on [Access environment variables](#access-app-settings-as-environment-variables).
+    - Database connections, for example, are often managed through such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - configure variables to connect the database](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
+    - See [Production settings for Django apps](#production-settings-for-django-apps) for specific settings for typical Django apps.
+
+1. **App startup**: Review the section, [Container startup process](#container-startup-process) later in this article to understand how App Service attempts to run your app. App Service uses the Gunicorn web server by default, which must be able to find your app object or *wsgi.py* folder. If needed, you can [Customize the startup command](#customize-startup-command).
+
+1. **Continuous deployment**: Set up continuous deployment, as described on [Continuous deployment to Azure App Service](deploy-continuous-deployment.md) if using Azure Pipelines or Kudu deployment, or [Deploy to App Service using GitHub Actions](deploy-github-actions.md) if using GitHub actions.
+
+1. **Custom actions**: To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container through SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL - run database migrations](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
+    - When using continuous deployment, you can perform those actions using post-build commands as described earlier under [Customize build automation](#customize-build-automation).
+
+With these steps completed, you should be able to commit changes to your source repository and have those updates automatically deployed to App Service.
+
+### Production settings for Django apps
 
 For a production environment like Azure App Service, Django apps should follow Django's [Deployment checklist](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) (djangoproject.com).
 
@@ -97,10 +121,10 @@ The following table describes the production settings that are relevant to Azure
 
 | Django setting | Instructions for Azure |
 | --- | --- |
-| `SECRET_KEY` | Store the value in an App Service setting as described on [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternately [store the value as a "secrete" in Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
+| `SECRET_KEY` | Store the value in an App Service setting as described on [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternately [store the value as a "secrete" in Azure Key Vault](../key-vault/secrets/quick-create-python.md). |
 | `DEBUG` | Create a `DEBUG` setting on App Service with the value 0 (false), then load the value as an environment variable. In your development environment, create a `DEBUG` environment variable with the value 1 (true). |
 | `ALLOWED_HOSTS` | In production, Django requires that you include app's URL in the `ALLOWED_HOSTS` array of *settings.py*. You can retrieve this URL at runtime with the code, `os.environ['WEBSITE_HOSTNAME']`. App Service automatically sets the `WEBSITE_HOSTNAME` environment variable to the app's URL. |
-| `DATABASES` | Define settings in App Service for the database connection and load them as environment variables to populate the [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) dictionary. You can alternately store the values (especially the username and password) as [Azure Key Vault secrets](/azure/key-vault/secrets/quick-create-python). |
+| `DATABASES` | Define settings in App Service for the database connection and load them as environment variables to populate the [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) dictionary. You can alternately store the values (especially the username and password) as [Azure Key Vault secrets](../key-vault/secrets/quick-create-python.md). |
 
 ## Container characteristics
 

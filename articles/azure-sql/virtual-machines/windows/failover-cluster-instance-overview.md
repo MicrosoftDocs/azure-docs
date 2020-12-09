@@ -42,7 +42,7 @@ In traditional on-premises clustered environments, a Windows failover cluster us
 
 SQL Server on Azure VMs offers various options as a shared storage solution for a deployment of SQL Server failover cluster instances: 
 
-||[Azure shared disks](../../../virtual-machines/windows/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Azure shared disks](../../../virtual-machines/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Minimum OS version**| All |Windows Server 2012|Windows Server 2016|
 |**Minimum SQL Server version**|All|SQL Server 2012|SQL Server 2016|
@@ -54,7 +54,7 @@ The rest of this section lists the benefits and limitations of each storage opti
 
 ### Azure shared disks
 
-[Azure shared disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
+[Azure shared disks](../../../virtual-machines/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
 
 **Supported OS**: All   
 **Supported SQL version**: All     

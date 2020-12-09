@@ -15,7 +15,7 @@
     href: partner-center-portal/account-migration-from-cpp-to-pc.md 
 - name: Concepts
   items: 
-  - name: Publishing options and considerations
+  - name: Listing options
     href: determine-your-listing-type.md
   - name: Transacting in the commercial marketplace
     href: marketplace-commercial-transaction-capabilities-and-considerations.md
@@ -50,7 +50,9 @@
     - name: Co-sell partner engagement
       href: marketplace-co-sell.md 
     - name: Co-sell option in Partner Center
-      href: partner-center-portal/commercial-marketplace-co-sell.md 
+      href: commercial-marketplace-co-sell.md 
+    - name: Migrate co-sell solutions from OCP GTM
+      href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  
@@ -125,12 +127,12 @@
     items: 
     - name: Plan an Azure Container offer
       href: marketplace-containers.md
+    - name: Prepare technical assets
+      href: create-azure-container-technical-assets.md
     - name: Create and publish an Azure Container offer
       items:
-      - name: Prepare technical assets
-        href: partner-center-portal/create-azure-container-technical-assets.md
       - name: Create an Azure Container offer
-        href: partner-center-portal/create-azure-container-offer.md
+        href: create-azure-container-offer.md
   - name: Azure virtual machine offers
     items:
     - name: Plan a VM offer
@@ -349,15 +351,14 @@
     items:
     - name: SaaS Fulfillment API overview
       href: partner-center-portal/pc-saas-fulfillment-apis.md
-      items:
-      - name: Register a SaaS application
-        href: partner-center-portal/pc-saas-registration.md
-      - name: SaaS Fulfillment APIs v2
-        href: partner-center-portal/pc-saas-fulfillment-api-v2.md
-      - name: SaaS Fulfillment APIs v1 (deprecated)
-        href: partner-center-portal/pc-saas-fulfillment-api-v1.md
-      - name: SaaS fulfillment APIs - FAQ
-        href: partner-center-portal/saas-fulfillment-apis-faq.md 
+    - name: Register a SaaS application
+      href: partner-center-portal/pc-saas-registration.md
+    - name: SaaS Fulfillment APIs v2
+      href: partner-center-portal/pc-saas-fulfillment-api-v2.md
+    - name: SaaS Fulfillment APIs v1 (deprecated)
+      href: partner-center-portal/pc-saas-fulfillment-api-v1.md
+    - name: SaaS fulfillment APIs - FAQ
+      href: partner-center-portal/saas-fulfillment-apis-faq.md 
 - name: Resources
   items:
   - name: Commercial marketplace FAQ
@@ -383,8 +384,10 @@
   - name: Supported countries and regions
     href: sell-from-countries.md  
   - name: Co-sell country and region codes
-    href: partner-center-portal/commercial-marketplace-co-sell-countries.md 
+    href: commercial-marketplace-co-sell-countries.md 
   - name: Co-sell state codes
-    href: partner-center-portal/commercial-marketplace-co-sell-states.md
+    href: commercial-marketplace-co-sell-states.md
+  - name: Categories and subcategories
+    href: categories.md  
   - name: Supported HTML tags
     href: supported-html-tags.md

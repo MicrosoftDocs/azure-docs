@@ -110,7 +110,7 @@
       href: unresponsive-vm-apply-group-policy.md
     - name: VM is unresponsive when applying security policy
       href: unresponsive-vm-apply-security-policy.md
-    - name: VM is unresponsive while waiting for local session manager
+    - name: VM is unresponsive while waiting for Local Session Manager
       href: vm-unresponsive-wait-local-session-manager.md
     - name: Windows boot manager error - Status Invalid Image Hash
       href: windows-boot-error-invalid-image-hash.md
@@ -261,6 +261,8 @@
     href: install-vm-agent-offline.md
   - name: Troubleshoot Windows VM agent
     href: windows-azure-guest-agent.md
+  - name: Troubleshoot Linux VM agent
+    href: linux-azure-guest-agent.md
 - name: Backup and restore
   items:
   - name: Troubleshoot backup failures on Azure VM
@@ -341,7 +343,7 @@
 - name: Migration and Move issues
   items:
   - name: Azure Resource Manager migration (ASM to ARM) FAQ
-    href: ../windows/migration-classic-resource-manager-overview.md
+    href: ../migration-classic-resource-manager-overview.md
 - name: Planned Maintenance
   items:
   - name: Overview

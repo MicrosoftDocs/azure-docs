@@ -201,7 +201,6 @@ The metrics and artifacts from MLflow logging are kept in your workspace. To vie
 
 ```python
 run.get_metrics()
-ws.get_details()
 ```
 
 ## Manage models 

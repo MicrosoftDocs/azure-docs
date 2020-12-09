@@ -29,10 +29,6 @@
       href: learn/quick-collect-windows-computer.md
   - name: Monitor applications
     items:
-    - name: .NET application
-      href: learn/quick-monitor-portal.md
-    - name: .NET Core application
-      href: learn/dotnetcore-quick-start.md
     - name: Node.js application
       href: learn/nodejs-quick-start.md
     - name: Mobile application
@@ -89,6 +85,8 @@
           href: samples/resource-manager-web-app.md
         - name: Azure Functions
           href: samples/resource-manager-function-app.md
+    - name: Data collection rules
+      href: samples/resource-manager-data-collection-rules.md
     - name: Diagnostic settings
       href: samples/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
@@ -164,6 +162,7 @@
     - name: Deploy Azure Monitor
       href: deploy.md
     - name: Deploy at scale
+      displayName: Azure Policy, Policy
       href: deploy-scale.md
   - name: Manage and configure
     items:
@@ -248,6 +247,8 @@
         href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
       - name: Standard columns
         href: platform/log-standard-columns.md
+      - name: Audit queries
+        href: log-query/query-audit.md
       - name: Optimize queries
         href: log-query/query-optimization.md
       - name: Functions
@@ -269,6 +270,10 @@
           href: log-query/resource-expression.md   
         - name: Unify application data resources
           href: log-query/unify-app-resource-data.md
+        - name: Cross service query between Azure Monitor and Azure Data Explorer overview
+          href: platform/azure-data-explorer-monitor-cross-service-query.md
+        - name: Query Azure Data Explorer from Azure Monitor
+          href: platform/azure-monitor-data-explorer-proxy.md
     - name: Data export
       items:
       - name: Workspace data export
@@ -351,6 +356,9 @@
       - name: Overview
         displayname: Azure Monitor agent
         href: platform/azure-monitor-agent-overview.md
+      - name: Install
+        displayname: Azure Monitor agent
+        href: platform/azure-monitor-agent-install.md
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: platform/data-collection-rule-azure-monitor-agent.md
@@ -542,7 +550,7 @@
         href: platform/it-service-management-connector-secure-webhook-connections.md
       - name: Create Service Manager web app
         href: platform/itsmc-service-manager-script.md
-      - name: Fix ServiceNow ITSM sync problems
+      - name: Troubleshooting problems in ITSM Connector
         href: platform/itsmc-resync-servicenow.md
     - name: Migrate classic alert rules
       items:
@@ -668,6 +676,11 @@
               href: app/java-standalone-telemetry-processors.md
             - name: JVM arguments setup
               href: app/java-standalone-arguments.md
+            - name: Upgrade from 2.x SDK
+              href: app/java-standalone-upgrade-from-2x.md
+            - name: Troubleshooting
+              href: app/java-standalone-troubleshoot.md
+
       - name: On-Premises servers
         items:
         - name: ASP.NET
@@ -876,8 +889,6 @@
         items:
         - name: Deep diagnostics for web apps and services
           href: app/devops.md
-        - name: Monitor performance in web applications
-          href: app/web-monitor-performance.md
         - name: Separate development, test, and production
           href: app/separate-resources.md
         - name: How do I ... in Application Insights?
@@ -944,14 +955,28 @@
       href: insights/vminsights-maps.md
     - name: Monitor performance
       href: insights/vminsights-performance.md
-    - name: Monitor changes
-      href: insights/vminsights-change-analysis.md
+    - name: Monitor guest health (preview)
+      items:
+      - name: Overview
+        href: insights/vminsights-health-overview.md
+      - name: Enable
+        href: insights/vminsights-health-enable.md
+      - name: Alerts
+        href: insights/vminsights-health-alerts.md
+      - name: Configure monitors in portal
+        href: insights/vminsights-health-configure.md
+      - name: Configure monitors at scale
+        href: insights/vminsights-health-configure-dcr.md
+      - name: Troubleshoot
+        href: insights/vminsights-health-troubleshoot.md
     - name: Analyze data with log queries
       href: insights/vminsights-log-search.md
+    - name: Monitor performance
+      href: insights/vminsights-alerts.md
+    - name: Monitor changes
+      href: insights/vminsights-change-analysis.md
     - name: Visualize data with workbooks
       href: insights/vminsights-workbooks.md
-    - name: Create alert rules
-      href: insights/vminsights-alerts.md
     - name: Disable monitoring
       href: insights/vminsights-optout.md
   - name: Azure Monitor for containers 
@@ -988,6 +1013,8 @@
       href: insights/container-insights-deployment-hpa-metrics.md
     - name: Monitor Persistent Volumes (PVs)
       href: insights/container-insights-persistent-volumes.md
+    - name: Reports tab
+      href: insights/container-insights-reports.md
     - name: View live data
       items:
       - name: Live Data (preview) overview
@@ -1119,6 +1146,8 @@
         href: platform/workbooks-tree-visualizations.md
       - name: Graph
         href: platform/workbooks-graph-visualizations.md
+      - name: Map
+        href: platform/workbooks-map-visualizations.md
       - name: Honey comb
         href: platform/workbooks-honey-comb.md
       - name: Composite bar

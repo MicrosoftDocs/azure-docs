@@ -200,7 +200,7 @@ package consists of:
 
 PowerShell cmdlets assist in creating the package.
 No root level folder or version folder is required.
-The package format must be a .zip file.
+The package format must be a .zip file and cannot exceed a total size of 100MB when uncompressed.
 
 ### Storing Guest Configuration artifacts
 
@@ -659,16 +659,6 @@ value `enabled` to all virtual machines where code signing should be required. S
 Azure Policy. Once this tag is in place, the policy definition generated using the
 `New-GuestConfigurationPolicy` cmdlet enables the requirement through the Guest Configuration
 extension.
-
-## Troubleshooting Guest Configuration policy assignments (Preview)
-
-A tool is available in preview to assist in troubleshooting Azure Policy Guest Configuration
-assignments. The tool is in preview and has been published to the PowerShell Gallery as module name
-[Guest Configuration Troubleshooter](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
-
-For more information about the cmdlets in this tool, use the Get-Help command in PowerShell to show
-the built-in guidance. As the tool is getting frequent updates, that is the best way to get most
-recent information.
 
 ## Next steps
 

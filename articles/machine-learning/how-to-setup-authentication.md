@@ -22,7 +22,7 @@ Learn how to set up authentication to your Azure Machine Learning workspace. Aut
 
 * __Service principal__: You create a service principal account in Azure Active Directory, and use it to authenticate or get a token. A service principal is used when you need an _automated process to authenticate_ to the service without requiring user interaction. For example, a continuous integration and deployment script that trains and tests a model every time the training code changes.
 
-* __Managed identity__: When using the Azure Machine Learning SDK _on an Azure Virtual Machine_, you can a managed identity for Azure. This workflow allows the VM to connect to the workspace using the managed identity, without storing credentials in Python code or prompting the user to authenticate. Azure Machine Learning compute clusters can also be configured to use a managed identity to access the workspace when _training models_.
+* __Managed identity__: When using the Azure Machine Learning SDK _on an Azure Virtual Machine_, you can use a managed identity for Azure. This workflow allows the VM to connect to the workspace using the managed identity, without storing credentials in Python code or prompting the user to authenticate. Azure Machine Learning compute clusters can also be configured to use a managed identity to access the workspace when _training models_.
 
 > [!IMPORTANT]
 > Regardless of the authentication workflow used, Azure role-based access control (Azure RBAC) is used to scope the level of access (authorization) allowed to the resources. For example, an admin or automation process might have access to create a compute instance, but not use it, while a data scientist could use it, but not delete or create it. For more information, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md).
@@ -62,7 +62,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
     If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser and follow the instructions on the command line. The instructions involve browsing to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and entering an authorization code.
 
-    If you have multiple Azure subscriptions, you can use the `az account set -s <subscription name or ID>` command to set the subscription. For more information, see [Use multiple Azure subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    If you have multiple Azure subscriptions, you can use the `az account set -s <subscription name or ID>` command to set the subscription. For more information, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
     For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
@@ -149,7 +149,7 @@ For more information, see [Set up managed identity for compute cluster](how-to-c
 ## Use interactive authentication
 
 > [!IMPORTANT]
-> Interactive authentication uses your browser, and requires cookies (including 3rd party cookies). If you have disabled cookies, you may receive an error such as "we couldn't sign you in." This error may also occur if you have enabled [Azure multi-factor authentication](../active-directory/authentication/concept-mfa-howitworks.md).
+> Interactive authentication uses your browser, and requires cookies (including 3rd party cookies). If you have disabled cookies, you may receive an error such as "we couldn't sign you in." This error may also occur if you have enabled [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md).
 
 Most examples in the documentation and samples use interactive authentication. For example, when using the SDK there are two function calls that will automatically prompt you with a UI-based authentication flow:
 
@@ -179,7 +179,7 @@ Most examples in the documentation and samples use interactive authentication. F
 > interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
 > ```
 
-When using the Azure CLI, the `az login` command is used to authenticate the CLI session. For more information, see [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+When using the Azure CLI, the `az login` command is used to authenticate the CLI session. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 > [!TIP]
 > If you are using the SDK from an environment where you have previously authenticated interactively using the Azure CLI, you can use the `AzureCliAuthentication` class to authenticate to the workspace using the credentials cached by the CLI:

@@ -36,7 +36,7 @@ Set<IAccount> accounts = pca.getAccounts().join();
 
 ## Remove accounts from the cache
 
-To remove an account from the cache, find the account that needs to be removed and then call `PublicClientApplicatoin.removeAccount()` as shown in the following example:
+To remove an account from the cache, find the account that needs to be removed and then call `PublicClientApplication.removeAccount()` as shown in the following example:
 
 ```java
 Set<IAccount> accounts = pca.getAccounts().join();

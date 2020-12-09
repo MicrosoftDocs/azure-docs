@@ -81,7 +81,7 @@ Reserved VM Instances are available for most VM sizes with some exceptions. Rese
 
 ## Buy a Reserved VM Instance
 
-You can buy a reserved VM instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/monthly-payments-reservations.md).
+You can buy a reserved VM instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md).
 These requirements apply to buying a reserved VM instance:
 
 - You must be in an Owner role for at least one EA subscription or a subscription with a pay-as-you-go rate.
@@ -153,6 +153,4 @@ If you have questions or need help, [create a support request](https://portal.az
     - [Understand reservation usage for a subscription with pay-as-you-go rates](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
     - [Understand reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
     - [Windows software costs not included with reservations](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
-    - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
-
-
+    - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
