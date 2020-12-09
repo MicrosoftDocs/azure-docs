@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 12/01/2020
+ms.date: 12/09/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -208,7 +208,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: What is Autofill in Authenticator?
 
-**A**: Autofill in Authenticator app now securely stores and autofills passwords on apps and websites you visit on your phone. You can use Autofill to sync and autofill your passwords on their iOS and Android devices. After setting up the Authenticator app as an autofill provider on your phone, it offers to save your passwords when you enter them on a site or app sign-in page. The passwords are saved as part of [your Microsoft account](https://account.microsoft.com/account) and are also available when you sign in to Microsoft Edge with your Microsoft account.
+**A**: THe Authenticator app now securely stores and autofills passwords on apps and websites you visit on your phone. You can use Autofill to sync and autofill your passwords on their iOS and Android devices. After setting up the Authenticator app as an autofill provider on your phone, it offers to save your passwords when you enter them on a site or app sign-in page. The passwords are saved as part of [your Microsoft account](https://account.microsoft.com/account) and are also available when you sign in to Microsoft Edge with your Microsoft account.
 
 **Q**: What information can Authenticator autofill for me?
 
@@ -230,8 +230,8 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 1. On the **Passwords** tab inside the app, sign in using [your Microsoft account](https://account.microsoft.com/account).
 1. Do one of the following:
 
-   - On iOS, Under Settings, select How to turn on Autofill in the Autofill settings section to learn how to set Authenticator as the default autofill provider.
-   - On Android, Under Settings, select Set as Autofill provider in the Autofill settings section to set Authenticator as the default autofill provider.
+   - On iOS, under **Settings**, select **How to turn on Autofill** in the Autofill settings section to learn how to set Authenticator as the default autofill provider.
+   - On Android, under **Settings**, select **Set as Autofill provider** in the Autofill settings section to set Authenticator as the default autofill provider.
 
 **Q**: What if **Autofill** switch is grayed out for me in Settings?
 
