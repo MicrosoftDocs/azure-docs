@@ -1,99 +1,162 @@
-### YamlMime:Landing
-
-title: Azure Communication Services
-summary: Azure Communication Services is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. Note that Azure Communication Services is currently in public preview.
-
-metadata:
-  title: Azure Communication Services 
-  description: Azure Communication Services is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. Note that Azure Communication Services is currently in public preview.
-  ms.service: azure-communication-services
-  ms.topic: landing-page # Required
-  author: mikben 
-  ms.author: mikben
-  ms.date: 08/10/2020 
-
-landingContent:
-  - title: About Azure Communication Services
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Communication Services?
-            url: overview.md 
-      - linkListType: concept
-        links:
-          - text: Client library options
-            url: concepts/sdk-options.md
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create a Communication Services resource
-            url: quickstarts/create-communication-resource.md
-          - text: Create and manage user access tokens
-            url: quickstarts/access-tokens.md
-      - linkListType: concept
-        links:
-          - text: Client and server architecture
-            url: concepts/client-and-server-architecture.md
-          - text: Authentication and authorization
-            url: concepts/authentication.md
-          - text: Event handling
-            url: concepts/event-handling.md
-          - text: Notifications
-            url: concepts/notifications.md
-  - title: Voice and video calling
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Add voice and video calling to your app
-            url: quickstarts/voice-video-calling/getting-started-with-calling.md
-          - text: Use the calling client library
-            url: quickstarts/voice-video-calling/calling-client-samples.md
-      - linkListType: concept
-        links:
-          - text: Voice and video concepts
-            url: concepts/voice-video-calling/about-call-types.md
-          - text: Calling client library overview
-            url: concepts/voice-video-calling/calling-sdk-features.md
-          - text: Call flows
-            url: concepts/call-flows.md
-  - title: Telephony and SMS
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Get a telephone number
-            url: quickstarts/telephony-sms/get-phone-number.md
-          - text: Send an SMS message
-            url: quickstarts/telephony-sms/send.md
-          - text: Handle SMS events 
-            url: quickstarts/telephony-sms/handle-sms-events.md
-      - linkListType: concept
-        links:
-          - text: SMS concepts
-            url: concepts/telephony-sms/concepts.md
-          - text: SMS client library overview
-            url: concepts/telephony-sms/sdk-features.md
-          - text: Calling overview
-            url: concepts/voice-video-calling/calling-sdk-features.md
-          - text: Plan your telephony and SMS solution
-            url: concepts/telephony-sms/plan-solution.md
-  - title: Chat
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Add chat to your app
-            url: quickstarts/chat/get-started.md
-      - linkListType: concept
-        links:
-          - text: Chat concepts
-            url: concepts/chat/concepts.md
-          - text: Chat client library overview
-            url: concepts/chat/sdk-features.md
-  - title: Samples
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Get started with the Group Calling hero sample
-            url: samples/calling-hero-sample.md
-          - text: Get started with the Chat hero sample
-            url: samples/chat-hero-sample.md
+- name: Azure Communication Services Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Communication Services?
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a Communication Services resource
+    href: quickstarts/create-communication-resource.md
+  - name: Create and manage access tokens
+    href: quickstarts/access-tokens.md
+  - name: Chat
+    items:
+      - name: Add chat to your app
+        href: quickstarts/chat/get-started.md
+  - name: Telephony and SMS
+    items:
+      - name: Get a telephone number
+        href: quickstarts/telephony-sms/get-phone-number.md
+      - name: Add telephone calling to your app
+        href: quickstarts/voice-video-calling/pstn-call.md
+      - name: Send an SMS message
+        href: quickstarts/telephony-sms/send.md
+      - name: Handle SMS events
+        href: quickstarts/telephony-sms/handle-sms-events.md
+      - name: Send an SMS in Azure Logic Apps
+        href: quickstarts/telephony-sms/logic-app.md
+  - name: Voice and video calling
+    items:
+    - name: Add voice calling to your app
+      href: quickstarts/voice-video-calling/getting-started-with-calling.md
+    - name: Use the calling client library
+      href: quickstarts/voice-video-calling/calling-client-samples.md
+    - name: Join your calling app to a Teams meeting
+      href: quickstarts/voice-video-calling/get-started-teams-interop.md
+  - name: UI Framework
+    items:
+    - name: Create your own UI Framework component
+      href: quickstarts/ui-framework/create-your-own-components.md
+    - name: Getting started with components
+      href: quickstarts/ui-framework/getting-started-with-components.md
+- name: Tutorials
+  expanded: false
+  items:
+  - name: Build a trusted authentication service using Azure Functions
+    href: tutorials/trusted-service-tutorial.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: Chat
+    items:
+      - name: Chat client library overview
+        href: concepts/chat/sdk-features.md
+      - name: Chat concepts
+        href: concepts/chat/concepts.md
+  - name: Telephony and SMS
+    items: 
+      - name: SMS client library overview
+        href: concepts/telephony-sms/sdk-features.md
+      - name: SMS concepts
+        href: concepts/telephony-sms/concepts.md
+      - name: Plan your telephony and SMS solution 
+        href: concepts/telephony-sms/plan-solution.md
+  - name: Voice and video calling
+    items:
+      - name: Calling client library overview
+        href: concepts/voice-video-calling/calling-sdk-features.md
+      - name: Voice and video concepts
+        href: concepts/voice-video-calling/about-call-types.md
+      - name: Teams interoperability
+        href: concepts/voice-video-calling/teams-interop.md
+  - name: UI Framework
+    items:
+    - name: UI Framework overview
+      href: concepts/ui-framework/ui-sdk-overview.md
+    - name: UI Framework capabilities
+      href: concepts/ui-framework/ui-sdk-features.md
+    - name: UI Framework Meetings
+      href: concepts/ui-framework/meetings.md
+  - name: Client and server architecture
+    href: concepts/client-and-server-architecture.md
+  - name: Call flows
+    href: concepts/call-flows.md
+  - name: Client libraries and REST APIs
+    href: concepts/sdk-options.md 
+  - name: Pricing model
+    href: concepts/pricing.md
+  - name: Privacy
+    href: concepts/privacy.md
+  - name: Authentication
+    href: concepts/authentication.md
+  - name: Event handling
+    href: concepts/event-handling.md
+  - name: Notifications
+    href: concepts/notifications.md
+  - name: Logging and diagnostics
+    href: concepts/logging-and-diagnostics.md
+  - name: Metrics
+    href: concepts/metrics.md
+  - name: Troubleshooting
+    href: concepts/troubleshooting-info.md
+- name: Samples
+  items:
+  - name: Group calling hero sample
+    href: samples/calling-hero-sample.md
+  - name: Group chat hero sample
+    href: samples/chat-hero-sample.md
+  - name: Web calling sample
+    href: samples/web-calling-sample.md
+- name: References
+  items:
+  - name: Reference documentation overview
+    href: concepts/reference.md
+  - name: REST API documentation
+    href: https://docs.microsoft.com/rest/api/communication/
+  - name: Calling libraries
+    items:
+    - name: Calling (JavaScript)
+      href: https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js
+    - name: Calling (Android/Java)
+      href: https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android
+    - name: Calling (iOS)
+      href: https://docs.microsoft.com/objectivec/communication-services/calling/
+  - name: Chat libraries
+    items:
+    - name: Chat (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-chat
+    - name: Chat (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationchat
+    - name: Chat (Android/Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat
+  - name: SMS libraries
+    items:
+    - name: SMS (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-sms
+    - name: SMS (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationsms
+    - name: SMS (Android/Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms
+  - name: Administration libraries
+    items:
+    - name: Administration (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-administration
+    - name: Administration (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationadministration
+    - name: Administration (Android/Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-administration
+  - name: Common libraries
+    items:
+    - name: Common (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-common
+    - name: Common (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon
+    - name: Common (Android/Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common
+- name: Resources
+  items:
+  - name: Release notes
+    href: https://github.com/Azure/Communication/blob/master/releasenotes
