@@ -1,6 +1,6 @@
 ---
 title: Create and manage users
-description: 
+description: Create and manage sensor and on-premises management console users. Users can be assigned the role of an Administrator, Security Analyst or Read Only user.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -91,7 +91,7 @@ To define a user:
 - **Access Group:** If you are creating a user for the on-premises management console, define the user's access group. See [Define Global Access Control](how-to-define-global-user-access-control.md).
 - **Password:** Select the user type as follows:
   - **Local User:** Define a password for a sensor or on-premises management console user. The password must include at least six characters and must include letters and numbers.
-  - **Active Directory User:** You can allow users to log in to the sensor or management console using Active Directory credentials. Active Directory groups defined can be associated with specific permission levels. For example, configure a specific Active Directory group and assign all users in the group to the Read Only user type. See [Integrate with active directory servers](how-to-set-up-active-directory.md).
+  - **Active Directory User:** You can allow users to log in to the sensor or management console using Active Directory credentials. Active Directory groups defined can be associated with specific permission levels. For example, configure a specific Active Directory group and assign all users in the group to the Read Only user type.
 
 :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/manage-user-views.png" alt-text="Manage your users.":::
 

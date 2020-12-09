@@ -91,6 +91,6 @@ If the agent stops communicating or fails to send security messages, a **Device 
 To learn more about how to get started with Defender for IoT, see the following articles:
 
 - Read the Defender for IoT [overview](overview.md)
-- Verify the [Service prerequisites](service-prerequisites.md)
+- Verify the [System prerequisites](quickstart-system-prerequisites.md)
 - Learn more about how to [Get started](getting-started.md)
 - Understand [Defender for IoT security alerts](concept-security-alerts.md)

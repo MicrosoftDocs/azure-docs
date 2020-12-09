@@ -224,4 +224,4 @@ To export a CSV file:
 
 [Investigate all enterprise sensor detections in a Device Inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 
-[Investigate sensor detections in the device map](how-to-work-with-maps.md)
+[Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views)

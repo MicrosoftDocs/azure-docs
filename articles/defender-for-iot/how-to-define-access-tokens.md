@@ -1,6 +1,6 @@
 ---
 title: Define access tokens
-description: 
+description: You can allow external systems to access discovered data and perform actions with that data using the external REST API, over SSL connections. You can generate access tokens to access the Defender for IoT REST API.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

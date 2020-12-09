@@ -1,6 +1,6 @@
 ---
 title: Backup and restore the management console 
-description: 
+description: The on-premises management console system backup is performed automatically, daily.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

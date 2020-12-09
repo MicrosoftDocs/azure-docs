@@ -1,6 +1,6 @@
 ---
 title: Integrations
-description: 
+description: You can expand Defender for IoT's capabilities by sharing both device and alert information with partner systems.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

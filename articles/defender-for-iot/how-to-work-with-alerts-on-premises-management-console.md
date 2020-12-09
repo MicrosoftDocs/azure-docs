@@ -69,7 +69,9 @@ Severity levels are predefined.
 
 You can adjust the counter to provide numbers based on acknowledged and unacknowledged alerts. Unacknowledged alerts are alerts that were triggered at Defender for IoT sensors but not yet reviewed by operates at the sensor.
 
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/show-acknowledged-alerts.png" alt-text="View your acknowledged alerts."::: When the **Show Acknowledged Alerts** option is selected, all the acknowledged alerts appear in the Alerts window.
+When the **Show Acknowledged Alerts** option is selected, all the acknowledged alerts appear in the Alerts window.
+
+:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/show-acknowledged-alerts.png" alt-text="View your acknowledged alerts.":::
 
 ### View alert information
 
@@ -135,9 +137,6 @@ Instruct Defender for IoT to ignore alert triggers based on:
 Create alert exclusion rules when you want Defender for IoT to ignore activity that will trigger an alert.
 ****
 For example, if you know that all the OT devices monitored by a specific sensor will be going through maintenance procedures for two days, you can define an exclusion rule that instructs Defender for IoT to suppress alerts detected by this sensor during the predefined period.
-
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alert-exclusions.png" alt-text="Screenshot of create exclusion rule view.":::
-
 ### Alert exclusion logic
 
 Alert rule logic is `AND` based. This means an alert will be triggered only when all the rule conditions are met.
@@ -152,7 +151,7 @@ Rule summaries are displayed in the Exclusion Rule window.
 
 In addition to working with exclusion rules, you can also suppress alerts by muting them.
 
-### Creating exclusion rules
+### Create exclusion rules
 
 This article describes how to create exclusion rules.
 

@@ -1,6 +1,6 @@
 ---
 title: Enhance port and VLAN names resolution
-description: 
+description: Defender for IoT automatically assigns names to most universally reserved ports. For example, DHCP or HTTP. You can customize port names for other ports detected.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

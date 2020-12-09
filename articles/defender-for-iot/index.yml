@@ -27,7 +27,7 @@ landingContent:
           - text: Security Module for Azure RTOS 
             url: iot-security-azure-rtos.md
           - text: Plan your solution
-            url: service-prerequisites.md
+            url: quickstart-system-prerequisites.md
       - linkListType: architecture
         links:
           - text: Understand Azure Defender for IoT architecture

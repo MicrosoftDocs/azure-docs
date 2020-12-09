@@ -1,6 +1,6 @@
 ---
 title: Key advantages
-description: 
+description: The Defender for IoT sensor connects to a SPAN port or network TAP and immediately begins collecting ICS network traffic via passive (agentless) monitoring.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

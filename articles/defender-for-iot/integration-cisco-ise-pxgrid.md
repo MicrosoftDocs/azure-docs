@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.service: azure
 ---
 
-
 # About the Cisco ISE pxGrid integration
 
-Defender for IoT delivers the only ICS and IoT cybersecurity platform built by blue-team experts with a track record defending critical national infrastructure,  and the only platform with patented ICS-aware threat analytics and machine learning. Defender for IoT provides:
+Defender for IoT delivers the only ICS and IoT cybersecurity platform built by blue-team experts with a track record defending critical national infrastructure, and the only platform with patented ICS-aware threat analytics and machine learning. Defender for IoT provides:
 
   - Immediate insights about ICS devices, vulnerabilities, as well as known and zero-day threats.
 

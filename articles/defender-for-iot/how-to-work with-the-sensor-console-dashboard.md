@@ -1,6 +1,6 @@
 ---
 title: Work with the sensor console dashboard
-description: 
+description: The dashboard allows you to quickly view the security status of your network. It provides a high-level overview of threats to your whole system on a timeline along with information about related devices.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

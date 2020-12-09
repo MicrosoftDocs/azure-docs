@@ -65,7 +65,7 @@ For example,
 
 ## See also
 
-[Learning modes](concept-learning-modes.md)
+[Learning modes](how-to-control-what-traffic-is-monitored.md#learning-modes)
 
 [View information provided in alerts](how-to-view-information-provided-in-alerts.md)
 

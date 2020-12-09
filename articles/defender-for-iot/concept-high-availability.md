@@ -1,6 +1,6 @@
 ---
 title: High availability
-description: 
+description: Increase the resiliency of your Defender for IoT deployment by installing a on-premises management console high availability appliance.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

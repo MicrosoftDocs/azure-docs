@@ -1,6 +1,6 @@
 ---
 title: Air gapped networks
-description: 
+description: The Defender for IoT on-premises management console delivers a real-time view of key IoT and OT risk indicators and alerts across all of your facilities.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
