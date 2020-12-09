@@ -52,13 +52,18 @@ You can review detailed steps at [Azure resource providers and types](../../azur
 
 This release introduces direct connectivity mode. Direct connectivity mode enables the data controller to automatically upload the usage information to Azure. As part of the usage upload, the Arc data controller resource is automatically created in the portal, if it is not already created via `azdata` upload.  
 
-You can specify direct connectivity when you create the data controller. The following example creates a data controller with `azdata arc dc create` named `azure-arc-aks-hci` using direct connectivity mode (`connectivity-mode direct`). Before you run the example, replace `<subscription id>` with your subscription ID.
+You can specify direct connectivity when you create the data controller. The following example creates a data controller with `azdata arc dc create` named `arc` using direct connectivity mode (`connectivity-mode direct`). Before you run the example, replace `<subscription id>` with your subscription ID.
 
 ```console
 azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
 ### Known issues
+
+### Platform
+
+- On Azure Kubernetes Service (AKS), Kubernetes version 1.19.x is not supported.
+- On Kubernetes 1.19 containerd is not supported.
 
 #### PostgreSQL
 
@@ -121,6 +126,9 @@ For instructions see [What are Azure Arc enabled data services?](overview.md)
 
 ## Known limitations and issues
 
+- On Azure Kubernetes Service (AKS), Kubernetes version 1.19.x is not supported.
+- On Kubernetes 1.19 containerd is not supported.
+- The data controller resource in Azure is currently a shadow resource. Any updates such as delete is not propagated back to the kubernetes cluster.
 - Instance names can't be greater than 13 characters
 - No in-place upgrade for the Azure Arc data controller or database instances.
 - Arc enabled data services container images are not signed.  You may need to configure your Kubernetes nodes to allow unsigned container images to be pulled.  For example, if you are using Docker as the container runtime, you can set the DOCKER_CONTENT_TRUST=0 environment variable and restart.  Other container runtimes have similar options such as in [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration).
