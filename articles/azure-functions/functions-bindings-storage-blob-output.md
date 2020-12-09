@@ -236,18 +236,19 @@ module.exports = function(context) {
 
 # [PowerShell](#tab/powershell)
 
-The following example shows blob trigger and output bindings in a *function.json* file and [PowerShell code](functions-reference-powershell.md) that uses the bindings. The function makes a copy of a blob. The function is triggered by a blob trigger that matches blobs under the *samples-workitems* container. The new blob is named *samples-workitems/copy/{originalblobname}*.
+The following example demonstrates how to create a copy of an incoming blob as the output from a [PowerShell function](functions-reference-powershell.md).
 
-In the *function.json* file, the `trigger` metadata property is used to specify the output blob name in the `path` properties:
+In the function's configuration file (*function.json*), the `trigger` metadata property is used to specify the output blob name in the `path` properties.
 
-When using blob triggers, to avoid an infinite loop, care must be taken to ensure the trigger condition doesn't match the output blob name.
+> [!NOTE]
+> To avoid infinite loops, make sure your input and output paths are different.
 
 ```json
 {
   "bindings": [
     {
       "name": "myInputBlob",
-      "path": "samples-workitems/{trigger}",
+      "path": "data/{trigger}",
       "connection": "MyStorageConnectionAppSetting",
       "direction": "in",
       "type": "blobTrigger"
@@ -255,7 +256,7 @@ When using blob triggers, to avoid an infinite loop, care must be taken to ensur
     {
       "name": "myOutputBlob",
       "type": "blob",
-      "path": "samples-workitems/copy/{trigger}",
+      "path": "data/copy/{trigger}",
       "connection": "MyStorageConnectionAppSetting",
       "direction": "out"
     }
@@ -263,8 +264,6 @@ When using blob triggers, to avoid an infinite loop, care must be taken to ensur
   "disabled": false
 }
 ```
-
-The [configuration](#configuration) section explains these properties.
 
 Here's the PowerShell code:
 
