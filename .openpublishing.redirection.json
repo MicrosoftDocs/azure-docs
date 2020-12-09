@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/troubleshooting/os-disk-full-linux.md",
+      "redirect_url": "https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/boot-error-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/download-template.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/download-template",
       "redirect_document_id": false
@@ -818,6 +823,11 @@
     {
       "source_path": "articles/storage/common/storage-migration-faq.md",
       "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-use-azcopy-blobs.md",
+      "redirect_url": "/azure/storage/common/storage-use-azcopy-v10#transfer-data",
       "redirect_document_id": false
     },
     {
@@ -54636,6 +54646,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/CSharp.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/rest/detect.cs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/go.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/Face/rest/detect.go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/Java.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/Face/rest/detect.java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/node.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/rest/detect.js",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/JavaScript.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/rest/js-native-quickstart.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/PHP.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/php/face/rest/detect.php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/Python.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/rest/detect.py",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/Ruby.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/ruby/face/rest/detect.rb",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/text-analytics/vs-text-connected-service.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/",
       "redirect_document_id": false
@@ -60418,6 +60468,16 @@
     {
       "source_path": "articles/synapse-analytics/security/access-control.md",
       "redirect_url": "/azure/synapse-analytics/security/synapse-workspace-access-control-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/learn/quick-monitor-portal.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/learn/dotnetcore-quick-start.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
     },
     {
