@@ -197,12 +197,12 @@ To grant access to a user to a **single** serverless SQL database, follow the st
 
 To grant full access to **all** serverless SQL pools in the workspace, use the script in this example:
 
-    ```sql
-    use master
-    go
-    CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-    ALTER SERVER ROLE sysadmin ADD MEMBER [alias@domain.com];
-    ```
+```sql
+use master
+go
+CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
+ALTER SERVER ROLE sysadmin ADD MEMBER [alias@domain.com];
+```
 
 ### STEP 7.2: Dedicated SQL pools
 
