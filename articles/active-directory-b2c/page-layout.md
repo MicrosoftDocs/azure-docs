@@ -45,7 +45,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Fixed an accessibility issue so that error messages are now read by Narrator. 
 - Focus is now placed on the password field after the email is verified.
 - Removed `autofocus` from the checkbox control. 
-- Support display widget for phone number verification. 
+- Added support for a display widget for phone number verification.
 - You can now add the `data-preload="true"` attribute [in your HTML tags](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
