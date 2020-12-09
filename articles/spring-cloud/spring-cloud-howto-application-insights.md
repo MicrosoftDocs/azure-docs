@@ -55,7 +55,7 @@ In the left navigation pane, click **Application Insights** to jump to the **Ove
 
   [ ![IPA 2](media/spring-cloud-application-insights/insights-process-agent-2-map.png)](media/spring-cloud-application-insights/insights-process-agent-2-map.png)
 
-* Click the link between customers-service and `petclinic` to see more details like query from SQL.
+* Click the link between customers-service and `petclinic` to see more details such as a query from SQL.
 
 * In the left navigation pane, click `Performance` to see the performance data of all applications' operations, as well as dependencies and roles.
 
