@@ -1,42 +1,61 @@
 ---
-title: Quickstart - View the access a user has to Azure resources - Azure RBAC
-description: In this quickstart, you learn how to view the access a user or other security principal has to Azure resources using the Azure portal and Azure role-based access control (Azure RBAC).
+title: Quickstart: Check the access a user has to Azure resources - Azure RBAC
+description: In this quickstart, you learn how to check the access for yourself or another user to Azure resources using the Azure portal and Azure role-based access control (Azure RBAC).
 services: role-based-access-control
-documentationCenter: ''
 author: rolyon
 manager: mtillman
-editor: ''
-
 ms.service: role-based-access-control
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 12/08/2020
 ms.author: rolyon
-ms.reviewer: bagovind
+ms.custom: contperfq2
 
-#Customer intent: As a new user, I want to see how to quickly see how to check what access a user, group, or application has, to make sure they have the appropriate permissions.
+#Customer intent: As a new user, I want to quickly see access for myself, user, group, or application, to make sure they have the appropriate permissions.
 
 ---
 
-# Quickstart: View the access a user has to Azure resources
+# Quickstart: Check the access a user has to Azure resources
 
-You can use the **Access control (IAM)** blade in [Azure role-based access control (Azure RBAC)](overview.md) to view the access a user or another security principal has to Azure resources. However, sometimes you just need to quickly view the access for a single user or another security principal. The easiest way to do this is to use the **Check access** feature in the Azure portal.
+You can use the **Access control (IAM)** page in [Azure role-based access control (Azure RBAC)](overview.md) to check the access a user or another security principal has to Azure resources. The easiest way to check the access is to use the **Check access** feature.
 
-## View role assignments
+## View my access
 
- The way that you view the access for a user is to list their roles assignments. Follow these steps to view the role assignments for a single user, group, service principal, or managed identity at the subscription scope.
+The way that you view your access is to list your role assignments and any deny assignments. Follow these steps to view your access to a set of Azure resources.
 
-1. In the Azure portal, click **All services** and then **Subscriptions**.
+1. Open the Azure portal.
 
-1. Click your subscription.
+1. Open the set of resources that you want to check access for, such as **Subscriptions**, **Resource groups**, or a particular resource. This is called the [scope](scope-overview.md).
+
+1. Click your subscription, resource group, or resource.
 
 1. Click **Access control (IAM)**.
 
-1. Click the **Check access** tab.
+    The following shows an example of the Access control (IAM) page for a resource group.
 
-    ![Access control - Check access tab](./media/check-access/access-control-check-access.png)
+    ![Resource group access control - Check access tab](./media/check-access/access-control-check-access.png)
+
+1. On the **Check access** tab, click the **View my access** button.
+
+    An assignments pane appears that lists the following assignments at this scope and higher. Assignments at lower scopes are not listed.
+
+    - Role assignments added with Azure RBAC.
+    - Deny assignments added using Azure Blueprints or Azure managed apps.
+    - Classic Service Administrator or Co-Administrator assignments for classic deployments. 
+
+    ![Role and deny assignments pane](./media/check-access/check-access-assignments.png)
+
+## Check access for a security principal
+
+You can also check the access for a single user, group, service principal, or managed identity. Follow these steps to check the access for a security principal to a set of Azure resources.
+
+1. Open the Azure portal.
+
+1. Open the set of resources that you want to check access for, such as **Subscriptions**, **Resource groups**, or a particular resource. This is called the [scope](scope-overview.md).
+
+1. Click your subscription, resource group, or resource.
+
+1. Click **Access control (IAM)**.
 
 1. In the **Find** list, select the type of security principal you want to check access for.
 
@@ -46,11 +65,11 @@ You can use the **Access control (IAM)** blade in [Azure role-based access contr
 
 1. Click the security principal to open the **assignments** pane.
 
-    ![assignments pane](./media/check-access/check-access-assignments.png)
+    An assignments pane appears that lists the assignments for the security principal at this scope and higher.
 
-    On this pane, you can see the roles assigned to the selected security principal and the scope. If there are any deny assignments at this scope or inherited to this scope, they will be listed.
+    ![Role and deny assignments pane for a security principal](./media/check-access/check-access-assignments-security-principal.png)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Grant a user access to Azure resources using the Azure portal](quickstart-assign-role-user-portal.md)
+> [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
