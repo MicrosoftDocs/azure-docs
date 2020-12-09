@@ -26,7 +26,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Manage BareMetal Instance units in Azure
-            url: workloads/sap/baremetal-infra-portal.md
+            url: workloads/sap/baremetal-infrastructure-portal.md
             
 # card 2
   - title: Workload types 

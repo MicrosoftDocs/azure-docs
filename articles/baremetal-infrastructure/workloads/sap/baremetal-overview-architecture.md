@@ -67,7 +67,7 @@ The available Linux OS versions are:
    - SLES 15 SP1
 
 ## Storage
-BareMetal instances based on specific SKU type come with predefined NFS storage based on specific workload type. When you provision BareMetal, you can provision additional storage based on your estimated growth by submitting a support request. All storage comes with an all-flash disk in Revision 4.2 with support for NFSv3 and NFSv4. The newer Revision 4.5 NVMe SSD will be available. For more information on storage sizing, see the [BareMetal workload type]() section.
+BareMetal instances based on specific SKU type come with predefined NFS storage based on specific workload type. When you provision BareMetal, you can provision additional storage based on your estimated growth by submitting a support request. All storage comes with an all-flash disk in Revision 4.2 with support for NFSv3 and NFSv4. The newer Revision 4.5 NVMe SSD will be available. For more information on storage sizing, see the [BareMetal workload type](#networking) section.
 
 >[!NOTE]
 >The storage used for BareMetal meets FIPS 140-2 security requirements offering Encryption at Rest by default. The data is securely stored on the disks.
@@ -91,3 +91,10 @@ The architecture shown is divided into three sections:
    >[!TIP]
    >To support this, your ExpressRoute Gateway should be Ultra Performance. 
 
+## Next steps
+
+The next step is to learn how to identify and interact with BareMetal Instance units through the Azure portal.
+
+
+> [!div class="nextstepaction"]
+> [Manage BareMetal Instances through the Azure portal](baremetal-infrastructure-portal.md)
