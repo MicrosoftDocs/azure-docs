@@ -189,11 +189,24 @@ resources
 
 ## Permissions for allowing or disallowing Shared Key access
 
+To set the **AllowSharedKeyAccess** property for the storage account, a user must have permissions to create and manage storage accounts. Azure role-based access control (Azure RBAC) roles that provide these permissions include the **Microsoft.Storage/storageAccounts/write** or **Microsoft.Storage/storageAccounts/\*** action. Built-in roles with this action include:
 
+- The Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role
+- The Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role
+- The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role
+
+These roles do not provide access to data in a storage account via Azure Active Directory (Azure AD). However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
+
+Role assignments must be scoped to the level of the storage account or higher to permit a user to allow or disallow Shared Key access for the storage account. For more information about role scope, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
+
+Be careful to restrict assignment of these roles only to those who require the ability to create a storage account or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## Understand how disallowing Shared Key affects SAS tokens
 
-When Shared Key is disallowed for the storage account, Azure Storage handles SAS tokens based on the type of SAS and the service that is targeted by the request. The following table shows how each type of SAS is authorized and how Azure Storage will handle that SAS when the **AllowSharedKeyAccess** property for the storage account is **false**.
+When Shared Key access is disallowed for the storage account, Azure Storage handles SAS tokens based on the type of SAS and the service that is targeted by the request. The following table shows how each type of SAS is authorized and how Azure Storage will handle that SAS when the **AllowSharedKeyAccess** property for the storage account is **false**.
 
 | Type of SAS | Type of authorization | Behavior when AllowSharedKeyAccess is false |
 |-|-|-|
@@ -217,7 +230,7 @@ Some Azure tools offer the option to use Azure AD authorization to access Azure 
 | Azure PowerShell | Supported. For information about how to authorize PowerShell commands for blob or queue operations with Azure AD, see [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-data-operations-powershell.md) or [Run PowerShell commands with Azure AD credentials to access queue data](../queues/authorize-data-operations-powershell.md). |
 | Azure CLI | Supported. For information about how to authorize Azure CLI commands with Azure AD for access to blob and queue data, see [Run Azure CLI commands with Azure AD credentials to access blob or queue data](../blobs/authorize-data-operations-cli.md). |
 | Azure IoT Hub | Supported. For more information, see [IoT Hub support for virtual networks](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell is an integrated shell in the Azure portal. Azure Cloud Shell hosts files for persistence in an Azure file share in a storage account. These files will become inaccessible if Shared Key authorization is disallowed for that storage account. For more information, see [Connect your Microsoft Azure Files storage](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> To run commands in Azure Cloud Shell to manage storage accounts for which Shared Key access is disallowed, first make sure that you have been granted the necessary permissions to these accounts via Azure role-based access control (Azure RBAC). For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). |
+| Azure Cloud Shell | Azure Cloud Shell is an integrated shell in the Azure portal. Azure Cloud Shell hosts files for persistence in an Azure file share in a storage account. These files will become inaccessible if Shared Key authorization is disallowed for that storage account. For more information, see [Connect your Microsoft Azure Files storage](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> To run commands in Azure Cloud Shell to manage storage accounts for which Shared Key access is disallowed, first make sure that you have been granted the necessary permissions to these accounts via Azure RBAC. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). |
 
 ## About the preview
 
