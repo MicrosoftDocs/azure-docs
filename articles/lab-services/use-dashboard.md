@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 06/26/2020
 ---
 
-# Dashboard for classroom labs
+# Dashboard for labs
 This article describes the dashboard view of a classroom lab in Azure Lab Services. 
 
 ![Screen capture shows the dashboard view of a classroom lab in Azure Lab Services](./media/use-dashboard/dashboard.png)

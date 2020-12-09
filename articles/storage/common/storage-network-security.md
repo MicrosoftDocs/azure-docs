@@ -6,7 +6,7 @@ author: santoshc
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
@@ -60,7 +60,7 @@ You can manage default network access rules for storage accounts through the Azu
 
 1. Go to the storage account you want to secure.
 
-1. Click on the settings menu called **Firewalls and virtual networks**.
+1. Click on the settings menu called **Networking**.
 
 1. To deny access by default, choose to allow access from **Selected networks**. To allow traffic from all networks, choose to allow access from **All networks**.
 
@@ -144,7 +144,7 @@ You can manage virtual network rules for storage accounts through the Azure port
 
 1. Go to the storage account you want to secure.
 
-1. Click on the settings menu called **Firewalls and virtual networks**.
+1. Click on the settings menu called **Networking**.
 
 1. Check that you've selected to allow access from **Selected networks**.
 
@@ -268,7 +268,7 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 1. Go to the storage account you want to secure.
 
-1. Click on the settings menu called **Firewalls and virtual networks**.
+1. Click on the settings menu called **Networking**.
 
 1. Check that you've selected to allow access from **Selected networks**.
 
@@ -386,16 +386,17 @@ The **Allow trusted Microsoft services...** setting also allows a particular ins
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | Enables Api Management service access to storage accounts behind firewall using policies. [Learn more](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Enables Cognitive Search services to access storage accounts for indexing, processing and querying. |
+| Azure Cognitive Services       | Microsoft.CognitiveService             | Enables Cognitive Services to access storage accounts. |
 | Azure Container Registry Tasks | Microsoft.ContainerRegistry/registries | ACR Tasks can access storage accounts when building container images. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Allows access to storage accounts through the ADF runtime. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Allows access to storage accounts through Data Share. |
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Allows data from an IoT hub to be written to Blob storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Azure Machine Learning Service | Microsoft.MachineLearningServices      | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). | 
-| Azure Synapse Analytics (formerly SQL Data Warehouse)       | Microsoft.Sql                          | Allows import and export of data from specific SQL databases using the COPY statement or PolyBase. [Learn more](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
+| Azure Synapse Analytics       | Microsoft.Sql                          | Allows import and export of data from specific SQL databases using the COPY statement or PolyBase. [Learn more](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
 | Azure SQL Database       | Microsoft.Sql                          | Allows [import](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) of data from storage accounts and [writing](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) audit data to storage accounts behind firewall. |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Allows data from a streaming job to be written to Blob storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
-| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Enables access to data in Azure Storage from Synapse Analytics. |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Enables access to data in Azure Storage from Azure Synapse Analytics. |
 
 
 ### Storage analytics data access
@@ -410,7 +411,7 @@ You can manage network rule exceptions through the Azure portal, PowerShell, or 
 
 1. Go to the storage account you want to secure.
 
-1. Click on the settings menu called **Firewalls and virtual networks**.
+1. Click on the settings menu called **Networking**.
 
 1. Check that you've selected to allow access from **Selected networks**.
 

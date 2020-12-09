@@ -688,7 +688,7 @@
           href: service-fabric-how-to-remove-node-type.md
       - name: Upgrade
         items:
-        - name: Add a VM scale set extension to a managed cluster node type
+        - name: Add a virtual machine scale set extension to a managed cluster node type
           href: how-to-managed-cluster-vmss-extension.md
         - name: Upgrade the Service Fabric version 
           href: service-fabric-cluster-upgrade-version-azure.md    
@@ -798,6 +798,8 @@
         href: configure-existing-cluster-enable-managed-identity-token-service.md
       - name: Configure new Azure Service Fabric cluster with managed identity
         href: configure-new-azure-service-fabric-enable-managed-identity.md
+      - name: Configure a Service Fabric managed cluster with managed identity
+        href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Application setup
       items:
       - name: How to deploy application with managed identity

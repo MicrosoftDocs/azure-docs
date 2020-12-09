@@ -42,8 +42,8 @@ The following list explains the numbered steps in the diagram:
 
 Using customer-managed keys with Data Factory requires two properties to be set on the Key Vault, __Soft Delete__ and __Do Not Purge__. These properties can be enabled using either PowerShell or Azure CLI on a new or existing key vault. To learn how to enable these properties on an existing key vault, see the sections titled _Enabling soft-delete_ and _Enabling Purge Protection_ in one of the following articles:
 
-- [How to use soft-delete with PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [How to use soft-delete with CLI](../key-vault/general/soft-delete-cli.md)
+- [How to use soft-delete with PowerShell](../key-vault/general/key-vault-recovery.md)
+- [How to use soft-delete with CLI](../key-vault/general/key-vault-recovery.md)
 
 If you are creating a new Azure Key Vault through Azure portal, __Soft Delete__ and __Do Not Purge__ can be enabled as follows:
 

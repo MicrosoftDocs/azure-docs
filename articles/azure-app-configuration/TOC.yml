@@ -70,6 +70,8 @@
       items:
         - name: Push using Azure Pipelines
           href: push-kv-devops-pipeline.md
+        - name: Pull using Azure Pipelines
+          href: pull-key-value-devops-pipeline.md
         - name: Push using GitHub Actions
           href: concept-github-action.md
         - name: Build project using exported configuration

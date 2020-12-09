@@ -112,7 +112,7 @@ mysql_secure_installation
 You can now sign in and enter the MySQL prompt.
 
 ```bash  
-mysql -u root -p
+sudo mysql -u root -p
 ```
 This switches you to the MySQL prompt where you can issue SQL statements to interact with the database.
 

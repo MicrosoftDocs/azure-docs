@@ -30,7 +30,7 @@ Azure Standard Load Balancer supports cross-region load balancing enabling geo-r
 * [Build on existing load balancer](#build-cross-region-solution-on-existing-azure-load-balancer) solution with no learning curve
 
 > [!IMPORTANT]
-> Cross-region load balancer is currently in preview and not generally available.  To access the preview for Cross-region load balancer, contact: [crossregionlb@microsoft.com](mailto:crossregionlb@microsoft.com). </br> </br>
+> Cross-region load balancer is currently in preview and hidden in the preview portal. Sign-in to **https://preview.portal.azure.com** to view and deploy the feature.. </br> </br>
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -146,6 +146,6 @@ Cross-region load balancer, shares the [SLA](https://azure.microsoft.com/support
  
 ## Next steps
 
-- See [Create a public standard load balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a load balancer.
+- See [Tutorial: Create a cross-region load balancer using the Azure portal](tutorial-cross-region-portal.md) to create a cross-region load balancer.
+- See [Create a public standard load balancer](quickstart-load-balancer-standard-public-portal.md) to create a standard regional load balancer.
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).
-- Load balancer [FAQs](load-balancer-faqs.md)

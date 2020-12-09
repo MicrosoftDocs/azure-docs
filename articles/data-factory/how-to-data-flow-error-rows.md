@@ -20,7 +20,7 @@ A common scenario in Data Factory when using mapping data flows, is to write you
 
 There are two primary methods to graceful handle errors when writing data to your database sink in ADF data flows:
 
-* Set the sink [error row handling](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#error-row-handling) to "Continue on Error" when processing database data. This is an automated catch-all method that does not require custom logic in your data flow.
+* Set the sink [error row handling](./connector-azure-sql-database.md#error-row-handling) to "Continue on Error" when processing database data. This is an automated catch-all method that does not require custom logic in your data flow.
 * Alternatively, follow the steps below to provide logging of columns that won't fit into a target string column, allowing your data flow to continue.
 
 > [!NOTE]

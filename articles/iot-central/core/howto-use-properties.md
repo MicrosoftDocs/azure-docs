@@ -75,7 +75,7 @@ This example shows two properties. These properties relate to the property defin
 
 * `@type` specifies the type of capability: `Property`. The previous example also shows the semantic type `Temperature` for both properties.
 * `name` for the property.
-* `schema` specifies the data type for the property. This value can be a primitive type, such as double, integer, Boolean, or string. Complex object types, arrays, and maps are also supported.
+* `schema` specifies the data type for the property. This value can be a primitive type, such as double, integer, Boolean, or string. Complex object types and maps are also supported.
 * `writable` By default, properties are read-only. You can mark a property as writeable by using this field.
 
 Optional fields, such as display name and description, let you add more details to the interface and capabilities.
@@ -156,11 +156,7 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-This article uses Node.js for simplicity. For complete information about device application examples, see the following tutorials:
-
-* [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md)
-* [Create and connect a client application to your Azure IoT Central application (Python)](tutorial-connect-device-python.md)
-* [Create and connect a client application to your Azure IoT Central application (Java)](tutorial-connect-device-java.md)
+This article uses Node.js for simplicity. For complete information about device application examples, see the following [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
 
 The following view in Azure IoT Central application shows the properties you can see. The view automatically makes the **Device model** property a _read-only device property_.
 
@@ -232,4 +228,4 @@ The following view shows the writable properties. When you enter the value and s
 Now that you've learned how to use properties in your Azure IoT Central application, see:
 
 * [Payloads](concepts-telemetry-properties-commands.md)
-* [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md)
+* [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)

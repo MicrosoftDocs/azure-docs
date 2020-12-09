@@ -43,7 +43,7 @@ The most important thing to remember when managing the VMs is that anytime a mac
 
 ### Overview
 
-Dashboards for classroom labs in Azure Lab Services provide a snapshot of different aspects of a particular lab including, VM information, number of assigned and unassigned VMs, number of registered and unregistered users and information about lab schedules. 
+Dashboards for labs in Azure Lab Services provide a snapshot of different aspects of a particular lab including, VM information, number of assigned and unassigned VMs, number of registered and unregistered users and information about lab schedules. 
 
 > [!NOTE]
 > While most administrative aspects of the dashboard and the [Azure Lab Services website](https://labs.azure.com/) will be visible to teachers, permissions specific to your role may impact your ability to modify certain criteria in the dashboard. If you encounter an issue with your particular lab set-up, reach out to your CTE administrator.
@@ -110,12 +110,8 @@ Teachers are able to add student users to a lab and monitor their hour quotas.
 
 1. From the [Azure Lab services website](https://labs.azure.com/) click **Users** from the left-hand side of the window.
 1. At the top of the window, click on **Add users** and select **Add by email address**. 
-
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-button.png" alt-text="The 'Add users' button":::
 1. In the **Add users** pane that appears on the right, enter the students’ email addresses on separate lines or on a single line, separated by semicolons.
 1. Click **Save**.
-
-    :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="Add students to your lab":::
 1. Your list of users will now be updated with emails, status, invitation, and quota hours.
 
     After students are registered for a lab, their names will be updated with first and last names from Azure Active Directory.
