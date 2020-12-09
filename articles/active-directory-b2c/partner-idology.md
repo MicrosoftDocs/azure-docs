@@ -89,7 +89,7 @@ The sample policy uses these key names:
 
 ### Part 4 - Configure the Azure AD B2C Policy
 
-1. Follow this [document](custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack#custom-policy-starter-pack) to download the [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the policy for the Azure AD B2C tenant. Follow the instructions until you complete the **Test the Custom Policy** section.
+1. Follow this [document](custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) to download the [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the policy for the Azure AD B2C tenant. Follow the instructions until you complete the **Test the Custom Policy** section.
 
 2. Download the two sample policies [here](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/policy).
 
