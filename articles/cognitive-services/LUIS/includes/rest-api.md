@@ -361,6 +361,9 @@ If the entityLabels array is not empty, the `startCharIndex` and `endCharIndex` 
 
 Use cURL to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
 
+> [!NOTE]
+> This command uses your prediction endpoint.
+
 1. Copy this command into your text editor:
 
     #### [Windows](#tab/windows)
