@@ -27,7 +27,7 @@ The Horizon SDK lets developers design dissector plugins that decode network tra
 
 Protocol dissectors are developed as external plugins and are integrated with an extensive range of CyberX services, for example services that provide monitoring, alerting and reporting capabilities.
 
-![https://lh6.googleusercontent.com/YFePqJv_6jbI_oy3lCQv-hHB1Qly9a3QQ05uMnI8UdTwhOuxpNAedj_55wseYEQQG2lue8egZS-mlnQZPWfFU1dF4wzGQSJIlUqeXEHg9CG4M7ASCZroKgbghv-OaNoxr3AIZtIh](media/references-horizon-sdk/image3.png)
+:::image type="content" source="media/references-horizon-sdk/image3.png" alt-text="https://lh6.googleusercontent.com/YFePqJv_6jbI_oy3lCQv-hHB1Qly9a3QQ05uMnI8UdTwhOuxpNAedj_55wseYEQQG2lue8egZS-mlnQZPWfFU1dF4wzGQSJIlUqeXEHg9CG4M7ASCZroKgbghv-OaNoxr3AIZtIh":::
 
 ### Getting more information
 
@@ -53,13 +53,13 @@ The SDK supports various customization options, including:
 
   - full localization text for alerts, events, and protocol parameters. See [Create Mapping Files (JSON)](.\create-mapping-files-json.md) for details.
 
-    ![migration](media/references-horizon-sdk/image4.png)
+    :::image type="content" source="media/references-horizon-sdk/image4.png" alt-text="migration":::
 
 ## Horizon architecture
 
 The architectural model includes three product layers.
 
-![https://lh6.googleusercontent.com/YFePqJv_6jbI_oy3lCQv-hHB1Qly9a3QQ05uMnI8UdTwhOuxpNAedj_55wseYEQQG2lue8egZS-mlnQZPWfFU1dF4wzGQSJIlUqeXEHg9CG4M7ASCZroKgbghv-OaNoxr3AIZtIh](media/references-horizon-sdk/image3.png)
+:::image type="content" source="media/references-horizon-sdk/image3.png" alt-text="https://lh6.googleusercontent.com/YFePqJv_6jbI_oy3lCQv-hHB1Qly9a3QQ05uMnI8UdTwhOuxpNAedj_55wseYEQQG2lue8egZS-mlnQZPWfFU1dF4wzGQSJIlUqeXEHg9CG4M7ASCZroKgbghv-OaNoxr3AIZtIh":::
 
 ## CyberX platform layer
 
@@ -81,7 +81,7 @@ Enables creation of plugins using the CyberX proprietary SDK (including C++ impl
 
   - Define how to integrate with the CyberX services
 
-    ![built in layers](media/references-horizon-sdk/image5.png)
+    :::image type="content" source="media/references-horizon-sdk/image5.png" alt-text="built in layers":::
 
 CyberX provides basic dissectors for common protocols. You can build your dissectors on top of these protocols.
 
@@ -150,7 +150,7 @@ The Implementation Code (CPP) parses raw traffic, and maps it to values such as 
 
 You can customize plugin output text to meet the needs of your enterprise environment.
 
-![migration](media/references-horizon-sdk/image4.png)
+:::image type="content" source="media/references-horizon-sdk/image4.png" alt-text="migration":::
 
 You can define and update mapping files to update text without changing the code. Each file can map one or many fields:
 
@@ -241,7 +241,7 @@ horizon::protocol::ParserResult processLayer(horizon::protocol::management::IPro
 
 This is used to create the instance of your parser.
 
-![https://lh5.googleusercontent.com/bRNtyLpBA3LvDXttSPbxdBK7sHiHXzGXGhLiX3hJ7zCuFhbVsbBhgJlKI6Fd_yniueQqWbClg5EojDwEZSZ219X1Z7osoa849iE9X8enHnUb5to5dzOx2bQ612XOpWh5xqg0c4vR](media/references-horizon-sdk/image6.png)
+:::image type="content" source="media/references-horizon-sdk/image6.png" alt-text="https://lh5.googleusercontent.com/bRNtyLpBA3LvDXttSPbxdBK7sHiHXzGXGhLiX3hJ7zCuFhbVsbBhgJlKI6Fd_yniueQqWbClg5EojDwEZSZ219X1Z7osoa849iE9X8enHnUb5to5dzOx2bQ612XOpWh5xqg0c4vR":::
 
 ## Protocol function code sample 
 
@@ -283,7 +283,7 @@ namespace {
 
 ### Related JSON field 
 
-![related json field](media/references-horizon-sdk/image7.png)
+:::image type="content" source="media/references-horizon-sdk/image7.png" alt-text="related json field":::
 
 ## Prepare the configuration file (JSON)
 
@@ -295,7 +295,7 @@ This section describes minimal JSON configuration declarations, the related stru
 
 The sample below describes the file structure.
 
-![C:\Users\SHELLE\~1\AppData\Local\Temp\SNAGHTML197cde64.PNG](media/references-horizon-sdk/image8.png)
+:::image type="content" source="media/references-horizon-sdk/image8.png" alt-text="C:\Users\SHELLE\~1\AppData\Local\Temp\SNAGHTML197cde64.PNG":::
 
 ## What to do
 
@@ -328,7 +328,7 @@ This section describes additional fields.
 
 | Paramater Label | Description                                                                                                                                                                                                                                                                                      |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **whitelists**      | You can index the protocol values and display them in Data Mining Reports. These reports reflect your network baseline. <img src="media/references-horizon-sdk/image9.png" alt="data mining" style="width:4.63542in;height:0.83333in" /> <br />See [Connect to an Indexing Service](./connect-to-an-indexing-service-baseline.md) for details.                                                                                                                       |
+| **whitelists**      | You can index the protocol values and display them in Data Mining Reports. These reports reflect your network baseline. :::image type="icon" source="media/references-horizon-sdk/image9.png" alt-text="data mining" border="false"::: <br />See [Connect to an Indexing Service](./connect-to-an-indexing-service-baseline.md) for details.                                                                                                                       |
 | **firmware**        | You can extract firmware information, define index values, and trigger firmware alerts for the plugin protocol. See [Extract Firmware Data](./extract-firmware-data.md) for details.                                                                                                                                           |
 | **value_mapping**   | You can customize plugin output text to meet the needs of your enterprise environment by defining and updating mapping files. For example, map to language files. Changes can easily be implemented to text without changing or impacting the code. See [Create Mapping Files (JSON)](./create-mapping-files-json.md) for details. |
 
@@ -421,7 +421,7 @@ Malformed validations are used after the protocol has been positively validated.
 
 If there is a failure to process the packets based on the protocol, a failure response is returned.
 
-![malformed code](media/references-horizon-sdk/image10.png)
+:::image type="content" source="media/references-horizon-sdk/image10.png" alt-text="malformed code":::
 
 ## C++ sample with validations
 
@@ -621,9 +621,9 @@ When programming event occurs, you can extract the code content. The extracted c
 
   - Trigger an event for receiving programming code file.
 
-    ![proggramming change log](media/references-horizon-sdk/image11.png)
+    :::image type="content" source="media/references-horizon-sdk/image11.png" alt-text="proggramming change log":::
 
-    ![delta install script](media/references-horizon-sdk/image12.png) ![unauthorized plc programming](media/references-horizon-sdk/image13.png)
+    :::image type="content" source="media/references-horizon-sdk/image13.png" alt-text="delta install script](media/references-horizon-sdk/image12.png) ![unauthorized plc programming":::
 
 In order to achieve this, the JSON configuration file needs to be updated using the `code_extraction` property. 
 
@@ -874,11 +874,11 @@ You can use and/or in order to connect expressions.
 
 You can index the protocol values and display them in Data Mining reports.
 
-  ![data mining](media/references-horizon-sdk/image9.png)
+  :::image type="content" source="media/references-horizon-sdk/image9.png" alt-text="data mining":::
 
 These values can later be mapped to specific texts, for example mapping numbers as texts or adding information, in any language.
 
-  ![migration](media/references-horizon-sdk/image4.png)
+  :::image type="content" source="media/references-horizon-sdk/image4.png" alt-text="migration":::
 
 See [Create Mapping Files](.\create-mapping-files-json.md) for details.
 
@@ -1310,11 +1310,11 @@ Two types of mapping files can be defined.
 
   - [Dependency Mapping File](#dependency-mapping-file)
 
-    ![ether net](media/references-horizon-sdk/image4.png)
+    :::image type="content" source="media/references-horizon-sdk/image4.png" alt-text="ether net":::
 
-    ![unhandlled alerts](media/references-horizon-sdk/image14.png)
+    :::image type="content" source="media/references-horizon-sdk/image14.png" alt-text="unhandlled alerts":::
 
-    ![policy violation](media/references-horizon-sdk/image15.png)
+    :::image type="content" source="media/references-horizon-sdk/image15.png" alt-text="policy violation":::
 
 ## File naming and storage requirements 
 
@@ -1322,7 +1322,7 @@ Mapping files should be saved under the metadata folder.
 
 The name of the file should match the JSON config file “id”.
 
-![JSON config file](media/references-horizon-sdk/image16.png)
+:::image type="content" source="media/references-horizon-sdk/image16.png" alt-text="JSON config file":::
 
 ## Simple mapping file 
 
@@ -1582,11 +1582,11 @@ This section describes how to
 
 4.  Select the Horizon option from the main menu.
 
-    ![horizon](media/references-horizon-sdk/image17.png)
+    :::image type="content" source="media/references-horizon-sdk/image17.png" alt-text="horizon":::
 
 The Horizon Console opens. This section describes Horizon Console tools.
 
-  ![horizon console](media/references-horizon-sdk/image18.png)
+  :::image type="content" source="media/references-horizon-sdk/image18.png" alt-text="horizon console":::
 
 ## Plugins pane
 
@@ -1598,7 +1598,7 @@ The plugin pane lists:
     
 Enable and disable plugins that have been uploaded using the toggle.
 
-![cip](media/references-horizon-sdk/image19.png)
+:::image type="content" source="media/references-horizon-sdk/image19.png" alt-text="cip":::
 
 ### Uploading a plugin
 
@@ -1611,7 +1611,7 @@ To upload:
 
 2. Select **Upload**.
 
-    ![upload your plugins](media/references-horizon-sdk/image20.png)
+    :::image type="content" source="media/references-horizon-sdk/image20.png" alt-text="upload your plugins":::
 
 3. Browse to your plugin and drag it to the plugin dialog box. Verify that the prefix is .hdp. The plugin loads.
 
@@ -1619,19 +1619,19 @@ To upload:
 
 The Horizon console Overview window provides information about the plugin you uploaded and lets you disable and enable them.
 
-![overview](media/references-horizon-sdk/image21.png)
+:::image type="content" source="media/references-horizon-sdk/image21.png" alt-text="overview":::
 
                     |  |
 --------------------|--|
  Application        | The name of the plugin you uploaded\. |
- ![On/Off](media/references-horizon-sdk/image22.png) | Toggle on/off the plugin\. CyberX will not handle protocol traffic defined in the plugin when you toggle the plugin off\. |
+ :::image type="content" source="media/references-horizon-sdk/image22.png" alt-text="On/Off"::: | Toggle on/off the plugin\. CyberX will not handle protocol traffic defined in the plugin when you toggle the plugin off\. |
  Time               | The time the data was last analyzed\. Updated every 5 seconds\. |
  PPS                | The number of packets per second\. |
  Bandwidth          | The average bandwidth detected within the last 5 seconds\. |
  Malforms           | Malformed validations are used after the protocol has been positively validated\. If there is a failure to process the packets based on the protocol, a failure response is returned\.   <br><br>This column indicates the number of malform errors in the past 5 seconds\. See [Malformed Code Validations](./prepare-implementation-code-validations.md#malformed-code-validations) for details\. |
  Warnings           | Packets match the structure and specification but there is unexpected behavior based on the plugin warning configuration\. |
  Errors             | Number of packets that failed basic protocol validations Validates that the packet matches the protocol definitions\.  The Number displayed here indicates that number of errors detected in the past 5 seconds\. See [Sanity Code Validations](./prepare-implementation-code-validations.md#sanity-code-validations) for details\. |
- ![toggle](media/references-horizon-sdk/image23.png) | Review details about Malform and Warnings detected for your plugin\. |
+ :::image type="content" source="media/references-horizon-sdk/image23.png" alt-text="toggle"::: | Review details about Malform and Warnings detected for your plugin\. |
 
 
 
@@ -1639,7 +1639,7 @@ The Horizon console Overview window provides information about the plugin you up
 
 You can monitor real-time plugin behavior by analyzing the number of *Malform* and *Warnings* detected for your plugin. An option is available to freeze the screen and export for further investigation
 
-![SNMP monitor](media/references-horizon-sdk/image24.png)
+:::image type="content" source="media/references-horizon-sdk/image24.png" alt-text="SNMP monitor":::
 
 **To Monitor:**
 

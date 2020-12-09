@@ -9,9 +9,9 @@ ms.topic: article
 ms.service: azure
 ---
 
-# CyberX IIoT & ICS threat monitoring app for Splunk
+# CyberX IoT & ICS threat monitoring app for Splunk
 
-CyberX mitigates IIoT and ICS/SCADA risk with patented, ICS-aware self-learning engines that deliver immediate insights about ICS assets, vulnerabilities, and threats — in less than animage hour and without relying on agents, rules or signatures, specialized skills, or prior knowledge of the environment.
+CyberX mitigates IIoT and ICS/SCADA risk with patented, ICS-aware self-learning engines that deliver immediate insights about ICS assets, vulnerabilities, and threats — in less than an image hour and without relying on agents, rules or signatures, specialized skills, or prior knowledge of the environment.
 
 To address a lack of visibility into the security and resiliency of OT networks, CyberX developed the CyberX IIoT & ICS Threat Monitoring App for Splunk — a native integration between CyberX and Splunk that enables a unified approach to IT and OT security.
 
@@ -143,7 +143,7 @@ Options are available to customize the alert rules based on the:
 
 **To create a forwarding rule:**
 
-1.  From the Sensor or Central Manager left pane, select **Forwarding.**
+1.  From the Sensor or on-premises management console left pane, select **Forwarding.**
 
     :::image type="content" source="media/integration-splunk/image7.png" alt-text="Screenshot of select forwarding":::
 

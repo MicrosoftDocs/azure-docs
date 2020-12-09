@@ -42,7 +42,7 @@ The following example shows how to use the interpretability package on your pers
     pip install azureml-interpret
     ```
 
-2. Train a sample model in a local Jupyter notebook.
+2. Train a sample model in a local Jupyter Notebook.
 
     ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
@@ -237,7 +237,7 @@ The following example shows how you can use the `ExplanationClient` class to ena
     ```bash
     pip install azureml-interpret
     ```
-1. Create a training script in a local Jupyter notebook. For example, `train_explain.py`.
+1. Create a training script in a local Jupyter Notebook. For example, `train_explain.py`.
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -270,7 +270,7 @@ The following example shows how you can use the `ExplanationClient` class to ena
 
 1. Set up an Azure Machine Learning Compute as your compute target and submit your training run. See [Create and manage Azure Machine Learning compute clusters](how-to-create-attach-compute-cluster.md) for instructions. You might also find the [example notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) helpful.
 
-1. Download the explanation in your local Jupyter notebook.
+1. Download the explanation in your local Jupyter Notebook.
 
     ```python
     from azureml.interpret import ExplanationClient
@@ -291,7 +291,7 @@ The following example shows how you can use the `ExplanationClient` class to ena
 
 ## Visualizations
 
-After you download the explanations in your local Jupyter notebook, you can use the visualization dashboard to understand and interpret your model.
+After you download the explanations in your local Jupyter Notebook, you can use the visualization dashboard to understand and interpret your model.
 
 ### Understand entire model behavior (global explanation) 
 

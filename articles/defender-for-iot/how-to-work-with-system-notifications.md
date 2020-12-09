@@ -21,7 +21,7 @@ You can send system notifications to 3rd party systems that provide details abou
 
 This information is sent when creating Forwarding Rule, *System Notifications*.
 
-- Send only System Notifications, for example to IT teams responsible for sensors and On-premises management consoles.
+- Send only System Notifications, for example to IT teams responsible for sensors and on-premises management consoles.
 
 > [!NOTE]
 > **Administrators** may send system notifications.

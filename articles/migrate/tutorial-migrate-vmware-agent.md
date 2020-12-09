@@ -1,6 +1,9 @@
 ---
 title: Migrate VMware VMs with agent-based Azure Migrate Server Migration
 description: Learn how to run an agent-based migration of VMware VMs with Azure Migrate.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
@@ -129,7 +132,6 @@ Make sure VMware servers and VMs comply with requirements for migration to Azure
 
 > [!NOTE]
 > Agent-based migration with Azure Migrate Server Migration is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
-
 
 ## Set up the replication appliance
 

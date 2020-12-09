@@ -1,6 +1,6 @@
 ---
-title: Change the name of your console
-console name.
+title: Change the name of your console name.
+description: Change the sensor and on-premises management console name. The new name appears in the console web browser, in various console windows, and in troubleshooting logs.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

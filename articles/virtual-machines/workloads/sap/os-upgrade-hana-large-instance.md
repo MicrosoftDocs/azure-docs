@@ -22,6 +22,9 @@ This document describes the details on operating system upgrades on the HANA Lar
 >[!NOTE]
 >The OS upgrade is customer's responsibility, Microsoft operations support can guide you to the key areas to watch out during the upgrade. You should consult your operating system vendor as well before you plan for an upgrade.
 
+> [!NOTE]
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
 During HLI unit provisioning, the Microsoft operations team installs the operating system.
 Over the time, you are required to maintain the operating system (Example: Patching, tuning, upgrading etc.) on the HLI unit.
 

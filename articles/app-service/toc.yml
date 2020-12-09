@@ -223,6 +223,8 @@
         href: configure-authentication-provider-twitter.md
       - name: Authenticate with an OpenID Connect provider (Preview)
         href: configure-authentication-provider-openid-connect.md
+      - name: Authenticate using Sign in with Apple (Preview)
+        href: configure-authentication-provider-apple.md
     - name: Advanced auth
       href: app-service-authentication-how-to.md
     - name: Restrict access

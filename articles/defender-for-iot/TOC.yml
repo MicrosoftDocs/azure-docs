@@ -51,8 +51,6 @@
       href: concept-key-advantages.md
     - name: Air gapped networks
       href: concept-air-gapped-networks.md
-    - name: Learning modes
-      href: concept-learning-modes.md
     - name: Integrations
       href: concept-integrations.md
     - name: Proprietary protocols
@@ -171,34 +169,34 @@
       href: how-to-work-with-threat-intelligence-packages.md
     - name: Work with device inventory information
       items: 
-      - name: Gain insight into devices discovered by all enterprise sensors
-        href: how-to-gain-insight-into-devices-discovered-by-all-enterprise-sensors.md
-      - name: Gain insight into devices discovered by a specific sensor
-        href: how-to-gain-insight-into-devices-discovered-by-a-specific-sensor.md
-    - name: Work with maps
-      href: how-to-work-with-maps.md
+      - name: Investigate all enterprise sensor detections in a device inventory
+        href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+      - name: Investigate sensor detections in a device inventory
+        href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+    - name: Work with the sensor device map
+      href: how-to-work-with-the-sensor-device-map.md
     - name: Work with alerts detected by a sensor
       items:
+      - name: Gain insight into global, regional, and local threats
+        href: how-to-gain-insight-into-global-regional-and-local-threats.md
       - name: Work with alert on your sensor
         href: how-to-work-with-alerts-on-your-sensor.md
       - name: Views alerts
         href: how-to-view-alerts.md
       - name: View information provided in alerts
         href: how-to-view-information-provided-in-alerts.md
-      - name: Investigate alert events
-        href: how-to-investigate-alert-events.md
       - name: Manage the alert event
         href: how-to-manage-the-alert-event.md
       - name: Accelerate alert incident response
         href: how-to-accelerate-alert-incident-response.md
-      - name: Forward alert information to partners
+      - name: Forward alert information
         href: how-to-forward-alert-information-to-partners.md
-    - name: Work with alerts on the on-premises management console
+      - name: Work with alerts on the on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Enrich asset information
       items: 
       - name: Working with asset notifications
-        href: how-to-working-with-asset-notifications.md
+        href: how-to-working-with-device-notifications.md
       - name: Enhance port and VLAN names resolution
         href: how-to-enhance-port-and-vlan-names-resolution.md
       - name: Import asset information
@@ -235,8 +233,6 @@
       href: how-to-define-access-tokens.md
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
-    - name: Setup active directory
-      href: how-to-setup-active-directory.md
     - name: Manage proprietary protocols (Horizon)
       href: how-to-manage-proprietary-protocols.md  
   - name: Device builder

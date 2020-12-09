@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.service: azure
 ---
 
+# System prerequisites
 ## Minimum requirements
 
 - Network switches supporting traffic monitoring via SPAN port

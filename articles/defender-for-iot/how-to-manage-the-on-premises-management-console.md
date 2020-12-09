@@ -19,7 +19,7 @@ You can automatically transfer this file to the internal network.
 
 > Note: The Backup/Restore procedure can be performed on the same version only. 
 
-**To back up the Central Manager machine**: 
+**To back up the on-premises management console machine**: 
 
 - Log into an administrative account and type sudo cyberx-management-backup -full. 
 

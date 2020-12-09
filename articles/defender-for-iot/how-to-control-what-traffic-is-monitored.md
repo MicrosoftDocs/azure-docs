@@ -4,7 +4,7 @@ description: Sensors automatically perform deep packet detection for IT and OT t
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/01/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
 ---
@@ -12,6 +12,30 @@ ms.service: azure
 # Control what traffic is monitored
 
 Sensors automatically perform deep packet detection for IT and OT traffic and resolve information about network devices, such as device attributes and behavior. Several tools are available to control the type of traffic that each sensor detects. 
+
+## Learning and Smart IT Learning modes
+
+The Learning mode instructs your sensor to learn your network's usual activity. Examples are devices discovered in your network, protocols detected in the network, file transfers between specific devices, and more. This activity becomes your network baseline.
+
+The Learning mode is automatically enabled after installation and will remain enabled until turned off. The approximate learning mode period is between two to six weeks, depending on the network size and complexity. After this period, when the learning mode is disabled, any new activity detected will trigger alerts. Alerts are triggered when the policy engine discovers deviations from your learned baseline.
+
+After the learning period is complete and the Learning mode is disabled, the sensor might detect an unusually high level of baseline changes that are the result of normal IT activity, such as DNS and HTTP requests. The activity is called nondeterministic IT behavior. The behavior might also trigger unnecessary policy violation alerts and system notifications. To reduce the amount of these alerts and notifications, you can enable the **Smart IT Learning** function.
+
+When Smart IT Learning is enabled, the sensor tracks network traffic that generates nondeterministic IT behavior based on specific alert scenarios.
+
+The sensor monitors this traffic for seven days. If it detects the same nondeterministic IT traffic within the seven days, it continues to monitor the traffic for another seven days. When the traffic is not detected for a full seven days, Smart IT Learning is disabled for that scenario. New traffic detected for that scenario will only then generate alerts and notifications.
+
+Working with Smart IT Learning helps you reduce the number of unnecessary alerts and notifications caused by noisy IT scenarios.
+
+If your sensor is controlled by the on-premises management console, you can't disable the learning modes. In cases like this, the learning mode can only be disabled from the management console.
+
+The learning capabilities (Learning and Smart IT Learning) are enabled by default.
+
+To enable or disable learning:
+
+- Select **System Settings** and toggle the **Learning** and **Smart IT Learning** options.
+
+:::image type="content" source="media/concept-learning-modes/toggle-options-for-learning-and-smart-it-learning.png" alt-text="System settings toggle screen.":::
 
 ## Configure subnets
 
@@ -29,7 +53,7 @@ You can change the configuration or change the subnet information manually by ex
 
 In some cases, such as environments that use public ranges as internal ranges, you can instruct the sensor to resolve all subnets as internal subnets by selecting the **Do Not Detect Internet Activity** option. When you select that option:
 
-- *Public IP addresses will be treated as local addresses*.
+- Public IP addresses will be treated as local addresses.
 
 - No alerts will be sent about unauthorized internet activity, which reduces notifications and alerts received on external addresses.
 
@@ -271,4 +295,9 @@ To view scan results:
 
 1. When the scan is finished, on the **Actions** pane, select **View Scan Results**. The CSV file with the scan results is downloaded to your computer.
 
-For more information, see [Gain insight into assets discovered by a specific sensor](how-to-gain-insight-into-devices-discovered-by-a-specific-sensor.md).
+## See also
+
+[Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+
+[Investigate sensor detections in the device map](how-to-work-with-the-sensor-device-map.md)
+
