@@ -301,8 +301,15 @@ The following properties are supported in the copy activity **sink** section:
 | httpCompressionType | HTTP compression type to use while sending data with Optimal Compression Level. Allowed values are **none** and **gzip**. | No |
 | writeBatchSize | Number of records to write to the REST sink per batch. The default value is 10000. | No |
 
->[!NOTE]
->REST connector as sink works with the REST endpoints that accept JSON. The data will be sent in JSON only.
+REST connector as sink works with the REST APIs that accept JSON. The data will be sent in JSON with the following pattern. As needed, you can use the copy activity [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping) to reshape the source data to conform to the expected payload by the REST API.
+
+```json
+[
+    { <data object> },
+    { <data object> },
+    ...
+]
+```
 
 **Example:**
 
@@ -342,7 +349,7 @@ The following properties are supported in the copy activity **sink** section:
 
 ## Pagination support
 
-Normally, REST API limits its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
+When copying data from REST APIs, normally, the REST API limits its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
 
 This generic REST connector supports the following pagination patterns: 
 
