@@ -43,8 +43,6 @@ The following sections describe each of these steps in more detail.
 > When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container or queue.
 >
 > Prior to assigning yourself a role for data access, you will be able to access data in your storage account via the Azure portal because the Azure portal can also use the account key for data access. For more information, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md).
->
-> You cannot assign a role scoped to a container or queue if your storage account has a hierarchical namespace enabled.
 
 ### Assign an Azure built-in role
 
