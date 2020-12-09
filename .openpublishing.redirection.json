@@ -1929,7 +1929,7 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-rest-get-intent.md",
       "redirect_url": "/azure/cognitive-services/LUIS/azure-sdk-quickstart?pivots=rest-api",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-rest-get-model.md",
