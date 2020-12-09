@@ -243,10 +243,10 @@ Each app has the default root path (`/`) mapped to `D:\home\site\wwwroot`, where
 
 From the **Path mappings** tab, click **New virtual application or directory**. 
 
-- To map a virtual directory to a physical path, leave the **Directory** checkbox selected. Specify the virtual directory and the corresponding relative (physical) path to the website root (`D:\home`).
-- To mark a virtual directory as a web application, clear the **Directory** checkbox.
+- To map a virtual directory to a physical path, leave the **Directory** check box selected. Specify the virtual directory and the corresponding relative (physical) path to the website root (`D:\home`).
+- To mark a virtual directory as a web application, clear the **Directory** check box.
   
-  ![Directory checkbox](./media/configure-common/directory-checkbox.png)
+  ![Directory check box](./media/configure-common/directory-check-box.png)
 
 ### Containerized apps
 
