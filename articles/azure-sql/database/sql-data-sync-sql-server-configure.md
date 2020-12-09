@@ -45,7 +45,7 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
 1. On the **Sync to other databases** page, select **New Sync Group**. The **New sync group** page opens with **Create sync group (step 1)**.
 
-   :::image type="content" source="./media/sql-data-sync-sql-server-configure/new-sync-group-privatelink.png" alt-text = "Set up new sync group with private link":::
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/new-sync-group-private-link.png" alt-text = "Set up new sync group with private link":::
 
    On the **Create Data Sync Group** page, change the following settings:
 
@@ -64,7 +64,7 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
    
 1. On the **New Sync Group** page, if you selected **Use private link**, you will need to approve the private endpoint connection. The link in the info message will take you to the private endpoint connections experience where you can approve the connection. 
 
-   :::image type="content" source="./media/sql-data-sync-sql-server-configure/approve-privatelink.png" alt-text = "Approve private link":::
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/approve-private-link.png" alt-text = "Approve private link":::
 
 ## Add sync members
 
