@@ -17,7 +17,7 @@ ms.date: 12/07/2020
 
 LUIS stores data encrypted in an Azure data store corresponding to [the region](luis-reference-regions.md) specified by the key. 
 
-*	Data used to train the model such as entities, intents, and utterances will be saved in LUIS for the lifetime of the application. If an owner or contributor deletes the app, this data will be deleted with it. If an application hasn't been used in 90 days, it will be deleted. 
+* Data used to train the model such as entities, intents, and utterances will be saved in LUIS for the lifetime of the application. If an owner or contributor deletes the app, this data will be deleted with it. If an application hasn't been used in 90 days, it will be deleted. 
 
 * Application authors can choose to [enable logging](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning) on the utterances that are sent to a published application. If enabled, utterances will be saved for 30 days, and can be viewed by the application author. If logging isn't enabled when the application is published, this data is not stored.
 
