@@ -102,7 +102,7 @@ Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?it
 
      ![Add extension](media/add-extension-task.png)
 
-1.  In the task, select **…** next to the **Template parameters** box to choose the parameters file.
+1.  In the task, select **…** next to the **Template** box to choose the template file.
 
 1. Select **…** next to the **Template parameters** box to choose the parameters file.
 
