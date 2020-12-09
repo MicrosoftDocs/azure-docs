@@ -8,14 +8,14 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/13/2020
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
 ---
 
 # How to use your workspace with a custom DNS server
 
-When using Azure Machine Learning with a virtual network, there are [several ways to handle DNS name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. If you instead _use your own custom DNS server__, you must manually create DNS entries for the workspace.
+When using an Azure Machine Learning workspace with a private endpoint, there are [several ways to handle DNS name resolution](../private-link/private-endpoint-dns.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. If you instead _use your own custom DNS server__, you must manually create DNS entries for the workspace.
 
 > [!IMPORTANT]
 > This article only covers how to find the fully qualified domain name (FQDN) and IP addresses for these entries it does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
@@ -28,6 +28,8 @@ When using Azure Machine Learning with a virtual network, there are [several way
 
 - Familiarity with using [Network isolation during training & inference](./how-to-network-security-overview.md).
 
+- Familiarity with [Azure Private Endpoint DNS zone configuration](../private-link/private-endpoint-dns.md)
+
 - Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## Find the IP addresses
@@ -38,7 +40,7 @@ The following list contains the fully qualified domain names (FQDN) used by your
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
+* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
 * If you create a compute instance, you must also add an entry for `<instance-name>.<region>.instances.azureml.ms` with the private IP of the workspace private endpoint.
 
     > [!NOTE]

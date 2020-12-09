@@ -5,7 +5,7 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/19/2020
 ---
 
 # Call, trigger, or nest logic apps by using HTTPS endpoints in Azure Logic Apps
@@ -99,7 +99,7 @@ For more information about security, authorization, and encryption for inbound c
 
    * To the right of the **HTTP POST URL** box, select **Copy Url** (copy files icon).
 
-   * Make this POST call:
+   * Make this call by using the method that the Request trigger expects. This example uses the `POST` method:
 
      `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
@@ -119,7 +119,7 @@ For more information about security, authorization, and encryption for inbound c
 
 ## Select expected request method
 
-By default, the Request trigger expects a POST request. You can specify a different method to expect, but only a single method.
+By default, the Request trigger expects a `POST` request. However, you can specify a different method that the caller must use, but only a single method.
 
 1. In the Request trigger, open the **Add new parameter** list, and select **Method**, which adds this property to the trigger.
 
@@ -259,7 +259,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 ## Call logic app through endpoint URL
 
-After you create the endpoint, you can trigger the logic app by sending an HTTPS `POST` request to the endpoint's full URL. Logic apps have built-in support for direct-access endpoints.
+After you create the endpoint, you can trigger the logic app by sending an HTTPS request to the endpoint's full URL. Logic apps have built-in support for direct-access endpoints.
 
 <a name="generated-tokens"></a>
 

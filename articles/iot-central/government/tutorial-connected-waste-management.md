@@ -195,7 +195,7 @@ The **Connected waste management** application has two simulated devices mapped 
 
 ## Explore and configure rules
 
-In Azure IoT Central, you can create rules to automatically monitor on device telemetry, and trigger actions when one or more conditions are met. The actions may include sending email notifications, triggering a Microsoft Flow action, or a webhook action to send data to other services.
+In Azure IoT Central, you can create rules to automatically monitor on device telemetry, and trigger actions when one or more conditions are met. The actions may include sending email notifications, triggering a Power Automate action, or a webhook action to send data to other services.
 
 The **Connected waste management** application has four sample rules.
 

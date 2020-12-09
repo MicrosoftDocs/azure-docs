@@ -69,11 +69,12 @@ If the application that you're using is single-threaded, this setup can result i
 
 ### Cause
 
-The client virtual machine (VM) could be located in a different region than the file share.
+The client virtual machine (VM) could be located in a different region than the file share. Other reason for high latency could be due to the latency caused by the client or the network.
 
 ### Solution
 
 - Run the application from a VM that's located in the same region as the file share.
+- For your storage account, review transaction metrics **SuccessE2ELatency** and  **SuccessServerLatency** via **Azure Monitor** in Azure portal. A high difference between SuccessE2ELatency and SuccessServerLatency metrics values is an indication of latency that is likely caused by the network or the client. See [Transaction metrics](storage-files-monitoring-reference.md#transaction-metrics) in Azure Files Monitoring data reference.
 
 ## Client unable to achieve maximum throughput supported by the network
 
@@ -192,7 +193,7 @@ Recent changes to SMB Multichannel config settings without a remount.
 
 ### Cause  
 
-High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change (ReadDirectoryChangesW) on the share that SMB client is registered for  pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
+High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that SMB client is registered for  pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
 
 To confirm, you can use Azure Metrics in the portal - 
 
@@ -209,10 +210,8 @@ To confirm, you can use Azure Metrics in the portal -
     - Update the IIS Worker Process (W3WP) polling interval to 0 by setting `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` in your registry and restart the W3WP process. To learn about this setting, see [Common registry keys that are used by many parts of IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
 - Increase frequency of the file change notification polling interval to reduce volume.
     - Update the W3WP worker process polling interval to a higher value (e.g. 10mins or 30mins) based on your requirement. Set `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [in your registry](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) and restart the W3WP process.
-- If your web site's mapped  physical directory has nested directory structure, you can try to limit scope of file change notification to reduce the notification volume.
-    - By default, IIS uses configuration from Web.config files in the physical directory to which the virtual directory is mapped, as well as in any child directories in that physical directory. If you do not want to use Web.config files in child directories, specify false for the allowSubDirConfig attribute on the virtual directory. More details can be found [here](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
-
-Set IIS  virtual directory "allowSubDirConfig" setting in Web.Config to false to exclude mapped physical child directories from the scope.  
+- If your web site's mapped  physical directory has nested directory structure, you can try to limit scope of file change notification to reduce the notification volume. By default, IIS uses configuration from Web.config files in the physical directory to which the virtual directory is mapped, as well as in any child directories in that physical directory. If you do not want to use Web.config files in child directories, specify false for the allowSubDirConfig attribute on the virtual directory. More details can be found [here](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
+    - Set IIS  virtual directory "allowSubDirConfig" setting in Web.Config to *false* to exclude mapped physical child directories from the scope.  
 
 ## How to create an alert if a file share is throttled
 

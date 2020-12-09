@@ -53,7 +53,7 @@ Your Pizza app is now ready to use.
 
 ## Record the access values for your Pizza app
 
-To use your new Pizza app, you will need the app ID, authoring key, and authoring endpoint of your Pizza app.
+To use your new Pizza app, you will need the app ID, authoring key, and authoring endpoint of your Pizza app. To get predictions, you will need your separate prediction endpoint and prediction key.
 
 To find these values:
 
@@ -61,5 +61,5 @@ To find these values:
 1. From the **Application Settings** page, record the **App ID**.
 1. Select **Azure Resources**.
 1. Select **Authoring Resource**.
-1. From the **Authoring Resource** tab, record the **Primary Key**. This value is your authoring key.
+1. From the **Authoring Resource** and **Prediction Resources** tabs, record the **Primary Key**. This value is your authoring key.
 1. Record the **Endpoint URL**. This value is your authoring endpoint.

@@ -14,7 +14,7 @@
 ## How to create a classic VNet using Azure CLI
 You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../articles/cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](/cli/azure/install-classic-cli) and follow the instructions up to the point where you select your Azure account and subscription.
 2. To create a VNet and a subnet, run the **azure network vnet create** command:
    
             azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
@@ -74,4 +74,3 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
             data:      Address prefix                : 192.168.2.0/24
             data:
             info:    network vnet show command OK
-

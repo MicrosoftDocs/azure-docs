@@ -17,6 +17,70 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-12-07
+
+### Azure Machine Learning SDK for Python v1.19.0
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Added experimental support for test data to AutoMLStep.
+    + Added the initial core implementation of test set ingestion feature.
+    + Moved references to sklearn.externals.joblib to depend directly on joblib.
+    + introduce a new AutoML task type of "image-instance-segmentation".
+  + **azureml-automl-runtime**
+    + Added the initial core implementation of test set ingestion feature.
+    + When all the strings in a text column have a length of exactly 1 character, the TfIdf word-gram featurizer won't work because its tokenizer ignores the strings with fewer than 2 characters. The current code change will allow AutoML to handle this use case.
+    + introduce a new AutoML task type of "image-instance-segmentation".
+  + **azureml-contrib-automl-dnn-nlp**
+    + Initial PR for new dnn-nlp package
+  + **azureml-contrib-automl-dnn-vision**
+    + introduce a new AutoML task type of "image-instance-segmentation".
+  + **azureml-contrib-automl-pipeline-steps**
+    + This new package is responsible for creating steps required for many models train/inference scenario. - It also moves the train/inference code into azureml.train.automl.runtime package so any future fixes would be automatically available through curated environment releases.
+  + **azureml-contrib-dataset**
+    + introduce a new AutoML task type of "image-instance-segmentation".
+  + **azureml-core**
+    + Added the initial core implementation of test set ingestion feature.
+    + Fixing the xref warnings for documentation in azureml-core package
+    + Doc string fixes for Command support feature in SDK
+    + Adding command property to RunConfiguration. The feature enables users to run an actual command or executables on the compute through AzureML SDK.
+    + Users can delete an empty experiment given the id of that experiment.
+  + **azureml-dataprep**
+    + Added dataset support for Spark built with Scala 2.12. This adds to the existing 2.11 support.
+  + **azureml-mlflow**
+    + AzureML-MLflow adds safe guards in remote scripts to avoid early termination of submitted runs.
+  + **azureml-pipeline-core**
+    + Fixed a bug in setting a default pipeline for pipeline endpoint created via UI
+  + **azureml-pipeline-steps**
+    + Added experimental support for test data to AutoMLStep.
+  + **azureml-tensorboard**
+    + Fixing the xref warnings for documentation in azureml-core package
+  + **azureml-train-automl-client**
+    + Added experimental support for test data to AutoMLStep.
+    + Added the initial core implementation of test set ingestion feature.
+    + introduce a new AutoML task type of "image-instance-segmentation".
+  + **azureml-train-automl-runtime**
+    + Added the initial core implementation of test set ingestion feature.
+    + Fix the computation of the raw explanations for the best AutoML model if the AutoML models are trained using validation_size setting.
+    + Moved references to sklearn.externals.joblib to depend directly on joblib.
+  + **azureml-train-core**
+    + HyperDriveRun.get_children_sorted_by_primary_metric() should complete faster now
+    + Improved error handling in HyperDrive SDK.
+    +  Deprecated all estimator classes in favor of using ScriptRunConfig to configure experiment runs. Deprecated classes include:
+    	+ MMLBaseEstimator
+    	+ Estimator
+    	+ PyTorch 
+    	+ TensorFlow 
+    	+ Chainer 
+    	+ SKLearn
+    + Deprecated the use of Nccl and Gloo as valid input types for Estimator classes in favor of using PyTorchConfiguration with ScriptRunConfig.
+    + Deprecated the use of Mpi as a valid input type for Estimator classes in favor of using MpiConfiguration with ScriptRunConfig.
+    + Adding command property to runconfiguration. The feature enables users to run an actual command or executables on the compute through AzureML SDK.
+
+    +  Deprecated all estimator classes in favor of using ScriptRunConfig to configure experiment runs. Deprecated classes include: + MMLBaseEstimator + Estimator + PyTorch + TensorFlow + Chainer + SKLearn
+    + Deprecated the use of Nccl and Gloo as a valid type of input for Estimator classes in favor of using PyTorchConfiguration with ScriptRunConfig. 
+    + Deprecated the use of Mpi as a valid type of input for Estimator classes in favor of using MpiConfiguration with ScriptRunConfig.
+
+
 
 ## 2020-11-09
 
@@ -38,16 +102,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Improved documentation for `OutputDatasetConfig.register_on_complete` to include the behavior of what will happen when the name already exists.
     + Specifying dataset input and output names that have the potential to collide with common environment variables will now result in a warning
     + Repurposed `grant_workspace_access` parameter when registering datastores. Set it to `True` to access data behind virtual network from Machine Learning Studio.
-      [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+      [Learn more](./how-to-enable-studio-virtual-network.md)
     + Linked service API is refined. Instead of providing resource Id, we have 3 separate parameters sub_id, rg, and name defined in configuration.
     + In order to enable customers to self-resolve token corruption issues, enable workspace token synchronization to be a public method.
     + This change allows an empty string to be used as a value for a script_param
-  + **azureml-pipeline-core**
-    + SDK to support SynapseCompute type and SynapseSparkStep. Customers can run experiment and pipeline run on synapse spark pool.
-  + **azureml-pipeline-steps**
-    + SDK to support SynapseCompute type and SynapseSparkStep. Customers can run experiment and pipeline run on synapse spark pool.
-  + **azureml-synapse**
-    + Add Synapse magic and SparkMonitor to enable user submit Syanpse job and view the job progress in notebook.
   + **azureml-train-automl-client**
     +  Improved handling of short time series by allowing padding them with gaussian noise.
   + **azureml-train-automl-runtime**
@@ -85,7 +143,6 @@ Learn more about [image instance segmentation labeling](how-to-label-images.md).
     + Fixed an issue where VotingRegressor predictions may be inaccurate after refitting the model.
   + **azureml-core**
     + Additional detail added about relationship between AKS deployment configuration and Azure Kubernetes Service concepts.
-    + Customer can use linked service SDK to link synapse workspace into AML workspace. CRUD are supported.
     + Environment client labels support. User can label Environments and reference them by label.
   + **azureml-dataprep**
     + Better error message when using currently unsupported Spark with Scala 2.12.
@@ -104,8 +161,8 @@ Learn more about [image instance segmentation labeling](how-to-label-images.md).
 
 ### Azure Machine Learning Studio Notebooks Experience (October Update)
 + **New features**
-  + [Full virtual network support](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
-  + [Focus Mode](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + [Full virtual network support](./how-to-enable-studio-virtual-network.md)
+  + [Focus Mode](./how-to-run-jupyter-notebooks.md#focus-mode)
   + Save notebooks Ctrl-S
   + Line Numbers
 
@@ -205,7 +262,7 @@ Learn more about [image instance segmentation labeling](how-to-label-images.md).
     + Updated AzureML MLflow documentation and notebook samples 
     + New support for MLflow projects with AzureML backend
     + MLflow model registry support
-    + Added RBAC support for AzureML-MLflow operations 
+    + Added Azure RBAC support for AzureML-MLflow operations 
     
   + **azureml-pipeline-core**
     + Improved the documentation of the PipelineOutputFileDataset.parse_* methods.
