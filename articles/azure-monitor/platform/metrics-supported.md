@@ -4,20 +4,20 @@ description: List of metrics available for each resource type with Azure Monitor
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 10/01/2020
+ms.date: 12/09/2020
 ms.author: robb
 ms.subservice: metrics
 ---
 # Supported metrics with Azure Monitor
 
 > [!NOTE]
-> This list is largely auto-generated from the Azure Monitor Metrics REST API. Any modification made to this list via GitHub may be written over without warning. Contact the author of this article for details on how to make permanent updates.
+> This list is largely auto-generated. Any modification made to this list via GitHub may be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. 
 
-This article is a complete list of all platform (that is, automatically collected) metrics currently available with Azure Monitor's consolidated metric pipeline. The list was last updated March 27th, 2020. Metrics changed or added after this date may not appear below. To query for and access the list of metrics programmatically, please use the [2018-01-01 api-version](/rest/api/monitor/metricdefinitions). Other metrics not on this list may be available in the portal or using legacy APIs.
+This article is a complete list of all platform (that is, automatically collected) metrics currently available with Azure Monitor's consolidated metric pipeline. Metrics changed or added after the date at the top of this article may not yet appear below. To query for and access the list of metrics programmatically, please use the [2018-01-01 api-version](/rest/api/monitor/metricdefinitions). Other metrics not on this list may be available in the portal or using legacy APIs.
 
-The metrics are organized by resource providers and resource type. For a list of services and the resource providers that belong to them, see [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md). 
+The metrics are organized by resource providers and resource type. For a list of services and the resource providers and types that belong to them, see [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md).  
 
 ## Exporting platform metrics to other locations
 

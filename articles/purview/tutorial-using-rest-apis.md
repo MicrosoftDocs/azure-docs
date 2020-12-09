@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Use the REST APIs"
 description: This tutorial describes how to use the Azure Purview REST APIs to access the contents of your catalog.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
@@ -191,6 +191,7 @@ namespace PurviewCatalogSdkTest
         private static string accountName = "{account-name}";
         private static string servicePrincipalId = "{service-principal-id}";
         private static string servicePrincipalKey = "{service-principal-key}";
+        private static string tenantId = "{tenant-id}";
 
         static void Main(string[] args)
         {
@@ -223,10 +224,11 @@ namespace PurviewCatalogSdkTest
                 { "resource", "73c2949e-da2d-457a-9607-fcc665198967" }
             };
 
+            string authUrl = string.Format("https://login.windows.net/{0}/oauth2/token", tenantId);
             var content = new FormUrlEncodedContent(values);
 
             HttpClient authClient = new HttpClient();
-            var bearerResult = authClient.PostAsync("https://login.windows.net/microsoft.com/oauth2/token", content);
+            var bearerResult = authClient.PostAsync(authUrl, content);
             bearerResult.Wait();
             var resultContent = bearerResult.Result.Content.ReadAsStringAsync();
             resultContent.Wait();
