@@ -88,7 +88,7 @@ To list access for a user, group, service principal, or managed identity, you li
 
 1. Click the security principal to open the **assignments** pane.
 
-    On this pane, you can see the access for the selected security principal at this scope and inherited to this scope. Assignments at lower scopes are not listed. You see the following assignments:
+    On this pane, you can see the access for the selected security principal at this scope and inherited to this scope. Assignments at child scopes are not listed. You see the following assignments:
 
     - Role assignments added with Azure RBAC.
     - Deny assignments added using Azure Blueprints or Azure managed apps.
