@@ -95,6 +95,5 @@ The architecture shown is divided into three sections:
 
 The next step is to learn how to identify and interact with BareMetal Instance units through the Azure portal.
 
-
 > [!div class="nextstepaction"]
 > [Manage BareMetal Instances through the Azure portal](baremetal-infrastructure-portal.md)
