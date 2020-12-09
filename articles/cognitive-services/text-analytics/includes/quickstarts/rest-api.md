@@ -43,7 +43,7 @@ To call the Text Analytics API, you need the following information:
 |`-H "Ocp-Apim-Subscription-Key:<key>`    | Specifies the key for accessing the API.        |
 |`-d <documents>`     | The JSON containing the documents you want to send.         |
 
-The following cURL command are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
+The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values. You can find language specific samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
 
 ## Sentiment Analysis
 
