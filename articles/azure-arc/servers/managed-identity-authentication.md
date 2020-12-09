@@ -37,7 +37,7 @@ The system environment variable **IDENTITY_ENDPOINT** is used to discover the id
 
 - An understanding of Managed identities.
 - A server connected and registered with Arc enabled servers.
-- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Use Role-Based Access Control](../../role-based-access-control/role-assignments-portal.md) to manage access to your Azure subscription resources.
+- You are a member of the [Owner group](../../role-based-access-control/built-in-roles.md#owner)** in the subscription or resource group, in order to perform required resource creation and role management steps.
 - An Azure Key Vault to store and retrieve your credential. and assign the Azure Arc identity access to the KeyVault.
 
     - If you don't have a Key Vault created, see [Create Key Vault](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#create-a-key-vault-).
