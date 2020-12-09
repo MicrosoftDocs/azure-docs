@@ -817,27 +817,27 @@ Multifactor authentication supports Impact Level 5 workloads in Azure Government
 | --- | --- | --- | --- | --- | --- | 
 | **Multifactor authentication** | X | X | X | X | X |
 
-### [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 
+### [Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 
 
-Microsoft Defender Advanced Threat Protection can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+Defender for Endpoint supports all impact levels in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
-| **Microsoft Defender Advanced Threat Protection** | X | X | X |  |  |
+| **Defender for Endpoint** | X | X | X |  |  |
 
 ### [Microsoft Graph](/graph/overview)
 
-Microsoft Graph can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+Microsoft Graph supports all impact levels in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Microsoft Graph** | X | X | X | X | X | 
 
 ### [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
-Azure Key Vault can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
+Azure Key Vault supports all impact levels in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Key Vault** | X | X | X | X | X |
 
@@ -845,53 +845,53 @@ Azure Key Vault can be used in Azure Government supporting all impact levels wit
 
 ### [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)
 
-Azure Analysis Services can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Azure Analysis Services supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Analysis Services** | X | X | X | X | X |
 
 ### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 
-Azure Cache for Redis can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Azure Cache for Redis supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Cache for Redis** | X | X | X | X | X |
 
-### [Azure Import/Export](../storage/common/storage-import-export-service.md)
+### [Azure Import/Export service](../storage/common/storage-import-export-service.md)
 
-Azure Import/Export can be used in Azure Government to import/export Impact Level 5 data.  By default, Import/Export will encrypt the data that is written to the disk drive for transport. When creating a target storage account for Import/Export of Impact Level 5 data add storage encryption with customer managed keys (additional documentation and guidance found in the [storage services section](#storage-encryption-with-key-vault-managed-keys)).
+Azure Import/Export service can be used in Azure Government to import and export Impact Level 5 data. By default, the Import/Export service will encrypt data that's written to the hard drive for transport. When you create a target storage account for import and export of Impact Level 5 data, add storage encryption via customer-managed keys. For more information, see the [storage services section](#storage-encryption-with-key-vault-managed-keys) of this document.
 
-The target storage account for Import and source storage account for Export can reside in any of the following regions:
+The target storage account for import and source storage account for export can reside in any of these regions:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
-| **Azure Import/Export** | X | X | X | X | X |
+| **Azure Import/Export service** | X | X | X | X | X |
 
 ### [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive/)
 
-Azure Archive Storage can be used in Azure Government to support Impact Level 5 data. Azure Archive Storage is a tier of Azure Storage and automatically secures that data at rest using 256-bit AES keys. Just like hot and cool tiers, Azure Archive Storage can be set at the blob level. To access the content, the archived blob needs to be rehydrated or copied to an online tier, at which point customers can enforce customer managed keys that are in place for their online storage tiers. When creating a target storage account for Archive Storage of Impact Level 5 data add storage encryption with customer managed keys (additional documentation and guidance found in the [storage services section](#storage-encryption-with-key-vault-managed-keys)).
+Azure Archive Storage can be used in Azure Government to support Impact Level 5 data. Azure Archive Storage is a tier of Azure Storage. It automatically helps secure that data at rest by using 256-bit AES keys. Just like hot and cool tiers, Azure Archive Storage can be set at the blob level. To access the content, the archived blob needs to be rehydrated or copied to an online tier, at which point customers can enforce customer-managed keys that are in place for their online storage tiers. When you create a target storage account for Impact Level 5 data in Archive Storage, add storage encryption via customer-managed keys. For more information, see the [storage services section](#storage-encryption-with-key-vault-managed-keys).
 
-The target storage account for Archive storage can reside in any of the following regions:
+The target storage account for Archive Storage can reside in any of these regions:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Archive Storage** | X | X | X | X | X |
 
-### [Azure CosmosDB](https://azure.microsoft.com/services/cosmos-db/)
+### [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
-Azure CosmosDB can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
+Azure Cosmos DB supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure CosmosDB** | X | X | X | X | X |
+| **Azure Cosmos DB** | X | X | X | X | X |
 
 ### [Azure Storage](https://azure.microsoft.com/services/storage/)
 
-Azure Storage consists of multiple data features: Blob storage, File storage, Table storage, and Queue storage. Blob storage supports both standard and premium storage, with premium storage using only SSDs for the fastest performance possible. Storage also includes configurations which modify these storage types, such as hot and cool to provide appropriate speed-of-availability for data scenarios. The below outlines which features of storage currently support IL5 workloads.
+Azure Storage consists of multiple data features: Blob Storage, File Storage, Table Storage, and Queue Storage. Blob Storage supports both standard and premium storage. Premium storage uses only SSDs for the fastest performance possible. Storage also includes configurations that modify these storage types, like hot and cool to provide appropriate speed-of-availability for data scenarios. The following table outlines which features of Storage currently support IL5 workloads.
 
-When using an Azure Storage account, you must follow the steps for using **Storage Encryption with Key Vault Managed Keys** to ensure the data is protected with customer managed keys.
+When you use an Azure Storage account, you must follow the steps for using **Storage Encryption with Key Vault Managed Keys** to ensure the data is protected with customer managed keys.
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
