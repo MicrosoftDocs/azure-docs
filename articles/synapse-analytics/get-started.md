@@ -14,7 +14,7 @@ ms.date: 11/17/2020
 
 # Get Started with Azure Synapse Analytics
 
-This tutorial is a step-by-step guide through the major feature areas of Azure Synapse Analytics. The tutorial is the ideal starting point for someone who wants a guided tour through the key scenarios of Azure Synapse Analytics. After following the steps in the tutorial, you will have a fully functional Synapse workspace in which you can start analyzing data using dedicated SQL pool, serverless SQL pool, or Apache Spark.
+This tutorial is a step-by-step guide through the major feature areas of Azure Synapse Analytics. The tutorial is the ideal starting point for someone who wants a guided tour through the key scenarios of Azure Synapse Analytics. After following the steps in the tutorial, you will have a Synapse workspace. This tutorial also includes steps to [enable a workspace for your dedicated SQL pool (formerly SQL DW)](./sql-data-warehouse/workspace-connected-create.md). Once your workspace is created, you can start analyzing data using dedicated SQL pool, serverless SQL pool, or serverless Apache Spark pool.
 
 Follow the steps *in order* as shown below and you'll take a tour through many of the capabilities and learn how to exercise its core features.
 

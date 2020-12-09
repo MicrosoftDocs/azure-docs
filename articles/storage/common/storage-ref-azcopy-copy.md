@@ -103,6 +103,14 @@ Upload files and directories by using a SAS token and wildcard (*) characters:
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
 
+Upload files and directories to Azure Storage account and set the query-string encoded tags on the blob. 
+
+- To set tags {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, use the following syntax : `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+	
+- Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
+
+- While setting tags on the blobs, there are additional permissions('t' for tags) in SAS without which the service will give authorization error back.
+
 Download a single file by using OAuth authentication. If you have not yet logged into AzCopy, run the `azcopy login` command before you run the following command.
 
 ```azcopy
@@ -209,9 +217,19 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
+Transfer files and directories to Azure Storage account and set the given query-string encoded tags on the blob. 
+
+- To set tags {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, use the following syntax : `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+		
+- Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
+	
+- While setting tags on the blobs, there are additional permissions('t' for tags) in SAS without which the service will give authorization error back.
+
 ## Options
 
 **--backup** Activates Windows' SeBackupPrivilege for uploads, or SeRestorePrivilege for downloads, to allow AzCopy to see and read all files, regardless of their file system permissions, and to restore all permissions. Requires that the account running AzCopy already has these permissions (for example, has Administrator rights or is a member of the `Backup Operators` group). This flag activates privileges that the account already has.
+
+**--blob-tags** string   Set tags on blobs to categorize data in your storage account.
 
 **--blob-type** string  Defines the type of blob at the destination. This is used for uploading blobs and when copying between accounts (default `Detect`). Valid values include `Detect`, `BlockBlob`, `PageBlob`, and `AppendBlob`. When copying between accounts, a value of `Detect` causes AzCopy to use the type of source blob to determine the type of the destination blob. When uploading a file, `Detect` determines if the file is a VHD or a VHDX file based on the file extension. If the file is ether a VHD or VHDX file, AzCopy treats the file as a page blob. (default "Detect")
 

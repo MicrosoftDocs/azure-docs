@@ -5,7 +5,6 @@ description: Node types, durability, reliability, and other things to consider w
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.custom: sfrev
 ---
 # Service Fabric cluster capacity planning considerations
 

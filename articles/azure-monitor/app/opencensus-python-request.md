@@ -15,6 +15,9 @@ Incoming request data is collected using OpenCensus Python and its various integ
 
 First, instrument your Python application with latest [OpenCensus Python SDK](./opencensus-python.md).
 
+> [!NOTE]
+> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
 ## Tracking Django applications
 
 1. Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-django/) and instrument your application with the `django` middleware. Incoming requests sent to your `django` application will be tracked.

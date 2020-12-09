@@ -83,7 +83,7 @@ where is_data_deletion_filter_column =1
 and object_id = object_id(N'dbo.data_retention_table', N'U')
 ```
 
-## Corelating DB and table data retention settings
+## Correlating DB and table data retention settings
 
 The data retention setting on the database and the table, are used in conjunction to determine if autocleanup for aged rows will run on the tables or not. 
 

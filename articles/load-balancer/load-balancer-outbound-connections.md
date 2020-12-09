@@ -12,7 +12,7 @@ ms.author: allensu
 
 # Using SNAT for outbound connections
 
-The frontend IPs of an Azure public load balancer can be used to provide outbound connectivity to the internet for backend instances.This configuration uses **source network address translation (SNAT)**. SNAT rewrites the IP address of the backend to the public IP address of your load balancer. 
+The frontend IPs of an Azure public load balancer can be used to provide outbound connectivity to the internet for backend instances. This configuration uses **source network address translation (SNAT)**. SNAT rewrites the IP address of the backend to the public IP address of your load balancer. 
 
 SNAT enables **IP masquerading** of the backend instance. This masquerading prevents outside sources from having a direct address to the backend instances. Sharing an IP address between backend instances reduces the cost of static public IPs and supports scenarios such as simplifying IP allow lists with traffic from known public IPs. 
 
@@ -39,7 +39,7 @@ The five-tuple consists of:
 
 If a port is used for inbound connections, it will have a **listener** for inbound connection requests on that port and cannot be used for outbound connections. To establish an outbound connection, an **ephemeral port** must be used to provide the destination with a port on which to communicate and maintain a distinct traffic flow. When these ephemeral ports are used to perform SNAT they are called **SNAT ports** 
 
-By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP(Transmission Control Protocol) and UDP(User Datagram Protocol). When an public IP address is added as a frontend IP to a load balancer, Azure gives 64,000 eligible for use as SNAT ports. 
+By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP(Transmission Control Protocol) and UDP(User Datagram Protocol). When a public IP address is added as a frontend IP to a load balancer, Azure gives 64,000 eligible for use as SNAT ports. 
 
 >[!NOTE]
 > Each port used for a load-balancing or inbound NAT rule will consume a range of eight ports from these 64,000 ports, reducing the number of ports eligible for SNAT. If a load-> balancing or nat rule is in the same range of eight as another it will consume no additional ports. 
@@ -178,8 +178,6 @@ For more information about Azure Virtual Network NAT, see [What is Azure Virtual
 
 ## Constraints
 
-*	Ports will be released after 15 seconds if a **TCP RST** is received or sent
-*	Ports will be released after 240 seconds if a **FINACK** is received or sent
 *	When a connection is idle with no new packets being sent, the ports will be released after 4 – 120 minutes.
   *	This threshold can be configured via outbound rules.
 *	Each IP address provides 64,000 ports that can be used for SNAT.
