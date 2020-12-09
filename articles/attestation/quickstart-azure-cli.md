@@ -63,7 +63,7 @@ Follow this procedure to create and manage an attestation provider.
 1. Run the [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) command to create an attestation provider:
 
    ```azurecli
-   az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" -l westus
+   az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
    ```
    
 1. Run the [az attestation show](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_show) command to retrieve attestation provider properties such as status and AttestURI:
