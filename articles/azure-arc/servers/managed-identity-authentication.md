@@ -92,6 +92,10 @@ else
 fi
 ```
 
+The following response is an example that is returned:
+
+:::image type="content" source="media/managed-identity-authentication/bash-token-output-example.png" alt-text="A successful retrieval of the access token.":::
+
 The response includes the access token you need to access any resource in Azure. To complete the configuration to authenticate to Azure Key Vault, see [Access Key Vault with Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#access-data) or [Access Key Vault with Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#access-data).
 
 ## Next steps
