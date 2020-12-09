@@ -132,8 +132,6 @@ The following json is an example.  The latest template schema can be found [here
 
 Property value details:
 
-For deployment script API version 2020-10-01 or later, the permissions of the deployment principal is used to provision the Azure container instance and/or the storage account that are required for the script execution. If the script need to authenticate to Azure and perform Azure specific actions, we recommend providing the script with a managed identity. You can also log in to Azure in the deployment script.
-
 - **Identity**: For deployment script API version 2020-10-01 or later, a user-assigned managed identity is optional unless you need to perform any Azure specific actions in the script.  For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. Currently, only user-assigned managed identity is supported.
 - **kind**: Specify the type of script. Currently, Azure PowerShell and Azure CLI scripts are supported. The values are **AzurePowerShell** and **AzureCLI**.
 - **forceUpdateTag**: Changing this value between template deployments forces the deployment script to re-execute. If you use the newGuid() or the utcNow() function, both functions can only be used in the default value for a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
