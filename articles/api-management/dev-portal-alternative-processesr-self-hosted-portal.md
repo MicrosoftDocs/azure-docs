@@ -12,7 +12,7 @@ ms.topic: how-to
 
 ## Edit content through files, not visual editor
 
-In the [self-hosting tutorial](dev-portal-self-hosting-the-portal.md) we described the workflow of editing content and customizing the portal through the built-in visual editor. You can also use REST API to fetch the underlying data files, edit them directly in a text editor, and upload new versions through API calls.
+In the [self-hosting tutorial](dev-portal-self-host-the-portal.md) we described the workflow of editing content and customizing the portal through the built-in visual editor. You can also use REST API to fetch the underlying data files, edit them directly in a text editor, and upload new versions through API calls.
 
 ## Bring your own CMS
 

@@ -1,6 +1,6 @@
 ---
 title: Widget contribution guidelines
-description: placeholder description text Widget contribution guidelines
+description: Learn about the guidelines you have to follow when you contribute a widget to the API Management developer portal repository.
 author: erikadoyle
 ms.author: apimpm
 ms.date: 11/30/2020

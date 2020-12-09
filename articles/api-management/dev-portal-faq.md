@@ -14,7 +14,7 @@ The following article addresses frequently asked questions about the self-hosted
 
 ## Local development of my portal is no longer working...
 
-If your local version of the developer portal cannot save or retrieve information from the Storage Account or API Management instance, the SAS tokens may have expired. You can fix that by generating new tokens. For instructions, refer to **Step 2: Configure** from the [self-hosted portal tutorial](dev-portal-self-hosting-the-portal.md).
+If your local version of the developer portal cannot save or retrieve information from the Storage Account or API Management instance, the SAS tokens may have expired. You can fix that by generating new tokens. For instructions, refer to **Step 2: Configure** from the [self-hosted portal tutorial](dev-portal-self-host-the-portal.md).
 
 ## How can I remove the content provisioned to my API Management service?
 

@@ -27,4 +27,4 @@ The script performs the following steps:
 
 After the script is successfully executed, the target API Management service should contain the same portal content as the source service and you'll be able to see it as an administrator.
 
-If you're using a managed portal, you can set the script to auto-publish the destination portal to make the migrated version automatically available to the visitors. If you're using a self-hosted portal, you need to publish the destination portal manually. You can follow the publishing and hosting instructions from [the general self-hosted portal tutorial](dev-portal-self-hosting-the-portal.md).
+If you're using a managed portal, you can set the script to auto-publish the destination portal to make the migrated version automatically available to the visitors. If you're using a self-hosted portal, you need to publish the destination portal manually. You can follow the publishing and hosting instructions from [the general self-hosted portal tutorial](dev-portal-self-host-the-portal.md).

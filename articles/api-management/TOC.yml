@@ -162,7 +162,7 @@
                   - name: Understand the developer portal
                     href: api-management-howto-developer-portal.md
                   - name: Self-hosting the portal
-                    href: dev-portal-self-hosting-the-portal.md
+                    href: dev-portal-self-host-the-portal.md
                   - name: Enable CAPTCHA
                     href: dev-portal-enable-captcha.md
                   - name: Migrate portal between services
@@ -182,9 +182,9 @@
                   - name: Integrate Google Tag Manager
                     href: dev-portal-integrate-google-tag-manager.md
                   - name: Move from managed to self-hosted
-                    href: dev-portal-move-from-managed-to-self-hosted.md
+                    href: dev-portal-move-managed-self-hosted.md
                   - name: Alternative processes for self-hosted portal
-                    href: dev-portal-alternative-processes-for-self-hosted-portal.md
+                    href: dev-portal-alternative-processes-self-hosted-portal.md
                   - name: Architectural concepts
                     href: dev-portal-architectural-concepts.md
                   - name: FAQ
@@ -192,7 +192,7 @@
                   - name: Single Sign-On (SSO) authentication
                     href: dev-portal-sso-authentication.md
                   - name: Configuring OAuth 2.0
-                    href: dev-portal-configuring-oauth-2-0.md
+                    href: dev-portal-configure-oauth-2-0.md
             - name: Migrate from deprecated to new developer portal
               href: developer-portal-deprecated-migration.md
             - name: Authenticate with Azure AD

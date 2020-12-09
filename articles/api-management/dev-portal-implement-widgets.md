@@ -97,7 +97,10 @@ You're now ready to plug in the duplicated scaffold and use it in the developer 
     ![Widget selector](media/dev-portal/widget-selector.png)
 1. Save the page by pressing `Ctrl+S` (or `⌘+S` on Apple computers).
 
-> **Note:** In design-time, you can still interact with the website by holding `Ctrl` (or `⌘`) key.
+> [!NOTE]
+> In design-time, you can still interact with the website by holding `Ctrl` (or `⌘`) key.
+
+In design-time, you can still interact with the website by holding `Ctrl` (or `⌘`) key.
 
 ### 5. Add custom properties
 
@@ -309,8 +312,9 @@ Allow the session id to be configured through a widget editor:
     ...
     ```
 
-> **Note:** If you're contributing the widget to the repository, the widgetName needs to be the same as its folder name and needs to be derived from the display name (lowercase and spaces replaced with dashes). The category should remain `Community`.
+> [!NOTE]
+> If you're contributing the widget to the repository, the widgetName needs to be the same as its folder name and needs to be derived from the display name (lowercase and spaces replaced with dashes). The category should remain `Community`.
 
 ## Next steps
 
-[[Widget contribution guidelines]] - we welcome and encourage community contributions.
+[Widget contribution guidelines](dev-portal-widget-contribution-guidelines.md) - we welcome and encourage community contributions.

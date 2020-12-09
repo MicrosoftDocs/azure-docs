@@ -1,6 +1,6 @@
 ﻿---
 title: Use community widgets
-description: placeholder description text Use community widgets
+description: Learn about community widgets and how to inject and use them in your code. 
 author: erikadoyle
 ms.author: apimpm
 ms.date: 11/30/2020
