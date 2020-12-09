@@ -22,10 +22,10 @@ Azure Data CLI (`azdata`) version number: 20.2.5. Download at [https://aka.ms/az
 
 Azure Arc enabled PostgreSQL Hyperscale now supports point in time restore in addition to full backup restore for both versions 11 and 12 of PostgreSQL. The point in time restore capability allows you to indicate a specific date and time to restore to.
 
-The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed. It is now of the form ServergroupName{r, s}-_n_. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
-    - postgres02r-0 (coordinator node)
-    - postgres02s-0 (worker node)
-    - postgres02s-1 (worker node)
+The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed. It is now in the form: ServergroupName{r, s}-_n_. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
+- `postgres02r-0` (coordinator node)
+- `postgres02s-0` (worker node)
+- `postgres02s-1` (worker node)
 
 ### Breaking change
 
