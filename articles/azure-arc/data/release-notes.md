@@ -20,7 +20,12 @@ ms.topic: conceptual
 
 Azure Data CLI (`azdata`) version number: 20.2.5. Download at [https://aka.ms/azdata](https://aka.ms/azdata).
 
-Azure Arc enabled PostgreSQL Hyperscale now supports point in time restore in addition of full backup restore for both versions 11 and 12 of PostgreSQL. The point in time restore capability allows you to indicate a specific date and time to restore to.
+Azure Arc enabled PostgreSQL Hyperscale now supports point in time restore in addition to full backup restore for both versions 11 and 12 of PostgreSQL. The point in time restore capability allows you to indicate a specific date and time to restore to.
+
+The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed. It is now in the form: ServergroupName{r, s}-_n_. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
+- `postgres02r-0` (coordinator node)
+- `postgres02s-0` (worker node)
+- `postgres02s-1` (worker node)
 
 ### Breaking change
 
@@ -36,15 +41,6 @@ To register this resource provider:
 4. Search for `Microsoft.AzureArcData` and select **Register** 
 
 You can review detailed steps at [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). This change also removes all your existing shadow resources that you have uploaded to the Azure portal. In order to use the resource provider, you need to update the data controller and use the latest `azdata` CLI.  
-
-#### PostgreSQL
-
-- The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed. It is now of the form ServergroupName{r, s}-_n_. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
-    - postgres02r-0 (coordinator node)
-    - postgres02s-0 (worker node)
-    - postgres02s-1 (worker node)
-- The issue about backups of Azure Arc enabled PostgreSQL Hyperscale on Azure Kubernetes Service (AKS) is now solved.
-- The issue about backups of Azure Arc enabled PosgreSQL Hyperscale with the version 11 of PostgreSQL is now solved.
 
 ### Platform release notes
 
@@ -140,17 +136,6 @@ For instructions see [What are Azure Arc enabled data services?](overview.md)
 - AKS clusters that span [multiple availability zones](../../aks/availability-zones.md) are not currently supported for Azure Arc enabled data services. To avoid this issue, when you create the AKS cluster in Azure portal, if you select a region where zones are available, clear all the zones from the selection control. See the following image:
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Clear the checkboxes for each zone to specify none.":::
-
-
-### Known issues for Azure Arc Enabled PostgreSQL Hyperscale   
-
-- Preview does not support backup/restore for PostgreSQL version 11 engine. It only supports backup/restore for PostgreSQL version 12.
-- `azdata arc dc debug copy-logs` doesn't collect PostgreSQL engine logs on Windows.
-- Recreating a server group with the name of a server group that was just deleted may fail or stop responding. 
-   - **Workaround** Do not reuse the same name when you recreate a server group or wait for the load balancer/external service of previously deleted server group. Assuming that the name of the server group you deleted was `postgres01` and it was hosted in a namespace `arc`, before you recreate a server group with the same name, wait until `postgres01-external-svc` is not showing up in the output of the kubectl command `kubectl get svc -n arc`.
- - Loading the Overview page and Compute + Storage configuration page in Azure Data Studio is slow. 
-
-
 
 ## Next steps
   
