@@ -52,7 +52,7 @@ You can review detailed steps at [Azure resource providers and types](../../azur
 
 This release introduces direct connectivity mode. Direct connectivity mode enables the data controller to automatically upload the usage information to Azure. As part of the usage upload, the Arc data controller resource is automatically created in the portal, if it is not already created via `azdata` upload.  
 
-You can specify direct connectivity when you create the data controller. The following example creates a data controller with `azdata arc dc create` named `azure-arc-aks-hci` using direct connectivity mode (`connectivity-mode direct`). Before you run the example, replace `<subscription id>` with your subscription ID.
+You can specify direct connectivity when you create the data controller. The following example creates a data controller with `azdata arc dc create` named `arc` using direct connectivity mode (`connectivity-mode direct`). Before you run the example, replace `<subscription id>` with your subscription ID.
 
 ```console
 azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group my-resource-group --location eastus --connectivity-mode direct
