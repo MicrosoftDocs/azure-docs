@@ -44,7 +44,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
     |**Multi-turn default text**| Select and option|
-    |**+ Add URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Add URL**|`https://azure.microsoft.com/en-us/support/faq/`|
     |**Chit-chat**|Select **Professional**|
 
 7. In **Step 5**, Select **Create your KB**.
@@ -79,7 +79,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
     |**Multi-turn default text**| Select and option|
-    |**+ Add URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Add URL**|`https://azure.microsoft.com/en-us/support/faq/`|
     |**Chit-chat**|Select **Professional**|
 
 8. In **Step 5**, Select **Create your KB**.
