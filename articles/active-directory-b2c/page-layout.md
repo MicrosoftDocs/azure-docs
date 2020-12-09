@@ -67,7 +67,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 **2.1.1**
 - Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.
-- Allow picking DOM layout via policy or querystring parameter `pageFlavor`: classic, oceanBlue, slateGray.
+- Added support for using policy or the QueryString parameter `pageFlavor` to select the layout (classic, oceanBlue, or slateGray).
 - Allow using password from iOS Keychain.
 - Focus will be placed on the first error field when multiple fields are errored.
 - Focus will be placed on the first editable field on page load.
