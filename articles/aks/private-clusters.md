@@ -23,6 +23,8 @@ Private cluster is available in public regions, Azure Government, and Azure Chin
 ## Prerequisites
 
 * The Azure CLI version 2.2.0 or later
+* The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
+* To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
 
 ## Create a private AKS cluster
 
@@ -113,12 +115,7 @@ As mentioned, virtual network peering is one way to access your private cluster.
 3. In scenarios where the VNet containing your cluster has custom DNS settings (4), cluster deployment fails unless the private DNS zone is linked to the VNet that contains the custom DNS resolvers (5). This link can be created manually after the private zone is created during cluster provisioning or via automation upon detection of creation of the zone using event-based deployment mechanisms (for example, Azure Event Grid and Azure Functions).
 
 > [!NOTE]
-> If you are using BYO Route Table with kubenet and BYO DNS with Private Cluster, the cluster creation will fail. You will need to associate the [RouteTable] (https://docs.microsoft.com/en-us/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) in the node resource group to the subnet after the cluster creation failed, in order to make the creation successful.
-
-## Dependencies  
-
-* The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
-* To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
+> If you are using [Bring Your Own Route Table with kubenet] (https://docs.microsoft.com/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) and Bring Your Own DNS with Private Cluster, the cluster creation will fail. You will need to associate the [RouteTable] (https://docs.microsoft.com/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) in the node resource group to the subnet after the cluster creation failed, in order to make the creation successful.
 
 ## Limitations 
 * IP authorized ranges can't be applied to the private api server endpoint, they only apply to the public API server
@@ -129,9 +126,9 @@ As mentioned, virtual network peering is one way to access your private cluster.
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning. 
 * Azure Monitor for containers Live Data isn't currently supported.
 
-No PrivateDNSZone
-* Because hosts file changes won't take effect until hostNetwork Pods and default-DNSPolicy Pods are restarted, even after customers have updated the A record on their own DNS servers, those Pods would still resolve apiserver FQDN to older IP after migration until they're restarted.
-* Hence, customers need to restart hostNetwork Pods and default-DNSPolicy Pods after CCP migration.
+## Limitations with No PrivateDNSZone
+* After customers have updated the A record on their own DNS servers, those Pods would still resolve apiserver FQDN to the older IP after migration until they're restarted.
+*Customers need to restart hostNetwork Pods and default-DNSPolicy Pods after CCP migration.
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
