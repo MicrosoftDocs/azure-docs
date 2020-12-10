@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/optimization.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/optimization",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/troubleshooting/os-disk-full-linux.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting/boot-error-troubleshoot",
       "redirect_document_id": false
