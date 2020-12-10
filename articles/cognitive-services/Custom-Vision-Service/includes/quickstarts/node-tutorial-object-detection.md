@@ -117,13 +117,6 @@ Start a new function to contain all of your Custom Vision function calls. Add th
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_create)]
 
-## Create a new Custom Vision project
-
-Start a new function to contain all of your Custom Vision function calls. Add the following code to to create a new Custom Vision service project.
-
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_create)]
-
 ## Upload and tag images
 
 First, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ObjectDetection/Images) to your local device.

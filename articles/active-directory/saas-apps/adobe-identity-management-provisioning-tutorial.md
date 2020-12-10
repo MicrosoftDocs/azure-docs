@@ -57,7 +57,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 3. Select **Sync users from Microsoft Azure** and click **Next**.
 
-      ![Sync](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
+      ![Screenshot that shows 'Sync users from Microsoft Azure Active Directory' selected.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
 4. Copy and save the **Tenant URL** and the **Secret token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Adobe Identity Management application in the Azure portal.
 

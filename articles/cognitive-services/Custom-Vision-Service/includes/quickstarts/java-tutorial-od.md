@@ -197,7 +197,7 @@ Run the application with the `gradle run` command:
 gradle run
 ```
 
-## Clean up resources
+## Clean up your resources
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
