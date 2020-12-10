@@ -106,7 +106,7 @@ First, download the sample images for this project. Save the contents of the [sa
 
 To add the sample images to the project, insert the following code after the tag creation. This code uploads each image with its corresponding tag. You can upload up to 64 images in a single batch.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_tags)]
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_upload)]
 
 > [!NOTE]
 > You'll need to change the path to the images based on where you downloaded the Cognitive Services Python SDK Samples repo.

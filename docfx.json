@@ -838,6 +838,7 @@
         "articles/azure-sql/virtual-machines/**/*.md": "SQL Server on Azure VM",
         "articles/azure-sql/virtual-machines/**/*.yml": "SQL Server on Azure VM",
         "articles/azure-vmware/**/*.md" : "Azure VMware Solution",
+        "articles/azure-vmware/**/*.yml" : "Azure VMware Solution",
         "articles/backup/**/*.md": "Azure Backup",
         "articles/backup/**/*.yml": "Azure Backup",
         "articles/batch/**/*.md": "Azure Batch",
