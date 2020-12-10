@@ -10,7 +10,7 @@ ms.subservice: fundamentals
 ms.topic: overview
 ms.date: 06/05/2020
 ms.author: ajburnle
-ms.custom: "it-pro, seodec18, seo-update-azuread-jan, contperfq4"
+ms.custom: "it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4"
 
 #customer intent: As a new administrator, I want to understand what Azure Active Directory is, which license is right for me, and what features are available.
 ms.collection: M365-identity-device-management

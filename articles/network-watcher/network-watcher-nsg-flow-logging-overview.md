@@ -376,6 +376,8 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Storage provisioning**: Storage should be provisioned in tune with expected Flow Log volume.
 
+**Naming**: The NSG name must be upto 80 chars and the NSG rule names upto 65 chars. If the names exceed their character limit, it may get truncated while logging.
+
 ## Troubleshooting common issues
 
 **I could not enable NSG Flow Logs**
