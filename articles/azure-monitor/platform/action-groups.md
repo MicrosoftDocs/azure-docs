@@ -246,8 +246,9 @@ You may have a limited number of SMS actions in an Action Group.
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 **List of Countries where SMS Notification is supported**
-|**Country Code** | **Country Name**   |
-|61	              | Australia          |
+|**Country Code**|**Country Name**|
+|:---|:---|
+|61	 | Australia|
 |43	              | Austria            |
 |32	              | Belgium            |
 |55	              | Brazil             |
