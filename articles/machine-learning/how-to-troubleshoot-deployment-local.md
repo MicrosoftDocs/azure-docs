@@ -10,7 +10,7 @@ ms.author:  gopalv
 ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
-ms.custom: devx-track-python, deploy, contperfq2
+ms.custom: devx-track-python, deploy, contperf-fy21q2
 ---
 
 # Troubleshoot model deployment locally

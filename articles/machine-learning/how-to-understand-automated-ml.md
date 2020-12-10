@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2, automl
+ms.custom: how-to, contperf-fy21q2, automl
 ---
 
 # Evaluate automated machine learning experiment results
