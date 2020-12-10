@@ -107,8 +107,6 @@ items:
         href: register-scan-power-bi-tenant.md
       - name: Power BI tenant - PowerShell
         href: powershell-register-scan-power-bi.md
-      - name: Teradata
-        href: register-scan-teradata-source.md
   - name: Business glossary
     items:
     - name: Create, import, & export glossary terms
