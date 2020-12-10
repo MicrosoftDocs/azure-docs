@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 12/09/2020
+ms.date: 12/10/2020
 
 ms.custom: contperf-fy21q1
 ---
@@ -57,9 +57,9 @@ The following table compares the two techniques in more detail:
 
 Training deep learning models often requires large amounts of training data, high-end compute resources (GPU, TPU), and a longer training time. In scenarios when you don't have any of these available to you, you can shortcut the training process using a technique known as transfer learning.
 
-Transfer learning is a technique that applies knowledge gained from solving one problem to a different, but related problem.
+Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem.
 
-Due to the structure of neural networks, the first set of layers usually contain lower-level features, whereas the final set of layers contains higher-level feature that are closer to the domain in question. By repurposing the final layers . For example, 
+Due to the structure of neural networks, the first set of layers usually contain lower-level features, whereas the final set of layers contains higher-level feature that are closer to the domain in question. By repurposing the final layers for use in a new domain or problem, you can significantly reduce the amount of time, data, and compute resources needed to train the new model. For example, if you already have a model that recognizes cars, you can repurpose that model using transfer learning to also recognize trucks, motorcycles, and other kinds of vehicles.
 
 ## Deep learning use cases
 
@@ -116,18 +116,6 @@ Recurrent neural networks are a widely used artificial neural network. These net
 A convolutional neural network is a particularly effective artificial neural network, and it presents a unique architecture. Layers are organized in three dimensions: width, height, and depth. The neurons in one layer connect not to all the neurons in the next layer, but only to a small region of the layer's neurons. The final output is reduced to a single vector of probability scores, organized along the depth dimension. 
 
 Convolutional neural networks have been used in areas such as video recognition, image recognition, and recommender systems.
-
-### Generative adversarial network
-
-Generative adversarial network (GAN) architectures are made up of two networks know as a generator and a discriminator. The generator network takes randomly generated noise and tries to learn the distribution in order to make . The discriminator, is trained using 
-
-### Long short term memory network
-
-Long Short Term Memory (LSTM) is a network 
-
-### Transformers
-
-The transformer neural network are similar to recurrent neural networks in the sense that they work well with sequential data. Natural language processing is a common task transformers are used for. Transformers improve upon RNN architectures by using the concept of attention. Some of the more well known transformer models are BERT (Bidirectional Encoder Representations from Transformers) and the different iterations of GPT (Generative Pre-trained Transformer).
 
 ## Next steps
 
