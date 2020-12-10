@@ -142,7 +142,7 @@ Complete the [IdP configuration in the ZPA Admin Portal](https://help.zscaler.co
 
    c. Select **Save**.
 
-      ![Image shows the sp metadata information](media/partner-zscaler/create-idp.png)
+      ![Image shows the create-idp information](media/partner-zscaler/create-idp.png)
 
 ## Test the solution
 
