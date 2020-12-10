@@ -1,16 +1,16 @@
 ---
 title: Tutorial - add template functions
-description: Add template functions to your Azure Resource Manager template to construct values.
+description: Add template functions to your Azure Resource Manager template (ARM template) to construct values.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
-ms.author: jgao 
+ms.author: jgao
 ms.custom:
 ---
 
 # Tutorial: Add template functions to your ARM template
 
-In this tutorial, you learn how to add [template functions](template-functions.md) to your Azure Resource Manager (ARM) template. You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./template-user-defined-functions.md). This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to add [template functions](template-functions.md) to your Azure Resource Manager template (ARM template). You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./template-user-defined-functions.md). This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ The location of the storage account is hard-coded to **East US**. However, you m
 
 ## Use function
 
-If you've completed the previous tutorial in this series, you've already used a function. When you added **"[parameters('storageName')]"**, you used the [parameters](template-functions-deployment.md#parameters) function. The brackets indicate that the syntax inside the brackets is a [template expression](template-expressions.md). Resource Manager resolves the syntax rather than treating it as a literal value.
+If you've completed the previous tutorial in this series, you've already used a function. When you added `"[parameters('storageName')]"`, you used the [parameters](template-functions-deployment.md#parameters) function. The brackets indicate that the syntax inside the brackets is a [template expression](template-expressions.md). Resource Manager resolves the syntax rather than treating it as a literal value.
 
 Functions add flexibility to your template by dynamically getting values during deployment. In this tutorial, you use a function to get the location of the resource group you're using for deployment.
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
-ms.custom: contperfq1, devx-track-azurecli
+ms.custom: contperf-fy21q1, devx-track-azurecli
 ---
 # Add or remove Azure role assignments using Azure CLI
 
