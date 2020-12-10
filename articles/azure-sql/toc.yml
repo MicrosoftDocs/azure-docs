@@ -764,7 +764,7 @@
       - name: Performance baseline
         href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
       - name: Assessment rules 
-        href: migration-guides/database/sql-server-to-sql-managed-instance-assessment-rules.md
+        href: migration-guides/managed-instance/sql-server-to-sql-managed-instance-assessment-rules.md
 
 
   - name: Concepts
