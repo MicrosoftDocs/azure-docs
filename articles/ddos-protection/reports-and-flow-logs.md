@@ -76,9 +76,15 @@ You can connect attack mitigation flow logs to Azure Sentinel, view and analyze 
 
 ### Azure DDoS Protection Workbook
 
-To view the flow logs data in Azure analytics dashboard, you can import the sample dashboard from https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20DDoS%20Protection%20Workbook
+You can use this Azure Resource Manager (ARM) template to deploy an attack analytics workbook. This workbook always you to visualize attack data across several filterable panels to easily understand what’s at stake. When deploying this ARM Template, you'll be required to fill in the following:
 
-Flow logs will have the following fields: 
+* Workspace Name
+* Workspace ResourceGroup
+* Workspace Subscription ID
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
+
+The flow logs will have the following fields: 
 - Source IP
 - Destination IP
 - Source Port 
