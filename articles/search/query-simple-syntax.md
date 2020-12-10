@@ -13,13 +13,25 @@ ms.date: 12/08/2020
 
 # Simple query syntax in Azure Cognitive Search
 
-Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because of this flexibility, it is the default for queries in Azure Cognitive Search.
+<!-- Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because of this flexibility, it is the default for queries in Azure Cognitive Search.
 
 The simple syntax is used for query expressions passed in the `search` parameter of a [**Search Documents**](/rest/api/searchservice/search-documents)  request, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter expressions](search-filters.md) parameter of the same Search Documents API. The `search` and `$filter` parameters have different syntax, with their own rules for constructing queries, escaping strings, and so on.
 
-Although the simple parser is based on the [Apache Lucene Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) class, the implementation in Azure Cognitive Search excludes fuzzy search. If you need [fuzzy search](search-query-fuzzy.md) or other advanced query forms, consider the alternative [full Lucene query syntax](query-lucene-syntax.md) instead.
+Although the simple parser is based on the [Apache Lucene Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) class, the implementation in Azure Cognitive Search excludes fuzzy search. If you need [fuzzy search](search-query-fuzzy.md) or other advanced query forms, consider the alternative [full Lucene query syntax](query-lucene-syntax.md) instead. -->
 
 ## How to invoke simple parsing
+
++ Target the documents collection of a single index (for example, `/indexes/hotel-rooms-sample/docs/`).
+
++ Set `queryType=Simple` on the request if you need to explicitly invoke the simple parser (for example, to switch from `full` back to `simple`). Otherwise, you can exclude this parameter because it is the default.
+
++ Pass a valid string in the `search` parameter. This parameter is optional. Unspecified, null or `*`, the query response consists of 50 documents in no particular order.
+
+   Valid strings consist of a term or phrase, and can include boolean and precedence operators. Prefix or wildcard search is also a valid expression in the simple syntax.
+
+   Apply escape characters or base64 URL encoding if the search string includes unsafe, reserved, or special characters.
+
++ Optionally, set `searchMode` to specify whether NOT expressions are ANDed or ORed.
 
 A simple query is determined by the `queryType` and a valid string passed in the `search` parameter. A query request always targets the documents collection of a single index. The syntax described in this article pertains to the contents of the `search` parameter specifically.
 
@@ -48,57 +60,45 @@ By default, all terms or phrases passed in the `search` parameter undergo lexica
 
 Any text with one or more terms is considered a valid starting point for query execution. Azure Cognitive Search will match documents containing any or all of the terms, including any variations found during analysis of the text.
 
-As straightforward as this sounds, there is one aspect of query execution in Azure Cognitive Search that *might* produce unexpected results, increasing rather than decreasing search results as more terms and operators are added to the input string. Whether this expansion actually occurs depends on the inclusion of a NOT operator, combined with a `searchMode` parameter setting that determines how NOT is interpreted in terms of AND or OR behaviors. For more information, see [NOT operator](#not-operator).
+As straightforward as this sounds, there is one aspect of query execution in Azure Cognitive Search that *might* produce unexpected results, increasing rather than decreasing search results as more terms and operators are added to the input string. Whether this expansion actually occurs depends on the inclusion of a NOT operator, combined with a `searchMode` parameter setting that determines how NOT is interpreted in terms of AND or OR behaviors. For more information, see the NOT operator under [Boolean operators](#boolean-operators).
 
 <a name="bkmk_querysizelimits"></a>
 
 ### Query size limits
 
-If your application generates search queries programmatically, we recommend designing it in such a way that it does not generate queries of unbounded size. For GET, the length of the URL cannot exceed 8 KB.
+If your application generates search queries programmatically, we recommend designing it in such a way that it does not generate queries of unbounded size. 
 
-For POST (and any other request), where the body of the request includes `search` and other parameters such as `filter` and `orderby`, the maximum size is 16 MB, where the maximum number of clauses in `search` (expressions separated by AND, OR, and so on) is 1024. There is also a limit of approximately 32 KB on the size of any individual term in a query. For more information, see [API request limits](search-limits-quotas-capacity.md#api-request-limits).
++ For GET, the length of the URL cannot exceed 8 KB.
+
++ For POST (and any other request), where the body of the request includes `search` and other parameters such as `filter` and `orderby`, the maximum size is 16 MB, where the maximum number of clauses in `search` (expressions separated by AND, OR, and so on) is 1024. There is also a limit of approximately 32 KB on the size of any individual term in a query. For more information, see [API request limits](search-limits-quotas-capacity.md#api-request-limits).
 
 ### Precedence operators (grouping)
 
 You can use parentheses to create subqueries, including operators within the parenthetical statement. For example, `motel+(wifi|luxury)` will search for documents containing the "motel" term and either "wifi" or "luxury" (or both).
 
-Field grouping is similar but scopes the grouping to a single field. For example, `hotelAmenities:(gym+(wifi|pool))` searches the field "hotelAmenities" for "gym" and "wifi", or "gym" and "pool".  
-
 ## Boolean operators
 
 You can embed Boolean operators (AND, OR, NOT) in a query string to build a rich set of criteria against which matching documents are found.
 
-### AND operator `+`
-
-The AND operator is a plus sign. For example, `wifi + luxury` will search for documents containing both `wifi` and `luxury`.
-
-### OR operator `|`
-
-The OR operator is a vertical bar or pipe character. For example, `wifi | luxury` will search for documents containing either `wifi` or `luxury` or both.
-
-<a name="not-operator"></a>
-
-### NOT operator `-`
-
-The NOT operator is a minus sign. For example, `wifi –luxury` will search for documents that have the `wifi` term and/or do not have `luxury`.
-
-The `searchMode` parameter on a query request controls whether a term with the NOT operator is ANDed or ORed with other terms in the query (assuming there is no `+` or `|` operator on the other terms). Valid values include `any` or `all`.
-
-`searchMode=any` increases the recall of queries by including more results, and by default `-` will be interpreted as "OR NOT". For example, `wifi -luxury` will match documents that either contain the term `wifi` or those that do not contain the term `luxury`.
-
-`searchMode=all` increases the precision of queries by including fewer results, and by default - will be interpreted as "AND NOT". For example, `wifi -luxury` will match documents that contain the term `wifi` and do not contain the term "luxury". This is arguably a more intuitive behavior for the `-` operator. Therefore, you should consider using `searchMode=all` instead of `searchMode=any` if you want to optimize searches for precision instead of recall, *and* Your users frequently use the `-` operator in searches.
-
-When deciding on a `searchMode` setting, consider the user interaction patterns for queries in various applications. Users who are searching for information are more likely to include an operator in a query, as opposed to e-commerce sites that have more built-in navigation structures.
+| Text operator | Character | Example | Usage |
+|---------------|----------- |--------|-------|
+| AND | `+` | `wifi + luxury` | Specifies terms that a match must contain. In the example, the query engine will look for documents containing both `wifi` and `luxury`. |
+| OR | `|` | `wifi | luxury` | Finds a match when either term is found. In the example, the query engine will return match on documents containing either `wifi` or `luxury` or both. |
+| NOT | `-` | `wifi –luxury` | Returns matches on documents that exclude the term. For example, `wifi –luxury` will search for documents that have the `wifi` term but not `luxury`. <br/><br/>The `searchMode` parameter on a query request controls whether a term with the NOT operator is ANDed or ORed with other terms in the query (assuming there is no `+` or `|` operator on the other terms). Valid values include `any` or `all`.  <br/><br/>`searchMode=any` increases the recall of queries by including more results, and by default `-` will be interpreted as "OR NOT". For example, `wifi -luxury` will match documents that either contain the term `wifi` or those that do not contain the term `luxury`.  <br/><br/>`searchMode=all` increases the precision of queries by including fewer results, and by default - will be interpreted as "AND NOT". For example, `wifi -luxury` will match documents that contain the term `wifi` and do not contain the term "luxury". This is arguably a more intuitive behavior for the `-` operator. Therefore, you should consider using `searchMode=all` instead of `searchMode=any` if you want to optimize searches for precision instead of recall, *and* Your users frequently use the `-` operator in searches.<br/><br/>When deciding on a `searchMode` setting, consider the user interaction patterns for queries in various applications. Users who are searching for information are more likely to include an operator in a query, as opposed to e-commerce sites that have more built-in navigation structures. |
 
 <a name="prefix-search"></a>
 
-## Wildcard prefix matching (*, ?)
+## Prefix queries
 
-For "starts with" queries, add a suffix operator as the placeholder for the remainder of a term. Use an asterisk `*` for multiple characters or `?` for single characters. For example, `lingui*` will match on "linguistic" or "linguini", ignoring case.
+For "starts with" queries, add a suffix operator as the placeholder for the remainder of a term. A prefix query must begin with at least one alphanumeric character before you can add the suffix operator.
+
+| Character | Example | Usage |
+|----------- |--------|-------|
+| `*` | `lingui*` will match on "linguistic" or "linguini" | The asterisk (`*`) represents one or more characters of arbitrary length, ignoring case.  |
 
 Similar to filters, a prefix query looks for an exact match. As such, there is no relevance scoring (all results receive a search score of 1.0). Be aware that prefix queries can be slow, especially if the index is large and the prefix consists of a small number of characters. An alternative methodology, such as edge n-gram tokenization, might perform faster.
 
-For other wildcard query variants, such as suffix or infix matching against the end or middle of a term, use the [full Lucene syntax for wildcard search](query-lucene-syntax.md#bkmk_wildcard).
+Simple syntax supports prefix matching only. For suffix or infix matching against the end or middle of a term, use the [full Lucene syntax for wildcard search](query-lucene-syntax.md#bkmk_wildcard).
 
 ## Escaping search operators  
 
