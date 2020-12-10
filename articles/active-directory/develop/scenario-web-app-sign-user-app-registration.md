@@ -46,20 +46,20 @@ You can use these links to bootstrap the creation of your web application:
 # [ASP.NET Core](#tab/aspnetcore)
 
 1. When the **Register an application** page appears, enter your application's registration information:
-   1. Enter a **Name** for your application for example `AspNetCore-WebApp` . Users of your app might see this name, and you can change it later.
+   1. Enter a **Name** for your application, for example `AspNetCore-WebApp`. Users of your app might see this name, and you can change it later.
    1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
-   1. For **Redirect URI**, add the type of application and the URI destination that will accept returned token responses after successful authentication. For example, enter **https://localhost:44321**. 
+   1. For **Redirect URI**, add the type of application and the URI destination that will accept returned token responses after successful authentication. For example, enter `https://localhost:44321`.
    1. Select **Register**.
-1. Under **Manage**, select the **Authentication**, and then add the following information:
-   1. From the **Web** section, add **https://localhost:44321/signin-oidc** as **Redirect URLs** .
-   1. Add **https://localhost:44321/signout-oidc** as a **Logout URL**.
+1. Under **Manage**, select **Authentication** and then add the following information:
+   1. In the **Web** section, add `https://localhost:44321/signin-oidc` as a **Redirect URI**.
+   1. Add `https://localhost:44321/signout-oidc` as a **Logout URL**.
    1. Under **Implicit grant**, select **ID tokens**.
    1. Select **Save**.
    
 # [ASP.NET](#tab/aspnet)
 
 1. When the **Register an application page** appears, enter your application's registration information:
-   1. Enter a **Name** for your application, for example `MailApp-openidconnect-v2` . Users of your app might see this name, and you can change it later.
+   1. Enter a **Name** for your application, for example `MailApp-openidconnect-v2`. Users of your app might see this name, and you can change it later.
    1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
    1. In the **Redirect URI (optional)** section, select **Web** in the combo box and enter the following redirect URI: **https://localhost:44326/**.
    1. Select **Register** to create the application.
@@ -75,7 +75,7 @@ You can use these links to bootstrap the creation of your web application:
     1. Select **Register** to register the application.
 1. Under **Manage**, select **Authentication** > **Add a platform**.
 1. Select **Web**.
-1. From the Redirect URI, use the same host and port number, followed by **/msal4jsample/secure/aad** for the sign-in page. 
+1. For **Redirect URI**, enter the same host and port number, followed by `/msal4jsample/secure/aad` for the sign-in page. 
 1. Select **Configure**.
 1. From the **Web** section, use the host and port number, followed by **/msal4jsample/graph/me** as a **Redirect URI** for the user information page.
 By default, the sample uses:

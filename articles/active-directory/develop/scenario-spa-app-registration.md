@@ -28,7 +28,7 @@ For both MSAL.js 1.0- and 2.0-based applications, start by completing the follow
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
-1. Choose the **Supported account types** for the application. Do **NOT** enter a **Redirect URI**. For a description of the different account types, see the [Register a new application using the Azure portal](quickstart-register-app.md).
+1. Choose the **Supported account types** for the application. Do **NOT** enter a **Redirect URI**. For a description of the different account types, see the [Register an application](quickstart-register-app.md).
 1. Select **Register** to create the app registration.
 
 Next, configure the app registration with a **Redirect URI** to specify where the Microsoft identity platform should redirect the client along with any security tokens. Use the steps appropriate for the version of MSAL.js you're using in your application:
