@@ -293,10 +293,10 @@ This setting is configured in the **Active Directory Connections** under **NetAp
     * If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
     This functionality enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.  
     See [SMB Encryption FAQs](azure-netapp-files-faqs.md#smb-encryption-faqs) for additional information. 
-    * If you want to enable continuous availability for the SMB volume, select **Enable Continuous Availability**.    
+    * If you want to enable continuous availability (CA) for the SMB volume, select **Enable Continuous Availability**.    
 
         > [!IMPORTANT]
-        > You should enable continuous availability (CA) only for SQL workloads. Enabling CA for workloads other than SQL Server will impact performance negatively and considerably. 
+        > You should enable CA only for SQL workloads. Enabling CA for workloads other than SQL Server will impact performance negatively and considerably. 
 
     ![Screenshot that describes the Protocol tab of creating an SMB volume.](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 
