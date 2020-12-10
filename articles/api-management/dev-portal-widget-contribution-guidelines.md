@@ -1,5 +1,6 @@
 ---
 title: Widget contribution guidelines
+titleSuffix: Azure API Management
 description: Learn about the guidelines you have to follow when you contribute a widget to the API Management developer portal repository.
 author: erikadoyle
 ms.author: apimpm
@@ -40,6 +41,6 @@ We welcome your contributions!
 
 ## Next steps
 
-[[Implement widgets]] - learn how to develop your own widget, step by step.
+[Implement widgets](dev-portal-implement-widgets.md) - learn how to develop your own widget, step by step.
 
-[[Use community widgets]] - learn how to use widgets contributed by the community.
+[Use community widgets](dev-portal-use-community-widgets.md) - learn how to use widgets contributed by the community.

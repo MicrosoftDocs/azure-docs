@@ -162,7 +162,7 @@
                   - name: Understand the developer portal
                     href: api-management-howto-developer-portal.md
                   - name: Self-hosting the portal
-                    href: dev-portal-self-host-the-portal.md
+                    href: dev-portal-self-host-portal.md
                   - name: Enable CAPTCHA
                     href: dev-portal-enable-captcha.md
                   - name: Migrate portal between services

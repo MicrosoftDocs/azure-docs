@@ -1,6 +1,7 @@
 ---
-title: Self hosting the portal
-description: placeholder description text Self hosting the portal
+title: Self-host the portal
+titleSuffix: Azure API Management
+description: Learn how to setup your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure Storage Account.
 author: erikadoyle
 ms.author: apimpm
 ms.date: 11/30/2020
@@ -8,7 +9,7 @@ ms.service: api-management
 ms.topic: how-to
 ---
 
-# Self hosting the portal
+# Self-host the portal
 
 In this tutorial, we describe how to setup your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure Storage Account.
 
@@ -201,5 +202,5 @@ In particular, we recommend the following changes to the default templates
 
 ## Next steps
 
-- [[Enable CAPTCHA]]
-- Learn about [[Alternative processes for self-hosted portal]]
+- [Enable CAPTCHA](dev-portal-enable-captcha.md)
+- Learn about [Alternative processes for self-hosted portal](dev-portal-alternative-processes-self-hosted-portal.md)

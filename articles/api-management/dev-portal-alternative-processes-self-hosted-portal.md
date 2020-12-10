@@ -1,6 +1,7 @@
 ---
-title: Alternative processes for self hosted portal
-description: placeholder description text Alternative processes for self hosted portal
+title: Alternative processes for self-hosted portal
+titleSuffix: Azure API Management
+description: Learn about alternative processes you can use when you self-host a portal.
 author: erikadoyle
 ms.author: apimpm
 ms.date: 11/30/2020
@@ -8,11 +9,25 @@ ms.service: api-management
 ms.topic: how-to
 ---
 
-# Alternative processes for self hosted portal
+# Alternative processes for self-hosted portal
+
+There are several new processes you can explore when you self-host a portal. You can:
+
+* Edit content directly in files instead of having to use the visual editor.
+
+* Use your own content management system (CMS) to manage your content.
+
+* Use production builds of the designer and the publisher.
+
+* Use an Azure Function App to publish your portal.
+
+* Front the files of your portal with a Content Delivery Network (CDN) to reduce page loading times.
+
+This article provides information on each of the processes.
 
 ## Edit content through files, not visual editor
 
-In the [self-hosting tutorial](dev-portal-self-host-the-portal.md) we described the workflow of editing content and customizing the portal through the built-in visual editor. You can also use REST API to fetch the underlying data files, edit them directly in a text editor, and upload new versions through API calls.
+In the [self-hosting tutorial](dev-portal-self-host-portal.md) we described the workflow of editing content and customizing the portal through the built-in visual editor. You can also use REST API to fetch the underlying data files, edit them directly in a text editor, and upload new versions through API calls.
 
 ## Bring your own CMS
 
@@ -94,3 +109,7 @@ curl -X POST https://<function app name>.azurewebsites.net/api/publish
 Although in the previous section we suggested using Azure Storage Account as a hosting for your website, you can publish the files through any solution, including services of hosting providers.
 
 You can also front the files with a Content Delivery Network (CDN) to reduce page loading times. We recommend using [Azure CDN](https://azure.microsoft.com/services/cdn/).
+
+## Next steps
+
+- [Architectural concepts](dev-portal-architectural-concepts.md)

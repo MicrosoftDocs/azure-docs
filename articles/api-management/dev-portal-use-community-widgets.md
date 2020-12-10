@@ -1,5 +1,6 @@
 ﻿---
 title: Use community widgets
+titleSuffix: Azure API Management
 description: Learn about community widgets and how to inject and use them in your code. 
 author: erikadoyle
 ms.author: apimpm
@@ -55,3 +56,7 @@ Refer to [our widget contribution guidelines](dev-portal-widget-contribution-gui
 1. Run `npm start`. You should be able to see the widget in the *Community* category in the widget selector.
 
     ![Widget selector](media/dev-portal/widget-selector.png)
+
+## Next steps
+
+- [Testing self-hosted portal](dev-portal-testing.md)

@@ -1,6 +1,7 @@
 ---
 title: Integrate application insights
-description: placeholder description text Integrate application insights
+titleSuffix: Azure API Management
+description: Learn how to integrate application insights into your managed or self-hosted developer portal.
 author: erikadoyle
 ms.author: apimpm
 ms.date: 11/30/2020
@@ -72,3 +73,7 @@ Extended the configuration from the previous step with Application Insights conf
     ]
 }
 ```
+
+## Next steps
+
+- [Integrate Google Tag Manager](dev-portal-integrate-google-tag-manager.md)

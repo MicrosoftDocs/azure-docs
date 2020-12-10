@@ -1,6 +1,7 @@
 ﻿---
 title: Implement widgets
-description: placeholder description text Implement widgets
+titleSuffix: Azure API Management
+description: Learn how to implement widgets that consume data from external APIs and displays it on the developer portal.
 author: erikadoyle
 ms.author: apimpm
 ms.date: 11/30/2020
@@ -99,8 +100,6 @@ You're now ready to plug in the duplicated scaffold and use it in the developer 
 
 > [!NOTE]
 > In design-time, you can still interact with the website by holding `Ctrl` (or `⌘`) key.
-
-In design-time, you can still interact with the website by holding `Ctrl` (or `⌘`) key.
 
 ### 5. Add custom properties
 

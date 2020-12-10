@@ -1,6 +1,7 @@
 ---
 title: Integrate Google Tag Manager
-description: placeholder description text Integrate Google Tag Manager
+titleSuffix: Azure API Management
+description: Learn how to plug Google Tag Manager into your managed or self-hosted developer portal.
 author: erikadoyle
 ms.author: apimpm
 ms.date: 11/30/2020
@@ -72,3 +73,7 @@ Extended the configuration from the previous step with Google Tag Manager config
     ]
 }
 ```
+
+## Next steps
+
+- [Move from managed to self-hosted](dev-portal-move-managed-self-hosted.md)

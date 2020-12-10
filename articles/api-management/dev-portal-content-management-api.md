@@ -1,6 +1,7 @@
 ---
 title: Content management API
-description: placeholder description text Content management API
+titleSuffix: Azure API Management
+description: Learn about the content management API and how it's used to save and retrieve content.
 author: erikadoyle
 ms.author: apimpm
 ms.date: 11/30/2020
@@ -63,3 +64,6 @@ Example:
 ```
 GET /contentTypes/page/contentItems?$orderby=en_us/title desc
 ```
+## Next steps
+
+- [Implement widgets](dev-portal-implement-widgets.md)

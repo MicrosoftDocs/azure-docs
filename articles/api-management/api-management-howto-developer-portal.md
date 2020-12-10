@@ -202,13 +202,10 @@ The call failure may also be caused by an TLS/SSL certificate, which is assigned
 Learn more about the new developer portal:
 
 - [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
-- [Set up self-hosted version of the portal][2]
-- [Implement your own widget][3]
+- [Set up self-hosted version of the portal](dev-portal-self-host-portal.md)
+- [Implement your own widget](dev-portal-implement-widgets.md)
 
 Browse other resources:
 
-- [GitHub repository with the source code][1]
+- [GitHub repository with the source code](https://github.com/Azure/api-management-developer-portal)
 
-[1]: https://aka.ms/apimdevportal
-[2]: https://github.com/Azure/api-management-developer-portal/wiki
-[3]: https://aka.ms/apimdevportal/extend
