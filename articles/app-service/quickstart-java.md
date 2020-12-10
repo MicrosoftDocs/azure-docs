@@ -11,6 +11,7 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
+adobe-target: true
 ---
 
 # Quickstart: Create a Java app on Azure App Service
