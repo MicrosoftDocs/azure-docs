@@ -63,15 +63,15 @@ Load Balancer provides different health probe types for endpoints: TCP, HTTP, an
 
 Basic Load Balancer doesn't support HTTPS probes. Basic Load Balancer closes all TCP connections (including established connections).
 
-## Load Balancing rules
+## Load-Balancing rules
 
 A Load Balancer rule is used to define how incoming traffic is distributed to the **all** the instances within the Backend Pool. A load-balancing rule maps a given Frontend IP configuration and port to multiple backend IP addresses and ports.
 
-For example, use a load balancing rule for port 80 to route traffic from your frontend IP to port 80 of your backend instances.
+For example, use a load-balancing rule for port 80 to route traffic from your frontend IP to port 80 of your backend instances.
 
 :::image type="content" source="./media/load-balancer-components/lbrules.png" alt-text="Load balancer rule reference diagram" border="true":::
 
-*Figure: Load Balancing rules*
+*Figure: Load-Balancing rules*
 
 ## High Availability Ports
 
