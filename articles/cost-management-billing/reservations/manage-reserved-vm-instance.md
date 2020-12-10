@@ -78,7 +78,7 @@ To view or manage reservations:
 
 Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
 
-Enterprise Administrators can take ownership a reservation order and can add other users a reservation using Access control (IAM). 
+Enterprise Administrators can take ownership of a reservation order and they can add other users a reservation using Access control (IAM). 
 
 ### Microsoft Customer Agreement
 
