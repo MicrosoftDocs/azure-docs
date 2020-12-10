@@ -122,19 +122,21 @@ Using the default [pricing](https://azure.microsoft.com/pricing/details/monitor/
 
 ## Controlling ingestion to reduce cost
 
-Consider a scenario where your organization's different business unit shares Kubernetes infrastructure and a Log Analytics workspace. With each business unit separated by a Kubernetes namespace. You can visualize how much data is ingested in each workspace using a workbook recently released. The **Container Insights Usage** workbook, found in the [workbooks gallery](../platform/workbooks-overview.md#getting-started), helps you to visualize the source of your data without having to build your own library of queries from what we share in our documentation. In this workbook, there are charts with which you can view billable data from such perspectives as:
+Consider a scenario where your organization's different business unit shares Kubernetes infrastructure and a Log Analytics workspace. With each business unit separated by a Kubernetes namespace. You can visualize how much data is ingested in each workspace using the **Data Usage** runbook which is available from the **View Workbooks** dropdown.
+
+[![View workbooks dropdown](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
+
+
+This workbook helps you to visualize the source of your data without having to build your own library of queries from what we share in our documentation. In this workbook, there are charts with which you can view billable data from such perspectives as:
 
 - Total billable data ingested in GB by solution
-
 - Billable data ingested by Container logs(application logs)
-
 - Billable container logs data ingested per by Kubernetes namespace
-
 - Billable container logs data ingested segregated by Cluster name
-
 - Billable container log data ingested by logsource entry
-
 - Billable diagnostic data ingested by diagnostic master node logs
+
+[![Data usage workbook](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
 
 To learn about managing rights and permissions to the workbook, review [Access control](../platform/workbooks-access-control.md).
 

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/11/2020
+ms.date: 12/10/2020
 
 ---
 
@@ -47,7 +47,7 @@ LUIS users have full control to view the data on the portal, however it must be 
 
 ## Location of active learning
 
-To enable [active learning](luis-how-to-review-endpoint-utterances.md#enable-active-learning), users' logged utterances, received at the published LUIS endpoints, are stored in the following Azure geographies:
+To enable [active learning](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning), users' logged utterances, received at the published LUIS endpoints, are stored in the following Azure geographies:
 
 * [Europe](#europe)
 * [Australia](#australia)

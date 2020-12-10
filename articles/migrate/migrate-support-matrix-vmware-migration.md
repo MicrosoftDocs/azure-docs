@@ -1,6 +1,9 @@
 ---
 title: Support for VMware migration in Azure Migrate
 description: Learn about support for VMware VM migration in Azure Migrate.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
 ---
@@ -65,7 +68,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 **IPv6** | Not supported.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 **Simultaneous replication** | 300 VMs per vCenter Server. If you have more, migrate them in batches of 300.
-
+**Automatic installation of Azure VM agent (Windows Agent)** | Supported for Windows Server 2008 R2 onwards.
 
 ### Appliance requirements (agentless)
 
