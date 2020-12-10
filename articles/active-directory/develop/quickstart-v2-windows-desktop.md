@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform desktop app | Azure"
-description: In this quickstart, learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by an Microsoft identity platform endpoint
+description: In this quickstart, learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by a Microsoft identity platform endpoint
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-#Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
+#Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by a Microsoft identity platform endpoint.
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app
