@@ -3,8 +3,7 @@ title: Tutorial for using Azure App Configuration Key Vault references in a Java
 description: In this tutorial, you learn how to use Azure App Configuration's Key Vault references from a Java Spring Boot app
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 
 ms.assetid: 
@@ -12,8 +11,8 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/16/2019
-ms.author: lcozzens
+ms.date: 08/11/2020
+ms.author: alkemper
 ms.custom: mvc, devx-track-java, devx-track-azurecli
 
 #Customer intent: I want to update my Spring Boot application to reference values stored in Key Vault through App Configuration.
