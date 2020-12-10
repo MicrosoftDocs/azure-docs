@@ -48,9 +48,6 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
 
-<details>
-    <summary>Expand</summary>
-
 ```json
 {
     "compute": {
@@ -171,7 +168,6 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
     }
 }
 ```
-</details>
 
 ## Security and authentication
 
@@ -329,9 +325,6 @@ When you don't specify a version, you get an error with a list of the newest sup
 ```
 
 #### Supported API versions
-<details>
-    <summary>Expand</summary>
-
 - 2017-03-01
 - 2017-04-02
 - 2017-08-01 
@@ -355,7 +348,6 @@ When you don't specify a version, you get an error with a list of the newest sup
 
 > [!NOTE]
 > Version 2020-10-01 is currently being rolled out and may not yet be available in every region.
-</details>
 
 ### Swagger
 
@@ -385,7 +377,6 @@ The IMDS API contains multiple endpoint categories representing different data s
 
 > [!NOTE]
 > This feature was released alongside version 2020-10-01, which is currently being rolled out and may not yet be available in every region.
-</details>
 
 ### List API versions
 
@@ -431,10 +422,6 @@ GET /metadata/instance
 This endpoint supports response filtering via [route parameters](#route-parameters).
 
 #### Response
-
-Sample:
-<details>
-    <summary>Expand</summary>
 
 ```json
 {
@@ -556,11 +543,8 @@ Sample:
     }
 }
 ```
-</details>
 
 Schema breakdown:
-<details>
-    <summary>Expand</summary>
 
 **Compute**
 | Data | Description | Version introduced |
@@ -660,12 +644,9 @@ Tags may have been applied to your Azure VM to logically organize them into a ta
 
 The `tags` field is a string with the tags delimited by semicolons. This output can be a problem if semicolons are used in the tags themselves. If a parser is written to programmatically extract the tags, you should rely on the `tagsList` field. The `tagsList` field is a JSON array with no delimiters, and consequently, easier to parse.
 
-</details>
 
 #### Sample 1: Tracking VM running on Azure
 
-<details>
-    <summary>Expand</summary>
 As a service provider, you may require to track the number of VMs running your software or have agents that need to track uniqueness of the VM. To be able to get a unique ID for a VM, use the `vmId` field from Instance Metadata Service.
 
 **Request**
@@ -679,12 +660,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```text
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
-</details>
 
 #### Sample 2: Placement of different data replicas
 
-<details>
-    <summary>Expand</summary>
 For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)
 or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) might require you to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
 You can also use [Availability Zones](../../availability-zones/az-overview.md) for the instances to make these decisions.
@@ -701,12 +679,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```text
 0
 ```
-</details>
 
 #### Sample 3: Get more information about the VM during support case
 
-<details>
-    <summary>Expand</summary>
 As a service provider, you may get a support call where you would like to know more information about the VM. Asking the customer to share the compute metadata can provide basic information for the support professional to know about the kind of VM on Azure.
 
 **Request**
@@ -819,12 +794,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "zone": ""
 }
 ```
-</details>
 
 #### Sample 4: Get the Azure Environment where the VM is running
 
-<details>
-    <summary>Expand</summary>
 Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample shows you how you can achieve this behavior.
 
 **Request**
@@ -848,12 +820,9 @@ The cloud and the values of the Azure environment are listed here.
 | [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | AzureChinaCloud
 | [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | AzureGermanCloud
 
-</details>
 
-#### Sample 5: Retrieve network information
+#### Sample 5: Retrieve network in
 
-<details>
-    <summary>Expand</summary>
 **Request**
 
 ```bash
@@ -888,16 +857,12 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
   ]
 }
 ```
-</details>
 
 #### Sample 6: Retrieve public IP address
 
-<details>
-    <summary>Expand</summary>
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
-</details>
 
 ## Attested data
 
@@ -936,9 +901,6 @@ For VMs created by using the classic deployment model, only the `vmId` is guaran
 
 The decoded document contains the following fields:
 
-<details>
-    <summary>Expand:</summary>
-
 | Data | Description | Version introduced |
 |------|-------------|--------------------|
 | `licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs. | 2020-09-01
@@ -972,12 +934,8 @@ Example document:
 }
 ```
 
-</details>
 
 #### Sample 1: Validate that the VM is running in Azure
-
-<details>
-    <summary>Expand:</summary>
 
 Vendors in Azure Marketplace want to ensure that their software is licensed to run only in Azure. If someone copies the VHD to an on-premises environment, the vendor needs to be able to detect that. Through IMDS, these vendors can get signed data that guarantees response only from Azure.
 
@@ -1067,7 +1025,6 @@ You can find the intermediate certificates in the [PKI repository](https://www.m
 > The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA, instead of Baltimore.
 If you pinned the intermediate certificates for Azure China as part of a root chain authority change, the intermediate certificates must be updated.
 
-</details>
 
 ## Managed identity
 
@@ -1144,9 +1101,6 @@ Currently tags for virtual machine scale sets only show to the VM on a reboot, r
 
 Metadata calls must be made from the primary IP address assigned to the primary network card of the VM. Additionally, if you've changed your routes, there must be a route for the 169.254.169.254/32 address in your VM's local routing table.
 
-  <details>
-        <summary>Verifying your routing table</summary>
-
 1. Dump your local routing table and look for the IMDS entry. For example:         
     ```console
       > route print
@@ -1192,7 +1146,6 @@ Metadata calls must be made from the primary IP address assigned to the primary 
     # Output: wintest767 True 00-0D-3A-E5-1C-C0
     ```
 1. If they don't match, update the routing table so that the primary NIC and IP are targeted.
-  </details>
 
 ## Support
 
