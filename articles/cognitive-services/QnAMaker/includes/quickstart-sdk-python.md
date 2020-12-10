@@ -26,6 +26,8 @@ Use the QnA Maker client library for python to:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
+---
+
 ## Prerequisites
 
 # [Version 1](#tab/version-1)
@@ -44,6 +46,8 @@ Use the QnA Maker client library for python to:
 	* NOTE: Be sure to select the **Managed** checkbox.
 	* After your QnA Maker resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect your application to the QnA Maker API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+
+---
 
 ## Setting up
 
@@ -65,6 +69,8 @@ After installing Python, you can install the client library with:
 pip install azure-cognitiveservices-knowledge-qnamaker
 ```
 
+---
+
 ### Create a new python application
 
 Create a new Python file named `quickstart-file.py` and import the following libraries.
@@ -76,6 +82,8 @@ Create a new Python file named `quickstart-file.py` and import the following lib
 # [Version 2 preview](#tab/version-2)
 
 [!code-python[Dependencies](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/preview-sdk/quickstart.py?name=Dependencies)]
+
+---
 
 Create variables for your resource's Azure endpoint and key.
 
@@ -92,55 +100,65 @@ Create variables for your resource's Azure endpoint and key.
 
 [!code-python[Resource variables](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/preview-sdk/quickstart.py?name=Resourcevariables)]
 
+---
+
 ## Object models
 
 # [Version 1](#tab/version-1)
 
-[QnA Maker](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) Maker uses two different object models:
+[QnA Maker](TODO1) uses two different object models:
 * **[QnAMakerClient](#qnamakerclient-object-model)** is the object to create, manage, publish, and download the knowledgebase.
 * **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** is the object to query the knowledge base with the GenerateAnswer API and send new suggested questions using the Train API (as part of [active learning](../concepts/active-learning-suggestions.md)).
 
-[!INCLUDE [Get KBinformation](./quickstart-sdk-cognitive-model.md)]
-
 # [Version 2 preview](#tab/version-2)
 
-[QnA Maker](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) Maker uses the following object model:
+[QnA Maker](TODO1) Maker uses the following object model:
 * **[QnAMakerClient](#qnamakerclient-object-model)** is the object to create, manage, publish, download, and query the knowledgebase.
+
+---
 
 [!INCLUDE [Get KBinformation](./quickstart-sdk-cognitive-model.md)]
 
 ### QnAMakerClient object model
 
-The authoring QnA Maker client is a [QnAMakerClient](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
+The authoring QnA Maker client is a [QnAMakerClient](TODO1) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
 
-Once the client is created, use the [Knowledge base](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebaseoperations?view=azure-python) property to create, manage, and publish your knowledge base.
+Once the client is created, use the [Knowledge base](TODO1) property to create, manage, and publish your knowledge base.
 
-Manage your knowledge base by sending a JSON object. For immediate operations, a method usually returns a JSON object indicating status. For long-running operations, the response is the operation ID. Call the [operations.get_details](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operation(class)?view=azure-python#get-details-operation-id--custom-headers-none--raw-false----operation-config-) method with the operation ID to determine the [status of the request](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operation(class)?view=azure-python).
+Manage your knowledge base by sending a JSON object. For immediate operations, a method usually returns a JSON object indicating status. For long-running operations, the response is the operation ID. Call the [operations.get_details](TODO1) method with the operation ID to determine the [status of the request](TODO1).
 
 ### QnAMakerRuntimeClient object model
 
-The prediction QnA Maker client is a [QnAMakerRuntimeClient](/javascript/api/@azure/cognitiveservices-qnamaker-runtime/qnamakerruntimeclient?view=azure-node-latest) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your prediction runtime key, returned from the authoring client call, [client.EndpointKeysOperations.get_keys](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.endpointkeysoperations?view=azure-python) after the knowledgebase is published.
+# [Version 1](#tab/version-1)
 
-Use the [generate_answer](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime.-ctor?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Runtime__ctor_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_QnAMakerRuntimeClient_#generate-answer-kb-id--generate-answer-payload--custom-headers-none--raw-false----operation-config-) method to get an answer from the query runtime.
+The prediction QnA Maker client is a [QnAMakerRuntimeClient](TODO1) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your prediction runtime key, returned from the authoring client call, [client.EndpointKeysOperations.get_keys](TODO1) after the knowledgebase is published.
+
+Use the [generate_answer](TODO1) method to get an answer from the query runtime.
+
+# [Version 2 preview](#tab/version-2)
+
+Version 2 (preview) does not use the QnAMakerRuntimeClient object. Instead, you can call [generate_answer](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python#generate-answer-kb-id--generate-answer-payload--custom-headers-none--raw-false----operation-config-) directly on the [QnAMakerClient](TODO1) object.
+
+---
 
 ## Authenticate the client for authoring the knowledge base
 
-Instantiate a client with your endpoint and key. Create an CognitiveServicesCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-python) object.
+Instantiate a client with your endpoint and key. Create an CognitiveServicesCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient](TODO1) object.
 
 [!code-python[Authorization to resource key](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=AuthorizationAuthor)]
 
 ## Create a knowledge base
 
- Use the client object to get a [knowledge base operations](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python) object.
+ Use the client object to get a [knowledge base operations](TODO1) object.
 
-A knowledge base stores question and answer pairs for the [CreateKbDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.create_kb_dto) object from three sources:
+A knowledge base stores question and answer pairs for the [CreateKbDTO](TODO1) object from three sources:
 
-* For **editorial content**, use the [QnADTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.qnadto?view=azure-python) object.
+* For **editorial content**, use the [QnADTO](TODO1) object.
     * To use metadata and follow-up prompts, use the editorial context, because this data is added at the individual QnA pair level.
-* For **files**, use the [FileDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.file_dto) object. The FileDTO includes the filename as well as the public URL to reach the file.
+* For **files**, use the [FileDTO](TODO1) object. The FileDTO includes the filename as well as the public URL to reach the file.
 * For **URLs**, use a list of strings to represent publicly available URLs.
 
-Call the [create](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python) method then pass the returned operation ID to the [Operations.getDetails](#get-status-of-an-operation) method to poll for status.
+Call the [create](TODO1) method then pass the returned operation ID to the [Operations.getDetails](#get-status-of-an-operation) method to poll for status.
 
 The final line of the following code returns the knowledge base ID from the response from MonitorOperation.
 
@@ -150,7 +168,7 @@ Make sure the include the [`_monitor_operation`](#get-status-of-an-operation) fu
 
 ## Update a knowledge base
 
-You can update a knowledge base by passing in the knowledge base ID and an [UpdateKbOperationDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdto?view=azure-python) containing [add](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoadd?view=azure-python), [update](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoupdate?view=azure-python), and [delete](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtodelete?view=azure-python) DTO objects to the [update](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python) method. Use the [Operation.getDetail](#get-status-of-an-operation) method to determine if the update succeeded.
+You can update a knowledge base by passing in the knowledge base ID and an [UpdateKbOperationDTO](TODO1) containing [add](TODO1), [update](TODO1), and [delete](TODO1) DTO objects to the [update](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python) method. Use the [Operation.getDetail](#get-status-of-an-operation) method to determine if the update succeeded.
 
 [!code-python[Update a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=UpdateKBMethod&highlight=68,69)]
 
@@ -158,13 +176,13 @@ Make sure the include the [`_monitor_operation`](#get-status-of-an-operation) fu
 
 ## Download a knowledge base
 
-Use the [download](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python) method to download the database as a list of [QnADocumentsDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.qnadocumentsdto?view=azure-python). This is _not_ equivalent to the QnA Maker portal's export from the **Settings** page because the result of this method is not a TSV file.
+Use the [download](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python) method to download the database as a list of [QnADocumentsDTO](TODO1). This is _not_ equivalent to the QnA Maker portal's export from the **Settings** page because the result of this method is not a TSV file.
 
 [!code-python[Download a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=DownloadKB&highlight=2)]
 
 ## Publish a knowledge base
 
-Publish the knowledge base using the [publish](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python#publish-kb-id--custom-headers-none--raw-false----operation-config-) method. This takes the current saved and trained model, referenced by the knowledge base ID, and publishes that at an endpoint.
+Publish the knowledge base using the [publish](TODO1) method. This takes the current saved and trained model, referenced by the knowledge base ID, and publishes that at an endpoint.
 
 [!code-python[Publish a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=PublishKB&highlight=2)]
 
@@ -172,7 +190,7 @@ Publish the knowledge base using the [publish](/python/api/azure-cognitiveservic
 
 Once a knowledgebase is published, you need the query runtime key to query the runtime. This isn't the same key used to create the original client object.
 
-Use the [EndpointKeysOperations.get_keys](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.endpointkeysoperations?view=azure-python) method to get the [EndpointKeysDTO](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.endpointkeysdto?view=azure-python) class.
+Use the [EndpointKeysOperations.get_keys](TODO1) method to get the [EndpointKeysDTO](TODO1) class.
 
 Use either of the key properties returned in the object to query the knowledgebase.
 
@@ -197,13 +215,13 @@ This is a simple example querying the knowledge base. To understand advanced que
 
 ## Delete a knowledge base
 
-Delete the knowledge base using the [delete](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python#delete-kb-id--custom-headers-none--raw-false----operation-config-) method with a parameter of the knowledge base ID.
+Delete the knowledge base using the [delete](TODO1) method with a parameter of the knowledge base ID.
 
 [!code-python[Delete a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=DeleteKB&highlight=2)]
 
 ## Get status of an operation
 
-Some methods, such as create and update, can take enough time that instead of waiting for the process to finish, an [operation](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operation(class)?view=azure-python) is returned. Use the operation ID from the operation to poll (with retry logic) to determine the status of the original method.
+Some methods, such as create and update, can take enough time that instead of waiting for the process to finish, an [operation](TODO1) is returned. Use the operation ID from the operation to poll (with retry logic) to determine the status of the original method.
 
 The _setTimeout_ call in the following code block is used to simulate asynchronous code. Replace this with retry logic.
 
