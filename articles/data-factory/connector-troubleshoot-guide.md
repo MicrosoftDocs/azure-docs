@@ -590,7 +590,8 @@ busy to handle requests, it returns an HTTP error 503.
 - **Symptoms**:
 
     1. When you create Excel dataset and import schema from connection/store, preview data, list or refresh worksheets, you may hit timeout error if the excel file is large in size.
-    2. When you use copy activity to copy data from large Excel file (>= 100MB) into other data store, you may experience slow performance or OOM issue.
+
+    1. When you use copy activity to copy data from large Excel file (>= 100MB) into other data store, you may experience slow performance or OOM issue.
 
 - **Cause**: 
 
@@ -615,15 +616,9 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: The issue is most likely related with System Trust Store.
 
-- **Resolution**: 
-
-    1. You can navigate the path **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** and open DriverConfiguration64.exe to change the setting.
+- **Resolution**: You can navigate to the path **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** and open DriverConfiguration64.exe to change the setting.
 
     ![Uncheck Use System Trust Store](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
-
-    2. Registry key will be generated after you change the setting.
-
-    ![System Trust Store registry](./media/connector-troubleshoot-guide/system-trust-store-registry.png)
 
 
 ## JSON Format
@@ -832,7 +827,7 @@ busy to handle requests, it returns an HTTP error 503.
 
     1. Double check if the first row with white spaces is used as column name.
 
-    1. Double check the type OriginalType is supported or not. Try to avoid these special symbols. 
+    1. Double check the type OriginalType is supported or not. Try to avoid these special symbols `,;{}()\n\t=`. 
 
 
 ## REST
