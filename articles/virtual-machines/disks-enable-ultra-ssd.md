@@ -258,7 +258,7 @@ New-AzVm `
     -zone $zone
 ```
 
-To create and attach an ultra disk that has a 512 byte sector size, you can use the following command:
+To create and attach an ultra disk that has a 512 byte sector size, you can use the following script:
 
 ```powershell
 # Set parameters and select subscription
