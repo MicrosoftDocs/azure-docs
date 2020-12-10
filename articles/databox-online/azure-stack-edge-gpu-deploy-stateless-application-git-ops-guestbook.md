@@ -21,7 +21,7 @@ This article shows you how to build and deploy a simple, multi-tier web applicat
 
 The deployment is done using GitOps on the Arc enabled Kubernetes cluster on your Azure Stack Edge Pro device. 
 
-This procedure is intended for those who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc enabled Kubernetes (Preview)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+This procedure is intended for those who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc enabled Kubernetes (Preview)](../azure-arc/kubernetes/overview.md).
 
 
 ## Prerequisites
@@ -40,7 +40,7 @@ Before you can deploy the stateless application, make sure that you have complet
 
 1. You have a  Windows client system that will be used to access the Azure Stack Edge Pro device.
   
-    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. This article describes the procedure when using a Windows client. 
     
@@ -75,7 +75,7 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
 
 1. Go to **Configurations** and select **+ Add configuration**.
 
-    ![Go to Configurations](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Screenshot shows the Azure Arc enabled Kubernetes cluster with Add configuration selected.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
 1. In the **Add configuration**, enter the appropriate values for the fields and select **Apply**.
 
@@ -96,11 +96,11 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
 
 1. The configuration deployment starts and the **Operator state** shows as **Pending**. 
 
-    ![Go to Configurations](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Screenshot shows the Azure Arc enabled Kubernetes cluster in a pending state as it refreshes.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. The deployment takes a couple minutes. When the deployment completes, the **Operator state** shows as **Installed**.
 
-    ![Go to Configurations](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Screenshot shows the Azure Arc enabled Kubernetes cluster in an installed state.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 
 ## Verify deployment

@@ -19,8 +19,8 @@ This article shows you how to create this new account type using the [Azure port
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- If you intend to use the Azure CLI, [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-- If you intend to use the Azure PowerShell module, [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
+- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- If you intend to use the Azure PowerShell module, [install the latest version](/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## Create a FileStorage storage account
 

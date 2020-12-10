@@ -3,7 +3,7 @@ title: Microsoft Teams on Windows Virtual Desktop - Azure
 description: How to use Microsoft Teams on Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -26,7 +26,6 @@ Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
 - Install the [Windows Desktop client](connect-windows-7-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
-- [Download](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) and install the Teams desktop app on the host using per-machine installation. Media optimization for Microsoft Teams requires Teams desktop app version 1.3.00.4461 or later.
 
 ## Install the Teams desktop app
 
@@ -36,7 +35,8 @@ This section will show you how to install the Teams desktop app on your Windows 
 
 To enable media optimization for Teams, set the following registry key on the host:
 
-1. From the start menu, run **RegEdit** as an administrator. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**.
+1. From the start menu, run **RegEdit** as an administrator. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**. Create the Teams key if it doesn't already exist.
+
 2. Create the following value for the Teams key:
 
 | Name             | Type   | Data/Value  |
@@ -45,7 +45,7 @@ To enable media optimization for Teams, set the following registry key on the ho
 
 ### Install the Teams WebSocket Service
 
-Install the latest [WebSocket Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
+Install the latest [Remote Desktop WebRTC Redirector Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
 
 #### Latest WebSocket Service versions
 
@@ -88,7 +88,7 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
 
         This installs Teams to the Program Files (x86) folder on a 32-bit operating system and to the Program Files folder on a 64-bit operating system. At this point, the golden image setup is complete. Installing Teams per-machine is required for non-persistent setups.
 
-        There are two flags that may be set when installing teams, **ALLUSER=1** and **ALLUSERS=1**. It is important to understand the difference between these parameters. The **ALLUSER=1** parameter is used only in VDI environments to specify a per-machine installation. The **ALLUSERS=1** parameter can be used in non-VDI and VDI environments. When you set this parameter, Teams Machine-Wide Installer appears in Program and Features in Control Panel as well as Apps & features in Windows Settings. All users with admin credentials on the machine can uninstall Teams.
+        There are two flags that may be set when installing teams, **ALLUSER=1** and **ALLUSERS=1**. It is important to understand the difference between these parameters. The **ALLUSER=1** parameter is used only in VDI environments to specify a per-machine installation. The **ALLUSERS=1** parameter can be used in non-VDI and VDI environments. When you set this parameter, **Teams Machine-Wide Installer** appears in Program and Features in Control Panel as well as Apps & features in Windows Settings. All users with admin credentials on the machine can uninstall Teams.
 
         > [!NOTE]
         > Users and admins can't disable automatic launch for Teams during sign-in at this time.
@@ -108,14 +108,19 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
 
 After installing the WebSocket Service and the Teams desktop app, follow these steps to verify that Teams media optimizations loaded:
 
-1. Select your user profile image, then select **About**.
-2. Select **Version**.
+1. Quit and restart the Teams application.
+
+2. Select your user profile image, then select **About**.
+
+3. Select **Version**.
 
       If media optimizations loaded, the banner will show you **WVD Media optimized**. If the banner shows you **WVD Media not connected**, quit the Teams app and try again.
 
-3. Select your user profile image, then select **Settings**.
+4. Select your user profile image, then select **Settings**.
 
       If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still don't appear in the menu, check the Privacy settings on your local PC. Ensure the under **Settings** > **Privacy** > **App permissions** the setting **Allow apps to access your microphone** is toggled **On**. Disconnect from the remote session, then reconnect and check the audio and video devices again. To join calls and meetings with video, you must also grant permission for apps to access your camera.
+
+      If optimizations do not load, uninstall then reinstall Teams and check again.
 
 ## Known issues and limitations
 

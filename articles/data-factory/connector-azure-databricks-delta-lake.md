@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/28/2020
+ms.date: 11/24/2020
 ---
 
 # Copy data to and from Azure Databricks Delta Lake by using Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy activity in Azure Data Factory to copy data to and from Azure Databricks Delta Lake. It builds on the [Copy activity in Azure Data Factory](copy-activity-overview.md) article, which presents a general overview of copy activity.
 
@@ -26,7 +26,7 @@ This Azure Databricks Delta Lake connector is supported for the following activi
 - [Copy activity](copy-activity-overview.md) with a [supported source/sink matrix](copy-activity-overview.md) table
 - [Lookup activity](control-flow-lookup-activity.md)
 
-In general, Azure Data Factory supports Delta Lake with the following capabilities to meet your various need.
+In general, Azure Data Factory supports Delta Lake with the following capabilities to meet your various needs.
 
 - Copy activity supports Azure Databricks Delta Lake connector to copy data from any supported source data store to Azure Databricks delta lake table, and from delta lake table to any supported sink data store. It leverages your Databricks cluster to perform the data movement, see details in [Prerequisites section](#prerequisites).
 - [Mapping Data Flow](concepts-data-flow-overview.md) supports generic [Delta format](format-delta.md) on Azure Storage as source and sink to read and write Delta files for code-free ETL, and runs on managed Azure Integration Runtime.
@@ -68,11 +68,11 @@ For cluster configuration details, see [Configure clusters](/azure/databricks/cl
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that define Data Factory entities specific to a Azure Databricks Delta Lake connector.
+The following sections provide details about properties that define Data Factory entities specific to an Azure Databricks Delta Lake connector.
 
 ## Linked service properties
 
-The following properties are supported for a Azure Databricks Delta Lake linked service.
+The following properties are supported for an Azure Databricks Delta Lake linked service.
 
 | Property    | Description                                                  | Required |
 | :---------- | :----------------------------------------------------------- | :------- |

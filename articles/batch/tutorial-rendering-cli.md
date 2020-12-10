@@ -29,6 +29,8 @@ In this tutorial, you render a 3ds Max scene with Batch using the [Arnold](https
 
 - This tutorial requires version 2.0.20 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
+> [!TIP]
+> You can view [Arnold job templates](https://github.com/Azure/batch-extension-templates/tree/master/templates/arnold/render-windows-frames) in the Azure Batch Extension Templates GitHub repository.
 ## Create a Batch account
 
 If you haven't already, create a resource group, a Batch account, and a linked storage account in your subscription. 

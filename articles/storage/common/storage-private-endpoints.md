@@ -48,6 +48,7 @@ When creating the private endpoint, you must specify the storage account and the
 
 > [!TIP]
 > Create a separate private endpoint for the secondary instance of the storage service for better read performance on RA-GRS accounts.
+> Make sure to create a general-purpose v2(Standard or Premium) storage account .
 
 For read access to the secondary region with a storage account configured for geo-redundant storage, you need separate private endpoints for both the primary and secondary instances of the service. You don't need to create a private endpoint for the secondary instance for **failover**. The private endpoint will automatically connect to the new primary instance after failover. For more information about storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
@@ -120,10 +121,6 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 ## Known Issues
 
 Keep in mind the following known issues about private endpoints for Azure Storage.
-
-### Copy Blob support
-
-If the storage account is protected by a firewall and the account is accessed through private endpoints, then that account cannot serve as the source of a [Copy Blob](/rest/api/storageservices/copy-blob) operation.
 
 ### Storage access constraints for clients in VNets with private endpoints
 

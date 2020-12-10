@@ -50,7 +50,7 @@ Machine Learning Services in SQL Managed Instance and SQL Server support both Py
 Python and R package management work differently between SQL Managed Instance and SQL Server. These differences are:
 
 - There is no support for packages that depend on external runtimes (like Java) or need access to OS APIs for installation or usage.
-- Packages can perform outbound network calls (change from earlier in the preview). You can set the right outbound security rules at the [Network Security Group](/azure/virtual-network/network-security-groups-overview) level to enable outbound network calls.
+- Packages can perform outbound network calls (change from earlier in the preview). You can set the right outbound security rules at the [Network Security Group](../../virtual-network/network-security-groups-overview.md) level to enable outbound network calls.
 
 For more information about managing Python and R packages, see:
 

@@ -12,16 +12,15 @@ ms.date: 09/22/2020
 ms.author: mathapli
 ---
 
-# Public Preview: Azure Hybrid Benefit – how it applies for Linux Virtual Machines
+# Azure Hybrid Benefit – how it applies for Linux Virtual Machines
 
 ## Overview
 
 Azure Hybrid Benefit allows you to more easily migrate your on-premise Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) to Azure by using your own pre-existing Red Hat or SUSE software subscription. With this benefit, you only pay for the infrastructure costs of your VM because the software fee is covered by your RHEL or SLES subscription. The benefit is applicable to all RHEL and SLES Marketplace pay-as-you-go (PAYG) images.
 
 > [!IMPORTANT]
-> Azure Hybrid Benefit for Linux VMs is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Hybrid Benefit for Linux VMs is available to public now
+
 
 ## Benefit description
 
@@ -41,18 +40,14 @@ Reserved Instances, Dedicated Hosts, and SQL hybrid benefits are not eligible fo
 
 ## How to get started
 
-Azure Hybrid Benefit is currently in a preview phase for Linux VMs. Once you gain access to the preview, you may enable the benefit using Azure CLI.
-
-### Public Preview
-
-Azure Hybrid Benefit (for Linux) is in public preview phase now. You can use the below steps to enable the benefit for Red Hat and SUSE distributions. 
-
 ### Red Hat customers
 
-1.    Register with the [Red Hat Cloud Access program](https://aka.ms/rhel-cloud-access)
-1.    Enable your Azure subscription(s) for Cloud Access, and enable the subscriptions containing the VMs you want to use the benefit with
-1.    Apply the benefit to your existing VMs either via Azure CLI
-1.    Register your VMs receiving the benefit with a separate source of updates
+Azure Hybrid Benefit for RHEL is available to customers who have active/unused RHEL subscriptions that are eligible for use in Azure and who have enabled one or more of those subscriptions for use in Azure with the [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) program. 
+
+1.  Enable one or more of your eligible RHEL subscriptions for use in Azure using the [Red Hat Cloud Access customer interface](https://access.redhat.com/management/cloud).
+1.  The Azure subscription(s) you provided during the Red Hat Cloud Access enablement process will then be permitted to use the Azure Hybrid Benefit feature.
+1.  Apply the Azure Hybrid Benefit to any of your existing RHEL PAYG VMs as well as any new RHEL VMs you deploy from Azure Marketplace PAYG images.
+1.  Follow recommended [next steps](https://access.redhat.com/articles/5419341) for configuring update sources for your RHEL VMs and for RHEL subscription compliance guidelines.
 
 
 ### SUSE customers
@@ -120,7 +115,19 @@ From within the VM itself, you may query the IMDS Attested Metadata to determine
 
 ### Red Hat
 
-In order to use Azure Hybrid Benefit for your RHEL VMs, you must first be registered with the Red Hat Cloud Access program. You may do this via the Red Hat Cloud Access site here. Once you have enabled the benefit on your VM, you must register the VM with your own source of updates either with Red Hat Subscription Manager or Red Hat Satellite. Registering for updates will ensure you remain in a supported state.
+Customers using the Azure Hybrid Benefit for RHEL agree to the standard [legal terms](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) and [privacy statement](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) associated with the Azure Marketplace RHEL offerings.
+
+Customers using Azure Hybrid Benefit for RHEL have three options for providing software updates and patches to those VMs:
+
+1.	[Red Hat Update Infrastructure (RHUI)](../workloads/redhat/redhat-rhui.md) (default option)
+1.	Red Hat Satellite Server
+1.	Red Hat Subscription Manager
+
+Customers choosing the RHUI option, can continue to use RHUI as the main update source for their AHB RHEL VMs without attaching RHEL subscriptions to those VMs.  Customers choosing the RHUI option are responsible for ensuring RHEL subscription compliance.
+
+Customers choosing either Red Hat Satellite Server or Red Hat Subscription Manager should remove RHUI configuration and then attach a Cloud Access enabled RHEL subscription to their AHB RHEL VM(s).  
+
+More information about Red Hat subscription compliance, software updates, and sources for AHB RHEL VMs can be found [here](https://access.redhat.com/articles/5419341).
 
 ### SUSE
 
@@ -135,6 +142,39 @@ A: No you cannot. Attempting to enter a license type that incorrectly matches th
 
 A: It may take some time for your Red Hat Cloud Access subscription registration to propagate from Red Hat to Azure. If you are still seeing the error after one business day, contact Microsoft support.
 
+*Q: I have deployed a VM using a RHEL BYOS “Golden Image”. Can I convert the billing on these images from BYOS to PAYG?*
+
+A: No you cannot. Azure Hybrid Benefit supports conversion only on Pay-As-You-Go images.
+
+*Q: I have deployed a VM using a RHEL BYOS “Golden Image”. Can I convert the billing on these images from BYOS to PAYG?*
+
+A: No you cannot. Azure Hybrid Benefit supports conversion only on Pay-As-You-Go images.
+
+*Q: I have uploaded my own RHEL image from on-prem (via Azure Migrate, ASR or otherwise) to Azure. Can I convert the billing on these images from BYOS to PAYG?*
+
+A: No you cannot. The Azure Hybrid Benefit capability is available only to RHEL and SLES Marketplace images today. 
+
+*Q: I have uploaded my own RHEL image from on-prem (via Azure Migrate, ASR or otherwise) to Azure. Do I need to do anything to benefit from Azure Hybrid Benefit?*
+
+A: No you do not. RHEL images you upload are already considered BYOS, and you are only charged for Azure infrastructure costs. You are responsible for RHEL subscriptions costs just like you do for your on-premises environments. 
+
+*Q: Can I use Azure Hybrid Benefit on VMs deployed from Marketplace RHEL and SLES SAP images?*
+
+A: Yes, you can. You can use the license type of 'RHEL_BYOS' for RHEL VMs and 'SLES_BYOS' for conversions of VMs deployed from Marketplace RHEL and SLES SAP images.
+
+*Q: Can I use Azure Hybrid Benefit on Virtual Machine Scale Set(VMSS) for RHEL and SLES?*
+
+A: No, you cannot. VMSS are not in scope of Azure Hybrid Benefit today for RHEL and SLES currently.
+
+*Q: Can I use Azure Hybrid Benefit on Reserved Instances(RIs) for RHEL and SLES?*
+
+A: No, you cannot. RIs are not in scope of Azure Hybrid Benefit today for RHEL and SLES currently.
+
+*Q: Can I use Azure Hybrid Benefit on a Virtual Machine deployed for SQL Server on RHEL images?*
+
+A: No, you cannot. There is no plan for supporting these.
+ 
+
 ## Common issues
 This section contains a list of common issues that could be encountered and steps for mitigation.
 
@@ -143,4 +183,4 @@ This section contains a list of common issues that could be encountered and step
 | "The action could not be completed because our records show that you have not successfully enabled Red Hat Cloud Access on your Azure subscription…." | In order to use the benefit with RHEL VMs, you must first register your Azure subscription(s) with Red Hat Cloud Access. Visit this link to learn more about how to register your Azure subscriptions for Red Hat Cloud Access
 
 ## Next steps
-* Learn on how to create and update VMs and add license types (RHEL_BYOS, SLES_BYOS) for Azure Hybrid Benefit using [Azure CLI here.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)
+* Learn on how to create and update VMs and add license types (RHEL_BYOS, SLES_BYOS) for Azure Hybrid Benefit using [Azure CLI here.](/cli/azure/vm?preserve-view=true&view=azure-cli-latest)

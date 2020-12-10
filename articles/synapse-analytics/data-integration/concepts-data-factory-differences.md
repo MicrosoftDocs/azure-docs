@@ -2,11 +2,11 @@
 title: Differences from Azure Data Factory
 description: Learn how the data integration capabilities of Azure Synapse Analytics differ from those of Azure Data Factory
 services: synapse-analytics 
-author: djpmsft
+author: shirleywangmsft
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.author: daperlov
+ms.author: shwang
 ms.reviewer: jrasnick
 ---
 
@@ -37,7 +37,6 @@ The following features either behave differently or don't currently exist in Azu
 
 * **Wrangling data flows:** The wrangling data flow activity is only available in Azure Data Factory at this time.
 * **The solution template gallery:** In Azure Data Factory, users can find pipeline templates in the solution template gallery. In Synapse workspaces, the knowledge center contains a different set of templates along with additional datasets and SQL Scripts. 
-* **Git integration and a native CI/CD solution:** Currently a Synapse workspace can't connect to a Git repository nor does it follow the same continuous integration and delivery process as Azure Data Factory.
 * **Integration with Azure monitor:** Synapse workspaces doesn't integrate with Azure Monitor as Azure Data Factory does.
 * **Hybrid integration runtime configuration:** Within a Synapse workspace, a user can't have both a managed VNet IR and an Azure IR. This capability is supported in Azure Data Factory.
 * **Integration runtime sharing:** Self-hosted integration runtimes can't be shared between Synapse workspaces. This capability is supported in Azure Data Factory.

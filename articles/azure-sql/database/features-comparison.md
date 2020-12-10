@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-ms.date: 07/22/2020
+ms.date: 11/10/2020
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -67,7 +67,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Filestream](/sql/relational-databases/blob/filestream-sql-server) | No | [No](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
 | [Full-text search (FTS)](/sql/relational-databases/search/full-text-search) |  Yes, but third-party word breakers are not supported | Yes, but [third-party word breakers are not supported](../managed-instance/transact-sql-tsql-differences-sql-server.md#full-text-semantic-search) |
 | [Functions](/sql/t-sql/functions/functions) | Most - see individual functions | Yes - see [Stored procedures, functions, triggers differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
-| [In-memory optimization](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Yes - [Premium and Business Critical tiers only](../in-memory-oltp-overview.md) Limited support for non-persistent In-Memory objects such as table types | Yes - [Business Critical tier only](../managed-instance/sql-managed-instance-paas-overview.md) |
+| [In-memory optimization](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Yes in [Premium and Business Critical service tiers](../in-memory-oltp-overview.md).</br> Limited support for non-persistent In-Memory OLTP objects such as memory-optimized table variables in [Hyperscale service tier](service-tier-hyperscale.md).| Yes in [Business Critical service tier](../managed-instance/sql-managed-instance-paas-overview.md) |
 | [Language elements](/sql/t-sql/language-elements/language-elements-transact-sql) | Most - see individual elements |  Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Linked servers](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic query](elastic-query-horizontal-partitioning.md) | Yes. Only to [SQL Server and SQL Database](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) without distributed transactions. |
 | [Linked servers](/sql/relational-databases/linked-servers/linked-servers-database-engine) that read from files (CSV, Excel)| No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) or [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) as an alternative for CSV format. | No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) or [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) as an alternative for CSV format. Track these requests on [SQL Managed Instance feedback item](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|

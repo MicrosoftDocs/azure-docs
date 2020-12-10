@@ -218,7 +218,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    hdfs dfs -cp /hbase-wal-backup/hbasewal hdfs://mycluster/**
    ```
    
-1. If you're upgrading HDInsight 3.6 to 4.0, follow the steps below, otherwise skip to step 10:
+1. If you're upgrading HDInsight 3.6 to 4.0, follow the steps below, otherwise skip to step 13:
 
     1. Restart all required services in Ambari by selecting	**Services** > **Restart All Required**.
     1. Stop the HBase service.

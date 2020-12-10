@@ -46,7 +46,7 @@ You should only engage DRR if:
 
 DRR follows the Azure Rapid Response support model. Refer to [Support scope and responsiveness](https://azure.microsoft.com/en-us/support/plans/response/) for more information on Rapid Response..
 
-To learn more, read the [DDoS Protection Standard documentation](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+To learn more, read the [DDoS Protection Standard documentation](./ddos-protection-overview.md).
 
 ## Next steps
 

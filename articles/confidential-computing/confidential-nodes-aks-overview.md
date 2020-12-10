@@ -56,10 +56,10 @@ AKS supports applications that are programmed to run on confidential nodes and u
 
 [Quick starter confidential container samples](https://github.com/Azure-Samples/confidential-container-samples)
 
-[DCsv2 SKU List](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
+[DCsv2 SKU List](../virtual-machines/dcv2-series.md)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure Attestation]: ../attestation/index.yml
 
 
 <!-- LINKS - internal -->

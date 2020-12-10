@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
+ms.date: 11/13/2020
 
 ---
 
@@ -28,6 +28,8 @@ Configure IIS logs in Azure Monitor from the [Advanced Settings menu](agent-data
 ## Data collection
 Azure Monitor collects IIS log entries from each agent each time the log timestamp changes. The log is read every **5 minutes**. If for any reason IIS doesn't update the timestamp before the rollover time when a new file is created, entries will be collected following creation of the new file. The frequency of new file creation is controlled by the **Log File Rollover Schedule** setting for the IIS site, which is once a day by default. If the setting is **Hourly**, Azure Monitor collects the log each hour. If the setting is **Daily**, Azure Monitor collects the log every 24 hours.
 
+> [!IMPORTANT]
+> It is recommended to set the **Log File Rollover Schedule** to **Hourly**. If it's set to **Daily**, you may experience spikes in your data since it will only be collected once per day.
 
 ## IIS log record properties
 IIS log records have a type of **W3CIISLog** and have the properties in the following table:

@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
-ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
 ---
 
 # Permissions and consent in the Microsoft identity platform endpoint
@@ -300,7 +300,7 @@ This produces a consent screen for all registered permissions (if applicable bas
 
 ### Client credentials grant flow and /.default
 
-Another use of `./default` is when requesting application permissions (or *roles*) in a non-interactive application like a daemon app that uses the [client credentials](v2-oauth2-client-creds-grant-flow.md) grant flow to call a web API.
+Another use of `/.default` is when requesting application permissions (or *roles*) in a non-interactive application like a daemon app that uses the [client credentials](v2-oauth2-client-creds-grant-flow.md) grant flow to call a web API.
 
 To create application permissions (roles) for a web API, see [How to: Add app roles in your application](howto-add-app-roles-in-azure-ad-apps.md).
 

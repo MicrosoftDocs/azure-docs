@@ -5,7 +5,7 @@ description: Use existing SQL Server licenses for Azure SQL Database and SQL Man
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: features
-ms.custom: sqldbrb=4
+ms.custom: sqldbrb=4, devx-track-azurecli
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein

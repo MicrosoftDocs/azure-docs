@@ -6,8 +6,8 @@ documentationcenter: ''
 author: axayjo 
 manager: gwallace
 editor: ''
-
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

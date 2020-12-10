@@ -13,9 +13,6 @@ ms.date: 08/24/2020
 
 This article discusses the implementation of encryption in transit for communication between Azure HDInsight cluster nodes.
 
-> [!Note]
-> Encryption in transit is currently enabled for the following regions: East US, South Central US, West US2.
-
 ## Background
 
 Azure HDInsight offers a variety of security features for securing your enterprise data. These solutions are grouped under the pillars of perimeter security, authentication, authorization, auditing, encryption, and compliance. Encryption can be applied to data both at rest and in transit.

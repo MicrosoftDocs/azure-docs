@@ -48,11 +48,16 @@ For more information about the Basic Audio Analyzer mode, see [Analyzing Video a
 
 Updates to most properties are now allowed when live events are stopped. In addition, users are allowed to specify a prefix for the static hostname for the live event's input and preview URLs. VanityUrl is now called `useStaticHostName` to better reflect the intent of the property.
 
-Live events now have a StandBy state.  See [Live Events and Live Outputs in Media Services](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept).
+Live events now have a StandBy state.  See [Live Events and Live Outputs in Media Services](./live-events-outputs-concept.md).
 
 A live event supports receiving various input aspect ratios. Stretch mode allows customers to specify the stretching behavior for the output.
 
 Live encoding now adds the capability of outputting fixed key frame interval fragments between 0.5 to 20 seconds.
+
+## Accounts
+
+> [!WARNING]
+> If you create a Media Services account with the 2020-05-01 API version it won’t work with RESTv2 
 
 ## August 2020
 
