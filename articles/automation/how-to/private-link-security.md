@@ -40,9 +40,9 @@ For more information, see  [Key Benefits of Private Link](../../private-link/pri
 
 ## How it works
 
-Azure Automation Private Link connects one or more private endpoints (and therefore the virtual networks they are contained in) to your Automation Account resource. These endpoints are machines using webhooks to start a runbook, machines hosting the Hybrid Runbook Worker role, and DSC nodes.
+Azure Automation Private Link connects one or more private endpoints (and therefore the virtual networks they are contained in) to your Automation Account resource. These endpoints are machines using webhooks to start a runbook, machines hosting the Hybrid Runbook Worker role, and Desired State Configuration (DSC) nodes.
 
-After you create private endpoints for Automation, each of the public facing Automation URLs, which you or a machine can directly contact, is mapped to one private endpoint in your VNet.
+After you create private endpoints for Automation, each of the public facing Automation URLs, is mapped to one private endpoint in your VNet. You or a machine can directly contact the Automation URLs.
 
 ### Webhook scenario
 
@@ -151,7 +151,7 @@ If the service consumer has Azure RBAC permissions on the Automation resource, t
 
 You can configure an Automation account to deny all public configurations and allow only connections through private endpoints to further enhance the network security. If you want to restrict access to the Automation account from only within the VNet and not allow access from public internet, you can set `publicNetworkAccess` property to `$false`.
 
-When the **Public Network Access** setting is set to `$false`, only connections via private endpoints are allowed and all connections via public endpoints are denied with an unathorized error message and HTTP status of 401. 
+When the **Public Network Access** setting is set to `$false`, only connections via private endpoints are allowed and all connections via public endpoints are denied with an unauthorized error message and HTTP status of 401.
 
 The following PowerShell script shows how to `Get` and `Set` the **Public Network Access** property at the Automation account level:
 
@@ -161,7 +161,7 @@ $account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty 
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
 
-You can also control the public network access property from the Azure portal. From your Automation Account select **Network Isolation** from the left-hand pane under the **Account Settings** section. When the Public Network Access setting is set to **No**, only connections over private endpoints are allowed and all connections over public endpoints are denied.
+You can also control the public network access property from the Azure portal. From your Automation Account, select **Network Isolation** from the left-hand pane under the **Account Settings** section. When the Public Network Access setting is set to **No**, only connections over private endpoints are allowed and all connections over public endpoints are denied.
 
 ![Public Network Access setting](./media/private-link-security/allow-public-network-access.png)
 
@@ -173,7 +173,7 @@ The network interface associated with the private endpoint contains the complete
 
 You can use the following options to configure your DNS settings for private endpoints:
 
-* Use the host file (only recommended for testing). You can use the host file on a virtual machine to override using DNS for name resolution first. Your DNS entry should look like the following: `privatelinkFQDN.jrds.sea.azure-automation.net`.
+* Use the host file (only recommended for testing). You can use the host file on a virtual machine to override using DNS for name resolution first. Your DNS entry should look like the following example: `privatelinkFQDN.jrds.sea.azure-automation.net`.
 
 * Use a [private DNS zone](../../dns/private-dns-privatednszone.md). You can use private DNS zones to override the DNS resolution for a particular private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains. To enable the agent on your virtual machine to communicate over the private endpoint, create a Private DNS record as `privatelink.azure-automation.net`. Add a new DNS *A* record mapping to the IP of the private endpoint.
 
