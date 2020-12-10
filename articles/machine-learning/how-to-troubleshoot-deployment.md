@@ -10,7 +10,7 @@ ms.author:  gopalv
 ms.reviewer: jmartens
 ms.date: 11/25/2020
 ms.topic: troubleshooting
-ms.custom: contperfq4, devx-track-python, deploy, contperf-fy21q2
+ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
 ---
 
 # Troubleshoot model deployment
