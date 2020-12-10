@@ -53,7 +53,7 @@ The following are some reasons why you might want to transfer a subscription:
 Transferring a subscription requires downtime to complete the process. Depending on your scenario, you can consider the following alternate approaches:
 
 - Re-create the resources and copy data to the target directory and subscription.
-- Adopt a multi-directory architecture and use Azure Lighthouse to manage operations. Leave the subscription in the source directory, but delegate resources so that users in the target directory can access the subscription in the source directory. For more information, see [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md).
+- Adopt a multi-directory architecture and leave the subscription in the source directory. Use Azure Lighthouse to delegate resources so that users in the target directory can access the subscription in the source directory. For more information, see [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md).
 
 ### Understand the impact of transferring a subscription
 
