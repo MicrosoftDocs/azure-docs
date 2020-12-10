@@ -71,13 +71,13 @@ Self-hosted integration runtime throws error “The Authentication key is invali
 
 The problem is most likely caused by DNS resolution issue, as disabling public connectivity and establishing a private endpoint does no help for reconnecting.
 
-You can follow below steps to verify the cause:
+You can follow below steps to verify if Data Factory FQDN is resolved to public IP address:
 
 1. Confirm that you have created the Azure VM in the same VNET as Data Factory private endpoint.
 
 1. Run PsPing and Ping from Azure VM to Data Factory FQDN:
 
-   `Ping <dataFactoryName>.<region>.datafactory.azure.net`
+   `ping <dataFactoryName>.<region>.datafactory.azure.net`
 
    `psping.exe <dataFactoryName>.<region>.datafactory.azure.net:443`
 
@@ -85,17 +85,23 @@ You can follow below steps to verify the cause:
 > A port is required to be specified for PsPing command, while 443 port is not a must.
 >
 
-1. Check if both commands resolved to an ADF public IP that based on specified region.
+1. Check if both commands resolved to an ADF public IP that based on specified region (format xxx.xxx.xxx.0).
 
 #### Resolution
 
-If both commands do resolve DNS to a public IP, you can try to follow the instruction in [Azure Private Link for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints) to configure the private DNS zone/server. This is in order to resolve Data Factory FQDN to private IP address.
+- You can refer to the article in [Azure Private Link for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints). The instruction is for configuring the private DNS zone/server to resolve Data Factory FQDN to private IP address.
 
-1. Did a PsPing to ADF’s FQDN and found that the buffer was going to a public endpoint of ADF, even after having it disabled.
+- If you are not willing to configure the private DNS zone/server currently, please take below steps as temporary solution. However, custom DNS is still recommended as long-term solution.
 
-1. Change the host file in VM to map private IP to FQDN and run a PsPing again. Buffer will be able to go to the correct private IP of ADF then.
+  1. Change the host file in windows and map private IP (ADF Private endpoint) to ADF FQDN.
+  
+     Navigate to path "C:\Windows\System32\drivers\etc" in Azure VM and open the **host** file with notepad. Add the line of mapping private IP to FQDN at the end of the file, and save the change.
+     
+     ![Add mapping to host](media/self-hosted-integration-runtime-troubleshoot-guide/add-mapping-to-host.png)
 
-1. Re-register the self-hosted integration runtime and we will find it up and running.
+  1. Rerun the same commands in above verification steps to check the response, which should contain the private IP.
+
+  1. Re-register the self-hosted integration runtime and the problem should be solved.
  
 
 ### Unable to register IR authentication key on Self-hosted VMs due to private link
