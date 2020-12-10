@@ -1,12 +1,12 @@
 ---
 title: Template functions - resources
-description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
 # Resource functions for ARM templates
 
-Resource Manager provides the following functions for getting resource values in your Azure Resource Manager (ARM) template:
+Resource Manager provides the following functions for getting resource values in your Azure Resource Manager template (ARM template):
 
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
@@ -1627,7 +1627,7 @@ resource myPolicyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-0
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
+* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
+* To see how to deploy the template you've created, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
