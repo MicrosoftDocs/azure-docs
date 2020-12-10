@@ -9913,6 +9913,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-integration-security-center.md",
+      "redirect_url": "/azure/security-center/security-center-partner-integration#integrated-azure-security-solutions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-covid-guidelines.md",
       "redirect_url": "/azure/application-gateway/high-traffic-support",
       "redirect_document_id": false

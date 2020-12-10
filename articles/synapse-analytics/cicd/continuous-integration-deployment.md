@@ -102,7 +102,13 @@ Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?it
 
      ![Add extension](media/add-extension-task.png)
 
-1.  In the task, provide related git repository information of **workspace_publish** , and select resource group, region, name, and Cloud environment for the target workspace. Provide parameters and values if you need.
+1.  In the task, select **…** next to the **Template** box to choose the template file.
+
+1. Select **…** next to the **Template parameters** box to choose the parameters file.
+
+1. Select the connection, resource group, and name of the target workspace. 
+
+1. Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target workspace. 
 
     ![Synapse workspace deploy](media/create-release-artifacts-deployment.png)
 
