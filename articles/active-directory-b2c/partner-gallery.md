@@ -27,7 +27,7 @@ With Azure AD B2C partners, customers can enable identity verification and proof
 
 A high-level architecture diagram explains the flow.
 
-![Diagram shows the identity proofing flow](./media/third-party-identity-proofing.png)
+![Diagram shows the identity proofing flow](./media/partner-gallery/third-party-identity-proofing.png)
 
 Microsoft partners with the following ISVs partners.
 
@@ -43,7 +43,7 @@ Microsoft partners with the following ISVs partners.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
-| ![Screenshot of a hypr logo](./media/partner-gallery/hypro-logo.png) | [Hypr](./partner-hypr.md) is a passwordless authentication provider, which replaces passwords with public key encryptions eliminating fraud, phishing, and credential reuse. |
+| ![Screenshot of a hypr logo](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) is a passwordless authentication provider, which replaces passwords with public key encryptions eliminating fraud, phishing, and credential reuse. |
 | ![Screenshot of a itsme logo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) is an Electronic Identification, Authentication and Trust Services (eiDAS) compliant digital ID solution to allow users to sign in securely without card readers, passwords, two-factor authentication, and multiple PIN codes. |
 | ![Screenshot of a trusona logo](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) integration helps you sign in securely and enables passwordless authentication, MFA, and digital license scanning. |
 | ![Screenshot of a twilio logo.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) provides multiple solutions to enable MFA through SMS one-time password (OTP), time-based one-time password (TOTP), and push notifications, and to comply with SCA requirements for PSD2. |
@@ -61,7 +61,7 @@ Microsoft partners with the following ISVs partners.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
-| ![Screenshot of a Arkose lab logo](./media/partner-gallery/arkoselab-logo.png) | [Arkose Labs](./partner-arkoselab.md) is a fraud prevention solution provider that helps organizations protect against bot attacks, account takeover attacks, and fraudulent account openings. |
+| ![Screenshot of a Arkose lab logo](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkoselab.md) is a fraud prevention solution provider that helps organizations protect against bot attacks, account takeover attacks, and fraudulent account openings. |
 | ![Screenshot of a strata logo](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) provides secure hybrid access to on-premises applications by enforcing consistent access policies, keeping identities in sync, and making it simple to transition applications from legacy identity systems to standards-based authentication and access control provided by Azure AD B2C. |
 | ![Screenshot of a zscaler logo](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) delivers policy-based, secure access to private applications and assets without the cost, hassle, or security risks of a VPN. |
 
