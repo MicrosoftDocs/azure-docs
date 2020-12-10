@@ -331,6 +331,9 @@
         href: migration-guides/database/sql-server-to-sql-database-overview.md
       - name: Migrate
         href: migration-guides/database/sql-server-to-sql-database-guide.md
+      - name: Assessment rules 
+        href: migration-guides/database/sql-server-to-sql-database-assessment-rules.md
+
 
   - name: Concepts
     items:
@@ -760,7 +763,10 @@
         href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
       - name: Performance baseline
         href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
-        
+      - name: Assessment rules 
+        href: migration-guides/database/sql-server-to-sql-managed-instance-assessment-rules.md
+
+
   - name: Concepts
     items:
     - name: Resource limits
