@@ -56,6 +56,7 @@ Use the following code to begin:
 
 ```csharp
 using System;
+using Azure.Communication;
 using Azure.Communication.Administration;
 
 namespace AccessTokensQuickstart
@@ -80,7 +81,7 @@ Add the following code to the `Main` method:
 ```csharp
 // This code demonstrates how to fetch your connection string
 // from an environment variable.
-string ConnectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
+string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
 var client = new CommunicationIdentityClient(ConnectionString);
 ```
 
@@ -111,12 +112,12 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Refresh access tokens
 
-To refresh an access token, use the `CommunicationUser` object to reissue:
+To refresh an access token, pass an instance of the `CommunicationUser` object into `IssueTokenAsync`. If you've stored this `Id` and need to create a new `CommunicationUser`, you can do so by passing your stored `Id` into the `CommunicationUser` constructor as follows:
 
 ```csharp  
-// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identity = new CommunicationUser(existingIdentity);
-tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+// In this example, userId is a string containing the Id property of a previously-created CommunicationUser
+identityToRefresh = new CommunicationUser(userId);
+tokenResponse = await client.IssueTokenAsync(identityToRefresh, scopes: new [] { CommunicationTokenScope.VoIP });
 ```
 
 ## Revoke access tokens
