@@ -185,7 +185,6 @@
       href: how-to-track-sensor-activity.md
     - name: Generate reports
       href: how-to-generate-reports.md
-          href: integration-cyberark.md
     - name: Troubleshoot the sensor and on-premises management console
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
     - name: Define access tokens
