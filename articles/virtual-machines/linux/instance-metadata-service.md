@@ -11,6 +11,7 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
+ms.custom: references_regions
 ---
 
 # Azure Instance Metadata Service (IMDS)
@@ -172,13 +173,13 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
 ```
 </details>
 
-## Security & Authentication
+## Security and authentication
 
 The Instance Metadata Service is only accessible from within a running virtual machine instance on a non-routable IP address. VMs are limited to interacting with metadata/functionality that pertains to themselves. The API is HTTP only and never leaves the host.
 
 In order to ensure that requests are directly intended for IMDS and prevent unintended or unwanted redirection of requests, requests:
-1. **Must** contain the header `Metadata: true`
-1. Must **not** contain an `X-Forwarded-For` header
+- **Must** contain the header `Metadata: true`
+- Must **not** contain an `X-Forwarded-For` header
 
 Any request that does not meet **both** of these requirements will be rejected by the service.
 
@@ -192,22 +193,22 @@ IMDS is **not** intended to be used behind a proxy and doing so is unsupported. 
 > [!IMPORTANT]
 > Even if you don't know of any proxy configuration in your environment, **you still must override any default client proxy settings**. Proxy configurations can be automatically discovered, and failing to bypass such configurations exposes you to outrage risks should the machine's configuration be changed in the future.
 
-## Rate Limiting
+## Rate limiting
 
 In general, requests to IMDS are limited to 5 requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the [Managed Identity](#managed-identity) category are limited to 20 requests per second and 5 concurrent requests.
 
-## HTTP Verbs
+## HTTP verbs
 
 The following HTTP verbs are currently supported:
-Verb | Description
-------|------------
-`GET` | Retrieve  the requested resource
+| Verb | Description |
+|------|-------------|
+| `GET` | Retrieve  the requested resource
 
 ## Parameters
 
 Endpoints may support required and/or optional parameters. See [Schema](#schema) and the documentation for the specific endpoint in question for details.
 
-### Query Parameters
+### Query parameters
 
 IMDS endpoints support HTTP query string parameters. For example: 
 
@@ -216,14 +217,14 @@ http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=j
 ```
 
 Specifies the parameters:
-Name | Value
------|-------
-api-version | 2019-06-04
-format | json
+| Name | Value |
+|------|-------|
+| api-version | 2019-06-04
+| format | json
 
 Requests with duplicate query parameter names will be rejected.
 
-### Route Parameters
+### Route parameters
 
 For some endpoints that return larger json blobs, we support appending route parameters to the request endpoint to filter down to a subset of the response: 
 
@@ -327,7 +328,7 @@ When you don't specify a version, you get an error with a list of the newest sup
 }
 ```
 
-#### Supported API Versions
+#### Supported API versions
 <details>
     <summary>Expand</summary>
 
@@ -360,25 +361,25 @@ When you don't specify a version, you get an error with a list of the newest sup
 
 A full Swagger definition for IMDS is available at: https://github.com/Azure/azure-rest-api-specs/blob/master/specification/imds/data-plane/readme.md
 
-## Regional Availability
+## Regional availability
 
 The service is **generally available** in all Azure Clouds.
 
-## Root Endpoint
+## Root endpoint
 
 The root endpoint is `http://169.254.169.254/metadata`.
 
-## Endpoint Categories
+## Endpoint categories
 
 The IMDS API contains multiple endpoint categories representing different data sources, each of which contains one or more endpoints. See each category for details.
 
-Category Root | Description | Version Introduced
-----|-------------|-----------------------
-`/metadata/attested` | See [Attested Data](#attested-data) | 2018-10-01
-`/metadata/identity` | See [Managed Identity via IMDS](#managed-identity) | 2018-02-01
-`/metadata/instance` | See [Instance Metadata](#instance-metadata) | 2017-04-02
-`/metadata/scheduledevents` | See [Scheduled Events via IMDS](#scheduled-events) | 2017-08-01
-`/metadata/versions` | See [Versions](#versions) | N/A
+| Category root | Description | Version introduced |
+|---------------|-------------|--------------------|
+| `/metadata/attested` | See [Attested Data](#attested-data) | 2018-10-01
+| `/metadata/identity` | See [Managed Identity via IMDS](#managed-identity) | 2018-02-01
+| `/metadata/instance` | See [Instance Metadata](#instance-metadata) | 2017-04-02
+| `/metadata/scheduledevents` | See [Scheduled Events via IMDS](#scheduled-events) | 2017-08-01
+| `/metadata/versions` | See [Versions](#versions) | N/A
 
 ## Versions
 
@@ -386,7 +387,7 @@ Category Root | Description | Version Introduced
 > This feature was released alongside version 2020-10-01, which is currently being rolled out and may not yet be available in every region.
 </details>
 
-### List API Versions
+### List API versions
 
 Returns the set of supported API versions.
 
@@ -410,9 +411,9 @@ None (this endpoint is unversioned).
 }
 ```
 
-## Instance Metadata
+## Instance metadata
 
-### Get VM Metadata
+### Get VM metadata
 
 Exposes the important metadata for the VM instance, including the VM, network, and storage. 
 
@@ -422,10 +423,10 @@ GET /metadata/instance
 
 #### Parameters
 
-Name | Required/Optional | Description 
------|-------------|--------
-`api-version` | Required | The version used to service the request.
-`format` | Optional* | The format (`json` or `text`) of the response. *Note: May be required when using request parameters
+| Name | Required/Optional | Description |
+|------|-------------------|-------------|
+| `api-version` | Required | The version used to service the request.
+| `format` | Optional* | The format (`json` or `text`) of the response. *Note: May be required when using request parameters
 
 This endpoint supports response filtering via [route parameters](#route-parameters).
 
@@ -562,97 +563,97 @@ Schema breakdown:
     <summary>Expand</summary>
 
 **Compute**
-Data | Description | Version Introduced
------|-------------|-----------------------
-`azEnvironment` | Azure Environment where the VM is running in | 2018-10-01
-`customData` | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
-`isHostCompatibilityLayerVm` | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
-`licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs | 2020-09-01
-`location` | Azure Region the VM is running in | 2017-04-02
-`name` | Name of the VM | 2017-04-02
-`offer` | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
-`osProfile.adminUsername` | Specifies the name of the admin account | 2020-07-15
-`osProfile.computerName` | Specifies the name of the computer | 2020-07-15
-`osProfile.disablePasswordAuthentication` | Specifies if password authentication is disabled. This is only present for Linux VMs | 2020-10-01
-`osType` | Linux or Windows | 2017-04-02
-`placementGroupId` | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
-`plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
-`platformUpdateDomain` |  [Update domain](../manage-availability.md) the VM is running in | 2017-04-02
-`platformFaultDomain` | [Fault domain](../manage-availability.md) the VM is running in | 2017-04-02
-`provider` | Provider of the VM | 2018-10-01
-`publicKeys` | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
-`publisher` | Publisher of the VM image | 2017-04-02
-`resourceGroupName` | [Resource group](../../azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
-`resourceId` | The [fully qualified](/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
-`sku` | Specific SKU for the VM image | 2017-04-02
-`securityProfile.secureBootEnabled` | Identifies if UEFI secure boot is enabled on the VM | 2020-06-01
-`securityProfile.virtualTpmEnabled` | Identifies if the virtual Trusted Platform Module (TPM) is enabled on the VM | 2020-06-01
-`storageProfile` | See Storage Profile below | 2019-06-01
-`subscriptionId` | Azure subscription for the Virtual Machine | 2017-08-01
-`tags` | [Tags](../../azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
-`tagsList` | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
-`version` | Version of the VM image | 2017-04-02
-`vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
-`vmScaleSetName` | [Virtual machine scale set Name](../../virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
-`vmSize` | [VM size](../sizes.md) | 2017-04-02
-`zone` | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
+| Data | Description | Version introduced |
+|------|-------------|--------------------|
+| `azEnvironment` | Azure Environment where the VM is running in | 2018-10-01
+| `customData` | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
+| `isHostCompatibilityLayerVm` | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
+| `licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs | 2020-09-01
+| `location` | Azure Region the VM is running in | 2017-04-02
+| `name` | Name of the VM | 2017-04-02
+| `offer` | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
+| `osProfile.adminUsername` | Specifies the name of the admin account | 2020-07-15
+| `osProfile.computerName` | Specifies the name of the computer | 2020-07-15
+| `osProfile.disablePasswordAuthentication` | Specifies if password authentication is disabled. This is only present for Linux VMs | 2020-10-01
+| `osType` | Linux or Windows | 2017-04-02
+| `placementGroupId` | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
+| `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
+| `platformUpdateDomain` |  [Update domain](../manage-availability.md) the VM is running in | 2017-04-02
+| `platformFaultDomain` | [Fault domain](../manage-availability.md) the VM is running in | 2017-04-02
+| `provider` | Provider of the VM | 2018-10-01
+| `publicKeys` | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
+| `publisher` | Publisher of the VM image | 2017-04-02
+| `resourceGroupName` | [Resource group](../../azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
+| `resourceId` | The [fully qualified](/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
+| `sku` | Specific SKU for the VM image | 2017-04-02
+| `securityProfile.secureBootEnabled` | Identifies if UEFI secure boot is enabled on the VM | 2020-06-01
+| `securityProfile.virtualTpmEnabled` | Identifies if the virtual Trusted Platform Module (TPM) is enabled on the VM | 2020-06-01
+| `storageProfile` | See Storage Profile below | 2019-06-01
+| `subscriptionId` | Azure subscription for the Virtual Machine | 2017-08-01
+| `tags` | [Tags](../../azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
+| `tagsList` | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
+| `version` | Version of the VM image | 2017-04-02
+| `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
+| `vmScaleSetName` | [Virtual machine scale set Name](../../virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
+| `vmSize` | [VM size](../sizes.md) | 2017-04-02
+| `zone` | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
 
-**Storage Profile**
+**Storage profile**
 
 The storage profile of a VM is divided into three categories: image reference, OS disk, and data disks.
 
 The image reference object contains the following information about the OS image:
 
-Data    | Description
---------|-----------------
-`id`      | Resource ID
-`offer`   | Offer of the platform or marketplace image
-`publisher` | Image publisher
-`sku`     | Image sku
-`version` | Version of the platform or marketplace image
+| Data | Description |
+|------|-------------|
+| `id` | Resource ID
+| `offer` | Offer of the platform or marketplace image
+| `publisher` | Image publisher
+| `sku` | Image sku
+| `version` | Version of the platform or marketplace image
 
 The OS disk object contains the following information about the OS disk used by the VM:
 
-Data    | Description
---------|-----------------
-`caching` | Caching requirements
-`createOption` | Information about how the VM was created
-`diffDiskSettings` | Ephemeral disk settings
-`diskSizeGB` | Size of the disk in GB
-`image`   | Source user image virtual hard disk
-`lun`     | Logical unit number of the disk
-`managedDisk` | Managed disk parameters
-`name`    | Disk name
-`vhd`     | Virtual hard disk
+| Data | Description |
+|------|-------------|
+| `caching` | Caching requirements
+| `createOption` | Information about how the VM was created
+| `diffDiskSettings` | Ephemeral disk settings
+| `diskSizeGB` | Size of the disk in GB
+| `image`   | Source user image virtual hard disk
+| `lun`     | Logical unit number of the disk
+| `managedDisk` | Managed disk parameters
+| `name`    | Disk name
+| `vhd`     | Virtual hard disk
 writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
 
 The data disks array contains a list of data disks attached to the VM. Each data disk object contains the following information:
 
-Data    | Description
---------|-----------------
-`caching` | Caching requirements
-`createOption` | Information about how the VM was created
-`diffDiskSettings` | Ephemeral disk settings
-`diskSizeGB` | Size of the disk in GB
-`encryptionSettings` | Encryption settings for the disk
-`image`   | Source user image virtual hard disk
-`managedDisk` | Managed disk parameters
-`name`    | Disk name
-`osType`  | Type of OS included in the disk
-`vhd`     | Virtual hard disk
-`writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk
+Data | Description |
+-----|-------------|
+| `caching` | Caching requirements
+| `createOption` | Information about how the VM was created
+| `diffDiskSettings` | Ephemeral disk settings
+| `diskSizeGB` | Size of the disk in GB
+| `encryptionSettings` | Encryption settings for the disk
+| `image` | Source user image virtual hard disk
+| `managedDisk` | Managed disk parameters
+| `name` | Disk name
+| `osType` | Type of OS included in the disk
+| `vhd` | Virtual hard disk
+| `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk
 
 **Network**
-Data | Description | Version Introduced
------|-------------|-----------------------
-`ipv4.privateIpAddress` | Local IPv4 address of the VM | 2017-04-02
-`ipv4.publicIpAddress` | Public IPv4 address of the VM | 2017-04-02
-`subnet.address` | Subnet address of the VM | 2017-04-02
-`subnet.prefix` | Subnet prefix, example 24 | 2017-04-02
-`ipv6.ipAddress` | Local IPv6 address of the VM | 2017-04-02
-`macAddress` | VM mac address | 2017-04-02
+| Data | Description | Version introduced |
+|------|-------------|--------------------|
+| `ipv4.privateIpAddress` | Local IPv4 address of the VM | 2017-04-02
+| `ipv4.publicIpAddress` | Public IPv4 address of the VM | 2017-04-02
+| `subnet.address` | Subnet address of the VM | 2017-04-02
+| `subnet.prefix` | Subnet prefix, example 24 | 2017-04-02
+| `ipv6.ipAddress` | Local IPv6 address of the VM | 2017-04-02
+| `macAddress` | VM mac address | 2017-04-02
 
-**VM Tags**
+**VM tags**
 
 VM tags are included the instance API under instance/compute/tags endpoint.
 Tags may have been applied to your Azure VM to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
@@ -840,12 +841,12 @@ AzurePublicCloud
 
 The cloud and the values of the Azure environment are listed here.
 
- Cloud   | Azure environment
----------|-----------------
-[All generally available global Azure regions](https://azure.microsoft.com/regions/)     | AzurePublicCloud
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
-[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | AzureChinaCloud
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
+| Cloud | Azure environment |
+|-------|-------------------|
+| [All generally available global Azure regions](https://azure.microsoft.com/regions/) | AzurePublicCloud
+| [Azure Government](https://azure.microsoft.com/overview/clouds/government/) | AzureUSGovernmentCloud
+| [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | AzureChinaCloud
+| [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | AzureGermanCloud
 
 </details>
 
@@ -898,9 +899,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 ```
 </details>
 
-## Attested Data
+## Attested data
 
-### Get Attested Data
+### Get Attested data
 
 IMDS helps to provide guarantees that the data provided is coming from Azure. Microsoft signs part of this information, so you can confirm that an image in Azure Marketplace is the one you are running on Azure.
 
@@ -910,10 +911,10 @@ GET /metadata/attested/document
 
 #### Parameters
 
-Name | Required/Optional | Description 
------|-------------|--------
-`api-version` | Required | The version used to service the request.
-`nonce` | Optional | A 10-digit string that serves as a cryptographic nonce. If no value is provided, IMDS uses the current UTC timestamp.
+| Name | Required/Optional | Description |
+|------|-------------------|-------------|
+| `api-version` | Required | The version used to service the request.
+| `nonce` | Optional | A 10-digit string that serves as a cryptographic nonce. If no value is provided, IMDS uses the current UTC timestamp.
 
 #### Response
 
@@ -938,19 +939,19 @@ The decoded document contains the following fields:
 <details>
     <summary>Expand:</summary>
 
-Data | Description | Version introduced
------|-------------|-----------------------
-`licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs. | 2020-09-01
-`nonce` | A string that can be optionally provided with the request. If no `nonce` was supplied, the current Coordinated Universal Time timestamp is used. | 2018-10-01
-`plan` | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan ID (name), product image or offer (product), and publisher ID (publisher). | 2018-10-01
-`timestamp.createdOn` | The UTC timestamp for when the signed document was created | 2018-20-01
-`timestamp.expiresOn` | The UTC timestamp for when the signed document expires | 2018-10-01
-`vmId` |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2018-10-01
-`subscriptionId` | Azure subscription for the Virtual Machine | 2019-04-30
-`sku` | Specific SKU for the VM image | 2019-11-01
+| Data | Description | Version introduced |
+|------|-------------|--------------------|
+| `licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs. | 2020-09-01
+| `nonce` | A string that can be optionally provided with the request. If no `nonce` was supplied, the current Coordinated Universal Time timestamp is used. | 2018-10-01
+| `plan` | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan ID (name), product image or offer (product), and publisher ID (publisher). | 2018-10-01
+| `timestamp.createdOn` | The UTC timestamp for when the signed document was created | 2018-20-01
+| `timestamp.expiresOn` | The UTC timestamp for when the signed document expires | 2018-10-01
+| `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2018-10-01
+| `subscriptionId` | Azure subscription for the Virtual Machine | 2019-04-30
+| `sku` | Specific SKU for the VM image | 2019-11-01
 
 > [!NOTE]
-> For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated.
+> For Classic (non-Azure Resource Manager) VMs, only the vmId is guaranteed to be populated.
 
 Example document:
 ```json
@@ -1048,12 +1049,12 @@ The `nonce` in the signed document can be compared if you provided a `nonce` par
 > [!NOTE]
 > The certificate for the public cloud and each sovereign cloud will be different.
 
-Cloud | Certificate
-------|------------
-[All generally available global Azure regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)          | *.metadata.azure.us
-[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)     | *.metadata.azure.cn
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                | *.metadata.microsoftazure.de
+| Cloud | Certificate |
+|-------|-------------|
+| [All generally available global Azure regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
+| [Azure Government](https://azure.microsoft.com/overview/clouds/government/) | *.metadata.azure.us
+| [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | *.metadata.azure.cn
+| [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | *.metadata.microsoftazure.de
 
 > [!NOTE]
 > The certificates might not have an exact match of `metadata.azure.com` for the public cloud. For this reason, the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
@@ -1082,32 +1083,32 @@ You can obtain the status of the scheduled events by using IMDS. Then the user c
 
 The following table lists samples of calling IMDS by using different languages inside the VM:
 
-Language      | Example
---------------|----------------
-Bash          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
-C#            | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-Go            | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
-Java          | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
-NodeJS        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
-Perl          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
-PowerShell    | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
-Puppet        | https://github.com/keirans/azuremetadata
-Python        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
-Ruby          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+| Language | Example |
+|----------|---------|
+| Bash | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+| C# | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
+| Go | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+| Java | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+| NodeJS | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+| Perl | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+| PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+| Puppet | https://github.com/keirans/azuremetadata
+| Python | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+| Ruby | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 
 ## Errors and debugging
 
 If there is a data element not found or a malformed request, the Instance Metadata Service returns standard HTTP errors. For example:
 
-HTTP status code | Reason
------------------|-------
-`200 OK` | The request was successful.
-`400 Bad Request` | Missing `Metadata: true` header or missing parameter `format=json` when querying a leaf node
-`404 Not Found` | The requested element doesn't exist
-`405 Method Not Allowed` | The HTTP method (verb) is not supported on the endpoint.
-`410 Gone` | Retry after some time for a max of 70 seconds
-`429 Too Many Requests` | API [Rate Limits](#rate-limiting) has been exceeded
-`500 Service Error`     | Retry after some time
+| HTTP status code | Reason |
+|------------------|--------|
+| `200 OK` | The request was successful.
+| `400 Bad Request` | Missing `Metadata: true` header or missing parameter `format=json` when querying a leaf node
+| `404 Not Found` | The requested element doesn't exist
+| `405 Method Not Allowed` | The HTTP method (verb) is not supported on the endpoint.
+| `410 Gone` | Retry after some time for a max of 70 seconds
+| `429 Too Many Requests` | API [Rate Limits](#rate-limiting) has been exceeded
+| `500 Service Error` | Retry after some time
 
 ## Frequently asked questions
 
@@ -1197,7 +1198,7 @@ Metadata calls must be made from the primary IP address assigned to the primary 
 
 If you aren't able to get a metadata response after multiple attempts, you can create a support issue in the Azure portal.
 
-## Product Feedback
+## Product feedback
 
 You can provide product feedback and ideas to our user feedback channel under Virtual Machines > Instance Metadata Service here: https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627
 
