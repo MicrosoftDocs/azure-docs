@@ -60564,7 +60564,11 @@
       "source_path": "articles/purview/register-scan-teradata-source.md",
       "redirect_url": "/azure/purview/manage-data-sources",
       "redirect_document_id": false
-    }
-    
+    },
+    {
+      "source_path": "articles/purview/scan-sqlresource-firewall.md",
+      "redirect_url": "/azure/purview/register-scan-azure-sql-database",
+      "redirect_document_id": true
+    }        
   ]
 }
