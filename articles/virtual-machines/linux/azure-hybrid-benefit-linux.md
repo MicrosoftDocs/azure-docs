@@ -14,7 +14,7 @@ ms.author: mathapli
 
 # How Azure Hybrid Benefit applies for Linux virtual machines
 
-You can use Azure Hybrid Benefit to migrate your on-premises Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) to Azure by using your own pre-existing Red Hat or SUSE software subscription. With this benefit, you pay for only the infrastructure costs of your VM because your RHEL or SLES subscription covers the software fee. The benefit is applicable to all RHEL and SLES pay-as-you-go (PAYG) images in Azure Marketplace.
+You can use Azure Hybrid Benefit to apply your on-premises Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) subscriptions to existing pay-as-you-go provisioned virtual machines (VMs) without the need to redeploy. With this benefit, you pay for only the infrastructure costs of your VM because your RHEL or SLES subscription covers the software fee. You can also switch back and forth between licensing models as your needs and requirements change. The benefit is applicable to all RHEL and SLES pay-as-you-go (PAYG) images in Azure Marketplace (prerequisites apply).
 
 Azure Hybrid Benefit for Linux VMs is now publicly available.
 
@@ -102,9 +102,14 @@ $(az vm list -g MyResourceGroup --query "[].id" -o tsv)
 az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
+## Apply the Azure Hybrid Benefit at VM create time
+In addition to applying the Azure Hybrid Benefit to existing pay-as-you-go VMs, you can invoke it at the time of VM creation. The benefits of doing so are threefold:
+- You can provision both PAYG and BYOS VMs by using the same image and process.
+- It enables future licensing mode changes, something not available with a BYOS-only image or if you bring your own VM.
+- The VM will be connected to Red Hat Update Infrastructure (RHUI) by default, to ensure that it remains up to date and secure. You can change the updated mechanism after deployment at any time.
+
 ## Check the Azure Hybrid Benefit status of a VM
 You can view the Azure Hybrid Benefit status of a VM by using the Azure CLI or by using Azure Instance Metadata Service.
-
 
 ### Azure CLI
 
@@ -126,7 +131,7 @@ Customers who use Azure Hybrid Benefit for RHEL agree to the standard [legal ter
 
 Customers who use Azure Hybrid Benefit for RHEL have three options for providing software updates and patches to those VMs:
 
-- [Red Hat Update Infrastructure (RHUI)](../workloads/redhat/redhat-rhui.md) (default option)
+- [Red Hat Update Infrastructure](../workloads/redhat/redhat-rhui.md) (default option)
 - Red Hat Satellite Server
 - Red Hat Subscription Manager
 
