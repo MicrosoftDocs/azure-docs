@@ -291,7 +291,7 @@ Select a device or multiple devices while the Quick Properties screen is open to
 
 Select a connection while the Quick Properties screen is open to see the protocols that are utilized in this connection and when they were last seen:
 
-:::image type="content" source="media/how-to-work-with-maps/connection-details-v2vvvvv.png" alt-text="Quick connection properties":::
+:::image type="content" source="media/how-to-work-with-maps/connection-details-v2.png" alt-text="Quick connection properties":::
 
 ## View and manage device properties
 

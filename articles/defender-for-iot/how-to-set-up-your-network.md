@@ -546,6 +546,7 @@ Review this list before site deployment:
 | 18 | Go or no-go. | ☐ |  |
 | 19 | Schedule the deployment date. | ☐ |  |
 
+
 | **Date** | **Note** | **Deployment date** | **Note** |
 | Defender for IoT |  | Site name* |  |
 | Name |  | Name |  |
