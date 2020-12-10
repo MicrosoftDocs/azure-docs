@@ -10,7 +10,7 @@ author: nishankgu
 ms.author: nigup
 ms.date: 12/1/2020
 ms.topic: conceptual
-ms.custom: troubleshooting,contperfq4, contperfq2
+ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
 ---
 
 # Manage and increase quotas for resources with Azure Machine Learning
