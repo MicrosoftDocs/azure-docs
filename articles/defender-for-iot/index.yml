@@ -62,8 +62,6 @@ landingContent:
             url: how-to-work-with-alerts-on-your-sensor.md
           - text: Generate Reports
             url: how-to-generate-reports.md
-          - text: View connected devices
-            url: how-to-work-with-the-sensor-device-map.md
           - text: Control what Traffic is Detected
             url:  how-to-control-what-traffic-is-monitored.md
 
@@ -74,8 +72,7 @@ landingContent:
       links:
         - text: Edge security module
           url: security-edge-architecture.md
-        - text: Edge security module
-          url: security-edge-architecture.md
+        
     - linkListType: quickstart
       links:
         - text: Enable IoT Hub - Device Builders
