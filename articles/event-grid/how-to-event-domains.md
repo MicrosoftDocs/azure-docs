@@ -133,7 +133,7 @@ If you need a test endpoint to subscribe your events to, you can always deploy a
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 
-Permissions that are set for a topic are stored in Azure Active Directory and must be deleted explicitly. Deleting an event subscription won't revoke a users access to create event subscriptions if they have write access on a topic.
+Permissions that are set for a topic are stored in Azure Active Directory and must be deleted explicitly. Deleting an event subscription won't revoke a users access to create event subscriptions if they've write access on a topic.
 
 
 ## Publish events to an Event Grid Domain
@@ -203,6 +203,20 @@ Get-AzureRmEventGridDomainKey `
 ---
 
 And then use your favorite method of making an HTTP POST to publish your events to your Event Grid domain.
+
+## Search lists of topics or subscriptions
+
+To search and manage large number of topics or subscriptions, Event Grid's APIs support listing and pagination.
+
+### Using CLI
+For example, the following command lists all the topics with name containing `my-test-filter`. 
+
+```azurecli-interactive
+az eventgrid topic list --odata-query "contains(name, 'mytopic')"
+```
+
+For more information about this command, see [`az eventgrid topic list`](/cli/azure/eventgrid/topic?view=azure-cli-latest#az_eventgrid_topic_list). 
+
 
 ## Next steps
 
