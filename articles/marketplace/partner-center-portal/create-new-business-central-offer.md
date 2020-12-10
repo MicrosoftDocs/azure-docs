@@ -33,7 +33,7 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 - This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
 - The Offer ID combined with the Publisher ID must be under 40 characters in length.
 - Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
-- THis ID can't be changed after you select **Create**.
+- This ID can't be changed after you select **Create**.
 
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
