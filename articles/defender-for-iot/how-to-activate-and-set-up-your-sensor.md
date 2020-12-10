@@ -4,12 +4,12 @@ description: After completing Defender for IoT sensor deployment, and the onboar
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/25/2020
+ms.date: 12/10/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
-# Log in and Activate a sensor 
+# Sign in and Activate a sensor 
 
 After completing Defender for IoT sensor deployment, and the onboarding and network setup, you will be able to:
 
@@ -26,9 +26,9 @@ Your sensor was onboarded with Defender for IoT from the Azure portal. Each sens
 | **Cloud connected mode** | Information detected by the sensor is displayed in the sensor console. Alert information is also delivered through the IoT Hub and can be shared with other Azure services. For example, Azure Sentinel. |
 | **Locally connected mode** | Information detected by the sensor is displayed in the sensor's console. Detection information is also shared with the on-premise management console if the sensor is connected to it. |
 
-During the onboarding process, a locally connected or cloud connected activation file was generated for this sensor. First-time sign-ins need to upload the relevant activation file for this sensor. Upload the file only once in order for it to start working.
+During the onboarding process, a locally connected or cloud connected activation file was generated for this sensor. The first time you sign in you need to upload the relevant activation file for this sensor. Upload the file only once in order for it to start working.
 
-## First-time sign-in and preliminary setup
+## First-time sign in and preliminary setup
 
 If you are logging in for the first time, you need to activate the sensor by uploading the activation file that was generated and downloaded during the onboarding process.
 
@@ -50,17 +50,17 @@ Before you sign in, verify that you have access to the:
 
 - Sensor IP address that was defined during the installation.
 
-- User login credentials needed for this sensor.
+- User sign in credentials needed for this sensor.
 
-To log in for the first time:
+To sign-in for the first time:
 
-1. Access the Azure Defender for IoT sensor console from your browser using the IP defined during the installation. The sign in dialog box opens.
+1. Access the Azure Defender for IoT sensor console from your browser using the IP defined during the installation. The sign-in dialog box opens.
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Azure Defender for IoT sensor":::
 
 2. Enter the credentials that were defined during the sensor installation.
 
-3. After you log in successfully, the activation dialog box opens. Select **Upload** and navigate to the activation file downloaded during sensor onboarding.
+3. After you sign-in successfully, the activation dialog box opens. Select **Upload** and navigate to the activation file downloaded during sensor onboarding.
 
    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/activation-upload-screen-with-upload-button.png" alt-text="Select Upload and navigate":::
 
@@ -102,7 +102,7 @@ To update sensor network configuration parameters:
 
 1. Select the **Sensor Network Configuration** link form the activation dialog box.  
 
-   :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/editable-network-configuration-screen.png" alt-text="Sensor Network Configuration":::
+   :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/editable-network-configuration-screen-v2.png" alt-text="Sensor Network Configuration":::
 
 2. The parameters defined during installation are displayed. The option to define the proxy is also available. Update any settings as required and select **Save**.  
 
@@ -146,7 +146,7 @@ The Learning mode should run approximately between 2 to 6 weeks, depending on yo
 
 To disable the Learning mode:
 
-1. Select **System Settings** and toggle the Learning Learning option.
+1. Select **System Settings** and toggle the Learning option.
 
 ### See also
 

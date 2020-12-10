@@ -33,8 +33,8 @@ Your user role determines which tools are available in the Device Map window. Se
 
 | Symbol | Description |
 |---|---|
-| :::image type="icon" source="media/how-to-work-with-maps/search-bar-icon.png" border="false":::| Search by IP address or MAC address for a specific device. Enter the IP address or MAC address in the text box. The map displays the device that you searched for with devices connected to it. |
-| Group Highlight and Filters <br /> :::image type="content" source="media/how-to-work-with-maps/group-highlight-and-filters.png" alt-text="Screenshot of the group highlights and filters."::: | Filter or highlight the map based on default and custom device groups. |
+| :::image type="icon" source="media/how-to-work-with-maps/search-bar-icon-v2.png" border="false":::| Search by IP address or MAC address for a specific device. Enter the IP address or MAC address in the text box. The map displays the device that you searched for with devices connected to it. |
+| Group Highlight and Filters <br /> :::image type="content" source="media/how-to-work-with-maps/group-highlight-and-filters-v2.png" alt-text="Screenshot of the group highlights and filters."::: | Filter or highlight the map based on default and custom device groups. |
 | :::image type="icon" source="media/how-to-work-with-maps/collapse-view-icon.png" border="false"::: | IT Collapse view, to enable a focused view on OT devices, and group IT devices.  |
 | :::image type="icon" source="media/how-to-work-with-maps/device-management-icon.png" border="false"::: | Maintain current device arrangement in the map. For example, if you drag devices to new locations on the map, the devices will remain in these locations when exiting the map. |
 | :::image type="icon" source="media/how-to-work-with-maps/fit-to-screen-icon.png" border="false"::: | Fit to screen |
@@ -60,7 +60,7 @@ To enable the IT networks collapsing capability:
 
 - In the System Setting window, ensure that the IT Networks capability is enabled.
 
-  :::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet.png" alt-text="System Setting window":::
+:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="System Setting window":::
 
 To expand an IT subnet:
 
@@ -154,9 +154,9 @@ To create a group:
 
 2. Select :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="Group Setting"::: to display the Groups settings.
 
-3. Select :::image type="content" source="media/how-to-work-with-maps/create-group.png" alt-text="groups"::: to create a new custom group.
+3. Select :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="groups"::: to create a new custom group.
 
-   :::image type="content" source="media/how-to-work-with-maps/custom-group.png" alt-text="Create a custom group screen":::
+:::image type="content" source="media/how-to-work-with-maps/custom-group-v2.png" alt-text="Create a custom group screen":::
 
 4. Add the name of the group, use up to 30 characters.
 
@@ -374,7 +374,7 @@ If a PLC contains multiple modules separated into racks and slots, the character
 
 You can use the Backplane option to review multiple controllers/cards and their nested devices as one entity with a variety of definitions. Each slot in the Backplane view represents the underlying devices – the devices that were discovered behind it.
 
-:::image type="content" source="media/how-to-work-with-maps/backplane-image.png" alt-text="Backplane Properties":::
+:::image type="content" source="media/how-to-work-with-maps/backplane-image-v2.png" alt-text="Backplane Properties":::
 
 :::image type="content" source="media/how-to-work-with-maps/backplane-details.png" alt-text="Backplane Device Properties":::
 

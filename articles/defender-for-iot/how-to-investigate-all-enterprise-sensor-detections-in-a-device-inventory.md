@@ -128,13 +128,13 @@ Work with Defender for IoT API commands to retrieve and integrate this informati
 
 You can filter Device Inventory to show columns of interest. For example, view only the PLC devices info:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view.png" alt-text="Screenshot of the asset inventory.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Screenshot of the asset inventory.":::
 
 The filter is cleared when you leave the window.
 
 To use the same filter multiple times, you can save a filter or a combination of filters that you need. You can open a left pane and view the filter(s) that you have saved:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories.png" alt-text="Asset inventories screen":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Asset inventories screen":::
 
 **To filter the Device Inventory:**
 

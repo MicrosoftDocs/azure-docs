@@ -283,7 +283,7 @@ To perform a manual scan:
 
 1. On the side menu, select **System Settings**.
 
-2. Select **Windows Endpoint Monitoring** :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-icon.png" border="false":::.
+2. Select **Windows Endpoint Monitoring** :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-icon-v2.png" border="false":::.
 
     :::image type="content" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-screen-v2.png" alt-text="Screenshot that shows the Windows Endpoint Monitoring setup screen.":::
 
