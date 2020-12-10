@@ -3,7 +3,7 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -34,14 +34,10 @@ To view detailed usage for specific accounts, download the usage detail report:
 To view the usage summary reports and graphs:
 
 1. Sign in to the Azure Enterprise portal.
-
 1. Select a Prepayment term.
-
-   To change the date range for **Usage Summary**, you can toggle from **M** (Monthly) to **C** (Custom) on the top right of the page and then enter custom start and end dates.
-
+   To change the date range for **Usage Summary**, you can toggle from **M** (Monthly) to **C** (Custom) on the top right of the page and then enter custom start and end dates.  
    ![Create and view usage summary and download reports in custom view](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 1. To view additional details, you can select a period or month on the graph.
-
    - The graph shows month-over-month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and Azure Marketplace charges.
    - For the selected month, you can use the fields below the graph to filter by departments, accounts, and subscriptions.
    - You can toggle between **Charge by Services** and **Charge by Hierarchy**.
@@ -67,7 +63,7 @@ To download reports:
 3. Select **Download** next to the month's report.
 
    > [!NOTE]
-   > There may be a latency of up to five days between the incurred usage date and when usage is shown in the reports.
+   > There may be a latency of up to 72 hours between the incurred usage date and when usage is shown in the reports.
    >
    > Users downloading CSV files with Safari to Excel may experience formatting errors. To avoid errors, open the file using a text editor.
 
@@ -172,7 +168,7 @@ Applicable taxes are computed only on the net amount that exceeds your Prepaymen
 
 Overage invoicing is automated. The timing of notifications and invoices depends on your billing period end date.
 
-- Overage notification is usually sent seven days following your billing end date.
+- Overage notification is normally sent seven days following your billing end date.
 - Overage invoices are sent seven to nine days after notification.
 - You can review charges and update system-generated PO numbers during the seven days between the overage notification and invoicing.
 
@@ -241,7 +237,7 @@ The units of measure for Enterprise Agreements are often different than seen in 
 
 ### Conversion between usage detail report and the usage summary page
 
-In the download usage data report, you can see raw resource usage up to six decimal places. However, usage data shown in the Azure Enterprise portal is rounded to four decimal places for Prepayment units and truncated to zero decimals for overage units. Raw usage data is first rounded to four digits prior to conversion to units used in the Azure Enterprise portal. Then, the converted Enterprise units are rounded again to four digits. You can only see the actual consumed hours before conversion in the download usage report and not within the Azure Enterprise portal.
+In the download usage data report, you can see raw resource usage up to six decimal places. However, usage data shown in the Azure Enterprise portal is rounded to four decimal places for Prepayment units and truncated to zero decimals for overage units. Raw usage data is first rounded to four digits before conversion to units used in the Azure Enterprise portal. Then, the converted Enterprise units are rounded again to four digits. You can only see the actual consumed hours before conversion in the download usage report and not within the Azure Enterprise portal.
 
 For example: If 694.533404 actual SQL Server hours are reported in the usage detail report. These units are converted to 6.94533404 of 100 compute hours, and then rounded to 6.9453 and displayed in the Azure Enterprise portal.
 
@@ -259,7 +255,7 @@ All billed usage is based on minutes converted to partial hours and not on whole
 
 ### Average daily consumption
 
-Some services are priced on a monthly basis, but usage is reported on daily basis. In these cases, the usage is evaluated once per day, divided by 31, and summed across the number of days in that billing month. Thus, rates are never higher than expected for any month and are slightly lower for those months with less than 31 days.
+Some services are priced on a monthly basis, but usage is reported on daily basis. In these cases, the usage is evaluated once per day, divided by 31, and summed across the number of days in that billing month. So, rates are never higher than expected for any month and are slightly lower for those months with less than 31 days.
 
 ### Compute hours conversion
 
@@ -295,7 +291,7 @@ Azure Prepayment is an amount paid up front for Azure services. The Azure Prepay
 
 ### Charges billed separately
 
-Some products and services provided from third-party sources don't consume Azure Azure Prepayment. Instead, these items are billed separately as part of the standard billing cycle's overage invoice.
+Some products and services provided from third-party sources don't consume Azure Prepayment. Instead, these items are billed separately as part of the standard billing cycle's overage invoice.
 
 We've combined all Azure and Azure Marketplace charges into a single invoice that aligns with the enrollment's billing cycle. The combined invoice doesn't apply to customers in Australia, Japan, or Singapore.
 

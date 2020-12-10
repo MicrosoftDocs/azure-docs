@@ -60,7 +60,7 @@ You can manage default network access rules for storage accounts through the Azu
 
 1. Go to the storage account you want to secure.
 
-1. Click on the settings menu called **Firewalls and virtual networks**.
+1. Click on the settings menu called **Networking**.
 
 1. To deny access by default, choose to allow access from **Selected networks**. To allow traffic from all networks, choose to allow access from **All networks**.
 
@@ -144,7 +144,7 @@ You can manage virtual network rules for storage accounts through the Azure port
 
 1. Go to the storage account you want to secure.
 
-1. Click on the settings menu called **Firewalls and virtual networks**.
+1. Click on the settings menu called **Networking**.
 
 1. Check that you've selected to allow access from **Selected networks**.
 
@@ -268,7 +268,7 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 1. Go to the storage account you want to secure.
 
-1. Click on the settings menu called **Firewalls and virtual networks**.
+1. Click on the settings menu called **Networking**.
 
 1. Check that you've selected to allow access from **Selected networks**.
 
@@ -411,7 +411,7 @@ You can manage network rule exceptions through the Azure portal, PowerShell, or 
 
 1. Go to the storage account you want to secure.
 
-1. Click on the settings menu called **Firewalls and virtual networks**.
+1. Click on the settings menu called **Networking**.
 
 1. Check that you've selected to allow access from **Selected networks**.
 

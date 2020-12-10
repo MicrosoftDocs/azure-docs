@@ -111,6 +111,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 * Azure AD authentication is not yet supported. We recommend using the [Single Server](../overview-single-server.md) option if you require Azure AD authentication.
 * Read replicas are not yet supported. We recommend using the [Single Server](../overview-single-server.md) option if you require read replicas.
+* Moving resources to another subscription is not supported. 
 
 
 ## Next steps
