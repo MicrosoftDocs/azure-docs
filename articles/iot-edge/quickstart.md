@@ -52,9 +52,18 @@ Cloud resources:
    ```
 
 IoT Edge device:
+
 * In this module, you will be using your own device to set up the IoT Edge device for Linux on Windows.
-1. Download Windows Admin Center (WAC)
-2. Install the Azure IoT Edge Extension for WAC
+
+1. [Download Windows Admin Center (WAC)](https://aka.ms/WACDownloadEFLOW).
+2. Follow the installation wizard to set up WAC on your device.
+
+**The next few steps will detail how to install the Azure IoT Edge Extension for WAC.**
+3. Once you are in Windows Admin Center, on the top right of the screen, select the **Settings Gear Icon**  
+4. From the Settings Menu, Under Gateway, select **Extensions**
+5. From the list of **Available extensions** select **Azure IoT Edge**
+6. **Install** the extension
+
 
 ## Create an IoT hub
 
