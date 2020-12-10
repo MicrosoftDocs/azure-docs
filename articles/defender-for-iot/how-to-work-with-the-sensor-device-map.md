@@ -33,18 +33,18 @@ Your user role determines which tools are available in the Device Map window. Se
 
 | Symbol | Description |
 |---|---|
-| :::image type="icon" source="media/how-to-work-with-maps/search-bar-icon.png" border="false":::| Search by IP address or MAC address for a specific device. Enter the IP address or MAC address in the text box. The map displays the device that you searched for with devices connected to it. |
-| Group Highlight and Filters <br /> :::image type="content" source="media/how-to-work-with-maps/group-highlight-and-filters.png" alt-text="Screenshot of the group highlights and filters."::: | Filter or highlight the map based on default and custom device groups. |
+| :::image type="icon" source="media/how-to-work-with-maps/search-bar-icon-v2.png" border="false":::| Search by IP address or MAC address for a specific device. Enter the IP address or MAC address in the text box. The map displays the device that you searched for with devices connected to it. |
+| Group Highlight and Filters <br /> :::image type="content" source="media/how-to-work-with-maps/group-highlight-and-filters-v2.png" alt-text="Screenshot of the group highlights and filters."::: | Filter or highlight the map based on default and custom device groups. |
 | :::image type="icon" source="media/how-to-work-with-maps/collapse-view-icon.png" border="false"::: | IT Collapse view, to enable a focused view on OT devices, and group IT devices.  |
 | :::image type="icon" source="media/how-to-work-with-maps/device-management-icon.png" border="false"::: | Maintain current device arrangement in the map. For example, if you drag devices to new locations on the map, the devices will remain in these locations when exiting the map. |
 | :::image type="icon" source="media/how-to-work-with-maps/fit-to-screen-icon.png" border="false"::: | Fit to screen |
-| :::image type="icon" source="media/how-to-work-with-maps/layer-icon.png" border="false"::: :::image type="icon" source="media/how-to-work-with-maps/layouts-icon.png" border="false"::: | - View the Purdue layer identified for this device, including automatic, process control, supervisory, and enterprise <br /> - View connections between devices.|
+| :::image type="icon" source="media/how-to-work-with-maps/layer-icon.png" border="false"::: :::image type="icon" source="media/how-to-work-with-maps/layouts-icon-v2.png" border="false"::: | - View the Purdue layer identified for this device, including automatic, process control, supervisory, and enterprise <br /> - View connections between devices.|
 | :::image type="icon" source="media/how-to-work-with-maps/broadcast-icon.png" border="false"::: | Show or hide between broadcast and multicast. |
 | :::image type="icon" source="media/how-to-work-with-maps/time-icon.png" border="false"::: | Filter the devices on the map according to the time they last communicating with other devices. |
 | :::image type="icon" source="media/how-to-work-with-maps/notifications-icon.png" alt-text="notifications" border="false"::: | View notifications about a device. For example, if a new IP was detected for a device using an existing MAC address |
 | :::image type="icon" source="media/how-to-work-with-maps/export-import.png" alt-text="Export" border="false"::: | Export/Import device information. |
 | :::image type="icon" source="media/how-to-work-with-maps/properties-icon.png" alt-text="properties" border="false"::: | View basic device properties for selected devices. |
-| :::image type="icon" source="media/how-to-work-with-maps/zoom-in-icon.png" alt-text="Zoom In" border="false"::: or :::image type="icon" source="media/how-to-work-with-maps/zoom-out-icon.png" alt-text="Zoom Out" border="false"::: | Zoom in or out of devices in the map. |
+| :::image type="icon" source="media/how-to-work-with-maps/zoom-in-icon-v2.png" alt-text="Zoom In" border="false"::: or :::image type="icon" source="media/how-to-work-with-maps/zoom-out-icon-v2.png" alt-text="Zoom Out" border="false"::: | Zoom in or out of devices in the map. |
 
 ## View OT elements only
 
@@ -60,7 +60,7 @@ To enable the IT networks collapsing capability:
 
 - In the System Setting window, ensure that the IT Networks capability is enabled.
 
-  :::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet.png" alt-text="System Setting window":::
+:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="System Setting window":::
 
 To expand an IT subnet:
 
@@ -125,7 +125,7 @@ The following predefined groups are available:
 | **VLAN** | Devices associated with a specific VLAN ID. |
 | **Connection between subnets** | Devices associated with cross subnet connection. |
 | **Pinned alerts** | Devices for which the user has pinned an alert. |
-| **Attack vector simulations** | Vulnerable devices detected in attack vector reports. In order to view these devices on the map, select the **Display on Device Map** checkbox when generating the Attack Vector.|
+| **Attack vector simulations** | Vulnerable devices detected in attack vector reports. In order to view these devices on the map, select the **Display on Device Map** checkbox when generating the Attack Vector. :::image type="content" source="media/how-to-work-with-maps/add-attack-v2.png" alt-text="Add Attack Vector Simulations"::: |
 | **Last seen** | Devices grouped by the time frame they were last seen, for example: One hour, six hours, one day, seven days. |
 | **Not In Active Directory** | All non-PLC devices that are not communicating with the Active Directory. |
 
@@ -152,9 +152,9 @@ To create a group:
 
 2. Select :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="Group Setting"::: to display the Groups settings.
 
-3. Select :::image type="content" source="media/how-to-work-with-maps/create-group.png" alt-text="groups"::: to create a new custom group.
+3. Select :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="groups"::: to create a new custom group.
 
-   :::image type="content" source="media/how-to-work-with-maps/custom-group.png" alt-text="Create a custom group screen":::
+:::image type="content" source="media/how-to-work-with-maps/custom-group-v2.png" alt-text="Create a custom group screen":::
 
 4. Add the name of the group, use up to 30 characters.
 
@@ -175,7 +175,7 @@ You can add devices to a custom group or create a new custom group and the devic
 
 3. Enter a group name in the group field and select +. The new group appears. If the group already exists, it will be added to the existing custom group.
 
-   :::image type="content" source="media/how-to-work-with-maps/groups-section.png" alt-text="Group name":::
+   :::image type="content" source="media/how-to-work-with-maps/groups-section-v2.png" alt-text="Group name":::
 
 4. Add devices to a group by repeating steps 1-3.
 
@@ -263,13 +263,13 @@ The following labels and indicators may appear on devices on the map:
 
 | Device label | Description |
 |--|--|
-| :::image type="content" source="media/how-to-work-with-maps/host.png" alt-text="IP host name"::: | IP address host name and IP address, or subnet addresses |
-| :::image type="content" source="media/how-to-work-with-maps/amount-alerts.png" alt-text="Number of alerts"::: | Number of alerts associated with the device |
-| :::image type="icon" source="media/how-to-work-with-maps/type.png" border="false"::: | Device type icon, for example storage, PLC or historian. |
-| :::image type="content" source="media/how-to-work-with-maps/grouped.png" alt-text="devices grouped"::: | Number of devices grouped in a subnet in an IT network. In this example 8. |
-| :::image type="content" source="media/how-to-work-with-maps/not-authorized.png" alt-text="device Learning period"::: | An device that was detected after the Learning period and was not authorized as a network device. |
+| :::image type="content" source="media/how-to-work-with-maps/host-v2.png" alt-text="IP host name"::: | IP address host name and IP address, or subnet addresses |
+| :::image type="content" source="media/how-to-work-with-maps/amount-alerts-v2.png" alt-text="Number of alerts"::: | Number of alerts associated with the device |
+| :::image type="icon" source="media/how-to-work-with-maps/type-v2.png" border="false"::: | Device type icon, for example storage, PLC or historian. |
+| :::image type="content" source="media/how-to-work-with-maps/grouped-v2.png" alt-text="devices grouped"::: | Number of devices grouped in a subnet in an IT network. In this example 8. |
+| :::image type="content" source="media/how-to-work-with-maps/not-authorized-v2.png" alt-text="device Learning period"::: | An device that was detected after the Learning period and was not authorized as a network device. |
 | Solid line | Logical connection between devices |
-| :::image type="content" source="media/how-to-work-with-maps/new.png" alt-text="New device"::: | New device discovered after Learning is complete. |
+| :::image type="content" source="media/how-to-work-with-maps/new-v2.png" alt-text="New device"::: | New device discovered after Learning is complete. |
 
 ### Device quick views
 
@@ -289,7 +289,7 @@ Select a device or multiple devices while the Quick Properties screen is open to
 
 Select a connection while the Quick Properties screen is open to see the protocols that are utilized in this connection and when they were last seen:
 
-:::image type="content" source="media/how-to-work-with-maps/connection-details.png" alt-text="Quick connection properties":::
+:::image type="content" source="media/how-to-work-with-maps/connection-details-v2.png" alt-text="Quick connection properties":::
 
 ## View and manage device properties
 
@@ -312,23 +312,23 @@ The following information can be updated manually. Information manually entered 
 | Item | Description |
 |--|--|
 | Basic Information | The basic information needed. |
-| Name | The device name. <br /> By default, the sensor discovers the device name as it defined in the network. For example, a name defined in the DNS server. <br /> If no such names were defined, the device IP address appears in this field. <br /> You can change a device name manually. Give your devices meaningful names that reflect their functionality. |
-| Type | The device type detected by the sensor. <br /> For more information, see [View device types](#view-device-types). |
+| Name | The device name. <br /> By default, the sensor discovers the device name as it defined in the network. For example, a name defined in the DNS server. <br /> If no such names were defined, the device IP address appears in this field. <br /> You can change a device name manually. Give your devices meaningful names that reflect their functionality. |
+| Type | The device type detected by the sensor. <br /> For more information, see [View device types](#view-device-types). |
 | Vendor | The device vendor. |
 | Operating System | The device OS. |
-| Purdue Layer | The Purdue layer identified by the sensor for this device, including: <br /> - Automatic <br /> - Process Control <br /> - Supervisory <br /> - Enterprise |
-| Description | A free text field. <br /> Add more information about the device. |
+| Purdue Layer | The Purdue layer identified by the sensor for this device, including: <br /> - Automatic <br /> - Process Control <br /> - Supervisory <br /> - Enterprise |
+| Description | A free text field. <br /> Add more information about the device. |
 | Attributes | Any additional information that was discovered about the device during the learning period and does not belong to other categories, appears in the attributes section. <br /> The information is RO. |
-| Settings | You can manually change device settings to prevent false positives: <br /> - **Authorized Device**: During the learning period, all the devices discovered in the network are identified as authorized devices. When a device is discovered after the learning period, it appears as an unauthorized device by default. You can change this definition manually. <br /> - **Known as Scanner**: Enable this option if you know that this device is known as scanner and there is no need to alert you about it. <br /> - **Programming Device**: Enable this option if you know that this device is known as a programming device and there is no need to alert you about it. |
+| Settings | You can manually change device settings to prevent false positives: <br /> - **Authorized Device**: During the learning period, all the devices discovered in the network are identified as authorized devices. When a device is discovered after the learning period, it appears as an unauthorized device by default. You can change this definition manually. <br /> - **Known as Scanner**: Enable this option if you know that this device is known as scanner and there is no need to alert you about it. <br /> - **Programming Device**: Enable this option if you know that this device is known as a programming device and there is no need to alert you about it. |
 | Custom Groups | The custom groups in the device map in which this device participates. |
-| State | The security and the authorization status of the device: <br /> - The status is `Secured` when there are no alerts <br /> - When there are alerts about the device, the number of alerts is displayed <br /> - The status `Unauthorized` is displayed for devices that were added to the network after the learning period. You can manually define the device as `Authorized Device` in the settings <br /> - In case the address of this device is defined as a dynamic address, `DHCP` is added to the status. |
+| State | The security and the authorization status of the device: <br /> - The status is `Secured` when there are no alerts <br /> - When there are alerts about the device, the number of alerts is displayed <br /> - The status `Unauthorized` is displayed for devices that were added to the network after the learning period. You can manually define the device as `Authorized Device` in the settings <br /> - In case the address of this device is defined as a dynamic address, `DHCP` is added to the status. |
 
 
 | Network | Description |
 |--|--|
 | Interfaces | The device interfaces. A RO field. |
 | Protocols | The protocols used by the device. A RO field. |
-| Firmware | If Backplane information is available, firmware information will not be displayed. |
+| Firmware | If Backplane information is available, firmware information will not be displayed. |
 | Address | The device IP address. |
 | Serial | The device serial number. |
 | Module Address | The device model and slot number or ID. |
@@ -353,10 +353,10 @@ The following table presents all the types in the system:
 
 | Category | Device Type |
 |--|--|
-| ICS | Engineering Station <br /> PLC <br />Historian <br />HMI <br />IED <br />DCS Controller <br />RTU <br />Industrial Packaging System <br />Industrial Scale <br />Industrial Robot <br />Slot <br />Meter <br />Variable Frequency Drive  <br />Robot Controller <br />Servo Drive <br />Pneumatic Device <br />Marquee |
+| ICS | Engineering Station <br /> PLC <br />Historian <br />HMI <br />IED <br />DCS Controller <br />RTU <br />Industrial Packaging System <br />Industrial Scale <br />Industrial Robot <br />Slot <br />Meter <br />Variable Frequency Drive  <br />Robot Controller <br />Servo Drive <br />Pneumatic Device <br />Marquee |
 | IT | Domain Controller <br />DB Server <br />Workstation <br />Server <br />Terminal Station <br />Storage <br />Smart Phone <br />Tablet <br />Backup Server |
 | IoT | IP Camera <br />Printer  <br />Punch Clock <br />ATM <br />Smart TV <br />Game console <br />DVR <br />Door Control Panel <br />HVAC <br />Thermostat <br />Fire Alarm <br />Smart Light <br />Smart Switch <br />Fire Detector <br />IP Telephone <br />Alarm System <br />Alarm Siren <br />Motion Detector <br />Elevator <br />Humidity Sensor <br />Barcode Scanner <br />Uninterruptible Power Supply <br />People Counter System <br />Intercom <br />Turnstile |
-| Network | Wireless Access Point <br />Router <br />Switch <br />Firewall <br />VPN Gateway <br />NTP Server <br />Wifi Pineapple <br />Physical Location <br />I/O Adapter <br /> Protocol Converter |
+| Network | Wireless Access Point <br />Router <br />Switch <br />Firewall <br />VPN Gateway <br />NTP Server <br />Wifi Pineapple <br />Physical Location <br />I/O Adapter <br /> Protocol Converter |
 
 To view the device information:
 
@@ -372,9 +372,9 @@ If a PLC contains multiple modules separated into racks and slots, the character
 
 You can use the Backplane option to review multiple controllers/cards and their nested devices as one entity with a variety of definitions. Each slot in the Backplane view represents the underlying devices – the devices that were discovered behind it.
 
-:::image type="content" source="media/how-to-work-with-maps/backplane-image.png" alt-text="Backplane Properties":::
+:::image type="content" source="media/how-to-work-with-maps/backplane-image-v2.png" alt-text="Backplane Properties":::
 
-:::image type="content" source="media/how-to-work-with-maps/backplane-details.png" alt-text="Backplane Device Properties":::
+:::image type="content" source="media/how-to-work-with-maps/backplane-details-v2.png" alt-text="Backplane Device Properties":::
 
 A Backplane can contain up to 30 controller cards and up to 30 rack units. The total number of devices included in the multiple levels can be up to 200 devices.
 
@@ -486,9 +486,9 @@ This section describes how to view programming files and compare versions. Searc
 |Programming timeline type | Description |
 |--|--|
 | Programmed Device | Provides details about the device that was programmed, including the hostname and file. |
-| Recent Events | Displays the 50 most recent events detected by the sensor. <br />To highlight an event, hover over it and click the star. :::image type="icon" source="media/how-to-work-with-maps/star.png" border="false"::: <br /> The last 50 events can be viewed. |
-| Files | Displays the files detected for the chosen date and the file size on the programmed device. <br /> By default, the maximum number of files available for display per device is 300. <br /> By default, the maximum file size for each file is 15 MB. |
-| File status :::image type="icon" source="media/how-to-work-with-maps/status.png" border="false"::: | File labels indicate the status of the file on the device, including: <br /> **Added**: the file was added to the endpoint on the date or time selected. <br /> **Updated**: The file was updated on the date or time selected. <br /> **Deleted**: This file was removed. <br /> **No label**: The file was not changed.   |
+| Recent Events | Displays the 50 most recent events detected by the sensor. <br />To highlight an event, hover over it and click the star. :::image type="icon" source="media/how-to-work-with-maps/star.png" border="false"::: <br /> The last 50 events can be viewed. |
+| Files | Displays the files detected for the chosen date and the file size on the programmed device. <br /> By default, the maximum number of files available for display per device is 300. <br /> By default, the maximum file size for each file is 15 MB. |
+| File status :::image type="icon" source="media/how-to-work-with-maps/status-v2.png" border="false"::: | File labels indicate the status of the file on the device, including: <br /> **Added**: the file was added to the endpoint on the date or time selected. <br /> **Updated**: The file was updated on the date or time selected. <br /> **Deleted**: This file was removed. <br /> **No label**: The file was not changed.   |
 | Programming Device | The device that made the programming change. Multiple devices may have carried out programming changes on one programmed device. The hostname, date, or time of change and logged in user are displayed. |
 | :::image type="icon" source="media/how-to-work-with-maps/current.png" border="false"::: | Displays the current file installed on the programmed device. |
 | :::image type="icon" source="media/how-to-work-with-maps/download-text.png" border="false"::: | Download a text file of the code displayed. |
@@ -540,8 +540,8 @@ In addition to reviewing details in the Programming Timeline, you can access pro
 
 | Device type | Description |
 |--|--|
-| Device properties | The device properties window provides information on the last programming event detected on the device\. :::image type="content" source="media/how-to-work-with-maps/information-from-device.png" alt-text="Your device's properties"::: |
-| The device inventory | The device inventory indicates if the device is a programming device\.|
+| Device properties | The device properties window provides information on the last programming event detected on the device\. :::image type="content" source="media/how-to-work-with-maps/information-from-device-v2.png" alt-text="Your device's properties"::: |
+| The device inventory | The device inventory indicates if the device is a programming device\. :::image type="content" source="media/how-to-work-with-maps/inventory-v2.png" alt-text="The inventory of devices"::: |
 
 ## Manage device information from the map
 
@@ -571,11 +571,11 @@ To delete a device from the device map:
 
 ### Merge devices
 
-Under certain circumstances, you may need to merge devices. This may be required if the sensor discovered separate network entities that are one unique device. For example,
+Under certain circumstances, you may need to merge devices. This may be required if the sensor discovered separate network entities that are one unique device. For example,
 
   - A PLC with four network cards
 
-  - A Laptop with WIFI and physical card  
+  - A Laptop with WIFI and physical card
 
 When merging, you instruct the sensor to combine the device properties of two devices into one. When you do this, the Device Properties window and sensor reports will be updated with the new device property details.
 

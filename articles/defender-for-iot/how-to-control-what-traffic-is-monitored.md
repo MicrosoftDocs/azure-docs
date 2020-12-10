@@ -255,9 +255,9 @@ To configure an automatic scan:
 
 1. On the side menu, select **System Settings**.
 
-2. Select **Windows Endpoint Monitoring** :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-icon.png" border="false":::.
+2. Select **Windows Endpoint Monitoring** :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-icon-v2.png" border="false":::.
 
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-screen.png" alt-text="Screenshot that shows the selection of Windows Endpoint Monitoring.":::
+    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-screen-v2.png" alt-text="Screenshot that shows the selection of Windows Endpoint Monitoring.":::
 
 3. On the **Scan Schedule** pane, configure options as follows:
 
@@ -265,7 +265,7 @@ To configure an automatic scan:
 
       - **By specific times**: Set the scan schedule according to specific times and select **Save Scan**.
 
-        :::image type="content" source="media/how-to-control-what-traffic-is-monitored/schedule-a-scan-screen.png" alt-text="Screenshot that shows the Save Scan button.":::
+    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/schedule-a-scan-screen-v2.png" alt-text="Screenshot that shows the Save Scan button.":::
 
 4. To define the scan range, select **Set scan ranges**.
 
@@ -283,13 +283,13 @@ To perform a manual scan:
 
 1. On the side menu, select **System Settings**.
 
-2. Select **Windows Endpoint Monitoring** :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-icon.png" border="false":::.
+2. Select **Windows Endpoint Monitoring** :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-icon-v2.png" border="false":::.
 
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-screen.png" alt-text="Screenshot that shows the Windows Endpoint Monitoring setup screen.":::
+    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/windows-endpoint-monitoring-screen-v2.png" alt-text="Screenshot that shows the Windows Endpoint Monitoring setup screen.":::
 
-3. On the **Actions** pane, select **Start scan**. A status bar appears on the **Actions** pane and shows the progress of the scanning process.
+3. In the **Actions** pane, select **Start scan**. A status bar appears on the **Actions** pane and shows the progress of the scanning process.
 
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/started-scan-screen.png" alt-text="Screenshot that shows the Start scan button.":::
+    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/started-scan-screen-v2.png" alt-text="Screenshot that shows the Start scan button.":::
 
 To view scan results:
 
@@ -298,6 +298,4 @@ To view scan results:
 ## See also
 
 [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-
 [Investigate sensor detections in the device map](how-to-work-with-the-sensor-device-map.md)
-

@@ -80,7 +80,7 @@ To add data manually:
 
 1. In the side menu, select **Device Inventory** and then select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false":::.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-settings.png" alt-text="Edit your device's inventory settings.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-settings-v2.png" alt-text="Edit your device's inventory settings.":::
 
 2. In the **Device Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
 
@@ -128,13 +128,13 @@ Work with Defender for IoT API commands to retrieve and integrate this informati
 
 You can filter Device Inventory to show columns of interest. For example, view PLC devices information.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view.png" alt-text="Screenshot of the asset inventory.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Screenshot of the asset inventory.":::
 
 The filter is cleared when you leave the window.
 
 To use the same filter multiple times, you can save a filter or a combination of filters that you need. You can open a left pane and view the filter(s) that you have saved:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories.png" alt-text="Asset inventories screen":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Asset inventories screen":::
 
 **To filter the Device Inventory:**
 
@@ -236,7 +236,7 @@ The following additional zone information is available:
 
 - **Sensor details:** Name, IP address, and version of each sensor assigned to the zone.
 
-- **Connectivity status:** If disconnected, connect from the sensor. See [Make initial connection between sensors and the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#make-initial-connection-between-sensors-and-the-on-premises-management-console) 
+- **Connectivity status:** If disconnected, connect from the sensor. See [Connect sensors to the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console). 
 
 - **Update progress:** If the connected sensor is being upgraded, upgrade statuses will appear. During upgrade, the on-premises management console does not receive device information from the sensor.
 

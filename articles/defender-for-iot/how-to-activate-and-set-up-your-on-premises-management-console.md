@@ -63,7 +63,7 @@ After connecting, you must set up a site with these sensors.
 
 Connect specific sensors to the on-premises management console from the sensor console.
 
-**To connect from the console:**
+To connect from the console:
 
 1. In the left pane of a sensor console, select **System Settings**.
 
@@ -83,7 +83,7 @@ Enable a secured tunneling connection between organizational sensors and the on-
 
 Using tunneling allows you to connect to the on-premises management console from its IP address and a single port (that is, 9000) to any sensor.
 
-**To set up tunneling at the on-premises management console:**
+To set up tunneling at the on-premises management console:
 
 - Sign in to the on-premises management console and run the following commands:
 
@@ -94,7 +94,7 @@ Using tunneling allows you to connect to the on-premises management console from
   service apache2 reload
   ```
 
-**To set up tunneling on the sensor:**
+To set up tunneling on the sensor:
 
 1. Open TCP port 9000 on the sensor (network.properties) manually. If the port is not open, the sensor will reject the connection from the on-premises management console.
 
@@ -132,7 +132,7 @@ You can edit your sites directly from any of the map views. When you're opening 
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/diagram-of-sensor-showing-relationships.png" alt-text="Diagram showing sensors and regional relationship.":::
 
-**To set up a site:**
+To set up a site:
 
 1. Add new business units to reflect your organization's logical structure.
 
@@ -146,7 +146,7 @@ You can edit your sites directly from any of the map views. When you're opening 
 
 6. Assign sensor to site zones.
 
-**To add business units:**
+To add business units:
 
 1. From the Enterprise view, select **All Sites** > **Manage Business Units**.
 
@@ -154,7 +154,7 @@ You can edit your sites directly from any of the map views. When you're opening 
 
 2. Enter the new business unit name and select **ADD**.
 
-**To add a new region:**
+To add a new region:
 
 1. From the Enterprise view, select **All Regions** > **Manage Regions**.
 
@@ -162,7 +162,7 @@ You can edit your sites directly from any of the map views. When you're opening 
 
 2. Type the new region name and select **ADD**.
 
-**To add a new site:**
+To add a new site:
 
 1. From the Enterprise view, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/new-site-icon.png" border="false"::: on the top bar. Your cursor appears as a **+**.
 
@@ -172,7 +172,7 @@ You can edit your sites directly from any of the map views. When you're opening 
 
 3. Define the name and the physical address for the new site and select **SAVE**. The new site appears on the site map.
 
-**To delete a site:**
+To delete a site:
 
 1. In the **Site Management** window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the site name, and then select **Delete Site**. The confirmation box appears, verifying if you want to delete the site.
 
@@ -195,7 +195,7 @@ The following table describes the parameters in the **Site Management** window.
 | Version | The sensor version. |
 | Connectivity | The sensor connectivity status. The status can be **Connected** or **Disconnected**. |
 | Last Upgrade | The date of the last upgrade. |
-| Upgrade Progress | The progress bar shows the status of the upgrade process, as follows:<br />- Uploading package<br />- Preparing to install<br />- Stopping processes<br />- Backing up data<br />- Taking snapshot<br />- Updating configuration<br />- Updating dependencies<br />- Updating libraries<br />- Patching databases<br />- Starting processes<br />- Validating system sanity<br />- Validation succeeded<br />- Success<br />- Failure<br />- Upgrade started<br />- Starting installation<br /></br >For details about upgrading, refer to the Defender for IoT upgrade guide on the [Defender for IoT help center](help.cyberx-labs.com). |
+| Upgrade Progress | The progress bar shows the status of the upgrade process, as follows:<br />- Uploading package<br />- Preparing to install<br />- Stopping processes<br />- Backing up data<br />- Taking snapshot<br />- Updating configuration<br />- Updating dependencies<br />- Updating libraries<br />- Patching databases<br />- Starting processes<br />- Validating system sanity<br />- Validation succeeded<br />- Success<br />- Failure<br />- Upgrade started<br />- Starting installation<br /></br >For details about upgrading, refer to [Microsoft Support](https://support.microsoft.com/) for help. |
 | Assets | The number of OT assets that the sensor monitors. |
 | Alerts | The number of alerts on the sensor. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: | Enables assigning a sensor to zones. |
@@ -205,7 +205,7 @@ The following table describes the parameters in the **Site Management** window.
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/number-of-alerts-icon.png" border="false"::: | Indicates the number of alerts sent by sensors that are assigned to the zone. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassign-sensor-icon.png" border="false"::: | Unassigns sensors from zones. |
 
-**To add a zone to a site:**
+To add a zone to a site:
 
 1. In the **Site Management** window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the site name, and then select **Add Zone**. The **Create New Zone** dialog box appears.
 
@@ -217,7 +217,7 @@ The following table describes the parameters in the **Site Management** window.
 
 4. Select **SAVE**. The new zone appears in the **Site Management** window under the site that this zone belongs to.
 
-**To edit a zone:**
+To edit a zone:
 
 1. In the **Site Management** window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the zone name, and then select **Edit Zone**. The **Edit Zone** dialog box appears.
 
@@ -225,13 +225,13 @@ The following table describes the parameters in the **Site Management** window.
 
 2. Edit the zone parameters and select **SAVE**.
 
-**To delete a zone:**
+To delete a zone:
 
 1. In the **Site Management** window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the zone name, and then select **Delete Zone**.
 
 2. In the confirmation box, select **YES**.
 
-**To filter according to the connectivity status:**
+To filter according to the connectivity status:
 
 - From the upper-left corner, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/down-pointing-icon.png" border="false"::: next to **Connectivity**, and then select one of the following options:
 
@@ -241,7 +241,7 @@ The following table describes the parameters in the **Site Management** window.
 
   - **Disconnected**: Presents only disconnected sensors.
 
-**To filter according to the upgrade status:**
+To filter according to the upgrade status:
 
 - From the upper-left corner, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/down-pointing-icon.png" border="false"::: next to **Upgrade Status** and select one of the following options:
 
@@ -257,13 +257,13 @@ The following table describes the parameters in the **Site Management** window.
 
 For each zone, you need to assign sensors that perform local traffic analysis and alerting. You can assign only the sensors that are connected to the on-premises management console.
 
-**To assign a sensor:**
+To assign a sensor:
 
 1. Select **Site Management**. The unassigned sensors appear in the upper-left corner of the dialog box.
 
    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassigned-sensors-view.png" alt-text="Screenshot of the Unassigned Sensors view.":::
 
-2. Verify that the **Connectivity** status is connected. If not, see [Make initial connection between sensors and the on-premises management console](#make-initial-connection-between-sensors-and-the-on-premises-management-console) for details about connecting. 
+2. Verify that the **Connectivity** status is connected. If not, see [Connect sensors to the on-premises management console](#connect-sensors-to-the-on-premises-management-console) for details about connecting. 
 
 3. Select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: for the sensor that you want to assign.
 
@@ -273,9 +273,9 @@ For each zone, you need to assign sensors that perform local traffic analysis an
 
 5. Select **ASSIGN**.
 
-**To unassign and delete a sensor:**
+To unassign and delete a sensor:
 
-1. Disconnect the sensor from the on-premises management console. See [Make initial connection between sensors and the on-premises management console](#make-initial-connection-between-sensors-and-the-on-premises-management-console) for details.
+1. Disconnect the sensor from the on-premises management console. See [Connect sensors to the on-premises management console](#connect-sensors-to-the-on-premises-management-console) for details.
 
 2. In the **Site Management** window, select the sensor and select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassign-sensor-icon.png" border="false":::. The sensor appears in the list of unassigned sensors after a few moments.
 

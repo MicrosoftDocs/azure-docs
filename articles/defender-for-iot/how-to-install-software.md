@@ -327,11 +327,11 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 8. Select **SENSOR-RELEASE-\<version\> Enterprise**.
 
-   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen.png" alt-text="Screenshot that shows version selection.":::   
+   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows version selection.":::   
 
 9. Define the appliance profile and network properties:
 
-   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen.png" alt-text="Screenshot that shows the appliance profile.":::   
+   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot that shows the appliance profile.":::   
 
    | Parameter | Configuration |
    |--|--|

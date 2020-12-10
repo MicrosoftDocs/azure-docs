@@ -85,7 +85,7 @@ Verify that both the primary and secondary on-premises management console applia
 2. Run the following command on the primary:
 
 ```azurecli-interactive
-sudo cyberx-management-trusted-hosts-add -ip <Secondary ip>
+sudo cyberx-management-trusted-hosts-add -ip <Secondary IP>
 ```
 
 >[!NOTE]
@@ -102,7 +102,7 @@ sudo cyberx-management-trusted-hosts-apply
 5. Run the following command on the primary. **Do not run with sudo.**
 
 ```azurecli-interactive
-cyberx-management-deploy-ssh-key <Secondary ip>
+cyberx-management-deploy-ssh-key <Secondary IP>
 ```
 
 This allows the connection between the primary and secondary appliances for backup and restoration purposes between them.
