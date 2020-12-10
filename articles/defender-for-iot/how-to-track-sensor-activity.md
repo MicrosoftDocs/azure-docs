@@ -13,15 +13,15 @@ ms.service: azure
 
 ## Event timeline
 
-The Event Timeline presents a timeline of activity detected on your network, including:
+The Event Timeline presents a timeline of activity detected by your sensor, for example:
 
   - Alerts and alert management actions
 
-  - Network Events (informational)
+  - Network Events
 
   - User operations such as user sign-in and user deletion
 
-The Event Timeline provides an immediate view of all the events that took place in the network according in chronological order. The Event Timeline, allows understanding and analyses of the chain of events that preceded and followed an attack or incident, which assists in the investigation and forensics.
+The Event Timeline provides a view of events that took place in the network according in chronological order. The Event Timeline allows understanding and analyses of the chain of events that preceded and followed an attack or incident, which assists in the investigation and forensics.
 
 > [!NOTE] 
 > **Administrators** and **Security Analysts** may perform the procedures described in this section.
@@ -36,21 +36,19 @@ In addition to presenting the events detected by the sensor, you can manually ad
 
 **To add the events manually:**
 
-1. Select :::image type="content" source="media/how-to-track-sensor-activity/image198.png" alt-text="Create Event"::: to add an event manually.
-
-   :::image type="content" source="media/how-to-track-sensor-activity/image199.png" alt-text="Add Event":::
+1. Select **Create Event** to add an event manually.
 
 **To export the event log info into a CSV file:**
 
-1.  Select :::image type="content" source="media/how-to-track-sensor-activity/image200.png" alt-text="Export":::.
+1. Select **Export**.
 
-## Filter event timeline  data
+## Filter event timeline
 
 Filter the timeline to display assets and events of interest to you.
 
 **To filter the timeline:**
 
-1. Select :::image type="content" source="media/how-to-track-sensor-activity/image201.png" alt-text="Advanced Filters":::.
+1. Select **Advanced Filters**.
 
    :::image type="content" source="media/how-to-track-sensor-activity/image202.png" alt-text="Events Advanced Filters":::
 
@@ -68,15 +66,11 @@ Filter the timeline to display assets and events of interest to you.
 
 3. Select **Clear All** to clear all the selected filters.
 
-4. Search by Alerts Only, Alerts, and Notices or All Events.
+4. Search by Alerts Only, Alerts and Notices, or All Events.
 
-    :::image type="content" source="media/how-to-track-sensor-activity/image203.png" alt-text="Alerts Only":::
+5. Select **Select Date** to choose a specific date. Choose a day, hour, and minute. Events from the selected time frame are shown.
 
-5.  Select :::image type="content" source="media/how-to-track-sensor-activity/image204.png" alt-text="Date"::: to choose a specific date. Choose a day, hour, and minute. Events from the selected time frame are shown.
-
-    :::image type="content" source="media/how-to-track-sensor-activity/image205.png" alt-text="Select Date":::
-
-6.  Select :::image type="content" source="media/how-to-track-sensor-activity/image206.png" alt-text="User Operations":::to include or exclude user operation events.
+6.  Select **User Operations** to include or exclude user operation events.
 
 7.  Select the down arrow **V** to view more information about the event:
 
@@ -86,4 +80,9 @@ Filter the timeline to display assets and events of interest to you.
 
     - Select the **Filter events by related assets** in order to filter by related assets.
 
-    - Select :::image type="content" source="media/how-to-track-sensor-activity/image207.png" alt-text="PCAP file"::: to download the PCAP file (if exists) that contains a packet capture of the whole network at a specific time. The PCAP file contains technical information that can help engineers determine exactly where the event was and what is happening there. You can analyze the PCAP file with a network protocol analyzer such as Wireshark, a free application.
+    - Select **PCAP File** to download the PCAP file (if exists) that contains a packet capture of the whole network at a specific time. The PCAP file contains technical information that can help engineers determine exactly where the event was and what is happening there. You can analyze the PCAP file with a network protocol analyzer such as Wireshark, a free application.
+
+## See also
+
+[View alerts](how-to-view-alerts.md)
+[About Defender for IoT console users](how-to-create-and-manage-users.md)
