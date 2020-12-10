@@ -29,10 +29,10 @@ See the [example configuration](#example-configuration-file) file for details.
 
 ## Routes
 
-Route rules allow you to define the pattern of  URLs that expose your application to the web. Routes are are defined as an array of routing rules. See the [example configuration file](#example-configuration-file) for usage examples.
+Route rules allow you to define the pattern of URLs that expose your application to the web. Routes are are defined as an array of routing rules. The sequence of these rules is not important. See the [example configuration file](#example-configuration-file) for usage examples.
 
 - Rule evaluation stops at the first match. Routing rules aren't chained together.
-- You have full control over custom role names, built-in role names include [`anonymous`](./authentication-authorization.md) and [`authenticated`](./authentication-authorization.md).
+- You have full control over custom role names. There are built-in role names which include [`anonymous`](./authentication-authorization.md) and [`authenticated`](./authentication-authorization.md).
 
 The routing concerns significantly overlap with authentication (identifying the user) and authorization (assigning abilities to the user) concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
 
