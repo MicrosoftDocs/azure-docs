@@ -4,7 +4,7 @@ description: Use Azure Private Link to securely connect networks to Azure Automa
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 12/10/2020
 ms.subservice: 
 ---
 
@@ -160,6 +160,10 @@ $account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts 
 $account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
+
+You can also control the public network access property from the Azure portal. From your Automation Account select **Network Isolation** from the left-hand pane under the **Account Settings** section. When the Public Network Access setting is set to **No**, only connections over private endpoints are allowed and all connections over public endpoints are denied.
+
+![Public Network Access setting](./media/private-link-security/allow-public-network-access.png)
 
 ## DNS configuration
 
