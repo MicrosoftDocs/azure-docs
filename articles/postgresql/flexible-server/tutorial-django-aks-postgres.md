@@ -19,6 +19,7 @@ In this quickstart, you deploy a Django application on Azure Kubernetes Service 
 > - Azure Database for PostgreSQL Flexible Server is currently in public preview
 > - This quickstart assumes a basic understanding of Kubernetes concepts, Django and PostgreSQL.
 
+## Pre-requisites
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
@@ -46,6 +47,7 @@ The following example output shows the resource group created successfully:
   "id": "/subscriptions/<guid>/resourceGroups/django-project",
   "location": "eastus",
   "managedBy": null,
+  
   "name": "django-project",
   "properties": {
     "provisioningState": "Succeeded"
@@ -59,7 +61,7 @@ The following example output shows the resource group created successfully:
 Use the [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
 
 ```azurecli-interactive
-az aks create --resource-group django-project --name djangoappcluster--node-count 1 --generate-ssh-keys
+az aks create --resource-group django-project --name djangoappcluster --node-count 1 --generate-ssh-keys
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -98,7 +100,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## Create an Azure Database for PostgreSQL - Flexible Server
-Create a flexible server with the [az PostgreSQL flexible-server create](/cli/azure/PostgreSQL/flexible-server?view=azure-cli-latest&preserve-view=true)command. The following command creates a server using service defaults and values from your Azure CLI's local context:
+Create a flexible server with the [az postgreSQL flexible-server create](/cli/azure/postgresql/flexible-server?view=azure-cli-latest&preserve-view=true)command. The following command creates a server using service defaults and values from your Azure CLI's local context:
 
 ```azurecli-interactive
 az postgres flexible-server create --public-access <YOUR-IP-ADDRESS>
@@ -216,7 +218,7 @@ A Kubernetes manifest file defines a desired state for the cluster, such as what
 
 >[!IMPORTANT]
 > - Replace ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` with your actual Django docker image name and tag, for example ```docker-hub-user/myblog:latest```.
-> - Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` of your PostgreSQL flexible server.
+> - Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` of your postgres flexible server.
 
 
 ```yaml
@@ -241,7 +243,7 @@ spec:
         - containerPort: 80
         env:
         - name: DATABASE_HOST
-          value: "SERVERNAME.PostgreSQL.database.azure.com"
+          value: "SERVERNAME.postgres.database.azure.com"
         - name: DATABASE_USERNAME
           value: "YOUR-DATABASE-USERNAME"
         - name: DATABASE_PASSWORD
@@ -285,6 +287,8 @@ deployment "django-app" created
 service "python-svc" created
 ```
 
+A deployment ```django-app``` allows you to describes details on of your deployment such as which images to use for the app, the number of pods and pod configuration. A service ```python-svc``` is created to expose the application through an external IP.
+
 ## Test the application
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
@@ -312,11 +316,11 @@ Now open a web browser to the external IP address of your service view the Djang
 
 >[!NOTE]
 > - Currently the Django site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
-> - You can enable [HTTP routing](../../aks/http-application-routing.md) for your cluster.
+> - You can enable [HTTP routing](../../aks/http-application-routing.md) for your cluster. When http routing is enabled, it configures an Ingress controller in your AKS cluster. As applications are deployed, the solution also creates publicly accessible DNS names for application endpoints.
 
 ## Run database migrations
 
-Migrations can also be executed from the shell of a running container using the kubectl exec command. In order to run the migrations, we need to get the name of the running pod of interest by:
+For any django application, you would need to run database migration or collect static files. You can run these django shell commands using ```$ kubectl exec <pod-name> -- [COMMAND]```.  Before running the command you need to find the pod name using ```kubectl get pods```. 
 
 ```bash
 $ kubectl get pods
@@ -328,7 +332,7 @@ NAME                             READY   STATUS          RESTARTS   AGE
 django-app-5d9cd6cd8-l6x4b     1/1     Running              0       2m
 ```
 
-Once the pod name has been found you can run django database migrations with the command below. Note ```/code/``` is the working directory for the project define in ```Dockerfile``` above.
+Once the pod name has been found you can run django database migrations with the command ```$ kubectl exec <pod-name> -- [COMMAND]```. Note ```/code/``` is the working directory for the project define in ```Dockerfile``` above.
 
 ```bash
 $ kubectl exec django-app-5d9cd6cd8-l6x4b -- python /code/manage.py migrate
@@ -377,6 +381,7 @@ az group delete --name django-project --yes --no-wait
 ## Next steps
 
 - Learn how to [access the Kubernetes web dashboard](../../aks/kubernetes-dashboard.md) for your AKS cluster
+- Learn how to [enable continous deployment](../../aks/deployment-center-launcher.md)
 - Learn how to [scale your cluster](../../aks/tutorial-kubernetes-scale.md)
-- Learn how to manage your [PostgreSQL flexible server](./quickstart-create-server-cli.md)
+- Learn how to manage your [postgres flexible server](./quickstart-create-server-cli.md)
 - Learn how to [configure server parameters](./howto-configure-server-parameters-using-cli.md) for your database server.
