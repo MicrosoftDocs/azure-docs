@@ -601,7 +601,7 @@ veterinarian
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-> [!NOTE]
+> [!CAUTION]
 > To use Analyze operations, you must use a Text Analytics resource with the standard (S) pricing tier.  
 
 ```csharp
