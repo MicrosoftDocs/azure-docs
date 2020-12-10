@@ -11,8 +11,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.author: mbaldwin
+ms.date: 12/10/2020
+ms.author: keithp
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
 ---
@@ -49,7 +49,7 @@ Thales supplies all software for the HSM device once provisioned by Microsoft. T
 ### Q: What extra costs may be incurred with Dedicated HSM service?
 
 The following items will incur extra cost when using the Dedicated HSM service. 
-* Use of dedicated on-premises backup device is feasible to use with Dedicated HSM service, however this will incur an extra cost and should be directly sourced from Thales.
+* Use of dedicated on-premises backup device is feasible to use with Dedicated HSM service, however this will incur an extra cost, and should be directly sourced from Thales.
 * Dedicated HSM is provided with a 10 partition license. If a customer requires more partitions, this will incur an extra cost for additional licenses directly sourced from Thales.
 * Dedicated HSM requires networking infrastructure (VNET, VPN Gateway, Etc.) and resources such as virtual machines for device configuration. These additional resources will incur extra costs and are not included in the Dedicated HSM service pricing.
 
@@ -63,7 +63,7 @@ Microsoft only offers the Thales Network Luna HSM 7 via the Dedicated HSM servic
 
 ### Q: Does Azure Dedicated HSM support payment (PIN/EFT) features?
 
-The Azure Dedicated HSM service uses Thales Network Luna HSM 7 devices. These devices do not support payment HSM specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support payment HSM's in future,  pass on the feedback to your Microsoft Account Representative.
+The Azure Dedicated HSM service uses Thales Network Luna HSM 7 devices. These devices do not support payment HSM-specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support payment HSM's in future,  pass on the feedback to your Microsoft Account Representative.
 
 ### Q: Which Azure regions is Dedicated HSM available in?
 
