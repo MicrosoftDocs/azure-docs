@@ -9,7 +9,7 @@ ms.subservice: common
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Plan to manage Azure costs
