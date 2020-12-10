@@ -71,9 +71,9 @@
     - name: Provisioning
       href: provisioning.md
     - name: Shared image galleries
-      href: shared-image-galleries.md
+      href: ../shared-image-galleries.md
     - name: Image builder
-      href: image-builder-overview.md
+      href: ../image-builder-overview.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Regions
@@ -91,7 +91,7 @@
     - name: Availability
       href: ../availability.md
     - name: Co-location
-      href: co-location.md
+      href: ../co-location.md
     - name: Network performance
       href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: VM types and sizes
@@ -950,6 +950,8 @@
       href: find-unattached-disks.md
     - name: Find unattached disks - Portal
       href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Map Azure Disks to Guest Disks
+      href: azure-to-guest-disk-mapping.md
     - name: Use File storage
       href: mount-azure-file-storage-on-linux-using-smb.md
     - name: Disks FAQs

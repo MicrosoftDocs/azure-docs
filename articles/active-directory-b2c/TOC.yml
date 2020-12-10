@@ -121,6 +121,40 @@
       href: signin-appauth-ios.md
     - name: Android using App Auth
       href: signin-appauth-android.md
+  - name: Identity providers
+    items:
+    - name: Add an identity provider
+      href: add-identity-provider.md
+    - name: AD FS
+      href: identity-provider-adfs.md
+    - name: Amazon
+      href: identity-provider-amazon.md
+    - name: Azure AD (Single-tenant)
+      href: identity-provider-azure-ad-single-tenant.md
+    - name: Azure AD (Multi-tenant)
+      href: identity-provider-azure-ad-multi-tenant.md
+    - name: Facebook
+      href: identity-provider-facebook.md
+    - name: Generic identity provider
+      href: identity-provider-generic-openid-connect.md
+    - name: GitHub
+      href: identity-provider-github.md
+    - name: Google
+      href: identity-provider-google.md
+    - name: LinkedIn
+      href: identity-provider-linkedin.md
+    - name: Microsoft Account
+      href: identity-provider-microsoft-account.md
+    - name: QQ
+      href: identity-provider-qq.md
+    - name: Salesforce
+      href: identity-provider-salesforce.md
+    - name: Twitter
+      href: identity-provider-twitter.md
+    - name: WeChat
+      href: identity-provider-wechat.md
+    - name: Weibo
+      href: identity-provider-weibo.md
   - name: User flow
     items:
     - name: Create a flow
@@ -148,32 +182,6 @@
       - name: Enable MFA
         href: custom-policy-multi-factor-authentication.md
         displayName: multi-factor auth
-    - name: External identity providers
-      items:
-      - name: Amazon
-        href: identity-provider-amazon.md
-      - name: Azure AD (Single-tenant)
-        href: identity-provider-azure-ad-single-tenant.md
-      - name: Microsoft Account
-        href: identity-provider-microsoft-account.md
-      - name: Facebook
-        href: identity-provider-facebook.md
-      - name: GitHub
-        href: identity-provider-github.md
-      - name: Google
-        href: identity-provider-google.md
-      - name: LinkedIn
-        href: identity-provider-linkedin.md
-      - name: QQ
-        href: identity-provider-qq.md
-      - name: Twitter
-        href: identity-provider-twitter.md
-      - name: WeChat
-        href: identity-provider-wechat.md
-      - name: Weibo
-        href: identity-provider-weibo.md
-      - name: Generic identity provider
-        href: identity-provider-generic-openid-connect.md
     - name: Tokens and session management
       items:
       - name: Configure tokens
@@ -234,32 +242,6 @@
         href: javascript-samples.md
       - name: Password complexity
         href: custom-policy-password-complexity.md
-    - name: External identity providers
-      items:
-      - name: OIDC/OAuth providers
-        items:
-        - name: Amazon
-          href: identity-provider-amazon-custom.md
-        - name: Azure AD (Single-tenant)
-          href: identity-provider-azure-ad-single-tenant-custom.md
-        - name: Azure AD (Multi-tenant)
-          href: identity-provider-azure-ad-multi-tenant-custom.md
-        - name: Google
-          href: identity-provider-google-custom.md
-        - name: LinkedIn
-          href: identity-provider-linkedin-custom.md
-        - name: Microsoft Account
-          href: identity-provider-microsoft-account-custom.md
-        - name: Twitter
-          href: identity-provider-twitter-custom.md
-      - name: SAML providers
-        items:
-        - name: AD FS
-          href: identity-provider-adfs2016-custom.md
-          displayName: SAML
-        - name: Salesforce
-          href: identity-provider-salesforce-custom.md
-          displayName: SAML
     - name: Tokens and session management
       items:
       - name: Customize tokens

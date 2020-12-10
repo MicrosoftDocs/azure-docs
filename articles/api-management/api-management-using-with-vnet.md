@@ -48,7 +48,8 @@ To perform the steps described in this article, you must have:
 3. Select **Virtual network**.
 4. Configure the API Management instance to be deployed inside a Virtual network.
 
-    ![Virtual network menu of API Management][api-management-using-vnet-menu]
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Select virtual network in Azure portal.":::
+    
 5. Select the desired access type:
 
     * **Off**: This is the default. API Management is not deployed into a virtual network.
@@ -68,7 +69,7 @@ To perform the steps described in this article, you must have:
 
     Then select **Apply**. The **Virtual network** page of your API Management instance is updated with your new virtual network and subnet choices.
 
-    ![Select VPN][api-management-setup-vpn-select]
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Virtual network settings in the portal.":::
 
 7. In the top navigation bar, select **Save**, and then select **Apply network configuration**.
 
@@ -173,6 +174,15 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
   > [!IMPORTANT]
   > After you have validated the connectivity, make sure to remove all the resources deployed in the subnet, before deploying API Management into the subnet.
+
+* **Verify network connectivity status**: After deploying API Management into the subnet, use the portal to check the connectivity of your instance to dependencies such as Azure Storage. In the portal, in the left-hand menu, under **Deployment and infrastructure**, select **Network connectivity status**.
+
+   :::image type="content" source="media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Verify network connectivity status in the portal":::
+
+    * Select **Required** to review the connectivity to required Azure services for API Management. A failure indicates that the instance is unable to perform core operations to manage APIs.
+    * Select **Optional** to review the connectivity to optional services. Any failure indicates only that the specific functionality will not work (for example, SMTP). A failure may lead to degradation in the ability to use and monitor the API Management instance and provide the committed SLA.
+
+To address connectivity issues, review [Common network configuration issues](#network-configuration-issues) and fix required network settings.
 
 * **Incremental Updates**: When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2019-12-01/networkstatus), to verify that the API Management service has not lost access to any of the critical resources, which it depends upon. The connectivity status should be updated every 15 minutes.
 
