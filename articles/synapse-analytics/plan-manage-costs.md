@@ -164,6 +164,7 @@ If your team has no cost-saving recommendations or best practice advice to reduc
 -->
 
 ### Serverless SQL pool
+
 To learn more about costs for serverless SQL pool see [Cost management for serverless SQL pool in Azure Synapse Analytics](./sql/data-processed)
 
 ### Dedicated SQL pool
