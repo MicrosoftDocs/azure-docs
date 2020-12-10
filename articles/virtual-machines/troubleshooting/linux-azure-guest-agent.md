@@ -23,8 +23,7 @@ See https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-me
 ## Troubleshoot VM agent with Not Ready status
 
 1. Make sure Azure Linux Agent is running.
-
-Depending on distro, the service name might be **walinuxagent** or **waagent**:
+    Depending on distro, the service name might be **walinuxagent** or **waagent**:
 
 ```
 root@nam-u18:/home/nam# service walinuxagent status
@@ -50,22 +49,20 @@ Oct 08 17:10:37 nam-u18 python3[1036]: 2020-10-08T17:10:37.365590Z INFO ExtHandl
 root@nam-u18:/home/nam#
 ```
 
-If the service is running, restart the Azure Linux Agent. If the service is stopped, start them and wait a few minutes. Then check whether the **Agent status** is reporting as **Ready**.
-To further troubleshoot these issues, contact [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+    If the service is running, restart the Azure Linux Agent. If the service is stopped, start them and wait a few minutes. Then check whether the **Agent status** is reporting as **Ready**.
+    To further troubleshoot these issues, contact [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-1. Check whether auto-update is enabled
-
-Check this setting in /etc/waagent.conf:
+1. Check whether auto-update is enabled.
+    Check this setting in /etc/waagent.conf:
 
 ```
 AutoUpdate.Enabled=y
 ```
 
-For more information on how to update the Azure Linux Agent, refer to https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent 
+    For more information on how to update the Azure Linux Agent, refer to https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent.
 
-1. Check whether the VM can connect to the Fabric Controller
-
-Use a tool such as curl to test whether the VM can connect to 168.63.129.16 on ports 80, 32526, and 443. If the VM doesn’t connect as expected, check whether outbound communication over ports 80, 443, and 32526 is open in your local firewall on the VM. If this IP address is blocked, VM Agent might display unexpected behavior in a variety of scenarios.
+1. Check whether the VM can connect to the Fabric Controller.
+    Use a tool such as curl to test whether the VM can connect to 168.63.129.16 on ports 80, 32526, and 443. If the VM doesn’t connect as expected, check whether outbound communication over ports 80, 443, and 32526 is open in your local firewall on the VM. If this IP address is blocked, VM Agent might display unexpected behavior in a variety of scenarios.
 
 ## Advanced troubleshooting
 
