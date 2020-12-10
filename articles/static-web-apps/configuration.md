@@ -20,7 +20,7 @@ Configuration for Azure Static Web Apps is defined in the _staticwebapp.config.j
 - Global HTTP header definitions
 - Custom MIME types
 
-The recommended location for the _staticwebapp.config.json_ is your application root. However, the file may be placed in any location within your application source code folder. 
+The recommended location for the _staticwebapp.config.json_ is your application root. However, the file may be placed in any location within your application source code folder.
 
 See the [example configuration](#example-configuration-file) file for details.
 
@@ -29,10 +29,12 @@ See the [example configuration](#example-configuration-file) file for details.
 
 ## Routes
 
-Route rules allow you to define the pattern of URLs that expose your application to the web. Routes are are defined as an array of routing rules. The sequence of these rules is not important. See the [example configuration file](#example-configuration-file) for usage examples.
+Route rules allow you to define the pattern of URLs that allow access to your application to the web. Routes are are defined as an array of routing rules. See the [example configuration file](#example-configuration-file) for usage examples.
 
+- Rules are executed in the order as they appear in the `routes` array.
 - Rule evaluation stops at the first match. Routing rules aren't chained together.
-- You have full control over custom role names. There are built-in role names which include [`anonymous`](./authentication-authorization.md) and [`authenticated`](./authentication-authorization.md).
+- You have full control over custom role names.
+  - There are  a few built-in role names which include [`anonymous`](./authentication-authorization.md) and [`authenticated`](./authentication-authorization.md).
 
 The routing concerns significantly overlap with authentication (identifying the user) and authorization (assigning abilities to the user) concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
 
@@ -46,7 +48,7 @@ Each rule is composed of a route pattern, along with one or more of the optional
 | `rewrite`        | No       | n/a          | Defines the file or path returned from the request.<ul><li>Is mutually exclusive to a `redirect` rule<li>Rewrite rules don't change the browser's location<li>Values must point to relative path in the app<li>Querystring parameters aren't supported</ul>  |
 | `redirect`        | No       | n/a          | Defines the file or path redirect destination for a request.<ul><li>Is mutually exclusive to a `rewrite` rule<li>Redirect rules change the browser's location<li>Default response code is a [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (temporary redirect), but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (permanent redirect)<li>Querystring parameters aren't supported</ul> |
 | `allowedRoles` | No       | anonymous     | Defines a list of role names required to access a route. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`<li>The built-in role, [`anonymous`](./authentication-authorization.md), applies to all unauthenticated users<li>The built-in role, [`authenticated`](./authentication-authorization.md), applies to any logged-in user.<li>Users must belong to at least one role<li>Roles are matched on an _OR_ basis.<ul><li>If a user is in any of the listed roles, then access is granted</ul><li>Individual users are associated to roles through [invitations](authentication-authorization.md)</ul> |
-| `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) added to the response. Route-specific headers take precedence over [`globalHeaders`](#global-headers). |
+| `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) added to the response. <ul><li>Route-specific headers take precedence over [`globalHeaders`](#global-headers).<li>To remove a header, set the value to an empty string or `null`.</ul> |
 | `statusCode`   | No       | 200, or 302 for redirects | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) of the response. |
 | `methods` | No | All methods | List of request methods which match a route. Available methods include: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`,  and `PATCH`. |
 
@@ -65,7 +67,7 @@ For instance, to restrict a route to only authenticated users, add the built-in 
 }
 ```
 
-You can create new roles as needed in the `allowedRoles` array. To restrict a route to only administrators, you could define your own role, such as `administrator`, in the `allowedRoles` array.
+You can create new roles as needed in the `allowedRoles` array. To restrict a route to only administrators, you could define your own role named `administrator`, in the `allowedRoles` array.
 
 ```json
 {
@@ -79,7 +81,7 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 
 ## Wildcards
 
-Wildcard rules match all requests in a route patterns, and are only supported at the end of a path. See the [example configuration file](#example-configuration-file) for usage examples.
+Wildcard rules match all requests in a route pattern, and are only supported at the end of a path. See the [example configuration file](#example-configuration-file) for usage examples.
 
 For instance, to implement routes for a calendar application, you can rewrite all URLs that fall under the _calendar_ route to serve a single file.
 
@@ -98,7 +100,7 @@ Common uses cases for wildcard routes include:
 
 - Serving a specific file for an entire API path
 - Mapping different HTTP methods to an entire API path
-- Enforcing authorization rules
+- Enforcing authentication and authorization rules
 - Implement specialized caching rules
 
 ## Global headers
@@ -125,6 +127,31 @@ The following HTTP codes are available to override:
 | [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Unauthorized | Request to restricted pages while unauthenticated |
 | [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Forbidden |<ul><li>User is logged in but doesn't have the roles required to view the page<li>User is logged in but the runtime cannot get the user details from their  identity claims<li>There are too many users logged in to the site with custom roles, therefore the runtime can't login the user.</ul> |
 | [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | Not found | File not found |
+
+The following example configuration demonstrates how to override an error code.
+
+```json
+{
+    "responseOverrides": {
+        "400" : {
+            "rewrite": "/invalid-invitation-error.html",
+            "statusCode": 200
+        },
+        "401": {
+            "statusCode": 302,
+            "redirect": "/login"
+        },
+        "403": {
+            "rewrite": "/custom-forbidden-page.html",
+            "statusCode": 200
+        },
+        "404": {
+            "rewrite": "/index.html",
+            "statusCode": 200
+        }
+    }
+}
+```
 
 ## Fallback routes
 
@@ -208,16 +235,16 @@ This rule allows any file not found on the server to return the _index.html_ fil
             "rewrite": "/invalid-invitation-error.html",
             "statusCode": 200
         },
-        "404": {
-            "rewrite": "/index.html",
-            "statusCode": 200
-        },
         "401": {
             "statusCode": 302,
             "redirect": "/login"
         },
         "403": {
             "rewrite": "/custom-forbidden-page.html",
+            "statusCode": 200
+        },
+        "404": {
+            "rewrite": "/index.html",
             "statusCode": 200
         }
     },
