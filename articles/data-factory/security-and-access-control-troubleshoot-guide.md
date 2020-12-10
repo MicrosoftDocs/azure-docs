@@ -32,9 +32,9 @@ The problem is most likely caused by a Domain Name System (DNS) resolution issue
 
 To resolve the issue, do the following:
 
-1. Run a PsPing to the ADF server's fully qualified domain name (FQDN), and note whether the buffer goes to a public endpoint of the ADF server, even after it's disabled.
+1. Run a PsPing to the Azure Data Factory server's fully qualified domain name (FQDN), and note whether the buffer goes to a public endpoint of the Data Factory server, even after it's disabled.
 
-1. Edit the host file in the virtual machine (VM) to map the private IP to the FQDN and run a PsPing again. The buffer should then be able to go to the correct private IP address of the ADF server.
+1. Edit the host file in the virtual machine (VM) to map the private IP to the FQDN and run a PsPing again. The buffer should then be able to go to the correct private IP address of the Data Factory server.
 
 1. Re-register the self-hosted integration runtime, and you should find that it's up and running.
  

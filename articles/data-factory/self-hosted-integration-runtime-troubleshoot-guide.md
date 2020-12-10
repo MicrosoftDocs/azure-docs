@@ -17,7 +17,7 @@ This article explores common troubleshooting methods for self-hosted integration
 
 ## Gather self-hosted IR logs from Azure Data Factory
 
-For failed activities that are running on a self-hosted IR or shared IR, Azure Data Factory supports viewing and uploading error logs. To get the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
+For failed activities that are running on a self-hosted IR or a shared IR, Azure Data Factory supports viewing and uploading error logs. To get the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
 
 1. In Data Factory, select **Pipeline runs**.
 
@@ -36,10 +36,10 @@ For failed activities that are running on a self-hosted IR or shared IR, Azure D
     ![Screenshot of the "Share the self-hosted integration runtime (IR) logs with Microsoft" window.](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
 
 1. Select which logs you want to send. 
-    * For *self-hosted IR*, you can upload logs that are related to the failed activity or all logs on the self-hosted IR node. 
-    * For *shared IR*, you can upload only logs that are related to the failed activity.
+    * For a *self-hosted IR*, you can upload logs that are related to the failed activity or all logs on the self-hosted IR node. 
+    * For a *shared IR*, you can upload only logs that are related to the failed activity.
 
-1. When the logs are uploading, keep a record of the Report ID for later use if you need further assistance to solve the issue.
+1. When the logs are uploaded, keep a record of the Report ID for later use if you need further assistance to solve the issue.
 
     ![Screenshot of the displayed report ID in the upload progress window for the IR logs.](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
 
@@ -53,22 +53,22 @@ For failed activities that are running on a self-hosted IR or shared IR, Azure D
 
 #### Symptoms
 
-An "OutOfMemoryException" error occurs when you try to run a lookup activity with a linked IR or self-hosted IR.
+An OutOfMemoryException (OOM) error occurs when you try to run a lookup activity with a linked IR or a self-hosted IR.
 
 #### Cause
 
-A new activity can throw an OOM (OutOfMemory) error if the IR machine experiences momentary high memory usage. The issue might be caused by a large volume of concurrent activity, and the error is by design.
+A new activity can throw an OOM error if the IR machine experiences momentary high memory usage. The issue might be caused by a large volume of concurrent activity, and the error is by design.
 
 #### Resolution
 
 Check the resource usage and concurrent activity execution on the IR node. Adjust the internal and trigger time of activity runs to avoid too much execution on a single IR node at the same time.
 
 
-### TLS/SSL certificate issue
+### SSL/TLS certificate issue
 
 #### Symptoms
 
-When you try to enable a Transport Layer Security (TLS)/Secure Sockets Layer (SSL) certificate (advanced) by choosing the certificate after you select **Self-hosted IR Configuration Manager** > **Remote access from intranet**, you get the following error:
+When you try to enable a Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificate (advanced) by choosing the certificate (after you select **Self-hosted IR Configuration Manager** > **Remote access from intranet**), you get the following error:
 
 "Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was 'abc.microsoft.com' but the remote endpoint provided DNS claim 'microsoft.com'. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity 'microsoft.com' as the Identity property of EndpointAddress when creating channel proxy."
 
@@ -76,7 +76,7 @@ In the preceding example, the chosen certificate has "microsoft.com" appended to
 
 #### Cause
 
-This is a known issue in Windows Communication Foundation (WCF). The WCF TLS/SSL validation checks only for the last DNSName in the **Subject Alternative Name** (SAN) field. 
+This is a known issue in Windows Communication Foundation (WCF). The WCF SSL/TLS validation checks only for the last DNSName in the **Subject Alternative Name** (SAN) field. 
 
 #### Resolution
 
@@ -92,9 +92,9 @@ To verify and correct the DNSName, do the following:
 
 #### Symptoms
 
-When you try to increase the limit on concurrent jobs from the Azure Data Factory interface, the process hangs in *updating* status.
+When you try to increase the concurrent jobs limit from the Azure Data Factory interface, the process hangs in *updating* status.
 
-Example scenario: The maximum value of concurrent jobs is currently set to 24, and you want to increase the count so that jobs can run faster. The minimum value that you can enter is 3, and the maximum value is 32. You increase the value from 24 to 32 and then select the **Update** button. The process gets stuck in **Updating** status, as shown in the following screenshot. You refresh the page, and the value is still displayed as 24. It hasn't been updated to 32 as you expected.
+Example scenario: The maximum concurrent jobs value is currently set to 24, and you want to increase the count so that your jobs can run faster. The minimum value that you can enter is 3, and the maximum value is 32. You increase the value from 24 to 32 and then select the **Update** button. The process gets stuck in **Updating** status, as shown in the following screenshot. You refresh the page, and the value is still displayed as 24. It hasn't been updated to 32 as you had expected.
 
 ![Screenshot of the Nodes pane of the integration runtime, displaying the process stuck in "Updating" status.](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
 
@@ -125,14 +125,14 @@ When you handle cases that are related to an SSL/TLS handshake, you might encoun
  
     1. Export the certificate, which needs to be verified. To do so, do the following:
     
-       a. Select **Start**, start typing "manage computer certificates," and then select **Manage computer certificates**.
+       a. In Windows, select **Start**, start typing **certificates**, and then select **Manage computer certificates**.
        
-       b. In File Explorer, on the **Certificates - Local Computer** pane, search for the certificate that you want to check, right-click it, and then select **All tasks** > **Export**.
+       b. In File Explorer, on the left pane, search for the certificate that you want to check, right-click it, and then select **All tasks** > **Export**.
     
         ![Screenshot of the "All Tasks" > "Export" control for a certificate on the "Manage computer certificates" pane.](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
     2. Copy the exported certificate to the client machine. 
-    3. On the client side, in a CMD window, run the following command. Be sure to replace *\<certificate path>* and *\<output txt file path>* with the actual paths.
+    3. On the client side, in a Command Prompt window, run the following command. Be sure to replace *\<certificate path>* and *\<output txt file path>* with the actual paths.
     
         ```
         Certutil -verify -urlfetch    <certificate path>   >     <output txt file path> 
@@ -143,17 +143,17 @@ When you handle cases that are related to an SSL/TLS handshake, you might encoun
         ```
         Certutil -verify -urlfetch c:\users\test\desktop\servercert02.cer > c:\users\test\desktop\Certinfo.txt
         ```
-    4. Check for errors in the output .txt file. You can find the error summary at the end of the .txt file.
+    4. Check for errors in the output TXT file. You can find the error summary at the end of the TXT file.
 
         For example: 
 
-        ![Screenshot of an error summary at the end of the .txt file.](media/self-hosted-integration-runtime-troubleshoot-guide/error-summary.png)
+        ![Screenshot of an error summary at the end of the TXT file.](media/self-hosted-integration-runtime-troubleshoot-guide/error-summary.png)
 
-        If you don't see any error at the end of the log file, as shown in the following screenshot, you can consider that the certificate chain has been built successfully in the client machine.
+        If you don't see an error at the end of the log file, as shown in the following screenshot, you can consider that the certificate chain has been built successfully in the client machine.
         
         ![Screenshot of a log file showing no errors.](media/self-hosted-integration-runtime-troubleshoot-guide/log-file.png)      
 
-- If there is an AIA (Authority Information Access), CDP (CRL Distribution Point), or OCSP (Online Certificate Status Protocol) extension configured in the certificate file, you can check it in a more intuitive way:
+- If there's an AIA (Authority Information Access), CDP (CRL Distribution Point), or OCSP (Online Certificate Status Protocol) extension configured in the certificate file, you can check it in a more intuitive way:
  
     1. Get this information by checking the certificate details, as shown in the following screenshot:
     
@@ -198,7 +198,7 @@ In Process Monitor, you can view the following result:
 >
 > The preceding error message says that the DLL System.ValueTuple is not located in the related *Global Assembly Cache* (GAC) folder, in the *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* folder, or in the *C:\Program Files\Microsoft Integration Runtime\4.0\Shared* folder.
 >
-> Basically, the process loads the DLL first from the *GAC* folder, and then from the *Shared* folder, and finally from the *Gateway* folder. Therefore, you can load the DLL from any path that's helpful.
+> Basically, the process loads the DLL first from the *GAC* folder, then from the *Shared* folder, and finally from the *Gateway* folder. Therefore, you can load the DLL from any path that's helpful.
 
 <br>
 
@@ -218,7 +218,7 @@ In the following error, you can clearly see that the *System.ValueTuple* assembl
  
 "\<LogProperties>\<ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
  
-For more information about GAC, see [Global Assembly Cache](https://docs.microsoft.com/en-us/dotnet/framework/app-domains/gac).
+For more information about GAC, see [Global Assembly Cache](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
 
 
 ### Self-hosted integration runtime Authentication Key is missing
@@ -260,7 +260,7 @@ In this case, you should create the linked service for each data store with the 
 
 #### Resolution
 
-Install drivers for both the source and destination data stores on the destination IR, and make sure it can access the source data store.
+Install drivers for both the source and destination data stores on the destination IR, and make sure that it can access the source data store.
  
 If the traffic can't pass through the network between two data stores (for example, they're configured in two virtual networks), you might not finish copying in one activity even with the IR installed. If you can't finish copying in a single activity, you can create two copy activities with two IRs, each in a VENT: 
 * Copy one IR from data store 1 to Azure Blob Storage
@@ -279,11 +279,11 @@ If the data source credential "XXXXXXXXXX" is deleted from the current integrati
 
 #### Cause
 
-Your self-hosted IR is built in HA mode with two nodes, but the nodes aren't in a credentials sync state. This means that the credentials stored in dispatcher node aren't synced to other worker nodes. If any failover happens from the dispatcher node to the worker node, and the credentials exist only in the previous dispatcher node, the task will fail when you're trying to access credentials, and you will receive the preceding error.
+Your self-hosted IR is built in HA mode with two nodes, but the nodes aren't in a credentials sync state. This means that the credentials stored in the dispatcher node aren't synced to other worker nodes. If any failover happens from the dispatcher node to the worker node, and the credentials exist only in the previous dispatcher node, the task will fail when you're trying to access credentials, and you'll receive the preceding error.
 
 #### Resolution
 
-The only way to avoid this issue is to make sure that the two nodes are in credentials sync state. If they aren't in sync, you have to reenter the credentials for new dispatcher.
+The only way to avoid this issue is to make sure that the two nodes are in credentials sync state. If they aren't in sync, you have to reenter the credentials for the new dispatcher.
 
 
 ### Can't choose the certificate because the private key is missing
@@ -355,17 +355,17 @@ Go to the integration runtime event log to check the error.
             1. Change the service account by doing the following:  
 
                 a. Go to the self-hosted IR installation folder, and then switch to the *Microsoft Integration Runtime\4.0\Shared* folder.  
-                b. Start a command line by using elevated privileges. Replace *\<user>* and *\<password>* with your own username and password, and then run the following command:   
+                b. Start a command prompt by using elevated privileges. Replace *\<user>* and *\<password>* with your own username and password, and then run the following command:   
                 `dmgcmd.exe -SwitchServiceAccount "<user>" "<password>"`  
                 c. If you want to change to the LocalSystem account, be sure to use the correct format for this account: `dmgcmd.exe -SwitchServiceAccount "NT Authority\System" ""`  
                 Do *not* use this format: `dmgcmd.exe -SwitchServiceAccount "LocalSystem" ""`     
                 d. Optionally, because Local System has higher privileges than Administrator, you can also directly change it in "Services".  
-                e. You can use local/domain user for the IR service logon account.            
+                e. You can use a local/domain user for the IR service logon account.            
             1. Register the integration runtime.
 
 * If the error is "Service 'Integration Runtime Service' (DIAHostService) failed to start. Verify that you have sufficient privileges to start system services," do the following:
 
-    1. Check *DIAHostService* logon service account in the Windows service panel.
+    1. Check the *DIAHostService* logon service account in the Windows service panel.
     
         ![Screenshot of the "Log On" pane for the service account.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
@@ -446,7 +446,7 @@ The integration runtime installation depends on the Windows Installer service. Y
 
 #### Symptoms
 
-When you install a self-hosted IR via Microsoft Integration Runtime Configuration Manager, a certificate with a trusted certificate authority (CA) is generated. The certificate could not be applied to encrypt communication between two nodes, and the following error message is displayed: 
+When you install a self-hosted IR via Microsoft Integration Runtime Configuration Manager, a certificate with a trusted certificate authority (CA) is generated. The certificate couldn't be applied to encrypt communication between two nodes, and the following error message is displayed: 
 
 "Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate '\<*certificate name*>'. Error code 103"
 
@@ -481,22 +481,20 @@ Before and after conversion:
 
 ![Screenshot of the result after the certificate conversion.](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
-### Self-hosted Integration Runtime version 5.x
-For the upgrade to version 5.x of Azure Data Factory Self-hosted integration runtime, we require **.NET framework runtime 4.7.2** or above. 
-In download page, there will be download links for the newest 4.x version and the newest two 5.x versions. 
+### Self-hosted integration runtime version 5.x
+For the upgrade to version 5.x of the Azure Data Factory self-hosted integration runtime, we require **.NET Framework Runtime 4.7.2** or later. On the download page, you'll find download links for the latest 4.x version and the latest two 5.x versions. 
+
+For Azure Data Factory v2 customers:
+- If automatic update is on and you've already upgraded your .NET Framework Runtime to 4.7.2 or later, the self-hosted integration runtime will be automatically upgraded to the latest 5.x version.
+- If automatic update is on and you haven't upgraded your .NET Framework Runtime to 4.7.2 or later, the self-hosted integration runtime won't be automatically upgraded to the latest 5.x version. The self-hosted integration runtime will stay in the current 4.x version. You can see a warning for a .NET Framework Runtime upgrade in the portal and the self-hosted integration runtime client.
+- If automatic update is off and you've already upgraded your .NET Framework Runtime to 4.7.2 or later, you can manually download the latest 5.x and install it on your machine.
+- If automatic update is off and you haven't upgraded your .NET Framework Runtime to 4.7.2 or later. When you try to manually install self-hosted integration runtime 5.x and register the key, you will be required to upgrade your .NET Framework Runtime version first.
 
 
-For ADF V2 customers:
-- If auto-update is on and you have already upgraded your .Net framework runtime to 4.7.2 or above, then the Self-hosted integration runtime will be auto upgraded to the newest 5.x version.
-- If auto- update is on and you have not upgraded your .Net framework runtime to 4.7.2 or above, then the Self-hosted integration runtime will not be auto upgraded to the newest 5.x version. The Self-hosted integration runtime will stay in current 4.x version. You can see a warning for .Net framework runtime upgrade in the portal and Self-hosted integration runtime client.
-- If auto- update is off and you have already upgraded your .Net framework runtime to 4.7.2 or above, you can manually download the newest 5.x and install in your machine.
-- If auto- update is off and you have not upgraded your .Net framework runtime to 4.7.2 or above. When you try to manually install SHIR 5.x and register the key, you will be required to upgrade your .Net framework runtime first.
-
-
-For ADF V1 customers:
-- Self-hosted integration runtime 5.X doesn’t support ADF V1.
-- The Self-hosted integration runtime will be auto upgraded to the newest version of 4.x. And the last version of 4.x will not expire. 
-- If you try to manually install Self-hosted integration runtime 5.x and register the key, you will be told that Self-hosted integration runtime 5.x doesn’t support V1.
+For Azure Data Factory v1 customers:
+- Self-hosted integration runtime 5.X doesn’t support Azure Data Factory v1.
+- The self-hosted integration runtime will be automatically upgraded to the latest version of 4.x. And the latest version of 4.x won't expire. 
+- If you try to manually install self-hosted integration runtime 5.x and register the key, you'll be notified that self-hosted integration runtime 5.x doesn’t support Azure Data Factory v1.
 
 
 ## Self-hosted IR connectivity issues
@@ -534,11 +532,11 @@ The self-hosted IR can't connect to the Azure Data Factory service back end. Thi
             
     ![Screenshot of the PowerShell command response.](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
             
-1. If you don't receive the expected response, use one of the following methods, as appropriate to your situation:
+1. If you don't receive the response you had expected, use one of the following methods, as appropriate:
             
-    * If you receive a "Remote name could not be resolved" message, there's a Domain Name System (DNS) issue. Contact your network team to fix this issue.
-    * If you receive an "ssl/tls cert is not trusted" message, [check the certificate](https://wu2.frontend.clouddatahub.net/) to see whether it is trusted on the machine, and then install the public certificate by using Certificate Manager. This action should mitigate the issue.
-    * Go to **Windows** > **Event viewer (logs)** > **Applications and Services Logs** > **Integration Runtime**, and check for any failure that's caused by DNS, a firewall rule, or company network settings. If you find such a failure, forcibly close the connection. Because every company has customized network settings, contact your network team to troubleshoot these issues.
+    * If you receive a "Remote name could not be resolved" message, there's a Domain Name System (DNS) issue. Contact your network team to fix the issue.
+    * If you receive an "ssl/tls cert is not trusted" message, [check the certificate](https://wu2.frontend.clouddatahub.net/) to see whether it's trusted on the machine, and then install the public certificate by using Certificate Manager. This action should mitigate the issue.
+    * Go to **Windows** > **Event viewer (logs)** > **Applications and Services Logs** > **Integration Runtime**, and check for any failure that's caused by DNS, a firewall rule, or company network settings. If you find such a failure, forcibly close the connection. Because every company has its own customized network settings, contact your network team to troubleshoot these issues.
 
 1. If "proxy" has been configured on the self-hosted integration runtime, verify that your proxy server can access the service endpoint. For a sample command, see [PowerShell, web requests, and proxies](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
                 
@@ -566,7 +564,7 @@ The following is the expected response:
 > [!NOTE] 
 > Proxy considerations:
 > * Check to see whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
-> * Check to see whether the Transport Layer Security (TLS)/Secure Sockets Layer (SSL) certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
+> * Check to see whether SSL/TLS certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
 > * If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
 
 ### Error message: Self-hosted integration runtime node/logical self-hosted IR is in Inactive/ "Running (Limited)" state
@@ -581,7 +579,7 @@ This behavior occurs when nodes can't communicate with each other.
 
 #### Resolution
 
-1. Log in to the node-hosted virtual machine (VM). Under **Applications and Services Logs** > **Integration Runtime**, open Event Viewer, and filter all the error logs.
+1. Log in to the node-hosted virtual machine (VM). Under **Applications and Services Logs** > **Integration Runtime**, open Event Viewer, and filter the error logs.
 
 1. Check to see whether an error log contains the following error: 
     
@@ -594,7 +592,7 @@ This behavior occurs when nodes can't communicate with each other.
     at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
     ```
        
-1. If you see this error, run the following on a command line: 
+1. If you see this error, run the following on a command prompt: 
 
    ```
    telnet 10.2.4.10 8060
@@ -617,27 +615,27 @@ This behavior occurs when nodes can't communicate with each other.
 ### Connectivity issue between the self-hosted IR and your data factory instance or the self-hosted IR and the data source/sink
 
 To troubleshoot the network connectivity issue, you should know 
-how to collect the network trace, understand how to use it, and [analyze the Microsoft Network Monitor (Netmon) trace](#how-to-analyze-netmon-trace) before applying the Netmon Tools in real cases from the self-hosted IR.
+how to collect the network trace, understand how to use it, and [analyze the Microsoft Network Monitor (Netmon) trace](#analyze-the-netmon-trace) before applying the Netmon Tools in real cases from the self-hosted IR.
 
 #### Symptoms
 
-You might occasionally need to troubleshoot certain connectivity issues between the self-hosted IR and your data factory instance, shown in the following screenshot, or between the self-hosted IR and the data source/sink. 
+You might occasionally need to troubleshoot certain connectivity issues between the self-hosted IR and your data factory instance, as shown in the following screenshot, or between the self-hosted IR and the data source/sink. 
 
 ![Screenshot of a "Processed HTTP request failed" message](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
 
 In either instance, you might encounter the following errors:
 
-"Copy failed with error:Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server: 'IP address'"
+* "Copy failed with error:Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server: 'IP address'"
 
-"One or more errors occurred. An error occurred while sending the request. The underlying connection was closed: An unexpected error occurred on a receive. Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. An existing connection was forcibly closed by the remote host Activity ID."
+* "One or more errors occurred. An error occurred while sending the request. The underlying connection was closed: An unexpected error occurred on a receive. Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. An existing connection was forcibly closed by the remote host Activity ID."
 
 #### Resolution
 
-When you encounter the preceding issues, troubleshoot further by following the instructions in this section.
+When you encounter the preceding errors, troubleshoot them by following the instructions in this section.
 
-- Collect a Netmon trace and analyze it further: 
+- Collect a Netmon trace for analysis: 
 
-    1. You can set the filter to see a reset from the server to the client side. In the following example screenshot, you can see that the server side is Data Factory server.
+    1. You can set the filter to see a reset from the server to the client side. In the following example screenshot, you can see that the server side is the Data Factory server.
 
         ![Screenshot of the Data factory server.](media/self-hosted-integration-runtime-troubleshoot-guide/data-factory-server.png)
 
@@ -645,7 +643,7 @@ When you encounter the preceding issues, troubleshoot further by following the i
 
         ![Screenshot of the TCP conversation.](media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png)
 
-    1. Get the conversion between client and Data Factory server below by removing the filter.
+    1. Get the conversation between the client and the Data Factory server below by removing the filter.
 
         ![Screenshot of conversation details.](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
 
@@ -662,19 +660,19 @@ When you encounter the preceding issues, troubleshoot further by following the i
 
     ![Screenshot showing a TTL value of 61.](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-61.png)
     
-    In the preceding example, the TTL is shown as 61 instead of 64 because when the network package reaches its destination, it needs to go through various hops, such as routers or network devices. The number of routers or network devices is deducted to produce the final TTL.
+    In the preceding example, the TTL is shown as 61 instead of 64, because when the network package reaches its destination, it needs to go through various hops, such as routers or network devices. The number of routers or network devices is deducted to produce the final TTL.
     
     In this case, you can see that a reset can be sent from the Linux System with TTL 64.
 
 -  To confirm where the reset device might come from, check the fourth hop from self-hosted IR.
  
-    *Network package from Linux System A with TTL 64 -> B TTL 64 Minus 1 = 63 -> C TTL 63 Minus 1 = 62 -> TTL 62 Minus 1 = 61 Self-hosted IR*
+    *Network package from Linux System A with TTL 64 -> B TTL 64 minus 1 = 63 -> C TTL 63 minus 1 = 62 -> TTL 62 minus 1 = 61 self-hosted IR*
 
-- In an ideal situation, the TTL hops number would be 128, which means that the Windows operating system is running your data factory instance. As shown in the following example, *128 – 107 = 21 hops*, which means that 21 hops for the package were sent from the data factory instance to the self-hosted IR during the TCP 3 handshake.
+- In an ideal situation, the TTL hops number would be 128, which means that the Windows operating system is running your data factory instance. As shown in the following example, *128 minus 107 = 21 hops*, which means that 21 hops for the package were sent from the data factory instance to the self-hosted IR during the TCP 3 handshake.
  
     ![Screenshot showing a TTL value of 107.](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
-    Therefore, you need to engage the network team to check to see what the fourth hop is from the self-hosted IR. If it is the firewall, as with the Linux System, check any logs to see why that device resets the package after the TCP 3 handshake. 
+    Therefore, you need to engage the network team to check to see what the fourth hop is from the self-hosted IR. If it's the firewall, as with the Linux System, check any logs to see why that device resets the package after the TCP 3 handshake. 
     
     If you're unsure where to investigate, try to get the Netmon trace from both the self-hosted IR and the firewall during the problematic time. This approach will help you figure out which device might have reset the package and caused the disconnection. In this case, you also need to engage your network team to move forward.
 
@@ -695,17 +693,17 @@ The preceding images show that you couldn't make a TCP connection to the **8.8.8
 > [!TIP]
 > To make this connection, try the following solution:
 > 1. Select **Load Filter** > **Standard Filter** > **Addresses** > **IPv4 Addresses**.
-> 1. To apply the filter, enter **IPv4.Address == 8.8.8.8**, and then select **Apply**. You should then see the communication from the local machine to the destination **8.8.8.8**.
+> 1. To apply the filter, enter **IPv4.Address == 8.8.8.8**, and then select **Apply**. You should then see the communication from the local machine to destination **8.8.8.8**.
 
-![Screenshot showing the filter addresses.](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
+![Screenshot showing filter addresses.](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         
-![Screenshot showing the filter addresses.](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png)
+![Screenshot showing more filter addresses.](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-2.png)
 
 Successful scenarios are shown in the following examples: 
 
 - If you can telnet **8.8.8.8 53** without any issues, there's a successful TCP 3 handshake, and the session finishes with a TCP 4 handshake.
 
-    ![Screenshot showing details of a successful connection scenario.](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png)
+    ![Screenshot showing a successful connection scenario.](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-1.png)
      
     ![Screenshot showing details of a successful connection scenario.](media/self-hosted-integration-runtime-troubleshoot-guide/good-scenario-2.png)
 
@@ -745,7 +743,7 @@ How to determine whether you're affected:
 
 - Check to see whether you have any outbound network security group (NSG) rules in a private network that contains self-hosted integration runtime. If there are no outbound restrictions, you aren't affected.
 
-- If you have outbound rule restrictions, check to see whether you're using service tags. If you're using service tags, you're not affected. There's no need to change or add anything because the new IP range is under your existing service tags. 
+- If you have outbound rule restrictions, check to see whether you're using service tags. If you're using service tags, you're not affected. There's no need to change or add anything, because the new IP range is under your existing service tags. 
 
   ![Screenshot of a destination check showing DataFactory as the destination.](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
 
@@ -765,7 +763,7 @@ How to determine whether you're affected:
 
   If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update the NSG rules on your Azure virtual network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
-### Couldn't establish a trust relationship for the TLS/SSL secure channel 
+### Couldn't establish a trust relationship for the SSL/TLS secure channel 
 
 #### Symptoms
 
@@ -775,11 +773,11 @@ When you check the self-hosted IR event log or the client notification logs in t
 
 "The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. The remote certificate is invalid according to the validation procedure."
 
-The simplest way to check the server certificate of the Data Factory service is to open the Data Factory service URL in your browser. For example, open the [check server certificate link] https://eu.frontend.clouddatahub.net/ on the machine where the self-hosted IR is installed, and then view the server certificate information.
+The simplest way to check the server certificate of the Data Factory service is to open the Data Factory service URL in your browser. For example, open the [check server certificate link](https://eu.frontend.clouddatahub.net/) on the machine where the self-hosted IR is installed, and then view the server certificate information.
 
   ![Screenshot of the check server certificate pane of the Azure Data Factory service.](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
 
-  ![Screenshot of the window for checking the server certificate path.](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+  ![Screenshot of the window for checking the server certification path.](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
 
 #### Cause
 
@@ -791,13 +789,17 @@ There are two possible reasons for this issue:
 #### Resolution
 
 - For reason 1: Make sure that the Data Factory server certificate and its certificate chain are trusted by the machine where the self-hosted IR is installed.
-- For reason 2, either trust the replaced root CA on the self-hosted IR machine, or configure the proxy not to replace ADF server certificate.
+- For reason 2: Either trust the replaced root CA on the self-hosted IR machine, or configure the proxy not to replace the Data Factory server certificate.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 For more information about trusting a certificate on Windows, see [Installing the trusted root certificate](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 =======
 Refer to [this article](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) for details to trust a certificate on Windows.
 >>>>>>> abf53f03f981215952a9eafe205be6c57c5d3d4c
+=======
+For more information about trusting a certificate on Windows, see [Install the trusted root certificate](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
+>>>>>>> b4617cc769d10cb3bdc4a3d39b123dbc9ece630c
 
 #### Additional information
 We've rolled out a new SSL certificate, which is signed from DigiCert. Check to see whether the DigiCert Global Root G2 is in the trusted root CA.
@@ -828,7 +830,7 @@ For more help with troubleshooting, try the following resources:
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
+*  [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Mapping data flows performance guide](concepts-data-flow-performance.md)
