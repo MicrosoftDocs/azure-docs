@@ -26,13 +26,13 @@ Azure Government continues to provide more PaaS features and services to the DoD
 
 ## Principles and approach
 
-Two key areas need to be addressed for services in Impact Level 5 scope: storage isolation and compute isolation. We'll focus on how these services can isolate the compute and storage of Impact Level 5 data.  The SRG allows for a shared management and network infrastructure.
+You need to address two key areas for services in Impact Level 5 scope: storage isolation and compute isolation. We'll focus on how these services can isolate the compute and storage of Impact Level 5 data.  The SRG allows for a shared management and network infrastructure.
 
 ### Compute isolation
 
 The SRG focuses on the segmentation of compute during "processing" of data for Impact Level 5. This segmentation ensures that a virtual machine that compromises the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, all Impact Level 5 virtual machines should be isolated via Azure Dedicated Host. Doing so provides a dedicated physical server to host your Azure VMs for Windows and Linux. 
 
-For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data, you should accomplish isolation by focusing on the data being processed and how it's stored and retained. This approach ensures that the data is stored in protected mediums and not present on these services for extended periods unless it's encrypted as needed.
+For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data, you should accomplish isolation by focusing on the data being processed and how it's stored and retained. This approach ensures the data is stored in protected mediums. It also ensures the data isn't present on these services for extended periods unless it's encrypted as needed.
 
 ### Storage isolation
 
@@ -40,14 +40,14 @@ In the most recent PA for Azure Government, DISA approved logical separation of 
 
 To apply this approach to services:
 
-- If a service hosts only IL5 data, the service can control the key on behalf of end users. But it must use a dedicated key to protect IL5 data from all other data in the cloud.
+- If a service hosts only IL5 data, the service can control the key for end users. But it must use a dedicated key to protect IL5 data from all other data in the cloud.
 - If a service will host IL5 and non-DoD data, the service must expose the option to for end users to use their own keys for encryption. Those keys are stored in Azure Key Vault. This implementation gives consumers of the service the ability to implement cryptographic separation as needed.
 
 This approach ensures all key material for decrypting data is stored separately of the data itself and done so with a hardware key-management solution.
 
 ## Applying this guidance
 
-Impact Level 5 guidelines require workloads to be deployed with a high degree of security, isolation, and control. The following configurations are required in *addition* to any other configurations or controls needed to meet Impact Level 5. Network isolation, access controls, and other necessary security measures aren't necessarily addressed in the guidance here.
+Impact Level 5 guidelines require workloads to be deployed with a high degree of security, isolation, and control. The following configurations are required *in addition* to any other configurations or controls needed to meet Impact Level 5. Network isolation, access controls, and other necessary security measures aren't necessarily addressed in the guidance here.
 
 Be sure to review the entry for each service you're using and ensure that all isolation requirements are implemented.
 
@@ -150,6 +150,14 @@ Cognitive Services Speech Services supports Impact Level 5 workloads in Azure Go
 
 ## Analytics services
 
+### [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)
+
+Azure Analysis Services supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
+
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
+| --- | --- | --- | --- | --- | --- | 
+| **Azure Analysis Services** | X | X | X | X | X |
+
 ### [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)
 
 Azure Data Explorer supports Impact Level 5 workloads in Azure Government with this configuration:
@@ -186,7 +194,7 @@ Azure Event Hubs supports Impact Level 5 workloads in Azure Government in these 
 Azure HDInsight supports Impact Level 5 workloads in Azure Government with these configurations:
 
 - Azure HDInsight can be deployed to existing storage accounts that have enabled appropriate [Storage service encryption](#storage-encryption-with-key-vault-managed-keys), as discussed in the guidance for Azure Storage.
-- Azure HDInsight enables a database option for certain configurations. Ensure the appropriate database configuration for TDE is enabled on the option you choose, as discussed in the guidance for [Azure SQL Database](#azure-sql-database).
+- Azure HDInsight enables a database option for certain configurations. Ensure the appropriate database configuration for TDE is enabled on the option you choose. This process is discussed in the guidance for [Azure SQL Database](#azure-sql-database).
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -271,7 +279,7 @@ Azure Service Fabric supports Impact Level 5 workloads in Azure Government in th
 
 ### [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) and [virtual machine scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
 
-You can use Azure virtual machines with multiple deployment mediums. This is the case for single virtual machines and for virtual machines deployed via the Azure virtual machine scale sets feature.
+You can use Azure virtual machines with multiple deployment mediums. You can do so for single virtual machines and for virtual machines deployed via the Azure virtual machine scale sets feature.
 
 All virtual machines should use Disk Encryption for virtual machines or Disk Encryption for virtual machine scale sets, or place virtual machine disks in a storage account that can hold Impact Level 5 data as described in the [Azure Storage section](#storage-encryption-with-key-vault-managed-keys).
 
@@ -363,13 +371,29 @@ Azure Kubernetes Service (AKS) supports Impact Level 5 workloads in Azure Govern
 
 Azure Container Registry supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- When you store images and other artifacts in an Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an additional encryption layer by [using a key that you create and manage in Azure Key Vault](https://docs.microsoft.com/azure/container-registry/container-registry-customer-managed-keys).
+- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an additional encryption layer by [using a key that you create and manage in Azure Key Vault](https://docs.microsoft.com/azure/container-registry/container-registry-customer-managed-keys).
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
 | **Container Registry** | X | X | X |  |  | 
 
 ## Databases
+
+### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
+
+Azure Cache for Redis supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
+
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
+| --- | --- | --- | --- | --- | --- | 
+| **Azure Cache for Redis** | X | X | X | X | X |
+
+### [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
+
+Azure Cosmos DB supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
+
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
+| --- | --- | --- | --- | --- | --- | 
+| **Azure Cosmos DB** | X | X | X | X | X |
 
 ### [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
@@ -508,7 +532,7 @@ Azure Automation supports Impact level 5 workloads in Azure Government to provid
 
 Automation supports Impact Level 5 workloads in Azure Government in these configurations:
 
-- Use the [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) feature of Azure Automation to run runbooks directly on the VM that's hosting the role and against resources in your environment. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned computers known as Hybrid Runbook Workers. Use Azure Dedicated Host or isolated virtual machine types for the Hybrid Worker role. When deployed, [isolated VM types](#isolated-virtual-machines) consume the entire physical host for the VM, providing the level of isolation required to support IL5 workloads.
+- Use the [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) feature of Azure Automation to run runbooks directly on the VM that's hosting the role and against resources in your environment. Runbooks are stored and managed in Azure Automation. They are then delivered to one or more assigned computers known as Hybrid Runbook Workers. Use Azure Dedicated Host or isolated virtual machine types for the Hybrid Worker role. When deployed, [isolated VM types](#isolated-virtual-machines) consume the entire physical host for the VM, providing the level of isolation required to support IL5 workloads.
 
   [Azure Dedicated Host](#azure-dedicated-host) provides physical servers that can host one or more virtual machines and that are dedicated to one Azure subscription.
 - By default, your Azure Automation account uses Microsoft-managed keys. You can manage the encryption of secure assets for your Automation account by using your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the Automation account. For more information, see [Encryption of secure assets in Azure Automation](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption).
@@ -565,7 +589,7 @@ Azure Lighthouse supports Impact Level 5 workloads in Azure Government in these 
 
 Azure Managed Applications supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- You can store your managed application definition in a storage account that you provide when you create the application so that you can manage its location and access for your regulatory needs. For more information, see [Bring your own storage](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-service-catalog-app#bring-your-own-storage-for-the-managed-application-definition).
+- You can store your managed application definition in a storage account that you provide when you create the application. Doing so allows you to manage its location and access for your regulatory needs. For more information, see [Bring your own storage](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-service-catalog-app#bring-your-own-storage-for-the-managed-application-definition).
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -643,7 +667,7 @@ Log Analytics supports Impact Level 5 workloads in Azure Government in this conf
 
 ### Azure Scheduler
 
-Azure Scheduler is being retired and replaced by [Azure Logic Apps](#logic-apps). To continue working with the jobs that you set up in Scheduler, please [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible.
+Azure Scheduler is being retired and replaced by [Azure Logic Apps](#logic-apps). To continue working with the jobs that you set up in Scheduler, please [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as you can.
 
 ## Media services
 
@@ -727,7 +751,7 @@ Azure Load Balancer supports all impact levels in Azure Government in these regi
 
 ### [Network Watcher](https://azure.microsoft.com/services/network-watcher/)
 
-Azure Network Watcher and Network Watcher traffic analytics support all impact levels in Azure Government with no additional configuration required between regions.
+Azure Network Watcher and Network Watcher traffic analytics support all impact levels in Azure Government, with no additional configuration required between regions.
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -843,27 +867,12 @@ Azure Key Vault supports all impact levels in Azure Government in these regions,
 
 ## Storage and database services 
 
-### [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)
-
-Azure Analysis Services supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
-
-| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
-| --- | --- | --- | --- | --- | --- | 
-| **Azure Analysis Services** | X | X | X | X | X |
-
-### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
-
-Azure Cache for Redis supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
-
-| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
-| --- | --- | --- | --- | --- | --- | 
-| **Azure Cache for Redis** | X | X | X | X | X |
 
 ### [Azure Import/Export service](../storage/common/storage-import-export-service.md)
 
 Azure Import/Export service can be used in Azure Government to import and export Impact Level 5 data. By default, the Import/Export service will encrypt data that's written to the hard drive for transport. When you create a target storage account for import and export of Impact Level 5 data, add storage encryption via customer-managed keys. For more information, see the [storage services section](#storage-encryption-with-key-vault-managed-keys) of this document.
 
-The target storage account for import and source storage account for export can reside in any of these regions:
+The target storage account for import and source storage account for export can be located in any of these regions:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
@@ -871,29 +880,21 @@ The target storage account for import and source storage account for export can 
 
 ### [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive/)
 
-Azure Archive Storage can be used in Azure Government to support Impact Level 5 data. Azure Archive Storage is a tier of Azure Storage. It automatically helps secure that data at rest by using 256-bit AES keys. Just like hot and cool tiers, Azure Archive Storage can be set at the blob level. To access the content, the archived blob needs to be rehydrated or copied to an online tier, at which point customers can enforce customer-managed keys that are in place for their online storage tiers. When you create a target storage account for Impact Level 5 data in Archive Storage, add storage encryption via customer-managed keys. For more information, see the [storage services section](#storage-encryption-with-key-vault-managed-keys).
+Azure Archive Storage can be used in Azure Government to support Impact Level 5 data. Azure Archive Storage is a tier of Azure Storage. It automatically helps secure that data at rest by using 256-bit AES keys. Just like hot and cool tiers, Azure Archive Storage can be set at the blob level. To enable access to the content, you need to rehydrate the archived blob or copy it to an online tier, at which point customers can enforce customer-managed keys that are in place for their online storage tiers. When you create a target storage account for Impact Level 5 data in Archive Storage, add storage encryption via customer-managed keys. For more information, see the [storage services section](#storage-encryption-with-key-vault-managed-keys).
 
-The target storage account for Archive Storage can reside in any of these regions:
+The target storage account for Archive Storage can be located in any of these regions:
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure Archive Storage** | X | X | X | X | X |
 
-### [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
-
-Azure Cosmos DB supports Impact Level 5 workloads in Azure Government in these regions, with no additional configuration required:
-
-| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
-| --- | --- | --- | --- | --- | --- | 
-| **Azure Cosmos DB** | X | X | X | X | X |
-
 ### [Azure Storage](https://azure.microsoft.com/services/storage/)
 
 Azure Storage consists of multiple data features: Blob Storage, File Storage, Table Storage, and Queue Storage. Blob Storage supports both standard and premium storage. Premium storage uses only SSDs for the fastest performance possible. Storage also includes configurations that modify these storage types, like hot and cool to provide appropriate speed-of-availability for data scenarios. The following table outlines which features of Storage currently support IL5 workloads.
 
-When you use an Azure Storage account, you must follow the steps for using **Storage Encryption with Key Vault Managed Keys** to ensure the data is protected with customer managed keys.
+When you use an Azure Storage account, you must follow the steps for using [storage encryption with Key Vault managed keys](#storage-encryption-with-key-vault-managed-keys) to ensure the data is protected with customer-managed keys.
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Blobs** | X | X | X | X | X | 
 | **Files** | X | X | X | X | X | 
@@ -901,34 +902,34 @@ When you use an Azure Storage account, you must follow the steps for using **Sto
 | **Queues** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
 
 > [!IMPORTANT]
-> <sup>1</sup>Tables and Queues when used outside the **USDoD Regions** must encrypt the data before inserting into the Table and Queue. For more information refer to the instructions for using [client side encryption](../storage/common/storage-client-side-encryption-java.md).
+> <sup>1</sup>When you use tables and queues outside the US DoD regions, you must encrypt the data before inserting it into the table or queue. For more information, see the instructions for using [client-side encryption](../storage/common/storage-client-side-encryption-java.md).
 
-#### Storage Encryption with Key Vault Managed Keys
+#### Storage encryption with Key Vault managed keys
 
-To implement Impact Level 5 compliant controls on an Azure Storage account running in Azure Government outside of the dedicated DoD regions, Encryption at Rest must be implemented with the customer-managed key option enabled (also known as bring-your-own-key).
+To implement Impact Level 5 compliant controls on an Azure Storage account that runs in Azure Government outside of the dedicated DoD regions, you must use encryption at rest with the customer-managed key option enabled. (The customer-managed key option is also known as "bring your own key.")
 
-For more information on how to enable this Azure Storage Encryption feature, please review the supporting documentation for [Azure Storage](../storage/common/customer-managed-keys-configure-key-vault.md).
+For more information about how to enable this Azure Storage encryption feature, see the documentation for [Azure Storage](../storage/common/customer-managed-keys-configure-key-vault.md).
 
 > [!NOTE]
-> When using this encryption method, it is important that it is enabled BEFORE content is added to the storage account. Any content added prior will not be encrypted with the selected key, and only encrypted using standard encryption at rest provided by Azure Storage.`
+> When you use this encryption method, you need to enable it before you add content to the storage account. Any content that's added earlier won't be encrypted with the selected key. It will be encrypted only via the standard encryption at rest provided by Azure Storage.
 
 ### [Azure File Sync](../storage/files/storage-sync-files-planning.md)
 
-Azure File Sync can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Azure File Sync supports Impact Level 5 workloads in Azure Government in this configuration:
 
-- Configure encryption at rest of content in Azure File Sync using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#azure-file-share-encryption-at-rest)
+- Configure encryption at rest of content in Azure File Sync by [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#azure-file-share-encryption-at-rest).
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **Azure File Sync** | X | X | X |  |  |
 
 ### [StorSimple](https://azure.microsoft.com/services/storsimple/)
 
-StorSimple can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Microsoft Azure StorSimple supports Impact Level 5 workloads in Azure Government in this configuration:
 
-To help ensure the security and integrity of data moved to the cloud, StorSimple allows you to define cloud storage encryption keys as follows - You specify the cloud storage encryption key when you create a volume container. (https://docs.microsoft.com/azure/storsimple/storsimple-8000-security#storsimple-data-protection)
+- To help ensure the security and integrity of data moved to the cloud, StorSimple allows you to [define cloud storage encryption keys](https://docs.microsoft.com/azure/storsimple/storsimple-8000-security#storsimple-data-protection). You specify the cloud storage encryption key when you create a volume container. 
 
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **USDoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **StorSimple** | X | X | X | X | X |
 
