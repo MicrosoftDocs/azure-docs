@@ -3,10 +3,10 @@ title: Azure Queue Storage monitoring data reference
 description: Log and metrics reference for monitoring data from Azure Queue Storage.
 author: normesta
 services: azure-monitor
-ms.service: azure-monitor
-ms.topic: reference
-ms.date: 10/02/2020
 ms.author: normesta
+ms.date: 10/02/2020
+ms.topic: reference
+ms.service: azure-monitor
 ms.subservice: logs
 ms.custom: monitoring
 ---
@@ -36,7 +36,7 @@ This table shows [Queue Storage metrics](../../azure-monitor/platform/metrics-su
 | Metric | Description |
 | ------------------- | ----------------- |
 | **QueueCapacity** | The amount of Queue Storage used by the storage account. <br><br> Unit: bytes <br> Aggregation type: `Average` <br> Value example: `1024` |
-| **QueueCount** | The number of queues in the storage account. <br><br> Unit: Count <br> Aggregation type: `Average` <br> Value example: `1024` |
+| **QueueCount** | The number of queues in the storage account. <br><br> Unit: `Count` <br> Aggregation type: `Average` <br> Value example: `1024` |
 | **QueueMessageCount** | The approximate number of queue messages in the storage account. <br><br> Unit: `Count` <br> Aggregation type: `Average` <br> Value example: `1024` |
 
 ### Transaction metrics

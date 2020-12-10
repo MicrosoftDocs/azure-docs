@@ -3,11 +3,12 @@ title: Monitoring Azure Queue Storage
 description: Learn how to monitor the performance and availability of Azure Queue Storage. Monitor Azure Queue Storage data, learn about configuration, and analyze metric and log data.
 author: normesta
 services: storage
-ms.service: storage
-ms.topic: conceptual
-ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
+ms.date: 10/26/2020
+ms.topic: conceptual
+ms.service: storage
+ms.subservice: logs
 ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli"
 ---
 
@@ -26,7 +27,7 @@ The **Overview** page in the Azure portal for each Queue Storage resource includ
 
 Azure Queue Storage creates monitoring data by using [Azure Monitor](../../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources and resources in other clouds and on-premises.
 
-Start with [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) which describes the following:
+Start with [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) which describes the following:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -174,7 +175,7 @@ Here's an example:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-For a description of each parameter, see [Stream Data to Event Hubs via PowerShell cmdlets](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+For a description of each parameter, see [Stream data to Event Hubs via PowerShell cmdlets](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### Send logs to Log Analytics
 
@@ -250,7 +251,7 @@ Here's an example:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- For more information, see [Stream Azure resource Logs to Log Analytics workspace in Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+ For more information, see [Stream Azure resource logs to Log Analytics workspace in Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 # [Template](#tab/template)
 
@@ -260,7 +261,7 @@ To view an Azure Resource Manager template that creates a diagnostic setting, se
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure Storage with metrics from other Azure services by using Azure Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure metrics explorer](../../azure-monitor/platform/metrics-getting-started.md).
+You can analyze metrics for Azure Storage with metrics from other Azure services by using Azure Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
 This example shows how to view **Transactions** at the account level.
 
