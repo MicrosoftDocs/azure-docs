@@ -121,7 +121,7 @@ To plan your rack installation:
 
 ## About passive network monitoring
 
-The appliance receives traffic from multiple sources, either by switch mirror ports (SPAN ports) or by network TAPs. The management port is connected to the business, corporate, or sensor management network with connectivity to an on-premises management console or the Defender for IoT portal.
+The appliance receives traffic from multiple sources, either by switch mirror ports (SPAN ports) or by network TAPs. The management port is connected to the business, corporate, or sensor management network with connectivity to an on-premises management console or the Defender for IoT portal.
 
 :::image type="content" source="media/how-to-set-up-your-network/switch-with-port-mirroring.png" alt-text="Diagram of a managed switch with port mirroring.":::
 
@@ -131,9 +131,9 @@ The following sections describe Purdue levels.
 
 :::image type="content" source="media/how-to-set-up-your-network/purdue-model.png" alt-text="Diagram of the Purdue model.":::
 
-####  Level 0: Cell and area  
+####  Level 0: Cell and area  
 
-Level 0 consists of a wide variety of sensors, actuators, and devices involved in the basic manufacturing process. These devices perform the basic functions of the industrial automation and control system, such as:
+Level 0 consists of a wide variety of sensors, actuators, and devices involved in the basic manufacturing process. These devices perform the basic functions of the industrial automation and control system, such as:
 
 - Driving a motor.
 - Measuring variables.
@@ -142,11 +142,11 @@ Level 0 consists of a wide variety of sensors, actuators, and devices involved 
 
 #### Level 1: Process control
 
-Level 1 consists of embedded controllers that control and manipulate the manufacturing process whose key function is to communicate with the Level 0 devices. In discrete manufacturing, those devices are programmable logic controllers (PLCs) or remote telemetry units (RTUs). In process manufacturing, the basic controller is called a distributed control system (DCS).
+Level 1 consists of embedded controllers that control and manipulate the manufacturing process whose key function is to communicate with the Level 0 devices. In discrete manufacturing, those devices are programmable logic controllers (PLCs) or remote telemetry units (RTUs). In process manufacturing, the basic controller is called a distributed control system (DCS).
 
 #### Level 2: Supervisory
 
-Level 2 represents the systems and functions associated with the runtime supervision and operation of an area of a production facility. These usually include the following: 
+Level 2 represents the systems and functions associated with the runtime supervision and operation of an area of a production facility. These usually include the following: 
 
 - Operator interfaces or HMIs
 
@@ -178,11 +178,11 @@ The site level represents the highest level of industrial automation and control
 
 - Industrial domain, Active Directory, terminal server
 
-These systems communicate with the production zone and share data with the enterprise (Level 4 and Level 5) systems and applications.  
+These systems communicate with the production zone and share data with the enterprise (Level 4 and Level 5) systems and applications.  
 
 #### Levels 4 and 5: Business and enterprise networks
 
-Level 4 and Level 5 represent the site or enterprise network where the centralized IT systems and functions exist. The IT organization directly manages the services, systems, and applications at these levels.
+Level 4 and Level 5 represent the site or enterprise network where the centralized IT systems and functions exist. The IT organization directly manages the services, systems, and applications at these levels.
 
 ## Planning for network monitoring
 
@@ -224,9 +224,9 @@ Here are some recommendations for deploying multiple sensors:
 | Number of OT networks | More than 1 | No physical connectivity | More than 1 |
 | Number of switches | Can use RSPAN configuration | Up to 8 switches with local span close to the sensor by cabling distance | More than 1 |
 
-#### Traffic mirroring  
+#### Traffic mirroring  
 
-To see only relevant information for traffic analysis, you need to connect the Defender for IoT platform to a mirroring port on a switch or a TAP that includes only industrial ICS and SCADA traffic. 
+To see only relevant information for traffic analysis, you need to connect the Defender for IoT platform to a mirroring port on a switch or a TAP that includes only industrial ICS and SCADA traffic. 
 
 :::image type="content" source="media/how-to-set-up-your-network/switch.jpg" alt-text="Use this switch for your setup.":::
 
@@ -234,7 +234,7 @@ You can monitor switch traffic by using the following methods:
 
 - [Switch SPAN port](#switch-span-port)
 
-- [Remote SPAN (RSPAN)](#remotespan-rspan)
+- [Remote SPAN (RSPAN)](#remotespan-rspan)
 
 - Active and passive aggregation TAP
 
@@ -244,11 +244,11 @@ SPAN and RSPAN are Cisco terminology. Other brands of switches have similar func
 
 A switch port analyzer mirrors local traffic from interfaces on the switch to interfaces on the same switch. Here are some considerations:
 
-- Verify that the relevant switch supports the port mirroring function.  
+- Verify that the relevant switch supports the port mirroring function.  
 
 - The mirroring option is disabled by default.
 
-- We recommend that you configure all of the switch's ports, even if no data is connected to them. Otherwise, a rogue device might be connected to an unmonitored port, and it would not be alerted on the sensor.
+- We recommend that you configure all of the switch's ports, even if no data is connected to them. Otherwise, a rogue device might be connected to an unmonitored port, and it would not be alerted on the sensor.
 
 - On OT networks that utilize broadcast or multicast messaging, configure the switch to mirror only RX (Receive) transmissions. Otherwise, multicast messages will be repeated for as many active ports, and the bandwidth is multiplied.
 
@@ -279,13 +279,13 @@ The following example shows the required commands that must be configured on the
 
 - switchport mode trunk
 
-#### Remote SPAN (RSPAN)
+#### Remote SPAN (RSPAN)
 
-The remote SPAN session mirrors traffic from multiple distributed source ports into a dedicated remote VLAN.  
+The remote SPAN session mirrors traffic from multiple distributed source ports into a dedicated remote VLAN.  
 
 :::image type="content" source="media/how-to-set-up-your-network/remote-span.png" alt-text="Diagram of remote SPAN.":::
 
-The data in the VLAN is then delivered through trunked ports across multiple switches to a specific switch that contains the physical destination port. This port connects to the Defender for IoT platform.  
+The data in the VLAN is then delivered through trunked ports across multiple switches to a specific switch that contains the physical destination port. This port connects to the Defender for IoT platform.  
 
 ##### More about RSPAN
 
@@ -300,7 +300,7 @@ The data in the VLAN is then delivered through trunked ports across multiple swi
 > [!NOTE]
 > Make sure that the trunk port that's sharing the remote VLAN between the switches is not defined as a mirror session source port.
 >
-> The remote VLAN increases the bandwidth on the trunked port by the size of the mirrored session's bandwidth. Verify that the switch's trunk port supports that.  
+> The remote VLAN increases the bandwidth on the trunked port by the size of the mirrored session's bandwidth. Verify that the switch's trunk port supports that.  
 
 :::image type="content" source="media/how-to-set-up-your-network/remote-vlan.jpg" alt-text="Diagram of remote VLAN.":::
 
@@ -375,17 +375,17 @@ US Robotics USR 4503
 
 ## Deployment validation
 
-### Engineering self-review  
+### Engineering self-review  
 
 Reviewing your OT and ICS network diagram is the most efficient way to define the best place to connect to, where you can get the most relevant traffic for monitoring.
 
 The site engineers know what their network looks like. Having a review session with the local network and operational teams will usually clarify expectations and define the best place to connect the appliance.
 
-Relevant information:
+Relevant information:
 
-- List of known devices (spreadsheet)  
+- List of known devices (spreadsheet)  
 
-- Estimated number of devices  
+- Estimated number of devices  
 
 - Vendors and industrial protocols
 
@@ -415,7 +415,7 @@ Relevant information:
 
 - If we connect to this switch, will we see communication between the HMI and the PLCs?
 
-- What is the physical distance between the ICS switches and the enterprise firewall? 
+- What is the physical distance between the ICS switches and the enterprise firewall? 
 
 - Can unmanaged switches be replaced with managed switches, or is the use of network TAPs an option?
 
@@ -427,13 +427,13 @@ Relevant information:
 
 The purpose of the Defender for IoT appliance is to monitor traffic from layers 1 and 2.
 
-For some architectures, the Defender for IoT appliance will also monitor layer 3, if OT traffic exists on this layer. While you're reviewing the site architecture and deciding whether to monitor a switch, consider the following variables:
+For some architectures, the Defender for IoT appliance will also monitor layer 3, if OT traffic exists on this layer. While you're reviewing the site architecture and deciding whether to monitor a switch, consider the following variables:
 
 - What is the cost/benefit versus the importance of monitoring this switch?
 
 - If a switch is unmanaged, will it be possible to monitor the traffic from the higher-level switch?
 
-  If the ICS architecture is a ring topology, only one switch in this ring needs to be monitored.
+  If the ICS architecture is a ring topology, only one switch in this ring needs to be monitored.
 
 - What is the security or operational risk in this network?
 
@@ -532,19 +532,19 @@ Review this list before site deployment:
 |--|--|--|--|
 | 1 | Provide global. | ☐ |  |
 | 3 | Order appliances. | ☐ |  |
-| 4 | Prepare a list of subnets in the network. | ☐ |  |
+| 4 | Prepare a list of subnets in the network. | ☐ |  |
 | 5 | Provide a VLAN list of the production networks. | ☐ |  |
-| 6 | Provide a list of switch models in the network. | ☐ |  |
-| 7 | Provide a list of vendors and protocols of the industrial equipment. | ☐ |  |
-| 8 | Provide network details for sensors (IP address, subnet, D-GW, DNS). | ☐ |  |
-| 9 | Create necessary firewall rules and the access list. | ☐ |  |
-| 10 | Create spanning ports on switches for port monitoring, or configure network taps as desired. | ☐ |  |
-| 11 | Prepare rack space for sensor appliances. | ☐ |  |
+| 6 | Provide a list of switch models in the network. | ☐ |  |
+| 7 | Provide a list of vendors and protocols of the industrial equipment. | ☐ |  |
+| 8 | Provide network details for sensors (IP address, subnet, D-GW, DNS). | ☐ |  |
+| 9 | Create necessary firewall rules and the access list. | ☐ |  |
+| 10 | Create spanning ports on switches for port monitoring, or configure network taps as desired. | ☐ |  |
+| 11 | Prepare rack space for sensor appliances. | ☐ |  |
 | 12 | Prepare a workstation for personnel. | ☐ |  |
-| 13 | Provide a keyboard, monitor, and mouse for the Defender for IoT rack devices. | ☐ |  |
-| 14 | Rack and cable the appliances. | ☐ |  |
-| 15 | Allocate site resources to support deployment. | ☐ |  |
-| 16 | Create Active Directory groups or local users. | ☐ |  |
+| 13 | Provide a keyboard, monitor, and mouse for the Defender for IoT rack devices. | ☐ |  |
+| 14 | Rack and cable the appliances. | ☐ |  |
+| 15 | Allocate site resources to support deployment. | ☐ |  |
+| 16 | Create Active Directory groups or local users. | ☐ |  |
 | 17 | Set up training (self-learning). | ☐ |  |
 | 18 | Go or no-go. | ☐ |  |
 | 19 | Schedule the deployment date. | ☐ |  |
@@ -559,34 +559,34 @@ Review this list before site deployment:
 
 An overview of the industrial network diagram will allow you to define the proper location for the Defender for IoT equipment.
 
-1.  View a global network diagram of the industrial OT environment. For example:
+1.  View a global network diagram of the industrial OT environment. For example:
 
     :::image type="content" source="media/how-to-set-up-your-network/ot-global-network-diagram.png" alt-text="Diagram of the industrial OT environment for the global network.":::
 
     > [!NOTE]
-    > The Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch.  
+    > The Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch.  
 
-2. Provide the approximate number of devices in the networks (optional).
+2. Provide the approximate number of devices in the networks (optional).
 
-3. Provide a subnet list for the production networks and a description (optional). 
+3. Provide a subnet list for the production networks and a description (optional). 
 
-    |  **#**  | **Subnet name** | **Description** |
+    |  **#**  | **Subnet name** | **Description** |
     |--| --------------- | --------------- |
-    | 1  | |
-    | 2  | |
-    | 3  | |
+    | 1  | |
+    | 2  | |
+    | 3  | |
     | 4  | |
 
-4. Provide a VLAN list of the production networks.
+4. Provide a VLAN list of the production networks.
 
-    | **#** | **VLAN Name** | **Description** |
+    | **#** | **VLAN Name** | **Description** |
     |--|--|--|
     | 1 |  |  |
     | 2 |  |  |
     | 3 |  |  |
     | 4 |  |  |
 
-5. To verify that the switches have port mirroring capability, provide the switch model numbers that the Defender for IoT platform should connect to:
+5. To verify that the switches have port mirroring capability, provide the switch model numbers that the Defender for IoT platform should connect to:
 
     | **#** | **Switch** | **Model** | **Traffic mirroring support (SPAN, RSPAN, or none)** |
     |--|--|--|--|
@@ -595,11 +595,11 @@ An overview of the industrial network diagram will allow you to define the prope
     | 3 |  |  |
     | 4 |  |  |
 
-    Does a third party manage the switches? Y or N 
+    Does a third party manage the switches? Y or N 
 
-    If yes, who? __________________________________ 
+    If yes, who? __________________________________ 
 
-    What is this policy? __________________________________ 
+    What is this policy? __________________________________ 
 
     For example:
 
@@ -607,29 +607,29 @@ An overview of the industrial network diagram will allow you to define the prope
 
     - Rockwell automation – Ethernet or IP
 
-    - Emerson – DeltaV, Ovation
+    - Emerson – DeltaV, Ovation
     
-6. Are there devices that communicate via a serial connection in the network? Yes or No 
+6. Are there devices that communicate via a serial connection in the network? Yes or No 
 
-    If yes, specify which serial communication protocol: ________________ 
+    If yes, specify which serial communication protocol: ________________ 
 
-    If yes, mark on the network diagram what devices communicate with serial protocols, and where they are: 
+    If yes, mark on the network diagram what devices communicate with serial protocols, and where they are: 
  
-    <Add your network diagram with marked serial connection> 
+    <Add your network diagram with marked serial connection> 
 
-7. For QoS, the default setting of the sensor is 1.5 Mbps. Specify if you want to change it: ________________ 
+7. For QoS, the default setting of the sensor is 1.5 Mbps. Specify if you want to change it: ________________ 
 
-   Business unit (BU): ________________ 
+   Business unit (BU): ________________ 
 
-### Specifications for site equipment
+### Specifications for site equipment
 
-#### Network  
+#### Network  
 
-The sensor appliance is connected to switch SPAN port through a network adapter. It's connected to the customer's corporate network for management through another dedicated network adapter.
+The sensor appliance is connected to switch SPAN port through a network adapter. It's connected to the customer's corporate network for management through another dedicated network adapter.
 
-Provide address details for the sensor NIC that will be connected in the corporate network: 
+Provide address details for the sensor NIC that will be connected in the corporate network: 
 
-|                 | Appliance 1 | Appliance 2 | Appliance 3 |
+|  Item               | Appliance 1 | Appliance 2 | Appliance 3 |
 | --------------- | ------------- | ------------- | ------------- |
 | Appliance IP address    |               |               |               |
 | Subnet          |               |               |               |
@@ -646,7 +646,7 @@ Provide address details for the sensor NIC that will be connected in the cor
 | Default gateway |               |               |               |
 | DNS             |               |               |               |
 
-#### On-premises management console  
+#### On-premises management console  
 
 |       Item          | Active | Passive (when using HA) |
 | --------------- | ------ | ----------------------- |
@@ -655,41 +655,41 @@ Provide address details for the sensor NIC that will be connected in the cor
 | Default gateway |        |                         |
 | DNS             |        |                         |
 
-#### SNMP  
+#### SNMP  
 
 |   Item              | Details |
 | --------------- | ------ |
 | IP              |        |
-| IP address | |
-| Username | |
-| Password | |
-| Authentication type | MD5 or SHA |
-| Encryption | DES or AES |
-| Secret key | |
-| SNMP v2 community string |
+| IP address | |
+| Username | |
+| Password | |
+| Authentication type | MD5 or SHA |
+| Encryption | DES or AES |
+| Secret key | |
+| SNMP v2 community string |
 
 ### CM SSL certificate
 
-Are you planning to use an SSL certificate? Yes or No
+Are you planning to use an SSL certificate? Yes or No
 
 If yes, what service will you use to generate it? What attributes will you include in the certificate (for example, domain or IP address)?
 
-### SMTP authentication
+### SMTP authentication
 
-Are you planning to use SMTP to forward alerts to an email server? Yes or No
+Are you planning to use SMTP to forward alerts to an email server? Yes or No
 
-If yes, what authentication method you will use?  
+If yes, what authentication method you will use?  
 
-### Active Directory or local users
+### Active Directory or local users
 
-Contact an Active Directory administrator to create an Active Directory site user group or create local users. Be sure to have your users ready for the deployment day. 
+Contact an Active Directory administrator to create an Active Directory site user group or create local users. Be sure to have your users ready for the deployment day. 
 
-### IoT device types in the network
+### IoT device types in the network
 
 | Device type | Number of devices in the network | Average bandwidth |
 | --------------- | ------ | ----------------------- |
-| Camera | |
-| X-ray machine | |
+| Camera | |
+| X-ray machine | |
 
 ## See also
 

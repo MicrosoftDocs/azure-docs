@@ -4,7 +4,7 @@ description: Learn how to deploy and onboard sensors for Azure Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: rkarlin
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/01/2020
-ms.author: rkarlin
+ms.author: shhazam
 ---
 
 # Deploy and onboard a sensor

@@ -78,4 +78,3 @@ To replace the map:
 ## Next step
 
 [View alerts](how-to-view-alerts.md)
-

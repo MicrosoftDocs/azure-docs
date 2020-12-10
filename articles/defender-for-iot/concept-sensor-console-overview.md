@@ -85,7 +85,7 @@ You access console tools from the side menu.
 
 | Window| Icon | Description |
 |----|---|---|
-| Support | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contact [Microsoft Support](support.microsoft.com) for help. |
+| Support | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contact [Microsoft Support](https://support.microsoft.com/) for help. |
 
 ## See also
 

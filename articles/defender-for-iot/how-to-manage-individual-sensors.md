@@ -17,33 +17,33 @@ This article describes how to activate and set up a sensor, as well as perform s
 
 Your sensor was onboarded with the Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected or cloud connected sensor.
 
-A unique activation file should have been uploaded to each sensor you deploy. 
+A unique activation file should have been uploaded to each sensor you deploy. 
 
-For more information regarding when and how to use a new file, see [Upload new activation files](#upload-new-activation-files).
+For more information regarding when and how to use a new file, see [Upload new activation files](#upload-new-activation-files).
 
 If you can't upload the file, see [Activation file upload troubleshooting](#activation-file-upload-troubleshooting).
 
-### About locally connected sensor activation files
+### About locally connected sensor activation files
 
-Locally connected sensors are associated with an Azure subscription. The activation file for your locally connected sensors contains an expiration date. One month before this date, a warning message appears at the top of the sensor console. The warning remains until after you have updated the activation file.
+Locally connected sensors are associated with an Azure subscription. The activation file for your locally connected sensors contains an expiration date. One month before this date, a warning message appears at the top of the sensor console. The warning remains until after you have updated the activation file.
 
    :::image type="content" source="media/how-to-manage-individual-sensors/system-setting-screenshot.png" alt-text="The screenshot of the system settings.":::
 
-You can continue working with Defender for IoT features even if the activation file has expired. 
+You can continue working with Defender for IoT features even if the activation file has expired. 
 
-### About cloud connected sensor activation files
+### About cloud connected sensor activation files
 
-Sensors that are cloud connected are associated with the Defender for IoT hub. These sensors are not limited by activation file time periods. The activation file for cloud connected sensors is used to ensure connection to the Defender for IoT hub.
+Sensors that are cloud connected are associated with the Defender for IoT hub. These sensors are not limited by activation file time periods. The activation file for cloud connected sensors is used to ensure connection to the Defender for IoT hub.
 
-### Upload new activation files
+### Upload new activation files
 
-You may need to upload a new activation file for an onboarded sensor when: 
+You may need to upload a new activation file for an onboarded sensor when: 
 
-- An activation file expires on a locally connected sensor. 
+- An activation file expires on a locally connected sensor. 
 
-- You want to work in a different sensor management mode. 
+- You want to work in a different sensor management mode. 
 
- - You want to assign a new Defender for IoT hub to a cloud connected sensor.  
+ - You want to assign a new Defender for IoT hub to a cloud connected sensor.
 
 To add a new activation file:
 
@@ -79,9 +79,9 @@ You will receive an error message if the activation file could not be uploaded. 
 
 **For locally connected sensors:** The activation file is not valid. If the file is not valid, go to the Defender for IoT portal, Sensor Management page. Select the sensor with the invalid file and download a new activation file.
 
-**For cloud connected sensors:** The sensor cannot connect to the Internet. Check the sensor network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly in the Sensor Network Configuration screen. Verify that *.azure-devices.net:443 is allowed in the firewall, and, or proxy. If wildcards are not supported or you want more control, the specific Defender for IoT hub FQDN should be opened in your Firewall, and, or Proxy. For details see [https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-endpoints](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fiot-hub%2Fiot-hub-devguide-endpoints&data=02%7C01%7Cshhazam%40microsoft.com%7C54abec3c770244100bf008d85577bc05%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637353320025591548&sdata=Bt%2BcKHNkS8pPamoqnCLtx6m3P9%2BmR9U11M2sCrtDEm0%3D&reserved=0).  
+**For cloud connected sensors:** The sensor cannot connect to the Internet. Check the sensor network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly in the Sensor Network Configuration screen. Verify that *.azure-devices.net:443 is allowed in the firewall, and, or proxy. If wildcards are not supported or you want more control, the specific Defender for IoT hub FQDN should be opened in your Firewall, and, or Proxy. For details see [https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-endpoints](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fiot-hub%2Fiot-hub-devguide-endpoints&data=02%7C01%7Cshhazam%40microsoft.com%7C54abec3c770244100bf008d85577bc05%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637353320025591548&sdata=Bt%2BcKHNkS8pPamoqnCLtx6m3P9%2BmR9U11M2sCrtDEm0%3D&reserved=0).  
 
-- **For cloud connected sensors**: The activation file is valid but Defender for IoT rejected it.
+- **For cloud connected sensors**: The activation file is valid but Defender for IoT rejected it.
 
 If you cannot resolve this issue, you can download another activation from the Defender for IoT portal, Sensor Management page. If this does not work, contact support.
 
@@ -210,7 +210,7 @@ To save the backup to external SMB Server:
 
     - `sudo chmod 777 /<backup_folder_name_on_cyberx_server>/`
 
-3. Edit fstab: 
+3. Edit fstab: 
 
     - `sudo nano /etc/fstab`
 
@@ -218,7 +218,7 @@ To save the backup to external SMB Server:
 
 4. Edit and create credentials to share, these are the credentials for the SMB server:
 
-    - `sudo nano /etc/samba/user` 
+    - `sudo nano /etc/samba/user` 
 
 5. Add:
 
@@ -230,7 +230,7 @@ To save the backup to external SMB Server:
 
     - `sudo mount -a`
 
-7. Configure backup directory to the shared folder on the Defender for IoT sensor:  
+7. Configure backup directory to the shared folder on the Defender for IoT sensor:  
 
     - `sudo nano /var/cyberx/properties/backup.properties`
 
@@ -256,7 +256,7 @@ Restore failures will be displayed.
 
 The following procedure describes how to update a standalone sensor using the sensor console. The update process takes approximately 30 minutes.
 
-1. Go to the [Azure portal](https://portal.azure.com/).
+1. Go to the [Azure portal](https://portal.azure.com/).
 
 2. Go to Defender for IoT.
 
