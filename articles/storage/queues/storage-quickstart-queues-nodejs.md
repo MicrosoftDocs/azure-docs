@@ -4,9 +4,9 @@ description: Learn how to use the Azure Queue Storage client library v12 for Jav
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/13/2019
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
 ms.custom: devx-track-js
 ---
 

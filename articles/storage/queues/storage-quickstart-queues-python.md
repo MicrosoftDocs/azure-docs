@@ -4,9 +4,9 @@ description: Learn how to use the Azure Queue Storage client library v12 for Pyt
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/10/2019
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
 ms.custom: devx-track-python
 ---
 
@@ -59,7 +59,7 @@ Create a Python application named `queues-quickstart-v12`.
 
 ### Install the package
 
-Install the Azure Blob storage client library for Python package by using the `pip install` command.
+Install the Azure Blob Storage client library for Python package by using the `pip install` command.
 
 ```console
 pip install azure-storage-queue

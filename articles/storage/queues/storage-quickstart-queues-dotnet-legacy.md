@@ -1,19 +1,19 @@
 ---
 title: "Quickstart: Use Azure Storage v11 for .NET to manage a queue"
-description: In this quickstart, you learn how to use the Azure Storage client library for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue.
+description: In this quickstart, you learn how to use the Azure Storage Client Library for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue.
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 07/24/2020
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
-ms.reviewer: dineshm
 ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue
 
-In this quickstart, you learn how to use the Azure Storage client library v11 for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue.
+In this quickstart, you learn how to use the Azure Storage Client Library v11 for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue.
 
 > [!NOTE]
 > This quickstart uses a legacy version of the Azure Queue Storage client library. To get started with the latest version, see [Quickstart: Azure Queue Storage client library v12 for .NET](storage-quickstart-queues-dotnet.md).
@@ -261,12 +261,12 @@ See these additional resources for .NET development with Azure Queue Storage:
 
 ### Binaries and source code
 
-- Download the NuGet packages for the latest version of the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage)
-  - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+- Download the NuGet packages for the latest version of the [Azure Storage Client Library for .NET](/dotnet/api/overview/azure/storage)
+  - [Common](https://www.nuget.org/packages/microsoft.azure.storage.common/)
   - [Queues](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - View the [.NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.
 
-### Azure Storage client library reference and samples
+### Azure Storage Client Library reference and samples
 
 - See the [Azure Storage client libraries for .NET reference](/dotnet/api/overview/azure/storage) for more information about the .NET client libraries.
 - Explore [Queue Storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) written using the .NET client library.

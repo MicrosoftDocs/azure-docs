@@ -3,11 +3,11 @@ title: How to use Azure Queue Storage from Python - Azure Storage
 description: Learn to use the Azure Queue Storage from Python to create and delete queues, and insert, get, and delete messages.
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 08/25/2020
+ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.topic: how-to
-ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, devx-track-python
 ---
 
@@ -27,7 +27,7 @@ The examples in this article are written in Python and use the [Azure Queue Stor
 
 ## Download and install Azure Storage SDK for Python
 
-The [Azure Storage SDK for Python](https://github.com/azure/azure-storage-python) requires Python version 2.7, 3.3, or later.
+The [Azure Storage SDK for Python](https://github.com/azure/azure-storage-python) requires Python v2.7, v3.3, or later.
 
 ### Install via PyPI
 
@@ -48,7 +48,7 @@ pip install azure-storage-queue==2.1.0
 ---
 
 > [!NOTE]
-> If you are upgrading from the Azure Storage SDK for Python version 0.36 or earlier, uninstall the older SDK using `pip uninstall azure-storage` before installing the latest package.
+> If you are upgrading from the Azure Storage SDK for Python v0.36 or earlier, uninstall the older SDK using `pip uninstall azure-storage` before installing the latest package.
 
 For alternative installation methods, see [Azure SDK for Python](https://github.com/Azure/Azure-SDK-for-Python).
 
@@ -132,11 +132,11 @@ queue_service.put_message(queue_name, message)
 
 ---
 
-Azure queue messages are stored as text. If you want to store binary data, setup base64 encoding and decoding functions before putting a message in the queue.
+Azure queue messages are stored as text. If you want to store binary data, setup Base64 encoding and decoding functions before putting a message in the queue.
 
 # [Python v12](#tab/python)
 
-Configure base64 encoding and decoding functions on the queue client object.
+Configure Base64 encoding and decoding functions on the queue client object.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
 
@@ -294,4 +294,4 @@ Now that you've learned the basics of Queue Storage, follow these links to learn
 
 - [Azure Queue Storage Python API reference](/python/api/azure-storage-queue)
 - [Python developer center](https://azure.microsoft.com/develop/python/)
-- [Azure Storage REST API Reference](/rest/api/storageservices/)
+- [Azure Storage REST API reference](/rest/api/storageservices/)

@@ -4,9 +4,9 @@ description: Learn how to use the Azure Queue Storage client library v2 for .NET
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 07/24/2020
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
 ms.custom: devx-track-csharp
 ---
 

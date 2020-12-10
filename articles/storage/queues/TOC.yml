@@ -277,17 +277,17 @@
   - name: NuGet packages (.NET)
     items:
     - name: Microsoft.Azure.Storage.Common (version 11.x)
-      href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/
+      href: https://www.nuget.org/packages/microsoft.azure.storage.common/
     - name: Azure.Storage.Common (version 12.x)
       href: https://www.nuget.org/packages/Azure.Storage.Common/
     - name: Microsoft.Azure.Storage.Queue (version 11.x)
-      href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/
+      href: https://www.nuget.org/packages/microsoft.azure.storage.queue/
     - name: Azure.Storage.Queue (version 12.x)
-      href: https://www.nuget.org/packages/Azure.Storage.Queues/
+      href: https://www.nuget.org/packages/azure.storage.queues/
     - name: Azure Configuration Manager
-      href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
+      href: https://www.nuget.org/packages/microsoft.azure.configurationmanager/
     - name: Storage Resource Provider library
-      href: https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/
+      href: https://www.nuget.org/packages/microsoft.azure.management.storage/
   - name: Source code
     items:
     - name: .NET

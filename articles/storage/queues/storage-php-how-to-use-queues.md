@@ -3,11 +3,11 @@ title: How to use Queue Storage from PHP - Azure Storage
 description: Learn how to use the Azure Queue Storage service to create and delete queues, and insert, get, and delete messages. Samples are written in PHP.
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 01/11/2018
+ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.topic: how-to
-ms.reviewer: dineshm
 ---
 
 # How to use Queue Storage from PHP
@@ -16,7 +16,7 @@ ms.reviewer: dineshm
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-This guide shows you how to perform common scenarios by using the Azure Queue Storage service. The samples are written via classes from the [Azure Storage client library for PHP](https://github.com/Azure/azure-storage-php). The covered scenarios include inserting, peeking, getting, and deleting queue messages, as well as creating and deleting queues.
+This guide shows you how to perform common scenarios by using the Azure Queue Storage service. The samples are written via classes from the [Azure Storage Client Library for PHP](https://github.com/Azure/azure-storage-php). The covered scenarios include inserting, peeking, getting, and deleting queue messages, as well as creating and deleting queues.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -24,7 +24,7 @@ This guide shows you how to perform common scenarios by using the Azure Queue St
 
 ## Create a PHP application
 
-The only requirement for creating a PHP application that accesses Azure Queue Storage is the referencing of classes in the [Azure Storage client library for PHP](https://github.com/Azure/azure-storage-php) from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement for creating a PHP application that accesses Azure Queue Storage is the referencing of classes in the [Azure Storage Client Library for PHP](https://github.com/Azure/azure-storage-php) from within your code. You can use any development tools to create your application, including Notepad.
 
 In this guide, you use the Queue Storage service features that can be called within a PHP application locally, or in code running within a web application in Azure.
 
