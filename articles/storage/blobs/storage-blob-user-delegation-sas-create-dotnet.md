@@ -75,118 +75,33 @@ Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 
 ## Get a user delegation SAS for a blob
 
-The following example method shows the complete code for authenticating the security principal and creating the user delegation SAS:
+The following code example shows the complete code for authenticating the security principal and creating the user delegation SAS for a blob:
 
-```csharp
-async static Task<Uri> GetUserDelegationSasBlob(string accountName, string containerName, string blobName)
-{
-    // Construct the blob endpoint from the account name.
-    string blobEndpoint = string.Format("https://{0}.blob.core.windows.net", accountName);
-
-    // Create a new Blob service client with Azure AD credentials.  
-    BlobServiceClient blobClient = new BlobServiceClient(new Uri(blobEndpoint), 
-                                                            new DefaultAzureCredential());
-
-    // Get a user delegation key for the Blob service that's valid for seven days.
-    // You can use the key to generate any number of shared access signatures over the lifetime of the key.
-    UserDelegationKey key = await blobClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow, 
-                                                                        DateTimeOffset.UtcNow.AddDays(7));
-
-    // Read the key's properties.
-    Console.WriteLine("User delegation key properties:");
-    Console.WriteLine("Key signed start: {0}", key.SignedStartsOn);
-    Console.WriteLine("Key signed expiry: {0}", key.SignedExpiresOn);
-    Console.WriteLine("Key signed object ID: {0}", key.SignedObjectId);
-    Console.WriteLine("Key signed tenant ID: {0}", key.SignedTenantId);
-    Console.WriteLine("Key signed service: {0}", key.SignedService);
-    Console.WriteLine("Key signed version: {0}", key.SignedVersion);
-    Console.WriteLine();
-
-    // Create a SAS token that's valid for one hour.
-    BlobSasBuilder sasBuilder = new BlobSasBuilder()
-    {
-        BlobContainerName = containerName,
-        BlobName = blobName,
-        Resource = "b",
-        StartsOn = DateTimeOffset.UtcNow,
-        ExpiresOn = DateTimeOffset.UtcNow.AddHours(1)
-    };
-
-    // Specify read permissions for the SAS.
-    sasBuilder.SetPermissions(BlobSasPermissions.Read);
-
-    // Use the key to get the SAS token.
-    string sasToken = sasBuilder.ToSasQueryParameters(key, accountName).ToString();
-
-    // Construct the full URI, including the SAS token.
-    UriBuilder fullUri = new UriBuilder()
-    {
-        Scheme = "https",
-        Host = string.Format("{0}.blob.core.windows.net", accountName),
-        Path = string.Format("{0}/{1}", containerName, blobName),
-        Query = sasToken
-    };
-
-    Console.WriteLine("User delegation SAS URI: {0}", fullUri);
-    Console.WriteLine();
-    return fullUri.Uri;
-}
-```
-
-## Example: Read a blob with a user delegation SAS
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasBlob":::
 
 The following example tests the user delegation SAS created in the previous example from a simulated client application. If the SAS is valid, the client application is able to read the contents of the blob. If the SAS is invalid, for example if it has expired, Azure Storage returns error code 403 (Forbidden).
 
-```csharp
-private static async Task ReadBlobWithSasAsync(Uri sasUri)
-{
-    // Try performing blob operations using the SAS provided.
-
-    // Create a blob client object for blob operations.
-    BlobClient blobClient = new BlobClient(sasUri, null);
-
-    // Download and read the contents of the blob.
-    try
-    {
-        // Download blob contents to a stream and read the stream.
-        BlobDownloadInfo blobDownloadInfo = await blobClient.DownloadAsync();
-        using (StreamReader reader = new StreamReader(blobDownloadInfo.Content, true))
-        {
-            string line;
-            while ((line = reader.ReadLine()) != null)
-            {
-                Console.WriteLine(line);
-            }
-        }
-
-        Console.WriteLine();
-        Console.WriteLine("Read operation succeeded for SAS {0}", sasUri);
-        Console.WriteLine();
-    }
-    catch (RequestFailedException e)
-    {
-        // Check for a 403 (Forbidden) error. If the SAS is invalid,
-        // Azure Storage returns this error.
-        if (e.Status == 403)
-        {
-            Console.WriteLine("Read operation failed for SAS {0}", sasUri);
-            Console.WriteLine("Additional error information: " + e.Message);
-            Console.WriteLine();
-        }
-        else
-        {
-            Console.WriteLine(e.Message);
-            Console.ReadLine();
-            throw;
-        }
-    }
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ReadBlobWithSasAsync":::
 
 ## Get a user delegation SAS for a container
 
+The following code example shows how to generate a user delegation SAS for a container:
 
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasContainer":::
 
+The following example tests the user delegation SAS created in the previous example from a simulated client application. If the SAS is valid, the client application is able to read the contents of the blob. If the SAS is invalid, for example if it has expired, Azure Storage returns error code 403 (Forbidden).
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListBlobsWithSasAsync":::
+
+## Get a user delegation SAS for a directory
+
+The following code example shows how to generate a user delegation SAS for a directory in an account with a hierarchical namespace enabled:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasContainer":::
+
+The following example tests the user delegation SAS created in the previous example from a simulated client application. If the SAS is valid, the client application is able to read the contents of the blob. If the SAS is invalid, for example if it has expired, Azure Storage returns error code 403 (Forbidden).
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListBlobsWithSasAsync":::
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
