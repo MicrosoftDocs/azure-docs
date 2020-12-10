@@ -10,7 +10,7 @@ ms.subservice: core
 ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4
+ms.custom: how-to, contperf-fy20q4
 
 ---
 # Trigger a run of a Machine Learning pipeline from a Logic App
