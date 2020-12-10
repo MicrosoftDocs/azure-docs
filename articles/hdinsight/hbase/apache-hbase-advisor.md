@@ -11,15 +11,19 @@ ms.date: 12/02/2020
 #Customer intent: The azure advisories help to tune the cluster/query. This doc gives a much deeper understanding of the various advisories including the recommended configuration tunings.
 ---
 
-# Reading most recent data from memstore
-If your use case happens to be reading the most recent data it means that most of the reads will land in memstore. The query advisory might indicate that greater than 75% of the data being read are hitting the memstore. This suggests that even if a flush happens on the memstore the recent file needs to be accessed and that needs to be in cache. 
+# Reading most recent data
+If your use case happens to be reading the most recent data it means that most of the reads will land in memstore. The query advisory indicates that for a given column family in a table has > 75% reads that are getting served from memstore. This suggests that even if a flush happens on the memstore the recent file needs to be accessed and that needs to be in cache. To understand this even better, though the data is first written to memstore and we keep accessing the recent data, there is a chance that the flusher threads might that a given region has reached 128M (default) size and might trigger a flush. This specifically happens to the most recent data that was written when the memstore was around 128M in size. Such records might end up being a file read rather than from memstore. Hence it is better to ensure that even those data that are recently flushed can reside in the cache.
 
 Ensure that the following configs are tuned
 1.  Set `hbase.rs.cacheblocksonwrite` to `true`  - This is by default true in HDInsight HBase. Ensure this not reset.
 2.  Increase the `hbase.hstore.compactionThreshold` value so that you can avoid the compaction from kicking in. By default this is `3`. You can increase it to a higher value like `10`.
-3. If you are doing #2 then change `hbase.hstore.compaction.max` to a higher value for eg `100`.
-4. If you are sure that you are interested only in the recent data then turn ON `hbase.rs.cachecompactedblocksonwrite` configuration so that even if compaction happens then we are sure that the data is in cache. These configs can be set at the family level also.
-5. Block cache can be turned off for a given family in a table. Ensure that it is turned ON for families that have most recent data reads.
+3. If you are doing #2 then change `hbase.hstore.compaction.max` to a higher value for eg `100` and also increase the value for the config `hbase.hstore.blockingStoreFiles` to higher value for eg `300`.
+4. If you are sure that you are interested only in the recent data then turn ON `hbase.rs.cachecompactedblocksonwrite` configuration so that even if compaction happens then we are sure that the data is in cache. These configs can be set at the family level also. In the hbase shell
+  ```
+   alter '<TableName>', {NAME => '<FamilyName>', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '300'}}
+  ```
+5. Block cache can be turned off for a given family in a table. Ensure that it is turned ON for families that have most recent data reads. By default block cache is turned ON for all families in a table. In case you have disabled the block cache for a family and need to turn it ON then use the alter command from the hbase shell.
+
 
 The above configurations helps to ensure that as far as possible the data is in cache and that the recent data does not undergo compaction. If a TTL is possible in your usecase then mind considering Date tiered compaction. For more details on what is Date Tiered compaction check the below link,
   ```
@@ -29,7 +33,7 @@ The above configurations helps to ensure that as far as possible the data is in 
 # Flush queue/region count tuning
 The advisory may indicate that your flushes may need tuning. This happens due to two reasons, either because the flush handlers are not enough as the flushes are slower or the region count is so large that the updates are getting blocked and the flusher threads needs to flush more frequently. 
 
-In the region server UI keep an eye on the flush queue and if it grows beyond 100 then it means that the flushes are slower and you may have to tune the  configuration  `hbase.hstore.flusher.count`. By default the value is 2. Ensure that the max flusher threads do not increase 10.
+In the region server UI keep an eye on the flush queue and if it grows beyond 100 then it means that the flushes are slower and you may have to tune the  configuration  `hbase.hstore.flusher.count`. By default the value is 2. Ensure that the max flusher threads do not increase beyond 6.
 
 The most prominent reason why you have blocked updates is that the region count might be more than the optimally supported heap size. Generally how to tune the heap size, memstore size and the region count? Lets see with an example
 
