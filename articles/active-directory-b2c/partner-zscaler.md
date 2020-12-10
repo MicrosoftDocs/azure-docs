@@ -110,7 +110,7 @@ Follow the instructions there through [step 4.2](https://docs.microsoft.com/azur
 
 - **logoutUrl**: Skip this property as ZPA doesn't support a logout URL.
 
->[!NOTE]The rest of the steps are not relevant to this tutorial.
+The rest of the steps are not relevant to this tutorial.
 
 ### Part 4 - Extract the IdP SAML metadata from Azure AD B2C
 
@@ -142,7 +142,7 @@ Complete the [IdP configuration in the ZPA Admin Portal](https://help.zscaler.co
 
    c. Select **Save**.
 
-      ![Image shows the sp metadata information](media/partner-zscaler/create-idp.png)
+      ![Image shows the create idp information](media/partner-zscaler/create-idp.png)
 
 ## Test the solution
 
