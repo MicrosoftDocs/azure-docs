@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2020
+ms.date: 12/10/2020
 ms.author: jodowns
 ms.collection: M365-identity-device-management
 ---
