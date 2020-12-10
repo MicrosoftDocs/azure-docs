@@ -1,17 +1,20 @@
 ﻿---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Use community widgets
+titleSuffix: Azure API Management
+description: Learn about community widgets and how to inject and use them in your code. 
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
 
+# Use community widgets
+
 All accepted community-contributed widgets are located in the `/community/widgets/` folder of the repository. You can use the widgets by injecting them into the self-hosted version of the portal. You can't load community widgets in the managed version of the portal. 
 
 *Although we thoroughly inspect all the contributed widgets and their dependencies, we can’t guarantee it’s safe to load them. Use your own judgement whether to use a widget contributed by the community.
-Refer to [our widget contribution guidelines](Widget-contribution-guidelines#Guidelines) to learn about our preventive measures.*
+Refer to [our widget contribution guidelines](dev-portal-widget-contribution-guidelines.md#guidelines) to learn about our preventive measures.*
 
 ## Inject and use external widgets
 
@@ -52,4 +55,8 @@ Refer to [our widget contribution guidelines](Widget-contribution-guidelines#Gui
 
 1. Run `npm start`. You should be able to see the widget in the *Community* category in the widget selector.
 
-    ![Widget selector](media/Implement-widgets/widget-selector.png)
+    ![Widget selector](media/dev-portal/widget-selector.png)
+
+## Next steps
+
+- [Testing self-hosted portal](dev-portal-testing.md)

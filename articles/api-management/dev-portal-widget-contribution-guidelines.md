@@ -1,12 +1,15 @@
 ---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Widget contribution guidelines
+titleSuffix: Azure API Management
+description: Learn about the guidelines you have to follow when you contribute a widget to the API Management developer portal repository.
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
+
+# Widget contribution guidelines
 
 If you'd like to contribute a widget to the API Management developer portal repository, you need to follow a three-step process:
 
@@ -14,9 +17,9 @@ If you'd like to contribute a widget to the API Management developer portal repo
 1. Implement the widget.
 1. Open a pull request to include your widget in the official repository.
 
-Your widget will inherit the repository's license and will be available for [opt-in installation in the self-hosted version of the portal](Use-community-widgets). We may decide to also include it in the managed version of the portal.
+Your widget will inherit the repository's license and will be available for [opt-in installation in the self-hosted version of the portal](dev-portal-use-community-widgets.md). We may decide to also include it in the managed version of the portal.
 
-Refer to [the widget implementation tutorial](Implement-widgets) for an example of how to develop your own widget.
+Refer to [the widget implementation tutorial](dev-portal-implement-widgets.md) for an example of how to develop your own widget.
 
 ## Guidelines
 
@@ -38,6 +41,6 @@ We welcome your contributions!
 
 ## Next steps
 
-[[Implement widgets]] - learn how to develop your own widget, step by step.
+[Implement widgets](dev-portal-implement-widgets.md) - learn how to develop your own widget, step by step.
 
-[[Use community widgets]] - learn how to use widgets contributed by the community.
+[Use community widgets](dev-portal-use-community-widgets.md) - learn how to use widgets contributed by the community.

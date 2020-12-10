@@ -1,12 +1,15 @@
 ---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Self-host the portal
+titleSuffix: Azure API Management
+description: Learn how to setup your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure Storage Account.
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
+
+# Self-host the portal
 
 In this tutorial, we describe how to setup your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure Storage Account.
 
@@ -16,11 +19,11 @@ If you have already uploaded or modified media files in the managed portal, you 
 
 To set up a local development environment, you need to have:
 
-- API Management instance. If you don't have one, [follow this tutorial](https://docs.microsoft.com/azure/api-management/get-started-create-service-instance).
-- Storage Account with [the static websites feature](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website) enabled. Learn [how to create a new Storage Account in Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+- API Management instance. If you don't have one, [follow this tutorial](get-started-create-service-instance.md).
+- Storage Account with [the static websites feature](../storage/blobs/storage-blob-static-website.md) enabled. Learn [how to create a new Storage Account in Azure](../storage/common/storage-account-create.md).
 - Git on your machine. Install it by following [this Git tutorial](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 - Node.js (LTS version, `v10.15.0` or later) and npm on your machine. Follow [this tutorial](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to install them.
-- Azure CLI. Follow [the Azure CLI installation steps](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+- Azure CLI. Follow [the Azure CLI installation steps](/cli/azure/install-azure-cli-windows).
 
 ## Step 1: Setup local environment
 
@@ -54,7 +57,7 @@ The developer portal requires API Management's REST API to manage the content.
 ```
 
 1. Replace `<service-name>` in `"managementApiUrl": "https://<service-name>.management.azure-api.net/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/xxxxx/providers/Microsoft.ApiManagement/service/<service-name>"` with the name of your API Management instance. For example: `https://contoso-api.management.azure-api.net/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/xxxxx/providers/Microsoft.ApiManagement/service/contoso-api`. You don't need to replace the `xxx...x` strings.
-1. [Enable the direct REST API access](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication#ManuallyCreateToken) to your API Management instance. Copy the generated token and place it in the `"managementApiAccessToken": "SharedAccessSignature ..."` parameter.
+1. [Enable the direct REST API access](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication#ManuallyCreateToken) to your API Management instance. Copy the generated token and place it in the `"managementApiAccessToken": "SharedAccessSignature ..."` parameter.
 1. Replace `<service-name>` in `"backendUrl": "https://<service-name>.management.azure-api.net"` with the name of your API Management instance. For example: `https://contoso-api.management.azure-api.net`.
 1. If you'd like to enable CAPTCHA in your developer portal, follow the [[Enable CAPTCHA]] tutorial.
 
@@ -149,7 +152,7 @@ It will automatically open the default browser with your local developer portal 
 
 Customize your portal, author content, organize the structure of the website, and style its appearance through the built-in visual editor. Refer to [the Azure documentation tutorial for the managed version of the portal](https://aka.ms/apimdocs/customizeportal), which covers the basics of the administrative user interface and lists recommended changes to the default content.
 
-![API Management developer portal development - save content](media/readme-dev-save.png)
+![API Management developer portal development - save content](media/dev-portal/readme-dev-save.png)
 
 ## Step 6: Publish locally
 
@@ -159,7 +162,7 @@ The portal data is described in form of strong-typed objects. The following comm
 npm run publish
 ```
 
-![API Management developer portal development - generate static files](media/readme-dev-generate.png)
+![API Management developer portal development - generate static files](media/dev-portal/readme-dev-generate.png)
 
 ## Step 7: Upload
 
@@ -171,13 +174,13 @@ az storage blob upload-batch --source dist/website --destination $web --connecti
 
 Replace `<account-connection-string>` with the connection string of your Storage Account. You can get it from the *Access keys* section of your Storage Account, similarly to how you did it for the `./src/config.publish.json` file.
 
-![API Management developer portal development - publish portal](media/readme-dev-upload.png)
+![API Management developer portal development - publish portal](media/dev-portal/readme-dev-upload.png)
 
 ## Step 8: Visit your website
 
 Your website is now live under the hostname specified in your Azure Storage properties (*Primary endpoint* in *Static websites*).
 
-![API Management developer portal development - visit portal](media/readme-dev-visit.png)
+![API Management developer portal development - visit portal](media/dev-portal/readme-dev-visit.png)
 
 ## Step 9: Change API Management notification templates
 
@@ -199,5 +202,5 @@ In particular, we recommend the following changes to the default templates
 
 ## Next steps
 
-- [[Enable CAPTCHA]]
-- Learn about [[Alternative processes for self-hosted portal]]
+- [Enable CAPTCHA](dev-portal-enable-captcha.md)
+- Learn about [Alternative processes for self-hosted portal](dev-portal-alternative-processes-self-hosted-portal.md)

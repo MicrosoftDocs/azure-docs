@@ -1,14 +1,15 @@
 ---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Architectural concepts
+titleSuffix: Azure API Management
+description: "Learn about these two portal architectural components: code and content."
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
 
-## Portal architectural concepts
+# Portal architectural concepts
 
 The portal components can be logically divided into two categories: *code* and *content*.
 
@@ -32,3 +33,7 @@ The portal components can be logically divided into two categories: *code* and *
 *Portal content*, except for media, is expressed as JSON documents.
 
 *API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
+
+## Next steps
+
+- Review the [FAQs](dev-portal-faq.md).

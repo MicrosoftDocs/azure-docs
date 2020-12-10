@@ -1,12 +1,15 @@
 ---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Integrate application insights
+titleSuffix: Azure API Management
+description: Learn how to integrate application insights into your managed or self-hosted developer portal.
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
+
+# Integrate application insights
 
 Application Insights, a feature of Azure Monitor, is an extensible Application Performance Management service for developers and DevOps professionals. Use it to monitor your developer portal and detect performance anomalies. Application Insights includes powerful analytics tools to help you understand what users actually do while visiting your developer portal.
 
@@ -70,3 +73,7 @@ Extended the configuration from the previous step with Application Insights conf
     ]
 }
 ```
+
+## Next steps
+
+- [Integrate Google Tag Manager](dev-portal-integrate-google-tag-manager.md)

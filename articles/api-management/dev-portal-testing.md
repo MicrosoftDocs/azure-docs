@@ -1,14 +1,20 @@
 ---
-title: placeholder title
-description: placeholder description text
-author: apimpm
-ms.author: edoyle
+title: Test self-hosting
+titleSuffix: Azure API Management
+description: Learn how to set up unit tests and end-to-end tests for your self-hosted portal.
+author: erikadoyle
+ms.author: apimpm
 ms.date: 11/30/2020
 ms.service: api-management
 ms.topic: how-to
 ---
 
+# Test self-hosting
+
+This article explains how to set up unit tests and end-to-end tests for your self-hosted portal.
+
 ## Unit tests
+
 ### What is a unit test?
 A unit test is an approach to the validation of small pieces of functionality in isolation from other parts of the application.
 
@@ -166,3 +172,7 @@ npm run test
 Test Explorer extension for VS Code (for example, [Mocha Test Explorer](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter)) has convenient UI and an option to autorun tests on every change of the source code:
 
 ![image](https://user-images.githubusercontent.com/2320302/93644489-eafc7880-f9b6-11ea-8744-363c83c4d302.png)
+
+## Next steps
+
+- [Integrate Application Insights](dev-portal-integrate-application-insights.md)
