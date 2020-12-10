@@ -2,7 +2,7 @@
 title: 'Monitoring Azure Time Series Insights data reference | Microsoft Docs'
 description: Reference documentation for monitoring Azure Time Series Insights.
 author: deepakpalled
-ms.author: lyranahughes
+ms.author: lyhughes
 manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
