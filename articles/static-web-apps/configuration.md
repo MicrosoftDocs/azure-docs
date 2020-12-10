@@ -31,7 +31,6 @@ See the [example configuration](#example-configuration-file) file for details.
 
 Route rules allow you to define the pattern of  URLs that expose your application to the web. Routes are are defined as an array of routing rules. See the [example configuration file](#example-configuration-file) for usage examples.
 
-- Rules are executed in the order as they appear in the `routes` array.
 - Rule evaluation stops at the first match. Routing rules aren't chained together.
 - You have full control over custom role names, built-in role names include [`anonymous`](./authentication-authorization.md) and [`authenticated`](./authentication-authorization.md).
 
