@@ -22,6 +22,10 @@ ms.topic: conceptual
 
 Azure Data CLI (`azdata`) version number: 20.2.5. Download at [https://aka.ms/azdata](https://aka.ms/azdata).
 
+View endpoints for SQL Managed Instance and PostgreSQL Hyperscale using the Azure Data CLI (`azdata`) with `azdata arc sql endpoint list` and `azdata arc postgres endpoint list` commands.
+
+Edit SQL Managed Instance resource (CPU core and memory) requests and limits using Azure Data Studio.
+	 
 Azure Arc enabled PostgreSQL Hyperscale now supports point in time restore in addition to full backup restore for both versions 11 and 12 of PostgreSQL. The point in time restore capability allows you to indicate a specific date and time to restore to.
 
 The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed. It is now in the form: ServergroupName{r, s}-_n_. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
