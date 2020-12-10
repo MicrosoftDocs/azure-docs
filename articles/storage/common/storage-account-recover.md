@@ -29,7 +29,7 @@ If the deleted storage account used customer-managed keys with Azure Key Vault a
 >
 > Another best practice to avoid accidental account deletion is to limit the number of users who have permissions to delete an account via role-based access control (Azure RBAC). For more information, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
-## Recover a deleted account from within another storage account
+## Recover a deleted account from the Azure portal
 
 To recover a deleted storage account from within another storage account, follow these steps:
 
@@ -41,7 +41,7 @@ To recover a deleted storage account from within another storage account, follow
 
 1. Select the **Recover** button to restore the account. The portal displays a notification that the recovery is in progress.
 
-## Recover a deleted account via support
+## Recover a deleted account via a support ticket
 
 1. In the Azure portal, navigate to **Help + support**.
 1. Select **New support request**.
