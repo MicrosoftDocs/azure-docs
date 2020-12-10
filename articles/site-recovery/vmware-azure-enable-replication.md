@@ -101,15 +101,15 @@ After "Enable replication" of the protected item is complete, Azure Site Recover
 To track the progress of initial replication, navigate to recovery services vault in Azure portal -> replicated items -> monitor "Status" column value of replicated item. The status shows the percentage completion of initial replication. Upon hovering over the Status, the "Total data transferred" would be available. Upon clicking on status, a contextual page opens and displays the following parameters
 
 1. Last refreshed at - indicates the latest time at which the replication information of the whole machine has been refreshed by the service.
-2. Completed percentage - indicates the total data replicated from source machine to Azure
-3. Total data transferred - Amount of data of the VM transferred to Azure:::image type="content" source="media/vmware-azure-enable-replication/IR state.png" alt-text="State of replication":::
+2. Completed percentage - indicates the percentage of initial replication completed for the VM
+3. Total data transferred - Amount of data transferred from VM to Azure:::image type="content" source="media/vmware-azure-enable-replication/IR state.png" alt-text="State of replication":::
 4. Synchronization progress (to track details at a disk level)
     - State of replication
       - If replication is yet to start, then the status is updated as "In queue". During initial replication, only 3 disks are replicated at a time. This mechanism is followed to avoid throttling at the process server.
       - After replication starts, the status is updated as "In progress".
       - After completion of initial replication, status is marked as "Complete".
             
-   - Site Recovery reads through the original disk, transfers data to Azure and captures progress at a disk level. Note that, Site Recovery skips replication of the unoccupied size of the disk and adds it to the completed data.
+   - Site Recovery reads through the original disk, transfers data to Azure and captures progress at a disk level. Note that, Site Recovery skips replication of the unoccupied size of the disk and adds it to the completed data. So, sum of data transferred across all disks might not add up to the "total data transferred" at the VM level.
    - Upon clicking on the information balloon against a disk you can obtain details on when the replication (synonymous for synchronization) was triggered for the disk, data transferred to Azure in the last 15 min followed by the last refreshed time stamp. This time stamp indicates latest time at which information was received by Azure service from the source machine
    :::image type="content" source="media/vmware-azure-enable-replication/Info-balloon.png" alt-text="Information balloon":::
    - Health of each disk is displayed
