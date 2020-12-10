@@ -36,7 +36,7 @@ You might not need that level of control over what languages your customer sees.
 
 ## Prerequisites
 
-[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ::: zone pivot="b2c-user-flow"
 
@@ -517,7 +517,7 @@ Azure AD B2C includes support for the following languages. User flow languages a
 
 ::: zone pivot="b2c-user-flow"
 
-Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application in Azure Active Directory B2C](customize-ui.md).
+Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application in Azure Active Directory B2C](customize-ui-with-html.md).
 
 ::: zone-end 
 

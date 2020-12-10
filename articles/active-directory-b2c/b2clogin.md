@@ -57,7 +57,7 @@ There are several modifications you might need to make to migrate your applicati
 
 * Change the redirect URL in your identity provider's applications to reference *b2clogin.com*.
 * Update your Azure AD B2C applications to use *b2clogin.com* in their user flow and token endpoint references. This may include updating your use of an authentication library like Microsoft Authentication Library (MSAL).
-* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](custom-policy-ui-customization.md).
+* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](customize-ui-with-html.md).
 
 An old endpoint may look like:
 - <b><code>https://login.microsoft.com/</b>\<tenant-name\>.onmicrosoft.com/\<policy-name\>/oauth2/v2.0/authorize</code>

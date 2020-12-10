@@ -24,7 +24,7 @@ You can customize your user flow pages with a banner logo, background image, and
 
 ## Prerequisites
 
-[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 
 To customize your user flow pages, you first configure company branding in Azure Active Directory, then you enable it in the page layouts of your user flows in Azure AD B2C.
@@ -121,4 +121,4 @@ To use your company branding assets in [custom HTML](customize-ui-with-html.md),
 <img data-tenant-branding-logo="true" alt="Company Logo" />
 ```
 
-The image source is replaced with that of the background image and banner logo. As described in the [Get started with custom HTML and CSS](#get-started-with-custom-html-and-css) section, use CSS classes to style and position the assets on the page .
+The image source is replaced with that of the background image and banner logo.

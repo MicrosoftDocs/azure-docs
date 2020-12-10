@@ -161,7 +161,7 @@ The **ContentDefinitionParameter** element contains the following attribute:
 | --------- | -------- | ----------- |
 | Name | Yes | The name of the key value pair. |
 
-For more information, see [Configure the UI with dynamic content by using custom policies](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
+For more information, see [Configure the UI with dynamic content by using custom policies](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
 
 ## TechnicalProfile
 

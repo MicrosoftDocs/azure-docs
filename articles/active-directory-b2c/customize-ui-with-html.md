@@ -67,7 +67,7 @@ The following table lists the default page content provided by Azure AD B2C. Dow
 
 ## Hosting the page content
 
-When using your own HTML and CSS files to customize the UI, host your UI content on any publicly available HTTPS endpoint that supports CORS. For example, [Azure Blob storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Services](../articles/app-service/index.yml), web servers, CDNs, AWS S3, or file sharing systems.
+When using your own HTML and CSS files to customize the UI, host your UI content on any publicly available HTTPS endpoint that supports CORS. For example, [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md), [Azure App Services](../app-service/index.yml), web servers, CDNs, AWS S3, or file sharing systems.
 
 ## Guidelines for using custom page content
 
@@ -105,6 +105,10 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 ```
 
 ## Custom page content walkthrough
+
+## Prerequisites
+
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 Here's an overview of the process:
 
@@ -230,7 +234,7 @@ Validate that you're ready by performing the following steps:
 
 ::: zone pivot="b2c-user-flow"
 
-## 4. Update the user flow
+### 4. Update the user flow
 
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **User flows**, and then select the *B2C_1_signupsignin1* user flow.
@@ -238,7 +242,7 @@ Validate that you're ready by performing the following steps:
 1. In **Custom page URI**, enter the URI for the *custom-ui.html* file that you recorded earlier.
 1. At the top of the page, select **Save**.
 
-## 5. Test the user flow
+### 5. Test the user flow
 
 1. In your Azure AD B2C tenant, select **User flows** and select the *B2C_1_signupsignin1* user flow.
 1. At the top of the page, click **Run user flow**.

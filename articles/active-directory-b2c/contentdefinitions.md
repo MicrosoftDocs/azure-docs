@@ -234,4 +234,4 @@ The ID attribute of the **ContentDefinition** element specifies the type of page
 
 For an example of customizing the user interface by using content definitions, see:
 
-[Customize the user interface of your application using a custom policy](custom-policy-ui-customization.md)
+[Customize the user interface of your application using a custom policy](customize-ui-with-html.md)

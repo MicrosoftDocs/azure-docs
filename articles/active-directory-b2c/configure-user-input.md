@@ -12,6 +12,7 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 #  Add user attributes and customize user input in Azure Active Directory B2C
 
@@ -27,7 +28,7 @@ In this article, you collect a new attribute during your sign-up journey in Azur
 
 ## Prerequisites
 
-[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ::: zone pivot="b2c-user-flow"
 
@@ -47,7 +48,7 @@ The application claims are values that are returned to the application. Update y
 1. Select attributes that you want send back to your application (for example, "City")..
 1. Select **Save**.
  
-## Add user attributes your user flow
+## Configure user attributes input type
 
 1. Select **Page layouts**.
 1. Select **Local account sign-up page**.
@@ -59,7 +60,7 @@ The application claims are values that are returned to the application. Update y
 
 To provide a set list of values for the city attribute: 
 
-1. [Enable language customization on the user flow](language-customization#support-requested-languages-for-ui_locales)
+1. [Enable language customization on the user flow](language-customization.md#support-requested-languages-for-ui_locales)
 1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
 1. On the **Languages** page for the user flow, select the language that you want to customize.
 1. Under **Page-level-resources files**, select **Local account sign up page**.

@@ -35,7 +35,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 - The username/email and password fields now use the `form` HTML element to allow Edge and Internet Explorer (IE) to properly save this information.
 - Added a configurable user input validation delay for improved user experience.
 - Accessibility fixes
-- You can now add the `data-preload="true"` attribute [in your HTML tags](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
+- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
 - Email field is now `type=email` and mobile keyboards will provide the correct suggestions
@@ -63,7 +63,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 - The username/email and password fields now use the `form` HTML element to allow Edge and Internet Explorer (IE) to properly save this information.
 - Accessibility fixes
-- You can now add the `data-preload="true"` attribute [in your HTML tags](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
+- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
 - Email field is now `type=email` and mobile keyboards will provide the correct suggestions
@@ -86,7 +86,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 **1.2.0**
 
 - Accessibility fixes
-- You can now add the `data-preload="true"` attribute [in your HTML tags](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
+- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
 - Email field is now `type=email` and mobile keyboards will provide the correct suggestions
@@ -111,7 +111,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 **1.2.0**
 
 - Accessibility fixes
-- You can now add the `data-preload="true"` attribute [in your HTML tags](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
+- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
 - Email field is now `type=email` and mobile keyboards will provide the correct suggestions
@@ -132,7 +132,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 **1.2.0**
 
 - Accessibility fixes
-- You can now add the `data-preload="true"` attribute [in your HTML tags](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
+- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
 - Email field is now `type=email` and mobile keyboards will provide the correct suggestions
@@ -144,4 +144,4 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 ## Next steps
 
-For details on how to customize the user interface of your applications in custom policies, see [Customize the user interface of your application using a custom policy](custom-policy-ui-customization.md).
+For details on how to customize the user interface of your applications in custom policies, see [Customize the user interface of your application using a custom policy](customize-ui-with-html.md).

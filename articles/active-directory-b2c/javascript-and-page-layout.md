@@ -30,7 +30,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Prerequisites
 
-[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaScript for the user interface elements in your user flows and custom policies.
 
@@ -52,7 +52,7 @@ To enable JavaScript for your applications:
 
 ::: zone-end
 
-If you intend to enable [JavaScript](javascript-and-page-layout.md) client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version to ensure the content definitions you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you can specify a page layout version for your pages.
+If you intend to enable JavaScript client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version to ensure the content definitions you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you can specify a page layout version for your pages.
 
 ## Select a page layout version
 
@@ -62,7 +62,7 @@ Whether or not you enable JavaScript in your user flow's properties, you can spe
 
 For information about the different page layout versions, see the [Page layout version change log](page-layout.md).
 
-![Page layout settings in portal showing page layout version dropdown](media/enable-javascript-and-page-layout/page-layout-version.png)
+![Page layout settings in portal showing page layout version dropdown](media/javascript-and-page-layout/page-layout-version.png)
 
 ::: zone-end
 
@@ -115,7 +115,7 @@ The following example shows the content definition identifiers and the correspon
 
 In the user flow **Properties**, you can enable JavaScript. Enabling JavaScript also enforces the use of a page layout. You can then set the page layout version for the user flow as described in the next section.
 
-![User flow properties page with Enable JavaScript setting highlighted](media/enable-javascript-and-page-layout/javascript-settings.png)
+![User flow properties page with Enable JavaScript setting highlighted](media/javascript-and-page-layout/javascript-settings.png)
 
 ::: zone-end
 
@@ -238,4 +238,4 @@ In the code, replace `termsOfUseUrl` with the link to your terms of use agreemen
 
 ## Next steps
 
-Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application in Azure Active Directory B2C](customize-ui.md).
+Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application in Azure Active Directory B2C](customize-ui-with-html.md).

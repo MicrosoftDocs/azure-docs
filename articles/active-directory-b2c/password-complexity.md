@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) supports changing the complexity requi
 
 ## Prerequisites
 
-[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ::: zone pivot="b2c-user-flow"
 

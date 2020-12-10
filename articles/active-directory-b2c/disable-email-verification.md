@@ -28,8 +28,7 @@ Some application developers prefer to skip email verification during the sign-up
 
 ## Prerequisites
 
-[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
-
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 ## Disable email verification
 
 ::: zone pivot="b2c-user-flow"
