@@ -14,14 +14,14 @@ Azure Monitor supports cross-service queries between Azure Data Explorer, [Appli
 
 The following diagram shows the Azure Monitor cross-service flow:
 
-:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Diagram that shows the flow of queries between an user, Azure Monitor, a proxy, and Azure Data Explorer.":::
+:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Diagram that shows the flow of queries between a user, Azure Monitor, a proxy, and Azure Data Explorer.":::
 
 >[!NOTE]
 > Azure Monitor cross-service query is in private preview. Allowlisting is required. Contact the [Service Team](mailto:ADXProxy@microsoft.com) with any questions.
 
 ## Cross-query your Log Analytics or Application Insights resources and Azure Data Explorer
 
-You can run cross-resource queries by using client tools that support Kusto queries. Examples of these tools include Log Analytics web UI, Workbooks, PowerShell, and REST API.
+You can run cross-resource queries by using client tools that support Kusto queries. Examples of these tools include the Log Analytics web UI, Workbooks, PowerShell, and the REST API.
 
 Enter the identifier for an Azure Data Explorer cluster in a query within the `adx` pattern, followed by the database name and table.
 
@@ -55,14 +55,14 @@ union customEvents, CL1 | take 10
 
 Cross-tenant queries between the services are not supported. You're signed in to a single tenant for running the query that spans both resources.
 
-If the Azure Data Explorer resource is in Tenant A and Log Analytics workspace is in Tenant B, use one of the following two methods:
+If the Azure Data Explorer resource is in Tenant A and the Log Analytics workspace is in Tenant B, use one of the following methods:
 
-*  Azure Data Explorer allows you to add roles for principals in different tenants. Add your user ID in Tenant B as an authorized user on the Azure Data Explorer cluster. Validate that the ['TrustedExternalTenant'](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster) property on the Azure Data Explorer cluster contains Tenant B. Run the cross-query fully in Tenant B.
+*  Azure Data Explorer allows you to add roles for principals in different tenants. Add your user ID in Tenant B as an authorized user on the Azure Data Explorer cluster. Validate that the [TrustedExternalTenant](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster) property on the Azure Data Explorer cluster contains Tenant B. Run the cross-query fully in Tenant B.
 *  Use [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) to project the Azure Monitor resource into Tenant A.
 
 ## Connect to Azure Data Explorer clusters from different tenants
 
-Kusto Explorer automatically signs you in to the tenant to which the user account originally belongs. To access resources in other tenants with the same user account, you must explicitly specify `TenantID` in the connection string:
+Kusto Explorer automatically signs you in to the tenant to which the user account originally belongs. To access resources in other tenants with the same user account, you must explicitly specify `TenantId` in the connection string:
 
 `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=TenantId`
 
