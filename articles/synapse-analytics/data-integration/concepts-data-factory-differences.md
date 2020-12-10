@@ -42,6 +42,7 @@ Check below table for features availability:
 > **Time to Live** is an Azure Integration Runtime setting that enables the Spark cluster to *stay warm* for a period of time after an execution of data flow.
 >
 
+
 ## Next steps
 
 Get started with data integration in your Synapse workspace by learning how to [ingest data into a Azure Data Lake Storage gen2 account](data-integration-data-lake.md).
