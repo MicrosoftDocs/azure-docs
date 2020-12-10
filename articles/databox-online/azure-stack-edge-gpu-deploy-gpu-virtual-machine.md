@@ -26,6 +26,8 @@ Your Azure Stack Edge Pro devices are equipped with 1 or 2 of Nvidia's Tesla T4 
 
 To take advantage of the GPU capabilities of Azure N-series VMs, NVIDIA GPU drivers must be installed.
 
+
+
 For VMs backed by NVIDIA GPUs, the NVIDIA GPU Driver Extension installs appropriate NVIDIA CUDA or GRID drivers. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the NVIDIA GPU Driver Extension documentation for supported operating systems and deployment steps. For general information about VM extensions, see Azure virtual machine extensions and features.
 
 Alternatively, you may install NVIDIA GPU drivers manually. See Install NVIDIA GPU drivers on N-series VMs running Windows or Install NVIDIA GPU drivers on N-series VMs running Linux for supported operating systems, drivers, installation, and verification steps.
