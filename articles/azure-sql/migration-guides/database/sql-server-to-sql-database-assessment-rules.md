@@ -20,7 +20,7 @@ This article provides a list of the rules used to assess the feasibility of migr
 
 ## Agent jobs
 
-**Title: SQL Server Agent jobs are not available in Azure SQL Database** 
+**Title: SQL Server Agent jobs are not available in Azure SQL Database**   
 Rule ID:AgentJobs (Warning)  
 
 **Description**   
@@ -37,7 +37,7 @@ Use elastic jobs (preview), which are the replacement for SQL Server Agent jobs 
 Rule ID: BulkInsert (Issue)
 
 **Description**   
-Azure SQL Database cannot access file shares or Windows folders. See the "Impacted Objects" section for the specific uses of BULK INSERT statements that do not reference an Azure blob. Objects with 'BULK INSERT' where the source is not Azure blob storage will not work after migrating to Azure SQL Database. More information: []() 
+Azure SQL Database cannot access file shares or Windows folders. See the "Impacted Objects" section for the specific uses of BULK INSERT statements that do not reference an Azure blob. Objects with 'BULK INSERT' where the source is not Azure blob storage will not work after migrating to Azure SQL Database. 
 
 **Recommendation**   
 You will need to convert BULK INSERT statements that use local files or file shares to use files from Azure blob storage instead, when migrating to Azure SQL Database.
@@ -48,7 +48,7 @@ You will need to convert BULK INSERT statements that use local files or file sha
 Rule ID: ComputeClause (Issue)
 
 **Description**   
-The COMPUTE clause generates totals that appear as additional summary columns at the end of the result set. However, this clause is no longer supported in Azure SQL Database. More information: []() 
+The COMPUTE clause generates totals that appear as additional summary columns at the end of the result set. However, this clause is no longer supported in Azure SQL Database. 
 
 **Recommendation**   
 
@@ -126,13 +126,13 @@ Consider upgrading the database compatibility or migrating to SQL Server on Azur
 
 ## DatabaseMail
 
-**Title: Database Mail is not supported in Azure SQL Database.** 
+**Title: Database Mail is not supported in Azure SQL Database.**   
 Rule ID: DatabaseMail (Warning)  
 
 **Description**   
 This server uses the Database Mail feature, which is not supported in Azure SQL Database.
 
-**Recommendation** 
+**Recommendation**   
 Consider migrating to Azure SQL Managed Instance that supports Database Mail  Alternatively, consider using Azure functions and Sendgrid to accomplish mail functionality on Azure SQL Database.
 
 
@@ -273,24 +273,24 @@ Rewrite the statement using the current RAISERROR syntax, or evaluate if the mod
 
 ## ServerAudits 
 
-**Title: Use Azure SQL Database audit features to replace Server Audits** 
+**Title: Use Azure SQL Database audit features to replace Server Audits**   
 Rule ID: ServerAudits (Warning)  
 
 **Description**   
 Auditing an instance of the SQL Server Database Engine or an individual database involves tracking and logging events that occur on the Database Engine. SQL Server audit lets you create server audits, which can contain server audit specifications for server level events, and database audit specifications for database level events.
 
-**Recommendation** 
+**Recommendation**   
 Consider Azure SQL Database audit features to replace Server Audits.  Azure SQL supports audit and the features are richer than SQL Server. Azure SQL can audit various database actions and events, including: Access to data, Schema changes (DDL), Data changes (DML), Accounts, roles, and permissions (DCL, Security exceptions. SQL Database Auditing increases an organization's ability to gain deep insight into events and changes that occur within their SQL database, including updates and queries against the data.    
 
 ## ServerCredentials
 
-**Title: Server scoped credential is not supported in Azure SQL Database** 
+**Title: Server scoped credential is not supported in Azure SQL Database**   
 Rule ID: ServerCredentials (Warning)  
 
 **Description**   
 A credential is a record that contains the authentication information (credentials) required to connect to a resource outside SQL Server. Azure SQL Database supports database credentials, but not the ones created at the SQL Server scope.   
 
-**Recommendation** 
+**Recommendation**   
 Azure SQL Database supports database scoped credentials. Convert server scoped credentials to database scoped credentials.
 
 ## ServiceBroker
@@ -306,13 +306,13 @@ Service Broker feature is not supported in Azure SQL Database. Consider migratin
 
 ## ServerScopedTriggers
 
-**Title: Server-scoped trigger is not supported in Azure SQL Database** 
+**Title: Server-scoped trigger is not supported in Azure SQL Database**   
 Rule ID: ServerScopedTriggers (Warning)  
 
 **Description**   
 A trigger is a special kind of stored procedure that executes in response to certain action on a table like insertion, deletion or updating of data. Server-scoped triggers are not supported in Azure SQL Database. Azure does not support the following options for triggers:FOR LOGON, ENCRYPTION, WITH APPEND, NOT FOR REPLICATION, EXTERNAL NAME option (there is no external method support), ALL SERVER Option (DDL Trigger), Trigger on a LOGON event (Logon Trigger), Azure does not support CLR-triggers.
 
-**Recommendation** 
+**Recommendation**   
 Consider Azure SQL Managed Instance that supports server scoped triggers. Alternatively, if you already have a VM running in Azure, you can implement the trigger logic to be run using the machine's task scheduler.
 
 ## SQLDBDatabaseSize
@@ -328,7 +328,7 @@ Evaluate if the data can be archived or compressed or sharded into multiple data
 
 ## SqlMail
 
-**Title: SQL Mail has been discontinued.** 
+**Title: SQL Mail has been discontinued.**   
 Rule ID: SqlMail (Warning)  
 
 **Description**   
@@ -339,29 +339,29 @@ Consider migrating to Azure SQL Managed Instance or SQL Server on Azure Virtual 
 
 ## SystemProcedures110
 
-**Title: Detected statements that reference removed system stored procedures that are not available in Azure SQL Database.** 
+**Title: Detected statements that reference removed system stored procedures that are not available in Azure SQL Database.**   
 Rule ID: (Warning) 
 
-**Description**
+**Description**   
 Following unsupported system and extended stored procedures cannot be used in Azure SQL database - sp_dboption, sp_addserver, sp_dropalias,sp_activedirectory_obj, sp_activedirectory_scp,sp_activedirectory_start.
 
-**Recommendation** 
+**Recommendation**    
 Remove references to unsupported system procedures that have been removed in Azure SQL Database.
 
 ## TraceFlags
 
-**Title: Azure SQL Database does not support trace flags** 
+**Title: Azure SQL Database does not support trace flags**   
 Rule ID: TraceFlags (Warning)  
 
 **Description**   
 Trace flags are used to temporarily set specific server characteristics or to switch off a particular behavior.  Trace flags are frequently used to diagnose performance issues or to debug stored procedures or complex computer systems
 
-**Recommendation** 
+**Recommendation**   
 Choose the right SQL Database service tiers and performance level for single databases and elastic pool databases that match your workloads
 
 ## WindowsAuthentication
 
-**Title: Database users mapped with Windows authentication (integrated security) is not supported in Azure SQL Database.** 
+**Title: Database users mapped with Windows authentication (integrated security) is not supported in Azure SQL Database.**   
 Rule ID: WindowsAuthentication (Warning)  
 
 **Description**   
@@ -369,7 +369,7 @@ Azure SQL Database  supports two types of authentication:
 - SQL Authentication, which uses a username and password 
 - Azure Active Directory Authentication, which uses identities managed by Azure Active Directory and is supported for managed and integrated domains.
 
-**Recommendation** 
+**Recommendation**   
 Federate the local Active Directory with Azure Active Directory. The Windows identity can then be replaced with the equivalent Azure Active Directory identities.
 
 ## XpCmdshell
