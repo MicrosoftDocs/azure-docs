@@ -70,5 +70,5 @@ In this quickstart you created a Key Vault and deleted it. To learn more about K
 
 - Read an [Overview of Azure Key Vault](overview.md)
 - Review the [Azure Key Vault security overview](security-overview.md)
-- See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault?view=azure-cli-latest)
+- See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault)
 
