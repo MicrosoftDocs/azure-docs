@@ -57,7 +57,7 @@ This tutorial assumes that you already have a working setup of ZPA. If you're ge
 
 ### Part 1 - Configure Azure AD B2C as an IdP on ZPA
 
-To configure Azure AD B2C as an [Identity provider (IdP) on ZPA](https://help.zscaler.com/zpa/configuring-idp-single-sign):
+To configure Azure AD B2C as an [IdP on ZPA](https://help.zscaler.com/zpa/configuring-idp-single-sign):
 
 1. Log into the [ZPA Admin Portal](https://admin.private.zscaler.com)
 
