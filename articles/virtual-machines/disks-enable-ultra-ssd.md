@@ -225,7 +225,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 # [Portal](#tab/azure-portal)
 
-The Azure portal does not currently support creating an ultra disk with a 512 byte sector size. You can create an ultra disk with the 512 byte sector size using the Azure PowerShell module or the Azure CLI, instead.
+The Azure portal does not currently support creating an ultra disk with a 512 byte sector size. You can create an ultra disk with a 512 byte sector size using the Azure PowerShell module or the Azure CLI, instead.
 
 # [PowerShell](#tab/azure-powershell)
 
