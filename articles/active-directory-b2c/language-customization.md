@@ -34,6 +34,16 @@ You might not need that level of control over what languages your customer sees.
 > [!NOTE]
 > If you're using custom user attributes, you need to provide your own translations. For more information, see [Customize your strings](#customize-your-strings).
 
+::: zone pivot="b2c-custom-policy"
+
+Localization requires three steps: 
+
+1. Set-up the explicit list of supported languages
+1. Provide language-specific strings and collections
+1. Edit the [content definition](contentdefinitions.md) for the page. 
+
+::: zone-end 
+
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
@@ -151,7 +161,7 @@ The changes are saved to your user flow automatically.
 
 ## Customize the page UI by using language customization
 
-There are two ways to localize your HTML content. One way is to turn on [language customization](language-customization.md). Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter, `ui-locales`, to your endpoint. Your content server can use this parameter to provide customized HTML pages that are language-specific.
+There are two ways to localize your [HTML content](customize-ui-with-html.md). One way is to turn on [language customization](language-customization.md). Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter, `ui-locales`, to your endpoint. Your content server can use this parameter to provide customized HTML pages that are language-specific.
 
 Alternatively, you can pull content from different places based on the locale that's used. In your CORS-enabled endpoint, you can set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value `{Culture:RFC5646}`. For example, assume that this is your custom page URI:
 
@@ -184,12 +194,6 @@ You can also add languages that Microsoft currently does not provide translation
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
-
-Localization requires three steps: 
-
-1. Set-up the explicit list of supported languages
-1. Provide language-specific strings and collections
-1. Edit the [content definition](contentdefinitions.md) for the page. 
 
 ## Set up the list of supported languages
 
@@ -432,9 +436,13 @@ https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_s
 
 ## Additional information
 
+::: zone pivot="b2c-user-flow"
+
 ### Page UI customization labels as overrides
 
 When you enable language customization, your previous edits for labels using page UI customization are persisted in a JSON file for English (en). You can continue to change your labels and other strings by uploading language resources in language customization.
+
+::: zone-end
 
 ### Up-to-date translations
 

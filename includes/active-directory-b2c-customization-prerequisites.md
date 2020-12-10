@@ -7,8 +7,8 @@ ms.author: mimart
 ---
 ::: zone pivot="b2c-user-flow"
 
-* [Create a user flow](tutorial-create-user-flows.md) to enable users to sign up and sign in to your application.
-* If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
+* [Create a user flow](../articles/active-directory-b2c/tutorial-create-user-flows.md) to enable users to sign up and sign in to your application.
+* If you haven't already done so, [register a web application in Azure Active Directory B2C](../articles/active-directory-b2c/tutorial-register-applications.md).
 
 ::: zone-end
 

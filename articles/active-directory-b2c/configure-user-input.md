@@ -50,13 +50,15 @@ The application claims are values that are returned to the application. Update y
  
 ## Configure user attributes input type
 
+1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
 1. Select **Page layouts**.
 1. Select **Local account sign-up page**.
 1. Under **User attributes**, select **City**.
-1. In the **User input type** drop-down, select **DropdownSingleSelect**.
+    1. In the **User input type** drop-down, select **DropdownSingleSelect**.
+    1. In the **Optional** drop-down, select **No**.
 1. Select **Save**. 
 
-### Provide a list of values by using LocalizedCollections
+### Provide a list of values by using localized collections
 
 To provide a set list of values for the city attribute: 
 
@@ -65,52 +67,50 @@ To provide a set list of values for the city attribute:
 1. On the **Languages** page for the user flow, select the language that you want to customize.
 1. Under **Page-level-resources files**, select **Local account sign up page**.
 1. Select **Download defaults** (or **Download overrides** if you have previously edited this language).
-1. Create a `LocalizedCollections` attribute. `LocalizedCollections` is an array of `Name` and `Value` pairs. The order for the items will be the order they are displayed. 
+1. Create a `LocalizedCollections` attribute.
+
+The `LocalizedCollections` is an array of `Name` and `Value` pairs. The order for the items will be the order they are displayed. 
 
 * `ElementId` is the user attribute that this `LocalizedCollections` attribute is a response to.
 * `Name` is the value that's shown to the user.
 * `Value` is what is returned in the claim when this option is selected.
 
-    ```json
+```json
+{
+  "LocalizedStrings": [...],
+  "LocalizedCollections": [
     {
-      "LocalizedStrings": [...],
-      "LocalizedCollections": [
+      "ElementType": "ClaimType",
+      "ElementId": "city",
+      "TargetCollection": "Restriction",
+      "Override": false,
+      "Items": [
         {
-          "ElementType": "ClaimType",
-          "ElementId": "city",
-          "TargetCollection": "Restriction",
-          "Override": false,
-          "Items": [
-            {
-              "Name": "Berlin",
-              "Value": "Berlin"
-            },
-            {
-              "Name": "London",
-              "Value": "London"
-            },
-            {
-              "Name": "Seattle",
-              "Value": "Seattle"
-            }
-          ]
+          "Name": "Berlin",
+          "Value": "Berlin"
+        },
+        {
+          "Name": "London",
+          "Value": "London"
+        },
+        {
+          "Name": "Seattle",
+          "Value": "Seattle"
         }
       ]
     }
-    ```
-
-1. Save the file and upload your changes. (You can find the upload control in the same place as where you downloaded the JSON file.)
-
+  ]
+}
+```
 
 #### Upload your changes
 
 1. After you complete the changes to your JSON file, go back to your B2C tenant.
-1. Select **User flows** and click the user flow that you want to enable for translations.
+1. Select **User flows** and select your policy (for example, "B2C_1_SignupSignin") to open it.
 1. Select **Languages**.
 1. Select the language that you want to translate to.
 1. Select the **Local account sign up page**.
 1. Select the folder icon, and select the JSON file to upload. The changes are saved to your user flow automatically.
-
 
 ## Test your user flow
 
@@ -118,10 +118,6 @@ To provide a set list of values for the city attribute:
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
 1. Click **Run user flow**
-
-The sign-up screen should look similar to the following screenshot:
-
-![Screenshot of modified sign-up option](./media/configure-user-input/signup-with-city-claim-dropdown-example.png)
 
 ::: zone-end
 
@@ -304,6 +300,8 @@ To return the city claim back to the relying party application, add an output cl
 2. Select the sign-up or sign-in policy that you uploaded, and click the **Run now** button.
 3. You should be able to sign up using an email address.
 
+::: zone-end
+
 The sign-up screen should look similar to the following screenshot:
 
 ![Screenshot of modified sign-up option](./media/configure-user-input/signup-with-city-claim-dropdown-example.png)
@@ -333,6 +331,8 @@ The token sent back to your application includes the `city` claim.
   ...
 }
 ```
+
+::: zone pivot="b2c-custom-policy"
 
 ## Next steps
 

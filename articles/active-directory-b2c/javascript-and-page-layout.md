@@ -28,13 +28,7 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone-end
 
-## Prerequisites
-
-[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-
-Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaScript for the user interface elements in your user flows and custom policies.
-
-To enable JavaScript for your applications:
+Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaScript for the user interface elements in your user flows and custom policies. To enable JavaScript for your applications:
 
 ::: zone pivot="b2c-user-flow"
 
@@ -52,13 +46,22 @@ To enable JavaScript for your applications:
 
 ::: zone-end
 
-If you intend to enable JavaScript client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version to ensure the content definitions you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you can specify a page layout version for your pages.
+## Prerequisites
+
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
 
 ## Select a page layout version
 
+If you intend to enable JavaScript client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version to ensure the content definitions you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you can specify a page layout version for your pages.
+
 ::: zone pivot="b2c-user-flow"
 
-Whether or not you enable JavaScript in your user flow's properties, you can specify a page layout version for your user flow pages. Open the user flow and select **Page layouts**. Under **Layout name**, select a user flow page and choose the **Page Layout Version (Preview)**.
+To specify a page layout version for your user flow pages: 
+
+1. In your Azure AD B2C tenant, select **User flows**.
+1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
+1. Select **Page layouts**. Under **Layout name**, select a user flow page and choose the **Page Layout Version (Preview)**.
 
 For information about the different page layout versions, see the [Page layout version change log](page-layout.md).
 
@@ -70,9 +73,7 @@ For information about the different page layout versions, see the [Page layout v
 
 Select a [page layout](contentdefinitions.md#select-a-page-layout) for the user interface elements of your application.
 
-If you intend to use JavaScript, you need to [define a page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. To specify a page layout in your custom policies that use an old **DataUri** value.
-
-Learn how to [Migrating to page layout](contentdefinitions.md#migrating-to-page-layout) with page version.
+Define a [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. Learn how to [Migrating to page layout](contentdefinitions.md#migrating-to-page-layout) with page version.
 
 The following example shows the content definition identifiers and the corresponding **DataUri** with page contract: 
 

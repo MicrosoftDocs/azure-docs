@@ -66,7 +66,7 @@ If you'd like to brand all pages in the user flow, set the page layout version f
 
 ::: zone pivot="b2c-custom-policy"
 
-Select a [page layout](contentdefinitions.md#select-a-page-layout) for the user interface elements of your application.
+## Select a page layout
 
 To enable company branding, you need to [define a page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. To specify a page layout in your custom policies that use an old **DataUri** value.
 

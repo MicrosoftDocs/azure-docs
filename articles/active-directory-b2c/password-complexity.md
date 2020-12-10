@@ -89,7 +89,7 @@ Allows you to control the different character types used in the password.
 
 ::: zone pivot="b2c-custom-policy"
 
-## Add the elements
+## Password predicate validation
 
 To configure the password complexity, override the `newPassword` and `reenterPassword` [claim types](claimsschema.md) with a reference to [predicate validations](predicates.md#predicatevalidations). The PredicateValidations element groups a set of predicates to form a user input validation that can be applied to a claim type. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
@@ -169,27 +169,29 @@ To configure the password complexity, override the `newPassword` and `reenterPas
     </PredicateValidations>
     ```
 
-1. The following technical profiles are [Active Directory technical profiles](active-directory-technical-profile.md), which read and write data to Azure Active Directory. Override these technical profiles in the extension file. Use `PersistedClaims` to disable the strong password policy. Find the **ClaimsProviders** element.  Add the following claim providers as follows:
+## Disable strong password 
 
-    ```xml
-    <ClaimsProvider>
-      <DisplayName>Azure Active Directory</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
-          <PersistedClaims>
-            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
-          </PersistedClaims>
-        </TechnicalProfile>
-        <TechnicalProfile Id="AAD-UserWritePasswordUsingObjectId">
-          <PersistedClaims>
-            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
-          </PersistedClaims>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
-    ```
+The following technical profiles are [Active Directory technical profiles](active-directory-technical-profile.md), which read and write data to Azure Active Directory. Override these technical profiles in the extension file. Use `PersistedClaims` to disable the strong password policy. Find the **ClaimsProviders** element.  Add the following claim providers as follows:
 
-1. Save the policy file.
+```xml
+<ClaimsProvider>
+  <DisplayName>Azure Active Directory</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+      <PersistedClaims>
+        <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+      </PersistedClaims>
+    </TechnicalProfile>
+    <TechnicalProfile Id="AAD-UserWritePasswordUsingObjectId">
+      <PersistedClaims>
+        <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+      </PersistedClaims>
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
+Save the policy file.
 
 ## Test your policy
 
