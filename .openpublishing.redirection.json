@@ -8764,6 +8764,61 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/user-flow-javascript-overview.md",
+      "redirect_url": "/azure/active-directory-b2c/javascript-and-page-layout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/javascript-samples.md",
+      "redirect_url": "/azure/active-directory-b2c/javascript-and-page-layout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/user-flow-disable-email-verification.md",
+      "redirect_url": "/azure/active-directory-b2c/disable-email-verification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-disable-email-verification.md",
+      "redirect_url": "/azure/active-directory-b2c/disable-email-verification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/user-flow-password-complexity.md",
+      "redirect_url": "/azure/active-directory-b2c/password-complexity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-password-complexity.md",
+      "redirect_url": "/azure/active-directory-b2c/password-complexity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/user-flow-language-customization.md",
+      "redirect_url": "/azure/active-directory-b2c/language-customization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-localization.md",
+      "redirect_url": "/azure/active-directory-b2c/language-customization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-multi-factor-authentication.md",
+      "redirect_url": "/azure/active-directory-b2c/multi-factor-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-configure-user-input.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-user-input",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/customize-ui-overview.md",
+      "redirect_url": "/azure/active-directory-b2c/customize-ui-with-html",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/identity-provider-microsoft-account-custom.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-microsoft-account",
       "redirect_document_id": false

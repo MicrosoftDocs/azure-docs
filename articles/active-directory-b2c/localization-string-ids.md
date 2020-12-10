@@ -543,5 +543,5 @@ The following are the IDs for claims transformations error messages:
 
 See the following articles for localization examples:
 
-- [Language customization with custom policy in Azure Active Directory B2C](custom-policy-localization.md)
-- [Language customization with user flows in Azure Active Directory B2C](user-flow-language-customization.md)
+- [Language customization with custom policy in Azure Active Directory B2C](language-customization.md)
+- [Language customization with user flows in Azure Active Directory B2C](language-customization.md)

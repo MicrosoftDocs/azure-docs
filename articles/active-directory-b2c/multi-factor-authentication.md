@@ -8,13 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 12/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Enable multi-factor authentication in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Azure Active Directory B2C (Azure AD B2C) integrates directly with [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) so that you can add a second layer of security to sign-up and sign-in experiences in your applications. You enable multi-factor authentication without writing a single line of code. If you already created sign up and sign-in user flows, you can still enable multi-factor authentication.
 
@@ -24,6 +27,8 @@ This feature helps applications handle scenarios such as:
 - You don't require multi-factor authentication to access an application in general, but you do require it to access the sensitive portions within it. For example, the customer can sign in to a banking application with a social or local account and check the account balance, but must verify the phone number before attempting a wire transfer.
 
 ## Set multi-factor authentication
+
+::: zone pivot="b2c-user-flow"
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
@@ -37,3 +42,11 @@ This feature helps applications handle scenarios such as:
 You can use **Run user flow** to verify the experience. Confirm the following scenario:
 
 A customer account is created in your tenant before the multi-factor authentication step occurs. During the step, the customer is asked to provide a phone number and verify it. If verification is successful, the phone number is attached to the account for later use. Even if the customer cancels or drops out, the customer can be asked to verify a phone number again during the next sign-in with multi-factor authentication enabled.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+To enable Multi-Factor Authentication get the custom policy starter packs from GitHub, then update the XML files in the **SocialAndLocalAccountsWithMFA** starter pack with your Azure AD B2C tenant name. The **SocialAndLocalAccountsWithMFA**  enables social, local, and multi-factor authentication options. For more information, see [Get started with custom policies in Active Directory B2C](../articles/active-directory-b2c/custom-policy-get-started.md). 
+
+::: zone-end
