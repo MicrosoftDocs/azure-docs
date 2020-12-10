@@ -163,7 +163,16 @@ Add a statement that discusses any recommended settings for your service that mi
 If your team has no cost-saving recommendations or best practice advice to reduce costs, then cut this section.
 -->
 
+### Serverless SQL pool
+To learn more about costs for serverless SQL pool see [Cost management for serverless SQL pool in Azure Synapse Analytics](./sql/data-processed)
 
+### Dedicated SQL pool
+
+You can control costs for a dedicated SQL pool by pausing the resource when it is not is use. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. For more information see [](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/pause-and-resume-compute-portal?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+
+### Serverless Apache Spark pool
+
+### Integrate
 
 ## Next steps
 
