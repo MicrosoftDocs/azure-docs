@@ -1,32 +1,34 @@
 ---
-title: Authorize access to data with a managed identity
-titleSuffix: An Azure Communication Services tutorial
-description: Use managed identities for Azure resources to authorize Azure Communication Services access from applications running in Azure VMs, function apps, and others.
+title: Use managed identities in Communication Services (.NET)
+titleSuffix: An Azure Communication Services quickstart
+description: Managed identities let you authorize Azure Communication Services access from applications running in Azure VMs, function apps, and other resources.
 services: azure-communication-services
 author: stefang931
 ms.service: azure-communication-services
 ms.topic: how-to
 ms.date: 12/04/2020
-ms.author: gisefan
-ms.reviewer: <>
+ms.author: gistefan
+ms.reviewer: mikben
 ---
 
 # Overview
 
-This article shows how to authorize access to Administration and SMS SDKs from an Azure environment that supports managed identities. It also describes how to test your code in the development environment.
+Get started with Azure Communication Services by using managed identities in .NET. The Communication Services Administration and SMS client libraries support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Administration and SMS SDKs support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+This quickstart shows you how to authorize access to the Administration and SMS client libraries from an Azure environment that supports managed identities. It also describes how to test your code in a development environment.
 
-# Benefits of using managed identities
+## Prerequisites
 
-By using managed identities for Azure resources together with Azure AD authentication, you can:
+ - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/en-us/free)
+ - An active Communication Services resource and connection string. [Create a Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
 
-1. Avoid storing credentials with your applications that run in the cloud
-1. Use [Azure role-based access control](../../articles/role-based-access-control/index.yml) for fine grained access management 
+## Setting Up
 
-## Enable managed identities on a VM or App service
+<!-- Question from Mick: Can we remove most of this, and jump right into the code snippets? If these steps are prerequisites, can we condense them into very brief prerequisite bullets above? If this needs conceptual support, can we move these details into a conceptual document? Meta feedback: We want to solve the developer's problem as quickly as possible by removing anything we can. -->
 
-Before you can use managed identities for Azure Resources to authorize, access to ACS APIs from your Azure Function, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure Resources, see one of these articles:
+### Enable managed identities on a virtual machine or App service
+
+Managed identities should be enabled on the Azure resources that you're authorizing. To learn how to enable managed identities for Azure Resources, see one of these articles:
 
 - [Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
@@ -35,36 +37,41 @@ Before you can use managed identities for Azure Resources to authorize, access t
 - [Azure Resource Manager client libraries](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 - [App services](../../app-service/overview-managed-identity.md)
 
-### Assign Azure roles for access to APIs
 
-When an Azure AD security principal attempts to access an API, that security principal must have permissions to the resource. The security principal (managed or dev environment Azure AD identity) must be assigned an Azure role that grants access. For information about assigning permissions via [Azure role-based access control](../../articles/role-based-access-control/index.yml).
+### Assign Azure roles
 
-#### Azure portal
+When an Azure Active Directory security principal attempts to access an API, that security principal must have permissions to the resource. The security principal (managed or dev environment Azure AD identity) must be assigned an Azure role that grants access. For information about assigning permissions via [Azure role-based access control](../../articles/role-based-access-control/index.yml).
 
-1. Go to the Azure portal
-1. Go to the Azure Communication Service resource
+Permissions can be assigned by using the Azure portal or PowerShell. 
+
+#### Assign Azure roles with the Azure portal
+
+1. Navigate to the Azure portal
+1. Navigate to the Azure Communication Service resource
 1. Navigate to Access Control (IAM) menu -> + Add -> Add role assignment
-1. Select the role "Contributor" (the only one supported at the moment)
-1. Select "User assigned managed identity" (or a "System assigned managed identity") then select the wanted identity then save
+1. Select the role "Contributor" (this is the only supported role)
+1. Select "User assigned managed identity" (or a "System assigned managed identity") then select the desired identity. Save your selection.
+
 ![Managed identity role](media/communication-auth-aad-msi-assign.png)
 
-#### PowerShell
+#### Assign Azure roles with PowerShell
 
-Assigning roles is also possible using PowerShell, see [Add or remove Azure role assignments using Azure PowerShell](../../articles/role-based-access-control/role-assignments-powershell.md)
+To assign roles and permissions using PowerShell, see [Add or remove Azure role assignments using Azure PowerShell](../../articles/role-based-access-control/role-assignments-powershell.md)
 
-## Authenticate with the Azure Identity library
+### Authenticate with the Azure Identity library
 
-The Azure Identity client library provides Azure AD token authentication support for the [Azure SDK](https://github.com/Azure/azure-sdk). The latest versions of the ACS SDKs integrate with the Azure Identity library to provide secure means to acquire an OAuth 2.0 token for authorization of Communication requests.
+The Azure Identity client library provides Azure Active Directory token authentication support for the [Azure SDK](https://github.com/Azure/azure-sdk). The Communication Services client libraries integrate with the Azure Identity library. You can use the Azure Identity library to acquire an OAuth 2.0 token for authorization of Communication requests.
 
 For more information about the Azure Identity client library for .NET, see [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity). For reference documentation for the Azure Identity client library, see [Azure.Identity Namespace](/dotnet/api/azure.identity).
 
-### Authenticate the user in the development environment
+### Authenticate the user in a development environment
 
-The authentication in the development environment may be handled automatically. For example, Microsoft Visual Studio supports single sign-on (SSO), so that the active Azure AD user account is automatically used for authentication. For more information about SSO, see [Single sign-on to applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
+Authentication in a development environment can be handled automatically. For example, Microsoft Visual Studio supports single sign-on (SSO) so that the active Azure Active Directory user account is automatically used for authentication. For more information about single sign-on, see [Single sign-on to applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
 
-## Set up
 
-### Install client library packages
+## Add managed identity to your Communication Services solution
+
+### Install the client library packages
 
 ```console
 dotnet add package Azure.Communication.Administration
@@ -73,7 +80,7 @@ dotnet add package Azure.Communication.Sms
 dotnet add package Azure.Identity
 ```
 
-### Use the library packages
+### Use the client library packages
 
 Add the following `using` directives to your code to use the Azure Identity and Azure Storage client libraries.
 
@@ -84,14 +91,13 @@ using Azure.Communication.Configuration;
 using Azure.Communication.Sms;
 ```
 
-The examples below are using the [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) that is suitable for multiple environments.
+The examples below are using the [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
 
-### Administration SDK example (create identity and issue token)
+### Create an identity and issue a token
 
-The following code example shows how to create a service client object with Azure AD tokens, then use the client to issue a token for a new user:
+The following code example shows how to create a service client object with Azure Active Directory tokens, then use the client to issue a token for a new user:
 
 ```csharp
-     
      public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(string resourceEdnpoint) 
      {
           TokenCredential credential = new DefaultAzureCredential();
@@ -105,11 +111,9 @@ The following code example shows how to create a service client object with Azur
      }
 ```
 
-More details about [Creating user access tokens](../quickstarts/access-tokens.md).
+### Send an SMS with Azure Active Directory tokens
 
-### SMS SDK example (send SMS)
-
-The following code example shows how to create a service client object with Azure AD tokens, then use the client to send an SMS:
+The following code example shows how to create a service client object with Azure Active Directory tokens, then use the client to send an SMS message:
 
 ```csharp
 
@@ -126,8 +130,6 @@ The following code example shows how to create a service client object with Azur
           );
      }
 ```
-
-More details about [Send an SMS message](../quickstarts/telephony-sms/send.md).
 
 ## Next steps
 
