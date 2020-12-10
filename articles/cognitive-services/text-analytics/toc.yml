@@ -11,16 +11,16 @@
     href: whats-new.md
 - name: Responsible integration and use
   items: 
-    - name: Transparency note for Text Analytics
-      href: /legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context
-    - name: Transparency note for Health
-      href:/legal/cognitive-services/text-analytics/transparency-note-health?context=/azure/cognitive-services/text-analytics/context/context
-    - name: Transparency note for PII
-      href: /legal/cognitive-services/text-analytics/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/text-analytics/context/context
-    - name: Transparency note for Sentiment Analysis
-      href: /legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis?context=/azure/cognitive-services/text-analytics/context/context
-    - name: Guidance for integration and responsible use
-      href: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
+  - name: Transparency note for Text Analytics
+    href: /legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context
+  - name: Transparency note for Health
+    href:/legal/cognitive-services/text-analytics/transparency-note-health?context=/azure/cognitive-services/text-analytics/context/context
+  - name: Transparency note for PII
+    href: /legal/cognitive-services/text-analytics/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/text-analytics/context/context
+  - name: Transparency note for Sentiment Analysis
+    href: /legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis?context=/azure/cognitive-services/text-analytics/context/context
+  - name: Guidance for integration and responsible use
+    href: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
 - name: Quickstarts
   expanded: true
   items:
