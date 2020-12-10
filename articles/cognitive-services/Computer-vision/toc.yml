@@ -45,13 +45,13 @@
   items:
   - name: Spatial Analysis
     items:
-    - name: Transparency Note
+    - name: Transparency notes
       items:
       - name: Introduction to Spatial Analysis
         href: /legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
       - name: Characteristics and limitations
         href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
-    - name: Deployment Guidelines
+    - name: Integration and responsible use
       items:
       - name: Responsible use in AI deployment 
         href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
