@@ -44,16 +44,12 @@ To set up authentication, create a security group and add the catalog's managed 
 
 ## Associate the security group with the tenant
 
-1. Log into the [Power BI admin portal](https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1). Append this feature flag to the URI:  `allowServicePrincipalsUseReadAdminAPIsUI=1`. This flag enables the feature that allows you to associate your security group. For example,
-
-    ```http
-    https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1
-    ```
+1. Log into the [Power BI admin portal](https://app.powerbi.com/admin-portal/tenantSettings).
 
     > [!Important]
     > You need to be a Power BI Admin to see the tenant settings page.
 
-1. Select **Developer settings** > **Allow service principals to use read-only Power BI APIs (Preview)**.
+1. Select **Developer settings** > **Allow service principals to use read-only Power BI admin APIs (Preview)**.
 1. Select **Specific security groups**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Image showing how to allow service principals to get read-only Power BI admin API permissions":::

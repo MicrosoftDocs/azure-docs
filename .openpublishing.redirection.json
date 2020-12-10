@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/troubleshooting/os-disk-full-linux.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting/boot-error-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/download-template.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/download-template",
       "redirect_document_id": false
@@ -676,6 +681,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machine-scale-sets/co-location.md",
+      "redirect_url": "/azure/virtual-machines/co-location",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/co-location.md",
+      "redirect_url": "/azure/virtual-machines/co-location",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/co-location.md",
+      "redirect_url": "/azure/virtual-machines/co-location",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/backup-recovery.md",
       "redirect_url": "/azure/virtual-machines/backup-recovery",
       "redirect_document_id": false
@@ -818,6 +838,11 @@
     {
       "source_path": "articles/storage/common/storage-migration-faq.md",
       "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-use-azcopy-blobs.md",
+      "redirect_url": "/azure/storage/common/storage-use-azcopy-v10#transfer-data",
       "redirect_document_id": false
     },
     {
@@ -2352,18 +2377,38 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Content-Moderator/video-transcript-moderation-review-tutorial-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/video-moderation-human-review",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/quickstart-sdk.md",
-      "redirect_url": "/azure/cognitive-services/luis/azure-sdk-quickstart",
+      "redirect_url": "/azure/cognitive-services/luis/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/azure-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api?pivots=rest-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-rest-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api?pivots=rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-rest-get-model.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api?pivots=rest-api",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/LUIS/sdk-authoring.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/azure-sdk-quickstart",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/LUIS/sdk-query-prediction-endpoint.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/azure-sdk-quickstart",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api",
       "redirect_document_id": false
     },
     {
@@ -8699,6 +8744,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/identity-provider-amazon-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-amazon",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-azure-ad-single-tenant-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-azure-ad-multi-tenant-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-multi-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-google-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-google",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-microsoft-account-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-microsoft-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-twitter-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-twitter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-adfs2016-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-adfs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-salesforce-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-salesforce",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/custom-policy-manage-sso-and-token-config.md",
       "redirect_url": "/azure/active-directory-b2c/configure-tokens-custom-policy",
       "redirect_document_id": false
@@ -9000,7 +9085,7 @@
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-li-idp.md",
-      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin-custom",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
       "redirect_document_id": true
     },
     {
@@ -9016,11 +9101,6 @@
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-github-app.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-github",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
-      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
       "redirect_document_id": true
     },
     {
@@ -25178,6 +25258,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/develop/v2-saml-bearer-assertion.md",
+      "redirect_url": "/azure/active-directory/develop/scenario-token-exchange-saml-oauth",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/develop/active-directory-devhowto-adal-error-handling.md",
       "redirect_url": "/azure/active-directory/azuread-dev/active-directory-devhowto-adal-error-handling",
       "redirect_document_id": true
@@ -38314,7 +38399,12 @@
     },
     {
       "source_path": "articles/iot-suite/iot-suite-faq-rm-v2.md",
-      "redirect_url": "/azure/iot-accelerators/iot-accelerators-faq-rm-v2",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-faq-rm-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-suite-faq-rm-v2.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-faq-rm-v2",
       "redirect_document_id": false
     },
     {
@@ -52256,6 +52346,236 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connecting-devices-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connecting-devices-node.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connecting-devices-node",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connecting-devices.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connecting-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connecting-pi-c.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connecting-pi-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-connecting-pi-node.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connecting-pi-node",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-integrate-data-lake.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-integrate-data-lake",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-integrate-data-powerbi.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-integrate-data-powerbi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-microservices-example.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-microservices-example",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-predictive-walkthrough.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-predictive-walkthrough",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-add-edge-device.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-add-edge-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-architectural-choices.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-architectural-choices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-automate.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-bulk-configuration-update.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-bulk-configuration-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-create-simulated-device.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-create-simulated-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-customize-flyout.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize-flyout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-customize-grid.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize-grid",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-customize-page.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize-page",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-customize-panel.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize-panel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-customize-service.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-customize",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-cli.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-docker.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-docker",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-java.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-vscode.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local-vscode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-simulated-device.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-simulated-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-schema",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-edge.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-email-actions.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-email-actions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-import-adm-package.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-import-adm-package",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-import-edge-package.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-import-edge-package",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-integrate-time-series-insights.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-integrate-time-series-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-maintain.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-maintain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-manage.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-monitor.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-rbac-tsi.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-rbac-tsi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-rbac.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-rbac",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-root-cause-analysis.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-root-cause-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-sample-walkthrough.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-sample-walkthrough",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-telefonica-sim.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-remote-monitoring-telefonica-sim",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/quickstart-remote-monitoring-deploy.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/about-iot-accelerators",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/quickstart-predictive-maintenance-deploy.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/about-iot-accelerators",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/quickstart-device-simulation-deploy.md",
+      "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-deploy-image.md",
+      "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mariadb/reference-data-in-stored-procedures.md",
       "redirect_url": "/azure/mariadb/reference-stored-procedures",
       "redirect_document_id": false
@@ -54393,6 +54713,46 @@
     {
       "source_path": "articles/cognitive-services/Face/QuickStarts/curl.md",
       "redirect_url": "/azure/cognitive-services/face/QuickStarts/client-libraries?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/CSharp.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/rest/detect.cs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/go.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/Face/rest/detect.go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/Java.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/Face/rest/detect.java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/node.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/rest/detect.js",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/JavaScript.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/rest/js-native-quickstart.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/PHP.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/php/face/rest/detect.php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/Python.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/rest/detect.py",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/QuickStarts/Ruby.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/ruby/face/rest/detect.rb",
       "redirect_document_id": false
     },
     {
@@ -60181,9 +60541,25 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/learn/quick-monitor-portal.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/learn/dotnetcore-quick-start.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+    {
     "source_path": "articles/azure-monitor/app/web-monitor-performance.md",
     "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
     "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/purview/register-scan-teradata-source.md",
+      "redirect_url": "/azure/purview/manage-data-sources",
+      "redirect_document_id": false
     }
+    
   ]
 }
