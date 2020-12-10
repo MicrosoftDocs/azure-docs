@@ -128,6 +128,8 @@ Go to the Azure portal, select the resource group that contains the load balance
 
 In this quickstart, you:
 
+* Created a virtual network for the load balancer and virtual machines.
+* Created an Azure Bastion host for management.
 * Created a standard load balancer and attached VMs to it.
 * Configured the load-balancer traffic rule, and the health probe.
 * Tested the load balancer.
