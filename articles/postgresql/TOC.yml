@@ -425,7 +425,7 @@
     - name: Build with AKS
       items:
       - name: Deploy Python App on Kubernetes 
-        href: flexible-server/tutorial-django-aks-postgres.md
+        href: flexible-server/tutorial-django-aks-database.md
     - name: Build with App Services
       items:
       - name: Create a web app in a virtual network
