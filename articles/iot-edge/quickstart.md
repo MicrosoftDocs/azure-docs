@@ -29,6 +29,10 @@ This quickstart walks you through how to set up your Azure Edge for Linux on Win
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+You use the Azure CLI to complete many of the steps in this quickstart. Azure IoT has an extension to enable additional functionality.
+
 Add the Azure IoT extension to the Cloud Shell instance.
 
    ```azurecli-interactive
