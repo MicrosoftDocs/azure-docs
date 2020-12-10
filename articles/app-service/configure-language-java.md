@@ -10,6 +10,7 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
+adobe-target: true
 ---
 
 # Configure a Java app for Azure App Service
