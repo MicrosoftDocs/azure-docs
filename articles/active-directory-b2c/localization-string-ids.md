@@ -438,7 +438,7 @@ The following are the IDs for [Restful service technical profile](restful-techni
 
 ## Azure AD MFA error messages
 
-The following are the IDs for an [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md) error messages:
+The following are the IDs for an [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md) error message:
 
 | ID | Default value |
 | -- | ------------- |
