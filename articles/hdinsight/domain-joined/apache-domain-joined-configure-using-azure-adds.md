@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seodec18,seoapr2020, contperfq2
+ms.custom: seodec18,seoapr2020, contperf-fy21q2
 ms.date: 10/30/2020
 ---
 
