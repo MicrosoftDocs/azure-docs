@@ -206,6 +206,8 @@
         displayName: query store, performance, optimize, recommendations
     - name: App Development
       items:
+      - name: Best practices
+        href: application-best-practices.md
       - name: Connection libraries
         href: concepts-connection-libraries.md
         displayName: libraries, drivers
