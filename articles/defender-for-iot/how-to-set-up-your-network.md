@@ -545,7 +545,7 @@ Review this list before site deployment:
 | 17 | Set up training (self-learning). | ☐ |  |
 | 18 | Go or no-go. | ☐ |  |
 | 19 | Schedule the deployment date. | ☐ |  |
-
+<br />
 
 | **Date** | **Note** | **Deployment date** | **Note** |
 | Defender for IoT |  | Site name* |  |
