@@ -14,7 +14,7 @@ ms.date: 12/09/2020
 
 In Azure Cognitive Search, a query is a full specification of a round-trip operation, with parameters that govern query execution, and parameters that shape the response coming back.
 
-## Elements of a query
+## Elements of a request
 
 The following example is a representative query constructed using [Search Documents REST API](/rest/api/searchservice/search-documents). This example targets the [hotels demo index](search-get-started-portal.md) and includes common parameters so that you can get an idea of what a query looks like.
 
@@ -31,15 +31,11 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
 }
 ```
 
-Queries are always directed at a single index. You cannot join indexes or create custom or temporary data structures as a query target.
+Queries are always directed at the documents collection of a single index. You cannot join indexes or create custom or temporary data structures as a query target.
 
 + **`queryType`** sets the parser, which is either the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
 
 + **`search`** provides the match criteria, usually whole terms or phrases, but often accompanied by boolean operators. Single standalone terms are *term* queries. Quote-enclosed multi-part queries are *phrase* queries. Search can be undefined, as in **`search=*`**, but with no criteria to match on, the result set is composed of arbitrarily selected documents.
-
-+ Service endpoint and index documents collection, expressed as a URL containing fixed and user-defined components: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
-+ **`api-version`** (REST only) is necessary because more than one version of the API is available at all times. 
-+ **`api-key`**, either a query or admin api-key, authenticates the request to your service. 
 
 + **`searchFields`** constrains query execution to specific fields. Any field that is attributed as *searchable* in the index schema is a candidate for this parameter.
 
@@ -70,17 +66,6 @@ The above screenshot is a partial list of index attributes for the hotels sample
 
 > [!Note]
 > Some query functionality is enabled index-wide rather than on a per-field basis. These capabilities include: [synonym maps](search-synonyms.md), [custom analyzers](index-add-custom-analyzers.md), [suggester constructs (for autocomplete and suggested queries)](index-add-suggesters.md), [scoring logic for ranking results](index-add-scoring-profiles.md).
-
-## Choose APIs and tools
-
-The following table lists the APIs and tool-based approaches for submitting queries.
-
-| Methodology | Description |
-|-------------|-------------|
-| [Search explorer (portal)](search-explorer.md) | Provides a search bar and options for index and api-version selections. Results are returned as JSON documents. Recommended for exploration, testing, and validation. <br/>[Learn more.](search-get-started-portal.md#query-index) | 
-| [Postman or other REST tools](search-get-started-rest.md) | Web testing tools are an excellent choice for formulating REST calls. The REST API supports every possible operation in Azure Cognitive Search. In this article, learn how to set up an HTTP request header and body for sending requests to Azure Cognitive Search.  |
-| [Search Documents (REST API)](/rest/api/searchservice/search-documents) | GET or POST methods on an index, using query parameters for additional input.  |
-| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Client that can be used to query an Azure Cognitive Search index.  <br/>[Learn more.](search-howto-dotnet-sdk.md)  |
 
 ## Choose a parser: simple | full
 
@@ -113,6 +98,7 @@ Azure Cognitive Search supports a broad range of query types.
 | Geo-search | [Edm.GeographyPoint type](/rest/api/searchservice/supported-data-types) on the field, filter expression, and either parser | Coordinates stored in a field having an Edm.GeographyPoint are used for "find near me" or map-based search controls. <br/>[Geo-search example](search-query-simple-examples.md#example-5-geo-search)|
 | Range search | filter expression and simple parser | In Azure Cognitive Search, range queries are built using the filter parameter. <br/>[Range filter example](search-query-simple-examples.md#example-4-range-filters) | 
 | [Fielded search](query-lucene-syntax.md#bkmk_fields) | Search parameter and Full parser | Build a composite query expression targeting a single field. <br/>[Fielded search example](search-query-lucene-examples.md#example-2-fielded-search) |
+| [Autocomplete or suggested results](search-autocomplete-tutorial.md) | Autocomplete or Suggestion parameter | An alternative query form that executes based on partial strings in a search-as-you-type experience. You can use autocomplete and suggestions together or separately. |
 | [fuzzy search](query-lucene-syntax.md#bkmk_fuzzy) | Search parameter and Full parser | Matches on terms having a similar construction or spelling. <br/>[Fuzzy search example](search-query-lucene-examples.md#example-3-fuzzy-search) |
 | [proximity search](query-lucene-syntax.md#bkmk_proximity) | Search parameter and Full parser | Finds terms that are near each other in a document. <br/>[Proximity search example](search-query-lucene-examples.md#example-4-proximity-search) |
 | [term boosting](query-lucene-syntax.md#bkmk_termboost) | Search parameter and Full parser | Ranks a document higher if it contains the boosted term, relative to others that don't. <br/>[Term boosting example](search-query-lucene-examples.md#example-5-term-boosting) |
