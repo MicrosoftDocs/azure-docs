@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 09/22/2020
+ms.date: 12/09/2020
 
 ms.custom: contperf-fy21q1
 ---
@@ -52,6 +52,14 @@ The following table compares the two techniques in more detail:
 |  **Learning approach** | Divides the learning process into smaller steps. It then combines the results from each step into one output. | Moves through the learning process by resolving the problem on an end-to-end basis. |
 |  **Execution time** | Takes comparatively little time to train, ranging from a few seconds to a few hours. | Usually takes a long time to train because a deep learning algorithm involves many layers. |
 |  **Output** | The output is usually a numerical value, like a score or a classification. | The output can have multiple formats, like a text, a score or a sound. |
+
+## Transfer Learning
+
+Training deep learning models often requires large amounts of training data, high-end compute resources (GPU, TPU), and a longer training time. In scenarios when you don't have any of these available to you, you can shortcut the training process using a technique known as transfer learning.
+
+Transfer learning is a technique that applies knowledge gained from solving one problem to a different, but related problem.
+
+Due to the structure of neural networks, the first set of layers usually contain lower-level features, whereas the final set of layers contains higher-level feature that are closer to the domain in question. By repurposing the final layers . For example, 
 
 ## Deep learning use cases
 
@@ -103,11 +111,23 @@ The feedforward neural network is the most simple type of artificial neural netw
 
 Recurrent neural networks are a widely used artificial neural network. These networks save the output of a layer and feed it back to the input layer to help predict the layer's outcome. Recurrent neural networks have great learning abilities. They're widely used for complex tasks such as time series forecasting, learning handwriting, and recognizing language.
 
-### Convolutional neural networks
+### Convolutional neural network
 
 A convolutional neural network is a particularly effective artificial neural network, and it presents a unique architecture. Layers are organized in three dimensions: width, height, and depth. The neurons in one layer connect not to all the neurons in the next layer, but only to a small region of the layer's neurons. The final output is reduced to a single vector of probability scores, organized along the depth dimension. 
 
 Convolutional neural networks have been used in areas such as video recognition, image recognition, and recommender systems.
+
+### Generative adversarial network
+
+Generative adversarial network (GAN) architectures are made up of two networks know as a generator and a discriminator. The generator network takes randomly generated noise and tries to learn the distribution in order to make . The discriminator, is trained using 
+
+### Long short term memory network
+
+Long Short Term Memory (LSTM) is a network 
+
+### Transformers
+
+The transformer neural network are similar to recurrent neural networks in the sense that they work well with sequential data. Natural language processing is a common task transformers are used for. Transformers improve upon RNN architectures by using the concept of attention. Some of the more well known transformer models are BERT (Bidirectional Encoder Representations from Transformers) and the different iterations of GPT (Generative Pre-trained Transformer).
 
 ## Next steps
 
