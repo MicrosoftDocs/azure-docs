@@ -1,7 +1,7 @@
 ---
 title: Recover a deleted storage account
 titleSuffix: Azure Storage
-description: A deleted storage account may be recovered in some cases from within the Azure portal if it was deleted within the past 14 days.
+description: Learn how to recover a deleted storage account within the Azure portal.
 services: storage
 author: tamram
 
@@ -25,7 +25,7 @@ Before you attempt to recover a deleted storage account, make sure that the reso
 If the deleted storage account used customer-managed keys with Azure Key Vault and the key vault has also been deleted, then you must restore the key vault before you restore the storage account. For more information, see [Azure Key Vault recovery overview](../../key-vault/general/key-vault-recovery.md).
 
 > [!IMPORTANT]
-> Recovery of a deleted storage account is not guaranteed. Recovery is a best-effort attempt. Microsoft recommends locking resources to prevent accidental account deletion. For more information about resource locks, see [Lock resources to prevent changes](../../azure/azure-resource-manager/management/lock-resources.md).
+> Recovery of a deleted storage account is not guaranteed. Recovery is a best-effort attempt. Microsoft recommends locking resources to prevent accidental account deletion. For more information about resource locks, see [Lock resources to prevent changes](../../azure-resource-manager/management/lock-resources.md).
 >
 > Another best practice to avoid accidental account deletion is to limit the number of users who have permissions to delete an account via role-based access control (Azure RBAC). For more information, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
