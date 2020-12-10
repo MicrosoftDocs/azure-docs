@@ -14,9 +14,7 @@ ms.author: alkohli
 
 # Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell
 
-<!--[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]-->
-
-This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure PowerShell. This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices.
+This article describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure PowerShell. This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices.
 
 ## VM deployment workflow
 
@@ -27,7 +25,6 @@ The deployment workflow is illustrated in the following diagram.
 ## Prerequisites
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
-
 
 
 ## Query for built in subscription on the device

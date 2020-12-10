@@ -210,53 +210,6 @@ Copy any disk images to be used into page blobs in the local storage account tha
 
     ![Copy URI](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/copy-uri-1.png)
 
-## Query the Vnet for your VM
-
-When you enabled a network interface for compute on your device, a resource group `ASERG`, a virtual network `ASEVNET`, and a virtual subnet `ASEVNETsubNet` are automatically created. To query these resources, run the following command:
-
-```powershell
-Get-AzureRmVirtualNetwork
-```
-Here is the sample output:
-
-```powershell
-
-PS C:\WINDOWS\system32> Get-AzureRmVirtualNetwork
-
-Name                   : ASEVNET
-ResourceGroupName      : ASERG
-Location               : dbelocal
-Id                     : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/ASERG/providers/Microsoft
-                         .Network/virtualNetworks/ASEVNET
-Etag                   : W/"990b306d-18b6-41ea-a456-b275efe21105"
-ResourceGuid           : f8309d81-19e9-42fc-b4ed-d573f00e61ed
-ProvisioningState      : Succeeded
-Tags                   :
-AddressSpace           : {
-                           "AddressPrefixes": [
-                             "10.57.48.0/21"
-                           ]
-                         }
-DhcpOptions            : null
-Subnets                : [
-                           {
-                             "Name": "ASEVNETsubNet",
-                             "Etag": "W/\"990b306d-18b6-41ea-a456-b275efe21105\"",
-                             "Id": "/subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/ASERG/provider
-                         s/Microsoft.Network/virtualNetworks/ASEVNET/subnets/ASEVNETsubNet",
-                             "AddressPrefix": "10.57.48.0/21",
-                             "IpConfigurations": [],
-                             "ResourceNavigationLinks": [],
-                             "ServiceEndpoints": [],
-                             "ProvisioningState": "Succeeded"
-                           }
-                         ]
-VirtualNetworkPeerings : []
-EnableDDoSProtection   : false
-EnableVmProtection     : false
-
-PS C:\WINDOWS\system32>
-```
 
 ## Create image for your VM
 
