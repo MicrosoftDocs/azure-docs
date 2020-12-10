@@ -563,10 +563,10 @@
       - name: OAuth 2.0 resource owner password credentials grant
         displayName: ROPC
         href: v2-oauth-ropc.md
-      - name: OAuth 2.0 SAML bearer assertion flow
-        href: v2-saml-bearer-assertion.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
+      - name: Token exchange scenarios
+        href: scenario-token-exchange-saml-oauth.md
       - name: ID tokens
         href: id-tokens.md
       - name: Access tokens
