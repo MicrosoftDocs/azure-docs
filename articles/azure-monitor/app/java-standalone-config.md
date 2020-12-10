@@ -3,7 +3,9 @@ title: Configuration options - Azure Monitor Application Insights Java
 description: Configuration options for Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 11/04/2020
+author: MS-jgol
 ms.custom: devx-track-java
+ms.author: jgol
 ---
 
 # Configuration options for Azure Monitor Application Insights Java

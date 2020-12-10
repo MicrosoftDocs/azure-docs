@@ -152,6 +152,8 @@
       href: node-updates-kured.md
     - name: Configure an AKS cluster
       href: cluster-configuration.md
+    - name: Custom node configuration (preview)
+      href: custom-node-configuration.md
     - name: Integrate ACR with an AKS cluster
       href: cluster-container-registry-integration.md
     - name: Create virtual nodes
@@ -177,7 +179,7 @@
     - name: Deploy AKS with Terraform
       href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
       maintainContext: true
-    - name: Use the Kubernetes resource viewer (Preview)
+    - name: Azure Portal Kubernetes resource view
       href: kubernetes-portal.md
     - name: Use the Kubernetes dashboard
       href: kubernetes-dashboard.md

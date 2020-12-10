@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 11/20/2020 
+ms.date: 12/03/2020 
 ms.custom: devx-track-azurecli
 ---
 # Use tags to organize your Azure resources and management hierarchy
@@ -20,9 +20,11 @@ For recommendations on how to implement a tagging strategy, see [Resource naming
 
 ## Required access
 
-To apply tags to a resource, you must have write access to the **Microsoft.Resources/tags** resource type. The [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) role lets you apply tags to an entity without having access to the entity itself. Currently, the tag contributor role can't apply tags to resources or resource groups through the portal. It can apply tags to subscriptions through the portal. It supports all tag operations through PowerShell and REST API.  
+There are two ways to get the required access to tag resources.
 
-The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role also grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- You can have write access to the **Microsoft.Resources/tags** resource type. This access lets you tag any resource, even if you don't have access to the resource itself. The [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) role grants this access. Currently, the tag contributor role can't apply tags to resources or resource groups through the portal. It can apply tags to subscriptions through the portal. It supports all tag operations through PowerShell and REST API.  
+
+- You can have write access to the resource itself. The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## PowerShell
 
@@ -271,7 +273,7 @@ az tag create --resource-id $resource --tags Team=Compliance Environment=Product
 },
 ```
 
-To add tags to a resource that already has tags, use **az tag update**. Set the **--operation** parameter to **Merge**.
+To add tags to a resource that already has tags, use `az tag update`. Set the `--operation` parameter to `Merge`.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
@@ -307,7 +309,7 @@ az tag update --resource-id $resource --operation Merge --tags Status=Green
 },
 ```
 
-When you set the **--operation** parameter to **Replace**, the existing tags are replaced by the new set of tags.
+When you set the `--operation` parameter to `Replace`, the existing tags are replaced by the new set of tags.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
@@ -400,7 +402,7 @@ az group list --tag Dept=Finance
 
 ### Remove tags
 
-To remove specific tags, use **az tag update** and set **--operation** to **Delete**. Pass in the tags you want to delete.
+To remove specific tags, use `az tag update` and set `--operation` to `Delete`. Pass in the tags you want to delete.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web

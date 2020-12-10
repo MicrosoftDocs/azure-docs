@@ -73,7 +73,7 @@
   - name: Customize content models
     items:
     - name: Animated characters
-      href: animated-characters-recognition.md
+      href: animated-characters-recognition-how-to.md
     - name: Person
       items: 
       - name: using Video Indexer website

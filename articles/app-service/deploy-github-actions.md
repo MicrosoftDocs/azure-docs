@@ -51,7 +51,7 @@ You can quickly get started with GitHub Actions by using the App Service Deploym
 
 This will commit the workflow file to the repository. The workflow to build and deploy your app will start immediately.
 
-## Set up a work manually
+## Set up a workflow manually
 
 You can also deploy a workflow without using the Deployment Center. To do so, you will need to first generate deployment credentials. 
 
@@ -76,7 +76,7 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 
 # [Service principal](#tab/userlevel)
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
