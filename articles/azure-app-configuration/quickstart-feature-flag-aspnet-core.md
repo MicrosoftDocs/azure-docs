@@ -1,13 +1,13 @@
 ---
 title: Quickstart for adding feature flags to ASP.NET Core
 description: Add feature flags to ASP.NET Core apps and manage them using Azure App Configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
-ms.author: lcozzens
+ms.author: alkemper
 
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -104,7 +104,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    With the preceding change, the [configuration provider for App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664) has been registered with the .NET Core Configuration API.
+    With the preceding change, the [configuration provider for App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) has been registered with the .NET Core Configuration API.
 
 1. In *Startup.cs*, add a reference to the .NET Core feature manager:
 
@@ -233,7 +233,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it to manage features in an ASP.NET Core web app via the [Feature Management libraries](https://go.microsoft.com/fwlink/?linkid=2074664).
+In this quickstart, you created a new App Configuration store and used it to manage features in an ASP.NET Core web app via the [Feature Management libraries](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 * Learn more about [feature management](./concept-feature-management.md).
 * [Manage feature flags](./manage-feature-flags.md).

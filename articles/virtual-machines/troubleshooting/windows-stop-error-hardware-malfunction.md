@@ -59,7 +59,7 @@ This screen will appear when the Guest OS wasn't set up correctly and a Non-Mask
     ```
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
     ```
-    [View further information about the REG ADD command](https://docs.microsoft.com/windows-server/administration/windows-commands/reg-add)
+    [View further information about the REG ADD command](/windows-server/administration/windows-commands/reg-add)
 4. *(Optional)* Setup memory dump collection:
 
     ```
@@ -73,13 +73,13 @@ This screen will appear when the Guest OS wasn't set up correctly and a Non-Mask
     BCDEDIT /ems {current} on, or bcdedit /ems '{current}' on if you are using PowerShell
     BCDEDIT /emssettings EMSPORT:1 EMSBAUDRATE:115200 
     ```
-    [View further information about the BCDEDIT command](https://docs.microsoft.com/windows-server/administration/windows-commands/bcdedit)
+    [View further information about the BCDEDIT command](/windows-server/administration/windows-commands/bcdedit)
 6. Restart the VM with the following command:
 
     ```
     SHUTDOWN /r /t 0 /f 
     ```
-    [View further information about the SHUTDOWN command](https://docs.microsoft.com/windows-server/administration/windows-commands/shutdown)
+    [View further information about the SHUTDOWN command](/windows-server/administration/windows-commands/shutdown)
 
 > [!IMPORTANT]
 > The issue should now be fixed!

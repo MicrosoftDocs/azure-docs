@@ -4,7 +4,7 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 12/10/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
@@ -219,6 +219,78 @@ $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDisk
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
+---
+
+## Deploy an ultra disk - 512 byte sector size
+
+# [Portal](#tab/azure-portal)
+
+The Azure portal does not currently support creating an ultra disk with a 512 byte sector size. You can create an ultra disk with a 512 byte sector size using the Azure PowerShell module or the Azure CLI, instead.
+
+# [Azure CLI](#tab/azure-cli)
+
+First, determine the VM size to deploy. See the [GA scope and limitations](#ga-scope-and-limitations) section for a list of supported VM sizes.
+
+You must create a VM that is capable of using ultra disks, in order to attach an ultra disk.
+
+Replace or set the **$vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** variables with your own values. Set **$zone**  to the value of your availability zone that you got from the [start of this article](#determine-vm-size-and-region-availability). Then run the following CLI command to  create a VM with an ultra disk that has a 512 byte sector size:
+
+```azurecli
+#create an ultra disk with 512 sector size
+az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku UltraSSD_LRS --disk-iops-read-write 8192 --disk-mbps-read-write 400 --logical-sector-size 512
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location --attach-data-disks $diskname
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+First, determine the VM size to deploy. See the [GA scope and limitations](#ga-scope-and-limitations) section for a list of supported VM sizes.
+
+To use ultra disks, you must create a VM that is capable of using ultra disks. Replace or set the **$resourcegroup** and **$vmName** variables with your own values. Set **$zone** to the value of your availability zone that you got from the [start of this article](#determine-vm-size-and-region-availability). Then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command to create an ultra enabled VM:
+
+```powershell
+New-AzVm `
+    -ResourceGroupName $resourcegroup `
+    -Name $vmName `
+    -Location "eastus2" `
+    -Image "Win2016Datacenter" `
+    -EnableUltraSSD `
+    -size "Standard_D4s_v3" `
+    -zone $zone
+```
+
+To create and attach an ultra disk that has a 512 byte sector size, you can use the following script:
+
+```powershell
+# Set parameters and select subscription
+$subscription = "<yourSubscriptionID>"
+$resourceGroup = "<yourResourceGroup>"
+$vmName = "<yourVMName>"
+$diskName = "<yourDiskName>"
+$lun = 1
+Connect-AzAccount -SubscriptionId $subscription
+
+# Create the disk
+$diskconfig = New-AzDiskConfig `
+-Location 'EastUS2' `
+-DiskSizeGB 8 `
+-DiskIOPSReadWrite 1000 `
+-DiskMBpsReadWrite 100 `
+-LogicalSectorSize 512 `
+-AccountType UltraSSD_LRS `
+-CreateOption Empty `
+-zone $zone;
+
+New-AzDisk `
+-ResourceGroupName $resourceGroup `
+-DiskName $diskName `
+-Disk $diskconfig;
+
+# add disk to VM
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
+$disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
+$vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+```
 ---
 ## Attach an ultra disk
 

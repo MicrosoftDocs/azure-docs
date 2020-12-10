@@ -6,7 +6,7 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/29/2020
+ms.date: 12/03/2020
 ---
 
 # Data flow script (DFS)
@@ -224,6 +224,22 @@ select(mapColumn(
 	),
 	skipDuplicateMapInputs: true,
 	skipDuplicateMapOutputs: true) ~> automap
+```
+
+### Persist column data types
+Add this script inside a Derived Column definition to store the column names and data types from your data flow to a persistent store using a sink.
+
+```
+derive(each(match(type=='string'), $$ = 'string'),
+	each(match(type=='integer'), $$ = 'integer'),
+	each(match(type=='short'), $$ = 'short'),
+	each(match(type=='complex'), $$ = 'complex'),
+	each(match(type=='array'), $$ = 'array'),
+	each(match(type=='float'), $$ = 'float'),
+	each(match(type=='date'), $$ = 'date'),
+	each(match(type=='timestamp'), $$ = 'timestamp'),
+	each(match(type=='boolean'), $$ = 'boolean'),
+	each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
 ```
 
 ## Next steps

@@ -13,7 +13,7 @@ ms.custom: include file
 
 ### Property limits
 
-Azure Time Series Insights property limits have increased to 1,000 for warm storage and no property limit for cold storage. Supplied event properties have corresponding JSON, CSV, and chart columns that you can view within the [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+Azure Time Series Insights property limits have increased to 1,000 for warm storage and no property limit for cold storage. Supplied event properties have corresponding JSON, CSV, and chart columns that you can view within the [Azure Time Series Insights Gen2 Explorer](../articles/time-series-insights/quickstart-explore-tsi.md).
 
 | SKU | Maximum properties |
 | --- | --- |
@@ -31,4 +31,4 @@ Azure Time Series Insights property limits have increased to 1,000 for warm stor
 
 ### API limits
 
-REST API limits for Azure Time Series Insights Gen2 are specified in the [REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview#limits-1).
+REST API limits for Azure Time Series Insights Gen2 are specified in the [REST API reference documentation](/rest/api/time-series-insights/preview#limits-1).

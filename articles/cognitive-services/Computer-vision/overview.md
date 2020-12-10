@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: pafarley
-ms.custom: [seodec18, cog-serv-seo-aug-2020]
+ms.custom: [seodec18, cog-serv-seo-aug-2020, contperf-fy21q2]
 keywords: computer vision, computer vision applications, computer vision service
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
 ---
@@ -109,4 +109,4 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 Get started with Computer Vision by following the quickstart guide in your preferred development language:
 
-- [Quickstart: Computer Vision client library](./quickstarts-sdk/client-library.md)
+- [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/client-library.md)

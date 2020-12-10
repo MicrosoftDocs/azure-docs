@@ -171,11 +171,21 @@ This approach is useful when you're experimenting with IoT Central or testing de
 
 ## Associate a device with a device template
 
-IoT Central automatically associates a device with a device template when the device connects. A device sends a model ID when it connects. IoT Central uses the model ID to identify the device template for that specific device model. The discovery process works as follows:
+IoT Central automatically associates a device with a device template when the device connects. A device sends a [model ID](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) when it connects. IoT Central uses the model ID to identify the device template for that specific device model. The discovery process works as follows:
 
 1. If the device template is already published in the IoT Central application, the device is associated with the device template.
-1. If the device template isn't already published in the IoT Central application, IoT Central looks for the device model in the public model repository. If IoT Central finds the model, it uses it to generate a basic device template.
+1. If the device template isn't already published in the IoT Central application, IoT Central looks for the device model in the [public model repository](https://github.com/Azure/iot-plugandplay-models). If IoT Central finds the model, it uses it to generate a basic device template.
 1. If IoT Central doesn't find the model in the public model repository, the device is marked as **Unassociated**. An operator can create a device template for the device and then migrate the unassociated device to the new device template.
+
+The following screenshot shows you how to view the model ID of a device template in IoT Central. In a device template, select a component, and then select **View identity**:
+
+:::image type="content" source="media/concepts-get-connected/model-id.png" alt-text="Screenshot showing model ID in thermostat device template.":::
+
+You can view the [thermostat model](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-1.json) in the public model repository. The model ID definition looks like:
+
+```json
+"@id": "dtmi:com:example:Thermostat;1"
+```
 
 ## Device status values
 
@@ -248,7 +258,7 @@ All data exchanged between devices and your Azure IoT Central is encrypted. IoT 
 
 If you're a device developer, some suggested next steps are to:
 
-- Review some sample code that shows how to use SAS tokens in [Tutorial: Create and connect a client application to your Azure IoT Central application(tutorial-connect-device-nodejs.md)
+- Review some sample code that shows how to use SAS tokens in [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)
 - Learn how to [How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application](how-to-connect-devices-x509.md)
 - Learn how to [Monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)
 - Learn how to [Define a new IoT device type in your Azure IoT Central application](./howto-set-up-template.md)

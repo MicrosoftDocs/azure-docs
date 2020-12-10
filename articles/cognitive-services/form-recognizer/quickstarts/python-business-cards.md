@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use a prebuilt Form Recognizer model to extract my business card data.
@@ -27,7 +27,7 @@ To complete this quickstart, you must have:
 - An image of a business card. You can use a [sample image](../media/business-card-english.jpg) for this quickstart.
 
 > [!NOTE]
-> This quickstart uses a local file. To use a remote business card image accessed by URL instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
+> This quickstart uses a local file. To use a remote business card image accessed by URL instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync).
 
 ## Create a Form Recognizer resource
 

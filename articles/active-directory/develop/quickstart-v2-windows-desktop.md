@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform desktop app | Azure"
-description: In this quickstart, learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by an Microsoft identity platform endpoint
+description: In this quickstart, learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by a Microsoft identity platform endpoint
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-#Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
+#Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by a Microsoft identity platform endpoint.
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app
 
-In this quickstart, you download and run a code sample that demonstrates how a Windows desktop .NET (WPF) application can sign in users and obtain an access token to call the Microsoft Graph API. 
+In this quickstart, you download and run a code sample that demonstrates how a Windows desktop .NET (WPF) application can sign in users and get an access token to call the Microsoft Graph API. 
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
@@ -42,16 +42,17 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. Go to the [App registrations](https://aka.ms/MobileAppReg) blade for Azure Active Directory in the Azure portal.
-> 1. Select **New registration**.
->      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Win-App-calling-MsGraph`.
->      - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
->      - Select **Register** to create the application.
-> 1. In the list of pages for the app, select **Authentication**.
-> 1. In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, use **https://login.microsoftonline.com/common/oauth2/nativeclient**.
-> 1. Select **Save**.
+> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application, for example `Win-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
+> 1. In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
+> 1. Select **Register** to create the application.
+> 1. Under **Manage**, select **Authentication**.
+> 1. Select **Add a platform** > **Mobile and desktop applications**.
+> 1. In the **Redirect URIs** section, select `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+> 1. Select **Configure**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal

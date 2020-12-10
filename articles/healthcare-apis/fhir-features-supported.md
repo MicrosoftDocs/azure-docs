@@ -124,13 +124,13 @@ Cosmos DB is a globally distributed multi-model (SQL API, MongoDB API, etc.) dat
 
 ## Role-based access control
 
-The FHIR Server uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for access control. Specifically, Role-Based Access Control (RBAC) is enforced, if the `FhirServer:Security:Enabled` configuration parameter is set to `true`, and all requests (except `/metadata`) to the FHIR Server must have `Authorization` request header set to `Bearer <TOKEN>`. The token must contain one or more roles as defined in the `roles` claim. A request will be allowed if the token contains a role that allows the specified action on the specified resource.
+The FHIR Server uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for access control. Specifically, role-based access control (RBAC) is enforced, if the `FhirServer:Security:Enabled` configuration parameter is set to `true`, and all requests (except `/metadata`) to the FHIR Server must have `Authorization` request header set to `Bearer <TOKEN>`. The token must contain one or more roles as defined in the `roles` claim. A request will be allowed if the token contains a role that allows the specified action on the specified resource.
 
 Currently, the allowed actions for a given role are applied *globally* on the API.
 
 ## Service limits
 
-* [**Request Units (RUs)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 10 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
+* [**Request Units (RUs)**](../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 10 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
 
 * **Concurrent connections** and **Instances** - By dafault, you have five concurrent connections on two instances in the cluster (for a total of 10 concurrent requests). If you believe you need more concurrent requests, open a support ticket with details on your needs.
 

@@ -3,7 +3,7 @@ title: Manage your bill and convert from the free pricing plan in Azure IoT Cent
 description: As an administrator, learn how to manage your bill and move from the free pricing plan to a standard pricing plan in your Azure IoT Central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 11/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -29,11 +29,11 @@ To complete this self-service process, follow these steps:
 
 1. Go to the **Pricing** page in the **Administration** section.
 
-    ![Trial state](media/howto-view-bill/freetrialbilling.png)
+    :::image type="content" source="media/howto-view-bill/freetrialbilling.png" alt-text="Trial state":::
 
 1. Select **Convert to a paid plan**.
 
-    ![Convert trial](media/howto-view-bill/convert.png)
+    :::image type="content" source="media/howto-view-bill/convert.png" alt-text="Convert trial":::
 
 1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your application that uses a paid plan.
 
@@ -50,7 +50,7 @@ In the pricing section, you can upgrade or downgrade your Azure IoT pricing plan
 
 1. Go to the **Pricing** page in the **Administration** section.
 
-    ![Upgrade prcing plan](media/howto-view-bill/pricing.png)
+    :::image type="content" source="media/howto-view-bill/pricing.png" alt-text="Upgrade pricing plan":::
 
 1. Select the **Plan** and then select **Save** to upgrade or downgrade.
 
