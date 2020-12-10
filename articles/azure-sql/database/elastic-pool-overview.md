@@ -68,9 +68,9 @@ This example is ideal for the following reasons:
 - The peak utilization for each database occurs at different points in time.
 - eDTUs are shared between many databases.
 
-The price of a pool is a function of the pool eDTUs in the DTU-based purchasing model. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.
+In the DTU purchasing model, the price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.
 
-Note that in the vCore purchasing model, the vCore unit price for elastic pools is the same as the vCore unti price for single databases.
+In the vCore purchasing model, the vCore unit price for elastic pools is the same as the vCore unit price for single databases.
 
 ## How do I choose the correct pool size
 
