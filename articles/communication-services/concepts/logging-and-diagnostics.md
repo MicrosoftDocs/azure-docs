@@ -36,7 +36,7 @@ Communication Services offers three types of logs that you can enable:
 * **Usage logs** - provides usage data associated with each billed service offering
 * **Chat operational logs** - provides basic information related to the chat service
 * **SMS operational logs** - provides basic information related to the SMS service
-* **Autentication operational logs** - provides basic information related to the Authentication service
+* **Authentication operational logs** - provides basic information related to the Authentication service
 
 ### Usage logs schema
 
