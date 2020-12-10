@@ -2,7 +2,7 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 12/10/2020
 ms.author: wolfma
 ---
 
@@ -28,4 +28,5 @@ ms.author: wolfma
 | Europe | North Europe | `northeurope` |
 | Europe | West Europe | `westeurope` |
 | Europe | France Central | `francecentral` |
+| Europe | Switzerland North | `switzerlandnorth` |
 | Europe | UK South | `uksouth` |
