@@ -117,4 +117,4 @@ Communication Services offers three types of logs that you can enable:
 | SdkType | The SDK type used in the request. |
 | PlatformType | The platform type used in the request. |
 | Identity | The Communication Services identity related to the operation. |
-| Scopes | The ACS scopes present in the access token. |
+| Scopes | The Communication Services scopes present in the access token. |
