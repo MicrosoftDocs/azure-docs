@@ -16,8 +16,30 @@ Refer to the following documents for details on how to keep your cluster running
 - [Upgrade an Azure Service Fabric cluster](service-fabric-cluster-upgrade.md)
 - [Upgrade the Service Fabric version that runs on your standalone Windows Server cluster](service-fabric-cluster-upgrade-windows-server.md)
 
-## Supported versions
 
+## Unsupported Versions
+
+### Upgrade Alert for versions between 5.7 and below 6.3.63.*
+
+***All Service Fabric clusters that are on unsupported versions from 5.7 to 6.3.63.* will be impacted by security breaking change that will be rolled out in Azure on January 7th,2021***.
+ 
+  
+  To avoid serious service disruptions, you must upgrade their clusters as soon as possible to one of the below supported version of Service Fabric runtime that includes fix for the security issue. We have reached out to the impacted customers with guidance. If you have a support plan and you need technical help, please reach out to us via [Azure support channels](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request) by opening a support request and mention this context in the support ticket. 
+ 
+  #### Service Fabric runtime version including Breakfix
+   Ensure that Aure Service Fabric cluster is a upgraded to one of the below supported version of Service Fabric runtime that includes fix for the security issue described   
+   above. 
+
+  | OS | Current Service Fabric runtime in the cluster | CU/Patch release  | 
+  | --- | --- |--- | 
+  | Windows | 7.0.* | 7.0.478.9590 |
+  | Windows | 7.1.* | 7.1.503.9590 |
+  | Windows | 7.2.* | 7.2.413.9590 |
+  | Ubuntu 16 | 7.0.* | 7.0.472.1  |
+  | Ubuntu 16 | 7.1.* | 7.1.455.1  |
+  | Ubuntu 1804 | 7.1.* | 7.1.455.1804  |
+
+## Supported versions
 The following table lists the versions of Service Fabric and their support end dates.
 
 | Service Fabric runtime in the cluster | Can upgrade directly from cluster version |Compatible SDK or NuGet package version | End of support |
