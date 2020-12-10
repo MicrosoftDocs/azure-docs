@@ -22,10 +22,6 @@ With this feature you can:
 * Check request failures.
 * Check application metrics.
 
-## Prerequisite
-
-Enable the Application Insights Java agent using the following procedures.
-
 ## Enable Java in process agent
 
 Enable Java in process agent preview feature using the following procedure.
