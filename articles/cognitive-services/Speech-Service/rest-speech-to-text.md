@@ -13,24 +13,47 @@ ms.author: trbye
 ms.custom: devx-track-csharp
 ---
 
-# Speech-to-text REST API
+# Speech-to-Text REST API
 
-Speech-to-Text has the two different REST APIs. Each API serves a different purpose and uses different sets of endpoints.
+Speech-to-Text has two different REST APIs. Each API serves its special purpose and uses different sets of endpoints.
 
 The Speech-to-Text REST APIs are:
-- [v1.0](#speech-to-text-rest-api-v10) is used for On-Line transcription as an alternative to the [Speech SDK](speech-sdk.md).
-- [v3.0](#speech-to-text-rest-api-v30) is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- [Speech-to-Text REST API v3.0](#speech-to-text-rest-api-v30) is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- [Speech-to-Text REST API for short audio](#speech-to-text-rest-api-for-short-audio) is used for On-Line transcription as an alternative to the [Speech SDK](speech-sdk.md). The requests using this API can transmit only up to 60 seconds of audio per request. 
 
-## Speech-to-text REST API v1.0
+## Speech-to-Text REST API v3.0
 
-As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use. The REST API is very limited, and it should only be used in cases were the [Speech SDK](speech-sdk.md) cannot.
+Speech-to-text REST API v3.0 is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). If you need to communicate with the OnLine transcription via REST, use [Speech-to-Text REST API for short audio](#speech-to-text-rest-api-for-short-audio).
 
-Before using the speech-to-text REST API, consider the following:
+Use REST API v3.0 to:
+- Copy models to other subscriptions in case you want colleagues to have access to a model you built, or in cases where you want to deploy a model to more than one region
+- Transcribe data from a container (bulk transcription) as well as provide multiple audio file URLs
+- Upload data from Azure Storage accounts through the use of a SAS Uri
+- Get logs per endpoint if logs have been requested for that endpoint
+- Request the manifest of the models you create, for the purpose of setting up on-premises containers
 
-* Requests that use the REST API and transmit audio directly can only contain up to 60 seconds of audio.
-* The speech-to-text REST API only returns final results. Partial results are not provided.
+REST API v3.0 includes such features as:
+- **Notifications-Webhooks**—All running processes of the service now support webhook notifications. REST API v3.0 provides the calls to enable you to register your webhooks where notifications are sent
+- **Updating models behind endpoints** 
+- **Model adaptation with multiple data sets**—Adapt a model using multiple data set combinations of acoustic, language, and pronunciation data
+- **Bring your own storage**—Use your own storage accounts for logs, transcription files, and other data
 
-If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or a file-based REST API, like [batch transcription](batch-transcription.md).
+See examples on using REST API v3.0 with the Batch transcription is [this article](batch-transcription.md).
+
+If you are using Speech-to-Text REST API v2.0, see how you can migrate to v3.0 in [this guide](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+
+See the full Speech-to-Text REST API v3.0 Reference [here](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
+
+## Speech-to-Text REST API for short audio
+
+As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use. The REST API for short audio is very limited, and it should only be used in cases were the [Speech SDK](speech-sdk.md) cannot.
+
+Before using the speech-to-text REST API for short audio, consider the following:
+
+* Requests that use the REST API for short audio and transmit audio directly can only contain up to 60 seconds of audio.
+* The speech-to-text REST API for short audio only returns final results. Partial results are not provided.
+
+If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or [Speech-to-Text REST API v3.0](#speech-to-text-rest-api-v30).
 
 > [!TIP]
 > See the  Azure government [documentation](../../azure-government/compare-azure-government-global-azure.md) for government cloud (FairFax) endpoints.
@@ -39,7 +62,7 @@ If sending longer audio is a requirement for your application, consider using th
 
 ### Regions and endpoints
 
-The endpoint for the REST API has this format:
+The endpoint for the REST API for short audio has this format:
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
@@ -87,7 +110,7 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 | OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
 
 >[!NOTE]
->The above formats are supported through REST API and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).
+>The above formats are supported through REST API for short audio and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).
 
 ### Pronunciation assessment parameters
 
@@ -160,7 +183,7 @@ The HTTP status code for each response indicates success or common errors.
 
 ### Chunked transfer
 
-Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency. It allows the Speech service to begin processing the audio file while it is transmitted. The REST API does not provide partial or interim results.
+Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency. It allows the Speech service to begin processing the audio file while it is transmitted. The REST API for short audio does not provide partial or interim results.
 
 This code sample shows how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an `HttpWebRequest` object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
@@ -306,29 +329,6 @@ A typical response for recognition with pronunciation assessment:
   ]
 }
 ```
-
-## Speech-to-text REST API v3.0
-
-Speech-to-text REST API v3.0 is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). If you need to communicate with the OnLine transcription via REST, use [Speech-to-text REST API v1.0](#speech-to-text-rest-api-v10).
-
-Use REST API v3.0 to:
-- Copy models to other subscriptions in case you want colleagues to have access to a model you built, or in cases where you want to deploy a model to more than one region
-- Transcribe data from a container (bulk transcription) as well as provide multiple audio file URLs
-- Upload data from Azure Storage accounts through the use of a SAS Uri
-- Get logs per endpoint if logs have been requested for that endpoint
-- Request the manifest of the models you create, for the purpose of setting up on-premises containers
-
-REST API v3.0 includes such features as:
-- **Notifications-Webhooks**—All running processes of the service now support webhook notifications. REST API v3.0 provides the calls to enable you to register your webhooks where notifications are sent
-- **Updating models behind endpoints** 
-- **Model adaptation with multiple data sets**—Adapt a model using multiple data set combinations of acoustic, language, and pronunciation data
-- **Bring your own storage**—Use your own storage accounts for logs, transcription files, and other data
-
-See examples on using REST API v3.0 with the Batch transcription is [this article](batch-transcription.md).
-
-If you are using Speech-to-Text REST API v2.0, see how you can migrate to v3.0 in [this guide](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
-
-See the full Speech-to-Text REST API v3.0 Reference [here](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 
 ## Next steps
 

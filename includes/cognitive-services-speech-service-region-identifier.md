@@ -28,5 +28,4 @@ ms.author: wolfma
 | Europe | North Europe | `northeurope` |
 | Europe | West Europe | `westeurope` |
 | Europe | France Central | `francecentral` |
-| Europe | Switzerland North | `switzerlandnorth` |
 | Europe | UK South | `uksouth` |
