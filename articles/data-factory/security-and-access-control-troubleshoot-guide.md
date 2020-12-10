@@ -71,7 +71,25 @@ Self-hosted integration runtime throws error “The Authentication key is invali
 
 The problem is most likely caused by DNS resolution issue, as disabling public connectivity and establishing a private endpoint does no help for reconnecting.
 
+You can follow below steps to verify the cause:
+
+1. Confirm that you have created the Azure VM in the same VNET as Data Factory private endpoint.
+
+1. Run PsPing and Ping from Azure VM to Data Factory FQDN:
+
+   `Ping <dataFactoryName>.<region>.datafactory.azure.net`
+
+   `psping.exe <dataFactoryName>.<region>.datafactory.azure.net:443`
+
+> [!Note]
+> A port is required to be specified for PsPing command, while 443 port is not a must.
+>
+
+1. Check if both commands resolved to an ADF public IP that based on specified region.
+
 #### Resolution
+
+If both commands do resolve DNS to a public IP, you can try to follow the instruction in [Azure Private Link for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints) to configure the private DNS zone/server. This is in order to resolve Data Factory FQDN to private IP address.
 
 1. Did a PsPing to ADF’s FQDN and found that the buffer was going to a public endpoint of ADF, even after having it disabled.
 
