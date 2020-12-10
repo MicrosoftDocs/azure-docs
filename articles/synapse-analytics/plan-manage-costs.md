@@ -24,7 +24,7 @@ ms.date: 12/09/2020
 
 <!-- Note for Azure service writer: Modify the following for your service. -->
 
-This article describes how to plan for and manage costs for Azure Synapse Analytics. First, you use the Azure pricing calculator to help plan for Azure Synapse Analytics costs 
+This article describes how to plan for and manage costs for Azure Synapse Analytics. First, you use the Azure pricing calculator to help plan for Azure Synapse costs 
 before you add any resources for the service to estimate costs. Next, as you add Azure Synapse resources, review the estimated costs.
 
 After you've started using Azure Synapse resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure Synapse are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Synapse, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
@@ -55,7 +55,7 @@ Azure Synapse has various resources that have different charges as seen in the c
 
 ## Understand the full billing model for Azure Synapse Analytics
 
-Azure Synapse Analytics runs on Azure infrastructure that accrues costs along with Azure Synapse Analytics when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources. 
+Azure Synapse runs on Azure infrastructure that accrues costs along with Azure Synapse when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources. 
 
 <!--Note to Azure service writer: Include each of the following subsections at a minimum -->
 
@@ -63,7 +63,7 @@ Azure Synapse Analytics runs on Azure infrastructure that accrues costs along wi
 
 <!--Note to Azure service writer: Include any costs that aren't obvious, hidden, or otherwise might not be present in the pricing calculator or resource creation experience in the Azure portal. You might need to sync with your product team to identify hidden costs. If you're certain that costs accrue only for your service and no others, then omit this section. -->
 
-When you create resources for Azure Synapse Analytics, resources for other Azure services are also created. They include:
+When you create resources for Azure Synapse, resources for other Azure services are also created. They include:
 
 - Data Lake Storage Gen2
 - Serverless SQL pool
@@ -73,16 +73,16 @@ When you create resources for Azure Synapse Analytics, resources for other Azure
 
 <!--Note to Azure service writer: You might need to sync with your product team to identify resources that continue to exist after those ones for your service are deleted. If you're certain that no resources can exist after those for your service are deleted, then omit this section. -->
 
-After you delete Azure Synapse Analytics resources, the following resources might continue to exist. They continue to accrue costs until you delete them.
+After you delete Azure Synapse resources, the following resources might continue to exist. They continue to accrue costs until you delete them.
 
 - Data Lake Storage Gen2
 - 
 
-### Using Monetary Credit with Azure Synapse Analytics
+### Using Monetary Credit with Azure Synapse 
 
 <!--Note to Azure service writer: Let the user know that most 1st party Azure service charges can be fulfilled by EA monetary commitment credit. However, charges from third party products and services including those from the Azure Marketplace cannot be paid for by EA monetary commitment credit. -->
 
-You can pay for Azure Synapse Analytics charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third party products and services including those from the Azure Marketplace.
+You can pay for Azure Synapse charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
 ## Review estimated costs in the Azure portal
 
@@ -115,15 +115,15 @@ If your Azure subscription has a spending limit, Azure prevents you from spendin
 
 <!-- Note to Azure service writer: Modify the following as needed for your service. Replace example screenshots with ones taken for your service. If you need assistance capturing screenshots, ask banders for help. -->
 
-As you use Azure Synapse Analytics resources, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) As soon as you start using resources in Azure Synapse Analytics, costs are incurred and you can see the costs in [cost analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+As you use Azure Synapse resources, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) As soon as you start using resources in Azure Synapse, costs are incurred and you can see the costs in [cost analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 When you use cost analysis, you view costs for Azure Synapse Analytics in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
 
-To view Azure Synapse Analytics costs in cost analysis:
+To view Azure Synapse costs in cost analysis:
 
 1. Sign in to the Azure portal.
 2. Open the scope, either the subscription or the resource group, in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select  **Cost analysis** in the menu. Select **Scope** to switch to a different scope in cost analysis.
-3. By default, cost for services are shown in the first donut chart. Select the area in the chart labeled Azure synapse Analytics.
+3. By default, cost for services are shown in the first donut chart. Select the area in the chart labeled Azure Synapse.
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
@@ -154,7 +154,7 @@ Budgets can be created with filters for specific resources or services in Azure 
 You can also [export your cost data](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 
-## Other ways to manage and reduce costs for Azure Synapse Analytics
+## Other ways to manage and reduce costs for Azure Synapse 
 
 <!-- Note to Azure service writer: This is an optional section. Other than using the Cost Management methods above, there are probably ways to minimize costs for your service that are specific to your service. Because customers only pay for what they use and when they use less of a resource, the result is a smaller bill. You might already have published cost-saving content. For example, you might have best practice advice or specific ways to reduce costs that are specific to your service. If so, try to add that guidance here or at least summarize key points. Try to be as prescriptive as possible. If you have more comprehensive content, add links to your other published articles or sections here. 
 
