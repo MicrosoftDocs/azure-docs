@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 12/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
