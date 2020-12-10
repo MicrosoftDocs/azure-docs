@@ -24,11 +24,11 @@ Find answers to common questions about Microsoft Azure Dedicated HSM.
 
 ### Q: What is a hardware security module (HSM)?
 
-A Hardware Security Module (HSM) is a physical computing device used to safeguard and manage cryptographic keys. Keys stored in HSM's can be used for cryptographic operations. The key material stays safely in tamper-resistant, tamper-evident hardware modules. The HSM only allows authenticated and authorized applications to use the keys. The key material never leaves the HSM protection boundary.
+A Hardware Security Module (HSM) is a physical computing device used to safeguard and manage cryptographic keys. Keys stored in HSMs can be used for cryptographic operations. The key material stays safely in tamper-resistant, tamper-evident hardware modules. The HSM only allows authenticated and authorized applications to use the keys. The key material never leaves the HSM protection boundary.
 
 ### Q: What is the Azure Dedicated HSM offering?
 
-Azure Dedicated HSM is a cloud-based service that provides HSM's hosted in Azure datacenters that are directly connected to a customer's virtual network. These HSM's are dedicated network appliances (Thales Network Luna HSM 7). They are deployed directly to a customers' private IP address space and Microsoft does not have any access to the cryptographic functionality of the HSM's. Only the customer has full administrative and cryptographic control over these devices. Customers are responsible for the management of the device and they can get full activity logs directly from their devices. Dedicated HSM's help customers meet compliance/regulatory requirements such as FIPS 140-2 Level 3, HIPAA, PCI-DSS, and eIDAS and many others.
+Azure Dedicated HSM is a cloud-based service that provides HSMs hosted in Azure datacenters that are directly connected to a customer's virtual network. These HSMs are dedicated network appliances (Thales Network Luna HSM 7). They are deployed directly to a customers' private IP address space and Microsoft does not have any access to the cryptographic functionality of the HSMs. Only the customer has full administrative and cryptographic control over these devices. Customers are responsible for the management of the device and they can get full activity logs directly from their devices. Dedicated HSMs help customers meet compliance/regulatory requirements such as FIPS 140-2 Level 3, HIPAA, PCI-DSS, and eIDAS and many others.
 
 ### Q: What hardware is used for Dedicated HSM?
 
@@ -36,11 +36,11 @@ Microsoft has partnered with Thales to deliver the Azure Dedicated HSM service. 
 
 ### Q: What is an HSM used for?
 
-HSM's are used for storing cryptographic keys that are used for cryptographic functionality such as TLS (transport layer security), encrypting data, PKI (public key infrastructure), DRM (digital rights management), and signing documents.
+HSMs are used for storing cryptographic keys that are used for cryptographic functionality such as TLS (transport layer security), encrypting data, PKI (public key infrastructure), DRM (digital rights management), and signing documents.
 
 ### Q: How does Dedicated HSM work?
 
-Customers can provision HSM's in specific regions using PowerShell or command-line interface. The customer specifies what virtual network the HSM's will be connected to and once provisioned the HSM's will be available in the designated subnet at assigned IP addresses in the customer's private IP address space. Then customers can connect to the HSM's using SSH for appliance management and administration, set up HSM client connections, initialize HSM's, create partitions, define, and assign roles such as partition officer, crypto officer, and crypto user. Then the customer will use Thales provided HSM client tools/SDK/software to perform cryptographic operations from their applications.
+Customers can provision HSMs in specific regions using PowerShell or command-line interface. The customer specifies what virtual network the HSMs will be connected to and once provisioned the HSMs will be available in the designated subnet at assigned IP addresses in the customer's private IP address space. Then customers can connect to the HSMs using SSH for appliance management and administration, set up HSM client connections, initialize HSMs, create partitions, define, and assign roles such as partition officer, crypto officer, and crypto user. Then the customer will use Thales provided HSM client tools/SDK/software to perform cryptographic operations from their applications.
 
 ### Q: What software is provided with the Dedicated HSM service?
 
@@ -55,15 +55,15 @@ The following items will incur extra cost when using the Dedicated HSM service.
 
 ### Q: Does Azure Dedicated HSM offer Password-based and PED-based authentication?
 
-At this time, Azure Dedicated HSM only provides HSM's with password-based authentication.
+At this time, Azure Dedicated HSM only provides HSMs with password-based authentication.
 
-### Q: Will Azure Dedicated HSM host my HSM's for me?
+### Q: Will Azure Dedicated HSM host my HSMs for me?
 
 Microsoft only offers the Thales Network Luna HSM 7 via the Dedicated HSM service and cannot host any customer-provided devices.
 
 ### Q: Does Azure Dedicated HSM support payment (PIN/EFT) features?
 
-The Azure Dedicated HSM service uses Thales Network Luna HSM 7 devices. These devices do not support payment HSM-specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support payment HSM's in future,  pass on the feedback to your Microsoft Account Representative.
+The Azure Dedicated HSM service uses Thales Network Luna HSM 7 devices. These devices do not support payment HSM-specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future,  pass on the feedback to your Microsoft Account Representative.
 
 ### Q: Which Azure regions is Dedicated HSM available in?
 
@@ -103,24 +103,24 @@ You use Thales provided HSM client tools/SDK/software to perform cryptographic o
 
 Yes, you will need to use [VNET peering](../virtual-network/virtual-network-peering-overview.md) within a region to establish connectivity across virtual networks. For cross-region connectivity, you must use [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-### Q: Can I synchronize Dedicated HSM with on-premises HSM's?
+### Q: Can I synchronize Dedicated HSM with on-premises HSMs?
 
-Yes, you can sync on-premises HSM's with Dedicated HSM. [Point-to-point VPN or point-to-site](../vpn-gateway/vpn-gateway-about-vpngateways.md) connectivity can be used to establish connectivity with your on-premises network.
+Yes, you can sync on-premises HSMs with Dedicated HSM. [Point-to-point VPN or point-to-site](../vpn-gateway/vpn-gateway-about-vpngateways.md) connectivity can be used to establish connectivity with your on-premises network.
 
 ### Q: Can I encrypt data used by other Azure services using keys stored in Dedicated HSM?
 
-No. Azure Dedicated HSM's are only accessible from inside your virtual network.
+No. Azure Dedicated HSMs are only accessible from inside your virtual network.
 
 ### Q: Can I import keys from an existing On-premises HSM to Dedicated HSM?
 
-Yes, if you have on-premises Thales Network Luna HSM 7 HSM's. There are multiple methods. Refer to the [Thales HSM documentation](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).
+Yes, if you have on-premises Thales Network Luna HSM 7 HSMs. There are multiple methods. Refer to the [Thales HSM documentation](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).
 
 ### Q: What operating systems are supported by Dedicated HSM client software?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
 * Virtual: VMware, Hyper-V, Xen, KVM
 
-### Q: How do I configure my client application to create a high availability configuration with multiple partitions from multiple HSM's?
+### Q: How do I configure my client application to create a high availability configuration with multiple partitions from multiple HSMs?
 
 To have high availability, you need to set up your HSM client application configuration to use partitions from each HSM. Refer to the Thales HSM client software documentation.
 
@@ -132,7 +132,7 @@ Azure Dedicated HSM uses SafeNet Network HSM 7 appliances (model A790) and they 
 
 PKCS#11, Java (JCA/JCE), Microsoft CAPI, and CNG, OpenSSL
 
-### Q: Can I import/migrate keys from Luna 5/6 HSM's to Azure Dedicated HSM's?
+### Q: Can I import/migrate keys from Luna 5/6 HSMs to Azure Dedicated HSMs?
 
 Yes. Contact your Thales representative for the appropriate Thales migration guide. 
 
@@ -140,11 +140,11 @@ Yes. Contact your Thales representative for the appropriate Thales migration gui
 
 ### Q: How do I decide whether to use Azure Key Vault or Azure Dedicated HSM?
 
-Azure Dedicated HSM is the appropriate choice for enterprises migrating to Azure on-premises applications that use HSM's. Dedicated HSM's present an option to migrate an application with minimal changes. If cryptographic operations are performed in the application's code running in an Azure VM or Web App, they can use Dedicated HSM. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models, that support HSM's as a key store can use Dedicate HSM, such as Application gateway or traffic manager for keyless TLS, ADCS (Active Directory Certificate Services), or similar PKI tools, tools/applications used for document signing, code signing, or a SQL Server (IaaS) configured with TDE (transparent database encryption) with master key in an HSM using an EKM (extensible key management) provider. Azure Key Vault is suitable for "born-in-cloud" applications or for encryption at rest scenarios where customer data is processed by PaaS (platform as a service) or SaaS (Software as a service) scenarios such as Office 365 Customer Key, Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store encryption with customer-managed key, Azure Storage encryption with customer managed key, and Azure SQL with customer managed key.
+Azure Dedicated HSM is the appropriate choice for enterprises migrating to Azure on-premises applications that use HSMs. Dedicated HSMs present an option to migrate an application with minimal changes. If cryptographic operations are performed in the application's code running in an Azure VM or Web App, they can use Dedicated HSM. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models, that support HSMs as a key store can use Dedicate HSM, such as Application gateway or traffic manager for keyless TLS, ADCS (Active Directory Certificate Services), or similar PKI tools, tools/applications used for document signing, code signing, or a SQL Server (IaaS) configured with TDE (transparent database encryption) with master key in an HSM using an EKM (extensible key management) provider. Azure Key Vault is suitable for "born-in-cloud" applications or for encryption at rest scenarios where customer data is processed by PaaS (platform as a service) or SaaS (Software as a service) scenarios such as Office 365 Customer Key, Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store encryption with customer-managed key, Azure Storage encryption with customer managed key, and Azure SQL with customer managed key.
 
 ### Q: What usage scenarios best suit Azure Dedicated HSM?
 
-Azure Dedicated HSM is most suitable for migration scenarios. This means that if you are migrating on-premises applications to Azure that are already using HSM's. This provides a low-friction option to migrate to Azure with minimal changes to the application. If cryptographic operations are performed in the application's code running in Azure VM or Web App, Dedicated HSM may be used. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models, that support HSM's as a key store can use Dedicate HSM, such as:
+Azure Dedicated HSM is most suitable for migration scenarios. This means that if you are migrating on-premises applications to Azure that are already using HSMs. This provides a low-friction option to migrate to Azure with minimal changes to the application. If cryptographic operations are performed in the application's code running in Azure VM or Web App, Dedicated HSM may be used. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models, that support HSMs as a key store can use Dedicate HSM, such as:
 
 * Application gateway or traffic manager for keyless TLS
 * ADCS (Active Directory Certificate Services)
@@ -159,7 +159,7 @@ No. Dedicated HSM is provisioned directly into a customer's private IP Address s
 
 ## Administration, access, and control
 
-### Q: Does the customer get full exclusive control over the HSM's with Dedicated '?
+### Q: Does the customer get full exclusive control over the HSMs with Dedicated '?
 
 Yes. Each HSM appliance is fully dedicated to one single customer and no one else has administrative control once provisioned and the administrator password changed.
 
@@ -167,7 +167,7 @@ Yes. Each HSM appliance is fully dedicated to one single customer and no one els
 
 Microsoft does not have any administrative or cryptographic control over the HSM. Microsoft does have monitor level access via serial port connection to retrieve basic telemetry such as temperature and component health. This allows Microsoft to provide proactive notification of health issues. If necessary, the customer can disable this account.
 
-### Q: What is the "tenant admin" account Microsoft uses, I am used to the admin user being "admin" on Thales Luna HSM's?
+### Q: What is the "tenant admin" account Microsoft uses, I am used to the admin user being "admin" on Thales Luna HSMs?
 
 The HSM device ships with a default user of admin with its usual default password. Microsoft did not want to have default passwords in use while any device is in a pool waiting to be provisioned by customers. This would not meet our strict security requirements. For this reason, we set a strong password, which is discarded at provisioning time. Also, at provisioning time we create a new user in the admin role called "tenant admin". This user has the default password and customers change this as the first action when first logging into the newly provisioned device. This process ensures high degrees of security and maintains our promise of sole administrative control for our customers. It should be noted that the "tenant admin" user can be used to reset the admin user password if a customer prefers to use that account. 
 
@@ -175,17 +175,17 @@ The HSM device ships with a default user of admin with its usual default passwor
 
 No. Microsoft does not have any access to the keys stored in customer allocated Dedicated HSM.
 
-### Q: Can I upgrade software/firmware on HSM's allocated to me?
+### Q: Can I upgrade software/firmware on HSMs allocated to me?
 
 The customer has full administrative control including upgrading software/firmware if specific features are required from different firmware versions. Before making changes please consult with Microsoft about your upgrade by contacting HSMRequest@microsoft.com  
 
 ### Q: How do I manage Dedicated HSM?
 
-You can manage Dedicated HSM's by accessing them using SSH.
+You can manage Dedicated HSMs by accessing them using SSH.
 
 ### Q: How do I manage partitions on the Dedicated HSM?
 
-The Thales HSM client software is used to manage the HSM's and partitions.
+The Thales HSM client software is used to manage the HSMs and partitions.
 
 ### Q: How do I monitor my HSM?
 
@@ -199,17 +199,17 @@ Yes. You can send logs from the HSM appliance to a syslog server
 
 ### Q: Is it possible to configure high availability in the same region or across multiple regions?
 
-Yes. High availability configuration and setup are performed in the HSM client software provided by Thales. HSM's from the same VNET or other VNETs in the same region or across regions, or on premises HSM's connected to a VNET using site-to-site or point-to-point VPN can be added to same high availability configuration. It should be noted that this synchronizes key material only and not specific configuration items such as roles.
+Yes. High availability configuration and setup are performed in the HSM client software provided by Thales. HSMs from the same VNET or other VNETs in the same region or across regions, or on premises HSMs connected to a VNET using site-to-site or point-to-point VPN can be added to same high availability configuration. It should be noted that this synchronizes key material only and not specific configuration items such as roles.
 
-### Q: Can I add HSM's from my on-premises network to a high availability group with Azure Dedicated HSM?
+### Q: Can I add HSMs from my on-premises network to a high availability group with Azure Dedicated HSM?
 
 Yes. They must meet the high availability requirements for SafeNet Luna Network HSM 7.
 
-### Q: Can I add Luna 5/6 HSM's from on-premises networks to a high availability group with Azure Dedicated HSM?
+### Q: Can I add Luna 5/6 HSMs from on-premises networks to a high availability group with Azure Dedicated HSM?
 
 No.
 
-### Q: How many HSM's can I add to the same high availability configuration from one single application?
+### Q: How many HSMs can I add to the same high availability configuration from one single application?
 
 16 members of an HA group have under-gone, full-throttle testing with excellent results.
 
@@ -219,17 +219,17 @@ No.
 
 There is no specific uptime guarantee provided for the Dedicated HSM service. Microsoft will ensure network level access to the device, and hence standard Azure networking SLAs apply.
 
-### Q: How are the HSM's used in Azure Dedicated HSM protected?
+### Q: How are the HSMs used in Azure Dedicated HSM protected?
 
-Azure datacenters have extensive physical and procedural security controls. In addition to that Dedicated HSM's are hosted in a further restricted access area of the datacenter. These areas have additional physical access controls and video camera surveillance for added security.
+Azure datacenters have extensive physical and procedural security controls. In addition to that Dedicated HSMs are hosted in a further restricted access area of the datacenter. These areas have additional physical access controls and video camera surveillance for added security.
 
 ### Q: What happens if there is a security breach or hardware tampering event?
 
-Dedicated HSM service uses Thales Network Luna HSM 7 appliances. These appliances support physical and logical tamper detection. If there is ever a tamper event the HSM's are automatically zeroized.
+Dedicated HSM service uses Thales Network Luna HSM 7 appliances. These appliances support physical and logical tamper detection. If there is ever a tamper event the HSMs are automatically zeroized.
 
-### Q: How do I ensure that keys in my Dedicated HSM's are not lost due to error or a malicious insider attack?
+### Q: How do I ensure that keys in my Dedicated HSMs are not lost due to error or a malicious insider attack?
 
-It is highly recommended to use an on-premises HSM backup device to perform regular periodic backup of the HSM's for disaster recovery. You will need to use a peer-to-peer or site-to-site VPN connection to an on-premises workstation connected to an HSM backup device.
+It is highly recommended to use an on-premises HSM backup device to perform regular periodic backup of the HSMs for disaster recovery. You will need to use a peer-to-peer or site-to-site VPN connection to an on-premises workstation connected to an HSM backup device.
 
 ### Q: How do I get support for Dedicated HSM?
 
@@ -241,7 +241,7 @@ After registering for the service, a Thales Customer ID will be provided that al
 
 ### Q: If there is a security vulnerability found and a patch is released by Thales, who is responsible for upgrading/patching OS/Firmware?
 
-Microsoft does not have the ability to connect to HSM's allocated to customers. Customers must upgrade and patch their HSM's.
+Microsoft does not have the ability to connect to HSMs allocated to customers. Customers must upgrade and patch their HSMs.
 
 ### Q: What if I need to reboot my HSM?
 
@@ -251,7 +251,7 @@ The HSM has a command-line reboot option, however, we are experiencing issues wh
 
 ### Q: Is it safe to store encryption keys for my most important data in Dedicated HSM?
 
-Yes, Dedicated HSM provisions Thales Network Luna HSM 7 appliances that use FIPS 140-2 Level 3 validated HSM's. 
+Yes, Dedicated HSM provisions Thales Network Luna HSM 7 appliances that use FIPS 140-2 Level 3 validated HSMs. 
 
 ### Q: What cryptographic keys and algorithms are supported by Dedicated HSM?
 
@@ -280,11 +280,11 @@ Full Suite B support
 
 ### Q: Is Dedicated HSM FIPS 140-2 Level 3 validated?
 
-Yes. Dedicated HSM service provisions Thales Network Luna HSM 7 appliances that use FIPS 140-2 Level 3 validated HSM's.
+Yes. Dedicated HSM service provisions Thales Network Luna HSM 7 appliances that use FIPS 140-2 Level 3 validated HSMs.
 
 ### Q: What do I need to do to make sure I operate Dedicated HSM in FIPS 140-2 Level 3 validated mode?
 
-The Dedicated HSM service provisions Thales Network Luna HSM 7 appliances. These appliances use FIPS 140-2 Level 3 validated HSM's. The default deployed configuration, operating system, and firmware are also FIPS validated. You do not need to take any action for FIPS 140-2 Level 3 compliance.
+The Dedicated HSM service provisions Thales Network Luna HSM 7 appliances. These appliances use FIPS 140-2 Level 3 validated HSMs. The default deployed configuration, operating system, and firmware are also FIPS validated. You do not need to take any action for FIPS 140-2 Level 3 compliance.
 
 ### Q: How does a customer ensure that when an HSM is deprovisioned all the key material is wiped out?
 
@@ -294,7 +294,7 @@ Before requesting deprovisioning, a customer must have zeroized the HSM using Th
 
 ### Q: How many cryptographic operations are supported per second with Dedicated HSM?
 
-Dedicated HSM provisions Thales Network Luna HSM 7 HSM's. Here's a summary of maximum performance for some operations: 
+Dedicated HSM provisions Thales Network Luna HSM 7 HSMs. Here's a summary of maximum performance for some operations: 
 
 * RSA-2048: 10,000 transactions per second
 * ECC P256: 20,000 transactions per second
