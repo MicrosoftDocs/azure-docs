@@ -14,12 +14,12 @@ ms.author: negust
 
 # Tutorial: Train a machine learning model code-free in Azure Synapse with Apache Spark and automated ML
 
-Learn how to easily enrich your data in Spark tables with new machine learning models that you train using [automated ML in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml).  A user in Synapse can simply select a Spark table in the Azure Synapse workspace to use as a training dataset for building machine learning models in a code free experience.
+Learn how to easily enrich your data in Spark tables with new machine learning models that you train using [automated ML in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml).  A user in Synapse can simply select a Spark table in the Azure Synapse workspace to use as a training dataset for building machine learning models in a code-free experience.
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> - Train machine learning models using a code free experience in Azure Synapse studio that uses automated ML in Azure Machine Learning. The type of model you train depends on the problem you are trying to solve.
+> - Train machine learning models using a code-free experience in Azure Synapse studio that uses automated ML in Azure Machine Learning. The type of model you train depends on the problem you are trying to solve.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
@@ -100,7 +100,7 @@ These settings all have a default value that you can customize.
 
 Once all required configurations are done, you can start automated ML run.
 
-There are two ways to start an automated ML run in Azure Azure Synapse. For a code free experience, you can choose to **Create run** directly. If you prefer code, you can select **Open in notebook**, which allows you to see the code that creates the run and run the notebook.
+There are two ways to start an automated ML run in Azure Azure Synapse. For a code-free experience, you can choose to **Create run** directly. If you prefer code, you can select **Open in notebook**, which allows you to see the code that creates the run and run the notebook.
 
 ### Create Run directly
 
