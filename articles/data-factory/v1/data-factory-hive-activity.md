@@ -163,7 +163,8 @@ To execute this Hive script in a Data Factory pipeline, you need to do the follo
       ]
     }
   }
-    ```
+  ```
+
 6. Deploy the pipeline. See [Creating pipelines](data-factory-create-pipelines.md) article for details. 
 7. Monitor the pipeline using the data factory monitoring and management views. See [Monitoring and manage Data Factory pipelines](data-factory-monitor-manage-pipelines.md) article for details. 
 
