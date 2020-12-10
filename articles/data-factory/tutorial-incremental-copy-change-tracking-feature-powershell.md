@@ -234,13 +234,13 @@ In this step, you link your database to the data factory.
 
     ```json
     {
-    	"name": "AzureSQLDatabaseLinkedService",
-    	"properties": {
-    		"type": "AzureSqlDatabase",
-    		"typeProperties": {
-    			"connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
-    		}
-    	}
+        "name": "AzureSQLDatabaseLinkedService",
+        "properties": {
+            "type": "AzureSqlDatabase",
+            "typeProperties": {
+                "connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
+            }
+        }
     }
     ```
 2. In **Azure PowerShell**, run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureSQLDatabaseLinkedService**.
@@ -268,17 +268,17 @@ In this step, you create a dataset to represent the source data.
 
     ```json
     {
-    	"name": "SourceDataset",
-    	"properties": {
-    		"type": "AzureSqlTable",
-    		"typeProperties": {
-    			"tableName": "data_source_table"
-    		},
-    		"linkedServiceName": {
-    			"referenceName": "AzureSQLDatabaseLinkedService",
-    			"type": "LinkedServiceReference"
-    		}
-    	}
+        "name": "SourceDataset",
+        "properties": {
+            "type": "AzureSqlTable",
+            "typeProperties": {
+                "tableName": "data_source_table"
+            },
+            "linkedServiceName": {
+                "referenceName": "AzureSQLDatabaseLinkedService",
+                "type": "LinkedServiceReference"
+            }
+        }
     }   
     ```
 
@@ -305,21 +305,21 @@ In this step, you create a dataset to represent the data that is copied from the
 
     ```json
     {
-    	"name": "SinkDataset",
-    	"properties": {
-    		"type": "AzureBlob",
-    		"typeProperties": {
-    			"folderPath": "adftutorial/incchgtracking",
-    			"fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')",
-    			"format": {
-    				"type": "TextFormat"
-    			}
-    		},
-    		"linkedServiceName": {
-    			"referenceName": "AzureStorageLinkedService",
-    			"type": "LinkedServiceReference"
-    		}
-    	}
+        "name": "SinkDataset",
+        "properties": {
+            "type": "AzureBlob",
+            "typeProperties": {
+                "folderPath": "adftutorial/incchgtracking",
+                "fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')",
+                "format": {
+                    "type": "TextFormat"
+                }
+            },
+            "linkedServiceName": {
+                "referenceName": "AzureStorageLinkedService",
+                "type": "LinkedServiceReference"
+            }
+        }
     }
     ```
 
@@ -347,17 +347,17 @@ In this step, you create a dataset for storing the change tracking version.
 
     ```json
     {
-    	"name": " ChangeTrackingDataset",
-    	"properties": {
-    		"type": "AzureSqlTable",
-    		"typeProperties": {
-    			"tableName": "table_store_ChangeTracking_version"
-    		},
-    		"linkedServiceName": {
-    			"referenceName": "AzureSQLDatabaseLinkedService",
-    			"type": "LinkedServiceReference"
-    		}
-    	}
+        "name": " ChangeTrackingDataset",
+        "properties": {
+            "type": "AzureSqlTable",
+            "typeProperties": {
+                "tableName": "table_store_ChangeTracking_version"
+            },
+            "linkedServiceName": {
+                "referenceName": "AzureSQLDatabaseLinkedService",
+                "type": "LinkedServiceReference"
+            }
+        }
     }
     ```
 
@@ -385,30 +385,30 @@ In this step, you create a pipeline with a copy activity that copies the entire 
 
     ```json
     {
-    	"name": "FullCopyPipeline",
-    	"properties": {
-    		"activities": [{
-    			"name": "FullCopyActivity",
-    			"type": "Copy",
-    			"typeProperties": {
-    				"source": {
-    					"type": "SqlSource"
-    				},
-    				"sink": {
-    					"type": "BlobSink"
-    				}
-    			},
+        "name": "FullCopyPipeline",
+        "properties": {
+            "activities": [{
+                "name": "FullCopyActivity",
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "SqlSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
 
-    			"inputs": [{
-    				"referenceName": "SourceDataset",
-    				"type": "DatasetReference"
-    			}],
-    			"outputs": [{
-    				"referenceName": "SinkDataset",
-    				"type": "DatasetReference"
-    			}]
-    		}]
-    	}
+                "inputs": [{
+                    "referenceName": "SourceDataset",
+                    "type": "DatasetReference"
+                }],
+                "outputs": [{
+                    "referenceName": "SinkDataset",
+                    "type": "DatasetReference"
+                }]
+            }]
+        }
     }
     ```
 2. Run the Set-AzDataFactoryV2Pipeline cmdlet to create the pipeline: FullCopyPipeline.
@@ -493,110 +493,110 @@ In this step, you create a pipeline with the following activities, and run it pe
 
     ```json
     {
-    	    "name": "IncrementalCopyPipeline",
-    	    "properties": {
-    	        "activities": [
+            "name": "IncrementalCopyPipeline",
+            "properties": {
+                "activities": [
                 {
-    	                "name": "LookupLastChangeTrackingVersionActivity",
-    	                "type": "Lookup",
-    	                "typeProperties": {
+                        "name": "LookupLastChangeTrackingVersionActivity",
+                        "type": "Lookup",
+                        "typeProperties": {
                         "source": {
-    	                    "type": "SqlSource",
-    	                    "sqlReaderQuery": "select * from table_store_ChangeTracking_version"
-    	                    },
+                            "type": "SqlSource",
+                            "sqlReaderQuery": "select * from table_store_ChangeTracking_version"
+                            },
 
-    	                    "dataset": {
-    	                    "referenceName": "ChangeTrackingDataset",
-    	                    "type": "DatasetReference"
-    	                    }
-    	                }
-    	            },
-    	            {
-    	                "name": "LookupCurrentChangeTrackingVersionActivity",
-    	                "type": "Lookup",
-    	                "typeProperties": {
-    	                    "source": {
-    	                        "type": "SqlSource",
-    	                        "sqlReaderQuery": "SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion"
+                            "dataset": {
+                            "referenceName": "ChangeTrackingDataset",
+                            "type": "DatasetReference"
+                            }
+                        }
+                    },
+                    {
+                        "name": "LookupCurrentChangeTrackingVersionActivity",
+                        "type": "Lookup",
+                        "typeProperties": {
+                            "source": {
+                                "type": "SqlSource",
+                                "sqlReaderQuery": "SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion"
                         },
 
-    	                    "dataset": {
-    	                    "referenceName": "SourceDataset",
-    	                    "type": "DatasetReference"
-    	                    }
-    	                }
-    	            },
-
-    	            {
-    	                "name": "IncrementalCopyActivity",
-    	                "type": "Copy",
-    	                "typeProperties": {
-    	                    "source": {
-    	                        "type": "SqlSource",
-    							"sqlReaderQuery": "select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}"
-    	                    },
-    	                    "sink": {
-    	                        "type": "BlobSink"
-    	                    }
-    	                },
-    	                "dependsOn": [
-    	                    {
-    	                        "activity": "LookupLastChangeTrackingVersionActivity",
-    	                        "dependencyConditions": [
-    	                            "Succeeded"
-    	                        ]
-    	                    },
-    	                    {
-    	                        "activity": "LookupCurrentChangeTrackingVersionActivity",
-    	                        "dependencyConditions": [
-    	                            "Succeeded"
-    	                        ]
-                        }
-    	                ],
-
-    	                "inputs": [
-    	                    {
+                            "dataset": {
                             "referenceName": "SourceDataset",
-    	                        "type": "DatasetReference"
+                            "type": "DatasetReference"
+                            }
                         }
-    	                ],
-    	                "outputs": [
-    	                    {
-    	                        "referenceName": "SinkDataset",
-    	                        "type": "DatasetReference"
-    	                    }
-    	                ]
-    	            },
-
-                {
-    	                "name": "StoredProceduretoUpdateChangeTrackingActivity",
-    	                "type": "SqlServerStoredProcedure",
-    	                "typeProperties": {
-
-    	                    "storedProcedureName": "Update_ChangeTracking_Version",
-    	                    "storedProcedureParameters": {
-                            "CurrentTrackingVersion": {"value": "@{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}", "type": "INT64" },
-    	                        "TableName":  { "value":"@{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName}", "type":"String"}
-    	                    }
                     },
 
-    	                "linkedServiceName": {
+                    {
+                        "name": "IncrementalCopyActivity",
+                        "type": "Copy",
+                        "typeProperties": {
+                            "source": {
+                                "type": "SqlSource",
+                                "sqlReaderQuery": "select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}"
+                            },
+                            "sink": {
+                                "type": "BlobSink"
+                            }
+                        },
+                        "dependsOn": [
+                            {
+                                "activity": "LookupLastChangeTrackingVersionActivity",
+                                "dependencyConditions": [
+                                    "Succeeded"
+                                ]
+                            },
+                            {
+                                "activity": "LookupCurrentChangeTrackingVersionActivity",
+                                "dependencyConditions": [
+                                    "Succeeded"
+                                ]
+                        }
+                        ],
+
+                        "inputs": [
+                            {
+                            "referenceName": "SourceDataset",
+                                "type": "DatasetReference"
+                        }
+                        ],
+                        "outputs": [
+                            {
+                                "referenceName": "SinkDataset",
+                                "type": "DatasetReference"
+                            }
+                        ]
+                    },
+
+                {
+                        "name": "StoredProceduretoUpdateChangeTrackingActivity",
+                        "type": "SqlServerStoredProcedure",
+                        "typeProperties": {
+
+                            "storedProcedureName": "Update_ChangeTracking_Version",
+                            "storedProcedureParameters": {
+                            "CurrentTrackingVersion": {"value": "@{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}", "type": "INT64" },
+                                "TableName":  { "value":"@{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName}", "type":"String"}
+                            }
+                    },
+
+                        "linkedServiceName": {
                         "referenceName": "AzureSQLDatabaseLinkedService",
-    	                    "type": "LinkedServiceReference"
-    	                },
+                            "type": "LinkedServiceReference"
+                        },
 
-    	                "dependsOn": [
+                        "dependsOn": [
                         {
-    	                        "activity": "IncrementalCopyActivity",
+                                "activity": "IncrementalCopyActivity",
                             "dependencyConditions": [
-    	                            "Succeeded"
-    	                        ]
-    	                    }
-    	                ]
-    	            }
-    	        ]
+                                    "Succeeded"
+                                ]
+                            }
+                        ]
+                    }
+                ]
 
-    	    }
+            }
     }
 
     ```
@@ -650,8 +650,8 @@ The first three columns are changed data from data_source_table. The last two co
 ==================================================================
 PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ==================================================================
-1        update  10		2			          U
-6        new     50		1			          I
+1        update  10        2                      U
+6        new     50        1                      I
 ```
 
 

@@ -63,9 +63,9 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
     ```
     Id is the unique identified and the datetimestamp column is the date and time when the corresponding ID is generated.
     
-	![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
+    ![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
 
-	In this sample, the stored procedure is in an Azure SQL Database. If the stored procedure is in Azure Synapse Analytics and SQL Server Database, the approach is similar. For a SQL Server database, you must install a [Data Management Gateway](data-factory-data-management-gateway.md).
+    In this sample, the stored procedure is in an Azure SQL Database. If the stored procedure is in Azure Synapse Analytics and SQL Server Database, the approach is similar. For a SQL Server database, you must install a [Data Management Gateway](data-factory-data-management-gateway.md).
 2. Create the following **stored procedure** that inserts data in to the **sampletable**.
 
     ```SQL
@@ -220,50 +220,50 @@ For more information on chaining activities, see [multiple activities in a pipel
 
 ```json
 {
-	"name": "ADFTutorialPipeline",
-	"properties": {
-		"description": "Copy data from a blob to blob",
-		"activities": [
-			{
-				"type": "Copy",
-				"typeProperties": {
-					"source": {
-						"type": "BlobSource"
-					},
-					"sink": {
-						"type": "BlobSink",
-						"writeBatchSize": 0,
-						"writeBatchTimeout": "00:00:00"
-					}
-				},
-				"inputs": [ { "name": "InputDataset" } ],
-				"outputs": [ { "name": "OutputDataset" } ],
-				"policy": {
-					"timeout": "01:00:00",
-					"concurrency": 1,
-					"executionPriorityOrder": "NewestFirst"
-				},
-				"name": "CopyFromBlobToSQL"
-			},
-			{
-				"type": "SqlServerStoredProcedure",
-				"typeProperties": {
-					"storedProcedureName": "SPSproc"
-				},
-				"inputs": [ { "name": "OutputDataset" } ],
-				"outputs": [ { "name": "SQLOutputDataset" } ],
-				"policy": {
-					"timeout": "01:00:00",
-					"concurrency": 1,
-					"retry": 3
-				},
-				"name": "RunStoredProcedure"
-			}
-		],
-		"start": "2017-04-12T00:00:00Z",
-		"end": "2017-04-13T00:00:00Z",
-		"isPaused": false,
-	}
+    "name": "ADFTutorialPipeline",
+    "properties": {
+        "description": "Copy data from a blob to blob",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [ { "name": "InputDataset" } ],
+                "outputs": [ { "name": "OutputDataset" } ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst"
+                },
+                "name": "CopyFromBlobToSQL"
+            },
+            {
+                "type": "SqlServerStoredProcedure",
+                "typeProperties": {
+                    "storedProcedureName": "SPSproc"
+                },
+                "inputs": [ { "name": "OutputDataset" } ],
+                "outputs": [ { "name": "SQLOutputDataset" } ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "name": "RunStoredProcedure"
+            }
+        ],
+        "start": "2017-04-12T00:00:00Z",
+        "end": "2017-04-13T00:00:00Z",
+        "isPaused": false,
+    }
 }
 ```
 

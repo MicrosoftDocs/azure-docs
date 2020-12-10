@@ -113,20 +113,20 @@ To avoid having the deployment fail when trying to validate the custom metric’
 
 ```json
 "criteria": {
-	"odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
         "allOf": [
-        	{
-                	"name" : "condition1",
-                        "metricName": "myCustomMetric",
-	           	"metricNamespace": "myCustomMetricNamespace",
-                        "dimensions":[],
-                        "operator": "GreaterThan",
-                        "threshold" : 10,
-                        "timeAggregation": "Average",
-	             	"skipMetricValidation": true
-		}
-              ]
-	    }
+            {
+                "name" : "condition1",
+                "metricName": "myCustomMetric",
+                "metricNamespace": "myCustomMetricNamespace",
+                "dimensions":[],
+                "operator": "GreaterThan",
+                "threshold" : 10,
+                "timeAggregation": "Average",
+                "skipMetricValidation": true
+            }
+        ]
+    }
 ```
 
 ## Export the Azure Resource Manager template of a metric alert rule via the Azure portal

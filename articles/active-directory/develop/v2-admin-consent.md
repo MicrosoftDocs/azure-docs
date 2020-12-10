@@ -40,14 +40,13 @@ https://graph.microsoft.com/calendars.read
 https://graph.microsoft.com/mail.send
 ```
 
-
-| Parameter		| Condition		| Description																				|
-|--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
+| Parameter | Condition | Description |
+| ---: | ---: | :---: |
 | `tenant` | Required | The directory tenant that you want to request permission from. Can be provided in GUID or friendly name format OR generically referenced with `organizations` as seen in the example. Do not use 'common', as personal accounts cannot provide admin consent except in the context of a tenant. To ensure best compatibility with personal accounts that manage tenants, use the tenant ID when possible. |
 | `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `redirect_uri` | Required |The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the app registration portal. |
 | `state` | Recommended | A value included in the request that will also be returned in the token response. It can be a string of any content you want. Use the state to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-|`scope`		| Required		| Defines the set of permissions being requested by the application. This can be either static (using /.default) or dynamic scopes.  This can include the OIDC scopes (`openid`, `profile`, `email`). |
+|`scope` | Required | Defines the set of permissions being requested by the application. This can be either static (using /.default) or dynamic scopes. This can include the OIDC scopes (`openid`, `profile`, `email`). |
 
 
 At this point, Azure AD requires a tenant administrator to sign in to complete the request. The administrator is asked to approve all the permissions that you have requested in the `scope` parameter.  If you've used a static (`/.default`) value, it will function like the v1.0 admin consent endpoint and request consent for all scopes found in the required permissions for the app.
@@ -60,12 +59,12 @@ If the admin approves the permissions for your app, the successful response look
 http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-a743-29f2956fd429&state=12345&scope=https%3a%2f%2fgraph.microsoft.com%2fCalendars.Read+https%3a%2f%2fgraph.microsoft.com%2fMail.Send
 ```
 
-| Parameter			| Description																						|
-|------------------:|:-------------------------------------------------------------------------------------------------:|
+| Parameter | Description |
+| ---: | :---: |
 | `tenant`| The directory tenant that granted your application the permissions it requested, in GUID format.|
-| `state`			| A value included in the request that also will be returned in the token response. It can be a string of any content you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on.|
-| `scope`          | The set of permissions that were granted access to, for the application.|
-| `admin_consent`	| Will be set to `True`.|
+| `state` | A value included in the request that also will be returned in the token response. It can be a string of any content you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on.|
+| `scope` | The set of permissions that were granted access to, for the application.|
+| `admin_consent` | Will be set to `True`.|
 
 ### Error response
 
@@ -73,13 +72,13 @@ http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-
 
 Adding to the parameters seen in a successful response, error parameters are seen as below.
 
-| Parameter			 | Description																						|
+| Parameter | Description |
 |-------------------:|:-------------------------------------------------------------------------------------------------:|
-| `error`			 | An error code string that can be used to classify types of errors that occur, and can be used to react to errors.|
-| `error_description`| A specific error message that can help a developer identify the root cause of an error.|
+| `error` | An error code string that can be used to classify types of errors that occur, and can be used to react to errors.|
+| `error_description` | A specific error message that can help a developer identify the root cause of an error.|
 | `tenant`| The directory tenant that granted your application the permissions it requested, in GUID format.|
-| `state`			| A value included in the request that also will be returned in the token response. It can be a string of any content you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on.|
-| `admin_consent`	| Will be set to `True` to indicate that this response occurred on an admin consent flow.|
+| `state` | A value included in the request that also will be returned in the token response. It can be a string of any content you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on.|
+| `admin_consent` | Will be set to `True` to indicate that this response occurred on an admin consent flow.|
 
 ## Next steps
 - See [how to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)

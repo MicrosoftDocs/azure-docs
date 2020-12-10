@@ -337,7 +337,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-	"ignoreDataBefore": {
+    "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -421,7 +421,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                                 "numberOfEvaluationPeriods": "[parameters('numberOfEvaluationPeriods')]",
                                 "minFailingPeriodsToAlert": "[parameters('minFailingPeriodsToAlert')]"
                             },
-			    "ignoreDataBefore": "[parameters('ignoreDataBefore')]",
+                "ignoreDataBefore": "[parameters('ignoreDataBefore')]",
                             "timeAggregation": "[parameters('timeAggregation')]"
                         }
                     ]
@@ -474,7 +474,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-	"ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -496,7 +496,7 @@ The following constraints apply when using dimensions in an alert rule that cont
 - You can only select one value per dimension within each criterion.
 - You cannot use "\*" as a dimension value.
 - When metrics that are configured in different criteria support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics in the relevant criteria.
-	- In the example below, because both the **Transactions** and **SuccessE2ELatency** metrics have an **ApiName** dimension, and *criterion1* specifies the *"GetBlob"* value for the **ApiName** dimension, then *criterion2* must also set a *"GetBlob"* value for the **ApiName** dimension.
+    - In the example below, because both the **Transactions** and **SuccessE2ELatency** metrics have an **ApiName** dimension, and *criterion1* specifies the *"GetBlob"* value for the **ApiName** dimension, then *criterion2* must also set a *"GetBlob"* value for the **ApiName** dimension.
 
 ### Template file
 
@@ -805,7 +805,7 @@ For example, a few of the potential time series that are monitored by this alert
         }
     },
     "variables": { 
-		"criteria": "[array(parameters('criterion'))]"
+        "criteria": "[array(parameters('criterion'))]"
      },
     "resources": [
         {
@@ -869,7 +869,7 @@ For example, a few of the potential time series that are monitored by this alert
                             "values": ["*"]
                         },
                         {
-			    "name":"ApiName",
+                "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }
@@ -1253,7 +1253,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
                         {
                             "name" : "1st criterion",
                             "metricName": "[parameters('metricName')]",
-							"metricNamespace": "[parameters('metricNamespace')]",
+                            "metricNamespace": "[parameters('metricNamespace')]",
                             "dimensions":[],
                             "operator": "[parameters('operator')]",
                             "threshold" : "[parameters('threshold')]",
@@ -1297,7 +1297,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
         "metricName": {
             "value": "The custom metric name"
         },
-		"metricNamespace": {
+        "metricNamespace": {
             "value": "Azure.ApplicationInsights"
         },
         "operator": {

@@ -140,12 +140,12 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
             "properties": {
                   "type": "HDInsightOnDemand",
                   "typeProperties": {
-				  	"version": "3.5",
-            	  	"clusterSize": 1,
-            	  	"timeToLive": "00:05:00",
-            	  	"osType": "Linux",
-                  	"linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
-                  }
+                      "version": "3.5",
+            "clusterSize": 1,
+            "timeToLive": "00:05:00",
+            "osType": "Linux",
+            "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
+          }
             }
           },
           {
@@ -508,55 +508,55 @@ You define a pipeline that transform data by running Hive script on an on-demand
 
 ```json
 {
-	"type": "datapipelines",
-	"name": "[variables('pipelineName')]",
-	"dependsOn": [
-  		"[variables('dataFactoryName')]",
-  		"[variables('azureStorageLinkedServiceName')]",
-  		"[variables('hdInsightOnDemandLinkedServiceName')]",
-  		"[variables('blobInputDatasetName')]",
-  		"[variables('blobOutputDatasetName')]"
-	],
-	"apiVersion": "2015-10-01",
-	"properties": {
-  		"description": "Pipeline that transforms data using Hive script.",
-  		"activities": [
-    	{
-      		"type": "HDInsightHive",
-      		"typeProperties": {
-        		"scriptPath": "[concat(parameters('blobContainer'), '/', parameters('hiveScriptFolder'), '/', parameters('hiveScriptFile'))]",
-        		"scriptLinkedService": "[variables('azureStorageLinkedServiceName')]",
-        		"defines": {
-          			"inputtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('inputBlobFolder'))]",
-          			"partitionedtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('outputBlobFolder'))]"
-        		}
-      		},
-      		"inputs": [
-    		{
-          		"name": "[variables('blobInputDatasetName')]"
-        	}
-      		],
-      		"outputs": [
-        	{
-          		"name": "[variables('blobOutputDatasetName')]"
-    		}
-      		],
-      		"policy": {
-        		"concurrency": 1,
-        		"retry": 3
-      		},
-      		"scheduler": {
-        		"frequency": "Month",
-        		"interval": 1
-      		},
-      		"name": "RunSampleHiveActivity",
-      		"linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
-    	}
-  		],
-  		"start": "2017-07-01T00:00:00Z",
-  		"end": "2017-07-02T00:00:00Z",
-  		"isPaused": false
-	}
+    "type": "datapipelines",
+    "name": "[variables('pipelineName')]",
+    "dependsOn": [
+        "[variables('dataFactoryName')]",
+        "[variables('azureStorageLinkedServiceName')]",
+        "[variables('hdInsightOnDemandLinkedServiceName')]",
+        "[variables('blobInputDatasetName')]",
+        "[variables('blobOutputDatasetName')]"
+    ],
+    "apiVersion": "2015-10-01",
+    "properties": {
+        "description": "Pipeline that transforms data using Hive script.",
+        "activities": [
+            {
+                "type": "HDInsightHive",
+                "typeProperties": {
+                    "scriptPath": "[concat(parameters('blobContainer'), '/', parameters('hiveScriptFolder'), '/', parameters('hiveScriptFile'))]",
+                    "scriptLinkedService": "[variables('azureStorageLinkedServiceName')]",
+                    "defines": {
+                        "inputtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('inputBlobFolder'))]",
+                        "partitionedtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('outputBlobFolder'))]"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "[variables('blobInputDatasetName')]"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "[variables('blobOutputDatasetName')]"
+                    }
+                ],
+                "policy": {
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "scheduler": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
+                "name": "RunSampleHiveActivity",
+                "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
+            }
+        ],
+        "start": "2017-07-01T00:00:00Z",
+        "end": "2017-07-02T00:00:00Z",
+        "isPaused": false
+    }
 }
 ```
 
