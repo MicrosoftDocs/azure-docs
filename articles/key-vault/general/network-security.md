@@ -15,6 +15,8 @@ ms.custom: devx-track-azurecli
 
 This article will provide you with guidance on how to configure the Azure Key Vault firewall. This document will cover the different configurations for the Key Vault firewall in detail, and provide step-by-step instructions on how to configure Azure Key Vault to work with other applications and Azure services.
 
+For more information, see [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md).
+
 ## Firewall Settings
 
 This section will cover the different ways that the Azure Key Vault firewall can be configured.
@@ -167,4 +169,4 @@ Here's how to configure Key Vault firewalls and virtual networks by using PowerS
 ## Next steps
 
 * [Virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md)
-* [Secure your key vault](secure-your-key-vault.md)
+* [Azure Key Vault security overview](overview-security.md)
