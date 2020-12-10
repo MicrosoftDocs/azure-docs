@@ -170,14 +170,36 @@ East US
 20.42.35.112/28
 20.42.35.128/28
 
-Azure US Government (Not needed if you are an Azure Public cloud customer)
-
-20.140.48.160/27
-20.140.56.160/27
-20.140.64.160/27
-20.140.72.160/27
-52.127.49.96/27
 ```  
+
+#### Azure Government
+
+```
+USGov Virginia
+52.227.229.80/28
+52.227.229.81/28
+
+
+USGov Arizona
+52.244.35.112/28
+52.244.35.113/28
+
+
+USGov Texas
+52.243.157.80/28
+52.243.157.81/28 
+
+
+USDoD Central
+52.182.23.96/28
+52.182.23.97/28 
+
+
+USDoD East
+52.181.33.96/28
+52.181.33.97/28
+
+```
 
 ## Application Insights & Log Analytics APIs
 
