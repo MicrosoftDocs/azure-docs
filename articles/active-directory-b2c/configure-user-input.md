@@ -304,7 +304,7 @@ To return the city claim back to the relying party application, add an output cl
 
 The sign-up screen should look similar to the following screenshot:
 
-![Screenshot of modified sign-up option](./media/configure-user-input/signup-with-city-claim-dropdown-example.png)
+![Screenshot of modified sign-up option](./media/configure-user-input/signup-with-city-claim-drop-down-example.png)
 
 The token sent back to your application includes the `city` claim.
 
