@@ -44,7 +44,7 @@ The following diagram shows how ZPA integrates with Azure AD B2C.
 |Step | Description |
 |:-----| :-----------|
 | 1. | User arrives at a ZPA User Portal or a ZPA Browser Access application.
-| 2. | ZPA requires the user context information before it can decide whether to allow the user to access the web application. To authenticate the user, ZPA performs a SAML redirect to the Azure AD B2C login page.  
+| 2. | ZPA requires the user context information before it can decide whether to allow the user to access the web application. To authenticate the user, ZPA performs a Security Assertion Markup Language (SAML) redirect to the Azure AD B2C login page.  
 | 3. | User arrives at the Azure AB B2C login page. If it's a new user, the user signs up to create a new account. An existing user would sign in using their existing credentials. Azure AD B2C validates the identity of the user.
 | 4. | Upon successful authentication, Azure AD B2C redirects the user back to ZPA along with the SAML assertion. ZPA verifies the SAML assertion and sets the user context.
 | 5. | ZPA evaluates the access policies for the user. If the user is allowed to access the web application, then the connection is allowed to pass through.
