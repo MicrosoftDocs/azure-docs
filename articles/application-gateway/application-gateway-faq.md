@@ -128,7 +128,7 @@ Yes. The Application Gateway v1 SKU will continue to be supported. However, it i
 
 ### Does Application Gateway V2 support proxying requests with NTLM authentication?
 
-No. Application Gateway V2 doesn't support proxying requests with NTLM authentication yet.
+No. Application Gateway V2 doesn't support proxying requests with NTLM authentication.
 
 ### Does Application Gateway affinity cookie support SameSite attribute?
 Yes, the [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) introduced a mandate on HTTP cookies without SameSite attribute to be treated as SameSite=Lax. This means that the Application Gateway affinity cookie won't be sent by the browser in a third-party context. 
