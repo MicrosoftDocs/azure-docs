@@ -157,13 +157,10 @@ When receiving results for a search query, you can request that Azure Cognitive 
 
 If you want Azure Cognitive Search to return your results ordered by a value other than the search score, you can use the **`orderby`** search parameter. You can specify the value of the **`orderby`** parameter to include field names and calls to the [**`geo.distance()` function**](query-odata-filter-orderby-syntax.md) for geospatial values. Each expression can be followed by `asc` to indicate that results are requested in ascending order, and **`desc`** to indicate that results are requested in descending order. The default ranking ascending order.
 
+## Next steps
 
-### Hit highlighting
-In Azure Cognitive Search, emphasizing the exact portion of search results that match the search query is made easy by using the **`highlight`**, **`highlightPreTag`**, and **`highlightPostTag`** parameters. You can specify which *searchable* fields should have their matched text emphasized as well as specifying the exact string tags to append to the start and end of the matched text that Azure Cognitive Search returns.
+Use the portal, or another tool such as Postman or Visual Studio Code, or one of the SDKs to explore queries in more depth. The following links will get you started.
 
-## See also
-
-+ [How full text search works in Azure Cognitive Search (query parsing architecture)](search-lucene-query-architecture.md)
 + [Search explorer](search-explorer.md)
 + [How to query in .NET](./search-get-started-dotnet.md)
 + [How to query in REST](./search-get-started-powershell.md)
