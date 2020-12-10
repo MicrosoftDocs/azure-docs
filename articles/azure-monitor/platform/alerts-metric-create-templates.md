@@ -371,7 +371,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -512,7 +512,7 @@ Save the json below as simpledynamicmetricalert.parameters.json and modify it as
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -969,7 +969,7 @@ Save and modify the json below as multidimensionalstaticmetricalert.parameters.j
                             "values": ["*"]
                         },
                         {
-			    "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }

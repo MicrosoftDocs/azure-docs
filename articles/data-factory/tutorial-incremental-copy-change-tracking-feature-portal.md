@@ -135,8 +135,8 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
     BEGIN
 
-        UPDATE table_store_ChangeTracking_version
-        SET [SYS_CHANGE_VERSION] = @CurrentTrackingVersion
+    UPDATE table_store_ChangeTracking_version
+    SET [SYS_CHANGE_VERSION] = @CurrentTrackingVersion
     WHERE [TableName] = @TableName
 
     END    
@@ -461,13 +461,12 @@ The first three columns are changed data from data_source_table. The last two co
 ==================================================================
 PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ==================================================================
-1        update  10		2			          U
-6        new     50		1			          I
+1        update  10            2                                 U
+6        new     50	           1                                 I
 ```
-
 
 ## Next steps
 Advance to the following tutorial to learn about copying new and changed files only based on their LastModifiedDate:
 
 > [!div class="nextstepaction"]
->[Copy new files by lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+> [Copy new files by lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)

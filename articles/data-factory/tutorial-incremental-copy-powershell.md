@@ -136,8 +136,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime
 WHERE [TableName] = @TableName
 
 END
@@ -217,7 +217,7 @@ You create linked services in a data factory to link your data stores and comput
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -248,7 +248,7 @@ You create linked services in a data factory to link your data stores and comput
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSQLDatabaseLinkedService
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -500,7 +500,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
    Here is the sample output:
 
-   ```json
+   ```console
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -523,7 +523,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
     Here is the sample output:
 
-    ```json
+    ```console
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupNewWaterMarkActivity
@@ -643,7 +643,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
     Here is the sample output:
 
-    ```json
+    ```console
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupNewWaterMarkActivity
