@@ -73,38 +73,7 @@ Console.WriteLine("Key signed service: {0}", key.SignedService);
 Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 ```
 
-## Create the SAS token
-
-The following code snippet shows create a new [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) and provide the parameters for the user delegation SAS. The snippet then calls the [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) to get the SAS token string. Finally, the code builds the complete URI, including the resource address and SAS token.
-
-```csharp
-// Create a SAS token that's valid for one hour.
-BlobSasBuilder sasBuilder = new BlobSasBuilder()
-{
-    BlobContainerName = containerName,
-    BlobName = blobName,
-    Resource = "b",
-    StartsOn = DateTimeOffset.UtcNow,
-    ExpiresOn = DateTimeOffset.UtcNow.AddHours(1)
-};
-
-// Specify read permissions for the SAS.
-sasBuilder.SetPermissions(BlobSasPermissions.Read);
-
-// Use the key to get the SAS token.
-string sasToken = sasBuilder.ToSasQueryParameters(key, accountName).ToString();
-
-// Construct the full URI, including the SAS token.
-UriBuilder fullUri = new UriBuilder()
-{
-    Scheme = "https",
-    Host = string.Format("{0}.blob.core.windows.net", accountName),
-    Path = string.Format("{0}/{1}", containerName, blobName),
-    Query = sasToken
-};
-```
-
-## Example: Get a user delegation SAS for a blob
+## Get a user delegation SAS for a blob
 
 The following example method shows the complete code for authenticating the security principal and creating the user delegation SAS:
 
@@ -214,7 +183,7 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 }
 ```
 
-## Example: Get a user delegation SAS for a container
+## Get a user delegation SAS for a container
 
 
 
