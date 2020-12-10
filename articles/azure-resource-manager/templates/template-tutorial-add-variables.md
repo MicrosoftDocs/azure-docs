@@ -1,16 +1,16 @@
 ---
 title: Tutorial - add variable to template
-description: Add variables to your Azure Resource Manager template to simplify the syntax.
+description: Add variables to your Azure Resource Manager template (ARM template) to simplify the syntax.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
-ms.author: jgao 
+ms.author: jgao
 ms.custom:
 ---
 
 # Tutorial: Add variables to your ARM template
 
-In this tutorial, you learn how to add a variable to your Azure Resource Manager (ARM) template. Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to add a variable to your Azure Resource Manager template (ARM template). Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
