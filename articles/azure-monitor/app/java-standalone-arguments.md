@@ -3,7 +3,9 @@ title: Adding the JVM arg - Azure Monitor Application Insights Java
 description: Adding the JVM arg for Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 04/16/2020
+author: MS-jgol
 ms.custom: devx-track-java
+ms.author: jgol
 ---
 
 # Adding the JVM arg for Azure Monitor Application Insights Java

@@ -1,9 +1,9 @@
 ---
-title: Request elevation data using the Azure Maps Elevation service
-description: Learn how to request elevation data using the Azure Maps Elevation service.
+title: Request elevation data using the Azure Maps Elevation service (Preview) 
+description: Learn how to request elevation data using the Azure Maps Elevation service (Preview).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/02/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -11,9 +11,14 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Request elevation data using the Azure Maps Elevation service
+# Request elevation data using the Azure Maps Elevation service (Preview)
 
-The Azure Maps [Elevation service](https://docs.microsoft.com/rest/api/maps/elevation) provides APIs to query elevation data for locations on earth. You can request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. Also, you can use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2) to retrieve elevation data in tile format. The tiles are delivered in GeoTIFF raster format. This article shows you how to use Azure Maps Elevation service and the Get Map Tile API to request elevation data. The elevation data can be requested in both GeoJSON and GeoTiff formats.
+> [!IMPORTANT]
+> The Azure Maps Elevation service is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+The Azure Maps [Elevation service](https://docs.microsoft.com/rest/api/maps/elevation) provides APIs to query elevation data anywhere on the Earth's surface. You can request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. Also, you can use the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2) to retrieve elevation data in tile format. The tiles are delivered in GeoTIFF raster format. This article shows you how to use Azure Maps Elevation service and the Get Map Tile API to request elevation data. The elevation data can be requested in both GeoJSON and GeoTiff formats.
 
 ## Prerequisites
 
@@ -45,10 +50,10 @@ To request elevation data in raster tile format, use the [Render V2 - Get Map Ti
 
 ## Request elevation data in GeoJSON format
 
-Use the Elevation service APIs to request elevation data in GeoJSON format. This section will show you each one of the three APIs:
+Use the Elevation service (Preview) APIs to request elevation data in GeoJSON format. This section will show you each one of the three APIs:
 
-* [Get Data for Points](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
-* [Post Data for Points](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates)
+* [Get Data for Points](/rest/api/maps/elevation/getdataforpoints)
+* [Post Data for Points](/rest/api/maps/elevation/postdataforpoints)
 * [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 * [Post Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline)
 * [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
@@ -58,7 +63,7 @@ Use the Elevation service APIs to request elevation data in GeoJSON format. This
 
 ### Request elevation data for points
 
-In this example, we'll use the [Get Data for Points API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) to request elevation data at Mt. Everest and Chamlang mountains. Then, we'll use the [Post Data for Points API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) to request elevation data using the same two points. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
+In this example, we'll use the [Get Data for Points API](/rest/api/maps/elevation/getdataforpoints) to request elevation data at Mt. Everest and Chamlang mountains. Then, we'll use the [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) to request elevation data using the same two points. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
 
  >[!IMPORTANT]
  >Due to the URL character length limit of 2048, it's not possible to pass more than 100 coordinates as a pipeline delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the POST Data For Points.
@@ -94,7 +99,7 @@ In this example, we'll use the [Get Data for Points API](https://docs.microsoft.
     }
     ```
 
-4. Now, we'll call the [Post Data for Points API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) to get elevation data for the same two points. Select the **POST** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+4. Now, we'll call the [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) to get elevation data for the same two points. Select the **POST** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
@@ -438,7 +443,7 @@ In this example, we'll specify rows=3 and columns=6. 18 elevation values are ret
     }
     ```
 
-## Samples: Use Elevation service APIs in Azure Maps Control
+## Samples: Use Elevation service (Preview) APIs in Azure Maps Control
 
 ### Get elevation data by coordinate position
 
@@ -476,16 +481,16 @@ The following sample web page shows you how to use the map control to display el
 
 ## Next steps
 
-To further explore the Azure Maps Elevation APIs, see:
+To further explore the Azure Maps Elevation (Preview) APIs, see:
 
 > [!div class="nextstepaction"]
-> [Elevation - Get Data for Lat Long Coordinates](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
+> [Elevation (Preview) - Get Data for Lat Long Coordinates](/rest/api/maps/elevation/getdataforpoints)
 
 > [!div class="nextstepaction"]
-> [Elevation - Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+> [Elevation (Preview) - Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
 
 > [!div class="nextstepaction"]
-> [Elevation - Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
+> [Elevation (Preview) - Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 
 > [!div class="nextstepaction"]
 > [Render V2 – Get Map Tile](https://docs.microsoft.com/rest/api/maps/renderv2)

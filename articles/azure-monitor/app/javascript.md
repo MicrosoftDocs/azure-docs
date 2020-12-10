@@ -14,8 +14,11 @@ Application Insights can be used with any web pages - you just add a short piece
 
 ## Adding the JavaScript SDK
 
+> [!IMPORTANT]
+> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=js) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+
 1. First you need an Application Insights resource. If you don't already have a resource and instrumentation key, follow the [create a new resource instructions](create-new-resource.md).
-2. Copy the _instrumentation key_ (also known as "iKey") for the resource where you want your JavaScript telemetry to be sent (from step 1.) You will add it to the `instrumentationKey` setting of the Application Insights JavaScript SDK.
+2. Copy the _instrumentation key_ (also known as "iKey") or [connection string](#connection-string-setup) for the resource where you want your JavaScript telemetry to be sent (from step 1.) You will add it to the `instrumentationKey` or `connectionString` setting of the Application Insights JavaScript SDK.
 3. Add the Application Insights JavaScript SDK to your web page or app via one of the following two options:
     * [npm Setup](#npm-based-setup)
     * [JavaScript Snippet](#snippet-based-setup)
@@ -97,7 +100,7 @@ All configuration options have now been move towards the end of the script to he
 
 Each configuration option is shown above on a new line, if you don't wish to override the default value of an item listed as [optional] you can  remove that line to minimize the resulting size of your returned page.
 
-The available configuration options are 
+The available configuration options are
 
 | Name | Type | Description
 |------|------|----------------
@@ -107,6 +110,20 @@ The available configuration options are
 | useXhr | boolean *[optional]* | This setting is used only for reporting SDK load failures. Reporting will first attempt to use fetch() if available and then fallback to XHR, setting this value to true just bypasses the fetch check. Use of this value is only be required if your application is being used in an environment where fetch would fail to send the failure events.
 | crossOrigin | string *[optional]* | By including this setting, the script tag added to download the SDK will include the crossOrigin attribute with this string value. When not defined (the default) no crossOrigin attribute is added. Recommended values are not defined (the default); ""; or "anonymous" (For all valid values see [HTML attribute: `crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) documentation)
 | cfg | object **[required]** | The configuration passed to the Application Insights SDK during initialization.
+
+### Connection String Setup
+
+For either the NPM or Snippet setup, you can also configure your instance of Application Insights using a Connection String. Simply replace the `instrumentationKey` field with the `connectionString` field.
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+const appInsights = new ApplicationInsights({ config: {
+  connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.loadAppInsights();
+appInsights.trackPageView();
+```
 
 ### Sending telemetry to the Azure portal
 

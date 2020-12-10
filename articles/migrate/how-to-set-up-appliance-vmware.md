@@ -1,7 +1,10 @@
 ---
 title: Set up an Azure Migrate appliance for VMware 
 description: Learn how to set up an Azure Migrate appliance to assess and migrate VMware VMs.
-ms.topic: article
+author: vikram1988 
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/16/2020
 ---
 
