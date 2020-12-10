@@ -9,9 +9,9 @@ ms.date: 12/10/2020
 ms.author: jgao
 
 ---
-# Use deployment scripts in templates (Preview)
+# Use deployment scripts in ARM templates (Preview)
 
-Learn how to use deployment scripts in Azure Resource templates. With a new resource type called `Microsoft.Resources/deploymentScripts`, users can execute scripts in template deployments and review execution results. These scripts can be used for performing custom steps such as:
+Learn how to use deployment scripts in Azure Resource templates (ARM templates). With a new resource type called `Microsoft.Resources/deploymentScripts`, users can execute scripts in template deployments and review execution results. These scripts can be used for performing custom steps such as:
 
 - add users to a directory
 - perform data plane operations, for example, copy blobs or seed database
@@ -34,11 +34,11 @@ The deployment script resource is only available in the regions where Azure Cont
 
 > [!IMPORTANT]
 > The deploymentScripts resource API version 2020-10-01 supports [OnBehalfofTokens(OBO)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). By using OBO, the deployment script service uses the deployment principal's token to create the underlying resources for running deployment scripts, which include Azure Container instance,  Azure storage account, and role assignments for the managed identity. In older API version, the managed identity is used to create these resources.
-> Retry logic for Azure login is now built in to the wrapper script. If you grant permissions in the same template where you run deployment scripts.  The deployment script service retries login for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
+> Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template where you run deployment scripts.  The deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
 
 ## Prerequisites
 
-- **(Optional) A user-assigned managed identity with required permissions to perform the operations in the script**. For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources. If the script needs to authenticate to Azure and perform Azure specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access in the target resource group to complete the operation in the script. You can also log in to Azure in the deployment script. To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group. 
+- **(Optional) A user-assigned managed identity with required permissions to perform the operations in the script**. For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources. If the script needs to authenticate to Azure and perform Azure-specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access in the target resource group to complete the operation in the script. You can also sign in to Azure in the deployment script. To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group. 
 
   To create an identity, see [Create a user-assigned managed identity by using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), or [by using Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), or [by using Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). You need the identity ID when you deploy the template. The format of the identity is:
 
@@ -130,7 +130,7 @@ The following json is an example.  The latest template schema can be found [here
 
 Property value details:
 
-- **Identity**: For deployment script API version 2020-10-01 or later, a user-assigned managed identity is optional unless you need to perform any Azure specific actions in the script.  For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. Currently, only user-assigned managed identity is supported.
+- **Identity**: For deployment script API version 2020-10-01 or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script.  For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. Currently, only user-assigned managed identity is supported.
 - **kind**: Specify the type of script. Currently, Azure PowerShell and Azure CLI scripts are supported. The values are **AzurePowerShell** and **AzureCLI**.
 - **forceUpdateTag**: Changing this value between template deployments forces the deployment script to re-execute. If you use the newGuid() or the utcNow() function, both functions can only be used in the default value for a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
 - **containerSettings**: Specify the settings to customize Azure Container Instance.  **containerGroupName** is for specifying the container group name.  If not specified, the group name is automatically generated.
@@ -138,7 +138,7 @@ Property value details:
 - **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. For a list of supported PowerShell and CLI versions, see [Prerequisites](#prerequisites).
 - **arguments**: Specify the parameter values. The values are separated by spaces.
 
-    Deployment Scripts splits the arguments into an array of strings by invoking the [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) system call. This is necessary because the arguments are passed as a [command property](/rest/api/container-instances/containergroups/createorupdate#containerexec)
+    Deployment Scripts splits the arguments into an array of strings by invoking the [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) system call. This step is necessary because the arguments are passed as a [command property](/rest/api/container-instances/containergroups/createorupdate#containerexec)
      to Azure Container Instance, and the command property is an array of string.
 
     If the arguments contain escaped characters, use [JsonEscaper](https://www.jsonescaper.com/) to double escaped the characters. Paste your original escaped string into the tool, and then select **Escape**.  The tool outputs a double escaped string. For example, in the previous sample template, The argument is **-name \\"John Dole\\"**.  The escaped string is **-name \\\\\\"John dole\\\\\\"**.
@@ -157,7 +157,7 @@ Property value details:
 - **supportingScriptUris**: Specify an array of publicly accessible Urls to supporting files that are called in either `ScriptContent` or `PrimaryScriptUri`.
 - **timeout**: Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.
 - **cleanupPreference**. Specify the preference of cleaning up deployment resources when the script execution gets in a terminal state. Default setting is **Always**, which means deleting the resources despite the terminal state (Succeeded, Failed, Canceled). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
-- **retentionInterval**: Specify the interval for which the service retains the deployment script resources after the deployment script execution reaches a terminal state. The deployment script resources will be deleted when this duration expires. Duration is based on the [ISO 8601 pattern](https://en.wikipedia.org/wiki/ISO_8601). The retention interval is between 1 and 26 hours (PT26H). This property is used when cleanupPreference is set to *OnExpiration*. The *OnExpiration* property is not enabled currently. To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
+- **retentionInterval**: Specify the interval for which the service retains the deployment script resources after the deployment script execution reaches a terminal state. The deployment script resources will be deleted when this duration expires. Duration is based on the [ISO 8601 pattern](https://en.wikipedia.org/wiki/ISO_8601). The retention interval is between 1 and 26 hours (PT26H). This property is used when cleanupPreference is set to *OnExpiration*. The *OnExpiration* property isn't enabled currently. To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
 
 ### Additional samples
 
@@ -205,7 +205,7 @@ To see an example, select [here](https://github.com/Azure/azure-docs-json-sample
 
 The external script files must be accessible.  To secure your script files that are stored in Azure storage accounts, see [Deploy private ARM template with SAS token](./secure-template-with-sas-token.md).
 
-You are responsible for ensuring the integrity of the scripts that are referenced by deployment script, either **PrimaryScriptUri** or **SupportingScriptUris**.  Reference only scripts that you trust.
+You're responsible for ensuring the integrity of the scripts that are referenced by deployment script, either **PrimaryScriptUri** or **SupportingScriptUris**.  Reference only scripts that you trust.
 
 ## Use supporting scripts
 
@@ -225,7 +225,7 @@ You can separate complicated logics into one or more supporting script files. Th
 
 Supporting script files can be called from both inline scripts and primary script files. Supporting script files have no restrictions on the file extension.
 
-The supporting files are copied to azscripts/azscriptinput at the runtime. Use relative path to reference the supporting files from inline scripts and primary script files.
+The supporting files are copied to `azscripts/azscriptinput` at the runtime. Use relative path to reference the supporting files from inline scripts and primary script files.
 
 ## Work with outputs from PowerShell script
 
@@ -241,7 +241,7 @@ reference('<ResourceName>').output.text
 
 ## Work with outputs from CLI script
 
-Different from the PowerShell deployment script, CLI/bash support does not expose a common variable to store script outputs, instead, there is an environment variable called **AZ_SCRIPTS_OUTPUT_PATH** that stores the location where the script outputs file resides. If a deployment script is run from a Resource Manager template, this environment variable is set automatically for you by the Bash shell.
+Different from the PowerShell deployment script, CLI/bash support doesn't expose a common variable to store script outputs, instead, there's an environment variable called **AZ_SCRIPTS_OUTPUT_PATH** that stores the location where the script outputs file resides. If a deployment script is run from a Resource Manager template, this environment variable is set automatically for you by the Bash shell.
 
 Deployment script outputs must be saved in the AZ_SCRIPTS_OUTPUT_PATH location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, an array of strings is stored as { "MyResult": [ "foo", "bar"] }.  Storing just the array results, for example [ "foo", "bar" ], is invalid.
 
@@ -267,7 +267,7 @@ A storage account and a container instance are needed for script execution and t
     | Standard_ZRS    | StorageV2          |
 
     These combinations support file share.  For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
-- Storage account firewall rules are not supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
+- Storage account firewall rules aren't supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 - Deployment principal must have permissions to manage the storage account, which includes read, create, delete file shares.
 
 To specify an existing storage account, add the following json to the property element of `Microsoft.Resources/deploymentScripts`:
@@ -297,7 +297,7 @@ When an existing storage account is used, the script service creates a file shar
 
 ### Handle non-terminating errors
 
-You can control how PowerShell responds to non-terminating errors by using the **$ErrorActionPreference** variable in your deployment script. If the variable is not set in your deployment script, the script service uses the default value **Continue**.
+You can control how PowerShell responds to non-terminating errors by using the **$ErrorActionPreference** variable in your deployment script. If the variable isn't set in your deployment script, the script service uses the default value **Continue**.
 
 The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of $ErrorActionPreference.
 
@@ -305,15 +305,15 @@ The script service sets the resource provisioning state to **Failed** when the s
 
 Setting environment variables (EnvironmentVariable) in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles non-secured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values).
 
-The max allowed size for environment variables is 64KB.
+The max allowed size for environment variables is 64 KB.
 
 ## Monitor and troubleshoot deployment scripts
 
-The script service creates a [storage account](../../storage/common/storage-account-overview.md) (unless you specify an existing storage account) and a [container instance](../../container-instances/container-instances-overview.md) for script execution. If these resources are automatically created by the script service, both resources have the **azscripts** suffix in the resource names.
+The script service creates a [storage account](../../storage/common/storage-account-overview.md) (unless you specify an existing storage account) and a [container instance](../../container-instances/container-instances-overview.md) for script execution. If these resources are automatically created by the script service, both resources have the `azscripts` suffix in the resource names.
 
 ![Resource Manager template deployment script resource names](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
-The user script, the execution results, and the stdout file are stored in the files shares of the storage account. There is a folder called **azscripts**. In the folder, there are two more folders for the input and the output files: **azscriptinput** and **azscriptoutput**.
+The user script, the execution results, and the stdout file are stored in the files shares of the storage account. There's a folder called `azscripts`. In the folder, there are two more folders for the input and the output files: `azscriptinput` and `azscriptoutput`.
 
 The output folder contains a **executionresult.json** and the script output file. You can see the script execution error message in **executionresult.json**. The output file is created only when the script is executed successfully. The input folder contains a system PowerShell script file and the user deployment script files. You can replace the user deployment script file with a revised one, and rerun the deployment script from the Azure container instance.
 
@@ -517,7 +517,7 @@ To see the deploymentScripts resource in the portal, select **Show hidden types*
 
 ## Clean up deployment script resources
 
-A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise a storage account along with a container instance are automatically created by the script service. The two automatically created resources are deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the resources until the resources are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise a storage account along with a container instance are automatically created by the script service. The two automatically created resources are deleted by the script service when the deployment script execution gets in a terminal state. You're billed for the resources until the resources are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 The life cycle of these resources is controlled by the following properties in the template:
 
@@ -532,13 +532,13 @@ The life cycle of these resources is controlled by the following properties in t
 > [!NOTE]
 > It is not recommended to use the storage account and the container instance that are generated by the script service for other purposes. The two resources might be removed depending on the script life cycle.
 
-To retain the container instance and storage account for troubleshooting, you can add a sleep command into the script.  For example [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
+To retain the container instance and storage account for troubleshooting, you can add a sleep command into the script.  For example, use [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep).
 
 ## Run script more than once
 
-Deployment script execution is an idempotent operation. If none of the deploymentScripts resource properties (including the inline script) is changed, the script will not be executed when you redeploy the template. The deployment script service compares the resource names in the template with the existing resources in the same resource group. There are two options if you want to execute the same deployment script multiple times:
+Deployment script execution is an idempotent operation. If none of the deploymentScripts resource properties (including the inline script) are changed, the script doesn't execute when you redeploy the template. The deployment script service compares the resource names in the template with the existing resources in the same resource group. There are two options if you want to execute the same deployment script multiple times:
 
-- Change the name of your deploymentScripts resource. For example, use the [utcNow](./template-functions-date.md#utcnow) template function as the resource name or as a part of the resource name. Changing the resource name creates a new deploymentScripts resource. It is good for keeping a history of script execution.
+- Change the name of your deploymentScripts resource. For example, use the [utcNow](./template-functions-date.md#utcnow) template function as the resource name or as a part of the resource name. Changing the resource name creates a new deploymentScripts resource. It's good for keeping a history of script execution.
 
     > [!NOTE]
     > The utcNow function can only be used in the default value for a parameter.
@@ -559,20 +559,20 @@ After the script is tested successfully, you can use it as a deployment script i
 | Error code | Description |
 |------------|-------------|
 | DeploymentScriptInvalidOperation | The deployment script resource definition in the template contains invalid property names. |
-| DeploymentScriptResourceConflict | Cannot delete a deployment script resource that is in non-terminal state and the execution hasn't exceeded 1 hour. Or cannot re-run the same deployment script with the same resource identifier (same subscription, resource group name, and resource name) but different script body content at the same time. |
-| DeploymentScriptOperationFailed | The deployment script operation failed internally. Please contact Microsoft support. |
+| DeploymentScriptResourceConflict | Can't delete a deployment script resource that is in non-terminal state and the execution hasn't exceeded 1 hour. Or can't rerun the same deployment script with the same resource identifier (same subscription, resource group name, and resource name) but different script body content at the same time. |
+| DeploymentScriptOperationFailed | The deployment script operation failed internally. Contact Microsoft support. |
 | DeploymentScriptStorageAccountAccessKeyNotSpecified | The access key hasn't been specified for the existing storage account.|
 | DeploymentScriptContainerGroupContainsInvalidContainers | A container group created by the deployment script service got externally modified, and invalid containers got added. |
-| DeploymentScriptContainerGroupInNonterminalState | Two or more deployment script resources use the same Azure container instance name in the same resource group, and one of them has not finished its execution yet. |
+| DeploymentScriptContainerGroupInNonterminalState | Two or more deployment script resources use the same Azure container instance name in the same resource group, and one of them hasn't finished its execution yet. |
 | DeploymentScriptStorageAccountInvalidKind | The existing storage account of the BlobBlobStorage or BlobStorage type doesn't support file shares, and can't be used. |
-| DeploymentScriptStorageAccountInvalidKindAndSku | The existing storage account does not support file shares. For a list of supported storage account kinds, see [Use existing storage account](#use-existing-storage-account). |
+| DeploymentScriptStorageAccountInvalidKindAndSku | The existing storage account doesn't support file shares. For a list of supported storage account kinds, see [Use existing storage account](#use-existing-storage-account). |
 | DeploymentScriptStorageAccountNotFound | The storage account doesn't exist or has been deleted by an external process or tool. |
-| DeploymentScriptStorageAccountWithServiceEndpointEnabled | The storage account specified has a service endpoint. A storage account with a service endpoint is not supported. |
+| DeploymentScriptStorageAccountWithServiceEndpointEnabled | The storage account specified has a service endpoint. A storage account with a service endpoint isn't supported. |
 | DeploymentScriptStorageAccountInvalidAccessKey | Invalid access key specified for the existing storage account. |
 | DeploymentScriptStorageAccountInvalidAccessKeyFormat | Invalid storage account key format. See [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md). |
 | DeploymentScriptExceededMaxAllowedTime | Deployment script execution time exceeded the timeout value specified in the deployment script resource definition. |
-| DeploymentScriptInvalidOutputs | The deployment script output is not a valid JSON object. |
-| DeploymentScriptContainerInstancesServiceLoginFailure | The user-assigned managed identity was not able to login after 10 attempts with 1-minute interval. |
+| DeploymentScriptInvalidOutputs | The deployment script output isn't a valid JSON object. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | The user-assigned managed identity wasn't able to sign in after 10 attempts with 1-minute interval. |
 | DeploymentScriptContainerGroupNotFound | A Container group created by deployment script service got deleted by an external tool or process. |
 | DeploymentScriptDownloadFailure | Failed to download a supporting script. See [Use supporting script](#use-supporting-scripts).|
 | DeploymentScriptError | The user script threw an error. |
