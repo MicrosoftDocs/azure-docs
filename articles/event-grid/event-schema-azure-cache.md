@@ -126,7 +126,7 @@ The data object has the following properties:
 |Title  |Description  |
 |---------|---------|
 | [Quickstart: route Azure Cache for Redis events to a custom web endpoint with Azure CLI]() | Shows how to use Azure CLI to send Azure Cache for Redis events to a WebHook. |
-| [Azure Cache for Redis Event Grid Overview](../../azure-cache-for-redis/cache-event-grid.md) | Overview of integrating Azure Cache for Redis with Event Grid. |
+| [Azure Cache for Redis Event Grid Overview](../azure-cache-for-redis/cache-event-grid.md) | Overview of integrating Azure Cache for Redis with Event Grid. |
 
 ## Next steps
 

@@ -20,7 +20,7 @@ If you want to try Azure Cache for Redis events, see the following [quickstart](
 
 ## The event model
 
-Event Grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. This image illustrates the relationship between event publishers, event subscriptions, and event handlers.
+Event Grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. This image illustrates the relationship between event publishers, event subscriptions, and event handlers.
 
 :::image type="content" source="media/cache-event-grid/event-grid-model.png" alt-text="Event grid model.":::
 
@@ -40,7 +40,7 @@ Applications that handle Azure Cache for Redis events should follow a few recomm
 > [!div class="checklist"]
 > * As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the Azure Cache for Redis instance you are expecting.
 > * Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
-> * Azure Cache for Redis events guarantees at-least-once delivery to subscribers, which ensures that all messages are outputted. However due to retries or availability of subscriptions, duplicate messages may occasionally occur. To learn more about message delivery and retry, see [Event Grid message delivery and retry](../../event-grid/delivery-and-retry.md).
+> * Azure Cache for Redis events guarantees at-least-once delivery to subscribers, which ensures that all messages are outputted. However due to retries or availability of subscriptions, duplicate messages may occasionally occur. To learn more about message delivery and retry, see [Event Grid message delivery and retry](../event-grid/delivery-and-retry.md).
 
 
 ## Next steps
