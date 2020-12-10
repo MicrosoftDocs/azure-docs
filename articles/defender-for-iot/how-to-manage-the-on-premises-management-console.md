@@ -4,36 +4,36 @@ description: The on-premises management console system backup is performed autom
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/17/2020
+ms.date: 12/09/2020
 ms.topic: article
 ms.service: azure
 ---
 
-# Overview
+# Backup and restore the management console
 
-## Define on-premises management console system backup and restore 
+## Define the on-premises management console system backup and restore 
 
-On-premises management console system backup is performed automatically, daily. The data is saved on a different disk: The default location is */var/cyberx/backups*. 
+The on-premises management console system backup is performed automatically, daily. The data is saved on a different disk: The default location is `/var/cyberx/backups`. 
 
 You can automatically transfer this file to the internal network. 
 
-> Note: The Backup/Restore procedure can be performed on the same version only. 
+> Note: The backup and restore procedure can be performed on the same version only. 
 
-**To back up the on-premises management console machine**: 
+To back up the on-premises management console machine: 
 
-- Log into an administrative account and type sudo cyberx-management-backup -full. 
+- Sign in to an administrative account and type `sudo cyberx-management-backup -full`. 
 
-**To restore the latest backup file**: 
+To restore the latest backup file: 
 
-- Log into an administrative account and type $ sudo cyberx-management-system-restore. 
+- Sign in to an administrative account and type `$ sudo cyberx-management-system-restore`. 
 
-**To save the backup to external SMB Server**: 
+To save the backup to external SMB Server: 
 
 1. Create a shared folder in the external SMB server.  
 
    Get the folder path and username and password required to access the SMB server. 
 
-2. In the CyberX, make directory for the backups: 
+2. In the Defender for IoT, make directory for the backups: 
 
    - `sudo mkdir /<backup_folder_name_on_ server>` 
 
@@ -59,7 +59,7 @@ You can automatically transfer this file to the internal network.
 
    - `sudo mount -a` 
 
-7. Configure backup directory to the shared folder on the cyberx On-premises management console:  
+7. Configure backup directory to the shared folder on the Defender for IoT on-premises management console:  
 
    - `sudo nano /var/cyberx/properties/backup.properties` 
 

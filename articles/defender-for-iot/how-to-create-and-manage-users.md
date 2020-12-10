@@ -113,8 +113,9 @@ To access the command:
 
 1. Sign in to the sensor or on-premises management console CLI with Defender for IoT administrative credentials.
 
-2. Type: udo nano /var/cyberx/properties/authentication.
+2. Type: `sudo nano /var/cyberx/properties/authentication`.
 
+```azurecli-interactive
     infinity_session_expiration = true
     session_expiration_default_seconds = 0
     # half an hour in seconds (comment)

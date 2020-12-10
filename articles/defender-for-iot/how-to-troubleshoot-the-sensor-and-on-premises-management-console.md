@@ -95,7 +95,7 @@ When the widgets in the **Trends & Statistics** window show no data, verify the 
 
   - Make sure the time and regional settings are properly configured and not set to the future time. 
 
-### Asset map shows only broadcasting devices
+### Device map shows only broadcasting devices
 
 When devices shown on the map appear not connected to each other, it might indicate that something is wrong with the SPAN port configuration and therefore you can see only broadcasting devices and no unicast traffic.
 

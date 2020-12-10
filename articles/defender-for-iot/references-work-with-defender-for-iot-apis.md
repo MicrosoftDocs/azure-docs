@@ -1117,11 +1117,12 @@ JSON Object representing assessed results. Each key can be nullable, otherwise, 
 | **devices** | Json array | Device names | 
 
 7. **internetConnections**
+
 | Field Name | Type | List Of Values |
 | ---------- | ---- | -------------- |
 | **internalAddress** | String | IP Address |
 | **authorized** | Boolean | Yes, or No | 
-| **externalAddresses** | Json array | IP Adresses |
+| **externalAddresses** | Json array | IP Address |
 
 ### Response example
 

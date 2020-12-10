@@ -57,6 +57,6 @@ To continue getting started with Defender for IoT deployment, use the following 
 
 - Deploy [security module for IoT Edge](how-to-deploy-edge.md)
 - Learn how to [configure your security module](how-to-agent-configuration.md)
-- Review the Defender for IoT [Service prerequisites](service-prerequisites.md)
+- Review the Defender for IoT [Proprietary protocols](concept-proprietary-protocols.md)
 - Learn how to [Enable Defender for IoT service in your IoT Hub](quickstart-onboard-iot-hub.md)
 - Learn more about the service from the [Defender for IoT FAQ](resources-frequently-asked-questions.md)

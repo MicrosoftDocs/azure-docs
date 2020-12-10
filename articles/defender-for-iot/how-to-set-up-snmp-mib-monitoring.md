@@ -21,7 +21,7 @@ Before you begin configuring the SNMP monitoring, you need to open the port UDP 
 
 ## OIDs
 
-| Management Console /Sensor | OID | Format | Description |
+| Management console and sensor | OID | Format | Description |
 |--|--|--|--|
 | Appliance name | 1.3.6.1.2.1.1.5.0 | DISPLAYSTRING | Appliance name for on-premises management console |
 | Vendor | 1.3.6.1.2.1.1.4.0 | DISPLAYSTRING | Microsoft support.microsoft.com |
