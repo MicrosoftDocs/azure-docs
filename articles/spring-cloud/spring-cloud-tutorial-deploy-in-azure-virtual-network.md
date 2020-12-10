@@ -101,7 +101,7 @@ az role assignment create \
 
 ## Deploy Azure Spring Cloud service instance in the virtual network
 
-1. Open the Azure portal using at https://ms.portal.azure.com .
+1. Open the Azure portal using at https://portal.azure.com .
 
 1. From the top search box, search for **Azure Spring Cloud**, and select **Azure Spring Cloud** from the result.
 
