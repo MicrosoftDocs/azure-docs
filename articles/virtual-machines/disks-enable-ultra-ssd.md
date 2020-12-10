@@ -4,7 +4,7 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 12/09/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
@@ -225,7 +225,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 # [Portal](#tab/azure-portal)
 
-The Azure portal does not currently support creating an ultra disk with the 512 sector size. You can create an ultra disk with the 512 sector size is supported using the Azure PowerShell module or the Azure CLI, instead.
+The Azure portal does not currently support creating an ultra disk with the 512 sector size. You can create an ultra disk with the 512 sector size using the Azure PowerShell module or the Azure CLI, instead.
 
 # [PowerShell](#tab/azure-powershell)
 
