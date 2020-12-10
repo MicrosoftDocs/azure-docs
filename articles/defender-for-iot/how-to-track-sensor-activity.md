@@ -85,4 +85,5 @@ Filter the timeline to display assets and events of interest to you.
 ## See also
 
 [View alerts](how-to-view-alerts.md)
+
 [About Defender for IoT console users](how-to-create-and-manage-users.md)
