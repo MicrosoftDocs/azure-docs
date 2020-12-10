@@ -73,7 +73,6 @@ You need only include `--secret-permissions`, `--key-permissions`, and `--certif
 
 ## Next steps
 
-- [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management)
+- [Azure Key Vault security: Identity and access management](security-overview.md#identity-and-access-management)
 - [Secure your key vault](secure-your-key-vault.md).
 - [Azure Key Vault developer's guide](developers-guide.md)
-- [Azure Key Vault best practices](best-practices.md)

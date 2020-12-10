@@ -212,7 +212,7 @@ Write-Host "Press [ENTER] to continue..."
 
 - Read an [Overview of Azure Key Vault](../general/overview.md).
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Review [Azure Key Vault best practices](../general/best-practices.md).
+- Review the [Azure Key Vault security overview](security-overview.md)
 
 ## Next steps
 
