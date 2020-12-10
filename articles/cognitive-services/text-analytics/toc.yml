@@ -9,7 +9,7 @@
     href: text-analytics-user-scenarios.md
   - name: What's new
     href: whats-new.md
-- name: Responsible integration and use
+- name: Responsible AI
   items: 
   - name: Transparency note for Text Analytics
     href: /legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context
