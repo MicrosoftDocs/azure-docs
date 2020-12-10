@@ -116,5 +116,5 @@ Communication Services offers three types of logs that you can enable:
 | URI | The URI of the request. |
 | SdkType | The SDK type used in the request. |
 | PlatformType | The platform type used in the request. |
-| Idetity | The ACS idenity related to the operation. |
+| Identity | The Communication Services identity related to the operation. |
 | Scopes | The ACS scopes present in the access token. |
