@@ -177,6 +177,47 @@ Each device needs a copy of the root CA certificate and a copy of its own device
 
 Install IoT Edge by following these steps on both devices.
 
+1. Install the repository configuration that matches your device operating system.
+
+   * **Ubuntu Server 16.04**:
+
+     ```bash
+     curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
+     ```
+
+   * **Ubuntu Server 18.04**:
+
+     ```bash
+     curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+     ```
+
+   * **Raspberry Pi OS Stretch**:
+
+     ```bash
+     curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+     ```
+
+1. Copy the generated list to the sources.list.d directory.
+
+   ```bash
+   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```
+
+1. Install the Microsoft GPG public key.
+
+   ```bash
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```
+
+1. Install the hsmlib and IoT Edge daemon. To see the assets for other Linux distributions, [visit the GitHub release](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1). <!-- Update with proper image links on release -->
+
+   ```bash
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0.rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
+   sudo dpkg -i ./libiothsm-std.deb
+   sudo dpkg -i ./iotedge.deb
+   ```
 1. Update package lists on your device.
 
    ```bash
@@ -188,15 +229,13 @@ Install IoT Edge by following these steps on both devices.
    ```bash
    sudo apt-get install moby-engine
    ```
+### Configure Virtual Machine
+If you use azure Virtual Machine to create a hierarchy of IoT Edge devices, make sure the the following port are opened inbound: 8000,443,5671,8883.
+8000: Is used to pull docker container images through API proxy
+443: Is used between parent and child edgehub for Rest API calls.
+5671,8883: Are used for AMQP and MQTT
 
-1. Install the hsmlib and IoT Edge daemon. To see the assets for other Linux distributions, [visit the GitHub release](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1). <!-- Update with proper image links on release -->
-
-   ```bash
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0.rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
-   sudo dpkg -i ./libiothsm-std.deb
-   sudo dpkg -i ./iotedge.deb
-   ```
+Note: It is possible to use only one port to pull images and make API calls, follow [Using one port for HTTP calls](#Using one port for HTTP calls)
 
 ### Configure the IoT Edge runtime
 
@@ -588,6 +627,42 @@ In the [Azure portal](https://ms.portal.azure.com/):
 Notice that the image URI that we used for the simulated temperature sensor module pointed to `$upstream:8000` instead of to a container registry. We configured this device to not have direct connections to the cloud, because it's in a lower layer. To pull container images, this device requests the image from its parent device instead. At the top layer, the API proxy module routes this container request to the registry module, which handles the image pull.
 
 On the device details page for your lower layer IoT Edge device, you should now see the temperature sensor module listed along the system modules as **Specified in deployment**. It may take a few minutes for the device to receive its new deployment, request the container image, and start the module. Refresh the page until you see the temperature sensor module listed as **Reported by device**.
+
+## Using one port for HTTP calls
+It is possible to use only one port for HTTP calls:
+1. Remove NGINX_DEFAULT_PORT environment variable in IoTEdgeAPIProxy module. This will default use of port 443.
+1. Change IoTEdgeAPIProxy module port bindings to 443:
+ ```json
+"settings": {
+    "image": "mcr.microsoft.com/azureiotedge-api-proxy",
+    "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"443/tcp\": [{\"HostPort\":\"443\"}]}}}"
+}
+ ```
+1. Remove port 443 binding in edgeHub to avoid conflict with IoTEdgeAPIProxy:
+ ```json
+"settings": {
+   "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc2",
+   "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+}
+ ```
+1. For the child iotedge
+Replace $upstream:8000/azureiotedge-hub:1.2.0-rc2 by $upstream:443/azureiotedge-hub:1.2.0-rc2
+Replace $upstream:8000/azureiotedge-agent:1.2.0-rc2 by $upstream:443/azureiotedge-agent:1.2.0-rc2
+Replace $upstream:8000/azureiotedge-simulated-temperature-sensor:1.0 by $upstream:443/azureiotedge-simulated-temperature-sensor:1.0
+ 
+1. Change mention to 8000 port in the child config.yaml:
+   ```yml
+   agent:
+     name: "edgeAgent"
+     type: "docker"
+     env: {}
+     config:
+       image: "<parent_device_fqdn_or_ip>:443/azureiotedge-agent:1.2.0-rc2"
+       auth: {}
+   ```
+## IotEdge check
+Iotedge check can be performed in nested hierarchy, even if the children doesn't have direct internet access
+
 
 ## View generated data
 
