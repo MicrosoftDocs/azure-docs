@@ -14,7 +14,7 @@ manager: daveba
 ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ---
 # Password policies and account restrictions in Azure Active Directory
 
