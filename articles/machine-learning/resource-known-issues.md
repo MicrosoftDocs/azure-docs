@@ -355,7 +355,9 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
     pip install --upgrade scikit-learn==0.20.3
   ```
 
-* **Failed deployment**: For versions <= 1.18.0 of the SDK, the base image created for deployment may fail with the following error: "ImportError: cannot import name `cached_property` from `werkzeug`". The following steps can work around the issue -
+* **Failed deployment**: For versions <= 1.18.0 of the SDK, the base image created for deployment may fail with the following error: "ImportError: cannot import name `cached_property` from `werkzeug`". 
+
+The following steps can work around the issue:
   1. Download the model package
   2. Un-zip the package
   3. Deploy using the un-zipped assets
