@@ -86,7 +86,7 @@ Pg_stat_statements is a PostgreSQL extension that's enabled by default in Azure 
 
 
 ### Use the Query Store
-The [Query Store](./concepts-query-store) feature in Azure Database for PostgreSQL provides a more effective method to track query statistics. We recommend this feature as an alternative to using pg_stats_statements.
+The [Query Store](./concepts-query-store.md) feature in Azure Database for PostgreSQL provides a more effective method to track query statistics. We recommend this feature as an alternative to using pg_stats_statements.
 
 ### Optimize bulk inserts and use transient data
 If you have workload operations that involve transient data or that insert large datasets in bulk, consider using unlogged tables. It provides atomicity and durability, by default. Atomicity, consistency, isolation, and durability make up the ACID properties. See [how to optimize bulk inserts](howto-optimize-bulk-inserts.md).
