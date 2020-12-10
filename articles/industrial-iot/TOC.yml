@@ -9,6 +9,12 @@
     href: overview-what-is-OPC-Publisher.md
   - name: What is the Industrial IoT Platform?
     href: overview-what-is-Industrial-IoT-Platform.md
+- name: Quickstart
+  items:
+  - name: Deploy IoT Edge (Linux)
+    href: articles/iot-edge/quickstart-linux.md?toc=/azure/industrial-iot/TOC.json&bc=/azure/industrial-iot/breadcrumb/TOC.json
+  - name: Deploy IoT Edge (Windows)
+    href: articles/iot-edge/quickstart.md?toc=/azure/industrial-iot/TOC.json&bc=/azure/industrial-iot/breadcrumb/TOC.json
 - name: Tutorials
   items:
   - name: OPC Publisher standalone tutorials
@@ -19,6 +25,8 @@
       href: tut-publisher-configure-OPC-Publisher.md
     - name: Performance and Memory Tuning of the OPC Publisher
       href: tut-publisher-performance-memory-tuning-OPC-Publisher.md
+  - name: Create a hierarchy of IoT Edge devices
+    href: articles/iot-edge/tutorial-nested-iot-edge?toc=/azure/industrial-iot/TOC.json&bc=/azure/industrial-iot/breadcrumb/TOC.json
 - name: Reference
   items:
     - name: Command Line Arguments
