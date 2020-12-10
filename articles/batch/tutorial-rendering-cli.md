@@ -341,7 +341,7 @@ In this tutorial, you learned about how to:
 > * Scale the pool, and render a multi-frame scene
 > * Download rendered output
 
-To learn more about cloud-scale rendering, see the options for the Batch Rendering service. 
+To learn more about cloud-scale rendering, see the Batch rendering documentation.
 
 > [!div class="nextstepaction"]
 > [Batch Rendering service](batch-rendering-service.md)

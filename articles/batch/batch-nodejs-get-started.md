@@ -333,4 +333,3 @@ The portal has detailed views on the tasks and job statuses. You can also use th
 
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 - See the [Batch Node.js reference](/javascript/api/overview/azure/batch) to explore the Batch API.
-- 

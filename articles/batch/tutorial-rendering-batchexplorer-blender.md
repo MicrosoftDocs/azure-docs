@@ -151,5 +151,7 @@ In this tutorial, you learned how to:
 
 Continue on by exploring  the rendering applications available via Batch Explorer in the **Gallery** section. For each application there are several templates available, which will expand over time. For example, for Blender templates exist that split up a single image into tiles, so parts of an image can be rendered in parallel.
 
+To learn more about cloud-scale rendering, see the options for the Batch Rendering service.
+
 > [!div class="nextstepaction"]
-> [Learn more about rendering using Azure](./batch-rendering-service.md)
+> [Batch Rendering service](batch-rendering-service.md)

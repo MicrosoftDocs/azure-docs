@@ -327,6 +327,3 @@ For more examples of using the .NET API to schedule and process Batch workloads,
 
 > [!div class="nextstepaction"]
 > [Batch C# samples](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
-
-
-Setting the instance variable LowPriorityNodeCount=0 and the DedicatedNodeCount=5 fixed the issue and allowed the job to complete.
