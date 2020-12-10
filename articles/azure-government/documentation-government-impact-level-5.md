@@ -16,7 +16,7 @@ ms.custom: references_regions
 ---
 # Isolation guidelines for Impact Level 5 workloads
 
-Azure Government supports applications in all regions that require Impact Level 5 (IL5) data, as defined in the [US Department of Defense Cloud Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html). IL5 workloads have a higher degree of impact to the US Department of Defense and must be secured to a higher standard. When you deploy these workloads on Azure Government, you can meet their isolation requirements in various ways. The guidance in this document will address configurations and settings to meet the isolation required to support IL5 data. We'll update this document as new implementations are enabled and as new services are accredited for IL5 data by DISA.
+Azure Government supports applications in all regions that require Impact Level 5 (IL5) data, as defined in the [US Department of Defense Cloud Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html). IL5 workloads have a higher degree of impact to the US Department of Defense and must be secured to a higher standard. When you deploy these workloads on Azure Government, you can meet their isolation requirements in various ways. The guidance in this document will address configurations and settings needed to meet the isolation required to support IL5 data. We'll update this document as new implementations are enabled and as new services are accredited for IL5 data by DISA.
 
 ## Background
 
@@ -38,10 +38,10 @@ For services where the compute processes are obfuscated from access by the owner
 
 In the most recent PA for Azure Government, DISA approved logical separation of IL5 from other data via cryptographic means. In Azure, this approach involves encryption via keys that are maintained in Azure Key Vault. The keys are owned and managed by the IL5 system owner.
 
-To apply this approach to services:
+Here's how this approach applies to services:
 
 - If a service hosts only IL5 data, the service can control the key for end users. But it must use a dedicated key to protect IL5 data from all other data in the cloud.
-- If a service will host IL5 and non-DoD data, the service must expose the option to for end users to use their own keys for encryption. Those keys are stored in Azure Key Vault. This implementation gives consumers of the service the ability to implement cryptographic separation as needed.
+- If a service will host IL5 and non-DoD data, the service must expose the option for end users to use their own keys for encryption. Those keys are stored in Azure Key Vault. This implementation gives consumers of the service the ability to implement cryptographic separation as needed.
 
 This approach ensures all key material for decrypting data is stored separately of the data itself and done so with a hardware key-management solution.
 
@@ -204,7 +204,7 @@ Azure HDInsight supports Impact Level 5 workloads in Azure Government with these
 
 Azure Synapse Analytics supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
+- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md).
 
    > [!NOTE]
    > The instructions to enable this configuration are the same as the instructions to do so for Azure SQL Database.
@@ -429,7 +429,7 @@ Azure Database for MySQL supports Impact Level 5 workloads in Azure Government w
 
 Azure Database for PostgreSQL supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Data encryption with customer-managed keys for Azure Database for PostgreSQL Single Server is set at the server-level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. For more information, see [Azure Database for PostgreSQL Single Server data encryption with a customer-managed key](https://docs.microsoft.com/azure/postgresql/concepts-data-encryption-postgresql).
+- Data encryption with customer-managed keys for Azure Database for PostgreSQL Single Server is set at the server level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. For more information, see [Azure Database for PostgreSQL Single Server data encryption with a customer-managed key](https://docs.microsoft.com/azure/postgresql/concepts-data-encryption-postgresql).
 
 | **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- | 
@@ -532,7 +532,7 @@ Azure Automation supports Impact level 5 workloads in Azure Government to provid
 
 Automation supports Impact Level 5 workloads in Azure Government in these configurations:
 
-- Use the [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) feature of Azure Automation to run runbooks directly on the VM that's hosting the role and against resources in your environment. Runbooks are stored and managed in Azure Automation. They are then delivered to one or more assigned computers known as Hybrid Runbook Workers. Use Azure Dedicated Host or isolated virtual machine types for the Hybrid Worker role. When deployed, [isolated VM types](#isolated-virtual-machines) consume the entire physical host for the VM, providing the level of isolation required to support IL5 workloads.
+- Use the [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) feature of Azure Automation to run runbooks directly on the VM that's hosting the role and against resources in your environment. Runbooks are stored and managed in Azure Automation. They are then delivered to one or more assigned computers known as "Hybrid Runbook Workers." Use Azure Dedicated Host or isolated virtual machine types for the Hybrid Worker role. When deployed, [isolated VM types](#isolated-virtual-machines) consume the entire physical host for the VM, providing the level of isolation required to support IL5 workloads.
 
   [Azure Dedicated Host](#azure-dedicated-host) provides physical servers that can host one or more virtual machines and that are dedicated to one Azure subscription.
 - By default, your Azure Automation account uses Microsoft-managed keys. You can manage the encryption of secure assets for your Automation account by using your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the Automation account. For more information, see [Encryption of secure assets in Azure Automation](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption).
@@ -647,7 +647,7 @@ Azure Resource Graph supports Impact Level 5 workloads in Azure Government in th
 
 ### [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
 
-Azure Site Recovery supports Impact Level 5 workloads in Azure Government in this configuration:
+Azure Site Recovery supports Impact Level 5 workloads in Azure Government with this configuration:
 
 - You can replicate Azure VMs with managed disks enabled for customer-managed keys from one Azure region to another. For more information, see [Replicate machines with customer-managed key disks](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks).
 
@@ -657,7 +657,7 @@ Azure Site Recovery supports Impact Level 5 workloads in Azure Government in thi
 
 ### [Log Analytics](../azure-monitor/platform/data-platform-logs.md)
 
-Log Analytics supports Impact Level 5 workloads in Azure Government in this configuration:
+Log Analytics supports Impact Level 5 workloads in Azure Government with this configuration:
 
 - Configure customer-managed keys for your Log Analytics workspaces and Application Insights components. With this configuration, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).
 
@@ -817,7 +817,7 @@ Azure Security Center can be used in all Azure Government regions. It supports a
 
 ### [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)
 
-Azure Sentinel supports Impact Level 5 workloads in Azure Government in this configuration:
+Azure Sentinel supports Impact Level 5 workloads in Azure Government with this configuration:
 
 - Configure encryption at rest of content in Azure Sentinel by [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/sentinel/customer-managed-keys).
 
@@ -890,7 +890,7 @@ The target storage account for Archive Storage can be located in any of these re
 
 ### [Azure Storage](https://azure.microsoft.com/services/storage/)
 
-Azure Storage consists of multiple data features: Blob Storage, File Storage, Table Storage, and Queue Storage. Blob Storage supports both standard and premium storage. Premium storage uses only SSDs for the fastest performance possible. Storage also includes configurations that modify these storage types, like hot and cool to provide appropriate speed-of-availability for data scenarios. The following table outlines which features of Storage currently support IL5 workloads.
+Azure Storage consists of multiple data features: Blob Storage, File Storage, Table Storage, and Queue Storage. Blob Storage supports both standard and premium storage. Premium storage uses only SSDs, to provide the fastest performance possible. Storage also includes configurations that modify these storage types, like hot and cool to provide appropriate speed-of-availability for data scenarios. The following table outlines which features of Storage currently support IL5 workloads.
 
 When you use an Azure Storage account, you must follow the steps for using [storage encryption with Key Vault managed keys](#storage-encryption-with-key-vault-managed-keys) to ensure the data is protected with customer-managed keys.
 
@@ -915,7 +915,7 @@ For more information about how to enable this Azure Storage encryption feature, 
 
 ### [Azure File Sync](../storage/files/storage-sync-files-planning.md)
 
-Azure File Sync supports Impact Level 5 workloads in Azure Government in this configuration:
+Azure File Sync supports Impact Level 5 workloads in Azure Government with this configuration:
 
 - Configure encryption at rest of content in Azure File Sync by [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#azure-file-share-encryption-at-rest).
 
@@ -925,7 +925,7 @@ Azure File Sync supports Impact Level 5 workloads in Azure Government in this co
 
 ### [StorSimple](https://azure.microsoft.com/services/storsimple/)
 
-Microsoft Azure StorSimple supports Impact Level 5 workloads in Azure Government in this configuration:
+Microsoft Azure StorSimple supports Impact Level 5 workloads in Azure Government with this configuration:
 
 - To help ensure the security and integrity of data moved to the cloud, StorSimple allows you to [define cloud storage encryption keys](https://docs.microsoft.com/azure/storsimple/storsimple-8000-security#storsimple-data-protection). You specify the cloud storage encryption key when you create a volume container. 
 
