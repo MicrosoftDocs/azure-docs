@@ -298,6 +298,4 @@ To view scan results:
 ## See also
 
 [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-
 [Investigate sensor detections in the device map](how-to-work-with-the-sensor-device-map.md)
-
