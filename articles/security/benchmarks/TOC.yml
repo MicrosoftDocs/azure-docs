@@ -95,7 +95,9 @@
   - name: Azure Database for MySQL security baseline
     href: ../../mysql/security-baseline.md
   - name: Azure Database for MariaDB security baseline
-    href: ../../mariadb/security-baseline.md
+    href: ../../mariadb/security-baseline.md 
+  - name: Azure Database Migration Service security baseline
+    href: ../../dms/security-baseline.md
   - name: Azure Database for PostgreSQL - Hyperscale security baseline
     href: ../../postgresql/postgresql-hyperscale-security-baseline.md
   - name: Azure Database for PostgreSQL - Single Server security baseline
@@ -134,7 +136,7 @@
     href: ../../azure-resource-manager/managed-applications/security-baseline.md
   - name: Azure Monitor security baseline
     href: ../../azure-monitor/security-baseline.md
-  - name: Azure Migrate Learning security baseline
+  - name: Azure Migrate security baseline
     href: ../../migrate/security-baseline.md
   - name: Azure Policy security baseline
     href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md

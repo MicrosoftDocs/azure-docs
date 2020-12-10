@@ -17,7 +17,7 @@ This article shows you how to use Helm to package and run an application on AKS.
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI installed](/cli/azure/install-azure-cli).
 * [Helm v3 installed][helm-install].
 
 ## Create an Azure Container Registry
