@@ -11,4 +11,4 @@ ms.topic: include
 ---
 
 > [!NOTE]
-> As of December 3rd 2020, The luis.au and luis.eu portals have been consolidated into a single LUIS portal. If you were using one of these portals, instead access LUIS at [luis.ai](https://luis.ai).
+> As of December 11th 2020, The luis.au and luis.eu portals have been consolidated into a single LUIS portal. If you were using one of these portals, instead access LUIS at [luis.ai](https://luis.ai).

@@ -41,7 +41,7 @@ The authoring region app can only be published to a corresponding publish region
 
 ## Publishing to Europe
 
- Global region | Authoring API region & authoring website| Publishing & querying region<br>`API region name`   |  Endpoint URL format   |
+ Global region | Authoring API region | Publishing & querying region<br>`API region name`   |  Endpoint URL format   |
 |-----|------|------|------|
 | Europe | `westeurope`| France Central<br>`francecentral`     | `https://francecentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Europe | `westeurope`| North Europe<br>`northeurope`     | `https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
@@ -50,13 +50,13 @@ The authoring region app can only be published to a corresponding publish region
 
 ## Publishing to Australia
 
- Global region | Authoring API region & authoring website| Publishing & querying region<br>`API region name`   |  Endpoint URL format   |
+ Global region | Authoring API region | Publishing & querying region<br>`API region name`   |  Endpoint URL format   |
 |-----|------|------|------|
-| Australia | `australiaeast`<br>[au.luis.ai][au.luis.ai]| Australia East<br>`australiaeast`     |  `https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
+| Australia | `australiaeast` | Australia East<br>`australiaeast`     |  `https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 
 ## Other publishing regions
 
- Global region | Authoring API region & authoring website| Publishing & querying region<br>`API region name`   |  Endpoint URL format   |
+ Global region | Authoring API region | Publishing & querying region<br>`API region name`   |  Endpoint URL format   |
 |-----|------|------|------|
 | Africa | `westus`| South Africa North<br>`southafricanorth` |  `https://southafricanorth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Asia | `westus`| Central India<br>`centralindia` |  `https://centralindia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
