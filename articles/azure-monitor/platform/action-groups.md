@@ -246,44 +246,45 @@ You may have a limited number of SMS actions in an Action Group.
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 **List of Countries where SMS Notification is supported**
-|**Country Code**|**Country Name**|
+
+| Country Code | Country Name |
 |:---|:---|
-|61	 | Australia|
-|43	              | Austria            |
-|32	              | Belgium            |
-|55	              | Brazil             |
-|1	              | Canada             |
-|56	              | Chile              |
-|86	              | China              |
-|420              | Czech Republic     |
-|45	              | Denmark            |
-|372	          | Estonia            |
-|358	          | Finland            |
-|33	              | France             |
-|49	              | Germany            |
-|852	          | Hong Kong          |
-|91	              | India              |
-|353	          | Ireland            |
-|972	          | Israel             |
-|39	              | Italy              |
-|81	              | Japan              |
-|352	          | Luxembourg         |
-|60	              | Malaysia           |
-|52               | Mexico             |
-|31	              | Netherlands        |
-|64	              | New Zealand        |
-|47	              | Norway             |
-|351	          | Portugal           |
-|1	              | Puerto Rico        |
-|40	              | Romania            |
-|65	              | Singapore          |
-|27	              | South Africa       |
-|82	              | South Korea        |
-|34               | Spain              |
-|41	              | Switzerland        |
-|886	          | Taiwan             |
-|44	              |  United Kingdom    |
-|1	              | United States      |
+| 61 | Australia |
+| 43 | Austria |
+| 32 | Belgium |
+| 55 | Brazil |
+| 1	|Canada |
+| 56 | Chile |
+| 86 | China |
+| 420 | Czech Republic |
+| 45 | Denmark |
+| 372 | Estonia |
+| 358 | Finland |
+| 33 | France |
+| 49 | Germany |
+| 852 | Hong Kong |
+| 91 | India |
+| 353 | Ireland |
+| 972 | Israel |
+| 39 | Italy |
+| 81 | Japan |
+| 352 | Luxembourg |
+| 60 | Malaysia |
+| 52 | Mexico |
+| 31 | Netherlands |
+| 64 | New Zealand |
+| 47 | Norway |
+| 351 | Portugal |
+| 1 | Puerto Rico |
+| 40 | Romania |
+| 65 | Singapore |
+| 27 | South Africa |
+| 82 | South Korea |
+| 34 | Spain |
+| 41 | Switzerland |
+| 886 | Taiwan |
+| 44 | United Kingdom |
+| 1 | United States |
 
 ### Voice
 See the [rate limiting information](./alerts-rate-limiting.md) article for additional important behavior.
