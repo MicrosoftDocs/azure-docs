@@ -919,7 +919,7 @@ Document ID: 4
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-> [!NOTE]
+> [!CAUTION]
 > To use Analyze operations, you must use a Text Analytics resource with the standard (S) pricing tier.  
 
 Create a new function called `analyze_example()` that takes the client as an argument, then calls the `begin_analyze()` function. The result will be a long running operation which will be polled for results.
