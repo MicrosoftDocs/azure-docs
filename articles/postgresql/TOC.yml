@@ -15,7 +15,7 @@
   - name: Database deployment
     items:
     - name: Github Actions    
-    href: how-to-deploy-github-action.md
+      href: how-to-deploy-github-action.md
   - name: Migration
     items:
       - name: Migrate data with pg_dump and pg_restore
