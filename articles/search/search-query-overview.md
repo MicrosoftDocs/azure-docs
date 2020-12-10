@@ -68,19 +68,17 @@ The above screenshot is a partial list of index attributes for the hotels sample
 
 ## Elements of a query request
 
-Queries are always directed at a single index. You cannot join indexes or create custom or temporary data structures as a query target. 
+Queries are always directed at a single index. You cannot join indexes or create custom or temporary data structures as a query target.
 
 Required elements on a query request include the following components:
 
-| Element | Description |
-|---------|-------------|
-| Endpoint  or client| Using a REST API, the service endpoint specifies an index document's collection, expressed as a URL containing fixed and user-defined components: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**. Using an SDK, you'll use a client to set up the query request. |
-| match criteria | Alphanumeric values or expressions provided in one of the following parameters: **`search`**, **`filter`**, **`autocomplete`**, **`suggestion`**. You can leave the parameter unspecified if you want to perform an empty search. |
-| API version | (REST only) The **`api-version`** is necessary because more than one version of the API is available at all times. |
-| Key | Authenticates the request. Use a query key for read-access to an index document's collection (recommended), or a full rights admin key. |
-| Query type | Either simple or full, which can be omitted if you are using the built-in default **`queryType=simple`**. |
++ Service endpoint and index documents collection, expressed as a URL containing fixed and user-defined components: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
++ **`api-version`** (REST only) is necessary because more than one version of the API is available at all times. 
++ **`api-key`**, either a query or admin api-key, authenticates the request to your service.
++ **`queryType`**, either simple or full, which can be omitted if you are using the built-in default simple syntax.
++ **`search`** or **`filter`** provides the match criteria, which can be unspecified if you want to perform an empty search. Both query types are discussed in terms of the simple parser, but even advanced queries require the search parameter for passing complex query expressions.
 
-Additional parameters are available to refine the request or response. For example, **`searchFields`** to scope the query to specific fields, or **`select`** to choose specific fields in the response. For the full list of parameters used in a query request see [Search Documents (REST)](/rest/api/searchservice/search-documents). For a closer look at how parameters are used during processing, see [How full-text search works in Azure Cognitive Search](search-lucene-query-architecture.md).
+Additional parameters are available to refine the request or response. For example, add **`searchFields`** to scope the query to specific fields, or **`select`** to pick which fields appear in the response. For the full list of parameters used in a query request, see [Search Documents (REST)](/rest/api/searchservice/search-documents). For a closer look at how parameters are used during processing, see [How full-text search works in Azure Cognitive Search](search-lucene-query-architecture.md).
 
 ## Choose APIs and tools
 
