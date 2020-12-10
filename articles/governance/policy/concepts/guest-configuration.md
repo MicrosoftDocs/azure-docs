@@ -116,7 +116,7 @@ outbound traffic, configure exceptions with Network Security Group rules. The se
 ### Communicate over private link in Azure
 
 Virtual machines can use [private link](../../../private-link/private-link-overview.md) for
-communication to the Guest Configuration service. Apply tag with the name `EnablePrivateNeworkGC`
+communication to the Guest Configuration service. Apply tag with the name `EnablePrivateNetworkGC`
 and value `TRUE` to enable this feature. The tag can be applied before or after Guest Configuration
 policy definitions are applied to the machine.
 
