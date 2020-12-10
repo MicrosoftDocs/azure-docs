@@ -1,25 +1,26 @@
 ---
-title: Query types and composition
+title: Query types 
 titleSuffix: Azure Cognitive Search
-description: Basics for building a search query in Azure Cognitive Search, using parameters to filter, select, and sort results.
+description: Learn about the types of queries supported in Cognitive Search, including free text, filter, autocomplete and suggestions, geo-search, system queries, and document lookup.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 12/09/2020
 ---
-# Query types and composition in Azure Cognitive Search
+# Query types in Azure Cognitive Search
 
 In Azure Cognitive Search, a query is a full specification of a round-trip operation. On the request, there are parameters that provide execution instructions for the engine, as well as parameters that shape the response coming back. Unspecified (`search=*`), with no match criteria and using null or default parameters, a query executes against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
 
-The following example is a representative query constructed in the [REST API](/rest/api/searchservice/search-documents). This example targets the [hotels demo index](search-get-started-portal.md) and includes common parameters so that you can get an idea of what a query looks like.
+The following example is a representative query constructed using [Search Documents REST API](/rest/api/searchservice/search-documents). This example targets the [hotels demo index](search-get-started-portal.md) and includes common parameters so that you can get an idea of what a query looks like.
 
-```
+```http
+POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=[api-version]
 {
     "queryType": "simple" 
-    "search": "+New York +restaurant",
+    "search": "`New York` +restaurant",
     "searchFields": "Description, Address/City, Tags",
     "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
     "top": "10",
@@ -67,7 +68,7 @@ The above screenshot is a partial list of index attributes for the hotels sample
 
 ## Elements of a query request
 
-Queries are always directed at a single index. You cannot join indexes or create custom or temporary data structures as a query target. 
+Queries are always directed at a single index. You cannot join indexes or create custom or temporary data structures as a query target.
 
 Required elements on a query request include the following components:
 
@@ -77,7 +78,7 @@ Required elements on a query request include the following components:
 + **`queryType`**, either simple or full, which can be omitted if you are using the built-in default simple syntax.
 + **`search`** or **`filter`** provides the match criteria, which can be unspecified if you want to perform an empty search. Both query types are discussed in terms of the simple parser, but even advanced queries require the search parameter for passing complex query expressions.
 
-All other search parameters are optional. For the full list of attributes, see [Create Index (REST)](/rest/api/searchservice/create-index). For a closer look at how parameters are used during processing, see [How full-text search works in Azure Cognitive Search](search-lucene-query-architecture.md).
+Additional parameters are available to refine the request or response. For example, add **`searchFields`** to scope the query to specific fields, or **`select`** to pick which fields appear in the response. For the full list of parameters used in a query request, see [Search Documents (REST)](/rest/api/searchservice/search-documents). For a closer look at how parameters are used during processing, see [How full-text search works in Azure Cognitive Search](search-lucene-query-architecture.md).
 
 ## Choose APIs and tools
 
@@ -87,8 +88,8 @@ The following table lists the APIs and tool-based approaches for submitting quer
 |-------------|-------------|
 | [Search explorer (portal)](search-explorer.md) | Provides a search bar and options for index and api-version selections. Results are returned as JSON documents. Recommended for exploration, testing, and validation. <br/>[Learn more.](search-get-started-portal.md#query-index) | 
 | [Postman or other REST tools](search-get-started-rest.md) | Web testing tools are an excellent choice for formulating REST calls. The REST API supports every possible operation in Azure Cognitive Search. In this article, learn how to set up an HTTP request header and body for sending requests to Azure Cognitive Search.  |
-| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Client that can be used to query an Azure Cognitive Search index.  <br/>[Learn more.](search-howto-dotnet-sdk.md)  |
 | [Search Documents (REST API)](/rest/api/searchservice/search-documents) | GET or POST methods on an index, using query parameters for additional input.  |
+| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Client that can be used to query an Azure Cognitive Search index.  <br/>[Learn more.](search-howto-dotnet-sdk.md)  |
 
 ## Choose a parser: simple | full
 
@@ -98,13 +99,13 @@ The [full Lucene query syntax](query-Lucene-syntax.md#bkmk_syntax), enabled when
 
 The following examples illustrate the point: same query, but with different queryType settings, yield different results. In the first query, the `^3` after `historic` is treated as part of the search term. The top-ranked result for this query is "Marquis Plaza & Suites", which has *ocean* in its description
 
-```
+```http
 queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
 The same query using the full Lucene parser interprets `^3` as an in-field term booster. Switching parsers changes the rank, with results containing the term *historic* moving to the top.
 
-```
+```http
 queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
