@@ -490,7 +490,32 @@ For bulk insert form the objects first and then run the stringify function. Here
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+The following example show how to write data to Cosmos DB using an output binding. The binding is declared in the function's configuration file (_functions.json_), and take data from a queue message and writes out to a Cosmos DB document.
+
+```json
+{ 
+  "name": "EmployeeDocument",
+  "type": "cosmosDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "createIfNotExists": true,
+  "connectionStringSetting": "MyStorageConnectionAppSetting",
+  "direction": "out" 
+} 
+```
+
+In the _run.ps1_ file, the object returned from the function is mapped to an `EmployeeDocument` object, which is persisted in the database.
+
+```powershell
+param($QueueItem, $TriggerMetadata) 
+
+Push-OutputBinding -Name EmployeeDocument -Value @{ 
+    id = $QueueItem.name + '-' + $QueueItem.employeeId 
+    name = $QueueItem.name 
+    employeeId = $QueueItem.employeeId 
+    address = $QueueItem.address 
+} 
+```
 
 # [Python](#tab/python)
 
