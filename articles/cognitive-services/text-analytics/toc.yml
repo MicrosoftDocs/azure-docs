@@ -27,6 +27,7 @@
         displayName: Transparency note for Text Analytics Sentiment Analysis, Text Analytics Transparency for Sentiment Analysis, Responsible AI, Responsible use of AI, Text Analytics Sentiment Analysis, Sentiment Analysis Transparency Note
   - name: Integration and responsible use
     href: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
+    displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
 - name: Quickstarts
   expanded: true
   items:
