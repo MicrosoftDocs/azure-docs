@@ -20,6 +20,7 @@
   items:
     - name: Configuration
       href: configuration.md
+      displayName: Routing
     - name: API support with Azure Functions
       href: apis.md
     - name: Routes
