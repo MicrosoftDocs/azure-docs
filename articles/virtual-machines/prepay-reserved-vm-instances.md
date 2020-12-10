@@ -11,7 +11,7 @@ ms.date: 10/30/2017
 ms.author: vikdesai
 
 ---
-# Save costs with Azure Reserved VM Instances (Linux)
+# Save costs with Azure Reserved VM Instances
 
 
 

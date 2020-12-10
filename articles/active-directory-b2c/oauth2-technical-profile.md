@@ -112,4 +112,4 @@ When you configure the redirect URI of your identity provider, enter `https://{t
 
 Examples:
 
-- [Add Google+ as an OAuth2 identity provider using custom policies](identity-provider-google-custom.md)
+- [Add Google+ as an OAuth2 identity provider using custom policies](identity-provider-google.md)
