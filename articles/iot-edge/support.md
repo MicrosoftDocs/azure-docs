@@ -4,7 +4,7 @@ description: Learn which operating systems can run the Azure IoT Edge daemon and
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/03/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -45,7 +45,7 @@ Azure IoT Edge runs on most operating systems that can run containers; however, 
 
 The family of the host OS must always match the family of the guest OS used inside a module's container. In other words, you can only use Linux containers on Linux and Windows containers on Windows. When using Windows, only process isolated containers are supported, not Hyper-V isolated containers.  
 
-IoT Edge for Linux on Windows uses IoT Edge in a Linux virtual machine running on a Windows host. In this way, you can run Linux modules on a Windows device. The Linux container OS must match the Linux virtual machine OS.
+IoT Edge for Linux on Windows uses IoT Edge in a Linux virtual machine running on a Windows host. In this way, you can run Linux modules on a Windows device.
 
 <br>
 <center>
@@ -53,53 +53,31 @@ IoT Edge for Linux on Windows uses IoT Edge in a Linux virtual machine running o
 ![Host OS matches guest OS](./media/support/edge-on-device.png)
 </center>
 
+### Tier 1
 
-### Tier 1 -- version 1
+The systems listed in the following tables are supported by Microsoft, either generally available or in public preview, and are tested with each new release.
 
-The systems listed in the following table are supported by Microsoft, either generally available or in public preview, and are tested with each new release.
-
-#### Linux
-
-| Operating System | AMD64 | ARM32v7 | ARM64 |
-| ---------------- | ----- | ------- | ----- |
-| Raspberry Pi OS Stretch |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
-| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Public preview  |
-| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Public preview |
-
-#### Windows
-
-IoT Edge on Windows only supports AMD64 architecture. There are two ways to run IoT Edge on Windows devices:
-
-* **IoT Edge for Windows** - Install the IoT Edge runtime on the host Windows system and use modules built as Windows containers. This method is generally available and supported in production scenarios.
-
-* **IoT Edge for Linux on Windows** - Install a Linux virtual machine prebuilt with the IoT Edge runtime on the host Windows device. Modules built as Linux containers are deployed to the virtual machine. This method is in public preview and currently is not supported in productions scenarios.
-
-| Supported systems | IoT Edge for Windows | IoT Edge for Linux on Windows |
-| ----------------- | -------------------- | ----------------------------- |
-| Windows editions  | Windows 10 IoT Enterprise<br>Windows 10 IoT Core<br>Windows Server 2019<br>Windows Server IoT 2019 | Windows 10 Professional<br>Windows 10 Enterprise<br>Windows Server 2019 |
-| Windows versions  | 1809 (build 17763)<sup>1</sup>   | 1809 or later (build 17763 or later) |
-
-<sup>1</sup> The specific build of Windows is required for IoT Edge on Windows because the version of the Windows containers must exactly match the version of the host Windows device. Windows containers currently only use build 17763.
-
-<!-- TODO: add link to EFLOW concept doc. Add links to install pages? -->
-
-### Tier 1 -- version 2
-
-The systems listed in the following table are supported by Microsoft, either generally available or in public preview, and are tested with each new release.
+Azure IoT Edge supports modules built as either Linux or Windows containers. Linux containers can be deployed to Linux devices or deployed to Windows devices using IoT Edge for Linux on Windows. Windows containers can only be deployed to Windows devices. You can deploy either Linux containers or Windows containers to a Windows device, but not both.
 
 #### Linux containers
 
-Modules built as Linux containers can be deployed to either Linux or Windows devices. For Linux devices, the IoT Edge runtime is installed directly on the host device. For Windows devices, a Linux virtual machine prebuilt with the IoT Edge runtime runs on the host device. 
+Modules built as Linux containers can be deployed to either Linux or Windows devices. For Linux devices, the IoT Edge runtime is installed directly on the host device. For Windows devices, a Linux virtual machine prebuilt with the IoT Edge runtime runs on the host device.
+
+IoT Edge for Linux on Windows is currently in public preview, but is the recommended way to run IoT Edge on Windows devices.
 
 <!-- TODO: Link to eflow -->
 
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | Raspberry Pi OS Stretch |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
-| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Public preview  |
-| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Public preview |
-| Windows 10 Pro or Enterprise, version 1809 or later (build 17763 or later) | Public preview |  |  |
-| Windows Server 2019, version 1809 or later (build 17763 or later) | Public preview |  |  |
+| Ubuntu Server 16.04 | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Public preview  |
+| Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Public preview |
+| Windows 10 Pro | Public preview |  |  |
+| Windows 10 Enterprise | Public preview |  |  |
+| Windows 10 IoT Enterprise | Public preview |  |  |
+| Windows Server 2019 | Public preview |  |  |
+
+All Windows operating systems must be version 1809 (build 17763) or later.
 
 #### Windows containers
 
@@ -107,12 +85,14 @@ Modules built as Windows containers can be deployed only to Windows devices.
 
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| Windows 10 IoT Enterprise, version 1809 (build 17763) | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows 10 IoT Core, version 1809 (build 17763) | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows Server 2019, version 1809 (build 17763) | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows Server IoT 2019, version 1809 (build 17763) | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows 10 IoT Enterprise | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows 10 IoT Core<sup>1</sup><br> | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server 2019  | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server IoT 2019<br> | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
 
-The specific build of Windows is required for IoT Edge on Windows because the version of the Windows containers must exactly match the version of the host Windows device. Windows containers currently only use build 17763.
+<sup>1</sup> Windows 10 IoT Core will not be supported after version 1.0.10
+
+All Windows operating systems must be version 1809 (build 17763). The specific build of Windows is required for IoT Edge on Windows because the version of the Windows containers must exactly match the version of the host Windows device. Windows containers currently only use build 17763.
 
 ### Tier 2
 
