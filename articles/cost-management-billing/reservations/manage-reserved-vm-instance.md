@@ -69,7 +69,7 @@ To delegate access management for a reservation:
 
 ### Enterprise Agreement 
 
-There are additional permissions related to Enterprise Agreement (EA) only. Users with the _Enterprise Administrator_ role can view and manage all reservations that apply to the Enterprise Agreement. Users with _Enterprise Administrator (read only)_ role can only view the reservation. 
+There are additional permissions related to Enterprise Agreement (EA) only. Users with the _Enterprise Administrator_ role can view and manage all reservation orders and reservations that apply to the Enterprise Agreement. Users with _Enterprise Administrator (read only)_ role can only view the reservation. 
 
 To view or manage reservations:
 
