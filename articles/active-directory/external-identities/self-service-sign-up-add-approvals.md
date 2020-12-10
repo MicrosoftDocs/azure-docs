@@ -36,7 +36,7 @@ You need to register your approval system as an application in your Azure AD ten
 
 5. Select **Register**. You can leave other fields at their defaults.
 
-   ![Register an application page](media/self-service-sign-up-add-approvals/register-approvals-app.png)
+   ![Screenshot that highlights the Register button.](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
 6. Under **Manage** in the left menu, select **API permissions**, and then select **Add a permission**.
 7. On the **Request API permissions** page, select **Microsoft Graph**, and then select **Application permissions**.
@@ -266,7 +266,7 @@ After obtaining manual approval, the custom approval system creates a [user](/gr
 > [!IMPORTANT]
 > The approval system should explicitly check that `identities`, `identities[0]` and `identities[0].issuer` are present and that `identities[0].issuer` equals 'facebook' or 'google' to use this method.
 
-If your user signed in with a Google or Facebook account, you can use the [User creation API](/graph/api/user-post-users?tabs=http&view=graph-rest-1.0).
+If your user signed in with a Google or Facebook account, you can use the [User creation API](/graph/api/user-post-users?tabs=http).
 
 1. The approval system uses receives the HTTP request from the user flow.
 
@@ -326,7 +326,7 @@ Content-type: application/json
 
 ### For a federated Azure Active Directory user
 
-If a user signs in with a federated Azure Active Directory account, you must use the [invitation API](/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
+If a user signs in with a federated Azure Active Directory account, you must use the [invitation API](/graph/api/invitation-post) to create the user and then optionally the [user update API](/graph/api/user-update) to assign more attributes to the user.
 
 1. The approval system receives the HTTP request from the user flow.
 

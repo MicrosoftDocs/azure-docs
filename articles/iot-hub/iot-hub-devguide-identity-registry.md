@@ -191,7 +191,7 @@ Device identities are represented as JSON documents with the following propertie
 | statusUpdateTime |read-only |A temporal indicator, showing the date and time of the last status update. |
 | connectionState |read-only |A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using MQTT or AMQP. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are disconnected. |
 | connectionStateUpdatedTime |read-only |A temporal indicator, showing the date and last time the connection state was updated. |
-| lastActivityTime |read-only |A temporal indicator, showing the date and last time the device connected, received, or sent a message. |
+| lastActivityTime |read-only |A temporal indicator, showing the date and last time the device connected, received, or sent a message. This property is eventually consistent, but could be delayed up to 5 to 10 minutes. For this reason, it shouldn't be used in production scenarios. |
 
 > [!NOTE]
 > Connection state can only represent the IoT Hub view of the status of the connection. Updates to this state may be delayed, depending on network conditions and configurations.

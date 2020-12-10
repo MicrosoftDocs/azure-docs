@@ -138,19 +138,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Navigate to the **settings** option from the navigation menu.
 
-	![Configuraion](./media/visibly-tutorial/settings.png)
+	![Screenshot shows the settings option selected.](./media/visibly-tutorial/settings.png)
 
 1. Click on **Integrations** within Settings.
 
-	![Configuraion](./media/visibly-tutorial/integrations.png)
+	![Screenshot shows Integrations selected from the Settings menu.](./media/visibly-tutorial/integrations.png)
 
 1. In the **Integrations**, select **SSO**.
 
-	![Configuraion](./media/visibly-tutorial/sso.png)
+	![Screenshot shows S S O selected from the Integrations.](./media/visibly-tutorial/sso.png)
 
 1. Perform the following steps in the following page.
 
-	![Configuraion](./media/visibly-tutorial/configuration.png)
+	![Screenshot shows S S O Integration page where you can enter the values described.](./media/visibly-tutorial/configuration.png)
 
 	a. In the **Entity ID** textbox, paste the **Entity ID** value which you have copied from the Azure portal.
 

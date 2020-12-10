@@ -32,9 +32,9 @@ By using code snippets in mapping data flows, you can easily perform common task
 
     The dedupe and null check snippets use generic patterns that take advantage of data flow schema drift. The snippets work with any schema from your dataset, or with datasets that have no pre-defined schema.
 
-1. In the "Distinct row using all columns" section of [Data flow script (DFS)](https://docs.microsoft.com/azure/data-factory/data-flow-script#distinct-row-using-all-columns), copy the code snippet for DistinctRows.
+1. In the "Distinct row using all columns" section of [Data flow script (DFS)](./data-flow-script.md#distinct-row-using-all-columns), copy the code snippet for DistinctRows.
 
-1. In your data flow designer UI, select the **Script** button at the upper right to open the script editor behind the data flow graph.
+1. [Go to the Data Flow Script documentation page and copy the code snippet for Distinct Rows.](./data-flow-script.md#distinct-row-using-all-columns)
 
     ![Screenshot of a source snippet.](media/data-flow/snippet-adf-3.png)
 
@@ -52,7 +52,7 @@ By using code snippets in mapping data flows, you can easily perform common task
     
 1. Add a code snippet for splitting your data into one stream that contains rows with nulls and another stream without nulls. To do so:
 
-   a. Go back to the [snippet library](https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns), and then copy the code for the null checks.
+1. [Go back to the Snippet library and this time copy the code for the NULL checks.](./data-flow-script.md#check-for-nulls-in-all-columns)
 
    b. In your data flow designer, select **Script** again, and then paste this new transformation code at the bottom. This action connects the script to your previous transformation by placing the name of that transformation in front of the pasted snippet.
 

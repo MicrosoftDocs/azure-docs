@@ -130,16 +130,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Settings Icon** from the top menu.
 
-	![Configuration ](./media/wootric-tutorial/configure-1.PNG)
+	![Screenshot shows the Settings Icon selected from the Wootric site.](./media/wootric-tutorial/configure-1.PNG)
 
 1. In the **INTEGRATIONS**, select **Authentication** from the Left side menu and click on **Enable Single Sign On with Azure Active Directory**.
 
-	![Configuration ](./media/wootric-tutorial/configure-2.PNG)
+	![Screenshot shows Enable Single Sign On with Azure Active Directory connected in the Authentication item.](./media/wootric-tutorial/configure-2.PNG)
 
 1. Perform the following steps in the following page:
 
-	![Configuration ](./media/wootric-tutorial/configure-3.PNG)
-
+	![Screenshot shows the Settings page where you can enter the values described.](./media/wootric-tutorial/configure-3.PNG)
 
 	a. In the **Identity Provider Single Sign-On URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 

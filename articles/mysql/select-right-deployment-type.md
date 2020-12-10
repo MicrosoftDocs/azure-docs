@@ -50,7 +50,7 @@ The main differences between these options are listed in the following table:
 | High availability | Built-in HA within single availability zone| Built-in HA within and across availability zones | Custom managed using clustering, replication, etc.|
 | Zone redundancy | Not supported | Supported | Supported|
 | Hybrid scenarios | Supported with [Data-in Replication](./concepts-data-in-replication.md)| Not available in preview | Managed by end users |
-| Read replicas | Supported| Supported | Managed by end users |
+| Read replicas | Supported (up to 5 replicas)| Supported (up to 10 replicas)| Managed by end users |
 | Backup | Automated with 7-35 days retention | Automated with 1-35 days retention | Managed by end users |
 | Monitoring database operations | Supported | Supported | Managed by end users |
 | Disaster recovery | Supported with geo-redundant backup storage and cross region read replicas | Not supported in preview| Custom Managed with replication technologies |

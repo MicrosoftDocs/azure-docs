@@ -4,7 +4,7 @@ description: Learn how to get a Linux Ruby app working in Azure App Service, wit
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
-ms.custom: mvc, cli-validate, seodec18
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 ---
 
 # Build a Ruby and Postgres app in Azure App Service on Linux
@@ -29,10 +29,11 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-* [Install Git](https://git-scm.com/)
-* [Install Ruby 2.6](https://www.ruby-lang.org/en/documentation/installation/)
-* [Install Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
-* [Install and run PostgreSQL](https://www.postgresql.org/download/)
+- [Install Git](https://git-scm.com/)
+- [Install Ruby 2.6](https://www.ruby-lang.org/en/documentation/installation/)
+- [Install Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
+- [Install and run PostgreSQL](https://www.postgresql.org/download/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Prepare local Postgres
 
@@ -98,8 +99,6 @@ Navigate to `http://localhost:3000` in a browser. Add a few tasks in the page.
 ![Ruby on Rails connects successfully to Postgres](./media/tutorial-ruby-postgres-app/postgres-connect-success.png)
 
 To stop the Rails server, type `Ctrl + C` in the terminal.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create Postgres in Azure
 
@@ -287,7 +286,7 @@ git remote add azure <paste-copied-url-here>
 Push to the Azure remote to deploy the Ruby on Rails application. You are prompted for the password you supplied earlier as part of the creation of the deployment user.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 During deployment, Azure App Service communicates its progress with Git.
@@ -298,7 +297,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -417,7 +416,7 @@ Commit all the changes in Git, and then push the code changes to Azure.
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 Once the `git push` is complete, navigate to the Azure app and test the new functionality.

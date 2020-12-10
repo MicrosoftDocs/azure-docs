@@ -184,7 +184,7 @@ Imagine you have accidentally deleted this table. This situation is something yo
 
 1. On the Azure Database for PostgreSQL **Overview** page for your server, click **Restore** on the toolbar. The **Restore** page opens.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="Azure portal - Restore form options":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="Screenshot that shows the Azure Database for PostgreSQL **Overview** page for your server and highlights the Restore button.":::
 
 2. Fill out the **Restore** form with the required information:
 
@@ -196,16 +196,20 @@ Imagine you have accidentally deleted this table. This situation is something yo
    - **Pricing tier**: You cannot change this value when restoring a server. It is same as the source server. 
 3. Click **OK** to [restore the server to a point-in-time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your [pricing tier](./concepts-pricing-tiers.md).
 
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+
 ## Next steps
 In this tutorial, you learned how to use the Azure portal and other utilities to:
 > [!div class="checklist"]
 > * Create an Azure Database for PostgreSQL server
 > * Configure the server firewall
-> * Use [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility to create a database
+> * Use the **psql** utility to create a database
 > * Load sample data
 > * Query data
 > * Update data
 > * Restore data
 
-Next, to learn how to use the Azure CLI to do similar tasks, review this tutorial: 
-[Design your first Azure Database for PostgreSQL using Azure CLI](tutorial-design-database-using-azure-cli.md)
+> [!div class="nextstepaction"]
+>[Design your first Azure Database for PostgreSQL using Azure CLI](tutorial-design-database-using-azure-cli.md)

@@ -227,7 +227,7 @@ KeyVault-BYOK-Tools-Switzerland.zip
 ---
 
 
-To validate the integrity of your downloaded BYOK toolset, from your Azure PowerShell session, use the [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet.
+To validate the integrity of your downloaded BYOK toolset, from your Azure PowerShell session, use the [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) cmdlet.
 
    ```powershell
    Get-FileHash KeyVault-BYOK-Tools-*.zip

@@ -195,5 +195,4 @@ This code is the same as described earlier.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Calling a web API](scenario-spa-call-api.md)
+Move on to the next article in this scenario, [Calling a web API](scenario-spa-call-api.md).

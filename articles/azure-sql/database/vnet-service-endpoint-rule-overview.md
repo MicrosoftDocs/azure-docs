@@ -15,7 +15,7 @@ ms.date: 11/14/2019
 # Use virtual network service endpoints and rules for servers in Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*Virtual network rules* are one firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-paas-overview.md) or for your databases in [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your database in Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse).
+*Virtual network rules* are one firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-paas-overview.md) or for your databases in [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your database in Azure SQL Database and Azure Synapse Analytics.
 
 > [!NOTE]
 > This article applies to both Azure SQL Database and Azure Synapse Analytics. For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics.
@@ -46,10 +46,10 @@ Each virtual network rule applies to your whole server, not just to one particul
 
 There is a separation of security roles in the administration of Virtual Network service endpoints. Action is required from each of the following roles:
 
-- **Network Admin:** &nbsp; Turn on the endpoint.
-- **Database Admin:** &nbsp; Update the access control list (ACL) to add the given subnet to the server.
+- **Network Admin ([Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor) role):** &nbsp; Turn on the endpoint.
+- **Database Admin ([SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role):** &nbsp; Update the access control list (ACL) to add the given subnet to the server.
 
-*RBAC alternative:*
+*Azure RBAC alternative:*
 
 The roles of Network Admin and Database Admin have more capabilities than are needed to manage virtual network rules. Only a subset of their capabilities is needed.
 
@@ -74,21 +74,22 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 
 - Turning ON virtual network service endpoints to Azure SQL Database also enables the endpoints for the MySQL and PostgreSQL Azure services. However, with endpoints ON, attempts to connect from the endpoints to your MySQL or PostgreSQL instances may fail.
   - The underlying reason is that MySQL and PostgreSQL likely do not have a virtual network rule configured. You must configure a virtual network rule for Azure Database for MySQL and PostgreSQL and the connection will succeed.
+  - To define VNet firewall rules on a SQL logical server that is already configured with private endpoints, set **Deny public network access** to **No**.
 
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
   - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
-  - On-premises via [ExpressRoute][expressroute-indexmd-744v]
+  - On-premises via [ExpressRoute](../../expressroute/index.yml)
 
 ### Considerations when using Service Endpoints
 
 When using service endpoints for Azure SQL Database, review the following considerations:
 
-- **Outbound to Azure SQL Database Public IPs is required**: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG [Service Tags](../../virtual-network/security-overview.md#service-tags) for Azure SQL Database.
+- **Outbound to Azure SQL Database Public IPs is required**: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG [Service Tags](../../virtual-network/network-security-groups-overview.md#service-tags) for Azure SQL Database.
 
 ### ExpressRoute
 
 If you are using [ExpressRoute](../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) from your premises, for public peering or Microsoft peering, you will need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP address(es) that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. Learn more about [NAT for ExpressRoute public and Microsoft peering.](../../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
-  
+
 To allow communication from your circuit to Azure SQL Database, you must create IP network rules for the public IP addresses of your NAT.
 
 <!--
@@ -106,16 +107,16 @@ PolyBase and the COPY statement is commonly used to load data into Azure Synapse
 
 #### Prerequisites
 
-- Install Azure PowerShell using this [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Enabling this configuration will allow PolyBase and the COPY statement to connect to the storage account using strong authentication where network traffic remains on the Azure backbone. Refer to this [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for more information.
+- Install Azure PowerShell using this [guide](/powershell/azure/install-az-ps).
+- If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](../../storage/common/storage-account-upgrade.md).
+- You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Enabling this configuration will allow PolyBase and the COPY statement to connect to the storage account using strong authentication where network traffic remains on the Azure backbone. Refer to this [guide](../../storage/common/storage-network-security.md#exceptions) for more information.
 
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
 #### Steps
 
-1. In PowerShell, **register your server** hosting Azure Synapse with Azure Active Directory (AAD):
+1. If you have a standalone dedicated SQL pool, register your SQL server with Azure Active Directory (AAD) using PowerShell: 
 
    ```powershell
    Connect-AzAccount
@@ -123,21 +124,29 @@ PolyBase and the COPY statement is commonly used to load data into Azure Synapse
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-1. Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+   This step is not required for dedicated SQL pools within a Synapse workspace.
+
+1. If you have a Synapse workspace, register your workspace's system-managed identity:
+
+   1. Go to your Synapse workspace in the Azure portal
+   2. Go to the Managed identities blade 
+   3. Make sure the "Allow Pipelines" option is enabled
+   
+1. Create a **general-purpose v2 Storage Account** using this [guide](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
    >
-   > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-   > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](../../storage/common/storage-account-upgrade.md).
+   > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** Azure role to the server hosting your Azure Synapse Analytics which you've registered with Azure Active Directory (AAD) as in step #1.
+1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** Azure role to the server or workspace hosting your dedicated SQL pool which you've registered with Azure Active Directory (AAD).
 
    > [!NOTE]
-   > Only members with Owner privilege  on the storage account can perform this step. For various Azure built-in roles, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Only members with Owner privilege  on the storage account can perform this step. For various Azure built-in roles, refer to this [guide](../../role-based-access-control/built-in-roles.md).
   
 1. **Polybase connectivity to the Azure Storage account:**
 
-   1. Create a database **[master key](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** if you haven't created one earlier:
+   1. Create a database **[master key](/sql/t-sql/statements/create-master-key-transact-sql)** if you haven't created one earlier:
 
        ```sql
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
@@ -151,7 +160,7 @@ PolyBase and the COPY statement is commonly used to load data into Azure Synapse
 
        > [!NOTE]
        >
-       > - There is no need to specify SECRET with Azure Storage access key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
+       > - There is no need to specify SECRET with Azure Storage access key because this mechanism uses [Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) under the covers.
        > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account secured to VNet.
 
    1. Create external data source with `abfss://` scheme for connecting to your general-purpose v2 storage account using PolyBase:
@@ -162,11 +171,11 @@ PolyBase and the COPY statement is commonly used to load data into Azure Synapse
 
        > [!NOTE]
        >
-       > - If you already have external tables associated with general-purpose v1 or blob storage account, you should first drop those external tables and then drop corresponding external data source. Then create external data source with `abfss://` scheme connecting to general-purpose v2 storage account as above and re-create all the external tables using this new external data source. You could use [Generate and Publish Scripts Wizard](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) to generate create-scripts for all the external tables for ease.
-       > - For more information on `abfss://` scheme, refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-       > - For more information on CREATE EXTERNAL DATA SOURCE, refer to this [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       > - If you already have external tables associated with general-purpose v1 or blob storage account, you should first drop those external tables and then drop corresponding external data source. Then create external data source with `abfss://` scheme connecting to general-purpose v2 storage account as above and re-create all the external tables using this new external data source. You could use [Generate and Publish Scripts Wizard](/sql/ssms/scripting/generate-and-publish-scripts-wizard) to generate create-scripts for all the external tables for ease.
+       > - For more information on `abfss://` scheme, refer to this [guide](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
+       > - For more information on CREATE EXTERNAL DATA SOURCE, refer to this [guide](/sql/t-sql/statements/create-external-data-source-transact-sql).
 
-   1. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Query as normal using [external tables](/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### Azure SQL Database Blob Auditing
 
@@ -292,12 +301,12 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]:scripts/vnet-service-endpoint-rule-powershell-create.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]:scripts/vnet-service-endpoint-rule-powershell-create.md#a-verify-subnet-is-endpoint-ps-100
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
-[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
+[vm-virtual-network-service-endpoints-overview-649d]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [vpn-gateway-indexmd-608y]: ../../vpn-gateway/index.yml
 
 <!-- Link references, to text, Outside this GitHub repo (HTTP). -->
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
-[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
+[rest-api-virtual-network-rules-operations-862r]: /rest/api/sql/virtualnetworkrules
 
 <!-- ??2
 #### Syntax related articles

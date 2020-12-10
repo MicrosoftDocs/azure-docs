@@ -22,7 +22,7 @@ The Speech portal to perform custom configurations to your speech experience for
 Keep in mind the following points when considering regions:
 
 * If your application uses a [Speech SDK](speech-sdk.md), you provide the region identifier, such as `westus`, when creating a speech configuration.
-* If your application uses one of the Speech service's [REST APIs](rest-apis.md), the region is part of the endpoint URI you use when making requests.
+* If your application uses one of the Speech service's [REST APIs](./overview.md#reference-docs), the region is part of the endpoint URI you use when making requests.
 * Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.
 
 ## Speech SDK
@@ -59,7 +59,7 @@ Available regions for **intent recognition** via the Speech SDK are the followin
 | North America | West US 2        | `westus2`            |
 | South America | Brazil South     | `brazilsouth`        |
 
-This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](../luis/luis-reference-regions.md).
 
 ### Voice assistants
 

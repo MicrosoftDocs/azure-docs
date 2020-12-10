@@ -1,16 +1,16 @@
 ---
-title: Use Java and JDBC with Azure Database for MySQL
+title: 'Quickstart: Use Java and JDBC with Azure Database for MySQL'
 description: Learn how to use Java and JDBC with an Azure Database for MySQL database.
 author: jdubois
 ms.author: judubois
 ms.service: mysql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
 ---
 
-# Use Java and JDBC with Azure Database for MySQL
+# Quickstart: Use Java and JDBC with Azure Database for MySQL
 
 This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for MySQL](./index.yml).
 
@@ -488,7 +488,7 @@ Executing the main class should now produce the following output:
 [INFO   ] Closing database connection 
 ```
 
-## Conclusion and resources clean up
+## Clean up resources
 
 Congratulations! You've created a Java application that uses JDBC to store and retrieve data from Azure Database for MySQL.
 

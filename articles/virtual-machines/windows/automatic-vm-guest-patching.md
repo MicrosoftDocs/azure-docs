@@ -75,17 +75,20 @@ Windows VMs on Azure now support the following patch orchestration modes:
 
 **AutomaticByPlatform:**
 - This mode enables automatic VM guest patching for the Windows virtual machine and subsequent patch installation is orchestrated by Azure.
+- This mode is required for availability-first patching.
 - Setting this mode also disables the native Automatic Updates on the Windows virtual machine to avoid duplication.
 - This mode is only supported for VMs that are created using the supported OS platform images above.
 - To use this mode, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` in the VM template.
 
 **AutomaticByOS:**
 - This mode enables Automatic Updates on the Windows virtual machine, and patches are installed on the VM through Automatic Updates.
+- This mode does not support availability-first patching.
 - This mode is set by default if no other patch mode is specified.
 - To use this mode set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` in the VM template.
 
 **Manual:**
 - This mode disables Automatic Updates on the Windows virtual machine.
+- This mode does not support availability-first patching.
 - This mode should be set when using custom patching solutions.
 - To use this mode set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=false`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` in the VM template.
 

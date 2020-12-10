@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/12/2020
+ms.date: 12/09/2020
 ---
 
 # Troubleshoot copy activity performance
@@ -32,7 +32,7 @@ As a reference, currently the performance tuning tips provide suggestions for th
 
 | Category              | Performance tuning tips                                      |
 | --------------------- | ------------------------------------------------------------ |
-| Data store specific   | Loading data into **Azure Synpase Analytics (formerly SQL DW)**: suggest using PolyBase or COPY statement if it's not used. |
+| Data store specific   | Loading data into **Azure Synapse Analytics**: suggest using PolyBase or COPY statement if it's not used. |
 | &nbsp;                | Copying data from/to **Azure SQL Database**: when DTU is under high utilization, suggest upgrading to higher tier. |
 | &nbsp;                | Copying data from/to **Azure Cosmos DB**: when RU is under high utilization, suggest upgrading to larger RU. |
 |                       | Copying data from **SAP Table**: when copying large amount of data, suggest leveraging SAP connector's partition option to enable parallel load and increase the max partition number. |
@@ -93,7 +93,7 @@ When the copy activity performance doesn't meet your expectation, to troubleshoo
 
 - **"Transfer -  writing to sink" experienced long working duration**:
 
-  - Adopt connector-specific data loading best practice if applies. For example, when copying data into [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (formerly SQL DW), use PolyBase or COPY statement. 
+  - Adopt connector-specific data loading best practice if applies. For example, when copying data into [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md), use PolyBase or COPY statement. 
 
   - Check if ADF reports any throttling error on sink or if your data store is under high utilization. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
 
@@ -145,7 +145,7 @@ When the copy performance doesn't meet your expectation, to troubleshoot single 
 
     - When copying data from [Amazon Redshift](connector-amazon-redshift.md), configure to use Redshift UNLOAD.
 
-  - Check if ADF report any throttling error on source or if your data store is under high utilization. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
+  - Check if ADF reports any throttling error on source or if your data store is under high utilization. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
 
   - Check your copy source and sink pattern: 
 
@@ -155,7 +155,7 @@ When the copy performance doesn't meet your expectation, to troubleshoot single 
 
 - **"Transfer -  writing to sink" experienced long working duration**:
 
-  - Adopt connector-specific data loading best practice if applies. For example, when copying data into [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (formerly SQL DW), use PolyBase or COPY statement. 
+  - Adopt connector-specific data loading best practice if applies. For example, when copying data into [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md), use PolyBase or COPY statement. 
 
   - Check if the Self-hosted IR machine has low latency connecting to sink data store. If your sink is in Azure, you can use [this tool](http://www.azurespeed.com/Azure/Latency) to check the latency from the Self-hosted IR machine to the Azure region, the less the better.
 
@@ -173,11 +173,11 @@ Here is performance monitoring and tuning references for some of the supported d
 
 * Azure Blob storage: [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md) and [Performance and scalability checklist for Blob storage](../storage/blobs/storage-performance-checklist.md).
 * Azure Table storage: [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../storage/tables/storage-performance-checklist.md).
-* Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-single-database-monitor.md) and check the Database Transaction Unit (DTU) percentage.
-* Azure Synapse Analytics (formerly SQL Data Warehouse): Its capability is measured in Data Warehouse Units (DWUs). See [Manage compute power in Azure Synapse Analytics (Overview)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Azure SQL Database: You can [monitor the performance](../azure-sql/database/monitor-tune-overview.md) and check the Database Transaction Unit (DTU) percentage.
+* Azure Synapse Analytics: Its capability is measured in Data Warehouse Units (DWUs). See [Manage compute power in Azure Synapse Analytics (Overview)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx).
-* On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx).
+* SQL Server: [Monitor and tune for performance](/sql/relational-databases/performance/monitor-and-tune-for-performance).
+* On-premises file server: [Performance tuning for file servers](/previous-versions//dn567661(v=vs.85)).
 
 ## Next steps
 See the other copy activity articles:

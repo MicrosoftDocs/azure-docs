@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Your Zscaler application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
 
 1. In addition to above, Zscaler application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
@@ -146,15 +146,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. In the **Users and groups** dialog, select the user like **Britta Simon** from the list, then click the **Select** button at the bottom of the screen.
 
-	![image](./media/zscaler-tutorial/tutorial_zscaler_users.png)
+	![Screenshot shows the Users and groups dialog box where you can select a user.](./media/zscaler-tutorial/tutorial_zscaler_users.png)
 
 6. From the **Select Role** dialog choose the appropriate user role in the list, then click the **Select** button at the bottom of the screen.
 
-	![image](./media/zscaler-tutorial/tutorial_zscaler_roles.png)
+	![Screenshot shows the Select Role dialog box where you can choose a user role.](./media/zscaler-tutorial/tutorial_zscaler_roles.png)
 
 7. In the **Add Assignment** dialog select the **Assign** button.
 
-	![image](./media/zscaler-tutorial/tutorial_zscaler_assign.png)
+	![Screenshot shows the Add Assignment dialog box where you can select Assign.](./media/zscaler-tutorial/tutorial_zscaler_assign.png)
 
 ## Configure Zscaler SSO
 
@@ -170,7 +170,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
 
-	![Administration](./media/zscaler-tutorial/ic800206.png "Administration")
+	![Screenshot shows the Zscaler One site with steps as described.](./media/zscaler-tutorial/ic800206.png "Administration")
 
 	a. Under Authentication Type, choose **SAML**.
 
@@ -198,7 +198,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. On the **Configure User Authentication** dialog page, perform the following steps:
 
-    ![Administration](./media/zscaler-tutorial/ic800207.png)
+    ![Screenshot shows the Configure User Authentication dialog box with Activate selected.](./media/zscaler-tutorial/ic800207.png)
 
 	a. Hover over the **Activation** menu near the bottom left.
 

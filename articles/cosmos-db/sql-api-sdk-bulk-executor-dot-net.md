@@ -11,6 +11,7 @@ ms.author: anfeldma
 ---
 
 # .NET bulk executor library: Download information 
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)

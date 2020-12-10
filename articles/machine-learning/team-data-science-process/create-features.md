@@ -54,7 +54,7 @@ Besides feature set A, which already exists in the original raw data, the other 
 
 ### Feature engineering using Studio (classic)
 
-In the Studio (classic) experiment, these four training datasets are formed via four branches from the pre-processed input dataset. Except for the leftmost branch, each of these branches contains an [Execute R Script](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) module, in which the derived features (feature set B, C, and D) are constructed and appended to the imported dataset.
+In the Studio (classic) experiment, these four training datasets are formed via four branches from the pre-processed input dataset. Except for the leftmost branch, each of these branches contains an [Execute R Script](/azure/machine-learning/studio-module-reference/execute-r-script) module, in which the derived features (feature set B, C, and D) are constructed and appended to the imported dataset.
 
 The following figure demonstrates the R script used to create feature set B in the second left branch.
 
@@ -74,9 +74,9 @@ Feature engineering is widely applied in tasks related to text mining such as do
 
 ### Feature hashing
 
-To achieve this task, a technique called [feature hashing](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) is applied to efficiently turn arbitrary text features into indices. Instead of associating each text feature (words/phrases) to a particular index, this method applies a hash function to the features and using their hash values as indices directly.
+To achieve this task, a technique called [feature hashing](/azure/machine-learning/studio-module-reference/feature-hashing) is applied to efficiently turn arbitrary text features into indices. Instead of associating each text feature (words/phrases) to a particular index, this method applies a hash function to the features and using their hash values as indices directly.
 
-In Studio (classic), there is a [Feature Hashing](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) module that creates word/phrase features conveniently. Following figure shows an example of using this module. The input dataset contains two columns: the book rating ranging from 1 to 5, and the actual review content. The goal of this module is to retrieve a bunch of new features that show the occurrence frequency of the corresponding word(s)/phrase(s) within the particular book review. To use this module, complete the following steps:
+In Studio (classic), there is a [Feature Hashing](/azure/machine-learning/studio-module-reference/feature-hashing) module that creates word/phrase features conveniently. Following figure shows an example of using this module. The input dataset contains two columns: the book rating ranging from 1 to 5, and the actual review content. The goal of this module is to retrieve a bunch of new features that show the occurrence frequency of the corresponding word(s)/phrase(s) within the particular book review. To use this module, complete the following steps:
 
 * First, select the column that contains the input text ("Col2" in this example).
 * Second, set the "Hashing bitsize" to 8, which means 2^8=256 features will be created. The word/phase in all the text will be hashed to 256 indices. The parameter "Hashing bitsize" ranges from 1 to 31. The word(s)/phrase(s) are less likely to be hashed into the same index if setting it to be a larger number.

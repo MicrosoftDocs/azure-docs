@@ -34,7 +34,9 @@ Windows VMs are available in a [range of sizes](../sizes-general.md). Azure Disk
 
 Azure Disk Encryption is also available for VMs with premium storage.
 
-Azure Disk Encryption is not available on [Generation 2 VMs](../generation-2.md#generation-1-vs-generation-2-capabilities) and [Lsv2-series VMs](../lsv2-series.md). For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-windows.md#unsupported-scenarios).
+Azure Disk Encryption is not available on [Generation 2 VMs](../generation-2.md#generation-1-vs-generation-2-capabilities). For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-windows.md#unsupported-scenarios).
+
+Azure Disk Encryption is not available on VM images without temp disks (Dv4, Dsv4, Ev4, and Esv4).  See [Azure VM sizes with no local temporary disk](../azure-vms-no-temp-disk.md).
 
 ### Supported operating systems
 

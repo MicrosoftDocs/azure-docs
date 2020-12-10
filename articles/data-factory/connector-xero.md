@@ -9,10 +9,10 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 10/29/2020
 ms.author: jingwang
----
 
+---
 # Copy data from Xero using Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -205,9 +205,9 @@ To copy data from Xero, set the source type in the copy activity to **XeroSource
 
 Note the following when specifying the Xero query:
 
-- Tables with complex items will be split to multiple tables. For example, Bank transactions have a complex data structure "LineItems", so data of bank transaction is mapped to table `Bank_Transaction` and `Bank_Transaction_Line_Items`, with `Bank_Transaction_ID` as foreign key to link them together.
+- Tables with complex items will be split to multiple tables. For example, Bank transactions has a complex data structure "LineItems", so data of bank transaction is mapped to table `Bank_Transaction` and `Bank_Transaction_Line_Items`, with `Bank_Transaction_ID` as foreign key to link them together.
 
-- Xero data is available through two schemas: `Minimal` (default) and `Complete`. The Complete schema contains prerequisite call tables, which require additional data (e.g. ID column) before making the desired query.
+- Xero data is available through two schemas: `Minimal` (default) and `Complete`. The Complete schema contains prerequisite call tables which require additional data (e.g. ID column) before making the desired query.
 
 The following tables have the same information in the Minimal and Complete schema. To reduce the number of API calls, use Minimal schema (default).
 

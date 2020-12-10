@@ -17,9 +17,9 @@ ms.date: 05/08/2018
 
 It's common for the code in cloud applications to contain credentials for authenticating to cloud services. How to manage and secure these credentials is a well-known challenge in building cloud applications. Ideally, credentials should never appear on developer workstations or get checked in to source control.
 
-The [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) feature makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication without having any credentials in your code.
+The [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md) feature makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication without having any credentials in your code.
 
-One way to secure credentials is to use Windows Installer (MSI) in combination with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), a managed Azure service to store secrets and cryptographic keys securely. You can access a key vault by using the managed identity and then retrieve the authorized secrets and cryptographic keys from the key vault.
+One way to secure credentials is to use Windows Installer (MSI) in combination with [Azure Key Vault](../../key-vault/index.yml), a managed Azure service to store secrets and cryptographic keys securely. You can access a key vault by using the managed identity and then retrieve the authorized secrets and cryptographic keys from the key vault.
 
 The documentation about managed identities for Azure resources and Key Vault comprises a comprehensive resource for in-depth information on these services. The rest of this article walks through the basic use of MSI and Key Vault on the Data Science Virtual Machine (DSVM) to access Azure resources. 
 

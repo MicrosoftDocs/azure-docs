@@ -3,8 +3,8 @@ title: Azure Data Factory - Customer case studies
 description: Learn about how some of our customers have been using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory

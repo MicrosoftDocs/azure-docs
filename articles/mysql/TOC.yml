@@ -1,4 +1,4 @@
-- name: Azure DB for MySQL Documentation
+- name: Azure Database for MySQL Documentation
   href: index.yml
 - name: Overview
   items:
@@ -29,6 +29,9 @@
   - name: Mitigate database corruption
     href: how-to-fix-corrupt-database.md
     displayName: corrupt data
+  - name: Versioning policy
+    href: concepts-version-policy.md
+    displayName: version policy 
 - name: Single Server
   expanded: true
   items:
@@ -114,8 +117,6 @@
         href: sample-scripts-azure-cli.md
       - name: Java connection pooling
         href: sample-scripts-java-connection-pooling.md
-      - name: Azure Policy built-ins
-        href: ./policy-reference.md
   - name: Concepts
     items:
      - name: Servers
@@ -124,6 +125,8 @@
        href: concepts-supported-versions.md
      - name: Limitations
        href: concepts-limits.md
+     - name: Operational best practices
+       href: concept-operation-excellence-best-practices.md
      - name: Pricing Tiers
        items:
        - name: Pricing tiers
@@ -154,6 +157,9 @@
          href: concepts-azure-ad-authentication.md
        - name: Infrastructure double encryption
          href: concepts-infrastructure-double-encryption.md
+       - name: Security controls by Azure Policy
+         displayName: regulatory, compliance, standards, domains
+         href: ./security-controls-policy.md
        - name: Security baseline
          href: security-baseline.md
      - name: Planned maintenance
@@ -192,6 +198,10 @@
        - name: Performance recommendations
          href: concepts-performance-recommendations.md
          displayName:  recommendation
+       - name: Monitoring best practices
+         href: concept-monitoring-best-practices.md
+       - name: Performance best practices
+         href: concept-performance-best-practices.md
      - name: Application development
        items:
        - name: Application development overview
@@ -199,7 +209,7 @@
        - name: Drivers and tools compatibility
          href: concepts-compatibility.md
          displayName: drivers, tools
-       - name: Application Best practices
+       - name: Application best practices
          href: app-development-best-practices.md
          displayName: application
        - name: Connection resiliency
@@ -253,7 +263,7 @@
       - name: Restore a dropped server
         href: howto-restore-dropped-server.md
         displayName: restore server,dropped, recover
-        
+
     - name: Connect applications
       items:
           - name: Configure SSL
@@ -286,6 +296,10 @@
       items:
       - name: Stop Start MySQL server
         href: how-to-stop-start-server.md
+    - name: Major version upgrade
+      items:
+      - name: Major version upgrade
+        href: how-to-major-version-upgrade.md
     - name: Auto grow storage
       items:
       - name: Azure portal
@@ -429,6 +443,7 @@
         - name: Azure CLI
           href: flexible-server/quickstart-create-server-cli.md
         - name: ARM template
+          displayName: Resource Manager
           href: flexible-server/quickstart-create-arm-template.md
       - name: Connect and query
         items:
@@ -440,6 +455,8 @@
             href: flexible-server/connect-python.md
   - name: Tutorials
     items:
+    - name : WordPress on Azure Kubernetes
+      href: flexible-server/tutorial-deploy-wordpress-on-aks.md
     - name: Build PHP (Laravel) app with database
       href: flexible-server/tutorial-php-database-app.md
     - name: Connect with private web app
@@ -469,12 +486,18 @@
         href: flexible-server/concepts-high-availability.md
     - name: Monitoring & Logs
       items:
+      - name: Server parameters
+        href: flexible-server/concepts-server-parameters.md
       - name: Slow query logs
         href: flexible-server/concepts-slow-query-logs.md
       - name: Audit logs
         href: flexible-server/concepts-audit-logs.md
       - name: Metrics
         href: flexible-server/concepts-monitoring.md
+    - name: Replication
+      items:
+      - name: Read replicas
+        href: flexible-server/concepts-read-replicas.md
   - name: How-to guides
     items:
     - name: Manage a server
@@ -537,6 +560,16 @@
         items:
         - name: Azure portal
           href: flexible-server/how-to-configure-audit-logs-portal.md
+    - name: Restart server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-restart-server-portal.md
+    - name: Replication
+      items:
+      - name: Create read replicas Azure portal
+        href: flexible-server/how-to-read-replicas-portal.md
+      - name: Create read replicas Azure CLI
+        href: flexible-server/how-to-read-replicas-cli.md
     - name: Troubleshoot
       items:
       - name: Connection errors
@@ -551,6 +584,9 @@
     href: /azure/templates/microsoft.dbformysql/allversions
   - name: Management stored procedures
     href: reference-stored-procedures.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Deployment templates

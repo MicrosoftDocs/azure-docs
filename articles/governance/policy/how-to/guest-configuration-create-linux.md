@@ -25,9 +25,14 @@ Use the following actions to create your own configuration for validating the st
 non-Azure machine.
 
 > [!IMPORTANT]
+> Custom policy definitions with Guest Configuration in the Azure Government and
+> Azure China environments is a Preview feature.
+>
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
 > deploy the extension at scale across all Linux machines, assign the following policy definition:
 > `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 
+> Don't use secrets or confidential information in custom content packages.
 
 ## Install the PowerShell module
 
@@ -54,8 +59,11 @@ Operating Systems where the module can be installed:
 - Windows
 
 > [!NOTE]
-> The cmdlet 'Test-GuestConfigurationPackage' requires OpenSSL version 1.0, due to a dependency on
+> The cmdlet `Test-GuestConfigurationPackage` requires OpenSSL version 1.0, due to a dependency on
 > OMI. This causes an error on any environment with OpenSSL 1.1 or later.
+>
+> Running the cmdlet `Test-GuestConfigurationPackage` is only supported on Windows 
+> for Guest Configuration module version 2.1.0.
 
 The Guest Configuration resource module requires the following software:
 
@@ -98,6 +106,10 @@ The name of the custom configuration must be consistent everywhere. The name of 
 the content package, the configuration name in the MOF file, and the guest assignment name in the
 Azure Resource Manager template (ARM template), must be the same.
 
+PowerShell cmdlets assist in creating the package.
+No root level folder or version folder is required.
+The package format must be a .zip file. and cannot exceed a total size of 100MB when uncompressed.
+
 ### Custom Guest Configuration configuration on Linux
 
 Guest Configuration on Linux uses the `ChefInSpecResource` resource to provide the engine with the
@@ -135,6 +147,9 @@ Finally, create a configuration, import the **PSDesiredStateConfiguration** reso
 compile the configuration.
 
 ```powershell
+# import PSDesiredStateConfiguration module
+import-module PSDesiredStateConfiguration
+
 # Define the configuration and import GuestConfiguration
 Configuration AuditFilePathExists
 {
@@ -150,7 +165,6 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
-import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
@@ -168,7 +182,7 @@ You should now have a project structure as below:
     / Config
         AuditFilePathExists.mof
     / linux-path
-        linux-path.yml
+        inspec.yml
         / controls
             linux-path.rb 
 ```
@@ -183,7 +197,7 @@ The `New-GuestConfigurationPackage` cmdlet creates the package. Parameters of th
 - **Configuration**: Compiled configuration document full path.
 - **Path**: Output folder path. This parameter is optional. If not specified, the package is created
   in current directory.
-- **ChefProfilePath**: Full path to InSpec profile. This parameter is supported only when creating
+- **ChefInspecProfilePath**: Full path to InSpec profile. This parameter is supported only when creating
   content to audit Linux.
 
 Run the following command to create a package using the configuration given in the previous step:
@@ -221,7 +235,7 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 `New-GuestConfigurationPackage` cmdlet to the `Test-GuestConfigurationPackage` cmdlet.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
 The next step is to publish the file to Azure Blob Storage.  The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
@@ -278,7 +292,7 @@ role is **Resource Policy Contributor**.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
-  -Path '.\policyDefinitions'
+  -Path './policies'
 ```
 
  The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
@@ -375,11 +389,18 @@ Configuration AuditFilePathExists
 
 ## Policy lifecycle
 
-To release an update to the policy definition, there are two fields that require attention.
+To release an update to the policy definition, there are three fields that require attention.
+
+> [!NOTE]
+> The `version` property of the Guest Configuration assignment only effects packages that
+> are hosted by Microsoft. The best practice for versioning custom content is to include
+> the version in the file name.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
-  number greater than what is currently published. The property updates the version of the Guest
-  Configuration assignment so the agent recognizes the updated package.
+  number greater than what is currently published.
+- **contentUri**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a URI
+  to the location of the package. Including a package version in the file name will ensure the value
+  of this property changes in each release.
 - **contentHash**: This property is updated automatically by the `New-GuestConfigurationPolicy`
   cmdlet. It's a hash value of the package created by `New-GuestConfigurationPackage`. The property
   must be correct for the `.zip` file you publish. If only the **contentUri** property is updated,
@@ -388,7 +409,6 @@ To release an update to the policy definition, there are two fields that require
 The easiest way to release an updated package is to repeat the process described in this article and
 provide an updated version number. That process guarantees all properties have been correctly
 updated.
-
 
 ### Filtering Guest Configuration policies using Tags
 
@@ -457,16 +477,6 @@ value `enabled` to all virtual machines where code signing should be required. S
 Azure Policy. Once this tag is in place, the policy definition generated using the
 `New-GuestConfigurationPolicy` cmdlet enables the requirement through the Guest Configuration
 extension.
-
-## Troubleshooting Guest Configuration policy assignments (Preview)
-
-A tool is available in preview to assist in troubleshooting Azure Policy Guest Configuration
-assignments. The tool is in preview and has been published to the PowerShell Gallery as module name
-[Guest Configuration Troubleshooter](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
-
-For more information about the cmdlets in this tool, use the Get-Help command in PowerShell to show
-the built-in guidance. As the tool is getting frequent updates, that is the best way to get most
-recent information.
 
 ## Next steps
 

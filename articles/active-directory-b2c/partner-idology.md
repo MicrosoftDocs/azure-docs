@@ -63,13 +63,13 @@ The following architecture diagram shows the implementation.
 
 ### Part 1 - Deploy the API
 
-Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 You'll need the URL of the deployed service to configure Azure AD with the required settings.
 
 ### Part 2 - Configure the API 
 
-Application settings can be [configured in App Service in Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). With this method, settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the Rest API:
+Application settings can be [configured in App Service in Azure](../app-service/configure-common.md#configure-app-settings). With this method, settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the Rest API:
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|
@@ -141,5 +141,4 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md?tabs=applications) 
-
+- [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md?tabs=applications)

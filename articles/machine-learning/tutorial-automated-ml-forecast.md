@@ -10,7 +10,7 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-
+ms.custom: automl
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
 
@@ -231,7 +231,7 @@ See this article for steps on how to create a Power BI supported schema to facil
 > [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
-+ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
++ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.
 + Learn more about [featurization](how-to-configure-auto-features.md#featurization).
 + Learn more about [data profiling](how-to-connect-data-ui.md#profile).
 

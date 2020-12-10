@@ -10,6 +10,7 @@ ms.author: mjbrown
 ---
 
 # Throughput (RU/s) operations with PowerShell for a table for Azure Cosmos DB - Table API
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

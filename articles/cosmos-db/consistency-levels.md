@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ---
 # Consistency levels in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Distributed databases that rely on replication for high availability, low latency, or both, must make a fundamental tradeoff between the read consistency, availability, latency, and throughput as defined by the [PACLC theorem](https://en.wikipedia.org/wiki/PACELC_theorem). The linearizability of the strong consistency model is the gold standard of data programmability. But it adds a steep price from higher write latencies due to data having to replicate and commit across large distances. Strong consistency may also suffer from reduced availability (during failures) because data cannot replicate and commit in every region. Eventual consistency offers higher availability and better performance, but its more difficult to program applications because data may not be completely consistent across all regions.
 
@@ -36,6 +37,9 @@ Read consistency applies to a single read operation scoped within a logical part
 ## Configure the default consistency level
 
 You can configure the default consistency level on your Azure Cosmos account at any time. The default consistency level configured on your account applies to all Azure Cosmos databases and containers under that account. All reads and queries issued against a container or a database use the specified consistency level by default. To learn more, see how to [configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level). You can also override the default consistency level for a specific request, to learn more, see how to [Override the default consistency level](how-to-manage-consistency.md?#override-the-default-consistency-level) article.
+
+> [!IMPORTANT]
+> It is required to recreate any SDK instance after changing the default consistency level. This can be done by restarting the application. This ensures the SDK uses the new default consistency level.
 
 ## Guarantees associated with consistency levels
 

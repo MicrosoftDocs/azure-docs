@@ -23,7 +23,7 @@ This article describes how to enable Azure Monitor for VMs for a virtual machine
 
 ## Enable Azure Monitor for VMs
 
-From the Azure portal, select **Virtual machines**, **Virtual machine scale sets**, or **Machines - Azure Arc** and select a resource from the list. In the **Monitoring** section of the menu, select **Insights** and then **Enable**. The following example shows an Azure virtual machine, but the menu is similar for Azure virtual machine scale set or Azure Arc.
+From the Azure portal, select **Virtual machines**, **Virtual machine scale sets**, or **Servers - Azure Arc** and select a resource from the list. In the **Monitoring** section of the menu, select **Insights** and then **Enable**. The following example shows an Azure virtual machine, but the menu is similar for Azure virtual machine scale set or Azure Arc.
 
 ![Enable Azure Monitor for VMs for a VM](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 

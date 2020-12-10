@@ -39,8 +39,6 @@
       href: storage-snapshots-files.md
     - name: Development
       items:
-      - name: Manage concurrency
-        href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: Shared key authentication
         href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
       - name: Shared access signatures (SAS)
@@ -67,6 +65,12 @@
       href: storage-sync-files-networking-overview.md
     - name: About cloud tiering
       href: storage-sync-cloud-tiering.md
+  - name: Performance and scale
+    items:
+    - name: SMB Multichannel performance
+      href: storage-files-smb-multichannel-performance.md
+    - name: Scalability and performance targets
+      href: storage-files-scale-targets.md
   - name: Prevent accidental data deletion
     href: storage-files-prevent-file-share-deletion.md
   - name: Back up file shares
@@ -75,8 +79,6 @@
     href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Encryption at-rest with customer-managed keys
     href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Scalability and performance targets
-    href: storage-files-scale-targets.md
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: FAQ
@@ -87,8 +89,6 @@
     items:
     - name: Create an SMB file share
       href: storage-how-to-create-file-share.md
-    - name: Enable large file shares
-      href: storage-files-how-to-create-large-file-share.md
     - name: Create a premium file share
       href: storage-how-to-create-premium-fileshare.md
     - name: Create an NFS share
@@ -100,7 +100,7 @@
     - name: Deploy Azure File Sync
       href: storage-sync-files-deployment-guide.md
     - name: SQL Server FCI with premium file shares
-      href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Mount
     items:
     - name: Mount SMB file share to Windows
@@ -231,6 +231,12 @@
         href: storage-files-migration-storsimple-8000.md
       - name: StorSimple 1200 migration guide
         href: storage-files-migration-storsimple-1200.md
+  - name: Improve performance
+    items:
+    - name: Enable SMB Multichannel
+      href: storage-files-enable-smb-multichannel.md
+    - name: Enable large file shares
+      href: storage-files-how-to-create-large-file-share.md
   - name: Develop
     items:
     - name: Configure connection strings
@@ -283,13 +289,13 @@
       href: storage-troubleshoot-windows-file-connection-problems.md
     - name: Troubleshoot Azure Files on Linux (SMB)
       href: storage-troubleshoot-linux-file-connection-problems.md
-    - name: Troubleshoot Azure Files performance
+    - name: Troubleshoot Azure file shares performance
       href: storage-troubleshooting-files-performance.md
     - name: Troubleshoot Azure Files on Linux (NFS)
       href: storage-troubleshooting-files-nfs.md
     - name: Troubleshoot Azure File Sync
       href: storage-sync-files-troubleshoot.md
-    - name: Troubleshoot Deleting Azure Files
+    - name: Troubleshoot deleting Azure file shares
       href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
     - name: Troubleshoot backing up file shares
       href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -311,7 +317,7 @@
   - name: Azure File Sync release notes
     href: storage-files-release-notes.md
   - name: Azure Files on Microsoft Q&A
-    href: https://docs.microsoft.com/answers/topics/azure-files.html
+    href: /answers/topics/azure-files.html
   - name: Azure Files on Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-files
   - name: Pricing for Azure Files
@@ -368,4 +374,3 @@
         href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
       - name: Azure Storage client library version 2.1     
         href: https://github.com/Azure/azure-storage-python
-

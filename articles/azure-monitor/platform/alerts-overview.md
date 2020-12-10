@@ -80,7 +80,7 @@ The following alert states are supported.
 
 *Alert state* is different and independent of the *monitor condition*. Alert state is set by the user. Monitor condition is set by the system. When an alert fires, the alert's monitor condition is set to *'fired'*, and when the underlying condition that caused the alert to fire clears, the monitor condition is set to *'resolved'*. 
 
-The alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
+The alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ## Alerts experience 
 The default Alerts page provides a summary of alerts that are created within a particular time range. It displays the total alerts for each severity, with columns that identify the total number of alerts in each state for each severity. Select any of the severities to open the [All Alerts](#all-alerts-page) page filtered by that severity.
@@ -169,7 +169,7 @@ The Alert details page includes the following sections:
 | History | Lists each action taken by the alert and any changes made to the alert. Currently limited to state changes. |
 | Diagnostics | Information about the smart group in which the alert is included. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days, whatever of the time filter in the alerts list page. Select an alert to view its detail. |
 
-## Role-based access control (RBAC) for your alert instances
+## Azure role-based access control (Azure RBAC) for your alert instances
 
 The consumption and management of alert instances requires the user to have the Azure built-in roles of either [monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) or [monitoring reader](../../role-based-access-control/built-in-roles.md#monitoring-reader). These roles are supported at any Azure Resource Manager scope, from the subscription level to granular assignments at a resource level. For example, if a user only has monitoring contributor access for virtual machine `ContosoVM1`, that user can consume and manage only alerts generated on `ContosoVM1`.
 
@@ -200,12 +200,12 @@ Use the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) t
 
 ## Smart groups
 
-Smart groups are aggregations of alerts based on machine learning algorithms, which can help reduce alert noise and aid in troubleshooting. [Learn more about Smart Groups](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) and [how to manage your smart groups](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
+Smart groups are aggregations of alerts based on machine learning algorithms, which can help reduce alert noise and aid in troubleshooting. [Learn more about Smart Groups](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) and [how to manage your smart groups](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 ## Next steps
 
-- [Learn more about Smart Groups](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Learn more about Smart Groups](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Learn about action groups](./action-groups.md)
-- [Managing your alert instances in Azure](./alerts-managing-alert-instances.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
-- [Managing Smart Groups](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Managing your alert instances in Azure](./alerts-managing-alert-instances.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [Managing Smart Groups](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Learn more about Azure alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)

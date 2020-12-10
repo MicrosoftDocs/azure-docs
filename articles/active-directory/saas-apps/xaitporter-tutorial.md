@@ -124,15 +124,15 @@ To configure Azure AD single sign-on with XaitPorter, perform the following step
 
 4. Click on **Admin**.
 
-	![Configure Single Sign-On](./media/xaitporter-tutorial/user1.png)
+	![Screenshot shows Admin selected in the XaitPorter site.](./media/xaitporter-tutorial/user1.png)
 
 5. Select **Manage Single Sign-On** from the **System Setup** dropdown list.
 
-	![Configure Single Sign-On](./media/xaitporter-tutorial/user2.png)
+	![Screenshot shows Manage Single Sign-On selected from System Setup.](./media/xaitporter-tutorial/user2.png)
 
 6. In the **MANAGE SINGLE SIGN-ON** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/xaitporter-tutorial/user3.png)
+	![Screenshot shows the MANAGE SINGLE SIGN-ON section where you can perform these steps.](./media/xaitporter-tutorial/user3.png)
 
 	a. Select **Enable Single Sign-On Authentication**.
 

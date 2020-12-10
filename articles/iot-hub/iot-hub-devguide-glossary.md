@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt, devx-track-azurecli]
 ---
 
 # Glossary of IoT Hub terms

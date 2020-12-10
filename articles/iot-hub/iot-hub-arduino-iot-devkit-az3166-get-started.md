@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.custom:  [mqtt, 'Role: Cloud Development']
+ms.custom:  [mqtt, 'Role: Cloud Development', devx-track-azurecli]
 ---
 
 # Connect IoT DevKit AZ3166 to Azure IoT Hub
@@ -30,11 +30,10 @@ You can find the source code for all DevKit tutorials from [code samples gallery
 
 ## What you need
 
-* A MXChip IoT DevKit board with a Micro-USB cable. [Get it now](https://aka.ms/iot-devkit-purchase).
-* A computer running Windows 10, macOS 10.10+ or Ubuntu 18.04+.
-* An active Azure subscription. [Activate a free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html).
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- A MXChip IoT DevKit board with a Micro-USB cable. [Get it now](https://aka.ms/iot-devkit-purchase).
+- A computer running Windows 10, macOS 10.10+ or Ubuntu 18.04+.
+- An active Azure subscription. [Activate a free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
   
 ## Prepare your hardware
 

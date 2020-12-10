@@ -6,7 +6,7 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: devx-track-python, github-actions-azure
+ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
 
 ---
 
@@ -51,7 +51,7 @@ You can quickly get started with GitHub Actions by using the App Service Deploym
 
 This will commit the workflow file to the repository. The workflow to build and deploy your app will start immediately.
 
-## Set up a work manually
+## Set up a workflow manually
 
 You can also deploy a workflow without using the Deployment Center. To do so, you will need to first generate deployment credentials. 
 
@@ -70,6 +70,9 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 1. On the **Overview** page, select **Get Publish profile**.
 
 1. Save the downloaded file. You'll use the contents of the file to create a GitHub secret.
+
+> [!NOTE]
+> As of October 2020, Linux web apps will need the app setting `WEBSITE_WEBDEPLOY_USE_SCM` set to `true` **before downloading the publish profile**. This requirement will be removed in the future.
 
 # [Service principal](#tab/userlevel)
 
@@ -119,7 +122,7 @@ When you configure your GitHub workflow, you use the `AZURE_WEBAPP_PUBLISH_PROFI
 
 In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
 
-To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
+To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
 
 When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
 

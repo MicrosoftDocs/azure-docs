@@ -66,7 +66,7 @@ conceptualContent:
         - url: ./windows/tutorial-manage-data-disk.md
           itemType: tutorial
           text: Create and manage disks
-        - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=azure/virtual-machines/windows/context/windows-vm-context
+        - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=%2fazure/virtual-machines/windows/context/windows-vm-context
           itemType: how-to-guide
           text: Configure managed identities
         - url: ./troubleshooting/index.yml

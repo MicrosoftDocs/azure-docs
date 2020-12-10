@@ -28,22 +28,22 @@ Benefits of publishing to the commercial marketplace:
 
 These are the key publishing steps:
 
-1. Create your application in Power BI. You'll receive a package install link, which is the main technical asset for the offer. Send the test package to pre-production before creating the offer in Partner Center. For details, see [What are Power BI apps?](https://docs.microsoft.com/power-bi/service-template-apps-overview).
+1. Create your application in Power BI. You'll receive a package install link, which is the main technical asset for the offer. Send the test package to pre-production before creating the offer in Partner Center. For details, see [What are Power BI apps?](/power-bi/service-template-apps-overview).
 2. Add the marketing materials, such as official name, description, and logos.
 3. Include the offer's legal and support documents, such as terms of use, privacy policy, support policy, and user help.
 4. Create the offer – Use Partner Center to edit the details, including the offer description, marketing materials, legal information, support information, and asset specifications.
 5. Submit it for publishing.
 6. Monitor the process in Partner Center, where the AppSource onboarding team tests, validates, and certifies your app.
 7. After it's certified, review the app in its test environment and release it. This will list it on AppSource (it "goes live").
-8. In Power BI, send the package into production. For details, see [Manage the Power BI app release](https://docs.microsoft.com/power-bi/service-template-apps-create#manage-the-template-app-release).
+8. In Power BI, send the package into production. For details, see [Manage the Power BI app release](/power-bi/service-template-apps-create#manage-the-template-app-release).
 
 ## Before you begin
 
 Review the links below, which provide templates, tips, and samples.
 
-- [Create a Power BI app](https://docs.microsoft.com/power-bi/service-template-apps-create)
-- [Tips for authoring a Power BI app](https://docs.microsoft.com/power-bi/service-template-apps-tips)
-- [Samples](https://docs.microsoft.com/power-bi/service-template-apps-samples)
+- [Create a Power BI app](/power-bi/service-template-apps-create)
+- [Tips for authoring a Power BI app](/power-bi/service-template-apps-tips)
+- [Samples](/power-bi/service-template-apps-samples)
 
 ## Requirements
 
@@ -51,13 +51,13 @@ To be published in the commercial marketplace, your Power BI app offer must meet
 
 ### Technical requirements
 
-The main technical asset you'll need is a [Power BI app](https://go.microsoft.com/fwlink/?linkid=2028636). This is a collection of primary datasets, reports, or dashboards. It also includes optional connected services and embedded datasets, previously known as a [content pack](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). For more information about developing this type of app, see [What are Power BI apps?](https://go.microsoft.com/fwlink/?linkid=2028636).
+The main technical asset you'll need is a [Power BI app](/power-bi/connect-data/service-template-apps-overview). This is a collection of primary datasets, reports, or dashboards. It also includes optional connected services and embedded datasets, previously known as a [content pack](/power-bi/service-organizational-content-pack-introduction). For more information about developing this type of app, see [What are Power BI apps?](/power-bi/connect-data/service-template-apps-overview).
 
 #### Get an installation web address
 
 You can only build a Power BI app within the [Power BI](https://powerbi.microsoft.com/) environment.
 
-1. Sign in with a [Power BI Pro license](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro).
+1. Sign in with a [Power BI Pro license](/power-bi/service-admin-purchasing-power-bi-pro).
 2. Create and test your app in Power BI.
 3. When you receive the app installation web address, add it to the **Technical Configuration** page in Partner Center.
 

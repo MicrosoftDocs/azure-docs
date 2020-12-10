@@ -170,4 +170,4 @@ For related information, see:
 - [Types of risk detections detected by Azure Active Directory Identity Protection](./overview-identity-protection.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Overview of Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Azure AD Identity Protection Service Root](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)
+- [Azure AD Identity Protection Service Root](/graph/api/resources/identityprotectionroot)

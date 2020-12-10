@@ -96,7 +96,7 @@ To configure Azure AD single sign-on with Zscaler Private Access Administrator, 
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Zscaler Private Access Administrator Domain and URLs single sign-on information](common/idp-relay.png)
+    ![Screenshot shows Basic SAML Configuration where you can enter the values described.](common/idp-relay.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<subdomain>.private.zscaler.com/auth/metadata`
@@ -111,7 +111,7 @@ To configure Azure AD single sign-on with Zscaler Private Access Administrator, 
 
 5.  If you wish to configure the application in **SP** initiated mode, perform the following step:
 
-    ![Zscaler Private Access Administrator Domain and URLs single sign-on information](common/both-signonurl.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/both-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<subdomain>.private.zscaler.com/auth/sso`   

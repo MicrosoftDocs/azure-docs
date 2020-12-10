@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Your Zscaler Three application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
 
 6. In addition to above, Zscaler Three application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 	
@@ -121,15 +121,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the applications list, select **Zscaler Three**.
 1. In the **Users and groups** dialog, select the user like **Britta Simon** from the list, then click the **Select** button at the bottom of the screen.
 
-	![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
+	![Screenshot shows the Users and groups dialog box where you can select a user.](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
 
 1. From the **Select Role** dialog choose the appropriate user role in the list, then click the **Select** button at the bottom of the screen.
 
-	![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
+	![Screenshot shows the Select Role dialog box where you can choose a user role.](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
 
 1. In the **Add Assignment** dialog select the **Assign** button.
 
-	![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
+	![Screenshot shows the Add Assignment dialog box where you can select Assign.](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
 
 ## Configure Zscaler Three SSO
 
@@ -145,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
    
-	![Administration](./media/zscaler-three-tutorial/ic800206.png "Administration")
+	![Screenshot shows the Zscaler One site with steps as described.](./media/zscaler-three-tutorial/ic800206.png "Administration")
 
 	a. Under Authentication Type, choose **SAML**.
 
@@ -173,7 +173,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 6. On the **Configure User Authentication** dialog page, perform the following steps:
 
-	![Administration](./media/zscaler-three-tutorial/ic800207.png)
+	![Screenshot shows the Configure User Authentication dialog box with Activate selected.](./media/zscaler-three-tutorial/ic800207.png)
 
 	a. Hover over the **Activation** menu near the bottom left.
 

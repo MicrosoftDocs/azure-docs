@@ -6,9 +6,9 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/22/2020
-author: djpmsft
-ms.author: daperlov
+ms.date: 12/09/2020
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ---
 
@@ -39,7 +39,7 @@ When authoring linked service on UI,  Data Factory provides built-in parameteriz
 - Azure Databricks
 - Azure SQL Database
 - Azure SQL Managed Instance
-- Azure Synapse Analytics (formerly SQL DW)
+- Azure Synapse Analytics 
 - MySQL
 - Oracle
 - SQL Server

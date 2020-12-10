@@ -32,7 +32,7 @@ ms.author: jroth
    
     ![Rule Name](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
 
-Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](https://msdn.microsoft.com/library/cc646023.aspx).
+Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access).
 
 ### Configure SQL Server to listen on the TCP protocol
 
@@ -88,5 +88,4 @@ To connect to the Database Engine from another computer, you must create at leas
    ![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
 9. Click OK.
 
-For more information about SQL Server logins, see [Create a Login](https://msdn.microsoft.com/library/aa337562.aspx).
-
+For more information about SQL Server logins, see [Create a Login](/sql/relational-databases/security/authentication-access/create-a-login).

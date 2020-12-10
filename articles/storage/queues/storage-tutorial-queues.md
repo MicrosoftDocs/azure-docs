@@ -2,7 +2,6 @@
 title: Tutorial - Work with Azure Storage queues in .NET
 description: A tutorial on how to use the Azure Queue service to create queues, and insert, get, and delete messages using .NET code.
 author: mhopkins-msft
-
 ms.author: mhopkins
 ms.date: 06/09/2020
 ms.service: storage
@@ -36,7 +35,7 @@ In this tutorial, you learn how to:
 
 - Get your free copy of the cross platform [Visual Studio Code](https://code.visualstudio.com/download) editor.
 - Download and install the [.NET Core SDK](https://dotnet.microsoft.com/download) version 3.1 or later.
-- If you don’t have a current Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have a current Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create an Azure storage account
 
@@ -91,6 +90,8 @@ Create a .NET Core application named **QueueApp**. For simplicity, this app will
 
    C:\Tutorials\QueueApp>_
    ```
+
+<!-- markdownlint-disable MD023 -->
 
 ## Add the Azure client libraries
 
@@ -157,7 +158,7 @@ Add the connection string into the app so it can access the storage account.
 
 1. Switch back to Visual Studio Code.
 
-1. In the **Main**  method, replace the `Console.WriteLine("Hello World!");` code with the following line that gets the connection string from the environment variable.
+1. In the **Main** method, replace the `Console.WriteLine("Hello World!");` code with the following line that gets the connection string from the environment variable.
 
    # [\.NET v12](#tab/dotnet)
 

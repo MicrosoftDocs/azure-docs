@@ -17,15 +17,15 @@ ms.author: yelevin
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Distributed denial of service (DDoS) attacks attempt to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet. [Azure DDoS protection](../virtual-network/ddos-protection-overview.md), combined with application design best practices, provides a robust defense against DDoS attacks. You can connect Azure DDoS Protection logs to Azure Sentinel, enabling you to view log data in workbooks, use it to create custom alerts, and incorporate it to improve your investigations. 
+Distributed denial of service (DDoS) attacks attempt to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet. [Azure DDoS protection](../ddos-protection/ddos-protection-overview.md), combined with application design best practices, provides a robust defense against DDoS attacks. You can connect Azure DDoS Protection logs to Azure Sentinel, enabling you to view log data in workbooks, use it to create custom alerts, and incorporate it to improve your investigations. 
 
 ## Prerequisites
 
 - You must have read and write permissions on the Azure Sentinel workspace.
 
-- You must have a configured [Azure DDoS Standard protection plan](../virtual-network/manage-ddos-protection.md#create-a-ddos-protection-plan).
+- You must have a configured [Azure DDoS Standard protection plan](../ddos-protection/manage-ddos-protection.md#create-a-ddos-protection-plan).
 
-- You must have a configured [virtual network with Azure DDoS Standard enabled](../virtual-network/manage-ddos-protection.md#enable-ddos-for-a-new-virtual-network).
+- You must have a configured [virtual network with Azure DDoS Standard enabled](../ddos-protection/manage-ddos-protection.md#enable-ddos-protection-for-a-new-virtual-network).
 
 ## Connect to Azure DDoS Protection
 	

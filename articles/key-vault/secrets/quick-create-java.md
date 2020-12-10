@@ -2,7 +2,7 @@
 title: Quickstart -  Azure Key Vault client library for Java
 description: Provides format and content criteria for writing Quickstarts for Azure SDK client libraries.
 author: msmbaldwin
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
@@ -33,7 +33,7 @@ This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli
 
 ## Setting up
 
-This quickstart is using Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
+This quickstart is using Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/java/api/overview/azure/identity-readme)
 
 ### Sign in to Azure
 
@@ -119,7 +119,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 Create an access policy for your key vault that grants secret permission to your user account
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
 ```
 
 #### Set environment variables
