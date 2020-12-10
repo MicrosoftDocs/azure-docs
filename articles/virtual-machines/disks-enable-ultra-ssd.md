@@ -167,16 +167,6 @@ az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 10
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location --attach-data-disks $diskname
 ```
 
-### Create an ultra disk with 512 sector size - CLI
-
-Alternatively, if you wanted to create a VM with an ultra disk that has a 512 sector size, you can use the following commands:
-
-```azurecli
-#create an ultra disk with 512 sector size
-az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku UltraSSD_LRS --disk-iops-read-write 8192 --disk-mbps-read-write 400 --logical-sector-size 512
-az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location --attach-data-disks $diskname
-```
-
 # [PowerShell](#tab/azure-powershell)
 
 First, determine the VM size to deploy. See the [GA scope and limitations](#ga-scope-and-limitations) section for a list of supported VM sizes.
@@ -229,9 +219,17 @@ $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDisk
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-### Create an ultra disk with 512 sector size - PowerShell
+---
 
-Alternatively, if you wanted to create a VM with an ultra disk that has a 512 sector size, you can use the following command:
+## Deploy an ultra disk - 512 sector size
+
+# [Portal](#tab/azure-portal)
+
+The Azure portal does not currently support creating an ultra disk with the 512 sector size. You can create an ultra disk with the 512 sector size is supported using the Azure PowerShell module or the Azure CLI, instead.
+
+# [PowerShell](#tab/azure-powershell)
+
+To create a VM with an ultra disk that has a 512 sector size, you can use the following command:
 
 ```powershell
 # Set parameters and select subscription
@@ -263,6 +261,16 @@ $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 $disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To create a VM with an ultra disk that has a 512 sector size, you can use the following commands:
+
+```azurecli
+#create an ultra disk with 512 sector size
+az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku UltraSSD_LRS --disk-iops-read-write 8192 --disk-mbps-read-write 400 --logical-sector-size 512
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location --attach-data-disks $diskname
 ```
 
 ---
