@@ -1,19 +1,19 @@
 ---
-title: Understand admin roles for Enterprise in Azure
+title: Understand admin roles for Enterprise Agreements (EA) in Azure
 description: Learn about Enterprise administrator roles in Azure. You can assign five distinct administrative roles.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/10/2020
 ms.author: banders
 ms.custom: contperfq1
 ---
 
-# Managing Azure Enterprise roles
+# Managing Azure Enterprise Agreement roles
 
-To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement (EA) can assign five distinct administrative roles:
+To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement can assign five distinct administrative roles:
 
 - Enterprise Administrator
 - Enterprise Administrator (read only)<sup>1</sup>
@@ -77,6 +77,7 @@ Users with this role have the highest level of access. They can:
 - Manage notification contacts.
 - View usage across all accounts.
 - View unbilled charges across all accounts.
+- View and manage all reservation orders and reservations that apply to the Enterprise Agreement.
 
 You can have multiple enterprise administrators in an enterprise enrollment. You can grant read-only access to enterprise administrators. They all inherit the department administrator role.
 
