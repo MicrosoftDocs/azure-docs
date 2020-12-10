@@ -42,7 +42,7 @@ The graph displays the transformation stream. It shows the lineage of source dat
 
 ### Configuration panel
 
-The configuration panel shows the settings specific to the currently selected transformation. If no transformation is selected, it shows the data flow. In the overall data flow configuration, you can edit the name and description under the **General** tab or add parameters via the **Parameters** tab. For more information, see [Mapping data flow parameters](parameters-data-flow.md).
+The configuration panel shows the settings specific to the currently selected transformation. If no transformation is selected, it shows the data flow. In the overall data flow configuration, you can add parameters via the **Parameters** tab. For more information, see [Mapping data flow parameters](parameters-data-flow.md).
 
 Each transformation contains at least four configuration tabs.
 
