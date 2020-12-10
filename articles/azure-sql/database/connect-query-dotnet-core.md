@@ -35,18 +35,9 @@ To complete this quickstart, you need:
   || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
   | Configure | [Server-level IP firewall rule](firewall-create-server-level-portal-quickstart.md)| [Connectivity from a VM](../managed-instance/connect-vm-instance-configure.md)|
   |||[Connectivity from on-premises](../managed-instance/point-to-site-p2s-configure.md) | [Connect to a SQL Server instance](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Restore Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
-  |||Restore or import Adventure Works from a [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Restore or import Adventure Works from a [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
-  > [!IMPORTANT]
-  > The scripts in this article are written to use the Adventure Works database. With a SQL Managed Instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
-
 - [.NET Core for your operating system](https://www.microsoft.com/net/core) installed.
-
-> [!NOTE]
-> This quickstart uses the *mySampleDatabase* database. If you want to use a different database, you will need
-> to change the database references and modify the `SELECT` query in the C# code.
 
 ## Get server connection information
 
@@ -63,7 +54,7 @@ Get the connection information you need to connect to the database in Azure SQL 
 
 ## Get ADO.NET connection information (optional - SQL Database only)
 
-1. Navigate to the **mySampleDatabase** page and, under **Settings**, select **Connection strings**.
+1. Navigate to the database blade in the Azure portal and, under **Settings**, select **Connection strings**.
 
 2. Review the complete **ADO.NET** connection string.
 
@@ -169,9 +160,9 @@ namespace sqltest
    Query data example:
    =========================================
 
-master	SQL_Latin1_General_CP1_CI_AS
-tempdb	SQL_Latin1_General_CP1_CI_AS
-WideWorldImporters	Latin1_General_100_CI_AS
+   master	SQL_Latin1_General_CP1_CI_AS
+   tempdb	SQL_Latin1_General_CP1_CI_AS
+   WideWorldImporters	Latin1_General_100_CI_AS
 
    Done. Press enter.
    ```
