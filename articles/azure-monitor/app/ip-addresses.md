@@ -43,6 +43,10 @@ Status Monitor Configuration - needed only when making changes.
 ## Availability tests
 This is the list of addresses from which [availability web tests](./monitor-web-app-availability.md) are run. If you want to run web tests on your app, but your web server is restricted to serving specific clients, then you will have to permit incoming traffic from our availability test servers.
 
+
+> [!NOTE]
+> For resources located inside private virtual networks that cannot allow direct inbound communication with the availability test agents in public Azure, the only option is to [create and host your own custom availability tests](availability-azure-functions.md).
+
 ### Service tag
 
 If you are using Azure Network Security Groups, simply add an **inbound port rule** to allow traffic from Application Insights availability tests by selecting **Service Tag** as the **Source** and **ApplicationInsightsAvailability** as the **Source service tag**.
@@ -166,14 +170,33 @@ East US
 20.42.35.112/28
 20.42.35.128/28
 
-Azure US Government (Not needed if you are an Azure Public cloud customer)
-
-20.140.48.160/27
-20.140.56.160/27
-20.140.64.160/27
-20.140.72.160/27
-52.127.49.96/27
 ```  
+
+#### Azure Government
+
+Not needed if you are an Azure Public cloud customer.
+
+```
+USGov Virginia
+52.227.229.80/31
+
+
+USGov Arizona
+52.244.35.112/31
+
+
+USGov Texas
+52.243.157.80/31
+
+
+USDoD Central
+52.182.23.96/31
+
+
+USDoD East
+52.181.33.96/31
+
+```
 
 ## Application Insights & Log Analytics APIs
 

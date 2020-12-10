@@ -78,6 +78,9 @@ It is important to frequently roll over the Kerberos decryption key of the `AZUR
 
 Follow these steps on the on-premises server where you are running Azure AD Connect:
 
+   > [!NOTE]
+   >You will need both domain administrator and global administrator credentials for the steps below.
+
    **Step 1. Get list of AD forests where Seamless SSO has been enabled**
 
    1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).

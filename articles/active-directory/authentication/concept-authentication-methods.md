@@ -8,12 +8,12 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/15/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 
 # Customer intent: As an identity administrator, I want to understand what authentication options are available in Azure AD and how or why I can use them to improve and secure user sign-in events.
 ---
