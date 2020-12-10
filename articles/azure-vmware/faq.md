@@ -184,7 +184,7 @@ In the Azure portal, enable internet connectivity for a private cloud. With NSX-
 
 #### Do I need to restrict access from the internet to VMs on logical networks in a private cloud?
 
-No. Network traffic inbound from the internet directly to private clouds isn't allowed.
+No. Network traffic inbound from the Internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the Internet through the [Public IP](public-ip-usage.md) option in your Azure portal for you Azure VMware Solution private cloud.
 
 #### Do I need to restrict internet access from VMs on logical networks to the internet?
 

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 12/09/2020
 ---
 
 # Create a simple query in Azure Cognitive Search
@@ -18,6 +18,14 @@ In Azure Cognitive Search, the [simple query syntax](query-simple-syntax.md) inv
 In this article, we use examples to illustrate the simple syntax, populating the `search=` parameter of a [Search Documents](/rest/api/searchservice/search-documents) operation.
 
 An alternative query syntax is [Full Lucene](query-lucene-syntax.md), supporting more complex query structures, such as fuzzy and wildcard search, which can take additional time to process. For more information and examples demonstrating full syntax, see [Use the full Lucene syntax](search-query-lucene-examples.md).
+
+Choose from the following tools and APIs for submitting queries.
+
+| Methodology | Description |
+|-------------|-------------|
+| [Search explorer (portal)](search-explorer.md) | Provides a search bar and options for index and api-version selections. Results are returned as JSON documents. Recommended for exploration, testing, and validation. <br/>[Learn more.](search-get-started-portal.md#query-index) | 
+| [Postman or Visual Studio Code](search-get-started-rest.md) | Web testing tools are an excellent choice for formulating [Search Documents](/rest/api/searchservice/search-documents) REST calls. The REST API supports every programmatic operation in Azure Cognitive Search, so you can issue requests interactively to focus your exploration on a specific task.  |
+| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Client that can be used to query an Azure Cognitive Search index.  <br/>[Learn more.](search-howto-dotnet-sdk.md)  |
 
 ## Formulate requests in Postman
 
