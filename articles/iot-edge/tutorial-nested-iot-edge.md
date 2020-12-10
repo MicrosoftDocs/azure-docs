@@ -230,12 +230,14 @@ Install IoT Edge by following these steps on both devices.
    sudo apt-get install moby-engine
    ```
 ### Configure Virtual Machine
-If you use azure Virtual Machine to create a hierarchy of IoT Edge devices, make sure the the following port are opened inbound: 8000,443,5671,8883.
+If you use azure Virtual Machine to create a hierarchy of IoT Edge devices, make sure the the following ports are opened inbound: 8000,443,5671,8883.
 8000: Is used to pull docker container images through API proxy
 443: Is used between parent and child edgehub for Rest API calls.
 5671,8883: Are used for AMQP and MQTT
 
-Note: It is possible to use only one port to pull images and make API calls, follow [Using one port for HTTP calls](#Using one port for HTTP calls)
+[How to open ports to a virtual machine with the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nsg-quickstart-portal).
+
+It is possible to use a single port to pull images and make API calls, the process is described here: [Using one port for HTTP calls](#Using one port for HTTP calls)
 
 ### Configure the IoT Edge runtime
 
