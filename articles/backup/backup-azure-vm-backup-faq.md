@@ -159,6 +159,9 @@ Operations like secret/key roll-over don't require this step and the same key va
 
 Yes, you access the VM once restored due to a VM having broken relationship with domain controller. For more information, see this [article](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
+### Can I cancel an in-progress restore job?
+No, you cannot cancel the restore job that is in-progress.
+
 ### Why restore operation is taking long time to complete?
 
 The total restore time depends on the Input/output operations per second (IOPS) and the throughput of the storage account. The total restore time can be affected if the target storage account is loaded with other application read and write operations. To improve restore operation, select a storage account that isn't loaded with other application data.
