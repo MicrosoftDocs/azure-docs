@@ -6,14 +6,17 @@ author: carychai
 ms.assetid: 
 ms.topic: reference
 ms.date: 02/19/2020
-ms.author: cshoe
-ms.custom: fasttrack-edit
-//*******WHAT DO I PUT HERE? ASK GLENN AND CRAIG******
+ms.author: cachai
+ms.custom:
+
 ---
 
-# Azure Service Bus bindings for Azure Functions
+# RabbitMQ bindings for Azure Functions overview
 
-Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [triggers and bindings](./functions-triggers-bindings.md). The Azure Functions RabbitMQ Binding extensions allows you to send and receive messages using the RabbitMQ API with Functions.
+> [!NOTE]
+> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Linux support will be released early in the 2021 calendar year.
+
+Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [triggers and bindings](./functions-triggers-bindings.md). The Azure Functions RabbitMQ Binding extensions allow you to send and receive messages using the RabbitMQ API with Functions.
 
 | Action | Type |
 |---------|---------|
@@ -22,8 +25,7 @@ Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [trigg
 
 ## Add to your Functions app
 
-> [!NOTE]
-> The RabbitMQ binding doesn't currently support authentication using a managed identity. Instead, please use a [RabbitMQ shared access signature](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature).
+To get started with developing with this extension, make sure you first [set up a RabbitMQ endpoint](https://github.com/Azure/azure-functions-rabbitmq-extension/wiki/Setting-up-a-RabbitMQ-Endpoint). To learn more about RabbitMQ, check out their [getting started page](https://www.rabbitmq.com/getstarted.html).
 
 ### Functions 2.x and higher
 
@@ -43,9 +45,9 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 ### Functions 1.x
 
-Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
+RabbitMQ Binding extensions are not supported for Functions 1.x. Please use Functions 2.x and higher.
 
 ## Next steps
 
-- [Run a function when a Service Bus queue or topic message is created (Trigger)](./functions-bindings-service-bus-trigger.md)
-- [Send Azure Service Bus messages from Azure Functions (Output binding)](./functions-bindings-service-bus-output.md)
+- [Run a function when a RabbitMQ message is created (Trigger)](./functions-bindings-service-bus-trigger.md)
+- [Send RabbitMQ messages from Azure Functions (Output binding)](./functions-bindings-service-bus-output.md)
