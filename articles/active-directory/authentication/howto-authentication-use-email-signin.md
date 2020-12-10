@@ -34,6 +34,9 @@ This article shows you how to enable and use email as an alternate login ID. Thi
 > [!NOTE]
 > This feature is for cloud-authenticated Azure AD users only.
 
+> [!NOTE]
+> This feature does not support PRT issuance for Managed domains currently.
+
 ## Overview of Azure AD sign-in approaches
 
 To sign in to Azure AD, users enter a name that uniquely identifies their account. Historically, you could only use the Azure AD UPN as the sign-in name.
