@@ -44,7 +44,7 @@ The certificates must meet the following requirements:
   |---------|---------|---------|---------|
   |Local UI| `<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`| `mydevice1.microsoftdatabox.com` |
   |Blob storage|`*.blob.<DeviceName>.<DNSdomain>`|`*.blob.< DeviceName>.<DNSdomain>`|`*.blob.mydevice1.microsoftdatabox.com` |
-  |Multi-SAN single certificate|`<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`<br>`login.<DeviceName>.<DNSdomain>`<br>`management.<DeviceName>.<DNSdomain>`<br>`*.blob.<DeviceName>.<DNSdomain>`|`mydevice1.microsoftdatabox.com` |
+  |Multi-SAN single certificate|`<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`<br>`*.blob.<DeviceName>.<DNSdomain>`|`mydevice1.microsoftdatabox.com` |
 
 For more information, see [Certificate requirements](../../articles/databox-online/azure-stack-edge-j-series-certificate-requirements.md).
 
@@ -87,19 +87,15 @@ To add your own certificate to your device, follow these steps:
 
    ![View certificate details for a Data Box device](media/data-box-bring-your-own-certificates/certificates-cert-details.png)
 
-   If you changed the local web UI certificate, you'll see the following error. This error will go away when you install the new certificate on the client computer.
+   <!--If you changed the local web UI certificate, you'll see the following error. This error will go away when you install the new certificate on the client computer.
 
-   ![Error after a new Local web UI certificate is added to a Data Box device](media/data-box-bring-your-own-certificates/certificates-unable-to-communicate-error.png)
+   ![Error after a new Local web UI certificate is added to a Data Box device](media/data-box-bring-your-own-certificates/certificates-unable-to-communicate-error.png) TEST. RESTORE IF ERROR IS REPRODUCED.-->
 
 6. Install the new certificate on the client computer you're using to access the local web UI. For instructions, see [Import certificates to client](#import-certificates-to-client), below.
 
-7. If you changed the certificate for the local Web UI, you need to restart the local web UI. Go to **Shut down or restart**, and select **Restart**. This step is needed to avoid any SSL cache issues.
+7. If you changed the certificate for the local Web UI, you need to restart the browser and then the local web UI. This step is needed to avoid any SSL cache issues.
 
-   ![Shut down or restart local web UI for a Data Box device](media/data-box-bring-your-own-certificates/certificates-restart-ui.png)
-
-   Wait a few minutes, and sign in again.
-
-   The communication error should be gone from the **Certificates** screen.
+  <!-- TESTING THIS - The communication error should be gone from the **Certificates** screen.-->
 
 ## Import certificates to client
 
