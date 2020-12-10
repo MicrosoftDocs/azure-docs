@@ -119,6 +119,8 @@ When your client requests an access token, Azure AD also returns an authenticati
 
 ## Next steps
 
-If you're using MSAL for Java, learn about [custom token cache serialization in MSAL for Java](msal-java-token-cache-serialization.md).
-
-Learn about [handling errors and exceptions](msal-error-handling-dotnet.md).
+Several of the platforms supported by MSAL have additional token cache-related information in the documentation for that platform's library. For example:
+- https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-acquire-token-silently
+- https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-js-sso
+- https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-python-token-cache-serialization
+- https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-java-token-cache-serialization
