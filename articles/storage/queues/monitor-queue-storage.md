@@ -329,7 +329,7 @@ You can read the metric values of your storage account or the Queue Storage serv
 
 ### [.NET](#tab/azure-portal)
 
-Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
+Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/microsoft.azure.management.monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
 
 In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the queue. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 

@@ -20,8 +20,8 @@ The following table lists reference and sample documentation for Azure Queue Sto
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure.Storage.Queues namespace](/dotnet/api/azure.storage.queues) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/) | [Quickstart: Azure Queue Storage client library v12 for .NET](./storage-quickstart-queues-dotnet.md) |
-| 11.x | [Microsoft.Azure.Storage.Queue namespace](/dotnet/api/microsoft.azure.storage.queue) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/) | [Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue](./storage-quickstart-queues-dotnet-legacy.md) |
+| 12.x | [Azure.Storage.Queues namespace](/dotnet/api/azure.storage.queues) | [Package (NuGet)](https://www.nuget.org/packages/azure.storage.queues/) | [Quickstart: Azure Queue Storage client library v12 for .NET](./storage-quickstart-queues-dotnet.md) |
+| 11.x | [Microsoft.Azure.Storage.Queue namespace](/dotnet/api/microsoft.azure.storage.queue) | [Package (NuGet)](https://www.nuget.org/packages/microsoft.azure.storage.queue/) | [Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue](./storage-quickstart-queues-dotnet-legacy.md) |
 
 ### Storage management
 
@@ -29,7 +29,7 @@ The following table lists reference documentation for Azure Storage management .
 
 |  Version  | Reference documentation | Package |
 | :-------: | ----------------------- | ------- |
-| 16.x | [Microsoft.Azure.Management.Storage](/dotnet/api/microsoft.azure.management.storage) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) |
+| 16.x | [Microsoft.Azure.Management.Storage](/dotnet/api/microsoft.azure.management.storage) | [Package (NuGet)](https://www.nuget.org/packages/microsoft.azure.management.storage/) |
 
 ### Data movement
 
@@ -37,7 +37,7 @@ The following table lists reference documentation for Azure Storage data movemen
 
 |  Version  | Reference documentation | Package |
 | :-------: | ----------------------- | ------- |
-| 1.x | [Data movement](/dotnet/api/microsoft.azure.storage.datamovement) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/) |
+| 1.x | [Data movement](/dotnet/api/microsoft.azure.storage.datamovement) | [Package (NuGet)](https://www.nuget.org/packages/microsoft.azure.storage.datamovement/) |
 
 ## Java client libraries
 

@@ -3,13 +3,15 @@ title: Performance and scalability checklist for Queue Storage - Azure Storage
 description: A checklist of proven practices for use with Queue Storage in developing high-performance applications.
 author: tamram
 services: storage
-ms.service: storage
-ms.topic: overview
-ms.date: 10/10/2019
 ms.author: tamram
+ms.date: 10/10/2019
+ms.topic: overview
+ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
 ---
+
+<!-- docutune:casing "Timeout and Server Busy errors" -->
 
 # Performance and scalability checklist for Queue Storage
 
@@ -61,7 +63,7 @@ If your application is approaching the scalability targets for a single storage 
 - Reconsider the workload that causes your application to approach or exceed the scalability target. Can you design it differently to use less bandwidth or capacity, or fewer transactions?
 - If your application must exceed one of the scalability targets, then create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. Storage accounts themselves have no cost other than your usage in terms of data stored, transactions made, or data transferred.
 - If your application is approaching the bandwidth targets, consider compressing data on the client side to reduce the bandwidth required to send the data to Azure Storage. While compressing data may save bandwidth and improve network performance, it can also have negative effects on performance. Evaluate the performance impact of the additional processing requirements for data compression and decompression on the client side. Keep in mind that storing compressed data can make troubleshooting more difficult because it may be more challenging to view the data using standard tools.
-- If your application is approaching the scalability targets, then make sure that you are using an exponential backoff for retries. It's best to try to avoid reaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly, which could make throttling worse. For more information, see [Timeout and server busy errors](#timeout-and-server-busy-errors) below.
+- If your application is approaching the scalability targets, then make sure that you are using an exponential backoff for retries. It's best to try to avoid reaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly, which could make throttling worse. For more information, see [Timeout and Server Busy errors](#timeout-and-server-busy-errors) below.
 
 ## Networking
 
@@ -122,7 +124,7 @@ Set the connection limit before opening any connections.
 
 For other programming languages, see that language's documentation to determine how to set the connection limit.
 
-For more information, see the blog post [Web Services: Concurrent connections](/archive/blogs/darrenj/web-services-concurrent-connections).
+For more information, see the blog post [Web Services: Concurrent Connections](/archive/blogs/darrenj/web-services-concurrent-connections).
 
 ### Increase the minimum number of threads
 
@@ -146,8 +148,6 @@ For best performance, always use the latest client libraries and tools provided 
 
 Azure Storage returns an error when the service cannot process a request. Understanding the errors that may be returned by Azure Storage in a given scenario is helpful for optimizing performance.
 
-<!-- docutune:casing "Timeout and Server Busy errors" -->
-
 ### Timeout and Server Busy errors
 
 Azure Storage may throttle your application if it approaches the scalability limits. In some cases, Azure Storage may be unable to handle a request due to some transient condition. In both cases, the service may return a 503 (`Server Busy`) or 500 (`Timeout`) error. These errors can also occur if the service is rebalancing data partitions to allow for higher throughput. The client application should typically retry the operation that causes one of these errors. However, if Azure Storage is throttling your application because it is exceeding scalability targets, or even if the service was unable to serve the request for some other reason, aggressive retries may make the problem worse. Using an exponential back off retry policy is recommended, and the client libraries default to this behavior. For example, your application may retry after 2 seconds, then 4 seconds, then 10 seconds, then 30 seconds, and then give up completely. In this way, your application significantly reduces its load on the service, rather than exacerbating behavior that could lead to throttling.
@@ -162,7 +162,7 @@ For more information on Azure Storage error codes, see [Status and error codes](
 
 ## Disable Nagle's algorithm
 
-Nagle's algorithm is widely implemented across TCP/IP networks as a means to improve network performance. However, it is not optimal in all circumstances (such as highly interactive environments). Nagle's algorithm has a negative impact on the performance of requests to Azure table storage, and you should disable it if possible.
+Nagle's algorithm is widely implemented across TCP/IP networks as a means to improve network performance. However, it is not optimal in all circumstances (such as highly interactive environments). Nagle's algorithm has a negative impact on the performance of requests to Azure Table Storage, and you should disable it if possible.
 
 ## Message size
 

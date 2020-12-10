@@ -1,14 +1,14 @@
 ---
 title: How to use Queue Storage from Java - Azure Storage
-description: Learn how to use Queue Storage to create and delete queues. Learn to insert, peek, get, and delete messages with the Azure Storage client library for Java.
+description: Learn how to use Queue Storage to create and delete queues. Learn to insert, peek, get, and delete messages with the Azure Storage Client Library for Java.
 author: mhopkins-msft
-ms.custom: devx-track-java
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 08/19/2020
+ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.topic: how-to
-ms.reviewer: dineshm
+ms.custom: devx-track-java
 ---
 
 # How to use Queue Storage from Java
@@ -170,7 +170,7 @@ A `QueueClient` object contains the operations for interacting with a queue. The
 
 # [Java v8](#tab/java8)
 
-A `CloudQueueClient` object lets you get reference objects for queues. The following code creates a `CloudQueueClient` object. (Note: There are additional ways to create `CloudStorageAccount` objects; for more information, see `CloudStorageAccount` in the [Azure Storage client SDK reference](https://azure.github.io/azure-sdk-for-java/storage.html).)
+A `CloudQueueClient` object lets you get reference objects for queues. The following code creates a `CloudQueueClient` object. (Note: there are additional ways to create `CloudStorageAccount` objects. For more information, see `CloudStorageAccount` in the [Azure Storage client SDK reference](https://azure.github.io/azure-sdk-for-java/storage.html).)
 
 Use the `CloudQueueClient` object to get a reference to the queue you want to use. You can create the queue if it doesn't exist.
 
