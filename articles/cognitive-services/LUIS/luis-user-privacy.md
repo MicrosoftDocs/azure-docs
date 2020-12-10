@@ -65,7 +65,6 @@ Europe Authoring (also known as Programmatic APIs) resources are hosted in Azure
 * Europe
 * France
 * United Kingdom
-* Switzerland
 
 When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's Europe geography for active learning.
 
