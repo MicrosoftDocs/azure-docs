@@ -24,13 +24,6 @@ Uptime SLA is available in public regions and Azure Government regions where [AK
 
 ## Limitations
 
-Private clusters are only supported in the following regions:
- *  East US
- *  West US
- *  West US2
- *  North Central US
- *  West Central US
-
 ## SLA terms and conditions
 
 Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
