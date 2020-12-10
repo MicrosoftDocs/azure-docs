@@ -543,12 +543,12 @@
         items:
         - name: Shard data on worker nodes
           href: tutorial-hyperscale-shard.md
-    - name: Design a multi-tenant database
-      href: tutorial-design-database-hyperscale-multi-tenant.md
-      displayName: hyperscale, tutorial, multi-tenant
-    - name: Design a real-time dashboard
-      href: tutorial-design-database-hyperscale-realtime.md
-      displayName: hyperscale, tutorial, real-time
+      - name: Design a multi-tenant database
+        href: tutorial-design-database-hyperscale-multi-tenant.md
+        displayName: hyperscale, tutorial, multi-tenant
+      - name: Design a real-time dashboard
+        href: tutorial-design-database-hyperscale-realtime.md
+        displayName: hyperscale, tutorial, real-time
   - name: Samples
     items:
     - name: Azure CLI
