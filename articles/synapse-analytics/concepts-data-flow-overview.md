@@ -1,24 +1,22 @@
 ---
-title: Mapping data flows
-description: An overview of mapping data flows in Azure Data Factory
+title: Data flows
+description: An overview of data flows in for Azure Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
+ms.service: synapse-analytics
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/10/2020
 ---
 
-# Mapping data flows in Azure Data Factory
+# Data flows in Azure Synapse Analytics
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+## What are data flows?
 
-## What are mapping data flows?
+Data flows are visually designed data transformations in Azure Synapse Analytics. Data flows allow data engineers to develop data transformation logic without writing code. The resulting data flows are executed as activities within Azure Synapse Analytics pipelines that use scaled-out Apache Spark clusters. Data flow activities can be operationalized using existing Azure Synapse Analytics scheduling, control, flow, and monitoring capabilities.
 
-Mapping data flows are visually designed data transformations in Azure Data Factory. Data flows allow data engineers to develop data transformation logic without writing code. The resulting data flows are executed as activities within Azure Data Factory pipelines that use scaled-out Apache Spark clusters. Data flow activities can be operationalized using existing Azure Data Factory scheduling, control, flow, and monitoring capabilities.
-
-Mapping data flows provide an entirely visual experience with no coding required. Your data flows run on ADF-managed execution clusters for scaled-out data processing. Azure Data Factory handles all the code translation, path optimization, and execution of your data flow jobs.
+Mapping data flows provide an entirely visual experience with no coding required. Your data flows run on ADF-managed execution clusters for scaled-out data processing. Azure Synapse Analytics handles all the code translation, path optimization, and execution of your data flow jobs.
 
 ## Getting started
 
@@ -90,7 +88,7 @@ Debug mode allows you to interactively see the results of each transformation st
 
 Mapping data flow integrates with existing Azure Data Factory monitoring capabilities. To learn how to understand data flow monitoring output, see [monitoring mapping data flows](concepts-data-flow-monitoring.md).
 
-The Azure Data Factory team has created a [performance tuning guide](concepts-data-flow-performance.md) to help you optimize the execution time of your data flows after building your business logic.
+The Azure Synapse Analytics team has created a [performance tuning guide](concepts-data-flow-performance.md) to help you optimize the execution time of your data flows after building your business logic.
 
 ## Available regions
 
