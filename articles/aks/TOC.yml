@@ -334,7 +334,7 @@
     - name: Use GPUs
       href: gpu-cluster.md
     - name: Build app with PostgreSQL
-      href: ../postgresql/flexible-server/tutorial-django-aks-postgres.md
+      href: ../postgresql/flexible-server/tutorial-django-aks-database.md
     - name: Build app with MySQL
       href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md  
       maintainContext: true
