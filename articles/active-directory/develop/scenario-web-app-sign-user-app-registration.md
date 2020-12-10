@@ -63,21 +63,21 @@ You can use these links to bootstrap the creation of your web application:
    1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
    1. In the **Redirect URI (optional)** section, select **Web** in the combo box and enter the following redirect URI: **https://localhost:44326/**.
    1. Select **Register** to create the application.
-1. Under **Manage**, select the **Authentication**.
+1. Under **Manage**, select **Authentication**.
 1. In the **Implicit grant** section, select **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user.
 1. Select **Save**.
 
 # [Java](#tab/java)
 
 1. When the **Register an application page** appears, enter your application's registration information: 
-    1. Enter a **Name** for your application for example, `java-webapp`. Users of your app might see this name, and you can change it later. 
+    1. Enter a **Name** for your application, for example `java-webapp`. Users of your app might see this name, and you can change it later. 
     1. Select **Accounts in any organizational directory and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)**.
     1. Select **Register** to register the application.
 1. Under **Manage**, select **Authentication** > **Add a platform**.
 1. Select **Web**.
 1. For **Redirect URI**, enter the same host and port number, followed by `/msal4jsample/secure/aad` for the sign-in page. 
 1. Select **Configure**.
-1. From the **Web** section, use the host and port number, followed by **/msal4jsample/graph/me** as a **Redirect URI** for the user information page.
+1. In the **Web** section, use the host and port number, followed by **/msal4jsample/graph/me** as a **Redirect URI** for the user information page.
 By default, the sample uses:
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**

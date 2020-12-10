@@ -57,7 +57,7 @@ To run this sample, you need:
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Certificates & secrets**.
 > 1. Under **Client secrets**, select **New client secret**, enter a name, and then select **Add**. Record the secret value in a safe location for use in a later step.
-> 1. Under **Manage**, select **API Permissions** > **+ Add a permission**. Select **Microsoft Graph**.
+> 1. Under **Manage**, select **API Permissions** > **Add a permission**. Select **Microsoft Graph**.
 > 1. Select **Application permissions**.
 > 1. Under **User** node, select **User.Read.All**, then select **Add permissions**.
 
