@@ -1820,5 +1820,5 @@
       href: ./linux/faq.md
     - name: Windows
       href: ./windows/faq.md
-  - name: Troubleshoot
-    href: ./troubleshooting/index.yml
+- name: Troubleshoot
+  href: ./troubleshooting/index.yml
