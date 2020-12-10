@@ -4,7 +4,7 @@ description: Event Timeline presents a timeline of activity detected on your net
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/07/2020
+ms.date: 12/10/2020
 ms.topic: article
 ms.service: azure
 ---
