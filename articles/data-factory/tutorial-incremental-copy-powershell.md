@@ -603,7 +603,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
     TableName | WatermarkValue
     --------- | --------------
-    data_source_table | 2017-09-05    8:06:00.000
+    data_source_table | 2017-09-05 8:06:00.000
 
 ### Insert data into the data source store to verify delta data loading
 

@@ -138,14 +138,14 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
             ],
             "apiVersion": "2015-10-01",
             "properties": {
-                  "type": "HDInsightOnDemand",
-                  "typeProperties": {
-                      "version": "3.5",
-            "clusterSize": 1,
-            "timeToLive": "00:05:00",
-            "osType": "Linux",
-            "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
-          }
+                "type": "HDInsightOnDemand",
+                "typeProperties": {
+                    "version": "3.5",
+                    "clusterSize": 1,
+                    "timeToLive": "00:05:00",
+                    "osType": "Linux",
+                    "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
+                }
             }
           },
           {
