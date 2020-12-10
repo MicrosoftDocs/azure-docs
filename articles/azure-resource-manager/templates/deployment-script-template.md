@@ -34,11 +34,11 @@ The deployment script resource is only available in the regions where Azure Cont
 
 > [!IMPORTANT]
 > The deploymentScripts resource API version 2020-10-01 supports [OnBehalfofTokens(OBO)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). By using OBO, the deployment script service uses the deployment principal's token to create the underlying resources for running deployment scripts, which include Azure Container instance,  Azure storage account, and role assignments for the managed identity. In older API version, the managed identity is used to create these resources.
-> Retry logic for Azure login is now built in the wrapper script. If you grant permissions in the same template where you run deployment scripts.  The deployment script service retries login for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
+> Retry logic for Azure login is now built in to the wrapper script. If you grant permissions in the same template where you run deployment scripts.  The deployment script service retries login for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
 
 ## Prerequisites
 
-- **(Optional) A user-assigned managed identity with the contributor's role to the target resource-group**. For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources. If the script need to authenticate to Azure and perform Azure specific actions, we recommend providing the script with a user-assigned managed identity. You can also log in to Azure in the deployment script. To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group. 
+- **(Optional) A user-assigned managed identity with required permissions to perform the operations in the script**. For deployment script API version 2020-10-01 or later, the deployment principal is used to create underlying resources. If the script needs to authenticate to Azure and perform Azure specific actions, we recommend providing the script with a user-assigned managed identity. The managed identity must have the required access in the target resource group to complete the operation in the script. You can also log in to Azure in the deployment script. To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group. 
 
   To create an identity, see [Create a user-assigned managed identity by using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), or [by using Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), or [by using Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). You need the identity ID when you deploy the template. The format of the identity is:
 
@@ -268,7 +268,7 @@ A storage account and a container instance are needed for script execution and t
 
     These combinations support file share.  For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
 - Storage account firewall rules are not supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
-- Deployment principle must have permissions to manage the storage account, which includes read, create, delete file shares.
+- Deployment principal must have permissions to manage the storage account, which includes read, create, delete file shares.
 
 To specify an existing storage account, add the following json to the property element of `Microsoft.Resources/deploymentScripts`:
 
