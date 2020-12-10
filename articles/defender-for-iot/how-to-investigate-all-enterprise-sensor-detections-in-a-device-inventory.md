@@ -80,7 +80,7 @@ To add data manually:
 
 1. In the side menu, select **Device Inventory** and then select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false":::.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-settings.png" alt-text="Edit your device's inventory settings.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-settings-v2.png" alt-text="Edit your device's inventory settings.":::
 
 2. In the **Device Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
 

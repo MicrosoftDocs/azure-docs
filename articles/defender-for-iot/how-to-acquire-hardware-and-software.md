@@ -33,7 +33,7 @@ This article provides an overview of physical sensor models available. You can p
 
 | Deployment type | Corporate | Enterprise | SMB |
 |--|--|--|--|
-| Image | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360.png" alt-text="The Corporate level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png" alt-text="The Enterprise-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20.png" alt-text="The SMB level model."::: |
+| Image | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="The Corporate level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The Enterprise-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The SMB level model."::: |
 | Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 |
 | Monitoring ports | up to 15 RJ45 or 8 OPT | up to 8 RJ45 or 6 OPT | 4 RJ45 |
 | Max Bandwidth [1](#anchortext) | 3 Gb per second | 1 Gb per second | 200 Mb per second |
@@ -215,7 +215,7 @@ This article details additional appliances that were certified by Microsoft but 
 
 | Deployment type | Enterprise |
 |--|--|
-| Image | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot.png" alt-text="Enterprise deployment type."::: |
+| Image | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Enterprise deployment type."::: |
 | Model | Dell PowerEdge R340 XL |
 | Monitoring ports | up to nine RJ45 or six OPT |
 | Max Bandwidth [1](#anchortext2)| 1G Mb/Sec |

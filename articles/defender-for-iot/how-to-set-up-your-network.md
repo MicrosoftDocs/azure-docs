@@ -234,7 +234,7 @@ You can monitor switch traffic by using the following methods:
 
 - [Switch SPAN port](#switch-span-port)
 
-- [Remote SPAN (RSPAN)](#remotespan-rspan)
+- [Remote SPAN (RSPAN)](#remote-span-rspan)
 
 - Active and passive aggregation TAP
 
@@ -254,8 +254,8 @@ A switch port analyzer mirrors local traffic from interfaces on the switch to in
 
 The following configuration examples are for reference only and are based on a Cisco 2960 switch (24 ports) running IOS. They are typical examples only, so don't use them as instructions. Mirror ports on other Cisco operating systems and other brands of switches are configured differently.
 
-:::image type="content" source="media/how-to-set-up-your-network/span-port-configuration-terminal.png" alt-text="Diagram of a SPAN port configuration terminal.":::
-:::image type="content" source="media/how-to-set-up-your-network/span-port-configuration-mode.png" alt-text="Diagram of SPAN port configuration mode.":::
+:::image type="content" source="media/how-to-set-up-your-network/span-port-configuration-terminal-v2.png" alt-text="Diagram of a SPAN port configuration terminal.":::
+:::image type="content" source="media/how-to-set-up-your-network/span-port-configuration-mode-v2.png" alt-text="Diagram of SPAN port configuration mode.":::
 
 ##### Monitoring multiple VLANs
 
@@ -352,20 +352,17 @@ TAPs are advantageous for a variety of reasons. They're hardware-based and can't
 
 TAP aggregators can also be used for port monitoring. These devices are processor based and are not as intrinsically secure as hardware TAPs. They might not reflect exact packet timing.
 
-:::image type="content" source="media/how-to-set-up-your-network/active-passive-tap.PNG" alt-text="Diagram of active and passive TAPs.":::
+:::image type="content" source="media/how-to-set-up-your-network/active-passive-tap-v2.PNG" alt-text="Diagram of active and passive TAPs.":::
 
 ##### Common TAP models
 
 These models have been tested for compatibility. Other vendors and models might also be compatible.
 
-:::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas.png" alt-text="Screenshot of Garland P1GCCAS."::: 
-Garland P1GCCAS
-
-:::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3.png" alt-text="Screenshot of IXIA TPA2-CU3.":::
-IXIA TPA2-CU3
-
-:::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr- 4503.png" alt-text="Screenshot of US Robotics USR 4503.":::
-US Robotics USR 4503
+| Image | Model |
+| -- | -- |
+| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Screenshot of Garland P1GCCAS.":::  | Garland P1GCCAS  |
+| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot of IXIA TPA2-CU3.":::  | IXIA TPA2-CU3  |
+| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot of US Robotics USR 4503.":::  | US Robotics USR 4503  |
 
 ##### Special TAP configuration
 
@@ -549,10 +546,9 @@ Review this list before site deployment:
 | 18 | Go or no-go. | ☐ |  |
 | 19 | Schedule the deployment date. | ☐ |  |
 
-| **Date** |  | **Deployment date** |  |
-|--|--|--|--|
+| **Date** | **Note** | **Deployment date** | **Note** |
 | Defender for IoT |  | Site name* |  |
-| Name|  | Name |  |
+| Name |  | Name |  |
 | Position |  | Position |  |
 
 #### Architecture review

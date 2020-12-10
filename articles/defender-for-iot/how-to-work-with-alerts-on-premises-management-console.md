@@ -144,11 +144,11 @@ Alert rule logic is `AND` based. This means an alert will be triggered only when
 
 If a rule condition is not defined, the condition will include all options. For example, if you don't include the name of a sensor in the rule, it will be applied to all sensors.
 
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/create-alert-exclusion.png" alt-text="Screenshot of create exclusion rule view.":::
+:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/create-alert-exclusion-v2.png" alt-text="Screenshot of create exclusion rule view.":::
 
 Rule summaries are displayed in the Exclusion Rule window.
 
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/exclusion-summary.png" alt-text="Screenshot of exclusion rule summary view.":::
+:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/exclusion-summary-v2.png" alt-text="Screenshot of exclusion rule summary view.":::
 
 In addition to working with exclusion rules, you can also suppress alerts by muting them.
 
