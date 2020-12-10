@@ -21,7 +21,7 @@ SQL engine build 15.0.2000.1553
 
 ### What's new?
 
-- Allow Date_Bucket expressions defined in computed columns
+- Allow Date_Bucket expressions defined in computed columns.
 
 ### Fixes
 
@@ -56,7 +56,7 @@ SQL engine build 15.0.2000.1552
 - T-SQL streaming engine fixes: 
    - Cleanup for stopped streaming jobs 
    - Fixes for localization 
-   - Unicode-handling improvements
+   - Improved Unicode handling 
    - Improved debugging for SQL Edge T-SQL streaming, allowing users to query job-failure errors from get_streaming_job
 - Cleanup based on data-retention policy: 
     - Fixes for retention-policy creation and cleanup scenarios
@@ -71,24 +71,24 @@ SQL engine build 15.0.2000.1549
 ### What's new?
 - Support for custom origins in the Date_Bucket() function 
 - Support for BACPAC files as part of SQL deployment
-- Support for cleanup based on data-retention policy:      
-   - DDL support for enabling retention policy 
-   - Cleanup for stored procedures and background cleanup task
+- Support for cleanup based on the data-retention policy:      
+   - DDL support for enabling the retention policy 
+   - Cleanup for stored procedures and the background cleanup task
    - Extended events to monitor cleanup tasks
 
 ### Fixes
 - Additional error messages and details for troubleshooting T-SQL streaming operations 
 - Improvements to preserve battery life in idle mode 
-- T-SQL streaming engine fixes: 
-   - Stuck watermark in the substreamed hopping window 
-   - Framework exception handling to make sure it's collected as a user-actionable error
+- T-SQL streaming engine: 
+   - Fix for stuck watermark in the substreamed hopping window 
+   - Fix for framework exception handling to make sure it's collected as a user-actionable error
 
 
 ## CTP 2.2
 SQL engine build 15.0.2000.1546
 ### What's new?
 - Support for nonroot containers 
-- Support for the Usage and Diagnostic data collection 
+- Support for the usage and diagnostic data collection 
 - T-SQL streaming updates:
    - Support for Unicode characters for stream object names
 
@@ -101,10 +101,10 @@ SQL engine build 15.0.2000.1546
 ## CTP 2.1 
 SQL engine build 15.0.2000.1545
 ### Fixes
-- Allow the PREDICT-with-ONNX models to handle a CPUID issue in ARM. 
-- Improve the handling of the failure path when T-SQL streaming starts.
-- Correct the value of the watermark delay in job metrics when there's no data. 
-- Fix the issue with the output adapter when the adapter has a variable schema between batches.  
+- Allowed the PREDICT-with-ONNX models to handle a CPUID issue in ARM 
+- Improved handling of the failure path when T-SQL streaming starts
+- Corrected value of the watermark delay in job metrics when there's no data.
+- Fix for an issue with the output adapter when the adapter has a variable schema between batches  
 
 ## CTP 2.0 
 SQL engine build 15.0.2000.1401
@@ -113,7 +113,7 @@ SQL engine build 15.0.2000.1401
 -  Date_Bucket function:
     - Support for Date, Time, and DateTime types
 - PREDICT with ONNX:
-    - The RUNTIME parameter is required for ONNX 
+    - ONNX requirement for the RUNTIME parameter  
 - T-SQL streaming support (limited preview) 
  
 ### Known issues
@@ -126,7 +126,7 @@ You can request support on the [support page](https://ms.portal.azure.com/#blade
 - **Issue type**: *Technical* 
 - **Service**: *IoT Edge*
 - **Problem type**: *My problem relates to an IoT Edge module*
-- **Problem subtype**: Azure SQL Edge
+- **Problem subtype**: *Azure SQL Edge*
 
 :::image type="content" source="media/get-support/support-ticket.png" alt-text="Screenshot showing a sample support ticket.":::
 
@@ -155,7 +155,7 @@ SQL engine build 15.0.2000.1247
 ## CTP 1.3
 SQL engine build 15.0.2000.1147
 ### What's new?
-- Azure IOT portal deployment: 
+- Azure IoT portal deployment: 
     - Support for deploying AMD64 and ARM images
     - Support for streaming job creation
     - DACPAC deployment
