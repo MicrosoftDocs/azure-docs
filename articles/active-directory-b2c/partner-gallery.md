@@ -29,7 +29,7 @@ A high-level architecture diagram explains the flow.
 
 ![Diagram shows the identity proofing flow](./media/partner-gallery/third-party-identity-proofing.png)
 
-Microsoft partners with the following ISVs partners for identity verification and proofing.
+Microsoft partners with the following ISV partners for identity verification and proofing.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
@@ -41,7 +41,7 @@ Microsoft partners with the following ISVs partners for identity verification an
 
 ## MFA and Passwordless authentication
 
-Microsoft partners with the following ISVs partners for MFA and Passwordless authentication.
+Microsoft partners with the following ISV partners for MFA and Passwordless authentication.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
@@ -54,7 +54,7 @@ Microsoft partners with the following ISVs partners for MFA and Passwordless aut
 
 ## Role-based access control 
  
-Microsoft partners with the following ISVs partners for role-based access control.
+Microsoft partners with the following ISV partners for role-based access control.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
@@ -63,7 +63,7 @@ Microsoft partners with the following ISVs partners for role-based access contro
 
 ## Security
 
-Microsoft partners with the following ISVs partners for security.
+Microsoft partners with the following ISV partners for security.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
