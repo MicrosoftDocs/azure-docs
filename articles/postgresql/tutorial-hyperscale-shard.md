@@ -36,7 +36,7 @@ parallel to execute queries.
 In the prerequisites section we created a Hyperscale (Citus) server group with
 two worker nodes. The coordinator node's metadata tables track workers and
 distributed data. We can check the active workers in
-[pg_dist_node](reference-hyperscale-metadata#worker-node-table).
+[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).
 
 ```sql
 select nodeid from pg_dist_node where isactive;
@@ -79,7 +79,7 @@ from generate_series(1, 1000);
 
 By default `create_distributed_table()` makes 32 shards, as we can see by
 counting in the metadata table
-[pg_dist_shard](reference-hyperscale-metadata#shard-table):
+[pg_dist_shard](reference-hyperscale-metadata.md#shard-table):
 
 ```sql
 select logicalrelid, count(shardid)
@@ -112,7 +112,7 @@ select get_shard_id_for_distribution_column('users', 'hi@test.com');
 
 To connect the dots and see which worker node physically holds which rows of a
 distributed table, we can look at the shard placements in
-[pg_dist_placement](reference-hyperscale-metadata#shard-placement-table).
+[pg_dist_placement](reference-hyperscale-metadata.md#shard-placement-table).
 Joining it with the other metadata tables we've seen shows where each shard
 lives.
 
