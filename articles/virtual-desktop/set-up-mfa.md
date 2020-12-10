@@ -3,7 +3,7 @@ title: Set up Azure multifactor authentication for Windows Virtual Desktop - Azu
 description: How to set up Azure multifactor authentication for increased security in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 12/10/2020
 ms.author: helohr
 manager: lizross
 ---
