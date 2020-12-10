@@ -99,12 +99,12 @@ Moving forward in this quickstart, we will only use the `ChatProvider` to build 
 
 ## Defining chatSettings to start or join a chat
 
-In order to start or join a call, `chatSettings` must be passed to the `ChatProvider` for it to correct initialize the chat experience.
+In order to join a chat, `chatSettings` must be passed to the `ChatProvider` for it to correct initialize the chat experience. A Thread ID is required to join a chat. Chat Thread ID is provided by Azure Communication Services when a chat thread is created. In order to join a thread, the identity that will join needs to be added to the participant roster for the thread. For more information on [Adding Users to Chat Thread](../chat/get-started.md#add-a-user-as-member-to-the-chat-thread)
 
 ```javascript
 
 chatSettings = {
-    threadId = "THREAD_ID", //Optional, Azure Communication Services Thread ID. If not provided, a new thread will be created
+    threadId = "THREAD_ID", //Required, Azure Communication Services Thread ID.
 }
 
 ```

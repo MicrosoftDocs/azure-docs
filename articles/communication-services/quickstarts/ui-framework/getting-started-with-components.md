@@ -99,13 +99,13 @@ Moving forward in this quickstart, we will only use the `CallingProvider` to bui
 
 ## Defining callSettings to start or join a call
 
-In order to start or join a call, `callSettings` must be passed to the `CallingProvider` for it to correct initialize the calling experience.
+In order to start or join a call, `callSettings` must be passed to the `CallingProvider` for it to correct initialize the calling experience. You will either need to provide a user you want to start a call with (either a Phone Number or Azure Communication Identity).
 
 ```javascript
 
 callSettings = {
-    userToCall = ["IDENTITY","PHONE_NUMBER"], //Optional, Supports both Azure Communication Services Identities or PSTN numbers if PSTN is enabled
-    groupId = "GROUP_ID", //Optional, Azure Communication Services Group ID
+    userToCall = ["IDENTITY","PHONE_NUMBER"], // Supports both Azure Communication Services Identities or PSTN numbers if PSTN is enabled
+    groupId = "GROUP_ID", // Azure Communication Services Group ID
 }
 
 ```
