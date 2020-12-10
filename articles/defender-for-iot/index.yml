@@ -27,7 +27,7 @@ landingContent:
             url: overview.md
           - text: Solution Architecture
             url: architecture.md
-            text: Get started with Azure Defender for IoT
+          - text: Get started with Azure Defender for IoT
             url: getting-started.md 
       - linkListType: whats-new
         links:
@@ -53,25 +53,28 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: View Connected Devices
+            url:  how-to-work-with-the-sensor-device-map.md
           - text: View Device Inventories 
-            url: how-to-acquire-hardware-and-software.md
-            url: how-to-acquire-hardware-and-software.md
-          - text: Install software
-            url: how-to-install-software.md
-          - text: Set up your network
-            url: how-to-set-up-your-network.md
-          - text: Onboard sensors
-            url:  how-to-onboard-sensors.md
-          
+            url: how-to-investigate-sensor-detections-in-a-device-inventory.md
+          - text: Investigate Alerts
+            url: how-to-work-with-alerts-on-your-sensor.md
+          - text: Generate Reports
+            url: how-to-generate-reports.md
+          - text: View connected devices
+            url: how-to-work-with-the-sensor-device-map.md
+          - text: Control what Traffic is Detected
+            url:  how-to-control-what-traffic-is-monitored.md
 
+         
   - title: Azure Defender for IoT - Device Builders
     linkLists:
     - linkListType: overview
       links:
         - text: Edge security module
-        - url: security-edge-architecture.md
+          url: security-edge-architecture.md
         - text: Edge security module
-            url: security-edge-architecture.md
+          url: security-edge-architecture.md
     - linkListType: quickstart
       links:
         - text: Enable IoT Hub - Device Builders
