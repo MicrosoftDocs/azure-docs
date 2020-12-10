@@ -9,7 +9,7 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: banders
-ms.custom: contentperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Pay for your Azure subscription by invoice
