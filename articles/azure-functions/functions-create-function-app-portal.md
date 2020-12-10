@@ -31,7 +31,7 @@ When creating a function app, you must create or link to a general-purpose Azure
 Accounts of an unsupported type are filtered out when you create a function app in the Azure portal. The portal also only allows you use an existing storage account when that account is in the same region as the function app you're creating. If for some reason you want to violate the performance best practice of having the storage account used by your function app in the same region, you must create your function app outside of the portal. 
 
 >[!NOTE]
->When using the Consumption hosting plan, your function code and binding configuration files are stored in Azure File storage in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered. Also, when you create the function from the portal, as a best practice, you will be allowed to select storages from the same region.
+>When using the Consumption hosting plan, your function code and binding configuration files are stored in Azure File storage in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered. 
 
 To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#core-storage-services). 
 
