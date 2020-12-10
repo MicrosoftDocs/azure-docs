@@ -16,7 +16,7 @@ ms.date: 11/14/2019
 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*Virtual network rules* are a firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-paas-overview.md) or for your databases in [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rules feature is sometimes your best option for securely allowing communication to your database in SQL Database and Azure Synapse Analytics.
+*Virtual network rules* are a firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-paas-overview.md) or for your databases in [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why virtual network rules are sometimes your best option for securely allowing communication to your database in SQL Database and Azure Synapse Analytics.
 
 > [!NOTE]
 > This article applies to both SQL Database and Azure Synapse Analytics. For simplicity, the term *database* refers to both databases in SQL Database and Azure Synapse Analytics. Likewise, any references to *server* refer to the [logical SQL server](logical-servers.md) that hosts SQL Database and Azure Synapse Analytics.
@@ -41,7 +41,7 @@ Any virtual network rule is limited to the region that its underlying endpoint a
 
 Each virtual network rule applies to your whole server, not just to one particular database on the server. In other words, virtual network rules apply at the server level, not at the database level.
 
-- In contrast, IP rules can apply at either level.
+In contrast, IP rules can apply at either level.
 
 ### Security administration roles
 
@@ -54,7 +54,7 @@ There's a separation of security roles in the administration of virtual network 
 
 The roles of Network Admin and Database Admin have more capabilities than are needed to manage virtual network rules. Only a subset of their capabilities is needed.
 
-You have the option of using [Azure role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role versus adding the user to the other two major administrator roles.
+You have the option of using [role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role versus adding the user to the other two major administrator roles.
 
 > [!NOTE]
 > In some cases, the database in SQL Database and the virtual network subnet are in different subscriptions. In these cases, you must ensure the following configurations:
@@ -68,10 +68,10 @@ You have the option of using [Azure role-based access control (RBAC)][rbac-what-
 For SQL Database, the virtual network rules feature has the following limitations:
 
 - In the firewall for your database in SQL Database, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the database.
-- Each server can have up to 128 ACL entries for any given virtual network.
+- Each server can have up to 128 ACL entries for any virtual network.
 - Virtual network rules apply only to Azure Resource Manager virtual networks and not to [classic deployment model][arm-deployment-model-568f] networks.
 - Turning on virtual network service endpoints to SQL Database also enables the endpoints for Azure Database for MySQL and Azure Database for PostgreSQL. With endpoints set to **ON**, attempts to connect from the endpoints to your Azure Database for MySQL or Azure Database for PostgreSQL instances might fail.
-  - The underlying reason is that Azure Database for MySQL and Azure Database for PostgreSQL likely don't have a virtual network rule configured. You must configure a virtual network rule for Azure Database for MySQL and Azure Database for PostgreSQL and the connection will succeed.
+  - The underlying reason is that Azure Database for MySQL and Azure Database for PostgreSQL likely don't have a virtual network rule configured. You must configure a virtual network rule for Azure Database for MySQL and Azure Database for PostgreSQL, and the connection will succeed.
   - To define virtual network firewall rules on a SQL logical server that's already configured with private endpoints, set **Deny public network access** to **No**.
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules don't:
   - [Site-to-site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
@@ -85,7 +85,7 @@ When you use service endpoints for SQL Database, review the following considerat
 
 ### ExpressRoute
 
-If you use [ExpressRoute](../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) from your premises, for public peering or Microsoft peering, you'll need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP addresses that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. To learn more about NAT for ExpressRoute public and Microsoft peering, see [NAT requirements for Azure public peering](../../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
+If you use [ExpressRoute](../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) from your premises, for public peering or Microsoft peering, you'll need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP addresses that are used are provided by either the customer or the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. To learn more about NAT for ExpressRoute public and Microsoft peering, see [NAT requirements for Azure public peering](../../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
 
 To allow communication from your circuit to SQL Database, you must create IP network rules for the public IP addresses of your NAT.
 
@@ -96,7 +96,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## Impact of using virtual network service endpoints with Azure Storage
 
-Azure Storage has implemented the same feature that allows you to limit connectivity to your Azure Storage account. If you choose to use this feature with an Azure Storage account that's being used by SQL Database, you can run into issues. Next is a list and discussion of SQL Database and Azure Synapse Analytics features that are affected by this.
+Azure Storage has implemented the same feature that allows you to limit connectivity to your Azure Storage account. If you choose to use this feature with an Azure Storage account that SQL Database is using, you can run into issues. Next is a list and discussion of SQL Database and Azure Synapse Analytics features that are affected by this.
 
 ### Azure Synapse Analytics PolyBase and COPY statement
 
