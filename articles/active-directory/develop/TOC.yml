@@ -32,8 +32,10 @@
     items:
     - name: ASP.NET
       href: quickstart-v2-aspnet-webapp.md
-    - name: ASP.NET Core
+    - name: ASP.NET Core (sign-in users)
       href: quickstart-v2-aspnet-core-webapp.md
+    - name: ASP.NET Core (calls Microsoft Graph)
+      href: quickstart-v2-aspnet-core-webapp-calls-graph.md
     - name: Node.js - MSAL | Preview
       href: quickstart-v2-nodejs-webapp-msal.md
     - name: Node.js - Passport.js
