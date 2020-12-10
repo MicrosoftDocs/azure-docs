@@ -225,7 +225,7 @@ az provider register --namespace Microsoft.Storage
 [Create a `Premium_LRS` Azure storage account](../storage/files/storage-how-to-create-premium-fileshare.md) with following configurations to support NFS shares:
 - account kind: FileStorage
 - secure transfer required(enable HTTPS traffic only): false
-- select the virtual network of your agent nodes in Firewalls and virtual networks
+- select the virtual network of your agent nodes in Firewalls and virtual networks - so you might prefer to create the Storage Account in the MC_ resource group.
 
 ### Create NFS file share storage class
 
@@ -235,7 +235,7 @@ Save a `nfs-sc.yaml` file with the manifest below editing the respective placeho
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azurefile-csi
+  name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
 parameters:
   resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
@@ -271,6 +271,10 @@ Filesystem      Size  Used Avail Use% Mounted on
 accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-556606f5da38  100G     0  100G   0% /mnt/azurefile
 ...
 ```
+
+>[!NOTE]
+> Note that since NFS file share is in Premium account, the minimum file share size is 100GB. If you create a PVC with a small storage size, you might encounter an error "failed to create file share ... size (5)...".
+
 
 ## Windows containers
 

@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 10/28/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -22,20 +22,20 @@ This article covers the language components supported by Resource Graph:
 ## Resource Graph tables
 
 Resource Graph provides several tables for the data it stores about Azure Resource Manager resource
-types and their properties. These tables can be used with `join` or `union` operators to get
+types and their properties. Some tables can be used with `join` or `union` operators to get
 properties from related resource types. Here is the list of tables available in Resource Graph:
 
-|Resource Graph tables |Description |
+|Resource Graph table |Can `join`? |Description |
 |---|---|
-|Resources |The default table if none defined in the query. Most Resource Manager resource types and properties are here. |
-|ResourceContainers |Includes subscription (in preview -- `Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
-|AdvisorResources |Includes resources _related_ to `Microsoft.Advisor`. |
-|AlertsManagementResources |Includes resources _related_ to `Microsoft.AlertsManagement`. |
-|GuestConfigurationResources |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
-|MaintenanceResources |Includes resources _related_ to `Microsoft.Maintenance`. |
-|PolicyResources |Includes resources _related_ to `Microsoft.PolicyInsights`. (**Preview**)|
-|SecurityResources |Includes resources _related_ to `Microsoft.Security`. |
-|ServiceHealthResources |Includes resources _related_ to `Microsoft.ResourceHealth`. |
+|Resources |Yes |The default table if none defined in the query. Most Resource Manager resource types and properties are here. |
+|ResourceContainers |Yes |Includes subscription (in preview -- `Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
+|AdvisorResources |No |Includes resources _related_ to `Microsoft.Advisor`. |
+|AlertsManagementResources |No |Includes resources _related_ to `Microsoft.AlertsManagement`. |
+|GuestConfigurationResources |No |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
+|MaintenanceResources |No |Includes resources _related_ to `Microsoft.Maintenance`. |
+|PolicyResources |No |Includes resources _related_ to `Microsoft.PolicyInsights`. (**Preview**)|
+|SecurityResources |No |Includes resources _related_ to `Microsoft.Security`. |
+|ServiceHealthResources |No |Includes resources _related_ to `Microsoft.ResourceHealth`. |
 
 For a complete list including resource types, see
 [Reference: Supported tables and resource types](../reference/supported-tables-resources.md).
@@ -154,7 +154,7 @@ Here is the list of KQL tabular operators supported by Resource Graph with speci
 |[count](/azure/kusto/query/countoperator) |[Count key vaults](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Show distinct values for a specific alias](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-os) | |
-|[join](/azure/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#join) |Join flavors supported: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limit of 3 `join` in a single query. Custom join strategies, such as broadcast join, aren't allowed. May be used within a single table or between the _Resources_ and _ResourceContainers_ tables. |
+|[join](/azure/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#join) |Join flavors supported: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limit of 3 `join` in a single query. Custom join strategies, such as broadcast join, aren't allowed. For which tables can use `join`, see [Resource Graph tables](#resource-graph-tables). |
 |[limit](/azure/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `take`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Legacy operator, use `mv-expand` instead. _RowLimit_ max of 400. The default is 128. |
 |[mv-expand](/azure/kusto/query/mvexpandoperator) |[List Cosmos DB with specific write locations](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max of 400. The default is 128. |

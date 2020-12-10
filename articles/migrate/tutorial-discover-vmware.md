@@ -1,6 +1,9 @@
 ---
 title: Discover VMware VMs with Azure Migrate Server Assessment 
 description: Learn how to discover on-premises VMware VMs with the Azure Migrate Server Assessment tool
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
@@ -170,7 +173,7 @@ Check that the OVA file is secure, before you deploy it:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140333) | bd5c19eec93a62d52cc507a6b7b408d07f33f92b7d39b8a1e3dfec4ec62830d7
+        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
 
     - For Azure Government:
     

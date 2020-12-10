@@ -19,7 +19,7 @@
       - name: Cognitive Search
         href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Cognitive Services
-        href: ../../cognitive-services/create-account-resource-manager-template.md?toc=%252fazure%252fazure-resource-manager%252ftemplates%252ftoc.json
+        href: ../../cognitive-services/create-account-resource-manager-template.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
       - name: Data Science Virtual Machine
         href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Machine Learning
@@ -48,7 +48,7 @@
         href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Stream Analytics
         href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
-      - name: Synapse Analytics SQL pool
+      - name: Dedicated SQL pool (formerly SQL DW)
         href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Blockchain
       items:
@@ -126,6 +126,8 @@
         href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: IoT Hub
         href: ../../iot-hub/horizontal-arm-route-messages.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: IoT Hub Device Provisioning Service
+        href: ../../iot-dps/quick-setup-auto-provision-rm.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Management and Governance
       items:
       - name: Advisor

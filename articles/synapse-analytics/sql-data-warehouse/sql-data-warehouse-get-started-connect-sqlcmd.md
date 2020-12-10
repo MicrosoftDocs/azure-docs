@@ -10,10 +10,10 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Connect to Synapse SQL pool with sqlcmd
+# Connect to SQL pool in Azure Synapse Analytics with sqlcmd
 
 > [!div class="op_single_selector"]
 >
@@ -27,10 +27,10 @@ Use the [sqlcmd][sqlcmd] command-line utility to connect to and query a SQL pool
 
 ## 1. Connect
 
-To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL pool database. The connection string requires the following parameters:
+To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL pool. The connection string requires the following parameters:
 
 * **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
-* **Database (-d):** Database name.
+* **Database (-d):** SQL pool name.
 * **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL pool instance.
 
 To use SQL Server Authentication, you need to add the username/password parameters:

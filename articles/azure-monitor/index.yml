@@ -48,7 +48,7 @@ landingContent:
           - text: Monitor and alert on metrics
             url: platform/alerts-metric.md
           - text: Analyze logs
-            url: log-query/get-started-portal.md
+            url: ./log-query/log-analytics-tutorial.md
           - text: Azure VMs in Log Analytics
             url: learn/quick-collect-azurevm.md
           - text: Linux VMs in Log Analytics
@@ -64,9 +64,9 @@ landingContent:
       - linkListType: get-started
         links:
           - text: .NET
-            url: learn/quick-monitor-portal.md
+            url: app/asp-net.md
           - text: .NET Core
-            url: learn/dotnetcore-quick-start.md
+            url: app/asp-net-core.md
           - text: Node.js
             url: learn/nodejs-quick-start.md
           - text: Mobile
@@ -118,7 +118,3 @@ landingContent:
             url: /rest/api/application-insights/  
           - text: Application Insights REST API sandbox
             url: https://dev.applicationinsights.io
-
-
-
-

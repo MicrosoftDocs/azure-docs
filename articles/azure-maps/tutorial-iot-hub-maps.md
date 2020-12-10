@@ -21,7 +21,7 @@ In this tutorial you will:
 
 > [!div class="checklist"]
 > * Create an Azure storage account to log car tracking data.
-> * Upload a geofence to the Azure Maps Data service by using the Data Upload API.
+> * Upload a geofence to the Azure Maps Data service (Preview) by using the Data Upload API.
 > * Create a hub in Azure IoT Hub, and register a device.
 > * Create a function in Azure Functions, implementing business logic based on Azure Maps spatial analytics.
 > * Subscribe to IoT device telemetry events from the Azure function via Azure Event Grid.

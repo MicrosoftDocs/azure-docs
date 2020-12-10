@@ -13,12 +13,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 11/18/2020
 ms.author: b-juche
 ---
 # Manage snapshots by using Azure NetApp Files
 
 Azure NetApp Files supports creating on-demand snapshots and using snapshot policies to schedule automatic snapshot creation. You can also restore a snapshot to a new volume, restore a single file by using a client, or revert an existing volume by using a snapshot.
+
+> [!NOTE] 
+> For considerations about snapshot management in cross-region replication, see [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md).
 
 ## Create an on-demand snapshot for a volume
 
@@ -139,6 +142,17 @@ You can delete a snapshot policy that you no longer want to keep.
 
     ![Snapshot policy delete confirmation](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
+## Edit the Hide Snapshot Path option
+The Hide Snapshot Path option controls whether the snapshot path of a volume is visible. During the creation of an [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) or [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) volume, you have the option to specify whether the snapshot path should be hidden. You can subsequently edit the Hide Snapshot Path option as needed.  
+
+> [!NOTE]
+> For a [destination volume](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) in cross-region replication, the Hide Snapshot Path option is enabled by default, and the setting cannot be modified. 
+
+1. To view the Hide Snapshot Path option setting of a volume, select the volume. The **Hide snapshot path** field shows whether the option is enabled.   
+    ![Screenshot that describes the Hide Snapshot Path field.](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. To edit the Hide Snapshot Path option, click **Edit** on the volume page and modify the **Hide snapshot path** option as needed.   
+    ![Screenshot that describes the Edit volume snapshot option.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
 ## Restore a snapshot to a new volume
 
 Currently, you can restore a snapshot only to a new volume. 
@@ -168,11 +182,7 @@ If you do not want to [restore the entire snapshot to a volume](#restore-a-snaps
 
 The mounted volume contains a snapshot directory named  `.snapshot` (in NFS clients) or `~snapshot` (in SMB clients) that is accessible to the client. The snapshot directory contains subdirectories corresponding to the snapshots of the volume. Each subdirectory contains the files of the snapshot. If you accidentally delete or overwrite a file, you can restore the file to the parent read-write directory by copying the file from a snapshot subdirectory to the read-write directory. 
 
-If you selected the Hide Snapshot Path checkbox when you created the volume, the snapshot directory is hidden. You can view the Hide Snapshot Path status of the volume by selecting the volume. You can edit the Hide Snapshot Path option by clicking **Edit** on the volume’s page.  
-
-For a destination volume in cross-region replication, Hide Snapshot Path is enabled by default, and the setting cannot be modified.
-
-![Edit volume snapshot options](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+If you do not see the snapshot directory, it might be hidden because the Hide Snapshot Path option is currently enabled. You can [edit the Hide Snapshot Path option](#edit-the-hide-snapshot-path-option) to disable it.  
 
 ### Restore a file by using a Linux NFS client 
 

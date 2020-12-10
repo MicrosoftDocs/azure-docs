@@ -18,7 +18,9 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:U
 
 # Quickstart: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
 
-This quickstart uses a code sample to demonstrate how a Universal Windows Platform (UWP) application can sign in users with personal accounts or work and school accounts, get an access token, and call the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
+In this quickstart, you download and run a code sample that demonstrates how a Universal Windows Platform (UWP) application can sign in users and get an access token to call the Microsoft Graph API. 
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div renderon="docs"]
 > ## Prerequisites
@@ -35,20 +37,19 @@ This quickstart uses a code sample to demonstrate how a Universal Windows Platfo
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
 > 1. Go to the new [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs) pane.
-> 1. Enter a name for your application and click **Register**.
+> 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application for you in one click.
 >
 > ### Option 2: Register and manually configure your application and code sample
 > [!div renderon="docs"]
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution, follow these steps:
-> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://aka.ms/MobileAppReg) page.
-> 1. Select **New registration**.
-> 1. In **Register an application**, enter your application's registration information:
->      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `UWP-App-calling-MsGraph`.
->      - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
+> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application, for example `UWP-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
+> 1. In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
 > 1. Select **Register** to create the application, and then record the **Application (client) ID** for use in a later step.
 > 1. Under **Manage**, select **Authentication**.
 > 1. Select **Add a platform** > **Mobile and desktop applications**.

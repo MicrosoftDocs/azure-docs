@@ -66,7 +66,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Configure load balancing and outbound rules in Load Balancer (Azure CLI)
-            url: configure-load-balancer-outbound-cli.md
+            url: ./quickstart-load-balancer-standard-public-cli.md#create-outbound-rule-configuration
           - text: Create an Internet facing load balancer with IPv6 (PowerShell)
             url: load-balancer-ipv6-internet-ps.md
           - text: Configure the distribution mode
@@ -85,9 +85,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a Load Balancer with zone-redundant frontend
-            url: load-balancer-get-started-internet-az-portal.md
+            url: ./quickstart-load-balancer-standard-public-portal.md
           - text: Create a Load Balancer with zonal frontend
-            url: load-balancer-get-started-internet-availability-zones-zonal-portal.md
+            url: ./quickstart-load-balancer-standard-public-portal.md
           - text: Load balancing on multiple IP configurations
             url: load-balancer-multiple-ip.md
 
@@ -115,10 +115,10 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
+            url: /powershell/module/az.network/?view=azps-2.5.0#load_balancer
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
+            url: /cli/azure/network/lb?view=azure-cli-latest
           - text: ARM templates
-            url: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates
+            url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
           - text: Frequently asked Load Balancer questions
             url: load-balancer-faqs.md

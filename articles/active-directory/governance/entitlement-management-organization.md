@@ -147,9 +147,9 @@ There are two different types of state properties for connected organizations in
 
 - A proposed connected organization is a connected organization that has been automatically created, but hasn't had an administrator create or approve the organization. When a user signs up for an access package outside of a configured connected organization, any automatically created connected organizations will be in the **proposed** state since no administrator in the tenant set-up that partnership. 
     
-    Proposed connected organizations do not show up in the pickers for configured connected organizations, and are not in scope for the “all configured connected organizations” setting on any policies. 
+    Proposed connected organizations are not in scope for the “all configured connected organizations” setting on any policies but can be used in policies only for policies targeting specific organizations. 
 
-Only users from configured connected organizations can request access packages that are available to users from all configured organizations. Users from proposed connected organizations have an experience as if there is no connected organization for that domain, and won't have access to the access package until the state is changed by an administrator.
+Only users from configured connected organizations can request access packages that are available to users from all configured organizations. Users from proposed connected organizations have an experience as if there is no connected organization for that domain; can only see and request access packages scoped to their specific organization or scoped to any user.
 
 > [!NOTE]
 > As part of rolling out this new feature, all connected organizations created before 09/09/20 were considered **configured**. If you had an access package that allowed users from any organization to sign up, you should review your list of connected organizations that were created before that date to ensure none are miscategorized as **configured**.  An admin can update the **State** property as appropriate. For guidance, see [Update a connected organization](#update-a-connected-organization).

@@ -40,7 +40,7 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 
     You'll use this member when connecting your Video Indexer account to Azure.
 
-    This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+    This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](../../role-based-access-control/check-access.md).
 
     ![access control](./media/create-account/access-control-iam.png)
 
@@ -188,6 +188,10 @@ To automate the creation of the account is a two steps process:
 
     See an example of the [Media Services account creation template](https://github.com/Azure-Samples/media-services-v3-arm-templates).
 1. Call [Create-Account with the Media Services and Azure AD application](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
+
+## Clean up resources
+
+After you are done with this tutorial, delete resources that you are not planning to use.
 
 ## Next steps
 

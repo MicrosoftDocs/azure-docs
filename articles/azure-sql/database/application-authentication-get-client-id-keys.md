@@ -4,7 +4,7 @@ description: Create a service principal for accessing Azure SQL Database from co
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=1 
+ms.custom: sqldbrb=1 , devx-track-azurecli
 ms.devlang: 
 ms.topic: how-to
 author: stevestein

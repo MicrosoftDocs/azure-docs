@@ -30,7 +30,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Solution scope
+## Prerequisites
 
 This tutorial demonstrates how to develop a module in **C#** using **Visual Studio 2019** and deploy it to a **Windows device**. If you're developing modules for Linux devices, go to [Develop a C# IoT Edge module for Linux devices](tutorial-csharp-module.md) instead.
 
@@ -41,8 +41,6 @@ Use the following table to understand your options for developing and deploying 
 | **Windows AMD64 develop** | ![Develop C# modules for WinAMD64 in VS Code](./media/tutorial-c-module/green-check.png) | ![Develop C# modules for WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64 debug** |   | ![Debug C# modules for WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-## Prerequisites
-
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment, [Develop an IoT Edge module for a Windows device](tutorial-develop-for-windows.md). After completing that tutorial, you already should have the following prerequisites:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
@@ -52,7 +50,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) configured to run Windows containers.
 
 > [!TIP]
-> If you are using Visual Studio 2017 (version 15.7 or higher), plrease download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
+> If you are using Visual Studio 2017 (version 15.7 or higher), please download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
 
 ## Create a module project
 

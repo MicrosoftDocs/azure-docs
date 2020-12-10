@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 12/09/2020
 ---
 
 # Create a simple query in Azure Cognitive Search
@@ -19,11 +19,19 @@ In this article, we use examples to illustrate the simple syntax, populating the
 
 An alternative query syntax is [Full Lucene](query-lucene-syntax.md), supporting more complex query structures, such as fuzzy and wildcard search, which can take additional time to process. For more information and examples demonstrating full syntax, see [Use the full Lucene syntax](search-query-lucene-examples.md).
 
+Choose from the following tools and APIs for submitting queries.
+
+| Methodology | Description |
+|-------------|-------------|
+| [Search explorer (portal)](search-explorer.md) | Provides a search bar and options for index and api-version selections. Results are returned as JSON documents. Recommended for exploration, testing, and validation. <br/>[Learn more.](search-get-started-portal.md#query-index) | 
+| [Postman or Visual Studio Code](search-get-started-rest.md) | Web testing tools are an excellent choice for formulating [Search Documents](/rest/api/searchservice/search-documents) REST calls. The REST API supports every programmatic operation in Azure Cognitive Search, so you can issue requests interactively to focus your exploration on a specific task.  |
+| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Client that can be used to query an Azure Cognitive Search index.  <br/>[Learn more.](search-howto-dotnet-sdk.md)  |
+
 ## Formulate requests in Postman
 
 The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://nycopendata.socrata.com/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Cognitive Search to try these queries.
 
-What you do need is Postman or an equivalent tool for issuing HTTP request on GET. For more information, see [Quickstart: Explore Azure Cognitive Search REST API using Postman](search-get-started-postman.md).
+What you do need is Postman or an equivalent tool for issuing HTTP request on GET. For more information, see [Quickstart: Explore Azure Cognitive Search REST API](search-get-started-rest.md).
 
 ### Set the request header
 

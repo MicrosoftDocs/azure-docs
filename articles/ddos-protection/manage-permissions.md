@@ -33,7 +33,7 @@ To work with DDoS protection plans, your account must be assigned to the [networ
 | Microsoft.Network/ddosProtectionPlans/delete      | Delete a DDoS protection plan            |
 | Microsoft.Network/ddosProtectionPlans/join/action | Join a DDoS protection plan              |
 
-To enable DDoS protection for a virtual network, your account must also be assigned the appropriate [actions for virtual networks](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#permissions).
+To enable DDoS protection for a virtual network, your account must also be assigned the appropriate [actions for virtual networks](../virtual-network/manage-virtual-network.md#permissions).
 
 ## Azure Policy
 

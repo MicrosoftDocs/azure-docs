@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/09/2020
+ms.date: 11/12/2020
 ---
 # Convert to Image Directory
 
@@ -42,7 +42,8 @@ This article describes how to use the Convert to Image Directory module to help 
     
     ![Image sample dataset](./media/module/image-sample-dataset.png)
 
-    For scoring, the image dataset folder only needs to contain unclassified images.
+    > [!NOTE]
+    > For inference, the image dataset folder only needs to contain unclassified images.
 
 1. [Register the image dataset as a file dataset](../how-to-create-register-datasets.md) in your workspace, since the input of Convert to Image Directory module must be a **File dataset**.
 

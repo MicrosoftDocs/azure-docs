@@ -91,53 +91,37 @@ Soft delete for file shares (preview) is a storage-account level setting that al
 
 We recommend turning on soft delete for most file shares. If you have a workflow where share deletion is common and expected, you may decide to have a very short retention period or not have soft delete enabled at all.
 
-For more information about soft delete, see [Prevent accidental data deletion](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
+For more information about soft delete, see [Prevent accidental data deletion](./storage-files-prevent-file-share-deletion.md).
 
 ### Backup
-You can back up your Azure file share via [share snapshots](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take these snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). Snapshots are stored within your file share, meaning that if you delete your file share, your snapshots will also be deleted. To protect your snapshot backups from accidental deletion, ensure soft delete is enabled for your share.
+You can back up your Azure file share via [share snapshots](./storage-snapshots-files.md), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take these snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Snapshots are stored within your file share, meaning that if you delete your file share, your snapshots will also be deleted. To protect your snapshot backups from accidental deletion, ensure soft delete is enabled for your share.
 
-[Azure Backup for Azure file shares](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) handles the scheduling and retention of snapshots. Its grandfather-father-son (GFS) capabilities mean that you can take daily, weekly, monthly, and yearly snapshots, each with their own distinct retention period. Azure Backup also orchestrates the enablement of soft delete and takes a delete lock on a storage account as soon as any file share within it is configured for backup. Lastly, Azure Backup provides certain key monitoring and alerting capabilities that allow customers to have a consolidated view of their backup estate.
+[Azure Backup for Azure file shares](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) handles the scheduling and retention of snapshots. Its grandfather-father-son (GFS) capabilities mean that you can take daily, weekly, monthly, and yearly snapshots, each with their own distinct retention period. Azure Backup also orchestrates the enablement of soft delete and takes a delete lock on a storage account as soon as any file share within it is configured for backup. Lastly, Azure Backup provides certain key monitoring and alerting capabilities that allow customers to have a consolidated view of their backup estate.
 
 You can perform both item-level and share-level restores in the Azure portal using Azure Backup. All you need to do is choose the restore point (a particular snapshot), the particular file or directory if relevant, and then the location (original or alternate) you wish you restore to. The backup service handles copying the snapshot data over and shows your restore progress in the portal.
 
-For more information about backup, see [About Azure file share backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json).
+For more information about backup, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ### Advanced Threat Protection for Azure Files (preview)
 Advanced Threat Protection (ATP) for Azure Storage provides an additional layer of security intelligence that provides alerts when it detects anomalous activity on your storage account, for example unusual attempts to access the storage account. ATP also runs malware hash reputation analysis and will alert on known malware. You can configure ATP on a subscription or storage account level via Azure Security Center. 
 
-For more information, see [Advanced Threat protection for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection).
+For more information, see [Advanced Threat protection for Azure Storage](../common/azure-defender-storage-configure.md).
 
 ## Storage tiers
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-In general, Azure Files features and interoperability with other services are the same between premium file shares and standard file shares (including transaction optimized, hot, and cool file shares), however there are a few important differences:
-- **Billing model**
-    - Premium file shares are billed using a provisioned billing model, which means you pay fixed price for how much storage you provision rather than how much storage you use. There are no additional costs for transactions and metadata at-rest.
-    - Standard file shares are billed using a pay-as-you-go model, which includes a base cost of storage for how much storage you're actually consuming and then an additional transaction cost based on how you use the share. With standard file shares, your bill will increase if you use (read/write/mount) the Azure file share more.
-- **Redundancy options**
-    - Premium file shares are only available for locally redundant (LRS) and zone redundant (ZRS) storage.
-    - Standard file shares are available for locally redundant, zone redundant, geo-redundant (GRS), and geo-zone redundant (GZRS) storage.
-- **Maximum size of file share**
-    - Premium file shares can be provisioned for up to 100 TiB without any additional work.
-    - By default, standard file shares can span only up to 5 TiB, although the share limit can be increased to 100 TiB by opting into the *large file share* storage account feature flag. Standard file shares may only span up to 100 TiB for locally redundant or zone redundant storage accounts. For more information on increasing file share sizes, see [Enable and create large file shares](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
-- **Regional availability**
-    - Premium file shares are available in most of Azure regions with an exception of a few regions. Zone redundant support is available in a subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. To find out what regions support ZRS, see [Zone-redundant storage](../common/storage-redundancy.md#zone-redundant-storage). To help us prioritize new regions and premium tier features, please fill out this [survey](https://aka.ms/pfsfeedback).
-    - Standard file shares are available in every Azure region.
-- Azure Kubernetes Service (AKS) supports premium file shares in version 1.13 and later.
-
-Once a file share is created as either a premium or a standard file share, you cannot automatically convert it to the other tier. If you would like to switch to the other tier, you must create a new file share in that tier and manually copy the data from your original share to the new share you created. We recommend using `robocopy` for Windows or `rsync` for macOS and Linux to perform that copy.
-
 ### Understanding provisioning for premium file shares
-Premium file shares are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput.
+Premium file shares are provisioned based on a fixed GiB/IOPS/throughput ratio. All shares sizes are offered minimum baseline/throughput and allowed to burst. For each GiB provisioned, the share will be issued minimum IOPS/throughput and one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB
+with minimum IOPS/throughput. 
 
-On a best effort basis, all shares can burst up to three IOPS per GiB of provisioned storage for 60 minutes or longer depending on the size of the share. New shares start with the full burst credit based on the provisioned capacity.
+All premium shares are offered free bursting on a best effort basis. All shares sizes can burst up to 4,000 IOPS or up to to three IOPS per provisioned GiB, whichever provides a greater burst IOPS to the share. All shares support bursting for a max duration of 60 minutes at a peak burst limit. New shares start with the full burst credit based on the provisioned capacity.
 
-Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GiB and so on.
+Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GiB, and so on.
 
 > [!TIP]
-> Baseline IOPS = 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
+> Baseline IOPS = 400 + 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
 >
-> Burst Limit = 3 * Baseline IOPS. (Up to a max of 100,000 IOPS).
+> Burst Limit = MAX (4,000, 3 * Baseline IOPS). (whichever limit is greater, up to a max of 100,000 IOPS).
 >
 > egress rate = 60 MiB/s + 0.06 * provisioned GiB
 >
@@ -151,33 +135,31 @@ The following table illustrates a few examples of these formulae for the provisi
 
 |Capacity (GiB) | Baseline IOPS | Burst IOPS | Egress (MiB/s) | Ingress (MiB/s) |
 |---------|---------|---------|---------|---------|
-|100         | 100     | Up to 300     | 66   | 44   |
-|500         | 500     | Up to 1,500   | 90   | 60   |
-|1,024       | 1,024   | Up to 3,072   | 122   | 81   |
-|5,120       | 5,120   | Up to 15,360  | 368   | 245   |
-|10,240      | 10,240  | Up to 30,720  | 675 | 450   |
-|33,792      | 33,792  | Up to 100,000 | 2,088 | 1,392   |
-|51,200      | 51,200  | Up to 100,000 | 3,132 | 2,088   |
+|100         | 500     | Up to 4,000     | 66   | 44   |
+|500         | 900     | Up to 4,000  | 90   | 60   |
+|1,024       | 1,424   | Up to 4,000   | 122   | 81   |
+|5,120       | 5,520   | Up to 15,360  | 368   | 245   |
+|10,240      | 10,640  | Up to 30,720  | 675   | 450   |
+|33,792      | 34,192  | Up to 100,000 | 2,088 | 1,392   |
+|51,200      | 51,600  | Up to 100,000 | 3,132 | 2,088   |
 |102,400     | 100,000 | Up to 100,000 | 6,204 | 4,136   |
 
-> [!NOTE]
-> File shares performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s ingress throughput. To achieve maximum performance scale, spread the load across multiple VMs. Please refer [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
+It is important to note that effective file shares performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine without SMB Multichannel enabled, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s
+ingress throughput. The same client can achieve up to \~3x performance if SMB Multichannel is enabled on the premium shares. To achieve maximum performance scale, [enable SMB
+Multichannel](storage-files-enable-smb-multichannel.md) and spread the load across multiple VMs. Please refer to [SMB multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
 
 #### Bursting
-Premium file shares can burst their IOPS up to a factor of three. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee, file shares can burst *up to* the limit.
+If your workload needs the extra performance to meet peak demand, your share can use burst credits to go above share baseline IOPS limit to offer share performance it needs to meet the demand. Premium file shares can burst their IOPS up to 4,000 or up to a factor of three, whichever is a higher value. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee, file shares can burst *up to* the limit for a max duration of 60 minutes.
 
-Credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. For example, a 100 GiB share has 100 baseline IOPS. If actual traffic on the share was 40 IOPS for a specific 1-second interval, then the 60 unused IOPS are credited to a burst bucket. These credits will then be used later when operations would exceed the baseline IOPs.
+Credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. For example, a 100 GiB share has 500 baseline IOPS. If actual traffic on the share was 100 IOPS for a specific 1-second interval, then the 400 unused IOPS are credited to a burst bucket. Similarly, an idle 1 TiB share, accrues burst credit at 1,424 IOPS. These credits will then be used later when operations would exceed the baseline IOPS.
 
-> [!TIP]
-> Size of the burst bucket = Baseline IOPS * 2 * 3600.
-
-Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst. Shares can continue to burst as long as credits are remaining, though shares smaller than 50 TiB will only stay at the burst limit for up to an hour. Shares larger than 50 TiB can technically exceed this one hour limit, up to two hours but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to baseline IOPS.
+Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst at the max allowed peak burst rate. Shares can continue to burst as long as credits are remaining, up to max 60 minutes duration but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to the baseline IOPS.
 
 Share credits have three states:
 
 - Accruing, when the file share is using less than the baseline IOPS.
-- Declining, when the file share is bursting.
-- Remaining constant, when there are either no credits or baseline IOPS are in use.
+- Declining, when the file share is using more than the baseline IOPS and in the bursting mode.
+- Constant, hen the files share is using exactly the baseline IOPS, there are either no credits accrued or used.
 
 New file shares start with the full number of credits in its burst bucket. Burst credits will not be accrued if the share IOPS fall below baseline IOPS due to throttling by the server.
 
