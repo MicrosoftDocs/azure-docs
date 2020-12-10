@@ -5,13 +5,13 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 12/10/2020
 ms.author: jgao
 
 ---
 # Use deployment scripts in templates (Preview)
 
-Learn how to use deployment scripts in Azure Resource templates. With a new resource type called `Microsoft.Resources/deploymentScripts`, users can execute deployment scripts in template deployments and review execution results. These scripts can be used for performing custom steps such as:
+Learn how to use deployment scripts in Azure Resource templates. With a new resource type called `Microsoft.Resources/deploymentScripts`, users can execute scripts in template deployments and review execution results. These scripts can be used for performing custom steps such as:
 
 - add users to a directory
 - perform data plane operations, for example, copy blobs or seed database
@@ -33,14 +33,12 @@ The deployment script resource is only available in the regions where Azure Cont
 > A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise the storage account along with the container instance are automatically created by the script service. The two automatically created resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the resources until the resources are deleted. To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
 
 > [!IMPORTANT]
-> For deployment script API version 2020-10-01 or later, the permissions of the deployment principal is used to provision the Azure container instance and/or the storage account that are required for the script execution. If the script need to authenticate to Azure and perform Azure specific actions, we recommend providing the script with a managed identity. You can also log in to Azure in the deployment script.
+> The deploymentScripts resource API version 2020-10-01 supports [OnBehalfofTokens(OBO)](../../activedirectory/develop/v2-oauth2-on-behalf-of-flow.md). By using OBO, the deployment script service uses the deployment principal's token to create the underlying resources for running deployment scripts, such as the Azure Container instance, the Azure storage account, and role assignments for the managed identity. In older API version, the managed identity is used to create these resources. Retry logic is now built in the wrapper script which delays Azure login. If you create the identity and grant permissions in the same template where you run deployment scripts.  The deployment script service retries login for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
 
 ## Prerequisites
 
-- **(Optional) A user-assigned managed identity with the contributor's role to the target resource-group**. This identity is used to execute deployment scripts. To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group.
-
-  > [!NOTE]
-  > The script service creates a storage account (unless you specify an existing storage account) and a container instance in the background. A user-assigned managed identity with the contributor's role at the subscription level is required if the subscription has not registered the Azure storage account (Microsoft.Storage) and Azure container instance (Microsoft.ContainerInstance) resource providers.
+- **(Optional) A user-assigned managed identity with the contributor's role to the target resource-group**. For deployment script API version 2020-10-01 or later, the permissions of the deployment principal is used to provision the Azure container instance and/or the storage account that are required for the script execution. If the script need to authenticate to Azure and perform Azure specific actions, we recommend providing the script with a user-assigned managed identity. You can also log in to Azure in the deployment script.
+    For deployment script API version 2019-10-0-preview, a managed identity is used to create a storage account (unless you specify an existing storage account) and a container instance. To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group. A user-assigned managed identity with the contributor's role at the subscription level is required if the subscription has not registered the Azure storage account (Microsoft.Storage) and Azure container instance (Microsoft.ContainerInstance) resource providers.
 
   To create an identity, see [Create a user-assigned managed identity by using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), or [by using Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), or [by using Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). You need the identity ID when you deploy the template. The format of the identity is:
 
@@ -167,14 +165,11 @@ Property value details:
 - [Sample 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): create a resource group at the subscription level, create a key vault in the resource group, and then use deployment script to assign a certificate to the key vault.
 - [Sample 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): create a user-assigned managed identity, assign the contributor role to the identity at the resource group level, create a key vault, and then use deployment script to assign a certificate to the key vault.
 
-> [!NOTE]
-> It is recommended to create a user-assigned identity and grant permissions in advance. You might get sign-in and permission related errors if you create the identity and grant permissions in the same template where you run deployment scripts. The deployment script service retries login for 10 minutes with 10-second interval.
-
 ## Use inline scripts
 
 The following template has one resource defined with the `Microsoft.Resources/deploymentScripts` type. The highlighted part is the inline script.
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-44" highlight="24-30":::
 
 > [!NOTE]
 > Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be escaped by using a **&#92;** or enclosed in single quotes. You can also consider using string substitution as it is shown in the previous JSON sample.
@@ -189,7 +184,7 @@ $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json" -identity $id
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json"
 
 Write-Host "Press [ENTER] to continue ..."
 ```
@@ -236,7 +231,7 @@ The supporting files are copied to azscripts/azscriptinput at the runtime. Use r
 
 The following template shows how to pass values between two deploymentScripts resources:
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-84" highlight="39-40,66":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-68" highlight="30-31,50":::
 
 In the first resource, you define a variable called **$DeploymentScriptOutputs**, and use it to store the output values. To access the output value from another resource within the template, use:
 
@@ -536,6 +531,8 @@ The life cycle of these resources is controlled by the following properties in t
 
 > [!NOTE]
 > It is not recommended to use the storage account and the container instance that are generated by the script service for other purposes. The two resources might be removed depending on the script life cycle.
+
+To retain the container instance and storage account for troubleshooting, you can add a sleep command into the script.  For example [Start-Sleep](./powershell/module/microsoft.powershell.utility/start-sleep).
 
 ## Run script more than once
 
