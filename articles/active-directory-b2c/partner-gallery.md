@@ -29,7 +29,7 @@ A high-level architecture diagram explains the flow.
 
 ![Diagram shows the identity proofing flow](./media/partner-gallery/third-party-identity-proofing.png)
 
-Microsoft partners with the following ISVs partners.
+Microsoft partners with the following ISVs partners for identity verification and proofing.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
@@ -41,6 +41,8 @@ Microsoft partners with the following ISVs partners.
 
 ## MFA and Passwordless authentication
 
+Microsoft partners with the following ISVs partners for MFA and Passwordless authentication.
+
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
 | ![Screenshot of a hypr logo](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) is a passwordless authentication provider, which replaces passwords with public key encryptions eliminating fraud, phishing, and credential reuse. |
@@ -50,7 +52,9 @@ Microsoft partners with the following ISVs partners.
 | ![Screenshot of a typingDNA logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-twilio.md) enables strong customer authentication by analyzing a user’s typing pattern. It helps companies enable a silent MFA and comply with SCA requirements for PSD2. |
 | ![Screenshot of a whoiam logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) is a Branded Identity Management System (BRIMS) application that enables organizations to verify their user base by voice, SMS, and email. |
 
-## Role-based access control  
+## Role-based access control 
+ 
+Microsoft partners with the following ISVs partners for role-based access control.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
@@ -58,6 +62,8 @@ Microsoft partners with the following ISVs partners.
 | ![Screenshot of a Saviynt logo](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-Saviynt.md) cloud-native platform promotes better security, compliance, and governance through intelligent analytics and cross application integration for streamlining IT modernization. |
 
 ## Security
+
+Microsoft partners with the following ISVs partners for security.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
