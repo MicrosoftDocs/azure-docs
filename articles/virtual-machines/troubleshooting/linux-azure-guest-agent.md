@@ -23,11 +23,11 @@ See https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-me
 ## Troubleshoot VM agent with Not Ready status
 
 1. Make sure Azure Linux Agent is running.
-    Depending on distro, the service name might be **walinuxagent** or **waagent**:
+> The service name might be **walinuxagent** or **waagent**:
 
-```
-root@nam-u18:/home/nam# service walinuxagent status
-● walinuxagent.service - Azure Linux Agent
+> ```
+> root@nam-u18:/home/nam# service walinuxagent status
+> ● walinuxagent.service - Azure Linux Agent
    Loaded: loaded (/lib/systemd/system/walinuxagent.service; enabled; vendor preset: enabled)
    Active: active (running) since Thu 2020-10-08 17:10:29 UTC; 3min 9s ago
  Main PID: 1036 (python3)
