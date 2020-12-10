@@ -110,8 +110,7 @@ Follow the instructions there through [step 4.2](https://docs.microsoft.com/azur
 
 4. **logoutUrl**: Skip this property as ZPA doesn't support a logout URL.
 
->[!NOTE]
->The rest of the steps are not relevant to this tutorial.
+The rest of the steps are not relevant to this tutorial.
 
 ### Part 4 - Extract the IdP SAML metadata from Azure AD B2C
 
