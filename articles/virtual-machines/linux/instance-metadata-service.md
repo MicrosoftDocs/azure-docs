@@ -196,6 +196,7 @@ In general, requests to IMDS are limited to 5 requests per second. Requests exce
 ## HTTP verbs
 
 The following HTTP verbs are currently supported:
+
 | Verb | Description |
 |------|-------------|
 | `GET` | Retrieve  the requested resource
@@ -213,6 +214,7 @@ http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=j
 ```
 
 Specifies the parameters:
+
 | Name | Value |
 |------|-------|
 | api-version | 2019-06-04
@@ -406,7 +408,7 @@ None (this endpoint is unversioned).
 
 ### Get VM metadata
 
-Exposes the important metadata for the VM instance, including the VM, network, and storage. 
+Exposes the important metadata for the VM instance, including compute, network, and storage. 
 
 ```bash
 GET /metadata/instance
@@ -547,6 +549,7 @@ This endpoint supports response filtering via [route parameters](#route-paramete
 Schema breakdown:
 
 **Compute**
+
 | Data | Description | Version introduced |
 |------|-------------|--------------------|
 | `azEnvironment` | Azure Environment where the VM is running in | 2018-10-01
@@ -609,7 +612,7 @@ The OS disk object contains the following information about the OS disk used by 
 | `managedDisk` | Managed disk parameters
 | `name`    | Disk name
 | `vhd`     | Virtual hard disk
-writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
+| `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk
 
 The data disks array contains a list of data disks attached to the VM. Each data disk object contains the following information:
 
@@ -628,6 +631,7 @@ Data | Description |
 | `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk
 
 **Network**
+
 | Data | Description | Version introduced |
 |------|-------------|--------------------|
 | `ipv4.privateIpAddress` | Local IPv4 address of the VM | 2017-04-02
@@ -821,7 +825,7 @@ The cloud and the values of the Azure environment are listed here.
 | [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) | AzureGermanCloud
 
 
-#### Sample 5: Retrieve network in
+#### Sample 5: Retrieve network information
 
 **Request**
 
