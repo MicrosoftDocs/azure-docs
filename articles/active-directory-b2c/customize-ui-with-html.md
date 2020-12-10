@@ -23,7 +23,7 @@ zone_pivot_groups: b2c-policy-type
 Branding and customizing the user interface that Azure Active Directory B2C (Azure AD B2C) displays to your customers helps provide a seamless user experience in your application. These experiences include signing up, signing in, profile editing, and password resetting. This article introduces the methods of user interface (UI) customization. 
 
 > [!TIP]
-> If you want to modify only the banner logo, background image, and background color of your user flow pages, you can try the [Company branding](company-branding.md) feature described later in this article.
+> If you want to modify only the banner logo, background image, and background color of your user flow pages, you can try the [Company branding](company-branding.md) feature.
 
 
 ## Custom HTML and CSS overview
@@ -106,10 +106,6 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 
 ## Custom page content walkthrough
 
-## Prerequisites
-
-[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-
 Here's an overview of the process:
 
 1. Prepare a location to host your custom page content (a publicly accessible, CORS-enabled HTTPS endpoint).
@@ -117,6 +113,11 @@ Here's an overview of the process:
 1. Publish your custom page content your publicly available HTTPS endpoint.
 1. Set cross-origin resource sharing (CORS) for your web app.
 1. Point your policy to your custom policy content URI.
+
+## Prerequisites
+
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
 
 ### 1. Create your HTML content
 

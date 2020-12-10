@@ -20,7 +20,10 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-You can customize your user flow pages with a banner logo, background image, and background color by using Azure Active Directory [Company branding](../active-directory/fundamentals/customize-branding.md). The company branding includes signing up, signing in, profile editing, and password resetting. 
+You can customize your Azure AD B2C pages with a banner logo, background image, and background color by using Azure Active Directory [Company branding](../active-directory/fundamentals/customize-branding.md). The company branding includes signing up, signing in, profile editing, and password resetting. 
+
+> [!TIP]
+> To customize other aspects of your user flow pages beyond the banner logo, background image, or background color, see how to [customize the UI with HTML template](customize-ui-with-html.md).
 
 ## Prerequisites
 
