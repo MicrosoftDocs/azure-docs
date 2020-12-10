@@ -1135,6 +1135,10 @@
       href: ./machine-learning/tutorial-cognitive-services-anomaly.md
     - name: Configure Cognitive Services for Azure Synapse
       href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
+- name: How-to
+  items:
+  - name: Plan and manage costs
+    href: 
 - name: Reference
   items:
   - name: Azure CLI
