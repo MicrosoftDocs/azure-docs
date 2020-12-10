@@ -126,7 +126,7 @@ API Management provides [policies](api-management-policies.md) you can configure
 
 This section shows how to apply outbound policies to your API that transform the API response. The policies in this example strip response headers and hide original backend URLs that appear in the response body.
 
-1. In the Explorer pane, select **Policy** under the *demo-conference-api* that you imported. The policy file opens in the editor windows. This file configures policies for all operations in the API. 
+1. In the Explorer pane, select **Policy** under the *demo-conference-api* that you imported. The policy file opens in the editor window. This file configures policies for all operations in the API. 
 
 1. Update the file with the following content in the `<outbound>` element:
     ```html
@@ -173,4 +173,4 @@ This tutorial introduced several features of the API Management Extension for Vi
 > * Test the API
 > * Apply API Management policies
 
-The API Management Extension provides additional features to work with your APIs. For example, learn how to [debug polices](api-management-debug-policies) (available in the Developer service tier only).
+The API Management Extension provides additional features to work with your APIs. For example, learn how to [debug polices](api-management-debug-policies.md) (available in the Developer service tier only).

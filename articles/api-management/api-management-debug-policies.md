@@ -18,16 +18,18 @@ ms.author: apimpm
 
 [Policies](api-management-policies.md) in Azure API Management provide powerful capabilities that help API publishers address cross-cutting concerns such as authentication, authorization, throttling, caching, and transformation. Policies are a collection of statements that are executed sequentially on the request or response of an API. 
 
-This article describes how to debug API Management policies using the [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+This article describes how to debug API Management policies using the [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). For additional features o the Azure API Management Extension, see [Tutorial: ]
 
 > [!NOTE]
 > This feature is in public preview.
 
 ## Prerequisites
 
-Create an API Management Developer-tier instance by following this [tutorial](get-started-create-service-instance.md) first.
+* Create an API Management Developer-tier instance by following this [quickstart](get-started-create-service-instance.md) first.
 
-Install [Visual Studio Code](https://code.visualstudio.com/) and the latest version of [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+* Install [Visual Studio Code](https://code.visualstudio.com/) and the latest version of [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+
+* Import an API to your API Management instance. For example steps, see [Tutorial: Use the API Management Extension for Visual Studio Code to import and manage APIs](vscode-tutorial-service-instance.md).
 
 ## Restrictions and limitations
 

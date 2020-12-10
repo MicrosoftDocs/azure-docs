@@ -24,24 +24,28 @@
         href: quickstart-arm-template.md
 - name: Tutorials
   items:
-      - name: 1 - Import your first API
-        href: import-and-publish.md
-      - name: 2 - Create and publish a product
-        href: api-management-howto-add-products.md
-      - name: 3 - Mock API responses
-        href: mock-api-responses.md
-      - name: 4 - Protect your API
-        href: transform-api.md
-      - name: 5 - Monitor published APIs
-        href: api-management-howto-use-azure-monitor.md
-      - name: 6 - Debug your APIs
-        href: api-management-howto-api-inspector.md
-      - name: 7 - Add revisions
-        href: api-management-get-started-revise-api.md
-      - name: 8 - Add multiple versions
-        href: api-management-get-started-publish-versions.md
-      - name: 9 - Customize developer portal
-        href: api-management-howto-developer-portal-customize.md
+      - name: Manage APIs in the Azure portal
+        items:
+        - name: 1 - Import your first API
+          href: import-and-publish.md
+        - name: 2 - Create and publish a product
+          href: api-management-howto-add-products.md
+        - name: 3 - Mock API responses
+          href: mock-api-responses.md
+        - name: 4 - Protect your API
+          href: transform-api.md
+        - name: 5 - Monitor published APIs
+          href: api-management-howto-use-azure-monitor.md
+        - name: 6 - Debug your APIs
+          href: api-management-howto-api-inspector.md
+        - name: 7 - Add revisions
+          href: api-management-get-started-revise-api.md
+        - name: 8 - Add multiple versions
+          href: api-management-get-started-publish-versions.md
+        - name: 9 - Customize developer portal
+          href: api-management-howto-developer-portal-customize.md
+      - name: Manage APIs in Visual Studio Code
+        href: vscode-tutorial-service-instance.md
 - name: Samples
   items:
       - name: Policies
@@ -219,6 +223,7 @@
               href: api-management-sample-send-request.md
             - name: Manage secrets using properties
               href: api-management-howto-properties.md
+              displayName: named values
             - name: Access restriction policies
               href: api-management-access-restriction-policies.md
             - name: Advanced policies

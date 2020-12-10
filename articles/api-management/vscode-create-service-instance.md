@@ -65,4 +65,4 @@ Alternately, you can select **Delete API Management** to only delete the API Man
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Import and publish your first API](import-and-publish.md)
+> [Import and manage APIs using the API Management Extension](vscode-tutorial-service-instance.md)
