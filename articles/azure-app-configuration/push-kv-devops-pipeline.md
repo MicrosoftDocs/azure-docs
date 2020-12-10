@@ -2,11 +2,11 @@
 title: Push settings to App Configuration with Azure Pipelines
 description: Learn to use Azure Pipelines to push key-values to an App Configuration Store
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.author: lcozzens
+ms.author: alkemper
 ---
 
 # Push settings to App Configuration with Azure Pipelines
@@ -22,7 +22,7 @@ The [Azure App Configuration Push](https://marketplace.visualstudio.com/items?it
 
 ## Create a service connection
 
-A service connection allows you to access resources in your Azure subscription from your Azure DevOps project.
+A [service connection](/azure/devops/pipelines/library/service-endpoints) allows you to access resources in your Azure subscription from your Azure DevOps project.
 
 1. In Azure DevOps, go to the project containing your target pipeline and open the **Project settings** at the bottom left.
 1. Under **Pipelines** select **Service connections** and select **New service connection** in the top right.
