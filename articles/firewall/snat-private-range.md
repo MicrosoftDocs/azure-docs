@@ -45,7 +45,7 @@ $azFw = @{
 New-AzFirewall @azFw
 ```
 > [!NOTE]
-> Deploying Azure Firewall using `New-AzFirewall` requires an existing VNet and Public IP address. See [Deploy and configure Azure Firewall using Azure CLI](deploy-cli.md) for a full deployment guide.
+> Deploying Azure Firewall using `New-AzFirewall` requires an existing VNet and Public IP address. See [Deploy and configure Azure Firewall using Azure PowerShell](deploy-ps.md) for a full deployment guide.
 
 > [!NOTE]
 > IANAPrivateRanges is expanded to the current defaults on Azure Firewall while the other ranges are added to it. To keep the IANAPrivateRanges default in your private range specification, it must remain in your `PrivateRange` specification as shown in the following examples.
