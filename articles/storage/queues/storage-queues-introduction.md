@@ -37,4 +37,7 @@ Queue Storage contains the following components:
 ## Next steps
 
 - [Create a storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-- [Getting started with Queue Storage using .NET](storage-dotnet-how-to-use-queues.md)
+- [Get started with Queue Storage using .NET](storage-dotnet-how-to-use-queues.md)
+- [Get started with Queue Storage using Java](storage-java-how-to-use-queue-storage.md)
+- [Get started with Queue Storage using Python](storage-python-how-to-use-queue-storage.md)
+- [Get started with Queue Storage using Node.js](storage-nodejs-how-to-use-queues.md)

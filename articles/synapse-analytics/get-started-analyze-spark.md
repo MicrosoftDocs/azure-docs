@@ -18,7 +18,7 @@ ms.date: 07/20/2020
 
 In this tutorial, you'll learn the basic steps to load and analyze data with Apache Spark for Azure Synapse.
 
-1. In the **Data** hub, click on **Add a new resource**(plus button above **Linked**) >> **Browse Samples**. 
+1. In the **Data** hub, click on **Add a new resource**(plus button above **Linked**) >> **Browse gallery**. 
 1. Find **NYC Taxi & Limousine Commission - yellow taxi trip records** and click on it. 
 1. On the bottom of the page press **Continue** and after that **Add dataset**. 
 1. Now in **Data** hub under **Linked** right-click on **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** and select **New notebook**

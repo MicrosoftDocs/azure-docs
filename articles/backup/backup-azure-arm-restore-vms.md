@@ -208,6 +208,8 @@ There are a number of common scenarios in which you might need to restore VMs.
 **Restore a single domain controller VM in a multiple domain configuration** |  Restore the disks and create a VM by [using PowerShell](backup-azure-vms-automation.md#restore-the-disks)  
 **Restore multiple domains in one forest** | We recommend a [forest recovery](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 
+For more information, see [Back up and restore Active Directory domain controllers](active-directory-backup-restore.md).
+
 ## Track the restore operation
 
 After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. If they aren't visible, select the **Notifications** symbol, and then select **More events in the activity log** to see the Restore Process Status.

@@ -10,7 +10,7 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Choose how to authorize access to queue data in the Azure portal
