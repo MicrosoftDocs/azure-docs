@@ -661,9 +661,22 @@ Replace $upstream:8000/azureiotedge-simulated-temperature-sensor:1.0 by $upstrea
        auth: {}
    ```
 ## IotEdge check
-Iotedge check can be performed in nested hierarchy, even if the children doesn't have direct internet access
+Iotedge check can be performed in nested hierarchy, even if the children doesn't have direct internet access.
+When running "iotedge check" from the lower layer the program will try to pull the image from the parent through port 443.
 
+If the IoTEdgeAPIProxy is listen on port 443 then "iotedge check" command will just work.
+If the IoTEdgeAPIProxy is listening on a different port (8000 for example) then the correct port need to be specified:
 
+   ```bash
+   iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port>/azureiotedge-diagnostics:1.2.0-rc2
+   ```
+   
+The azureiotedge-diagnostics is pulled from the container registry that is linked with the registry module. This tutorial has it set by default to https://mcr.microsoft.com:
+    | Name | Value |
+    | - | - |
+    | `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
+If you are using you own private container registry, make sure all the images (IoTEdgeAPIProxy, edgeAgent, edgeHub, diagnostics ...) are present in it.    
+    
 ## View generated data
 
 The **Simulated Temperature Sensor** module that you pushed generates sample environment data. It sends messages that include ambient temperature and humidity, machine temperature and pressure, and a timestamp.
