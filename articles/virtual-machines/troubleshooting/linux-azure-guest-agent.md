@@ -14,15 +14,16 @@ ms.author: axelg
 ---
 # Troubleshoot Azure Linux Agent
 
-[Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) enables the virtual machine (VM) to communicate with the Fabric Controller (the underlying physical server on which the VM is hosted) on IP address 168.63.129.16.
-    > [!NOTE]
-    > This IP address is a virtual public IP address that facilitates communication. For more information, go to [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+[Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) enables a virtual machine (VM) to communicate with the Fabric Controller (the underlying physical server on which the VM is hosted) on IP address 168.63.129.16.
 
-## Check agent status and version
+    [!NOTE]
+    This IP address is a virtual public IP address that facilitates communication and should not be blocked. For more information, go to [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
-See https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output.
+## Check the Agent status and version
 
-## Troubleshoot 'Not Ready' status
+Go to https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output.
+
+## Troubleshoot a 'Not Ready' status
 
 ### Step 1: Check the service status
 
@@ -54,7 +55,7 @@ root@nam-u18:/home/nam#
 * If the service is running, restart it to resolve the issue.
 * If the service is stopped, start it and wait a few minutes, then check the status again.
 
-### Step 2: Check whether auto-update is enabled
+### Step 2: Make sure auto-update is enabled
 
 Check this setting in /etc/waagent.conf.
 
@@ -64,7 +65,7 @@ AutoUpdate.Enabled=y
 
 For more information on how to update the Azure Linux Agent, go to https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent.
 
-### Step 3: Check whether the VM can connect to the Fabric Controller
+### Step 3: Make sure the VM can connect to the Fabric Controller
 
 Use a tool such as curl to test whether the VM can connect to 168.63.129.16 on ports 80, 443, and 32526. If the VM doesn’t connect as expected, check whether outbound communication over ports 80, 443, and 32526 is open in your local firewall on the VM. If this IP address is blocked, VM Agent might display unexpected behavior.
 
@@ -76,21 +77,17 @@ Events for troubleshooting Azure Linux Agent are recorded in the following log f
 
 ### Unable to connect to WireServer IP (Host IP)
 
-Notice the following error entries in /var/log/waagent.log:
+The following error displays in the **/var/log/waagent.log** file when the VM cannot reach the WireServer IP on the host server.
 
 ```
 2020-10-02T18:11:13.148998Z WARNING ExtHandler ExtHandler An error occurred while retrieving the goal state:
 ```
 
-**Analysis**
+To resolve this issue:
 
-The VM cannot reach the WireServer IP on the host server.
-
-**Solution**
-
-1. Because the WireServer IP is not reachable, connect to the VM by using SSH, and then try to access the following URL from curl: http://168.63.129.16/?comp=versions.
-1. Check for any issues that might be caused by a firewall, a proxy, or other source that could be blocking access to the IP address 168.63.129.16.
-1. Check whether Linux IPTables or a third-party firewall is blocking access to ports 80, 443, and 32526. For more information about why this address should not be blocked, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+* Connect to the VM by using SSH, and then try to access the following URL from curl: http://168.63.129.16/?comp=versions.
+* Check for any issues that might be caused by a firewall, a proxy, or other source that could be blocking access to the IP address 168.63.129.16.
+* Check whether Linux IPTables or a third-party firewall is blocking access to ports 80, 443, and 32526.
 
 ## Next steps
 
