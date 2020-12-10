@@ -29,7 +29,7 @@ If you are planning to run JavaScript functions on a Dedicated (App Service) pla
 When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Internally, Functions uses Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts, Azure Premium Storage, and general-purpose storage accounts with ZRS replication. These accounts are filtered out of from the Storage Account blade when creating a function app.
 
 >[!NOTE]
->When using the Consumption hosting plan, your function code and binding configuration files are stored in Azure File storage in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered. Also, when you are creating the function from the portal, as a best practice, you will be allowed to select storages from the same region.
+>When using the Consumption hosting plan, your function code and binding configuration files are stored in Azure File storage in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered. Also, when you create the function from the portal, as a best practice, you will be allowed to select storages from the same region.
 
 To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#core-storage-services). 
 
