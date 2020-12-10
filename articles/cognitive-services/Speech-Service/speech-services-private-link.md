@@ -250,7 +250,7 @@ Note that IP address resolved points to a VNet Proxy endpoint, which is used for
 
 ## Adjusting existing applications and solutions 
 
-A Speech resource with a custom domain enabled uses a different way to interact with Speech Services. This is true for a custom domain enabled Speech resource both [with](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) and [without](#using-speech-resource-with-custom-domain-name-without-private-endpoints) private endpoints. This section provides the necessary information for both cases.
+A Speech resource with a custom domain enabled uses a different way to interact with Speech Services. This is true for a custom domain enabled Speech resource both [with](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) and [without](#using-speech-resource-with-custom-domain-name-without-private-endpoints) private endpoints. The current section provides the necessary information for both cases.
 
 ### Using Speech resource with custom domain name and private endpoint enabled
 
