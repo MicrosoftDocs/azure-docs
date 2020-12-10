@@ -902,7 +902,7 @@ When you use an Azure Storage account, you must follow the steps for using [stor
 | **Queues** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
 
 > [!IMPORTANT]
-> <sup>1</sup>When you use tables and queues outside the US DoD regions, you must encrypt the data before inserting it into the table or queue. For more information, see the instructions for using [client-side encryption](../storage/common/storage-client-side-encryption-java.md).
+> <sup>1</sup>When you use tables and queues outside the US DoD regions, you must encrypt the data before you insert it into the table or queue. For more information, see the instructions for using [client-side encryption](../storage/common/storage-client-side-encryption-java.md).
 
 #### Storage encryption with Key Vault managed keys
 
@@ -929,7 +929,7 @@ Microsoft Azure StorSimple supports Impact Level 5 workloads in Azure Government
 
 - To help ensure the security and integrity of data moved to the cloud, StorSimple allows you to [define cloud storage encryption keys](https://docs.microsoft.com/azure/storsimple/storsimple-8000-security#storsimple-data-protection). You specify the cloud storage encryption key when you create a volume container. 
 
-| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **USDoD Central** |
+| **Service** | **US Gov VA** | **US Gov TX** | **US Gov AZ** | **US DoD East** | **US DoD Central** |
 | --- | --- | --- | --- | --- | --- |
 | **StorSimple** | X | X | X | X | X |
 
