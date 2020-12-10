@@ -39,7 +39,7 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 |Azure Data Explorer|Generally available|Yes|Yes|[Query data in Azure Data Lake using Azure Data Explorer](/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|Preview|Yes|Yes|[Index and search Azure Data Lake Storage Gen2 documents (preview)](../../search/search-howto-index-azure-data-lake-storage.md)|
 |Azure Content Delivery Network|Not yet supported|Not applicable|Not applicable|[Index and search Azure Data Lake Storage Gen2 documents (preview)](../../cdn/cdn-overview.md)|
-|Azure SQL Database|Not yet supported|Not applicable|Not applicable|[What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview.md)|
+|Azure SQL Database|Not yet supported|Not applicable|Not applicable|[What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)|
 
 ## See also
 

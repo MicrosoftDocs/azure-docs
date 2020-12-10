@@ -3,7 +3,7 @@ title: Set up Azure multifactor authentication for Windows Virtual Desktop - Azu
 description: How to set up Azure multifactor authentication for increased security in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/10/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -82,6 +82,9 @@ Here's how to create a Conditional Access policy that requires multifactor authe
 13. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to the time you want between prompts, and then select **Select**. For example, setting the value to **1** and the unit to **Hours**, will require multifactor authentication if a connection is launched an hour after the last one.
 14. Confirm your settings and set **Enable policy** to **On**.
 15. Select **Create** to enable your policy.
+
+>[!NOTE]
+>When you use the web client to sign in to Windows Virtual Desktop through your browser, the log will list the client app ID as a85cf173-4192-42f8-81fa-777a763e6e2c (Windows Virtual Desktop client). This is because the client app is internally linked to the server app ID where the conditional access policy was set. 
 
 ## Next steps
 

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/optimization.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/optimization",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/troubleshooting/os-disk-full-linux.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting/boot-error-troubleshoot",
       "redirect_document_id": false
@@ -60564,7 +60569,11 @@
       "source_path": "articles/purview/register-scan-teradata-source.md",
       "redirect_url": "/azure/purview/manage-data-sources",
       "redirect_document_id": false
-    }
-    
+    },
+    {
+      "source_path": "articles/purview/scan-sqlresource-firewall.md",
+      "redirect_url": "/azure/purview/register-scan-azure-sql-database",
+      "redirect_document_id": true
+    }        
   ]
 }
