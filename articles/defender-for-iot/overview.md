@@ -45,7 +45,6 @@ Use Defender for IoT to continuously monitor the security of machines, networks,
 ## Intelligent threat detection and response
 
 Use advanced analytics and the Microsoft Intelligent Security Graph to get an edge over evolving cyberattacks. Built-in behavioral analytics and machine learning identify attacks and zero-day exploits. Monitor your IoT solution for incoming attacks and post-breach activity. Streamline device investigation and remediation with interactive tools and contextual threat intelligence.
-
 ## See also
 
 [Azure Defender for IoT architecture](architecture.md)

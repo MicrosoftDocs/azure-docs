@@ -14,6 +14,7 @@ metadata:
   ms.author: mlottner
   ms.date: 09/07/2020
 
+
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -24,80 +25,69 @@ landingContent:
         links:
           - text: What is Azure Defender for IoT?
             url: overview.md
-          - text: Security Module for Azure RTOS 
-            url: iot-security-azure-rtos.md
-          - text: Plan your solution
-            url: quickstart-system-prerequisites.md
-      - linkListType: architecture
-        links:
-          - text: Understand Azure Defender for IoT architecture
+          - text: Solution Architecture
             url: architecture.md
-          - text: Azure Defender for IoT Agents
-            url: security-agent-architecture.md
-          - text: Edge security module
-            url: security-edge-architecture.md
-  - title: Onboard Azure Defender for IoT into IoT Hub
-    linkLists:
-      - linkListType: get-started
+            text: Get started with Azure Defender for IoT
+            url: getting-started.md 
+      - linkListType: whats-new
         links:
-          - text: Get started with Azure Defender for IoT
-            url: getting-started.md
-          - text: IoT Hub
-            url: iot-hub-integration.md
-          - text: Get started with Security Module for Azure RTOS
-            url: concept-rtos-security-module.md
-          - text: Security agents
-            url: security-agents.md
-  - title: Configure your solution
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Enable Azure Defender for IoT in IoT Hub
-            url: quickstart-onboard-iot-hub.md
-          - text: Configure your IoT security solution
-            url: quickstart-configure-your-solution.md
-          - text: Configure your Security Module for Azure RTOS 
-            url: quickstart-azure-rtos-security-module.md
-          - text: Create an Azure Defender for IoT module twin
-            url: quickstart-create-security-twin.md
-          - text: Create custom security alerts
-            url: quickstart-create-custom-alerts.md
-          - text: Investigate security alerts
-            url: quickstart-investigate-security-alerts.md
-  - title: Customize your solution
+          - text: Release Notes
+            url: overview-release-notes.md       
+                 
+                   
+  - title:  Set up and Onboard - Enterprises  
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Customize the Security Module for Azure RTOS 
-            url: how-to-azure-rtos-security-module.md
-          - text: Choose an agent
-            url: how-to-deploy-agent.md
-          - text: Deploy an Azure Defender for IoT C#-based security agent for Windows
-            url: how-to-deploy-windows-cs.md
-          - text: Deploy Azure Defender for IoT C# based security agent for Linux
-            url: how-to-deploy-linux-cs.md
-          - text: Deploy Azure Defender for IoT C based security agent for Linux
-            url: how-to-deploy-linux-c.md
-          - text: Deploy Edge security module
-            url: how-to-deploy-edge.md
-          - text: Configure security agents
-            url: how-to-agent-configuration.md
-          - text: Send your own security messages
-            url: how-to-send-security-messages.md
-          - text: Access raw security data
-            url: how-to-security-data-access.md
-          - text: Investigate a device
-            url: how-to-investigate-device.md
-  - title: Troubleshoot a security agent
+          - text: Acquire hardware and software
+            url: how-to-acquire-hardware-and-software.md
+          - text: Install software
+            url: how-to-install-software.md
+          - text: Set up your network
+            url: how-to-set-up-your-network.md
+          - text: Onboard sensors
+            url:  how-to-onboard-sensors.md
+
+
+  - title:  Monitor your Network - Enterprises  
     linkLists:
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
-          - text: Security agent troubleshoot guide (Linux)
-            url: troubleshoot-agent.md
-          - text: Understanding the LocalConfiguration.json file - C agent
-            url: azure-iot-security-local-configuration-c.md
-          - text: Understanding the Local configuration file - C# agent
-            url: azure-iot-security-local-configuration-csharp.md
+          - text: View Device Inventories 
+            url: how-to-acquire-hardware-and-software.md
+            url: how-to-acquire-hardware-and-software.md
+          - text: Install software
+            url: how-to-install-software.md
+          - text: Set up your network
+            url: how-to-set-up-your-network.md
+          - text: Onboard sensors
+            url:  how-to-onboard-sensors.md
+          
+
+  - title: Azure Defender for IoT - Device Builders
+    linkLists:
+    - linkListType: overview
+      links:
+        - text: Edge security module
+        - url: security-edge-architecture.md
+        - text: Edge security module
+            url: security-edge-architecture.md
+    - linkListType: quickstart
+      links:
+        - text: Enable IoT Hub - Device Builders
+          url: quickstart-onboard-iot-hub.md
+        - text: Configure your IoT security solution
+          url: quickstart-configure-your-solution.md
+        - text: Configure your Security Module for Azure RTOS 
+          url: quickstart-azure-rtos-security-module.md
+        - text: Create an Azure Defender for IoT module twin
+          url: quickstart-create-security-twin.md
+        - text: Create custom security alerts
+          url: quickstart-create-custom-alerts.md
+        - text: Investigate security alerts
+          url: quickstart-investigate-security-alerts.md
+  
+   
   - title: Azure Defender for IoT solution resources
     linkLists:
       - linkListType: video
@@ -110,3 +100,4 @@ landingContent:
             url: resources-frequently-asked-questions.md
           - text: Pricing and associated costs
             url: concept-pricing.md
+

@@ -2,6 +2,8 @@
   href: index.yml
 - name: Overview
   href: overview.md
+- name: What's New
+  href: overview-release-notes.md
   items:
   - name: Solution architecture
     href: architecture.md

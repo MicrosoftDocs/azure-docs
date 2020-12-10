@@ -23,7 +23,7 @@ The Event Timeline presents a timeline of activity detected by your sensor, for 
 
 The Event Timeline provides a view of events that took place in the network according in chronological order. The Event Timeline allows understanding and analyses of the chain of events that preceded and followed an attack or incident, which assists in the investigation and forensics.
 
-> [!NOTE] 
+> [!NOTE]
 > **Administrators** and **Security Analysts** may perform the procedures described in this section.
 
 **To view the event logs:**
