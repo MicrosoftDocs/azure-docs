@@ -185,25 +185,6 @@
       href: how-to-track-sensor-activity.md
     - name: Generate reports
       href: how-to-generate-reports.md
-    - name: Integrate with partners
-      items:
-        - name: ServiceNow integration
-          href: integration-servicenow.md
-        - name: Splunk integration
-          href: integration-splunk.md
-        - name: Fortinet integration
-          href: integration-fortinet.md
-        - name: Forescout integration
-          href: integration-forescout.md
-        - name: Cisco ISE pxGrid integration
-          href: integration-cisco-ise-pxgrid.md
-        - name: ClearPass integration
-          href: integration-clearpass.md
-        - name: QRadar integration
-          href: integration-qradar.md
-        - name: Sentinel syslog integration
-          href: integration-sentinel-syslog.md
-        - name: Cyberark integration
           href: integration-cyberark.md
     - name: Troubleshoot the sensor and on-premises management console
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
@@ -257,8 +238,6 @@
       href: references-work-with-defender-for-iot-apis.md
     - name: Work with Defender for IoT CLI commands
       href: references-work-with-defender-for-iot-cli-commands.md
-    - name: Horizon SDK
-      href: references-horizon-sdk.md
     - name: Horizon API
       href: references-horizon-api.md
     - name: Defender for IoT glossary

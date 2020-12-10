@@ -31,7 +31,7 @@ Site deployment tasks include:
 
 - [Prepare a configuration workstation](#prepare-a-configuration-workstation)
 
-- [Plan rack installation](#plan-rack-installation)
+- [Planning rack installation](#planning-rack-installation)
 
 ### Collect site information
 
@@ -548,7 +548,6 @@ Review this list before site deployment:
 | 17 | Set up training (self-learning). | ☐ |  |
 | 18 | Go or no-go. | ☐ |  |
 | 19 | Schedule the deployment date. | ☐ |  |
-<br />
 
 | **Date** |  | **Deployment date** |  |
 |--|--|--|--|

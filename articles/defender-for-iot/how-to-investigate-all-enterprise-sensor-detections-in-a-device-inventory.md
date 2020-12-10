@@ -236,7 +236,7 @@ The following additional zone information is available:
 
 - **Sensor details:** Name, IP address, and version of each sensor assigned to the zone.
 
-- **Connectivity status:** If disconnected, connect from the sensor. See [Make initial connection between sensors and the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#make-initial-connection-between-sensors-and-the-on-premises-management-console) 
+- **Connectivity status:** If disconnected, connect from the sensor. See [Connect sensors to the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console). 
 
 - **Update progress:** If the connected sensor is being upgraded, upgrade statuses will appear. During upgrade, the on-premises management console does not receive device information from the sensor.
 

@@ -65,7 +65,7 @@ For example:
 
 ## See also
 
-- [Learning modes](concept-learning-modes.md)
+- [Learning and Smart IT Learning modes](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
 - [View information provided in alerts](how-to-view-information-provided-in-alerts.md)
 - [Manage the alert event](how-to-manage-the-alert-event.md)
 - [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)

@@ -1,6 +1,6 @@
 ---
 title: About the Cisco ISE pxGrid integration
-description: 
+description: Bridging the capabilities of Defender for IoT with Cisco ISE pxGrid, provides security teams unprecedented device visibility to the enterprise ecosystem.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam

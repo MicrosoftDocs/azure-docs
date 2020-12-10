@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
-description: 
+description: Troubleshoot you sensor and on-premises management console to eliminate any issues you may be having.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -15,7 +15,7 @@ ms.service: azure
 
 ### No traffic indication
 
-The No traffic indicator appears at the top of the console when the sensor recognizes that there is no traffic on one of the configured ports. This indication is visible to all users.
+The No Traffic indicator appears at the top of the console when the sensor recognizes that there is no traffic on one of the configured ports. This indication is visible to all users.
 
 :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/no-traffic-detected.png" alt-text="Screenshot of no traffic detected alert.":::
  
