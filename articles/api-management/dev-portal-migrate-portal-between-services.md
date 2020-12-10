@@ -32,4 +32,4 @@ If you're using a managed portal, you can set the script to auto-publish the des
 
 ## Next steps
 
-- (Content management API)[dev-portal-content-management-api.md]
+- [Content management API](dev-portal-content-management-api.md)
