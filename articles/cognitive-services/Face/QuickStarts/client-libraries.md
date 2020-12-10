@@ -5,7 +5,7 @@ description: The Face API offers client libraries that makes it easy to detect, 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-zone_pivot_groups: programming-languages-set-eighteen
+zone_pivot_groups: programming-languages-set-face
 
 ms.service: cognitive-services
 ms.subservice: face-api
@@ -33,5 +33,11 @@ keywords: face search by image, facial recognition search, facial recognition, f
 ::: zone pivot="programming-language-go"
 
 [!INCLUDE [Go quickstart](../includes/quickstarts/go-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-rest-api"
+
+[!INCLUDE [cURL quickstart](../includes/quickstarts/rest-api.md)]
 
 ::: zone-end

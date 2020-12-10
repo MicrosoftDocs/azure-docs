@@ -12,7 +12,8 @@ ms.subservice: spark
 ---
 
 # Azure Synapse Analytics notebooks
-A Synapse Studio (preview) notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. 
+
+A Synapse Studio notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. 
 
 With an Azure Synapse Studio notebook, you can:
 
@@ -45,4 +46,4 @@ Notebooks are also widely used in data preparation, data visualization, machine 
   - [Create a notebook](./spark/../../quickstart-apache-spark-notebook.md)
   - [Create visualizations using Synapse Studio notebooks](./spark/../apache-spark-data-visualization-tutorial.md)
   - [Build machine learning models with Apache Spark MLlib](./spark/../apache-spark-machine-learning-mllib-notebook.md)
-  - [Build machine learning models with Azure AutoML](./spark/../apache-spark-azure-machine-learning-tutorial.md)
+  - [Build machine learning models with Azure automated ML](./spark/../apache-spark-azure-machine-learning-tutorial.md)

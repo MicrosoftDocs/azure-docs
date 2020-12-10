@@ -58,7 +58,7 @@ These requirements apply to buying a reserved dedicated host instance:
 
 ### Buy reserved instances for a CSP subscription
 
-CSPs that want to purchase reserved instances for their customers must use the **Admin On Behalf Of** (AOBO) procedure from the [Partner Center documentation](https://docs.microsoft.com/partner-center/azure-plan-manage). For more information, view the [Admin on behalf of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) video.
+CSPs that want to purchase reserved instances for their customers must use the **Admin On Behalf Of** (AOBO) procedure from the [Partner Center documentation](/partner-center/azure-plan-manage). For more information, view the [Admin on behalf of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) video.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com).
 
@@ -108,7 +108,7 @@ You can make these changes to a reservation after purchase:
 
 You can also split a reservation into smaller chunks or merge reservations. None of the changes cause a new commercial transaction or change the end date of the reservation.
 
-For details about CSP-managed reservations, see [Sell Microsoft Azure reservations to customers using Partner Center, the Azure portal, or APIs](https://docs.microsoft.com/partner-center/azure-reservations).
+For details about CSP-managed reservations, see [Sell Microsoft Azure reservations to customers using Partner Center, the Azure portal, or APIs](/partner-center/azure-reservations).
 
 
 
@@ -126,4 +126,4 @@ For details about CSP-managed reservations, see [Sell Microsoft Azure reservatio
 
 You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-CSPs can cancel, exchange, or refund reservations, with certain limitations, purchased for their customer. For more information, see [Manage, cancel, exchange, or refund Microsoft Azure reservations for customers](https://docs.microsoft.com/partner-center/azure-reservations-manage).
+CSPs can cancel, exchange, or refund reservations, with certain limitations, purchased for their customer. For more information, see [Manage, cancel, exchange, or refund Microsoft Azure reservations for customers](/partner-center/azure-reservations-manage).

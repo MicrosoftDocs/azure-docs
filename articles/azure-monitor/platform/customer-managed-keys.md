@@ -68,11 +68,27 @@ The following rules apply:
 1. Granting permissions to your Key Vault
 1. Linking Log Analytics workspaces
 
-Customer-Managed key configuration isn't supported in Azure portal and provisioning is performed via [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) or [REST](https://docs.microsoft.com/rest/api/loganalytics/) requests.
+Customer-Managed key configuration isn't supported in Azure portal and provisioning is performed via [PowerShell](/powershell/module/az.operationalinsights/), [CLI](/cli/azure/monitor/log-analytics) or [REST](/rest/api/loganalytics/) requests.
 
 ### Asynchronous operations and status check
 
-Some of the configuration steps run asynchronously because they can't be completed quickly. When using REST, the response initially returns an HTTP status code 200 (OK) and header with *Azure-AsyncOperation* property when accepted:
+Some of the configuration steps run asynchronously because they can't be completed quickly. The `status` in response contains can be one of the followings: 'InProgress', 'Updating', 'Deleting', 'Succeeded or 'Failed' including the error code.
+
+# [Azure portal](#tab/portal)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
+N/A
+
+# [PowerShell](#tab/powershell)
+
+N/A
+
+# [REST](#tab/rest)
+
+When using REST, the response initially returns an HTTP status code 200 (OK) and header with *Azure-AsyncOperation* property when accepted:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
@@ -83,7 +99,7 @@ GET https://management.azure.com/subscriptions/subscription-id/providers/microso
 Authorization: Bearer <token>
 ```
 
-The `status` in response contains can be one of the followings: 'InProgress', 'Updating', 'Deleting', 'Succeeded or 'Failed' including the error code.
+---
 
 ### Allowing subscription
 
@@ -103,7 +119,7 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 
 ### Create cluster
 
-Follow the procedure illustrated in [Dedicated Clusters article](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#creating-a-cluster). 
+Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
 > [!IMPORTANT]
 > Copy and save the response since you will need the details in next steps.
@@ -133,16 +149,25 @@ Update KeyVaultProperties in cluster with Key Identifier details.
 
 The operation is asynchronous and can take a while to complete.
 
+# [Azure portal](#tab/portal)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
 ```
+# [PowerShell](#tab/powershell)
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
 ```
 
+# [REST](#tab/rest)
+
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -197,6 +222,8 @@ A response to GET request should look like this when Key identifier update is co
 }
 ```
 
+---
+
 ### Link workspace to cluster
 
 You need to have 'write' permissions to both your workspace and cluster to perform this operation, which include these actions:
@@ -209,7 +236,7 @@ You need to have 'write' permissions to both your workspace and cluster to perfo
 
 This operation is asynchronous and can a while to complete.
 
-Follow the procedure illustrated in [Dedicated Clusters article](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster).
+Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-the-cluster).
 
 ## Key revocation
 
@@ -247,15 +274,25 @@ When you Bring Your Own Storage (BYOS) and link it to your workspace, the servic
 
 Link a storage account for *Query* to your workspace -- *saved-searches* queries are saved in your storage account. 
 
+# [Azure portal](#tab/portal)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
+# [PowerShell](#tab/powershell)
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
+
+# [REST](#tab/rest)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
@@ -273,21 +310,33 @@ Content-type: application/json
 }
 ```
 
+---
+
 After the configuration, any new *saved search* query will be saved in your storage.
 
 **Configure BYOS for log-alerts queries**
 
 Link a storage account for *Alerts* to your workspace -- *log-alerts* queries are saved in your storage account. 
 
+# [Azure portal](#tab/portal)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
+# [PowerShell](#tab/powershell)
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
+
+# [REST](#tab/rest)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
@@ -305,9 +354,12 @@ Content-type: application/json
 }
 ```
 
+---
+
 After the configuration, any new alert query will be saved in your storage.
 
 ## Customer Lockbox (preview)
+
 Lockbox gives you the control to approve or reject Microsoft engineer request to access your data during a support request.
 
 In Azure Monitor, you have this control on data in workspaces linked to your Log Analytics dedicated cluster. The Lockbox control applies to data stored in a Log Analytics dedicated cluster where it’s kept isolated in the cluster’s storage accounts under your Lockbox protected subscription.  
@@ -318,13 +370,23 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
 
 - **Get all clusters in a resource group**
   
+  # [Azure portal](#tab/portal)
+
+  N/A
+
+  # [Azure CLI](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics cluster list --resource-group "resource-group-name"
   ```
 
+  # [PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
   ```
+
+  # [REST](#tab/rest)
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -366,15 +428,27 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
   }
   ```
 
+  ---
+
 - **Get all clusters in a subscription**
+
+  # [Azure portal](#tab/portal)
+
+  N/A
+
+  # [Azure CLI](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster list
   ```
 
+  # [PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsCluster
   ```
+
+  # [REST](#tab/rest)
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -385,17 +459,29 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
     
   The same response as for 'cluster in a resource group', but in subscription scope.
 
+  ---
+
 - **Update *capacity reservation* in cluster**
 
   When the data volume to your linked workspaces change over time and you want to update the capacity reservation level appropriately. Follow the [update cluster](#update-cluster-with-key-identifier-details) and provide your new capacity value. It can be in the range of 1000 to 3000 GB per day and in steps of 100. For level higher than 3000 GB per day, reach your Microsoft contact to enable it. Note that you don’t have to provide the full REST request body but should include the sku:
+
+  # [Azure portal](#tab/portal)
+
+  N/A
+
+  # [Azure CLI](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity daily-ingestion-gigabyte
   ```
 
+  # [PowerShell](#tab/powershell)
+
   ```powershell
   Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity daily-ingestion-gigabyte
   ```
+
+  # [REST](#tab/rest)
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -410,6 +496,8 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
   }
   ```
 
+  ---
+
 - **Update *billingType* in cluster**
 
   The *billingType* property determines the billing attribution for the cluster and its data:
@@ -417,6 +505,20 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
   - *workspaces* -- The billing is attributed to the subscriptions hosting your workspaces proportionally
   
   Follow the [update cluster](#update-cluster-with-key-identifier-details) and provide your new billingType value. Note that you don’t have to provide the full REST request body and should include the *billingType*:
+
+  # [Azure portal](#tab/portal)
+
+  N/A
+
+  # [Azure CLI](#tab/azure-cli)
+
+  N/A
+
+  # [PowerShell](#tab/powershell)
+
+  N/A
+
+  # [REST](#tab/rest)
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -430,36 +532,67 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
   }
   ``` 
 
+  ---
+
 - **Unlink workspace**
 
   You need 'write' permissions on the workspace and cluster to perform this operation. You can unlink a workspace from your cluster at any time. New ingested data after the unlink operation is stored in Log Analytics storage and encrypted with Microsoft key. You can query you data that was ingested to your workspace before and after the unlink seamlessly as long as the cluster is provisioned and configured with valid Key Vault key.
 
   This operation is is asynchronous and can a while to complete.
 
+  # [Azure portal](#tab/portal)
+
+  N/A
+
+  # [Azure CLI](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --name "cluster-name" --workspace-name "workspace-name"
   ```
 
+  # [PowerShell](#tab/powershell)
+
   ```powershell
   Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -Name "workspace-name" -LinkedServiceName cluster
   ```
+
+  # [REST](#tab/rest)
 
   ```rest
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 
-  - **Check workspace link status**
+  ---
+
+- **Check workspace link status**
   
   Perform Get operation on the workspace and observe if *clusterResourceId* property is present in the response under *features*. A linked workspace will have the *clusterResourceId* property.
+
+  # [Azure portal](#tab/portal)
+
+  N/A
+
+  # [Azure CLI](#tab/azure-cli)
 
   ```azurecli
   az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
   ```
 
+  # [PowerShell](#tab/powershell)
+
   ```powershell
   Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
   ```
+
+  # [REST](#tab/rest)
+
+   ```rest
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+  ---
 
 - **Delete your cluster**
 
@@ -467,18 +600,30 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
   
   The unlink operation is asynchronous and can take up to 90 minutes to complete.
 
+  # [Azure portal](#tab/portal)
+
+  N/A
+
+  # [Azure CLI](#tab/azure-cli)
+
   ```azurecli
   az monitor log-analytics cluster delete --resource-group "resource-group-name" --name "cluster-name"
   ```
- 
+
+  # [PowerShell](#tab/powershell)
+
   ```powershell
   Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
   ```
+
+  # [REST](#tab/rest)
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
+
+  ---
   
 - **Recover your cluster and your data** 
   
@@ -508,6 +653,12 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
 
 - Workspace link to cluster will fail if it is linked to another cluster.
 
+- Lockbox isn't available in China currently. 
+
+- [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for Double encryption by a GET request on the cluster and observing the `"isDoubleEncryptionEnabled"` property value - it's `true` for clusters with Double encryption enabled. 
+  - If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster without Double Encryption. Add `"properties": {"isDoubleEncryptionEnabled": false}` property in the REST request body.
+  - Double encryption setting can not be changed after the cluster has been created.
+
 ## Troubleshooting
 
 - Behavior with Key Vault availability
@@ -535,8 +686,6 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
 - Some operations are long and can take a while to complete -- these are cluster create, cluster key update and cluster delete. You can check the operation status in two ways:
   1. when using REST, copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
   2. Send GET request to cluster or workspace and observe the response. For example, unlinked workspace won't have the *clusterResourceId* under *features*.
-
-- [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 when Double encryption was in the region. If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster but with Double Encryption disabled. It cannot be enabled or disabled after the cluster has been created. To create a cluster when Double Encryption isn't supported in region, add `"properties": {"isDoubleEncryptionEnabled": false}` in REST request body.
 
 - Error messages
   

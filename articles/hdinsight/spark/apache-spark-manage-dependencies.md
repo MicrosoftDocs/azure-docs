@@ -17,15 +17,15 @@ ms.date: 09/09/2020
 In this article, you learn how to manage dependencies for your Spark applications running on HDInsight. We cover both Scala and PySpark at Spark application and cluster scope.
 
 Use quick links to jump to the section based on your user case:
-* [Set up Spark job jar dependencies using Jupyter notebook](#use-jupyter-notebook)
+* [Set up Spark job jar dependencies using Jupyter Notebook](#use-jupyter-notebook)
 * [Set up Spark job jar dependencies using Use Azure Toolkit for IntelliJ](#use-azure-toolkit-for-intellij)
 * [Configure jar dependencies for Spark cluster](#jar-libs-for-cluster)
 * [Safely manage jar dependencies](#safely-manage-jar-dependencies)
-* [Set up Spark job Python packages using Jupyter notebook](#use-jupyter-notebook-1)
+* [Set up Spark job Python packages using Jupyter Notebook](#use-jupyter-notebook-1)
 * [Safely manage Python packages for Spark cluster](#python-packages-for-cluster)
 
 ## Jar libs for one Spark job
-### Use Jupyter notebook
+### Use Jupyter Notebook
 When a Spark session starts in Jupyter Notebook on Spark kernel for Scala, you can configure packages from:
 
 * [Maven Repository](https://search.maven.org/), or community-contributed packages at [Spark Packages](https://spark-packages.org/).
@@ -99,8 +99,8 @@ You can automate the steps using [script actions](../hdinsight-hadoop-customize-
 HDInsight cluster has built-in jar dependencies, and updates for these jar versions happen from time to time. To avoid version conflict between built-in jars and the jars you bring for reference, consider [shading your application dependencies](./safely-manage-jar-dependency.md).
 
 ## Python packages for one Spark job
-### Use Jupyter notebook
-HDInsight Jupyter notebook PySpark kernel doesn't support installing Python packages from PyPi or Anaconda package repository directly. If you have `.zip`, `.egg`, or `.py` dependencies, and want to reference them for one Spark session, follow below steps:
+### Use Jupyter Notebook
+HDInsight Jupyter Notebook PySpark kernel doesn't support installing Python packages from PyPi or Anaconda package repository directly. If you have `.zip`, `.egg`, or `.py` dependencies, and want to reference them for one Spark session, follow below steps:
 
 1. Run below sample script actions to copy `.zip`, `.egg` or `.py` files from primary storage `wasb://mycontainer@mystorageaccount.blob.core.windows.net/libs/*` to cluster local file system `/usr/libs/pylibs`. The step is needed as linux uses `:` to separate search path list, but HDInsight only support storage paths with scheme like `wasb://`. The remote storage path won't work correctly when you use `sys.path.insert`.
 

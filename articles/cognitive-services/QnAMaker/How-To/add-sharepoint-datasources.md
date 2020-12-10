@@ -22,7 +22,7 @@ If the QnA Maker knowledge base manager is not the Active Directory manager, you
 
 ## Add supported file types to knowledge base
 
-You can add all QnA Maker-supported [file types](../Concepts/content-types.md) from a SharePoint site to your knowledge base. You may have to grant [permissions](#permissions) if the file resource is secured.
+You can add all QnA Maker-supported [file types](../index.yml) from a SharePoint site to your knowledge base. You may have to grant [permissions](#permissions) if the file resource is secured.
 
 1. From the library with the SharePoint site, select the file's ellipsis menu, `...`.
 1. Copy the file's URL.
@@ -151,7 +151,7 @@ Use the following steps to transform the SharePoint URL into a sharing token.
 
 ### Add or update a SharePoint File URI to your knowledge base
 
-Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://go.microsoft.com/fwlink/?linkid=2092179) or [updating a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
+Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) or [updating a knowledge base](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
 
 ```
 {
@@ -183,4 +183,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Collaborate on your knowledge base](collaborate-knowledge-base.md)
+> [Collaborate on your knowledge base](../index.yml)

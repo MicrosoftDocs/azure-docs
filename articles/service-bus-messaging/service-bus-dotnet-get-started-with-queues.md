@@ -50,8 +50,9 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         static string queueName = "<QUEUE NAME>";
     ```
 
-    Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of the queue.     
-2. Add a method named `SendMessageAsync` that sends one message to the queue. 
+    Enter your connection string for the namespace as the `connectionString` variable. Enter your queue name.
+
+1. Directly after the `Main()` method, add the following `SendMessagesAsync()` method that does the work of sending a message:
 
     ```csharp
         static async Task SendMessageAsync()
@@ -78,9 +79,9 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         {
             // create a queue containing the messages and return it to the caller
             Queue<ServiceBusMessage> messages = new Queue<ServiceBusMessage>();
-            messages.Enqueue(new ServiceBusMessage("First message"));
-            messages.Enqueue(new ServiceBusMessage("Second message"));
-            messages.Enqueue(new ServiceBusMessage("Third message"));
+            messages.Enqueue(new ServiceBusMessage("First message in the batch"));
+            messages.Enqueue(new ServiceBusMessage("Second message in the batch"));
+            messages.Enqueue(new ServiceBusMessage("Third message in the batch"));
             return messages;
         }
     ```
@@ -266,5 +267,4 @@ See the following documentation and samples:
 
 - [Azure Service Bus client library for .NET - Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [.NET API reference](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus?view=azure-dotnet-preview&preserve-view=true)
-
+- [.NET API reference](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)

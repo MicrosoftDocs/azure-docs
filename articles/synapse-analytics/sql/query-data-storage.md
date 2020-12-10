@@ -1,6 +1,6 @@
 ---
-title: Query data storage with serverless SQL pool (preview) 
-description: This article describes how to query Azure storage using the serverless SQL pool (preview) resource within Azure Synapse Analytics.
+title: Query data storage with serverless SQL pool 
+description: This article describes how to query Azure storage using the serverless SQL pool resource within Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics 
@@ -10,9 +10,9 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
-# Query storage files with serverless SQL pool (preview) in Azure Synapse Analytics
+# Query storage files with serverless SQL pool in Azure Synapse Analytics
 
-Serverless SQL pool (preview) enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries. For querying, the following T-SQL aspects are supported:
+Serverless SQL pool enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries. For querying, the following T-SQL aspects are supported:
 
 - Full [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) surface area, including majority of [SQL functions and operators](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) creates an [external table](develop-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
@@ -41,7 +41,7 @@ To query Parquet source data, use FORMAT = 'PARQUET'
 ```syntaxsql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 Review the [Query Parquet files](query-parquet-files.md) article for usage examples.
@@ -53,7 +53,7 @@ To query CSV source data, use FORMAT = 'CSV'. You can specify schema of the CSV 
 ```sql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 There are some additional options that can be used to adjust parsing rules to custom CSv format:
@@ -82,7 +82,7 @@ OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolde
 WITH (
       C1 int, 
       C2 varchar(20),
-      C3 as varchar(max)
+      C3 varchar(max)
 ) as rows
 ```
 
@@ -219,7 +219,7 @@ You can learn more about querying various types of data using the sample queries
 ### Tools
 
 The tools you need to issue queries:
-    - Azure Synapse Studio (preview)
+    - Azure Synapse Studio 
     - Azure Data Studio
     - SQL Server Management Studio
 
