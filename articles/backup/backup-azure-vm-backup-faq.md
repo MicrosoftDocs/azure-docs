@@ -1,7 +1,6 @@
 ---
 title: FAQ - Backing up Azure VMs
 description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
 ---
@@ -157,7 +156,7 @@ Operations like secret/key roll-over don't require this step and the same key va
 
 ### Can I access the VM once restored due to a VM having broken relationship with domain controller?
 
-Yes, you access the VM once restored due to a VM having broken relationship with domain controller. For more information, see this [article](./backup-azure-arm-restore-vms.md#post-restore-steps)
+Yes, you access the VM once restored due to a VM having broken relationship with domain controller. For more information, see this [article](./backup-azure-arm-restore-vms.md#post-restore-steps).
 
 ### Can I cancel an in-progress restore job?
 No, you cannot cancel the restore job that is in-progress.
@@ -165,6 +164,12 @@ No, you cannot cancel the restore job that is in-progress.
 ### Why restore operation is taking long time to complete?
 
 The total restore time depends on the Input/output operations per second (IOPS) and the throughput of the storage account. The total restore time can be affected if the target storage account is loaded with other application read and write operations. To improve restore operation, select a storage account that isn't loaded with other application data.
+
+### How do we handle "Create New Virtual Machine"-restore type conflicts with governance policies?
+
+Azure Backup uses "attach" disks from recovery points and doesn't look at your image references or galleries. So in the policy you can check "storageProfile.osDisk.createOption as Attach", and the script condition will be:
+
+`if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
 
 ## Manage VM backups
 
