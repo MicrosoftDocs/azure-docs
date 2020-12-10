@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 12/10/2020
 ms.custom: lyrana
 ---
 
@@ -34,11 +34,41 @@ Start with the article [Monitoring Azure resources with Azure Monitor](https://d
 
 The following sections build on this article by describing the specific data gathered for Time Series Insights and providing examples for configuring data collection and analyzing this data with Azure tools.
 
+## Collection and routing
+
+Platform metrics are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.
+
+Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Time Series Insights are listed in link goes here...
+
+> [!IMPORTANT]
+> Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+You can configure the following logs for Azure Time Series Insights:
+
+   | Category | Description |
+   |---|---|
+   | Ingress  | The Ingress category tracks errors that occur in the ingress pipeline. This category includes errors that occur when receiving events (such as failures to connect to an Event Source) and processing events (such as errors when parsing an event payload). |
+
+The metrics and logs you can collect are discussed in the following sections.
+
 ## Analyzing metrics
 
-You can analyze metrics for Time Series Insights with metrics from other Azure services using metrics explorer by opening Metrics from the Azure Monitor menu. See [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
+You can analyze metrics for Time Series Insights, along with metrics from other Azure services, by opening Metrics from the Azure Monitor menu. See [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
 
-### Ingress metrics
+For a list of the metrics collected, see Monitoring Azure Time Series Insights data reference metrics.
+
+This example shows the count of bytes received from all event sources in your Time Series Insights environment.
+
+**Ingress received bytes** [![Azure Time Series ingress received bytes](media/how-to-monitor-tsi/ingress-received-bytes.png)](media/how-to-monitor-tsi/ingress-received-bytes.png#lightbox)
+
+The example shows the count of bytes stored for the total size of events successfully processed and available for query in your Time Series Insights environment.
+
+**Ingress stored bytes** [![Azure Time Series ingress stored bytes](media/how-to-monitor-tsi/ingress-stored-bytes.png)](media/how-to-monitor-tsi/ingress-stored-bytes.png#lightbox)
+
+PLACEHOLDER FOR NAMESPACE
+
+### Ingress
 
    |Metric  |Unit |Aggregation Type |Description |
    |---------|---------|---------|---------|
@@ -50,7 +80,7 @@ You can analyze metrics for Time Series Insights with metrics from other Azure s
    |**Ingress Received Message Time Lag** |  |  |Difference in seconds between the time that the message is enqueued in the event source and the time it is processed in Ingress. |
    |**Ingress Received Message Count Lag** |  |  |Difference between the sequence number of last enqueued message in the event source partition and sequence number of message being processed in Ingress. |
 
-### Storage metrics
+### Storage
 
    |Metric Display Name |Unit |Aggregation Type |Description |
    |---------|---------|---------|---------|
