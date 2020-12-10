@@ -69,9 +69,7 @@ A Load Balancer rule is used to define how incoming traffic is distributed to th
 
 For example, use a load balancing rule for port 80 to route traffic from your frontend IP to port 80 of your backend instances.
 
-<p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="Load Balancing rules">
-</p>
+:::image type="content" source="./media/load-balancer-components/lbrules.png" alt-text="Load balancer rule reference diagram" border="true":::
 
 *Figure: Load Balancing rules*
 
@@ -105,9 +103,7 @@ An inbound NAT rule forwards incoming traffic sent to Frontend IP address and po
 
 For example, if you would like Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to separate VM instances in a backend pool. Multiple internal endpoints can be mapped to ports on the same Frontend IP address. The Frontend IP addresses can be used to remotely administer your VMs without an additional jump box.
 
-<p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="Inbound NAT rules">
-</p>
+:::image type="content" source="./media/load-balancer-components/inboundnatrules.png" alt-text="Inbound NAT rule reference diagram" border="true":::
 
 *Figure: Inbound NAT rules*
 
@@ -120,6 +116,12 @@ An outbound rule configures outbound Network Address Translation (NAT) for all v
 Learn more about [outbound connections and rules](load-balancer-outbound-connections.md).
 
 Basic load balancer doesn't support Outbound rules.
+
+:::image type="content" source="./media/load-balancer-components/outboundrules.png" alt-text="Outbound rule reference diagram" border="true":::
+
+*Figure: Outbound rules*
+
+
 
 ## Limitations
 
