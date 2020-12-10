@@ -32,7 +32,7 @@ Tumbling window triggers are a type of trigger that fires at a periodic time int
 
 A tumbling window has the following trigger type properties:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {
@@ -112,7 +112,7 @@ The following table provides a high-level overview of the major JSON elements th
 
 You can use the **WindowStart** and **WindowEnd** system variables of the tumbling window trigger in your **pipeline** definition (that is, for part of a query). Pass the system variables as parameters to your pipeline in the **trigger** definition. The following example shows you how to pass these variables as parameters:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {
