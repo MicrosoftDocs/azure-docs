@@ -96,7 +96,7 @@ If you select *Classification* or *Regression* type, the additional configuratio
 These settings all have a default value that you can customize.
 ![additional configurations](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c.png)
 
-> Note that ff you select "Time series forecasting", there are more configurations required. Forecasting also does not support ONNX model compatibility.
+> Note that if you select "Time series forecasting", there are more configurations required. Forecasting also does not support ONNX model compatibility.
 
 Once all required configurations are done, you can start automated ML run.
 
