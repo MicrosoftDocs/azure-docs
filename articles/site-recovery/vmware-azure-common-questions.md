@@ -143,7 +143,7 @@ Extended or chained replication isn't supported. Request this feature in the [fe
 
 ### How can I track progress of initial replication/synchronization?
 
-This capability has been recently to Site Recovery services. Ensure update your Site Recovery infrastructure (configuration servers, scale-out process servers) and mobility agent to versions 9.36 or higher to get accurate details. Click [here](vmware-azure-enable-replication.md#monitor-initial-replication) to learn more on how to track the progress.
+This capability has been recently to Site Recovery services. Update your Site Recovery infrastructure (configuration servers, scale-out process servers) and mobility agent to versions 9.36 or higher to get accurate details. Learn more on how to track the progress [here](vmware-azure-enable-replication.md#monitor-initial-replication).
 
 ### Can I do an offline initial replication?
 
