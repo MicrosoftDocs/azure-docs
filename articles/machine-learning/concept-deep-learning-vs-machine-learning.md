@@ -8,9 +8,8 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 12/10/2020
-
-ms.custom: contperf-fy21q1
+ms.date: 12/15/2020
+ms.custom: contperf-fy21q1,contperfq1
 ---
 
 # Deep learning vs. machine learning in Azure Machine Learning
