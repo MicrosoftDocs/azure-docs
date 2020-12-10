@@ -31,6 +31,3 @@ To enable tunneling:
 3. Select **Enter**.
 
 4. Type `--port 10000`.
-
-
-
