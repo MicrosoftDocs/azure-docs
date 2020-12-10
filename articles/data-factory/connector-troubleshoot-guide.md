@@ -166,17 +166,17 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Message**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
 
 
-### Error code: UserErrorFailedBlobFSOperation
+### Request to ADLS Gen2 account met timeout error
 
-- **Message**: `Failure happened on 'Sink' side.`
+- **Message**: Error Code = `UserErrorFailedBlobFSOperation`, Error Message = `BlobFS operation failed for: A task was canceled`.
 
 - **Cause**: The issue is caused by the ADLS Gen2 sink timeout error, which mostly happens on the self-hosted IR machine.
 
 - **Recommendation**: 
 
-    1. Please place your self-hosted IR machine and target ADLS Gen2 account in the same region if possible. This can avoid random timeout error and have better performance.
+    1. Place your self-hosted IR machine and target ADLS Gen2 account in the same region if possible. This can avoid random timeout error and have better performance.
 
-    1. Check whether there is any special network setting like ExpressRoute and ensure the network has enough bandwidth. It is suggested to decrease the self-hosted IR concurrent jobs setting when the overall bandwidth is low, through which can avoid network resource competition across multiple concurrent jobs.
+    1. Check whether there is any special network setting like ExpressRoute and ensure the network has enough bandwidth. It is suggested to lower the self-hosted IR concurrent jobs setting when the overall bandwidth is low, through which can avoid network resource competition across multiple concurrent jobs.
 
     1. Use smaller block size for non-binary copy to mitigate such timeout error if the file size is moderate or small. Please refer to [Blob Storage Put Block](https://docs.microsoft.com/rest/api/storageservices/put-block).
 
@@ -484,6 +484,8 @@ busy to handle requests, it returns an HTTP error 503.
     1. WriteBatchSize is not large enough to fit schema row size. Please try to enlarge the property for the issue.
 
     1. Instead of bulk inset, stored procedure is being used, which is expected to have worse performance. 
+
+- **Resolution**: Please refer to the TSG for [copy activity performance](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
 
 
 ### Performance tier is low and leads to copy failure
