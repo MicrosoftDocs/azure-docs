@@ -13,7 +13,7 @@ ms.topic: end-user-help
 ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
-metadata ms.custom: contperfq1
+metadata ms.custom: contperf-fy21q1
 ---
 
 # Common problems with two-factor verification and your work or school account
