@@ -261,16 +261,16 @@ Below neural voices are in public preview.
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` | Senior voice, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` | General, multiple role-play and styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male   | `zh-CN-YunxiNeural` | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Estonian (Estonia) | et-EE | Female | `et-EE-AnuNeural` | General |
-| Estonian (Estonia) | et-EE | Male | `et-EE-KertNeural` <sup>New</sup> | General |
-| Irish (Ireland) | ga-IE | Female | `ga-IE-OrlaNeural` | General |
-| Irish (Ireland) | ga-IE | Male | `ga-IE-ColmNeural` <sup>New</sup> | General |
-| Latvian (Latvia) | lv-LV | Female | `lv-LV-EveritaNeural` | General |
-| Latvian (Latvia) | lv-LV | Male | `lv-LV-NilsNeural` <sup>New</sup> | General |
-| Lithuanian (Lithuania) | lt-LT | Female | `lt-LT-OnaNeural` | General |
-| Lithuanian (Lithuania) | lt-LT | Male | `lt-LT-LeonasNeural` <sup>New</sup> | General |
-| Maltese (Malta) | mt-MT | Female | `mt-MT-GraceNeural` | General |
-| Maltese (Malta) | mt-MT | Male | `mt-MT-JosephNeural` <sup>New</sup> | General |
+| Estonian (Estonia) | `et-EE` | Female | `et-EE-AnuNeural` | General |
+| Estonian (Estonia) | `et-EE` | Male | `et-EE-KertNeural` <sup>New</sup> | General |
+| Irish (Ireland) | `ga-IE` | Female | `ga-IE-OrlaNeural` | General |
+| Irish (Ireland) | `ga-IE` | Male | `ga-IE-ColmNeural` <sup>New</sup> | General |
+| Latvian (Latvia) | `lv-LV` | Female | `lv-LV-EveritaNeural` | General |
+| Latvian (Latvia) | `lv-LV` | Male | `lv-LV-NilsNeural` <sup>New</sup> | General |
+| Lithuanian (Lithuania) | `lt-LT` | Female | `lt-LT-OnaNeural` | General |
+| Lithuanian (Lithuania) | `lt-LT` | Male | `lt-LT-LeonasNeural` <sup>New</sup> | General |
+| Maltese (Malta) | `mt-MT` | Female | `mt-MT-GraceNeural` | General |
+| Maltese (Malta) | `mt-MT` | Male | `mt-MT-JosephNeural` <sup>New</sup> | General |
 
 > [!IMPORTANT]
 > Voices in public preview are only available in 3 service regions: East US, West Europe and Southeast Asia.
