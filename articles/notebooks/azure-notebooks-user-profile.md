@@ -13,7 +13,7 @@ Within the powerful, collaborative space of Azure Notebooks, your user profile p
 
 [![An Azure Notebooks profile page](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
-Your user ID is part of the URLs you use to share projects and notebooks. The following list describes the different URL patterns:
+Your user ID is part of the URLs that you use to share projects and notebooks. The following list describes the different URL patterns:
 
 - `https://notebooks.azure.com/<user_id>`: Your profile page.
 - `https://notebooks.azure.com/<user_id>/projects`: Your projects. You see all projects; other users see only your public projects.
@@ -49,11 +49,11 @@ To edit your profile, use the **Edit Profile Information** command on your profi
 | Profile photo | An image that's shown on your profile page. |
 | Account Information | Your display name, user ID, and public email account. The email account here provides other users a mean to contact you and can be different from the [account](azure-notebooks-user-account.md) you use to sign into Azure Notebooks itself. |
 | Profile Information | Your location, company, job title, web site, and a short description of yourself. |
-| Social Profiles | Your GItHub, Twitter, and Facebook IDs, if you wish to share them. |
+| Social Profiles | Your GitHub, Twitter, and Facebook IDs, if you wish to share them. |
 | Privacy Settings | Provides two commands:<ul><li>**Export My Profile**: creates and downloads a *.zip* file containing all the information that Azure Notebooks saves in your profile, including your photograph, profile information, and security logs.</li><li>**Delete My Account**: Permanently deletes all your personal information stored in Azure Notebooks.</li></ul> |
 | Enable Site Features | Allows you to control aspects of the behavior of Azure Notebooks:<ul><li>**Unified Frontend for Notebooks**: enables faster notebook startup and better persistence.</li><li>**Run in JupyterLab by default**: By default, Azure Notebooks provides a simple user interface that's suitable for most users. JupyterLab provides a richer but more complicated interface for experienced users.</li><li>**VNext Website**: enables the modernized web layout shown in this documentation.</li></ul> |
 
 ## Next steps  
 
 > [!div class="nextstepaction"]
-> [Tutorial: create and run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
+> [Quickstart: Export a Jupyter Notebook project](quickstart-export-jupyter-notebook-project.md)
