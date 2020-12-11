@@ -1,6 +1,9 @@
 ---
 title: Azure Migrate appliance 
 description: Provides a summary of support for the Azure Migrate appliance.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
 ---

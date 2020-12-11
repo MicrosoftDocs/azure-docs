@@ -45,7 +45,7 @@ Flow logs are the source of truth for all network activity in your cloud environ
 **Key Properties**
 
 - Flow logs operate at [Layer 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) and record all IP flows going in and out of an NSG
-- Logs are collected through the Azure platform and do not affect customer resources or network performance in any way.
+- Logs are collected at **1-min interval** through the Azure platform and do not affect customer resources or network performance in any way.
 - Logs are written in the JSON format and show outbound and inbound flows on a per NSG rule basis.
 - Each log record contains the network interface (NIC) the flow applies to, 5-tuple information, the traffic decision & (Version 2 only) throughput information. See _Log Format_ below for full details.
 - Flow Logs have a retention feature that allows automatically deleting the logs up to a year after their creation. 
@@ -360,6 +360,8 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Inbound flows logged from internet IPs to VMs without public IPs**: VMs that don't have a public IP address assigned via a public IP address associated with the NIC as an instance-level public IP, or that are part of a basic load balancer back-end pool, use [default SNAT](../load-balancer/load-balancer-outbound-connections.md) and have an IP address assigned by Azure to facilitate outbound connectivity. As a result, you might see flow log entries for flows from internet IP addresses, if the flow is destined to a port in the range of ports assigned for SNAT. While Azure won't allow these flows to the VM, the attempt is logged and appears in Network Watcher's NSG flow log by design. We recommend that unwanted inbound internet traffic be explicitly blocked with NSG.
 
+**Issue with Application Gateway V2 Subnet NSG**: Flow logging on the application gateway V2 subnet NSG is [not supported](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) currently. This issue does not affect Application Gateway V1.
+
 **Incompatible Services**: Due to current platform limitations, a small set of Azure services are not supported by NSG Flow Logs. The current list of incompatible services is
 - [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
@@ -370,7 +372,11 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. A flow will only be associated to one NSG Rule. In scenarios where multiple NSGs are utilized, we recommend enabling NSG flow logs on all NSGs applied a resource's subnet or network interface to ensure that all traffic is recorded. For more information, see [how traffic is evaluated](../virtual-network/network-security-group-how-it-works.md) in Network Security Groups.
 
+**Having NSG at both NIC and Subnet Level**: In case NSG is configured at the NIC as well as the Subnet level, then flow logging must be enabled at both the NSGs. 
+
 **Storage provisioning**: Storage should be provisioned in tune with expected Flow Log volume.
+
+**Naming**: The NSG name must be upto 80 chars and the NSG rule names upto 65 chars. If the names exceed their character limit, it may get truncated while logging.
 
 ## Troubleshooting common issues
 

@@ -141,11 +141,14 @@ After the catalog configuration is complete, run the following scripts in the Po
 
    When you run the command, a pop-up window may appear for you to sign in using your Azure Active Directory credentials.
 
-1. Use the following command to run the starter kit. Replace the `CatalogName`, `TenantID`, `SubscriptionID`, `NewResourceGroupName`, and `CatalogResourceGroupName` placeholders. For `NewResourceGroupName`, use a unique name for the resource group that will contain the data estate.
+1. Use the following command to run the starter kit. Replace the `CatalogName`, `TenantID`, `SubscriptionID`, `newresourcegroupname`, and `CatalogResourceGroupName` placeholders. For `newresourcegroupname`, use a unique name for the resource group that will contain the data estate.
+
+> [!IMPORTANT]
+> The **newresourcegroupname** use numbers and lower-case letters only and must be less than 17 characters. **No upper case alphabets and special characters are allowed.** This constraint comes from storage account naming rules.
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`
-   -ResourceGroup <NewResourceGroupName> `
+   -ResourceGroup <newresourcegroupname> `
    -SubscriptionId <SubscriptionID> `
    -CatalogResourceGroup <CatalogResourceGroupName>
    ```
@@ -153,6 +156,9 @@ After the catalog configuration is complete, run the following scripts in the Po
 It can take up to 10 minutes for the environment to be set up. During this time, you might see various pop-up windows, which you can ignore. Don't close the **BlobDataCreator.exe** window; it automatically closes when it finishes.
 
 When you see the message `Executing Copy pipeline xxxxxxxxxx-487e-4fc4-9628-92dd8c2c732b`, wait for another instance of **BlobDataCreator.exe** to start and finish running.
+
+> [!IMPORTANT]
+> In case the 'Number of active tasks' stops decreasing, then you can exit the blob creator window and hit enter on the powershell window
 
 After the process has finished, a resource group with the name you supplied is created. The Azure Data Factory, Azure Blob storage, and Azure Data Lake Storage Gen2 accounts are all contained in this resource group. The resource group is contained in the subscription you specified.
 

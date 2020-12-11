@@ -29,10 +29,11 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-* [Install Git](https://git-scm.com/)
-* [Install Ruby 2.6](https://www.ruby-lang.org/en/documentation/installation/)
-* [Install Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
-* [Install and run PostgreSQL](https://www.postgresql.org/download/)
+- [Install Git](https://git-scm.com/)
+- [Install Ruby 2.6](https://www.ruby-lang.org/en/documentation/installation/)
+- [Install Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
+- [Install and run PostgreSQL](https://www.postgresql.org/download/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Prepare local Postgres
 
@@ -98,8 +99,6 @@ Navigate to `http://localhost:3000` in a browser. Add a few tasks in the page.
 ![Ruby on Rails connects successfully to Postgres](./media/tutorial-ruby-postgres-app/postgres-connect-success.png)
 
 To stop the Rails server, type `Ctrl + C` in the terminal.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create Postgres in Azure
 

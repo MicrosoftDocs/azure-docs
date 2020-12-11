@@ -72,6 +72,17 @@ The following operations are available on SMS API request metrics:
 
 :::image type="content" source="./media/sms-metric.png" alt-text="SMS API Request Metric.":::
 
+### Authentication API requests
+
+The following operations are available on Authentication API request metrics:
+
+| Operation / Route    | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| CreateIdentity       | Creates an identity representing a single user. |
+| DeleteIdentity       | Deletes an identity. |
+| CreateToken          | Creates an access token. |
+| RevokeToken          | Revokes all access tokens created for an identity before a time given. |
+
 ## Next Steps
 
 - Learn more about [Data Platform Metrics](../../azure-monitor/platform/data-platform-metrics.md)
