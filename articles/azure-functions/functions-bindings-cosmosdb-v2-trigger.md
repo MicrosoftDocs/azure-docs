@@ -138,7 +138,28 @@ Here's the JavaScript code:
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+The following example shows how to run a function as data changes in Cosmos DB.
+
+```json
+{
+  "type": "cosmosDBTrigger",
+  "name": "Documents",
+  "direction": "in",
+  "leaseCollectionName": "leases",
+  "connectionStringSetting": "MyStorageConnectionAppSetting",
+  "databaseName": "Tasks",
+  "collectionName": "Items",
+  "createLeaseCollectionIfNotExists": true
+}
+``  
+
+In the _run.ps1_ file, you have access to the document that triggers the function via the `$Documents` parameter.
+
+```powershell
+param($Documents, $TriggerMetadata) 
+
+Write-Host "First document Id modified : $($Documents[0].id)" 
+```
 
 # [Python](#tab/python)
 
