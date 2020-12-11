@@ -246,7 +246,7 @@ In the publish page, click **Publish**.
 
 ```bash
 git commit -am "configure managed identity"
-git push azure main
+git push azure master
 ```
 
 When the new webpage shows your to-do list, your app is connecting to the database using the managed identity.

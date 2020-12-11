@@ -52,7 +52,7 @@ conceptualContent:
         - url: /microsoft-365/compliance/offering-iso-20000-1-2011
           itemType: concept
           text: ISO 20000-1
-        - url: /microsoft-365/compliance/offering-iso-22301
+        - url: /compliance/regulatory/offering-iso-22301
           itemType: concept
           text: ISO 22301
         - url: /microsoft-365/compliance/offering-iso-27001
@@ -208,7 +208,7 @@ conceptualContent:
         - url: /microsoft-365/compliance/offering-hds-france
           itemType: concept
           text: HDS (France)
-        - url: /microsoft-365/compliance/offering-hipaa-hitech
+        - url: /compliance/regulatory/offering-hipaa-hitech
           itemType: concept
           text: HIPAA & HITECH (US)
         - url: /microsoft-365/compliance/offering-hitrust
