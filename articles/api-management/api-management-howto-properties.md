@@ -72,6 +72,8 @@ For details, see [Connect to a virtual network](api-management-using-with-vnet.m
 
 ### Add a key vault secret
 
+See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integration).
+
 1.  In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **APIs**, select **Named values** > **+Add**.
 1. Enter a **Name** identifier, and enter a **Display name** used to reference the property in policies.
