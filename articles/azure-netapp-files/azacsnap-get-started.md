@@ -23,17 +23,16 @@ This article provides a guide for installing the Azure Application Consistent Sn
 
 ## Getting the snapshot tools
 
-It is recommended customers get the most recent version of the self-installation file (e.g.
-azacsnap_installer_v5.0.run or later) which contains the snapshot tools from Microsoft. Then 
-follow the steps in the Technical Setup section of this guide to install.
+It is recommended customers get the most recent version of the [AzAcSnap Installer](https://aka.ms/azacsnapdownload) from Microsoft.
 
-The self-installation file is signed with Microsoft's public key to allow for GPG verification of the
-download.
+The self-installation file has an associated [AzAcSnap Installer signature file](https://aka.ms/azacsnapdownloadsignature) which is signed with Microsoft's public key to allow for GPG verification of the downloaded installer.
+
+Once these downloads are completed, then follow the steps in this guide to install.
 
 ### Verifying the download
 
 The installer, which is downloadable per above, has an associated PGP signature file with an `.asc`
-filename extension. This file can be used to verify the downloaded installer to ensure this file is a
+filename extension. This file can be used to ensure the installer downloaded is a verified
 Microsoft provided file. The Microsoft PGP Public Key used for signing Linux packages is available here
 (<https://packages.microsoft.com/keys/microsoft.asc>) and has been used to sign the signature file.
 
