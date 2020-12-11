@@ -97,7 +97,7 @@ Select all of the Dynamics 365 products this offer applies to.
 
 ### App version
 
-Enter the version number of your offer. Customers will see this version listed on the offer's detail page.<strike> If you are only updating the version number due to marketing/descriptive changes, check the **Marketing only change** box. This option allows the offer to bypass the certification and provisioning stages.</strike>
+Enter the version number of your offer. Customers will see this version listed on the offer's detail page.<!-- If you are only updating the version number due to marketing/descriptive changes, check the **Marketing only change** box. This option allows the offer to bypass the certification and provisioning stages.-->
 
 ### Terms and conditions
 
@@ -107,9 +107,9 @@ Select **Save draft** before continuing.
 
 ## Offer listing
 
-<strike>This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
+<!--This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
 
-Define marketplace details for each language/market here, such as offer name, description, and images. Select the language/market name to provide this information.</strike>This page lets you define offer details such as offer name, description, links, and contacts.
+Define marketplace details for each language/market here, such as offer name, description, and images. Select the language/market name to provide this information.-->This page lets you define offer details such as offer name, description, links, and contacts.
 
 > [!NOTE]
 > Provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful link URL* to offer content in a language other than the one used in the Offer listing content.

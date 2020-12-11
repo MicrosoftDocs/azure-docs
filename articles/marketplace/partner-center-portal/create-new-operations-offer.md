@@ -103,9 +103,9 @@ Select **Save draft** before continuing.
 
 ## Offer listing
 
-<strike>This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
+<!--This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
 
-Define marketplace details such as offer name, description, and images for each language/market. Select the language/market name to provide this info.</strike>This page lets you define offer details such as offer name, description, links, and contacts.
+Define marketplace details such as offer name, description, and images for each language/market. Select the language/market name to provide this info.-->This page lets you define offer details such as offer name, description, links, and contacts.
 
 > [!NOTE]
 > Provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful link URL* to offer content in a language other than the one used in the Offer listing content.
