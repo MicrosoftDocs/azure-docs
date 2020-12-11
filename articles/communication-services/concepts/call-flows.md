@@ -12,7 +12,7 @@ ms.topic: overview
 ms.service: azure-communication-services
 
 ---
-# Call Flows
+# How the SDK Select the Media and Signalling Path 
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
