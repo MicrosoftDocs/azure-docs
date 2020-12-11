@@ -81,9 +81,20 @@ You can have a disaster recovery solution for your SQL Server databases in a hyb
 
 If you have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), you can implement hybrid disaster recovery (DR) plans with SQL Server without incurring additional licensing costs for the passive disaster recovery instance.
 
-In the following image, the setup uses SQL Server running on an Azure virtual machine that uses 12 cores as a disaster recovery replica for an on-premises SQL Server deployment that uses 12 cores. In the past, you would need to license 12 cores of SQL Server for the on-premises deployment and the Azure Virtual Machines deployment. The new benefit offers passive replica benefits for running on an Azure virtual machine. Now you would need to license only 12 cores of SQL Server running on-premises, as long as the disaster recovery criteria for the passive replica on Azure Virtual Machines are met.
+For example, you can have an active primary on-premises, and a free passive secondary for DR in Azure: 
 
-![Free disaster recovery replica in Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/free-dr-replica-azure.png)
+![Free secondary passive in Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-secondary-in-azure.png)
+
+In the preceding image, the setup uses SQL Server running on an Azure virtual machine that uses 12 cores as a disaster recovery replica for an on-premises SQL Server deployment that uses 12 cores. In the past, you would need to license 12 cores of SQL Server for the on-premises deployment and the Azure Virtual Machines deployment. The new benefit offers passive replica benefits for running on an Azure virtual machine. Now you would need to license only 12 cores of SQL Server running on-premises, as long as the disaster recovery criteria for the passive replica on Azure Virtual Machines are met.
+
+You can also have two free passive secondaries when all three replicas are hosted in Azure: 
+
+![Two free passives when everything in Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
+
+Or you can configure a hybrid failover environment, with a licensed primary on-premises, one free passive for HA, and two free passives for DR: 
+
+![Three free passives when environment is hybrid with one primary on-premises replica](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
+
 
 For more information, see the [product licensing terms](https://www.microsoft.com/licensing/product-licensing/products). 
 

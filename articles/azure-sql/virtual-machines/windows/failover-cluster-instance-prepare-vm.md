@@ -43,19 +43,22 @@ The failover cluster feature requires virtual machines to be placed in an [avail
 
 Carefully select the VM availability option that matches your intended cluster configuration: 
 
- - **Azure shared disks**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configured with the fault domain and update domain set to 1 and placed inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
- - **Premium file shares**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or [availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Premium file shares are the only shared storage option if you choose availability zones as the availability configuration for your VMs. 
- - **Storage Spaces Direct**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+- **Azure shared disks**: the availability option varies if you're using Premium SSDs or UltraDisk:
+   - Premium SSD: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) in different fault/update domains for Premium SSDs placed inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+   - Ultra Disk: [Availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) but the VMs must be placed in the same availability zone which reduces availability of the cluster to 99.9%. 
+- **Premium file shares**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or [availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
+- **Storage Spaces Direct**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
->[!IMPORTANT]
->You can't set or change the availability set after you've created a virtual machine.
+> [!IMPORTANT]
+> You can't set or change the availability set after you've created a virtual machine.
 
 ## Create the virtual machines
 
 After you've configured your VM availability, you're ready to create your virtual machines. You can choose to use an Azure Marketplace image that does or doesn't have SQL Server already installed on it. However, if you choose an image for SQL Server on Azure VMs, you'll need to uninstall SQL Server from the virtual machine before configuring the failover cluster instance. 
 
 ### Considerations
-On an Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters.
+
+On an Azure VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters.
 
 Place both virtual machines:
 
