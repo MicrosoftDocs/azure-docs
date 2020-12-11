@@ -3,12 +3,11 @@ title: storage data partners for primary and secondary storage
 titleSuffix: Azure Blob Storage Docs
 description: List of industry system integrators building customer solutions for primary and secondary storage solutions with Azure Storage
 keywords: Storage, Blob, primary, seconday
-author: Karl Rautenstrauch
-ms.author: karauten
-ms.date: 10/11/2020
+author: beber-msft
+ms.author: beber
+ms.date: 06/11/2020
 ms.topic: article
-ms.service: Storage
-ms.subservice: Blob Storage 
+ms.service: storage
 ---
 
 # Azure Storage system integration partners for primary and secondary storage

@@ -880,4 +880,4 @@
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
     - name: Partners
-      href: ..\solution-integration
+      href: ../solution-integration/

@@ -3,12 +3,11 @@ title: storage data management integration partners
 titleSuffix: Azure Blob Storage Docs
 description: List of industry system integrators building customer solutions for data management with Azure Storage
 keywords: Storage, Blob, data management
-author: Karl Rautenstrauch
-ms.author: karauten
-ms.date: 11/11/2020
+author: beber-msft
+ms.author: beber
+ms.date: 06/11/2020
 ms.topic: article
-ms.service: Storage
-ms.subservice: Blob Storage 
+ms.service: storage
 ---
 
 # Azure Storage data management system integration partners

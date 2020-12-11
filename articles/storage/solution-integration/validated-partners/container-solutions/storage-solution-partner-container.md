@@ -3,12 +3,11 @@ title: storage container solution integration partners
 titleSuffix: Azure Blob Storage Docs
 description: List of industry system integrators building customer solutions for container with Azure Storage
 keywords: Storage, Blob, container
-author: Karl Rautenstrauch
-ms.author: karauten
-ms.date: 11/11/2020
+author: beber-msft
+ms.author: beber
+ms.date: 06/11/2020
 ms.topic: article
-ms.service: Storage
-ms.subservice: Blob Storage 
+ms.service: storage
 ---
 
 # Azure Storage container management system integration partners
