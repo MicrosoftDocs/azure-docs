@@ -20,16 +20,11 @@ Unlike Azure Cosmos DB, Apache Cassandra does not natively provide precisely def
 
 * Azure Cosmos DB will dynamically map the read consistency level specified by the Cassandra client driver to one of the Azure Cosmos DB consistency levels configured dynamically on a read request.
 
-## Multi-master vs Single-master
+## Multi-region writes vs Single-region writes
 
-Apache Cassandra database is a multi-master system by default, and does not provide an out-of-box option for single-master with multi-region replication for reads. However, Azure Cosmos DB provides turnkey ability to have either single master, or [multi-master](how-to-multi-master.md) configurations. One of the advantages of being able to choose a single master multi-region configuration is the avoidance of cross-region conflict scenarios, and the option of maintaining strong consistency across multiple regions. 
+Apache Cassandra database is a multi-master system by default, and does not provide an out-of-box option for single-region writes with multi-region replication for reads. However, Azure Cosmos DB provides turnkey ability to have either single region, or [multi-region](how-to-multi-master.md) write configurations. One of the advantages of being able to choose a single region write configuration across multiple regions is the avoidance of cross-region conflict scenarios, and the option of maintaining strong consistency across multiple regions. 
 
-With a single master, multi region account, you can maintain strong consistency, while still maintaining a level of high availability across regions with [automatic failover](high-availability.md#multi-region-accounts-with-a-single-write-region-write-region-outage). In this configuration, you can still exploit data locality to reduce read latency by downgrading to eventual consistency on a per request basis. In addition to these capabilities, the Azure Cosmos DB platform also provides the ability to enable [zone redundancy](high-availability.md#availability-zone-support) when selecting a region. Thus, unlike native Apache Cassandra, Azure Cosmos DB allows you to navigate the [trade-off spectrum between RPO and RTO](consistency-levels.md#rto) more effectively.
-
-
-
-> [!NOTE]
-> It is not possible for a distributed system to provide both an RPO of zero (strong consistency across all regions) and an RTO of zero (with multi-master across all regions) at the same time, due to the CAP Theorem (read [here](consistency-levels.md#rto) for more information).
+With single-region writes, you can maintain strong consistency, while still maintaining a level of high availability across regions with [automatic failover](high-availability.md#multi-region-accounts-with-a-single-write-region-write-region-outage). In this configuration, you can still exploit data locality to reduce read latency by downgrading to eventual consistency on a per request basis. In addition to these capabilities, the Azure Cosmos DB platform also provides the ability to enable [zone redundancy](high-availability.md#availability-zone-support) when selecting a region. Thus, unlike native Apache Cassandra, Azure Cosmos DB allows you to navigate the CAP Theorem [trade-off spectrum](consistency-levels.md#rto) with more granularity.
 
 ## Mapping consistency levels
 
