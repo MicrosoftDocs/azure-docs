@@ -3,7 +3,7 @@ title: Configure Windows Virtual Desktop MSIX app attach PowerShell scripts - Az
 description: How to create PowerShell scripts for MSIX app attach for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -15,6 +15,9 @@ manager: lizross
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This topic will walk you through how to set up PowerShell scripts for MSIX app attach.
+
+>[!IMPORTANT]
+>Before you get started, make sure to fill out and submit [this form](https://aka.ms/enablemsixappattach) to enable MSIX app attach in your subscription. If you don't have an approved request, MSIX app attach won't work. Approval of requests can take up to 24 hours during business days. You'll get an email when your request has been accepted and completed.
 
 ## Install certificates
 

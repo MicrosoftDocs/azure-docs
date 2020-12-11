@@ -3,7 +3,7 @@ title: Windows Virtual Desktop MSIX app attach portal preview - Azure
 description: How to set up MSIX app attach for Windows Virtual Desktop using the Azure portal.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -18,7 +18,10 @@ This article will walk you through how to set up MSIX app attach (preview) in a 
 
 ## Requirements
 
-Before you get started, here's what you need to configure MSIX app attach:
+>[!IMPORTANT]
+>Before you get started, make sure to fill out and submit [this form](https://aka.ms/enablemsixappattach) to enable MSIX app attach in your subscription. If you don't have an approved request, MSIX app attach won't work. Approval of requests can take up to 24 hours during business days. You'll get an email when your request has been accepted and completed.
+
+Here's what you need to configure MSIX app attach:
 
 - A functioning Windows Virtual Desktop deployment. To learn how to deploy Windows Virtual Desktop (classic), see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Windows Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
 - A Windows Virtual Desktop host pool with at least one active session host.
