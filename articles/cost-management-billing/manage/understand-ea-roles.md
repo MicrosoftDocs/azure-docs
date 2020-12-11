@@ -78,6 +78,7 @@ Users with this role have the highest level of access. They can:
 - View usage across all accounts.
 - View unbilled charges across all accounts.
 - View and manage all reservation orders and reservations that apply to the Enterprise Agreement.
+  - Enterprise administrator (read-only) can view reservation orders and reservations. They can't manage them.
 
 You can have multiple enterprise administrators in an enterprise enrollment. You can grant read-only access to enterprise administrators. They all inherit the department administrator role.
 
