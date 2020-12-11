@@ -40,4 +40,4 @@ Azure Lighthouse includes multiple ways to help streamline engagement and manage
 - Learn about [Azure delegated resource management](concepts/azure-delegated-resource-management.md).
 - Explore [cross-tenant management experiences](concepts/cross-tenant-management-experience.md).
 - See how to [use Azure Lighthouse within an enterprise](concepts/enterprise.md).
-- View [availability](https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=non-regional%2cus-east%2cus-east-2%2cus-central%2cus-north-central%2cus-south-central%2cus-west-central%2cus-west%2cus-west-2) and [FedRAMP and DoD CC SRG audit scope](../azure-government/compliance/azure-services-in-fedramp-auditscope.md) details for Azure Lighthouse.
+- View [availability](https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all) and [FedRAMP and DoD CC SRG audit scope](../azure-government/compliance/azure-services-in-fedramp-auditscope.md) details for Azure Lighthouse.
