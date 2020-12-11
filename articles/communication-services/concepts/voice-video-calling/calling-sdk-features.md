@@ -87,7 +87,7 @@ For example, this iframe allows both camera and microphone access:
 ```
 
 ## The Communication Services calling client library currently supports
-> There can currently be no more than one outgoing local video stream. You can render only 1 incoming video stream and additionally only 1 incoming screen share video stream ( so max 2 incoming video streams ) at any given time
+The Communication Services calling client library supports the following streaming configurations:
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
