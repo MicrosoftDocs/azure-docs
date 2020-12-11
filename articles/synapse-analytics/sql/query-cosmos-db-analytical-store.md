@@ -218,7 +218,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-Do not use `OPENROWSET` without explicitly defined schema because it might impact your performance. Make sure that you use the smallest possible sizes for your columns (for example VARCHAR(100) instead of default VARCHAR(8000)). You should use some UTF-8 collation as default database collation or set it as explicit column collation to avoid [UTF-8 conversion issue](/troubleshoot/reading-utf8-text). Collation `Latin1_General_100_BIN2_UTF8` provides best performance when yu filter data using some string columns.
+Do not use `OPENROWSET` without explicitly defined schema because it might impact your performance. Make sure that you use the smallest possible sizes for your columns (for example VARCHAR(100) instead of default VARCHAR(8000)). You should use some UTF-8 collation as default database collation or set it as explicit column collation to avoid [UTF-8 conversion issue](/azure/synapse-analytics/troubleshoot/reading-utf8-text). Collation `Latin1_General_100_BIN2_UTF8` provides best performance when yu filter data using some string columns.
 
 ## Query nested objects and arrays
 
