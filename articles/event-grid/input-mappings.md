@@ -38,10 +38,6 @@ When creating a custom topic, specify how to map fields from your original event
 To create a custom topic with Azure CLI, use:
 
 ```azurecli-interactive
-# If you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
