@@ -146,7 +146,7 @@ def get_token(subscription_key):
 
 The access token should be sent to the service as the `Authorization: Bearer <TOKEN>` header. Each access token is valid for 10 minutes. You can get a new token at any time, however, to minimize network traffic and latency, we recommend using the same token for nine minutes.
 
-Here's a sample HTTP request to the text-to-speech REST API:
+Here's a sample HTTP request to the Speech-to-Text REST API for short audio:
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
