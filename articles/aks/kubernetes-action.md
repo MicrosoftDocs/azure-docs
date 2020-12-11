@@ -91,7 +91,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     
     # Connect to Azure Container registry (ACR)
     - uses: azure/docker-login@v1
@@ -158,7 +158,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     
     # Connect to Azure Container registry (ACR)
     - uses: azure/docker-login@v1
