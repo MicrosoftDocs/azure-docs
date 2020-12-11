@@ -22,6 +22,8 @@ In this tutorial, you learn how to:
 > * View activity logs
 > * Enable and view resource logs
 
+You can also use API Management's built-in [analytics](howto-use-analytics.md) to monitor the usage and performance of your APIs.
+
 ## Prerequisites
 
 + Learn the [Azure API Management terminology](api-management-terminology.md).

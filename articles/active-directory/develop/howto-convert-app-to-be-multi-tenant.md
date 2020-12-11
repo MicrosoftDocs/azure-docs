@@ -113,6 +113,8 @@ This consent experience is affected by the permissions requested by the applicat
 
 Some permissions can be consented to by a regular user, while others require a tenant administrator’s consent.
 
+To learn more about user and admin consent, see [Configure the admin consent workflow](../manage-apps/configure-admin-consent-workflow.md).
+
 ### Admin consent
 
 App-only permissions always require a tenant administrator’s consent. If your application requests an app-only permission and a user tries to sign in to the application, an error message is displayed saying the user isn’t able to consent.
