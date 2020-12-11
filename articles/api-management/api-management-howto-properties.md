@@ -99,13 +99,13 @@ Once the named value is created, you can edit it by selecting the name. If you c
 
 ## Use a named value
 
-The examples in this section use named values shown in the following table.
+The examples in this section use the named values shown in the following table.
 
-| Name               | Value                      | Secret | Tags    |
+| Name               | Value                      | Secret | 
 |--------------------|----------------------------|--------|---------|
-| ContosoHeader      | `TrackingId`                 | False  | Contoso |
-| ContosoHeaderValue | ••••••••••••••••••••••     | True   | Contoso |
-| ExpressionProperty | `@(DateTime.Now.ToString())` | False  |         |
+| ContosoHeader      | `TrackingId`                 | False  | 
+| ContosoHeaderValue | ••••••••••••••••••••••     | True   | 
+| ExpressionProperty | `@(DateTime.Now.ToString())` | False  | 
 
 To use a named value in a policy, place its display name inside a double pair of braces like `{{ContosoHeader}}`, as shown in the following example:
 
