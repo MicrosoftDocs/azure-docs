@@ -95,10 +95,10 @@ The azuredeploy.json has been added to the local repository. Next, you upload th
     ```bash
     git add .
     git commit -m "Add web app templates."
-    git push origin master
+    git push origin main
     ```
 
-    You might get a warning about LF. You can ignore the warning. **master** is the master branch.  You typically create a branch for each update. To simplify the tutorial, you use the master branch directly.
+    You might get a warning about LF. You can ignore the warning. **main** is the main branch.  You typically create a branch for each update. To simplify the tutorial, you use the main branch directly.
 1. Browse to your GitHub repository from a browser.  The URL is **`https://github.com/[YourAccountName]/[YourGitHubRepository]`**. You shall see the **CreateWebApp** folder and the three files inside the folder.
 1. Select **linkedStorageAccount.json** to open the template.
 1. Select the **Raw** button. The URL is started with **raw.githubusercontent.com**.
@@ -211,15 +211,15 @@ When you update the template and push the changes to the remote repository, the 
 1. Push the changes to the remote repository by running the following commands from Git Bash/Shell.
 
     ```bash
-    git pull origin master
+    git pull origin main
     git add .
     git commit -m "Update the storage account type."
-    git push origin master
+    git push origin main
     ```
 
     The first command (pull) syncs the local repository with the remote repository. The pipeline YAML file was only added to the remote repository. Running the pull command downloads a copy of the YAML file to the local branch.
 
-    The fourth command (push) uploads the revised linkedStorageAccount.json file to the remote repository. With the master branch of the remote repository updated, the pipeline is fired again.
+    The fourth command (push) uploads the revised linkedStorageAccount.json file to the remote repository. With the main branch of the remote repository updated, the pipeline is fired again.
 
 To verify the changes, you can check the Replication property of the storage account.  See [Verify the deployment](#verify-the-deployment).
 

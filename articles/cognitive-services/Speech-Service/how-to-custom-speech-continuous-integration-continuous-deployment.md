@@ -26,7 +26,7 @@ Custom CI/CD solutions are possible, but for a robust, pre-built solution, use t
 
 The purpose of these workflows is to ensure that each Custom Speech model has better recognition accuracy than the previous build. If the updates to the testing and/or training data improve the accuracy, these workflows create a new Custom Speech endpoint.
 
-Git servers such as GitHub and Azure DevOps can run automated workflows when specific Git events happen, such as merges or pull requests. For example, a CI workflow can be triggered when updates to testing data are pushed to the *master* branch. Different Git Servers will have different tooling, but will allow scripting command-line interface (CLI) commands so that they can execute on a build server.
+Git servers such as GitHub and Azure DevOps can run automated workflows when specific Git events happen, such as merges or pull requests. For example, a CI workflow can be triggered when updates to testing data are pushed to the *main* branch. Different Git Servers will have different tooling, but will allow scripting command-line interface (CLI) commands so that they can execute on a build server.
 
 Along the way, the workflows should name and store data, tests, test files, models, and endpoints such that they can be traced back to the commit or version they came from. It is also helpful to name these assets so that it is easy to see which were created after updating testing data versus training data.
 
@@ -79,7 +79,7 @@ The [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Servic
 
 - Copy the template repository to your GitHub account, then create Azure resources and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the GitHub Actions CI/CD workflows.
 - Walk through the "[dev inner loop](https://mitchdenny.com/the-inner-loop/)." Update training and testing data from a feature branch, test the changes with a temporary development model, and raise a pull request to propose and review the changes.
-- When training data is updated in a pull request to *master*, train models with the GitHub Actions CI workflow.
+- When training data is updated in a pull request to *main*, train models with the GitHub Actions CI workflow.
 - Perform automated accuracy testing to establish a model's [Word Error Rate](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER). Store the test results in Azure Blob.
 - Execute the CD workflow to create an endpoint when the WER improves.
 
