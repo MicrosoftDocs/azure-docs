@@ -1,6 +1,6 @@
 ---
-title: How to use application insights in Azure Spring Cloud 
-description: How to monitor using Application Insights Java agent in Azure Spring Cloud.
+title: How to use Application Insights Java In-Process Agent in Azure Spring Cloud 
+description: How to monitor apps and microservices using Application Insights Java In-Process Agent in Azure Spring Cloud.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -9,7 +9,7 @@ ms.date: 12/04/2020
 ms.custom: devx-track-java
 ---
 
-# Application Insights Java In Process Agent (Preview)
+# Application Insights Java In-Process Agent in Azure Spring Cloud (Preview)
 
 This document explains how to monitor apps and microservices using the Application Insights Java agent in Azure Spring Cloud.
 
@@ -18,25 +18,25 @@ With this feature you can:
 * Search tracing data with different filters.
 * View dependency map of microservices.
 * Check request performance.
-* Monitoring real-time live metrics.
+* Monitor real-time live metrics.
 * Check request failures.
 * Check application metrics.
 
-## Enable Java in process agent
+## Enable Java In-Process Agent for Application Insights
 
-Enable Java in process agent preview feature using the following procedure.
+Enable Java In-Process Agent preview feature using the following procedure.
 
 1. Go to service overview page of your service instance.
 2. Click **Application Insights** entry under monitoring blade.
 3. Click **Enable Application Insights** button to enable **Application Insights** integration.
-4. Select an existing Application Insights or create a new Application Insights.
+4. Select an existing instance of Application Insights or create a new one.
 5. Chick **Enable Java in-process agent** to enable preview Java in-process agent feature. Here you can also customize sampling rate from 0 to 100.
 6.  Click **Save** to save the change.
 
 ## Portal
 
 1. Go to the **service | Overview** page and select **Application Insights** in the **Monitoring** section. 
-2. Click **Enable Application Insights** to enable Application Insights on Azure Spring Cloud.
+2. Click **Enable Application Insights** to enable Application Insights in Azure Spring Cloud.
 3. Click **Enable Java in-process agent** to enable Java IPA preview feature. When an IPA preview feature is enabled, you can configure one optional sampling rate (default 10.0%).
 
   [ ![IPA 0](media/spring-cloud-application-insights/insights-process-agent-0.png)](media/spring-cloud-application-insights/insights-process-agent-0.png)
@@ -56,8 +56,6 @@ In the left navigation pane, click **Application Insights** to jump to the **Ove
 * In the left navigation pane, click `Performance` to see the performance data of all applications' operations, as well as dependencies and roles.
 
   [ ![IPA 4](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)
-
-
 
 * In the left navigation pane, click **Failures** to see if something unexpected from your applications.
 
@@ -107,3 +105,6 @@ az deployment group create --name "customize this" -g "customize this" --templat
 ```
 
 ## See also
+* [Use distributed tracing with Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md)
+* [Analyze logs and metrics](diagnostic-services.md)
+* [Stream logs in real time](spring-cloud-howto-log-streaming.md)

@@ -95,7 +95,7 @@
           href: diagnostic-services.md
         - name: Stream logs in real-time
           href: spring-cloud-howto-log-streaming.md
-        - name: Application Insights
+        - name: Application Insights using Java In-Process Agent
           href: spring-cloud-howto-application-insights.md
     - name: Secure
       items:
