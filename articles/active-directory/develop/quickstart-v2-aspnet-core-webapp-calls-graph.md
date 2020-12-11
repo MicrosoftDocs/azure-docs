@@ -185,7 +185,7 @@ app.UseEndpoints(endpoints =>
 
 ### Protect a controller or a controller's method
 
-You can protect a controller or controller methods using the `[Authorize]` attribute. This attribute restricts access to the controller or methods by only allowing authenticated users, which means that authentication challenge can be started to access the controller if the user isn't authenticated. In this quickstart, the scopes are read from the configuration file:
+You can protect a controller or its methods by applying the `[Authorize]` attribute to the controller's class or one or more of its methods. This `[Authorize]` attribute restricts access by allowing only authenticated users. If the user isn't already authenticated, an authentication challenge can be started to access the controller. In this quickstart, the scopes are read from the configuration file:
 
 ```CSharp
 [AuthorizeForScopes(ScopeKeySection = "DownstreamApi:Scopes")]
