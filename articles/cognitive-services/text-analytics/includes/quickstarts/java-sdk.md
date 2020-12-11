@@ -604,7 +604,9 @@ veterinarian
 
 > [!CAUTION]
 > To use Analyze operations, you must use a Text Analytics resource with the standard (S) pricing tier.  
+
 Create a new function called `analyzeOperationExample()`, which calls the `beginAnalyzeTasks()` function. The result will be a long running operation which will be polled for results.
+
 ```java
 static void analyzeOperationExample(TextAnalyticsClient client)
 {
