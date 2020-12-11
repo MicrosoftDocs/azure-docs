@@ -51,7 +51,7 @@ The scope only applies to individual subscriptions with pay-as-you-go rates (off
 
 The following users can view and manage reservations:
 
-Two users get the Owner role for the reservation order and the reservation. The owners are the user that bought the reservation and the billing account administrator of the subscription where the reservation was bought. Both users can view and manage reservations.
+The person who buys a reservation and the account administrator of the billing subscription used to buy the reservation are added to the reservation order and reservation.
 
 To allow other people to view the reservation, you must add them as an **Owner** or a **Reader** for the Reservation order or the reservation. Adding someone to the subscription where the reservation was bought doesn't automatically add them to the reservation.
 
@@ -89,7 +89,7 @@ To view or manage reservations:
 1. Go to **Cost Management + Billing** and then on the left side of the page, select **Reservation Transactions**.
 2. If you have the required billing permissions, you can view and manage reservations. If you don't see any reservations, make sure that you're signed in using the Azure AD tenant where the reservations were created. 
 
-For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks)
+For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## Split a single reservation into two reservations
 
