@@ -9,7 +9,7 @@ author: lobrien
 ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.custom: troubleshooting, devx-track-python, contperfq2
+ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
 ---
 
 # Debug and troubleshoot machine learning pipelines

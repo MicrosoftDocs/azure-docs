@@ -37,8 +37,8 @@ To deploy the device simulation solution accelerator, see the the [device simula
 
 See the following pages on the previous versions site:
 
-* [Remote monitoring](/previous-versions/azure/iot-accelerators/about-iot-accelerators.md)
-* [Predictive maintenance](/previous-versions/azure/iot-accelerators/about-iot-accelerators.md)
+* [Remote monitoring](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
+* [Predictive maintenance](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 
 ### What SDKs can I use to develop device clients for the solution accelerators?
 

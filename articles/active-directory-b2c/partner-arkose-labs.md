@@ -143,7 +143,7 @@ Download Git Bash and follow the steps below:
 
 1. Create a user flow based on the information [here](tutorial-create-user-flows.md). Stop when you reach the section **Test the user flow**.
 
-2. Enable JavaScript in your [user flow](user-flow-javascript-overview.md).
+2. Enable JavaScript in your [user flow](javascript-and-page-layout.md).
 
 3. In the same user flow page, enable custom page URL: Go to
 **User flow** > **page layout** > **use custom page content** = **yes** > **insert custom page URL**.

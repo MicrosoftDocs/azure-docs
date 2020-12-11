@@ -44,7 +44,7 @@ In short, Azure Notebooks helps you accomplish your work more efficiently and th
 
 Azure Notebooks is a free service but each project is limited to 4GB memory and 1GB data to prevent abuse. Legitimate users that exceed these limits see a Captcha challenge to continue running notebooks.
 
-To release all limits, sign into Azure Notebooks with an account using Azure Active Directory (such as a corporate account). If that account is associated with an Azure subscription, you can connect to any Azure Data Science Virtual Machine instances within that subscription. For more information, see [Manage and configure projects - Compute tier](configure-manage-azure-notebooks-projects.md#compute-tier).
+To release all limits, sign into Azure Notebooks with an account using Azure Active Directory (such as a corporate account). If that account is associated with an Azure subscription, you can connect to any Azure Data Science Virtual Machine instances within that subscription. 
 
 Notebook servers are guaranteed to exist for at most 8 hours. In most cases, your container isn't subject to this limit and continues to run beyond this time, but long-lived sessions may occasionally be shut down for system stability.
 
@@ -60,7 +60,7 @@ For each notebook, you select the kernel (that is, the runtime environment) that
 
 Azure Notebooks also includes extra packages beyond the base distributions. The Python kernels, for example, include the numpy, pandas, scikit-learn, matplotlib, and bokeh libraries.
 
-You can also customize a project to create an environment for all of the notebooks in that project. For more information, see [Quickstart: Create a project with a custom environment](quickstart-create-jupyter-notebook-project-environment.md).
+You can also customize a project to create an environment for all of the notebooks in that project.
 
 In addition to the base distributions, Azure Notebooks comes pre-installed with many extra packages that are useful for data scientists. You can also install your own packages using the typical process for each language.
 
@@ -68,7 +68,7 @@ In addition to the base distributions, Azure Notebooks comes pre-installed with 
 
 Azure Notebooks is pre-configured with the following Jupyter extensions:
 
-- [RISE](https://github.com/damianavila/RISE): A Jupyter Slideshow Extension (also known as live_reveal). For more information, see [Run a notebook slideshow](present-jupyter-notebooks-slideshow.md).
+- [RISE](https://github.com/damianavila/RISE): A Jupyter Slideshow Extension (also known as live_reveal).
 - [JupyterLab](https://github.com/jupyterlab/jupyterlab): A full computational environment for working with Jupyter notebooks.
 - [Altair](https://github.com/ellisonbg/altair): A declarative statistical visualization library for Python.
 - [BQPlot](https://github.com/bloomberg/bqplot): An interactive plotting framework for Jupyter Notebooks.
@@ -84,26 +84,7 @@ To discuss your questions about Azure Notebooks, file an issue on the [GitHub re
 
 ## Next steps  
 
-- [Explore sample notebooks](azure-notebooks-samples.md)
-
 - Quickstarts:
 
-  - [Create and share a notebook](quickstart-create-share-jupyter-notebook.md)
-  - [Clone a notebook](quickstart-clone-jupyter-notebook.md)
-  - [Migrate a local Jupyter notebook](quickstart-migrate-local-jupyter-notebook.md)
-  - [Use a custom environment](quickstart-create-jupyter-notebook-project-environment.md)
   - [Sign in and set a user ID](quickstart-sign-in-azure-notebooks.md)
-
-- Tutorials:
-
-  - [Create and run a notebook](tutorial-create-run-jupyter-notebook.md  )
-
-- How-to articles:
-  
-  - [Create and clone projects](create-clone-jupyter-notebooks.md)
-  - [Configure and manage projects](configure-manage-azure-notebooks-projects.md)
-  - [Install packages from within a notebook](install-packages-jupyter-notebook.md)
-  - [Present a slide show](present-jupyter-notebooks-slideshow.md)
-  - [Work with data files](work-with-project-data-files.md)
-  - [Access data resources](access-data-resources-jupyter-notebooks.md)
-  - [Use Azure Machine Learning](../machine-learning/samples-notebooks.md)
+  - [Export a Jupyter notebook](quickstart-export-jupyter-notebook-project.md)
