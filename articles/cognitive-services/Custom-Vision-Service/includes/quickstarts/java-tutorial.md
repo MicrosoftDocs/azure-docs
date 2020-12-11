@@ -179,6 +179,8 @@ This method loads the test image, queries the model endpoint, and outputs predic
 
 ## Run the application
 
+## Run the application
+
 You can build the app with:
 
 ```console
