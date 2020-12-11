@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core"
-#Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance, and call MIcrosoft Graph.
+# Customer intent: As an application developer, I want to download and run a demo ASP.NET Core web app that can sign in users with personal Microsoft accounts (MSA) and work/school accounts from any Azure Active Directory instance, then access their data in Microsoft Graph on their behalf.
 ---
 
 # Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph on their behalf
