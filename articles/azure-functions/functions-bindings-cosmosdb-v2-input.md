@@ -1198,6 +1198,10 @@ module.exports = function (context, input) {
 
 ### Queue trigger, look up ID from JSON
 
+The following example demonstrates how to read and update a single Cosmos DB document. The document's unique identifier is provided through JSON value in a queue message.
+
+The Cosmos DB input binding is listed first in the list of bindings found in the function's configuration file (_function.json_).
+
 <a name="queue-trigger-look-up-id-from-json-ps"></a>
 
 ```json
@@ -1208,7 +1212,7 @@ module.exports = function (context, input) {
   "collectionName": "MyCollection",
   "id" : "{queueTrigger_payload_property}",
   "partitionKey": "{queueTrigger_payload_property}",
-  "connectionStringSetting": " MyAccount_COSMOSDB",
+  "connectionStringSetting": "CosmosDBConnection",
   "direction": "in"
 },
 {
@@ -1218,7 +1222,7 @@ module.exports = function (context, input) {
   "collectionName": "MyCollection",
   "createIfNotExists": false,
   "partitionKey": "{queueTrigger_payload_property}",
-  "connectionStringSetting": "MyAccount_COSMOSDB",
+  "connectionStringSetting": "CosmosDBConnection",
   "direction": "out"
 }
 ```
