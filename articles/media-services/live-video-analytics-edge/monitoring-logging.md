@@ -221,6 +221,7 @@ Event time is described in ISO8601 string and it the time the event occurred.
 ### Azure Monitor Collection using Telegraf
 
 These metrics will be reported the Live Video Analytics on IoT Edge module:  
+
 |Metric Name|Type|Label|Description|
 |-----------|----|-----|-----------|
 |lva_active_graph_instances|Gauge|iothub, edge_device, module_name, graph_topology|Total number of active graphs per topology.|
