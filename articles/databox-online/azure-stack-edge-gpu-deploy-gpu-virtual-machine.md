@@ -34,7 +34,6 @@ This extension supports the following operating systems (OSs). Other versions ma
 
 | Distribution | Version |
 |---|---|
-| Windows 10 | Core |
 | Windows Server 2019 | Core |
 | Windows Server 2016 | Core |
 
@@ -100,7 +99,7 @@ Follow these steps when deploying GPU VMs on your device:
 
 1. Select the VM and drill down to the details. Copy the IP allocated to the VM.
 
-        ![IP allocated to GPU VM in Azure portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/get-ip-gpu-virtual-machine-1.png)
+    ![IP allocated to GPU VM in Azure portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/get-ip-gpu-virtual-machine-1.png)
 
 1. After the VM is created, deploy GPU extension using the extension template. For linux VMs, see [Install GPU extension for Linux](#gpu-extension-for-linux) and for Windows VMs, see [Install GPU extension for Windows](#gpu-extension-for-windows).
 
