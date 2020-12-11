@@ -257,6 +257,8 @@
         href: bugsnag-tutorial.md
       - name: BullseyeTDP
         href: bullseyetdp-tutorial.md
+      - name: Burp Suite Enterprise Edition
+        href: burp-suite-enterprise-edition-tutorial.md
       - name: Bynder
         href: bynder-tutorial.md
     - name: C
