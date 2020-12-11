@@ -24,6 +24,9 @@ By setting up federation with Google, you can allow invited users to sign in to 
 > [!NOTE]
 > Google federation is designed specifically for Gmail users. To federate with G Suite domains, use [direct federation](direct-federation.md).
 
+> [!IMPORTANT]
+> **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
+
 ## What is the experience for the Google user?
 When you send an invitation to Google Gmail users, the guest users should access your shared apps or resources by using a link that includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
   - Guest users who aren't signed in to Google will be prompted to do so.
@@ -33,7 +36,35 @@ Guest users who see a "header too long" error can clear their cookies or open a 
 
 ![Screenshot that shows the Google sign-in page.](media/google-federation/google-sign-in.png)
 
-## Limitations
+## Deprecation of WebView sign-in support
+
+Starting January 4, 2021, Google is [deprecating embedded WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or [self-service sign-up with Gmail](identity-providers.md), you should test your line-of-business native applications for compatibility. If your apps include WebView content that requires authentication, Google Gmail users won't be able to authenticate. The following are known scenarios that will impact Gmail users:
+
+- Windows apps that use embedded WebView or the WebAccountManager (WAM) on older versions of Windows.
+- Other native apps you’ve developed that use an embedded browser framework for authentication.
+
+This change does not affect:
+
+- Windows apps that use embedded WebView or the WebAccountManager (WAM) on the latest versions of Windows
+- Microsoft iOS apps
+- G Suite identities, for example when you’re using SAML-based [direct federation](direct-federation.md) with G Suite
+
+We’re continuing to test various platforms and scenarios, and will update this article accordingly.
+### To test your apps for compatibility
+
+1. Follow [Google’s guidance](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html) to determine if your apps are affected.
+2. Using Fiddler or another testing tool, inject a header during sign-in and use a Google external identity to test sign-in:
+
+   1. Add Google-Accounts-Check-OAuth-Login:true to your HTTP request headers when the requests are sent to accounts.google.com.
+   1. Attempt to sign in to the app by entering a Gmail address in the accounts.google.com sign-in page.
+   1. If sign-in fails and you see an error such as “This browser or app may not be secure,” your Google external identities will be blocked from signing in.
+
+3. Resolve the issue by doing one of the following:
+
+   - If your Windows app uses embedded WebView or the WebAccountManager (WAM) on an older version of Windows, update to the latest version of Windows.
+   - Modify your apps to use the system browser for sign-in. For details, see [Embedded vs System Web UI](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) in the MSAL.NET documentation.  
+
+## Sign-in endpoints
 
 Teams fully supports Google guest users on all devices. Google users can sign in to Teams from a common endpoint like `https://teams.microsoft.com`.
 
@@ -45,7 +76,6 @@ Other applications' common endpoints might not support Google users. Google gues
    If Google guest users try to use a link like `https://myapps.microsoft.com` or `https://portal.azure.com`, they'll get an error.
 
 You can also give Google guest users a direct link to an application or resource, as long as the link includes your tenant information. For example, `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
-
 ## Step 1: Configure a Google developer project
 First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Azure Active Directory (Azure AD). 
 1. Go to the Google APIs at https://console.developers.google.com, and sign in with your Google account. We recommend that you use a shared team Google account.
@@ -111,7 +141,7 @@ You'll now set the Google client ID and client secret. You can use the Azure por
    > Use the client ID and client secret from the app you created in "Step 1: Configure a Google developer project." For more information, see [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
  
 ## How do I remove Google federation?
-You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation won't be able to sign in. But you can give them access to your resources again by deleting them from the directory and re-inviting them. 
+You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation won't be able to sign in. But you can give them access to your resources again by deleting them from the directory and reinviting them. 
  
 **To delete Google federation in the Azure AD portal**
 1. Go to the [Azure portal](https://portal.azure.com). On the left pane, select **Azure Active Directory**. 
