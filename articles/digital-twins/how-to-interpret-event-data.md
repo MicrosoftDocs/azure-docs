@@ -203,7 +203,7 @@ Here are the fields in the body of an edge change notification.
 
 #### Body details
 
-The body is the payload of a relationship, also in JSON format. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](how-to-use-apis-sdks.md). 
+The body is the payload of a relationship, also in JSON format. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](/rest/api/digital-twins/dataplane/twins). 
 
 "Updating a relationship" means properties of the relationship have changed. 
 

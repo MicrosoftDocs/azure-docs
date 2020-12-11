@@ -45,7 +45,7 @@ Cognitive Services container configurations of resources are controlled by custo
 
 **A:** Not everyone is familiar with the term "sovereign cloud", so let's begin with definition:
 
-> The "sovereign cloud" consists of the [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure Germany](../../germany/germany-welcome.md), and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) clouds.
+> The "sovereign cloud" consists of the [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure Germany](../../germany/germany-welcome.md), and [Azure China 21Vianet](/azure/china/overview-operations) clouds.
 
 Unfortunately, the Cognitive Services containers are *not* natively supported in the sovereign clouds. The containers can be run in these clouds, but they will be pulled from the public cloud and need to send usage data to the public endpoint.
 

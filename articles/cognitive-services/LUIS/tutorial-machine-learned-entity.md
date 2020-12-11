@@ -68,7 +68,7 @@ To extract details about a pizza order, create a top level, machine-learning `Or
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Begin selecting just before the left-most text of `pickup` (#1), then go just beyond the right-most text, `anchovies` (#2 - this ends the labeling process). A pop-up menu appears. In the pop-up box, enter the name of the entity as `Order` (#3). Then select `Order Create new entity` from the list (#4).
+    Click and drag your cursor over the text for the first example intent. in the menu that appears, enter the name of the entity as `Order`. Then select `Order Create new entity` from the list.
 
     ![Label beginning and ending of text for complete order](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
@@ -293,7 +293,7 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 
 ## Related information
 
-* [Tutorial - intents](luis-quickstart-intents-only.md)
+* [Tutorial - intents](./tutorial-intents-only.md)
 * [Concept - entities](luis-concept-entity-types.md) conceptual information
 * [Concept - features](luis-concept-feature.md) conceptual information
 * [How to train](luis-how-to-train.md)
@@ -305,4 +305,4 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 In this tutorial, the app uses a machine-learning entity to find the intent of a user's utterance and extract details from that utterance. Using the machine-learning entity allows you to decompose the details of the entity.
 
 > [!div class="nextstepaction"]
-> [Add a prebuilt keyphrase entity](luis-quickstart-intent-and-key-phrase.md)
+> [Add a prebuilt keyphrase entity](./luis-reference-prebuilt-keyphrase.md)

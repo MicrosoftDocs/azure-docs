@@ -186,6 +186,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 You can track the progress of a restore with TrackRestoreProgress.
 
+> [!NOTE]
+> When using Powershell to restore partition, if backuplocation has '$', escape it using '~'
+>
+
 ### Using Service Fabric Explorer
 You can trigger a restore from Service Fabric Explorer. Make sure Advanced Mode has been enabled in Service Fabric Explorer settings.
 1. Select the desired partitions and click on Actions. 
@@ -246,6 +250,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ```
 
 You can track the restore progress by using TrackRestoreProgress.
+
+> [!NOTE]
+> When using Powershell to restore partition, if backuplocation has '$', escape it using '~'
+>
 
 ## Track restore progress
 

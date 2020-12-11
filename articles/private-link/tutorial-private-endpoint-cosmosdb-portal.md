@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Connect to an Azure Cosmos account using an Azure Private endpoint'
 titleSuffix: Azure Private Link
-description: Get started with Azure Private endpoint to connect to an Azure Cosmos account privately.
+description: Get started with this tutorial using Azure Private endpoint to connect to an Azure Cosmos account privately.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
@@ -22,6 +22,10 @@ In this tutorial, you learn how to:
 > * Test connectivity to Cosmos DB account private endpoint.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+* An Azure subscription
 
 ## Sign in to Azure
 
@@ -239,13 +243,13 @@ In this section, you'll use the virtual machine you created in the previous step
 
     A private IP address of **10.1.0.5** is returned for the Cosmos DB account name.  This address is in the subnet of the virtual network you created previously.
 
-9. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows) on the virtual machine.
+9. Install [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) on the virtual machine.
 
 10. Select **Finish** after the **Microsoft Azure Storage Explorer** is installed.  Leave the box checked to open the application.
 
 11. In the **Connect to Azure Storage** screen, select **Cancel**.
 
-12. In Storage Explorer, right mouse click **Cosmos DB Accounts** and select **Connect to Cosmos DB**.
+12. In Storage Explorer, select the right mouse button on **Cosmos DB Accounts** and select **Connect to Cosmos DB**.
 
 13. Leave the default of **SQL** under **Select API**.
 

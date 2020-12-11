@@ -28,7 +28,7 @@ If you are unable to complete the process or are experiencing unexpected behavio
 ## Common Issues
 Below are some common issues that may occur during the process. 
 
-- **I don’t know my Microsoft Partner Network ID (MPN ID) or I don’t who the primary contact for the account is** 
+- **I don’t know my Microsoft Partner Network ID (MPN ID) or I don’t know who the primary contact for the account is** 
     1. Navigate to the [MPN enrollment page](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
     1. Sign in with a user account in the org's primary Azure AD tenant 
     1. If an MPN account already exists, this will be recognized and you will be added to the account 
@@ -47,8 +47,8 @@ Below are some common issues that may occur during the process.
     1. Go to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that: 
         - The MPN ID is correct. 
         - There are no errors or “pending actions” shown, and the verification status under Legal business profile and Partner info both say “authorized” or “success”.
-    1. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you are signing with a user account from is on the list of associated tenants. If you need to add an additional tenant, follow the instructions [here](https://docs.microsoft.com/partner-center/multi-tenant-account). Please be aware that all Global Admins of any tenant you add will be granted Global Admin privileges on your Partner Center account.
-    1. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you are signing in as is either a Global Admin, MPN Admin, or Accounts Admin. If you need to add a user to a role in Partner Center, follow the instructions [here](https://docs.microsoft.com/partner-center/create-user-accounts-and-set-permissions).
+    1. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you are signing with a user account from is on the list of associated tenants. If you need to add an additional tenant, follow the instructions [here](/partner-center/multi-tenant-account). Please be aware that all Global Admins of any tenant you add will be granted Global Admin privileges on your Partner Center account.
+    1. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you are signing in as is either a Global Admin, MPN Admin, or Accounts Admin. If you need to add a user to a role in Partner Center, follow the instructions [here](/partner-center/create-user-accounts-and-set-permissions).
 
 - **When I sign into the Azure AD portal, I do not see any apps registered. Why?** 
     Your app registrations may have been created using a different user account in this tenant, a personal/consumer account, or in a different tenant. Ensure you are signed in with the correct account in the tenant where your app registrations were created.

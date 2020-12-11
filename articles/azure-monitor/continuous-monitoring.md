@@ -24,7 +24,7 @@ In order to gain observability across your entire environment, you need to enabl
 - [Azure DevOps Projects](../devops-project/overview.md) give you a simplified experience with your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
 - [Continuous monitoring in your DevOps release pipeline](./app/continuous-monitoring.md) allows you to gate or rollback your deployment based on monitoring data.
 - [Status Monitor](./app/monitor-performance-live-website-now.md)  allows you to instrument a live .NET app on Windows with Azure Application Insights, without having to modify or redeploy your code.
-- If you have access to the code for your application, then enable full monitoring with [Application Insights](./app/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](./learn/quick-monitor-portal.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md), or [any other programming languages](./app/platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
+- If you have access to the code for your application, then enable full monitoring with [Application Insights](./app/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](./app/asp-net.md), [.NET Core](./app/asp-net-core.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md), or [any other programming languages](./app/platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
 
 
 
@@ -39,7 +39,7 @@ Applications are only as reliable as their underlying infrastructure. Having mon
 
 [Infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code) is the management of infrastructure in a descriptive model, using the same versioning as DevOps teams use for source code. It adds reliability and scalability to your environment and allows you to leverage similar processes that used to manage your applications.
 
--  Use [Resource Manager templates](platform/template-workspace-configuration.md) to enable monitoring and configure alerts over a large set of resources.
+-  Use [Resource Manager templates](./samples/resource-manager-workspace.md) to enable monitoring and configure alerts over a large set of resources.
 - Use [Azure Policy](../governance/policy/overview.md) to enforce different rules over your resources. This ensures that those resources stay compliant with your corporate standards and service level agreements. 
 
 
@@ -83,4 +83,3 @@ Ensuring that your development and operations have access to the same telemetry 
 
 - Learn about the difference components of [Azure Monitor](overview.md).
 - [Add continuous monitoring](./app/continuous-monitoring.md) to your release pipeline.
-

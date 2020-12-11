@@ -48,7 +48,7 @@ To attach route filters with Microsoft 365 services, you must have authorization
 > [!IMPORTANT]
 > Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit.
 > 
-## <a name="workflow"></a>Prerequisites
+## Prerequisites
 
 - Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
@@ -143,7 +143,7 @@ $ckt.Peerings[0].RouteFilter = $null
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="delete"></a>Clean up resources
+## Clean up resources
 
 You can only delete a route filter if it isn't attached to any circuit. Ensure that the route filter isn't attached to any circuit before attempting to delete it. You can delete a route filter using the following command:
 

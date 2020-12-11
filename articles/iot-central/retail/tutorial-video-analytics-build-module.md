@@ -23,8 +23,8 @@ To complete the steps in this tutorial, you need:
 * [Node.js](https://nodejs.org/en/download/) v10 or later
 * [Visual Studio Code](https://code.visualstudio.com/Download) with [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) extension installed
 * [Docker](https://www.docker.com/products/docker-desktop) engine
-* An [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) to host your versions of the modules.
-* An [Azure Media Services](https://docs.microsoft.com/azure/media-services/) account. If you completed the previous tutorials, you can reuse the one you created previously.
+* An [Azure Container Registry](../../container-registry/index.yml) to host your versions of the modules.
+* An [Azure Media Services](../../media-services/index.yml) account. If you completed the previous tutorials, you can reuse the one you created previously.
 
 ## Clone the repository
 

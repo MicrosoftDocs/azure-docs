@@ -1,7 +1,7 @@
 ---
 title: ISO 27001 Shared Services blueprint sample overview
 description: Overview and architecture of the ISO 27001 Shared Services blueprint sample. This blueprint sample helps customers assess specific ISO 27001 controls.
-ms.date: 07/13/2020
+ms.date: 11/02/2020
 ms.topic: sample
 ---
 # Overview of the ISO 27001 Shared Services blueprint sample
@@ -34,7 +34,7 @@ composed of:
   - NetOps role has the rights to manage the network environment, including firewall settings, NSG
     settings, routing, and other networking functionality
   - SecOps role has the necessary rights to deploy and manage
-    [Azure Security Center](../../../../security-center/security-center-intro.md), define
+    [Azure Security Center](../../../../security-center/security-center-introduction.md), define
     [Azure Policy](../../../policy/overview.md) definitions, and other security-related rights
   - SysOps role has the necessary rights to define [Azure Policy](../../../policy/overview.md)
     definitions within the subscription, manage

@@ -36,17 +36,23 @@ Azure Service Bus stores customer data. This data is automatically stored by Ser
 ### What ports do I need to open on the firewall? 
 You can use the following protocols with Azure Service Bus to send and receive messages:
 
-- Advanced Message Queuing Protocol (AMQP)
-- Service Bus Messaging Protocol (SBMP)
-- HTTP
+- Advanced Message Queuing Protocol 1.0 (AMQP)
+- Hypertext Transfer Protocol 1.1 with TLS (HTTPS)
 
-See the following table for the outbound ports you need to open to use these protocols to communicate with Azure Event Hubs. 
+See the following table for the outbound TCP ports you need to open to use these protocols to communicate with Azure Service Bus:
 
-| Protocol | Ports | Details | 
+| Protocol | Port | Details | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 and 5672 | See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 to 9354 | See [Connectivity mode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) |
-| HTTP, HTTPS | 80, 443 | 
+| AMQP | 5671 | AMQP with TLS. See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
+| HTTPS | 443 | This port is used for the HTTP/REST API and for AMQP-over-WebSockets |
+
+The HTTPS port is generally required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Azure Active Directory (when used) run over HTTPS. 
+
+The official Azure SDKs generally use the AMQP protocol for sending and receiving messages from Service Bus. 
+
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+
+The older WindowsAzure.ServiceBus package for the .NET Framework has an option to use the legacy "Service Bus Messaging Protocol" (SBMP), also referred to as "NetMessaging". This protocol uses TCP ports 9350-9354. The default mode for this package is to automatically detect whether those ports are available for communication and will switch to WebSockets with TLS over port 443 if that is not the case. You can override this setting and force this mode by setting the `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) on the [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) setting, which applies globally to the application.
 
 ### What IP addresses do I need to add to allow list?
 To find the right IP addresses to add to allow list for your connections, follow these steps:
@@ -78,7 +84,7 @@ If you use the **zone redundancy** for your namespace, you need to do a few addi
     > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or moved to a different cluster.
 
 ### Where can I find the IP address of the client sending/receiving messages to/from a namespace? 
-We don't log the IP addresses of clients sending or receiving messages to/from your namespace. Regenerate keys so that all existing clients will fail to authenticate and review role-based access control ([RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) settings to ensure that only allowed users or applications have access to the namespace. 
+We don't log the IP addresses of clients sending or receiving messages to/from your namespace. Regenerate keys so that all existing clients will fail to authenticate and review [Azure role-based access control (Azure RBAC)](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) settings to ensure that only allowed users or applications have access to the namespace. 
 
 If you're using a **premium** namespace, use [IP filtering](service-bus-ip-filtering.md), [virtual network service endpoints](service-bus-service-endpoints.md), and [private endpoints](private-link-service.md) to limit access to the namespace. 
 

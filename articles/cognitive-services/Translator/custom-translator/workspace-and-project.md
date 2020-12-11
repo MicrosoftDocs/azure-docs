@@ -25,7 +25,7 @@ automatically includes all documents that are uploaded into that workspace that
 have the correct language pair. For example, if you have both an English to
 Spanish project and a Spanish to English project, the same documents will be
 included in both projects. Each project has a CategoryID associated with it
-that is used when querying the [V3 API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) for translations. CategoryID is parameter used to get translations from a customized system built with Custom Translator.
+that is used when querying the [V3 API](../reference/v3-0-translate.md?tabs=curl) for translations. CategoryID is parameter used to get translations from a customized system built with Custom Translator.
 
 ## Project categories
 

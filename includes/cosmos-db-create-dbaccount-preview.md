@@ -22,7 +22,7 @@
     Subscription|*Your subscription*|Select the Azure subscription that you want to use for this Azure Cosmos DB account. 
     Resource Group|Create new<br><br>*Enter a unique name*|Select **Create New**, then enter a new resource-group name for your account. For simplicity, you can use the same name as your Account Name. 
     Account Name|*Enter a unique name*|Enter a unique name to identify your Azure Cosmos DB account. Because *documents.azure.com* is appended to the ID that you provide to create your URI, use a unique ID.<br><br>The ID can only contain lowercase letters, numbers, and the hyphen (-) character, and it must be between 3 and 31 characters in length..
-    API|Core (SQL)|The API determines the type of account to create. Azure Cosmos DB provides five APIs: SQL (document database), Gremlin (graph database), MongoDB (document database), Table API, and Cassandra API. Each API currently requires you to create a separate account. <br><br>Select **Core (SQL)** because in this article you will create a document database and query using SQL syntax. <br><br>[Learn more about the SQL API](../articles/cosmos-db/documentdb-introduction.md)|
+    API|Core (SQL)|The API determines the type of account to create. Azure Cosmos DB provides five APIs: SQL (document database), Gremlin (graph database), MongoDB (document database), Table API, and Cassandra API. Each API currently requires you to create a separate account. <br><br>Select **Core (SQL)** because in this article you will create a document database and query using SQL syntax. <br><br>[Learn more about the SQL API](../articles/cosmos-db/introduction.md)|
     Location|*Select the region closest to your users*|Select a geographic location to host your Azure Cosmos DB account. Use the location that's closest to your users to give them the fastest access to the data.
     Enable geo-redundancy| Leave blank | This creates a replicated version of your database in a second (paired) region. Leave this blank.  
     Multi-region writes| Leave blank | This enables each of your database regions to be both a read and write region. Leave this blank.  
@@ -42,4 +42,3 @@
 5. The portal will now display the **Congratulations! Your Azure Cosmos DB account was created** page.
 
     ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png)
-

@@ -1,11 +1,8 @@
 ---
 title: Differences between Cloud Services and Service Fabric 
 description: A conceptual overview for migrating applications from Cloud Services to Service Fabric.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
 ---
 # Learn about the differences between Cloud Services and Service Fabric before migrating applications.
 Microsoft Azure Service Fabric is the next-generation cloud application platform for highly scalable, highly reliable distributed applications. It introduces many new features for packaging, deploying, upgrading, and managing distributed cloud applications. 
@@ -64,7 +61,7 @@ With direct communication, tiers can communicate directly through endpoint expos
 
 Service Fabric provides a service discovery mechanism, called the Naming Service, which can be used to resolve endpoint addresses of services. 
 
-![Service Fabric direct communication][6]
+![Diagram that shows how Service Fabric provides a service discovery mechanism, called the Naming Service, which can be used to resolve endpoint addresses of services.][6]
 
 ### Queues
 A common communication mechanism between tiers in stateless environments such as Cloud Services is to use an external storage queue to durably store work tasks from one tier to another. A common scenario is a web tier that sends jobs to an Azure Queue or Service Bus where Worker Role instances can dequeue and process the jobs.

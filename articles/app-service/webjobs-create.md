@@ -59,6 +59,9 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
+> [!IMPORTANT]
+> If you have source control configured with your application, the Webjobs should be deployed as part of the source control integration. Once source control is configured with your application a WebJob cannot be add from the Azure Portal.
+
 1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
 
 2. Select **WebJobs**.

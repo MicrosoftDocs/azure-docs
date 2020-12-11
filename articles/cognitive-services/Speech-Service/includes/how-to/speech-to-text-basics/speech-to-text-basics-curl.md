@@ -14,7 +14,7 @@ For a high-level look at Speech-to-Text concepts, see the [overview](../../../sp
 
 This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
-## Convert text to speech
+## Convert speech to text
 
 At a command prompt, run the following command. You will need to insert the following values into the command.
 - Your Speech service subscription key.
@@ -27,4 +27,4 @@ You should receive a response like the following one.
 
 :::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speech-to-text.sh" id="response":::
 
-For more information see the [speech-to-text REST API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text).
+For more information see the [speech-to-text REST API reference](../../../rest-speech-to-text.md).

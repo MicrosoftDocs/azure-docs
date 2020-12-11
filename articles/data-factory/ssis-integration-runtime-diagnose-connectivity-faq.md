@@ -99,6 +99,6 @@ Use the following sections to learn about the most common errors that occur when
 
 ## Next steps
 
-- [Deploy an SSIS project to Azure with SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms)
-- [Run SSIS packages in Azure with SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms)
-- [Schedule SSIS packages in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)
+- [Deploy an SSIS project to Azure with SSMS](/sql/integration-services/ssis-quickstart-deploy-ssms)
+- [Run SSIS packages in Azure with SSMS](/sql/integration-services/ssis-quickstart-run-ssms)
+- [Schedule SSIS packages in Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)

@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate SAP Cloud for Customer with Azur
 * Enable your users to be automatically signed-in to SAP Cloud for Customer with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -83,13 +83,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. SAP Cloud for Customer application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot that shows the "User Attributes" dialog with the "Edit" icon selected.](common/edit-attribute.png)
 
 1. In the **User Attributes** section on the **User Attributes & Claims** dialog, perform the following steps:
 
 	a. Click **Edit icon** to open the **Manage user claims** dialog.
 
-	![image](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
+	![Screenshot that shows the "User Attributes & Claims" with the "Edit" icon selected.](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
 	![image](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
 
@@ -146,11 +146,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. From the left side of menu, click on **Identity Providers** > **Corporate Identity Providers** > **Add** and on the pop-up add the Identity provider name like **Azure AD**, click **Save** then click on **SAML 2.0 Configuration**.
 
-	![SAP configuration](./media/sap-customer-cloud-tutorial/configure01.png)
+	![Screenshot that shows the "Identity Providers" page with the "Add Identity Provider" dialog text box highlighted and the "Save" button selected.](./media/sap-customer-cloud-tutorial/configure01.png)
 
 3. On the **SAML 2.0 Configuration** section, perform the following steps:
 
-	![SAP configuration](./media/sap-customer-cloud-tutorial/configure02.png)
+	![Screenshot that shows the "S A M L 2.0 Configuration" with the "Browse" button selected.](./media/sap-customer-cloud-tutorial/configure02.png)
 
 	a. Click **Browse** to upload the Federation Metadata XML file, which you have downloaded from Azure portal.
 
@@ -166,7 +166,7 @@ To enable Azure AD users to sign in to SAP Cloud for Customer, they must be prov
 
 2. From the left side of the menu, click on **Users & Authorizations** > **User Management** > **Add User**.
 
-	![SAP configuration](./media/sap-customer-cloud-tutorial/configure03.png)
+	![Screenshot that shows the "User Management" page with the "Add User" button selected.](./media/sap-customer-cloud-tutorial/configure03.png)
 
 3. On the **Add New User** section, perform the following steps:
 
@@ -188,15 +188,14 @@ To enable Azure AD users to sign in to SAP Cloud for Customer, they must be prov
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the SAP Cloud for Customer tile in the Access Panel, you should be automatically signed in to the SAP Cloud for Customer for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the SAP Cloud for Customer tile in the Access Panel, you should be automatically signed in to the SAP Cloud for Customer for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try SAP Cloud for Customer with Azure AD](https://aad.portal.azure.com/)
-

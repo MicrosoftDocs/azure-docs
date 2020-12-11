@@ -1,8 +1,8 @@
 ---
 title: "Business continuity and disaster recovery"
 services: azure-dev-spaces
-author: "lisaguthrie"
-ms.author: "lcozzens"
+author: "AlexandraKemperMS"
+ms.author: "alkemper"
 ms.date: "01/28/2019"
 ms.topic: "conceptual"
 description: "Learn to use Azure Dev Spaces and Azure Kubernetes Services to provide business continuity and prepare for disaster recovery"
@@ -10,6 +10,8 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 manager: gwallace
 ---
 # Business continuity and disaster recovery in Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 ## Review disaster recovery guidance for Azure Kubernetes Service (AKS)
 

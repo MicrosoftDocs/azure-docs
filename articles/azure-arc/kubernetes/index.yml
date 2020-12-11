@@ -37,4 +37,4 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Manage deployments and configurations for hybrid Kubernetes clusters
-            url: /architecture/hybrid/arc-hybrid-kubernetes
+            url: /azure/architecture/hybrid/arc-hybrid-kubernetes

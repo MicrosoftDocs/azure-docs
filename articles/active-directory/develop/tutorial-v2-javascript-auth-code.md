@@ -16,8 +16,9 @@ ms.custom: aaddev, devx-track-js
 
 # Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page app (SPA) using auth code flow
 
-This tutorial shows you how to create a JavaScript single-page application (SPA) that uses the Microsoft Authentication Library (MSAL) for JavaScript v2.0 to:
+In this tutorial, you build a JavaScript single-page application (SPA) that signs in users and calls Microsoft Graph by using the authorization code flow with PKCE. The SPA you build uses the Microsoft Authentication Library (MSAL) for JavaScript v2.0.
 
+In this tutorial:
 > [!div class="checklist"]
 > * Perform the OAuth 2.0 authorization code flow with PKCE
 > * Sign in personal Microsoft accounts as well as work and school accounts
@@ -25,8 +26,6 @@ This tutorial shows you how to create a JavaScript single-page application (SPA)
 > * Call Microsoft Graph or your own API that requires access tokens obtained from the Microsoft identity platform endpoint
 
 MSAL.js 2.0 improves on MSAL.js 1.0 by supporting the authorization code flow in the browser instead of the implicit grant flow. MSAL.js 2.0 does **NOT** support the implicit flow.
-
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## Prerequisites
 
@@ -347,7 +346,7 @@ Modify the values in the `graphConfig` section as described here:
 
 - `Enter_the_Graph_Endpoint_Here` is the instance of the Microsoft Graph API the application should communicate with.
   - For the **global** Microsoft Graph API endpoint, replace both instances of this string with `https://graph.microsoft.com`.
-  - For endpoints in **national** cloud deployments, see [National cloud deployments](https://docs.microsoft.com/graph/deployments) in the Microsoft Graph documentation.
+  - For endpoints in **national** cloud deployments, see [National cloud deployments](/graph/deployments) in the Microsoft Graph documentation.
 
 The `graphMeEndpoint` and `graphMailEndpoint` values in your *graphConfig.js* should be similar to the following if you're using the global endpoint:
 

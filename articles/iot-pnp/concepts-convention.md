@@ -74,7 +74,7 @@ Sample reported property payload:
 
 The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
 
-DTDL:
+DTDL that references a component:
 
 ```json
 {
@@ -90,7 +90,11 @@ DTDL:
     }
   ]
 }
+```
 
+DTDL that defines the component:
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",
@@ -250,7 +254,7 @@ When a device receives multiple reported properties in a single payload, it can 
 
 The device or module should confirm that it received the properties by sending reported properties:
 
-DTDL:
+DTDL that references a component:
 
 ```json
 {
@@ -266,7 +270,11 @@ DTDL:
     }
   ]
 }
+```
 
+DTDL that defines the component:
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",
@@ -338,6 +346,6 @@ On a device or module, multiple component interfaces use command names with the 
 Now that you've learned about IoT Plug and Play conventions, here are some additional resources:
 
 - [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [C device SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-- [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
+- [C device SDK](/azure/iot-hub/iot-c-sdk-ref/)
+- [IoT REST API](/rest/api/iothub/device)
 - [Model components](./concepts-components.md)

@@ -31,7 +31,7 @@ Azure Data Factory Copy Activity delivers a first-class secure, reliable, and hi
 
 Azure provides a set of enterprise-grade data storage and data warehouse solutions, and Copy Activity offers a highly optimized data loading experience that is easy to configure and set up. With just a single copy activity, you can achieve:
 
-* Loading data into **Azure Synapse Analytics** at **1.2 GBps**. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics (formerly SQL Data Warehouse) under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+* Loading data into **Azure Synapse Analytics** at **1.2 GBps**. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 * Loading data into **Azure Blob storage** at **1.0 GBps**
 * Loading data into **Azure Data Lake Store** at **1.0 GBps**
 
@@ -418,8 +418,8 @@ Here are performance monitoring and tuning references for some of the supported 
 
 * Azure Blob storage: [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md) and [Performance and scalability checklist for Blob storage](../../storage/blobs/storage-performance-checklist.md).
 * Azure Table storage: [Scalability and performance targets for Table storage](../../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../../storage/tables/storage-performance-checklist.md).
-* Azure SQL Database: You can [monitor the performance](../../sql-database/sql-database-single-database-monitor.md) and check the database transaction unit (DTU) percentage
+* Azure SQL Database: You can [monitor the performance](../../azure-sql/database/monitor-tune-overview.md) and check the database transaction unit (DTU) percentage
 * Azure Synapse Analytics: Its capability is measured in data warehouse units (DWUs); see [Manage compute power in Azure Synapse Analytics (Overview)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../../cosmos-db/performance-levels.md)
-* On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx)
-* On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx)
+* On-premises SQL Server: [Monitor and tune for performance](/sql/relational-databases/performance/monitor-and-tune-for-performance)
+* On-premises file server: [Performance tuning for file servers](/previous-versions//dn567661(v=vs.85))
