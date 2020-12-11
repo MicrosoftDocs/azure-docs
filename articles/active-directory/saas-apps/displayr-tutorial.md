@@ -74,11 +74,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<YOURDOMAIN>.displayr.com`
 
 	b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:`<YOURDOMAIN>.displayr.com`
+	
+	c. In the **Reply URL** text box, type `https://app.displayr.com/Login/ProcessSamlResponse`
+	
+	d. Click Save
 
 	>[!NOTE]
 	>These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Displayr Client support team](mailto:support@displayr.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
 
-1. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set-up Single Sign-On with SAML** page, click **add certificate**, then in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
    ![The Certificate download link](common/certificatebase64.png)
 
@@ -88,10 +92,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, Displayr application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
-	a. Click the **pen** next to **Groups returned in claim**.
-
-	![Screenshot that shows the "User Attributes & Claims" section with the "Pen" icon next to "Groups returned in claim" selected.](./media/displayr-tutorial/config04.png)
-
+	a. Click **Add a group claim**
+	
 	![Screenshot that shows the "Group Claims (Preview) window with settings selected.](./media/displayr-tutorial/config05.png)
 
 	b. Select **All Groups** from the radio list.
