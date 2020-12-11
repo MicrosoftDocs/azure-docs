@@ -63,7 +63,7 @@ Create the following security groups for your workspace:
 You'll assign Synapse roles to these groups at the workspace scope shortly.  
 
 Also create this security group: 
-- **`workspace1_SQLAdmins`**, group for users who need Active Directory Admin authority within SQL pools in the workspace. 
+- **`workspace1_SQLAdmins`**, group for users who need SQL Active Directory Admin authority within SQL pools in the workspace. 
 
 The `workspace1_SQLAdmins` group will be used when you configure SQL permissions in SQL pools as you create them. 
 
@@ -104,7 +104,7 @@ In the Azure portal, create a Synapse workspace:
 - Choose `storage1` for the Storage account
 - Choose `container1` for the container that is being used as the "filesystem".
 - Open WS1 in Synapse Studio
-- Navigate to **Manage** > **Access Control** and assign the following Synapse roles at *workspace scope* to the security groups.
+- Navigate to **Manage** > **Access Control** and assign Synapse roles at *workspace scope* to the security groups as follows:
   - Assign the **Synapse Administrator** role to `workspace1_SynapseAdministrators` 
   - Assign the **Synapse Contributor** role to `workspace1_SynapseContributors` 
   - Assign the **Synapse Compute Operator** role to `workspace1_SynapseComputeOperators`
@@ -119,9 +119,9 @@ To run pipelines and perform system tasks, Synapse requires that the workspace m
   - If it's not assigned, assign it.
   - The MSI has the same name as the workspace. In this article, it would be `workspace1`.
 
-## STEP 5: Grant the Synapse Administrators the Azure Contributor role on the workspace 
+## STEP 5: Grant Synapse administrators the Azure Contributor role on the workspace 
 
-To create SQL pools, Apache Spark pools and Integration runtimes, users must have at least Azure Contributor access on the workspace. The contributor role also allows these users to manage the resources, including pausing and scaling.
+To create SQL pools, Apache Spark pools and Integration runtimes, users must have at least Azure Contributor access to the workspace. The contributor role also allows these users to manage the resources, including pausing and scaling.
 
 - Open the Azure portal
 - Locate the workspace, `workspace1`
@@ -141,7 +141,7 @@ The workstation creator is automatically set up as the SQL Active Directory Admi
 
 ## STEP 7: Grant access to SQL pools
 
-By default, all users assigned the Synapse Administrator role are also assigned the SQL `db_owner` role on the serverless SQL pool, 'Built-in' and all its databases.
+By default, all users assigned the Synapse Administrator role are also assigned the SQL `db_owner` role on the serverless SQL pool, 'Built-in', and all its databases.
 
 Access to SQL pools for other users and for the workspace MSI is controlled using SQL permissions.  Assigning SQL permissions requires that SQL scripts are run on each SQL database after creation.  There are three cases that require you run these scripts:
 1. Granting other users access to the serverless SQL pool, 'Built-in', and it's databases

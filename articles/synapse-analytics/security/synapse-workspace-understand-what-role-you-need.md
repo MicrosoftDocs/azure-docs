@@ -88,11 +88,12 @@ Create, update, or delete an Integration runtime|Azure Owner or Contributor on t
 Monitor Integration runtime status|Synapse User|read, pipelines/viewOutputs
 Review pipeline runs|Synapse Artifact Publisher/Synapse Contributor|read, pipelines/viewOutputs 
 Create a pipeline |Synapse User </br>[***under consideration + Synapse Credential User on WorkspaceSystemIdentity***]</br>*Additional permissions are required to publish, or save*|read, credentials/UseSecret/action
-Create a dataflow, dataset, or trigger |Synapse User</br>*Additional permissions are required to publish, or save*|read
+Create a dataflow or dataset |Synapse User</br>*Additional permissions are required to publish, or save*|read
 List and open a published pipeline |Synapse Artifact User | artifacts/read
 Preview dataset data|Synapse User + Synapse Credential User on the WorkspaceSystemIdentity| 
 Debug a pipeline using the default Integration runtime|Synapse User + Synapse Credential User on the WorkspaceSystemIdentity credential|read, </br>credentials/useSecret
-Create a trigger, including trigger now|Synapse User + Synapse Credential User on the WorkspaceSystemIdentity|read, credentials/useSecret/action
+Create a trigger, including trigger now (requires permission to execute the pipeline)|Synapse User + Synapse Credential User on the WorkspaceSystemIdentity|read, credentials/useSecret/action
+Execute a pipeline|Synapse User + Synapse Credential User on the WorkspaceSystemIdentity|read, credentials/useSecret/action
 Copy data using the Copy Data tool|Synapse User + Synapse Credential User on the Workspace System Identity|read, credentials/useSecret/action
 Ingest data (using a schedule)|Synapse Author + Synapse Credential User on the Workspace System Identity|read, credentials/useSecret/action
 Publish a new, updated or deleted pipeline, dataflow or trigger to the service|Synapse Artifact Publisher on the workspace|pipelines/write, delete</br>dataflows write, delete</br>triggers/write, delete
