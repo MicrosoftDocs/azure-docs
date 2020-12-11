@@ -133,7 +133,8 @@ Fill in the fields with the following values:
 
 * **Display Name** - The connection display name.
 * **Description** - Your project description.
-* **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Set the expiry time to some time after you'll have used the service. Make sure the **Read**, **Write**, **Delete**, and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Connection settings of sample labeling tool.":::
 
@@ -219,7 +220,7 @@ Follow the steps above to label at least five of your forms.
 
 ### Specify tag value types
 
-Optionally, you can set the expected data type for each tag. Open the context menu to the right of a tag and select a type from the menu. This feature allows the detection algorithm to make certain assumptions that will improve the text-detection accuracy. It also ensures that the detected values will be returned in a standardized format in the final JSON output. 
+Optionally, you can set the expected data type for each tag. Open the context menu to the right of a tag and select a type from the menu. This feature allows the detection algorithm to make certain assumptions that will improve the text-detection accuracy. It also ensures that the detected values will be returned in a standardized format in the final JSON output. Value type information is saved in the *fields.json* file in the same path as your label files.
 
 > [!div class="mx-imgBorder"]
 > ![Value type selection with sample labeling tool](../media/whats-new/formre-value-type.png)
