@@ -28,7 +28,7 @@ Migration has to be done from the [LUIS portal](https://www.luis.ai). If you cre
 
 > [!Note]
 > * If you need to create a prediction runtime resource, there's [a separate process](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) to create it.
-> * See the [Migration notes](#migration-notes) section below for information on how your apps will 
+> * See the [Migration notes](#migration-notes) section below for information on how your applications and contributors will be affected. 
 > * Authoring your LUIS app is free, as indicated by the F0 tier. Learn [more about pricing tiers](luis-limits.md#key-limits).
 
 ## Migration prerequisites
@@ -36,8 +36,8 @@ Migration has to be done from the [LUIS portal](https://www.luis.ai). If you cre
 * A valid Azure subscription. Ask your tenant admin to add you on the subscription, or [sign up for a free one](https://azure.microsoft.com/free/cognitive-services).
 * A LUIS Azure authoring resource from the LUIS portal or from the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne). 
     * Creating an authoring resource from the LUIS portal is part of the migration process described in the next section.
-* If you're a collaborator on applications, applications won't automatically migrate. You will be prompted to export these apps while going through migration. You can also use the [export API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). 
-    * You can import the app back into LUIS after migration. The import process creates a new app with a new app ID, for which you're the owner. If you're the owner of the application, you won't need to export your apps because they'll migrate automatically. An email template with a list of all collaborators for each application is provided, so they can be notified of the migration process.
+
+If you're a collaborator on applications, applications won't automatically migrate. You will be prompted to export these apps while going through migration. You can also use the [export API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). You can import the app back into LUIS after migration. The import process creates a new app with a new app ID which you're the owner for. If you're the owner of the application, you won't need to export your apps because they'll migrate automatically. An email template with a list of all collaborators for each application is provided, so they can be notified of the migration process.
 
 ## Migration steps
 
@@ -46,7 +46,7 @@ Migration has to be done from the [LUIS portal](https://www.luis.ai). If you cre
     > [!div class="mx-imgBorder"]
     > ![Migration Window Intro](./media/migrate-authoring-key/notify-azure-migration.png)
 
-2. If you have collaborators on any your apps, a list of application names owned by you will be shown, along with the authoring region and collaborator emails on each application. We recommend sending your collaborators an email notifying them about the migration by clicking on the **send** symbol button on the left of the application name.
+2. If you have collaborators on any of your apps, you will see a list of application names owned by you, along with the authoring region and collaborator emails on each application. We recommend sending your collaborators an email notifying them about the migration by clicking on the **send** symbol button on the left of the application name.
 A `*` symbol will appear next to the application name if a collaborator has a prediction resource assigned to your application. After migration, these apps will still have these prediction resources assigned to them even though the collaborators will not have access to author your applications. However, this assignment will be broken if the owner of the prediction resource [regenerated the keys](./luis-how-to-azure-subscription.md#regenerate-an-azure-key) from the Azure portal.  
 
    > [!div class="mx-imgBorder"]
