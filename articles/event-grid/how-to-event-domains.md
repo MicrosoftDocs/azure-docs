@@ -37,9 +37,6 @@ New-AzEventGridDomain `
   -Name <my-domain-name> `
   -Location <location>
 ```
-
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
 ---
 
 Successful creation returns the following values:
