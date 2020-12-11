@@ -615,9 +615,7 @@ static void analyzeOperationExample(TextAnalyticsClient client)
 		SyncPoller<TextAnalyticsOperationResult, PagedIterable<AnalyzeTasksResult>> syncPoller =
 						client.beginAnalyzeTasks(documents,
 										new AnalyzeTasksOptions().setDisplayName("{tasks_display_name}")
-														.setEntitiesRecognitionTasks(Arrays.asList(new EntitiesTask()))
-														.setKeyPhrasesExtractionTasks(Arrays.asList(new KeyPhrasesTask()))
-														.setPiiEntitiesRecognitionTasks(Arrays.asList(new PiiTask())),
+														.setEntitiesRecognitionTasks(Arrays.asList(new EntitiesTask())),
 										Context.NONE);
 
 		syncPoller.waitForCompletion();
@@ -653,54 +651,6 @@ static void analyzeOperationExample(TextAnalyticsClient client)
 								}
 						});
 				}
-				List<ExtractKeyPhrasesResultCollection> keyPhraseExtractionTasks =
-								analyzeJobState.getKeyPhraseExtractionTasks();
-				if (keyPhraseExtractionTasks != null) {
-						keyPhraseExtractionTasks.forEach(taskResult -> {
-								// Extracted key phrase for each of documents from a batch of documents
-								AtomicInteger counter = new AtomicInteger();
-								for (ExtractKeyPhraseResult extractKeyPhraseResult : taskResult) {
-										System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
-										if (extractKeyPhraseResult.isError()) {
-												// Erroneous document
-												System.out.printf("Cannot extract key phrases. Error: %s%n",
-																extractKeyPhraseResult.getError().getMessage());
-										} else {
-												// Valid document
-												System.out.println("Extracted phrases:");
-												extractKeyPhraseResult.getKeyPhrases()
-																.forEach(keyPhrases -> System.out.printf("\t%s.%n", keyPhrases));
-										}
-								}
-						});
-				}
-				List<RecognizePiiEntitiesResultCollection> entityRecognitionPiiTasks =
-								analyzeJobState.getEntityRecognitionPiiTasks();
-				if (entityRecognitionPiiTasks != null) {
-						entityRecognitionPiiTasks.forEach(taskResult -> {
-								// Recognized Personally Identifiable Information entities for each document in a batch of documents
-								AtomicInteger counter = new AtomicInteger();
-								for (RecognizePiiEntitiesResult entitiesResult : taskResult) {
-										// Recognized entities for each document in a batch of documents
-										System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
-										if (entitiesResult.isError()) {
-												// Erroneous document
-												System.out.printf(
-																"Cannot recognize Personally Identifiable Information entities. Error: %s%n",
-																entitiesResult.getError().getMessage());
-										} else {
-												// Valid document
-												PiiEntityCollection piiEntityCollection = entitiesResult.getEntities();
-												System.out.printf("Redacted Text: %s%n", piiEntityCollection.getRedactedText());
-												piiEntityCollection.forEach(entity -> System.out.printf(
-																"Recognized Personally Identifiable Information entity: %s, entity category: %s, "
-																				+ "entity subcategory: %s, offset: %s, confidence score: %f.%n",
-																entity.getText(), entity.getCategory(), entity.getSubcategory(), entity.getOffset(),
-																entity.getConfidenceScore()));
-										}
-								}
-						});
-				}
 		});
 	}
 ```
@@ -714,22 +664,13 @@ analyzeOperationExample(client);
 ### Output
 
 ```console
-Job Display Name: {tasks_display_name}, Job ID: e7cb90a8-8055-49d9-9934-636a3b7cd1a4_637411680000000000.
-Total tasks: 3, completed: 3, failed: 0, in progress: 0.
-Text = Microsoft was founded by Bill Gates and Paul Allen, Id = 0, Language = null
-Recognized entity: Microsoft, entity category: Organization, entity subcategory: null, confidence score: 0.820000.
-Recognized entity: Bill Gates, entity category: Person, entity subcategory: null, confidence score: 0.840000.
-Recognized entity: Paul Allen, entity category: Person, entity subcategory: null, confidence score: 0.890000.
-Text = Microsoft was founded by Bill Gates and Paul Allen, Id = 0, Language = null
-Extracted phrases:
-    Bill Gates.
-    Paul Allen.
-    Microsoft.
-Text = Microsoft was founded by Bill Gates and Paul Allen, Id = 0, Language = null
-Redacted Text: ********* was founded by ********** and **********
-Recognized Personally Identifiable Information entity: Microsoft, entity category: Organization, entity subcategory: null, offset: 0, confidence score: 0.820000.
-Recognized Personally Identifiable Information entity: Bill Gates, entity category: Person, entity subcategory: null, offset: 25, confidence score: 0.840000.
-Recognized Personally Identifiable Information entity: Paul Allen, entity category: Person, entity subcategory: null, offset: 40, confidence score: 0.890000.
+Job Display Name: {tasks_display_name}, Job ID: 84fd4db4-0734-47ec-b263-ac5451e83f2a_637432416000000000.
+Total tasks: 1, completed: 1, failed: 0, in progress: 0.
+
+Text = Microsoft was founded by Bill Gates and Paul Allen., Id = 0, Language = null
+Recognized entity: Microsoft, entity category: Organization, entity subcategory: null, confidence score: 0.960000.
+Recognized entity: Bill Gates, entity category: Person, entity subcategory: null, confidence score: 1.000000.
+Recognized entity: Paul Allen, entity category: Person, entity subcategory: null, confidence score: 0.990000.
 ```
 
 # [Version 3.0](#tab/version-3)

@@ -822,9 +822,7 @@ static async Task AnalyzeOperationExample(TextAnalyticsClient client)
 
     AnalyzeOperationOptions operationOptions = new AnalyzeOperationOptions()
     {
-        KeyPhrasesTaskParameters = new KeyPhrasesTaskParameters(),
         EntitiesTaskParameters = new EntitiesTaskParameters(),
-        PiiTaskParameters = new PiiTaskParameters(),
         DisplayName = "Analyze Operation Quick Start Example"
     };
 
@@ -835,10 +833,6 @@ static async Task AnalyzeOperationExample(TextAnalyticsClient client)
     AnalyzeOperationResult resultCollection = operation.Value;
 
     RecognizeEntitiesResultCollection entitiesResult = resultCollection.Tasks.EntityRecognitionTasks[0].Results;
-
-    ExtractKeyPhrasesResultCollection keyPhrasesResult = resultCollection.Tasks.KeyPhraseExtractionTasks[0].Results;
-
-    RecognizePiiEntitiesResultCollection piiResult = resultCollection.Tasks.EntityRecognitionPiiTasks[0].Results;
 
     Console.WriteLine("Analyze Operation Request Details");
     Console.WriteLine($"    Status: {resultCollection.Status}");
@@ -858,36 +852,6 @@ static async Task AnalyzeOperationExample(TextAnalyticsClient client)
             Console.WriteLine($"    Offset: {entity.Offset}");
             Console.WriteLine($"    ConfidenceScore: {entity.ConfidenceScore}");
             Console.WriteLine($"    SubCategory: {entity.SubCategory}");
-        }
-        Console.WriteLine("");
-    }
-
-    Console.WriteLine("Recognized PII Entities");
-
-    foreach (RecognizePiiEntitiesResult result in piiResult)
-    {
-        Console.WriteLine($"    Recognized the following {result.Entities.Count} PII entities:");
-
-        foreach (PiiEntity entity in result.Entities)
-        {
-            Console.WriteLine($"    Entity: {entity.Text}");
-            Console.WriteLine($"    Category: {entity.Category}");
-            Console.WriteLine($"    Offset: {entity.Offset}");
-            Console.WriteLine($"    ConfidenceScore: {entity.ConfidenceScore}");
-            Console.WriteLine($"    SubCategory: {entity.SubCategory}");
-        }
-        Console.WriteLine("");
-    }
-
-    Console.WriteLine("Key Phrases");
-
-    foreach (ExtractKeyPhrasesResult result in keyPhrasesResult)
-    {
-        Console.WriteLine($"    Recognized the following {result.KeyPhrases.Count} Keyphrases:");
-
-        foreach (string keyphrase in result.KeyPhrases)
-        {
-            Console.WriteLine($"    {keyphrase}");
         }
         Console.WriteLine("");
     }
@@ -923,30 +887,6 @@ Recognized Entities
     Offset: 40
     ConfidenceScore: 0.9
     SubCategory: 
-
-Recognized PII Entities
-    Recognized the following 3 PII entities:
-    Entity: Microsoft
-    Category: Organization
-    Offset: 0
-    ConfidenceScore: 0.83
-    SubCategory: 
-    Entity: Bill Gates
-    Category: Person
-    Offset: 25
-    ConfidenceScore: 0.85
-    SubCategory: 
-    Entity: Paul Allen
-    Category: Person
-    Offset: 40
-    ConfidenceScore: 0.9
-    SubCategory: 
-
-Key Phrases
-    Recognized the following 3 Keyphrases:
-    Bill Gates
-    Paul Allen
-    Microsoft
 ```
 
 # [Version 3.0](#tab/version-3)

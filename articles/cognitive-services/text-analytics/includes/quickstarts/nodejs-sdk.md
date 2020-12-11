@@ -841,27 +841,12 @@ async function analyze_example(client) {
   console.log("== Analyze Sample ==");
 
   const tasks = {
-    entityRecognitionTasks: [{ modelVersion: "latest" }],
-    entityRecognitionPiiTasks: [{ modelVersion: "latest" }],
-    keyPhraseExtractionTasks: [{ modelVersion: "latest" }]
+    entityRecognitionTasks: [{ modelVersion: "latest" }]
   };
   const poller = await client.beginAnalyze(documents, tasks);
   const resultPages = await poller.pollUntilDone();
 
   for await (const page of resultPages) {
-    const keyPhrasesResults = page.keyPhrasesExtractionResults![0];
-    for (const doc of keyPhrasesResults) {
-      console.log(`- Document ${doc.id}`);
-      if (!doc.error) {
-        console.log("\tKey phrases:");
-        for (const phrase of doc.keyPhrases) {
-          console.log(`\t- ${phrase}`);
-        }
-      } else {
-        console.error("\tError:", doc.error);
-      }
-    }
-
     const entitiesResults = page.entitiesRecognitionResults![0];
     for (const doc of entitiesResults) {
       console.log(`- Document ${doc.id}`);
@@ -872,19 +857,6 @@ async function analyze_example(client) {
         }
       } else {
         console.error("  Error:", doc.error);
-      }
-    }
-
-    const piiEntitiesResults = page.piiEntitiesRecognitionResults![0];
-    for (const doc of piiEntitiesResults) {
-      console.log(`- Document ${doc.id}`);
-      if (!doc.error) {
-        console.log("\tPii Entities:");
-        for (const entity of doc.entities) {
-          console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
-        }
-      } else {
-        console.error("\tError:", doc.error);
       }
     }
   }
@@ -898,17 +870,7 @@ analyze_example(textAnalyticsClient);
 ```console
 == Analyze Sample ==
 - Document 0
-        Key phrases:
-        - Bill Gates
-        - Paul Allen
-        - Microsoft
-- Document 0
         Entities:
-        - Entity Microsoft of type Organization
-        - Entity Bill Gates of type Person
-        - Entity Paul Allen of type Person
-- Document 0
-        Pii Entities:
         - Entity Microsoft of type Organization
         - Entity Bill Gates of type Person
         - Entity Paul Allen of type Person

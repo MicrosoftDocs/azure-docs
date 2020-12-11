@@ -933,9 +933,7 @@ Create a new function called `analyze_example()` that takes the client as an arg
         poller = text_analytics_client.begin_analyze(
             documents,
             display_name="Sample Text Analysis",
-            entities_recognition_tasks=[EntitiesRecognitionTask()],
-            pii_entities_recognition_tasks=[PiiEntitiesRecognitionTask()],
-            key_phrase_extraction_tasks=[KeyPhraseExtractionTask()]
+            entities_recognition_tasks=[EntitiesRecognitionTask()]
         )
 
         result = poller.result()
@@ -952,27 +950,6 @@ Create a new function called `analyze_example()` that takes the client as an arg
                         print("...Category: {}".format(entity.category))
                         print("...Confidence Score: {}".format(entity.confidence_score))
                         print("...Offset: {}".format(entity.offset))
-                    print("------------------------------------------")
-
-            for task in page.pii_entities_recognition_results:
-                print("Results of PII Entities Recognition task:")
-
-                docs = [doc for doc in task.results if not doc.is_error]
-                for idx, doc in enumerate(docs):
-                    print("Document text: {}".format(documents[idx]))
-                    for entity in doc.entities:
-                        print("Entity: {}".format(entity.text))
-                        print("Category: {}".format(entity.category))
-                        print("Confidence Score: {}\n".format(entity.confidence_score))
-                    print("------------------------------------------")
-
-            for task in page.key_phrase_extraction_results:
-                print("Results of Key Phrase Extraction task:")
-
-                docs = [doc for doc in task.results if not doc.is_error]
-                for idx, doc in enumerate(docs):
-                    print("Document text: {}\n".format(documents[idx]))
-                    print("Key Phrases: {}\n".format(doc.key_phrases))
                     print("------------------------------------------")
 
 analyze_example(client)
@@ -995,22 +972,6 @@ Entity: Paul Allen
 ...Category: Person
 ...Confidence Score: 0.9
 ...Offset: 40
-------------------------------------------
-Results of PII Entities Recognition task:
-Document text: Microsoft was founded by Bill Gates and Paul Allen.
-Entity: Microsoft
-Category: Organization
-Confidence Score: 0.83
-Entity: Bill Gates
-Category: Person
-Confidence Score: 0.85
-Entity: Paul Allen
-Category: Person
-Confidence Score: 0.9
-------------------------------------------
-Results of Key Phrase Extraction task:
-Document text: Microsoft was founded by Bill Gates and Paul Allen.
-Key Phrases: ['Bill Gates', 'Paul Allen', 'Microsoft']
 ------------------------------------------
 ```
 
