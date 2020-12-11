@@ -180,7 +180,7 @@ Replace the `<path-to-certificate-file>` placeholder with the relative or fully 
 
 ## Authorize without a keyring (Linux)
 
-If you're operating system doesn't have a secret store such as a *keyring*, the `azcopy login` command will not work. You can authorize a user identity, service principal, or managed identity by setting in-memory environment variables prior to each operation. These values disappear from memory once the operation completes, so you'll have to set these variables each time you run an azcopy command.
+If your operating system doesn't have a secret store such as a *keyring*, the `azcopy login` command won't work. Instead, You can set in-memory environment variables prior to each operation. These values disappear from memory once the operation completes, so you'll have to set these variables each time you run an azcopy command.
 
 ### Authorize a user identity
 
@@ -202,7 +202,7 @@ A sign-in window will appear. In that window, sign into your Azure account by us
 
 First, make sure that you've enabled a system-wide managed identity on your VM. See [System-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
-Then, type the following command, and then press the ENTER key.
+Type the following command, and then press the ENTER key.
 
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=MSI
@@ -240,7 +240,7 @@ export AZCOPY_MSI_RESOURCE_STRING=<resource-id>
 
 Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
 
-Then, run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
+After you set these variables, you can run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
 
 ### Authorize a service principal
 
