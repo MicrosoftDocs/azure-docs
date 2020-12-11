@@ -75,7 +75,7 @@ You can follow below steps to verify if Data Factory FQDN is resolved to public 
 
 1. Confirm that you have created the Azure VM in the same VNET as Data Factory private endpoint.
 
-1. Run PsPing and Ping from Azure VM to Data Factory FQDN:
+2. Run PsPing and Ping from Azure VM to Data Factory FQDN:
 
    `ping <dataFactoryName>.<region>.datafactory.azure.net`
 
@@ -85,7 +85,7 @@ You can follow below steps to verify if Data Factory FQDN is resolved to public 
 > A port is required to be specified for PsPing command, while 443 port is not a must.
 >
 
-1. Check if both commands resolved to an ADF public IP that based on specified region (format xxx.xxx.xxx.0).
+3. Check if both commands resolved to an ADF public IP that based on specified region (format xxx.xxx.xxx.0).
 
 #### Resolution
 
