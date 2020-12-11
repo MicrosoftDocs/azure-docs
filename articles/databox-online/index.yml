@@ -31,7 +31,7 @@ landingContent:
             url: azure-stack-edge-overview.md
           - text: What is Azure Stack Edge R?
             url: azure-stack-edge-j-series-overview.md 
-          - text: What is Azure Stack Edge Mini?
+          - text: What is Azure Stack Edge Mini R?
             url: azure-stack-edge-k-series-overview.md   
       - linkListType: architecture
         links:
