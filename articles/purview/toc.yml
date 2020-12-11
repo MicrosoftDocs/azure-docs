@@ -93,20 +93,17 @@ items:
       - name: Azure SQL Database
         href: register-scan-azure-sql-database.md
         displayName: Register and scan Azure SQL DB
-      - name: Azure SQL DB with a firewall
-        href: scan-sqlresource-firewall.md
-        displayName: Register and scan Azure SQL DB with a firewall
       - name: Azure SQL Database Managed Instance
         href: register-scan-azure-sql-database-managed-instance.md
         displayName: Register and scan Azure SQL DB Managed Instance
       - name: Azure Synapse Analytics
         href: register-scan-azure-synapse-analytics.md
+      - name: On-premises SQL server
+        href: register-scan-on-premises-sql-server.md
       - name: Power BI tenant - Portal
         href: register-scan-power-bi-tenant.md
       - name: Power BI tenant - PowerShell
         href: powershell-register-scan-power-bi.md
-      - name: On-premises SQL server
-        href: register-scan-on-premises-sql-server.md
   - name: Business glossary
     items:
     - name: Create, import, & export glossary terms

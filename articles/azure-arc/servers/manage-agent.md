@@ -155,7 +155,7 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc enabled se
 
 * **-h or --help** - Shows available command-line parameters
 
-    For example, to see detailed help for the **Reconnect** parameter, type `azcmagent reconnect -h`. 
+    For example, to see detailed help for the **Connect** parameter, type `azcmagent connect -h`. 
 
 * **-v or --verbose** - Enable verbose logging
 

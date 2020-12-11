@@ -2,6 +2,9 @@
 title: What's new in Azure Migrate 
 description: Learn about what's new and recent updates in the Azure Migrate service.
 ms.topic: overview
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
 ---
@@ -9,6 +12,8 @@ ms.custom: mvc
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+## Update (December 2020)
+- Azure Migrate now automatically installs the Azure VM agent on the VMware VMs while migrating them to Azure using the agentless method of VMware migration.
 
 ## Update (September 2020)
 - Migration of servers to Availability Zones is now supported.
@@ -17,7 +22,7 @@ ms.custom: mvc
 - Dependency analysis (agentless) can now be run concurrently on a 1000 VMs.
 - Dependency analysis (agentless) can now be enabled or disabled at scale using PowerShell scripts. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - Visualize network connections in Power BI using the data collected using dependency analysis (agentless) [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
-- Migration of VMware VMs with data disk size of up to 32 TB is now supported using the Azure Migrate: Server Migration agentless VMware migration method. 
+- Migration of VMware VMs with data disk size of up to 32 TB is now supported using the Azure Migrate: Server Migration agentless VMware migration method.
 
 ## Update (August 2020)
 
