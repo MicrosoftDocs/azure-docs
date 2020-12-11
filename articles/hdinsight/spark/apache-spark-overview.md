@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.topic: overview
 ms.date: 09/21/2020
 
