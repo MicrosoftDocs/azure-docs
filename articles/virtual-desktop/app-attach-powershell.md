@@ -34,7 +34,7 @@ Before you get started, here's what you need to configure MSIX app attach:
     ```powershell
     Install-Module -Name Az -Force
     ```
-- Fill out and submit [this form](https://aka.ms/enablemsixappattach) to enable MSIX app attach in your subscription. Approval of requests can take up to 24 hours during business days. You'll get an e-mail when your request has been accepted and completed.
+- Fill out and submit [this form](https://aka.ms/enablemsixappattach) to enable MSIX app attach in your subscription. Approval of requests can take up to 24 hours during business days. You'll get an email when your request has been accepted and completed.
 
 ## Sign in to Azure and import the module
 
