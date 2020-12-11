@@ -34,7 +34,7 @@ az webapp update --set clientCertEnabled=true --name <app-name> --resource-group
 
 ## Exclude paths from requiring authentication
 
-When you enable mutual auth for your application, all paths under the root of your app require a client certificate for access. To allow disable this requirement for certain paths, define exclusion paths as part of your application configuration.
+When you enable mutual auth for your application, all paths under the root of your app require a client certificate for access. To remove this requirement for certain paths, define exclusion paths as part of your application configuration.
 
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
