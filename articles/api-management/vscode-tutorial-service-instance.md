@@ -10,54 +10,25 @@ ms.date: 12/10/2020
 
 # Tutorial: Use the API Management Extension for Visual Studio Code to import and manage APIs
 
-In this tutorial, you learn how to use the API Management Extension Preview for Visual Studio Code to perform common operations with API Management. Use the familiar Visual Studio Code environment to import, update, test, and manage APIs.
+In this tutorial, you learn how to use the API Management Extension Preview for Visual Studio Code for common operations in API Management. Use the familiar Visual Studio Code environment to import, update, test, and manage APIs.
 
 You learn how to:
 
 > [!div class="checklist"]
 > * Import an API into API Management
 > * Edit the API
-> * Test the API
 > * Apply API Management policies
+> * Test the API
+
 
 :::image type="content" source="media/vscode-tutorial-service-instance/tutorial-api-result.png" alt-text="API in API Management Extension":::
 
 For an introduction to additional API Management features, see the API Management tutorials using the [Azure portal](import-and-publish.md).
 
 ## Prerequisites
-- Understand [Azure API Management terminology](api-management-terminology.md).
+- Understand [Azure API Management terminology](api-management-terminology.md)
 - Ensure you have installed [Visual Studio Code](https://code.visualstudio.com/) and the latest [Azure API Management Extension for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
-
-## Create an API Management service
-
-If you previously used the Azure portal or API Management extension to [create an Azure API Management instance](vscode-create-service-instance.md), you can skip this step. The default settings for the API Management extension create the instance in the Consumption SKU (service tier) in the West US region.
-
-This section shows you how to create an API Management service instance using the API Management extension with customized settings. For example, choose a different service tier or region.
-
-To enable customized settings:
-
-1. Launch Visual Studio Code, select Extensions from the Activity Bar, and search for *API Management*.
-1. Select the **Manage** icon (a gear), and then select **Extension Settings**.
-1. Enable the **Azure API Management: Advanced Creation** setting. You can enable extension settings at the [user or workspace scope](https://code.visualstudio.com/docs/getstarted/settings).
-    :::image type="content" source="media/vscode-tutorial-service-instance/enable-advanced-creation-setting.png" alt-text="Enable advance creation of API Management instance":::
-1. Select the **Manage** icon, and ensure that the extension is enabled.
-
-To create an API Management instance:
-
-1. Select the Azure icon on the Activity Bar to open the Azure extension.
-1. If you're not already signed into Azure, select **Sign in to Azure...** to launch a browser window and sign in to your Microsoft account.
-1. Once you're signed in to your Microsoft account, the *Azure: API Management* explorer pane lists your Azure subscription(s).
-1. Right-click the subscription you'd like to use, and select **Create API Management in Azure**.
-1. When prompted, select or enter the following values:
-    1. A **name** for the new API Management instance. It must be globally unique within Azure and consist of 1-50 alphanumeric characters and/or hyphens, and start with a letter and end with an alphanumeric.
-    1. The **service tier** for the instance. For example, select the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md).
-    1. A **location** for the API Management instance.
-    1. A name of a new or existing **resource group**.
-
-> [!TIP]
-> While the *Consumption* SKU takes less than a minute to provision, other SKUs typically take 30-40 minutes to create.
-
-After the instance is created, you're ready to import your first API. 
+- [Create an API Management instance](vscode-create-service-instance.md)
 
 ## Import an API
 
@@ -83,37 +54,6 @@ You can edit the API in Visual Studio Code. For example, edit the Resource Manag
 
 To edit the OpenAPI format, right-click the API name in the Explorer pane and select **Edit OpenAPI**. Make your changes, and then select **File** > **Save**.
 
-## Test the API
-
-### Get the subscription key
-
-To test the API you imported, you need a subscription key for your API Management instance.
-
-1. In the Explorer pane, right-click the name of your API Management instance.
-1. Select **Copy Subscription Key**.
-
-:::image type="content" source="media/vscode-tutorial-service-instance/copy-subscription-key.png" alt-text="Copy subscription key":::
-
-### Test an API operation
-
-1. In the Explorer pane, expand the **Operations** node under the *demo-conference-api* that you imported.
-1. Select an operation such as *GetSpeakers*.
-1. In the editor windows, here indicated next to **Ocp-Apim-Subscription-Key**, paste the subscription key.
-1. Select **Send request**. 
-
-:::image type="content" source="media/vscode-tutorial-service-instance/test-api.png" alt-text="Send API request from Visual Studio Code":::
-
-When the request succeeds, the backend responds with **200 OK** and some data.
-
-:::image type="content" source="media/vscode-tutorial-service-instance/test-api-response.png" alt-text="Response to API test operation":::
-
-Notice that the response data includes the following information about the backend:
-
-*  **X-AspNet-Version** and **X-Powered-By** headers
-* URLs to the API backend, in this case https://conferenceapi.azurewebsites.net.
-
-In the next section, you transform the API so it doesn't reveal this information about the backend.
-
 ### Trace the API operation
 
 For detailed tracing information to help you debug the API operation, select the link that appears next to **Ocp-APIM-Trace-Location**. 
@@ -124,7 +64,7 @@ The JSON file at that location contains Inbound, Backend, and Outbound trace inf
 
 API Management provides [policies](api-management-policies.md) you can configure for your APIs. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policies can be global, which apply to all APIs in your API Management instance, or they can be scoped to a specific API or API operation.
 
-This section shows how to apply outbound policies to your API that transform the API response. The policies in this example strip response headers and hide original backend URLs that appear in the response body.
+This section shows how to apply some common outbound policies to your API that transform the API response. The policies in this example change response headers and hide original backend URLs that appear in the response body.
 
 1. In the Explorer pane, select **Policy** under the *demo-conference-api* that you imported. The policy file opens in the editor window. This file configures policies for all operations in the API. 
 
@@ -132,7 +72,9 @@ This section shows how to apply outbound policies to your API that transform the
     ```html
     [...]
     <outbound>
-        <set-header name="X-AspNet-Version" exists-action="delete" />
+        <set-header name="Custom" exists-action="override">
+            <value>"My custom value"</value>
+        </set-header>
         <set-header name="X-Powered-By" exists-action="delete" />
         <redirect-content-urls />
         <base />
@@ -140,20 +82,43 @@ This section shows how to apply outbound policies to your API that transform the
     [...]
     ```
 
-    * The first two policies delete **X-AspNet-Version** and **X-Powered-By** headers, if they exist
-    * The `redirect-content-urls` policy rewrites (masks) links in the response body so that they point to the equivalent links via the API Management gateway
+    * The first `set-header` policy adds a custom response header for demonstration purposes.
+    * The second `set-header` policy deletes the **X-Powered-By** header, if it exists. This header can reveal the application framework used in the API backend, and it is common practice to remove it.
+    * The `redirect-content-urls` policy rewrites (masks) links in the response body so that they point to the equivalent links via the API Management gateway.
     
 1. Save the file. If you are prompted, select **Upload** to upload the file to the cloud.
 
-1. Follow the steps in the previous section to test the *GetSpeakers* operation in the API.
+## Test the API
 
-When the request succeeds, the backend responds with **200 OK** and some data. 
+### Get the subscription key
+
+To test the imported API you imported and the policies that are applied, you need a subscription key for your API Management instance.
+
+1. In the Explorer pane, right-click the name of your API Management instance.
+1. Select **Copy Subscription Key**.
+
+    :::image type="content" source="media/vscode-tutorial-service-instance/copy-subscription-key.png" alt-text="Copy subscription key":::
+
+### Test an API operation
+
+1. In the Explorer pane, expand the **Operations** node under the *demo-conference-api* that you imported.
+1. Select an operation such as *GetSpeakers*.
+1. In the editor window, next to **Ocp-Apim-Subscription-Key**, replace `{{SubscriptionKey}}` with the subscription key that you copied.
+1. Select **Send request**. 
+
+:::image type="content" source="media/vscode-tutorial-service-instance/test-api.png" alt-text="Send API request from Visual Studio Code":::
+
+When the request succeeds, the backend responds with **200 OK** and some data.
 
 :::image type="content" source="media/vscode-tutorial-service-instance/test-api-policies.png" alt-text="Transformed response to API test operation":::
 
-Notice the following differences in the response:
-* The **X-AspNet-Version** and **X-Powered-By** headers don't appear in the response.
-* URLs to the API backend are replaced and redirected to the API Management gateway, in this case https://apim-hello-world.azure-api.net/demo-conference-api.
+Notice the following details in the response:
+* The **Custom** header is added to the response.
+* The **X-Powered-By** header doesn't appear in the response.
+* URLs to the API backend are redirected to the API Management gateway, in this case https://apim-hello-world.azure-api.net/demo-conference-api.
+
+> [!TIP]
+> When you test API opertions, the API Managemet Extension allows optional [policy debugging](api-management-debug-policies.md) (available in the Developer service tier)
 
 ## Clean up resources
 
@@ -170,7 +135,7 @@ This tutorial introduced several features of the API Management Extension for Vi
 > [!div class="checklist"]
 > * Import an API into API Management
 > * Edit the API
-> * Test the API
 > * Apply API Management policies
+> * Test the API
 
-The API Management Extension provides additional features to work with your APIs. For example, learn how to [debug polices](api-management-debug-policies.md) (available in the Developer service tier only).
+The API Management Extension provides additional features to work with your APIs. For example, [debug polices](api-management-debug-policies.md) (available in the Developer service tier), or create and manage [named values](api-management-howto-properties.md).
