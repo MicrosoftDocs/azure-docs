@@ -3,7 +3,6 @@ title: storage archive and bcdr integration partners
 titleSuffix: Azure Blob Storage Docs
 description: List of industry system integrators building customer solutions for bcdr with Azure Storage
 keywords: Storage, Blob, bcdr, backup, desaster recovery, archive
-keywords: Storage, Blob, container
 author: beber-msft
 ms.author: beber
 ms.date: 06/11/2020
