@@ -1,11 +1,11 @@
 ---
 title: Storage Analytics integration partners 
-titleSuffix: Azure Blob Storage Docs
+titleSuffix: Azure Blob Storage
 description: List of industry system integrators building customer solutions for Analytics with Azure Storage
 keywords: Storage, Blob, Analytics
 author: beber-msft
 ms.author: beber
-ms.date: 06/11/2020
+ms.date: 12/11/2020
 ms.topic: article
 ms.service: storage
 
