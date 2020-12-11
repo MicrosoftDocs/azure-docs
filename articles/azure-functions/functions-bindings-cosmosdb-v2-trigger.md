@@ -151,7 +151,7 @@ The following example shows how to run a function as data changes in Cosmos DB.
   "collectionName": "Items",
   "createLeaseCollectionIfNotExists": true
 }
-``  
+```
 
 In the _run.ps1_ file, you have access to the document that triggers the function via the `$Documents` parameter.
 

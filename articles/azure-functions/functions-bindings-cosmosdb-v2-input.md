@@ -1223,7 +1223,7 @@ module.exports = function (context, input) {
 }
 ```
 
-run.ps1
+The _run.ps1_ file has the PowerShell code which reads the incoming document and outputs changes.
 
 ```powershell
 param($QueueItem, $InputDocumentIn, $TriggerMetadata) 
