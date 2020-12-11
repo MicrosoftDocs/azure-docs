@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) via the Azure portal'
-description: Use the Azure portal to pause compute for SQL pool to save costs. Resume compute when you are ready to use the data warehouse.
+title: 'Quickstart: Pause and resume compute in dedicated SQL pool via the Azure portal'
+description: Use the Azure portal to pause compute for dedicated SQL pool to save costs. Resume compute when you are ready to use the data warehouse.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,9 +12,9 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
-# Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) via the Azure portal
+# Quickstart: Pause and resume compute in dedicated SQL pool via the Azure portal
 
-You can use the Azure portal to pause and resume the Dedicated SQL pool (formerly SQL DW) compute resources. 
+You can use the Azure portal to pause and resume the dedicated SQL pool compute resources. 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Sign in to the Azure portal
@@ -35,9 +35,8 @@ To reduce costs, you can pause and resume compute resources on-demand. For examp
 Follow these steps to pause a dedicated SQL pool:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click **Dedicated SQL pool (formerly SQL DW)** in the left navigation page of the Azure portal.
-2. Select **mySampleDataWarehouse** from the **Dedicated SQL pool (formerly SQL DW)** page to open the SQL pool. 
-3. On the **mySampleDataWarehouse** page, notice **Status** is **Online**.
+2. Navigate to your the **Dedicated SQL pool** page to open the SQL pool. 
+3. Notice **Status** is **Online**.
 
     ![Compute online](././media/pause-and-resume-compute-portal/compute-online.png)
 
@@ -57,8 +56,7 @@ Follow these steps to pause a dedicated SQL pool:
 
 Follow these steps to resume a dedicated SQL pool.
 
-1. Click **Dedicated SQL pool (formerly SQL DW)** in the left page of the Azure portal.
-2. Select **mySampleDataWarehouse** from the **Dedicated SQL pool (formerly SQL DW))** page to open  the SQL pool page. 
+1. Navigate to your the **Dedicated SQL pool** page to open the SQL pool.
 3. On the **mySampleDataWarehouse** page, notice **Status** is **Paused**.
 
     ![Compute offline](././media/pause-and-resume-compute-portal/compute-offline.png)

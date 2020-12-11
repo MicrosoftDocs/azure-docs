@@ -12,7 +12,7 @@ After you have onboarded a subscription (or resource group) to Azure Lighthouse,
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to set up Azure Lighthouse and consolidate their management experience.
 
-If you [onboarded your customer through Azure Resource Manager (ARM) templates](onboard-customer.md), a new deployment must be performed for that customer. Depending on what you are changing, you may want to update the original offer, or remove the original offer and create a new one.
+If you [onboarded your customer through Azure Resource Manager templates (ARM templates)](onboard-customer.md), a new deployment must be performed for that customer. Depending on what you are changing, you may want to update the original offer, or remove the original offer and create a new one.
 
 - **If you are changing authorizations only**: You can update your delegation by changing only the **authorizations** section of the ARM template.
 - **If you are changing the managing tenant**: You must create a new ARM template using with a different **mspOfferName** than your previous offer.

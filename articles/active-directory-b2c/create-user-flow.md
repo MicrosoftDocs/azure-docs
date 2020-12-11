@@ -87,4 +87,4 @@ You can create [user flows](user-flow-overview.md) of different types in your Az
 ## Next steps
 
 - [Add Conditional Access to Azure AD B2C user flows](conditional-access-user-flow.md)
-- [Customize the user interface in an Azure AD B2C user flow](customize-ui-overview.md)
+- [Customize the user interface in an Azure AD B2C user flow](customize-ui-with-html.md)
