@@ -288,13 +288,15 @@ When the VM has restarted, complete these steps:
    1. Increase the size of the OS disk from the portal.
    1. Start the VM.
 
-1. When the VM has restarted, install the **cloud-utils-growpart** package to obtain the `growpart` command, which you need to increase the size of the OS disk.
+1. When the VM has restarted, perform the following steps:
 
-      This package is preinstalled on most Azure Marketplace images.
+   Install the **cloud-utils-growpart** package to provide the **growpart** command, which is required to increase the size of the OS disk and the gdisk handler for GPT disk layouts
 
-      ```bash
-      [root@dd-rhel7vm ~]# yum install cloud-utils-growpart
-      ```
+   These packages are preinstalled on most marketplace images
+
+   ```bash
+   [root@dd-rhel7vm ~]# yum install cloud-utils-growpart gdisk
+   ```
 
 1. Determine which disk and partition holds the LVM physical volume or volumes (PV) in the volume group named **rootvg** by using the `pvscan` command. Note the size and free space listed between the brackets (**[** and **]**).
 
@@ -396,8 +398,6 @@ When the VM has restarted, complete these steps:
 > To use the same procedure to resize any other logical volume, change the LV name in step 12.
 
 ### RHEL RAW
->[!NOTE]
->Always take a snapshot of the VM before increasing OS disk size.
 
 To increase the size of the OS disk in an RHEL RAW partition:
 
@@ -407,119 +407,127 @@ To increase the size of the OS disk in an RHEL RAW partition:
 
 When the VM has restarted, complete these steps:
 
-1. Access your VM as a **root** user by using this command:
- 
-   ```
-   sudo su
+1. Access your VM as a **root** user by using the following command:
+
+   ```bash
+   [root@dd-rhel7vm ~]# sudo -i
    ```
 
-1. Install the **gptfdisk** package, which you need to increase the size of the OS disk:
+1. When the VM has restarted, perform the following steps:
 
-   ```
-   yum install gdisk -y
-   ```
+   1. Install the **cloud-utils-growpart** package to provide the **growpart** command, which is required to increase the size of the OS disk and the gdisk handler for GPT disk layouts
 
-1.  To see all the  sectors available on the disk, run this command:
-    ```
-    gdisk -l /dev/sda
-    ```
+   This package is preinstalled on most marketplace images
 
-1. You'll see the details informing the partition type. Make sure it's GPT. Identify the root partition. Don't change or delete the boot partition (BIOS boot partition) or the system partition (EFI System Partition).
-
-1. Use this command to start the partitioning for the first time: 
-    ```
-    gdisk /dev/sda
-    ```
-
-1. You'll see a message that prompts you for the next command: `Command: ? for help`. Select the **w** key:
-
-   ```
-   w
+   ```bash
+   [root@dd-rhel7vm ~]# yum install cloud-utils-growpart gdisk
    ```
 
-1. You'll receive this message: `Warning! Secondary header is placed too early on the disk! Do you want to
-correct this problem? (Y/N)`. Select the **Y** key: 
+1. Use the **lsblk -f** command to verify the partition and filesystem type holding the root (**/**) partition
 
-   ```
-   Y
-   ```
-
-1. You should see a message stating that final checks are complete and prompting for confirmation. Select the **Y** key:
-
-   ```
-   Y
-   ```
-
-1. Use the `partprobe` command to check whether everything happened correctly:
-
-   ```
-   partprobe
+   ```bash
+   [root@vm-dd-cent7 ~]# lsblk -f
+   NAME    FSTYPE LABEL UUID                                 MOUNTPOINT
+   sda
+   ├─sda1  xfs          2a7bb59d-6a71-4841-a3c6-cba23413a5d2 /boot
+   ├─sda2  xfs          148be922-e3ec-43b5-8705-69786b522b05 /
+   ├─sda14
+   └─sda15 vfat         788D-DC65                            /boot/efi
+   sdb
+   └─sdb1  ext4         923f51ff-acbd-4b91-b01b-c56140920098 /mnt/resource
    ```
 
-1. You completed the previous steps to ensure that the secondary GPT header is placed at the end. Next, start the process of resizing by using the `gdisk` tool again. Use the following command:
+1. For verification, start by listing the partition table of the sda disk with **gdisk**.  In this example we see a 48GB disk with partition 2 at 29.0GiB.  The disk was expanded from 30 to 48GB in the Azure portal.
 
-   ```
-   gdisk /dev/sda
-   ```
-1. In the command menu, select the **p** key to see a list of partitions. Identify the root partition. (In these steps, **sda2** is considered the root partition.) Identify the boot partition. (In these steps, **sda3** is considered the boot partition.) 
+   ```bash
+   [root@vm-dd-cent7 ~]# gdisk -l /dev/sda
+   GPT fdisk (gdisk) version 0.8.10
 
-   ```
-   p
-   ```
-    ![Screenshot that shows the root partition and the boot partition.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+   Partition table scan:
+   MBR: protective
+   BSD: not present
+   APM: not present
+   GPT: present
 
-1. Select the **d** key to delete the partition. Then select the partition number assigned to the boot partition. (In this example, it's **3**.)
-   ```
-   d
-   3
-   ```
-1. Select the **d** key to delete the partition. Select the partition number assigned to the boot partition. (In this example, it's **2**.)
-   ```
-   d
-   2
-   ```
-    ![Screenshot that shows the steps to delete the root and boot partitions.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+   Found valid GPT with protective MBR; using GPT.
+   Disk /dev/sda: 100663296 sectors, 48.0 GiB
+   Logical sector size: 512 bytes
+   Disk identifier (GUID): 78CDF84D-9C8E-4B9F-8978-8C496A1BEC83
+   Partition table holds up to 128 entries
+   First usable sector is 34, last usable sector is 62914526
+   Partitions will be aligned on 2048-sector boundaries
+   Total free space is 6076 sectors (3.0 MiB)
 
-1. To re-create the root partition with increased size, select the **n** key, and then enter the partition number you deleted previously for the root (**2** in this example). Choose `Default Value` for the first sector. Choose `Last sector value -  boot size sector` for the last sector (`4096` in this case, corresponding to 2-MB boot). Choose `8300` for the hex code.
-   ```
-   n
-   2
-   (Enter default)
-   (Calculated value of Last sector value - 4096)
-   8300
-   ```
-1. To re-create the boot partition, select the **n** key, and then enter the partition number you deleted previously for the boot (**3** in this example). Choose `Default Value` for the first sector and the last sector. Choose `EF02` for the hex code.
-   ```
-   n
-   3
-   (Enter default)
-   (Enter default)
-   EF02
+   Number  Start (sector)    End (sector)  Size       Code  Name
+      1         1026048         2050047   500.0 MiB   0700
+      2         2050048        62912511   29.0 GiB    0700
+   14            2048           10239   4.0 MiB     EF02
+   15           10240         1024000   495.0 MiB   EF00  EFI System Partition
    ```
 
-1. Write the changes by using the `w` command, and then select `Y` to confirm the changes:
-   ```
-   w
-   Y
-   ```
-1. Run the `partprobe` command to check for disk stability:
-   ```
-   partprobe
-   ```
-1. Reboot the VM. The root partition size should be increased.
-   ```
-   reboot
+1. Expand the partition for root, in this case sda2 by using the **growpart** command.  Using this command will expand the partition to use all of the contiguous space on the disk.
+
+   ```bash
+   [root@vm-dd-cent7 ~]# growpart /dev/sda 2
+   CHANGED: partition=2 start=2050048 old: size=60862464 end=62912512 new: size=98613214 end=100663262
    ```
 
-   ![Screenshot that shows the steps to re-create the boot partition.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+1. Now print the new partition table with **gdisk** again.  Notice that partition 2 has expanded to 47.0 GiB
 
-1. Run the `xfs_growfs` command on the partition to resize it:
+   ```bash
+   [root@vm-dd-cent7 ~]# gdisk -l /dev/sda
+   GPT fdisk (gdisk) version 0.8.10
+
+   Partition table scan:
+   MBR: protective
+   BSD: not present
+   APM: not present
+   GPT: present
+
+   Found valid GPT with protective MBR; using GPT.
+   Disk /dev/sda: 100663296 sectors, 48.0 GiB
+   Logical sector size: 512 bytes
+   Disk identifier (GUID): 78CDF84D-9C8E-4B9F-8978-8C496A1BEC83
+   Partition table holds up to 128 entries
+   First usable sector is 34, last usable sector is 100663262
+   Partitions will be aligned on 2048-sector boundaries
+   Total free space is 4062 sectors (2.0 MiB)
+
+   Number  Start (sector)    End (sector)  Size       Code  Name
+      1         1026048         2050047   500.0 MiB   0700
+      2         2050048       100663261   47.0 GiB    0700
+   14            2048           10239   4.0 MiB     EF02
+   15           10240         1024000   495.0 MiB   EF00  EFI System Partition
    ```
-   xfs_growfs /dev/sda2
+
+1. Expand the filesystem on the partition with **xfs_growfs** which is appropriate for a standard marketplace generated RedHat system
+
+   ```bash
+   [root@vm-dd-cent7 ~]# xfs_growfs /
+   meta-data=/dev/sda2              isize=512    agcount=4, agsize=1901952 blks
+            =                       sectsz=4096  attr=2, projid32bit=1
+            =                       crc=1        finobt=0 spinodes=0
+   data     =                       bsize=4096   blocks=7607808, imaxpct=25
+            =                       sunit=0      swidth=0 blks
+   naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+   log      =internal               bsize=4096   blocks=3714, version=2
+            =                       sectsz=4096  sunit=1 blks, lazy-count=1
+   realtime =none                   extsz=4096   blocks=0, rtextents=0
+   data blocks changed from 7607808 to 12326651
    ```
 
-   ![Screenshot that shows the result of running xfs_growfs.](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
+1. Verify the new size is reflected with the **df** command
 
-## Next steps
-
-- [Resize disk](expand-disks.md)
+   ```bash
+   [root@vm-dd-cent7 ~]# df -hl
+   Filesystem      Size  Used Avail Use% Mounted on
+   devtmpfs        452M     0  452M   0% /dev
+   tmpfs           464M     0  464M   0% /dev/shm
+   tmpfs           464M  6.8M  457M   2% /run
+   tmpfs           464M     0  464M   0% /sys/fs/cgroup
+   /dev/sda2        48G  2.1G   46G   5% /
+   /dev/sda1       494M   65M  430M  13% /boot
+   /dev/sda15      495M   12M  484M   3% /boot/efi
+   /dev/sdb1       3.9G   16M  3.7G   1% /mnt/resource
+   tmpfs            93M     0   93M   0% /run/user/1000
+   ```
