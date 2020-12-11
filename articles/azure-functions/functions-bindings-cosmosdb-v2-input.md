@@ -1380,7 +1380,7 @@ if (-not $ToDoItem) {
 
 ### Queue trigger, get multiple docs, using SqlQuery
 
-The following example demonstrates how to read multiple Cosmos DB documents. The function's configuration file (_function.json_) defines the binding properties, which includes the `sqlQuery`. The SQL statement provided to the `sqlQuery` property 
+The following example demonstrates how to read multiple Cosmos DB documents. The function's configuration file (_function.json_) defines the binding properties, which includes the `sqlQuery`. The SQL statement provided to the `sqlQuery` property selects the set of documents provided to the function.
 
 ```json
 { 
