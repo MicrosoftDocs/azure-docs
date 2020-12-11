@@ -10,7 +10,7 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # About transferring billing ownership for an Azure subscription
@@ -31,7 +31,7 @@ Only the billing administrator of an account can transfer ownership of a subscri
 
 The billing administrator is the person who has permission to manage billing for an account. They're authorized to access billing on the [Azure portal](https://portal.azure.com) and do various billing tasks like create subscriptions, view and pay invoices, or update payment methods.
 
-To identify accounts for which you're a billing administrator, visit the [Cost Management + Billing page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Then select **All billing scopes** from the left-hand pane. The subscriptions page shows all thee subscriptions where you're a billing administrator.
+To identify accounts for which you're a billing administrator, visit the [Cost Management + Billing page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Then select **All billing scopes** from the left-hand pane. The subscriptions page shows all the subscriptions where you're a billing administrator.
 
 If you're not sure who the account administrator is for a subscription, visit the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Then select the subscription you want to check, and then look under **Settings**. Select **Properties** and the account administrator of the subscription is shown in the **Account Admin** box.
 

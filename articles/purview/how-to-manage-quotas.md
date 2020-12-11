@@ -18,27 +18,28 @@ Azure Purview is a cloud service for use by data users. You use Azure Purview to
  
 |**Resource**|  **Default Limit**  |**Maximum Limit**|
 |---|---|---|
-|Purview accounts per tenant (all subscriptions combined)|3|Contact Support|
+|Purview accounts per region, per tenant (all subscriptions combined)|3|Contact Support|
 |vCores available for scanning, per account*|160|160|
 |Concurrent scans, per account at a given point. The limit is based on the type of data sources scanned*|5 | 10 |
 |Maximum time that a scan can run for|7 days|7 days|
 |API Calls, per account|10M APIs/month for 4 Capacity Units platform size. <br>40M APIs/month for 16 Capacity Units platform size |10M APIs/ month for 4 Capacity Units platform size. <br>40M APIs/month for 16 Capacity Units platform size|
 |Storage, per account|10 GB for 4 Capacity Units platform size. <br>40 GB for 16 Capacity Units platform size |10 GB for 4 Capacity Units platform size. <br> 40 GB for 16 Capacity Units platform size |
 |Size of assets per account|100M physical assets |Contact Support|
-|Maximum size of an unstructured asset|2 MB|2 MB|
+|Maximum size of an asset in a catalog|2 MB|2 MB|
 |Maximum length of an asset name and classification name|4 KB|4 KB|
 |Maximum length of asset property name and value|32 KB|32 KB|
 |Maximum length of classification attribute  name and value|32 KB|32 KB|
+|Maximum number of glossary terms, per account|100K|100K|
  
 *Self-hosted integration runtime scenarios are outside the  scope for the limits defined in the above table. 
  
 ## Next steps
  
 > [!div class="nextstepaction"]
->[Tutorial: Scan data with Azure Purview](starter-kit-tutorial-1.md)
+>[Tutorial: Scan data with Azure Purview](tutorial-scan-data.md)
 
 > [!div class="nextstepaction"]
->[Tutorial: Navigate the home page and search for an asset](starter-kit-tutorial-2.md)
+>[Tutorial: Navigate the home page and search for an asset](tutorial-asset-search.md)
 
 > [!div class="nextstepaction"]
->[Tutorial: Browse assets and view their lineage](starter-kit-tutorial-3.md)
+>[Tutorial: Browse assets and view their lineage](tutorial-browse-and-view-lineage.md)

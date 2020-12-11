@@ -39,9 +39,12 @@ In Azure Purview, classifications are similar to subject tags, and are used to m
 
 Purview uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire data estate.
 
+> [!NOTE]
+> After you have scanned your source types, give **Classification** Insights a couple of hours to reflect the new assets.
+
 **To view classification insights:**
 
-1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/babylonportal) and select your Purview account.
+1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/purviewportal) and select your Purview account.
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview account** tile.
 

@@ -6,7 +6,7 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 12/02/2020
 ---
 
 # Create a scan rule set
@@ -21,19 +21,13 @@ To create a scan rule set:
 
 1. From your Azure Purview catalog, select **Management Center**.
 
-   :::image type="content" source="./media/create-a-scan-rule-set/select-management-center.png" alt-text="Screenshot showing how to select Management Center.":::
-
 1. Select **Scan rule sets** from the left pane, and then select **New**.
 
-   :::image type="content" source="./media/create-a-scan-rule-set/select-scan-rule-sets.png" alt-text="Screenshot showing how to select Scan rule sets.":::
-
-1. From the **New scan rule set** page, select the data sources that the catalog scanner supports from the **Source Type** drop-down list.
-
-   You can create a scan rule set for each type of data source you intend to scan.
+1. From the **New scan rule set** page, select the data sources that the catalog scanner supports from the **Source Type** drop-down list. You can create a scan rule set for each type of data source you intend to scan.
 
 1. Give your scan rule set a **Name**. The maximum length is 63 characters, with no spaces allowed. Optionally, enter a **Description**. The maximum length is 256 characters.
 
-   :::image type="content" source="./media/create-a-scan-rule-set/new-scan-rule-set.png" alt-text="Screenshot showing the Scan rule set page.":::
+   :::image type="content" source="./media/create-a-scan-rule-set/purview-home-page.png" alt-text="Screenshot showing the Scan rule set page." border="true":::
 
 1. Select **Continue**.
 
@@ -75,17 +69,13 @@ To create a custom file type:
 
 1. Enter a **File Extension** and an optional **Description**.
 
-   :::image type="content" source="./media/create-a-scan-rule-set/new-custom-file-type-page.png" alt-text="Screenshot showing the New custom file type page." lightbox="./media/create-a-scan-rule-set/new-custom-file-type-page.png":::
+   :::image type="content" source="./media/create-a-scan-rule-set/new-custom-file-type-page.png" alt-text="Screenshot showing the New custom file type page." border="true":::
 
 1. Make one of the following selections for **File contents within** to specify the type of file contents within your file:
 
    - Select **Custom Delimiter** and enter your own **Custom delimiter** (single character only).
 
-      :::image type="content" source="./media/create-a-scan-rule-set/select-custom-delimiter.png" alt-text="Screenshot showing how to select the Custom Delimiter option on the New custom file type page." lightbox="./media/create-a-scan-rule-set/select-custom-delimiter.png":::
-
    - Select **System File Type** and choose a system file type (for example XML) from the **System file type** drop-down list.
-
-      :::image type="content" source="./media/create-a-scan-rule-set/select-system-file-type.png" alt-text="Screenshot showing how to select the System File Type option for the New custom file type page." lightbox="./media/create-a-scan-rule-set/select-system-file-type.png":::
 
 1. Select **Create** to save the custom file.
 
@@ -93,7 +83,7 @@ To create a custom file type:
 
    :::image type="content" source="./media/create-a-scan-rule-set/new-custom-file-type-tile.png" alt-text="Screenshot showing the new custom file type tile on the Select file types page.":::
 
-1. Select **edit** in the new file type tile if you want to change or delete it.
+1. Select **Edit** in the new file type tile if you want to change or delete it.
 
 1. Select **Continue** to finish configuring the scan rule set.
 
@@ -115,7 +105,7 @@ System scan rule sets are Microsoft-defined scan rule sets that are automaticall
 
 ### Associate a scan with a system scan rule set
 
-When you [create a scan](starter-kit-tutorial-1.md#scan-data-into-the-catalog), you can choose to associate it with a system scan rule set as follows:
+When you [create a scan](tutorial-scan-data.md#scan-data-into-the-catalog), you can choose to associate it with a system scan rule set as follows:
 
 1. On the **Select a scan rule set** page, select the system scan rule set.
 

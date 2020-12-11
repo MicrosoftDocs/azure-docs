@@ -122,7 +122,11 @@ Protect Azure resources against attacks from external networks, including distri
 
 **Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-None
+- [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
+
+- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+
+- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 ## NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 

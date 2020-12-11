@@ -1,12 +1,12 @@
 ---
 title: Template functions - deployment
-description: Describes the functions to use in an Azure Resource Manager template to retrieve deployment information.
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
 # Deployment functions for ARM templates
 
-Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager (ARM) template:
+Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager template (ARM template):
 
 * [deployment](#deployment)
 * [environment](#environment)
@@ -428,7 +428,7 @@ The output from the preceding example with the default values is:
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | option 1 |
 
-For more information about using parameters, see [Parameters in Azure Resource Manager template](template-parameters.md).
+For more information about using parameters, see [Parameters in ARM templates](template-parameters.md).
 
 ## variables
 
@@ -565,8 +565,8 @@ The output from the preceding example with the default values is:
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-For more information about using variables, see [Variables in Azure Resource Manager template](template-variables.md).
+For more information about using variables, see [Variables in ARM template](template-variables.md).
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).

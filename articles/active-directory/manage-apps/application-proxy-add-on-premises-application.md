@@ -8,14 +8,17 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 12/10/2020
 ms.author: kenwith
 ms.reviewer: japere
+ms.custom: contperf-fy21q2
 ---
 
 # Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory
 
 Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial prepares your environment for use with Application Proxy. Once your environment is ready, you'll use the Azure portal to add an on-premises application to your Azure AD tenant.
+
+Connectors are a key part of Application Proxy. To learn more about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).
 
 This tutorial:
 
@@ -46,8 +49,12 @@ For high availability in your production environment, we recommend having more t
 > ```
 > Windows Registry Editor Version 5.00
 > 
-> [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp] "EnableDefaultHttp2"=dword:00000000
+> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 Value: 0
 > ```
+>
+> The key can be set via PowerShell with the following command.
+> ```
+> Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\' -Name EnableDefaultHTTP2 -Value 0
 >
 
 #### Recommendations for the connector server
@@ -82,6 +89,9 @@ To enable TLS 1.2:
 
 1. Restart the server.
 
+> [!Note]
+> Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements. See [Azure TLS certificate changes](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes) for more information.
+
 ## Prepare your on-premises environment
 
 Start by enabling communication to Azure data centers to prepare your environment for Azure AD Application Proxy. If there's a firewall in the path, make sure it's open. An open firewall allows the connector to make HTTPS (TCP) requests to the Application Proxy.
@@ -108,7 +118,7 @@ Allow access to the following URLs:
 | --- | --- | --- |
 | &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Communication between the connector and the Application Proxy cloud service |
 | crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP |The connector uses these URLs to verify certificates. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |The connector uses these URLs during the registration process. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |The connector uses these URLs during the registration process. |
 | ctldl.windowsupdate.com | 80/HTTP |The connector uses this URL during the registration process. |
 
 You can allow connections to &ast;.msappproxy.net, &ast;.servicebus.windows.net, and other URLs above if your firewall or proxy lets you configure DNS allow lists. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
@@ -179,7 +189,7 @@ Now that you've prepared your environment and installed a connector, you're read
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).
 2. In the left navigation panel, select **Azure Active Directory**.
 3. Select **Enterprise applications**, and then select **New application**.
-4. In the **On-premises applications** section, select **Add an on-premises application**.
+4. Select **Add an on-premises application** button which appears about halfway down the page in the **On-premises applications** section. Alternatively, you can select **Create your own application** at the top of the page and then select **Configure Application Proxy for secure remote access to an on-premise application**.
 5. In the **Add your own on-premises application** section, provide the following information about your application:
 
     | Field | Description |

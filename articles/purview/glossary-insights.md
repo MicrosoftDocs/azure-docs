@@ -16,6 +16,7 @@ This how-to guide describes how to access, view, and filter Purview Glossary ins
 
 In this how-to guide, you'll learn how to:
 
+> [!div class="checklist"]
 > - Go to Insights from your Purview account
 > - Get a bird's eye view of your data
 
@@ -37,9 +38,9 @@ In Azure Purview, you can create glossary terms and attach them to assets. Later
 
 **To view Glossary Insights:**
 
-1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/babylonportal) and select your Purview account.
+1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/purviewportal) and select your Purview account.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
+1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview** account tile.
 
    :::image type="content" source="./media/glossary-insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
 

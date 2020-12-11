@@ -36,9 +36,12 @@ For more information, see [Manage data sources in Azure Purview (Preview)](manag
 
 When scanning your assets, Azure Purview is able to detect the file types found in your data estate, and provide you more details about each file type. Details include how many files of each type you have, where those files are, and whether they are scannable for sensitive data.
 
+> [!NOTE]
+> After you have scanned your source types, give **File extension** Insights a couple of hours to reflect the new assets.
+
 **To view file extension insights:**
 
-1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/babylonportal) and select your Purview account.
+1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/purviewportal) and select your Purview account.
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview account** tile.
 

@@ -35,7 +35,7 @@ Each API operates independently, except the Gremlin and SQL API, which are inter
 
 ### Is Azure Cosmos DB HIPAA compliant?
 
-Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
+Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](/compliance/regulatory/offering-hipaa-hitech).
 
 ### What are the storage limits of Azure Cosmos DB?
 
@@ -168,7 +168,7 @@ The SQL query language supported by SQL API accounts is an enhanced subset of th
 
 ### Does the SQL API support SQL aggregation functions?
 
-The SQL API supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](sql-query-aggregates.md).
+The SQL API supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](sql-query-aggregate-functions.md).
 
 ### How does the SQL API provide concurrency?
 

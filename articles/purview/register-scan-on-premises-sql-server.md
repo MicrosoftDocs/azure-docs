@@ -28,39 +28,27 @@ SQL server on-premises data source supports:
 
 - Authentication method: SQL authentication
 
+### Known limitations
+
+Azure Purview doesn't support scanning of [views](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) in SQL Server. 
+
 ## Prerequisites
 
-- The features in this article require a Purview account created after September 15, 2020.
+- Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
 
 - Set up a [self-hosted integration runtime](manage-integration-runtimes.md) to scan the data source.
 
-### Feature Flag
-
-Registration and scanning of a SQL server on-premises data source is available behind a feature flag. Append the following to your URL: `?feature.ext.datasource={%22sqlServer%22:%22true%22}`. The full URL will look like `https://web.babylon.azure.com/?feature.ext.datasource={%22sqlServer%22:%22true%22}`.
-
-## Register a SQL server data source
-
-1. Navigate to your Purview catalog.
-
-2. Select **Manage your data** tile on the home page.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/babylon-home-page.png" alt-text="Purview home page.":::
-
-3. Under Sources and scanning in the left navigation, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, follow the steps mentioned [here](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
-
-4. Select **Data sources** under the Sources and scanning section. Select **New** to register a new data source. Select **SQL server**, then **Continue**.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/set-up-sql-data-source.png" alt-text="Set up the SQL data source.":::
-
-5. Provide a friendly name and server endpoint and then select **Finish** to register the data source. If, for example, your SQL server FQDN is **foobar.database.windows.net**, then enter *foobar* as the server endpoint.
-
 ## Setting up authentication for a scan
 
-SQL authentication is the only supported authentication method for SQL server on-premises.
+There is only one way to set up authentication for SQL server on-premises:
+
+- SQL Authentication
+
+### SQL authentication
 
 The SQL identity must have access to the primary database. This location is where `sys.databases` is stored. The Purview scanner needs to enumerate `sys.databases` in order to find all the SQL DB instances in the server.
 
-### Using an existing server administrator
+#### Using an existing server administrator
 
 If you plan to use an existing server admin (sa) user to scan your on-premises SQL server, ensure the following:
 
@@ -74,7 +62,7 @@ If you plan to use an existing server admin (sa) user to scan your on-premises S
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping-sa.png" alt-text="user mapping for sa.":::
 
-### Creating a new login and user
+#### Creating a new login and user
 
 If you would like to create a new login and user to be able to scan your SQL server, follow the steps below:
 
@@ -93,6 +81,31 @@ If you would like to create a new login and user to be able to scan your SQL ser
 5. Navigate again to the user you created, by right clicking and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It is required to change your password as soon as you create a new login.**
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/change-password.png" alt-text="change password.":::
+
+#### Storing your SQL login password in a key vault and creating a credential in Purview
+
+1. Navigate to your key vault in the Azure portal
+1. Select **Settings > Secrets**
+1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your SQL server login
+1. Select **Create** to complete
+1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to setup your scan
+
+## Register a SQL server data source
+
+1. Navigate to your Purview account
+
+1. Under Sources and scanning in the left navigation, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, follow the steps mentioned [here](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
+
+1. Select **Sources** on the left navigation
+
+1. Select **Register**
+
+1. Select **SQL server** and then **Continue**
+
+   :::image type="content" source="media/register-scan-on-premises-sql-server/set-up-sql-data-source.png" alt-text="Set up the SQL data source.":::
+
+5. Provide a friendly name and server endpoint and then select **Finish** to register the data source. If, for example, your SQL server FQDN is **foobar.database.windows.net**, then enter *foobar* as the server endpoint.
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 

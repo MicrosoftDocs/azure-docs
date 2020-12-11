@@ -22,7 +22,7 @@ Azure Blob Storage supports full and incremental scans to capture the metadata a
 - Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
 - You need to be an Azure Purview Data Source Admin
 
-### Set up authentication for a scan
+## Setting up authentication for a scan
 
 There are three ways to set up authentication for Azure blob storage:
 
@@ -30,7 +30,7 @@ There are three ways to set up authentication for Azure blob storage:
 - Account Key
 - Service Principal
 
-#### Managed Identity (Recommended)
+### Managed Identity (Recommended)
 
 When you choose **Managed Identity**, to set up the connection, you must first give your Purview account the permission to scan the data source:
 
@@ -42,7 +42,7 @@ When you choose **Managed Identity**, to set up the connection, you must first g
 > [!Note]
 > For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)
 
-#### Account Key
+### Account Key
 
 When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
 
@@ -56,7 +56,7 @@ When authentication method selected is **Account Key**, you need to get your acc
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to setup your scan
 
-#### Service principal
+### Service principal
 
 To use a service principal, you can use an existing one or create a new one. 
 
@@ -82,13 +82,20 @@ It is required to get the Service Principal's application ID and secret:
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to setup your scan
 
-### Firewall settings
+#### Granting the Service Principal access to your blob storage
+
+1. Navigate to your storage account.
+1. Select **Access Control (IAM)** from the left navigation menu. 
+1. Select **+ Add**.
+1. Set the **Role** to **Storage Blob Data Reader** and enter your service principal name or object ID under **Select** input box. Then, select **Save** to give this role assignment to your service principal.
+
+## Firewall settings
 
 > [!NOTE]
 > If you have firewall enabled for the storage account, you must use **Managed Identity** authentication method when setting up a scan.
 
 1. Go into your storage account in [Azure portal](https://portal.azure.com)
-1. Navigate to **Settings > Firewalls and virtual networks** and
+1. Navigate to **Settings > Networking** and
 1. Choose **Selected Networks** under **Allow access from**
 1. In the **Firewall** section, select **Allow trusted Microsoft services to access this storage account** and hit **Save**
 

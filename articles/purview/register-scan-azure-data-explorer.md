@@ -21,7 +21,7 @@ Azure Data Explorer supports full and incremental scans to capture the metadata 
 - Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
 - You need to be an Azure Purview Data Source Admin
 
-## Set up authentication for a scan
+## Setting up authentication for a scan
 
 There is only one way to set up authentication for Azure data explorer:
 

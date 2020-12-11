@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/24/2020
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 # What is Azure Cognitive Search?
 
@@ -17,10 +17,11 @@ Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-serv
 
 When you create a Cognitive Search service, you get:
 
-+ a search engine that performs indexing and query execution
-+ AI-centered analysis and transformation of images and undifferentiated text during indexing
-+ persistent storage of search indexes that you create and manage
-+ a query language for composing simple to complex queries
++ A search engine that performs indexing and query execution
++ Persistent storage of search indexes that you create and manage
++ A query language for composing simple to complex queries
++ AI-centered analysis, creating searchable content out of images, raw text, application files
++ Integration with Azure data through search indexers, automating data import and refresh
 
 Architecturally, a search service sits in between the external data stores that contain your un-indexed data, and a client app that sends query requests to a search index and handles the response.
 

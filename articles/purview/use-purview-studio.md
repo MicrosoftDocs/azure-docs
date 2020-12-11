@@ -77,4 +77,4 @@ Each UX in Azure Purview Studio will have guided tours to give overview of the p
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add a security principal](starter-kit-tutorial-1.md)
+> [Add a security principal](tutorial-scan-data.md)

@@ -2,13 +2,13 @@
 title: Send Events to a web endpoint using Azure App Configuration
 description: Learn to use Azure App Configuration event subscriptions to send key-value modification events to a web endpoint
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 02/25/2020
-ms.author: lcozzens 
+ms.date: 03/04/2020
+ms.author: alkemper 
 ms.custom: devx-track-azurecli
 
 

@@ -5,27 +5,25 @@ author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
-ms.topic: conceptual
-ms.date: 11/04/2020
+ms.topic: how-to
+ms.date: 12/02/2020
 ---
 
 # How to create, import, and export glossary terms
 
-This article describes how to create a business glossary term in Azure Purview data catalog, and import and export glossary terms in .csv files.
+This article describes how to create a business glossary term in Azure Purview data catalog, and import and export glossary terms using .csv files.
 
 ## Create a new term
 
+To create a new glossary term, do the following steps:
+
 1. Select the glossary icon in the left navigation on home page to go to term list page.
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/left-nav-icon.png" alt-text="Screenshot of the Glossary terms page, Manage term templates button.":::
+2. On the **Glossary terms** page, select **+ New term**. A page opens with **System Default** template selected. Choose the template you want to create glossary term with and select **Continue**.
 
-2. On the Term List page, select **+ New term**. A page opens with **System Default** template selected. Choose the template you want to create glossary term with and select **Continue**.
-
-   :::image type="content" source="media/how-to-create-import-export-glossary/new-term-with-custom-template.png" alt-text="Screenshot of the New term creation.":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/new-term-with-default-template.png" alt-text="Screenshot of the New term creation." border="true":::
 
 3. Give your new term a name, which must be unique in the catalog. The term name is case-sensitive, meaning you could have a term called **Sample** and **sample** in the catalog.
-
-   - You can additionally add the following additional properties:
 
 4. Add a **Definition**.
 
@@ -44,7 +42,7 @@ This article describes how to create a business glossary term in Azure Purview d
 
 7. Add **Synonyms** and **Related terms** in the related tab.
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/related-tab.png" alt-text="Screenshot of New term > Related tab.":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/related-tab.png" alt-text="Screenshot of New term > Related tab." border="true":::
 
 8. Optionally, select the **Contacts** tab to add Experts and Stewards to your term.
 
@@ -60,9 +58,7 @@ Notice that term names are case-sensitive. For example, `Sample` and `saMple` co
 
 ### To import terms, follow these steps
 
-1. When you are in the Glossary, select **Import terms**.
-
-   :::image type="content" source="media/how-to-create-import-export-glossary/import-button.png" alt-text="Screenshot of the Glossary terms page, Import term button.":::
+1. When you are in the **Glossary terms** page, select **Import terms**.
 
 2. The term template page opens. Match the term template to the kind of .CSV you want to import.
 
@@ -92,4 +88,4 @@ You should be able to export terms from glossary as long as the selected terms b
 
 ## Next steps
 
-Follow the [Tutorial: Create and import glossary terms](starter-kit-tutorial-5.md) to learn more.
+Follow the [Tutorial: Create and import glossary terms](tutorial-import-create-glossary-terms.md) to learn more.

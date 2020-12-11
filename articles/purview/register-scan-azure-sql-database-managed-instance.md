@@ -22,6 +22,10 @@ The Azure SQL Database Managed Instance data source supports the following funct
 
 - **Lineage** between data assets for ADF copy and dataflow activities.
 
+### Known limitations
+
+Azure Purview doesn't support scanning of [views](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) in Azure SQL Managed Instance.
+
 ## Prerequisites
 
 - Create a new Purview account if you don't already have one.
@@ -30,7 +34,7 @@ The Azure SQL Database Managed Instance data source supports the following funct
     > [!Note]
     > Your organization must be able to allow public endpoint as **private endpoint is not yet supported** by Purview. If you use private endpoint, the scan will not be successful.
 
-### Set up authentication for a scan
+### Setting up authentication for a scan
 
 Authentication to scan Azure SQL Database Managed Instance. If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). There are three authentication methods that Purview supports today:
 
@@ -97,6 +101,20 @@ It is required to get the service principal's application ID and secret:
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to setup your scan
 
+### Firewall settings
+
+Your database server must allow Azure connections to be enabled. This will allow Azure Purview to reach and connect the server. You can follow the How-to guide for [Connections from inside Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
+
+1. Navigate to your database account
+1. Select the server name in the **Overview** page
+1. Select **Security > Firewalls and virtual networks**
+1. Select **Yes** for **Allow Azure services and resources to access this server**
+
+    :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="register sources options" border="true":::
+    
+> [!Note]
+> Currently Azure Purview does not support VNET configuration. Therefore you cannot do IP-based firewall settings.
+
 ## Register an Azure SQL Database Managed Instance data source
 
 1. Navigate to your Purview account
@@ -105,15 +123,13 @@ It is required to get the service principal's application ID and secret:
 
 1. Select **Register**
 
-4. Select **New** to register a new data source. 
-
-5. Select **Azure SQL Database Managed Instance** and then **Continue**
+1. Select **Azure SQL Database Managed Instance** and then **Continue**
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-the-sql-data-source.png" alt-text="Set up the SQL data source":::
 
-6. Select **Enter manually**
+1. Select **Enter manually**
 
-7. Provide the **public endpoint fully qualified domain name** and **port number**. Then select **Finish** to register the data source.
+1. Provide the **public endpoint fully qualified domain name** and **port number**. Then select **Finish** to register the data source.
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/add-azure-sql-database-managed-instance.png" alt-text="Add Azure SQL Database Managed Instance":::
 

@@ -1,6 +1,6 @@
 ---
-title: Create a Custom Classification and classification rule
-description: This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization as well as create custom classification rules in Purview that let you find specified data throughout your data estate.
+title: Create a custom classification and classification rule (preview)
+description: This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization. It also describes the creation of custom classification rules that let you find specified data throughout your data estate.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
@@ -8,37 +8,37 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/1/2020
 ---
+# Custom classifications in Azure Purview 
 
-# Custom classification
+This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization. It also describes the creation of custom classification rules that let you find specified data throughout your data estate.
 
-By default, the catalog provides a large set of default classifications
-that represent typical personal data types that you might have in your
-data estate.
+## Default classifications
+
+The Azure Purview Data Catalog provides a large set of default classifications that represent typical personal data types that you might have in your data estate.
 
 :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification.png" alt-text="select classification" border="true":::
 
+You also have the ability to create custom classifications, if any of the default classifications don't meet your needs.
+
 ## Steps to create a custom classification
 
-To create a custom classification:
+To create a custom classification, do the following:
 
-1. From your catalog, select the **Management Center** icon.
+1. From your catalog, select **Management Center** from the left menu.
 
-    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/management-center.png" alt-text="Management center" border="true":::
+2. Select **Classifications** under **Metadata management**.
 
-2. Select **Classifications** under Metadata management from the left navigation.
-
-3. Select **New**
+3. Select **+ New**
 
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification.png" alt-text="New classification" border="true":::
 
 The **Add new classification** pane opens, where you can give your
-classification a name and a description. It\'s good practice to use a
-name-spacing convention, such as your company name.classification name.
+classification a name and a description. It's good practice to use a
+name-spacing convention, such as `your company name.classification name`.
 The Microsoft system classifications are grouped under the reserved
-MS.Namespace. An example
-is **MS.GOVERNMENT.US.SOCIAL\_SECURITY\_NUMBER**.
+`MS.` namespace. An example is **MS.GOVERNMENT.US.SOCIAL\_SECURITY\_NUMBER**.
 
-The system enforces that your name starts with a letter followed by a
+The name of your classification must start with a letter followed by a
 sequence of letters, numbers, and period (.) or underscore characters.
 No spaces are allowed. As you type, the UX automatically generates a
 friendly name. This friendly name is what users see when you apply it to

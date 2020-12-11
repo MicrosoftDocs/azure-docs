@@ -8,28 +8,27 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/04/2020
 ---
-
 # How to manage term templates for business glossary
 
-This article describes how to create a term template and custom attributes that can be associated to glossary terms.
+Azure Purview allows you to create a glossary of terms that are important for enriching your data. Each new term added to your Purview Data Catalog Glossary is based on a term template that determines the fields for the term. This article describes how to create a term template and custom attributes that can be associated to glossary terms.
 
 ## Manage term templates and custom attributes
 
 Using term templates, you can create custom attributes, group them together and apply a template while creating terms. Once a term is created, the template associated with the term cannot be changed.
 
-1. On the Terms List page, select **Manage term templates**.
+1. On the **Glossary terms** page, select **Manage term templates**.
 
    :::image type="content" source="./media/how-to-manage-glossary-term-templates/manage-term-templates.png" alt-text="Screenshot of Glossary terms > Manage term templates button.":::
 
-2. The page shows both system as well as custom attributes. Select the **custom** tab to create or edit term templates.
+2. The page shows both system as well as custom attributes. Select the **Custom** tab to create or edit term templates.
 
    :::image type="content" source="./media/how-to-manage-glossary-term-templates/manage-term-custom.png" alt-text="Screenshot of Glossary terms > Manage term templates page.":::
 
-3. Select **New Term Template** and enter a template name and description.
+3. Select **+ New term template** and enter a template name and description.
 
    :::image type="content" source="./media/how-to-manage-glossary-term-templates/new-term-template.png" alt-text="Screenshot of Glossary terms > Manage term templates > New term templates":::
 
-4. Select **New Attribute** to create a new custom attribute for the term template. Enter an attribute name, description. The custom attribute name must be unique within a term template but can be same name can be reused across templates.
+4. Select **+ New attribute** to create a new custom attribute for the term template. Enter an attribute name, description. The custom attribute name must be unique within a term template but can be same name can be reused across templates.
 
    Choose the field type from the list of options **Text**, **Single choice**, **Multi choice**, or  **Date**. You can also provide a default value string for Text field types.  The attribute can also be marked as **required**.
 
@@ -49,4 +48,4 @@ Using term templates, you can create custom attributes, group them together and 
 
 ## Next steps
 
-Follow the [Tutorial: Create and import glossary terms](starter-kit-tutorial-5.md) to learn more.
+Follow the [Tutorial: Create and import glossary terms](tutorial-import-create-glossary-terms.md) to learn more.
