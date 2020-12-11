@@ -259,7 +259,7 @@ Follow these steps to enable the collection of metrics from the Live Video Analy
     ```
 
 1. Now using docker cli command **build the docker file** and publish the image to your Azure Container Registry.
-    1. Learn how to [Push and Pull Docker images  - Azure Container Registry](http://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).  More on Azure Container Registry (ACR) can be found [here](https://docs.microsoft.com/azure/container-registry/).
+    1. Learn how to [Push and Pull Docker images  - Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).  More on Azure Container Registry (ACR) can be found [here](https://docs.microsoft.com/azure/container-registry/).
 
 
 1. Once the push to ACR is complete, in your deployment manifest file, add the following node:
