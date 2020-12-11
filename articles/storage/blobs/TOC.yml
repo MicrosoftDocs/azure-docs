@@ -308,7 +308,7 @@
       - name: Get account type and SKU name (.NET)
         href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage the default access tier of a storage account
-        href: ../common/manage-account-access-tier.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/manage-account-default-access-tier.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create and manage containers
       items:
       - name: Create or delete a container (.NET)
