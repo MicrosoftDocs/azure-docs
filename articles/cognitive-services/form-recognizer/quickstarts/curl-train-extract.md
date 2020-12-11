@@ -42,7 +42,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
-1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
 
 
     # [v2.0](#tab/v2-0)    

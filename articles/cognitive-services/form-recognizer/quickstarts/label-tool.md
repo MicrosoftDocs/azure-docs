@@ -133,7 +133,7 @@ Fill in the fields with the following values:
 
 * **Display Name** - The connection display name.
 * **Description** - Your project description.
-* **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+* **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
 
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Connection settings of sample labeling tool.":::
