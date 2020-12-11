@@ -42,7 +42,7 @@
           href: event-hubs-c-getstarted-send.md
         - name: Apache Storm (receive only)
           href: event-hubs-storm-getstarted-receive.md
-    - name: Send and receive events (old versions/packages)
+    - name: Send and receive events (old packages)
       items:
         - name: .NET (Microsoft.Azure.EventHubs)
           href: event-hubs-dotnet-standard-get-started-send-legacy.md
