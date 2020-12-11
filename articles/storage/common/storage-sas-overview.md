@@ -72,6 +72,9 @@ A shared access signature can take one of the following two forms:
 
 A shared access signature is a signed URI that points to one or more storage resources. The URI includes a token that contains a special set of query parameters. The token indicates how the resources may be accessed by the client. One of the query parameters, the signature, is constructed from the SAS parameters and signed with the key that was used to create the SAS. This signature is used by Azure Storage to authorize access to the storage resource.
 
+> [!NOTE]
+> It's not possible to audit the generation of SAS tokens. Any user that has privileges to generate a SAS token, either by using the account key, or via an Azure RBAC role assignment, can do so without the knowledge of the owner of the storage account. Be careful to restrict permissions that allow users to generate SAS tokens. To prevent users from generating a SAS that is signed with the account key for blob and queue workloads, you can disallow Shared Key access to the storage account. For more information, see [Prevent authorization with Shared Key](shared-key-authorization-prevent.md).
+
 ### SAS signature and authorization
 
 You can sign a SAS token with a user delegation key or with a storage account key (Shared Key). 
@@ -186,7 +189,7 @@ To get started with shared access signatures, see the following articles for eac
 
 ### Service SAS
 
-- [Create a service SAS for a container or blob with .NET](../blobs/storage-blob-service-sas-create-dotnet.md)
+- [Create a service SAS for a container or blob with .NET](../blobs/sas-service-create.md)
 
 ### Account SAS
 

@@ -6,7 +6,7 @@ documentationcenter: na
 author: yitoh
 ms.service: ddos-protection
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020

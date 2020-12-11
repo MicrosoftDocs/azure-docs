@@ -95,7 +95,9 @@
   - name: Azure Database for MySQL security baseline
     href: ../../mysql/security-baseline.md
   - name: Azure Database for MariaDB security baseline
-    href: ../../mariadb/security-baseline.md
+    href: ../../mariadb/security-baseline.md 
+  - name: Azure Database Migration Service security baseline
+    href: ../../dms/security-baseline.md
   - name: Azure Database for PostgreSQL - Hyperscale security baseline
     href: ../../postgresql/postgresql-hyperscale-security-baseline.md
   - name: Azure Database for PostgreSQL - Single Server security baseline
@@ -130,9 +132,11 @@
     href: ../../load-balancer/security-baseline.md
   - name: Azure Machine Learning security baseline
     href: ../../machine-learning/security-baseline.md
+  - name: Azure Managed Applications security baseline
+    href: ../../azure-resource-manager/managed-applications/security-baseline.md
   - name: Azure Monitor security baseline
     href: ../../azure-monitor/security-baseline.md
-  - name: Azure Migrate Learning security baseline
+  - name: Azure Migrate security baseline
     href: ../../migrate/security-baseline.md
   - name: Azure Policy security baseline
     href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
@@ -188,6 +192,10 @@
     href: ../../key-vault/general/security-baseline.md
   - name: Logic Apps security baseline
     href: ../../logic-apps/security-baseline.md
+  - name: Microsoft Cloud App Security baseline
+    href: https://docs.microsoft.com/cloud-app-security/security-baseline
+  - name: Microsoft Defender for Identity security baseline
+    href: https://docs.microsoft.com/defender-for-identity/security-baseline
   - name: Network Watcher security baseline
     href: ../../network-watcher/security-baseline.md
   - name: Power BI baseline

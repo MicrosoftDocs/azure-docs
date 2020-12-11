@@ -40,8 +40,9 @@ HDInsight 3.6 ML Services cluster type will be end of support by December 31 202
 ### Disabled VM sizes
 Starting from November 16 2020, HDInsight will block new customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing customers who have used these VM sizes in the past three months won't be affected. Starting form January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
-### Behavior changes
-No behavior change for this release.
+## Behavior changes
+### Add NSG rule checking before scaling operation
+HDInsight added network security groups (NSGs) and user-defined routes (UDRs) checking with scaling operation. The same validation is done for cluster scaling besides of cluster creation. This validation helps prevent unpredictable errors. If validation doesn't pass, scaling fails. Learn more about how to configure NSGs and UDRs correctly, refer to [HDInsight management IP addresses](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
 ## Upcoming changes
 The following changes will happen in upcoming releases.
@@ -57,3 +58,18 @@ HDInsight continues to make cluster reliability and performance improvements.
 
 ## Component version change
 No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
+
+## Known issues
+### Prevent HDInsight cluster VMs from rebooting periodically
+
+Starting from mid November 2020, you may have noticed HDInsight cluster VMs getting rebooted on a regular basis. This could be caused by:
+
+1.	Clamav is enabled on your cluster. The new azsec-clamav package consumes large amount of memory that triggers node rebooting. 
+2.	A CRON job is scheduled daily that monitors for changes to the list of certificate authorities (CAs) used by Azure services. When a new CA certificate is available, the script adds the certificate to the JDK trust store and schedules a reboot.
+
+HDInsight is deploying fixes and applying patch for all running clusters for both issues. To apply the fix immediately and avoid unexpected VMs rebooting, you can run below script actions on all cluster nodes as a persistent script action. HDInsight will post another notice after the fix and patching complete.
+```
+https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
+https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
+```
+

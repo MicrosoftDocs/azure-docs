@@ -1,6 +1,9 @@
 ---
 title: Migrate VMware VMs agentless Azure Migrate Server Migration
 description: Learn how to run an agentless migration of VMware VMs with Azure Migrate.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
@@ -33,7 +36,7 @@ Before you begin this tutorial, you should:
 
 1. [Complete the first tutorial](./tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
 2. We recommend that you complete the second tutorial to [assess VMware VMs](./tutorial-assess-vmware-azure-vm.md) before migrating them to Azure, but you don't have to. 
-3. Go to the already created project or [create a new project](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+3. Go to the already created project or [create a new project](./create-manage-projects.md)
 4. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
 ## Set up the Azure Migrate appliance
@@ -174,7 +177,7 @@ After you've verified that the test migration works as expected, you can migrate
 ## Complete the migration
 
 1. After the migration is done, right-click the VM > **Stop Replication**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
-2. Install the Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) or [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines.
+2. Install the Azure VM [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines if the machine has Linux OS. We automatically install the VM agent for Windows VMs during migration.
 3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 5. Cut over traffic to the migrated Azure VM instance.

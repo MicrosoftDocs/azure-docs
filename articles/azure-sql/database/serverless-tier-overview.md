@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 9/17/2020
+ms.date: 12/8/2020
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -129,9 +129,10 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 |Data discovery and classification|Adding, modifying, deleting, or viewing sensitivity labels|
 |Auditing|Viewing auditing records.<br>Updating or viewing auditing policy.|
 |Data masking|Adding, modifying, deleting, or viewing data masking rules|
-|Transparent data encryption|View state or status of transparent data encryption|
+|Transparent data encryption|Viewing state or status of transparent data encryption|
 |Vulnerability assessment|Ad hoc scans and periodic scans if enabled|
 |Query (performance) data store|Modifying or viewing query store settings|
+|Performance recommendations|Viewing or applying performance recommendations|
 |Autotuning|Application and verification of autotuning recommendations such as auto-indexing|
 |Database copying|Create database as copy.<br>Export to a BACPAC file.|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|

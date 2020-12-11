@@ -45,6 +45,8 @@ In the screenshot below you can see AWS accounts displayed in Security Center's 
 
 ## Connect your AWS account
 
+Follow the steps below to create your AWS cloud connector. 
+
 ### Step 1. Set up AWS Security Hub:
 
 1. To view security recommendations for multiple regions, repeat the following steps for each relevant region.
@@ -156,7 +158,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 
         Learn more about Azure Tags in [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
 
-### Step 7. Confirmation
+### Step 6. Confirmation
 
 When the connector is successfully created and AWS Security Hub has been configured properly:
 

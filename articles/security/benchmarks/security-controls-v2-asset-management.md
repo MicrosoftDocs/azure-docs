@@ -56,7 +56,7 @@ Logically organize assets according to your organization’s taxonomy using Tags
 
 - [Azure Security Center asset inventory management](../../security-center/asset-inventory.md)
 
-- [For more information about tagging assets, see the resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
+- [For more information about tagging assets, see the resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Responsibility**: Customer
 

@@ -16,7 +16,7 @@ The B-series VMs are ideal for workloads that do not need the full performance o
 
 The B-series comes in the following VM sizes:
 
-[Azure Compute Unit (ACU)](./acu.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json): Varies*<br>
+[Azure Compute Unit (ACU)](./acu.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): Varies*<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
@@ -127,7 +127,7 @@ e.g in above instance your baseline is 20% and if you use 10% of the CPU you are
 
 ### Q: Why is my remaining credit set to 0 after a redeploy or a stop/start?
 
-**A** : When a VM is “REDPLOYED” and the VM  moves to another node, the accumulated credit is lost. If the VM is stopped/started, but remains on the same node, the VM retains the accumulated credit. Whenever the VM starts fresh on a node, it gets an initial credit,  for Standard_B8ms it is 240.
+**A** : When a VM is redeployed and the VM  moves to another node, the accumulated credit is lost. If the VM is stopped/started, but remains on the same node, the VM retains the accumulated credit. Whenever the VM starts fresh on a node, it gets an initial credit,  for Standard_B8ms it is 240.
 
 ### Q: What happens if I deploy an unsupported OS image on B1ls?
 

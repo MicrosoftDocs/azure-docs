@@ -3,8 +3,8 @@ title: 'Azure Data Factory: Frequently asked questions '
 description: Get answers to frequently asked questions about Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual

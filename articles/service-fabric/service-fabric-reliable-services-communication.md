@@ -1,11 +1,8 @@
 ---
 title: Reliable Services communication overview 
 description: Overview of the Reliable Services communication model, including opening listeners on services, resolving endpoints, and communicating between services.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
 ---
 # How to use the Reliable Services communication APIs

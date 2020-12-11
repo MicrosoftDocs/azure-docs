@@ -11,8 +11,6 @@
     href: overview-terminology.md
   - name: FAQ 
     href: overview-faq.md
-  - name: Release notes
-    href: release-notes.md
 - name: Quickstarts
   expanded: true
   items:
@@ -115,6 +113,10 @@
           displayname: vnet
         - name: Synapse workspace Managed private endpoints
           href: ./security/synapse-workspace-managed-private-endpoints.md
+        - name: Synapse workspace data exfiltration protection
+          href: ./security/workspace-data-exfiltration-protection.md
+        - name: Synapse workspace with private link hubs
+          href: ./security/synapse-private-link-hubs.md
       - name: Authentication and pass-through
         items:
         - name: Azure Active Directory
@@ -127,8 +129,13 @@
       - name: Access control
         items:
         - name: Overview
-          href: ./security/access-control.md
-          displayname: access, control
+          href: ./security/synapse-workspace-access-control-overview.md
+        - name: Synapse RBAC
+          href: ./security/synapse-workspace-synapse-rbac.md
+        - name: Synapse RBAC roles
+          href: ./security/synapse-workspace-synapse-rbac-roles.md
+        - name: Understand Synapse RBAC roles
+          href: ./security/synapse-workspace-understand-what-role-you-need.md  
         - name: Synapse workspace managed Identity
           href: ./security/synapse-workspace-managed-identity.md
   - name: How-to guides
@@ -141,11 +148,19 @@
       items:
       - name: Manage access control 
         items:
+        - name: Set up access control
+          href: ./security/how-to-set-up-access-control.md
+        - name: Review Synapse role assignments
+          href: ./security/how-to-review-synapse-rbac-role-assignments.md
+        - name: Manage Synapse role assignments
+          href: ./security/how-to-manage-synapse-rbac-role-assignments.md
         - name: Set up permissions for Azure Synapse workspace managed Identity
           href: security/how-to-grant-workspace-managed-identity-permissions.md
           displayname: grant
-        - name: Set up access control
-          href: security/how-to-set-up-access-control.md
+      - name: Data exfiltration protection
+        items:
+         - name: Create and manage a workspace with data exfiltration protection
+           href:  security/how-to-create-a-workspace-with-data-exfiltration-protection.md
       - name: Manage private endpoints
         items:
         - name: Set up Managed private endpoints to data sources
@@ -585,7 +600,7 @@
         href: ./spark/spark-dotnet.md
     - name: Security
       items: 
-      - name: Securing credentials using TokenLibrary
+      - name: Secure credentials using TokenLibrary
         href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
     - name: Optimize performance
       items:
@@ -1103,22 +1118,22 @@
     - name: Visualize data with Apache Spark
       href: ./spark/apache-spark-data-visualization-tutorial.md
       displayname: machine learning
-    - name: Model scoring wizard for SQL pools
+    - name: Use the scoring wizard for dedicated SQL pools
       href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
       displayname: machine learning
-    - name: Run a regression experiment using Azure AutoML
+    - name: Train a model code-free with automated ML
+      href: ./machine-learning/tutorial-automl.md
+    - name: Train a model in Python with automated ML
       href: ./spark/apache-spark-azure-machine-learning-tutorial.md
       displayname: machine learning
-    - name: Create a machine learning model with Apache Spark MLlib
+    - name: Create a model with Apache Spark MLlib
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md
       displayname: machine learning
     - name: Sentiment analysis with Cognitive Services
       href: ./machine-learning/tutorial-cognitive-services-sentiment.md
     - name: Anomaly detection with Cognitive Services
       href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-    - name: Machine learning model training using AutoML in Azure ML
-      href: ./machine-learning/tutorial-automl.md
-    - name: Pre-requisites for Cognitive Services in Azure Synapse
+    - name: Configure Cognitive Services for Azure Synapse
       href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
 - name: Reference
   items:
