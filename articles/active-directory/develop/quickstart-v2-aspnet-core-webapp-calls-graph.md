@@ -28,7 +28,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 > * [.NET Core SDK 3.1+](https://dotnet.microsoft.com/download)
 >
-> ## Register and download your quickstart app
+> ## Register and download the quickstart app
 > You have two options to start your quickstart application:
 > * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
