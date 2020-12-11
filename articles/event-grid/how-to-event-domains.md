@@ -17,12 +17,6 @@ This article shows how to:
 
 To learn about event domains, see [Understand event domains for managing Event Grid topics](event-domains.md).
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
-## Install preview feature
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
 ## Create an Event Domain
 
 To manage large sets of topics, create an event domain.
@@ -30,10 +24,6 @@ To manage large sets of topics, create an event domain.
 # [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
-# If you haven't already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid domain create \
   -g <my-resource-group> \
   --name <my-domain-name> \
@@ -42,15 +32,14 @@ az eventgrid domain create \
 
 # [PowerShell](#tab/powershell)
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
 New-AzureRmEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
   -Location <location>
 ```
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 ---
 
 Successful creation returns the following values:
@@ -133,7 +122,7 @@ If you need a test endpoint to subscribe your events to, you can always deploy a
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 
-Permissions that are set for a topic are stored in Azure Active Directory and must be deleted explicitly. Deleting an event subscription won't revoke a users access to create event subscriptions if they have write access on a topic.
+Permissions that are set for a topic are stored in Azure Active Directory and must be deleted explicitly. Deleting an event subscription won't revoke a users access to create event subscriptions if they've write access on a topic.
 
 
 ## Publish events to an Event Grid Domain
@@ -203,6 +192,20 @@ Get-AzureRmEventGridDomainKey `
 ---
 
 And then use your favorite method of making an HTTP POST to publish your events to your Event Grid domain.
+
+## Search lists of topics or subscriptions
+
+To search and manage large number of topics or subscriptions, Event Grid's APIs support listing and pagination.
+
+### Using CLI
+For example, the following command lists all the topics with name containing `mytopic`. 
+
+```azurecli-interactive
+az eventgrid topic list --odata-query "contains(name, 'mytopic')"
+```
+
+For more information about this command, see [`az eventgrid topic list`](/cli/azure/eventgrid/topic?view=azure-cli-latest#az_eventgrid_topic_list). 
+
 
 ## Next steps
 
