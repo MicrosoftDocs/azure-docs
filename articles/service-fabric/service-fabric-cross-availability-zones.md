@@ -323,7 +323,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 ```
 
-## (Preview) Enable multiple Availability zones in single VMSS
+## (Preview) Enable multiple Availability zones in single virtual machine scale set
 
 The previously mentioned solution uses one nodeType per AZ. The following solution will allow users to deploy 3 AZ's in the same nodeType.
 
@@ -355,9 +355,9 @@ To enable zones on a virtual machine scale set you must include the following th
 
 >[!NOTE]
 > * **SF clusters should have atleast one Primary nodeType. DurabilityLevel of Primary nodeTypes should be Silver or above.**
-> * The AZ spanning VMSS should be configured with atleast 3 Availability zones irrespective of the durabilityLevel.
-> * AZ spanning VMSS with Silver durability (or above), should have atleast 15 VMs.
-> * AZ spanning VMSS with Bronze durability, should have atleast 6 VMs.
+> * The AZ spanning virtual machine scale set should be configured with atleast 3 Availability zones irrespective of the durabilityLevel.
+> * AZ spanning virtual machine scale set with Silver durability (or above), should have atleast 15 VMs.
+> * AZ spanning virtual machine scale set with Bronze durability, should have atleast 6 VMs.
 
 ### Enabling the support for multiple zones in the Service Fabric nodeType
 The Service Fabric nodeType must be enabled to support multiple availability zones.
@@ -367,9 +367,9 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
       The property controls the logical grouping of VMs in upgrade domains.
           If value is set to false (flat mode): VMs under the node type will be grouped in UD ignoring the zone info in 5 UDs.
           If value is omitted or set to true (hierarchical mode): VMs will be grouped to reflect the zonal distribution in up to 15 UDs. Each of the 3 zones will have 5 UDs.
-          This property only defines the upgrade behavior for ServiceFabric application and code upgrades. The underlying VMSS upgrades will still be parallel in all AZ’s.
+          This property only defines the upgrade behavior for ServiceFabric application and code upgrades. The underlying virtual machine scale set upgrades will still be parallel in all AZ’s.
       This property will not have any impact on the UD distribution for node types which do not have multiple zones enabled.
-* The third value is **vmssZonalUpgradeMode = Parallel**. This is a *mandatory* property to be configured in the cluster, if a nodeType with multiple AZs is added. This property defines the upgrade mode for the VMSS updates which will happen in parallel in all AZ’s at once.
+* The third value is **vmssZonalUpgradeMode = Parallel**. This is a *mandatory* property to be configured in the cluster, if a nodeType with multiple AZs is added. This property defines the upgrade mode for the virtual machine scale set updates which will happen in parallel in all AZ’s at once.
       Right now this property can only be set to parallel.
 * The Service Fabric cluster resource apiVersion should be "2020-12-01-preview" or higher.
 * The cluster code version should be "7.2.445" or higher.
@@ -412,7 +412,7 @@ The same article also describes now to retire the existing nodeType after the no
 
 * Migration from a nodeType which is using basic LB and IP resources:
     This is already described [here](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per AZ. 
-    For the new node type, the only difference is that there is only 1 VMSS and 1 nodetype for all AZ’s instead of 1 each per AZ.
+    For the new node type, the only difference is that there is only 1 virtual machine scale set and 1 nodetype for all AZ’s instead of 1 each per AZ.
 * Migration from a nodeType which is using the Standard SKU LB and IP resources with NSG:
     Follow the same procedure as described above with the exception that there is no need to add new LB, IP and NSG resources, and the same resources can be reused in the new nodeType.
 
