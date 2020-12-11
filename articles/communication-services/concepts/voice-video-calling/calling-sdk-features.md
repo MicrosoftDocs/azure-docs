@@ -92,7 +92,7 @@ For example, this iframe allows both camera and microphone access:
 |           |Web | Android/iOS|
 |-----------|----|------------|
 |# of outgoing stream that can be send simultaneously | 1 video + 1 screen sharing | 1 video + 1 screen sharing|
-|# of incoming streams that can be rendered simultaneously |1 video + 1 screen sharing| up to 4 video + 1 |
+|# of incoming streams that can be rendered simultaneously |1 video + 1 screen sharing| up to 6 video + 1 |
 
 
 ## Next steps
