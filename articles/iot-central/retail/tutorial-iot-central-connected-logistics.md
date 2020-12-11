@@ -37,9 +37,9 @@ Create the application using following steps:
 
     :::image type="content" source="media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png" alt-text="Connected logistics template":::
 
-2. Select **Create app** under **Connected Logistics Application**.
+1. Select **Create app** under **Connected Logistics Application**.
 
-3. **Create app** opens the **New application** form. Enter the following details:
+1. **Create app** opens the **New application** form. Enter the following details:
 
 
     * **Application name**: you can use default suggested name or enter your friendly application name.
