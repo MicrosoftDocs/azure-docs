@@ -92,9 +92,9 @@ To verify and correct the DNSName, do the following:
 
 #### Symptoms
 
-When you try to increase the concurrent jobs limit from the Azure Data Factory interface, the process hangs in *updating* status.
+When you try to increase the concurrent jobs limit from the Azure Data Factory interface, the process hangs in *Updating* status.
 
-Example scenario: The maximum concurrent jobs value is currently set to 24, and you want to increase the count so that your jobs can run faster. The minimum value that you can enter is 3, and the maximum value is 32. You increase the value from 24 to 32 and then select the **Update** button. The process gets stuck in **Updating** status, as shown in the following screenshot. You refresh the page, and the value is still displayed as 24. It hasn't been updated to 32 as you had expected.
+Example scenario: The maximum concurrent jobs value is currently set to 24, and you want to increase the count so that your jobs can run faster. The minimum value that you can enter is 3, and the maximum value is 32. You increase the value from 24 to 32 and then select the **Update** button. The process gets stuck in *Updating* status, as shown in the following screenshot. You refresh the page, and the value is still displayed as 24. It hasn't been updated to 32 as you had expected.
 
 ![Screenshot of the Nodes pane of the integration runtime, displaying the process stuck in "Updating" status.](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
 
@@ -121,7 +121,7 @@ When you handle cases that are related to an SSL/TLS handshake, you might encoun
 
 #### Resolution
 
-- Here is a quick, intuitive way to troubleshoot an X.509 certificate chain build failure:
+- Here's a quick, intuitive way to troubleshoot an X.509 certificate chain build failure:
  
     1. Export the certificate, which needs to be verified. To do so, do the following:
     
@@ -149,11 +149,11 @@ When you handle cases that are related to an SSL/TLS handshake, you might encoun
 
         ![Screenshot of an error summary at the end of the TXT file.](media/self-hosted-integration-runtime-troubleshoot-guide/error-summary.png)
 
-        If you don't see an error at the end of the log file, as shown in the following screenshot, you can consider that the certificate chain has been built successfully in the client machine.
+        If you don't see an error at the end of the log file, as shown in the following screenshot, you can consider that the certificate chain has been built successfully on the client machine.
         
         ![Screenshot of a log file showing no errors.](media/self-hosted-integration-runtime-troubleshoot-guide/log-file.png)      
 
-- If there's an AIA (Authority Information Access), CDP (CRL Distribution Point), or OCSP (Online Certificate Status Protocol) extension configured in the certificate file, you can check it in a more intuitive way:
+- If an AIA (Authority Information Access), CDP (CRL Distribution Point), or OCSP (Online Certificate Status Protocol) file name extension is configured in the certificate file, you can check it in a more intuitive way:
  
     1. Get this information by checking the certificate details, as shown in the following screenshot:
     
@@ -165,9 +165,9 @@ When you handle cases that are related to an SSL/TLS handshake, you might encoun
           Certutil   -URL    <certificate path> 
         ```
     
-        The **URL Retrieval tool** opens. 
+        The URL Retrieval tool opens. 
         
-    1. To verify certificates with AIA, CDP, and OCSP extensions, select **Retrieve**.
+    1. To verify certificates with AIA, CDP, and OCSP file name extensions, select **Retrieve**.
 
         ![Screenshot of the URL Retrieval Tool and the Retrieve button.](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
@@ -179,11 +179,11 @@ When you handle cases that are related to an SSL/TLS handshake, you might encoun
 
 #### Symptoms
 
-You get the following error:
+You get the following error message:
 
 "Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3"
  
-For example, a more specific message: 
+Here is a more specific error message: 
 
 "Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3"
 
@@ -243,30 +243,30 @@ If neither of the preceding causes applies, you can go to the *%programdata%\Mic
 ![Screenshot of the event log details pane for checking the Configurations file.](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
 
 
-### Cannot use self-hosted IR to bridge two on-premises data stores
+### Can't use self-hosted IR to bridge two on-premises datastores
 
 #### Symptoms
 
-After you create self-hosted IRs for both the source and destination data stores, you want to connect the two IRs to finish a copy activity. If the data stores are configured in different virtual networks, or the data stores can't understand the gateway mechanism, you receive either of the following errors: 
+After you create self-hosted IRs for both the source and destination datastores, you want to connect the two IRs to finish a copy activity. If the datastores are configured in different virtual networks, or the datastores can't understand the gateway mechanism, you receive either of the following errors: 
 
 * "The driver of source cannot be found in destination IR"
 * "The source cannot be accessed by the destination IR"
  
 #### Cause
 
-The self-hosted IR is designed as a central node of a copy activity, not a client agent that needs to be installed for each data store.
+The self-hosted IR is designed as a central node of a copy activity, not a client agent that needs to be installed for each datastore.
  
-In this case, you should create the linked service for each data store with the same IR, and the IR should be able to access both data stores through the network. It doesn't matter whether the IR is installed at the source data store or the destination data store, or on a third machine. If two linked services are created with different IRs but used in the same copy activity, the destination IR is used, and you need to install the drivers for both data stores on the destination IR machine.
+In this case, you should create the linked service for each datastore with the same IR, and the IR should be able to access both datastore through the network. It doesn't matter whether the IR is installed at the source datastore or the destination datastore, or on a third machine. If two linked services are created with different IRs but used in the same copy activity, the destination IR is used, and you need to install the drivers for both datastores on the destination IR machine.
 
 #### Resolution
 
-Install drivers for both the source and destination data stores on the destination IR, and make sure that it can access the source data store.
+Install drivers for both the source and destination datastores on the destination IR, and make sure that it can access the source datastore.
  
-If the traffic can't pass through the network between two data stores (for example, they're configured in two virtual networks), you might not finish copying in one activity even with the IR installed. If you can't finish copying in a single activity, you can create two copy activities with two IRs, each in a VENT: 
-* Copy one IR from data store 1 to Azure Blob Storage
-* Copy another IR from Azure Blob Storage to data store 2. 
+If the traffic can't pass through the network between two datastores (for example, they're configured in two virtual networks), you might not finish copying in one activity even with the IR installed. If you can't finish copying in a single activity, you can create two copy activities with two IRs, each in a VENT: 
+* Copy one IR from datastore 1 to Azure Blob Storage
+* Copy another IR from Azure Blob Storage to ddatastore 2. 
 
-This solution could simulate the requirement to use the IR to create a bridge that connects two disconnected data stores.
+This solution could simulate the requirement to use the IR to create a bridge that connects two disconnected datastores.
 
 
 ### Credential sync issue causes credential loss from HA
@@ -350,18 +350,18 @@ Go to the integration runtime event log to check the error.
             ![Screenshot of the service permissions pane.](media/self-hosted-integration-runtime-troubleshoot-guide/service-permission.png)
 
         - If you've changed the service logon account, mitigate the issue by doing the following:
-            1. Perform a clean uninstallation of the current self-hosted IR.  
-            1. Install the self-hosted IR bits.  
-            1. Change the service account by doing the following:  
+            a. Perform a clean uninstallation of the current self-hosted IR.   
+            b. Install the self-hosted IR bits.  
+            c. Change the service account by doing the following:  
 
-                a. Go to the self-hosted IR installation folder, and then switch to the *Microsoft Integration Runtime\4.0\Shared* folder.  
-                b. Start a command prompt by using elevated privileges. Replace *\<user>* and *\<password>* with your own username and password, and then run the following command:   
+                i. Go to the self-hosted IR installation folder, and then switch to the *Microsoft Integration Runtime\4.0\Shared* folder.  
+                ii. Start a command prompt by using elevated privileges. Replace *\<user>* and *\<password>* with your own username and password, and then run the following command:   
                 `dmgcmd.exe -SwitchServiceAccount "<user>" "<password>"`  
-                c. If you want to change to the LocalSystem account, be sure to use the correct format for this account: `dmgcmd.exe -SwitchServiceAccount "NT Authority\System" ""`  
+                iii. If you want to change to the LocalSystem account, be sure to use the correct format for this account: `dmgcmd.exe -SwitchServiceAccount "NT Authority\System" ""`  
                 Do *not* use this format: `dmgcmd.exe -SwitchServiceAccount "LocalSystem" ""`     
-                d. Optionally, because Local System has higher privileges than Administrator, you can also directly change it in "Services".  
-                e. You can use a local/domain user for the IR service logon account.            
-            1. Register the integration runtime.
+                iv. Optionally, because Local System has higher privileges than Administrator, you can also directly change it in "Services".  
+                v. You can use a local/domain user for the IR service logon account.            
+            d. Register the integration runtime.
 
 * If the error is "Service 'Integration Runtime Service' (DIAHostService) failed to start. Verify that you have sufficient privileges to start system services," do the following:
 
