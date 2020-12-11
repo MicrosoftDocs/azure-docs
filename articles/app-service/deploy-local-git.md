@@ -75,7 +75,7 @@ Use the URL that returns to deploy your app in the next step.
    git remote add azure <url>
    ```
    
-1. Push to the Azure remote with `git push azure main`. 
+1. Push to the Azure remote with `git push azure master`. 
    
 1. In the **Git Credential Manager** window, enter your [deployment user password](#configure-a-deployment-user), not your Azure sign-in password.
    
@@ -126,7 +126,7 @@ To enable local Git deployment for your app with Azure Pipelines (Preview):
    git remote add azure <url>
    ```
    
-1. Push to the Azure remote with `git push azure main`. 
+1. Push to the Azure remote with `git push azure master`. 
    
 1. On the **Git Credential Manager** page, sign in with your visualstudio.com username. For other authentication methods, see [Azure DevOps Services authentication overview](/vsts/git/auth-overview?view=vsts).
    
@@ -144,8 +144,8 @@ You may see the following common error messages when you use Git to publish to a
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|The app isn't up and running.|Start the app in the Azure portal. Git deployment isn't available when the web app is stopped.|
 |`Couldn't resolve host 'hostname'`|The address information for the 'azure' remote is incorrect.|Use the `git remote -v` command to list all remotes, along with the associated URL. Verify that the URL for the 'azure' remote is correct. If needed, remove and recreate this remote using the correct URL.|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|You didn't specify a branch during `git push`, or you haven't set the `push.default` value in `.gitconfig`.|Run `git push` again, specifying the main branch: `git push azure main`.|
-|`src refspec [branchname] does not match any.`|You tried to push to a branch other than main on the 'azure' remote.|Run `git push` again, specifying the main branch: `git push azure main`.|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|You didn't specify a branch during `git push`, or you haven't set the `push.default` value in `.gitconfig`.|Run `git push` again, specifying the main branch: `git push azure master`.|
+|`src refspec [branchname] does not match any.`|You tried to push to a branch other than main on the 'azure' remote.|Run `git push` again, specifying the master branch: `git push azure master`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|This error can happen if you try to push a large git repository over HTTPS.|Change the git configuration on the local machine to make the `postBuffer` bigger. For example: `git config --global http.postBuffer 524288000`.|
 |`Error - Changes committed to remote repository but your web app not updated.`|You deployed a Node.js app with a _package.json_ file that specifies additional required modules.|Review the `npm ERR!` error messages before this error for more context on the failure. The following are the known causes of this error, and the corresponding `npm ERR!` messages:<br /><br />**Malformed package.json file**: `npm ERR! Couldn't read dependencies.`<br /><br />**Native module doesn't have a binary distribution for Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />or <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
