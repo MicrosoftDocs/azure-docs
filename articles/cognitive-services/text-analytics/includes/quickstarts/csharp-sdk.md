@@ -97,8 +97,6 @@ static void Main(string[] args)
     EntityLinkingExample(client);
     RecognizePIIExample(client);
     KeyPhraseExtractionExample(client);
-    // Using AnalyzeOperationExample() requires a Text Analytics resource with the standard (S) pricing tier.
-    //await AnalyzeOperationExample(client).ConfigureAwait(false);
 
     Console.Write("Press any key to exit.");
     Console.ReadKey();
@@ -810,13 +808,10 @@ Key phrases:
 # [Version 3.1 preview](#tab/version-3-1)
 
 > [!CAUTION]
-> To use the Analyze operation, make sure your Azure resource is using a standard pricing tier, and add the following `using` directive to the top of your C# file.
-
-```
-using AnalyzeOperationExample() 
-```
+> To use the Analyze operation, make sure your Azure resource is using a standard pricing tier. Be sure to call `AnalyzeOperationExample() ` from your main method.
 
 Create a new function called `AnalyzeOperationExample()` that takes the client that you created earlier, and call its `StartAnalyzeOperationBatch()` function. The returned `AnalyzeOperation` object will contain the `Operation` interface object for `AnalyzeOperationResult`. As it is a Long Running Operation, `await` on the `operation.WaitForCompletionAsync()` for the value to be updated. Once the `WaitForCompletionAsync()` is finishes, the collection should be updated in the `operation.Value`. If there was an error, it will throw a `RequestFailedException`.
+
 
 ```csharp
 static async Task AnalyzeOperationExample(TextAnalyticsClient client)
@@ -897,11 +892,13 @@ static async Task AnalyzeOperationExample(TextAnalyticsClient client)
         Console.WriteLine("");
     }
 }
-
-await AnalyzeOperationExample(client).ConfigureAwait(false);
-
 ```
 
+After you add this example to your application, call the example using `await`.
+
+```csharp
+await AnalyzeOperationExample(client).ConfigureAwait(false);
+```
 ### Output
 
 ```console
