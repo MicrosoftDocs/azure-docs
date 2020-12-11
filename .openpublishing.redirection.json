@@ -60632,67 +60632,67 @@
     },
     {
       "source_path": "articles/notebooks/azure-notebooks-samples.md",
-      "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notebooks/tutorial-create-run-jupyter-notebook.md",
-      "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notebooks/quickstart-create-share-jupyter-notebook.md",
-      "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notebooks/quickstart-clone-jupyter-notebook.md",
-      "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notebooks/quickstart-migrate-local-jupyter-notebook.md",
-      "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notebooks/quickstart-create-jupyter-notebook-project-environment.md",
-      "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notebooks/configure-manage-azure-notebooks-projects.md",
-      "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notebooks/work-with-project-data-files.md",
-      "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notebooks/create-clone-jupyter-notebooks.md",
-      "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notebooks/access-data-resources-jupyter-notebooks.md",
-      "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notebooks/install-packages-jupyter-notebook.md",
-      "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notebooks/present-jupyter-notebooks-slideshow.md",
-      "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notebooks/use-data-science-virtual-machine.md",
-      "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
     }       
   ]
