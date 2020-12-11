@@ -10,6 +10,8 @@
     items:
     - name: What is SAP HANA on Azure (Large Instances)?
       href: hana-overview-architecture.md
+    - name: What is BareMetal Instances on Azure?
+      href: baremetal-infrastructure-portal.md
     - name: Know the terms
       href: hana-know-terms.md
     - name: Certification
