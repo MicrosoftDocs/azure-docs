@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -67,6 +67,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Azure AD Domain Services support|● | |
 | [Exchange hybrid writeback](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Support for more than 50,000 objects per AD domain |● | |
+| Cross domain references|● | |
 
 ## Next steps 
 
