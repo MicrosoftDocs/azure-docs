@@ -107,7 +107,7 @@ The Live Data (preview) feature includes search functionality. In the **Search**
 
 ![Live Data console pane filter example](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
-![Live Data console pane pause live view](./media/container-insights-livedata-overview/live-data-deployment-search.png)
+![Live Data console pane filter example for deployment](./media/container-insights-livedata-overview/live-data-deployment-search.png)
 
 ### Scroll Lock and Pause
 
@@ -115,7 +115,7 @@ To suspend autoscroll and control the behavior of the pane, allowing you to manu
 
 ![Live Data console pane pause live view](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
 
-![Live Data console pane pause live view](./media/container-insights-livedata-overview/live-data-deployment-pause.png)
+![Live Data console pane pause live view for deployment](./media/container-insights-livedata-overview/live-data-deployment-pause.png)
 
 
 
