@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -46,11 +46,23 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
 
 ### In your on-premises environment
 
-1. Identify a domain-joined host server running Windows Server 2012 R2 or greater with a minimum of 4-GB RAM and .NET 4.7.1+ runtime.
+ 1. Identify a domain-joined host server running Windows Server 2012 R2 or greater with a minimum of 4-GB RAM and .NET 4.7.1+ runtime.
 
-1. The PowerShell execution policy on the local server must be set to Undefined or RemoteSigned.
+ >[!NOTE]
+ > Be aware that defining a scoping filter incurs a memory cost on the host server.  If no scoping filter is used there is no extra memory cost. The 4GB minimum will support synchronization for up to 12 organizational units defined in the scoping filter. If you need to synchronize additional OUs, you will need to increase the minimum amount of memory. Use the following table as a guide:
+ >
+ >	
+ >  | Number of OUs in Scoping Filter| minimum required memory|
+ > 	| --- | --- |
+ >	| 12| 4 GB|
+ >	| 18|5.5 GB|
+ >	| 28|10+ GB|
+ >
+ > 
 
-1. If there's a firewall between your servers and Azure AD, configure the following items:
+ 2. The PowerShell execution policy on the local server must be set to Undefined or RemoteSigned.
+
+ 3. If there's a firewall between your servers and Azure AD, configure the following items:
    - Ensure that agents can make *outbound* requests to Azure AD over the following ports:
 
         | Port number | How it's used |

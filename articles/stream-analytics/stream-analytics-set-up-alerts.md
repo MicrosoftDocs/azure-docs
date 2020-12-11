@@ -6,7 +6,7 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 06/21/2019
 ---
 # Set up alerts for Azure Stream Analytics jobs

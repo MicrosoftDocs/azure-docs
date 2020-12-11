@@ -59,7 +59,7 @@ Disk caching for Premium SSD can be *ReadOnly*, *ReadWrite* or *None*.
 
 
    > [!TIP]
-   > Be sure that your storage configuration matches the limitations imposed by the the selected VM size. Choosing storage parameters that exceed the performance cap of the VM size will result in error: `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`. Either decrease the IOPs by changing the disk type, or increase the performance cap limitation by increasing the VM size. 
+   > Be sure that your storage configuration matches the limitations imposed by the the selected VM size. Choosing storage parameters that exceed the performance cap of the VM size will result in warning: `The desired performance might not be reached due to the maximum virtual machine disk performance cap`. Either decrease the IOPs by changing the disk type, or increase the performance cap limitation by increasing the VM size. This will not stop provisioning. 
 
 
 Based on your choices, Azure performs the following storage configuration tasks after creating the VM:

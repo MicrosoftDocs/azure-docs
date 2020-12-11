@@ -35,7 +35,7 @@ Each API operates independently, except the Gremlin and SQL API, which are inter
 
 ### Is Azure Cosmos DB HIPAA compliant?
 
-Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
+Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](/compliance/regulatory/offering-hipaa-hitech).
 
 ### What are the storage limits of Azure Cosmos DB?
 
