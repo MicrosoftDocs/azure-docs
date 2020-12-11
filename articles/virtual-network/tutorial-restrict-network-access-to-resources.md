@@ -160,7 +160,8 @@ By default, all virtual machine instances in a subnet can communicate with all r
     |Priority|120|
     |Name|Change to *Allow-RDP-All*|
 
-      >[!WARNING] RDP port 3389 is exposed to the Internet. This is only recommended for testing. For *Production environments*, we recommend using a VPN or private connection.
+   >[!WARNING] 
+   > RDP port 3389 is exposed to the Internet. This is only recommended for testing. For *Production environments*, we recommend using a VPN or private connection.
 
 1.  Under **Settings**, select **Subnets**.
 2.  Click **+ Associate**.
@@ -287,7 +288,7 @@ To test network access to a storage account, deploy a VM to each subnet.
 
 4. Wait for the confirmation window shown below and click **Go to resource**.
 
-   ![Create a private virtual machine](./media/tutorial-restrict-network-access-to-resources/create-vm-confirmation-window.png)
+   ![Create a private virtual machine confirmation window](./media/tutorial-restrict-network-access-to-resources/create-vm-confirmation-window.png)
 
 ## Confirm access to storage account
 
@@ -298,7 +299,7 @@ To test network access to a storage account, deploy a VM to each subnet.
 5. Select **OK**.
 6. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection. You should see the VM start as shown:
 
-   ![Create a private virtual machine](./media/tutorial-restrict-network-access-to-resources/virtual-machine-running.png)
+   ![Show private virtual machine running](./media/tutorial-restrict-network-access-to-resources/virtual-machine-running.png)
 
 7. In the VM window, open a PowerShell CLI instance.
 8. Using the script below, map the Azure file share to drive Z using PowerShell. Before running the commands that follow, replace `<storage-account-key>` and both `<storage-account-name>` fields with values you supplied and "d earlier in [Create a storage account](#create-a-storage-account).
