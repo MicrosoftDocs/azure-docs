@@ -112,7 +112,7 @@ The `--include-pattern` and `--exclude-pattern` options apply only to blob names
 
 Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-before` or `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`). 
 
-The following downloads files that were modified on or after the specified date.
+The following examples download files that were modified on or after the specified date.
 
 |    |     |
 |--------|-----------|
