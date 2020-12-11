@@ -54,12 +54,11 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Under **Manage**, select **Authentication**.
 > 1. Enter a **Logout URL** of `https://localhost:44321/signout-oidc`
 > 1. Select **Save**.
-> 1. Select the **Certificates & secrets** from the menu and in the **Client secrets** section, click on **New client secret**:
->
->    - Type a key description (for instance app secret).
->    - Select a key duration **In 1 year**.
->    - The key value will display when you select **Add**.
->    - Copy the value of the key for later. This key value will not be displayed again, nor retrievable by any other means, so record it as soon as it is visible from the Azure portal.
+> 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.
+> 1. Enter a **Description**, for example `clientsecret1`.
+> 1. Select **In 1 year** for the secret's expiration.
+> 1. Select **Add** and immediately record the secret's **Value** for use in a later step.
+>     - This key value is *never displayed again* and is irretrievable by any other means. Record it in a secure location as you would any password.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
