@@ -27,7 +27,7 @@ Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detecto
 ## Deploy the Anomaly Detection module to the edge
 
 1. In the Azure portal, enter **Anomaly Detector on IoT Edge** into the search and open the Azure Marketplace result.
-2. It will take you to the Azure portal's Target Devices for IoT Edge Module page. Provide the following required information.
+2. It will take you to the Azure portal's [Target Devices for IoT Edge Module page](https://portal.azure.com/#create/azure-cognitive-service.edge-anomaly-detector). Provide the following required information.
 
 a. Select your subscription.
 
@@ -41,13 +41,13 @@ c. Select **Find device** and find an IoT Edge device.
 
     :::image type="content" source="../media/deploy-anomaly-detection-on-iot-edge/iot-edge-modules.png" alt-text="Image of IoT Edge Modules user interface with AnomalyDetectoronIoTEdge link highlighted with a red box to indicate that this is the item to select.":::
 
-6. Navigate to Environment Variables and provide the following information.
+6. Navigate to **Environment Variables** and provide the following information.
 
-    a.  Keep the value accept for Eula.
+    a.  Keep the value accept for ***Eula**.
 
-    b. Fill out Billing with your Cognitive Services endpoint.
+    b. Fill out **Billing** with your Cognitive Services endpoint.
 
-    c. Fill out ApiKey with your Cognitive Services API key.
+    c. Fill out **ApiKey** with your Cognitive Services API key.
 
     :::image type="content" source="../media/deploy-anomaly-detection-on-iot-edge/environment-variables.png" alt-text="Environment variables with red boxes around the areas that need values to be filled in for endpoint and API key":::
 
@@ -57,7 +57,7 @@ c. Select **Find device** and find an IoT Edge device.
 
 9. Select **Next: Review + create**. You can preview the JSON file that defines all the modules that get deployed to your IoT Edge device.
     
-10. Select Create to start the module deployment.
+10. Select **Create** to start the module deployment.
 
 11. After you complete module deployment, you'll go back to the IoT Edge page of your IoT hub. Select your device from the list of IoT Edge devices to see its details.
 
@@ -78,7 +78,7 @@ There are several ways to validate that the module is running. Locate the *Exter
 | Request URL | Purpose |
 |:-------------|:---------|
 | `http://<your-edge-device-ipaddress>:5000/` | The container provides a home page. |
-| ``http://<your-edge-device-ipaddress>:5000/status` | Also requested with GET, this verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes [liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
+| `http://<your-edge-device-ipaddress>:5000/status` | Also requested with GET, this verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes [liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
 | `http://<your-edge-device-ipaddress>:5000/swagger` | The container provides a full set of documentation for the endpoints and a **Try it out** feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required. |
 
 ![Container's home page](../../../../includes/media/cognitive-services-containers-api-documentation/container-webpage.png)
