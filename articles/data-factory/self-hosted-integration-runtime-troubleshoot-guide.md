@@ -356,12 +356,13 @@ Go to the integration runtime event log to check the error.
             c. Change the service account by doing the following:  
 
              i. Go to the self-hosted IR installation folder, and then switch to the *Microsoft Integration Runtime\4.0\Shared* folder.  
-             ii. Start a command prompt by using elevated privileges. Replace *\<user>* and *\<password>* with your own username and password, and then run the following command:   
+             ii. Open a Command Prompt window by using elevated privileges. Replace *\<user>* and *\<password>* with your own username and password, and then run the following command:   
                 `dmgcmd.exe -SwitchServiceAccount "<user>" "<password>"`  
              iii. If you want to change to the LocalSystem account, be sure to use the correct format for this account: `dmgcmd.exe -SwitchServiceAccount "NT Authority\System" ""`  
                 Do *not* use this format: `dmgcmd.exe -SwitchServiceAccount "LocalSystem" ""`     
              iv. Optionally, because Local System has higher privileges than Administrator, you can also directly change it in "Services".  
              v. You can use a local/domain user for the IR service logon account.            
+
             d. Register the integration runtime.
 
 * If the error is "Service 'Integration Runtime Service' (DIAHostService) failed to start. Verify that you have sufficient privileges to start system services," do the following:
@@ -593,7 +594,7 @@ This behavior occurs when nodes can't communicate with each other.
     at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
     ```
        
-1. If you see this error, run the following on a command prompt: 
+1. If you see this error, run the following command in a Command Prompt window: 
 
    ```
    telnet 10.2.4.10 8060
@@ -613,14 +614,14 @@ This behavior occurs when nodes can't communicate with each other.
     - Put all the nodes in the same domain.
     - Add the IP to host mapping in all the hosted VM's host files.
 
-### Connectivity issue between the self-hosted IR and your data factory instance or the self-hosted IR and the data source/sink
+### Connectivity issue between the self-hosted IR and your data factory instance or the self-hosted IR and the data source or sink
 
 To troubleshoot the network connectivity issue, you should know 
 how to collect the network trace, understand how to use it, and [analyze the Microsoft Network Monitor (Netmon) trace](#analyze-the-netmon-trace) before applying the Netmon Tools in real cases from the self-hosted IR.
 
 #### Symptoms
 
-You might occasionally need to troubleshoot certain connectivity issues between the self-hosted IR and your data factory instance, as shown in the following screenshot, or between the self-hosted IR and the data source/sink. 
+You might occasionally need to troubleshoot certain connectivity issues between the self-hosted IR and your data factory instance, as shown in the following screenshot, or between the self-hosted IR and the data source or sink. 
 
 ![Screenshot of a "Processed HTTP request failed" message](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
 
