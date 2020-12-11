@@ -59,9 +59,9 @@ Machine learning models can be trained with help from various algorithms and lib
 
 In addition to MLlib, popular libraries such as [Scikit Learn](https://scikit-learn.org/stable/) can also be used to develop models. See [Manage libraries for Apache Spark in Azure Synapse Analytics](../spark/apache-spark-azure-portal-add-libraries.md) for details on how to install libraries on Synapse Spark Pools.
 
-#### Train models with Azure Machine Learning AutoML
+#### Train models with Azure Machine Learning automated ML
 
-Another way to train machine learning models, that does not require much prior familiarity with machine learning, is to use AutoML. [AutoML](/azure/machine-learning/concept-automated-ml) is a feature that automatically trains a set of machine learning models and allows the user to select the best model based on specific metrics. Thanks to a seamless integration with Azure Machine Learning from Azure Synapse Notebooks, users can easily leverage AutoML in Synapse with passthrough Azure Active Directory authentication.  This means that you only need to point to your Azure Machine Learning workspace and do not need to enter any credentials. Here is an [AutoML tutorial](../spark/apache-spark-azure-machine-learning-tutorial.md) that describes how to train models using Azure Machine Learning AutoML on Synapse Spark Pools.
+Another way to train machine learning models, that does not require much prior familiarity with machine learning, is to use automated ML. [Automated ML](/azure/machine-learning/concept-automated-ml) is a feature that automatically trains a set of machine learning models and allows the user to select the best model based on specific metrics. Thanks to a seamless integration with Azure Machine Learning from Azure Synapse Notebooks, users can easily leverage automated ML in Synapse with passthrough Azure Active Directory authentication.  This means that you only need to point to your Azure Machine Learning workspace and do not need to enter any credentials. Here is an [automated ML tutorial](../spark/apache-spark-azure-machine-learning-tutorial.md) that describes how to train models using Azure Machine Learning automated ML on Synapse Spark Pools.
 
 ### Model deployment and scoring
 
