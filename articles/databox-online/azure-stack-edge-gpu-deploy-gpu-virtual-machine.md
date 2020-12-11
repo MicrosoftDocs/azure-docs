@@ -76,23 +76,45 @@ If you have GPU VMs running on your device and Kubernetes is also configured, th
 Follow these steps when deploying GPU VMs on your device:
 
 1. Identify if your device will also be running Kubernetes. If the device will run Kubernetes, then you'll need to create the GPU VM first and then configure Kubernetes. If Kubernetes is configured first, then it will claim all the available GPU resources and the GPU VM creation will fail.
+
 1. To create GPU VMs, follow all the steps in the [Deploy VM on your Azure Stack Edge Pro using templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md) except for the following differences: 
 
     1. While configuring compute network, enable the port that is connected to the Internet, for compute. This allows you to download the GPU drivers required for GPU extensions for your GPU VMs.
-    1. Create a VM using the templates. When specifying GPU VM sizes, make sure to use the NCasT4-v3-series as these are supported for GPU VMs.
+
+        Here is an example where Port 2 was connected to the internet and was used to enable the compute network. If you've identified that Kubernetes is not needed in the earlier step, you can skip the Kubernetes node IP and external service IP assignment.    
+
+        ![Enable compute settings on port connected to internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
+
+            
+    1. Create a VM using the templates. When specifying GPU VM sizes, make sure to use the NCasT4-v3-series in the `CreateVM.parameters.json` as these are supported for GPU VMs. For more information, see [Supported VM sizes for GPU VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4-v3-series-preview).
+
+        ```json
+            "vmSize": {
+          "value": "Standard_NC4as_T4_v3"
+        },
+        ```
+
     1. Once the GPU VM is successfully created, you can view this VM in the list of virtual machines in your Azure Stack Edge resource in the Azure portal.
 
+        ![GPU VM in list of virtual machines in Azure portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/list-virtual-machine-1.png)
+
 1. Select the VM and drill down to the details. Copy the IP allocated to the VM.
-1. Connect to this VM.
+
+        ![IP allocated to GPU VM in Azure portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/get-ip-gpu-virtual-machine-1.png)
+
 1. After the VM is created, deploy GPU extension using the extension template. For linux VMs, see [Install GPU extension for Linux](#gpu-extension-for-linux) and for Windows VMs, see [Install GPU extension for Windows](#gpu-extension-for-windows).
+
+1. Connect to the GPU VM:
+    1. If using a Windows VM, follow the steps in [Connect to a Windows VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-windows-vm). [Verify the installation](#verify-windows-driver-installation).
+    1. If using a Linux VM, follow the steps in [Connect to a Linux VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). [Verify the installation](#verify-linux-driver-installation).
 
 1. If needed, could switch the compute network back to whatever customer needs. 
 
 
 > [!NOTE]
-> When updating your software version from 2011 to later, you will need to manually stop the GPU VMs.
+> When updating your device software version from 2012 to later, you will need to manually stop the GPU VMs.
 
-After you've created the VM, the next step is to install the GPU extension.
+
 
 ## Install GPU extension
 
@@ -169,7 +191,7 @@ A successful install is indicated by a status `Enable Extension`.
                        "status":  "success",
 ```
 
-#### Verify driver installation
+#### Verify Windows driver installation
 
 Log in the VM and run the nvidia-smi command-line utility installed with the driver. The `nvidia-smi.exe` should be located at  `C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe`. If you do not see the file, it's possible that the driver installation is still running in the background. Wait for 10 minutes and check again.
 
@@ -257,7 +279,8 @@ $RGName = "<Name of your resource group>"
 New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
 ```	
 
-This is a long running job and takes about 10 minutes to complete.
+> [!NOTE]
+> The extension deployment is a long running job and takes about 10 minutes to complete.
 
 Here is a sample output:
 
@@ -334,12 +357,13 @@ ForceUpdateTag          :
 PS C:\WINDOWS\system32>
 ```
 
-When the deployment is complete, the `ProvisioningState` changes to `Succeeded`.
+> [!NOTE]
+> When the deployment is complete, the `ProvisioningState` changes to `Succeeded`.
 
 The extension execution output is logged to the following file:
 `/var/log/azure/nvidia-vmext-status`.
 
-#### Verify driver installation
+#### Verify Linux driver installation
 
 Follow these steps to verify the driver installation:
 
