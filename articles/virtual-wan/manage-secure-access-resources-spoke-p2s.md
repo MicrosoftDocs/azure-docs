@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 12/11/2020
 ms.author: cherylmc
 
 ---
@@ -37,7 +37,11 @@ The point-to-site (P2S) configuration defines the parameters for connecting remo
 
 When selecting the authentication method, you have three choices. Each method has specific requirements. Select one of the following methods, and then complete the steps.
 
-* **Azure Active Directory authentication:** Obtain the Application ID of the Azure VPN Enterprise Application registered in your Azure AD tenant, [the issuer](https://sts.windows.net/your-Directory-ID/), and [the Azure AD tenant](https://login.microsoftonline.com/your-Directory-ID).
+* **Azure Active Directory authentication:** Obtain the following:
+
+   * The **Application ID** of the Azure VPN Enterprise Application registered in your Azure AD tenant.
+   * The **Issuer**. Example: `https://sts.windows.net/your-Directory-ID`.
+   * The **Azure AD tenant**. Example: `https://login.microsoftonline.com/your-Directory-ID`.
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
