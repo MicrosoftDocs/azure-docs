@@ -71,7 +71,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 > If you want to use the certificate with an IP address instead of a domain, use the IP address in the -DnsName parameter.
 
 
-If you want to use this [certificate with the management portal](../azure-api-management-certs.md), export it to a **.cer** file:
+If you want to use this [certificate with the management portal](/previous-versions/azure/azure-api-management-certs), export it to a **.cer** file:
 
 ```powershell
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
@@ -86,8 +86,4 @@ There are many pages on the internet that cover how to do this with IIS. [Here](
 ## Next steps
 [Upload your service certificate to the Azure portal](cloud-services-configure-ssl-certificate-portal.md).
 
-Upload a [management API certificate](../azure-api-management-certs.md) to the Azure portal.
-
-
-
-
+Upload a [management API certificate](/previous-versions/azure/azure-api-management-certs) to the Azure portal.

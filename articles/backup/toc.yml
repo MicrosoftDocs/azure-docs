@@ -4,6 +4,8 @@
   items:
   - name: Overview of Azure Backup
     href: backup-overview.md
+  - name: What's new in Azure Backup
+    href: whats-new.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/backup/
 - name: Quickstarts
@@ -64,6 +66,8 @@
       href: sap-hana-backup-support-matrix.md
     - name: Azure file share backup support matrix
       href: azure-file-share-support-matrix.md
+    - name: Active Directory domain controllers
+      href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy  
       href: backup-azure-policy-supported-skus.md
   - name: Frequently asked questions (FAQ)
@@ -158,6 +162,8 @@
       items:
       - name: Manage Azure VM backups
         href: backup-azure-manage-vms.md
+      - name: Manage recovery points
+        href: manage-recovery-points.md
   - name: SQL Server database on Azure VM backup
     items:
     - name: Overview
@@ -386,7 +392,7 @@
     items:
     - name: Overview
       href: security-overview.md
-    - name: Role-Based Access Control
+    - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
     - name: Soft delete 
       items:
@@ -406,8 +412,8 @@
       href: backup-encryption.md
     - name: Encryption using customer-managed keys
       href: encryption-at-rest-with-cmk.md
-    - name: Built-in security controls
-      href: backup-security-controls.md
+    - name: Transport Layer Security
+      href: transport-layer-security.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md

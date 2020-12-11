@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/14/2020
+ms.date: 11/14/2020
 ms.custom: references_regions
 #Customer intent: As a DoD mission owner I want to know how to implement a workload at Impact Level 5 in Microsoft Azure Government
 ---
@@ -53,7 +53,7 @@ Make sure to review the entry for each service you are utilizing and ensure that
 
 ## AI + Machine Learning
 
-### [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/)
+### [Azure Bot Service](/azure/bot-service/)
 
 Azure Bot Service can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
@@ -113,7 +113,7 @@ Azure Cognitive Services – Face can be used in Azure Government supporting Imp
 
 Cognitive Services – Language Understanding can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Configure encryption at rest of content in Cognitive Services – Language Understanding using customer-managed keys in Azure Key Vault https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest)
+- Configure encryption at rest of content in Cognitive Services – Language Understanding using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest)
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
@@ -194,7 +194,7 @@ Azure HDInsight can be used in Azure Government supporting Impact Level 5 worklo
 
 ### [Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse/)
 
-Azure Synapse Analytics (formerly SQL Data Warehouse) can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Azure Synapse Analytics can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
 - Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
 
@@ -312,15 +312,15 @@ The storage supporting these Virtual Machines can be encrypted in one of two way
 
 - Leverage Azure Disk Encryption to encrypt the drives using DM-Crypt (Linux) or BitLocker (Windows):
   - [Enable Azure Disk Encryption for Linux](../virtual-machines/linux/disk-encryption-overview.md)
-  - [Enable Azure Disk Encryption for Windows](../security/azure-security-disk-encryption-windows.md)
+  - [Enable Azure Disk Encryption for Windows](../virtual-machines/linux/disk-encryption-overview.md)
 - Leverage Azure Storage Service Encryption for Storage Accounts with your own key to encrypt the storage account that holds the disks:
-  - [Storage Service Encryption with Customer Managed Keys](../storage/common/storage-service-encryption-customer-managed-keys.md)
+  - [Storage Service Encryption with Customer Managed Keys](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 #### Disk Encryption using Virtual Machine Scale Sets
 
 The disks that support Virtual Machine Scale Sets can be encrypted using Azure Disk Encryption:
 
-- [Encrypt Disks with Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md)
+- [Encrypt Disks with Virtual Machine Scale Sets](../virtual-machine-scale-sets/disk-encryption-powershell.md)
 
 ### [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/)
 
@@ -340,6 +340,8 @@ Azure Container Instances can be used in Azure Government supporting Impact Leve
 
 Azure Container Instances service automatically encrypts data related to your containers when it is persisted in the cloud. Data in ACI is encrypted and decrypted using 256-bit AES encryption and enabled for all ACI deployments. You can rely on Microsoft-managed keys for the encryption of your container data, or you can manage the encryption with your own keys. (https://docs.microsoft.com/azure/container-instances/container-instances-encrypt-data) 
 
+Azure Container Instances service's "dedicated" sku provides an [isolated and dedicated compute environment](../container-instances/container-instances-dedicated-hosts.md) for securely running containers. Using the dedicated sku results in each container group having a dedicated physical server in an Azure datacenter.
+
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
 | **Container Instances** | X | X | X |  |  |
@@ -349,6 +351,7 @@ Azure Container Instances service automatically encrypts data related to your co
 Azure Kubernetes Service can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
 - Configure encryption at rest of content in Azure Kubernetes Service using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys)
+- For workloads requiring isolation from other customer workloads, [isolated virtual machines](../aks/concepts-security.md#compute-isolation) can be used as the agent nodes in an AKS cluster. 
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
@@ -365,6 +368,26 @@ When you store images and other artifacts in an Azure container registry, Azure 
 | **Container Registry** | X | X | X |  |  | 
 
 ## Databases
+
+### [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+
+Azure SQL Database can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the [Azure SQL documentation](../azure-sql/database/transparent-data-encryption-byok-overview.md).
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure SQL DB** | X | X | X | X | X |
+
+### [Azure SQL Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/)
+
+Azure SQL Stretch Database can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+
+- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
+
+| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- |
+| **Azure SQL Stretch DB** | X | X | X | X | X |
 
 ### [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) 
 
@@ -398,7 +421,7 @@ Azure DevTest Labs can be used in Azure Government supporting Impact Level 5 wor
 
 ## Hybrid
 
-### [Azure Stack Edge] (https://azure.microsoft.com/products/azure-stack/edge/)
+### [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/)
 
 Azure Stack Edge can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
@@ -560,7 +583,7 @@ Azure Policy can be used in Azure Government supporting Impact Level 5 workloads
 | --- | --- | --- | --- | --- | --- |
 | **Azure Policy** | X | X | X |  |  | 
 
-### [Azure Policy Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration)
+### [Azure Policy Guest Configuration](../governance/policy/concepts/guest-configuration.md)
 
 Azure Policy Guest Configuration can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
@@ -586,7 +609,7 @@ Azure Resource Manager can be used in Azure Government supporting Impact Level 5
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Resource Manager** | X | X | X | X | X |
 
-### [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)
+### [Azure Resource Graph](../governance/resource-graph/overview.md)
 
 Azure Resource Graph can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
@@ -604,7 +627,7 @@ You can replicate Azure VMs with Customer-Managed Keys (CMK) enabled managed dis
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Site Recovery** | X | X | X | X | X | 
 
-### [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs)
+### [Log Analytics](../azure-monitor/platform/data-platform-logs.md)
 
 Log Analytics can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
@@ -774,7 +797,7 @@ Azure Sentinel can be used in Azure Government supporting Impact Level 5 workloa
 | --- | --- | --- | --- | --- | --- |
 | **Azure Sentinel** | X | X | X |  |  |
 
-### [Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+### [Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md)
 
 Customer Lockbox can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
@@ -782,7 +805,7 @@ Customer Lockbox can be used in Azure Government supporting Impact Level 5 workl
 | --- | --- | --- | --- | --- | --- |
 | **Customer Lockbox** | X | X | X |  |  |
 
-### [Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) 
+### [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) 
 
 Multi-Factor Authentication can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
@@ -790,7 +813,7 @@ Multi-Factor Authentication can be used in Azure Government supporting Impact Le
 | --- | --- | --- | --- | --- | --- | 
 | **Multi-Factor Authentication** | X | X | X | X | X |
 
-### [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 
+### [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 
 
 Microsoft Defender Advanced Threat Protection can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
 
@@ -798,7 +821,7 @@ Microsoft Defender Advanced Threat Protection can be used in Azure Government su
 | --- | --- | --- | --- | --- | --- | 
 | **Microsoft Defender Advanced Threat Protection** | X | X | X |  |  |
 
-### [Microsoft Graph](https://docs.microsoft.com/graph/overview)
+### [Microsoft Graph](/graph/overview)
 
 Microsoft Graph can be used in Azure Government supporting all impact levels with no additional configuration required in the following regions:
 
@@ -880,12 +903,12 @@ When using an Azure Storage account, you must follow the steps for using **Stora
 
 To implement Impact Level 5 compliant controls on an Azure Storage account running in Azure Government outside of the dedicated DoD regions, Encryption at Rest must be implemented with the customer-managed key option enabled (also known as bring-your-own-key).
 
-For more information on how to enable this Azure Storage Encryption feature, please review the supporting documentation for [Azure Storage](../storage/common/storage-service-encryption-customer-managed-keys.md).
+For more information on how to enable this Azure Storage Encryption feature, please review the supporting documentation for [Azure Storage](../storage/common/customer-managed-keys-configure-key-vault.md).
 
 > [!NOTE]
 > When using this encryption method, it is important that it is enabled BEFORE content is added to the storage account. Any content added prior will not be encrypted with the selected key, and only encrypted using standard encryption at rest provided by Azure Storage.`
 
-### [Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)
+### [Azure File Sync](../storage/files/storage-sync-files-planning.md)
 
 Azure File Sync can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
@@ -905,22 +928,3 @@ To help ensure the security and integrity of data moved to the cloud, StorSimple
 | --- | --- | --- | --- | --- | --- |
 | **StorSimple** | X | X | X | X | X |
 
-### [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
-
-Azure SQL Database can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
-
-- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the [Azure SQL documentation](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
-
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- |
-| **Azure SQL DB** | X | X | X | X | X |
-
-### [Azure SQL Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/)
-
-Azure SQL Stretch Database can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
-
-- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
-
-| **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- |
-| **Azure SQL Stretch DB** | X | X | X | X | X |

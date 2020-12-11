@@ -1,12 +1,9 @@
 ---
 title: Debug Azure Data Lake Analytics code locally
 description: Learn how to use Azure Data Lake Tools for Visual Studio to debug U-SQL jobs on your local workstation.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.workload: big-data
 ms.date: 07/03/2018
 ---
 # Debug Azure Data Lake Analytics code locally

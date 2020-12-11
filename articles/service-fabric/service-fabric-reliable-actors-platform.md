@@ -1,11 +1,8 @@
 ---
 title: Reliable Actors on Service Fabric 
 description: Describes how Reliable Actors are layered on Reliable Services and use the features of the Service Fabric platform.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 3/9/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
 ---
 # How Reliable Actors use the Service Fabric platform

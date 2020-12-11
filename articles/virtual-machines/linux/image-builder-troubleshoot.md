@@ -517,7 +517,7 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 230
 Image Builder service uses port 22(Linux), or 5986(Windows)to connect to the build VM, this occurs when the service is disconnected from the build VM during an image build. Reasons for disconnection can vary, but enabling or configuring firewalls in script can block the ports above.
 
 #### Solution
-Review your scripts for firewall changes/enablement, or changes to SSH or WinRM, and ensure any changes allow for constant connectivity between the service and build VM on the ports above. For more information on Image Builder networking, please review the [requirements](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+Review your scripts for firewall changes/enablement, or changes to SSH or WinRM, and ensure any changes allow for constant connectivity between the service and build VM on the ports above. For more information on Image Builder networking, please review the [requirements](./image-builder-networking.md).
 
 ## DevOps task 
 
@@ -582,7 +582,7 @@ Write-Host / Echo “Sleep” – this will allow you to search in the log
 
 If the build was not canceled by a user, it was canceled by Azure DevOps User Agent. Most likely the 1-hour timeout has occurred due to Azure DevOps capabilities. If you are using a private project and agent, you get 60 minutes of build time. If the build exceeds the timeout, DevOps cancels the running task.
 
-For more information on Azure DevOps capabilities and limitations, see [Microsoft-hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
+For more information on Azure DevOps capabilities and limitations, see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
  
 #### Solution
 
@@ -597,7 +597,7 @@ Please wait for the Windows Modules Installer
 ```
 
 #### Solution
-Firstly in the image build check that there are no outstanding reboots required by adding a Windows Restart customizer as the last customization, and that all software installation is complete. Lastly, add [/mode:vm](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-command-line-options) option to the default sysprep that AIB uses, see below, 'VMs created from AIB images do not create successfully' > 'Overriding the Commands'  
+Firstly in the image build check that there are no outstanding reboots required by adding a Windows Restart customizer as the last customization, and that all software installation is complete. Lastly, add [/mode:vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) option to the default sysprep that AIB uses, see below, 'VMs created from AIB images do not create successfully' > 'Overriding the Commands'  
 
  
 ## VMs created from AIB images do not create successfully

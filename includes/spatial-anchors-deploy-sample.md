@@ -1,9 +1,13 @@
 ---
-author: rgarcia
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 09/17/2020
-ms.author: rgarcia
+ms.date: 11/20/2020
+ms.author: parkerra
 ---
 
-Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
+Deploy the app to your device. 
+
+After the app starts, on the **Choose A Demo** pane, use the left and right arrows to select the **LocalShare** option. Then tap **Go!**. 
+
+Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.

@@ -3,13 +3,13 @@ title: "Quickstart: Detect anomalies in your time series data using the Anomaly 
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the Anomaly Detector API's two detection modes to detect anomalies in your time series data.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 09/03/2020
-ms.author: aahi
+ms.author: mbullwin
 ms.custom: devx-track-csharp
 ---
 

@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: codemillmatt
 
 ms.author: masoucou
-ms.date: 05/08/2020
+ms.date: 10/09/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -35,8 +35,8 @@ Reference links:
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Visual Studio with [Mobile Development for .NET workload](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=windows) installed or [Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Azure storage account - [create a storage account](../common/storage-account-create.md)
+* Visual Studio with [Mobile Development for .NET workload](/xamarin/get-started/installation/?pivots=windows) installed or [Visual Studio for Mac](/visualstudio/mac/installation?view=vsmac-2019)
 
 ## Setting up
     
@@ -153,7 +153,7 @@ protected async override void OnAppearing()
 The following code snippet:
 
 1. Creates a `MemoryStream` of text.
-1. Uploads the text to a Blob by calling the [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) function of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class, passing it in both the filename and the `MemoryStream` of text. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+1. Uploads the text to a Blob by calling the [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) function of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class, passing it in both the filename and the `MemoryStream` of text. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
 Add this code to the *MainPage.xaml.cs* file:
 

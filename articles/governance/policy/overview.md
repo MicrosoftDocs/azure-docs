@@ -8,13 +8,16 @@ ms.topic: overview
 
 Azure Policy helps to enforce organizational standards and to assess compliance at-scale. Through
 its compliance dashboard, it provides an aggregated view to evaluate the overall state of the
-environment, with the ability to drill-down to the per-resource, per-policy granularity. It also
+environment, with the ability to drill down to the per-resource, per-policy granularity. It also
 helps to bring your resources to compliance through bulk remediation for existing resources and
 automatic remediation for new resources.
 
 Common use cases for Azure Policy include implementing governance for resource consistency,
 regulatory compliance, security, cost, and management. Policy definitions for these common use cases
 are already available in your Azure environment as built-ins to help you get started.
+
+All Azure Policy data and objects are encrypted at rest. For more information, see
+[Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md).
 
 ## Overview
 
@@ -85,19 +88,19 @@ on Channel 9.
 
 ### Azure Policy and Azure RBAC
 
-There are a few key differences between Azure Policy and Azure role-based access control (Azure RBAC). Azure
-Policy evaluates state by examining properties on resources that are represented in Resource
-Manager and properties of some Resource Providers. Azure Policy doesn't restrict actions (also
-called _operations_). Azure Policy ensures that resource state is compliant to your business rules
-without concern for who made the change or who has permission to make a change.
+There are a few key differences between Azure Policy and Azure role-based access control (Azure
+RBAC). Azure Policy evaluates state by examining properties on resources that are represented in
+Resource Manager and properties of some Resource Providers. Azure Policy doesn't restrict actions
+(also called _operations_). Azure Policy ensures that resource state is compliant to your business
+rules without concern for who made the change or who has permission to make a change.
 
 Azure RBAC focuses on managing user
 [actions](../../role-based-access-control/resource-provider-operations.md) at different scopes. If
-control of an action is required, then Azure RBAC is the correct tool to use. Even if an individual has
-access to perform an action, if the result is a non-compliant resource, Azure Policy still blocks
-the create or update.
+control of an action is required, then Azure RBAC is the correct tool to use. Even if an individual
+has access to perform an action, if the result is a non-compliant resource, Azure Policy still
+blocks the create or update.
 
-The combination of Azure RBAC and Azure Policy provide full scope control in Azure.
+The combination of Azure RBAC and Azure Policy provides full scope control in Azure.
 
 ### Azure RBAC permissions in Azure Policy
 

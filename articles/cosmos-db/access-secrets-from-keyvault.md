@@ -4,7 +4,6 @@ description: Use Azure Key Vault to store and access Azure Cosmos DB connection 
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
@@ -12,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Secure Azure Cosmos keys using Azure Key Vault 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 >[!IMPORTANT]
 > The recommended solution to access Azure Cosmos DB keys is to use a [system-assigned managed identity](managed-identity-based-authentication.md). If your service cannot take advantage of managed identities then use the [cert based solution](certificate-based-authentication.md). If both the managed identity solution and cert based solution do not meet your needs, please use the key vault solution below.
@@ -89,5 +89,5 @@ Similarly, you can add a user to access the key Vault. You need to add yourself 
 
 ## Next steps
 
-* To configure a firewall for Azure Cosmos DB see [firewall support](firewall-support.md) article.
-* To configure virtual network service endpoint, see [secure access by using VNet service endpoint](vnet-service-endpoint.md) article.
+* To configure a firewall for Azure Cosmos DB see [firewall support](how-to-configure-firewall.md) article.
+* To configure virtual network service endpoint, see [secure access by using VNet service endpoint](how-to-configure-vnet-service-endpoint.md) article.

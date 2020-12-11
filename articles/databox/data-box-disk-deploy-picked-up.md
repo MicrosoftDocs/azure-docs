@@ -7,14 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 12/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
-
-
 
 ::: zone target="docs"
 
@@ -66,18 +64,18 @@ Take the following steps if returning the device in US or Canada.
     - If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
     - Instead of scheduling the pickup, you can also drop off the Data Box Disk at the nearest drop-off location.
 
-### [Europe](#tab/in-europe)
 
-Take the following steps if returning the device in Europe.
+### [Europe or UK](#tab/in-europe-or-uk)
+
+Take the following steps if returning the device in Europe or the UK.
 
 1. Use the return shipping label that has the clear plastic sleeve affixed to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and download a return ship label.
     - Affix the label on the device.
 
-2. Seal the shipping box and ensure that the return shipping label is visible.
-3. If you are returning the device in Europe with DHL, request for pickup from DHL by visiting their website and specifying the airway bill number.
-4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.
-5. Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
+2. Seal the shipping box, and ensure that the return shipping label is visible.
+3. Go to the country/region DHL Express website and select **Schedule a Pickup**. Under **Do you need a shipping label**, select **No** > **I have a DHL Waybill Number**.
+4. Specify the waybill number, and click **Schedule Pickup** to arrange for pickup.
 
 ### [Australia](#tab/in-australia)
 
@@ -164,23 +162,28 @@ Take the following steps if returning the device in South Africa.
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
 
-3. To book a pickup with DHL:
+3. Request a return code from Azure Data Box Operations. A return code is required for delivering the package back to the datacenter. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com). Note this code on the shipping label next to the return address so it is clearly visible.
 
-    * Call the customer service contact center on +27(0) 11 9213600, select option 1 and specify waybill number.
-    * You must call before 2:00 PM South Africa Standard Time (ZA) to schedule a pickup.  
-    * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) to organize pickup using the following email template:
+4. Book a pickup with DHL using one of the following methods:
+   * Book a pickup online by going to [DHL Express South Africa, **Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference).
+   * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) using the following template:
 
-    ```output
-    To: Priority.Support@dhl.com
-    Subject:Pickup request for Microsoft Azure
-    Body:  Need pick up for the below shipment
-    *  DHL tracking number (reference number/waybill number)
-    *  Requested pickup date：yyyy/mm/dd; time: HH MM
-    ```
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
 
-    * Alternatively, you can drop off the package at the nearest DHL service point.
+    * Or drop off the package at the nearest DHL service point.
 
-4. If you encounter any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s) you encountered and put the waybill number in the Subject: line. You can also call +27(0)119213902.
+5. If you encounter any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s) you encountered and put the waybill number in the Subject: line. You can also call +27(0)119213902.
 
 ### [China](#tab/in-china)
 

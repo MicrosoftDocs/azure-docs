@@ -75,4 +75,4 @@ Security Center automatically collects, analyzes, and integrates log data from y
 In this document, you learned how to view security alerts. See the following pages for related material:
 
 - [Configure alert suppression rules](alerts-suppression-rules.md)
-- [Automate responses to alerts and recommendations with workflow automation](workflow-automation.md)
+- [Automate responses to Security Center triggers](workflow-automation.md)

@@ -3,13 +3,14 @@ title: DateTimeDiff in Azure Cosmos DB query language
 description: Learn about SQL system function DateTimeDiff in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
 ---
 # DateTimeDiff (Azure Cosmos DB)
-
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 Returns the count (as a signed integer value) of the specified DateTimePart boundaries crossed between the specified *StartDate* and *EndDate*.
   
 ## Syntax

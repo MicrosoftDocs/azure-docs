@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/06/2020
+ms.date: 12/10/2020
 ms.author: rolyon
 ---
 
@@ -48,7 +48,12 @@ The following are some reasons why you might want to transfer a subscription:
 - A portion of your business has been split into a separate company and you need to move some of your resources into a different Azure AD directory.
 - You want to manage some of your resources in a different Azure AD directory for security isolation purposes.
 
-Transferring a subscription does require downtime to complete the process. Depending on your scenario, it might be better to just re-create the resources and copy data to the target directory and subscription.
+### Alternate approaches
+
+Transferring a subscription requires downtime to complete the process. Depending on your scenario, you can consider the following alternate approaches:
+
+- Re-create the resources and copy data to the target directory and subscription.
+- Adopt a multi-directory architecture and leave the subscription in the source directory. Use Azure Lighthouse to delegate resources so that users in the target directory can access the subscription in the source directory. For more information, see [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md).
 
 ### Understand the impact of transferring a subscription
 
@@ -70,7 +75,8 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Files | Yes | Yes |  | You must re-create any ACLs. |
 | Azure File Sync | Yes | Yes |  |  |
 | Azure Managed Disks | Yes | Yes |  |  If you are using Disk Encryption Sets to encrypt Managed Disks with customer-managed keys, you must disable and re-enable the system-assigned identities associated with Disk Encryption Sets. And you must re-create the role assignments i.e. again grant required permissions to Disk Encryption Sets in the Key Vaults. |
-| Azure Container Services for Kubernetes | Yes | Yes |  |  |
+| Azure Kubernetes Service | Yes | Yes |  |  |
+| Azure Policy | Yes | No | All Azure Policy objects, including custom definitions, assignments, exemptions, and compliance data. | You must [export](../governance/policy/how-to/export-resources.md), import, and re-assign definitions. Then, create new policy assignments and any needed [policy exemptions](../governance/policy/concepts/exemption-structure.md). |
 | Azure Active Directory Domain Services | Yes | No |  |  |
 | App registrations | Yes | Yes |  |  |
 
@@ -81,7 +87,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 
 To complete these steps, you will need:
 
-- [Bash in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure)
+- [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
 - Account Administrator of the subscription you want to transfer in the source directory
 - [Owner](built-in-roles.md#owner) role in the target directory
 
@@ -103,9 +109,9 @@ To complete these steps, you will need:
     az account set --subscription "Marketing"
     ```
 
-### Install the resource-graph extension
+### Install the Azure Resource Graph extension
 
- The resource-graph extension enables you to use the [az graph](/cli/azure/ext/resource-graph/graph) command to query resources managed by Azure Resource Manager. You'll use this command in later steps.
+ The Azure CLI extension for [Azure Resource Graph](../governance/resource-graph/index.yml), *resource-graph*, enables you to use the [az graph](/cli/azure/ext/resource-graph/graph) command to query resources managed by Azure Resource Manager. You'll use this command in later steps.
 
 1. Use [az extension list](/cli/azure/extension#az_extension_list) to see if you have the *resource-graph* extension installed.
 
@@ -377,3 +383,4 @@ If your intent is to remove access from users in the source directory so that th
 - [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Transfer Azure subscriptions between subscribers and CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
 - [Associate or add an Azure subscription to your Azure Active Directory tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md)

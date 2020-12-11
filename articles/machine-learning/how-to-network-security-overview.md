@@ -1,5 +1,5 @@
 ---
-title: Virtual network isolation and privacy overview
+title: Virtual network isolation and security overview
 titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network with Azure Machine Learning to secure workspace resources and compute environments.
 services: machine-learning
@@ -10,7 +10,7 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions, contperfq1
+ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
 
 ---
 
@@ -27,10 +27,10 @@ Here are the other articles in this series:
 ## Prerequisites
 
 This article assumes that you have familiarity with the following topics:
-+ [Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-+ [IP networking](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
++ [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
++ [IP networking](../virtual-network/public-ip-addresses.md)
 + [Azure Private Link](how-to-configure-private-link.md)
-+ [Network Security Groups (NSG)](../virtual-network/security-overview.md)
++ [Network Security Groups (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Network firewalls](../firewall/overview.md)
 
 ## Example scenario
@@ -141,10 +141,11 @@ If your storage is in a VNet, you first must perform additional configuration st
 
 * Preview data in the studio.
 * Visualize data in the designer.
+* Deploy a model in the designer.
 * Submit an AutoML experiment.
 * Start a labeling project.
 
-To enable full studio functionality while inside of a VNet, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). The studio supports storage accounts using either service endpoints or private endpoints.
+To enable full studio functionality while inside of a VNet, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). The studio supports storage accounts using either service endpoints or private endpoints.
 
 ### Limitations
 - [ML assisted data labeling](how-to-create-labeling-projects.md#use-ml-assisted-labeling) does not support default storage accounts secured behind a virtual network. You must use a non-default storage account for ML assisted data labeling. Note, the non-default storage account can be secured behind the virtual network. 

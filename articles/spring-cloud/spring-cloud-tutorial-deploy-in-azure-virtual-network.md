@@ -22,10 +22,11 @@ The deployment enables:
 * Empowerment of customers to control inbound and outbound network communications for Azure Spring Cloud
 
 ## Prerequisites
-You must register Azure Spring Cloud resource provider `Microsoft.AppPlatform` according to instructions [Register Resource Provider on Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) or by running the following az CLI command:
+You must register Azure Spring Cloud resource provider *Microsoft.AppPlatform* and *Microsoft.ContainerService* according to instructions [Register Resource Provider on Azure portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) or by running the following az CLI command:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
+az provider register --namespace Microsoft.ContainerService
 ```
 ## Virtual network requirements
 The virtual network to which you deploy your Azure Spring Cloud service instance must meet the following requirements:
@@ -36,7 +37,7 @@ The virtual network to which you deploy your Azure Spring Cloud service instance
     * One for Service Runtime
     * One for your Spring Boot Microservice Applications. 
     * There is a one-to-one relationship between these subnets and an Azure Spring Cloud service instance. You must use a new subnet for each service instance you deploy and each subnet can only include a single service instance.
-* **Address space**: One CIDR block up to /28 for Service Runtime subnet and another CIDR block up to /24 for Spring Boot Microservice Applications subnet.
+* **Address space**: CIDR blocks up to **/28** for both Service Runtime subnet and Spring Boot Microservice Applications subnet.
 * **Route table**: The subnets must not have an existing route table associated.
 
 The following procedures describe setup of the virtual network to contain the instance of Azure Spring Cloud.
@@ -59,9 +60,9 @@ If you already have a virtual network to host Azure Spring Cloud service instanc
  
 1. For IPv4 address space, enter 10.1.0.0/16.
 
-1. Select **Add subnet**, then enter *service-runtime-subnet* for **Subnet name** and 10.1.0.0/24 for **Subnet address range**. Then click **Add**.
+1. Select **Add subnet**, then enter *service-runtime-subnet* for **Subnet name** and 10.1.0.0/28 for **Subnet address range**. Then click **Add**.
 
-1. Select **Add subnet** again, then enter *apps-subnet* for **Subnet name** and 10.1.1.0/24 for **Subnet address range**.  Click **Add**.
+1. Select **Add subnet** again, then enter **Subnet name** and **Subnet address range**, for example, *apps-subnet* and and 10.1.1.0/28 .  Click **Add**.
 
 1. Click **Review + create**. Leave the rest as defaults and click **Create**.
 
@@ -101,7 +102,7 @@ az role assignment create \
 
 ## Deploy Azure Spring Cloud service instance in the virtual network
 
-1. Open the Azure portal using at https://ms.portal.azure.com .
+1. Open the Azure portal using at https://portal.azure.com .
 
 1. From the top search box, search for **Azure Spring Cloud**, and select **Azure Spring Cloud** from the result.
 
@@ -128,13 +129,15 @@ az role assignment create \
 
 1. Verify your specifications, and click **Create**.
 
+    ![Verify specifications](./media/spring-cloud-v-net-injection/verify-specifications.png)
+
 After the deployment, two additional resource groups will be created in your subscription to host the network resources for the Azure Spring Cloud service instance.  Navigate to **Home** then select **Resource groups** from the top menu items to find the following new resource groups.
 
-The resource group named as *azure-spring-cloud-service-runtime_{service instance name}_{service instance region}* contains network resources for the Service Runtime of the service instance.
+The resource group named as *ap-svc-rt_{service instance name}_{service instance region}* contains network resources for the Service Runtime of the service instance.
 
   ![Service runtime](./media/spring-cloud-v-net-injection/service-runtime-resource-group.png)
 
-The resource group named as *azure-spring-cloud-service-runtime_{service instance name}_{service instance region}* contains network resources for your Spring Boot Microservice Applications of the service instance.
+The resource group named as *ap-app_{service instance name}_{service instance region}* contains network resources for your Spring Boot Microservice Applications of the service instance.
 
   ![Apps resource group](./media/spring-cloud-v-net-injection/apps-resource-group.png)
 
@@ -144,6 +147,18 @@ Those network resources are connected to your virtual network created above.
 
    > [!Important]
    > The resource groups are fully managed by Azure Spring Cloud service. Please do NOT manually delete or modify any resource inside.
+
+## Limitations
+
+Small subnet range saves IP addresses, but brings limitations to the maximum number of App Instances the Azure Spring Cloud can hold. 
+
+| CIDR | Total IPs | Available IPs | Maximum app instances                                        |
+| ---- | --------- | ------------- | ------------------------------------------------------------ |
+| /28  | 16        | 8             | <p> App with 1 core:  96 <br/> App with 2 cores: 48<br/>  App with 3 cores: 32 <br/> App with 4 cores: 24 </p> |
+| /27  | 32        | 24            | <p> App with 1 core:  228<br/> App with 2 cores: 144<br/>  App with 3 cores: 96 <br/>  App with 4 cores: 72</p> |
+| /26  | 64        | 56            | <p> App with 1 core:  500<br/> App with 2 cores: 336<br/>  App with 3 cores: 224<br/>  App with 4 cores: 168</p> |
+| /25  | 128       | 120           | <p> App with 1 core:  500<br> App with 2 cores:  500<br>  App with 3 cores:  480<br>  App with 4 cores: 360</p> |
+| /24  | 256       | 248           | <p> App with 1 core:  500<br/> App with 2 cores:  500<br/>  App with 3 cores: 500<br/>  App with 4 cores: 500</p> |
 
 ## Next steps
 

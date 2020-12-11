@@ -45,7 +45,7 @@ To onboard a management group and all its subscriptions:
     The remediation task will then enable Security Center, for free, on the non-compliant subscriptions.
 
 > [!IMPORTANT]
-> The policy definition will only enable Security Center on **existing** subscriptions. To register newly created subscriptions, To register newly created subscriptions, open the compliance tab, select the relevant non-compliant subscriptions, and create a remediation task.Repeat this step when you have one or more new subscriptions you want to monitor with Security Center.
+> The policy definition will only enable Security Center on **existing** subscriptions. To register newly created subscriptions, open the compliance tab, select the relevant non-compliant subscriptions, and create a remediation task.Repeat this step when you have one or more new subscriptions you want to monitor with Security Center.
 
 ## Optional modifications
 
@@ -56,7 +56,7 @@ There are a variety of ways you might choose to modify the Azure Policy definiti
     The supplied definition, defines *either* of the 'pricing' settings below as compliant. Meaning that a subscription set to 'standard' or 'free' is compliant.
 
     > [!TIP]
-    > 'Standard' refers to When an Azure Defender plan is enabled, it's described as being on the 'Standard' setting. When it's disabled, it's 'Free'.
+    > When an Azure Defender plan is enabled, it's described as being on the 'Standard' setting. When it's disabled, it's 'Free'. [Learn more about Azure Defender plans](security-center-pricing.md).
 
     ```
     "existenceCondition": {

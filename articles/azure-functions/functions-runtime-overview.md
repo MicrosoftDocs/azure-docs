@@ -40,7 +40,7 @@ To get started with the Azure Functions Runtime, you must have a machine with Wi
 
 ## Next Steps
 
-Install the [Azure Functions Runtime preview](https://aka.ms/azafrdoc)
+Install the [Azure Functions Runtime preview](./functions-runtime-install.md)
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png

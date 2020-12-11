@@ -23,7 +23,7 @@ This article describes how to:
 ## Prerequisites
 
 - [Install azdata, Azure Data Studio, and Azure CLI](install-client-tools.md)
-- Install in Azure Data Studio the **Azure Data CLI** and **Azure Arc** and **PostgreSQL** extensions
+- Install in Azure Data Studio the **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** and **Azure Arc** and **PostgreSQL** extensions
 - Create the [Azure Arc Data Controller](create-data-controller-using-azdata.md)
 - Launch Azure Data Studio
 
@@ -59,11 +59,9 @@ The PostgreSQL Dashboard view:
 That features several dashboards listed on the left side of that pane:
 
 - **Overview:** 
-    Displays summary information about your instance like name, Azure subscription ID, configuration, version of the database engine, endpoints for Grafana and Kibana...
+    Displays summary information about your instance like name, PostgreSQL admin user name, Azure subscription ID, configuration, version of the database engine, endpoints for Grafana and Kibana...
 - **Connection Strings:** 
     Displays various connection strings you may need to connect to your PostgreSQL instance like psql, Node.js, PHP, Ruby...
-- **Properties:**
-    Displays various properties like PostgreSQL admin user name, associated resources group for the shadow resource...
 - **Diagnose and solve problems:** 
     Is the landing page where you will find various resources that will help you troubleshoot your instance as we expand the troubleshooting notebooks
 - **New support request:** 

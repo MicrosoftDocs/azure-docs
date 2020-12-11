@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 07/20/2020
+  ms.date: 12/03/2020
   
 landingContent:
   - title: About Azure Lighthouse
@@ -33,7 +33,7 @@ landingContent:
         links:
           - text: Onboard a customer to Azure Lighthouse
             url: ./how-to/onboard-customer.md
-          - text: Link your ID for partner earned credit
+          - text: Link your partner ID
             url: ./how-to/partner-earned-credit.md
       - linkListType: concept
         links:
@@ -91,6 +91,8 @@ landingContent:
             url: ./how-to/deploy-policy-remediation.md
           - text: Manage hybrid machines with Azure Arc
             url: ./how-to/manage-hybrid-infrastructure-arc.md
+          - text: Manage migration projects
+            url: ./how-to/migration-at-scale.md
 
   - title: Reference - SDKs
     linkLists:

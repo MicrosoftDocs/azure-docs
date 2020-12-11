@@ -1,13 +1,20 @@
 ---
 title: "Migrating to Bridge to Kubernetes"
 services: azure-dev-spaces
-ms.date: 09/21/2020
+ms.date: 10/21/2020
 ms.topic: "conceptual"
-description: "Describes the processes that power Azure Dev Spaces"
+description: "Describes the migration process from Azure Dev Spaces to Bridge to Kubernetes"
 keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Bridge to Kubernetes"
 ---
 
 # Migrating to Bridge to Kubernetes
+
+> [!IMPORTANT]
+> Azure Dev Spaces will be retired on October 31, 2023. Customers should move to using Bridge to Kubernetes, a client developer tool.
+>
+> The purpose of Azure Dev Spaces was about easing users into developing on Kubernetes. A significant tradeoff in the approach of Azure Dev Spaces was putting extra burden on users to understand Docker and Kubernetes configurations as well as Kubernetes deployment concepts. Over time, it also became clear that the approach of Azure Dev Spaces did not effectively decrease the speed of inner loop development on Kubernetes. Bridge to Kubernetes effectively decreases the speed of inner loop development and avoids unnecessary burden on users.
+>
+> The core mission remains unchanged: Build the best experiences to develop, test, and debug microservice code in the context of the larger application.
 
 Bridge to Kubernetes provides a lighter weight alternative to many of the development scenarios that work with Azure Dev Spaces. Bridge to Kubernetes is a client-side only experience using extensions in [Visual Studio][vs] and [Visual Studio Code][vsc].  
 
@@ -38,10 +45,10 @@ Azure Dev Spaces and Bridge to Kubernetes have similar features, they also diffe
 | **Usability** |
 | Independent from Kubernetes and Docker artifacts  | No  | Yes   |
 | Automatic rollback of changes, post-debug  | No  | Yes   |
-| **Environments** |
+| **Supported Client Tooling** |
 | Works with Visual Studio 2019  | Yes  | Yes   |
 | Works with Visual Studio Code  | Yes  | Yes   |
-| Works with the CLI  | Yes  | No   |
+| Works with a CLI  | Yes  | No   |
 | **Operating System Compatibility** |
 | Works on Windows 10  | Yes  | Yes  |
 | Works on Linux  | Yes  | Yes  |
@@ -68,23 +75,38 @@ Bridge to Kubernetes has the flexibility to work with applications running in Ku
 > [!TIP]
 > The [Microsoft Kubernetes extension][kubernetes-extension] lets you quickly develop Kubernetes manifests with Intellisense and helps scaffold Helm charts.  
 
-### Use Visual Studio to transition to Bridge to Kubernetes from Azure Dev Spaces
+### Transition to Bridge to Kubernetes from Azure Dev Spaces
 
-1. Update your Visual Studio IDE to version 16.7 or greater and install the Bridge to Kubernetes extension from the [Visual Studio Marketplace][vs-marketplace].
+1. If you're using Visual Studio, update your Visual Studio IDE to version 16.7 or greater and install the Bridge to Kubernetes extension from the [Visual Studio Marketplace][vs-marketplace]. If you're using Visual Studio Code, install the [Bridge to Kubernetes extension][vsc-marketplace].
 1. Disable the Azure Dev Spaces controller using the Azure portal or the [Azure Dev Spaces CLI][azds-delete].
-1. Remove the `azds.yaml` file from your project.
-1. Redeploy your application.
-1. Configure Bridge to Kubernetes on your deployed application. For more information on using Bridge to Kubernetes in Visual Studio, see [Use Bridge to Kubernetes][use-btk-vs].
-1. Start debugging in Visual Studio using the newly created Bridge to Kubernetes debug profile.
+1. Use [Azure Cloud Shell](https://shell.azure.com). Or on Mac, Linux or Windows with bash installed, open a bash shell prompt. Make sure that the following tools are available in your command-line environment: Azure CLI, docker, kubectl, curl, tar, and gunzip.
+1. Create a container registry, or use an existing one. You can create a container registry in Azure using [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) or by using [Docker Hub](https://hub.docker.com/). When using Azure Cloud Shell, only Azure Container Registry is available for hosting docker images.
+1. Run the migration script to convert Azure Dev Spaces assets to Bridge to Kubernetes assets. The script builds a new image compatible with Bridge to Kubernetes, uploads it to the designated registry, and then uses [Helm](https://helm.sh) to update the cluster with the image. You must provide the resource group, the name of the AKS cluster, and a container registry. There are other command-line options as shown here:
 
-### Use Visual Studio Code to transition to Bridge to Kubernetes from Azure Dev Spaces
+   ```azure-cli
+   curl -sL https://aka.ms/migrate-tool | bash -s -- -g ResourceGroupName -n AKSName -h ContainerRegistryName -r PathOfTheProject -y
+   ```
 
-1. Install the [Bridge to Kubernetes extension][vsc-marketplace].
-1. Disable the Azure Dev Spaces controller using the Azure portal or the [Azure Dev Spaces CLI][azds-delete].
-1. Remove the `azds.yaml` file from your project.
-1. Redeploy your application.
-1. Configure Bridge to Kubernetes on your deployed application. For more information on using Bridge to Kubernetes in Visual Studio Code, see [Use Bridge to Kubernetes][use-btk-vsc].
-1. Start debugging in Visual Studio Code using the newly created Bridge to Kubernetes launch profile.
+   The script supports the following flags:
+
+   ```cmd  
+    -g Name of resource group of AKS Cluster [required]
+    -n Name of AKS Cluster [required]
+    -h Container registry name. Examples: ACR, Docker [required]
+    -k Kubernetes namespace to deploy resources (uses 'default' otherwise)
+    -r Path to root of the project that needs to be migrated (default = current working directory)
+    -t Image name & tag in format 'name:tag' (default is 'projectName:stable')
+    -i Enable a public endpoint to access your service over internet. (default is false)
+    -c Docker build context path. (default = project root path passed to '-r' option)
+    -y Doesn't prompt for non-tty terminals
+    -d Helm Debug switch
+   ```
+
+1. Manually migrate any customizations, such as environment variable settings, in *azds.yaml* into your project's *values.yml* file.
+1. (optional) Remove the `azds.yaml` file from your project.
+1. Configure Bridge to Kubernetes on your deployed application. For more information on using Bridge to Kubernetes in Visual Studio, see [Use Bridge to Kubernetes in Visual Studio][use-btk-vs]. For VS Code, see [Use Bridge to Kubernetes in VS Code][use-btk-vsc].
+1. Start debugging using the newly created Bridge to Kubernetes debug/launch profile.
+1. You can run the script again as needed to redeploy to your cluster.
 
 ## Team development in a shared cluster
 
@@ -120,9 +142,9 @@ Learn more about how Bridge to Kubernetes works.
 
 [azds-delete]: how-to/install-dev-spaces.md#remove-azure-dev-spaces-using-the-cli
 [kubernetes-extension]: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools
-[btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes?view=vs-2019#install-the-sample-application
+[btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes#install-the-sample-application
 [how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
-[use-btk-vs]: /visualstudio/containers/bridge-to-kubernetes?view=vs-2019#connect-to-your-cluster-and-debug-a-service
+[use-btk-vs]: /visualstudio/containers/bridge-to-kubernetes#connect-to-your-cluster-and-debug-a-service
 [use-btk-vsc]: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
 [vs]: https://visualstudio.microsoft.com/
 [vsc-marketplace]: https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro

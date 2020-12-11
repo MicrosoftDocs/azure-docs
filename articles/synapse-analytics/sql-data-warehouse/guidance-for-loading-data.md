@@ -1,25 +1,25 @@
 ---
-title: Data loading best practices for Synapse SQL pool
-description: Recommendations and performance optimizations for loading data using Synapse SQL pool.
+title: Data loading best practices for dedicated SQL pools
+description: Recommendations and performance optimizations for loading data using dedicated SQL pools in Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 02/04/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Best practices for loading data using Synapse SQL pool
+# Best practices for loading data using dedicated SQL pools in Azure Synapse Analytics
 
-In this article, you'll learn recommendations and performance optimizations for loading data using SQL pool.
+In this article, you'll learn recommendations and performance optimizations for loading data using dedicated SQL pool.
 
 ## Preparing data in Azure Storage
 
-To minimize latency, colocate your storage layer and your SQL pool.
+To minimize latency, colocate your storage layer and your dedicated SQL pool.
 
 When exporting data into an ORC File Format, you might get Java out-of-memory errors when there are large text columns. To work around this limitation, export only a subset of the columns.
 
@@ -29,7 +29,7 @@ Split large compressed files into smaller compressed files.
 
 ## Running loads with enough compute
 
-For fastest loading speed, run only one load job at a time. If that isn't feasible, run a minimal number of loads concurrently. If you expect a large loading job, consider scaling up your SQL pool before the load.
+For fastest loading speed, run only one load job at a time. If that isn't feasible, run a minimal number of loads concurrently. If you expect a large loading job, consider scaling up your dedicated SQL pool before the load.
 
 To run loads with appropriate compute resources, create loading users designated for running loads. Classify each loading user to a specific workload group. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's workload group.  
 
@@ -42,10 +42,10 @@ This example creates a loading user classified to a specific workload group. The
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Connect to the SQL pool and create a user. The following code assumes you're connected to the database called mySampleDataWarehouse. It shows how to create a user called loader and gives the user permissions to create tables and load using the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Then it classifies the user to the DataLoads workload group with maximum resources. 
+Connect to the dedicated SQL pool and create a user. The following code assumes you're connected to the database called mySampleDataWarehouse. It shows how to create a user called loader and gives the user permissions to create tables and load using the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Then it classifies the user to the DataLoads workload group with maximum resources. 
 
 ```sql
-   -- Connect to the SQL pool
+   -- Connect to the dedicated SQL pool
    CREATE USER loader FOR LOGIN loader;
    GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
    GRANT INSERT ON <yourtablename> TO loader;
@@ -66,12 +66,15 @@ Connect to the SQL pool and create a user. The following code assumes you're con
        ,MEMBERNAME = 'loader'
    );
 ```
+<br><br>
+>[!IMPORTANT] 
+>This is an extreme example of allocating 100% resources of the SQL pool to a single load. This will give you a maximum concurrency of 1. Be aware that this should be used only for the initial load where you will need to create additional workload groups with their own configurations to balanace resources across your workloads. 
 
 To run a load with resources for the loading workload group, sign in as loader and run the load.
 
 ## Allowing multiple users to load (PolyBase)
 
-There's often a need to have multiple users load data into a SQL pool. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase) requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas.
+There's often a need to have multiple users load data into a dedicated SQL pool. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (PolyBase) requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas.
 
 You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
 
@@ -86,9 +89,9 @@ User_A and user_B are now locked out from the other dept's schema.
 
 ## Loading to a staging table
 
-To achieve the fastest loading speed for moving data into a SQL pool table, load data into a staging table.  Define the staging table as a heap and use round-robin for the distribution option.
+To achieve the fastest loading speed for moving data into a dedicated SQL pool table, load data into a staging table.  Define the staging table as a heap and use round-robin for the distribution option.
 
-Consider that loading is usually a two-step process in which you first load to a staging table and then insert the data into a production SQL pool table. If the production table uses a hash distribution, the total time to load and insert might be faster if you define the staging table with the hash distribution.
+Consider that loading is usually a two-step process in which you first load to a staging table and then insert the data into a production dedicated SQL pool table. If the production table uses a hash distribution, the total time to load and insert might be faster if you define the staging table with the hash distribution.
 
 Loading to the staging table takes longer, but the second step of inserting the rows to the production table does not incur data movement across the distributions.
 
@@ -106,7 +109,7 @@ When there is memory pressure, the columnstore index might not be able to achiev
 
 ## Increase batch size when using SqLBulkCopy API or bcp
 
-Loading with the COPY statement will provide the highest throughput with SQL pool. If you cannot use the COPY to load and must use the [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), you should consider increasing batch size for better throughput.
+Loading with the COPY statement will provide the highest throughput with dedicated SQL pools. If you cannot use the COPY to load and must use the [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), you should consider increasing batch size for better throughput.
 
 > [!TIP]
 > A batch size between 100 K to 1M rows is the recommended baseline for determining optimal batch size capacity.

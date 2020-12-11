@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Search
 description: You can quickly deploy an Azure Cognitive Search service instance using the Azure resource manager template.
 
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 07/15/2020
+ms.date: 11/17/2020
 ---
 
 # Quickstart: Deploy Cognitive Search using an ARM template
