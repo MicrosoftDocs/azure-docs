@@ -50,7 +50,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     ![Azure tables](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    You can use [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) or any other tool to see the data in your storage table. You can also export the data in the Azure table.
+    You can use [Azure Storage Explorer](https://www.storageexplorer.com) or any other tool to see the data in your storage table. You can also export the data in the Azure table.
 
 ## (Optional) Use Power Automate to get lead notifications
 
