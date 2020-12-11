@@ -116,4 +116,4 @@ To test Conditional Access in your user flow, [create a Conditional Access polic
 
 ## Next steps
 
-[Customize the user interface in an Azure AD B2C user flow](customize-ui-overview.md)
+[Customize the user interface in an Azure AD B2C user flow](customize-ui-with-html.md)

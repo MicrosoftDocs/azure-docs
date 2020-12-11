@@ -1,12 +1,12 @@
 ---
 title: Send or receive events from Azure Event Hubs using Python (latest)
-description: This article provides a walkthrough for creating a Python application that sends/receives events to/from Azure Event Hubs using the latest azure-eventhub version 5 package.
+description: This article provides a walkthrough for creating a Python application that sends/receives events to/from Azure Event Hubs using the latest azure-eventhub package.
 ms.topic: quickstart
 ms.date: 02/11/2020
 ---
 
-# Send events to or receive events from event hubs by using Python (azure-eventhub version 5)
-This quickstart shows how to send events to and receive events from an event hub using the **azure-eventhub version 5** Python package.
+# Send events to or receive events from event hubs by using Python (azure-eventhub)
+This quickstart shows how to send events to and receive events from an event hub using the **azure-eventhub** Python package.
 
 ## Prerequisites
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 

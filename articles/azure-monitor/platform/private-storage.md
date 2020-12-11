@@ -18,7 +18,7 @@ Log Analytics relies on Azure Storage in a variety of scenarios. This use is typ
 ## Ingesting Azure Diagnostics extension logs (WAD/LAD)
 The Azure Diagnostics extension agents (also called WAD and LAD for Windows and Linux agents respectively) collect various operating system logs and store them on a customer-managed storage account. You can then ingest these logs into Log Analytics to review and analyze them.
 How to collect Azure Diagnostics extension logs from your storage account
-Connect the storage account to your Log Analytics workspace as a storage data source using [the Azure portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) or by calling the [Storage Insights API](/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
+Connect the storage account to your Log Analytics workspace as a storage data source using [the Azure portal](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) or by calling the [Storage Insights API](/rest/api/loganalytics/storage%20insights/createorupdate).
 
 Supported data types:
 * Syslog
