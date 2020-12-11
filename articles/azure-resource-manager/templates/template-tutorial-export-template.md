@@ -4,7 +4,7 @@ description: Learn how to use an exported template to complete your template dev
 author: mumian
 ms.date: 09/09/2020
 ms.topic: tutorial
-ms.author: jgao 
+ms.author: jgao
 ms.custom:
 ---
 
@@ -57,12 +57,12 @@ This template works well for deploying storage accounts, but you might want to a
 
    The export template feature takes the current state of a resource and generates a template to deploy it. Exporting a template can be a helpful way of quickly getting the JSON you need to deploy a resource.
 
-1. Look at the **Microsoft.Web/serverfarms** definition and the parameter definition in the exported template. You don't need to copy these sections. You can just use this exported template as an example of how you want to add this resource to your template.
+1. Look at the `Microsoft.Web/serverfarms` definition and the parameter definition in the exported template. You don't need to copy these sections. You can just use this exported template as an example of how you want to add this resource to your template.
 
     ![Resource Manager template export template exported template](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
 > [!IMPORTANT]
-> Typically, the exported template is more verbose than you might want when creating a template. For example, the SKU object in the exported template has five properties. This template works, but you could just use the **name** property. You can start with the exported template, and then modify it as you like to fit your requirements.
+> Typically, the exported template is more verbose than you might want when creating a template. For example, the SKU object in the exported template has five properties. This template works, but you could just use the `name` property. You can start with the exported template, and then modify it as you like to fit your requirements.
 
 ## Revise existing template
 
@@ -78,7 +78,7 @@ Copy the whole file and replace your template with its contents.
 
 Use either Azure CLI or Azure PowerShell to deploy a template.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -106,7 +106,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
+> If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
 ## Verify deployment
 
