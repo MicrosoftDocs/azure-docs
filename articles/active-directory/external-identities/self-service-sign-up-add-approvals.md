@@ -24,7 +24,7 @@ This article gives an example of how to integrate with an approval system. In th
 - Trigger a manual review. If the request is approved, the approval system uses Microsoft Graph to provision the user account. The approval system can also notify the user that their account has been created.
 
 > [!IMPORTANT]
->**Starting January 4, 2021**, Google is [deprecating webview sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](#google-consumer-accounts-blocked-from-signing-in-to-embedded-framework-based-apps).
+>**Starting January 4, 2021**, Google is [deprecating webview sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## Register an application for your approval system
 

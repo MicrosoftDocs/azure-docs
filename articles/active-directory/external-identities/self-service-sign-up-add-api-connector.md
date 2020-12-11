@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
 
 > [!IMPORTANT]
->**Starting January 4, 2021**, Google is [deprecating webview sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](#google-consumer-accounts-blocked-from-signing-in-to-embedded-framework-based-apps).
+>**Starting January 4, 2021**, Google is [deprecating webview sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## Create an API connector
 

@@ -21,36 +21,8 @@ ms.collection: M365-identity-device-management
 Here are some remedies for common problems with Azure Active Directory (Azure AD) B2B collaboration.
 
    > [!IMPORTANT]
-   > - **Starting January 4, 2021**, Google is [deprecating webview sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](#google-consumer-accounts-blocked-from-signing-in-to-embedded-framework-based-apps).
+   > - **Starting January 4, 2021**, Google is [deprecating webview sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
    > - **Starting March 31, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
-
-## Deprecation of WebView sign-in support by Google starting January 4, 2021
-
-Starting January 4, 2021, Google is [deprecating embedded webview sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using [Google federation](google-federation.md) or [self-service sign-up with Gmail](identity-providers.md), you should test your line-of-business native applications for compatibility. If your apps include WebView content that requires authentication, Google Gmail users won't be able to authenticate. The following are known scenarios that will impact Gmail users:
-
-- Windows apps that use embedded WebView or the WebAccountManager (WAM) on older versions of Windows.
-- Other native apps you’ve developed that use an embedded browser framework for authentication.
-
-This change does not affect:
-
-- Windows apps that use embedded WebView or the WebAccountManager (WAM) on the latest versions of Windows
-- Microsoft iOS apps
-- GSuite identities, for example when you’re using SAML-based [direct federation](direct-federation.md) with GSuite
-
-We’re continuing to test various platforms and scenarios, and will update this article accordingly.
-### How to determine if your apps are affected
-
-1. Follow [Google’s guidance](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html) to test apps for compatibility.
-2. Using Fiddler or another testing tool, inject a header during sign-in and use a Google external identity to test sign-in:
-
-   1. Add Google-Accounts-Check-OAuth-Login:true to your HTTP request headers when the requests are sent to accounts.google.com.
-   1. Attempt to sign in to the app by entering a Gmail address in the accounts.google.com sign-in page.
-   1. If sign-in fails and you see an error such as “This browser or app may not be secure,” your Google external identities will be blocked from signing in.
-
-### How to resolve this issue
-
-- The latest versions of Windows are unaffected by this change. If your Windows app uses embedded WebView or the WebAccountManager (WAM) on an older version of Windows, update to the latest version.
-- Modify your apps to use the system browser for sign-in. For details, see [Embedded vs System Web UI](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) in the MSAL.NET documentation.  
 
 ## I’ve added an external user but do not see them in my Global Address Book or in the people picker
 
