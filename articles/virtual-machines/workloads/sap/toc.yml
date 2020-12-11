@@ -72,7 +72,7 @@
     items:
     - name: Azure HANA Large Instances control through Azure portal
       href: hana-li-portal.md
-    - name: What is BareMetal Instances on Azure?
+    - name: Azure BareMetal Instances control through Azure portal
       href: baremetal-infrastructure-portal.md
     - name: HA Setup with STONITH
       href: ha-setup-with-stonith.md
