@@ -38,7 +38,7 @@ You can create queries to analyze your logged activity or focus on specific item
 
 For more information, see [Overview of log queries in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-## View activity logs by domain
+## View user activity across domains
 
 You can view activity from individual users across multiple domains by using the [Activity Logs by Domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) sample workbook.
 
