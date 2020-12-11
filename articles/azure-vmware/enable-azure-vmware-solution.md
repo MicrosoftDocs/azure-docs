@@ -13,7 +13,7 @@ Learn how to submit a support request to enable your [Azure VMware Solution](int
 You'll need an Azure account in an Azure subscription. The Azure subscription must comply with one of the following criteria:
 
 * A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
-* A Cloud Solution Provider (CSP) managed subscription under an Azure plan.
+* A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
 
 
 ## Enable Azure VMware Solution for EA customers
@@ -56,7 +56,7 @@ Before you create your Azure VMware Solution resource, you'll need to submit a s
 
 ## Enable Azure VMware Solution for CSP customers 
 
-CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. 
+CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](/partner-center/azure-plan-lp.md) as example to illustrate the purchase procedure for partners.
 
    >[!IMPORTANT] 
    >Azure VMware Solution service does not provide a multi-tenancy required. Hosting partners requiring it are not supported. 
@@ -71,9 +71,9 @@ CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enabl
 
 1. Select **Azure plan** and then select **Add to cart**. 
 
-1. Review and finish the general set up of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](/partner-center/azure-plan-manage).
+1. Review and finish the general set up of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](/partner-center/azure-plan-manage.md).
 
-After configuring the Azure plan and the needed vSphere RBAC permissions are in place as a CSP, you'll engage Microsoft to enable the quota for an Azure plan subscription. Access Azure portal from Partner Center using **Admin On Behalf Of** (AOBO) procedure.
+After configuring the Azure plan and the needed [Azure RBAC permissions](/partner-center/azure-plan-manage.md) are in place for the subscription, you'll engage Microsoft to enable the quota for an Azure plan subscription. Access Azure portal from [Microsoft Partner Center](https://partner.microsoft.com) using **Admin On Behalf Of** (AOBO) procedure.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com).
 
