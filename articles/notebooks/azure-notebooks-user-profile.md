@@ -13,7 +13,7 @@ Within the powerful, collaborative space of Azure Notebooks, your user profile p
 
 [![An Azure Notebooks profile page](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
-Your user ID is part of the URLs you use to share projects and notebooks. The following list describes the different URL patterns:
+Your user ID is part of the URLs that you use to share projects and notebooks. The following list describes the different URL patterns:
 
 - `https://notebooks.azure.com/<user_id>`: Your profile page.
 - `https://notebooks.azure.com/<user_id>/projects`: Your projects. You see all projects; other users see only your public projects.
