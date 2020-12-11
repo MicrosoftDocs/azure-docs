@@ -32,14 +32,11 @@ az eventgrid domain create \
 
 # [PowerShell](#tab/powershell)
 ```azurepowershell-interactive
-New-AzureRmEventGridDomain `
+New-AzEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
   -Location <location>
 ```
-
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
 ---
 
 Successful creation returns the following values:
@@ -81,7 +78,7 @@ az role assignment create \
 The following PowerShell command limits `alice@contoso.com` to creating and deleting event subscriptions only on topic `demotopic1`:
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment `
+New-AzRoleAssignment `
   -SignInName alice@contoso.com `
   -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
   -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
@@ -110,7 +107,7 @@ az eventgrid event-subscription create \
 # [PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" `
   -EventSubscriptionName <event-subscription> `
   -Endpoint https://contoso.azurewebsites.net/api/updates
@@ -177,7 +174,7 @@ az eventgrid domain key list \
 To get the domain endpoint with PowerShell, use
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridDomain `
+Get-AzEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```
@@ -185,7 +182,7 @@ Get-AzureRmEventGridDomain `
 To get the keys for a domain, use:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridDomainKey `
+Get-AzEventGridDomainKey `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```
@@ -204,7 +201,7 @@ For example, the following command lists all the topics with name containing `my
 az eventgrid topic list --odata-query "contains(name, 'mytopic')"
 ```
 
-For more information about this command, see [`az eventgrid topic list`](/cli/azure/eventgrid/topic?view=azure-cli-latest#az_eventgrid_topic_list). 
+For more information about this command, see [`az eventgrid topic list`](/cli/azure/eventgrid/topic?#az_eventgrid_topic_list). 
 
 
 ## Next steps

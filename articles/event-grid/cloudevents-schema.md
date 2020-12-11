@@ -84,14 +84,12 @@ az eventgrid topic create \
 For PowerShell, use:
 
 ```azurepowershell-interactive
-New-AzureRmEventGridTopic `
+New-AzEventGridTopic `
   -ResourceGroupName gridResourceGroup `
   -Location westcentralus `
   -Name <topic_name> `
   -InputSchema CloudEventSchemaV1_0
 ```
-
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ### Output schema
 
@@ -111,9 +109,9 @@ az eventgrid event-subscription create \
 
 For PowerShell, use:
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `
