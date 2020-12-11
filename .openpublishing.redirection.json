@@ -60596,7 +60596,41 @@
       "redirect_document_id": false
     },
     {
-<<<<<<< HEAD
+      "source_path": "articles/media-services/latest/cli-create-transform.md",
+      "redirect_url": "/azure/media-services/latest/how-to-create-transform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/security/access-control.md",
+      "redirect_url": "/azure/synapse-analytics/security/synapse-workspace-access-control-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/learn/quick-monitor-portal.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/learn/dotnetcore-quick-start.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+    {
+    "source_path": "articles/azure-monitor/app/web-monitor-performance.md",
+    "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+    "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/purview/register-scan-teradata-source.md",
+      "redirect_url": "/azure/purview/manage-data-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/purview/scan-sqlresource-firewall.md",
+      "redirect_url": "/azure/purview/register-scan-azure-sql-database",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/notebooks/azure-notebooks-samples.md",
       "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
@@ -60660,42 +60694,6 @@
       "source_path": "articles/notebooks/use-data-science-virtual-machine.md",
       "redirect_url": "articles/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_document_id": false
-    }
-=======
-      "source_path": "articles/media-services/latest/cli-create-transform.md",
-      "redirect_url": "/azure/media-services/latest/how-to-create-transform",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/synapse-analytics/security/access-control.md",
-      "redirect_url": "/azure/synapse-analytics/security/synapse-workspace-access-control-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-monitor/learn/quick-monitor-portal.md",
-      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-monitor/learn/dotnetcore-quick-start.md",
-      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
-      "redirect_document_id": false
-    },
-    {
-    "source_path": "articles/azure-monitor/app/web-monitor-performance.md",
-    "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
-    "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/purview/register-scan-teradata-source.md",
-      "redirect_url": "/azure/purview/manage-data-sources",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/purview/scan-sqlresource-firewall.md",
-      "redirect_url": "/azure/purview/register-scan-azure-sql-database",
-      "redirect_document_id": true
-    }        
->>>>>>> master
+    }       
   ]
 }
