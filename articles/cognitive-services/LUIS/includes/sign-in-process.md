@@ -13,7 +13,7 @@ ms.topic: include
 ---
 ## Sign in to LUIS portal
 
-[!INCLUDE [LUIS Free account](includes/luis-portal-note.md)]
+[!INCLUDE [Note about portal deprecation](luis-portal-note.md)]
 
 A new user to LUIS needs to follow this procedure:
 
