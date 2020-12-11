@@ -111,7 +111,7 @@ After you've had a chance to get started with the Personalizer service, try our 
 ## Reference 
 
 * [Personalizer C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
-* [Personalizer Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer)
+* [Personalizer Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview)
 * [Personalizer JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
 * [Personalizer Python SDK](/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
 * [REST APIs](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)

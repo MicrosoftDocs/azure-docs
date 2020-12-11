@@ -155,6 +155,25 @@
       href: identity-provider-wechat.md
     - name: Weibo
       href: identity-provider-weibo.md
+  - name: UX customization
+    items:
+    - name: Configure user input
+      href: configure-user-input.md
+    - name: Customize the UI with company branding
+      href: company-branding.md
+    - name: Customize the UI with HTML template
+      href: customize-ui-with-html.md
+    - name: JavaScript and page layouts
+      href: javascript-and-page-layout.md
+    - name: Customize language
+      href: language-customization.md
+    - name: Password complexity
+      href: password-complexity.md
+    - name: Disable email verification
+      href: disable-email-verification.md
+    - name: Enable MFA
+      href: multi-factor-authentication.md
+      displayName: multi-factor auth
   - name: User flow
     items:
     - name: Create a flow
@@ -167,21 +186,6 @@
         href: user-flow-self-service-password-reset.md
     - name: Add Conditional Access
       href: conditional-access-user-flow.md
-    - name: UX customization
-      items:
-      - name: Customize the UI
-        href: customize-ui-overview.md
-      - name: JavaScript and page layouts
-        href: user-flow-javascript-overview.md
-      - name: Customize language
-        href: user-flow-language-customization.md
-      - name: Password complexity
-        href: user-flow-password-complexity.md
-      - name: Disable email verification
-        href: user-flow-disable-email-verification.md
-      - name: Enable MFA
-        href: custom-policy-multi-factor-authentication.md
-        displayName: multi-factor auth
     - name: Tokens and session management
       items:
       - name: Configure tokens
@@ -219,29 +223,13 @@
       - name: Phone sign-up & sign-in
         href: phone-authentication.md
         displayName: otp, passwordless, phone number
-    - name: UX customization
+    - name: Custom email verification
       items:
-      - name: Configure user input
-        href: custom-policy-configure-user-input.md
-        displayName: ui, ux
-      - name: Customize the UI
-        href: custom-policy-ui-customization.md
-        displayName: ux, input, cors, html, css
-      - name: Customize language
-        href: custom-policy-localization.md
-      - name: Custom email verification
-        items:
-        - name: Mailjet
-          href: custom-email-mailjet.md
-        - name: SendGrid
-          href: custom-email-sendgrid.md
-        displayName: verification
-      - name: Disable email verification
-        href: custom-policy-disable-email-verification.md
-      - name: Enable JavaScript
-        href: javascript-samples.md
-      - name: Password complexity
-        href: custom-policy-password-complexity.md
+      - name: Mailjet
+        href: custom-email-mailjet.md
+      - name: SendGrid
+        href: custom-email-sendgrid.md
+      displayName: verification
     - name: Tokens and session management
       items:
       - name: Customize tokens
@@ -418,6 +406,8 @@
       href: partner-typingdna.md
     - name: WhoIAM
       href: partner-whoiam.md
+    - name: Zscaler
+      href: partner-zscaler.md
   - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview
