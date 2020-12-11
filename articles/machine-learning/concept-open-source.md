@@ -51,7 +51,7 @@ Once models are trained and ready for production, you have to choose how to depl
 
 Container technologies such as Docker are one way to deploy models as web services. Containers provide a platform and resource agnostic way to build and orchestrate reproducible software environments. With these core technologies, you can use [preconfigured environments](./how-to-use-environments.md), [preconfigured container images](./how-to-deploy-custom-docker-image.md) or custom ones to deploy your machine learning models to such as [Kubernetes clusters](./how-to-deploy-azure-kubernetes-service.md?tabs=python). For GPU intensive workflows, you can use tools like NVIDIA Triton Inference server to [make predictions using GPUs](how-to-deploy-with-triton.md?tabs=python).
 
-Security . One technique in which security and privacy are . To [deploy encrypted inferencing services](how-to-homomorphic-encryption-seal.md), use the `encrypted-inference` open-source Python library. The `encrypted inferencing` package provides bindings bsed on [Microsoft SEAL](https://github.com/Microsoft/SEAL), a homomorphic encryption library.
+Security . One technique in which security and privacy are . To [deploy encrypted inferencing services](how-to-homomorphic-encryption-seal.md), use the `encrypted-inference` open-source Python library. The `encrypted inferencing` package provides bindings based on [Microsoft SEAL](https://github.com/Microsoft/SEAL), a homomorphic encryption library.
 
 ## Machine Learning Operations (MLOps)
 
