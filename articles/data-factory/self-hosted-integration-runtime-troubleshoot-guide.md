@@ -390,7 +390,7 @@ When you register a self-hosted IR, the **Register** button isn't displayed on t
 
 #### Cause
 
-Since the release of Integration Runtime 3.0, the **Register** button on existing integration runtime nodes has been removed to enable a cleaner and more secure environment. If a node has been registered to an integration runtime, whether online or not, re-register it to another integration runtime by uninstalling the previous node, and then install and register the node.
+As of the release of Integration Runtime 3.0, the **Register** button on existing integration runtime nodes has been removed to enable a cleaner and more secure environment. If a node has been registered to an integration runtime, whether it's online or not, re-register it to another integration runtime by uninstalling the previous node, and then install and register the node.
 
 #### Resolution
 
@@ -421,7 +421,7 @@ System.TypeInitializationException: The type initializer for 'Microsoft.DataTran
 
 #### Cause
 
-The issue usually happens when the localhost is being resolved.
+The issue usually occurs when the localhost is being resolved.
 
 #### Resolution
 
