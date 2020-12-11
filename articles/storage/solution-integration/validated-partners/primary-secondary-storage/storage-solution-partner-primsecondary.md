@@ -25,7 +25,7 @@ This article highlights Microsoft system integration partner companies that deli
 |<br>|
 
 ## Next Steps
-To learn more about some of our other partners, see [Business intelligence partners](sql-data-warehouse-partner-business-intelligence.md), [Data Integration partners](sql-data-warehouse-partner-data-integration.md), [Data Management partners](sql-data-warehouse-partner-data-management.md), and also [Machine Learning & AI partners](sql-data-warehouse-partner-machine-learning-ai.md).
+To learn more about some of our other partners, see [Analytics partners](..\analytics\storage-solution-partner-analytics.md), [Archive and BCDR partners](..\backup-archive-disasterrecovery\storage-solution-partner-bcdr.md), [Container Solution partners](..\container-solutions\storage-solution-partner-container.md), and also [Data Management partners](..\data-management\storage-solution-partner-dmanagement.md).
 
 
 
