@@ -21,7 +21,7 @@ ms.author: mbullwin
     |Name|Desired name (2-64 characters)|
     |Subscription|Select appropriate subscription|
     |Location|Select any nearby and available location|
-    |Pricing Tier|`F0` - 100 Calls per seond, 20K Transactions per month. <br> Or:<br> `S0` - 80 Calls per second|
+    |Pricing Tier|`F0` - 100 Calls per second, 20K Transactions per month. <br> Or:<br> `S0` - 80 Calls per second|
     |Resource Group|Select an available resource group|
 
 1. Click **Create** and wait for the resource to be created. After it is created, navigate to the resource page
