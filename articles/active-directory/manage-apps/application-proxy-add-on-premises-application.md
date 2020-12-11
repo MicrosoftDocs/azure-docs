@@ -18,6 +18,8 @@ ms.custom: contperf-fy21q2
 
 Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial prepares your environment for use with Application Proxy. Once your environment is ready, you'll use the Azure portal to add an on-premises application to your Azure AD tenant.
 
+Connectors are a key part of Application Proxy. To learn more about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).
+
 This tutorial:
 
 > [!div class="checklist"]
