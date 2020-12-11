@@ -393,7 +393,7 @@ Linked servers in SQL Managed Instance support a limited number of targets:
 
 - Supported targets are SQL Managed Instance, SQL Database, Azure Synapse SQL [serverless](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) and dedicated pools, and SQL Server instances. 
 - Linked servers don't support distributed writable transactions (MS DTC).
-- Targets that aren't supported are files, Analysis Services, and other RDBMS. Try to use native CSV import from Azure Blob Storage using `BULK INSERT` or `OPENROWSET` as an alternative for file import, or load files using a [serverless SQL pool in Azure Synapse Analytics]([serverless](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)).
+- Targets that aren't supported are files, Analysis Services, and other RDBMS. Try to use native CSV import from Azure Blob Storage using `BULK INSERT` or `OPENROWSET` as an alternative for file import, or load files using a [serverless SQL pool in Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operations: 
 
