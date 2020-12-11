@@ -39,11 +39,9 @@ You can easily bulk load data using dedicated SQL pools with a simple right-clic
 
    ![Selecting source location](./sql/media/bulk-load/bulk-load-source-location.png)
 
-2. Select the file format settings including your error settings for when there are rejected rows during the bulk load process. You can also select "Preview data" to see how the COPY statement will parse the file to help you configure the file format settings. 
+2. Select the file format settings including your error settings for when there are rejected rows during the bulk load process. You can also select "Preview data" to see how the COPY statement will parse the file to help you configure the file format settings. Select "Preview data" every time you change a file format setting to see how the COPY statement will parse the file with the updated setting:
 
-  Select "Preview data" every time you change a file format setting to see how the COPY statement will parse the file with the updated setting:
-
-  ![Previewing data](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
+   ![Previewing data](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
 > [!NOTE]  
 >
@@ -54,7 +52,8 @@ You can easily bulk load data using dedicated SQL pools with a simple right-clic
 3. Select the dedicated SQL pool you're using to load including whether the load will be for an existing table or new table:
    ![Selecting target location](./sql/media/bulk-load/bulk-load-target-location.png)
 4. Select "Configure column mapping" to make sure you have the appropriate column mapping. Note columns names will automatically be detected if "Infer column names" was enabled. For new tables, configuring the column mapping is critical for updating the target column data types:
- ![Configuring column mapping](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
+
+   ![Configuring column mapping](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
 5. Select "Open script" and a T-SQL script will be generated with the COPY statement to load from your data lake:
    ![Opening the SQL script](./sql/media/bulk-load/bulk-load-target-final-script.png)
 
