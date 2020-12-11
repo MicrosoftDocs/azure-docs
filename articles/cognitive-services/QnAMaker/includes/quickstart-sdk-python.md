@@ -5,6 +5,8 @@ ms.topic: include
 ms.date: 06/18/2020
 ---
 
+# [QnA Maker GA (stable release)](#tab/version-1)
+
 Use the QnA Maker client library for python to:
 
 * Create a knowledgebase
@@ -13,14 +15,22 @@ Use the QnA Maker client library for python to:
 * Get prediction runtime endpoint key
 * Wait for long-running task
 * Download a knowledgebase
-* Get answer
+* Get an answer from a knowledgebase
 * Delete knowledge base
-
-# [QnA Maker GA (stable release)](#tab/version-1)
 
 [Reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/0.2.0/) | [Python samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/QnAMaker/sdk/quickstart.py)
 
 # [QnA Maker managed (preview release)](#tab/version-2)
+
+Use the QnA Maker client library for python to:
+
+* Create a knowledgebase
+* Update a knowledgebase
+* Publish a knowledgebase
+* Wait for long-running task
+* Download a knowledgebase
+* Get an answer from a knowledgebase
+* Delete knowledge base
 
 [Reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/) | [Python samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/QnAMaker/sdk/preview-sdk/quickstart.py)
 
