@@ -176,4 +176,4 @@ A list of delegation changes will appear. You can select **Edit columns** to sho
 
 - Learn how to onboard customers to [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
 - Learn about [Azure Monitor](../../azure-monitor/index.yml) and the [Azure activity log](../../azure-monitor/platform/platform-logs-overview.md).
--Review the [Activity Logs by Domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) sample workbook to learn how to display Azure Activity logs across subscriptions with an option to filter them by domain name.
+- Review the [Activity Logs by Domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) sample workbook to learn how to display Azure Activity logs across subscriptions with an option to filter them by domain name.
