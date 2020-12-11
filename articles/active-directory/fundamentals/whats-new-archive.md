@@ -2770,7 +2770,7 @@ For more information about choosing specific versions of page elements, see the 
 
 You can now set up your organization's password complexity for your end users, instead of having to use your native Azure AD password policy. From the **Properties** blade of your user flows (previously known as your built-in policies), you can choose a password complexity of **Simple** or **Strong**, or you can create a **Custom** set of requirements.
 
-For more information about password complexity requirement configuration, see [Configure complexity requirements for passwords in Azure Active Directory B2C](../../active-directory-b2c/user-flow-password-complexity.md).
+For more information about password complexity requirement configuration, see [Configure complexity requirements for passwords in Azure Active Directory B2C](../../active-directory-b2c/password-complexity.md).
 
 ---
 

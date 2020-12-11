@@ -3542,6 +3542,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/firewall/log-analytics-samples.md",
+      "redirect_url": "/azure/firewall/firewall-workbook",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/frontdoor/waf-faq.md",
       "redirect_url": "/azure/web-application-firewall/afds/waf-faq",
       "redirect_document_id": false
@@ -5097,6 +5102,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/develop/msal-handling-exceptions.md",
+      "redirect_url": "/azure/active-directory/develop/msal-error-handling-dotnet",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/quickstart-get-started-with-cli.md",
       "redirect_url": "/azure/machine-learning/reference-azure-machine-learning-cli",
       "redirect_document_id": false
@@ -6219,7 +6229,12 @@
     },
     {
       "source_path": "articles/key-vault/service-to-service-authentication.md",
-      "redirect_url": "/azure/key-vault/general/service-to-service-authentication",
+      "redirect_url": "https://docs.microsoft.com/en-us/dotnet/api/overview/azure/service-to-service-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/service-to-service-authentication.md",
+      "redirect_url": "https://docs.microsoft.com/en-us/dotnet/api/overview/azure/service-to-service-authentication",
       "redirect_document_id": false
     },
     {
@@ -8769,6 +8784,61 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/user-flow-javascript-overview.md",
+      "redirect_url": "/azure/active-directory-b2c/javascript-and-page-layout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/javascript-samples.md",
+      "redirect_url": "/azure/active-directory-b2c/javascript-and-page-layout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/user-flow-disable-email-verification.md",
+      "redirect_url": "/azure/active-directory-b2c/disable-email-verification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-disable-email-verification.md",
+      "redirect_url": "/azure/active-directory-b2c/disable-email-verification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/user-flow-password-complexity.md",
+      "redirect_url": "/azure/active-directory-b2c/password-complexity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-password-complexity.md",
+      "redirect_url": "/azure/active-directory-b2c/password-complexity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/user-flow-language-customization.md",
+      "redirect_url": "/azure/active-directory-b2c/language-customization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-localization.md",
+      "redirect_url": "/azure/active-directory-b2c/language-customization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-multi-factor-authentication.md",
+      "redirect_url": "/azure/active-directory-b2c/multi-factor-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-configure-user-input.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-user-input",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/customize-ui-overview.md",
+      "redirect_url": "/azure/active-directory-b2c/customize-ui-with-html",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/identity-provider-microsoft-account-custom.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-microsoft-account",
       "redirect_document_id": false
@@ -9210,7 +9280,7 @@
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-ui-customization-custom.md",
-      "redirect_url": "/azure/active-directory-b2c/custom-policy-ui-customization",
+      "redirect_url": "/azure/active-directory-b2c/customize-ui-with-html",
       "redirect_document_id": true
     },
     {
@@ -60574,6 +60644,71 @@
       "source_path": "articles/purview/scan-sqlresource-firewall.md",
       "redirect_url": "/azure/purview/register-scan-azure-sql-database",
       "redirect_document_id": true
-    }        
+    },
+    {
+      "source_path": "articles/notebooks/azure-notebooks-samples.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notebooks/tutorial-create-run-jupyter-notebook.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notebooks/quickstart-create-share-jupyter-notebook.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notebooks/quickstart-clone-jupyter-notebook.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notebooks/quickstart-migrate-local-jupyter-notebook.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notebooks/quickstart-create-jupyter-notebook-project-environment.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notebooks/configure-manage-azure-notebooks-projects.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notebooks/work-with-project-data-files.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notebooks/create-clone-jupyter-notebooks.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notebooks/access-data-resources-jupyter-notebooks.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notebooks/install-packages-jupyter-notebook.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notebooks/present-jupyter-notebooks-slideshow.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notebooks/use-data-science-virtual-machine.md",
+      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_document_id": false
+    }       
   ]
 }

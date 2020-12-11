@@ -265,7 +265,7 @@ The following settings can be used to configure the error message displayed upon
 
 See the following article, for example of using Azure AD technical profile:
 
-- [Add claims and customize user input using custom policies in Azure Active Directory B2C](custom-policy-configure-user-input.md)
+- [Add claims and customize user input using custom policies in Azure Active Directory B2C](configure-user-input.md)
 
 
 
