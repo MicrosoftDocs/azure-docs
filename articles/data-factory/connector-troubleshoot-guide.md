@@ -983,6 +983,27 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Recommendation**:  Check the sink dataset and fix the path without wildcard value.
 
+### Error code:  RemotePrivateLinkServiceSubscriptionNotRegistered
+- **Message**: `Failed to create PrivateEndpoint for client xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, cluster : Id=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, Name=. ReasonPhrase:Bad Request. Body:Microsoft.Azure.Management.Network.Fluent.Models.Error. Status code:BadRequest.`
+
+- **Cause**: Managed Private Endpoint provisioning status shows "Failed". This issue happens when the resource provider Microsoft.Network is not registered in the subscription.  Register  your subscription with Microsoft.Network resource provider.
+
+- **Recommendation**:  Refer link: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider
+
+- 
+### Error Message: Unable to list blobs. Please try again.
+
+- **Cause**:The issue can happen when the Storage is in a VNet and doesn't have "Allow trusted azure services" checked. 
+
+   - Browser doesn't have ad blocker.
+   - Storage is not premium. Storage Premium is not supported for ADF Event trigger for Blob operation.
+
+
+- **Recommendation**:  In order for the storage to work on a VNET, enable 'Allow trusted azure services' setting on VNet that allows ADF to talk to the storage account.
+
+
+
+
 
 ### Error code:  MappingInvalidPropertyWithEmptyValue
 
