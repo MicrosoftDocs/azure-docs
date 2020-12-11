@@ -114,7 +114,7 @@ Your canvas should look like (notice that the top-and-bottom of the components h
  
 Next, you need to *wire* these components together. Select the port at the bottom of the **diabetes** dataset and drag it to the right-hand port at the top of the **Train model** component. Select the port at the bottom of the **Linear regression** component and drag onto the left-hand port at the top of the **Train model** port.
 
-Choose the column in the dataset should be used as the label (target) variable to predict. Select the **Train model** component followed by **Edit column**. From the dialog box - Select the **Enter Column name** followed by **Y** in the drop-down list:
+Choose the column in the dataset to be used as the label (target) variable to predict. Select the **Train model** component followed by **Edit column**. From the dialog box - Select the **Enter Column name** followed by **Y** in the drop-down list:
 
 :::image type="content" source="media/tutorial-powerbi/label-columns.png" alt-text="Screenshot select label column":::
 
