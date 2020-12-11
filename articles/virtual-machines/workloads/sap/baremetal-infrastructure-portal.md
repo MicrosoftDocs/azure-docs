@@ -100,7 +100,7 @@ The possible hardware revisions are:
 * Revision 4.2
  
 >[!NOTE]
->Revision 4.2 is the latest rebranded BareMetal Infrastructure using the Revision 4 architecture. It has significant improvements in network latency between Azure VMs and BareMetal instance units deployed in Revision 4 stamps or rows. For more information about the different revisions, see [BareMetal Infrastructure on Azure](baremetal-overview-architecture.md).
+>Revision 4.2 is the latest rebranded BareMetal Infrastructure using the Revision 4 architecture. It has significant improvements in network latency between Azure VMs and BareMetal instance units deployed in Revision 4 stamps or rows.
  
 Also, on the right side, you'll find the [Azure Proximity Placement Group's](../../../virtual-machines/linux/co-location.md) name, which is created automatically for each deployed BareMetal Instance unit. Reference the Proximity Placement Group when you deploy the Azure VMs that host the application layer. When you use the Proximity Placement Group associated with the BareMetal Instance unit, you ensure that the Azure VMs get deployed close to the BareMetal Instance unit.
  
