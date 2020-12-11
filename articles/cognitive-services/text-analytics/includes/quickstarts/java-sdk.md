@@ -113,7 +113,6 @@ public static void main(String[] args) {
     recognizeLinkedEntitiesExample(client);
     recognizePiiEntitiesExample(client);
     extractKeyPhrasesExample(client);
-		analyzeOperationExample(client);
 }
 ```
 
@@ -606,7 +605,7 @@ veterinarian
 > [!CAUTION]
 > To use Analyze operations, you must use a Text Analytics resource with the standard (S) pricing tier.  
 
-```csharp
+```java
 static void analyzeOperationExample(TextAnalyticsClient client)
 {
 		List<TextDocumentInput> documents = Arrays.asList(
@@ -704,6 +703,12 @@ static void analyzeOperationExample(TextAnalyticsClient client)
 				}
 		});
 	}
+```
+
+After you add this example to your application, call it in your `main()` method.
+
+```java
+analyzeOperationExample(client);
 ```
 
 ### Output
