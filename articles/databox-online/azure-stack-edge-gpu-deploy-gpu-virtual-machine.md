@@ -14,23 +14,40 @@ ms.author: alkohli
 
 # GPU VMs for your Azure Stack Edge Pro device
 
-This article provides an overview of GPU virtual machines (VMs) and describes how to create a GPU VM on your Azure Stack Edge Pro device using templates. 
+This article provides an overview of GPU virtual machines (VMs) on your Azure Stack Edge Pro device. The article describes how to create a GPU VM and then install GPU driver extension to install appropriate Nvidia drivers. Both the GPU VM creation and GPU driver extension installation are done using Azure Resource Manager templates. 
 
-In this article, we’ll use pre-written sample templates for creating resources. You won’t need to edit the template file and you can modify just the `.parameters.json` files to customize the deployment to your machine. 
+This article applies to Azure Stack Edge Pro GPU and Azure Stack Edge Pro R devices.
 
 ## About GPU VMs
 
 Your Azure Stack Edge Pro devices are equipped with 1 or 2 of Nvidia's Tesla T4 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU optimized VM sizes that are available with single or multiple GPUs. For example, the NC T4 v3-series should be used to deploy inference workloads featuring T4 GPUs. 
 
-## Supported operating systems and drivers
+## Supported operating systems and drivers 
 
-To take advantage of the GPU capabilities of Azure N-series VMs, NVIDIA GPU drivers must be installed.
+To take advantage of the GPU capabilities of Azure N-series VMs, Nvidia GPU drivers must be installed. 
+
+The Nvidia GPU driver extension installs appropriate Nvidia CUDA or GRID drivers. You can install or manage the extension using the Azure Resource Manager templates.
+
+### Supported OS for GPU extension for Windows
+
+This extension supports the following operating systems (OSs). Other versions may work but have not been tested in-house on GPU VMs running on Azure Stack Edge Pro devices.
+
+| Distribution | Version |
+|---|---|
+| Windows 10 | Core |
+| Windows Server 2019 | Core |
+| Windows Server 2016 | Core |
+
+### Supported OS for GPU extension for Windows
+
+This extension supports the following OS distros, depending on the driver support for specific OS version. Other versions may work but have not been tested in-house on GPU VMs running on Azure Stack Edge Pro devices.
 
 
+| Distribution | Version |
+|---|---|
+| Linux: Ubuntu | 18.04 LTS |
+| Linux: Red Hat Enterprise Linux | 7.4 |
 
-For VMs backed by NVIDIA GPUs, the NVIDIA GPU Driver Extension installs appropriate NVIDIA CUDA or GRID drivers. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the NVIDIA GPU Driver Extension documentation for supported operating systems and deployment steps. For general information about VM extensions, see Azure virtual machine extensions and features.
-
-Alternatively, you may install NVIDIA GPU drivers manually. See Install NVIDIA GPU drivers on N-series VMs running Windows or Install NVIDIA GPU drivers on N-series VMs running Linux for supported operating systems, drivers, installation, and verification steps.
 
 ## GPU VMs and Kubernetes on your device
 
