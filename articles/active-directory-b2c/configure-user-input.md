@@ -1,7 +1,7 @@
 ---
-title: Add claims and customize user input in custom policies
+title: Add user attributes and customize user input 
 titleSuffix: Azure AD B2C
-description: Learn how to customize user input and add claims to the sign-up or sign-in journey in Azure Active Directory B2C.
+description: Learn how to customize user input and add user attributes to the sign-up or sign-in journey in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -9,15 +9,119 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2020
+ms.date: 12/10/2020
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
-#  Add claims and customize user input using custom policies in Azure Active Directory B2C
+#  Add user attributes and customize user input in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-custom-policy"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
+::: zone-end
+
 In this article, you collect a new attribute during your sign-up journey in Azure Active Directory B2C (Azure AD B2C). You'll obtain the users' city, configure it as a drop-down, and define whether it's required to be provided.
+
+## Prerequisites
+
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+::: zone pivot="b2c-user-flow"
+
+## Add user attributes your user flow
+
+1. In your Azure AD B2C tenant, select **User flows**.
+1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
+1. Select **User attributes** and then select the user attribute (for example, "City"). 
+1. Select **Save**.
+
+## Provide optional claims to your app
+
+The application claims are values that are returned to the application. Update your user flow to contain the desired claims.
+
+1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
+1. Select **Application claims**.
+1. Select attributes that you want send back to your application (for example, "City")..
+1. Select **Save**.
+ 
+## Configure user attributes input type
+
+1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
+1. Select **Page layouts**.
+1. Select **Local account sign-up page**.
+1. Under **User attributes**, select **City**.
+    1. In the **User input type** drop-down, select **DropdownSingleSelect**.
+    1. In the **Optional** drop-down, select **No**.
+1. Select **Save**. 
+
+### Provide a list of values by using localized collections
+
+To provide a set list of values for the city attribute: 
+
+1. [Enable language customization on the user flow](language-customization.md#support-requested-languages-for-ui_locales)
+1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
+1. On the **Languages** page for the user flow, select the language that you want to customize.
+1. Under **Page-level-resources files**, select **Local account sign up page**.
+1. Select **Download defaults** (or **Download overrides** if you have previously edited this language).
+1. Create a `LocalizedCollections` attribute.
+
+The `LocalizedCollections` is an array of `Name` and `Value` pairs. The order for the items will be the order they are displayed. 
+
+* `ElementId` is the user attribute that this `LocalizedCollections` attribute is a response to.
+* `Name` is the value that's shown to the user.
+* `Value` is what is returned in the claim when this option is selected.
+
+```json
+{
+  "LocalizedStrings": [...],
+  "LocalizedCollections": [
+    {
+      "ElementType": "ClaimType",
+      "ElementId": "city",
+      "TargetCollection": "Restriction",
+      "Override": false,
+      "Items": [
+        {
+          "Name": "Berlin",
+          "Value": "Berlin"
+        },
+        {
+          "Name": "London",
+          "Value": "London"
+        },
+        {
+          "Name": "Seattle",
+          "Value": "Seattle"
+        }
+      ]
+    }
+  ]
+}
+```
+
+#### Upload your changes
+
+1. After you complete the changes to your JSON file, go back to your B2C tenant.
+1. Select **User flows** and select your policy (for example, "B2C_1_SignupSignin") to open it.
+1. Select **Languages**.
+1. Select the language that you want to translate to.
+1. Select the **Local account sign up page**.
+1. Select the folder icon, and select the JSON file to upload. The changes are saved to your user flow automatically.
+
+## Test your user flow
+
+1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
+1. To test your policy, select **Run user flow**.
+1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. Click **Run user flow**
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 > [!NOTE]
 > This sample uses the built-in claim 'city'. Instead, you can choose one of the supported [Azure AD B2C built-in attributes](user-profile-attributes.md) or a custom attribute. To use a custom attribute, [enable custom attributes in your policy](custom-policy-custom-attributes.md). To use a different built-in or custom attribute, replace 'city' with the attribute of your choice, for example the built-in attribute *jobTitle* or a custom attribute like *extension_loyaltyId*.  
@@ -29,10 +133,6 @@ You can gather initial data from your users by using the sign-up or sign-in user
 1. Persist the city to the user profile in the Azure AD B2C directory.
 1. Read the city claim from the Azure AD B2C directory on each sign-in.
 1. Return the city to your relying party application after sign-in or sign-up.  
-
-## Prerequisites
-
-Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with social and local accounts.
 
 ## Define a claim
 
@@ -200,9 +300,11 @@ To return the city claim back to the relying party application, add an output cl
 2. Select the sign-up or sign-in policy that you uploaded, and click the **Run now** button.
 3. You should be able to sign up using an email address.
 
+::: zone-end
+
 The sign-up screen should look similar to the following screenshot:
 
-![Screenshot of modified sign-up option](./media/custom-policy-configure-user-input/signup-with-city-claim-dropdown-example.png)
+![Screenshot of modified sign-up option](./media/configure-user-input/signup-with-city-claim-drop-down-example.png)
 
 The token sent back to your application includes the `city` claim.
 
@@ -230,7 +332,11 @@ The token sent back to your application includes the `city` claim.
 }
 ```
 
+::: zone pivot="b2c-custom-policy"
+
 ## Next steps
 
 - Learn more about the [ClaimsSchema](claimsschema.md) element in the IEF reference.
 - Learn how to [use custom attributes in a custom profile edit policy](custom-policy-custom-attributes.md).
+
+::: zone-end

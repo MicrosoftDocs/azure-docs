@@ -113,7 +113,7 @@ The **UserJourneyBehaviors** element contains the following elements:
 | SessionExpiryInSeconds | 0:1 | The lifetime of Azure AD B2C's session cookie specified as an integer stored on the user's browser upon successful authentication. |
 | JourneyInsights | 0:1 | The Azure Application Insights instrumentation key to be used. |
 | ContentDefinitionParameters | 0:1 | The list of key value pairs to be appended to the content definition load URI. |
-|ScriptExecution| 0:1| The supported [JavaScript](javascript-samples.md) execution modes. Possible values: `Allow` or `Disallow` (default).
+|ScriptExecution| 0:1| The supported [JavaScript](javascript-and-page-layout.md) execution modes. Possible values: `Allow` or `Disallow` (default).
 
 ### SingleSignOn
 
@@ -161,7 +161,7 @@ The **ContentDefinitionParameter** element contains the following attribute:
 | --------- | -------- | ----------- |
 | Name | Yes | The name of the key value pair. |
 
-For more information, see [Configure the UI with dynamic content by using custom policies](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
+For more information, see [Configure the UI with dynamic content by using custom policies](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
 
 ## TechnicalProfile
 
