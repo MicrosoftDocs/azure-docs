@@ -4,7 +4,7 @@ description: You can provide authorization credentials for AzCopy operations by 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ---
@@ -180,7 +180,7 @@ Replace the `<path-to-certificate-file>` placeholder with the relative or fully 
 
 ## Authorize without a keyring (Linux)
 
-If your operating system doesn't have a secret store such as a *keyring*, the `azcopy login` command won't work. Instead, You can set in-memory environment variables prior to each operation. These values disappear from memory once the operation completes, so you'll have to set these variables each time you run an azcopy command.
+If your operating system doesn't have a secret store such as a *keyring*, the `azcopy login` command won't work. Instead, You can set in-memory environment variables prior to running each operation. These values disappear from memory once the operation completes, so you'll have to set these variables each time you run an azcopy command.
 
 ### Authorize a user identity
 
