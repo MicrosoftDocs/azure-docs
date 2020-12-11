@@ -119,7 +119,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Web browser displaying the running web app and the user signed in":::
 
-## More information
+## About the code
 
 This section gives an overview of the code required to sign in users. This overview can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET Core application.
 
