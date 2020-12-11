@@ -1,5 +1,5 @@
 ---
-title: Storage Analytics integration iartners 
+title: Storage Analytics integration partners 
 titleSuffix: Azure Blob Storage Docs
 description: List of industry system integrators building customer solutions for Analytics with Azure Storage
 keywords: Storage, Blob, Analytics
@@ -18,7 +18,7 @@ This article highlights Microsoft system integration partner companies that are 
 ## System integration partners
 | Partner | Description | Website/Product link |
 | ------- | ----------- | -------------------- |
-| ![Dremio company logo](./media/dremio-logo.png) |**Dremio**<br>Analysts and data scientists can discover, explore and curate data using Dremio’s intuitive UI, while IT maintains governance and security. Dremio makes it easy to join ADLS with Blob Storage, Azure SQL Database, Azure Synapse SQL, HDInsight, and more. With Dremio, Power BI analysts can search for new datasets stored on ADLS, immediately access that data in Power BI with no preparation by IT, create visualizations, and iteratively refine reports in real-time. And analysts can create new reports that combine data between ADLS and other databases.|[Partner page](https://www.dremio.com/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dremiocorporation.dremio_ce)<br>|
+| ![Dremio company logo](./media/dremio-logo.png) |**Dremio**<br>Analysts and data scientists can discover, explore, and curate data using Dremio’s intuitive UI, while IT maintains governance and security. Dremio makes it easy to join ADLS with Blob Storage, Azure SQL Database, Azure Synapse SQL, HDInsight, and more. With Dremio, Power BI analysts can search for new datasets stored on ADLS, immediately access that data in Power BI with no preparation by IT, create visualizations, and iteratively refine reports in real-time. And analysts can create new reports that combine data between ADLS and other databases.|[Partner page](https://www.dremio.com/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dremiocorporation.dremio_ce)<br>|
 | <br>|
 
 ## Next steps
