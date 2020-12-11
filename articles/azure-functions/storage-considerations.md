@@ -35,7 +35,7 @@ Every function app requires a storage account to operate. If that account is del
 
 ### Storage account location
 
-For best performance, your function app should use a storage account in the same region, which reduces latency. If, for some reason, you need use a storage account in a region different than your function app, you must create your function app outside of the portal. 
+For best performance, your function app should use a storage account in the same region, which reduces latency. The Azure portal enforces this best practice. If, for some reason, you need to use a storage account in a region different than your function app, you must create your function app outside of the portal. 
 
 ### Storage account connection setting
 
