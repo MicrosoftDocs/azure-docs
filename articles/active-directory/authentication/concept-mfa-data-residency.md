@@ -54,7 +54,7 @@ For Azure public clouds, excluding Azure B2C authentication, NPS Extension, and 
 | Microsoft Authenticator notification | In Multi-Factor Authentication logs<br />Multi-Factor Authentication activity report data store<br />Blocked users if fraud reported<br />Change requests when Microsoft Authenticator device token changes |
 
 > [!NOTE]
-> The Multi-Factor Authentication activity report data store is stored in the United States for all clouds, regardless of the region that processes the authentication request. Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, and Microsoft Government Cloud have their own independent data stores separate from public cloud region data stores, however this data is always stored in the United States. These data stores contain PII such as UPN and complete phone number. 
+> The Multi-Factor Authentication activity report data store is stored in the United States for all clouds, regardless of the region that processes the authentication request. Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, and Microsoft Government Cloud have their own independent data stores separate from public cloud region data stores, however this data is always stored in the United States. These data stores contain personally identifiable information (PII) such as user principal name (UPN) and complete phone number. 
 
 For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, Azure B2C authentication, NPS Extension, and Windows Server 2016 or 2019 AD FS Adapter, the following personal data is stored:
 
