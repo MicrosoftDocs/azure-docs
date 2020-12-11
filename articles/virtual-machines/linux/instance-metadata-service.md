@@ -217,8 +217,8 @@ Specifies the parameters:
 
 | Name | Value |
 |------|-------|
-| api-version | 2019-06-04
-| format | json
+| `api-version` | `2019-06-04`
+| `format` | `json`
 
 Requests with duplicate query parameter names will be rejected.
 
