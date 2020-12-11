@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Stack Edge documentation  # < 60 chars
-summary: Use Azure Stack Edge family of cloud-managed devices when you need to bring the computing power and intelligence of Azure at edge. # < 160 chars
+summary: Use Azure Stack Edge devices to deliver Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to any edge location. # < 160 chars
 
 metadata:
   title: Azure Stack Edge documentation  # Required; page title displayed in search results. Include the brand. < 60 chars.
