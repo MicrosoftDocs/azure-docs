@@ -44,7 +44,7 @@ This tutorial shows you how to use a system-assigned managed identity for a Linu
 
 If you don't already have one, create a Cosmos DB account. You can skip this step and use an existing Cosmos DB account. 
 
-1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
+1. Click the **+ Create a resource** button found on the upper left-hand corner of the Azure portal.
 2. Click **Databases**, then **Azure Cosmos DB**, and a new "New account" panel  displays.
 3. Enter an **ID** for the Cosmos DB account, which you use later.  
 4. **API** should be set to "SQL." The approach described in this tutorial can be used with the other available API types, but the steps in this tutorial are for the SQL API.
