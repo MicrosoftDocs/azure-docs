@@ -2,7 +2,7 @@
 title: Create and deploy template spec
 description: Learn how to create a template spec from ARM template. Then, deploy the template spec to a resource group in your subscription.
 author: tfitzmac
-ms.date: 12/01/2020
+ms.date: 12/11/2020
 ms.topic: quickstart
 ms.author: tomfitz
 ---
@@ -25,28 +25,6 @@ The template spec is a resource type named **Microsoft.Resources/templateSpecs**
 With PowerShell and CLI, the ARM template is passed in as a parameter to the command. With ARM template, the ARM template to package within the template spec is embedded within the template spec definition.
 
 These options are shown below.
-
-# [Portal](#tab/azure-portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. From the top of the screen, in **Search resources, services and docs**, enter **template specs**, and then select **Template specs**.
-1. Select **Create template spec**.
-1. Select or enter the following values:
-
-    - **Name**: enter a name for the template spec.  For example, **storageSpec**
-    - **Subscription**: select an Azure subscription used for creating the template spec.
-    - **Resource Group**: select **Create new**, and then enter a new resource group name.  For example, **templateSpecRG**.
-    - **Location**: select a location for the resource group. For example,  **West US 2**.
-    - **Version**: enter a version for the template spec. For example, **1.0**, or **v1.0**.
-
-1. Select **Next: Edit Template**.
-1. Replace the template content with the following JSON:
-
-    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
-
-    This is the template  that will be packaged within the template spec.
-1. Select **Review + Create**.
-1. Select **Create**.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -98,7 +76,42 @@ These options are shown below.
       --template-file "c:\Templates\azuredeploy.json"
     ```
 
+# [Portal](#tab/azure-portal)
+
+1. When you create a template spec with the portal, you can import a local template. Copy the following template and save it locally to a file named **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
+
+    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. From the top of the screen, in **Search resources, services and docs**, enter **template specs**, and then select **Template specs**.
+
+    :::image type="content" source="./media/quickstart-create-template-specs/search-template-spec.png" alt-text="search template specs":::
+
+1. Select **Import template**.
+
+    :::image type="content" source="./media/quickstart-create-template-specs/import-template.png" alt-text="import template":::
+
+1. Select the folder icon.
+
+    :::image type="content" source="./media/quickstart-create-template-specs/open-folder.png" alt-text="open folder":::
+
+1. Search for your template and select it. Select **Open** and **Import**.
+
+1. Select or enter the following values:
+
+    - **Name**: enter a name for the template spec.  For example, **storageSpec**
+    - **Subscription**: select an Azure subscription used for creating the template spec.
+    - **Resource Group**: select **Create new**, and then enter a new resource group name.  For example, **templateSpecRG**.
+    - **Location**: select a location for the resource group. For example,  **West US 2**.
+    - **Version**: enter a version for the template spec. For example, **1.0**, or **v1.0**.
+
+1. Select **Review + Create**.
+1. Select **Create**.
+
 # [ARM Template](#tab/azure-resource-manager)
+
+> [!NOTE]
+> Instead of using an ARM template, we recommend that you use PowerShell or CLI to create your template spec. Those tools automatically convert linked templates to artifacts connected to your main template. When you use an ARM template to create the template spec, you must manually add those linked templates as artifacts, which can be complicated.
 
 1. When you use an ARM template to create the template spec, the template is embedded in the resource definition. Copy the following template and save it locally as **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
 
@@ -222,22 +235,6 @@ These options are shown below.
 
 You can now deploy the template spec. Deploying the template spec is just like deploying the template it contains, except that you pass in the resource ID of the template spec in Azure PowerShell or Azure CLI. You use the same deployment commands, and if needed, pass in parameter values for the template spec.
 
-# [Portal](#tab/azure-portal)
-
-1. From the Azure portal, open the resource group that you created in the last procedure.  For example **templateSpecRG**.
-1. Select the template spec you created. For example, **storageSpec**.
-1. Select **Deploy**.
-1. Select or enter the following values:
-
-    - **Subscription**: select an Azure subscription for creating the resource.
-    - **Resource group**: select **Create new** and then enter **storageRG**.
-    - **Storage Account Type**: select **Standard_GRS**.
-
-    You create a new resource group, and deploy the template within the template spec to the new resource group.
-
-1. Select **Review + create**.
-1. Select **Create**.
-
 # [PowerShell](#tab/azure-powershell)
 
 1. Create a resource group to contain the new storage account.
@@ -306,6 +303,31 @@ You can now deploy the template spec. Deploying the template spec is just like d
       --template-spec $id \
       --parameters storageAccountType='Standard_GRS'
     ```
+
+# [Portal](#tab/azure-portal)
+
+1. From the top of the screen, in **Search resources, services and docs**, enter **template specs**, and then select **Template specs**.
+
+    :::image type="content" source="./media/quickstart-create-template-specs/search-template-spec.png" alt-text="search template specs":::
+
+1. Select the template spec you created. For example, **storageSpec**.
+
+    :::image type="content" source="./media/quickstart-create-template-specs/select-template-spec.png" alt-text="select template specs":::
+
+1. Select **Deploy**.
+
+    :::image type="content" source="./media/quickstart-create-template-specs/deploy-template-spec.png" alt-text="deploy template specs":::
+
+1. Select or enter the following values:
+
+    - **Subscription**: select an Azure subscription for creating the resource.
+    - **Resource group**: select **Create new** and then enter **storageRG**.
+    - **Storage Account Type**: select **Standard_GRS**.
+
+    You create a new resource group, and deploy the template within the template spec to the new resource group.
+
+1. Select **Review + create**.
+1. Select **Create**.
 
 # [ARM Template](#tab/azure-resource-manager)
 
