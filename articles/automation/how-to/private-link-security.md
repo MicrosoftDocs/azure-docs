@@ -4,7 +4,7 @@ description: Use Azure Private Link to securely connect networks to Azure Automa
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 12/11/2020
 ms.subservice: 
 ---
 
@@ -37,6 +37,12 @@ With Private Link you can:
 - Keep all traffic inside the Microsoft Azure backbone network.
 
 For more information, see  [Key Benefits of Private Link](../../private-link/private-link-overview.md#key-benefits).
+
+## Limitations
+
+- In the current implementation of Private Link, Automation account cloud jobs cannot access Azure resources that are secured using private endpoint. For example, Azure Key Vault, Azure SQL, Azure Storage account, etc. To workaround this, use a [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md) instead.
+- You need to use the latest version of the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) for Windows or Linux.
+- The [Log Analytics Gateway](../../azure-monitor/platform/gateway.md) does not support Private Link.
 
 ## How it works
 
