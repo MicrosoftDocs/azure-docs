@@ -251,7 +251,7 @@ For each source form, the corresponding label file should have the original file
 To train a model with labeled data, call the **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** API by running the following python code. Before you run the code, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint URL for your Form Recognizer resource.
-1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 1. Replace `<Blob folder name>` with the folder name in your blob container where the input data is located. Or, if your data is at the root, leave this blank and remove the `"prefix"` field from the body of the HTTP request.
 
 # [v2.0](#tab/v2-0)
