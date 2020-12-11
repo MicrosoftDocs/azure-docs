@@ -27,9 +27,9 @@ To create custom roles, you need:
 Azure has thousands of permissions that you can potentially include in your custom role. Here are some methods that can help you determine the permissions you will want to add to your custom role:
 
 - Look at existing [built-in roles](built-in-roles.md).
-- List the relevant Azure services you want to grant access to.
+- List the Azure services you want to grant access to.
 - Determine the [resource providers that map to the Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). A search method is described later in [Step 4: Permissions](#step-4-permissions).
-- Search the [available permissions](resource-provider-operations.md). A search method is described later in [Step 4: Permissions](#step-4-permissions).
+- Search the [available permissions](resource-provider-operations.md) to find permissions you want to include. A search method is described later in [Step 4: Permissions](#step-4-permissions).
 
 ## Step 2: Choose how to start
 

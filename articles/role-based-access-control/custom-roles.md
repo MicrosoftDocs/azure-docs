@@ -24,11 +24,11 @@ Custom roles can be shared between subscriptions that trust the same Azure AD di
 
 ## Steps to create a custom role
 
-To create a custom role, here are the basic steps you should follow.
+Here are the basic steps to create a custom role.
 
 1. Determine the permissions you need.
 
-    When you create a custom role, you need to know the operations that are available to define your permissions. You will add the operations to the `Actions` or `NotActions` properties of the [role definition](role-definitions.md). If you have data operations, you will add those to the `DataActions` or `NotDataActions` properties.
+    When you create a custom role, you need to know the operations that are available to define your permissions. Typically, you start with an existing built-in role and then modify it for your needs. You will add the operations to the `Actions` or `NotActions` properties of the [role definition](role-definitions.md). If you have data operations, you will add those to the `DataActions` or `NotDataActions` properties.
 
     For more information, see the next section [How to determine the permissions you need](#how-to-determine-the-permissions-you-need).
 
@@ -38,7 +38,7 @@ To create a custom role, here are the basic steps you should follow.
 
 1. Create the custom role.
 
-    Typically, you start with an existing built-in role and then modify it for your needs. The easiest way is to use the Azure portal. For steps on how to create a custom role using the Azure portal, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
+    The easiest way is to use the Azure portal. For steps on how to create a custom role using the Azure portal, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
 
 1. Test the custom role.
 
@@ -48,25 +48,21 @@ To create a custom role, here are the basic steps you should follow.
 
 Azure has thousands of permissions that you can potentially include in your custom role. Here are some methods that can help you determine the permissions you will want to add to your custom role:
 
-- Look at existing built-in roles.
+- Look at existing [built-in roles](built-in-roles.md).
 
-    You might want to modify an existing role or combine permissions used in multiple roles. To look at the list of existing roles, see [Azure built-in roles](built-in-roles.md).
+    You might want to modify an existing role or combine permissions used in multiple roles.
 
-- List the relevant Azure services.
+- List the Azure services you want to grant access to.
 
-    List the Azure services you want to grant access to.
+- Determine the [resource providers that map to the Azure services](../azure-resource-manager/management/azure-services-resource-providers.md).
 
-- Determine the resource providers that map to the Azure services.
-
-    Azure services expose their functionality and permissions through [resource providers](../azure-resource-manager/management/overview.md). For example, the Microsoft.Compute resource provider supplies virtual machine resources and the Microsoft.Billing resource provider supplies subscription and billing resources. Knowing the resource providers can help you narrow down and determine the permissions you need for your custom role. You can find the corresponding resource provider for an Azure service by looking at the [mapping of resource providers to Azure services](../azure-resource-manager/management/azure-services-resource-providers.md).
+    Azure services expose their functionality and permissions through [resource providers](../azure-resource-manager/management/overview.md). For example, the Microsoft.Compute resource provider supplies virtual machine resources and the Microsoft.Billing resource provider supplies subscription and billing resources. Knowing the resource providers can help you narrow down and determine the permissions you need for your custom role.
 
     When you create a custom role using the Azure portal, you can also determine the resource providers by searching for keywords. This search functionality is described in [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md#step-4-permissions).
 
     ![Add permissions pane with resource provider](./media/custom-roles-portal/add-permissions-provider.png)
 
-- Search the available permissions.
-
-    View the list of available permissions and search for keywords to find permissions that you want to include. To view the available permissions, see [Azure resource provider operations](resource-provider-operations.md).
+- Search the [available permissions](resource-provider-operations.md) to find permissions you want to include.
 
     When you create a custom role using the Azure portal, you can search for permissions by keyword. For example, you can search for *virtual machine* or *billing* permissions. You can also download all of the permissions as a CSV file and then search this file. This search functionality is described in [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md#step-4-permissions).
 
