@@ -86,7 +86,7 @@ When a Stream Analytics job with SQL output receives the first batch of events, 
 2. The job fetches the schema of the destination table.
 3. The job validates column names and types against the destination table schema.
 4. The job prepares an in-memory data table from the output records in the batch.
-5. The job writes the data table to SQL using BulkCopy [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-3.1).
+5. The job writes the data table to SQL using BulkCopy [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver).
 
 During these steps, the SQL output can experience following types of errors:
 

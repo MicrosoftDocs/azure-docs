@@ -10,7 +10,7 @@ ms.custom: github-actions-azure
 
 ---
 
-# Use GitHub Actions to connect to Azure MySQL
+# Quickstart: Use GitHub Actions to connect to Azure MySQL
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/). 
 

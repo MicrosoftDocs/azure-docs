@@ -55,7 +55,7 @@ When you create a public load balancer, you create a new public IP address that 
     | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing**. |
     | Public IP address name | Type **myPublicIP** in the text box.|
     | Availability zone | Select **Zone-redundant** to create a resilient load balancer. To create a zonal load balancer, select a specific zone from 1, 2, or 3 |
-    | Add a public IPv6 address | Select **No**. </br> For more information on IPv6 addresses and load balancer, see [What is IPv6 for Azure Virtual Network?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)  |
+    | Add a public IPv6 address | Select **No**. </br> For more information on IPv6 addresses and load balancer, see [What is IPv6 for Azure Virtual Network?](../virtual-network/ipv6-overview.md)  |
 
 3. Accept the defaults for the remaining settings, and then select **Review + create**.
 
@@ -336,7 +336,7 @@ When you create a public load balancer, you create a new public IP address that 
     | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing**. |
     | Public IP address name | Type **myPublicIP** in the text box.|
     | Assignment | Select **Dynamic** |
-    | Add a public IPv6 address | Select **No**. </br> For more information on IPv6 addresses and load balancer, see [What is IPv6 for Azure Virtual Network?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)  |
+    | Add a public IPv6 address | Select **No**. </br> For more information on IPv6 addresses and load balancer, see [What is IPv6 for Azure Virtual Network?](../virtual-network/ipv6-overview.md)  |
 
 3. Accept the defaults for the remaining settings, and then select **Review + create**.
 

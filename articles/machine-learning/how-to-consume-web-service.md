@@ -1,7 +1,7 @@
 ---
 title: Create client for model deployed as web service
 titleSuffix: Azure Machine Learning
-description: Learn how to call a web service endpoint that was generated when a model was deployed from Azure Machine Learning. The endpoint exposes a REST API, which you can call to perform inference with the model. Create clients for this API by using the programming language of your choice. 
+description: Learn how to call a web service endpoint that was generated when a model was deployed from Azure Machine Learning. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
-ms.custom: "how-to, devx-track-python, devx-track-csharp"
+ms.custom: "how-to, devx-track-python, devx-track-csharp, devx-track-azurecli"
 
 
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.
@@ -117,7 +117,7 @@ Azure Machine Learning provides two ways to control access to your web services.
 
 When sending a request to a service that is secured with a key or token, use the __Authorization__ header to pass the key or token. The key or token must be formatted as `Bearer <key-or-token>`, where `<key-or-token>` is your key or token value.
 
-The primary difference between keys and tokens is that **keys are static and can be regenerated manually**, and **tokens need to be refreshed upon expiration**. Key-based auth is supported for Azure Container Instance and Azure Kubernetes Service deployed web-services, and token-based auth is **only** available for Azure Kubernetes Service deployments. See the [how-to](how-to-setup-authentication.md#web-service-authentication) on authentication for more information and specific code samples.
+The primary difference between keys and tokens is that **keys are static and can be regenerated manually**, and **tokens need to be refreshed upon expiration**. Key-based auth is supported for Azure Container Instance and Azure Kubernetes Service deployed web-services, and token-based auth is **only** available for Azure Kubernetes Service deployments. For more information on configuring authentication, see [Configure authentication for models deployed as web services](how-to-authenticate-web-service.md).
 
 
 #### Authentication with keys

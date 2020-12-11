@@ -43,10 +43,12 @@ First, you'll need a set of training data in an Azure Storage blob container. Yo
 
 To train a Form Recognizer model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** API by running the following python code. Before you run the code, make these changes:
 
-1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 1. Replace `<endpoint>` with the endpoint URL for your Form Recognizer resource.
 1. Replace `<Blob folder name>` with the path to the folder in blob storage where your forms are located. If your forms are at the root of your container, leave this string empty.
+1. Optionally replace `<your model name>` with the friendly name you'd like to give to your model.
 
     # [v2.0](#tab/v2-0)
     ```python
@@ -75,6 +77,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
             "prefix": prefix,
             "includeSubFolders": includeSubFolders
         },
+        "modelName":"<your model name>",
         "useLabelFile": useLabelFile
     }
     
@@ -98,7 +101,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
     
     # Endpoint URL
     endpoint = r"<endpoint>"
-    post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+    post_url = endpoint + r"/formrecognizer/v2.1-preview.2/custom/models"
     source = r"<SAS URL>"
     prefix = "<Blob folder name>"
     includeSubFolders = False

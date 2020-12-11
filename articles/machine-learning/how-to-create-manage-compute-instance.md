@@ -1,12 +1,12 @@
 ---
 title: Create and manage a compute instance
 titleSuffix: Azure Machine Learning
-description: Learn how to create and manage a compute instance in your Azure Machine Learning workspace. Use the compute instance as your development environment, or for training and inference dev/test purposes.
+description: Learn how to create and manage an Azure Machine Learning compute instance. Use as your development environment, or as  compute target for dev/test purposes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley

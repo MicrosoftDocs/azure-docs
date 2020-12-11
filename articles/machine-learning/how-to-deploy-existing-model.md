@@ -1,7 +1,7 @@
 ---
 title: Use and deploy existing models
 titleSuffix: Azure Machine Learning
-description: 'Learn how to bring your locally trained ML models to the Azure cloud with Azure Machine Learning.  You can register models created outside Azure Machine Learning, and then deploy them as a web service or Azure IoT Edge module.'
+description: 'Learn how to bring ML models trained outside Azure to the Azure cloud with Azure Machine Learning. Then deploy the model as a web service or IoT module.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

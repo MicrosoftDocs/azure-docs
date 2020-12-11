@@ -1,7 +1,7 @@
 ---
 title: Use AutoML to create models & deploy 
 titleSuffix: Azure Machine Learning
-description: Create, review, and deploy automated machine learning models with Azure Machine Learning.
+description: Create, review, and deploy automated machine learning models with the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ author: aniththa
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, automl
 ---
 
 # Create, review, and deploy automated machine learning models with Azure Machine Learning
@@ -134,7 +134,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
     Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-models). <br> See the [supported models for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
     Validation| Select one of the cross validation options to use in the training job. <br> [Learn more about cross validation](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Forecasting only supports k-fold cross validation.
-    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations.
+    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. Learn more about how automated ML performs [multiple child runs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
 1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings** you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
 
@@ -157,6 +157,9 @@ Impute with| Select what value to impute missing values with in your data.
 ## Run experiment and view results
 
 Select **Finish** to run your experiment. The experiment preparing process can take up to 10 minutes. Training jobs can take an additional 2-3 minutes more for each pipeline to finish running.
+
+> [!NOTE]
+> The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended models final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
 
 ### View experiment details
 

@@ -1,6 +1,6 @@
 ---
 title: What is Azure Machine Learning
-description: Overview of Azure Machine Learning - An integrated, end-to-end data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
+description: Azure Machine Learning is an integrated data science solution for data scientists and MLops to model and deploy ML applications at cloud scale.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -44,7 +44,7 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 + + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
-+ [Visual Studio Code extension](tutorial-setup-vscode-extension.md)
++ [Machine learning extension for Visual Studio Code users](tutorial-setup-vscode-extension.md)
 
 + [Machine learning CLI](reference-azure-machine-learning-cli.md)
 

@@ -225,7 +225,7 @@ This page defines the technical details used to connect to your offer. This conn
 
 The **Requires S2S outbound and CRM Secure Store Access** check box enables configuration of CRM Secure Store or Server-to-Server (S2S) outbound access. This feature requires specialized consideration from the Dynamics 365 Team during the certification phase. Microsoft will contact you to complete additional steps to support this feature.
 
-Provide the **Application configuration URL** for the web page that enables the customer to configure your app.
+Leave **Application configuration URL** blank; it is for future use.
 
 ### CRM package
 

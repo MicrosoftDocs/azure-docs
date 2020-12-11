@@ -9,6 +9,25 @@
     href: text-analytics-user-scenarios.md
   - name: What's new
     href: whats-new.md
+- name: Responsible use of AI
+  items: 
+  - name: Transparency notes
+    items:
+    - name: For Text Analytics
+      href: /legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context
+      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+    - name: For Health
+      href: /legal/cognitive-services/text-analytics/transparency-note-health?context=/azure/cognitive-services/text-analytics/context/context
+      displayName: Transparency note for Text Analytics for Health, Text Analytics Transparency for Health, Responsible AI, Responsible use of AI, Text Analytics Health
+    - name: For Personally Identifiable Info
+      href: /legal/cognitive-services/text-analytics/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/text-analytics/context/context
+      displayName: Transparency note for Text Analytics PII, Transparency note for Text Analytics Personally Identifiable Information, Text Analytics Transparency for PII, Responsible AI, Responsible use of AI, Text Analytics PII
+    - name: For Sentiment Analysis
+      href: /legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis?context=/azure/cognitive-services/text-analytics/context/context
+      displayName: Transparency note for Text Analytics Sentiment Analysis, Text Analytics Transparency for Sentiment Analysis, Responsible AI, Responsible use of AI, Text Analytics Sentiment Analysis, Sentiment Analysis Transparency Note
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
+    displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
 - name: Quickstarts
   expanded: true
   items:
@@ -30,7 +49,6 @@
         href: quickstarts/go.md
       - name: Using Ruby
         href: quickstarts/ruby.md
-
 - name: Tutorials
   items:
     - name: Integrate Power BI to analyze customer feedback
@@ -39,13 +57,12 @@
       href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
     - name: Sentiment analysis on streaming data using Azure Databricks
       maintainContext: true
-      href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
+      href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
       maintainContext: true
-      href: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis
+      href: ../translator/tutorial-build-flask-app-translation-synthesis.md
     - name: Extract information in Excel using Power Automate
       href: tutorials/extract-excel-information.md
-
 - name: Concepts
   items:
   - name: Named entity types
@@ -64,7 +81,7 @@
      href: How-tos/text-analytics-how-to-call-api.md
    - name: Language detection
      href: How-tos/text-analytics-how-to-language-detection.md
-   - name: Sentiment analysis
+   - name: Sentiment analysis and opinion mining
      href: How-tos/text-analytics-how-to-sentiment-analysis.md
    - name: Key phrase extraction
      href: How-tos/text-analytics-how-to-keyword-extraction.md
@@ -89,11 +106,13 @@
 - name: Reference
   items:
   - name: CLI reference
-    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: PowerShell reference
-    href: https://aka.ms/azure-powershell-cognitiveservices
+    href: /powershell/module/azurerm.cognitiveservices/
   - name: Text Analytics API
     items:
+      - name: v3.1.preview.3
+        href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/
       - name: v3.0
         href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
       - name: v2
@@ -103,23 +122,23 @@
     - name: v3.0
       items:
         - name: .NET
-          href: https://aka.ms/azsdk-net-textanalytics-ref-docs
+          href: /dotnet/api/azure.ai.textanalytics
         - name: Python
-          href: https://aka.ms/azsdk-python-textanalytics-ref-docs
+          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics
         - name: Java
-          href: https://docs.microsoft.com/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
+          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
         - name: Node.js
-          href: https://aka.ms/azsdk-js-textanalytics-ref-docs
+          href: /javascript/api/overview/azure/ai-text-analytics-readme
     - name: v2
       items:
         - name: .NET
-          href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet
+          href: /dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
         - name: Python
-          href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
+          href: /python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
         - name: Java
-          href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable
+          href: /java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable
         - name: Node.js
-          href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/?view=azure-node-latest
+          href: /javascript/api/@azure/cognitiveservices-textanalytics/?view=azure-node-latest
         - name: Go
           href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
 - name: Resources

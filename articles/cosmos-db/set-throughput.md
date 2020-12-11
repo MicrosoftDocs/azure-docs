@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 11/10/2020
 ---
 
 # Introduction to provisioned throughput in Azure Cosmos DB
@@ -60,7 +60,7 @@ All containers created inside a database with provisioned throughput must be cre
 
 If the workload on a logical partition consumes more than the throughput that's allocated to a specific logical partition, your operations are rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire database or retry the operations. For more information on partitioning, see [Logical partitions](partitioning-overview.md).
 
-Containers in a shared throughput database share the throughput (RU/s) allocated to that database. You can have up to four containers with a minimum of 400 RU/s on the database. With standard (manual) provisioned throughput, each new container after the first four will require an additional 100 RU/s minimum. For example, if you have a shared throughput database with eight containers, the minimum RU/s on the database will be 800 RU/s. With autoscale provisioned throughput, you can have up to 25 containers in a database with autoscale max 4000 RU/s (scales between 400 - 4000 RU/s).
+Containers in a shared throughput database share the throughput (RU/s) allocated to that database. With standard (manual) provisioned throughput, you can have up to 25 containers with a minimum of 400 RU/s on the database. With autoscale provisioned throughput, you can have up to 25 containers in a database with autoscale max 4000 RU/s (scales between 400 - 4000 RU/s).
 
 > [!NOTE]
 > In February 2020, we introduced a change that allows you to have a maximum of 25 containers in a shared throughput database, which  better enables throughput sharing across the containers. After the first 25 containers, you can add more containers to the database only if they are [provisioned with dedicated throughput](#set-throughput-on-a-database-and-a-container), which is separate from the shared throughput of the database.<br>
@@ -104,9 +104,8 @@ The response of those methods also contains the [minimum provisioned throughput]
 The actual minimum RU/s may vary depending on your account configuration. But generally it's the maximum of:
 
 * 400 RU/s 
-* Current storage in GB * 10 RU/s
+* Current storage in GB * 10 RU/s (unless your container or database contains more than 1 TB of data, see our [high storage / low throughput program](#high-storage-low-throughput-program))
 * Highest RU/s provisioned on the database or container / 100
-* Container count * 100 RU/s (shared throughput database only)
 
 ### Changing the provisioned throughput
 
@@ -133,7 +132,7 @@ You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-me
 
 As described in the [Current provisioned throughput](#current-provisioned-throughput) section above, the minimum throughput you can provision on a container or database depends on a number of factors. One of them is the amount of data currently stored, as Azure Cosmos DB enforces a minimum throughput of 10 RU/s per GB of storage.
 
-This can be a concern in situations where you need to store large amounts of data, but have low throughput requirements in comparison. To better accommodate these scenarios, Azure Cosmos DB has introduced a **"high storage / low throughput" program** that decreases the RU/s per GB constraint from 10 to 1 on eligible accounts.
+This can be a concern in situations where you need to store large amounts of data, but have low throughput requirements in comparison. To better accommodate these scenarios, Azure Cosmos DB has introduced a **"high storage / low throughput" program** that decreases the RU/s per GB constraint on eligible accounts.
 
 You currently need to have at least 1 container or shared-throughput database containing more than 1 TB of data in your account to be eligible. To join this program and assess your full eligibility, all you have to do is to fill [this survey](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). The Azure Cosmos DB team will then follow up and proceed with your onboarding.
 
@@ -142,8 +141,8 @@ This table shows a comparison between provisioning standard (manual) throughput 
 
 |**Parameter**  |**Standard (manual) throughput on a database**  |**Standard (manual) throughput on a container**|**Autoscale throughput on a database** | **Autoscale throughput on a container**|
 |---------|---------|---------|---------|---------|
-|Entry point (minimum RU/s) |400 RU/s. After the first four containers, each additional container requires a minimum of 100 RU/s</li> |400| Autoscale between 400 - 4000 RU/s. Can have up to 25 containers with no RU/s minimum per container</li> | Autoscale between 400 - 4000 RU/s.|
-|Minimum RU/s per container|100|400|--|Autoscale between 400 - 4000 RU/s|
+|Entry point (minimum RU/s) |400 RU/s. Can have up to 25 containers with no RU/s minimum per container.</li> |400| Autoscale between 400 - 4000 RU/s. Can have up to 25 containers with no RU/s minimum per container.</li> | Autoscale between 400 - 4000 RU/s.|
+|Minimum RU/s per container|--|400|--|Autoscale between 400 - 4000 RU/s|
 |Maximum RUs|Unlimited, on the database.|Unlimited, on the container.|Unlimited, on the database.|Unlimited, on the container.
 |RUs assigned or available to a specific container|No guarantees. RUs assigned to a given container depend on the properties. Properties can be the choice of partition keys of containers that share the throughput, the distribution of the workload, and the number of containers. |All the RUs configured on the container are exclusively reserved for the container.|No guarantees. RUs assigned to a given container depend on the properties. Properties can be the choice of partition keys of containers that share the throughput, the distribution of the workload, and the number of containers. |All the RUs configured on the container are exclusively reserved for the container.|
 |Maximum storage for a container|Unlimited.|Unlimited|Unlimited|Unlimited|

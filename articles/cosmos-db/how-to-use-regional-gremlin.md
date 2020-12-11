@@ -1,8 +1,8 @@
 ---
 title: Regional endpoints for Azure Cosmos DB Graph database
 description: Learn how to connect to nearest Graph database endpoint for your application
-author: jasonwhowell
-ms.author: jasonh
+author: christopheranderson
+ms.author: chrande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to

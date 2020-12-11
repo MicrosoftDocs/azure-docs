@@ -3,7 +3,7 @@ title: Azure CLI Samples for Azure Cosmos DB Table API
 description: Azure CLI Samples for Azure Cosmos DB Table API
 author: markjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 10/13/2020
 ms.author: mjbrown 

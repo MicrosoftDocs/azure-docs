@@ -1,14 +1,14 @@
 ---
 title: Secure web services using TLS
 titleSuffix: Azure Machine Learning
-description: Learn how to enable HTTPS in order to secure a web service that's deployed through Azure Machine Learning. Azure Machine Learning uses TLS version 1.2 to secure models deployed as web services.
+description: Learn how to enable HTTPS with TLS version 1.2 to secure a web service that's deployed through Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 03/05/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
 ---
@@ -23,7 +23,7 @@ You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to web s
 > [!TIP]
 > The Azure Machine Learning SDK uses the term "SSL" for properties that are related to secure communications. This doesn't mean that your web service doesn't use *TLS*. SSL is just a more commonly recognized term.
 >
-> Specifically, web services deployed through Azure Machine Learning support TLS version 1.2 for AKS and ACI. For ACI deployments, if you are on older TLS version, we recommend re-deploying to get the latest TLS version.
+> Specifically, web services deployed through Azure Machine Learning support TLS version 1.2 for AKS and ACI new deployments. For ACI deployments, if you are on older TLS version, we recommend re-deploying to get the latest TLS version.
 
 TLS and SSL both rely on *digital certificates*, which help with encryption and identity verification. For more information on how digital certificates work, see the Wikipedia topic [Public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
@@ -81,6 +81,9 @@ When you deploy to AKS, you can create a new AKS cluster or attach an existing o
 - If you attach an existing cluster, you use **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)**. Both return a configuration object that has an **enable_ssl** method.
 
 The **enable_ssl** method can use a certificate that's provided by Microsoft or a certificate that you purchase.
+
+> [!WARNING]
+> If your AKS cluster is configured with an internal load balancer, using a Microsoft provided certificate is __not supported__. Using a Microsoft provided certificate requires a public IP resource in Azure, which is not available for AKS when configured for internal load balancer.
 
   * When you use a certificate from Microsoft, you must use the *leaf_domain_label* parameter. This parameter generates the DNS name for the service. For example, a value of "contoso" creates a domain name of "contoso\<six-random-characters>.\<azureregion>.cloudapp.azure.com", where \<azureregion> is the region that contains the service. Optionally, you can use the *overwrite_existing_domain* parameter to overwrite the existing *leaf_domain_label*.
 
@@ -154,7 +157,8 @@ Next, you must update your DNS to point to the web service.
 
   > [!WARNING]
   > If you used *leaf_domain_label* to create the service by using a certificate from Microsoft, don't manually update the DNS value for the cluster. The value should be set automatically.
-
+  >
+  > If your AKS cluster is configured with an internal load balancer, using a Microsoft provided certificate (by setting *leaf_domain_label*) is __not supported__. Using a Microsoft provided certificate requires a public IP resource in Azure, which is not available for AKS when configured for internal load balancer.
   Update the DNS of the Public IP Address of the AKS cluster on the **Configuration** tab under **Settings** in the left pane. (See the following image.) The Public IP Address is a resource type that's created under the resource group that contains the AKS agent nodes and other networking resources.
 
   [![Azure Machine Learning: Securing web services with TLS](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)

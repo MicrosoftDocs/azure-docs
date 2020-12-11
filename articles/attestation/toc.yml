@@ -13,7 +13,7 @@
     href: quickstart-powershell.md
 - name: Tutorials
   items:
-  - name: Authoring and signing an attestation policy
+  - name: Authoring an attestation policy
     href: author-sign-policy.md
   - name: SGX attestation code samples
     href: /samples/browse/?expanded=azure&terms=attestation
@@ -35,17 +35,25 @@
         href: claim-sets.md
   - name: Workflow
     href: workflow.md
+  - name: View audit logs
+    href: audit-logs.md
 - name: References
   items:
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation
   - name: FAQ
     href: faq.md
   - name: REST
     href: /rest/api/attestation/
   - name: Azure PowerShell
-    href: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+    href: /powershell/module/az.attestation/?view=azps-5.0.0#attestation
+  - name: Azure CLI
+    href: /cli/azure/ext/attestation/attestation?view=azure-cli-latest
   - name: Azure DCAP library for Windows
     href: https://www.nuget.org/packages/Microsoft.Azure.DCAP/
   - name: Azure DCAP library for Linux
     href: https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/
+  - name: Troubleshoot issues
+    href: troubleshoot-guide.md
   - name: VBS attestation protocol
     href: virtualization-based-security-protocol.md

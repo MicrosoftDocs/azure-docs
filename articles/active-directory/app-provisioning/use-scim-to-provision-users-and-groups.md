@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Tutorial - Build a SCIM endpoint and configure user provisioning with Azure AD
@@ -83,7 +83,8 @@ The schema defined above would be represented using the JSON payload below. Note
      "location":
  "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
    }
- ```
+}   
+```
 
 ### Table 2: Default user attribute mapping
 You can then use the table below to understand how the attributes your application requires could map to an attribute in Azure AD and the SCIM RFC. You can [customize](customize-application-attributes.md) how attributes are mapped between Azure AD and your SCIM endpoint. Note that you don't need to support both users and groups or all the attributes shown below. They are a reference for how attributes in Azure AD are often mapped to properties in the SCIM protocol. 
@@ -121,8 +122,7 @@ You can then use the table below to understand how the attributes your applicati
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
-There are several endpoints defined in the SCIM RFC. You can get started with the /User endpoint and then expand from there. The /Schemas endpoint is helpful when using custom attributes or if your schema changes frequently. It enables a client to retrieve the most up-to-date schema automatically. The /Bulk endpoint is especially helpful when supporting groups. The table below describes the various endpoints defined in the SCIM standard. 
- The /Schemas endpoint is helpful when using custom attributes or if your schema changes frequently. It enables a client to retrieve the most up to date schema automatically. The /Bulk endpoint is especially helpful when supporting groups. The table below describes the various endpoints defined in the SCIM standard. 
+There are several endpoints defined in the SCIM RFC. You can get started with the /User endpoint and then expand from there. The /Schemas endpoint is helpful when using custom attributes or if your schema changes frequently. It enables a client to retrieve the most up-to-date schema automatically. The /Bulk endpoint is especially helpful when supporting groups. The table below describes the various endpoints defined in the SCIM standard.
  
 ### Table 4: Determine the endpoints that you would like to develop
 |ENDPOINT|DESCRIPTION|
@@ -149,6 +149,7 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 * Supports querying users or groups, as per section [3.4.2 of the SCIM protocol](https://tools.ietf.org/html/rfc7644#section-3.4.2).  By default, users are retrieved by their `id` and queried by their `username` and `externalId`, and groups are queried by `displayName`.  
 * Supports querying user by ID and by manager, as per section 3.4.2 of the SCIM protocol.  
 * Supports querying groups by ID and by member, as per section 3.4.2 of the SCIM protocol.  
+* Supports the filter [excludedAttributes=members](#get-group) when querying the group resource, as per section 3.4.2.5 of the SCIM protocol.
 * Accepts a single bearer token for authentication and authorization of Azure AD to your application.
 * Supports soft-deleting a user `active=false` and restoring the user `active=true` (the user object should be returned in a request whether or not the user is active). The only time the user should not be returned is when it is hard deleted from the application. 
 
@@ -193,33 +194,21 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
   - [Create User](#create-user) ([Request](#request) / [Response](#response))
   - [Get User](#get-user) ([Request](#request-1) / [Response](#response-1))
   - [Get User by query](#get-user-by-query) ([Request](#request-2) / [Response](#response-2))
-  - [Get User by query - Zero results](#get-user-by-query---zero-results) ([Request](#request-3)
-/ [Response](#response-3))
-  - [Update User [Multi-valued properties]](#update-user-multi-valued-properties) ([Request](#request-4) /  [Response](#response-4))
-  - [Update User [Single-valued properties]](#update-user-single-valued-properties) ([Request](#request-5)
-/ [Response](#response-5)) 
-  - [Disable User](#disable-user) ([Request](#request-14) / 
-[Response](#response-14))
-  - [Delete User](#delete-user) ([Request](#request-6) / 
-[Response](#response-6))
+  - [Get User by query - Zero results](#get-user-by-query---zero-results) ([Request](#request-3) / [Response](#response-3))
+  - [Update User [Multi-valued properties]](#update-user-multi-valued-properties) ([Request](#request-4) / [Response](#response-4))
+  - [Update User [Single-valued properties]](#update-user-single-valued-properties) ([Request](#request-5) / [Response](#response-5)) 
+  - [Disable User](#disable-user) ([Request](#request-14) / [Response](#response-14))
+  - [Delete User](#delete-user) ([Request](#request-6) / [Response](#response-6))
 
 
 [Group Operations](#group-operations)
-  - [Create Group](#create-group) (
-[Request](#request-7) / [Response](#response-7))
-  - [Get Group](#get-group) (
-[Request](#request-8) / [Response](#response-8))
+  - [Create Group](#create-group) ([Request](#request-7) / [Response](#response-7))
+  - [Get Group](#get-group) ([Request](#request-8) / [Response](#response-8))
   - [Get Group by displayName](#get-group-by-displayname) ([Request](#request-9) / [Response](#response-9))
-  - [Update Group [Non-member attributes]](#update-group-non-member-attributes) ([Request](#request-10) /
- [Response](#response-10))
-  - [Update Group [Add Members]](#update-group-add-members) (
-[Request](#request-11) /
-[Response](#response-11))
-  - [Update Group [Remove Members]](#update-group-remove-members) (
-[Request](#request-12) /
-[Response](#response-12))
-  - [Delete Group](#delete-group) ([Request](#request-13) /
-[Response](#response-13))
+  - [Update Group [Non-member attributes]](#update-group-non-member-attributes) ([Request](#request-10) / [Response](#response-10))
+  - [Update Group [Add Members]](#update-group-add-members) ([Request](#request-11) / [Response](#response-11))
+  - [Update Group [Remove Members]](#update-group-remove-members) ([Request](#request-12) / [Response](#response-12))
+  - [Delete Group](#delete-group) ([Request](#request-13) / [Response](#response-13))
 
 ### User Operations
 
@@ -748,7 +737,7 @@ TLS 1.2 Cipher Suites minimum bar:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### IP Ranges
-The Azure AD provisioning service currently operates under the IP Ranges for AzureActiveDirectory as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the AzureActiveDirectory tag to allow traffic from the Azure AD provisioning service into your application. Note that you will need to review the IP range list carefully for computed addresses. An address such as '40.126.25.32' could be represented in the IP range list as  '40.126.0.0/18'. You can also programatically retrieve the IP range list using the following [API](/rest/api/virtualnetwork/servicetags/list).
+The Azure AD provisioning service currently operates under the IP Ranges for AzureActiveDirectory as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the AzureActiveDirectory tag to allow traffic from the Azure AD provisioning service into your application. Note that you will need to review the IP range list carefully for computed addresses. An address such as '40.126.25.32' could be represented in the IP range list as  '40.126.0.0/18'. You can also programmatically retrieve the IP range list using the following [API](/rest/api/virtualnetwork/servicetags/list).
 
 ## Step 3: Build a SCIM endpoint
 
@@ -1174,10 +1163,10 @@ Once the initial cycle has started, you can select **Provisioning logs** in the 
 
 ## Step 5: Publish your application to the Azure AD application gallery
 
-If you're building an application that will be used by more than one tenant, you can make it available in the Azure AD application gallery. This will make it easy for organizations to discover the application and configure provisioning. Publishing your app in the Azure AD gallery and making provisioning available to others is easy. Check out the steps [here](../azuread-dev/howto-app-gallery-listing.md). Microsoft will work with you to integrate your application into our gallery, test your endpoint, and release onboarding [documentation](../saas-apps/tutorial-list.md) for customers to use. 
+If you're building an application that will be used by more than one tenant, you can make it available in the Azure AD application gallery. This will make it easy for organizations to discover the application and configure provisioning. Publishing your app in the Azure AD gallery and making provisioning available to others is easy. Check out the steps [here](../develop/v2-howto-app-gallery-listing.md). Microsoft will work with you to integrate your application into our gallery, test your endpoint, and release onboarding [documentation](../saas-apps/tutorial-list.md) for customers to use.
 
 ### Gallery onboarding checklist
-Follow the checklist below to ensure that your application is onboarded quicky and customers have a smooth deployment experience. The information will be gathered from you when onboarding to the gallery. 
+Follow the checklist below to ensure that your application is onboarded quickly and customers have a smooth deployment experience. The information will be gathered from you when onboarding to the gallery. 
 > [!div class="checklist"]
 > * Support a [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) user and group endpoint (Only one is required but both are recommended)
 > * Support at least 25 requests per second per tenant to ensure that users and groups are provisioned and deprovisioned without delay (Required)
@@ -1249,3 +1238,4 @@ To help drive awareness and demand of our joint integration, we recommend you up
 * [Scoping filters for user provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Account provisioning notifications](user-provisioning.md)
 * [List of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md)
+

@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 # Sentence pairing and alignment in parallel documents
 
-During the training, sentences present in parallel documents are
+After documents are uploaded, sentences present in parallel documents are
 paired or aligned. Custom Translator reports the number of sentences it was
 able to pair as the Aligned Sentences in each of the data sets.
 
@@ -53,7 +53,7 @@ For a training to succeed, the table below shows the minimum number of sentences
 > [!NOTE]
 > - Training will not start and will fail if the 10,000 minimum sentence count for Training is not met. 
 > - Tuning and Testing are optional. If you do not provide them, the system will remove an appropriate percentage from Training to use for validation and testing. 
-> - You can train a model using only dictionary data. Please refer to [What is Dictionary](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
+> - You can train a model using only dictionary data. Please refer to [What is Dictionary](./what-is-dictionary.md).
 
 ## Next steps
 

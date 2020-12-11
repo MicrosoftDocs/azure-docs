@@ -42,15 +42,15 @@ productDirectory:
        # imageSrc should be square in ratio with no whitespace
        imageSrc: ./media/index/video.svg
        links: 
-         - url: https://myignite.techcommunity.microsoft.com/sessions/82996
+         - url: https://myignite.microsoft.com/archives/IG19-OPS10
            text: "Building the foundation for modern ops: monitoring"
-         - url: https://myignite.techcommunity.microsoft.com/sessions/82997  
+         - url: https://myignite.microsoft.com/archives/IG19-OPS20  
            text: Responding to incidents
-         - url: https://myignite.techcommunity.microsoft.com/sessions/82998  
+         - url: https://myignite.microsoft.com/archives/IG19-OPS30  
            text: Learning from failure
-         - url: https://myignite.techcommunity.microsoft.com/sessions/82999  
+         - url: https://myignite.microsoft.com/archives/IG19-OPS40  
            text: Deployment practices for greater reliability
-         - url: https://myignite.techcommunity.microsoft.com/sessions/83001  
+         - url: https://myignite.microsoft.com/archives/IG19-OPS50  
            text: "Preparing for growth: capacity planning and scaling"
      # Card
      - title: SRE online courses

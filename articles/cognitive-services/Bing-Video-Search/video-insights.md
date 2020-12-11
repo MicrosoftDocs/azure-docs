@@ -16,11 +16,11 @@ ms.author: scottwhi
 # Get insights about a video
 
 > [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Each video returned by the Bing Video Search API includes a video ID that you can use to get more information about it, such as related videos. To get insights about a video, get its [videoId](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid) token in the API response. 
+Each video returned by the Bing Video Search API includes a video ID that you can use to get more information about it, such as related videos. To get insights about a video, get its [videoId](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid) token in the API response. 
 
 ```json
     "value" : [
@@ -35,7 +35,7 @@ Each video returned by the Bing Video Search API includes a video ID that you ca
     ],
 ```
 
-Afterwards, send a GET request to the Video details endpoint with the ID. Set the [id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#id) query parameter to the `videoId` token. To specify the insights that you want to get, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) query parameter. To get all insights, set `modules` to All. The response includes all the insights that you requested, if available.
+Afterwards, send a GET request to the Video details endpoint with the ID. Set the [id](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#id) query parameter to the `videoId` token. To specify the insights that you want to get, set the [modules](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) query parameter. To get all insights, set `modules` to All. The response includes all the insights that you requested, if available.
 
 ```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
@@ -49,7 +49,7 @@ Host: api.cognitive.microsoft.com
 
 ## Getting related videos insights  
 
-To get videos that are related to the specified video, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) query parameter to `RelatedVideos`.
+To get videos that are related to the specified video, set the [modules](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) query parameter to `RelatedVideos`.
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
@@ -61,7 +61,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-The response to this request will have a top-level [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails) object instead of a [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) object.  
+The response to this request will have a top-level [VideoDetails](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails) object instead of a [Videos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) object.  
   
 ```json
 {
@@ -99,4 +99,3 @@ The response to this request will have a top-level [VideoDetails](https://docs.m
 
 > [!div class="nextstepaction"]
 > [Search for trending videos](trending-videos.md)
-

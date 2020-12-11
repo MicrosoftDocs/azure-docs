@@ -28,10 +28,11 @@ You might receive errors when you try to delete a virtual network in Microsoft A
 
 1. [Check whether a virtual network gateway is running in the virtual network](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
 2. [Check whether an application gateway is running in the virtual network](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
-3. [Check whether Azure Active Directory Domain Service is enabled in the virtual network](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
-4. [Check whether the virtual network is connected to other resource](#check-whether-the-virtual-network-is-connected-to-other-resource).
-5. [Check whether a virtual machine is still running in the virtual network](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
-6. [Check whether the virtual network is stuck in migration](#check-whether-the-virtual-network-is-stuck-in-migration).
+3. [Check whether Azure container instances still exist in the virtual network](#check-whether-azure-container-instances-still-exist-in-the-virtual-network).
+4. [Check whether Azure Active Directory Domain Service is enabled in the virtual network](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
+5. [Check whether the virtual network is connected to other resource](#check-whether-the-virtual-network-is-connected-to-other-resource).
+6. [Check whether a virtual machine is still running in the virtual network](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
+7. [Check whether the virtual network is stuck in migration](#check-whether-the-virtual-network-is-stuck-in-migration).
 
 ## Troubleshooting steps
 
@@ -56,6 +57,19 @@ Go to the **Overview** page of the virtual network. Check the **Connected device
 ![Screenshot of the list of Connected devices for a virtual network in Azure portal. The Application gateway is highlighted in the list.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 If there is an application gateway, you must remove it before you can delete the virtual network.
+
+### Check whether Azure container instances still exist in the virtual network
+
+1. In the Azure portal, go to the resource group's **Overview** page.
+1. In the header for the list of the resource group's resources, select **Show hidden types**. The network profile type is hidden in the Azure portal by default.
+1. Select the network profile related to the container groups.
+1. Select **Delete**.
+
+   ![Screenshot of the list of hidden network profiles.](media/virtual-network-troubleshoot-cannot-delete-vnet/container-instances.png)
+
+1. Delete the subnet or virtual network again.
+
+If these steps don't resolve the issue, use these [Azure CLI commands](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) to clean up resources. 
 
 ### Check whether Azure Active Directory Domain Service is enabled in the virtual network
 

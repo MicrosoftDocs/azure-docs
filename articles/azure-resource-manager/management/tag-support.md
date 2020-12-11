@@ -279,7 +279,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | configurationStores | Yes | Yes |
+> | configurationStores | Yes | No |
 > | configurationStores / eventGridFilters | No | No |
 > | configurationStores / keyValues | No | No |
 

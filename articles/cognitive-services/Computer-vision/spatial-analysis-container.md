@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/06/2020
 ms.author: aahi
 ---
 
@@ -29,7 +29,7 @@ To run the spatial analysis container, you need a compute device with a [NVIDIA 
 
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
 
-Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. For detailed preparation and setup instructions, see the [Azure Stack Edge documentation](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep).
+Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. For detailed preparation and setup instructions, see the [Azure Stack Edge documentation](../../databox-online/azure-stack-edge-deploy-prep.md).
 
 #### [Desktop machine](#tab/desktop-machine)
 
@@ -54,7 +54,7 @@ In this article, you will download and install the following software packages. 
 * [NVIDIA graphics drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) and [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 * Configurations for [NVIDIA MPS](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf) (Multi-Process Service).
 * [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) and [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) 
-* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) runtime.
+* [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) runtime.
 
 ---
 
@@ -88,7 +88,7 @@ It is recommended that you use an Azure Stack Edge device for your host computer
  
 Spatial analysis uses the compute features of the Azure Stack Edge to run an AI solution. To enable the compute features, make sure that: 
 
-* You've [connected and activated](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate) your Azure Stack Edge device. 
+* You've [connected and activated](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md) your Azure Stack Edge device. 
 * You have a Windows client system running PowerShell 5.0 or later, to access the device.  
 * To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge device via the **Local UI** on the [Azure portal](https://portal.azure.com/): 
   1. Enable the compute feature on your Azure Stack Edge device. To enable compute, go to the **Compute** page in the web interface for your device. 
@@ -112,7 +112,7 @@ When the Edge compute role is set up on the Edge device, it creates two devices:
 
 > [!NOTE]
 > * Currently only the Linux platform is supported for IoT Edge devices. For help troubleshooting the Azure Stack Edge device, see the [logging and troubleshooting](spatial-analysis-logging.md) article.
-> * To learn more about how to configure an IoT Edge device to communicate through a proxy server, see [Configure an IoT Edge device to communicate through a proxy server](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal)
+> * To learn more about how to configure an IoT Edge device to communicate through a proxy server, see [Configure an IoT Edge device to communicate through a proxy server](../../iot-edge/how-to-configure-proxy-support.md#azure-portal)
 
 ###  Enable MPS on Azure Stack Edge 
 
@@ -124,7 +124,7 @@ When the Edge compute role is set up on the Edge device, it creates two devices:
     winrm quickconfig
     ```
     
-    If you see warnings about a firewall exception, check your network connection type, and see the [Windows Remote Management](https://docs.microsoft.com/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) documentation.
+    If you see warnings about a firewall exception, check your network connection type, and see the [Windows Remote Management](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) documentation.
 
 3. Assign a variable to the device IP address. 
     
@@ -241,7 +241,7 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## Configure Azure IoT Edge on the host computer
 
-To deploy the spatial analysis container on the host computer, create an instance of an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) service using the Standard (S1) or Free (F0) pricing tier. If your host computer is an Azure Stack Edge, use the same subscription and resource group that is used by the Azure Stack Edge resource.
+To deploy the spatial analysis container on the host computer, create an instance of an [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) service using the Standard (S1) or Free (F0) pricing tier. If your host computer is an Azure Stack Edge, use the same subscription and resource group that is used by the Azure Stack Edge resource.
 
 Use the Azure CLI to create an instance of Azure IoT Hub. Replace the parameters where appropriate. Alternatively, you can create the Azure IoT Hub on the [Azure portal](https://portal.azure.com/).
 
@@ -256,7 +256,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-If the host computer isn't an Azure Stack Edge device, you will need to install [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) version 1.0.9. Follow these steps to download the correct version:
+If the host computer isn't an Azure Stack Edge device, you will need to install [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) version 1.0.9. Follow these steps to download the correct version:
 
 Ubuntu Server 18.04:
 ```bash
@@ -284,10 +284,10 @@ sudo apt-get update
 Install the 1.0.9 release:
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Next, register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
+Next, register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
 
 You need to connect the IoT Edge device to your Azure IoT Hub. You need to copy the connection string from the IoT Edge device you created earlier. Alternatively, you can run the below command in the Azure CLI.
 
@@ -302,7 +302,7 @@ Run this command to restart the IoT Edge service on the host computer.
 sudo systemctl restart iotedge
 ```
 
-Deploy the spatial analysis container as an IoT Module on the host computer, either from the [Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) or [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli). If you're using the portal, set the image URI to the location of your Azure Container Registry. 
+Deploy the spatial analysis container as an IoT Module on the host computer, either from the [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or [Azure CLI](../../iot-edge/how-to-deploy-modules-cli.md). If you're using the portal, set the image URI to the location of your Azure Container Registry. 
 
 Use the below steps to deploy the container using the Azure CLI.
 
@@ -331,7 +331,7 @@ The following table shows the various Environment Variables used by the IoT Edge
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-Once you update the Deployment manifest for [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179) or [a desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) with your own settings and selection of operations, you can use the below [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) command to deploy the container on the host computer, as an IoT Edge Module.
+Once you update the Deployment manifest for [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179) or [a desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) with your own settings and selection of operations, you can use the below [Azure CLI](../../iot-edge/how-to-deploy-modules-cli.md) command to deploy the container on the host computer, as an IoT Edge Module.
 
 ```azurecli
 az login
@@ -362,14 +362,14 @@ You will need to use [spatial analysis operations](spatial-analysis-operations.m
 
 ## Redeploy or delete the deployment
 
-If you need to update the deployment, you need to make sure your previous deployments are successfully deployed, or you need to delete IoT Edge device deployments that did not complete. Otherwise, those deployments will continue, leaving the system in a bad state. You can use the Azure portal, or the [Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
+If you need to update the deployment, you need to make sure your previous deployments are successfully deployed, or you need to delete IoT Edge device deployments that did not complete. Otherwise, those deployments will continue, leaving the system in a bad state. You can use the Azure portal, or the [Azure CLI](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
 
 ## Use the output generated by the container
 
 If you want to start consuming the output generated by the container, see the following articles:
 
-*	Use the Azure Event Hub SDK for your chosen programming language to connect to the Azure IoT Hub endpoint and receive the events. See [Read device-to-cloud messages from the built-in endpoint](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) for more information. 
-*	Set up Message Routing on your Azure IoT Hub to send the events to other endpoints or save the events to Azure Blob Storage, etc. See [IoT Hub Message Routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) for more information. 
+*	Use the Azure Event Hub SDK for your chosen programming language to connect to the Azure IoT Hub endpoint and receive the events. See [Read device-to-cloud messages from the built-in endpoint](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) for more information. 
+*	Set up Message Routing on your Azure IoT Hub to send the events to other endpoints or save the events to Azure Blob Storage, etc. See [IoT Hub Message Routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) for more information. 
 
 ## Running spatial analysis with a recorded video file
 

@@ -1,7 +1,7 @@
 ---
 title:  "Execute Python Script: Module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Execute Python Script module in Azure Machine Learning to run Python code.
+description: Learn how to use the Execute Python Script module in Azure Machine Learning designer to run Python code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
+ms.date: 12/02/2020
 ---
 # Execute Python Script module
 
@@ -54,6 +54,36 @@ if spec is None:
 
 > [!WARNING]
 > Excute Python Script module does not support installing packages that depend on extra native libraries with command like "apt-get", such as Java, PyODBC and etc. This is because this module is executed in a simple environment with Python pre-installed only and with non-admin permission.  
+
+## Access to registered datasets
+
+You can refer to the following sample code to access to the [registered datasets](../how-to-create-register-datasets.md) in your workspace:
+
+```Python
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    ws = run.experiment.workspace
+
+    from azureml.core import Dataset
+    dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
+    dataframe1 = dataset.to_pandas_dataframe()
+     
+    # If a zip file is connected to the third input port,
+    # it is unzipped under "./Script Bundle". This directory is added
+    # to sys.path. Therefore, if your zip file contains a Python file
+    # mymodule.py you can import it using:
+    # import mymodule
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+```
 
 ## Upload files
 The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).

@@ -16,7 +16,7 @@ In this article, you'll learn how to register a public application in Azure Acti
 
 Client application registrations are Azure Active Directory representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page JavaScript applications that can't keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-azure-ad-client-app.md), but since public clients can't be trusted to hold an application secret, there's no need to add one.
 
-The quickstart provides general information about how to [register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+The quickstart provides general information about how to [register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 ## App registrations in Azure portal
 
@@ -37,7 +37,7 @@ The quickstart provides general information about how to [register an applicatio
     ![Azure portal. New public App Registration.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
 
 
-To configure your [desktop](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), [mobile](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-app-registration) or [single-page](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) application as public application:
+To configure your [desktop](../active-directory/develop/scenario-desktop-app-registration.md), [mobile](../active-directory/develop/scenario-mobile-app-registration.md) or [single-page](../active-directory/develop/scenario-spa-app-registration.md) application as public application:
 
 1. In the [Azure portal](https://portal.azure.com), in **App registrations**, select your app, and then select **Authentication**.
 

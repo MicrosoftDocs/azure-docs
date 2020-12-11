@@ -1,10 +1,10 @@
 ---
 title: Transform data using Hive Activity - Azure 
-description: Learn how you can use the Hive Activity in an Azure data factory v1 to run Hive queries on an on-demand/your own HDInsight cluster.
+description: Learn how you can use the Hive Activity in Azure Data Factory v1 to run Hive queries on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227

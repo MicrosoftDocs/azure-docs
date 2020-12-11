@@ -10,7 +10,7 @@ ms.author: jordane
 author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2, devx-track-python, deploy
+ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
 ---
 
 # Deploy ML models to field-programmable gate arrays (FPGAs) with Azure Machine Learning 
@@ -28,7 +28,7 @@ You can reconfigure FPGAs for different types of machine learning models. This f
 
 |Processor| Abbreviation |Description|
 |---|:-------:|------|
-|Application-specific integrated circuits|ASICs|Custom circuits, such as Google's TensorFlow Processor Units (TPU), provide the highest efficiency. They can't be reconfigured as your needs change.|
+|Application-specific integrated circuits|ASICs|Custom circuits, such as Google's Tensor Processor Units (TPU), provide the highest efficiency. They can't be reconfigured as your needs change.|
 |Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs. They are also flexible and reconfigurable over time, to implement new logic.|
 |Graphics processing units|GPUs|A popular choice for AI computations. GPUs offer parallel processing capabilities, making it faster at image rendering than CPUs.|
 |Central processing units|CPUs|General-purpose processors, the performance of which isn't ideal for graphics and video processing.|
@@ -357,6 +357,8 @@ converted_model.delete()
 ## Next steps
 
 + Learn how to [secure your web services](how-to-secure-web-service.md) document.
+
++ Learn about FPGA and [Azure Machine Learning pricing and costs](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 + [Hyperscale hardware: ML at scale on top of Azure + FPGA: Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 

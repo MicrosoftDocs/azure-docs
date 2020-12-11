@@ -34,13 +34,13 @@ To get started, you'll need:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Tenant must be linked to your Azure subscription.
+- An [Azure AD B2C tenant](./tutorial-create-tenant.md). Tenant must be linked to your Azure subscription.
 
 - A TheAccessHub Admin Tool environment: Contact [N8 Identity](https://n8id.com/contact/) to provision a new environment.
 
 - [Optional] Connection and credential information for any databases or Lightweight Directory Access Protocols (LDAPs) you want to migrate customer data from.
 
-- [Optional] Configured Azure AD B2C environment for using [custom policies](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started), if you wish to integrate TheAccessHub Admin Tool into your sign-up policy flow.
+- [Optional] Configured Azure AD B2C environment for using [custom policies](./custom-policy-get-started.md), if you wish to integrate TheAccessHub Admin Tool into your sign-up policy flow.
 
 ## Scenario description
 
@@ -98,7 +98,7 @@ To authorize TheAccessHub Admin Tool to access your directory, follow these step
 
 5. Follow the prompts and select **Accept** to grant TheAccessHub Admin Tool the requested permissions.
 
-## Configure a new CSR/Helpdesk user using your enterprise identity
+## Configure a new CSR user using your enterprise identity
 
 Create a CSR/Helpdesk user who accesses TheAccessHub Admin Tool using their existing enterprise Azure Active Directory credentials.
 
@@ -122,7 +122,7 @@ To configure CSR/Helpdesk user with Single Sign-on (SSO), the following steps ar
 
 6. Select **Submit**.
 
-## Configure a new CSR/Helpdesk user using a new identity
+## Configure a new CSR user using a new identity
 
 Create a CSR/Helpdesk user who will access TheAccessHub Admin Tool with a new local credential unique to TheAccessHub Admin Tool. This will be used mainly by organizations that don't use an Azure AD for their enterprise.
 
@@ -146,7 +146,7 @@ To [setup a CSR/Helpdesk](https://youtu.be/iOpOI2OpnLI) user without SSO, follow
 
 7. Select **Submit**
 
-## Configure partitioned CSR/Helpdesk administration
+## Configure partitioned CSR administration
 
 Permissions to manage customer and CSR/Helpdesk users in TheAccessHub Admin Tool are managed with the use of an organization hierarchy. All colleagues and customers have a home organization where they reside. Specific colleagues or groups of colleagues can be assigned as owners of organizations.  Organization owners can manage (make changes to) colleagues and customers in organizations or suborganizations they own. To allow multiple colleagues to manage a set of users, a group can be created with many members. The group can then be assigned as an organization owner and all of the group’s members can manage colleagues and customers in the organization.
 
@@ -320,7 +320,7 @@ Using TheAccessHub Admin Tool, you can import data from various databases, LDAPs
 
 18. When the **Data Synchronization** record becomes 100% on the load phase, all the changes resulting from the load will have been initiated. Customers should begin appearing or receiving changes in Azure AD B2C.
 
-## Synchronize Azure AD B2C customer data into TheAccessHub Admin Tool
+## Synchronize Azure AD B2C customer data 
 
 As a one-time or ongoing operation, TheAccessHub Admin Tool can synchronize all the customer information from Azure AD B2C into TheAccessHub Admin Tool. This ensures that CSR/Helpdesk administrators are seeing up-to-date customer information.
 
@@ -352,9 +352,9 @@ To synchronize data from Azure AD B2C into TheAccessHub Admin Tool:
 
 13. When the **Data Synchronization** record becomes 100% on the load phase, all the changes resulting from the load will have been initiated.
 
-## Configure Azure AD B2C policies to call TheAccessHub Admin Tool
+## Configure Azure AD B2C policies
 
-Occasionally syncing TheAccessHub Admin Tool is limited in its ability to keep its state up to date with Azure AD B2C. We can leverage TheAccessHub Admin Tool’s API and Azure AD B2C policies to inform TheAccessHub Admin Tool of changes as they happen. This solution requires technical knowledge of [Azure AD B2C custom policies](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#:~:text=%20Get%20started%20with%20custom%20policies%20in%20Azure,Experience%20Framework%20applications.%20Azure%20AD%20B2C...%20More%20). In the next section, we'll  give you an example policy steps and a secure certificate to notify TheAccessHub Admin Tool of new accounts in your Sign-Up custom policies.
+Occasionally syncing TheAccessHub Admin Tool is limited in its ability to keep its state up to date with Azure AD B2C. We can leverage TheAccessHub Admin Tool’s API and Azure AD B2C policies to inform TheAccessHub Admin Tool of changes as they happen. This solution requires technical knowledge of [Azure AD B2C custom policies](./custom-policy-get-started.md). In the next section, we'll  give you an example policy steps and a secure certificate to notify TheAccessHub Admin Tool of new accounts in your Sign-Up custom policies.
 
 ### Create a secure credential to invoke TheAccessHub Admin Tool’s API
 
@@ -368,7 +368,7 @@ Occasionally syncing TheAccessHub Admin Tool is limited in its ability to keep i
 
 5. Select **Download** to get the client certificate.
 
-6. Follow this [tutorial](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#https-client-certificate-authentication ) to add the client certificate into Azure AD B2C.
+6. Follow this [tutorial](./secure-rest-api.md#https-client-certificate-authentication ) to add the client certificate into Azure AD B2C.
 
 ### Retrieve your custom policy examples
 
@@ -382,12 +382,12 @@ Occasionally syncing TheAccessHub Admin Tool is limited in its ability to keep i
 
 5. Select **Download** to get a zip file with basic policies that add customers into TheAccessHub Admin Tool as customers sign up.
 
-6. Follow this [tutorial](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) to get started with designing custom policies in Azure AD B2C.
+6. Follow this [tutorial](./custom-policy-get-started.md) to get started with designing custom policies in Azure AD B2C.
 
 ## Next steps
 
 For additional information, review the following articles:
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -65,7 +65,7 @@ Later we will upload and download a file to the new storage account. Because fil
 
     ![Create storage container](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## Grant your VM's system-assigned managed identity access to use a storage SAS 
+## Grant your VM's system-assigned managed identity access to use a storage SAS
 
 Azure Storage does not natively support Azure AD authentication.  However, you can use your VM's system-assigned managed identity to retrieve a storage SAS from the Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS.   
 

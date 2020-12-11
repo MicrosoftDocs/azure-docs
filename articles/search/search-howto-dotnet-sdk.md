@@ -55,7 +55,7 @@ Azure SDK for .NET conforms to [.NET Standard 2.0](/dotnet/standard/net-standard
 
 ## Example application
 
-This article "teaches by example", relying on the [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo/v11) code example on GitHub to illustrate fundamental concepts in Azure Cognitive Search - specifically, how to create, load, and query a search index.
+This article "teaches by example", relying on the [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) code example on GitHub to illustrate fundamental concepts in Azure Cognitive Search - specifically, how to create, load, and query a search index.
 
 For the rest of this article, assume a new index named "hotels", populated with a few documents, with several queries that match on results.
 
@@ -225,6 +225,22 @@ private static void WriteDocuments(SearchResults<Hotel> searchResults)
     Console.WriteLine();
 }
 ```
+
+An alternative approach is to add fields to an index directly. The following example shows just a few fields.
+
+   ```csharp
+    SearchIndex index = new SearchIndex(indexName)
+    {
+        Fields =
+            {
+                new SimpleField("hotelId", SearchFieldDataType.String) { IsKey = true, IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelName") { IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelCategory") { IsFilterable = true, IsSortable = true },
+                new SimpleField("baseRate", SearchFieldDataType.Int32) { IsFilterable = true, IsSortable = true },
+                new SimpleField("lastRenovationDate", SearchFieldDataType.DateTimeOffset) { IsFilterable = true, IsSortable = true }
+            }
+    };
+   ```
 
 ### Field definitions
 

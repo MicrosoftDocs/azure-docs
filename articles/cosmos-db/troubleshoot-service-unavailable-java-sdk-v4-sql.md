@@ -3,6 +3,7 @@ title: Troubleshoot Azure Cosmos DB service unavailable exceptions with the Java
 description: Learn how to diagnose and fix Azure Cosmos DB service unavailable exceptions with the Java v4 SDK.
 author: kushagrathapar
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
@@ -10,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB Java v4 SDK service unavailable exceptions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 The Java v4 SDK wasn't able to connect to Azure Cosmos DB.
 
 ## Troubleshooting steps

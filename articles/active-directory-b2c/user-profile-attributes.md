@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/20/2020
+ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -22,7 +22,7 @@ Your Azure Active Directory (Azure AD) B2C directory user profile comes with a b
 
 You can also integrate with external systems. For example, you can use Azure AD B2C for authentication, but delegate to an external customer relationship management (CRM) or customer loyalty database as the authoritative source of customer data. For more information, see the [remote profile](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) solution.
 
-The table below lists the [user resource type](https://docs.microsoft.com/graph/api/resources/user) attributes that are supported by the Azure AD B2C directory user profile. It gives the following information about each attribute:
+The table below lists the [user resource type](/graph/api/resources/user) attributes that are supported by the Azure AD B2C directory user profile. It gives the following information about each attribute:
 
 - Attribute name used by Azure AD B2C (followed by the Microsoft Graph name in parentheses, if different)
 - Attribute data type
@@ -71,16 +71,22 @@ The table below lists the [user resource type](https://docs.microsoft.com/graph/
 |streetAddress   |String|The street address of the user's place of business. Max length 1024.|Yes|Yes|Persisted, Output|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|The secondary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
 |strongAuthenticationEmailAddress<sup>1</sup>|String|The SMTP address for the user. Example: "bob@contoso.com" This attribute is used for sign-in with username policy, to store the user email address. The email address then used in a password reset flow.|Yes|No|Persisted, Output|
-|strongAuthenticationPhoneNumber<sup>1</sup>|String|The primary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
+|strongAuthenticationPhoneNumber<sup>2</sup>|String|The primary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
 |surname         |String|The user's surname (family name or last name). Max length 64.|Yes|Yes|Persisted, Output|
 |telephoneNumber (first entry of businessPhones)|String|The primary telephone number of the user's place of business.|Yes|No|Persisted, Output|
 |userPrincipalName    |String|The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. The domain must be present in the tenant's collection of verified domains. This property is required when an account is created. Immutable.|No|No|Input, Persisted, Output|
 |usageLocation   |String|Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries/regions. Not nullable. A two letter country/region code (ISO standard 3166). Examples: "US", "JP", and "GB".|Yes|No|Persisted, Output|
 |userType        |String|A string value that can be used to classify user types in your directory. Value must be Member. Read-only.|Read only|No|Persisted, Output|
-|userState (externalUserState)<sup>2</sup>|String|For Azure AD B2B account only, indicates whether the invitation is PendingAcceptance or Accepted.|No|No|Persisted, Output|
+|userState (externalUserState)<sup>3</sup>|String|For Azure AD B2B account only, indicates whether the invitation is PendingAcceptance or Accepted.|No|No|Persisted, Output|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Shows the timestamp for the latest change to the UserState property.|No|No|Persisted, Output|
-|<sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>Should not be used with Azure AD B2C||||||
 
+<sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>For more information, see [MFA phone number attribute](#mfa-phone-number-attribute)<br><sup>3 </sup>Should not be used with Azure AD B2C
+
+## MFA phone number attribute
+
+When using a phone for multi-factor authentication (MFA), the mobile phone is used to verify the user identity. To [add](https://docs.microsoft.com/graph/api/authentication-post-phonemethods) a new phone number programatically, [update](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [get](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get), or [delete](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) the phone number, use MS Graph API [phone authentication method](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod).
+
+In Azure AD B2C [custom policies](custom-policy-overview.md), the phone number is available through `strongAuthenticationPhoneNumber` claim type.
 
 ## Extension attributes
 
@@ -90,7 +96,7 @@ You'll often need to create your own attributes, as in the following cases:
 - An identity provider has a unique user identifier like **uniqueUserGUID** that must be saved.
 - A custom user journey needs to persist for a state of a user, like **migrationStatus**.
 
-Azure AD B2C extends the set of attributes stored on each user account. Extension attributes [extend the schema](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions) of the user objects in the directory. The extension attributes can only be registered on an application object, even though they might contain data for a user. The extension attribute is attached to the application called b2c-extensions-app. Do not modify this application, as it's used by Azure AD B2C for storing user data. You can find this application under Azure Active Directory App registrations.
+Azure AD B2C extends the set of attributes stored on each user account. Extension attributes [extend the schema](/graph/extensibility-overview#schema-extensions) of the user objects in the directory. The extension attributes can only be registered on an application object, even though they might contain data for a user. The extension attribute is attached to the application called b2c-extensions-app. Do not modify this application, as it's used by Azure AD B2C for storing user data. You can find this application under Azure Active Directory App registrations.
 
 > [!NOTE]
 > - Up to 100 extension attributes can be written to any user account.
@@ -109,6 +115,6 @@ The following data types are supported when defining a property in a schema exte
 
 ## Next steps
 Learn more about extension attributes:
-- [Schema extensions](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions)
+- [Schema extensions](/graph/extensibility-overview#schema-extensions)
 - [Define custom attributes with user flow](user-flow-custom-attributes.md)
 - [Define custom attributes with custom policy](custom-policy-custom-attributes.md)

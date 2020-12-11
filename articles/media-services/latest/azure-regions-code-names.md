@@ -59,6 +59,9 @@ The following endpoints are important to know when connecting to Media Services 
 
 ### Azure Germany
 
+> [!NOTE]
+> The Azure Germany endpoints only apply to the Sovereign clouds in Germany.
+
 | Service | Endpoint |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |

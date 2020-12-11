@@ -30,7 +30,7 @@ To get started, you'll need:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that's linked to your Azure subscription.
+- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
 
 - An instance of [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) to store secrets that are used by Maverics Identity Orchestrator. It's used to connect to Azure AD B2C or other attribute providers such as a Lightweight Directory Access Protocol (LDAP) directory or database.
 
@@ -44,7 +44,7 @@ Strata's Maverics integration includes the following components:
 
 - **Azure AD B2C**: The authorization server that's responsible for verifying the user's credentials. Authenticated users may access on-premises apps using a local account stored in the Azure AD B2C directory.
 
-- **An external social or enterprise IdP**: Could be any OpenID Connect provider, Facebook, Google, or GitHub. See information on using [external IdPs](https://docs.microsoft.com/azure/active-directory-b2c/technical-overview#external-identity-providers) with Azure AD B2C.  
+- **An external social or enterprise IdP**: Could be any OpenID Connect provider, Facebook, Google, or GitHub. See information on using [external IdPs](./technical-overview.md#external-identity-providers) with Azure AD B2C.  
 
 - **Strata's Maverics Identity Orchestrator**: The service that orchestrates user sign-on and transparently passes identity to apps through HTTP headers.
 
@@ -60,19 +60,17 @@ The following architecture diagram shows the implementation.
 | 4. | The IdP challenges the user for credentials. Depending on the IdP, the user may require to do Multi-factor authentication (MFA).|
 | 5. | The IdP sends the authentication response back to Azure AD B2C. Optionally, the user may create a local account in the Azure AD B2C directory during this step.|
 | 6. | Azure AD B2C sends the user request to the endpoint specified during the Orchestrator app's registration in the Azure AD B2C tenant.|
-| 7. | The Orchestrator evaluates access policies and calculates attribute values to be included in HTTP headers forwarded to the app. During this step, the Orchestrator may call out to additional attribute providers to retrieve the information needed to set the header values correctly.|
-| 8. | The Orchestrator sets the header values and sends the request to the app.|
-| 9. | The user is now authenticated and has access to the app.|
+| 7. | The Orchestrator evaluates access policies and calculates attribute values to be included in HTTP headers forwarded to the app. During this step, the Orchestrator may call out to additional attribute providers to retrieve the information needed to set the header values correctly. The Orchestrator sets the header values and sends the request to the app.|
+| 8. | The user is now authenticated and has access to the app.|
 
 ## Get Maverics Identity Orchestrator
-
 To get the software you'll use to integrate your legacy on-premises app with Azure AD B2C, contact [Strata](https://www.strata.io/contact/). After you get the software, follow the steps below to determine Orchestrator-specific prerequisites and perform the required installation and configuration steps.
 
 ## Configure your Azure AD B2C tenant
 
 1. **Register your application**
 
-   a. [Register the Orchestrator as an application](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=app-reg-ga) in Azure AD B2C tenant.
+   a. [Register the Orchestrator as an application](./tutorial-register-applications.md?tabs=app-reg-ga) in Azure AD B2C tenant.
    >[!Note]
    >You'll need the tenant name and identifier, client ID, client secret, configured claims, and redirect URI later when you configure your Orchestrator instance.
 
@@ -80,9 +78,9 @@ To get the software you'll use to integrate your legacy on-premises app with Azu
 
    c. Add a redirect URI for your application. This URI will match the `oauthRedirectURL` parameter of your Orchestrator's Azure AD B2C connector configuration, for example, `https://example.com/oidc-endpoint`.
 
-2. **Create a user flow**: Create up a [sign and sign in user flow](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows).
+2. **Create a user flow**: Create a [sign-up and sign-in user flow](./tutorial-create-user-flows.md).
 
-3. **Add an IdP**: Choose to sign in your user with either a local account or a social or enterprise [IdP](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+3. **Add an IdP**: Choose to sign in your user with either a local account or a social or enterprise [IdP](./tutorial-add-identity-providers.md).
 
 4. **Define user attributes**: Define the attributes to be collected during sign-up.
 
@@ -256,7 +254,7 @@ appgateways:
 
 It's important to secure the secrets your Orchestrator uses to connect to Azure AD B2C and any other identity system. Maverics will default to loading secrets in plain text out of `maverics.yaml`, however, in this tutorial, you'll use Azure Key Vault as the secrets provider.
 
-Follow the instructions to [create a new Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault) that your Orchestrator instance will use as a secrets provider. Add your secrets to your vault and take note of the `SECRET NAME` given to each secret. For example, `AzureADB2CClientSecret`.
+Follow the instructions to [create a new Key Vault](../key-vault/secrets/quick-create-portal.md) that your Orchestrator instance will use as a secrets provider. Add your secrets to your vault and take note of the `SECRET NAME` given to each secret. For example, `AzureADB2CClientSecret`.
 
 To declare a value as a secret in a `maverics.yaml` config file, wrap the secret with angle brackets:
 
@@ -339,6 +337,6 @@ appgateways:
 
 For additional information, review the following articles:
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

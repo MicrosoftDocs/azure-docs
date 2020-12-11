@@ -1,6 +1,6 @@
 ---
 title: 'Install & use Azure Machine Learning CLI'
-description: Learn how to install and use the Azure Machine Learning CLI extension to create and manage resources such as your workspace, datastores, datasets, pipelines, models, and deployments.
+description: Learn how to use the Azure CLI extension for ML to create & manage resources such as your workspace, datastores, datasets, pipelines, models, and deployments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

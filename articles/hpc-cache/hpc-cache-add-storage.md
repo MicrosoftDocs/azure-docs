@@ -98,9 +98,9 @@ Steps to add the Azure roles:
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
 ### Prerequisite: Storage account access
+
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 Before you add a blob storage target, check that the cache has the correct roles to access the storage account, and that firewall settings will allow the storage target creation.
 
@@ -213,7 +213,7 @@ When finished, click **OK** to add the storage target.
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 Use the Azure CLI command [az hpc-cache nfs-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) to create the storage target.
 
@@ -297,7 +297,7 @@ Read [Edit storage targets](hpc-cache-edit-storage.md) to learn more.
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 Use the [az hpc-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) option to show the existing storage targets for a cache. Supply the cache name and the resource group (unless you have set it globally).
 

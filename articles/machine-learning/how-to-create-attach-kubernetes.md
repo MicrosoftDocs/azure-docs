@@ -1,7 +1,7 @@
 ---
 title: Create and attach Azure Kubernetes Service
 titleSuffix: Azure Machine Learning
-description: 'Azure Kubernetes Service (AKS) can be used to deploy a machine learning model as a web service. Learn how to create a new AKS cluster through Azure Machine Learning. You will also learn how to attach an existing AKS cluster to your Azure Machine Learning workspace.'
+description: 'Learn how to create a new Azure Kubernetes Service cluster through Azure Machine Learning, or how to attach an existing AKS cluster to your workspace.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -38,6 +38,8 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 - If you **attach** an AKS cluster, which has an [Authorized IP range enabled to access the API server](../aks/api-server-authorized-ip-ranges.md), enable the AML control plane IP ranges for the AKS cluster. The AML control plane is deployed across paired regions and deploys inference pods on the AKS cluster. Without access to the API server, the inference pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../best-practices-availability-paired-regions.md) when enabling the IP ranges in an AKS cluster.
 
     Authorized IP ranges only works with Standard Load Balancer.
+
+- When **attaching** an AKS cluster, it must be in the same Azure subscription as your Azure Machine Learning workspace.
 
 - If you want to use a private AKS cluster (using Azure Private Link), you must create the cluster first, and then **attach** it to the workspace. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
 
@@ -214,7 +216,7 @@ If you already have AKS cluster in your Azure subscription, and it is version 1.
 
 For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
-* [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%252fazure%252fbread%252ftoc.json&preserve-view=true&toc=%252fazure%252faks%252fTOC.json&view=azure-cli-latest#az-aks-create)
+* [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&preserve-view=true&toc=%2fazure%2faks%2fTOC.json&view=azure-cli-latest#az-aks-create)
 * [Create an AKS cluster (portal)](../aks/kubernetes-walkthrough-portal.md?preserve-view=true&view=azure-cli-latest)
 * [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
@@ -301,5 +303,6 @@ In Azure Machine Learning studio, select __Compute__, __Inference clusters__, an
 
 ## Next steps
 
+* [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 * [How and where to deploy a model](how-to-deploy-and-where.md)
 * [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md)

@@ -17,7 +17,7 @@ Security is an important aspect of any IoT solution. Sometimes you need to expli
 
 There are two specific use-cases where it is useful to block connections to a DPS endpoint from certain IP addresses:
 
-* Your DPS should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using your DPS with [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) to create private connections between a DPS and your devices.
+* Your DPS should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using your DPS with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) to create private connections between a DPS and your devices.
 
 * You need to reject traffic from IP addresses that have been identified as suspicious by the DPS administrator.
 
@@ -69,7 +69,7 @@ To delete an IP filter rule, select the trash can icon on that row and then sele
 
 ## Update IP filter rules in code
 
-You may retrieve and modify your DPS IP filter using Azure resource Provider's REST endpoint. See `properties.ipFilterRules` in [createorupdate method](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
+You may retrieve and modify your DPS IP filter using Azure resource Provider's REST endpoint. See `properties.ipFilterRules` in [createorupdate method](/rest/api/iot-dps/iotdpsresource/createorupdate).
 
 Updating DPS IP filter rules is not currently supported with Azure CLI or Azure PowerShell but, can be accomplished with Azure Resource Manager templates. See, [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) for guidance on using Resource Manager templates. The template examples that follow show how to create, edit, and delete DPS IP filter rules.
 
@@ -130,7 +130,7 @@ Update the IP filter rule attributes of the template based on your requirements.
 
 | Attribute                | Description |
 | ------------------------ | ----------- |
-| **FilterName**           | Provide a name for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus {'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''} are accepted. |
+| **FilterName**           | Provide a name for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted. |
 | **Action**               | Accepted values are **Accept** or **Reject** as the action for the IP filter rule. |
 | **ipMask**               | Provide a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255. |
 

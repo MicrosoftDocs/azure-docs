@@ -46,7 +46,7 @@ To handle throttling at this level, you have these options:
 
 * Enable high throughput mode.
 
-  A logic app has a [default limit for the number of actions that can run over a 5-minute rolling interval](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise this limit to the maximum number of actions, turn on [high throughput mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) on your logic app.
+  A logic app has a [default limit for the number of actions that can run over a 5-minute rolling interval](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise this limit to the maximum number of actions, turn on [high throughput mode](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode) on your logic app.
 
 * Disable array debatching ("split on") behavior in triggers.
 
@@ -54,7 +54,7 @@ To handle throttling at this level, you have these options:
 
 * Refactor actions into smaller logic apps.
 
-  As mentioned earlier, a logic app is limited to a [default number of actions that can run over a 5-minute period](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Although you can increase this limit by enabling [high throughput mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), you might also consider whether you want to break down your logic app's actions into smaller logic apps so that the number of actions that run in each logic app remains under the limit. That way, you reduce the burden on a single logic app resource and distribute the load across multiple logic apps. This solution works better for actions that handle large data sets or spin up so many concurrently running actions, loop iterations, or actions inside each loop iteration that they exceed action execution limit.
+  As mentioned earlier, a logic app is limited to a [default number of actions that can run over a 5-minute period](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Although you can increase this limit by enabling [high throughput mode](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode), you might also consider whether you want to break down your logic app's actions into smaller logic apps so that the number of actions that run in each logic app remains under the limit. That way, you reduce the burden on a single logic app resource and distribute the load across multiple logic apps. This solution works better for actions that handle large data sets or spin up so many concurrently running actions, loop iterations, or actions inside each loop iteration that they exceed action execution limit.
 
   For example, this logic app does all the work to get tables from a SQL Server database and gets the rows from each table. The **For each** loop concurrently iterates through each table so that the **Get rows** action returns the rows for each table. Based on the amounts of data in those tables, these actions might exceed the limit on action executions.
 

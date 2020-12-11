@@ -2,7 +2,7 @@
 
 title: Update web services
 titleSuffix: Azure Machine Learning
-description: Learn how to refresh a web service that is already deployed in Azure Machine Learning
+description: Learn how to refresh a web service that is already deployed in Azure Machine Learning. You can update settings such as model, environment, and entry script.
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
-ms.custom: deploy
+ms.custom: deploy, devx-track-azurecli
 ---
 
 # Update a deployed web service

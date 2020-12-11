@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/27/2020
+ms.date: 12/07/2020
 ms.author: memildin
 
 ---
@@ -27,9 +27,189 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
 
 
+## December 2020
+
+Updates in December include:
+
+- [Azure Defender for SQL servers on machines is generally available](#azure-defender-for-sql-servers-on-machines-is-generally-available)
+- [Azure Defender for SQL support for Azure Synapse Analytics dedicated SQL pool is generally available](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [Global Administrators can now grant themselves tenant-level permissions](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
+- [Two new Azure Defender plans: Azure Defender for DNS and Azure Defender for Resource Manager (in preview)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
+
+### Azure Defender for SQL servers on machines is generally available
+
+Azure Security Center offers two Azure Defender plans for SQL Servers:
+
+- **Azure Defender for Azure SQL database servers** - defends your Azure-native SQL Servers 
+- **Azure Defender for SQL servers on machines** - extends the same protections to your SQL servers in hybrid, multicloud, and on-premises environments
+
+With this announcement, **Azure Defender for SQL** now protects your databases and their data wherever they're located.
+
+Azure Defender for SQL includes vulnerability assessment capabilities. The vulnerability assessment tool includes the following advanced features:
+
+- **Baseline configuration** (New!) to intelligently refine the results of vulnerability scans to those that might represent real security issues. After you've established your baseline security state, the vulnerability assessment tool only reports deviations from that baseline state. Results that match the baseline are considered as passing subsequent scans. This lets you and your analysts focus your attention where it matters.
+- **Detailed benchmark information** to help you *understand* the discovered findings, and why they relate to your resources.
+- **Remediation scripts** to help you mitigate identified risks.
+
+Learn more about [Azure Defender for SQL](defender-for-sql-introduction.md).
+
+
+### Azure Defender for SQL support for Azure Synapse Analytics dedicated SQL pool is generally available
+
+Azure Synapse Analytics (formerly SQL DW) is an analytics service that combines enterprise data warehousing and big data analytics. Dedicated SQL pools are the enterprise data warehousing features of Azure Synapse. Learn more in [What is Azure Synapse Analytics (formerly SQL DW)?](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
+
+Azure Defender for SQL protects your dedicated SQL pools with:
+
+- **Advanced threat protection** to detect threats and attacks 
+- **Vulnerability assessment capabilities** to identify and remediate security misconfigurations
+
+Azure Defender for SQL's support for Azure Synapse Analytics SQL pools is automatically added to Azure SQL databases bundle in Azure Security Center. You'll find a new “Azure Defender for SQL” tab in your Synapse workspace page in the Azure portal.
+
+Learn more about [Azure Defender for SQL](defender-for-sql-introduction.md).
+
+
+### Global Administrators can now grant themselves tenant-level permissions
+
+A user with the Azure Active Directory role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Azure Security Center. 
+
+To assign yourself tenant-level permissions, follow the instructions in [Grant tenant-wide permissions to yourself](security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself).
+
+
+### Two new Azure Defender plans: Azure Defender for DNS and Azure Defender for Resource Manager (in preview)
+
+We've added two new cloud-native breadth threat protection capabilities for your Azure environment.
+
+These new protections greatly enhance your resiliency against attacks from threat actors, and significantly increase the number of Azure resources protected by Azure Defender.
+
+- **Azure Defender for Resource Manager** - automatically monitors all resource management operations performed in your organization. For more information, see:
+    - [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+    - [Respond to Azure Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
+    - [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
+
+- **Azure Defender for DNS** - continuously monitors all DNS queries from your Azure resources. For more information, see:
+    - [Introduction to Azure Defender for DNS](defender-for-dns-introduction.md)
+    - [Respond to Azure Defender for DNS alerts](defender-for-dns-usage.md)
+    - [List of alerts provided by Azure Defender for DNS](alerts-reference.md#alerts-dns)
+
+
+## November 2020
+
+Updates in November include:
+
+- [29 preview recommendations added to increase coverage of Azure Security Benchmark](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [NIST SP 800 171 R2 added to Security Center's regulatory compliance dashboard](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
+- [Recommendations list now includes filters](#recommendations-list-now-includes-filters)
+- [Auto provisioning experience improved and expanded](#auto-provisioning-experience-improved-and-expanded)
+- [Secure score is now available in continuous export (preview)](#secure-score-is-now-available-in-continuous-export-preview)
+- ["System updates should be installed on your machines" recommendation now includes sub-recommendations](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
+- [Policy management page in the Azure portal now shows status of default policy assignments](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
+
+### 29 preview recommendations added to increase coverage of Azure Security Benchmark
+
+Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
+
+The following 29 preview recommendations have been added to Security Center to increase the coverage of this benchmark.
+
+Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+
+| Security control                     | New recommendations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Encrypt data in transit              | - Enforce SSL connection should be enabled for PostgreSQL database servers<br>- Enforce SSL connection should be enabled for MySQL database servers<br>- TLS should be updated to the latest version for your API app<br>- TLS should be updated to the latest version for your function app<br>- TLS should be updated to the latest version for your web app<br>- FTPS should be required in your API App<br>- FTPS should be required in your function App<br>- FTPS should be required in your web App                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Manage access and permissions        | - Web apps should request an SSL certificate for all incoming requests<br>- Managed identity should be used in your API App<br>- Managed identity should be used in your function App<br>- Managed identity should be used in your web App                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Restrict unauthorized network access | - Private endpoint should be enabled for PostgreSQL servers<br>- Private endpoint should be enabled for MariaDB servers<br>- Private endpoint should be enabled for MySQL servers                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Enable auditing and logging          | - Diagnostic logs in App Services should be enabled                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Implement security best practices    | - Azure Backup should be enabled for virtual machines<br>- Geo-redundant backup should be enabled for Azure Database for MariaDB<br>- Geo-redundant backup should be enabled for Azure Database for MySQL<br>- Geo-redundant backup should be enabled for Azure Database for PostgreSQL<br>- PHP should be updated to the latest version for your API app<br>- PHP should be updated to the latest version for your web app<br>- Java should be updated to the latest version for your API app<br>- Java should be updated to the latest version for your function app<br>- Java should be updated to the latest version for your web app<br>- Python should be updated to the latest version for your API app<br>- Python should be updated to the latest version for your function app<br>- Python should be updated to the latest version for your web app<br>- Audit retention for SQL servers should be set to at least 90 days |
+|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+Related links:
+
+- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Learn more about Azure API apps](../app-service/app-service-web-tutorial-rest-api.md)
+- [Learn more about Azure function apps](../azure-functions/functions-overview.md)
+- [Learn more about Azure web apps](../app-service/overview.md)
+- [Learn more about Azure Database for MariaDB](../mariadb/overview.md)
+- [Learn more about Azure Database for MySQL](../mysql/overview.md)
+- [Learn more about Azure Database for PostgreSQL](../postgresql/overview.md)
+
+
+### NIST SP 800 171 R2 added to Security Center's regulatory compliance dashboard
+
+The NIST SP 800-171 R2 standard is now available as a built-in initiative for use with Azure Security Center's regulatory compliance dashboard. The mappings for the controls are described in [Details of the NIST SP 800-171 R2 Regulatory Compliance built-in initiative](../governance/policy/samples/nist-sp-800-171-r2.md). 
+
+To apply the standard to your subscriptions and continuously monitor your compliance status, use the instructions in [Customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+
+:::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="The NIST SP 800 171 R2 standard in Security Center's regulatory compliance dashboard":::
+
+For more information about this compliance standard, see [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
+
+
+### Recommendations list now includes filters
+
+You can now filter the list of security recommendations according to a range of criteria. In the following example, the recommendations list has been filtered to show recommendations that:
+
+- are **generally available** (that is, not preview)
+- are for **storage accounts**
+- support **quick fix** remediation
+
+:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="Filters for the recommendations list":::
+
+
+### Auto provisioning experience improved and expanded
+
+The auto provisioning feature helps reduce management overhead by installing the required extensions on new - and existing - Azure VMs so they can benefit from Security Center's protections. 
+
+As Azure Security Center grows, more extensions have been developed and Security Center can monitor a larger list of resource types. The auto provisioning tools have now been expanded to support additional extensions and resource types by leveraging the capabilities of Azure Policy.
+
+You can now configure the auto provisioning of:
+
+- Log Analytics agent
+- (New) Azure Policy Add-on for Kubernetes
+- (New) Microsoft Dependency agent
+
+Learn more in [Auto provisioning agents and extensions from Azure Security Center](security-center-enable-data-collection.md).
+
+
+### Secure score is now available in continuous export (preview)
+
+With continuous export of secure score, you can stream changes to your score in real time to Azure Event Hubs or a Log Analytics workspace. Use this capability to:
+
+- track your secure score over time with dynamic reports
+- export secure score data to Azure Sentinel (or any other SIEM)
+- integrate this data with any processes you might already be using to monitor secure score in your organization
+
+Learn more about how to [Continuously export Security Center data](continuous-export.md).
+
+
+### "System updates should be installed on your machines" recommendation now includes sub-recommendations
+
+The **System updates should be installed on your machines** recommendation has been enhanced. The new version includes sub-recommendations for each missing update and brings the following improvements:
+
+- A redesigned experience in the Azure Security Center pages of the Azure portal. The recommendation details page for **System updates should be installed on your machines** includes the list of findings as shown below. When you select a single finding, the details pane opens with a link to the remediation information and a list of affected resources.
+
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Opening one of the sub-recommendations in the portal experience for the updated recommendation":::
+
+- Enriched data for the recommendation from Azure Resource Graph (ARG). ARG is an Azure service that's designed to provide efficient resource exploration. You can use ARG to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
+
+    For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to query a wide range of security posture data.
+
+    Previously, if you queried this recommendation in ARG, the only available information was that the recommendation needs to be remediated on a machine. The following query of the enhanced version  will return each missing system updates grouped by machine.
+
+    ```kusto
+    securityresources
+    | where type =~ "microsoft.security/assessments/subassessments"
+    | where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
+    | where properties.status.code == "Unhealthy"
+    ```
+
+### Policy management page in the Azure portal now shows status of default policy assignments
+
+You can now see whether or not your subscriptions have the default Security Center policy assigned, in the Security Center's **security policy** page of the Azure portal.
+
+:::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="The policy management page of Azure Security Center showing the default policy assignments":::
 
 ## October 2020
 
+Updates in October include:
 - [Vulnerability assessment for on-premise and multi-cloud machines (preview)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [Azure Firewall recommendation added (preview)](#azure-firewall-recommendation-added-preview)
 - [Authorized IP ranges should be defined on Kubernetes Services recommendation updated with quick fix](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
@@ -53,7 +233,7 @@ Main capabilities:
 
 [Learn more about deploying the integrated vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
-[Learn more about Azure Arc enabled servers](https://docs.microsoft.com/azure/azure-arc/servers/).
+[Learn more about Azure Arc enabled servers](../azure-arc/servers/index.yml).
 
 
 ### Azure Firewall recommendation added (preview)
@@ -69,7 +249,7 @@ Learn more about [Azure Firewall](https://azure.microsoft.com/services/azure-fir
 
 The recommendation **Authorized IP ranges should be defined on Kubernetes Services** now has a quick fix option.
 
-For more details of this recommendation and all other Security Center recommendations, see [Security recommendations - a reference guide](recommendations-reference.md).
+For more information about this recommendation and all other Security Center recommendations, see [Security recommendations - a reference guide](recommendations-reference.md).
 
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="The authorized IP ranges should be defined on Kubernetes Services recommendation with the quick fix option":::
 
@@ -87,7 +267,7 @@ Learn more in [Removing a standard from your dashboard](update-regulatory-compli
 
 Azure Resource Graph is a service in Azure that is designed to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
 
-For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) to query a wide range of security posture data. For example:
+For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to query a wide range of security posture data. For example:
 
 - Asset inventory utilizes (ARG)
 - We have documented a sample ARG query for how to [Identify accounts without multi-factor authentication (MFA) enabled](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
@@ -176,7 +356,7 @@ extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
 
 Learn more at the following links:
 - [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
-- [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)
 
 
 ## September 2020
@@ -368,7 +548,7 @@ After pod security policy (preview) is deprecated, you must disable the feature 
 The following areas of the emails regarding security alerts have been improved: 
 
 - Added the ability to send email notifications about alerts for all severity levels
-- Added the ability to notify users with different RBAC roles on the subscription
+- Added the ability to notify users with different Azure roles on the subscription
 - We're proactively notifying subscription owners by default on high-severity alerts (which have a high-probability of being genuine breaches)
 - We've removed the phone number field from the email notifications configuration page
 
@@ -621,253 +801,3 @@ Six policies related to advanced data security for SQL machines are being deprec
 - Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings
 
 Learn more about [built-in policies](./policy-reference.md).
-
-
-
-
-
-## June 2020
-
-Updates in June include:
-- [Secure score API (preview)](#secure-score-api-preview)
-- [Advanced data security for SQL machines (Azure, other clouds, and on-prem) (preview)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview)
-- [Two new recommendations to deploy the Log Analytics agent to Azure Arc machines (preview)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
-- [New policies to create continuous export and workflow automation configurations at scale](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
-- [New recommendation for using NSGs to protect non-internet-facing virtual machines](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
-- [New policies for enabling threat protection and advanced data security](#new-policies-for-enabling-threat-protection-and-advanced-data-security)
-
-
-
-### Secure score API (preview)
-
-You can now access your score via the [secure score API](/rest/api/securitycenter/securescores/) (currently in preview). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the **Secure Scores** API to get the score for a specific subscription. In addition, you can use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions.
-
-For examples of external tools made possible with the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
-
-Learn more about [secure score and security controls in Azure Security Center](secure-score-security-controls.md).
-
-
-
-### Advanced data security for SQL machines (Azure, other clouds, and on-prem) (preview)
-
-Azure Security Center's advanced data security for SQL machines now protects SQL Servers hosted in Azure, on other cloud environments, and even on-premises machines. This extends the protections for your Azure-native SQL Servers to fully support hybrid environments.
-
-Advanced data security provides vulnerability assessment and advanced threat protection for your SQL machines wherever they're located.
-
-Set up involves two steps:
-
-1. Deploying the Log Analytics agent to your SQL Server's host machine to provide the connection to Azure account.
-
-1. Enabling the optional bundle in Security Center's pricing and settings page.
-
-Learn more about [advanced data security for SQL machines](defender-for-sql-usage.md).
-
-
-
-### Two new recommendations to deploy the Log Analytics agent to Azure Arc machines (preview)
-
-Two new recommendations have been added to help deploy the [Log Analytics Agent](../azure-monitor/platform/log-analytics-agent.md) to your Azure Arc machines and ensure they're protected by Azure Security Center:
-
-- **Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)**
-- **Log Analytics agent should be installed on your Linux-based Azure Arc machines (Preview)**
-
-These new recommendations will appear in the same four security controls as the existing (related) recommendation, **Monitoring agent should be installed on your machines**: remediate security configurations, apply adaptive application control, apply system updates, and enable endpoint protection.
-
-The recommendations also include the Quick fix capability to help speed up the deployment process. 
-
-Learn more about these two new recommendations in the [Compute and app recommendations](recommendations-reference.md#recs-computeapp) table.
-
-Learn more about how Azure Security Center uses the agent in [What is the Log Analytics agent?](faq-data-collection-agents.md#what-is-the-log-analytics-agent).
-
-Learn more about [extensions for Azure Arc machines](../azure-arc/servers/manage-vm-extensions.md).
-
-
-### New policies to create continuous export and workflow automation configurations at scale
-
-Automating your organization's monitoring and incident response processes can greatly improve the time it takes to investigate and mitigate security incidents.
-
-To deploy your automation configurations across your organization, use these built-in 'DeployIfdNotExist' Azure policies to create and configure [continuous export](continuous-export.md) and [workflow automation](workflow-automation.md) procedures:
-
-The policies can be found in Azure policy:
-
-
-|Goal  |Policy  |Policy ID  |
-|---------|---------|---------|
-|Continuous export to event hub|[Deploy export to Event Hub for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
-|Continuous export to Log Analytics workspace|[Deploy export to Log Analytics workspace for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
-|Workflow automation for security alerts|[Deploy Workflow Automation for Azure Security Center alerts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
-|Workflow automation for security recommendations|[Deploy Workflow Automation for Azure Security Center recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
-||||
-
-Get started with [workflow automation templates](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
-
-Learn more about using the two export policies in [Configure workflow automation at scale using the supplied policies](workflow-automation.md#configure-workflow-automation-at-scale-using-the-supplied-policies) and [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
-
-
-### New recommendation for using NSGs to protect non-internet-facing virtual machines
-
-The "implement security best practices" security control now includes the following new recommendation:
-
-- **Non-internet-facing virtual machines should be protected with network security groups**
-
-An existing recommendation, **Internet-facing virtual machines should be protected with network security groups**, didn't distinguish between internet-facing and non-internet facing VMs. For both, a high-severity recommendation was generated if a VM wasn't assigned to a network security group. This new recommendation separates the non-internet-facing machines to reduce the false positives and avoid unnecessary high-severity alerts.
-
-Learn more in the [Network recommendations](recommendations-reference.md#recs-network) table.
-
-
-
-
-### New policies for enabling threat protection and advanced data security
-
-The new policies below were added to the ASC Default initiative and are designed to assist with enabling threat protection or advanced data security for the relevant resource types.
-
-The policies can be found in Azure policy:
-
-
-| Policy                                                                                                                                                                                                                                                                | Policy ID                            |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| [Advanced data security should be enabled on Azure SQL Database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
-| [Advanced data security should be enabled on SQL servers on machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
-| [Advanced threat protection should be enabled on Azure Storage accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
-| [Advanced threat protection should be enabled on Azure Key Vault vaults](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)           | 0e6763cc-5078-4e64-889d-ff4d9a839047 |
-| [Advanced threat protection should be enabled on Azure App Service plans](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
-| [Advanced threat protection should be enabled on Azure Container Registry registries](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)   | c25d9a16-bc35-4e15-a7e5-9db606bf9ed4 |
-| [Advanced threat protection should be enabled on Azure Kubernetes Service clusters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)   | 523b5cd1-3e23-492f-a539-13118b6d1e3a |
-| [Advanced threat protection should be enabled on Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
-|                                                                                                                                                                                                                                                                       |                                      |
-
-Learn more about [Threat protection in Azure Security Center](azure-defender.md).
-
-
-
-
-
-## May 2020
-
-Updates in May include:
-- [Alert suppression rules (preview)](#alert-suppression-rules-preview)
-- [Virtual machine vulnerability assessment is now generally available](#virtual-machine-vulnerability-assessment-is-now-generally-available)
-- [Changes to just-in-time (JIT) virtual machine (VM) access](#changes-to-just-in-time-jit-virtual-machine-vm-access)
-- [Custom recommendations have been moved to a separate security control](#custom-recommendations-have-been-moved-to-a-separate-security-control)
-- [Toggle added to view recommendations in controls or as a flat list](#toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list)
-- [Expanded security control "Implement security best practices"](#expanded-security-control-implement-security-best-practices)
-- [Custom policies with custom metadata are now generally available](#custom-policies-with-custom-metadata-are-now-generally-available)
-- [Crash dump analysis capabilities migrating to fileless attack detection](#crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection)
-
-
-### Alert suppression rules (preview)
-
-This new feature (currently in preview) helps reduce alert fatigue. Use rules to automatically hide alerts that are known to be innocuous or related to normal activities in your organization. This lets you focus on the most relevant threats. 
-
-Alerts that match your enabled suppression rules will still be generated, but their state will be set to dismissed. You can see the state in the Azure portal or however you access your Security Center security alerts.
-
-Suppression rules define the criteria for which alerts should be automatically dismissed. Typically, you'd use a suppression rule to:
-
-- suppress alerts that you've identified as false positives
-
-- suppress alerts that are being triggered too often to be useful
-
-Learn more about [suppressing alerts from Azure Security Center's threat protection](alerts-suppression-rules.md).
-
-
-### Virtual machine vulnerability assessment is now generally available
-
-Security Center's standard tier now includes an integrated vulnerability assessment for virtual machines for no additional fee. This extension is powered by Qualys but reports its findings directly back to Security Center. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center.
-
-The new solution can continuously scan your virtual machines to find vulnerabilities and present the findings in Security Center. 
-
-To deploy the solution, use the new security recommendation:
-
-"Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys)"
-
-Learn more about [Security Center's integrated vulnerability assessment for virtual machines](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
-
-
-
-### Changes to just-in-time (JIT) virtual machine (VM) access
-
-Security Center includes an optional feature to protect the management ports of your VMs. This provides a defense against the most common form of brute force attacks.
-
-This update brings the following changes to this feature:
-
-- The recommendation that advises you to enable JIT on a VM has been renamed. Formerly, "Just-in-time network access control should be applied on virtual machines" it's now: "Management ports of virtual machines should be protected with just-in-time network access control".
-
-- The recommendation is triggered only if there are open management ports.
-
-Learn more about [the JIT access feature](security-center-just-in-time.md).
-
-
-### Custom recommendations have been moved to a separate security control
-
-One security control introduced with the enhanced secure score was "Implement security best practices". Any custom recommendations created for your subscriptions were automatically placed in that control. 
-
-To make it easier to find your custom recommendations, we've moved them into a dedicated security control, "Custom recommendations". This control has no impact on your secure score.
-
-Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
-
-
-### Toggle added to view recommendations in controls or as a flat list
-
-Security controls are logical groups of related security recommendations. They reflect your vulnerable attack surfaces. A control is a set of security recommendations, with instructions that help you implement those recommendations.
-
-To immediately see how well your organization is securing each individual attack surface, review the scores for each security control.
-
-By default, your recommendations are shown in the security controls. From this update, you can also display them as a list. To view them as simple list sorted by the health status of the affected resources, use the new toggle 'Group by controls'. The toggle is above the list in the portal.
-
-The security controls - and this toggle - are part of the new secure score experience. Remember to send us your feedback from within the portal.
-
-Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
-
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Group by controls toggle for recommendations":::
-
-### Expanded security control "Implement security best practices" 
-
-One security control introduced with the enhanced secure score is "Implement security best practices". When a recommendation is in this control, it doesn't impact the secure score. 
-
-With this update, three recommendations have moved out of the controls in which they were originally placed, and into this best practices control. We've taken this step because we've determined that the risk of these three recommendations is lower than was initially thought.
-
-In addition, two new recommendations have been introduced and added to this control.
-
-The three recommendations that moved are:
-
-- **MFA should be enabled on accounts with read permissions on your subscription** (originally in the "Enable MFA" control)
-- **External accounts with read permissions should be removed from your subscription** (originally in the "Manage access and permissions" control)
-- **A maximum of 3 owners should be designated for your subscription** (originally in the "Manage access and permissions" control)
-
-The two new recommendations added to the control are:
-
-- **Guest configuration extension should be installed on Windows virtual machines (Preview)** - Using [Azure Policy Guest Configuration](../governance/policy/concepts/guest-configuration.md) provides visibility inside virtual machines to server and application settings (Windows only).
-
-- **Windows Defender Exploit Guard should be enabled on your machines (Preview)** - Windows Defender Exploit Guard leverages the Azure Policy Guest Configuration agent. Exploit Guard has four components that are designed to lock down devices against a wide variety of attack vectors and block behaviors commonly used in malware attacks while enabling enterprises to balance their security risk and productivity requirements  (Windows only).
-
-Learn more about Windows Defender Exploit Guard in [Create and deploy an Exploit Guard policy](/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
-
-Learn more about security controls in [Enhanced secure score (preview)](secure-score-security-controls.md).
-
-
-
-### Custom policies with custom metadata are now generally available
-
-Custom policies are now part of the Security Center recommendations experience, secure score, and the regulatory compliance standards dashboard. This feature is now generally available and allows you to extend your organization's security assessment coverage in Security Center. 
-
-Create a custom initiative in Azure policy, add policies to it and onboard it to Azure Security Center, and visualize it as recommendations.
-
-We've now also added the option to edit the custom recommendation metadata. Metadata options include severity, remediation steps, threats information, and more.  
-
-Learn more about [enhancing your custom recommendations with detailed information](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information).
-
-
-
-### Crash dump analysis capabilities migrating to fileless attack detection 
-
-We are integrating the Windows crash dump analysis (CDA) detection capabilities into [fileless attack detection](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers). Fileless attack detection analytics brings improved versions of the following security alerts for Windows machines: Code injection discovered, Masquerading Windows Module Detected, Shellcode discovered, and Suspicious code segment detected.
-
-Some of the benefits of this transition:
-
-- **Proactive and timely malware detection** - The CDA approach involved waiting for a crash to occur and then running analysis to find malicious artifacts. Using fileless attack detection brings proactive identification of in-memory threats while they are running. 
-
-- **Enriched alerts** - The security alerts from fileless attack detection include enrichments that aren't available from CDA, such as the active network connections information. 
-
-- **Alert aggregation** - When CDA detected multiple attack patterns within a single crash dump, it triggered multiple security alerts. Fileless attack detection combines all of the identified attack patterns from the same process into a single alert, removing the need to correlate multiple alerts.
-
-- **Reduced requirements on your Log Analytics workspace** - Crash dumps containing potentially sensitive data will no longer be uploaded to your Log Analytics workspace.

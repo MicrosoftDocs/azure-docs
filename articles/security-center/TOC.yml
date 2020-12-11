@@ -56,6 +56,12 @@
     - name: Azure Defender for Key Vault
       displayName: KV, akv
       href: defender-for-key-vault-introduction.md
+    - name: Azure Defender for Resource Manager
+      displayName: ARM
+      href: defender-for-resource-manager-introduction.md
+    - name: Azure Defender for DNS
+      displayName: domain
+      href: defender-for-dns-introduction.md
     - name: Azure Defender for Kubernetes
       displayName: clusters, k8s, aks
       href: defender-for-kubernetes-introduction.md
@@ -89,7 +95,7 @@
     href: security-center-powershell-onboarding.md
   - name: Enable Security Center for a management group
     href: onboard-management-group.md
-  - name: Configure data collection
+  - name: Configure auto provisioning
     href: security-center-enable-data-collection.md
   - name: Set up email notifications
     href: security-center-provide-security-contact-details.md
@@ -155,9 +161,9 @@
       href: security-center-network-recommendations.md
     - name: Protect identity and access
       href: security-center-identity-access.md
-  - name: Azure Defender alerts
+  - name: Learn about security alerts
     items:
-    - name: Azure Defender alerts overview
+    - name: Security alerts overview
       href: security-center-alerts-overview.md
     - name: Reference list of alerts
       href: alerts-reference.md
@@ -228,7 +234,8 @@
     - name: Configure Azure Defender for SQL on Azure VMs
       href: defender-for-sql-usage.md
       displayName: hybrid, arc
-    - name: Customize the information protection policy
+    - name: Customize your SQL information protection policy
+      displayName: sql, database, data discovery
       href: security-center-info-protection-policy.md
   - name: Use Azure Defender for container registries
     items:
@@ -248,7 +255,7 @@
       href: continuous-export.md
     - name: Download a CSV report of all alerts
       href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
-  - name: Handle Azure Defender alerts
+  - name: Handle security alerts
     items:
     - name: Manage security alerts
       href: security-center-managing-and-responding-alerts.md
@@ -257,6 +264,11 @@
     - name: Respond to Azure Defender for Key Vault alerts
       displayName: akv, kv
       href: defender-for-key-vault-usage.md
+    - name: Respond to Azure Defender for DNS alerts
+      href: defender-for-dns-usage.md
+    - name: Respond to Azure Defender for Resource Manager alerts
+      displayName: arm
+      href: defender-for-resource-manager-usage.md
     - name: Manage security incidents
       href: security-center-incident.md
     - name: Generate threat intelligence reports
@@ -283,8 +295,6 @@
     items:
     - name: General questions
       href: faq-general.md
-    - name: Billing questions
-      href: faq-billing.md
     - name: Permissions questions
       href: faq-permissions.md
     - name: Data collection and agent questions

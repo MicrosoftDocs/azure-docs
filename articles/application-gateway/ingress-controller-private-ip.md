@@ -14,7 +14,7 @@ ms.author: caya
 This feature allows to expose the ingress endpoint within the `Virtual Network` using a private IP.
 
 ## Pre-requisites  
-Application Gateway with a [Private IP configuration](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip)
+Application Gateway with a [Private IP configuration](./configure-application-gateway-with-private-frontend-ip.md)
 
 There are two ways to configure the controller to use Private IP for ingress,
 
@@ -61,4 +61,4 @@ This will make the ingress controller filter the IP address configurations for a
 AGIC will panic and crash if `usePrivateIP: true` and no Private IP is assigned.
 
 > [!NOTE]
-> Application Gateway v2 SKU requires a Public IP. Should you require Application Gateway to be private, Attach a [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) to the Application Gateway's subnet to restrict traffic.
+> Application Gateway v2 SKU requires a Public IP. Should you require Application Gateway to be private, Attach a [`Network Security Group`](../virtual-network/network-security-groups-overview.md) to the Application Gateway's subnet to restrict traffic.

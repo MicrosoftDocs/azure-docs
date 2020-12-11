@@ -1,7 +1,7 @@
 ---
 title: Azure Batch runs large parallel jobs in the cloud
 description: Learn about using the Azure Batch service for large-scale parallel and HPC workloads
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 07/30/2020
 ---
 

@@ -25,7 +25,7 @@ Before creating a private endpoint, there are some Azure resources that you will
 - Azure API for FHIR – The FHIR resource you would like to put behind a private endpoint.
 - Virtual Network – The VNet to which your client services and Private Endpoint will be connected.
 
-For more information, check out the [Private Link Documentation](https://docs.microsoft.com/azure/private-link/).
+For more information, check out the [Private Link Documentation](../private-link/index.yml).
 
 ## Disable public network access
 
@@ -35,7 +35,7 @@ Creating a private endpoint for your FHIR resource does not automatically disabl
 
 ## Create private endpoint
 
-To create a private endpoint, a developer with RBAC permissions on the FHIR resource can use Azure portal, [Azure PowerShell](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell), or [Azure CLI](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli). This article walks you through the steps on using Azure portal. Using Azure portal is recommended as it automates the creation and configuration of the Private DNS Zone. You can reference the [Private Link Quick Start Guides](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal) for more details.
+To create a private endpoint, a developer with RBAC permissions on the FHIR resource can use Azure portal, [Azure PowerShell](../private-link/create-private-endpoint-powershell.md), or [Azure CLI](../private-link/create-private-endpoint-cli.md). This article walks you through the steps on using Azure portal. Using Azure portal is recommended as it automates the creation and configuration of the Private DNS Zone. You can reference the [Private Link Quick Start Guides](../private-link/create-private-endpoint-portal.md) for more details.
 
 There are two ways to create a private endpoint. Auto Approval flow allows a user that has RBAC permissions on the FHIR resource to create a private endpoint without a need for approval. Manual Approval flow allows a user without permissions on the FHIR resource to request a private endpoint to be approved by owners of the FHIR resource.
 

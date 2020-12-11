@@ -32,9 +32,6 @@ Azure Cache for Redis improves application performance by supporting common appl
 
 Azure Cache for Redis supports OSS Redis version 4.x and, as a preview, 6.0. We've made the decision to skip Redis 5.0 to bring you the latest version. Previously, Azure Cache for Redis only maintained a single Redis version. It will provide a newer major release upgrade and at least one older stable version going forward. You can [choose which version](cache-how-to-version.md) works the best for your application.
 
-> [!NOTE]
-> Redis 6.0 is currently in preview - [contact us](mailto:azurecache@microsoft.com) if you're interested. This preview is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## Service tiers
 Azure Cache for Redis is available in the following tiers:
@@ -85,7 +82,7 @@ You can scale your cache from the Basic tier up to Premium after it has been cre
 The Enterprise tiers rely on Redis Enterprise, a commercial version of Redis from Redis Labs. Customers will obtain and pay for a license to this software through an Azure Marketplace offer. Azure Cache for Redis will facilitate the license acquisition so that you won't have to do it separately. To purchase in the Azure Marketplace, you must have the following prerequisites:
 * Your Azure subscription has a valid payment instrument. Azure credits or free MSDN subscriptions are not supported.
 * You're an Owner or Contributor of the subscription.
-* Your organization allows [Azure Marketplace purchases](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases).
+* Your organization allows [Azure Marketplace purchases](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
 * If you use a private Marketplace, it must contain the Redis Labs Enterprise offer.
 
 ## Next steps

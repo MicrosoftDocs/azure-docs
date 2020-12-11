@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Machine Learning data reference | Microsoft Docs
-description: Important reference material needed when you monitor Azure Machine Learning. Learn about the data and resources collected for Azure Machine Learning, and available in Azure Monitor. Azure Monitor collects and surfaces data about your Azure Machine Learning workspace, and allows you to view metrics, set alerts, and analyze logged data.
+description: Reference documentation for monitoring Azure Machine Learning. Learn about the data & resources collected and available in Azure Monitor. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -75,7 +75,7 @@ Azure Machine Learning has the following dimensions associated with its metrics.
 
 | Dimension | Description |
 | ---- | ---- |
-| Cluster Name | The name of the compute instance. Available for all quota metrics. |
+| Cluster Name | The name of the compute cluster resource. Available for all quota metrics. |
 | Vm Family Name | The name of the VM family used by the cluster. Available for quota utilization percentage. |
 | Vm Priority | The priority of the VM. Available for quota utilization percentage.
 | CreatedTime | Only available for CpuUtilization and GpuUtilization. |

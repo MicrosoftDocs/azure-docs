@@ -4,6 +4,8 @@
   items:
     - name: About Azure Functions
       href: functions-overview.md
+    - name: Getting started
+      href: functions-get-started.md
     - name: Durable Functions
       href: durable/durable-functions-overview.md
     - name: Serverless comparison
@@ -13,15 +15,43 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create function
+    - name: Create your first function
       expanded: true
       items:
         - name: Visual Studio Code
-          href: ./functions-create-first-function-vs-code.md
+          expanded: true
+          items:
+          - name: C#
+            href: create-first-function-vs-code-csharp.md
+          - name: Java
+            href: create-first-function-vs-code-java.md
+          - name: JavaScript
+            href: create-first-function-vs-code-node.md
+          - name: PowerShell
+            href: create-first-function-vs-code-powershell.md
+          - name: Python
+            href: create-first-function-vs-code-python.md
+          - name: TypeScript
+            href: create-first-function-vs-code-typescript.md
+          - name: Other (Go/Rust)
+            href: create-first-function-vs-code-other.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
         - name: Command line
-          href: functions-create-first-azure-function-azure-cli.md
+          expanded: false
+          items:
+          - name: C#
+            href: create-first-function-cli-csharp.md
+          - name: Java
+            href: create-first-function-cli-java.md
+          - name: JavaScript
+            href: create-first-function-cli-node.md
+          - name: PowerShell
+            href: create-first-function-cli-powershell.md
+          - name: Python
+            href: create-first-function-cli-python.md
+          - name: TypeScript
+            href: create-first-function-cli-typescript.md
         - name: ARM template
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
@@ -212,11 +242,11 @@
                 - name: Azure portal
                   href: functions-create-first-azure-function.md
                 - name: Command line
-                  href: ./functions-create-first-azure-function-azure-cli.md
+                  href: ./create-first-function-cli-csharp.md
                 - name: Visual Studio
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
-                  href: ./functions-create-first-function-vs-code.md
+                  href: ./create-first-function-vs-code-csharp.md
                 - name: Java using Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Java using Eclipse
@@ -230,7 +260,7 @@
                 - name: Linux App Service plan
                   href: create-function-app-linux-app-service-plan.md
                 - name: Linux Consumption plan
-                  href: ./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python
+                  href: create-first-function-cli-python.md
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Azure Cosmos DB trigger
@@ -341,6 +371,8 @@
               href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Authenticate with an OpenID Connect provider (Preview)
               href: ../app-service/configure-authentication-provider-openid-connect.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Authenticate using Sign in with Apple (Preview)
+              href: ../app-service/configure-authentication-provider-apple.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Advanced auth
           href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Restrict IPs
@@ -563,7 +595,7 @@
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=compute
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/functions/
+      href: pricing.md
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Quota information
