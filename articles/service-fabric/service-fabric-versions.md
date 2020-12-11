@@ -21,14 +21,12 @@ Refer to the following documents for details on how to keep your cluster running
 
 ### Upgrade Alert for versions between 5.7 and below 6.3.63.*
 
-***All Service Fabric clusters that are on unsupported versions from 5.7 to 6.3.63.* will be impacted by security breaking change that will be rolled out in Azure on January 7th,2021***.
+***All Service Fabric clusters that are on unsupported versions from 5.7 to 6.3.63.* will be impacted by a security breaking change that will be rolled out in Azure on January 7th,2021***.
  
-  
-  To avoid serious service disruptions, you must upgrade their clusters as soon as possible to one of the below supported version of Service Fabric runtime that includes fix for the security issue. We have reached out to the impacted customers with guidance. If you have a support plan and you need technical help, please reach out to us via [Azure support channels](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request) by opening a support request and mention this context in the support ticket. 
+ To avoid serious service disruptions (including clusters not coming up), you must upgrade your clusters as soon as possible to one of the below supported versions of Service Fabric runtime that includes the fix for the security issue. We have reached out to the impacted customers with guidance. If you have a support plan and you need technical help, please reach out to us via [Azure support channels] (https://docs.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request) by opening a support request and mention this context in the support ticket. 
  
-  #### Service Fabric runtime version including Breakfix
-   Ensure that Aure Service Fabric cluster is a upgraded to one of the below supported version of Service Fabric runtime that includes fix for the security issue described   
-   above. 
+  #### Supported Service Fabric Runtime versions including the fix for the security breaking change 
+   Upgrade your Service Fabric clusters that are running on older unsupported versions impacted by the security breaking change to one of the below supported version.
 
   | OS | Current Service Fabric runtime in the cluster | CU/Patch release  | 
   | --- | --- |--- | 
