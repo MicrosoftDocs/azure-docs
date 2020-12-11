@@ -12,8 +12,10 @@ ms.custom:
 
 # RabbitMQ trigger for Azure Functions overview
 
+> [!NOTE]
+> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Linux support will be released early in the 2021 calendar year. Consumption is not supported.
+
 Use the RabbitMQ trigger to respond to messages from a RabbitMQ queue.
-Starting with extension version 3.1.0, you can trigger on a session-enabled queue.
 
 For information on setup and configuration details, see the [overview](functions-bindings-rabbitmq.md).
 
@@ -21,38 +23,37 @@ For information on setup and configuration details, see the [overview](functions
 
 # [C#](#tab/csharp)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that reads RabbitMQ [message metadata](#message-metadata) and logs the message:
+The following example shows a [C# function](functions-dotnet-class-library.md) that reads and logs the RabbitMQ message:
 
 ```cs
-[FunctionName("RabbitMQQueueTriggerCSharp")]
+[FunctionName("RabbitMQTriggerCSharp")]
 public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", Hostname = "localhost")] BasicDeliverEventArgs args,
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] BasicDeliverEventArgs args,
     ILogger logger
     )
 {
-    logger.LogInformation($"RabbitMQ queue trigger function processed message: {Encoding.UTF8.GetString(args.Body)}");
+    logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {Encoding.UTF8.GetString(args.Body)}");
 }
 ```
 
 # [C# Script](#tab/csharp-script)
 
-The following example shows a RabbitMQ trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads [message metadata](#message-metadata) and logs a RabbitMQ message.
+The following example shows a RabbitMQ trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads and logs the RabbitMQ message.
 
 Here's the binding data in the *function.json* file:
 
 ```json
-{
-"bindings": [
-    {
-    "queueName": "testqueue",
-    "connection": "MyRabbitMQConnection",
-    "name": "myQueueItem",
-    "type": "RabbitMQTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
+{​​
+    "bindings": [
+        {​​
+        "name": "myQueueItem",
+        "type": "rabbitMQTrigger",
+        "direction": "in",
+        "queueName": "queue",
+        "connectionStringSetting": "rabbitMQConnection"
+        }​​
+    ]
+}​​
 ```
 
 Here's the C# script code:
@@ -60,50 +61,38 @@ Here's the C# script code:
 ```cs
 using System;
 
-public static void Run(string myQueueItem,
-    Int32 deliveryCount,
-    DateTime enqueuedTimeUtc,
-    string messageId,
-    TraceWriter log)
-{
-    log.Info($"C# RabbitMQ queue trigger function processed message: {myQueueItem}");
-
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"DeliveryCount={deliveryCount}");
-    log.Info($"MessageId={messageId}");
-}
+public static void Run(string myQueueItem, ILogger log)
+{​​
+    log.LogInformation($"C# Script RabbitMQ trigger function processed: {​​myQueueItem}​​");
+}​​
 ```
 
 # [JavaScript](#tab/javascript)
 
-The following example shows a RabbitMQ trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [message metadata](#message-metadata) and logs a RabbitMQ message.
+The following example shows a RabbitMQ trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads and logs a RabbitMQ message.
 
 Here's the binding data in the *function.json* file:
 
 ```json
-{
-    "scriptFile": "index.js",
-    "disabled": false,
-    "dataType": "string",
+{​​
     "bindings": [
-        {
-            "dataType": "string",
-            "type": "rabbitMQTrigger",
-            "connectionStringSetting": "rabbitMQConnection",
-            "queueName": "queue",
-            "name": "message"
-        }
+        {​​
+        "name": "myQueueItem",
+        "type": "rabbitMQTrigger",
+        "direction": "in",
+        "queueName": "TestQueue",
+        "connectionStringSetting": "Connection"
+        }​​
     ]
-}
+}​​
 ```
 
 Here's the JavaScript script code:
 
 ```javascript
-module.exports = async function(context, message) {
-    context.log('Node.js RabbitMQ trigger function processed work item: ', message);
-    context.done();
-};
+module.exports = async function (context, myQueueItem) {​​
+    context.log('JavaScript rabbitmq trigger function processed work item', myQueueItem);
+}​​;
 ```
 
 # [Python](#tab/python)
@@ -113,43 +102,41 @@ The following example demonstrates how to read a RabbitMQ queue message via a tr
 A RabbitMQ binding is defined in *function.json* where *type* is set to `RabbitMQTrigger`.
 
 ```json
-{
+{​​
     "scriptFile": "__init__.py",
-    "disabled": false,
-    "dataType": "string",
     "bindings": [
-        {
-            "dataType": "string",
-            "type": "rabbitMQTrigger",
-            "connectionStringSetting": "rabbitMQConnection",
-            "queueName": "queue",
-            "name": "message"
-        }
+        {​​
+            "name": "myQueueItem",
+            "type": "rabbitMqTrigger",
+            "direction": "in",
+            "queueName": "",
+            "connectionStringSetting": ""
+        }​​
     ]
-}
+}​​
 ```
 
 The code in *_\_init_\_.py* declares a parameter as `func.RabbitMQMessage`, which allows you to read the message in your function.
 
 ```python
+import logging
 import azure.functions as func
 
-import logging
-
-def main(message):
-    logging.info("Receive message from output function: %s", message)
+def main(myQueueItem) -> None:
+    logging.info('Python rabbitmq trigger function processed a queue item: %s', myQueueItem)
 ```
 
 # [Java](#tab/java)
 
-The following Java function uses the `@RabbitMQTrigger` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to describe the configuration for a RabbitMQ queue trigger. The function grabs the message placed on the queue and adds it to the logs.
+The following Java function uses the `@RabbitMQTrigger` annotation from the [Java RabbitMQ types](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) to describe the configuration for a RabbitMQ queue trigger. The function grabs the message placed on the queue and adds it to the logs.
 
 ```java
 @FunctionName("RabbitMQTriggerExample")
 public void run(
-            @RabbitMQTrigger(connectionStringSetting = "rabbitMQ", queueName = "TestQueue") String input,
-            final ExecutionContext context) {
-        context.getLogger().info("Java HTTP trigger processed a request." + input);
+    @RabbitMQTrigger(connectionStringSetting = "rabbitMQ", queueName = "TestQueue") String input,
+    final ExecutionContext context)
+{
+    context.getLogger().info("Java HTTP trigger processed a request." + input);
 }
 ```
 
@@ -187,7 +174,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-The `RabbitMQTrigger` annotation allows you to create a function that runs when a RabbitMQ message is created. Configuration options available include queue name and connection string name.
+The `RabbitMQTrigger` annotation allows you to create a function that runs when a RabbitMQ message is created. Configuration options available include queue name and connection string name. For additional parameter details please visit the [RabbitMQTrigger Java annotations](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/binding-library/java/src/main/java/com/microsoft/azure/functions/rabbitmq/annotation/RabbitMQTrigger.java).
 
 See the trigger [example](#example) for more detail.
 
@@ -206,8 +193,8 @@ The following table explains the binding configuration properties that you set i
 |**hostName**|**HostName**|(optional if using ConnectStringSetting) Hostname of the queue (Ex: 10.26.45.210)|
 |**userNameSetting**|**UserNameSetting**|(optional if using ConnectionStringSetting) Name to access the queue |
 |**passwordSetting**|**PasswordSetting**|(optional if using ConnectionStringSetting) Password to access the queue|
-|**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. (Example: amqp://user:password@url:port)|
-|**preFetchCount**|**PreFetchCount**| Gets the prefetch count while creating the RabbitMQ QoS. This setting controls how many values are cached.|
+|**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Example of connection string in local.settings.json: "rabbitMqConnection" : "<ActualConnectionstring>")|
+|**port**|**Port**|Gets or sets the Port used. Defaults to 0.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -217,50 +204,65 @@ The following table explains the binding configuration properties that you set i
 
 The following parameter types are available for the message:
 
-* [RabbitMQ event arguments](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) - the default format for RabbitMQ messages.
+* [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) - the default format for RabbitMQ messages.
+  * `byte[]`- Through Body property.
 * `string` - If the message is text.
 * `JSON object` - If the message is delivered as a valid JSON string
 * `C# POCO` - If the message is properly formatted as a C# object
 
 # [C# Script](#tab/csharp-script)
 
-The following parameter types are available for the queue or topic message:
-
-* `string` - If the message is text.
-* `byte[]` - Useful for binary data.
-* A custom type - If the message contains JSON, Azure Functions tries to deserialize the JSON data.
-* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.RabbitMQ.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_RabbitMQ_Messaging_BrokeredMessage_GetBody__1)
-  method.
-
-These parameters are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](/dotnet/api/microsoft.azure.RabbitMQ.message) instead of `BrokeredMessage`.
+The RabbitMQ message is passed into the function as either a string or JSON object.
 
 # [JavaScript](#tab/javascript)
 
-Access the queue or topic message by using `context.bindings.<name from function.json>`. The RabbitMQ message is passed into the function as either a string or JSON object.
+The RabbitMQ message is passed into the function as either a string or JSON object.
 
 # [Python](#tab/python)
 
-The message is available to the function via a parameter typed as `func.RabbitMQMessage`. The RabbitMQ message is passed into the function as either a string or JSON object.
+The RabbitMQ message is passed into the function as either a string or JSON object.
 
 # [Java](#tab/java)
 
-The incoming RabbitMQ message is available via a `RabbitMQQueueMessage` or `RabbitMQTopicMessage` parameter.
+Refer to Java [attributes and annotations](Attributes and annotations).
 
 [See the example for details](#example).
 
 ---
 
-## Configuring a Dead Letter Exchange and Queue
-Dead Letter queue creation is not supported by the RabbitMQ extensions. Please refer to RabbitMQ's documentation on [Dead Letter Exchanges](https://www.rabbitmq.com/dlx.html).
-
-## Message metadata
-
-The RabbitMQ trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These properties are members of the BasicDeliverEventArgsBasicDeliverEventArgs class. Please refer to the [RabbitMQ documentation](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) for full details on the properties.
-
-See [code examples](#example) that use these properties earlier in this article.
-
 ## RabbitMQ Dashboard
 If you would like to monitor your queues and exchanges for a certain RabbitMQ endpoint, first enable the [RabbitMQ management plugin](https://www.rabbitmq.com/management.html). Then, point your browser to the address of format http://{node-hostname}:15672 and log in with your user name and password.
+
+## host.json settings
+
+This section describes the global configuration settings available for this binding in versions 2.x and higher. The example host.json file below contains only the settings for this binding. For more information about global configuration settings, see [host.json reference for Azure Functions version](functions-host-json.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "rabbitMQ": {
+            "prefetchCount": 100,
+            "hostName": "localhost",
+            "queueName": "queue",
+            "password": "<your password>",
+            "userName": "<your username>",
+            "connectionString": "amqp://user:password@url:port",
+            "port": 10
+        }
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------|
+|prefetchCount|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
+|hostName|n/a|The maximum duration within which the message lock will be renewed automatically.|
+|queueName|n/a|Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br><br>Setting to `false` is only supported in C#.<br><br>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
+|password|16|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
+|userName|2000|The maximum number of sessions that can be handled concurrently per scaled instance.|
+|connectionString|2000|The maximum number of sessions that can be handled concurrently per scaled instance.|
+|port|0|The maximum number of sessions that can be handled concurrently per scaled instance.|
 
 ## Next steps
 

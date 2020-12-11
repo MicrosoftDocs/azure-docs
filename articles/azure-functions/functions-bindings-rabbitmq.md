@@ -14,7 +14,7 @@ ms.custom:
 # RabbitMQ bindings for Azure Functions overview
 
 > [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Linux support will be released early in the 2021 calendar year.
+> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Linux support will be released early in the 2021 calendar year. Consumption is not supported.
 
 Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [triggers and bindings](./functions-triggers-bindings.md). The Azure Functions RabbitMQ Binding extensions allow you to send and receive messages using the RabbitMQ API with Functions.
 
@@ -37,7 +37,7 @@ Working with the trigger and bindings requires that you reference the appropriat
 | C# Script, Java, JavaScript, Python, PowerShell | Registering the [extension bundle]          | The [Azure Tools extension] is recommended to use with Visual Studio Code. |
 | C# Script (online-only in Azure portal)         | Adding a binding                            | To update existing binding extensions without having to republish your function app, see [Update your extensions]. |
 
-[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
+[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.RabbitMQ
 [core tools]: ./functions-run-local.md
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [Update your extensions]: ./functions-bindings-register.md

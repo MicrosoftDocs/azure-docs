@@ -13,7 +13,10 @@ ms.custom:
 
 # RabbitMQ output binding for Azure Functions overview
 
-Use RabbitMQ output binding to send queue or topic messages.
+> [!NOTE]
+> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Linux support will be released early in the 2021 calendar year. Consumption is not supported.
+
+Use the RabbitMQ output binding to send messages to a RabbitMQ queue.
 
 For information on setup and configuration details, see the [overview](functions-bindings-service-bus-output.md).
 
@@ -24,6 +27,7 @@ For information on setup and configuration details, see the [overview](functions
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a RabbitMQ message:
 
 ```cs
+[FunctionName("RabbitMQOutputCSharp")]
 public static void BindToClient(
     [RabbitMQ(ConnectionStringSetting = "rabbitMQ")] IModel client,
     ILogger logger)
@@ -35,7 +39,7 @@ public static void BindToClient(
 
 # [C# Script](#tab/csharp-script)
 
-The following example shows a Service Bus output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
+The following example shows a RabbitMQ output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
 
 Here's the binding data in the *function.json* file:
 
@@ -167,38 +171,19 @@ def main(myTimer):
 
 # [Java](#tab/java)
 
-The following example shows a Java function that sends a message to a Service Bus queue `myqueue` when triggered by an HTTP request.
+The following example shows a Java function that sends a message to RabbitMQ queue when triggered by a TimerTrigger every 5 minutes.
 
 ```java
-@FunctionName("httpToServiceBusQueue")
-@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
-public String pushToQueue(
-  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-  final String message,
-  @HttpOutput(name = "response") final OutputBinding<T> result ) {
-      result.setValue(message + " has been sent.");
-      return message;
- }
-```
-
- In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on function parameters whose value would be written to a Service Bus queue.  The parameter type should be `OutputBinding<T>`, where T is any native Java type of a POJO.
-
-Java functions can also write to a Service Bus topic. The following example uses the `@ServiceBusTopicOutput` annotation to describe the configuration for the output binding. 
-
-```java
-@FunctionName("sbtopicsend")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
+@FunctionName("RabbitMQOutputExample")
+public void run(
+            @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+            @RabbitMQOutput(connectionStringSetting = "rabbitMQ", queueName = "hello") OutputBinding<String> output,
             final ExecutionContext context) {
-        
-        String name = request.getBody().orElse("Azure Functions");
-
-        message.setValue(name);
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-        
-    }
+        output.setValue("Some string");
+}
 ```
+
+ In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on function parameters whose value would be written to a RabbitMQ queue. The parameter type should be `OutputBinding<T>`, where T is any native Java type of a POJO.
 
 ---
 
@@ -206,33 +191,20 @@ Java functions can also write to a Service Bus topic. The following example uses
 
 # [C#](#tab/csharp)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [RabbitMQAttribute](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/src/RabbitMQAttribute.cs).
 
-The attribute's constructor takes the name of the queue or the topic and subscription. You can also specify the connection's access rights. How to choose the access rights setting is explained in the [Output - configuration](#configuration) section. Here's an example that shows the attribute applied to the return value of the function:
+Here's a `RabbitMQAttribute` attribute in a method signature:
 
 ```csharp
-[FunctionName("ServiceBusOutput")]
-[return: ServiceBus("myqueue")]
-public static string Run([HttpTrigger] dynamic input, ILogger log)
+[FunctionName("RabbitMQTest")]
+public static void BindToClient([RabbitMQ(ConnectionStringSetting = "rabbitMQ")] IModel client,
+    ILogger logger)
 {
     ...
 }
 ```
 
-You can set the `Connection` property to specify the name of an app setting that contains the Service Bus connection string to use, as shown in the following example:
-
-```csharp
-[FunctionName("ServiceBusOutput")]
-[return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string Run([HttpTrigger] dynamic input, ILogger log)
-{
-    ...
-}
-```
-
-For a complete example, see [Output - example](#example).
-
-You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](functions-bindings-service-bus-trigger.md#attributes-and-annotations).
+For a complete example, see C# example.
 
 # [C# Script](#tab/csharp-script)
 
@@ -266,21 +238,19 @@ The following table explains the binding configuration properties that you set i
 |**userName**|**UserName**|(optional if using ConnectionStringSetting) Name to access the queue |
 |**password**|**Password**|(optional if using ConnectionStringSetting) Password to access the queue|
 |**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. (Example: amqp://user:password@url:port)|
-|**port**|**Port**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the RabbitMQ SDK doesn't support manage operations.|
 |**preFetchCount**|**PreFetchCount**| Gets the prefetch count while creating the RabbitMQ QoS. This setting controls how many values are cached.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+# Usage
 
 # [C#](#tab/csharp)
 
 Use the following parameter types for the output binding:
 
-* `out T paramName` - `T` can be any JSON-serializable type. If the parameter value is null when the function exits, Functions creates the message with a null object.
-* `out string` - If the parameter value is null when the function exits, Functions does not create a message.
-* `out byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
-* `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 1.x)
-* `out Message` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 2.x and higher)
-* `ICollector<T>` or `IAsyncCollector<T>` (for async methods) - For creating multiple messages. A message is created when you call the `Add` method.
+* `byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
+* `string` - If the parameter value is null when the function exits, Functions does not create a message.
+* `C# POCO` - If the message is properly formatted as a C# object
 
 When working with C# functions:
 
@@ -292,18 +262,6 @@ When working with C# functions:
 
 Use the following parameter types for the output binding:
 
-* `out T paramName` - `T` can be any JSON-serializable type. If the parameter value is null when the function exits, Functions creates the message with a null object.
-* `out string` - If the parameter value is null when the function exits, Functions does not create a message.
-* `out byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
-* `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 1.x)
-* `out Message` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 2.x and higher)
-* `ICollector<T>` or `IAsyncCollector<T>` - For creating multiple messages. A message is created when you call the `Add` method.
-
-When working with C# functions:
-
-* Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
-
-* To access the session ID, bind to a [`Message`](/dotnet/api/microsoft.azure.servicebus.message) type and use the `sessionId` property.
 
 # [JavaScript](#tab/javascript)
 
