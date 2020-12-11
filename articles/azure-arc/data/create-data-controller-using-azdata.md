@@ -272,7 +272,13 @@ Before you create the data controller on Azure Red Hat OpenShift, you will need 
       curl https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
       ```
 
-1. Apply the SCC.
+1. Create SCC.
+
+   ```console
+   oc create -f arc-data-scc.yaml
+   ```
+
+1. Apply the SCC to the service account.
 
    > [!NOTE]
    > Use the same namespace here and in the `azdata arc dc create` command below. Example is `arc`.
@@ -325,7 +331,13 @@ Before you create the data controller on Red Hat OCP, you will need to apply spe
       curl https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
       ```
 
-1. Apply the SCC.
+1. Create SCC.
+
+   ```console
+   oc create -f arc-data-scc.yaml
+   ```
+
+1. Apply the SCC to the service account.
 
    > [!NOTE]
    > Use the same namespace here and in the `azdata arc dc create` command below. Example is `arc`.
