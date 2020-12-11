@@ -24,7 +24,7 @@ To set up your app to require client certificates:
 
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
-1. Set **Client certificate mode** to **Require**.
+1. Set **Client certificate mode** to **Require**. Click **Save** at the top of the page.
 
 To do the same with Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -34,18 +34,19 @@ az webapp update --set clientCertEnabled=true --name <app-name> --resource-group
 
 ## Exclude paths from requiring authentication
 
-When you enable mutual auth for your application, all paths under the root of your app will require a client certificate for access. To allow certain paths to remain open for anonymous access, define exclusion paths as part of your application configuration.
+When you enable mutual auth for your application, all paths under the root of your app require a client certificate for access. To allow disable this requirement for certain paths, define exclusion paths as part of your application configuration.
 
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
-1. Next to **Client exclution paths** click the edit icon.
+1. Next to **Client exclusion paths**, click the edit icon.
 
 1. Click **New path**, specify a path, and click **OK**.
+
+1. Click **Save** at the top of the page.
 
 In the following screenshot, anything under the `/public` path for your app does not request a client certificate.
 
 ![Certificate Exclusion Paths][exclusion-paths]
-
 
 ## Access client certificate
 
