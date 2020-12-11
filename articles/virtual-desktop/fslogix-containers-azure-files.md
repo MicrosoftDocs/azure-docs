@@ -3,7 +3,7 @@ title: Windows Virtual Desktop FSLogix profile containers files - Azure
 description: This article describes FSLogix profile containers within Windows Virtual Desktop and Azure files.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 12/12/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -65,7 +65,7 @@ S2D clusters require an operating system that is patched, updated, and maintaine
 On November 19, 2018, [Microsoft acquired FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix addresses many profile container challenges. Key among them are:
 
 - **Performance:** The [FSLogix profile containers](/fslogix/configure-profile-container-tutorial/) are high performance and resolve performance issues that have historically blocked cached exchange mode.
-- **OneDrive:** Without FSLogix profile containers, OneDrive for Business is not supported in non-persistent RDSH or VDI environments. [OneDrive for Business and FSLogix best practices](/fslogix/overview/) describes how they interact. For more information, see [Use the sync client on virtual desktops](/deployoffice/rds-onedrive-business-vdi/).
+- **OneDrive:** Without FSLogix profile containers, OneDrive for Business is not supported in non-persistent RDSH or VDI environments. The [OneDrive VDI support page](/onedrive/sync-vdi-support) will tell you how they interact. For more information, see [Use the sync client on virtual desktops](/deployoffice/rds-onedrive-business-vdi/).
 - **Additional folders:** FSLogix provides the ability to extend user profiles to include additional folders.
 
 Since the acquisition, Microsoft started replacing existing user profile solutions, like UPD, with FSLogix profile containers.
