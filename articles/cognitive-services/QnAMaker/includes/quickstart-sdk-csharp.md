@@ -205,6 +205,8 @@ A QnA Maker managed resource does not require the use of the **QnAMakerRuntimeCl
 
 These code snippets show you how to do the following with the QnA Maker client library for .NET:
 
+# [QnA Maker GA (stable release)](#tab/version-1)
+
 * [Authenticate the authoring client](#authenticate-the-client-for-authoring-the-knowledge-base)
 * [Create a knowledge base](#create-a-knowledge-base)
 * [Update a knowledge base](#update-a-knowledge-base)
