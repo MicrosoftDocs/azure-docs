@@ -330,4 +330,4 @@ Follow these steps to view your custom roles.
 
 - [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Azure custom roles](custom-roles.md)
-- [Azure Resource Manager resource provider operations](resource-provider-operations.md)
+- [Azure resource provider operations](resource-provider-operations.md)
