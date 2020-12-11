@@ -51,7 +51,7 @@ The [claims transformations](claimstransformations.md) are predefined functions 
 
 When you'd like to collect information from your users by presenting a page in their web browser, use the [self-asserted technical profile](self-asserted-technical-profile.md). You can edit your self-asserted technical profile to [add claims and customize user input](custom-policy-configure-user-input.md).
 
-To [customize the user interface](custom-policy-ui-customization.md) for your self-asserted technical profile, you specify a URL in the [content definition](contentdefinitions.md) element with customized HTML content. In the self-asserted technical profile, you point to this content definition ID.
+To [customize the user interface](customize-ui-with-html.md) for your self-asserted technical profile, you specify a URL in the [content definition](contentdefinitions.md) element with customized HTML content. In the self-asserted technical profile, you point to this content definition ID.
 
 To customize language-specific strings, use the [localization](localization.md) element. A content definition may contain a [localization](localization.md) reference that specifies a list of localized resources to load. Azure AD B2C merges user interface elements with the HTML content that's loaded from your URL and then displays the page to the user. 
 
@@ -160,7 +160,7 @@ You get started with Azure AD B2C custom policy:
 After you set up and test your Azure AD B2C policy, you can start customizing your policy. Go through the following articles to learn how to:
 
 1. [Add claims and customize user input](custom-policy-configure-user-input.md) using custom policies. Learn how to define a claim, add a claim to the user interface by customizing some of the starter pack technical profiles.
-1. [Customize the user interface](custom-policy-ui-customization.md) of your application using a custom policy. Learn how to create your own HTML content, and customize the content definition.
+1. [Customize the user interface](customize-ui-with-html.md) of your application using a custom policy. Learn how to create your own HTML content, and customize the content definition.
 1. [Localize the user interface](custom-policy-localization.md) of your application using a custom policy. Learn how to set up the list of supported languages, and provide language-specific labels, by adding the localized resources element.
 1. During your policy developing and testing you can [disable email verification](custom-policy-disable-email-verification.md). Learn how to overwrite a technical profile metadata.
 1. [Set up sign-in with a Google account](identity-provider-google-custom.md) using custom policies. Learn how to create a new claims provider with OAuth2 technical profile. Then customize the user journey to include the Google sign-in option.
