@@ -28,7 +28,7 @@ Migration has to be done from the [LUIS portal](https://www.luis.ai). If you cre
 
 > [!Note]
 > * If you need to create a prediction runtime resource, there's [a separate process](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) to create it.
-> * See the [Migration notes](#migration-notes) section below for information on how your applications and contributors will be affected. 
+> * See the [migration notes](#migration-notes) section below for information on how your applications and contributors will be affected. 
 > * Authoring your LUIS app is free, as indicated by the F0 tier. Learn [more about pricing tiers](luis-limits.md#key-limits).
 
 ## Migration prerequisites
