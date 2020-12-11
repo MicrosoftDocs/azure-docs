@@ -225,7 +225,7 @@ These metrics will be reported the Live Video Analytics on IoT Edge module:
 |-----------|----|-----|-----------|
 |lva_active_graph_instances|Gauge|iothub, edge_device, module_name, graph_topology|Total number of active graphs per topology.|
 |lva_received_bytes_total|Counter|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node|The total number of bytes received by a node. Only supported for RTSP Sources|
-|lva_data_dropped_total|Counter|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node, data_kind|Counter of any dropped data (events, media, etc)|
+|lva_data_dropped_total|Counter|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node, data_kind|Counter of any dropped data (events, media, etc.)|
 
 > [!NOTE]
 > A [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) is exposed at port **9600** of the container. If you name your Live Video Analytics on IoT Edge module “lvaEdge”, they would be able to access metrics by sending a GET request to http://lvaEdge:9600/metrics.   
@@ -258,7 +258,7 @@ Follow these steps to enable the collection of metrics from the Live Video Analy
         COPY telegraf.toml /etc/telegraf/telegraf.conf
     ```
 
-1. Now using docker cli command **build the docker file** and publish the image to your Azure Container Registry.
+1. Now using docker CLI command **build the docker file** and publish the image to your Azure Container Registry.
     1. Learn how to [Push and Pull Docker images  - Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).  More on Azure Container Registry (ACR) can be found [here](https://docs.microsoft.com/azure/container-registry/).
 
 
@@ -295,7 +295,7 @@ Follow these steps to enable the collection of metrics from the Live Video Analy
     > The Service Principal can be given the “**Monitoring Metrics Publisher**” role.
 
 1. Once the modules are deployed, metrics will appear in Azure Monitor under a single namespace with metric names matching the ones emitted by Prometheus. 
-    1. In this case, in your Azure Portal, navigate to the IoT Hub and click on the "**Metrics**" link in the left navigation pane. You should see the metrics there.
+    1. In this case, in your Azure portal, navigate to the IoT Hub and click on the "**Metrics**" link in the left navigation pane. You should see the metrics there.
 ## Logging
 
 Like with other IoT Edge modules, you can also [examine the container logs](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) on the Edge device. The information that is written to the logs can be controlled by the [following module twin](module-twin-configuration-schema.md) properties:
