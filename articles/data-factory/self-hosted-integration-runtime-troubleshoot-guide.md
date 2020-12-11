@@ -791,15 +791,7 @@ There are two possible reasons for this issue:
 - For reason 1: Make sure that the Data Factory server certificate and its certificate chain are trusted by the machine where the self-hosted IR is installed.
 - For reason 2: Either trust the replaced root CA on the self-hosted IR machine, or configure the proxy not to replace the Data Factory server certificate.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-For more information about trusting a certificate on Windows, see [Installing the trusted root certificate](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
-=======
-Refer to [this article](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) for details to trust a certificate on Windows.
->>>>>>> abf53f03f981215952a9eafe205be6c57c5d3d4c
-=======
-For more information about trusting a certificate on Windows, see [Install the trusted root certificate](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
->>>>>>> b4617cc769d10cb3bdc4a3d39b123dbc9ece630c
+For more information about trusting certificates on Windows, see [Installing the trusted root certificate](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 
 #### Additional information
 We've rolled out a new SSL certificate, which is signed from DigiCert. Check to see whether the DigiCert Global Root G2 is in the trusted root CA.
@@ -811,7 +803,7 @@ If it isn't in the trusted root CA, [download it here](http://cacerts.digicert.c
 
 ## Self-hosted IR sharing
 
-### Sharing self-hosted IR from a different tenant is not supported 
+### Sharing a self-hosted IR from a different tenant is not supported 
 
 #### Symptoms
 
@@ -820,8 +812,6 @@ You might notice other data factories (on different tenants) as you're attemptin
 #### Cause
 
 The self-hosted IR can't be shared across tenants.
-
-
 
 ## Next steps
 
