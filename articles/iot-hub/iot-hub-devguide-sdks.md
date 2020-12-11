@@ -51,7 +51,7 @@ Azure IoT Hub device SDK for Embedded C (ANSI C - C99):
 * [Build the Embedded C SDK](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#build)
 * [Source code](https://github.com/Azure/azure-sdk-for-c)
 * [Size chart](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#size-chart) for constrained devices.
-* [API reference](https://azuresdkdocs.blob.core.windows.net/$web/c/docs/1.0.0/index.html)
+* [API reference](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Identity/1.0.0/api/index.html)
 
 
 Azure IoT Hub device SDK for C (ANSI C - C99):

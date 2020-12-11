@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 # Sentence pairing and alignment in parallel documents
 
-During the training, sentences present in parallel documents are
+After documents are uploaded, sentences present in parallel documents are
 paired or aligned. Custom Translator reports the number of sentences it was
 able to pair as the Aligned Sentences in each of the data sets.
 
