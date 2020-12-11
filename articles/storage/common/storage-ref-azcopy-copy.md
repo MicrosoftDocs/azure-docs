@@ -281,7 +281,7 @@ is specified, the value is assumed to be in the local timezone of the machine ru
 
 **--include-pattern** string   Include only these files when copying. This option supports wildcard characters (*). Separate files by using a `;`.
 
-**--list-of-versions** string  Specifies a file where each version id is listed on a separate line. Ensure that the source must point to a single blob and all the version ids specified in the file using this flag must belong to the source blob only. AzCopy will download the specified versions in the destination folder provided. For more information, see [Download previous versions of a blob](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
+**--list-of-versions** string  Specifies a file where each version ID is listed on a separate line. Ensure that the source must point to a single blob and all the version IDs specified in the file using this flag must belong to the source blob only. AzCopy will download the specified versions in the destination folder provided. For more information, see [Download previous versions of a blob](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
 
 **--log-level** string    Define the log verbosity for the log file, available levels: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default `INFO`). 
 
