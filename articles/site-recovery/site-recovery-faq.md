@@ -268,6 +268,9 @@ Application-consistent recovery points are created from application-consistent s
 
 Because of their extra content, application-consistent snapshots are the most involved and take the longest. We recommend application-consistent recovery points for database operating systems and applications such as SQL Server.
 
+>[!Note]
+>Creation of application-consistent recovery points fails on Windows machine, if it has more than 64 volumes.
+
 ### What is the impact of application-consistent recovery points on application performance?
 
 Application-consistent recovery points capture all the data in memory and in process. Because recovery points capture that data, they require framework like Volume Shadow Copy Service on Windows to quiesce the application. If the capturing process is frequent, it can affect performance when the workload is already busy. We don't recommend that you use low frequency for app-consistent recovery points for non-database workloads. Even for database workload, 1 hour is enough.
