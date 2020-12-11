@@ -208,6 +208,8 @@ Making a prediction:
 
 You can then verify that the test image (found in **Images/Test/**) is tagged appropriately. Press any key to exit the application. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
+## Clean up resources
+
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 
 ## Next steps

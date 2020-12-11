@@ -205,6 +205,8 @@ Making a prediction:
 
 You can then verify that the test image (found in **Images/Test/**) is tagged appropriately and that the region of detection is correct. At this point, you can press any key to exit the application.
 
+## Clean up resources
+
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 
 ## Next steps

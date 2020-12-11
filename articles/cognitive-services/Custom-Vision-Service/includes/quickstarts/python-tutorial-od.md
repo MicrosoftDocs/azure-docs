@@ -156,6 +156,8 @@ python CustomVisionQuickstart.py
 
 The output of the application should appear in the console. You can then verify that the test image (found in **<base_image_location>/images/Test**) is tagged appropriately and that the region of detection is correct. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
+## Clean up resources
+
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 
 ## Next steps

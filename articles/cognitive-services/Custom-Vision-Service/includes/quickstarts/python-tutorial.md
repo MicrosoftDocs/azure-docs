@@ -158,6 +158,8 @@ Done!
 
 You can then verify that the test image (found in **<base_image_location>/images/Test/**) is tagged appropriately. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
+## Clean up resources
+
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 
 ## Next steps

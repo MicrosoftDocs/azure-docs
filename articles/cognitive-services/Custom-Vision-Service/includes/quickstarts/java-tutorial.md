@@ -176,9 +176,6 @@ This method loads the test image, queries the model endpoint, and outputs predic
 
 [!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_predict)]
 
-
-## Run the application
-
 ## Run the application
 
 You can build the app with:
