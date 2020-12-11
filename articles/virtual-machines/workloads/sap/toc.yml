@@ -10,8 +10,6 @@
     items:
     - name: What is SAP HANA on Azure (Large Instances)?
       href: hana-overview-architecture.md
-    - name: What is BareMetal Instances on Azure?
-      href: baremetal-infrastructure-portal.md
     - name: Know the terms
       href: hana-know-terms.md
     - name: Certification
@@ -74,6 +72,8 @@
     items:
     - name: Azure HANA Large Instances control through Azure portal
       href: hana-li-portal.md
+    - name: What is BareMetal Instances on Azure?
+      href: baremetal-infrastructure-portal.md
     - name: HA Setup with STONITH
       href: ha-setup-with-stonith.md
     - name: OS Backup for Type II SKUs
