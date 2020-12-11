@@ -202,7 +202,7 @@ public async Task<IActionResult> Index()
 
 ## Next steps
 
-The GitHub repo that contains this ASP.NET Core tutorial includes instructions and more code samples that show you how to:
+The GitHub repo that contains the ASP.NET Core code sample referenced in this quickstart includes instructions and more code samples that show you how to:
 
 - Add authentication to a new ASP.NET Core Web application
 - Call Microsoft Graph, other Microsoft APIs, or your own web APIs
