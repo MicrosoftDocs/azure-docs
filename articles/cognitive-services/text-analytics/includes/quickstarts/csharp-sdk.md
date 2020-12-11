@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 12/11/2020
 ms.author: aahi
 ms.reviewer: assafi
 ---
@@ -894,7 +894,7 @@ static async Task AnalyzeOperationExample(TextAnalyticsClient client)
 }
 ```
 
-After you add this example to your application, call the example using `await`.
+After you add this example to your application, call in your `main()` method using `await`.
 
 ```csharp
 await AnalyzeOperationExample(client).ConfigureAwait(false);
