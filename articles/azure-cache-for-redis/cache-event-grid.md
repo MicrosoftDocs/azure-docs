@@ -14,9 +14,9 @@ Azure Cache for Redis events allows applications to react to patching, scaling, 
 
 Azure Cache for Redis events are pushed using [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own http listener. Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering.
 
-See the [Azure Cache for Redis events schema]() article to view the full list of the events that Azure Cache for Redis supports.
+See the [Azure Cache for Redis events schema](../event-grid/event-schema-azure-cache.md) article to view the full list of the events that Azure Cache for Redis supports.
 
-If you want to try Azure Cache for Redis events, see the following [quickstart]() article.
+If you want to try Azure Cache for Redis events, see the following [quickstart](cache-event-grid-quickstart.md) article.
 
 ## The event model
 

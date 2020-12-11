@@ -3,6 +3,8 @@ title: Azure Cache for Redis as Event Grid source
 description: Describes the properties that are provided for Azure Cache for Redis events with Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
+author: curib
+ms.author: cauribeg
 ---
 
 # Azure Cache for Redis as an Event Grid source
@@ -29,18 +31,18 @@ When an event is triggered, the Event Grid service sends data about that event t
 
 This section contains an example of what that data would look like for each Azure Cache for Redis event.
 
-### Microsoft.Cache.ScalingCompleted event
+### Microsoft.Cache.PatchingCompleted event
 
 ```json
 [{
 "id":"9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
-"eventType":"Microsoft.Cache.ScalingCompleted",
-"topic":"/subscriptions/{subscription-id}/resourceGroups/RedisStressTests/providers/Microsoft.Cache/Redis/test-mcr",
+"eventType":"Microsoft.Cache.PatchingCompleted",
+"topic":"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
 "data":{
-    "name":"ScalingCompleted",
+    "name":"PatchingCompleted",
     "timestamp":"2020-12-09T21:50:19.9995668+00:00",
     "status":"Succeeded"},
-"subject":"ScalingCompleted",
+"subject":"PatchingCompleted",
 "dataversion":"1.0",
 "metadataVersion":"1",
 "eventTime":"2020-12-09T21:50:19.9995668+00:00"}]
@@ -52,7 +54,7 @@ This section contains an example of what that data would look like for each Azur
 [{
 "id":"9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
 "eventType":"Microsoft.Cache.ImportRDBCompleted",
-"topic":"/subscriptions/{subscription-id}/resourceGroups/RedisStressTests/providers/Microsoft.Cache/Redis/test-mcr",
+"topic":"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
 "data":{
     "name":"ImportRDBCompleted",
     "timestamp":"2020-12-09T21:50:19.9995668+00:00",
@@ -69,7 +71,7 @@ This section contains an example of what that data would look like for each Azur
 [{
 "id":"9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
 "eventType":"Microsoft.Cache.ExportRDBCompleted",
-"topic":"/subscriptions/{subscription-id}/resourceGroups/RedisStressTests/providers/Microsoft.Cache/Redis/test-mcr",
+"topic":"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
 "data":{
     "name":"ExportRDBCompleted",
     "timestamp":"2020-12-09T21:50:19.9995668+00:00",
@@ -86,7 +88,7 @@ This section contains an example of what that data would look like for each Azur
 [{
 "id":"9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
 "eventType":"Microsoft.Cache.ScalingCompleted",
-"topic":"/subscriptions/{subscription-id}/resourceGroups/RedisStressTests/providers/Microsoft.Cache/Redis/test-mcr",
+"topic":"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
 "data":{
     "name":"ScalingCompleted",
     "timestamp":"2020-12-09T21:50:19.9995668+00:00",
