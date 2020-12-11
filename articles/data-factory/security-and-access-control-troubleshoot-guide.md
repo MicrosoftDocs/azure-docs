@@ -81,9 +81,8 @@ You can follow below steps to verify if Data Factory FQDN is resolved to public 
 
    `psping.exe <dataFactoryName>.<region>.datafactory.azure.net:443`
 
-> [!Note]
-> A port is required to be specified for PsPing command, while 443 port is not a must.
->
+   > [!Note]
+   > A port is required to be specified for PsPing command, while 443 port is not a must.
 
 3. Check if both commands resolved to an ADF public IP that based on specified region (format xxx.xxx.xxx.0).
 
