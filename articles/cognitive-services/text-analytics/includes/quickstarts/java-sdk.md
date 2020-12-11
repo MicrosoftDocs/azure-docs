@@ -113,6 +113,7 @@ public static void main(String[] args) {
     recognizeLinkedEntitiesExample(client);
     recognizePiiEntitiesExample(client);
     extractKeyPhrasesExample(client);
+		analyzeOperationExample(client);
 }
 ```
 
@@ -128,6 +129,7 @@ public static void main(String[] args) {
     recognizeEntitiesExample(client);
     recognizeLinkedEntitiesExample(client);
     extractKeyPhrasesExample(client);
+		AnalyzeOperationExample(client)
 }
 ```
 
@@ -605,87 +607,103 @@ veterinarian
 > To use Analyze operations, you must use a Text Analytics resource with the standard (S) pricing tier.  
 
 ```csharp
-static void AnalyzeOperationExample(TextAnalyticsClient client)
+static void analyzeOperationExample(TextAnalyticsClient client)
 {
-	List<TextDocumentInput> documents = Arrays.asList(
-			new TextDocumentInput("0", "Microsoft was founded by Bill Gates and Paul Allen."),
-	);
+		List<TextDocumentInput> documents = Arrays.asList(
+						new TextDocumentInput("0", "Microsoft was founded by Bill Gates and Paul Allen.")
+						);
 
-	client.beginAnalyzeTasks(documents,
-			new AnalyzeTasksOptions().setDisplayName("{tasks_display_name}")
-					.setEntitiesRecognitionTasks(Arrays.asList(new EntitiesTask()))
-					.setKeyPhrasesExtractionTasks(Arrays.asList(new KeyPhrasesTask()))
-					.setPiiEntitiesRecognitionTasks(Arrays.asList(new PiiTask())))
-			.flatMap(AsyncPollResponse::getFinalResult)
-			.subscribe(analyzeTasksResultPagedFlux ->
-					analyzeTasksResultPagedFlux.subscribe(analyzeTasksResult -> {
-							System.out.printf("Job Display Name: %s, Job ID: %s.%n", analyzeTasksResult.getDisplayName(),
-									analyzeTasksResult.getJobId());
-							System.out.printf("Total tasks: %s, completed: %s, failed: %s, in progress: %s.%n",
-									analyzeTasksResult.getTotal(), analyzeTasksResult.getCompleted(),
-									analyzeTasksResult.getFailed(), analyzeTasksResult.getInProgress());
+		SyncPoller<TextAnalyticsOperationResult, PagedIterable<AnalyzeTasksResult>> syncPoller =
+						client.beginAnalyzeTasks(documents,
+										new AnalyzeTasksOptions().setDisplayName("{tasks_display_name}")
+														.setEntitiesRecognitionTasks(Arrays.asList(new EntitiesTask()))
+														.setKeyPhrasesExtractionTasks(Arrays.asList(new KeyPhrasesTask()))
+														.setPiiEntitiesRecognitionTasks(Arrays.asList(new PiiTask())),
+										Context.NONE);
 
-							List<RecognizeEntitiesResultCollection> entityRecognitionTasks = analyzeTasksResult.getEntityRecognitionTasks();
-							if (entityRecognitionTasks != null) {
-									entityRecognitionTasks.forEach(taskResult -> {
-											// Recognized entities for each of documents from a batch of documents
-											AtomicInteger counter = new AtomicInteger();
-											for (RecognizeEntitiesResult entitiesResult : taskResult) {
-													System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
-													if (entitiesResult.isError()) {
-															// Erroneous document
-															System.out.printf("Cannot recognize entities. Error: %s%n", entitiesResult.getError().getMessage());
-													} else {
-															// Valid document
-															entitiesResult.getEntities().forEach(entity -> System.out.printf(
-																	"Recognized entity: %s, entity category: %s, entity subcategory: %s, confidence score: %f.%n",
-																	entity.getText(), entity.getCategory(), entity.getSubcategory(), entity.getConfidenceScore()));
-													}
-											}
-									});
-							}
-							List<ExtractKeyPhrasesResultCollection> keyPhraseExtractionTasks = analyzeTasksResult.getKeyPhraseExtractionTasks();
-							if (keyPhraseExtractionTasks != null) {
-									keyPhraseExtractionTasks.forEach(taskResult -> {
-											// Extracted key phrase for each of documents from a batch of documents
-											AtomicInteger counter = new AtomicInteger();
-											for (ExtractKeyPhraseResult extractKeyPhraseResult : taskResult) {
-													System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
-													if (extractKeyPhraseResult.isError()) {
-															// Erroneous document
-															System.out.printf("Cannot extract key phrases. Error: %s%n", extractKeyPhraseResult.getError().getMessage());
-													} else {
-															// Valid document
-															System.out.println("Extracted phrases:");
-															extractKeyPhraseResult.getKeyPhrases().forEach(keyPhrases -> System.out.printf("\t%s.%n", keyPhrases));
-													}
-											}
-									});
-							}
-							List<RecognizePiiEntitiesResultCollection> entityRecognitionPiiTasks = analyzeTasksResult.getEntityRecognitionPiiTasks();
-							if (entityRecognitionPiiTasks != null) {
-									entityRecognitionPiiTasks.forEach(taskResult -> {
-											// Recognized Personally Identifiable Information entities for each document in a batch of documents
-											AtomicInteger counter = new AtomicInteger();
-											for (RecognizePiiEntitiesResult entitiesResult : taskResult) {
-													// Recognized entities for each document in a batch of documents
-													System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
-													if (entitiesResult.isError()) {
-															// Erroneous document
-															System.out.printf("Cannot recognize Personally Identifiable Information entities. Error: %s%n", entitiesResult.getError().getMessage());
-													} else {
-															// Valid document
-															PiiEntityCollection piiEntityCollection = entitiesResult.getEntities();
-															System.out.printf("Redacted Text: %s%n", piiEntityCollection.getRedactedText());
-															piiEntityCollection.forEach(entity -> System.out.printf(
-																	"Recognized Personally Identifiable Information entity: %s, entity category: %s, entity subcategory: %s, offset: %s, confidence score: %f.%n",
-																	entity.getText(), entity.getCategory(), entity.getSubcategory(), entity.getOffset(), entity.getConfidenceScore()));
-													}
-											}
-									});
-							}
-					}));
-}
+		syncPoller.waitForCompletion();
+		PagedIterable<AnalyzeTasksResult> result = syncPoller.getFinalResult();
+
+		result.forEach(analyzeJobState -> {
+				System.out.printf("Job Display Name: %s, Job ID: %s.%n", analyzeJobState.getDisplayName(),
+								analyzeJobState.getJobId());
+				System.out.printf("Total tasks: %s, completed: %s, failed: %s, in progress: %s.%n",
+								analyzeJobState.getTotal(), analyzeJobState.getCompleted(), analyzeJobState.getFailed(),
+								analyzeJobState.getInProgress());
+
+				List<RecognizeEntitiesResultCollection> entityRecognitionTasks =
+								analyzeJobState.getEntityRecognitionTasks();
+				if (entityRecognitionTasks != null) {
+						entityRecognitionTasks.forEach(taskResult -> {
+								// Recognized entities for each of documents from a batch of documents
+								AtomicInteger counter = new AtomicInteger();
+								for (RecognizeEntitiesResult entitiesResult : taskResult) {
+										System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
+										if (entitiesResult.isError()) {
+												// Erroneous document
+												System.out.printf("Cannot recognize entities. Error: %s%n",
+																entitiesResult.getError().getMessage());
+										} else {
+												// Valid document
+												entitiesResult.getEntities().forEach(entity -> System.out.printf(
+																"Recognized entity: %s, entity category: %s, entity subcategory: %s, "
+																				+ "confidence score: %f.%n",
+																entity.getText(), entity.getCategory(), entity.getSubcategory(),
+																entity.getConfidenceScore()));
+										}
+								}
+						});
+				}
+				List<ExtractKeyPhrasesResultCollection> keyPhraseExtractionTasks =
+								analyzeJobState.getKeyPhraseExtractionTasks();
+				if (keyPhraseExtractionTasks != null) {
+						keyPhraseExtractionTasks.forEach(taskResult -> {
+								// Extracted key phrase for each of documents from a batch of documents
+								AtomicInteger counter = new AtomicInteger();
+								for (ExtractKeyPhraseResult extractKeyPhraseResult : taskResult) {
+										System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
+										if (extractKeyPhraseResult.isError()) {
+												// Erroneous document
+												System.out.printf("Cannot extract key phrases. Error: %s%n",
+																extractKeyPhraseResult.getError().getMessage());
+										} else {
+												// Valid document
+												System.out.println("Extracted phrases:");
+												extractKeyPhraseResult.getKeyPhrases()
+																.forEach(keyPhrases -> System.out.printf("\t%s.%n", keyPhrases));
+										}
+								}
+						});
+				}
+				List<RecognizePiiEntitiesResultCollection> entityRecognitionPiiTasks =
+								analyzeJobState.getEntityRecognitionPiiTasks();
+				if (entityRecognitionPiiTasks != null) {
+						entityRecognitionPiiTasks.forEach(taskResult -> {
+								// Recognized Personally Identifiable Information entities for each document in a batch of documents
+								AtomicInteger counter = new AtomicInteger();
+								for (RecognizePiiEntitiesResult entitiesResult : taskResult) {
+										// Recognized entities for each document in a batch of documents
+										System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
+										if (entitiesResult.isError()) {
+												// Erroneous document
+												System.out.printf(
+																"Cannot recognize Personally Identifiable Information entities. Error: %s%n",
+																entitiesResult.getError().getMessage());
+										} else {
+												// Valid document
+												PiiEntityCollection piiEntityCollection = entitiesResult.getEntities();
+												System.out.printf("Redacted Text: %s%n", piiEntityCollection.getRedactedText());
+												piiEntityCollection.forEach(entity -> System.out.printf(
+																"Recognized Personally Identifiable Information entity: %s, entity category: %s, "
+																				+ "entity subcategory: %s, offset: %s, confidence score: %f.%n",
+																entity.getText(), entity.getCategory(), entity.getSubcategory(), entity.getOffset(),
+																entity.getConfidenceScore()));
+										}
+								}
+						});
+				}
+		});
+	}
 ```
 
 ### Output

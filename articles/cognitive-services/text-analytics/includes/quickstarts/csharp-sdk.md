@@ -810,7 +810,11 @@ Key phrases:
 # [Version 3.1 preview](#tab/version-3-1)
 
 > [!CAUTION]
-> To use Analyze operations, you must use a Text Analytics resource with the standard (S) pricing tier.  
+> To use the Analyze operation, make sure your Azure resource is using a standard pricing tier, and add the following `using` directive to the top of your C# file.
+
+```
+using AnalyzeOperationExample() 
+```
 
 Create a new function called `AnalyzeOperationExample()` that takes the client that you created earlier, and call its `StartAnalyzeOperationBatch()` function. The returned `AnalyzeOperation` object will contain the `Operation` interface object for `AnalyzeOperationResult`. As it is a Long Running Operation, `await` on the `operation.WaitForCompletionAsync()` for the value to be updated. Once the `WaitForCompletionAsync()` is finishes, the collection should be updated in the `operation.Value`. If there was an error, it will throw a `RequestFailedException`.
 
@@ -893,6 +897,9 @@ static async Task AnalyzeOperationExample(TextAnalyticsClient client)
         Console.WriteLine("");
     }
 }
+
+await AnalyzeOperationExample(client).ConfigureAwait(false);
+
 ```
 
 ### Output
