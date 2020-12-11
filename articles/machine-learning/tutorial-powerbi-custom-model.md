@@ -28,8 +28,8 @@ There are three different ways to create and deploy the model you'll use in Powe
 
 You could instead use:
 
-* [Option B: Train and deploy models using designer](tutorial-pbi-designer-model.md)- a low-code authoring experience using Designer (a drag-and-drop user interface).
-* [Option C: Train and deploy models using automated ML](tutorial-pbi-automl-model.md) - a no-code authoring experience that fully automates the data preparation and model training.
+* [Option B: Train and deploy models using designer](tutorial-powerbi-designer-model.md)- a low-code authoring experience using Designer (a drag-and-drop user interface).
+* [Option C: Train and deploy models using automated ML](tutorial-powerbi-automated-model.md) - a no-code authoring experience that fully automates the data preparation and model training.
 
 
 ## Prerequisites

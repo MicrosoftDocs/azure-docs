@@ -29,8 +29,8 @@ There are three different ways to create and deploy the model you'll use in Powe
 
 You could instead use:
 
-* [Option A: Train and deploy models using Notebooks](tutorial-pbi-custom-model.md) -  a code-first authoring experience using Jupyter notebooks hosted in Azure Machine Learning studio.
-* [Option B: Train and deploy models using designer](tutorial-pbi-designer-model.md)- a low-code authoring experience using Designer (a drag-and-drop user interface).
+* [Option A: Train and deploy models using Notebooks](tutorial-powerbi-custom-model.md) -  a code-first authoring experience using Jupyter notebooks hosted in Azure Machine Learning studio.
+* [Option B: Train and deploy models using designer](tutorial-powerbi-designer-model.md)- a low-code authoring experience using Designer (a drag-and-drop user interface).
 
 ## Prerequisites
 
