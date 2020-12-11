@@ -1,8 +1,20 @@
 ---
 title: BareMetal Instance units in Azure
 description: Learn how to identify and interact with BareMetal Instance units through the Azure portal.
-ms.topic: how-to
+services: virtual-machines-linux,virtual-machines-windows
+documentationcenter: ''
+author: shortpatti
+manager: gwallace
+editor: ''
+tags: azure-resource-manager
+keywords: ''
+ms.service: virtual-machines-linux
+ms.subservice: workloads
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
 ms.date: 12/18/2020
+ms.author: v-patsho
 ---
 
 # Manage BareMetal Instances through the Azure portal

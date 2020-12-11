@@ -16,7 +16,6 @@ ms.workload: infrastructure
 ms.date: 12/18/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Azure HANA Large Instances control through Azure portal
