@@ -120,7 +120,7 @@ Synapse Link is not recommended if you are looking for traditional data warehous
 
 * Accessing the Azure Cosmos DB analytics store with Synapse SQL provisioned is currently not available.
 
-* Network isolation for Azure Cosmso DB analytical store, using private endpoints in Synapse managed virtual networks, is currently not supported. 
+* Network isolation for Azure Cosmso DB analytical store, using managed private endpoints in Azure Synapse Analytics, is currently not supported. 
 
 ## Pricing
 
