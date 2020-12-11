@@ -157,7 +157,7 @@ After that, you'll need to "expand" the MSIX image by unpacking it. To unpack th
 
 2. Run the following cmdlet to unpack the MSIX into the VHD you created and mounted in the previous section.
 
-    ```powershell
+    ```cmd
     msixmgr.exe -Unpack -packagePath <package>.msix -destination "f:\<name of folder you created earlier>" -applyacls
     ```
 
