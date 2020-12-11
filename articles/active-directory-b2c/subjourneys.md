@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # SubJourneys
 
-Subjourneys can be used to organize and simplify the flow of orchestration steps within a user journey. [User journeys](userjourneys.md) specify explicit paths through which a policy allows a relying party application to obtain the desired claims for a user. The user is taken through these paths to retrieve the claims that are to be presented to the relying party. In other words, user journeys define the business logic of what an end user goes through as the Azure AD B2C Identity Experience Framework processes the request. A user journey is represented as an orchestration sequence that must be followed through for a successful transaction. The [ClaimsExchange](userjourneys.md#claimsexchanges) element of an orchestration step is tied to a single [technical profile](technical-profiles-overview.md) that executes.
+Subjourneys can be used to organize and simplify the flow of orchestration steps within a user journey. [User journeys](userjourneys.md) specify explicit paths through which a policy allows a relying party application to obtain the desired claims for a user. The user is taken through these paths to retrieve the claims that are to be presented to the relying party. In other words, user journeys define the business logic of what an end user goes through as the Azure AD B2C Identity Experience Framework processes the request. A user journey is represented as an orchestration sequence that must be followed through for a successful transaction. The [ClaimsExchange](userjourneys.md#claimsexchanges) element of an orchestration step is tied to a single [technical profile](technicalprofiles.md) that executes.
 
 A subjourney is a grouping of orchestration steps that can be invoked at any point within a user journey. You can use subjourneys to create reusable step sequences or implement branching to better represent the business logic.
 

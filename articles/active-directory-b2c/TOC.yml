@@ -268,7 +268,7 @@
       href: analytics-with-application-insights.md
     - name: Reference
       items:
-      - name: Trust Framework definition
+      - name: Custom policy overview
         href: custom-policy-trust-frameworks.md
       - name: TrustFrameworkPolicy
         href: trustframeworkpolicy.md
@@ -315,11 +315,9 @@
       - name: ClaimsProviders
         href: claimsproviders.md
         items:
-        - name: TechnicalProfiles
+        - name: Technical Profiles
           href: technicalprofiles.md
           items:
-          - name: About technical profiles
-            href: technical-profiles-overview.md
           - name: About validation technical profiles
             href: validation-technical-profile.md
           - name: Application Insights
