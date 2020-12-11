@@ -472,7 +472,7 @@ In the local terminal window, commit your changes in Git, then push the code cha
 
 ```bash
 git commit -am "added article comment"
-git push azure main
+git push azure master
 ```
 
 Once the `git push` is complete, navigate to your Azure app and try out the new functionality.
