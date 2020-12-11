@@ -4,11 +4,11 @@ description: Learn to create an AKS cluster with confidential nodes and deploy a
 author: agowdamsft
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 9/22/2020
+ms.date: 12/11/2020
 ms.author: amgowda
 ---
 
-# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster with confidential computing nodes using Azure CLI (preview)
+# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster with confidential computing nodes (DCsv2) using Azure CLI (preview)
 
 This quickstart is intended for developers or cluster operators who want to quickly create an AKS cluster and deploy an application to monitor applications using the managed Kubernetes service in Azure.
 
@@ -19,21 +19,24 @@ In this quickstart, you'll learn how to deploy an Azure Kubernetes Service (AKS)
 > [!NOTE]
 > Confidential computing DCsv2 VMs leverage specialized hardware that is subject to higher pricing and region availability. For more information, see the virtual machines page for [available SKUs and supported regions](virtual-machine-solutions.md).
 
+> DCsv2 leverages Generation 2 Virtual Machines on Azure, this Generation 2 VM is a preview feature with AKS. 
+
 ### Deployment pre-requisites
+This deployment instructions assumes:
 
 1. Have an active Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin
 1. Have the Azure CLI version 2.0.64 or later installed and configured on your deployment machine (Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](../container-registry/container-registry-get-started-azure-cli.md)
 1. [aks-preview extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) minimum version 0.4.62 
-1. Have a minimum of six **DC<x>s-v2** cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription 8 cores. If you plan to provision a cluster that requires more than 8 cores, follow [these](../azure-portal/supportability/per-vm-quota-requests.md) instructions to raise a quota increase ticket
+1. VM Cores Quota availability. Have a minimum of six **DC<x>s-v2** cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription 8 cores. If you plan to provision a cluster that requires more than 8 cores, follow [these](../azure-portal/supportability/per-vm-quota-requests.md) instructions to raise a quota increase ticket
 
 ### Confidential computing node features (DC<x>s-v2)
 
 1. Linux Worker Nodes supporting Linux Containers Only
-1. Ubuntu Generation 2 18.04 Virtual Machines
+1. Generation 2 VM with Ubuntu 18.04 Virtual Machines Nodes
 1. Intel SGX-based CPU with Encrypted Page Cache Memory (EPC). Read more [here](./faq.md)
-1. Kubernetes version 1.16+
-1. Pre-installed Intel SGX DCAP Driver. Read more [here](./faq.md)
-1. CLI based deployed during preview
+1. Supporting Kubernetes version 1.16+
+1. Intel SGX DCAP Driver Pre-installed on the AKS Nodes. Read more [here](./faq.md)
+1. Supporting CLI based deployed during preview with portal based provisioning post GA.
 
 
 ## Installing the CLI pre-requisites
@@ -49,16 +52,35 @@ To update the aks-preview CLI extension, use the following Azure CLI commands:
 ```azurecli-interactive
 az extension update --name aks-preview
 ```
-
-Register the Gen2VMPreview:
+### Generation 2 VM's feature registration on Azure
+Registering the Gen2VMPreview on the Azure Subscription. This feature allows you to provision Generation 2 Virtual Machines as AKS Node Pools :
 
 ```azurecli-interactive
 az feature register --name Gen2VMPreview --namespace Microsoft.ContainerService
 ```
-It might take several minutes for the status to show as Registered. You can check the registration status by using the 'az feature list' command:
+It might take several minutes for the status to show as Registered. You can check the registration status by using the 'az feature list' command. This feature registration is done only once per subscription. If this was registered previously you can skip the above step:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Gen2VMPreview')].{Name:name,State:properties.state}"
+```
+When the status shows as registered, refresh the registration of the Microsoft.ContainerService resource provider by using the 'az provider register' command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Azure Confidential Computing feature registration on Azure (optional but recommended)
+Registering the AKS-ConfidentialComputinAddon on the Azure Subscription. This feature will add two daemonsets as discussed in details [here](confidential-nodes-aks-overview#aks-provided-daemon-sets-addon):
+1. SGX Device Driver Plugin
+2. SGX Attestation Quote Helper
+
+```azurecli-interactive
+az feature register --name AKS-ConfidentialComputinAddon --namespace Microsoft.ContainerService
+```
+It might take several minutes for the status to show as Registered. You can check the registration status by using the 'az feature list' command. This feature registration is done only once per subscription. If this was registered previously you can skip the above step:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputinAddon')].{Name:name,State:properties.state}"
 ```
 When the status shows as registered, refresh the registration of the Microsoft.ContainerService resource provider by using the 'az provider register' command:
 
@@ -76,20 +98,20 @@ First, create a resource group for the cluster using the az group create command
 az group create --name myResourceGroup --location westus2
 ```
 
-Now create an AKS cluster using the az aks create command. The following example creates a cluster with a single node of size `Standard_DC2s_v2`. You can choose other supported list of DCsv2 SKUs from [here](../virtual-machines/dcv2-series.md):
+Now create an AKS cluster using the az aks create command.
 
 ```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --node-vm-size Standard_DC2s_v2 \
-    --node-count 3 \
-    --enable-addon confcom \
-    --network-plugin azure \
-    --vm-set-type VirtualMachineScaleSets \
-    --aks-custom-headers usegen2vm=true
+# Create a new AKS cluster with a single system pool with Confidential Computing addon enabled
+az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys --enable-addon confcom
 ```
-The above command should provision a new AKS cluster with **DC<x>s-v2** node pools and automatically install two daemon sets - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
+The above creates a new AKS cluster with system node pool. Now procced adding a user node of Confidential Computing Nodepool type on AKS (DCsv2)
+
+The below example adds a nodepool of `Standard_DC2s_v2` size. You can choose other supported list of DCsv2 SKUs and regions from [here](../virtual-machines/dcv2-series.md):
+
+```azurecli-interactive
+az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC2s_v2 --aks-custom-headers usegen2vm=true
+```
+The above command should add a new node pool with **DC<x>s-v2** automatically run two daemon sets on this node pool - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
 
 Get the credentials for your AKS cluster using the az aks get-credentials command:
 
@@ -103,29 +125,38 @@ $ kubectl get pods --all-namespaces
 
 output
 kube-system     sgx-device-plugin-xxxx     1/1     Running
+kube-system     sgx-quote-helper-xxxx      1/1     Running
 ```
 If the output matches to the above, then your AKS cluster is now ready to run confidential applications.
 
 Go to [Hello World from Enclave](#hello-world) deployment section to test an app in an enclave. Or, follow the below instructions to add additional node pools on AKS (AKS supports mixing SGX node pools and non-SGX node pools)
 
->If the SGX related daemon sets are not installed on your DCSv2 node pools then run the below.
-
-```azurecli-interactive
-az aks update --enable-addons confcom --resource-group myResourceGroup --name myAKSCluster
-```
-
-![DCSv2 AKS Cluster Creation](./media/confidential-nodes-aks-overview/CLIAKSProvisioning.gif)
-
-## Adding confidential computing node to existing AKS cluster<a id="existing-cluster"></a>
+## Adding confidential computing node pool to existing AKS cluster<a id="existing-cluster"></a>
 
 This section assumes you have an AKS cluster running already that meets the criteria listed in the pre-requisites section.
 
-First, lets enable the confidential computing-related AKS add-ons on the existing cluster:
+First, lets add the feature to Azure Subscription
+
+```azurecli-interactive
+az feature register --name AKS-ConfidentialComputinAddon --namespace Microsoft.ContainerService
+```
+It might take several minutes for the status to show as Registered. You can check the registration status by using the 'az feature list' command. This feature registration is done only once per subscription. If this was registered previously you can skip the above step:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputinAddon')].{Name:name,State:properties.state}"
+```
+When the status shows as registered, refresh the registration of the Microsoft.ContainerService resource provider by using the 'az provider register' command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Next, lets enable the confidential computing-related AKS add-ons on the existing cluster:
 
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
-Now add a **DC<x>s-v2** node pool to the cluster
+Now add a **DC<x>s-v2** user node pool to the cluster
     
 > [!NOTE]
 > To use the confidential computing capability your existing AKS cluster need to have at minimum one **DC<x>s-v2** VM SKU based node pool. Learn more on confidential computing DCsv2 VMs SKU's here [available SKUs and supported regions](virtual-machine-solutions.md).
