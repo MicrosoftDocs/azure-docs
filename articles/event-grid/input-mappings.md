@@ -29,7 +29,7 @@ Although that format doesn't match the required schema, Event Grid enables you t
 
 When creating a custom topic, specify how to map fields from your original event to the event grid schema. There are three values you use to customize the mapping:
 
-* The **input schema** value specifies the type of schema. The available options are CloudEvents schema, custom event schema, or Event Grid schema. The default value is Event Grid schema. When creating custom mapping between your schema and the event grid schema, use custom event schema. When events are in the CloudEvents schema, use Cloudevents schema.
+* The **input schema** value specifies the type of schema. The available options are CloudEvents schema, custom event schema, or Event Grid schema. The default value is Event Grid schema. When creating custom mapping between your schema and the event grid schema, use custom event schema. When events are in the CloudEvents format, use CloudEvents schema.
 
 * The **mapping default values** property specifies default values for fields in the Event Grid schema. You can set default values for `subject`, `eventtype`, and `dataversion`. Typically, you use this parameter when your custom schema doesn't include a field that corresponds to one of those three fields. For example, you can specify that data version is always set to **1.0**.
 
