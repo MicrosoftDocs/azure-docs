@@ -92,13 +92,13 @@ To enable replication, follow these steps:
 
 ## Monitor initial replication
 
-After "Enable replication" of the protected item is complete, Azure Site Recovery initiates replication (synonymous to synchronization) of data from the source machine to target region. During this period, replica of source disks are created. Only after completion of copying original disks, the delta changes are copied to the target region. The time taken to copy the original disks depends on multiple parameters such as
+After "Enable replication" of the protected item is complete, Azure Site Recovery initiates replication (synonymous to synchronization) of data from the source machine to target region. During this period, replica of source disks are created. Only after completion of copying original disks, the delta changes are copied to the target region. The time taken to copy the original disks depends on multiple parameters such as:
 
 - size of source machine disks
 - bandwidth available to transfer the data to Azure (You can leverage deployment planner to identify the optimal bandwidth required)
 - process server resources like memory, free disk space, CPU available to cache & process the data received from protected items (ensure that process server is [healthy](vmware-physical-azure-monitor-process-server.md#monitor-proactively))
 
-To track the progress of initial replication, navigate to recovery services vault in Azure portal -> replicated items -> monitor "Status" column value of replicated item. The status shows the percentage completion of initial replication. Upon hovering over the Status, the "Total data transferred" would be available. Upon clicking on status, a contextual page opens and displays the following parameters
+To track the progress of initial replication, navigate to recovery services vault in Azure portal -> replicated items -> monitor "Status" column value of replicated item. The status shows the percentage completion of initial replication. Upon hovering over the Status, the "Total data transferred" would be available. Upon clicking on status, a contextual page opens and displays the following parameters:
 
 - Last refreshed at - indicates the latest time at which the replication information of the whole machine has been refreshed by the service.
 - Completed percentage - indicates the percentage of initial replication completed for the VM
