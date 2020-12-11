@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2020
+ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions , devx-track-azurecli
 ---
@@ -144,27 +144,18 @@ A new resource group in Azure Resource Manager is created using the name of the 
 
 ## Limitations
 
-* This capability is currently only available in the following regions:<br>
-West Central US<br>
-North Central US<br>
-West US<br>
-West US 2<br>
-Norway East<br>
-South Africa North<br>
-East US<br>
-North Europe<br>
-Korea Central<br>
-Indian Central<br>
-East US 2<br>
-Switzerland North<br>
-India West<br>
-Germany North<br>
-Canada Central<br>
-France South<br>
-India West
+* This capability is not currently available in the following regions:<br>
+US Gov Virginia<br>
+US DoD East<br>
+US DoD Central<br>
+China East<br>
+China East 2<br>
+China North<br>
+China North 2
 
 * In order to upgrade a Basic Public IP, it cannot be associated with any Azure resource.  Please review [this page](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) for more information on how to disassociate public IPs.  Similarly, in order to migrate a Reserved IP, it cannot be associated with any Cloud Service.  Please review [this page](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) for more information on how to disassociate reserved IPs.  
 * Public IPs upgraded from Basic to Standard SKU will continue to have no [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) and therefore cannot be associated with an Azure resource that is either zone-redundant or zonal.  Note this only applies to regions that offer availability zones.
+* You cannot downgrade from Standard to Basic.
 
 ## Next Steps
 

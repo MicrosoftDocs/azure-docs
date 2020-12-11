@@ -72,7 +72,7 @@ A transient error, also known as a transient fault, is an error that will resolv
 
 ## Next steps
 
-- For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team at *AskAzureDBforMySQL@service.microsoft.com*.
+- For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team at AskAzureDBforMySQL@service.microsoft.com
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
 - [Troubleshoot connection issues to Azure Database for MySQL - Single Server](howto-troubleshoot-common-connection-issues.md)
 - [Handle transient errors and connect efficiently to Azure Database for MySQL - Single Server](concepts-connectivity.md)

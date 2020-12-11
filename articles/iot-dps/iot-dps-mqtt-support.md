@@ -21,13 +21,13 @@ DPS is not a full-featured MQTT broker and does not support all the behaviors sp
 All device communication with DPS must be secured using TLS/SSL. Therefore, DPS doesn't support non-secure connections over port 1883.
 
  > [!NOTE] 
- > DPS does not currently support devices using TPM [attestation mechanism](https://docs.microsoft.com/azure/iot-dps/concepts-device#attestation-mechanism) over the MQTT protocol.
+ > DPS does not currently support devices using TPM [attestation mechanism](./concepts-service.md#attestation-mechanism) over the MQTT protocol.
 
 ## Connecting to DPS
 
 A device can use the MQTT protocol to connect to a DPS using any of the following options.
 
-* Libraries in the [Azure IoT Provisioning SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#microsoft-azure-provisioning-sdks).
+* Libraries in the [Azure IoT Provisioning SDKs](../iot-hub/iot-hub-devguide-sdks.md#microsoft-azure-provisioning-sdks).
 * The MQTT protocol directly.
 
 ## Using the MQTT protocol directly (as a device)
@@ -36,7 +36,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
 * For the **ClientId** field, use **registrationId**.
 
-* For the **Username** field, use `{idScope}/registrations/{registration_id}/api-version=2019-03-31`, where `{idScope}` is the [idScope](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope) of the DPS.
+* For the **Username** field, use `{idScope}/registrations/{registration_id}/api-version=2019-03-31`, where `{idScope}` is the [idScope](./concepts-service.md#id-scope) of the DPS.
 
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
 
@@ -63,8 +63,8 @@ To use the MQTT protocol directly, your client *must* connect over TLS 1.2. Atte
 
 To register a device through DPS, a device should subscribe using `$dps/registrations/res/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive additional properties in the topic name. DPS does not allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since DPS is not a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
 
-The device should publish a register message to DPS using `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` as a **Topic Name**. The payload should contain the [Device Registration](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) object in JSON format.
-In a successful scenario, the device will receive a response on the `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` topic name where x is the retry-after value in seconds. The payload of the response will contain the [RegistrationOperationStatus](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) object in JSON format.
+The device should publish a register message to DPS using `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` as a **Topic Name**. The payload should contain the [Device Registration](/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) object in JSON format.
+In a successful scenario, the device will receive a response on the `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` topic name where x is the retry-after value in seconds. The payload of the response will contain the [RegistrationOperationStatus](/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) object in JSON format.
 
 ## Polling for registration operation status
 

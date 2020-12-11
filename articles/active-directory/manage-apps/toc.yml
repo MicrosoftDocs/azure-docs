@@ -192,8 +192,16 @@
         href: application-proxy-remove-personal-data.md
       - name: Configure custom domain
         href: application-proxy-configure-custom-domain.md
-      - name: Secure legacy apps with app delivery controllers or networks
-        href: secure-hybrid-access.md
+      - name: Secure legacy apps 
+        items:
+        - name: Secure hybrid access with Azure AD 
+          href: secure-hybrid-access.md
+        - name: F5 and Azure AD integration
+          href: f5-aad-integration.md
+        - name: F5 BIG-IP VE deployment in Azure IaaS
+          href: f5-bigip-deployment-guide.md
+        - name: F5 Big-IP with Azure AD for passwordless VPN
+          href: f5-aad-password-less-vpn.md
       - name: Publishing walkthroughs
         items:
         - name: Integrate with Application Proxy on an NDES server
@@ -201,7 +209,7 @@
         - name: Integrate with Application Proxy using PingAccess
           href: application-proxy-ping-access-publishing-guide.md
         - name: Integrate with Azure AD Domain Services
-          href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
+          href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Integrate with Power BI
           href: application-proxy-integrate-with-power-bi.md
         - name: Integrate with Cloud App Security
@@ -263,7 +271,7 @@
         - name: Configure Kerberos Constrained Delegation
           href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
         - name: Configure with PingAccess
-          href: /azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide
+          href: ./application-proxy-ping-access-publishing-guide.md
         - name: Can't Access this Corporate Application error
           href: application-proxy-sign-in-bad-gateway-timeout-error.md
         - name: Problem installing the Application Proxy Agent Connector
@@ -281,7 +289,7 @@
   - name: Resources
     items:
         - name: Support and help options for developers
-          href: ../develop/developer-support-help-options.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
+          href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Azure feedback forum
           href: https://feedback.azure.com/forums/169401-azure-active-directory
         - name: Microsoft Q&A question page

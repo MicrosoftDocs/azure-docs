@@ -329,7 +329,7 @@ Microsoft provides DDoS protection known as **Basic** as part of the Azure Platf
 
 Learn more:
 
-* [DDOS protection overview](../../virtual-network/ddos-protection-overview.md)
+* [DDOS protection overview](../../ddos-protection/ddos-protection-overview.md)
 
 ## Azure Front Door
 

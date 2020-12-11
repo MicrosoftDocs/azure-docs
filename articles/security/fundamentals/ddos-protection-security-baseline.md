@@ -36,7 +36,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../b
 
 Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure Cache for Redis instances at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure DDoS Protection instances.
 
-- [How to configure alerts for DDoS protection metrics](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [How to configure alerts for DDoS protection metrics](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
 
 - [How to enable Diagnostic Settings for Azure Activity Log](../../azure-monitor/platform/activity-log.md)
 
@@ -58,7 +58,7 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log data that may have been collected for Recovery Services vaults.
 
-- [Information on how to access telemetry, logs and attack analytics for DDoS Protection Standard service](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [Information on how to access telemetry, logs and attack analytics for DDoS Protection Standard service](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
 
 - [How to enable diagnostic settings for Azure Activity Log](../../azure-monitor/platform/activity-log.md)
 
@@ -94,7 +94,7 @@ Onboard a Log Analytics workspace to Azure Sentinel as it provides a security or
 
 Additionally, Azure Active Directory (AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [Understand permissions in Azure DDoS protection](../../virtual-network/manage-ddos-protection.md#permissions-and-restrictions)
+- [Understand permissions in Azure DDoS protection](../../ddos-protection/manage-permissions.md)
 
 - [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -160,11 +160,11 @@ Additionally, to help you keep track of dedicated administrative accounts, you c
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks 
 
-**Guidance**: Use a secure, Azure-managed workstation with Azure Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Customer Lockbox requests.
+**Guidance**: Use a secure, Azure-managed workstation with Azure AD Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Customer Lockbox requests.
 
 - [Deploy a secure, Azure-managed workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
 
-- [Planning a cloud-based Azure Multi-Factor Authentication deployment](../../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -264,7 +264,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: To work with Azure DDoS Protection plans, your account must be assigned to the network contributor role or to a custom role that is assigned specific actions.
 
-- [Manage Azure role-based access control (Azure RBAC) in Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md)
+- [Manage Azure role-based access control (Azure RBAC) in Azure DDoS Protection](../../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -522,7 +522,7 @@ Test your assumptions about how your services will respond to an attack by gener
 
 Select any of the available DDoS protection metrics to alert you when there’s an active mitigation during an attack, using the Azure Monitor alert configuration. When the conditions are met, the address specified receives an alert email
 
-- [Configure alerts for DDoS protection metrics](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [Configure alerts for DDoS protection metrics](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
 
 - [How to configure continuous export](../../security-center/continuous-export.md)
 

@@ -161,7 +161,7 @@ You can set up an Azure key vault by using either the Azure portal or the Azure 
 
 **Use the Azure CLI**
 
-1. Open the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), and then enter the following command:
+1. Open the [Azure CLI](/cli/azure/install-azure-cli), and then enter the following command:
 
     ```shell
     az login

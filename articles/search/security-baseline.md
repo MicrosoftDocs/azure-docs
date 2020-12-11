@@ -62,7 +62,7 @@ Cognitive Search also supports additional network security functionality for man
 
 **Guidance**: Cognitive Search does not provide a specific feature to combat a distributed denial-of-service attack, but you can enable DDoS Protection Standard on the virtual networks associated with your Cognitive Search service for general protection.
 
-- [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+- [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -221,7 +221,7 @@ In Azure Monitor, set your Log Analytics workspace retention period according to
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Learn about Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [Learn about Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -850,7 +850,7 @@ Additionally, you can use Azure Automation to deploy configuration changes and m
 **Guidance**: 
 Use Azure Managed Identities in conjunction with Azure Key Vault to simplify secret management for your cloud applications.
 - [How to use managed identities for Azure resources](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md) 
-- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md) 
+- [How to create a Key Vault](../key-vault/general/quick-create-portal.md) 
 
 - [How to provide Key Vault authentication with a managed identity](../key-vault/general/assign-access-policy-portal.md) 
 

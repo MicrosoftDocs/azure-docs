@@ -9,7 +9,7 @@
     href: rbac-and-directory-admin-roles.md
 - name: Quickstarts
   items:
-  - name: View access for a user
+  - name: Check access for a user
     href: check-access.md
   - name: ARM template
     displayName: Resource Manager

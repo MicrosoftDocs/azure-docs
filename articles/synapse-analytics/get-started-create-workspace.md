@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 10/07/2020 
+ms.date: 11/21/2020 
 ---
 
 # Creating a Synapse workspace
@@ -23,7 +23,7 @@ To complete this tutorial's steps, you need to have access to a resource group f
 ## Create a Synapse workspace in the Azure portal
 
 1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
-1. In the search results, under **Services**, select **Azure Synapse Analytics (workspaces preview)**.
+1. In the search results, under **Services**, select **Azure Synapse Analytics**.
 1. Select **Add** to create a workspace.
 1. In **Basics**, enter your preferred **Subscription**, **Resource group**, **Region**, and then choose a workspace name. In this tutorial, we'll use **myworkspace**.
 1. Navigate to **Select Data Lake Storage Gen 2**. 
@@ -32,11 +32,15 @@ To complete this tutorial's steps, you need to have access to a resource group f
 1. The workspace will use this storage account as the "primary" storage account to Spark tables and Spark application logs.
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
 
+> [!NOTE]
+> To enable workspace features from an existing dedicated SQL pool (formerly SQL DW) refer to [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
+
+
 ## Open Synapse Studio
 
 After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
 
-* Open your Synapse workspace in the [Azure portal](https://portal.azure.com). On the top of the **Overview** section, select **Launch Synapse Studio**.
+* Open your Synapse workspace in the [Azure portal](https://portal.azure.com). On the top of the **Overview** section, select **Open Synapse Studio**.
 * Go to the `https://web.azuresynapse.net` and sign in to your workspace.
 
 ## Create a dedicated SQL pool
@@ -49,6 +53,9 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 
 A dedicated SQL pool consumes billable resources as long as it's active. You can pause the pool later to reduce costs.
 
+> [!NOTE] 
+> When creating a new dedicated SQL pool (formerly SQL DW) in your workspace, the dedicated SQL pool provisioning page will open. Provisioning will take place on the logical SQL server.
+
 ## Create a serverless Apache Spark pool
 
 1. In Synapse Studio, on the left-side pane, select **Manage** > **Apache Spark pools**.
@@ -60,9 +67,9 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
 
 The Spark pool tells Azure Synapse how many Spark resources to use. You only pay for the resources that you use. When you actively stop using the pool, the resources automatically time out and are recycled.
 
-## The serverless SQL pool
+## The Built-in serverless SQL pool
 
-Every workspace comes with a pre-built pool called **Built-in**. This pool can't be deleted. The serverless SQL pool allows you to work with SQL without having to create or think about managing a serverless SQL pool in Azure Synapse. Unlike the dedicated SQL pools, billing for a serverless SQL pool is based on the amount of data scanned to run the query, not the number of resources used to execute the query.
+Every workspace comes with a pre-built serverless SQL pool called **Built-in**. This pool can't be deleted. Serverless SQL pools let you use SQL without having to reserve capacity with dedicated SQL pools. Unlike the dedicated SQL pools, billing for a serverless SQL pool is based on the amount of data scanned to run the query, not the number of capacity allocated to the pool.
 
 ## Next steps
 

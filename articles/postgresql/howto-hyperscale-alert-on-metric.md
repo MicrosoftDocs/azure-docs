@@ -96,8 +96,8 @@ We recommend setting disk space alerts on every node in every server group, even
 As the disk approaches its space limit, try these techniques to get more free space:
 
 * Review data retention policy. Move older data to cold storage if feasible.
-* Consider [adding nodes](howto-hyperscale-scaling.md#add-worker-nodes) to the server group and rebalancing shards. Rebalancing distributes the data across more computers.
-* Consider [growing the capacity](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) of worker nodes. Each worker can have up to 2 TiB of storage. However adding nodes should be attempted before resizing nodes because adding nodes completes faster.
+* Consider [adding nodes](howto-hyperscale-scale-grow.md#add-worker-nodes) to the server group and rebalancing shards. Rebalancing distributes the data across more computers.
+* Consider [growing the capacity](howto-hyperscale-scale-grow.md#increase-or-decrease-vcores-on-nodes) of worker nodes. Each worker can have up to 2 TiB of storage. However adding nodes should be attempted before resizing nodes because adding nodes completes faster.
 
 ### CPU usage
 

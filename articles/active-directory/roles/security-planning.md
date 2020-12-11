@@ -89,7 +89,7 @@ After turning on Azure AD Privileged Identity Management, view the users who are
 * Exchange administrator
 * SharePoint administrator
 
-If you don't have Azure AD Privileged Identity Management in your organization, you can use the [PowerShell API](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Start with the global admin role because a global admin has the same permissions across all cloud services for which your organization has subscribed. These permissions are granted no matter where they were assigned: in the Microsoft 365 admin center, the Azure portal, or by the Azure AD module for Microsoft PowerShell.
+If you don't have Azure AD Privileged Identity Management in your organization, you can use the [PowerShell API](/powershell/module/azuread/get-azureaddirectoryrolemember). Start with the global admin role because a global admin has the same permissions across all cloud services for which your organization has subscribed. These permissions are granted no matter where they were assigned: in the Microsoft 365 admin center, the Azure portal, or by the Azure AD module for Microsoft PowerShell.
 
 Remove any accounts that are no longer needed in those roles. Then, categorize the remaining accounts that are assigned to admin roles:
 
@@ -110,7 +110,7 @@ Evaluate the accounts that are assigned or eligible for the global admin role. I
 
 #### Turn on multi-factor authentication and register all other highly privileged single-user non-federated admin accounts
 
-Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange administrator, and SharePoint administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](../authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Require Azure AD Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange administrator, and SharePoint administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](../authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## Stage 2: Mitigate frequently used attacks
 
@@ -131,7 +131,7 @@ The increase in "bring your own device" and work from home policies and the grow
 * Ensure that your accounts that are used for administration purposes:
 
   * Have working email addresses attached to them
-  * Have registered for Azure Multi-Factor Authentication or use MFA on-premises
+  * Have registered for Azure AD Multi-Factor Authentication or use MFA on-premises
 * Ask users for their business justification for administrative access.
 * Remove admin access for those individuals and services that don't need it.
 
@@ -236,7 +236,7 @@ We recommend that you:
 
 #### Continue rollout of stronger authentication for all users
 
-Require highly exposed users to have modern, strong authentication such as Azure MFA or Windows Hello. Examples of highly exposed users include:
+Require highly exposed users to have modern, strong authentication such as Azure AD MFA or Windows Hello. Examples of highly exposed users include:
 
 * C-suite executives
 * High-level managers

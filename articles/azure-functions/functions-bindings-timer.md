@@ -5,7 +5,7 @@ author: craigshoemaker
 
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/08/2018
+ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python"
 
@@ -295,11 +295,11 @@ Each field can have one of the following types of values:
 
 |Type  |Example  |When triggered  |
 |---------|---------|---------|
-|A specific value |<nobr>"0 5 * * * *"</nobr>|at hh:05:00 where hh is every hour (once an hour)|
-|All values (`*`)|<nobr>"0 * 5 * * *"</nobr>|at 5:mm:00 every day, where mm is every minute of the hour (60 times within the specified hour)|
-|A range (`-` operator)|<nobr>"5-7 * * * * *"</nobr>|at hh:mm:05,hh:mm:06, and hh:mm:07 where hh:mm is every minute of every hour (3 times a minute)|
-|A set of values (`,` operator)|<nobr>"5,8,10 * * * * *"</nobr>|at hh:mm:05,hh:mm:08, and hh:mm:10 where hh:mm is every minute of every hour (3 times a minute)|
-|An interval value (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|at hh:00:00, hh:05:00, hh:10:00, and so on through hh:55:00 where hh is every hour (12 times an hour)|
+|A specific value |<nobr>`0 5 * * * *`</nobr>| Once every hour of the day at minute 5 of each hour |
+|All values (`*`)|<nobr>`0 * 5 * * *`</nobr>| At every minute in the hour, beginning at hour 5 |
+|A range (`-` operator)|<nobr>`5-7 * * * * *`</nobr>| Three times a minute - at seconds 5 through 7 during every minute of every hour of each day |
+|A set of values (`,` operator)|<nobr>`5,8,10 * * * * *`</nobr>| Three times a minute - at seconds 5, 8, and 10 during every minute of every hour of each day |
+|An interval value (`/` operator)|<nobr>`0 */5 * * * *`</nobr>| 12 times an hour - at second 0 of every 5th minute of every hour of each day |
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -307,18 +307,18 @@ Each field can have one of the following types of values:
 
 Here are some examples of NCRONTAB expressions you can use for the timer trigger in Azure Functions.
 
-|Example|When triggered  |
-|---------|---------|
-|`"0 */5 * * * *"`|once every five minutes|
-|`"0 0 * * * *"`|once at the top of every hour|
-|`"0 0 */2 * * *"`|once every two hours|
-|`"0 0 9-17 * * *"`|once every hour from 9 AM to 5 PM|
-|`"0 30 9 * * *"`|at 9:30 AM every day|
-|`"0 30 9 * * 1-5"`|at 9:30 AM every weekday|
-|`"0 30 9 * Jan Mon"`|at 9:30 AM every Monday in January|
+| Example            | When triggered                     |
+|--------------------|------------------------------------|
+| `0 */5 * * * *`    | once every five minutes            |
+| `0 0 * * * *`      | once at the top of every hour      |
+| `0 0 */2 * * *`    | once every two hours               |
+| `0 0 9-17 * * *`   | once every hour from 9 AM to 5 PM  |
+| `0 30 9 * * *`     | at 9:30 AM every day               |
+| `0 30 9 * * 1-5`   | at 9:30 AM every weekday           |
+| `0 30 9 * Jan Mon` | at 9:30 AM every Monday in January |
 
 > [!NOTE]
-> NCRONTAB expression requires **six field** format. Five field cron expressions are not supported in Azure.
+> NCRONTAB expression require a **six field** format. The sixth field position is a value for seconds which is placed at the beginning of the expression. Five field cron expressions are not supported in Azure.
 
 ### NCRONTAB time zones
 
