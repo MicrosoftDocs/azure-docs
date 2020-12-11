@@ -975,7 +975,7 @@ Entity: Paul Allen
 ------------------------------------------
 ```
 
-You can also use the Analyze operation to detect PII and key phrase extraction. See [Analyze Sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_async.py).
+You can also use the Analyze operation to detect PII and key phrase extraction. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_async.py) on GitHub.
 
 # [Version 3.0](#tab/version-3)
 
