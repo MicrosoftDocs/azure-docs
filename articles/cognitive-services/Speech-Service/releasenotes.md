@@ -18,16 +18,30 @@ ms.custom: seodec18
 ## Text-to-speech 2020-December release
 
 **New neural voices in GA and preview**
-- Adding 51 new voices for a total of 129 neural voices across 54 languages/locales. There are 46 in GA locales: Shakir in `ar-EG` Arabic (Egypt), Hamed in `ar-EG` Arabic (Egypt), Borislav in `bg-BG` Bulgarian (Bulgaria), Enric in `es-ES` Catalan (Spain), Joana in `es-ES` Catalan (Spain), Antonin in `cs-CZ` Czech (Czech Republic), Jeppe in `da-DK` Danish (Denmark), Jonas in `de-DE` German (Germany), Jan in `de-DE` German (Germany), Nestoras in `el-GR` Greek (Greece), Liam in `en-AU` English (Australia), Connor in `en-AU` English (Australia), Prabhat in `en-AU` English (Australia), Harri in `fi-FI` Finnish (Finland), Selma in `fi-FI` Finnish (Finland), Fabrice in `en-CA` French (Canada), Avri in `he-IL` Hebrew (Israel), Madhur in `en-IN` Hindi (India), Srecko in `hr-HR` Croatian (Croatia), Tamas in `hu-HU` Hungarian (Hungary), Gadis in `id-ID` BahasaIndonesian (Indonesia), Osman in `ms-MY` Malay (Malaysia), Finn in `nb-NO` Norwegian, Bokmål (Norway), Pernille in `nb-NO` Norwegian, Bokmål (Norway), Fenna in `nl-NL` Dutch (Netherlands), Maarten in `nl-NL` Dutch (Netherlands), Agnieszka in `pl-PL` Polish (Poland), Marek in `pl-PL` Polish (Poland), Duarte in `pt-BR` Portuguese (Brazil), Raquel in `pt-BR` Portuguese (Brazil), Emil in `ro-RO` Romanian (Romania), Dmitry in `ru-RU` Russian (Russia), Svetlana in `ru-RU` Russian (Russia), Lukas in `sk-SK` Slovak (Slovakia), Rok in `sl-SI` Slovenian (Slovenia), Mattias in `sv-SE` Swedish (Sweden), Sofie in `sv-SE` Swedish (Sweden), Valluvar in `en-IN` Tamil (India), Mohan in `en-IN` Telugu (India), Niwat in `th-TH` Thai (Thailand), Ahmet in `tr-TR` Turkish (Turkey), NamMinh in `vi-VN` Vietnamese (Vietnam), HiuMaan in `zh-HK` Chinese Cantonese (Hong Kong), WanLung in `zh-HK` Chinese Cantonese (Hong Kong), HsiaoChen in `zh-CN` Chinese Mandarin (Taiwan), YunJhe in `zh-CN` Chinese Mandarin (Taiwan); and 5 in preview locales: Kert in `et-EE` Estonian (Estonia), Colm in `ga-IE` Irish (Ireland), Nils in `lv-LV` Latvian (Latvia), Leonas in `lt-LT` Lithuanian (Lithuania), Joseph in `mt-MT` Maltese (Malta).
 
+Adding 51 new voices for a total of 129 neural voices across 54 languages/locales:
+- There are 46 in GA locales: Shakir in `ar-EG` Arabic (Egypt), Hamed in `ar-EG` Arabic (Egypt), Borislav in `bg-BG` Bulgarian (Bulgaria), Enric in `es-ES` Catalan (Spain), Joana in `es-ES` Catalan (Spain), Antonin in `cs-CZ` Czech (Czech Republic), Jeppe in `da-DK` Danish (Denmark), Jonas in `de-DE` German (Germany), Jan in `de-DE` German (Germany), Nestoras in `el-GR` Greek (Greece), Liam in `en-AU` English (Australia), Connor in `en-AU` English (Australia), Prabhat in `en-AU` English (Australia), Harri in `fi-FI` Finnish (Finland), Selma in `fi-FI` Finnish (Finland), Fabrice in `en-CA` French (Canada), Avri in `he-IL` Hebrew (Israel), Madhur in `en-IN` Hindi (India), Srecko in `hr-HR` Croatian (Croatia), Tamas in `hu-HU` Hungarian (Hungary), Gadis in `id-ID` BahasaIndonesian (Indonesia), Osman in `ms-MY` Malay (Malaysia), Finn in `nb-NO` Norwegian, Bokmål (Norway), Pernille in `nb-NO` Norwegian, Bokmål (Norway), Fenna in `nl-NL` Dutch (Netherlands), Maarten in `nl-NL` Dutch (Netherlands), Agnieszka in `pl-PL` Polish (Poland), Marek in `pl-PL` Polish (Poland), Duarte in `pt-BR` Portuguese (Brazil), Raquel in `pt-BR` Portuguese (Brazil), Emil in `ro-RO` Romanian (Romania), Dmitry in `ru-RU` Russian (Russia), Svetlana in `ru-RU` Russian (Russia), Lukas in `sk-SK` Slovak (Slovakia), Rok in `sl-SI` Slovenian (Slovenia), Mattias in `sv-SE` Swedish (Sweden), Sofie in `sv-SE` Swedish (Sweden), Valluvar in `en-IN` Tamil (India), Mohan in `en-IN` Telugu (India), Niwat in `th-TH` Thai (Thailand), Ahmet in `tr-TR` Turkish (Turkey), NamMinh in `vi-VN` Vietnamese (Vietnam), HiuMaan in `zh-HK` Chinese Cantonese (Hong Kong), WanLung in `zh-HK` Chinese Cantonese (Hong Kong), HsiaoChen in `zh-CN` Chinese Mandarin (Taiwan), YunJhe in `zh-CN` Chinese Mandarin (Taiwan)
+- 5 in preview locales: Kert in `et-EE` Estonian (Estonia), Colm in `ga-IE` Irish (Ireland), Nils in `lv-LV` Latvian (Latvia), Leonas in `lt-LT` Lithuanian (Lithuania), Joseph in `mt-MT` Maltese (Malta).
+- With this release, we now support a total of 129 neural voices across 54 languages/locales. In addition, over 70 standard voices are available in 49 languages/locales. Visit [Language support](language-support.md#text-to-speech) for the full language and voice list. 
 
 ## Text-to-speech 2020-November release
 
-**New locales in preview**
-- Five new voices and languages are introduced to the Neural TTS portfolio. They are: Grace in Maltese (Malta), Ona in Lithuanian (Lithuania), Anu in Estonian (Estonia), Orla in Irish (Ireland) and Everita in Latvian (Latvia). These voices are available in public preview in three Azure regions: EastUS, SouthEastAsia and WestEurope.
+**New locales and voices in preview**
+- Five new voices and languages are introduced to the Neural TTS portfolio. They are: Grace in Maltese (Malta), Ona in Lithuanian (Lithuania), Anu in Estonian (Estonia), Orla in Irish (Ireland) and Everita in Latvian (Latvia).
+- Five new voices with more styles and roles support: Yunxi, Xiaohan, Xiaomo, Xiaoxuan and Xiaorui.
+
+> [!TIP]
+> These voices are available in public preview in three Azure regions: EastUS, SouthEastAsia and WestEurope.
 
 **Neural TTS Container GA**
 - With Neural TTS Container, developers can run speech synthesis with the most natural digital voices in their own environment for specific security and data governance requirements. 
+
+**New features**
+- SSML silence tag support
+- General TTS voice quality improvements: Improved word-level pronunciation accuracy in nb-NO. Reduced 53% pronunciation error.
+
+> [!TIP]
+> Read more at [this tech blog](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-previews-five-new-languages-with/ba-p/1907604)
 
 ## Text-to-speech 2020-October release
 
