@@ -24,6 +24,9 @@ By setting up federation with Google, you can allow invited users to sign in to 
 > [!NOTE]
 > Google federation is designed specifically for Gmail users. To federate with G Suite domains, use [direct federation](direct-federation.md).
 
+> [!IMPORTANT]
+> **Starting January 4, 2021**, Google is [deprecating webview sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](#google-consumer-accounts-blocked-from-signing-in-to-embedded-framework-based-apps).
+
 ## What is the experience for the Google user?
 When you send an invitation to Google Gmail users, the guest users should access your shared apps or resources by using a link that includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
   - Guest users who aren't signed in to Google will be prompted to do so.
