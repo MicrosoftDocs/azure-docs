@@ -8,7 +8,7 @@ ms.date: 09/25/2020
 ms.author: pepogors
 ---
 # Deploy an Azure Service Fabric cluster with Stateless only node types (Preview)
-Service Fabric node types come with inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types relax this assumption for a node type, thus allowing nodetype to use other features such as faster scale out operations, support for VMSS based Automatic OS Upgrades on Bronze durability and scaling out to more than 100 nodes in a single VMSS.
+Service Fabric node types come with inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types relax this assumption for a node type, thus allowing nodetype to use other features such as faster scale out operations, support for Automatic OS Upgrades on Bronze durability and scaling out to more than 100 nodes in a single virtual machine scale set.
 
 * Primary Node types cannot be configured to be stateless
 * Stateless node types are only supported with Bronze Durability Levels
@@ -62,10 +62,10 @@ To set one or more node types as Stateless in a cluster resource, set the "isSta
 ```
 
 ## Configuring virtual machine scale set resource for Stateless node types
-To enable Stateless node types over a virtual machine scale set, you must include the following changes in the virtual machine scale set resource.
+To enable Stateless node types, you should configure the underlying virtual machine scale set resource in the following way:
 
-* The first value is the **singlePlacementGroup** property, which should be set to true/false depending on requirement to scale to more than 100 VMs.
-* The second value is the "upgradeMode" which should be set to Rolling.
+* The value  **singlePlacementGroup** property, which should be set to true/false depending on requirement to scale to more than 100 VMs.
+* The Scale set's **upgradeMode** which should be set to Rolling.
 * Rolling Upgrade Mode requires Application Health Extension or Health probes configured. Configure health probe with default configuration for Stateless Node types as suggested below. Once applications are deployed to the nodetype, Health Probe/Health extension ports can be changed to monitor application health.
 
 ```json
