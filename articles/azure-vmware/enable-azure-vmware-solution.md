@@ -56,7 +56,7 @@ Before you create your Azure VMware Solution resource, you'll need to submit a s
 
 ## Enable Azure VMware Solution for CSP customers 
 
-CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](/partner-center/azure-plan-lp.md) as example to illustrate the purchase procedure for partners.
+CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](/partner-center/azure-plan-lp.md) as an example to illustrate the purchase procedure for partners.
 
    >[!IMPORTANT] 
    >Azure VMware Solution service does not provide a multi-tenancy required. Hosting partners requiring it are not supported. 
