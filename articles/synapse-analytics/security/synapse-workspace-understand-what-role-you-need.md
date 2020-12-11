@@ -64,7 +64,7 @@ Task (I want to...) |Role (I need to be...)|Synapse RBAC permission/action
 |List SQL pools, Apache Spark pools, Integration runtimes and access their configuration details|Synapse User, or|read|
 ||Azure Owner, Contributor, or Reader on the workspace|none
 |List linked services, credentials, managed private endpoints|Synapse User|read
-**SQL pools**|
+SQL POOLS|
 Create a dedicated SQL pool or a serverless SQL pool|Azure Owner or Contributor on the workspace|none
 Manage (pause, scale, or delete) a dedicated SQL pool|Azure Owner or Contributor on the SQL pool or workspace|none
 Create a SQL script</br>|Synapse User, or </br>Azure Owner or Contributor on the workspace, </br>*Additional SQL permissions are required to run a SQL script, publish, or commit changes*.|
@@ -74,7 +74,7 @@ Run a SQL script on a dedicated SQL pool|SQL permissions on the pool|none
 Publish a new, updated, or deleted SQL script|Synapse Artifact Publisher, Synapse Contributor|sqlScripts/write, delete
 Commit changes to a SQL script to the Git repo|Requires Git permissions on the repo|
 Assign Active Directory Admin on the workspace (via workspace properties in the Azure Portal)|Azure Owner or Contributor on the workspace |
-**Apache Spark pools**|
+APACHE SPARK POOLS|
 Create an Apache Spark pool|Azure Owner or Contributor on the workspace|
 Monitor Apache Spark applications| Synapse User|read
 View the logs for notebook and job execution |Synapse Compute Operator|
@@ -84,7 +84,7 @@ List and open a published notebook or job definition, including reviewing saved 
 Run a notebook and review its output|Synapse Apache Spark Administrator, Synapse Compute Operator on the selected Apache Spark pool|bigDataPools/useCompute 
 Publish or delete a notebook or job definition (including output) to the service|Artifact Publisher on the workspace, Synapse Apache Spark Administrator|notebooks/write, delete
 Commit changes to a notebook or job definition to the Git repo|Git permissions|none
-**Pipelines, Integration runtimes, Dataflows, Datasets and Triggers**|
+**Pipelines, Integration runtimes, Dataflows, Datasets and Triggers**| | |
 Create, update, or delete an Integration runtime|Azure Owner or Contributor on the workspace|
 Monitor Integration runtime status|Synapse User|read, pipelines/viewOutputs
 Review pipeline runs|Synapse Artifact Publisher/Synapse Contributor|read, pipelines/viewOutputs 
