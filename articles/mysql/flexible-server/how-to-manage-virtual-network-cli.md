@@ -71,7 +71,7 @@ Refer to the Azure CLI [reference documentation](/cli/azure/mysql/flexible-serve
 <
 - Create a flexible server using new virtual network, subnet with non-default address prefix.
     ```azurecli-interactive
-    az mysql flexible-server create --vnet myVnet --address-prefix 10.0.0.0/24 --subnet mySubnet --subnet-prefix 10.0.0.0/24
+    az mysql flexible-server create --vnet myVnet --address-prefixes 10.0.0.0/24 --subnet mySubnet --subnet-prefixes 10.0.0.0/24
     ```
 Refer to the Azure CLI [reference documentation](/cli/azure/mysql/flexible-server) for the complete list of configurable CLI parameters.
 
