@@ -4,11 +4,11 @@ description: Read about hot, cool, and archive access tiers for Azure Blob Stora
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 12/08/2020
+ms.date: 12/11/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.reviewer: clausjor
+ms.reviewer: klaasl
 ---
 
 # Access tiers for Azure Blob Storage - hot, cool, and archive
@@ -37,6 +37,10 @@ Each of these data access scenarios benefits from a different access tier that i
 Object storage data tiering between hot, cool, and archive is only supported in Blob Storage and General Purpose v2 (GPv2) accounts. General Purpose v1 (GPv1) accounts don't support tiering. Customers can easily convert their existing GPv1 or Blob Storage accounts to GPv2 accounts through the Azure portal. GPv2 provides new pricing and features for blobs, files, and queues. Some features and prices cuts are only offered in GPv2 accounts. Evaluate using GPv2 accounts after comprehensively reviewing pricing. Some workloads can be more expensive on GPv2 than GPv1. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
 
 Blob Storage and GPv2 accounts expose the **Access Tier** attribute at the account level. This attribute allows you to specify the default access tier for any blob that doesn't have it explicit set at the object level. For objects with the tier set at the object level, the account tier won't apply. The archive tier can be applied only at the object level. You can switch between these access tiers at any time.
+
+We recommend you use GPv2 instead of Blob Storage accounts for tiering. GPv2 support all the features that Blob Storage accounts support plus a lot more. Pricing between Blob Storage and GPv2 is almost identical, but some new features and price cuts will only be available on GPv2 accounts.
+
+Pricing structure between GPv1 and GPv2 accounts is different and customers should carefully evaluate both before deciding to use GPv2 accounts. You can easily convert an existing Blob Storage or GPv1 account to GPv2 through a simple one-click process. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
 
 ## Hot access tier
 
@@ -135,81 +139,6 @@ The following table shows a comparison of premium performance block blob storage
 > [!NOTE]
 > Blob Storage accounts support the same performance and scalability targets as general-purpose v2 storage accounts. For more information, see [Scalability and performance targets for Blob Storage](scalability-targets.md).
 
-## Quickstart scenarios
-
-In this section, the following scenarios are demonstrated using the Azure portal and PowerShell:
-
-- How to change the default account access tier of a GPv2 or Blob Storage account.
-- How to change the tier of a blob in a GPv2 or Blob Storage account.
-
-### Change the default account access tier of a GPv2 or Blob Storage account
-
-# [Portal](#tab/azure-portal)
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the Azure portal, search for and select **All Resources**.
-
-1. Select your storage account.
-
-1. In **Settings**, select **Configuration** to view and change the account configuration.
-
-1. Select the right access tier for your needs: Set the **Access tier** to either **Cool** or **Hot**.
-
-1. Click **Save** at the top.
-
-![Change default account tier in Azure portal](media/storage-tiers/account-tier.png)
-
-# [PowerShell](#tab/azure-powershell)
-The following PowerShell script can be used to change the account tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. 
-```powershell
-#Initialize the following with your resource group and storage account names
-$rgName = ""
-$accountName = ""
-
-#Change the storage account tier to hot
-Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier Hot
-```
----
-
-### Change the tier of a blob in a GPv2 or Blob Storage account
-# [Portal](#tab/azure-portal)
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the Azure portal, search for and select **All Resources**.
-
-1. Select your storage account.
-
-1. Select your container and then select your blob.
-
-1. In the **Blob properties**, select **Change tier**.
-
-1. Select the **Hot**, **Cool**, or **Archive** access tier. If your blob is currently in archive and you want to rehydrate to an online tier, you may also select a Rehydrate Priority of **Standard** or **High**.
-
-1. Select **Save** at the bottom.
-
-![Change blob tier in Azure portal](media/storage-tiers/blob-access-tier.png)
-
-# [PowerShell](#tab/azure-powershell)
-The following PowerShell script can be used to change the blob tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. The `$containerName` variable must be initialized with your container name. The `$blobName` variable must be initialized with your blob name. 
-```powershell
-#Initialize the following with your resource group, storage account, container, and blob names
-$rgName = ""
-$accountName = ""
-$containerName = ""
-$blobName == ""
-
-#Select the storage account and get the context
-$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
-$ctx = $storageAccount.Context
-
-#Select the blob from a container
-$blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
-
-#Change the blob’s access tier to archive
-$blob.ICloudBlob.SetStandardBlobTier("Archive")
-```
----
-
 ## Pricing and billing
 
 All storage accounts use a pricing model for Block blob storage based on the tier of each blob. Keep in mind the following billing considerations:
@@ -227,12 +156,6 @@ All storage accounts use a pricing model for Block blob storage based on the tie
 > For more information about pricing for Block blobs, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page. For more information on outbound data transfer charges, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
 
 ## FAQ
-
-**Should I use Blob Storage or GPv2 accounts if I want to tier my data?**
-
-We recommend you use GPv2 instead of Blob Storage accounts for tiering. GPv2 support all the features that Blob Storage accounts support plus a lot more. Pricing between Blob Storage and GPv2 is almost identical, but some new features and price cuts will only be available on GPv2 accounts. GPv1 accounts don't support tiering.
-
-Pricing structure between GPv1 and GPv2 accounts is different and customers should carefully evaluate both before deciding to use GPv2 accounts. You can easily convert an existing Blob Storage or GPv1 account to GPv2 through a simple one-click process. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
 
 **Can I store objects in all three (hot, cool, and archive) access tiers in the same account?**
 
@@ -286,12 +209,8 @@ Data storage along with other limits are set at the account level and not per ac
 
 ## Next steps
 
-Evaluate hot, cool, and archive in GPv2 and Blob Storage accounts
+Learn how to manage blobs and accounts across access tiers.
 
-- [Check availability of hot, cool, and archive by region](https://azure.microsoft.com/regions/#services)
-- [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
-- [Learn about rehydrating blob data from the archive tier](storage-blob-rehydration.md)
-- [Determine if premium performance would benefit your app](storage-blob-performance-tiers.md)
-- [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](./monitor-blob-storage.md)
-- [Check hot, cool, and archive pricing in Blob Storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)
-- [Check data transfers pricing](https://azure.microsoft.com/pricing/details/data-transfers/)
+- [How to manage the tier of a blob in an Azure Storage account](manage-blob-access-tier.md)
+- [How to manage the default account access tier of an Azure Storage account](../common/manage-account-default-access-tier.md)
+- [Optimize costs by automating Azure Blob Storage access tiers](storage-lifecycle-management-concepts.md)

@@ -307,6 +307,8 @@
         href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Get account type and SKU name (.NET)
         href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Manage the default access tier of a storage account
+        href: ../common/manage-account-access-tier.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create and manage containers
       items:
       - name: Create or delete a container (.NET)
@@ -321,6 +323,8 @@
         href: storage-blobs-list.md
       - name: Manage blob properties and metadata (.NET)
         href: storage-blob-properties-metadata.md
+      - name: Manage the access tier of a blob
+        href: manage-blob-access-tier.md
       - name: Copy a blob (SDK)
         href: storage-blob-copy.md
       - name: Use blob index tags
