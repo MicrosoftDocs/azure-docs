@@ -14,12 +14,6 @@ ms.reviewer: jrasnick
 
 In Azure Synapse Analytics, the data integration capabilities such as Synapse pipelines and data flows are based upon those of Azure Data Factory. For more information, see [what is Azure Data Factory](../../data-factory/introduction.md).
 
-Almost all of the capabilities are identical or similar and documentation is shared between the two services. This article highlights and identifies the current differences between Azure Data Factory and Azure Synapse.
-
-To see if an Azure Data Factory feature or article applies to Azure Synapse, check the moniker at the top of the article.
-
-![Applies to moniker](../media/concepts-data-factory-differences/applies-to-moniker.png "Applies to moniker")
-
 
 ## Available Features in Azure Data Factory and Azure Synapse Analytics
 
@@ -27,15 +21,15 @@ Check below table for features availability:
 
 | Category                 | Feature    |  Azure Data Factory  | Azure Synapse Analytics |
 | ------------------------ | ---------- | :------------------: | :---------------------: |
-| **Integration Runtime**  | Using SSIS and SSIS Integration runtime | ✓ | ✗ |
+| **Integration Runtime**  | Using SSIS and SSIS Integration Runtime | ✓ | ✗ |
 |                          | Support for Cross-region Integration Runtime (Data Flows) | ✓ | ✗ |
 |                          | Integration Runtime Sharing | ✓<br><small>*Can be shared across different data factories* | ✗ |
 |                          | Time to Live | ✓ | ✗ |
-| **Pipelines Activities** | SSIS Package activity | ✓ | ✗ |
+| **Pipelines Activities** | SSIS Package Activity | ✓ | ✗ |
 |                          | Support for Power Query Activity | ✓ | ✓ |
 | **Template Gallery and Knowledge Center** | Solution Templates | ✓<br><small>*Azure Data Factory Template Gallery* | ✓<br><small>*Synapse Workspace Knowledge Center* |
 | **GIT Repository Integration** | GIT Integration | ✓ | ✓ |
-| **Monitoring**           | Monitoring of Spark jobs for data flow | ✗ | ✓<br><small>*Leverage the Synapse Spark pools* |
+| **Monitoring**           | Monitoring of Spark Jobs for Data Flow | ✗ | ✓<br><small>*Leverage the Synapse Spark pools* |
 |                          | Integration with Azure Monitor | ✓ | ✗ |
 
 > [!Note]
