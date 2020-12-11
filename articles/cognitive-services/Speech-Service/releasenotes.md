@@ -32,17 +32,15 @@ With this release, we now support a total of 129 neural voices across 54 languag
 - Five new voices and languages are introduced to the Neural TTS portfolio. They are: Grace in Maltese (Malta), Ona in Lithuanian (Lithuania), Anu in Estonian (Estonia), Orla in Irish (Ireland) and Everita in Latvian (Latvia).
 - Five new voices with more styles and roles support: Yunxi, Xiaohan, Xiaomo, Xiaoxuan and Xiaorui.
 
-> [!TIP]
 > These voices are available in public preview in three Azure regions: EastUS, SouthEastAsia and WestEurope.
 
 **Neural TTS Container GA**
 - With Neural TTS Container, developers can run speech synthesis with the most natural digital voices in their own environment for specific security and data governance requirements. 
 
 **New features**
-- SSML silence tag support
+- SSML silence tag support.
 - General TTS voice quality improvements: Improved word-level pronunciation accuracy in nb-NO. Reduced 53% pronunciation error.
 
-> [!TIP]
 > Read more at [this tech blog](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-previews-five-new-languages-with/ba-p/1907604).
 
 ## Text-to-speech 2020-October release
