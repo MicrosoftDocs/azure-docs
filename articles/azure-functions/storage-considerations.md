@@ -27,7 +27,7 @@ When creating a function app, you must create or link to a general-purpose Azure
 
 To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#core-storage-services). 
 
-While you can use an existing storage account with your function app, you must make sure that it meets these requirements. Storage accounts created as part of the function app create flow in the Azure portal are guaranteed to meet these storage account requirements. Unsupported accounts are filtered out when choosing an existing storage account while creating a function app in the Azure portal. The portal also only allows you use an existing storage account when that account is in the same region as the function app you're creating. To learn more, see [Storage account location](#storage-account-location).
+While you can use an existing storage account with your function app, you must make sure that it meets these requirements. Storage accounts created as part of the function app create flow in the Azure portal are guaranteed to meet these storage account requirements. In the portal, unsupported accounts are filtered out when choosing an existing storage account while creating a function app. In this flow, you are only allowed to choose existing storage accounts in the same region as the function app you're creating. To learn more, see [Storage account location](#storage-account-location).
 
 ## Storage account guidance
 
