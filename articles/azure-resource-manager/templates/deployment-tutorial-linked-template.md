@@ -171,7 +171,7 @@ Clean up the resources you deployed by deleting the resource group.
 
 ## Next steps
 
-You learned how to deploy a linked template. In the next tutorial, you learn how to create a DevOp pipeline to deploy a template.
+You learned how to deploy a linked template. In the next tutorial, you learn how to create a DevOps pipeline to deploy a template.
 
 > [!div class="nextstepaction"]
 > [Create a pipeline](./deployment-tutorial-pipeline.md)
