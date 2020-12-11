@@ -69,7 +69,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with these attributes.
 
-#### Step 2: Download your ASP.NET Core project
+#### Step 2: Download the ASP.NET Core project
 
 > [!div renderon="docs"]
 > [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip)
