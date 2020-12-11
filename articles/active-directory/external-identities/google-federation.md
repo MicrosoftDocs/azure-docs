@@ -25,7 +25,7 @@ By setting up federation with Google, you can allow invited users to sign in to 
 > Google federation is designed specifically for Gmail users. To federate with G Suite domains, use [direct federation](direct-federation.md).
 
 > [!IMPORTANT]
-> **Starting January 4, 2021**, Google is [deprecating webview sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
+> **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-WebView-sign-in-support).
 
 ## What is the experience for the Google user?
 When you send an invitation to Google Gmail users, the guest users should access your shared apps or resources by using a link that includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
@@ -38,7 +38,7 @@ Guest users who see a "header too long" error can clear their cookies or open a 
 
 ## Deprecation of WebView sign-in support
 
-Starting January 4, 2021, Google is [deprecating embedded webview sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or [self-service sign-up with Gmail](identity-providers.md), you should test your line-of-business native applications for compatibility. If your apps include WebView content that requires authentication, Google Gmail users won't be able to authenticate. The following are known scenarios that will impact Gmail users:
+Starting January 4, 2021, Google is [deprecating embedded WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or [self-service sign-up with Gmail](identity-providers.md), you should test your line-of-business native applications for compatibility. If your apps include WebView content that requires authentication, Google Gmail users won't be able to authenticate. The following are known scenarios that will impact Gmail users:
 
 - Windows apps that use embedded WebView or the WebAccountManager (WAM) on older versions of Windows.
 - Other native apps you’ve developed that use an embedded browser framework for authentication.
@@ -47,7 +47,7 @@ This change does not affect:
 
 - Windows apps that use embedded WebView or the WebAccountManager (WAM) on the latest versions of Windows
 - Microsoft iOS apps
-- GSuite identities, for example when you’re using SAML-based [direct federation](direct-federation.md) with GSuite
+- G Suite identities, for example when you’re using SAML-based [direct federation](direct-federation.md) with G Suite
 
 We’re continuing to test various platforms and scenarios, and will update this article accordingly.
 ### To test your apps for compatibility
@@ -141,7 +141,7 @@ You'll now set the Google client ID and client secret. You can use the Azure por
    > Use the client ID and client secret from the app you created in "Step 1: Configure a Google developer project." For more information, see [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
  
 ## How do I remove Google federation?
-You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation won't be able to sign in. But you can give them access to your resources again by deleting them from the directory and re-inviting them. 
+You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation won't be able to sign in. But you can give them access to your resources again by deleting them from the directory and reinviting them. 
  
 **To delete Google federation in the Azure AD portal**
 1. Go to the [Azure portal](https://portal.azure.com). On the left pane, select **Azure Active Directory**. 
