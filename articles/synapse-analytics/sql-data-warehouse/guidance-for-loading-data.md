@@ -52,6 +52,7 @@ Connect to the dedicated SQL pool and create a user. The following code assumes 
    GRANT SELECT ON <yourtablename> TO loader;
    GRANT CREATE TABLE TO loader;
    GRANT ALTER ON SCHEMA::dbo TO loader;
+   GRANT CONTROL TO loader;
    
    CREATE WORKLOAD GROUP DataLoads
    WITH ( 
