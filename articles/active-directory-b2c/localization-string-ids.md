@@ -438,7 +438,7 @@ The following are the IDs for [Restful service technical profile](restful-techni
 
 ## Azure AD MFA error messages
 
-The following are the IDs for an [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md) error messages:
+The following are the IDs for an [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md) error message:
 
 | ID | Default value |
 | -- | ------------- |
@@ -543,5 +543,5 @@ The following are the IDs for claims transformations error messages:
 
 See the following articles for localization examples:
 
-- [Language customization with custom policy in Azure Active Directory B2C](custom-policy-localization.md)
-- [Language customization with user flows in Azure Active Directory B2C](user-flow-language-customization.md)
+- [Language customization with custom policy in Azure Active Directory B2C](language-customization.md)
+- [Language customization with user flows in Azure Active Directory B2C](language-customization.md)

@@ -28,14 +28,14 @@ Access control can be simplified by using security groups that are aligned with 
 
 ## Access control elements
 
-### Creating and managing Synapse resources
+### Creating and managing Synapse compute resources
 
 Azure roles are used to control management of: 
 - Dedicated SQL pools, 
 - Apache Spark pools, and 
 - Integration runtimes. 
 
-To create these resources, you need to be an Azure Owner or Contributor on the resource group.  To manage them, you need to be an Azure Owner or Contributor on either the resource group or the individual resources. 
+To *create* these resources, you need to be an Azure Owner or Contributor on the resource group.  To *manage* them once created, you need to be an Azure Owner or Contributor on either the resource group or the individual resources. 
 
 ### Developing and executing code in Synapse 
 
@@ -76,7 +76,7 @@ See [How to set up Synapse Access Control](./how-to-set-up-access-control.md) fo
 
  ### Accessing system-managed data in storage
 
-Serverless SQL pools and Apache Spark tables store their data in an ADLS Gen2 container associated with the workspace.  Users and the workspace MSI must be granted Storage Blob Data Contributor access to this ADLS Gen2 storage container.  
+Serverless SQL pools and Apache Spark tables store their data in an ADLS Gen2 container associated with the workspace  User-installed Apache Spark libraries are also managed in the same storage account.  To enable these use cases, users and the workspace MSI must be granted **Storage Blob Data Contributor** access to this workspace ADLS Gen2 storage container.  
 
 ## Using security groups as a best practice
 
