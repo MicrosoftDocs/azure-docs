@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 12/11/2020
 ms.author: alkohli
 ---
 
@@ -58,12 +58,13 @@ To prepare for a potential device failure, you may have deployed one the followi
 | Third-party software           | Reference to the solution                               |
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> For details, contact Cohesity.          |
-| Commvault                      | https://www.commvault.com/azure <br> For details, contact Commvault. |
-| Veritas                        | http://veritas.com/azure <br> For details, contact Veritas.   |
+| Commvault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> For details, contact Commvault. |
+| Veritas                        | [http://veritas.com/azure](http://veritas.com/azure) <br> For details, contact Veritas.   |
+| Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
 
 After the replacement device is fully configured, enable the device for local storage. 
 
-Follow these steps to recover the data from local shares: 
+Follow these steps to recover the data from local shares:
 
 1. [Configure compute on the device](azure-stack-edge-gpu-deploy-configure-compute.md).
 1. [Add a local share](azure-stack-edge-j-series-manage-shares.md#add-a-local-share) back.
@@ -79,8 +80,9 @@ To prepare for a potential device failure, you may have deployed one of the foll
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Microsoft Azure Recovery Services (MARS) agent for Azure Backup | Windows        | [About MARS agent](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure Integration, Backup and Recovery solution brief](https://www.cohesity.com/solution/cloud/azure) <br>For details, contact Cohesity.                          |
-| Commvault               | Windows, Linux | https://www.commvault.com/azure <br> For details, contact Commvault.
-| Veritas                 | Windows, Linux | http://veritas.com/azure <br> For details, contact Veritas.                    |
+| Commvault               | Windows, Linux | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> For details, contact Commvault.
+| Veritas                 | Windows, Linux | [https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-edge-with-NetBackup/ba-p/883370]https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-edge-with-NetBackup/ba-p/883370) <br> For details, contact Veritas.                    |
+| Veeam                   | Windows, Linux | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
 
 After the replacement device is fully configured, you can redeploy the VMs with the VM image previously used. 
 
@@ -90,6 +92,10 @@ Follow these steps to recover the data in the VMs:
 1. Install the data protection solution of choice on the VM.
 1. Run the recovery procedure provided by the data protection solution of choice. See references from the preceding table.
 
+## Restore a Kubernetes deployment
+
+If you performed your Kubernetes deployment via Azure Arc, you can restore the deployment after a non-tolerable device failure. You'll need to redeploy the customer application/containers from the `git` repository where the application definition is stored. [Information on deploying Kubernetes with Azure Arc](./azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)<!--Original text: Kubernetes deployments can be restored from a non-tolerated failure with the device when deployed with Azure Arc. Customer application/containers deployed onto a Kubernetes on Azure Stack Edge via Azure Arc can be redeployed from the git repository where the application definition is. Here is a link to the article to deploy Kubernetes with Arc -->
+ 
 ## Next steps
 
 - Learn how to [Return an Azure Stack Edge Pro device](azure-stack-edge-return-device.md).

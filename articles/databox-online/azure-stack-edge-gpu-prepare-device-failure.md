@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 12/11/2020
 ms.author: alkohli
 ---
 
@@ -21,15 +21,15 @@ The article does not include steps to back up Kubernetes and IoT containers depl
 
 Your Azure Stack Edge Pro GPU device can experience two types of hardware failures.
 
-- Tolerable failures that require you to replace a hardware component. These failures will allow you to operate the device in a degraded state. Examples of these failures include a single failed power supply unit (PSU) or a single failed disk on the device. In each of these cases, the device can continue to operate. You are recommended to contact Microsoft Support at the earliest to replace the failed components.
+- Tolerable failures that require you to replace a hardware component. These failures will allow you to operate the device in a degraded state. Examples of these failures include a single failed power supply unit (PSU) or a single failed disk on the device. In each of these cases, the device can continue to operate. You should contact Microsoft Support as soon as possible to replace the failed components.
 
-- Non-tolerable failures that would require you to replace the entire device. An example of this failure would be when two disks have failed on your device. In these instances, you contact Microsoft Support and after they determine that a device replacement is needed, they help facilitate the replacement of your Azure Stack Edge device.
+- Non-tolerable failures that require you to replace the entire device - for example, when two disks have failed on your device. In these cases, contact Microsoft Support immediately. After they determine that a device replacement is needed, they will help facilitate the replacement of your Azure Stack Edge device.
 
 To prepare for non-tolerable failures, you need to back up the following on your device:
 
-- Information on device configuration.
-- Data that resides in Edge local shares and Edge cloud shares.
-- Files and folders associated with the VMs running on your device.
+- Information on device configuration
+- Data that resides in Edge local shares and Edge cloud shares
+- Files and folders associated with the VMs running on your device
 
 
 ## Back up device configuration
@@ -50,7 +50,7 @@ The following sections discuss the steps and recommendations to protect each of 
 
 You can create Edge cloud shares that tier data from your device to Azure. Depending on the network bandwidth available, configure bandwidth templates on your device to minimize any data loss in the event of a non-tolerable failure.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > If the device has a non-tolerable failure, local data that is not tiered off from the device to Azure may be lost. 
 
 ## Protect data in Edge local shares
@@ -61,9 +61,10 @@ The following third-party data protection solutions can provide a backup solutio
 
 | Third-party software           | Reference to the solution                               |
 |--------------------------------|---------------------------------------------------------|
-| Cohesity                       | https://www.cohesity.com/solution/cloud/azure/ <br> For details, contact Cohesity.          |
-| Commvault                      | https://www.commvault.com/azure <br> For details, contact Commvault.          |
-| Veritas                        | http://veritas.com/azure <br> For details, contact Veritas.   |
+| Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> For details, contact Cohesity.          |
+| Commvault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> For details, contact Commvault.          |
+| Veritas                        | [http://veritas.com/azure](http://veritas.com/azure) <br> For details, contact Veritas.   |
+| Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
 
 
 ## Protect files and folders on VMs
@@ -75,9 +76,9 @@ Azure Stack Edge works with Azure Backup and other third-party data protection s
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Microsoft Azure Recovery Services (MARS) agent for Azure Backup | Windows        | [About MARS agent](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure Integration, Backup and Recovery solution brief](https://www.cohesity.com/solution/cloud/azure) <br>For details, contact Cohesity.                          |
-| Commvault               | Windows, Linux | https://www.commvault.com/azure <br>For details, contact Commvault.                          |
-| Veritas                 | Windows, Linux | http://veritas.com/azure <br> For details, contact Veritas.                    |
-
+| Commvault               | Windows, Linux | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br>For details, contact Commvault.                          |
+| Veritas                 | Windows, Linux | [https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-Edge-with-NetBackup/ba-p/883370](https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-Edge-with-NetBackup/ba-p/883370) <br> For details, contact Veritas.                    |
+| Veeam                   | Windows, Linux | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
 
 
 ## Next steps
