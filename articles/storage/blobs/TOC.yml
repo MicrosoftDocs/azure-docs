@@ -880,14 +880,4 @@
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
     - name: Partners
-      items:
-        - name: Analytics
-          href: https://docs.microsoft.com/azure/storage/solution-integration/validated-partners/analytics/storage-solution-partner-analytics
-        - name: Archive and BCDR
-          href: https://docs.microsoft.com/azure/storage/solution-integration/validated-partners/backup-archive-disasterrecovery/storage-solution-partner-bcdr
-        - name: Container Solutions
-          href: https://docs.microsoft.com/azure/storage/solution-integration/validated-partners/container-solutions/storage-solution-partner-container
-        - name: Data Management
-          href: https://docs.microsoft.com/azure/storage/solution-integration/validated-partners/data-management/storage-solution-partner-dmanagement
-        - name: Primary / Secondary Storage
-          href: https://docs.microsoft.com/azure/storage/solution-integration/validated-partners/primary-secondary-storage/storage-solution-partner-primsecondary
+      href: ..\solution-integration
