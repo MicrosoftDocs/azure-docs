@@ -81,7 +81,7 @@ Follow these steps to create a new resource using the Azure portal:
    * Server URL - Set this to `https://mcr.microsoft.com`
    * Username (Optional) - Create a username. 
    * Password (Optional) - Create a secure password that you'll remember.
-   * Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
    * Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
    * Startup command - Set this to `./run.sh eula=accept`
     
