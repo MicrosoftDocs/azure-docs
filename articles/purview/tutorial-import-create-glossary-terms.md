@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Create and import glossary terms in Azure Purview (preview)'
 description: This tutorial describes how to create glossary terms, add glossary terms to an asset, and import glossary terms. 
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
