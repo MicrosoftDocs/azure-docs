@@ -91,9 +91,9 @@ To resolve the issue, do the following:
   
      In the Azure VM, go to `C:\Windows\System32\drivers\etc`, and then open the *host* file in Notepad. Add the line that maps the private IP to the FQDN at the end of the file, and save the change.
      
-     ![Screenshot of adding mapping the private IP to the host.](media/self-hosted-integration-runtime-troubleshoot-guide/add-mapping-to-host.png)
+     ![Screenshot of mapping the private IP to the host.](media/self-hosted-integration-runtime-troubleshoot-guide/add-mapping-to-host.png)
 
-  1. Rerun the same commands in the preceding verification steps to check the response, which should contain the private IP.
+  1. Rerun the same commands as in the preceding verification steps to check the response, which should contain the private IP.
 
   1. Re-register the self-hosted integration runtime, and the issue should be resolved.
 
