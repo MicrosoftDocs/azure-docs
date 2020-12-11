@@ -57,8 +57,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.
 > 1. Enter a **Description**, for example `clientsecret1`.
 > 1. Select **In 1 year** for the secret's expiration.
-> 1. Select **Add** and immediately record the secret's **Value** for use in a later step.
->     - This key value is *never displayed again* and is irretrievable by any other means. Record it in a secure location as you would any password.
+> 1. Select **Add** and immediately record the secret's **Value** for use in a later step. The secret value is *never displayed again* and is irretrievable by any other means. Record it in a secure location as you would any password.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
