@@ -889,7 +889,7 @@ Recognized Entities
     SubCategory: 
 ```
 
-You can also use the Analyze operation to detect PII and key phrase extraction. See [Analyze Sample Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeOperation.md).
+You can also use the Analyze operation to detect PII and key phrase extraction. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeOperation.md) on GitHub.
 
 # [Version 3.0](#tab/version-3)
 
