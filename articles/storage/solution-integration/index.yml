@@ -25,33 +25,33 @@ landingContent:
       - linkListType: overview
         links:
           - text: Validated Azure Storage Analytics partners
-            url: .\validated-partners\analytics\storage-solution-partner-analytics.md
+            url: .\validated-partners\analytics\partner-overview.md
   # Card
   - title: Azure Storage Archive and BCDR partners
     linkLists:
       - linkListType: overview
         links:
           - text: Validated Azure Storage Archive and BCDR partners
-            url: .\validated-partners\backup-archive-disasterrecovery\storage-solution-partner-bcdr.md
+            url: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
    # Card
   - title:  Azure Storage container solution partners
     linkLists:
       - linkListType: overview
         links:
           - text: Validated Azure Storage container solution partners
-            url: .\validated-partners\container-solutions\storage-solution-partner-container.md
+            url: .\validated-partners\container-solutions\partner-overview.md
    # Card
   - title: Azure Storage data management partners
     linkLists:
       - linkListType: overview
         links:
           - text: Validated Azure Storage data management partners
-            url: .\validated-partners\data-management\storage-solution-partner-dmanagement.md
+            url: .\validated-partners\data-management\partner-overview.md
                      # Card
   - title:  Azure Storage primary and secondary Storage partners
     linkLists:
       - linkListType: overview
         links:
           - text: Validated partners for primary and secondary Storage
-            url: .\validated-partners\primary-secondary-storage\storage-solution-partner-primsecondary.md
+            url: .\validated-partners\primary-secondary-storage\partner-overview.md
       

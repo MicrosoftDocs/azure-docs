@@ -3,25 +3,25 @@
 - name: Azure Storage Analytics partners
   items:
   - name: Overview of validated partners
-    href: .\validated-partners\analytics\storage-solution-partner-analytics.md
+    href: .\validated-partners\analytics\partner-overview.md
   expanded: false
 - name: Azure Storage Archive and BCDR partners
   items:
   - name: Overview of validated partners
-    href: .\validated-partners\backup-archive-disasterrecovery\storage-solution-partner-bcdr.md
+    href: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
   expanded: false
 - name: Azure Storage container solution partners
   items:
   - name: Overview of validated partners
-    href: .\validated-partners\container-solutions\storage-solution-partner-container.md
+    href: .\validated-partners\container-solutions\partner-overview.md
   expanded: false
 - name: Azure Storage data management partners
   items:
   - name: Overview of validated partners
-    href: .\validated-partners\data-management\storage-solution-partner-dmanagement.md
+    href: .\validated-partners\data-management\partner-overview.md
   expanded: false
 - name: Azure Storage primary and secondary Storage partners
   items:
   - name: Overview of validated partners
-    href: .\validated-partners\primary-secondary-storage\storage-solution-partner-primsecondary.md
+    href: .\validated-partners\primary-secondary-storage\partner-overview.md
   expanded: false
