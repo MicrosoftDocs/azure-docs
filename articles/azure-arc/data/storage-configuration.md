@@ -7,13 +7,13 @@ ms.subservice: azure-arc-data
 author: uc-msft
 ms.author: umajay
 ms.reviewer: mikeray
-ms.date: 12/10/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ---
 
 # Storage Configuration
 
-[!INCLUDE [azure-arc-data-preview](../../includes/azure-arc-data-preview.md)]
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Kubernetes storage concepts
 
