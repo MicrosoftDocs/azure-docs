@@ -563,6 +563,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: Equinix Federation App
+        href: equinix-federation-app-tutorial.md
       - name: EasySSO for Jira
         href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
