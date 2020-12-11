@@ -6219,7 +6219,12 @@
     },
     {
       "source_path": "articles/key-vault/service-to-service-authentication.md",
-      "redirect_url": "/azure/key-vault/general/service-to-service-authentication",
+      "redirect_url": "https://docs.microsoft.com/en-us/dotnet/api/overview/azure/service-to-service-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/service-to-service-authentication.md",
+      "redirect_url": "https://docs.microsoft.com/en-us/dotnet/api/overview/azure/service-to-service-authentication",
       "redirect_document_id": false
     },
     {
