@@ -51,14 +51,7 @@ You can edit the API in Visual Studio Code. For example, edit the Resource Manag
 
 :::image type="content" source="media/vscode-tutorial-service-instance/import-demo-api.png" alt-text="Edit JSON description":::
 
-
 To edit the OpenAPI format, right-click the API name in the Explorer pane and select **Edit OpenAPI**. Make your changes, and then select **File** > **Save**.
-
-### Trace the API operation
-
-For detailed tracing information to help you debug the API operation, select the link that appears next to **Ocp-APIM-Trace-Location**. 
-
-The JSON file at that location contains Inbound, Backend, and Outbound trace information so you can determine where any problems occur after the request is made.
 
 ## Apply policies to the API 
 
@@ -117,8 +110,14 @@ Notice the following details in the response:
 * The **X-Powered-By** header doesn't appear in the response.
 * URLs to the API backend are redirected to the API Management gateway, in this case https://apim-hello-world.azure-api.net/demo-conference-api.
 
+### Trace the API operation
+
+For detailed tracing information to help you debug the API operation, select the link that appears next to **Ocp-APIM-Trace-Location**. 
+
+The JSON file at that location contains Inbound, Backend, and Outbound trace information so you can determine where any problems occur after the request is made.
+
 > [!TIP]
-> When you test API opertions, the API Managemet Extension allows optional [policy debugging](api-management-debug-policies.md) (available in the Developer service tier)
+> When you test API operations, the API Managemet Extension allows optional [policy debugging](api-management-debug-policies.md) (available in the Developer service tier)
 
 ## Clean up resources
 
