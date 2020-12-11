@@ -103,7 +103,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >       - If your application supports **Accounts in this organizational directory only**, replace this value with the **Directory (tenant) ID** (a GUID) or **tenant name** (for example, `contoso.onmicrosoft.com`). You can find the **Directory (tenant) ID** on the app's **Overview** page.
 >       - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
 >       - If your application supports **All Microsoft account users**, leave this value as `common`
->    - Replace `Enter_the_Client_Secret_Here` with the **Client Secret** you created in **Certificates & Secrets** for the application you registered.
+>    - Replace `Enter_the_Client_Secret_Here` with the **Client secret** you created and recorded in an earlier step.
 > 
 > For this quickstart, don't change any other values in the *appsettings.json* file.
 >
@@ -211,7 +211,7 @@ public async Task<IActionResult> Index()
 
 ## Next steps
 
-The GitHub repo that contains this ASP.NET Core tutorial includes instructions and more code samples that show you how to:
+The GitHub repo that contains the ASP.NET Core code sample referenced in this quickstart includes instructions and more code samples that show you how to:
 
 - Add authentication to a new ASP.NET Core Web application
 - Call Microsoft Graph, other Microsoft APIs, or your own web APIs
