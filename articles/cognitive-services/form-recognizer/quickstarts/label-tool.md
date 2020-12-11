@@ -219,7 +219,7 @@ Follow the steps above to label at least five of your forms.
 
 ### Specify tag value types
 
-Optionally, you can set the expected data type for each tag. Open the context menu to the right of a tag and select a type from the menu. This feature allows the detection algorithm to make certain assumptions that will improve the text-detection accuracy. It also ensures that the detected values will be returned in a standardized format in the final JSON output. 
+Optionally, you can set the expected data type for each tag. Open the context menu to the right of a tag and select a type from the menu. This feature allows the detection algorithm to make certain assumptions that will improve the text-detection accuracy. It also ensures that the detected values will be returned in a standardized format in the final JSON output. Value type information is saved in the *fields.json* file in the same path as your label files.
 
 > [!div class="mx-imgBorder"]
 > ![Value type selection with sample labeling tool](../media/whats-new/formre-value-type.png)
