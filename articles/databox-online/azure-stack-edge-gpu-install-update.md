@@ -17,7 +17,12 @@ This article describes the steps required to install update on your Azure Stack 
 The procedure described in this article was performed using a different version of software, but the process remains the same for the current software version.
 
 > [!IMPORTANT]
-> - Update **2012** is the current update and corresponds to **2.2.1438.2470** software version on your device. For information on this update, go to [Release notes](azure-stack-edge-gpu-2012-release-notes.md).
+> - Update **2012** is the current update and corresponds to:
+>   - Device software version - **2.2.1438.2470**
+>   - Kubernetes server version - **v1.17.3**
+>   - IoT Edge version: **0.1.0-beta10**
+>    
+>    For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2012-release-notes.md).
 > - To apply 2012 update, your device must be running 2010.
 > - Keep in mind that installing an update or hotfix restarts your device. This update contains the device software updates and the Kubernetes updates. Given that the Azure Stack Edge Pro is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 30 minutes for the update.
 
