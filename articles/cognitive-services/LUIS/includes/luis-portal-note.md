@@ -1,0 +1,2 @@
+> [!NOTE]
+> Starting December xyz, the luis.au and luis.eu portals will be consolidated into a single portal and URL. If you were using one of these portals, you will be automatically re-directed to [luis.ai](https://luis.ai/). You will continue using the same regional resources you created, and your applications will continue to be authored in the same region you originally selected.
