@@ -44,7 +44,7 @@ For more information on authentication in Azure Maps, see [manage authentication
 To get familiar with Azure notebooks and to know how to get started, follow the instructions [Create an Azure Notebook](./tutorial-ev-routing.md#create-an-azure-notebooks-project).
 
 > [!Note]
-> The Jupyter notebook file for this project can be downloaded from the [Weather Maps Jupyter notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data).
+> The Jupyter notebook file for this project can be downloaded from the [Weather Maps Jupyter Notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data).
 
 ## Load the required modules and frameworks
 
