@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/02/2020
+ms.date: 12/10/2020
 
 ---
 
@@ -70,30 +70,26 @@ Like management packs in Operations Manager, Azure Monitor for VMs uses an agent
 > [!NOTE]
 > A new [guest health feature for Azure Monitor for VMs](insights/vminsights-health-overview.md) is now in public preview and does alert based on the health state of a set of performance metrics. This is currently limited though to a specific set of performance counters related to the guest operating system and not applications or other workloads running in the virtual machine.
 
-Azure Monitor for VMs does provide multiple features more suited to a scalable cloud environment including the following:
+Azure Monitor for VMs does provide multiple features beyond the capabilities of Operations Manager including the following:
 
 - Discover and monitor relationships between virtual machines and their external dependencies.
 - View aggregated performance data across multiple virtual machines in interactive charts and workbooks.
-- Use [log queries](log-query/log-query-overview.md) to interactively analyze telemetry from your virtual machines.
+- Use [log queries](log-query/log-query-overview.md) to interactively analyze telemetry from your virtual machines with data from your other Azure resources.
 - Create [log alert rules](platform/alerts-log-query.md) based on complex logic across multiple virtual machines.
 
-Monitoring the software on your virtual machine in a hybrid environment will typically use a combination of Azure Monitor for VMs and Operations Manager, depending on the requirements of each machine and your maturity developing operational processes around Azure Monitor. The Microsoft Management Agent (referred to as the Log Analytics agent in Azure Monitor) is used by both platforms so that a single machine can be simultaneously monitored by both.
-
-Keep using Operations Manager initially to continue monitoring server software and on-premises infrastructure. As you become more familiar with Azure Monitor and start to develop monitoring logic using log queries, you can start to remove machines from the management group. Continue to use Operations Manager for any conditions that cannot be identified by collecting logs, events, or performance data and correlated using a log query in Azure Monitor Logs. You may also continue to use Operations Manager if it is tightly integrated into your operational processes until you can transition to modernizing your service operations where Azure Monitor and other Azure services can augment or replace. 
-
+Monitoring the software on your machines in a hybrid environment will typically use a combination of Azure Monitor for VMs and Operations Manager, depending on the requirements of each machine and on your maturity developing operational processes around Azure Monitor. The Microsoft Management Agent (referred to as the Log Analytics agent in Azure Monitor) is used by both platforms so that a single machine can be simultaneously monitored by both.
 
 > [!NOTE]
 > In the future, Azure Monitor for VMs will transition to the [Azure Monitor agent](patform/../platform/azure-monitor-agent-overview.md) which is currently in public preview. It will be compatible  with the Microsoft Monitoring Agent so the same virtual machine will continue to be able to be monitored by both platforms.
 
-Azure Monitor for VMs may not be sufficient for scenarios where you rely on unique capabilities of Operations Manager management packs such as critical server software like IIS, SQL Server, or Exchange. You may also have custom management packs developed for on-premises infrastructure that can't be reached with Azure Monitor or that provide other functionality that can't be covered by Azure Monitor. 
+Enable Azure Monitor for VMs for any virtual machines that you migrate into Azure and on new Azure virtual machines that you create, whether or not those machines will also continue to be monitored by Operations Manager. You should also enable Azure Arc enabled servers and Azure Monitor for VMs for your hybrid machines. This will give you a complete view of your environment in the Azure portal and allow you to analyze trends across your entire set of virtual and physical machines. It will also allow you to start developing operational processes around Azure Monitor.
 
-Enable Azure Monitor for VMs for any virtual machines that you migrate into Azure and on new Azure virtual machines that you create, whether or not those machines will also continue to be monitored by Operations Manager. You should also enable Azure Arc enabled servers and Azure Monitor for VMs for your hybrid machines. 
+Keep using Operations Manager initially in conjunction with Azure Monitor to continue monitoring server software and on-premises infrastructure. As you become more familiar with Azure Monitor and start to develop monitoring logic that can replace your requirements from Operations Manager, you can start to remove machines from the management group. 
+
+Continue to use Operations Manager for functionality that cannot yet be provided by Azure Monitor. This includes management packs for critical server software like IIS, SQL Server, or Exchange. You may also have custom management packs developed for on-premises infrastructure that can't be reached with Azure Monitor. Also continue to use Operations Manager if it is tightly integrated into your operational processes until you can transition to modernizing your service operations where Azure Monitor and other Azure services can augment or replace. 
 
 
-
-
-
-## Business applications
+## Monitor business applications
 You typically require custom management packs to monitor your business applications with Operations Manager, leveraging agents installed on each virtual machine. Application Insights in Azure Monitor monitors web based applications whether they're in Azure, other clouds, or on-premises.
 
 You should be able to replace the custom management packs for each of your business applications with Application Insights. Use codeless monitoring for an easier implementation with no changes to your application code or use code-based monitoring for additional features. 
