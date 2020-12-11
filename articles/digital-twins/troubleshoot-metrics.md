@@ -58,8 +58,8 @@ To set this up, use the [alerts](troubleshoot-alerts.md) feature in Azure Monito
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| TwinCount | Twin Count (preview) | Count | Total | Total number of twins in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of twins allowed per instance. |  None |
-| ModelCount | Model Count (preview) | Count | Total | Total number of models in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of models allowed per instance. | None |
+| TwinCount | Twin Count (Preview) | Count | Total | Total number of twins in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of twins allowed per instance. |  None |
+| ModelCount | Model Count (Preview) | Count | Total | Total number of models in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of models allowed per instance. | None |
 
 #### API request metrics
 
