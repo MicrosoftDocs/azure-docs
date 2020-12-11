@@ -209,7 +209,7 @@ And then use your favorite method of making an HTTP POST to publish your events 
 To search and manage large number of topics or subscriptions, Event Grid's APIs support listing and pagination.
 
 ### Using CLI
-For example, the following command lists all the topics with name containing `my-test-filter`. 
+For example, the following command lists all the topics with name containing `mytopic`. 
 
 ```azurecli-interactive
 az eventgrid topic list --odata-query "contains(name, 'mytopic')"
