@@ -84,7 +84,7 @@ List and open a published notebook or job definition, including reviewing saved 
 Run a notebook and review its output|Synapse Apache Spark Administrator, Synapse Compute Operator on the selected Apache Spark pool|bigDataPools/useCompute 
 Publish or delete a notebook or job definition (including output) to the service|Artifact Publisher on the workspace, Synapse Apache Spark Administrator|notebooks/write, delete
 Commit changes to a notebook or job definition to the Git repo|Git permissions|none
-**Pipelines, Integration runtimes, Dataflows, Datasets and Triggers**| | |
+PIPELINES, INTEGRATION RUNTIMES, DATAFLOWS, DATASETS & TRIGGERS|
 Create, update, or delete an Integration runtime|Azure Owner or Contributor on the workspace|
 Monitor Integration runtime status|Synapse User|read, pipelines/viewOutputs
 Review pipeline runs|Synapse Artifact Publisher/Synapse Contributor|read, pipelines/viewOutputs 
@@ -99,13 +99,13 @@ Copy data using the Copy Data tool|Synapse User + Synapse Credential User on the
 Ingest data (using a schedule)|Synapse Author + Synapse Credential User on the Workspace System Identity|read, credentials/useSecret/action
 Publish a new, updated, or deleted pipeline, dataflow, or trigger to the service|Synapse Artifact Publisher on the workspace|pipelines/write, delete</br>dataflows/write, delete</br>triggers/write, delete
 Commit changes to pipelines, dataflows, datasets, or triggers to the Git repo |Git permissions|none 
-**Linked services**|
-Create a linked service (includes assigning a credential)|Synapse User</br>*Additional permissions are required to run, publish, or commit*|read
+LINKED SERVICES|
+Create a linked service (includes assigning a credential)|Synapse User</br>*Additional permissions are required to use a linked service with credentials, or to publish, or commit changes*|read
 List and open a published linked service|Synapse Artifact User|linkedServices/write, delete  
-Test connection on a linked service secured by a credential|Synapse User and Synapse Credential User|credentials/useSecret/action|
-Publish a linked service|Synapse Artifact Publisher|linkedServices/write, delete
-Save (commit) linked service definitions to the Git repo|Git permissions|none
-**Access management**|
+Test connection on a linked service secured by a credential|Synapse User + Synapse Credential User|credentials/useSecret/action|
+Publish a linked service|Synapse Artifact Publisher, Synapse Linked Data Manager|linkedServices/write, delete
+Commit linked service definitions to the Git repo|Git permissions|none
+ACCESS MANAGEMENT|
 Review Synapse RBAC role assignments at any scope|Synapse User|read
 Assign and remove Synapse RBAC role assignments for users, groups, and service principals| Synapse Administrator at the workspace or at a specific workspace item scope|roleAssignments/write, delete 
 
