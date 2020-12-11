@@ -32,9 +32,9 @@
           href: event-hubs-dotnet-standard-getstarted-send.md
         - name: Java (azure-messaging-eventhubs)
           href: event-hubs-java-get-started-send.md
-        - name: Python (azure-eventhub version 5)
+        - name: Python (azure-eventhub)
           href: event-hubs-python-get-started-send.md
-        - name: JavaScript (azure/event-hubs version 5)
+        - name: JavaScript (azure/event-hubs)
           href: event-hubs-node-get-started-send.md
         - name: Go
           href: event-hubs-go-get-started-send.md
@@ -151,9 +151,9 @@
               href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md
             - name: Java (azure-messaging-eventhubs)
               href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md
-            - name: Python (azure-eventhub version 5)
+            - name: Python (azure-eventhub)
               href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md
-            - name: JavaScript (azure/event-hubs version 5)
+            - name: JavaScript (azure/event-hubs)
               href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/README.md
             - name: .NET (Microsoft.Azure.EventHubs)
               href: event-hubs-programming-guide.md
