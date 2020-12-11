@@ -10,12 +10,64 @@ ms.date: 10/09/2019
 
 Service Fabric applications can leverage managed identities to access other Azure resources which support Azure Active Directory-based authentication. An application can obtain an [access token](../active-directory/develop/developer-glossary.md#access-token) representing its identity, which may be system-assigned or user-assigned, and use it as a 'bearer' token to authenticate itself to another service - also known as a [protected resource server](../active-directory/develop/developer-glossary.md#resource-server). The token represents the identity assigned to the Service Fabric application, and will only be issued to Azure resources (including SF applications) which share that identity. Refer to the [managed identity overview](../active-directory/managed-identities-azure-resources/overview.md) documentation for a detailed description of managed identities, as well as the distinction between system-assigned and user-assigned identities. We will refer to a managed-identity-enabled Service Fabric application as the [client application](../active-directory/develop/developer-glossary.md#client-application) throughout this article.
 
+A companion sample application demonstrating using system-assigned and user-assigned Service Fabric application managed identities with Reliable Services and containers can be found [here](https://github.com/Azure-Samples/service-fabric-managed-identity)
+
 > [!IMPORTANT]
 > A managed identity represents the association between an Azure resource and a service principal in the corresponding Azure AD tenant associated with the subscription containing the resource. As such, in the context of Service Fabric, managed identities are only supported for applications deployed as Azure resources. 
 
 > [!IMPORTANT]
 > Prior to using the managed identity of a Service Fabric application, the client application must be granted access to the protected resource. Please refer to the list of [Azure services which support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)
  to check for support, and then to the respective service's documentation for specific steps to grant an identity access to resources of interest. 
+ 
+
+## Leveraging a managed identity using Azure.Identity
+
+The Azure Identity SDK now supports Service Fabric. Using Azure.Ideneity makes writing code to use SF App MI easier because it handles fetching tokens, caching tokens, and server authentication. While accessing most Azure resources, the concept of a token is hidden.
+
+Service Fabric support is availabe starting with 
+- [Version 1.3.0 in C#](https://www.nuget.org/packages/Azure.Identity), a sample can be found [here](https://github.com/Azure-Samples/service-fabric-managed-identity)
+- [Version 1.5.0 in Python](https://pypi.org/project/azure-identity/), a sample can be found [here](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/tests/managed-identity-live/service-fabric/service_fabric.md)
+- [Version 1.2.0 in Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable)
+
+C# sample of initializing credentials and using the credentials to fetch a secret from Key Vault:
+```c#
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+
+namespace MyMIService
+{
+    internal sealed class MyMIService : StatelessService
+    {
+        protected override async Task RunAsync(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // Load the service fabric application managed identity assigned to the service
+                ManagedIdentityCredential creds = new ManagedIdentityCredential();
+
+                // Create a client to keyvault using that identity
+                SecretClient client = new SecretClient(new Uri("https://mykv.vault.azure.net/"), creds);
+
+                // Fetch a secret
+                KeyVaultSecret secret = (await client.GetSecretAsync("mysecret", cancellationToken: cancellationToken)).Value;
+            }
+            catch (CredentialUnavailableException e)
+            {
+                // Handle errors with loading the Managed Identity
+            }
+            catch (RequestFailedException)
+            {
+                // Handle errors with fetching the secret
+            }
+            catch (Exception e)
+            {
+                // Handle generic errors
+            }
+        }
+    }
+}
+
+```
 
 ## Acquiring an access token using REST API
 In clusters enabled for managed identity, the Service Fabric runtime exposes a localhost endpoint which applications can use to obtain access tokens. The endpoint is available on every node of the cluster, and is accessible to all entities on that node. Authorized callers may obtain access tokens by calling this endpoint and presenting an authentication code; the code is generated by the Service Fabric runtime for each distinct service code package activation, and is bound to the lifetime of the process hosting that service code package.
@@ -374,3 +426,4 @@ See [Azure services that support Azure AD authentication](../active-directory/ma
 * [Deploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Grant an Azure Service Fabric application access to other Azure resources](./how-to-grant-access-other-resources.md)
+* [Explore a sample application using Service Fabric Managed Identity](https://github.com/Azure-Samples/service-fabric-managed-identity)
