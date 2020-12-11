@@ -262,12 +262,13 @@ To test network access to a storage account, deploy a VM to each subnet.
    ![Select a virtual network](./media/tutorial-restrict-network-access-to-resources/virtual-machine-settings.png)
   
 4. Select the **Networking** tab and then select **myVirtualNetwork**. 
-5. Under **NIC Network Security Group**, select **Advanced**. The portal automatically creates a network security group for you that allows port 3389, which you'll need open to connect to the virtual machine in a later step. 
+5. Select the *Public* subnet.
+6. Under **NIC Network Security Group**, select **Advanced**. The portal automatically creates a network security group for you that allows port 3389, which you'll need open to connect to the virtual machine in a later step. 
 
    ![Enter basic information about a virtual machine](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
 
-6. Select **Review and create**, then **Create** and wait for the deployment to finish.
-7. Click **Go to resource**, or open the **Home > Virtual machines** page, and select the VM you just created *myVmPublic*, which should be started.
+7. Select **Review and create**, then **Create** and wait for the deployment to finish.
+8. Click **Go to resource**, or open the **Home > Virtual machines** page, and select the VM you just created *myVmPublic*, which should be started.
 
 ### Create the second virtual machine
 
