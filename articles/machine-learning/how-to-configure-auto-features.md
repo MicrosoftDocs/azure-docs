@@ -139,7 +139,8 @@ featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy"
 featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
 ```
-
+>[!NOTE]
+> The **drop columns** functionality is deprecated as of SDK version 1.19.
 ## Featurization transparency
 
 Every AutoML model has featurization automatically applied.  Featurization includes automated feature engineering (when `"featurization": 'auto'`) and scaling and normalization, which then impacts the selected algorithm and its hyperparameter values. AutoML supports different methods to ensure you have visibility into what was applied to your model.

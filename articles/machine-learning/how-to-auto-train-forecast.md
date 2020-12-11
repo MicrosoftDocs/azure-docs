@@ -221,7 +221,8 @@ Supported customizations for `forecasting` tasks include:
 |**Drop columns** |Specifies columns to drop from being featurized.|
 
 To customize featurizations with the SDK, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. Learn more about [custom featurizations](how-to-configure-auto-features.md#customize-featurization).
-
+>[!NOTE]
+> The **drop columns** functionality is deprecated as of SDK version 1.19.
 ```python
 featurization_config = FeaturizationConfig()
 
