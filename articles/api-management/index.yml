@@ -66,7 +66,7 @@ landingContent:
           - text: 9. Customize the style of the Developer portal pages
             url: api-management-howto-developer-portal-customize.md
           - text: 10. Manage APIs in Visual Studio Code
-            url: vscode-tutorial-service-instance.md
+            url: visual-studio-code-tutorial.md
 
   # Card
   - title: Samples

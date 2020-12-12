@@ -50,7 +50,7 @@ A new API Management instance (and parent resource group) will be created with t
 >
 > While the *Consumption* SKU takes less than a minute to provision, other SKUs typically take 30-40 minutes to create.
 
-At this point, you're ready to import and publish your first API. You can do that and also perform common API Management operations within the extension for Visual Studio Code. See [the tutorial](vscode-tutorial-service-instance.md) for more.
+At this point, you're ready to import and publish your first API. You can do that and also perform common API Management operations within the extension for Visual Studio Code. See [the tutorial](visual-studio-code-tutorial.md) for more.
 
 ![Newly created API Management instance in VS Code API Management extension pane](./media/vscode-create-service-instance/vscode-apim-instance.png)
 
@@ -65,4 +65,4 @@ Alternately, you can select **Delete API Management** to only delete the API Man
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Import and manage APIs using the API Management Extension](vscode-tutorial-service-instance.md)
+> [Import and manage APIs using the API Management Extension](visual-studio-code-tutorial.md)

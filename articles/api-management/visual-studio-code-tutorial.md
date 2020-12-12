@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Import and manage APIs - API Management Extension for VS Code | Microsoft Docs
+title: Tutorial - Import and manage APIs - Azure API Management and Visual Studio Code | Microsoft Docs
 description: In this tutorial, learn how to use the Azure API Management Extension for Visual Studio Code to import, test, and manage APIs.
 ms.service: api-management
 author: dlepow
@@ -21,7 +21,7 @@ You learn how to:
 > * Test the API
 
 
-:::image type="content" source="media/vscode-tutorial-service-instance/tutorial-api-result.png" alt-text="API in API Management Extension":::
+:::image type="content" source="media-visual-studio-code-tutorial/tutorial-api-result.png" alt-text="API in API Management Extension":::
 
 For an introduction to additional API Management features, see the API Management tutorials using the [Azure portal](import-and-publish.md).
 
@@ -32,7 +32,7 @@ For an introduction to additional API Management features, see the API Managemen
 
 ## Import an API
 
-The following example imports an OpenAPI Specification in JSON format into API Management. Microsoft provides the backend API used in this example, and hosts it on Azure at https://conferenceapi.azurewebsites.net?format=json.
+The following example imports an OpenAPI Specification in JSON format into API Management. Microsoft provides the backend API used in this example, and hosts it on Azure at `https://conferenceapi.azurewebsites.net?format=json`.
 
 1. In Visual Studio Code, select the Azure icon from the Activity Bar.
 1. In the Explorer pane, expand the API Management instance you created.
@@ -44,13 +44,13 @@ The following example imports an OpenAPI Specification in JSON format into API M
 
 After the API is imported successfully, it appears in the Explorer pane, and available API operations appear under the **Operations** node.
 
-:::image type="content" source="media/vscode-tutorial-service-instance/tutorial-api-operations.png" alt-text="Imported API in Explorer pane":::
+:::image type="content" source="media-visual-studio-code-tutorial/tutorial-api-operations.png" alt-text="Imported API in Explorer pane":::
 
 ## Edit the API
 
 You can edit the API in Visual Studio Code. For example, edit the Resource Manager JSON description of the API in the editor window to remove the **http** protocol used to access the API. Then select **File** > **Save**.
 
-:::image type="content" source="media/vscode-tutorial-service-instance/import-demo-api.png" alt-text="Edit JSON description":::
+:::image type="content" source="media-visual-studio-code-tutorial/import-demo-api.png" alt-text="Edit JSON description":::
 
 To edit the OpenAPI format, right-click the API name in the Explorer pane and select **Edit OpenAPI**. Make your changes, and then select **File** > **Save**.
 
@@ -91,7 +91,7 @@ To test the imported API you imported and the policies that are applied, you nee
 1. In the Explorer pane, right-click the name of your API Management instance.
 1. Select **Copy Subscription Key**.
 
-    :::image type="content" source="media/vscode-tutorial-service-instance/copy-subscription-key.png" alt-text="Copy subscription key":::
+    :::image type="content" source="media-visual-studio-code-tutorial/copy-subscription-key.png" alt-text="Copy subscription key":::
 
 ### Test an API operation
 
@@ -100,16 +100,16 @@ To test the imported API you imported and the policies that are applied, you nee
 1. In the editor window, next to **Ocp-Apim-Subscription-Key**, replace `{{SubscriptionKey}}` with the subscription key that you copied.
 1. Select **Send request**. 
 
-:::image type="content" source="media/vscode-tutorial-service-instance/test-api.png" alt-text="Send API request from Visual Studio Code":::
+:::image type="content" source="media-visual-studio-code-tutorial/test-api.png" alt-text="Send API request from Visual Studio Code":::
 
 When the request succeeds, the backend responds with **200 OK** and some data.
 
-:::image type="content" source="media/vscode-tutorial-service-instance/test-api-policies.png" alt-text="API test operation":::
+:::image type="content" source="media-visual-studio-code-tutorial/test-api-policies.png" alt-text="API test operation":::
 
 Notice the following details in the response:
 * The **Custom** header is added to the response.
 * The **X-Powered-By** header doesn't appear in the response.
-* URLs to the API backend are redirected to the API Management gateway, in this case https://apim-hello-world.azure-api.net/demo-conference-api.
+* URLs to the API backend are redirected to the API Management gateway, in this case `https://apim-hello-world.azure-api.net/demo-conference-api`.
 
 ### Trace the API operation
 
@@ -126,7 +126,7 @@ When no longer needed, remove the API Management instance by right-clicking and 
 
 Alternately, you can select **Delete API Management** to only delete the API Management instance (this operation doesn't delete its resource group).
 
-:::image type="content" source="media/vscode-tutorial-service-instance/vscode-apim-delete.png" alt-text="Delete API Management instance from VS Code":::
+:::image type="content" source="media-visual-studio-code-tutorial/vscode-apim-delete.png" alt-text="Delete API Management instance from VS Code":::
 
 ## Next steps
 
