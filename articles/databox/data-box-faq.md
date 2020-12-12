@@ -85,7 +85,7 @@ If you have a supported offer type for the subscription, check your subscription
 
 ### Q. How long will my order take from order creation to data uploaded to Azure?
 
-A. The following estimated lead times will give you a good idea of what to expect.  
+A. The following estimated lead times for each phase of order processing will give you a good idea of what to expect.  
 
 These lead times are *estimates*. The time for each stage of order processing is affected by load on the datacenter, concurrent orders, and other environmental conditions.
 
