@@ -80,3 +80,7 @@ To define SNMP v3 health monitoring:
     | **Secret Key** | The key must contain exactly eight characters in length and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). |
 
 5. Select **Save**.
+
+## See also
+
+[Export troubleshooting logs](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

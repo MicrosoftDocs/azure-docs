@@ -1,10 +1,10 @@
 ---
-title: Working with device notifications
+title: Work with device notifications
 description: Notifications provide information about network activity that may require your attention, as well as recommendations for handling this activity.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/26/2020
+ms.date: 12/12/2020
 ms.topic: how-to
 ms.service: azure
 ---

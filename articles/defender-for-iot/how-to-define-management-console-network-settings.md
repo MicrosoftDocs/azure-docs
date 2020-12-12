@@ -17,7 +17,7 @@ This section describes management console networking settings, including the man
 
 Edit the hostname configured in the organizational DNS server. 
 
-To edit: 
+To edit:
 
 1. In the console left pane, select **System Settings**.  
 
@@ -29,6 +29,6 @@ To edit:
 
 ## Define VLAN Names  
 
-In the networking area, select VLAN and add names to the VLAN IDs discovered and select **Save**. 
+In the networking area, select VLAN and add names to the VLAN IDs discovered and select **Save**.
 
 VLAN names are not synchronized between the sensor and the management console. Set the name separately on both.

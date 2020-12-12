@@ -1,10 +1,10 @@
 ---
 title: Enhance port and VLAN names resolution
-description: Defender for IoT automatically assigns names to most universally reserved ports. For example, DHCP or HTTP. You can customize port names for other ports detected.
+description: Customize port and VLAN names on your sensors to enrich device resolution.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/19/2020
+ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
 ---
@@ -62,7 +62,7 @@ Two methods are available for retrieving VLAN information:
 VLAN names can contain up to 50 ASCII characters.
 
 > [!NOTE]
-> VLAN names are not synchronized between the sensor and the Management console. You need to define the name separately on both.  
+> VLAN names are not synchronized between the sensor and the management console. You need to define the name on the management console as well.  
 For Cisco switches, the following line should be added to the span configuration:  
 `monitor session 1 destination interface XX/XX encapsulation dot1q.`  
 where XX/XX is the name and number of the port.
@@ -76,3 +76,11 @@ where XX/XX is the name and number of the port.
     :::image type="content" source="media/how-to-enrich-asset-information/image289.png" alt-text="System Settings":::
 
 3. Add a unique name next to each VLAN ID.
+
+## Next step
+
+View enriched device information in the Device Inventory and Data Mining reports.
+
+[Investigate sensor detections in a Device Inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+
+[Generate reports](how-to-generate-reports.md)

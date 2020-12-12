@@ -215,7 +215,7 @@ You can suppress alerts by either muting them or creating alert exclusion rules.
 
 Trigger alert exclusion rules from external systems. For example, manage exclusion rules from enterprise ticketing systems or systems that manage network maintenance processes.
 
-Define the sensors, engines, start, and end times to apply the rule.
+Define the sensors, engines, start, and end times to apply the rule. For more information, see [Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md).
 
 Rules you create using the API appear in the exclusion rule window as RO.
 

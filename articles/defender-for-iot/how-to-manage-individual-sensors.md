@@ -1,17 +1,21 @@
 ---
 title: Manage individual sensors
-description: Learn how to activate and set up a sensor, as well as perform sensor management tasks, for example backup and restore. 
+description: Learn how to manage individual sensors, for example manage activation files perform backup, update a standalone sensor software. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/06/2020
+ms.date: 12/12/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
 # Manage individual sensors
 
-This article describes how to activate and set up a sensor, as well as perform sensor management tasks, for example  backup and restore.
+This article describes how to manage individual sensors, for example manage activation files, perform backup, update a standalone sensor software.
+
+Certain sensor management tasks can also be carried out from the on-premises management console, where multiple sensors can be manged simultaneously.
+
+Sensor onboarding and registration is carried out from the Azure portal.
 
 ## Manage sensor activation files
 
@@ -19,7 +23,7 @@ Your sensor was onboarded with the Defender for IoT from the Azure portal. Each 
 
 A unique activation file should have been uploaded to each sensor you deploy. 
 
-For more information regarding when and how to use a new file, see [Upload new activation files](#upload-new-activation-files).
+For more information about when and how to use a new file, see [Upload new activation files](#upload-new-activation-files).
 
 If you can't upload the file, see [Activation file upload troubleshooting](#activation-file-upload-troubleshooting).
 
@@ -280,9 +284,32 @@ The following procedure describes how to update a standalone sensor using the se
 
     :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot of the upgrade version that appears after signing in.":::
 
+## Forward sensor failure alerts 
+
+You can forward alerts to 3rd parties that provide details about:
+
+- Disconnected Sensors
+
+- Remote backup failures
+
+:::image type="content" source="media/how-to-work-with-system-notifications/image81.png" alt-text="Screenshot of Management System Status Mail view](media/image80.png) ![Screenshot of Management System Status Mail view":::
+
+This information is sent when creating Forwarding Rule, *System Notifications*.
+
+**Administrators** may send system notifications.
+
+To send notifications:
+
+1. Log in to the on-premises management console.
+1. Select **Forwarding** from the side menu.
+1. Create a Forwarding rule.
+1. Select **Report System Notifications.**
+
+For more information about Forwarding rules, see [Forward alert information](how-to-forward-alert-information-to-partners.md)
+
 ## Adjust system properties
 
-System properties control various operations and settings in the management console. Editing or modifying them could damage your on-premises management console system operation.
+System properties control various operations and settings in the sensor. Editing or modifying them could damage sensor console operation.
 
 Consult with support.microsoft.com before changing your settings.
 
@@ -295,5 +322,9 @@ To access system properties:
 3. Select **System Properties** from the general section.
 
 ## See also
+
+[Deploy and onboard a sensor](how-to-onboard-sensors.md)
+
+[Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
 
 [Manage Sensors from the Management Console](how-to-manage-sensors-from-the-on-premises-management-console.md)

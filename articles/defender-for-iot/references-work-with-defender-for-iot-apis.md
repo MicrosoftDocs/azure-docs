@@ -1,19 +1,20 @@
 ---
 title: Work with Defender for IoT APIs
-description: Defender for IoT allows external systems to access the discovered data and perform actions with that data using external REST API over SSL connections.
+description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
+
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/07/2020
+ms.date: 12/12/2020
 ms.topic: reference
 ms.service: azure
 ---
 
-# Overview
+# Defender for IoT API sensor and management console APIs
 
-Defender for IoT allows external systems to access the discovered data and perform actions with that data using external REST API over SSL connections.
+Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
 
-## Getting started
+Connections are secured over SSL.
 
 In general, when using an external API on the Defender for IoT sensor or on-premises management console, you need to generate an access token. Tokens are not required for sensor and on-premises management console authentication APIs.
 
@@ -40,31 +41,31 @@ To generate a token:
 
 6. Add an http header entitled **Authorization** to your request to and set its value to the token you generated.
 
-## Defender for IoT sensor API specifications
+## Sensor API specifications
 
 This section describes the following sensor APIs.
 
-- **/api/v1/devices**
+- /api/v1/devices
 
-- **/api/v1/devices/connections**
+- /api/v1/devices/connections
 
-- **/api/v1/devices/cves**
+- /api/v1/devices/cves
 
-- **/api/v1/alerts**
+- /api/v1/alerts
 
-- **/api/v1/events**
+- /api/v1/events
 
-- **/api/v1/reports/vulnerabilities/devices**
+- /api/v1/reports/vulnerabilities/devices
 
-- **/api/v1/reports/vulnerabilities/security**
+- /api/v1/reports/vulnerabilities/security
 
-- **/api/v1/reports/vulnerabilities/operational**
+- /api/v1/reports/vulnerabilities/operational
 
-- **/api/external/authentication/validation**
+- /api/external/authentication/validation
 
-- **/external/authentication/set_password**
+- /external/authentication/set_password
 
-- **/external/authentication/set_password_by_admin**
+- /external/authentication/set_password_by_admin
 
 ### Retrieve device information
 
@@ -1685,7 +1686,7 @@ response:
 | **username** | String | No |
 | **new_password** | String | No |
 
-### On-premises management console API specifications
+## On-premises management console API specifications
 
 This section describes the following on-premises management console APIs.
 

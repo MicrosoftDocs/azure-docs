@@ -73,7 +73,7 @@ To update several sensors:
 
 3. Go to the **Updates** page.
 
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/update-screen.png" alt-text="Screenshot of the updates dashbord view.":::
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/update-screen.png" alt-text="Screenshot of the updates dashboard view.":::
 
 4. Select **Download** from the sensors section and save the file.
 
@@ -133,6 +133,8 @@ The **Site Manager** window displays disconnect information if sensors disconnec
 
 :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/edit-system-settings-screen.png" alt-text="Screenshot of the zone 1 view.":::
 
+You can send alerts to third parties with information about disconnected sensors. For more information, see, [Forward sensor failure alerts](how-to-manage-individual-sensors.md#forward-sensor-failure-alerts)
+
 ## Enable or disable sensors
 
 Sensors are protected by five Defenders for IoT engines. You can enable or disable the engines for connected sensors.
@@ -140,10 +142,10 @@ Sensors are protected by five Defenders for IoT engines. You can enable or disab
 | Engine | Description | Example scenario |
 |--|--|--|
 | Protocol Violation Engine | A protocol violation occurs when the packet structure or field values don't comply with the protocol specification. | "Illegal MODBUS Operation (Function Code Zero)" alert. This alert indicates that a primary device sent a request with function code 0 to a secondary device. This is not allowed according to the protocol specification and the secondary device might not handle the input correctly. |
-| Policy Violation Engine | A policy violation occurs with a deviation from baseline behavior defined in the learned or configured policy. | "Unauthorized HTTP User Agent" alert. This alert indicates that an application that was not learned or approved by the policy is used as an HTTP client on an device. This may be a new web browser or application on that device. |
+| Policy Violation Engine | A policy violation occurs with a deviation from baseline behavior defined in the learned or configured policy. | "Unauthorized HTTP User Agent" alert. This alert indicates that an application that was not learned or approved by the policy is used as an HTTP client on a device. This may be a new web browser or application on that device. |
 | Malware Engine | The malware engine detects malicious network activity. | "Suspicion of Malicious Activity (Stuxnet)" alert. This alert indicates that the sensor found suspicious network activity known to be related to the Stuxnet malware, which is an advanced persistent threat aimed at industrial control / SCADA networks. |
-| Anomaly Engine | The malware engine detects anomaly in network behavior. | "Periodic Behavior in Communication Channel." This is a component that inspects network connections and finds periodic/cyclic behavior of data transmission, which is very common in industrial networks. |
-| Operational Engine | Operational incidents or malfunctioning entities. | “Asset is Suspected to be Disconnected (Unresponsive)" alert. This alert triggered when a device is not responding to any requests for a pre-defined period, this may indicate on an device shutdown, disconnection or malfunction.
+| Anomaly Engine | The malware engine detects anomaly in network behavior. | "Periodic Behavior in Communication Channel." This is a component that inspects network connections and finds periodic/cyclic behavior of data transmission, which is common in industrial networks. |
+| Operational Engine | Operational incidents or malfunctioning entities. | “Asset is Suspected to be Disconnected (Unresponsive)" alert. This alert triggered when a device is not responding to any requests for a pre-defined period, this may indicate on a device shutdown, disconnection, or malfunction.
 |
 
 To enable or disable:
@@ -154,7 +156,7 @@ To enable or disable:
  	 	 
 3. Select **SAVE CHANGES**.
 
-   A red exclamation mark appears if there is a mismatch of enabled engines on one of your enterprise sensors. The engine may have been disabled directly form the sensor.
+   A red exclamation mark appears if there is a mismatch of enabled engines on one of your enterprise sensors. The engine may have been disabled directly from the sensor.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/red-exclamation-example.png" alt-text="Mismatch of enabled engines "::: 
 
@@ -178,7 +180,7 @@ The restore process is the same regardless of where the files are stored.
 
 ### On-premises management console backup storage for sensors
 
-You can maintain up to 9 backups for each managed sensor, provided that the backed-up files do not exceed the maximum backup space allocated. 
+You can maintain up to nine backups for each managed sensor, provided that the backed-up files do not exceed the maximum backup space allocated. 
 
 On-premises management console storage:  
 
@@ -224,15 +226,15 @@ Sensor backup files are automatically named using the following format:
 
 Example: `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`. 
 
-To backup: 
+To back up:
 
 1. Select **Schedule Sensor Backup** from the **System Settings** window. Sensors managed by your on-premises management console appear in the **Sensor Backup Schedule** window.  
 
 2. Enable the **Collect Backups** toggle.  
 
-3. Select a calendar interval, date and time zone. The time format is based on a 24-hour clock. For example, 6:00 PM should be entered as 18:00. 
+3. Select a calendar interval, date, and time zone. The time format is based on a 24-hour clock. For example, 6:00 PM should be entered as 18:00. 
 
-4. In the **Backup Storage Allocation** field, enter the storage you want to allocate for your backups. You will be notified if the maximum space is exceeded. 
+4. In the **Backup Storage Allocation** field, enter the storage you want to allocate for your backups. You are notified if the maximum space is exceeded.
 
 5. In the **Retain Last** field, indicate the number of backups per sensor you want to retain. When the limit is exceeded, the oldest backup is exceeded.  
 
@@ -250,7 +252,7 @@ To backup immediately:
 
 ### Receiving backup notifications for sensors 
 
-Information about backup successes and failures are automatically listed in the sensor backup schedule dialog box and backup log.  
+Information about backup successes and failures is automatically listed in the sensor backup schedule dialog box and backup log.  
 
 :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-location.png" alt-text="View your sensors and where they are located and all relevant information.":::
 

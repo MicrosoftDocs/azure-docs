@@ -122,7 +122,7 @@ You can retrieve an extensive range of device information detected by managed se
 
 - devices associated with specific sensors.
 
-Work with Defender for IoT API commands to retrieve and integrate this information.
+Work with Defender for IoT API commands to retrieve and integrate this information. For more information, see [Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md).
 
 ## Filter the Device Inventory
 

@@ -4,15 +4,25 @@ description: Troubleshoot you sensor and on-premises management console to elimi
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/12/2020
+ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
 ---
+# Troubleshooting
 
-# Export troubleshooting logs
+This article describes basic troubleshooting steps for the sensor and management console. In addition to the items described here, you can also:
 
-## Sensor troubleshooting logs
+- Export Troubleshooting logs to support for further investigation.
 
+- Check the health of your system in the following ways:
+
+      - **Alerts:** An alert is created when the sensor interface that monitors the traffic is down. 
+
+      - **SNMP:** Sensor health is monitored using SNMP. Defender for IoT responds to SNMP queries sent from an authorized monitoring server. For more information about SNMP, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).
+
+      - **System Notifications:** When the sensor is controlled by a management console, you can forward alerts about failed sensor backups and disconnected sensors.
+
+## Sensor Troubleshoot tools
 ### No traffic indication
 
 The No Traffic indicator appears at the top of the console when the sensor recognizes that there is no traffic on one of the configured ports. This indication is visible to all users.
@@ -23,7 +33,7 @@ When this message appears, you can investigate where there is no traffic. Make s
 
 For support and troubleshooting information, contact [support.microsoft.com](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099)
 
-### Checking system performance indicators 
+### Check system performance indicators 
 
 When a new sensor is deployed or, for example, the sensor is working slowly or not showing any alerts, you can check the system sanity.
 
@@ -65,19 +75,6 @@ To check the system sanity:
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Ensure that alerts were created.":::
 
-### Sensor health checks
-
-You can check the health of your system in the following ways:
-
-  - **Alerts:** An alert is created when the sensor interface that monitors the traffic is down. 
-
-  - **SNMP:** Sensor health is monitored using SNMP. Defender for IoT responds to SNMP queries sent from an authorized monitoring server. For more information about SNMP, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).
-
-  - **System Notifications:** When the sensor is controlled by a management console, you can receive notifications from it about:
-
-      - the sensor connection status
-      
-      - remote backup failures
 
 ### Expected alerts are not shown
 
@@ -139,7 +136,7 @@ To fix the configuration:
 
 3. In the data mining report, select :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: to enter the administrator mode and delete the IP addresses of your ICS devices.
 
-### Tweaking the sensor quality of service
+### Tweak the sensor quality of service
 
 To save your network resources, you can limit the interface bandwidth used by the sensor for day-to-day procedures.
 
@@ -164,21 +161,11 @@ To tweak the quality of service:
 
 ## On-premises management console troubleshooting solutions
 
-### Health check
-
-You can check the health of the on-premises management console as follows:
-
-- **Alerts**: An alert is created when the sensor interface that monitors the traffic is down. 
-
-- **SNMP**: On-premises management console's health is monitored using SNMP. Defender for IoT responds to SNMP queries sent from an authorized monitoring server. For more information about SNMP, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).
-
-- **System Notifications**: When the sensor is controlled by an on-premises management console, you can receive from the on-premises management console notifications about sensors' health status.
-
 ### Expected alerts are not shown
 
 In case an expected alert is not shown in the Alerts window, verify the following:
 
-- Check if the same alert already appears in the Alerts window as a reaction to a different security instance. If yes, and this alert has not been handled yet, a new alert is not shown.   
+- Check if the same alert already appears in the Alerts window as a reaction to a different security instance. If yes, and this alert has not been handled yet, a new alert is not shown.
 
 - Verify that you did not exclude this alert using the Alert Exclusion rules in the on-premises management console.  
 
@@ -223,3 +210,12 @@ notifications.max_time_to_report=10 (seconds)
 ```
 
 5. Save the changes, no reboot is required.
+
+## See also
+
+- [View alerts](how-to-view-alerts.md)
+
+- [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md)
+
+- [Understand sensor disconnection events](how-to-manage-sensors-from-the-on-premises-management-console.md#understand-sensor-disconnection-events)
+
