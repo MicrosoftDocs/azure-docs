@@ -34,6 +34,7 @@ For an introduction to additional API Management features, see the API Managemen
 
 The following example imports an OpenAPI Specification in JSON format into API Management. Microsoft provides the backend API used in this example, and hosts it on Azure at https://conferenceapi.azurewebsites.net?format=json.
 
+1. In Visual Studio Code, select the Azure icon from the Activity Bar.
 1. In the Explorer pane, expand the API Management instance you created.
 1. Right-click **APIs**, and select **Import from OpenAPI Link**. 
 1. When prompted, enter the following values:
@@ -76,7 +77,7 @@ This section shows how to apply some common outbound policies to your API that t
     ```
 
     * The first `set-header` policy adds a custom response header for demonstration purposes.
-    * The second `set-header` policy deletes the **X-Powered-By** header, if it exists. This header can reveal the application framework used in the API backend, and it is common practice to remove it.
+    * The second `set-header` policy deletes the **X-Powered-By** header, if it exists. This header can reveal the application framework used in the API backend, and publishers often remove it.
     * The `redirect-content-urls` policy rewrites (masks) links in the response body so that they point to the equivalent links via the API Management gateway.
     
 1. Save the file. If you are prompted, select **Upload** to upload the file to the cloud.
@@ -103,7 +104,7 @@ To test the imported API you imported and the policies that are applied, you nee
 
 When the request succeeds, the backend responds with **200 OK** and some data.
 
-:::image type="content" source="media/vscode-tutorial-service-instance/test-api-policies.png" alt-text="Transformed response to API test operation":::
+:::image type="content" source="media/vscode-tutorial-service-instance/test-api-policies.png" alt-text="API test operation":::
 
 Notice the following details in the response:
 * The **Custom** header is added to the response.
@@ -117,7 +118,7 @@ For detailed tracing information to help you debug the API operation, select the
 The JSON file at that location contains Inbound, Backend, and Outbound trace information so you can determine where any problems occur after the request is made.
 
 > [!TIP]
-> When you test API operations, the API Managemet Extension allows optional [policy debugging](api-management-debug-policies.md) (available in the Developer service tier)
+> When you test API operations, the API Management Extension allows optional [policy debugging](api-management-debug-policies.md) (available in the Developer service tier).
 
 ## Clean up resources
 

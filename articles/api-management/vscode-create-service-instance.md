@@ -50,7 +50,7 @@ A new API Management instance (and parent resource group) will be created with t
 >
 > While the *Consumption* SKU takes less than a minute to provision, other SKUs typically take 30-40 minutes to create.
 
-At this point, you're ready to import and publish your first API. You can do that and also perform common API Management operations within the extension for Visual Studio Code. See the [API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview) documentation for more.
+At this point, you're ready to import and publish your first API. You can do that and also perform common API Management operations within the extension for Visual Studio Code. See [the tutorial](vscode-tutorial-service-instance.md) for more.
 
 ![Newly created API Management instance in VS Code API Management extension pane](./media/vscode-create-service-instance/vscode-apim-instance.png)
 
