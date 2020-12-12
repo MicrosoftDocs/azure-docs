@@ -405,4 +405,12 @@ Run the application with the `dotnet run` command from your application director
 dotnet run
 ```
 
+# [QnA Maker GA (stable release)](#tab/version-1)
+
 The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/QnAMaker/SDK-based-quickstart).
+
+# [QnA Maker managed (preview release)](#tab/version-2)
+
+The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/QnAMaker/Preview-sdk-based-quickstart).
+
+---
