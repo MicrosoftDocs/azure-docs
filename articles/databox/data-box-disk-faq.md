@@ -66,7 +66,7 @@ Ship a [supported disk](../storage/common/storage-import-export-requirements.md?
 
 ### Option 2:
 
-1. Order Data Box Disk in Canada by choosing a storage account say in Cananda Central. The SSD disk(s) are shipped from the Azure datacenter in Canada Central to the shipping address (in Canada) provided during order creation.
+1. Order Data Box Disk in Canada by choosing a storage account say in Canada Central. The SSD disk(s) are shipped from the Azure datacenter in Canada Central to the shipping address (in Canada) provided during order creation.
 
 2. After the data from your on-premises server is copied to the disks, return them to the Azure datacenter in Canada using Microsoft provided return labels. The data present on the Data Box Disk(s) then get uploaded to the destination storage account in the Canada Azure region chosen during order creation.
 
