@@ -67,4 +67,4 @@ This article describes how to tag multiple glossary terms to a list of selected 
    > The **View Selected** box will be visible only if there is at least one asset selected.
 
 
-Follow the [Tutorial: Create and import glossary terms](starter-kit-tutorial-5.md) to learn more.
+Follow the [Tutorial: Create and import glossary terms](how-to-create-import-export-glossary.md) to learn more.
