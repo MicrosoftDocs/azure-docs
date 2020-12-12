@@ -29,8 +29,8 @@ There are three different ways to create and deploy the model you'll use in Powe
 
 You could instead use:
 
-* [Option A: Train and deploy models using Notebooks](tutorial-powerbi-custom-model.md) -  a code-first authoring experience using Jupyter notebooks hosted in Azure Machine Learning studio.
-* [Option B: Train and deploy models using designer](tutorial-powerbi-designer-model.md)- a low-code authoring experience using Designer (a drag-and-drop user interface).
+* [Option A: Train and deploy models using Notebooks](tutorial-power-bi-custom-model.md) -  a code-first authoring experience using Jupyter notebooks hosted in Azure Machine Learning studio.
+* [Option B: Train and deploy models using designer](tutorial-power-bi-designer-model.md)- a low-code authoring experience using Designer (a drag-and-drop user interface).
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Automated ML automatically trains lots of different machine learning models to f
 
 In the [Azure Machine Learning Studio](https://ml.azure.com), select **Compute** in the left-hand menu followed by **Compute Clusters** tab. Select **New**:
 
-:::image type="content" source="media/tutorial-powerbi/create-compute-cluster.png" alt-text="Screenshot showing how to create a compute cluster":::
+:::image type="content" source="media/tutorial-power-bi/create-compute-cluster.png" alt-text="Screenshot showing how to create a compute cluster":::
 
 In the **Create compute cluster** screen:
 
@@ -66,7 +66,7 @@ In this tutorial, you use the [Diabetes dataset](https://www4.stat.ncsu.edu/~boo
 
 To create the dataset, select **Datasets** left-hand menu followed by **Create Dataset** - you will see the following options:
 
-:::image type="content" source="media/tutorial-powerbi/create-dataset.png" alt-text="Screenshot showing how to create a new dataset":::
+:::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="Screenshot showing how to create a new dataset":::
 
 Select **From Open Datasets**, and then in **Create dataset from Open Datasets** screen:
 
@@ -78,7 +78,7 @@ Select **From Open Datasets**, and then in **Create dataset from Open Datasets**
 
 You can explore the data by selecting the Dataset followed by **Explore**:
 
-:::image type="content" source="media/tutorial-powerbi/explore-dataset.png" alt-text="Screenshot showing how to explore dataset":::
+:::image type="content" source="media/tutorial-power-bi/explore-dataset.png" alt-text="Screenshot showing how to explore dataset":::
 
 The data has 10 baseline input variables (such as age, sex, body mass index, average blood pressure, and six blood serum measurements), and one target variable named **Y** (a quantitative measure of diabetes progression one year after baseline).
 
@@ -86,11 +86,11 @@ The data has 10 baseline input variables (such as age, sex, body mass index, ave
 
 In the [Azure Machine Learning Studio](https://ml.azure.com) select **Automated ML** in the left-hand menu followed by **New Automated ML Run**:
 
-:::image type="content" source="media/tutorial-powerbi/create-new-run.png" alt-text="Screenshot showing how to create a new automl run":::
+:::image type="content" source="media/tutorial-power-bi/create-new-run.png" alt-text="Screenshot showing how to create a new automated ML run":::
 
 Next, select the **diabetes** dataset you created earlier and select **Next**:
 
-:::image type="content" source="media/tutorial-powerbi/select-dataset.png" alt-text="Screenshot showing how to select a dataset":::
+:::image type="content" source="media/tutorial-power-bi/select-dataset.png" alt-text="Screenshot showing how to select a dataset":::
  
 In the **Configure run** screen:
 
@@ -101,11 +101,11 @@ In the **Configure run** screen:
 
 Your completed form should look similar to:
 
-:::image type="content" source="media/tutorial-powerbi/configure-automated-ml.png" alt-text="Screenshot showing how to configure automl":::
+:::image type="content" source="media/tutorial-power-bi/configure-automated.png" alt-text="Screenshot showing how to configure automated ML":::
 
 Finally, you need to select the machine learning task to perform, which is **Regression**:
 
-:::image type="content" source="media/tutorial-powerbi/configure-task.png" alt-text="Screenshot showing how to configure task":::
+:::image type="content" source="media/tutorial-power-bi/configure-task.png" alt-text="Screenshot showing how to configure task":::
 
 Select **Finish**.
 
@@ -116,7 +116,7 @@ Select **Finish**.
 
 Once the automated ML run has completed, you can see the list of all the different machine learning models that have been tried by selecting the **Models** tab. The models are ordered in performance order - the best performing model will be shown first. When you select the best model, the **Deploy** button will be enabled:
 
-:::image type="content" source="media/tutorial-powerbi/list-models.png" alt-text="Screenshot showing the list of models":::
+:::image type="content" source="media/tutorial-power-bi/list-models.png" alt-text="Screenshot showing the list of models":::
 
 Selecting **Deploy**, will present a **Deploy a model** screen:
 
@@ -126,9 +126,9 @@ Selecting **Deploy**, will present a **Deploy a model** screen:
 
 You should see a message that states the model has been deployed successfully.
 
-## Next Steps
+## Next steps
 
 In this tutorial, you saw how to train and deploy a machine learning model using automated ML. In the next tutorial you are shown how to consume (score) this model from Power BI.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Consume model in Power BI](https://docs.microsoft.com/power-bi/)
+> [Tutorial: Consume model in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)

@@ -94,6 +94,8 @@
               href: tutorial-powerbi-designer-model.md
             - name: "Use automated ML"
               href: tutorial-powerbi-automated-model.md
+        - name: "Part 2: Consume in Power BI"
+          href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context        
 - name: Samples
   items: 
     - name: Jupyter Notebooks

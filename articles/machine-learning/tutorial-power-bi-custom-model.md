@@ -28,8 +28,8 @@ There are three different ways to create and deploy the model you'll use in Powe
 
 You could instead use:
 
-* [Option B: Train and deploy models using designer](tutorial-powerbi-designer-model.md)- a low-code authoring experience using Designer (a drag-and-drop user interface).
-* [Option C: Train and deploy models using automated ML](tutorial-powerbi-automated-model.md) - a no-code authoring experience that fully automates the data preparation and model training.
+* [Option B: Train and deploy models using designer](tutorial-power-bi-designer-model.md)- a low-code authoring experience using Designer (a drag-and-drop user interface).
+* [Option C: Train and deploy models using automated ML](tutorial-power-bi-automated-model.md) - a no-code authoring experience that fully automates the data preparation and model training.
 
 
 ## Prerequisites
@@ -42,16 +42,16 @@ You could instead use:
 
 In the [Azure Machine Learning Studio](https://ml.azure.com) homepage select **Create new** followed by **Notebook**:
 
-:::image type="content" source="media/tutorial-powerbi/create_notebook.png" alt-text="Screenshot showing how to create a notebook":::
+:::image type="content" source="media/tutorial-power-bi/create-new-notebook.png" alt-text="Screenshot showing how to create a notebook":::
  
 You are shown a dialog box to **Create a new file** enter:
 
-- A filename for your notebook (for example `my_model_notebook`)
-- Change the **File Type** to **Notebook**
+1. A filename for your notebook (for example `my_model_notebook`)
+1. Change the **File Type** to **Notebook**
 
 Select **Create**. Next, you need to create some compute and attach it to your notebook in order to run code cells. To do this, select the plus icon at the top of the notebook:
 
-:::image type="content" source="media/tutorial-powerbi/create_compute.png" alt-text="Screenshot showing how to create compute instance":::
+:::image type="content" source="media/tutorial-power-bi/create-compute.png" alt-text="Screenshot showing how to create compute instance":::
 
 Next, on the **Create compute instance** page:
 
@@ -62,7 +62,7 @@ Next, on the **Create compute instance** page:
 
 You may notice on the notebook that the circle next to **Compute** has turned cyan, indicating the compute instance is being created:
 
-:::image type="content" source="media/tutorial-powerbi/creating.png" alt-text="Screenshot showing compute being created":::
+:::image type="content" source="media/tutorial-power-bi/creating.png" alt-text="Screenshot showing compute being created":::
 
 > [!NOTE]
 > It can take around 2-4 minutes for the compute to be provisioned.
@@ -77,7 +77,7 @@ np.sin(3)
 
 Followed by **Shift-Enter** (or **Control-Enter** or select the play button next to the cell). You should see the following output:
 
-:::image type="content" source="media/tutorial-powerbi/simple_sin.png" alt-text="Screenshot showing cell execution":::
+:::image type="content" source="media/tutorial-power-bi/simple-sin.png" alt-text="Screenshot showing cell execution":::
 
 You are now ready to build a Machine Learning model!
 
@@ -147,14 +147,14 @@ print('Version:', model.version)
 
 You can also view the model in Azure Machine Learning Studio by navigating to **Endpoints** in the left hand-menu:
 
-:::image type="content" source="media/tutorial-powerbi/model.png" alt-text="Screenshot showing model":::
+:::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Screenshot showing model":::
 
 ### Define the scoring script
 
 When deploying a model to be integrated into Microsoft Power BI, you need to define a Python *scoring script* and custom environment. The scoring script contains two functions:
 
-1. `init()` - this function is executed once the service starts. This function loads the model (note that the model is automatically downloaded from the model registry) and deserializes it.
-1. `run(data)` - this function is executed when a call is made to the service with some input data that needs scoring. 
+- `init()` - this function is executed once the service starts. This function loads the model (note that the model is automatically downloaded from the model registry) and deserializes it.
+- `run(data)` - this function is executed when a call is made to the service with some input data that needs scoring. 
 
 >[!NOTE]
 > We use Python decorators to define the schema of the input and output data, which is important for the Microsoft Power BI integration to work.
@@ -270,7 +270,7 @@ ACI service creation operation finished, operation "Succeeded"
 
 You can also view the service in Azure Machine Learning Studio by navigating to **Endpoints** in the left hand-menu:
 
-:::image type="content" source="media/tutorial-powerbi/endpoint.png" alt-text="Screenshot showing endpoint":::
+:::image type="content" source="media/tutorial-power-bi/endpoint.png" alt-text="Screenshot showing endpoint":::
 
 It is recommended that you test the webservice to ensure that it works as expected. Navigate back to your notebook by selecting **Notebooks** in the left-hand menu in Azure Machine Learning Studio. Copy-and-paste the code below into a new **code cell** in your notebook to test the service:
 
@@ -295,4 +295,4 @@ The output should look like the following json structure: `{'predict': [[205.59]
 In this tutorial, you saw how to build and deploy a model in such a way that they can be consumed by Microsoft Power BI. In the next part, you learn how to consume this model from a Power BI report.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Consume model in Power BI](https://docs.microsoft.com/power-bi/)
+> [Tutorial: Consume model in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
