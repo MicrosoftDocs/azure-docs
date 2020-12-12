@@ -19,21 +19,21 @@ There are times when you may have a query or some business logic that you want t
 
 1. Before you can save the workbook to your storage, you'll need to create a managed identity (All Services -> Managed Identities) and give it `Storage Blob Data Contributor` access to your storage account. [See Azure documentation on Managed Identities.](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
-    [![Screenshot showing adding a role assignment](./media/workbooks-bring-your-own-storage/add_identity_role_assignment.png)](./media/workbooks-bring-your-own-storage/add_identity_role_assignment.png#lightbox)
+    [![Screenshot showing adding a role assignment](./media/workbooks-bring-your-own-storage/add-identity-role-assignment.png)](./media/workbooks-bring-your-own-storage/add-identity-role-assignment.png#lightbox)
 
 2. Create a new workbook.
 3. Select the **Save** button to save the workbook.
 4. There's an option to `Save content to an Azure Storage Account`, select the checkbox to save to an Azure Storage Account.
 
-    ![Screenshot showing a the saved dialog](./media/workbooks-bring-your-own-storage/saved_dialog_default.png)
+    ![Screenshot showing a the saved dialog](./media/workbooks-bring-your-own-storage/saved-dialog-default.png)
 
 5. Select the desire Storage account and Container. The Storage account list is from the Subscription selected above.
 
-    ![Screenshot showing a save dialog with storage option](./media/workbooks-bring-your-own-storage/save_dialog_with_storage.png)
+    ![Screenshot showing a save dialog with storage option](./media/workbooks-bring-your-own-storage/save-dialog-with-storage.png)
 
 6. Then select **Change** to select a managed identity previously created.
 
-    [![Screenshot showing change identity dialog](./media/workbooks-bring-your-own-storage/change_managed_identity.png)](./media/workbooks-bring-your-own-storage/change_managed_identity.png#lightbox)
+    [![Screenshot showing change identity dialog](./media/workbooks-bring-your-own-storage/change-managed-identity.png)](./media/workbooks-bring-your-own-storage/change-managed-identity.png#lightbox)
 
 7. After you've selected your storage options, press **Save** to save your workbook.
 
@@ -43,7 +43,7 @@ There are times when you may have a query or some business logic that you want t
 - Once a workbook has been saved to custom storage, it will always be saved to custom storage and this cannot be turned off. To save elsewhere, you can use "Save As" and elect to not save the copy to custom storage.
 - Workbooks in Application Insights resource are "legacy" workbooks and does not support custom storage. The latest Workbooks in Application Insights resource is the "...More" selection. Legacy workbooks don't have Subscription options when saving.
 
-   ![Screenshot showing legacy workbook](./media/workbooks-bring-your-own-storage/legacy_workbooks.png)
+   ![Screenshot showing legacy workbook](./media/workbooks-bring-your-own-storage/legacy-workbooks.png)
 
 ## Next steps
 
