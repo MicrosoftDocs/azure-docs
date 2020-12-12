@@ -29,10 +29,12 @@ You can create a Private Endpoint  of type PrivateLinkService and provide your f
  Often, you kill and pipeline. Pipeline monitoring still shows Progress status. This happens because of cache  issue in browser and not having right filters.
 
 ## Resolution
- Refresh browser and apply right filters for monitoring
+ Refresh browser and apply right filters for monitoring.
+ 
 # Copy Pipeline failure – found more columns than expected column count (DelimitedTextMoreColumnsThanDefined)
 ## Issue  
 If the files under a particular folder you are copying contains files having different schema like, variable number of columns, different delimiters, quote char settings, or some data issue, the ADF pipeline will end up running in this error. 
+
 ```
 Operation on target Copy_sks  failed: Failure happened on ‘Sink’ side.
 ErrorCode=DelimitedTextMoreColumnsThanDefined,
@@ -41,7 +43,8 @@ Message=Error found when processing ‘Csv/Tsv Format Text’ source ‘0_2020_1
 Source=Microsoft.DataTransfer.Common,’
 ```
 ## Resolution
-Select “Binary Copy” option while creating the Copy Data activity while doing Copy activity. So, for bulk copying or migrating your data from one Data Lake to another try choosing **binary** option, so that ADF won’t open the files to read schema, but it just simply treats every file as binary and copy it to the other location
+Select “Binary Copy” option while creating the Copy Data activity while doing Copy activity. So, for bulk copying or migrating your data from one Data Lake to another,  with  **binary** option, ADF won’t open the files to read schema, but it  would just treat every file as binary and copy it to the other location.
+
 # Pipeline fails with when capacity limit of integration runtime is reached
 ## Issue
 Customer sees error message
@@ -51,12 +54,12 @@ Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are 
 The error indicates the limitation of per integration runtime , which is currently 50. Please refer to: [Limits](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2)
 
 If you execute large amount of data flow using the same integration runtime at the same time, it might cause this kind of error.
+
 ## Resolution 
--	Please separate these pipelines to different trigger time to execute.
--	Please  create a new integration runtime, and split these pipelines across multiple integration runtimes.
+-	Separate these pipelines to different trigger time to execute.
+-	Create a new integration runtime, and split these pipelines across multiple integration runtimes.
 
 # How to monitor pipeline failures on regular interval
-
 ## Issue
 
 There is often need to monitor ADF pipelines in intervals, say 5 minutes. You can query and filter the pipeline runs from a data factory using the endpoint. 
@@ -64,14 +67,13 @@ There is often need to monitor ADF pipelines in intervals, say 5 minutes. You ca
 ## Recommendation
 
 -	Set up an Azure Logic App to query all of the failed pipelines every 5 minutes.
--	 The, report incidents to out ticketing system as per [QueryByFactory](https://docs.microsoft.com/en-us/rest/api/datafactory/pipelineruns/querybyfactory)
+-	Then, you can report incidents to out ticketing system as per [QueryByFactory](https://docs.microsoft.com/en-us/rest/api/datafactory/pipelineruns/querybyfactory)
 
 ## Reference
 
-- [External Reference]( https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/ )
+- [External - Send Notifications from ADF]( https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/ )
 
 # How to handle activity level error and failures in pipeline 
-
 ## Issue
 Azure Data Factory orchestration allows conditional logic and enables user to take different based upon outcomes of a previous activity. It allows four conditional paths: Upon Success (default pass), Upon Failure, Upon Completion, and Upon Skip. Using different paths allow.
  Azure Data Factory defines pipeline success and failures as follows:
