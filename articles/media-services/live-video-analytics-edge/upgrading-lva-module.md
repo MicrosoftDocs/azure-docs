@@ -159,3 +159,14 @@ In your topology files, make sure **`apiVersion`** is set to 2.0
             "maximumSamplesPerSecond": "20"   // Maximum rate of samples submitted to the extension
           },
     ```
+### Module metrics in the Prometheus format using Telegraf
+With this release, Telegraf can be used to send metrics to Azure Monitor. From there, the metrics may be directed to Log Analytics or an event hub.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/telemetry-schema/telegraf.png" alt-text="Taxonomy of events":::
+
+You can produce a Telegraf image with a custom configuration easily using docker. Learn more about this in the [Monitoring and logging](monitoring-logging.md#azure-monitor-collection-using-telegraf) page.
+
+## Next steps
+
+[Get started with Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
