@@ -2,8 +2,8 @@
 title: Multi-site and multi-region federation - Azure Event Hubs | Microsoft Docs
 description: This article provides an overview of multi-site and multi-region federation with Azure Event Hubs. 
 ms.topic: article
-ms.date: 12/01/2020
-ms.author: clemensv
+ms.date: 12/12/2020
+ms.author: spelluru
 ---
 # Multi-site and multi-region federation
 
@@ -169,7 +169,9 @@ events easily accessible to such analytics systems and also for archival with
 Event Hubs Capture if you funnel them into Event Hub. Event Grid can do so
 natively with its [Event Hub integration](../event-grid/handler-event-hubs.md),
 for Service Bus you follow the [Service Bus replication
-guidance](../service-bus-messaging/service-bus-federation-event-hubs.md).
+guidance](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub).
+
+Azure Stream Analytics [integrates with Event Hubs directly](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-event-hubs).
 
 Guidance: 
 - [Replication pattern][4]
@@ -259,29 +261,66 @@ contents once built.
 Guidance:
 - [Log projection][8]
 
-## Replication applications in Azure Functions
+## Replication application technologies
 
 Implementing the patterns above requires a scalable and reliable execution
 environment for the replication tasks that you want to configure and run. On
-Azure, the runtime environment that is best suited for these tasks is [Azure
-Functions](../azure-functions/functions-overview.md). 
+Azure, the runtime environments that are best suited for such tasks are
+stateless tasks are [Azure Stream
+Analytics](../stream-analytics/stream-analytics-introduction.md) for stateful
+stream replication tasks and [Azure
+Functions](../azure-functions/functions-overview.md) for stateless replication
+tasks.
 
-Azure Functions can run under a [Azure managed
-identity](../active-directory/managed-identities-azure-resources/overview.md)
-such that the replication tasks can integrate with the role-based access control
-rules of the source and target services without you having to manage secrets
-along the replication path. For replication sources and targets that require
-explicit credentials, Azure Functions can hold the configuration values for
-those credentials in tightly access-controlled storage inside of [Azure Key
-Vault](../key-vault/general/overview.md).
+### Stateful replication applications in Azure Stream Analytics
 
-Azure Functions furthermore allows the replication tasks to directly integrate
-with Azure virtual networks and [service
-endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) for
-all Azure messaging services, and it is readily integrated with [Azure
-Monitor](../azure-monitor/overview.md).
+For stateful replication applications that need to consider relationships
+between events, create composite events, enrich events or reduce events, create
+data aggregations, and transform event payloads, [Azure Stream
+Analytics](../stream-analytics/stream-analytics-introduction.md) is stateful
+replication and aggregation service.
 
-Most importantly, Azure Functions has prebuilt, scalable triggers and output
+In Azure Stream Analytics, you [create
+jobs](../stream-analytics/stream-analytics-quick-create-portal.md) that
+integrate [inputs](../stream-analytics/stream-analytics-add-inputs.md) and
+[outputs](../stream-analytics/stream-analytics-define-outputs.md) and integrate
+the data from the inputs through
+[queries](../stream-analytics-query/stream-analytics-query-language-reference.md)
+that yield a result which is then made available on the outputs.
+
+Queries are based on the [SQL query
+language](../stream-analytics-query/stream-analytics-query-language-reference.md)
+and can be used to easily filter, sort, aggregate, and join streaming data over
+a period of time. You can also extend this SQL language with
+[JavaScript](../stream-analytics/stream-analytics-javascript-user-defined-functions.md)
+and [C# user-defined functions
+(UDFs)](../stream-analytics/stream-analytics-edge-csharp-udf-methods.md). You
+can easily adjust the event ordering options and duration of time windows when
+performing aggregation operations through simple language constructs and/or
+configurations.
+
+Each job has one or several outputs for the transformed data, and you can
+control what happens in response to the information you've analyzed. For
+example, you can:
+
+- Send data to services such as Azure Functions, Service Bus Topics or Queues to
+  trigger communications or custom workflows downstream.
+- Send data to a Power BI dashboard for real-time dashboarding.
+- Store data in other Azure storage services (for example, Azure Data Lake,
+  Azure Synapse Analytics, etc.) to perform batch analytics or train machine
+  learning models based on very large, indexed pools ofd historical data.
+- Store projections (also called "materialized views") in databases ([SQL
+  Database](../stream-analytics/sql-database-output.md), [Cosmos
+  DB](../stream-analytics/azure-cosmos-db-output.md) ).
+
+### Stateless replication applications in Azure Functions
+
+For stateless replication tasks where you want to forward events without
+considering their payloads or processes them singly without having to consider
+the relationships of events (except their relative order), you can use Azure
+Functions, which provides enormous flexibility.
+
+Azure Functions has prebuilt, scalable triggers and output
 bindings for [Azure Event
 Hubs](../azure-functions/functions-bindings-event-hubs.md), [Azure IoT
 Hub](../azure-functions/functions-bindings-event-iot.md), [Azure Service
@@ -296,6 +335,18 @@ triggers will dynamically adapt to the throughput needs by scaling the number of
 For building log projections, Azure Functions supports output bindings for
 [Cosmos DB](../azure-functions/azure-functions-bindings-functions-bindings-cosmosdb-v2-output.md)
 and [Azure Table Storage](../azure-functions/functions-bindings-storage-table-output.md).
+
+Azure Functions can run under a [Azure managed
+identity](../active-directory/managed-identities-azure-resources/overview.md)
+and with that, it can hold the configuration values for credentials in tightly
+access-controlled storage inside of [Azure Key
+Vault](../key-vault/general/overview.md).
+
+Azure Functions furthermore allows the replication tasks to directly integrate
+with Azure virtual networks and [service
+endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) for
+all Azure messaging services, and it is readily integrated with [Azure
+Monitor](../azure-monitor/overview.md).
 
 With the Azure Functions consumption plan, the prebuilt triggers can even scale
 down to zero while no messages are available for replication, which means you
@@ -313,25 +364,49 @@ networking features and facilitating the flow of monitoring data, and then you
 usually still don't have an opportunity to inject custom replication tasks into
 the flow. 
 
+### Choosing between Azure Functions and Azure Stream Analytics
+
+Azure Stream Analytics (ASA) is the best option whenever you need to process the
+payload of your events while replicating them. ASA can copy events one by one or
+it can create aggregates that condense the information of event streams before
+forwarding it. It can [readily lean on complementing reference
+data](stream-analytics/stream-analytics-use-reference-data.md) held in Azure
+Blob Storage or Azure SQL Database without having to import such data into a stream.
+
+With ASA, you can easily create persistent, materialized views of streams in hyper-scale
+databases, which is a far superior approach to the clunky "log compaction" model of
+Apache Kafka and the volatile, client-side table projections of Kafka Streams. 
+
+ASA can readily process events having payloads encoded in the [CSV, JSON, and
+Apache Avro formats](../stream-analytics/stream-analytics-parsing-json.md) and
+you can plug in [custom
+deserializers](../stream-analytics/custom-deserializer.md) for any other format.
+
+For all replication tasks where you want to copy event streams "as-is" and
+without touching the payloads, or if you need to implement a router, perform
+cryptographic work, change the encoding of payloads, or if otherwise need full
+control over the data stream contents, Azure Functions is the best option.
+
 ## Next Steps
 
 In this article, we explored a range of federation patterns and explained the
 role of Azure Functions as the event and messaging replication runtime in Azure.
 
-
 Next, you might want to read up how to set up a replicator application with
-Azure Functions and then how to replicate event flows between Event Hubs and
-various other eventing and messaging systems:
+Azure Stream Analytics or Azure Functions and then how to replicate event flows
+between Event Hubs and various other eventing and messaging systems:
 
+- [Process data with Azure Stream Analytics][9]
 - [Event replicator applications in Azure Functions][1]
 - [Replicating events between Event Hubs][2]
 - [Replicating events to Azure Service Bus][3]
 
 [1]: event-hubs-federation-replicator-functions.md
-[2]: event-hubs-federation-event-hubs.md
-[3]: event-hubs-federation-service-bus.md
+[2]: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy
+[3]: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus
 [4]: event-hubs-federation-patterns.md#replication
 [5]: event-hubs-federation-patterns.md#merge
 [6]: event-hubs-federation-patterns.md#editor
 [7]: event-hubs-federation-patterns.md#routing
 [8]: event-hubs-federation-patterns.md#log-projection
+[9]: event-hubs/process-data-azure-stream-analytics.md

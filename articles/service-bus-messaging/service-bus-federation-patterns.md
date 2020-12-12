@@ -2,7 +2,7 @@
 title: Message replication task patterns - Azure Service Bus | Microsoft Docs
 description: This article provides detail guidance for implementing specific message replication task patterns
 ms.topic: article
-ms.date: 12/09/2020
+ms.date: 12/12/2020
 ---
 
 # message replication tasks patterns
@@ -30,8 +30,7 @@ from a queue or topic to some other destination like an Event Hub. The messages
 are forwarded without making any modifications to the message payload. 
 
 The implementation of this pattern is covered by the [message replication to and
-from Azure Service Bus](service-bus-federation-service-bus.md) and [message
-replication to Event Hubs](service-bus-federation-event-hubs.md) articles.
+from Azure Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopy) sample.
 
 ### Sequences and order preservation
 

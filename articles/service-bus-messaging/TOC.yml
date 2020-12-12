@@ -98,14 +98,20 @@
     href: service-bus-performance-improvements.md
   - name: Federation 
     items:
-      - name: Multi-site and multi-region federation
+      - name: Message replication and cross-region federation
         href: service-bus-federation-overview.md
       - name: Message replication tasks and applications
         href: service-bus-federation-replicator-functions.md
+      - name: Message replication task patterns
+        href: service-bus-federation-patterns.md
+      - name: Configured replication tasks
+        href: service-bus-federation-configuration.md
       - name: Replicate events between Service Bus entities
-        href: service-bus-federation-service-bus.md
-      - name: Replicate events from Service Bus to Event Hubs
-        href: service-bus-federation-event-hubs.md
+        href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopy
+      - name: Replicate messages to Event Hubs
+        href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub
+      - name: Acquire messages from Event Hubs
+        href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus
   - name: Geo-disaster recovery and geo-replication
     href: service-bus-geo-dr.md
   - name: Asynchronous messaging and high availability

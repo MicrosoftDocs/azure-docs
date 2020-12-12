@@ -4,7 +4,7 @@ description:
   This article provides detail guidance for implementing specific event
   replication task patterns
 ms.topic: article
-ms.date: 12/01/2020
+ms.date: 12/12/2020
 ---
 
 # Event replication tasks patterns
@@ -34,21 +34,41 @@ Event Hub to some other destination like a Service Bus queue. The events are
 forwarded without making any modifications to the event payload.
 
 The implementation of this pattern is covered by the
-[Event replication between Event Hubs](event-hubs-federation-event-hubs.md) and
-[Event replication between Event Hubs and Service Bus](event-hubs-federation-service-bus.md)
-articles.
+[Event replication between Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) and
+[Event replication between Event Hubs and Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus)
+samples.
 
 ### Streams and order preservation
 
-The replication model does not aim to assure the creation of an exact 1:1 clone
-of a source Event Hub into a target Event Hub, but focuses on preserving the
-relative order of events where the application requires it. The application
-communicates this by grouping related events with the same partition key and
-[Event Hubs arranges messages with the same partition key sequentially in the same partition](event-hubs-features.md#partitions).
+Replication, either through Azure Functions or Azure Stream Analytics, does not
+aim to assure the creation of exact 1:1 clones of a source Event Hub into a
+target Event Hub, but focuses on preserving the relative order of events where
+the application requires it. The application communicates this by grouping
+related events with the same partition key and [Event Hubs arranges messages
+with the same partition key sequentially in the same
+partition](event-hubs-features.md#partitions).
 
-The pre-built replication functions ensure that event streams with the same
-partition key retrieved from a source partition are submitted into the target
-Event Hub as a batch in the original stream and with the same partition key.
+> [!IMPORTANT] The "offset" information is unique for each Event Hub and offsets
+> for the same events will differ across Event Hub instances. To locate a
+> position in a copied event stream, use time-based offsets and refer to the
+> [propagated service-assigned metadata](#service-assigned-metadata).
+>
+> Time-based offsets start your receiver at a specific point in time:
+> - *EventPosition.FromStart()* - Read all retained data again.
+> - *EventPosition.FromEnd()* - Read all new data from the time of connection.
+> - *EventPosition.FromEnqueuedTime(dateTime)* - All data starting from a given date and time.
+>
+> In the EventProcessor, you set the position through the InitialOffsetProvider
+> on the EventProcessorOptions. With the other receiver APIs, the position is
+> passed through teh constructor. 
+
+
+The pre-built replication function helpers [provided as
+samples](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication)
+that are used in the Azure Functions based guidance ensure that event streams
+with the same partition key retrieved from a source partition are submitted into
+the target Event Hub as a batch in the original stream and with the same
+partition key.
 
 If the partition count of the source and target Event Hub is identical, all
 streams in the target will map to the same partitions as they did in the source.
@@ -64,7 +84,7 @@ source partition.
 
 The service-assigned metadata of an event obtained from the source Event Hub,
 the original enqueue time, sequence number, and offset, are replaced by new
-service-assigned values in the target Event Hub, but with the default
+service-assigned values in the target Event Hub, but with the [helper functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication),
 replication tasks that are provided in our samples, the original values are
 preserved in user properties: `repl-enqueue-time` (ISO8601 string),
 `repl-sequence`, `repl-offset`.
@@ -100,10 +120,12 @@ following: DNS and file shares.
 #### DNS based failover configuration
 
 One candidate approach is to hold the information in DNS SRV records in a DNS
-you control and point to the respective Event Hub endpoints. Mind that Event
-Hubs does not allow for its endpoints to be directly aliased with CNAME records,
-which means you will use DNS as a resilient lookup mechanism for endpoint
-addresses and not to directly resolve IP address information.
+you control and point to the respective Event Hub endpoints. 
+
+> [!IMPORTANT] Mind that Event Hubs does not allow for its endpoints to be
+> directly aliased with CNAME records, which means you will use DNS as a
+> resilient lookup mechanism for endpoint addresses and not to directly resolve
+> IP address information.
 
 Assume you own the domain `example.com` and, for your application, a zone
 `test.example.com`. For two alternate Event Hubs, you will now create two
@@ -159,7 +181,7 @@ This procedure is similar to how the [Event Hubs Geo-DR](event-hubs-geo-dr.md)
 works, but fully under your own control and also works with active/active
 scenarios.
 
-#### File share based failover configuration
+#### File-share based failover configuration
 
 The simplest alternative to using DNS for sharing endpoint information is to put
 the name of the primary endpoint into a plain-text file and serve the file from
@@ -168,6 +190,9 @@ an infrastructure that is robust against outages and still allows updates.
 If you already run a highly available web site infrastructure with global
 availability and content replication, adding such a file there and republish the
 file if a switch is needed.
+
+> [!CAUTION]
+> You should only publish the endpoint name in this way, not a full connection string including secrets.
 
 #### Extra considerations for failing over consumers
 
@@ -223,8 +248,9 @@ sample.
 ## Editor
 
 The editor pattern builds on the [replication](#replication) pattern, but
-messages are modified before they are forwarded. Examples for such modifications
-are:
+messages are modified before they are forwarded. 
+
+Examples for such modifications are:
 
 - **_Transcoding_** - If the event content (also referred to as "body" or
   "payload") arrives from the source encoded using the _Apache Avro_ format or
@@ -258,11 +284,6 @@ are:
   and drops the event if the event does not match the rule. Filtering out
   duplicate events by observing certain criteria and dropping subsequent events
   with the same values is a form of filtering.
-- **_Routing and Partitioning_** - Some replication tasks may allow for two or
-  more alternative targets, and define rules for which replication target is
-  chosen for any particular event based on the metadata or content of the event.
-  A special form of routing is partitioning, where the task explicitly assigns
-  partitions in one replication target based on rules.
 - **_Cryptography_** - A replication task may have to decrypt content arriving
   from the source and/or encrypt content forwarded onwards to a target, and/or
   it may have to verify the integrity of content and metadata relative to a
@@ -273,6 +294,10 @@ are:
 - **_Chaining_** - A replication task may apply signatures to streams of events
   such that the integrity of the stream is protected and missing events can be
   detected.
+
+The transformation, batching, and enrichment patterns are generally best
+implemented with [Azure Stream
+Analytics](../stream-analytics/stream-analytics-introduction.md) jobs. 
 
 All those patterns can be implemented using Azure Functions, using the
 [Event Hubs Trigger](../azure-functions/functions-bindings-event-hubs-trigger.md)
@@ -296,13 +321,28 @@ public static async Task Run(
 {
     foreach (EventData eventData in events)
     {
-        // send to output1 or output2 based on criteria
+        // send to output1 and/or output2 based on criteria
+        EventHubReplicationTasks.ConditionalForwardToEventHub(input, output1, log, (eventData) => {
+            return ( inputEvent.SystemProperties.SequenceNumber%2==0 ) ? inputEvent : null;
+        });
+        EventHubReplicationTasks.ConditionalForwardToEventHub(input, output2, log, (eventData) => {
+            return ( inputEvent.SystemProperties.SequenceNumber%2!=0 ) ? inputEvent : null;
+        });
     }
 }
 ```
 
 The routing function will consider the message metadata and/or the message
 payload and then pick one of the available destinations to send to.
+
+In Azure Stream Analytics, you can achieve the same with defining multiple outputs and 
+then executing a query per output.
+
+```sql
+select * into dest1Output from inputSource where Info = 1
+select * into dest2Output from inputSource where Info = 2
+```
+
 
 ## Log projection
 
@@ -316,7 +356,12 @@ compacted view, whereby only the latest event is retained for each partition
 key. The shape of the target database is ultimately up to you and your
 application's needs. This pattern is also referred to as "event sourcing".
 
-For example, the following Azure Function projects the contents of an Event Hub
+You can easily create log projections into [Azure SQL
+Database](../stream-analytics/sql-database-output.md) and [Azure Cosmos
+DB](stream-analytics/azure-cosmos-db-output.md) in Azure Stream Analytics and
+you should prefer that option.
+
+The following Azure Function projects the contents of an Event Hub
 compacted into an Azure CosmosDB collection.
 
 ```C#
@@ -350,5 +395,5 @@ public static async Task Eh1ToCosmosDb1Json(
 - [Replicating events to Azure Service Bus][3]
 
 [1]: event-hubs-federation-replicator-functions.md
-[2]: event-hubs-federation-event-hubs.md
-[3]: event-hubs-federation-service-bus.md
+[2]: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy
+[3]: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus

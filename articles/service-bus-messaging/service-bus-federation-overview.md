@@ -2,14 +2,12 @@
 title: Message replication and cross-region federation - Azure Service Bus | Microsoft Docs
 description: This article provides an overview of event replication and cross-region federation with Azure Service Bus. 
 ms.topic: article
-ms.date: 09/15/2020
+ms.date: 12/12/2020
 ---
 
 # Message replication and cross-region federation
 
 Within namespaces, Azure Service Bus supports [creating topologies of chained queues and topic subscriptions using autoforwarding](service-bus-auto-forwarding.md) to allow for the implementation of various routing patterns. For instance, you can provide partners with dedicated queues to which they have send or receive permissions and which can be temporarily suspended if needed, and flexibly connect them to other entities that are private to the application. You can also create complex multi-stage routing topologies, or you can create mailbox-style queues, which drain the queue-like subscriptions of topics and allow for more storage capacity per subscriber. 
-
-![Auto-forwarding scenario][1]
 
 Many sophisticated solutions also require messages to be replicated across namespace boundaries in order to implement these and other patterns. Messages may have to flow between namespaces associated with multiple, different application tenants, or across multiple, different Azure regions. 
 
@@ -55,7 +53,7 @@ az servicebus topic subscription rule create --resource-group myresourcegroup \
    --namespace mynamespace --topic-name mytopic 
    --subscription-name replication --name replication \
    --action-sql-expression "set replication = 1" \
-   --filter-sql-expression "replication <> 1"
+   --filter-sql-expression "replication IS NULL"
 ```
 
 To model a queue, each topic is restricted to just one regular subscription (other than the replication subscriptions) that all consumers share.
@@ -150,26 +148,9 @@ Service Bus topics and their subscription rules are often used to filter a strea
 
 In a global system where the audience for those messages is globally distributed or belongs to different applications, replication can be used to transfer messages from such a subscription to a queue or topic in a different namespace from where they are consumed.
 
-## Event and message replication tasks
-
-For many of the federation patterns explained above, messages are copied without changes, but you will occasionally also need to create and run custom transcoding and/or transformation tasks.
-
-Plain copies aside, replication task might perform one or a combination of actions on messages before forwarding, for instance:
-
-- *Transcoding* - If the message content (also referred to as "body" or "payload") arrives from the source encoded using the Apache Avro format or some proprietary serialization format, but the expectation of the system owning the target is for the content to be JSON encoded, a transcoding replication task will first deserialize the payload from Apache Avro into an in-memory object graph and then serialize that graph into the JSON format for the message that is being forwarded. Transcoding also includes content compression and decompression tasks.
-- *Transformation* - messages that contain structured data may require reshaping of that data for easier consumption by downstream consumers. This reshaping may involve work like flattening nested structures, pruning extraneous data elements, or reshaping the payload to exactly fit a given schema.
-- *Batching* - messages may be received in batches (multiple messages in a single transfer) from a source, but have to be forwarded singly to a target, or vice versa. A task may therefore forward multiple messages based on a single input message transfer or aggregate a set of messages that are then transferred together. 
-- *Validation* - message data from external sources often need to be checked for whether they are in compliance with a set of rules before they may be forwarded. The rules may be expressed using schemas or code. messages that are found not to be in compliance may be dropped, with the issue noted in logs, or may be forwarded to a special target destination to handle them further.   
-- *Enrichment* - message data coming from some sources may require enrichment with further context for it to be usable in target systems. This enrichment may involve looking up reference data and embedding that data with the message, or adding information about the source that is known to the replication task, but not contained in the messages. 
-- *Filtering* - Some messages arriving from a source might have to be withheld from the target based on some rule. A filter tests the message against a rule and drops the message if the message does not match the rule. Filtering out duplicate messages by observing certain criteria and dropping subsequent messages with the same values is a form of filtering.
-- *Routing and Partitioning* - Some replication tasks may allow for two or more alternative targets, and define rules for which replication target is chosen for any particular message based on the metadata or content of the message. A special form of routing is partitioning, where the task explicitly assigns partitions in one replication target based on rules.
-- *Cryptography* - A replication task may have to decrypt content arriving from the source and/or encrypt content forwarded onwards to a target, and/or it may have to verify the integrity of content and metadata relative to a signature carried in the message, or attach such a signature. 
-- *Attestation* - A replication task may attach metadata, potentially protected by a digital signature, to a message that attests that the message has been received through a specific channel or at a specific time.     
-- *Chaining* - A replication task may apply signatures to sequences of messages such that the integrity of the sequence is protected and missing messages can be detected.
-
 ### Replication applications in Azure Functions
 
-Implementing the patterns above requires a scalable and reliable execution environment for the replication tasks that you want to configure and run. On Azure, the runtime environment that is best suited for these tasks is [Azure Functions](../azure-functions/functions-overview.md). 
+Implementing the patterns above requires a scalable and reliable execution environment for the replication tasks that you want to configure and run. On Azure, the runtime environment that is best suited for stateless tasks is [Azure Functions](../azure-functions/functions-overview.md). 
 
 Azure Functions can run under a [Azure managed identity](../active-directory/managed-identities-azure-resources/overview.md) such that the replication tasks can integrate with the role-based access control rules of the source and target services without you having to manage secrets along the replication path. For replication sources and targets that require explicit credentials, Azure Functions can hold the configuration values for those credentials in tightly access-controlled storage inside of [Azure Key Vault](../key-vault/general/overview.md).
 
@@ -188,8 +169,8 @@ In this article, we explored a range of federation patterns and explained the ro
 Next, you might want to read up how to set up a replicator application with Azure Functions and then how to replicate event flows between Event Hubs and various other eventing and messaging systems:
 
 - [Replication applications in Azure Functions](service-bus-federation-replicator-functions.md)
-- [Replicating events between Service Bus entities](service-bus-federation-service-bus.md)
-- [Routing events to Azure Event Hubs](service-bus-federation-event-hubs.md)
- 
+- [Replicating events between Service Bus entities](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopy)
+- [Routing events to Azure Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub)
+- [Acquire events from Azure Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubsCopyToServiceBus)
 
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif 
