@@ -112,6 +112,8 @@
     href: disaster-recovery.md
 - name: Concepts
   items:
+  - name: Role-based access control
+  - href: rbac.md
   - name: Authentication
     href: authentication.md
   - name: Windows Virtual Desktop environment
