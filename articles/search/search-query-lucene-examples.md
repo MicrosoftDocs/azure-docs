@@ -45,7 +45,7 @@ What you do need is Postman or an equivalent tool for issuing HTTP request on GE
 
    + **`$count=true`** returns a count of the documents matching the search criteria. On an empty search string, the count will be all documents in the index (about 2558 in the case of NYC Jobs).
 
-   + The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, with all values.
+   + **`search=*`** is an unspecified query, equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, with all values.
 
    + **`queryType=full`** invokes the full Lucene analyzer.
 
@@ -167,7 +167,7 @@ Response for this query should look similar to the following screenshot
 
   :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Proximity query" border="false":::
 
-Try it again removing the words between the term "senior analyst". Notice that 8 documents are returned for this query as opposed to 10 for the previous query.
+Try it again, eliminating any distance (`~0`) between the terms "senior analyst". Notice that 8 documents are returned for this query as opposed to 10 for the previous query.
 
 ```http
 POST /indexes/nycjobs/docs?api-version=2020-06-30
@@ -182,7 +182,7 @@ POST /indexes/nycjobs/docs?api-version=2020-06-30
 
 ## Example 5: Term boosting
 
-Term boosting refers to ranking a document higher if it contains the boosted term, relative to documents that do not contain the term. To boost a term, use the caret, "^", symbol with a boost factor (a number) at the end of the term you are searching.
+Term boosting refers to ranking a document higher if it contains the boosted term, relative to documents that do not contain the term. To boost a term, use the caret, `^`, symbol with a boost factor (a number) at the end of the term you are searching.
 
 In this "before" query, search for jobs with the term *computer analyst* and notice there are no results with both words *computer* and *analyst*, yet *computer* jobs are at the top of the results.
 

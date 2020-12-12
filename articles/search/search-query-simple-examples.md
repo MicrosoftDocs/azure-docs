@@ -41,7 +41,7 @@ What you do need is Postman or an equivalent tool for issuing HTTP request on GE
 
    + **`$count=true`** returns a count of the documents matching the search criteria. On an empty search string, the count will be all documents in the index (about 2558 in the case of NYC Jobs).
 
-   + The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, with all values.
+   + **`search=*`** is an unspecified query, equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, with all values.
 
 1. As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents.
 

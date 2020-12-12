@@ -29,11 +29,17 @@ Choose from the following tools and APIs to create queries for testing or produc
 
 A search client authenticates to the search service, sends requests, and handles responses. Queries are always directed at the documents collection of a single index. You cannot join indexes or create custom or temporary data structures as a query target.
 
-In the portal, Search Explorer and other tools have a built-in client connection to the service, with direct access indexes and other objects from portal pages. Access to tools, wizards, and objects assume that you have administrative rights on the service. With Search Explorer, you can focus specifying the search string and other parameters. 
+### In the portal
 
-For REST calls, you can use Postman or another tool as the client to specify a [Search Documents](/rest/api/searchservice/search-documents) request. Each request is standalone, so you must provide the endpoint (URL to the service) and an admin or query API key for access. Depending on the request, the URL might also include the index name, the documents collection, and other properties. A few properties, such as Content-Type and `api-key` are passed on the request header. Other parameters can be passed on the URL or in the body of the request. All REST calls require an API key for authentication, and an api-version.
+Search Explorer and other portal tools have a built-in client connection to the service, with direct access indexes and other objects from portal pages. Access to tools, wizards, and objects assume that you have administrative rights on the service. With Search Explorer, you can focus specifying the search string and other parameters. 
 
-Azure SDKs provide clients that can persist state, allowing connection reuse. For query operations, you will instantiate a SearchClient and provide values for the following properties: Endpoint, Key, Index. You can then call the Search method to provide the query string. 
+### Using REST
+
+For REST calls, you can use [Postman or similar tools](search-get-started-rest.md) as the client to specify a [Search Documents](/rest/api/searchservice/search-documents) request. Each request is standalone, so you must provide the endpoint (URL to the service) and an admin or query API key for access. Depending on the request, the URL might also include the index name, the documents collection, and other properties. A few properties, such as Content-Type and API key are passed on the request header. Other parameters can be passed on the URL or in the body of the request. All REST calls require an API key for authentication, and an api-version.
+
+### Using Azure SDKs
+
+The Azure SDKs provide search clients that can persist state, allowing for connection reuse. For query operations, you will instantiate a SearchClient and provide values for the following properties: Endpoint, Key, Index. You can then call the Search method to provide the query string. 
 
 | Language | Client | Example |
 |----------|--------|---------|
@@ -51,31 +57,28 @@ The [full Lucene query syntax](query-Lucene-syntax.md#bkmk_syntax), enabled when
 The following examples illustrate the point: same query, but with different **`queryType`** settings, which yield different results. In the first query, the `^3` after `historic` is treated as part of the search term. The top-ranked result for this query is "Marquis Plaza & Suites", which has *ocean* in its description.
 
 ```http
-queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "simple",
+    "search": "ocean historic^3",
+    "searchFields": "Description",
+    "select": "HotelId, HotelName, Tags, Description",
+}
 ```
 
 The same query using the full Lucene parser interprets `^3` as an in-field term booster. Switching parsers changes the rank, with results containing the term *historic* moving to the top.
 
 ```http
-queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "count": true,
+    "queryType": "full",
+    "search": "ocean historic^3",
+    "searchFields": "Description",
+    "select": "HotelId, HotelName, Tags, Description",
+}
 ```
-
-## Specify match criteria
-
-Use Search, Autocomplete, Suggestions to accept user input. The query engine will match on any field marked as *searchable*.
-
-Use Filter with any of the above, or by itself.
-
-Use SearchFields to constrain the query to specific fields.
-
-## Compose results
-
-Search results can be composed of any field that's marked as *retrievable*.
-
-Use Select to choose which fields
-Use Count
-Use Top, Skip
-Use hit highlighting
 
 ## Enable query behaviors in an index
 
@@ -91,6 +94,6 @@ The above screenshot is a partial list of index attributes for the [hotels sampl
 
 Now that you understand how the request is constructed, try examples using both the simple and full syntax.
 
-+ [Lucene syntax query examples for building advanced queries](search-query-lucene-examples.md)
 + [Simple query examples](search-query-simple-examples.md)
++ [Lucene syntax query examples for building advanced queries](search-query-lucene-examples.md)
 + [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
