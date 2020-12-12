@@ -256,9 +256,11 @@
     items:
     - name: Query types and composition
       href: search-query-overview.md
-    - name: Create a simple query
+    - name: Create a basic query
+      href: search-query-create.md
+    - name: Use simple syntax (examples)
       href: search-query-simple-examples.md
-    - name: Use full Lucene syntax
+    - name: Use full Lucene (examples)
       href: search-query-lucene-examples.md
     - name: Partial terms and special characters
       href: search-query-partial-matching.md
