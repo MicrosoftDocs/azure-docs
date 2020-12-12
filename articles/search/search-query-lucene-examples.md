@@ -22,59 +22,43 @@ The Lucene parser supports complex query constructs, such as field-scoped querie
 > Many of the specialized query constructions enabled through the full Lucene query syntax are not [text-analyzed](search-lucene-query-architecture.md#stage-2-lexical-analysis), which can be surprising if you expect stemming or lemmatization. Lexical analysis is only performed on complete terms (a term query or phrase query). Query types with incomplete terms (prefix query, wildcard query, regex query, fuzzy query) are added directly to the query tree, bypassing the analysis stage. The only transformation performed on partial query terms is lowercasing. 
 >
 
-## Formulate requests in Postman
+## NYC Jobs examples
 
-The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://opendata.cityofnewyork.us/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Cognitive Search to try these queries.
+The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://nycopendata.socrata.com/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Cognitive Search to try these queries.
 
-What you do need is Postman or an equivalent tool for issuing HTTP request on GET. For more information, see [Explore with REST clients](search-get-started-rest.md).
+What you do need is Postman or an equivalent tool for issuing HTTP request on GET or POST. For more information, see [Quickstart: Explore Azure Cognitive Search REST API](search-get-started-rest.md).
 
-### Set the request header
+### Set up the request
 
-1. In the request header, set **Content-Type** to `application/json`.
+1. Request headers must have  **Content-Type** set to `application/json` and an **api-key** set to `252044BE3886FE4A8E3BAA4F595114BB`. This is a query key for the sandbox search service hosting the NYC Jobs index.
 
-2. Add an **api-key**, and set it to this string: `252044BE3886FE4A8E3BAA4F595114BB`. This is a query key for the sandbox search service hosting the NYC Jobs index.
+1. Set the verb to **POST** or **GET** and the URL to **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30&queryType=full`**. 
 
-After you specify the request header, you can reuse it for all of the queries in this article, swapping out only the **search=** string. 
+   + **`queryType=full`** invokes the full Lucene analyzer.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Postman request header set parameters" border="false":::
+   + The documents collection on the index contains all searchable content. The query api-key provided in the request header only works on read operations targeting the documents collection.
 
-### Set the request URL
+1. Optionally, add **`$count=true`** to return a count of the documents matching the search criteria. On an empty search string, the count will be all documents in the index (about 2800 in the case of NYC Jobs).
 
-Request is a GET command paired with a URL containing the Azure Cognitive Search endpoint and search string.
-
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Postman request header GET" border="false":::
-
-URL composition has the following elements:
-
-+ **`https://azs-playground.search.windows.net/`** is a sandbox search service maintained by the Azure Cognitive Search development team. 
-+ **`indexes/nycjobs/`** is the NYC Jobs index in the indexes collection of that service. Both the service name and index are required on the request.
-+ **`docs`** is the documents collection containing all searchable content. The query api-key provided in the request header only works on read operations targeting the documents collection.
-+ **`api-version=2020-06-30`** sets the api-version, which is a required parameter on every request.
-+ **`search=*`** is the query string, which in the initial query is null, returning the first 50 results (by default).
-
-## Send your first query
-
-As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents. Entire documents are returned, which allows you to see all fields and all values.
-
-Paste this URL into a REST client as a validation step and to view document structure.
+1. As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents.
 
   ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*&queryType=full
   ```
 
-The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's the simplest search you can do.
-
-Optionally, you can add **`$count=true`** to the URL to return a count of the documents matching the search criteria. On an empty search string, this is all the documents in the index (about 2800 in the case of NYC Jobs).
+The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, and all values.
 
 ## How to invoke full Lucene parsing
 
-Add **queryType=full** to invoke the full query syntax, overriding the default simple query syntax. 
+Add **queryType=full** to invoke the full query syntax, overriding the default simple query syntax. All of the examples in this article specify the **queryType=full** search parameter, indicating that the full syntax is handled by the Lucene Query Parser. 
 
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&search=*
+```http
+POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true
+{
+    "queryType": "full",
+    "search": "*"
+}
 ```
-
-All of the examples in this article specify the **queryType=full** search parameter, indicating that the full syntax is handled by the Lucene Query Parser. 
 
 ## Example 1: Query scoped to a list of fields
 
@@ -279,10 +263,12 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 >
 
 ## Next steps
-Try specifying the Lucene Query Parser in your code. The following links explain how to set up search queries for both .NET and the REST API. The links use the default simple syntax so you will need to apply what you learned from this article to specify the **queryType**.
 
-* [Query your index using the .NET SDK](./search-get-started-dotnet.md)
-* [Query your index using the REST API](./search-get-started-powershell.md)
+Try specifying queries in code. The following links explain how to set up search queries using the Azure SDKs.
+
+* [Query your index using the .NET SDK](search-get-started-dotnet.md)
+* [Query your index using the Python SDK](search-get-started-python.md)
+* [Query your index using the JavaScript SDK](search-get-started-javascript.md)
 
 Additional syntax reference, query architecture, and examples can be found in the following links:
 
