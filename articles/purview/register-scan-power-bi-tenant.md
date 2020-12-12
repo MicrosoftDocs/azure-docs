@@ -45,6 +45,7 @@ To set up authentication, create a security group and add the catalog's managed 
 ## Associate the security group with the tenant
 
 1. Log into the [Power BI admin portal](https://app.powerbi.com/admin-portal/tenantSettings).
+1. Select **Tenant settings** page
 
     > [!Important]
     > You need to be a Power BI Admin to see the tenant settings page.
