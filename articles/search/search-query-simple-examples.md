@@ -13,12 +13,10 @@ ms.date: 12/12/2020
 
 # Use the "simple" search syntax in Azure Cognitive Search
 
-In Azure Cognitive Search, the [simple query syntax](query-simple-syntax.md) invokes the default query parser for full text search queries against an index. This parser is fast and handles common scenarios, including full text search, filtered and faceted search, and prefix search. 
-
-This article uses examples to illustrate the simple syntax, populating the **`search=`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request.
+In Azure Cognitive Search, the [simple query syntax](query-simple-syntax.md) invokes the default query parser for full text search. The parser is fast and handles common scenarios, including full text search, filtered and faceted search, and prefix search. This article uses examples to illustrate simple syntax usage in a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request.
 
 > [!NOTE]
-> An alternative query syntax is [Full Lucene](query-lucene-syntax.md), supporting more complex query structures, such as fuzzy and wildcard search, which can take additional time to process. For more information and examples demonstrating full syntax, see [Use the full Lucene syntax](search-query-lucene-examples.md).
+> An alternative query syntax is [Full Lucene](query-lucene-syntax.md), supporting more complex query structures, such as fuzzy and wildcard search. For more information and examples, see [Use the full Lucene syntax](search-query-lucene-examples.md).
 
 ## NYC Jobs examples
 
@@ -32,28 +30,33 @@ What you do need is Postman or an equivalent tool for issuing HTTP request on GE
 
    | Key | Value |
    |-----|-------|
-   | `Content-Type` | `application/json`|
-   | `api-key`  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (this is the actual query API key for the sandbox search service hosting the NYC Jobs index) |
+   | Content-Type | `application/json`|
+   | api-key  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (this is the actual query API key for the sandbox search service hosting the NYC Jobs index) |
 
 1. Set the verb to **`GET`**.
 
 1. Set the URL to **`https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&search=*&$count=true`**. 
 
-   The documents collection on the index contains all searchable content. The query api-key provided in the request header only works on read operations targeting the documents collection.
+   + The documents collection on the index contains all searchable content. The query api-key provided in the request header only works for read operations targeting the documents collection.
 
-   **`$count=true`** returns a count of the documents matching the search criteria. On an empty search string, the count will be all documents in the index (about 2558 in the case of NYC Jobs).
+   + **`$count=true`** returns a count of the documents matching the search criteria. On an empty search string, the count will be all documents in the index (about 2558 in the case of NYC Jobs).
 
-1. As a verification step, click **Send**. Results are returned as verbose JSON documents.
+   + The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, with all values.
 
-The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, with all values.
+1. As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents.
+
+   ```http
+   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*&queryType=full
+   ```
 
 ### How to invoke simple query parsing
 
 For interactive queries, you don't have to specify anything: simple is the default. In code, if you previously invoked **`queryType=full`**, you can reset the default with **`queryType=simple`**.
 
 ```http
-POST https://azs-playground.search.windows.net/indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 {
+    "count": true,
     "queryType": "simple",
     "search": "*"
 }
@@ -63,19 +66,20 @@ POST https://azs-playground.search.windows.net/indexes/nycjobs/docs/search?api-v
 
 This first example is not parser-specific, but we lead with it to introduce the first fundamental query concept: containment. This example limits both query execution and the response to just a few specific fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
 
-This query targets only *business_title* and *posting_type* in **`searchFields`**, specifying through the **`select`** parameter those same fields in the response.
+This query targets only *business_title* in **`searchFields`**, specifying through the **`select`** parameter the same field in the response.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 {
+    "count": true,
     "queryType": "simple",
     "search": "*",
-    "searchFields": "business_title, posting_type",
-    "select": "business_title, posting_type"
+    "searchFields": "business_title",
+    "select": "business_title"
 }
 ```
 
-Response for this query should look similar to the following screenshot (posting_type isn't included in this screenshot).
+Response for this query should look similar to the following screenshot.
 
   :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Postman sample response" border="false":::
 
@@ -83,18 +87,18 @@ You might have noticed the search score in the response. Uniform scores of **1**
 
 ## Example 2: Look up by ID
 
-When you return search results in a query, a frequent next step is to provide a details page that includes more fields from the document. This example shows you how to return a single document in its entirety, using a [Lookup operation](/rest/api/searchservice/lookup-document) to pass in the document ID.
+When you return search results in a query, a logical subsequent step is to provide a details page that includes more fields from the document. This example shows you how to return a single document using a [Lookup operation](/rest/api/searchservice/lookup-document) to pass in the document ID.
 
 All documents have a unique identifier. To try out the syntax for a lookup query, first return a list of document IDs so that you can find one to use. For NYC Jobs, the identifiers are stored in the `id` field.
 
 ```http
-GET https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&search=*&$select=id&$count=true
+GET /indexes/nycjobs/docs?api-version=2020-06-30&search=*&$select=id&$count=true
 ```
 
-The next example is a lookup query returning a specific document based on `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", which appeared first in the previous response. The following query returns all retrievable fields for the entire document, but you can use **`select`** to limit which fields are returned.
+Next, retrieve a document from the collection based on `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", which appeared first in the previous response. The following query returns all retrievable fields for the entire document.
 
 ```http
-GET https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2020-06-30
+GET /indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2020-06-30
 ```
 
 ## Example 3: Filter queries
@@ -102,8 +106,9 @@ GET https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660
 [Filter syntax](./search-query-odata-filter.md) is an OData expression that you can use by itself or with **`search`**. A standalone filter, without a search parameter, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring (all scores are 1), and no ranking. Notice the search string is empty.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
+      "count": true,
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
       "select": "job_id, business_title, agency, salary_range_from"
@@ -117,7 +122,13 @@ Used together, the filter is applied first to the entire index, and then the sea
 Another powerful way to combine filter and search is through **`search.ismatch*()`** in a filter expression, where you can use a search query within the filter. This filter expression uses a wildcard on *plan* to select business_title including the term plan, planner, planning, and so forth.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+    {
+      "count": true,
+      "search": "",
+      "filter": "search.ismatch('plan*', 'business_title', 'full', 'any')",
+      "select": "job_id, business_title, agency, salary_range_from"
+    }
 ```
 
 For more information about the function, see [search.ismatch in "Filter examples"](./search-query-odata-full-text-search-functions.md#examples).
@@ -126,13 +137,14 @@ For more information about the function, see [search.ismatch in "Filter examples
 
 Range filtering is supported through **`$filter`** expressions for any data type. The following examples search over numeric and string fields. 
 
-Data types are important in range filters and work best when numeric data is in numeric fields, and string data in string fields. Numeric data in string fields is not suitable for ranges because numeric strings are not comparable in Azure Cognitive Search. 
+Data types are important in range filters and work best when numeric data is in numeric fields, and string data in string fields. Numeric data in string fields is not suitable for ranges because numeric strings are not comparable in Azure Cognitive Search.
 
-The following examples are in POST format for readability (numeric range, followed by text range):
+The following query is a numeric range:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
+      "count": true,
       "search": "",
       "filter": "num_of_positions ge 5 and num_of_positions lt 10",
       "select": "job_id, business_title, num_of_positions, agency",
@@ -143,29 +155,34 @@ Response for this query should look similar to the following screenshot.
 
   :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Range filter for numeric ranges" border="false":::
 
+In this query, the range is over a string field (business_title):
+
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
+      "count": true,
       "search": "",
       "filter": "business_title ge 'A*' and business_title lt 'C*'",
       "select": "job_id, business_title, agency",
       "orderby": "business_title"
     }
 ```
+
 Response for this query should look similar to the following screenshot.
 
   :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Range filter for text ranges" border="false":::
 
 > [!NOTE]
-> Faceting over ranges of values is a common search application requirement. For more information and examples on building filters for facet navigation structures, see ["Filter based on a range" in *How to implement faceted navigation*](search-faceted-navigation.md#filter-based-on-a-range).
+> Faceting over ranges of values is a common search application requirement. For more information and examples, see [How to build a facet filter](search-filters-facets.md).
 
 ## Example 5: Geo-search
 
 The sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](search-query-odata-geo-spatial-functions.md#examples) that filters on documents within the circumference of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (4) to reduce or enlarge the surface area of the query.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
+      "count": true,
       "search": "",
       "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
       "select": "business_title, work_location"
@@ -180,11 +197,12 @@ For more readable results, search results are trimmed to include job title and t
 
 Term queries are single terms, perhaps many of them, that are evaluated independently. Phrase queries are enclosed in quotation marks and evaluated as a verbatim string. Precision of the match is controlled by operators and searchMode.
 
-Example 1: `search=fire`  returns 150 results, where all matches contain the word fire somewhere in the document.
+Example 1: `search=fire`  matches on 140 results, where all matches contain the word fire somewhere in the document.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
+      "count": true,
       "search": "fire"
     }
 ```
@@ -192,20 +210,25 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
 Example 2: `search=fire department` returns 2002 results. Matches are returned for documents containing either fire or department.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
-      "search": "search=fire department"
+      "count": true,
+      "search": "fire department"
     }
 ```
 
-Example 3: `search="fire department"` returns 82 results. Enclosing the string in quotation marks creates a phrase search consisting of both terms, and matches are found on tokenized terms in the index consisting of the combined terms. This explains why a search like `search=+fire +department` is not equivalent. Both terms are required, but are scanned for independently. 
+Example 3: `search="fire department"` returns 77 results. Enclosing the string in quotation marks creates a phrase search consisting of both terms, and matches are found on tokenized terms in the index consisting of the combined terms. This explains why a search like `search=+fire +department` is not equivalent. Both terms are required, but are scanned for independently. 
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
-      "search": "`search=fire department`"
+    "count": true,
+    "search": "\"fire department\""
     }
 ```
+
+> [!Note]
+> Because a phrase query is specified through quotation marks, this example adds an escape character (`\`) to preserve the syntax.
 
 ## Example 7: Booleans with searchMode
 
@@ -213,12 +236,13 @@ Simple syntax supports boolean operators in the form of characters (`+, -, |`). 
 
 The default is **`searchMode=any`**, which can be confusing if you are stacking a query with multiple operators and getting broader instead of narrower results. This is particularly true with NOT, where results include all documents "not containing" a specific term.
 
-Using the default searchMode (any), 2800 documents are returned: those containing the multi-part term "fire department", plus all documents that do not have the term "Metrotech Center".
+Using the default searchMode (any), 2800 documents are returned: those containing the phrase "fire department", plus all documents that do not have the phrase "Metrotech Center".
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
-      "search": "`search=fire department`-`Metrotech Center`",
+      "count": true,
+      "search": "\"fire department\"-\"Metrotech Center\"",
       "searchMode": "any"
     }
 ```
@@ -230,9 +254,10 @@ Response for this query should look similar to the following screenshot.
 Changing to **`searchMode=all`** enforces a cumulative effect on criteria and returns a smaller result set - 21 documents - consisting of documents containing the entire phrase "fire department", minus those jobs at the Metrotech Center address.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
-      "search": "`search=fire department`-`Metrotech Center`",
+      "count": true,
+      "search": "\"fire department\"-\"Metrotech Center\"",
       "searchMode": "all"
     }
 ```
@@ -244,9 +269,10 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
 Several parameters control which fields are in the search results, the number of documents returned in each batch, and sort order. This example resurfaces a few of the previous examples, limiting results to specific fields using the **`$select`** statement and verbatim search criteria, returning 82 matches.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
-      "search": "`search=fire department`",
+      "count": true,
+      "search": "\"fire department\"",
       "searchMode": "any",
       "select": "job_id,agency,business_title,civil_service_title,work_location,job_description"
     }
@@ -255,9 +281,10 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
 Appended onto the previous example, you can sort by title. This sort works because civil_service_title is *sortable* in the index.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
-      "search": "`search=fire department`",
+      "count": true,
+      "search": "\"fire department\"",
       "searchMode": "any",
       "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
       "orderby": "civil_service_title"
@@ -267,9 +294,10 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
 Paging results is implemented using the **`$top`** parameter, in this case returning the top 5 documents:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
-      "search": "`search=fire department`",
+      "count": true,
+      "search": "\"fire department\"",
       "searchMode": "any",
       "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
       "orderby": "civil_service_title",
@@ -280,9 +308,10 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
 To get the next 5, skip the first batch:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     {
-      "search": "`search=fire department`",
+      "count": true,
+      "search": "\"fire department\"",
       "searchMode": "any",
       "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
       "orderby": "civil_service_title",
@@ -295,14 +324,14 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
 
 Try specifying queries in code. The following links explain how to set up search queries using the Azure SDKs.
 
-* [Query your index using the .NET SDK](search-get-started-dotnet.md)
-* [Query your index using the Python SDK](search-get-started-python.md)
-* [Query your index using the JavaScript SDK](search-get-started-javascript.md)
++ [Query your index using the .NET SDK](search-get-started-dotnet.md)
++ [Query your index using the Python SDK](search-get-started-python.md)
++ [Query your index using the JavaScript SDK](search-get-started-javascript.md)
 
 Additional syntax reference, query architecture, and examples can be found in the following links:
 
 + [Lucene syntax query examples for building advanced queries](search-query-lucene-examples.md)
 + [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Full Lucene query](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Filter and Orderby syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search)
++ [Simple query syntax](query-simple-syntax.md)
++ [Full Lucene query syntax](query-lucene-syntax.md)
++ [Filter syntax](search-query-odata-filter.md)
