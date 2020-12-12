@@ -49,5 +49,5 @@ RabbitMQ Binding extensions are not supported for Functions 1.x. Please use Func
 
 ## Next steps
 
-- [Run a function when a RabbitMQ message is created (Trigger)](./functions-bindings-service-bus-trigger.md)
-- [Send RabbitMQ messages from Azure Functions (Output binding)](./functions-bindings-service-bus-output.md)
+- [Run a function when a RabbitMQ message is created (Trigger)](./functions-bindings-rabbitmq-trigger.md)
+- [Send RabbitMQ messages from Azure Functions (Output binding)](./functions-bindings-rabbitmq-output.md)
