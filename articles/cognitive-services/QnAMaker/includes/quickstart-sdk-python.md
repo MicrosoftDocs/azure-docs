@@ -324,4 +324,12 @@ Run the application with the python command on your quickstart file.
 python quickstart-file.py
 ```
 
+# [QnA Maker GA (stable release)](#tab/version-1)
+
 The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/QnAMaker/sdk/quickstart.py).
+
+# [QnA Maker managed (preview release)](#tab/version-2)
+
+The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/QnAMaker/sdk/preview-sdk/quickstart.py).
+
+---
