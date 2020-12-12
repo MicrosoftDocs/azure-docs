@@ -8,7 +8,6 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: cachai
 ms.custom: 
-
 ---
 
 # RabbitMQ output binding for Azure Functions overview
@@ -301,7 +300,7 @@ The following table explains the binding configuration properties that you set i
 |**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
 |**port**|**Port**|Gets or sets the Port used. Defaults to 0.|
 
-# Usage
+## Usage
 
 # [C#](#tab/csharp)
 

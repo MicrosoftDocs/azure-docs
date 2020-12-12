@@ -245,7 +245,7 @@ The RabbitMQ message is passed into the function as either a string or JSON obje
 
 # [Java](#tab/java)
 
-Refer to Java [attributes and annotations](#Attributes-and-annotations).
+Refer to Java [attributes and annotations](#attributes-and-annotations).
 
 ---
 
