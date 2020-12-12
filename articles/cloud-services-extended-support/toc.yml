@@ -20,6 +20,12 @@
     href: faq.md
   - name: Manage Cloud Service deployments
     href: manage-powershell.md
+  - name: Guest OS patches
+    href: ../cloud-services/cloud-services-guestos-msrc-releases.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
+  - name: Guest OS retirement
+    href: ../cloud-services/cloud-services-guestos-retirement-policy.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
+  - name: Guest OS release news
+    href: ../cloud-services/cloud-services-guestos-update-matrix.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
   - name: XML schema
     items:
     - name: Csdef XML schema
