@@ -89,11 +89,11 @@
         - name: "Part 1: Train and deploy models"
           items:
             - name: "Use Notebooks (code)"
-              href: tutorial-powerbi-custom-model.md
+              href: tutorial-power-bi-custom-model.md
             - name: "Use designer"
-              href: tutorial-powerbi-designer-model.md
+              href: tutorial-power-bi-designer-model.md
             - name: "Use automated ML"
-              href: tutorial-powerbi-automated-model.md
+              href: tutorial-power-bi-automated-model.md
         - name: "Part 2: Consume in Power BI"
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context        
 - name: Samples
