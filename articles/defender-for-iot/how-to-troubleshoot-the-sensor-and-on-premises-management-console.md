@@ -10,17 +10,17 @@ ms.service: azure
 ---
 # Troubleshooting
 
-This article describes basic troubleshooting steps for the sensor and management console. In addition to the items described here, you can also:
+This article describes basic troubleshooting tools for the sensor and management console. In addition to the items described here, you can also:
 
 - Export Troubleshooting logs to support for further investigation.
 
 - Check the health of your system in the following ways:
 
-      - **Alerts:** An alert is created when the sensor interface that monitors the traffic is down. 
+    - Alerts: An alert is created when the sensor interface that monitors the traffic is down. 
 
-      - **SNMP:** Sensor health is monitored using SNMP. Defender for IoT responds to SNMP queries sent from an authorized monitoring server. For more information about SNMP, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).
+    - SNMP: Sensor health is monitored using SNMP. Defender for IoT responds to SNMP queries sent from an authorized monitoring server. For more information about SNMP, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).
 
-      - **System Notifications:** When the sensor is controlled by a management console, you can forward alerts about failed sensor backups and disconnected sensors.
+    - System Notifications: When the sensor is controlled by a management console, you can forward alerts about failed sensor backups and disconnected sensors.
 
 ## Sensor Troubleshoot tools
 ### No traffic indication
