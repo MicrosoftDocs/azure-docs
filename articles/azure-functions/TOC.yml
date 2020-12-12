@@ -468,13 +468,13 @@
           items:
             - name: Overview
               href: functions-bindings-rabbitmq.md
-              displayName: Service Bus
+              displayName: RabbitMQ
             - name: Trigger
               href: functions-bindings-rabbitmq-trigger.md
-              displayName: Service Bus
+              displayName: RabbitMQ
             - name: Output
               href: functions-bindings-rabbitmq-output.md
-              displayName: Service Bus
+              displayName: RabbitMQ
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Service Bus
