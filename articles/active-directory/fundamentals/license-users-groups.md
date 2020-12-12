@@ -51,8 +51,12 @@ You can view your available service plans, including the individual licenses, ch
 
     <kbd>![services page, with service license plans and associated license info](media/license-users-groups/license-products-blade-with-products.png)</kbd>
 
-    > !NOTE
-    > The numbers are defined as: <ul><li>Total: Total number of licenses purchased<li>Assigned: Number of licenses assigned to users<li>Available: Number of licenses available for assignment including expiring soon<li>Expiring soon: Number of licenses expiring soon</li></ul>
+    > [!NOTE]
+    > The numbers are defined as: 
+    > - Total: Total number of licenses purchased
+    > - Assigned: Number of licenses assigned to users
+    > - Available: Number of licenses available for assignment including expiring soon
+    > - Expiring soon: Number of licenses expiring soon
 
 1. Select a plan name to see its licensed users and groups.
 
