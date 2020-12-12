@@ -74,7 +74,7 @@
   - name: Delegate a subnet to Azure NetApp Files
     href: azure-netapp-files-delegate-subnet.md
   - name: Create and configure volumes
-  items:
+    items:
     - name: NFS volumes
       items:
       - name: Create an NFS volume
