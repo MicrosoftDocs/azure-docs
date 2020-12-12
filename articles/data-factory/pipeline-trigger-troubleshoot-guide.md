@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting pipeline orchastration and triggers in ADF
-description: Use difrent methods to troublshoot pipeline trigger issues in ADF 
+description: Use different  methods to troubleshoot pipeline trigger issues in ADF 
 author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
