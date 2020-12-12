@@ -358,10 +358,11 @@ compacted view, whereby only the latest event is retained for each partition
 key. The shape of the target database is ultimately up to you and your
 application's needs. This pattern is also referred to as "event sourcing".
 
-You can easily create log projections into [Azure SQL
-Database](../stream-analytics/sql-database-output.md) and [Azure Cosmos
-DB](../stream-analytics/azure-cosmos-db-output.md) in Azure Stream Analytics and
-you should prefer that option.
+> [!TIP]
+> You can easily create log projections into [Azure SQL
+> Database](../stream-analytics/sql-database-output.md) and [Azure Cosmos
+> DB](../stream-analytics/azure-cosmos-db-output.md) in Azure Stream Analytics and
+> you should prefer that option.
 
 The following Azure Function projects the contents of an Event Hub
 compacted into an Azure CosmosDB collection.

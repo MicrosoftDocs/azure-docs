@@ -277,8 +277,7 @@ tasks.
 For stateful replication applications that need to consider relationships
 between events, create composite events, enrich events or reduce events, create
 data aggregations, and transform event payloads, [Azure Stream
-Analytics](../stream-analytics/stream-analytics-introduction.md) is stateful
-replication and aggregation service.
+Analytics](../stream-analytics/stream-analytics-introduction.md) is the best implementation option.
 
 In Azure Stream Analytics, you [create
 jobs](../stream-analytics/stream-analytics-quick-create-portal.md) that
@@ -396,6 +395,7 @@ Next, you might want to read up how to set up a replicator application with
 Azure Stream Analytics or Azure Functions and then how to replicate event flows
 between Event Hubs and various other eventing and messaging systems:
 
+- [Event replication task patterns][10]
 - [Process data with Azure Stream Analytics][9]
 - [Event replicator applications in Azure Functions][1]
 - [Replicating events between Event Hubs][2]
@@ -410,3 +410,4 @@ between Event Hubs and various other eventing and messaging systems:
 [7]: event-hubs-federation-patterns.md#routing
 [8]: event-hubs-federation-patterns.md#log-projection
 [9]: process-data-azure-stream-analytics.md
+[10]: event-hubs-federation-patterns.md#replication
