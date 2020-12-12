@@ -178,3 +178,14 @@ Internal clients will obtain local, reflexive, and relay candidates in the same 
 :::image type="content" source="./media/call-flows/acs-group-calls.png" alt-text="OACS Group Call":::
 
 *Figure 9 – ACS Group Calls*
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Get started with calling](../quickstarts/voice-video-calling/getting-started-with-calling.md)
+
+The following documents may be interesting to you:
+
+- Learn more about [call types](../concepts/voice-video-calling/about-call-types.md)
+- Learn about [Client-server architecture](./client-and-server-architecture.md)
+
