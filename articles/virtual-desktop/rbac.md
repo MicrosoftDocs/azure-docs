@@ -68,7 +68,7 @@ The Host Pool Reader role lets you view everything in the host pool, but won't a
 
 ## Application Group Contributor
 
-The Application Group Contributor role lets you manage all aspects of app groups. If you want to publish appgroups to users or user groups, you'll need the User Access Administrator role.
+The Application Group Contributor role lets you manage all aspects of app groups. If you want to publish app groups to users or user groups, you'll need the User Access Administrator role.
 
 The following list describes which permissions this role can access:
 
