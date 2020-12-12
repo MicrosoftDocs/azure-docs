@@ -21,20 +21,26 @@ Choose from the following tools and APIs for submitting queries.
 
 | Methodology | Description |
 |-------------|-------------|
-| [Search explorer (portal)](search-explorer.md) | Provides a search bar and options for index and api-version selections. Results are returned as JSON documents. Recommended for early investigation, testing, and validation. <br/>[Learn more.](search-explorer.md) | 
-| [Postman or Visual Studio Code](search-get-started-rest.md) | Web testing tools are a strong choice for formulating [Search Documents](/rest/api/searchservice/search-documents) REST calls. The REST API supports every programmatic operation in Azure Cognitive Search, so you can issue requests interactively to understand how it works before investing in code.  |
-| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Client that can be used to query a search index in C#.  <br/>[Learn more.](search-howto-dotnet-sdk.md)  |
-| [SearchClient (Python)](/dotnet/api/azure.search.documents.searchclient) | Client that can be used to query a search index in Python. <br/>[Learn more.](search-get-started-python.md)  |
-| [SearchClient (JavaScript)](/dotnet/api/azure.search.documents.searchclient) | Client that can be used to query a search index in JavaScript.  <br/>[Learn more.](search-get-started-javascript.md)  |
+| Portal| [Search explorer (portal)](search-explorer.md) provides a search bar and options for index and api-version selections. Results are returned as JSON documents. Recommended for early investigation, testing, and validation. <br/>[Learn more.](search-explorer.md) |
+| Web testing tools| [Postman or Visual Studio Code](search-get-started-rest.md) are strong choices for formulating [Search Documents](/rest/api/searchservice/search-documents) REST calls. The REST API supports every programmatic operation in Azure Cognitive Search, so you can issue requests interactively to understand how it works before investing in code.  |
+| Azure SDK | [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) can be used to query a search index in C#.  [Learn more.](search-howto-dotnet-sdk.md) <br/><br/>[SearchClient (Python)](/dotnet/api/azure.search.documents.searchclient) can be used to query a search index in Python. [Learn more.](search-get-started-python.md) <br/><br/> [SearchClient (JavaScript)](/dotnet/api/azure.search.documents.searchclient) can be used to query a search index in JavaScript. [Learn more.](search-get-started-javascript.md)  |
 
 ## Set up a search client
 
-Endpoint
-Key
+A search client authenticates to the search service, sends requests, and handles responses. Queries are always directed at the documents collection of a single index. You cannot join indexes or create custom or temporary data structures as a query target.
 
-For REST, add the api-version. 
+In the portal, Search Explorer and other tools have a built-in client connection to the service, with direct access indexes and other objects from portal pages. Access to tools, wizards, and objects assume that you have administrative rights on the service. With Search Explorer, you can focus specifying the search string and other parameters. 
 
-The client or endpoint must specify which index to use. In REST calls, appends the docs collection to the index name.
+For REST calls, you can use Postman or another tool as the client to specify a [Search Documents](/rest/api/searchservice/search-documents) request. Each request is standalone, so you must provide the endpoint (URL to the service) and an admin or query API key for access. Depending on the request, the URL might also include the index name, the documents collection, and other properties. A few properties, such as Content-Type and `api-key` are passed on the request header. Other parameters can be passed on the URL or in the body of the request. All REST calls require an API key for authentication, and an api-version.
+
+Azure SDKs provide clients that can persist state, allowing connection reuse. For query operations, you will instantiate a SearchClient and provide values for the following properties: Endpoint, Key, Index. You can then call the Search method to provide the query string. 
+
+| Language | Client | Example |
+|----------|--------|---------|
+| C# and .NET | [SearchClient](/dotnet/api/azure.search.documents.searchclient) | [Send your first search query in C#](/dotnet/api/overview/azure/search.documents-readme#send-your-first-search-query) |
+| Python      | [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) | [Send your first search query in Python](/python/api/overview/azure/search-documents-readme#send-your-first-search-request) |
+| Java        | [SearchClient](/java/api/com.azure.search.documents.searchclient) | [Send your first search query in Java](/java/api/overview/azure/search-documents-readme#send-your-first-search-query)  |
+| JavaScript  | [SearchClient](/javascript/api/@azure/search-documents/searchclient) | [Send your first search query in JavaScript](/javascript/api/overview/azure/search-documents-readme#send-your-first-search-query)  |
 
 ## Choose a parser: simple | full
 
@@ -60,9 +66,9 @@ Use Search, Autocomplete, Suggestions
 
 Use Filter with any of the above, or by itself.
 
-use SearchFields to constrain the query to specific fields.
+Use SearchFields to constrain the query to specific fields.
 
-## Results composition
+## Compose results
 
 Use Select to choose which fields
 Use Count

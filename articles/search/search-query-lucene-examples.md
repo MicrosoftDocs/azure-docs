@@ -24,15 +24,15 @@ The Lucene parser supports complex query constructs, such as field-scoped querie
 
 ## NYC Jobs examples
 
-The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://nycopendata.socrata.com/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Cognitive Search to try these queries.
+The following examples leverage the [NYC Jobs search index](https://azjobsdemo.azurewebsites.net/)  consisting of jobs available based on a dataset provided by the [City of New York OpenData Initiative](https://nycopendata.socrata.com/). This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Cognitive Search to try these queries.
 
-What you do need is Postman or an equivalent tool for issuing HTTP request on GET or POST. For more information, see [Quickstart: Explore Azure Cognitive Search REST API](search-get-started-rest.md).
+What you do need is Postman or an equivalent tool for issuing HTTP request on GET or POST. If you're unfamiliar with these tools, see [Quickstart: Explore Azure Cognitive Search REST API](search-get-started-rest.md).
 
-### Set up the request
+## Set up the request
 
-1. Request headers must have  **Content-Type** set to `application/json` and an **api-key** set to `252044BE3886FE4A8E3BAA4F595114BB`. This is a query key for the sandbox search service hosting the NYC Jobs index.
+1. Request headers must have  **`Content-Type`** set to `application/json` and an **`api-key`** set to `252044BE3886FE4A8E3BAA4F595114BB`. This is a query key for the sandbox search service hosting the NYC Jobs index.
 
-1. Set the verb to **POST** or **GET** and the URL to **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30&queryType=full`**. 
+1. Set the verb to **`POST`** or **`GET`** and the URL to **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30&queryType=full`**. 
 
    + **`queryType=full`** invokes the full Lucene analyzer.
 
@@ -48,9 +48,9 @@ What you do need is Postman or an equivalent tool for issuing HTTP request on GE
 
 The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, and all values.
 
-## How to invoke full Lucene parsing
+### How to invoke full Lucene parsing
 
-Add **queryType=full** to invoke the full query syntax, overriding the default simple query syntax. All of the examples in this article specify the **queryType=full** search parameter, indicating that the full syntax is handled by the Lucene Query Parser. 
+Add **`queryType=full`** to invoke the full query syntax, overriding the default simple query syntax. All of the examples in this article specify the **`queryType=full`** search parameter, indicating that the full syntax is handled by the Lucene Query Parser. 
 
 ```http
 POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true
@@ -64,7 +64,7 @@ POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=
 
 This first example is not Lucene-specific, but we lead with it to introduce the first fundamental query concept: field scope. This example scopes the entire query and the response to just a few specific fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
 
-For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The **searchFields** parameter restricts query execution to just the business_title field, and **select** specifies which fields are included in the response.
+For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The **`searchFields`** parameter restricts query execution to just the business_title field, and **`select`** specifies which fields are included in the response.
 
 ### Search expression
 

@@ -538,6 +538,8 @@
       href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
       href: https://www.microsoft.com/en-us/ai/ai-lab-jfk-files
+    - name: NYC Jobs demo
+      href: https://azjobsdemo.azurewebsites.net/
   - name: Training
     items:
     - name: Introduction (Microsoft Learn)

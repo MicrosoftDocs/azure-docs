@@ -13,24 +13,24 @@ ms.date: 12/12/2020
 
 # Use the "simple" search syntax in Azure Cognitive Search
 
-In Azure Cognitive Search, the [simple query syntax](query-simple-syntax.md) invokes the default query parser for executing full text search queries against an index. This parser is fast and handles common scenarios, including full text search, filtered and faceted search, and geo-search. 
+In Azure Cognitive Search, the [simple query syntax](query-simple-syntax.md) invokes the default query parser for full text search queries against an index. This parser is fast and handles common scenarios, including full text search, filtered and faceted search, and prefix search. 
 
-In this article, we use examples to illustrate the simple syntax, populating the **`search=`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) operation.
+This article uses examples to illustrate the simple syntax, populating the **`search=`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request.
 
 > [!NOTE]
 > An alternative query syntax is [Full Lucene](query-lucene-syntax.md), supporting more complex query structures, such as fuzzy and wildcard search, which can take additional time to process. For more information and examples demonstrating full syntax, see [Use the full Lucene syntax](search-query-lucene-examples.md).
 
 ## NYC Jobs examples
 
-The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://nycopendata.socrata.com/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Cognitive Search to try these queries.
+The following examples leverage the [NYC Jobs search index](https://azjobsdemo.azurewebsites.net/) consisting of jobs available based on a dataset provided by the [City of New York OpenData Initiative](https://nycopendata.socrata.com/). This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Cognitive Search to try these queries.
 
-What you do need is Postman or an equivalent tool for issuing HTTP request on GET or POST. For more information, see [Quickstart: Explore Azure Cognitive Search REST API](search-get-started-rest.md).
+What you do need is Postman or an equivalent tool for issuing HTTP request on GET or POST. If you're unfamiliar with these tools, see [Quickstart: Explore Azure Cognitive Search REST API](search-get-started-rest.md).
 
-### Set up the request
+## Set up the request
 
-1. Request headers must have  **Content-Type** set to `application/json` and an **api-key** set to `252044BE3886FE4A8E3BAA4F595114BB`. This is a query key for the sandbox search service hosting the NYC Jobs index.
+1. Request headers must have  **`Content-Type`** set to `application/json` and an **`api-key`** set to `252044BE3886FE4A8E3BAA4F595114BB`. This is a query key for the sandbox search service hosting the NYC Jobs index.
 
-1. Set the verb to **POST** or **GET** and the URL to **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30`**. The documents collection on the index contains all searchable content. The query api-key provided in the request header only works on read operations targeting the documents collection.
+1. Set the verb to **`POST`** or **`GET`** and the URL to **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30`**. The documents collection on the index contains all searchable content. The query api-key provided in the request header only works on read operations targeting the documents collection.
 
 1. Optionally, add **`$count=true`** to return a count of the documents matching the search criteria. On an empty search string, the count will be all documents in the index (about 2800 in the case of NYC Jobs).
 
@@ -42,9 +42,11 @@ What you do need is Postman or an equivalent tool for issuing HTTP request on GE
 
 The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, and all values.
 
-## How to invoke simple query parsing
+### How to invoke simple query parsing
 
-For interactive queries, you don't have to specify anything: simple is the default. In code, if you previously invoked **`queryType=full`** for full query syntax, you could reset the default with **`queryType=simple`**.
+For interactive queries, you don't have to specify anything: simple is the default.
+
+In code, if you previously invoked **`queryType=full`**, you can reset the default with **`queryType=simple`**.
 
 ```http
 POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true
@@ -87,12 +89,11 @@ POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=
 {
     "queryType": "simple",
     "search": "*",
-    "searchFields": "id",
     "select": "id"
 }
 ```
 
-The next example is a lookup query returning a specific document based on `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", which appeared first in the previous response. The following query returns all retrievable fields in the entire document.
+The next example is a lookup query returning a specific document based on `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", which appeared first in the previous response. The following query returns all retrievable fields for the entire document.
 
 ```http
 POST https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2020-06-30
@@ -105,7 +106,7 @@ POST https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-066
 
 ## Example 3: Filter queries
 
-[Filter syntax](./search-query-odata-filter.md) is an OData expression that you can use with **`search`** or by itself. A standalone filter, without a search parameter, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring (all scores are 1), and no ranking. Notice the search string is empty.
+[Filter syntax](./search-query-odata-filter.md) is an OData expression that you can use by itself or with **`search`**. A standalone filter, without a search parameter, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring (all scores are 1), and no ranking. Notice the search string is empty.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
@@ -145,6 +146,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
       "orderby": "agency"
     }
 ```
+Response for this query should look similar to the following screenshot.
 
   :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Range filter for numeric ranges" border="false":::
 
@@ -157,6 +159,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
       "orderby": "business_title"
     }
 ```
+Response for this query should look similar to the following screenshot.
 
   :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Range filter for text ranges" border="false":::
 
@@ -172,11 +175,13 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
     {
       "search": "",
       "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
-      "select": "job_id, business_title, work_location"
+      "select": "business_title, work_location"
     }
 ```
 
-For more readable results, search results are trimmed to include a job ID, job title, and the work location. The starting coordinates were obtained from a random document in the index (in this case, for a work location on Staten island.
+For more readable results, search results are trimmed to include job title and the work location. The starting coordinates were obtained from a random document in the index (in this case, for a work location on Staten island.
+
+  :::image type="content" source="media/search-query-simple-examples/geo-search.png" alt-text="Map of Staten island" border="false":::
 
 ## Example 6: Search precision
 
@@ -224,6 +229,8 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
       "searchMode": "any"
     }
 ```
+
+Response for this query should look similar to the following screenshot.
 
   :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="search mode any" border="false":::
 
