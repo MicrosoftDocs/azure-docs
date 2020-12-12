@@ -78,7 +78,7 @@ You might have noticed the search score in the response. Uniform scores of **1**
 
 ## Example 2: Look up by ID
 
-Search results include list of matching documents, and typically only those fields that are most representative of the docuemnt are included. In the NYC Jobs index, it might be the business title or posting type. A user who clicks on a result expects to see more detail. This example show you how to return a single document in its entirety, using a [Lookup operation](/rest/api/searchservice/lookup-document) to pass in the document ID.
+Search results include list of matching documents, and typically only those fields that are most representative of the document are included. In the NYC Jobs index, it might be the business title or posting type. A user who clicks on a result expects to see more detail. This example show you how to return a single document in its entirety, using a [Lookup operation](/rest/api/searchservice/lookup-document) to pass in the document ID.
 
 All documents have a unique identifier. To try out the syntax for a lookup query, first return a list of document IDs so that you can find one to use. For NYC Jobs, the identifiers are stored in the `id` field.
 
@@ -92,10 +92,15 @@ POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=
 }
 ```
 
-The next example is a lookup query returning a specific document based on `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", which appeared first in the previous response. The following query returns the entire document, not just selected fields.
+The next example is a lookup query returning a specific document based on `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", which appeared first in the previous response. The following query returns all retrievable fields in the entire document.
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2020-06-30&$count=true&search=*
+POST https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2020-06-30
+{
+    "queryType": "simple",
+    "search": "*",
+    "count": "true",
+}
 ```
 
 ## Example 3: Filter queries
@@ -195,7 +200,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
     }
 ```
 
-Example 3: `search="fire department"` returns 82 results. Enclosing the string in quotation marks is a phrase search consisting of both terms, and matches are found on tokenized terms in the index consisting of the combined terms. This explains why a search like `search=+fire +department` is not equivalent. Both terms are required, but are scanned for independently. 
+Example 3: `search="fire department"` returns 82 results. Enclosing the string in quotation marks creates a phrase search consisting of both terms, and matches are found on tokenized terms in the index consisting of the combined terms. This explains why a search like `search=+fire +department` is not equivalent. Both terms are required, but are scanned for independently. 
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
