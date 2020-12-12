@@ -55745,6 +55745,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/databox-online/azure-stack-edge-gpu-2011-release-notes.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-2012-release-notes",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/databox-online/data-box-edge-deploy-add-shares.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-add-shares",
       "redirect_document_id": false
