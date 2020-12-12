@@ -315,6 +315,6 @@ The source code for this sample can be found on [GitHub](https://github.com/Azur
 
 # [QnA Maker managed (preview release)](#tab/version-2)
 
-The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/qnamaker/preview-sdk/quickstart.java).
+The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/qnamaker/sdk/preview-sdk/quickstart.java).
 
 ---
