@@ -54,7 +54,7 @@ The entry point for autoscale maximum throughput `Tmax` starts at 4000 RU/s, whi
 
 ## Enable autoscale on existing resources
 
-Use the [Azure portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), [Azure Resource Manager template](how-to-provision-autoscale-throughput.md#azure-resource-manager), [CLI](how-to-provision-autoscale-throughput#azure-cli) or [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) to enable autoscale on an existing database or container. You can switch between autoscale and standard (manual) provisioned throughput at any time. See this [documentation](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) for more information.
+Use the [Azure portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), [Azure Resource Manager template](how-to-provision-autoscale-throughput.md#azure-resource-manager), [CLI](how-to-provision-autoscale-throughput.md#azure-cli) or [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) to enable autoscale on an existing database or container. You can switch between autoscale and standard (manual) provisioned throughput at any time. See this [documentation](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) for more information.
 
 ## <a id="autoscale-limits"></a> Throughput and storage limits for autoscale
 
