@@ -1,11 +1,11 @@
 ---
 title: RabbitMQ trigger for Azure Functions
 description: Learn to run an Azure Function when a RabbitMQ message is created.
-author: cachai
+author: cachai2
 
 ms.assetid:
 ms.topic: reference
-ms.date: 02/19/2020
+ms.date: 12/11/2020
 ms.author: cachai
 ms.custom:
 ---
@@ -46,11 +46,11 @@ Here's the binding data in the *function.json* file:
 {​​
     "bindings": [
         {​​
-        "name": "myQueueItem",
-        "type": "rabbitMQTrigger",
-        "direction": "in",
-        "queueName": "queue",
-        "connectionStringSetting": "rabbitMQConnection"
+            "name": "myQueueItem",
+            "type": "rabbitMQTrigger",
+            "direction": "in",
+            "queueName": "queue",
+            "connectionStringSetting": "rabbitMQConnection"
         }​​
     ]
 }​​
@@ -77,11 +77,11 @@ Here's the binding data in the *function.json* file:
 {​​
     "bindings": [
         {​​
-        "name": "myQueueItem",
-        "type": "rabbitMQTrigger",
-        "direction": "in",
-        "queueName": "TestQueue",
-        "connectionStringSetting": "Connection"
+            "name": "myQueueItem",
+            "type": "rabbitMQTrigger",
+            "direction": "in",
+            "queueName": "queue",
+            "connectionStringSetting": "rabbitMQConnection"
         }​​
     ]
 }​​
@@ -91,8 +91,21 @@ Here's the JavaScript script code:
 
 ```javascript
 module.exports = async function (context, myQueueItem) {​​
-    context.log('JavaScript rabbitmq trigger function processed work item', myQueueItem);
+    context.log('JavaScript RabbitMQ trigger function processed work item', myQueueItem);
 }​​;
+```
+
+# [Powershell](#tab/powershell)
+
+The following example demonstrates how to read a RabbitMQ queue message via a trigger.
+
+```powershell
+# Input bindings are passed in via param block.
+param([string] $MyQueueItem, $TriggerMetadata)
+
+# Write out the queue message and insertion time to the information log.
+Write-Host "PowerShell rabbitmq trigger function processed work item: $MyQueueItem"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
 ```
 
 # [Python](#tab/python)
@@ -107,7 +120,7 @@ A RabbitMQ binding is defined in *function.json* where *type* is set to `RabbitM
     "bindings": [
         {​​
             "name": "myQueueItem",
-            "type": "rabbitMqTrigger",
+            "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "",
             "connectionStringSetting": ""
@@ -123,7 +136,7 @@ import logging
 import azure.functions as func
 
 def main(myQueueItem) -> None:
-    logging.info('Python rabbitmq trigger function processed a queue item: %s', myQueueItem)
+    logging.info('Python RabbitMQ trigger function processed a queue item: %s', myQueueItem)
 ```
 
 # [Java](#tab/java)
@@ -133,7 +146,7 @@ The following Java function uses the `@RabbitMQTrigger` annotation from the [Jav
 ```java
 @FunctionName("RabbitMQTriggerExample")
 public void run(
-    @RabbitMQTrigger(connectionStringSetting = "rabbitMQ", queueName = "TestQueue") String input,
+    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnection", queueName = "queue") String input,
     final ExecutionContext context)
 {
     context.getLogger().info("Java HTTP trigger processed a request." + input);
@@ -168,6 +181,10 @@ Attributes are not supported by C# Script.
 
 Attributes are not supported by JavaScript.
 
+# [Powershell](#tab/powershell)
+
+Attributes are not supported by Powershell
+
 # [Python](#tab/python)
 
 Attributes are not supported by Python.
@@ -186,14 +203,14 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type** | n/a | Must be set to "RabbitMQTrigger". This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
+|**type** | n/a | Must be set to "RabbitMQTrigger".|
+|**direction** | n/a | Must be set to "in".|
 |**name** | n/a | The name of the variable that represents the queue in function code. |
-|**queueName**|**QueueName**|Name of the queue to receive messages from.  Set only if monitoring a queue, not for a topic.|
-|**hostName**|**HostName**|(optional if using ConnectStringSetting) Hostname of the queue (Ex: 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(optional if using ConnectionStringSetting) Name to access the queue |
-|**passwordSetting**|**PasswordSetting**|(optional if using ConnectionStringSetting) Password to access the queue|
-|**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Example of connection string in local.settings.json: "rabbitMqConnection" : "<ActualConnectionstring>")|
+|**queueName**|**QueueName**| Name of the queue to receive messages from. |
+|**hostName**|**HostName**|(optional if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
+|**userNameSetting**|**UserNameSetting**|(optional if using ConnectionStringSetting) <br>Name to access the queue |
+|**passwordSetting**|**PasswordSetting**|(optional if using ConnectionStringSetting) <br>Password to access the queue|
+|**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
 |**port**|**Port**|Gets or sets the Port used. Defaults to 0.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -208,7 +225,7 @@ The following parameter types are available for the message:
   * `byte[]`- Through Body property.
 * `string` - If the message is text.
 * `JSON object` - If the message is delivered as a valid JSON string
-* `C# POCO` - If the message is properly formatted as a C# object
+* `POCO` - If the message is properly formatted as a C# object
 
 # [C# Script](#tab/csharp-script)
 
@@ -218,17 +235,22 @@ The RabbitMQ message is passed into the function as either a string or JSON obje
 
 The RabbitMQ message is passed into the function as either a string or JSON object.
 
+# [Powershell](#tab/powershell)
+
+The RabbitMQ message is passed into the function as either a string or JSON object.
+
 # [Python](#tab/python)
 
 The RabbitMQ message is passed into the function as either a string or JSON object.
 
 # [Java](#tab/java)
 
-Refer to Java [attributes and annotations](Attributes and annotations).
-
-[See the example for details](#example).
+Refer to Java [attributes and annotations](#Attributes-and-annotations).
 
 ---
+
+## Dead Letter Queues
+Dead letter queues and exchanges can't be controlled or configured from the RabbitMQ extensions and should be configured in RabbitMQ. Please refer to the [RabbitMQ documentation](https://www.rabbitmq.com/dlx.html).
 
 ## RabbitMQ Dashboard
 If you would like to monitor your queues and exchanges for a certain RabbitMQ endpoint, first enable the [RabbitMQ management plugin](https://www.rabbitmq.com/management.html). Then, point your browser to the address of format http://{node-hostname}:15672 and log in with your user name and password.
@@ -254,14 +276,17 @@ This section describes the global configuration settings available for this bind
 }
 ```
 
+> [!NOTE]
+> The connectionString takes precedence over hostName and userName. If these are all set, the connectionString will override the other two.
+
 |Property  |Default | Description |
 |---------|---------|---------|
 |prefetchCount|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
-|hostName|n/a|The maximum duration within which the message lock will be renewed automatically.|
-|queueName|n/a|Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br><br>Setting to `false` is only supported in C#.<br><br>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
-|password|16|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
-|userName|2000|The maximum number of sessions that can be handled concurrently per scaled instance.|
-|connectionString|2000|The maximum number of sessions that can be handled concurrently per scaled instance.|
+|hostName|n/a|(optional if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
+|queueName|n/a| Name of the queue to receive messages from. |
+|password|n/a|(optional if using ConnectionStringSetting) <br>Password to access the queue|
+|userName|n/a|(optional if using ConnectionStringSetting) <br>Name to access the queue |
+|connectionString|n/a|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work.|
 |port|0|The maximum number of sessions that can be handled concurrently per scaled instance.|
 
 ## Next steps
