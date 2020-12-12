@@ -91,7 +91,7 @@
       href: azure-netapp-files-create-volumes-smb.md
     - name: Create a dual-protocol volume 
       href: create-volumes-dual-protocol.md
-  - name: Mount or unmount a volume for Windows or Linux virtual machines
+  - name: Mount or unmount a volume
     href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
   - name: Manage snapshots
     href: azure-netapp-files-manage-snapshots.md
