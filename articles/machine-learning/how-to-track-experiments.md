@@ -46,13 +46,13 @@ This example performs a parameter sweep over alpha values and captures the resul
 
 1. Create a training script that includes the logging logic, `train.py`.
 
-   [!code-python[](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
+   [!code-python](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)
 
 
 1. Submit the ```train.py``` script to run in a user-managed environment. The entire script folder is submitted for training.
 
-   [!notebook-python[](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)]
-   [!notebook-python[](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
+   [!notebook-python](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)
+   [!notebook-python](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)
 
     The `show_output` parameter turns on verbose logging, which lets you see details from the training process as well as information about any remote resources or compute targets. Use the following code to turn on verbose logging when you submit the experiment.
 
