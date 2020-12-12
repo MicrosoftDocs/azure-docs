@@ -30,13 +30,20 @@ What you do need is Postman or an equivalent tool for issuing HTTP request on GE
 
 ## Set up the request
 
-1. Request headers must have  **`Content-Type`** set to `application/json` and an **`api-key`** set to `252044BE3886FE4A8E3BAA4F595114BB`. This is a query key for the sandbox search service hosting the NYC Jobs index.
+1. Request headers must have the following values:
 
-1. Set the verb to **`POST`** or **`GET`** and the URL to **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30&queryType=full`**. 
+   | Key | Value |
+   |-----|-------|
+   | `Content-Type` | `application/json`|
+   | `api-key  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (this is the actual query API key for the sandbox search service hosting the NYC Jobs index) |
+
+1. Set the verb to **`GET`**.
+
+1. Set the URL to **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30&queryType=full`**
 
    + **`queryType=full`** invokes the full Lucene analyzer.
 
-   + The documents collection on the index contains all searchable content. The query api-key provided in the request header only works on read operations targeting the documents collection.
+   + The documents collection on the index contains all searchable content. A query API key provided in the request header only works for read operations targeting the documents collection.
 
 1. Optionally, add **`$count=true`** to return a count of the documents matching the search criteria. On an empty search string, the count will be all documents in the index (about 2800 in the case of NYC Jobs).
 
@@ -62,70 +69,51 @@ POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=
 
 ## Example 1: Query scoped to a list of fields
 
-This first example is not Lucene-specific, but we lead with it to introduce the first fundamental query concept: field scope. This example scopes the entire query and the response to just a few specific fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
+This first example is not parser-specific, but we lead with it to introduce the first fundamental query concept: containment. This example limits both query execution and the response to just a few specific fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
 
-For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The **`searchFields`** parameter restricts query execution to just the business_title field, and **`select`** specifies which fields are included in the response.
-
-### Search expression
+This query targets only *business_title* and *posting_type* in **`searchFields`**, specifying through the **`select`** parameter those same fields in the response.
 
 ```http
-&search=*&searchFields=business_title&$select=business_title
+POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true
+{
+    "queryType": "full",
+    "search": "*",
+    "searchFields": "business_title, posting_type",
+    "select": "business_title, posting_type"
+}
 ```
 
-Here is the same query with multiple fields in a comma-delimited list.
-
-```http
-search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
-```
-
-The spaces after the commas are optional.
-
-> [!Tip]
-> When using the REST API from your application code, don't forget to URL-encode parameters like `$select` and `searchFields`.
-
-### Full URL
-
-```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&search=*&searchFields=business_title&$select=business_title
-```
-
-Response for this query should look similar to the following screenshot.
+Response for this query should look similar to the following screenshot (posting_type isn't included in this screenshot).
 
   ![Postman sample response with scores](media/search-query-lucene-examples/postman-sample-results.png)
 
-You might have noticed the search score in the response. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because no criteria was applied. For null search with no criteria, rows come back in arbitrary order. When you include actual search criteria, you will see search scores evolve into meaningful values.
+You might have noticed the search score in the response. Uniform scores of **1** occur when there is no rank, either because the search was not full text search, or because no criteria was provided. For an empty search, rows come back in arbitrary order. When you include actual criteria, you will see search scores evolve into meaningful values.
 
 ## Example 2: Fielded search
 
-Full Lucene syntax supports scoping individual search expressions to a specific field. This example searches for business titles with the term senior in them, but not junior.
-
-### Search expression
+Full Lucene syntax supports scoping individual search expressions to a specific field. This example searches for business titles with the term senior in them, but not junior. You can specify multiple fields using AND.
 
 ```http
-$select=business_title&search=business_title:(senior NOT junior)
+POST /indexes/nycjobs/docs?api-version=2020-06-30&$count=true
+{
+    "queryType": "full",
+    "search": "business_title:(senior NOT junior) AND posting_type:external",
+    "searchFields": "business_title, posting_type",
+    "select": "business_title, posting_type"
+}
 ```
 
-Here is the same query with multiple fields.
-
-```http
-$select=business_title, posting_type&search=business_title:(senior NOT junior) AND posting_type:external
-```
-
-### Full URL
-
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
-```
+Response for this query should look similar to the following screenshot (posting_type is not shown).
 
   :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Postman sample response search expression" border="false":::
 
-You can define a fielded search operation with the **fieldName:searchExpression** syntax, where the search expression can be a single word or a phrase, or a more complex expression in parentheses, optionally with Boolean operators. Some examples include the following:
+The search expression can be a single word or a phrase, or a more complex expression in parentheses, optionally with Boolean operators. Some examples include the following:
 
-- `business_title:(senior NOT junior)`
-- `state:("New York" OR "New Jersey")`
-- `business_title:(senior NOT junior) AND posting_type:external`
++ `business_title:(senior NOT junior)`
++ `state:("New York" OR "New Jersey")`
++ `business_title:(senior NOT junior) AND posting_type:external`
 
-Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, as in this case searching for two distinct locations in the `state` field. Also, ensure the operator is capitalized as you see with NOT and AND.
+Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, as in this case searching for two distinct locations in the `state` field. 
 
 The field specified in **fieldName:searchExpression** must be a searchable field. See [Create Index (Azure Cognitive Search REST API)](/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.
 
@@ -134,52 +122,44 @@ The field specified in **fieldName:searchExpression** must be a searchable field
 
 ## Example 3: Fuzzy search
 
-Full Lucene syntax also supports fuzzy search, matching on terms that have a similar construction. 
-To do a fuzzy search, append the tilde `~` symbol at the end of a single word with an optional parameter, a value between 0 and 2, that specifies the edit distance. For example, `blue~` or `blue~1` would return blue, blues, and glue.
-
-### Search expression
+Full Lucene syntax also supports fuzzy search, matching on terms that have a similar construction. To do a fuzzy search, append the tilde `~` symbol at the end of a single word with an optional parameter, a value between 0 and 2, that specifies the edit distance. For example, `blue~` or `blue~1` would return blue, blues, and glue.
 
 ```http
-searchFields=business_title&$select=business_title&search=business_title:asosiate~
+POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true
+{
+    "queryType": "full",
+    "search": "business_title:asosiate~",
+    "searchFields": "business_title",
+    "select": "business_title"
+}
 ```
 
-Phrases aren't supported directly but you can specify a fuzzy match on component parts of a phrase.
+Phrases aren't supported directly but you can specify a fuzzy match on each term of a multi-part phrase, such as `search=business_title:asosiate~ AND comm~`.  In the screenshot below, the response includes a match on *community associate*.
 
-```http
-searchFields=business_title&$select=business_title&search=business_title:asosiate~ AND comm~ 
-```
-
-
-### Full URL
-
-This query searches for jobs with the term "associate" (deliberately misspelled):
-
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:asosiate~
-```
-  ![Fuzzy search response](media/search-query-lucene-examples/fuzzysearch.png)
-
+  :::image type="content" source="media/search-query-lucene-examples/fuzzysearch.png" alt-text="Fuzzy search response" border="false":::
 
 > [!Note]
 > Fuzzy queries are not [analyzed](search-lucene-query-architecture.md#stage-2-lexical-analysis). Query types with incomplete terms (prefix query, wildcard query, regex query, fuzzy query) are added directly to the query tree, bypassing the analysis stage. The only transformation performed on incomplete query terms is lowercasing.
 >
 
 ## Example 4: Proximity search
+
 Proximity searches are used to find terms that are near each other in a document. Insert a tilde "~" symbol at the end of a phrase followed by the number of words that create the proximity boundary. For example, "hotel airport"~5 will find the terms hotel and airport within 5 words of each other in a document.
 
-### Search expression
+This query searches for the terms "senior" and "analyst",  where each term is separated by no more than one word:
 
 ```http
-searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
+POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true
+{
+    "queryType": "full",
+    "search": "business_title:%22senior%20analyst%22~1",
+    "searchFields": "business_title",
+    "select": "business_title"
+}
 ```
 
-### Full URL
+Response for this query should look similar to the following screenshot 
 
-In this query, for jobs with the term "senior analyst" where it is separated by no more than one word:
-
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
-```
   :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Proximity query" border="false":::
 
 Try it again removing the words between the term "senior analyst". Notice that 8 documents are returned for this query as opposed to 10 for the previous query.

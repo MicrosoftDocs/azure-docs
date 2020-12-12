@@ -17,7 +17,7 @@ This article explains query construction step by step. Examples are in REST so t
 
 ## Choose a tool or API
 
-Choose from the following tools and APIs for submitting queries.
+Choose from the following tools and APIs to create queries for testing or production workloads.
 
 | Methodology | Description |
 |-------------|-------------|
@@ -62,7 +62,7 @@ queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=Ho
 
 ## Specify match criteria
 
-Use Search, Autocomplete, Suggestions
+Use Search, Autocomplete, Suggestions to accept user input. The query engine will match on any field marked as *searchable*.
 
 Use Filter with any of the above, or by itself.
 
@@ -70,16 +70,18 @@ Use SearchFields to constrain the query to specific fields.
 
 ## Compose results
 
+Search results can be composed of any field that's marked as *retrievable*.
+
 Use Select to choose which fields
 Use Count
 Use Top, Skip
 Use hit highlighting
 
-## How field attributes in an index determine query behaviors
+## Enable query behaviors in an index
 
 Index design and query design are tightly coupled in Azure Cognitive Search. The *index schema*, with attributes on each field, determines the kind of query you can build.
 
-Index attributes on a field set the allowed operations - whether a field is *searchable* in the index, *retrievable* in results, *sortable*, *filterable*, and so forth. In the example schema, `"$orderby": "Rating desc"` only works because the Rating field is marked as *sortable* in the index schema.
+Index attributes on a field set the allowed operations - whether a field is *searchable* in the index, *retrievable* in results, *sortable*, *filterable*, and so forth. In the example queries, `"$orderby": "Rating desc"` only works because the Rating field is marked as *sortable* in the index schema.
 
 ![Index definition for the hotel sample](./media/search-query-overview/hotel-sample-index-definition.png "Index definition for the hotel sample")
 

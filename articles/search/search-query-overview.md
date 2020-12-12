@@ -12,7 +12,7 @@ ms.date: 12/11/2020
 ---
 # Querying in Azure Cognitive Search
 
-Azure Cognitive Search offers a rich query language to support a broad range of scenarios, starting with open-ended free form search, to highly-specified query patterns. This article summarizes the kinds of queries you can create.
+Azure Cognitive Search offers an expansive query language to support a broad range of scenarios, from free form search, to highly-specified query patterns. This article summarizes the kinds of queries you can create.
 
 In Cognitive Search, a query is a full specification of a round-trip **`search`** operation, with parameters that both inform query execution and shape the response coming back. Parameters and parsers determine the type of query request. The following query example uses the [Search Documents (REST API)](/rest/api/searchservice/search-documents), targeting the [hotels demo index](search-get-started-portal.md).
 
@@ -35,7 +35,7 @@ Parameters used during query execution:
 
 + **`search`** provides the match criteria, usually whole terms or phrases, with or without operators. Any field that is attributed as *searchable* in the index schema is a candidate for this parameter. 
 
-+ **`searchFields`** constrains query execution to specific fields. Any field that is attributed as *searchable* in the index schema is a candidate for this parameter.
++ **`searchFields`** constrains query execution to specific searchable fields.
 
 Parameters used to shape the response:
 
@@ -53,13 +53,13 @@ The above list is representative but not exhaustive. For the full list of parame
 
 ## Types of queries
 
-With a few notable exceptions, a query request iterates over inverted indexes that are structured for fast scans, where a match can be found in potentially any field, within any number of search documents. In Cognitive Search, the primary methodology for finding matches is either full text search or filters, but you can also implement other well-known search experiences like autocomplete, or geo-location search. The rest of this article summarizes the query methodologies and provides links to more information and examples.
+With a few notable exceptions, a query request iterates over inverted indexes that are structured for fast scans, where a match can be found in potentially any field, within any number of search documents. In Cognitive Search, the primary methodology for finding matches is either full text search or filters, but you can also implement other well-known search experiences like autocomplete, or geo-location search. The rest of this article summarizes queries in Cognitive Search and provides links to more information and examples.
 
 ## Full text search
 
 If your search app includes a search box that collects term inputs, then full text search is probably the query operation backing that experience. Full text search accepts terms or phrases passed in a **`search`** parameter in all *searchable* fields in your index. Optional boolean operators in the query string can specify inclusion or exclusion criteria. Both the simple parser and full parser support full text search.
 
-In Cognitive Search, full text search is built on the Apache Lucene query engine. Query strings in full text search undergo lexical analysis using the standard Lucene analyzer (by default). Text analysis steps include lower-case all terms, remove stop words like "the", and reduce terms to primitive root forms.
+In Cognitive Search, full text search is built on the Apache Lucene query engine. Query strings in full text search undergo lexical analysis to make scans more efficient. Analysis includes lower-casing all terms, removing stop words like "the", and reducing terms to primitive root forms. The default analyzer is Standard Lucene.
 
 When matching terms are found, the query engine reconstitutes a search document containing the match, ranks the documents in order of relevance, and returns the top 50 (by default) in the response.
 
@@ -69,13 +69,13 @@ If you anticipate heavy use of Boolean operators, which is more likely in indexe
 
 ## Autocomplete and suggested queries
 
-[Autocomplete or suggested results](search-autocomplete-tutorial.md) are alternatives to **`search`** that fire successive query request based on partial string inputs (after each character) in a search-as-you-type experience. You can use **`autocomplete`** and **`suggestions`** parameter together or separately, as described in [this tutorial](tutorial-csharp-type-ahead-and-suggestions.md), but you cannot use them with **`search`**. Both completed terms and suggested queries are valid based on index contents. The engine will never return a string or suggestion that is non-existent in your index. For more information, see [Autocomplete (REST API)](/rest/api/searchservice/autocomplete) and [Suggestions (REST API)](/rest/api/searchservice/suggestions).
+[Autocomplete or suggested results](search-autocomplete-tutorial.md) are alternatives to **`search`** that fire successive query requests based on partial string inputs (after each character) in a search-as-you-type experience. You can use **`autocomplete`** and **`suggestions`** parameter together or separately, as described in [this tutorial](tutorial-csharp-type-ahead-and-suggestions.md), but you cannot use them with **`search`**. Both completed terms and suggested queries are derived from index contents. The engine will never return a string or suggestion that is non-existent in your index. For more information, see [Autocomplete (REST API)](/rest/api/searchservice/autocomplete) and [Suggestions (REST API)](/rest/api/searchservice/suggestions).
 
 ## Filter search
 
-Filters are widely used in apps that use Cognitive Search. On application pages, filters are visualized as facets in link navigation structures for user-directed filtering. Filters are also used internally to expose slices of indexed content. For example, you could filter on a language if an index contains fields in both English and French. 
+Filters are widely used in apps that include Cognitive Search. On application pages, filters are often visualized as facets in link navigation structures for user-directed filtering. Filters are also used internally to expose slices of indexed content. For example, you could filter on a language if an index contains fields in both English and French. 
 
-You might also need filters to invoke a specialized query form, as described in the following table. You an use filter with an unspecified search (**`search=*`**) or with a query string that includes terms, phrases, and operators.
+You might also need filters to invoke a specialized query form, as described in the following table. You can use a filter with an unspecified search (**`search=*`**) or with a query string that includes terms, phrases, operators, and patterns.
 
 | Filter scenario | Description |
 |-----------------|-------------|

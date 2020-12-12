@@ -28,28 +28,31 @@ What you do need is Postman or an equivalent tool for issuing HTTP request on GE
 
 ## Set up the request
 
-1. Request headers must have  **`Content-Type`** set to `application/json` and an **`api-key`** set to `252044BE3886FE4A8E3BAA4F595114BB`. This is a query key for the sandbox search service hosting the NYC Jobs index.
+1. Request headers must have the following values:
 
-1. Set the verb to **`POST`** or **`GET`** and the URL to **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30`**. The documents collection on the index contains all searchable content. The query api-key provided in the request header only works on read operations targeting the documents collection.
+   | Key | Value |
+   |-----|-------|
+   | `Content-Type` | `application/json`|
+   | `api-key`  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (this is the actual query API key for the sandbox search service hosting the NYC Jobs index) |
 
-1. Optionally, add **`$count=true`** to return a count of the documents matching the search criteria. On an empty search string, the count will be all documents in the index (about 2800 in the case of NYC Jobs).
+1. Set the verb to **`GET`**.
 
-1. As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents.
+1. Set the URL to **`https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&search=*&$count=true`**. 
 
-  ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*
-  ```
+   The documents collection on the index contains all searchable content. The query api-key provided in the request header only works on read operations targeting the documents collection.
 
-The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, and all values.
+   **`$count=true`** returns a count of the documents matching the search criteria. On an empty search string, the count will be all documents in the index (about 2558 in the case of NYC Jobs).
+
+1. As a verification step, click **Send**. Results are returned as verbose JSON documents.
+
+The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do, and it shows all retrievable fields in the index, with all values.
 
 ### How to invoke simple query parsing
 
-For interactive queries, you don't have to specify anything: simple is the default.
-
-In code, if you previously invoked **`queryType=full`**, you can reset the default with **`queryType=simple`**.
+For interactive queries, you don't have to specify anything: simple is the default. In code, if you previously invoked **`queryType=full`**, you can reset the default with **`queryType=simple`**.
 
 ```http
-POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true
+POST https://azs-playground.search.windows.net/indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
 {
     "queryType": "simple",
     "search": "*"
@@ -58,12 +61,12 @@ POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=
 
 ## Example 1: Full text search on specific fields
 
-This first example is not parser-specific, but we lead with it to introduce the first fundamental query concept: containment. This example scopes query execution and the response to just a few specific fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
+This first example is not parser-specific, but we lead with it to introduce the first fundamental query concept: containment. This example limits both query execution and the response to just a few specific fields. Knowing how to structure a readable JSON response is important when your tool is Postman or Search explorer. 
 
-For brevity, the query targets only the *business_title* field and specifies only business titles are returned. The syntax is **`searchFields`** to restrict query execution to just the business_title field, and **`select`** to specify which fields are included in the response.
+This query targets only *business_title* and *posting_type* in **`searchFields`**, specifying through the **`select`** parameter those same fields in the response.
 
 ```http
-POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true
+POST /indexes/nycjobs/docs/search?api-version=2020-06-30&$count=true
 {
     "queryType": "simple",
     "search": "*",
@@ -72,36 +75,26 @@ POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=
 }
 ```
 
-Response for this query should look similar to the following screenshot.
+Response for this query should look similar to the following screenshot (posting_type isn't included in this screenshot).
 
   :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Postman sample response" border="false":::
 
-You might have noticed the search score in the response. Uniform scores of **1** occur when there is no rank, either because the search was not full text search, or because no criteria was applied. For null search with no criteria, rows come back in arbitrary order. When you include actual criteria, you will see search scores evolve into meaningful values.
+You might have noticed the search score in the response. Uniform scores of **1** occur when there is no rank, either because the search was not full text search, or because no criteria was provided. For an empty search, rows come back in arbitrary order. When you include actual criteria, you will see search scores evolve into meaningful values.
 
 ## Example 2: Look up by ID
 
-Search results include list of matching documents, and typically only those fields that are most representative of the document are included. In the NYC Jobs index, it might be the business title or posting type. A user who clicks on a result expects to see more detail. This example show you how to return a single document in its entirety, using a [Lookup operation](/rest/api/searchservice/lookup-document) to pass in the document ID.
+When you return search results in a query, a frequent next step is to provide a details page that includes more fields from the document. This example shows you how to return a single document in its entirety, using a [Lookup operation](/rest/api/searchservice/lookup-document) to pass in the document ID.
 
 All documents have a unique identifier. To try out the syntax for a lookup query, first return a list of document IDs so that you can find one to use. For NYC Jobs, the identifiers are stored in the `id` field.
 
 ```http
-POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true
-{
-    "queryType": "simple",
-    "search": "*",
-    "select": "id"
-}
+GET https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&search=*&$select=id&$count=true
 ```
 
-The next example is a lookup query returning a specific document based on `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", which appeared first in the previous response. The following query returns all retrievable fields for the entire document.
+The next example is a lookup query returning a specific document based on `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", which appeared first in the previous response. The following query returns all retrievable fields for the entire document, but you can use **`select`** to limit which fields are returned.
 
 ```http
-POST https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2020-06-30
-{
-    "queryType": "simple",
-    "search": "*",
-    "count": "true",
-}
+GET https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2020-06-30
 ```
 
 ## Example 3: Filter queries
