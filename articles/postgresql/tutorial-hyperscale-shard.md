@@ -33,6 +33,8 @@ for scalable queries in Hyperscale (Citus). Multiple servers (workers) can hold
 more data than any individual worker, and in many cases can use worker CPUs in
 parallel to execute queries.
 
+![coordinator and two workers](tutorial-hyperscale-shard/nodes.png)
+
 In the prerequisites section we created a Hyperscale (Citus) server group with
 two worker nodes. The coordinator node's metadata tables track workers and
 distributed data. We can check the active workers in
@@ -58,6 +60,8 @@ Distributing a table assigns each row to to a logical group called a *shard.*
 Each shard is mapped to a physical table on a worker node by its *shard
 placement.* After distribution, a table's rows are stored in shard placements
 on worker nodes; no rows remain on the coordinator node in distributed tables.
+
+![users table with rows pointing to shards](tutorial-hyperscale-shard/table.png)
 
 Let's create a table for users and distribute it, choosing `email` as its
 *distribution column*:
@@ -115,6 +119,8 @@ distributed table, we can look at the shard placements in
 [pg_dist_placement](reference-hyperscale-metadata.md#shard-placement-table).
 Joining it with the other metadata tables we've seen shows where each shard
 lives.
+
+![shards assigned to workers](tutorial-hyperscale-shard/shard-placement.png)
 
 ```sql
 -- limit the output to the first five placements
