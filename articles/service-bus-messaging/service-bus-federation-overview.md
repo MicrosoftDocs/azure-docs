@@ -47,7 +47,7 @@ Each replication subscription has a rule that combines a SQL filter expression (
 
 A subscription with a respective rule can be easily added to any topic using the Azure CLI like this.
 
-```azurecli-interactive
+```azurecli
 
 az servicebus topic subscription rule create --resource-group myresourcegroup \
    --namespace mynamespace --topic-name mytopic 

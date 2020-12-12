@@ -19,3 +19,12 @@ As explained in the [event replication and cross-region federation](event-hubs-f
 In this overview, you will learn about Azure Functions' built-in capabilities for such applications, about  code blocks that you can adapt and modify for transformation tasks, and about how to configure an Azure Functions application such that it integrates ideally with Event Hubs and other Azure Messaging services. For many details, this article will point to the Azure Functions documentation.
 
 [!INCLUDE [messaging-replicator-functions](../../includes/messaging-replicator-functions.md)]
+
+
+
+
+
+
+
+
+

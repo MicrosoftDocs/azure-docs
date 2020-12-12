@@ -10,8 +10,6 @@
  ms.custom: include file
 ---
 
-### Configured replication tasks 
-
 Azure Functions allows for creating configuration-only replication tasks that lean on a pre-built entry point. The [configuration-based replication samples for Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) illustrate how to leverage [pre-built helpers](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) in your own code or avoid handling code altogether and just use configuration.
 
 To create such a replication task, first create a new folder underneath the project folder. The name of the new folder is the name of the function, for instance `europeToAsia` or `telemetry`. The name has no direct correlation with the messaging entities being used and serves only for you to identify them. You can create dozens of functions in the same project.
@@ -215,13 +213,13 @@ The following table gives you the correct values for combinations of sources and
 #### Retry policy
 
 Refer to the [Azure Functions documentation on
-retries](../azure-functions/functions-bindings-error-pages?tabs=csharp) to
+retries](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md) to
 configure the retry policy. The policy settings chosen throughout the projects
 in this repository configure an exponential backoff strategy with retry
 intervals from 5 seconds to 5 minutes with infinite retries to avoid data loss.
 
 For Service Bus, review the ["using retry support on top of trigger
-resilience"](../azure-functions/functions-bindings-error-pages?tabs=csharp#using-retry-support-on-top-of-trigger-resilience)
+resilience"](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience)
 section to understand the interaction of triggers and the maximum delivery count
 defined for the queue.
 

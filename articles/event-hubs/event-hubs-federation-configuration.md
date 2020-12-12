@@ -5,9 +5,11 @@ ms.topic: article
 ms.date: 12/12/2020
 ---
 
+# Configured replication tasks 
+
 [!INCLUDE [messaging-configured-functions](../../includes/messaging-configured-functions.md)]
 
-### Next Steps
+## Next Steps
 
 * [Replicating event data between Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy)
 * [Replicating event data to Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus)

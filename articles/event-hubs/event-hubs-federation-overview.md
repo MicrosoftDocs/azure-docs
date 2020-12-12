@@ -285,11 +285,11 @@ jobs](../stream-analytics/stream-analytics-quick-create-portal.md) that
 integrate [inputs](../stream-analytics/stream-analytics-add-inputs.md) and
 [outputs](../stream-analytics/stream-analytics-define-outputs.md) and integrate
 the data from the inputs through
-[queries](../stream-analytics-query/stream-analytics-query-language-reference.md)
+[queries](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md)
 that yield a result which is then made available on the outputs.
 
 Queries are based on the [SQL query
-language](../stream-analytics-query/stream-analytics-query-language-reference.md)
+language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md)
 and can be used to easily filter, sort, aggregate, and join streaming data over
 a period of time. You can also extend this SQL language with
 [JavaScript](../stream-analytics/stream-analytics-javascript-user-defined-functions.md)
@@ -333,7 +333,7 @@ custom extensions for
 triggers will dynamically adapt to the throughput needs by scaling the number of concurrently executing instances up and down based on documented metrics. 
 
 For building log projections, Azure Functions supports output bindings for
-[Cosmos DB](../azure-functions/azure-functions-bindings-functions-bindings-cosmosdb-v2-output.md)
+[Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-output.md)
 and [Azure Table Storage](../azure-functions/functions-bindings-storage-table-output.md).
 
 Azure Functions can run under a [Azure managed
@@ -370,7 +370,7 @@ Azure Stream Analytics (ASA) is the best option whenever you need to process the
 payload of your events while replicating them. ASA can copy events one by one or
 it can create aggregates that condense the information of event streams before
 forwarding it. It can [readily lean on complementing reference
-data](stream-analytics/stream-analytics-use-reference-data.md) held in Azure
+data](../stream-analytics/stream-analytics-use-reference-data.md) held in Azure
 Blob Storage or Azure SQL Database without having to import such data into a stream.
 
 With ASA, you can easily create persistent, materialized views of streams in hyper-scale
@@ -409,4 +409,4 @@ between Event Hubs and various other eventing and messaging systems:
 [6]: event-hubs-federation-patterns.md#editor
 [7]: event-hubs-federation-patterns.md#routing
 [8]: event-hubs-federation-patterns.md#log-projection
-[9]: event-hubs/process-data-azure-stream-analytics.md
+[9]: process-data-azure-stream-analytics.md

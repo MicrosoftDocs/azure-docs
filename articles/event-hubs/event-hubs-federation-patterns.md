@@ -48,7 +48,8 @@ related events with the same partition key and [Event Hubs arranges messages
 with the same partition key sequentially in the same
 partition](event-hubs-features.md#partitions).
 
-> [!IMPORTANT] The "offset" information is unique for each Event Hub and offsets
+> [!IMPORTANT] 
+> The "offset" information is unique for each Event Hub and offsets
 > for the same events will differ across Event Hub instances. To locate a
 > position in a copied event stream, use time-based offsets and refer to the
 > [propagated service-assigned metadata](#service-assigned-metadata).
@@ -122,7 +123,8 @@ following: DNS and file shares.
 One candidate approach is to hold the information in DNS SRV records in a DNS
 you control and point to the respective Event Hub endpoints. 
 
-> [!IMPORTANT] Mind that Event Hubs does not allow for its endpoints to be
+> [!IMPORTANT] 
+> Mind that Event Hubs does not allow for its endpoints to be
 > directly aliased with CNAME records, which means you will use DNS as a
 > resilient lookup mechanism for endpoint addresses and not to directly resolve
 > IP address information.
@@ -358,7 +360,7 @@ application's needs. This pattern is also referred to as "event sourcing".
 
 You can easily create log projections into [Azure SQL
 Database](../stream-analytics/sql-database-output.md) and [Azure Cosmos
-DB](stream-analytics/azure-cosmos-db-output.md) in Azure Stream Analytics and
+DB](../stream-analytics/azure-cosmos-db-output.md) in Azure Stream Analytics and
 you should prefer that option.
 
 The following Azure Function projects the contents of an Event Hub
