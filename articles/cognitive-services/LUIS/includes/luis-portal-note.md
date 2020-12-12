@@ -1,6 +1,7 @@
 ---
 title: Luis portal consolidation
 services: cognitive-services
+ms.author: aahi
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
