@@ -53,8 +53,9 @@ Use the QnA Maker client library for Node.js to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org).
-* Once you have your Azure subscription, create a [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) in the Azure portal to get your authoring key and endpoint. After it deploys, select **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the QnA Maker API. You'll paste your key and endpoint into the code below later in the quickstart.
+* Once you have your Azure subscription, create a [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) in the Azure portal to get your authoring key and endpoint.
+	* NOTE: Be sure to select the **Managed** checkbox.
+	* After your QnA Maker resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect your application to the QnA Maker API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ---
@@ -292,9 +293,11 @@ Publish the knowledge base using the [publish](/javascript/api/@azure/cognitives
 
 ---
 
+## Query a knowledge base
 
+# [QnA Maker GA (stable release)](#tab/version-1)
 
-## Get query runtime key
+### Get query runtime key
 
 Once a knowledgebase is published, you need the query runtime key to query the runtime. This isn't the same key used to create the original client object.
 
@@ -302,9 +305,9 @@ Use the [EndpointKeys.getKeys](/javascript/api/@azure/cognitiveservices-qnamaker
 
 Use either of the key properties returned in the object to query the knowledgebase.
 
-[!code-javascript[Get query runtime key](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=GetQueryEndpointKey&highlight=4)]
+[!code-javascript[Get query runtime key](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=GetQueryEndpointKey)]
 
-## Authenticate the runtime for generating an answer
+### Authenticate the runtime for generating an answer
 
 Create a QnAMakerRuntimeClient to query the knowledge base to generate an answer or train from active learning.
 
@@ -312,15 +315,15 @@ Create a QnAMakerRuntimeClient to query the knowledge base to generate an answer
 
 Use the QnAMakerRuntimeClient to get an answer from the knowledge or to send new suggested questions to the knowledge base for [active learning](../concepts/active-learning-suggestions.md).
 
-## Generate an answer from the knowledge base
-
-# [QnA Maker GA (stable release)](#tab/version-1)
+### Generate an answer from the knowledge base
 
 Generate an answer from a published knowledge base using the RuntimeClient.runtime.generateAnswer method. This method accepts the knowledge base ID and the [QueryDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/querydto). Access additional properties of the QueryDTO, such a Top and Context to use in your chat bot.
 
 [!code-javascript[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=GenerateAnswer)]
 
 # [QnA Maker managed (preview release)](#tab/version-2)
+
+### Generate an answer from the knowledge base
 
 Generate an answer from a published knowledge base using the QnAMakerClient.knowledgebase.generateAnswer method. This method accepts the knowledge base ID and the [QueryDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/querydto). Access additional properties of the QueryDTO, such a Top and Context to use in your chat bot.
 
