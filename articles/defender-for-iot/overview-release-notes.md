@@ -8,22 +8,22 @@ ms.date: 12/09/2020
 ms.topic: overview
 ms.service: azure
 ---
-## What's new
+# What's new
 
 Defender for IoT 10.0 provides features enhancements that improve security, management, usability and more.  
 
-### Security
+## Security
 The following security features afe available with this update.
 
 - Certificate Validation
 - TBD
 - TBD
 
-#### Certificate Validation
+### Certificate Validation
 
 This version allows users to enable/disable certificate verification from the sensor and on-premises central manager consoles. When upgrading to this version, verify that your certificate is valid.
 
-### Management
+## Management
 
 The following management features afe available with this update.
 
@@ -31,7 +31,7 @@ The following management features afe available with this update.
 - TBD
 - TBD
 
-### Usability
+## Usability
 
 The following usability features afe available with this update.
 
@@ -39,7 +39,7 @@ The following usability features afe available with this update.
 - TBD
 - TBD
 
-### Additional updates
+## Additional updates
 
 The following additional changes were made:
 
@@ -47,7 +47,7 @@ The following additional changes were made:
 - TBD
 - TBD
 
-#### Access Group - zone permissions
+### Access Group - zone permissions
 
 As of version 10.0, the on-premises management console Access Group rules will not include the option to grant access to a specific zone. There is no change in defining rules that uses site, region and business unit.  
 As a direct result of this change, Access Groups that contained rules allowing access to specific zones will be modified to allow access to its parent site, including all of its zones.

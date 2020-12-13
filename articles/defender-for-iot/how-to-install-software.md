@@ -368,11 +368,11 @@ This article describes the HPE ProLiant DL20 installation process, which include
 
 ### HPE ProLiant DL20 front panel
 
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-front-panel.png" alt-text="HPE ProLiant DL20 front panel.":::
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-front-panel-v2.png" alt-text="HPE ProLiant DL20 front panel.":::
 
 ### HPE ProLiant DL20 back panel
 
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel.png" alt-text="The back panel of the HPE ProLiant DL20.":::
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel-v2.png" alt-text="The back panel of the HPE ProLiant DL20.":::
 
 ### Enable remote access and update the password
 
@@ -382,11 +382,11 @@ Use the following procedure to set up network options and update the default pas
 
 1. Connect a screen and a keyboard to the HP appliance, turn on the appliance, and press **F9**.
 
-    :::image type="content" source="media/tutorial-install-components/hpe-proliant-screen.png" alt-text="Screenshot that shows the HPE ProLiant window.":::
+    :::image type="content" source="media/tutorial-install-components/hpe-proliant-screen-v2.png" alt-text="Screenshot that shows the HPE ProLiant window.":::
 
 2. Go to **System Utilities** > **System Configuration** > **iLO 5 Configuration Utility** > **Network Options**.
 
-    :::image type="content" source="media/tutorial-install-components/system-configuration-window.png" alt-text="Screenshot that shows the System Configuration window.":::
+    :::image type="content" source="media/tutorial-install-components/system-configuration-window-v2.png" alt-text="Screenshot that shows the System Configuration window.":::
 
     1.  Select **Shared Network Port-LOM** from the **Network Interface Adapter** field.
     
