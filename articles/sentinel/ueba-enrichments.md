@@ -48,7 +48,7 @@ The following is a list of entity enrichments that are the products of Azure Sen
 | **Operating system**<br>*(OperatingSystem)* | - | The operating system used in the action. | Windows 10 |
 | **Threat intel indicator description**<br>*(ThreatIntelIndicatorDescription)* | - | Description of the observed threat indicator resolved from the IP address used in the action. | Host is member of botnet: azorult |
 | **Threat intel indicator type**<br>*(ThreatIntelIndicatorType)* | - | The type of the threat indicator resolved from the IP address used in the action. | Botnet, C2, CryptoMining, Darknet, Ddos, MaliciousUrl, Malware, Phishing, Proxy, PUA, Watchlist |
-| **User agent**<br>*(UserAgent )* | - | The user agent used in the action. | Microsoft Azure Graph Client Library 1.0,<br>​Swagger-Codegen/1.4.0.0/csharp,<br>EvoSTS |
+| **User agent**<br>*(UserAgent)* | - | The user agent used in the action. | Microsoft Azure Graph Client Library 1.0,<br>​Swagger-Codegen/1.4.0.0/csharp,<br>EvoSTS |
 | **User agent family**<br>*(UserAgentFamily)* | - | The user agent family used in the action. | Chrome, Edge, Firefox |
 |
 
@@ -115,7 +115,7 @@ The following is a list of entity enrichments that are the products of Azure Sen
 | **Resource uncommonly accessed in tenant**<br>*(ResourceUncommonlyAccessedInTenant)* | 180 | The resource is not commonly accessed in the organization. | True, False |
 |
 | **Last time user performed action**<br>*(LastTimeUserPerformedAction)* | 180 | Last time the user performed the same action. | <Timestamp> |
-| **Similar action wasn't performed in the past**<br>*(SimilarActionWasn'tPerformedInThePast )* | 30 | No action in the same resource provider was performed by the user. | True, False |
+| **Similar action wasn't performed in the past**<br>*(SimilarActionWasn'tPerformedInThePast)* | 30 | No action in the same resource provider was performed by the user. | True, False |
 | **Source IP location**<br>*(SourceIPLocation)* | - | The country resolved from the source IP of the action. | [Surrey, England] |
 | **Uncommon high volume of operations**<br>*(UncommonHighVolumeOfOperations)* | 7 | A user performed a burst of similar operations within the same provider | True, False |
 | **Unusual number of AAD conditional access failures**<br>*(UnusualNumberOfAADConditionalAccessFailures)* | 5 | An unusual number of users failed to authenticate due to conditional access | True, False |
