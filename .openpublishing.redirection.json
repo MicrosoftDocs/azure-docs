@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/virtual-machines/troubleshooting/os-disk-full-linux.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/boot-error-troubleshoot",
+      "redirect_url": "/azure/virtual-machines/troubleshooting/boot-error-troubleshoot",
       "redirect_document_id": false
     },
     {
@@ -2383,17 +2383,32 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/quickstart-sdk.md",
-      "redirect_url": "/azure/cognitive-services/luis/azure-sdk-quickstart",
+      "redirect_url": "/azure/cognitive-services/luis/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/azure-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api?pivots=rest-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-rest-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api?pivots=rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-rest-get-model.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api?pivots=rest-api",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/LUIS/sdk-authoring.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/azure-sdk-quickstart",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/LUIS/sdk-query-prediction-endpoint.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/azure-sdk-quickstart",
+      "redirect_url": "/azure/cognitive-services/LUIS/client-libraries-rest-api",
       "redirect_document_id": false
     },
     {
@@ -8729,6 +8744,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/identity-provider-amazon-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-amazon",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-azure-ad-single-tenant-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-azure-ad-multi-tenant-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-azure-ad-multi-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-google-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-google",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-microsoft-account-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-microsoft-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-twitter-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-twitter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-adfs2016-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-adfs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/identity-provider-salesforce-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-salesforce",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/custom-policy-manage-sso-and-token-config.md",
       "redirect_url": "/azure/active-directory-b2c/configure-tokens-custom-policy",
       "redirect_document_id": false
@@ -9030,7 +9085,7 @@
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-setup-li-idp.md",
-      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin-custom",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
       "redirect_document_id": true
     },
     {
@@ -9046,11 +9101,6 @@
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-github-app.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-github",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
-      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
       "redirect_document_id": true
     },
     {
@@ -25205,6 +25255,11 @@
     {
       "source_path": "articles/active-directory/develop/active-directory-authentication-libraries.md",
       "redirect_url": "/azure/active-directory/azuread-dev/active-directory-authentication-libraries",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/v2-saml-bearer-assertion.md",
+      "redirect_url": "/azure/active-directory/develop/scenario-token-exchange-saml-oauth",
       "redirect_document_id": true
     },
     {
@@ -60499,6 +60554,12 @@
     "source_path": "articles/azure-monitor/app/web-monitor-performance.md",
     "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
     "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/purview/register-scan-teradata-source.md",
+      "redirect_url": "/azure/purview/manage-data-sources",
+      "redirect_document_id": false
     }
+    
   ]
 }

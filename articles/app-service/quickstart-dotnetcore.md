@@ -317,7 +317,7 @@ await context.Response.WriteAsync("Hello Azure!");
 Save your changes, then redeploy the app using the `az webapp up` command again:
 
 ```azurecli
-az webapp up
+az webapp up --os-type linux
 ```
 
 This command uses values that are cached locally in the *.azure/config* file, including the app name, resource group, and App Service plan.
