@@ -73,7 +73,7 @@ In this section you can find information in how to configure SSO with most of th
 
 
 ## Documentation on integration of Azure services into SAP components
-In this section, you find documents about PowerBI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
+In this section, you find documents about Microsoft Power BI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
 
 
 
