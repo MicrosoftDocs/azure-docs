@@ -123,7 +123,7 @@ N/A
 Use the following CLI command to view tables in your workspace. It can help copy the tables you want and include in data export rule.
 
 ```azurecli
-az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
+az monitor log-analytics workspace table list --resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
 ```
 
 Use the following command to create a data export rule to a storage account using CLI.
