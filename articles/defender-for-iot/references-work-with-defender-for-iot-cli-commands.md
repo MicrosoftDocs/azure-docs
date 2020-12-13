@@ -1,31 +1,21 @@
 ---
 title: Work with Defender for IoT CLI commands
-description: The Defender for IoT sensor enables customer business continuity with respect to cyberattacks and improves everyday operations and uptime by automatically modeling the SCADA network as a state machine. Multiple proprietary and patented analysis engines continually monitor and alert you on any suspicious network activity.
+description: This article describes Defender for IoT CLI commands for sensors and  on-premises management consoles.  
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/08/2020
+ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
 ---
 
-# Work with Defender for IoT CLI command
+# Work with Defender for IoT CLI commands
 
-The Defender for IoT sensor enables customer business continuity with respect to cyberattacks and improves everyday operations and uptime by automatically modeling the SCADA network as a state machine. Multiple proprietary and patented analysis engines continually monitor and alert you on any suspicious network activity.
+This article describes CLI commands for sensors and  on-premises management consoles. The commands are accessible to administrator, cyberx or and support user level users.
 
-The on-premises management console provides centralized deployment of software, threat intelligence, and configuration updates across all of Defender for IoT sensors in the organization.
+## Manage local alert exclusion rules
 
-Both, the on-premises management console and the sensors, are managed through the user friendly GUI. You can also can configure Defender for IoT with the CLI.
-
-Most of the GUI configuration options can be performed also using the CLI. There are highly technical configuration options that can be performed using the CLI only.
-
-## Audience
-
-This guide is written for administrator level users.
-
-## Managing local alert exclusion rules
-
-This article describes how to manage local alerts in Defender for IoT. You can decide which alerts will appear and under which situations they will be generated. You can utilize exclusion rules when planning maintenance activities or network events that you do not want to receive alerts for.
+Define exclusion rules when planning maintenance activities or for activity that does not require an alert.
 
 ## Create local alert exclusion rules
 
@@ -56,7 +46,7 @@ alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 [-dev DEVICES] [-a ALERTS]
 ```
 
-The attributes used here are the same as the attributes explained in the create local alert exclusion rules section. The difference in the usage is that here the attributes are applied to an existing rules.
+The attributes used here are similar to attributes described when creating local alert exclusion rules. In the usage here, the attributes are applied to an existing rules.
 
 ## Show local alert exclusion rules
 
@@ -84,7 +74,7 @@ The following attribute can be used with the alert exclusion rules:
 
 ## Sync time from NTP server
 
-This article describes how to enable and disable a time sync from a NTP server.
+This article describes how to enable and disable a time sync from an NTP server.
 
 ## Enable NTP
 
@@ -119,24 +109,22 @@ This article describes all of the commands available to configure your network o
 |Reconfigure the network |`network edit-settings`| Enables changing the network configuration parameters. |
 |Show network settings |`network list`|Displays the network adapter parameters. |
 |Validate the network configuration |`network validate` |Presents the output network settings <br /> <br />For example: <br /> <br />Current Network Settings: <br /> interface: eth0 <br /> ip: 10.100.100.1 <br />subnet: 255.255.255.0 <br />default gateway: 10.100.100.254 <br />dns: 10.100.100.254 <br />monitor interfaces: eth1|
-|Import a certificate |`certificate import FILE` |Imports the HTTPS certificate. You will need to specify the full path which leads to a *.crt file |
+|Import a certificate |`certificate import FILE` |Imports the HTTPS certificate. You will need to specify the full path, which leads to a *.crt file |
 |Show the date |`date` |Returns the current date on the host in GMT format |
 
 ## Filter network configurations
 
-The network capture filter command allows administrators to eliminate network traffic noise that the devices receive but do not need to analyze.
-
-This capability delivers the ability to filter using an include list and, or an exclude list.
+The network capture filter command lets administrators eliminate network traffic that does not need to be analyzed. Filter traffic using an include list and, or exclude list.
 
 ```azurecli-interactive
 network capture-filter
 ```
 
-After entering the command you will be prompted with the following question:
+After entering the command, you will be prompted with the following question:
 
 >Would you like to supply devices and subnet masks you wish to include in the capture filter? [Y/N]:
 
-Select **Yes** which will open a nano file where you can add device, channels, ports and subsets according to the following syntax:
+Select **Yes** to open a nano file where you can add devices, channels, ports, and subsets according to the following syntax:
 
 | Attribute | Description |
 |--|--|
@@ -146,12 +134,12 @@ Select **Yes** which will open a nano file where you can add device, channels, p
 
 Arguments should be separated by dropping a row.
 
-When you include an device, channel or subnet, the sensor processes all the traffic valid for that argument, including ports and traffic that would not usually be processed.
+When you include a device, channel, or subnet, the sensor processes all the traffic valid for that argument, including ports and traffic that would not usually be processed.
 
 You will then be asked the following:
 >Would you like to supply devices and subnet masks you wish to exclude from the capture filter? [Y/N]:
 
-Select **Yes** to open a nano file where you can add device, channels, ports and subsets according to the following syntax:
+Select **Yes** to open a nano file where you can add device, channels, ports, and subsets according to the following syntax:
 
 | Attribute | Description |
 |--|--|
@@ -163,7 +151,7 @@ Select **Yes** to open a nano file where you can add device, channels, ports and
 
 Arguments should be separated by dropping a row.
 
-When you exclude an device, channel or subnet, the will sensor excludes all the traffic valid for that argument.
+When you exclude a device, channel or subnet, the will sensor excludes all the traffic valid for that argument.
 
 **ports**:
 
@@ -269,9 +257,13 @@ This article describes the commands available to perform various system actions 
 |Name|Code|Description|
 |----|----|-----------|
 |Reboot the host|`system reboot`|Reboots the host device.|
-|Shut the host down|`system shutdown`|Shuts down the host.|
+|Shut down the host|`system shutdown`|Shuts down the host.|
 |Back up the system|`system backup`|Initiates an immediate backup (a non-scheduled backup).|
 |Restore the system from a backup|`system restore`|Restores from the most recent backup.|
 |List the backup files|`system backup-list`|Lists the available backup files.|
 |Display the status of all Defender for IoT platform services|`system sanity`|Checks the sanity of the system, by listing the current status of all Defender for IoT platform services.|
 |Show the software version|`system version`|Displays the version of the software currently running on the system.|
+
+## See also
+
+[About the Defender for IoT sensor console](concept-sensor-console-overview.md)

@@ -36,7 +36,7 @@ landingContent:
                  
                    
                    
-  - title:  Set up and Onboard - Enterprises  
+  - title: Set up and Onboard - Agentless solution  
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -50,7 +50,7 @@ landingContent:
             url:  how-to-onboard-sensors.md
 
 
-  - title:  Monitor your Network - Enterprises  
+  - title:  Monitor your Network - Agentless solution   
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -66,7 +66,7 @@ landingContent:
             url:  how-to-control-what-traffic-is-monitored.md
 
          
-  - title: Azure Defender for IoT - Device Builders
+  - title: Azure Defender for IoT - Agent-based solution
     linkLists:
     - linkListType: overview
       links:
@@ -75,7 +75,7 @@ landingContent:
         
     - linkListType: quickstart
       links:
-        - text: Enable IoT Hub - Device Builders
+        - text: Enable IoT Hub - Agent-based solutions
           url: quickstart-onboard-iot-hub.md
         - text: Configure your IoT security solution
           url: quickstart-configure-your-solution.md

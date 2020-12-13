@@ -23,13 +23,13 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Enterprises 
+  - name: Agentless solution for Enterprises
     items:
     - name: System prerequisites
       href: quickstart-system-prerequisites.md
     - name: Set up and onboarding overview
       href: quickstart-prepare-network-for-defender-for-iot.md
-  - name: Device builders
+  - name: Agent-based solution for Device Builders
     items: 
     - name: Configure Security Module for Azure RTOS
       href: quickstart-azure-rtos-security-module.md
@@ -47,7 +47,7 @@
       href: quickstart-investigate-security-alerts.md
 - name: Concepts
   items:
-  - name: Enterprises 
+  - name: Agentless Solution for Enterprises
     items:
     - name: Key advantages
       href: concept-key-advantages.md
@@ -57,7 +57,7 @@
       href: concept-proprietary-protocols.md
     - name: Sensor console overview
       href: concept-sensor-console-overview.md
-  - name: Device builders
+  - name: Agent-based solution for device builders
     items: 
     - name: Security Module for Azure RTOS
       items: 
@@ -87,7 +87,7 @@
       href: concept-pricing.md
 - name: How-to guides
   items:
-  - name: Enterprises 
+  - name: Agentless solution for enterprises 
     items:
     - name: Prepare your network
       items:
@@ -181,7 +181,7 @@
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
       
-  - name: Device builders
+  - name: Agent-based solution for device builders
     items: 
     - name: Work with Security Module for Azure RTOS
       href: how-to-azure-rtos-security-module.md
@@ -219,7 +219,7 @@
       href: how-to-customize-solution.md
 - name: References
   items:
-  - name: Enterprises 
+  - name: Agentless solution for enterprises
     items:
     - name: Work with Defender for IoT APIs
       href: references-work-with-defender-for-iot-apis.md
@@ -241,7 +241,7 @@
       href: https://azure.microsoft.com/roadmap/?category=security-identity
 - name: Resources
   items:
-  - name: Device builders
+  - name: Agent-based solution for device builders
     items: 
     - name: Build your security skills with Microsoft Learn
       href: /learn/browse/?term=securityS&terms=securityS
