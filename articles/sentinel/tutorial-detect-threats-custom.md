@@ -150,7 +150,7 @@ In the **Incident Settings** tab, you can choose whether and how Azure Sentinel 
 
 ### No events appear in an incident
 
-If **event grouping** is set to group all events into a single alert, then it can happen when pivoting back to this alert from an incident, that no events will appear. When events are grouped into a single alert, a hash of the aggregated events is included. If more events have occurred in the meantime that fit the rule's query, the hash will no longer be valid. To see the events, manually remove the line with the hash from the rule's query.
+If **event grouping** is set to group all events into a single alert, then in certain scenarios, when viewing the query results at a later time (such as when pivoting back to this alert from an incident), it's possible that no query results will appear. This is because the event grouping is accomplished by the generation of a hash of the aggregated events and its inclusion in the query. If when the results are viewed, more events have occurred in the meantime that fit the rule's query, the hash in the query will no longer be valid and the query will fail. To see the events, manually remove the line with the hash from the rule's query.
 
 ### A scheduled rule failed to execute, or appears with AUTO DISABLED added to the name
 
