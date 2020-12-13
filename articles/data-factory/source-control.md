@@ -20,6 +20,7 @@ By default, the Azure Data Factory user interface experience (UX) authors direct
 
 - The Data Factory service doesn't include a repository for storing the JSON entities for your changes. The only way to save changes is via the **Publish All** button and all changes are published directly to the data factory service.
 - The Data Factory service isn't optimized for collaboration and version control.
+- The Azure Resource Manager template required to deploy Data Factory itself is not included in this integration. Rather the integration assumes the Data Factory itself has been deployed and this integration applies to everything defined in the Data Factory.
 
 To provide a better authoring experience, Azure Data Factory allows you to configure a Git repository with either Azure Repos or GitHub. Git is a version control system that allows for easier change tracking and collaboration. This article will outline how to configure and work in a git repository along with highlighting best practices and a troubleshooting guide.
 
