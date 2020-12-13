@@ -38,42 +38,46 @@ Each gateway has two instances, the split happens so that each gateway instance 
 
 There are two options to add DNS servers for the P2S clients. The first method is preferred as it adds the custom DNS servers to the gateway instead of the client.
 
-1. Use the following PowerShell script to add the custom DNS servers. Replace the values for your environment.
+1. Use the following PowerShell script to add custom DNS servers during User VPN Gateway creation. Replace the values for your environment.
 
    ```powershell
-   // Define variables
-   $rgName = "testRG1"
-   $virtualHubName = "virtualHub1"
-   $P2SvpnGatewayName = "testP2SVpnGateway1"
-   $vpnClientAddressSpaces = 
-   $vpnServerConfiguration1Name = "vpnServerConfig1"
-   $vpnClientAddressSpaces = New-Object string[] 2
-   $vpnClientAddressSpaces[0] = "192.168.2.0/24"
-   $vpnClientAddressSpaces[1] = "192.168.3.0/24"
-   $customDnsServers = New-Object string[] 2
-   $customDnsServers[0] = "7.7.7.7"
-   $customDnsServers[1] = "8.8.8.8"
-   $virtualHub = $virtualHub = Get-AzVirtualHub -ResourceGroupName $rgName -Name $virtualHubName
-   $vpnServerConfig1 = Get-AzVpnServerConfiguration -ResourceGroupName $rgName -Name $vpnServerConfiguration1Name
-
-   // Specify custom dns servers for P2SVpnGateway VirtualHub while creating gateway
-   createdP2SVpnGateway = New-AzP2sVpnGateway -ResourceGroupName $rgname -Name $P2SvpnGatewayName -VirtualHub $virtualHub -VpnGatewayScaleUnit 1 -VpnClientAddressPool $vpnClientAddressSpaces -VpnServerConfiguration $vpnServerConfig1 -CustomDnsServer $customDnsServers
-
-   // Specify custom dns servers for P2SVpnGateway VirtualHub while updating existing gateway
-   $P2SVpnGateway = Get-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName
-   $updatedP2SVpnGateway = Update-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName  -CustomDnsServer $customDnsServers 
-
-   // Re-generate Vpn profile either from PS/Portal for Vpn clients to have the specified dns servers
+    $rgName = 'vwanRG'
+    $hubName = 'virtualHub1'
+    $vpnConfigName = 'vpnServerConfig1'
+    
+    $newP2SGw = @{
+        ResourceGroupName      = $rgName
+        Name                   = 'P2SVpnGateway1'
+        VpnGatewayScaleUnit    = 1 
+        VpnClientAddressPool   = @('10.10.0.0/24', '10.20.0.0/24')
+        CustomDnsServer        = @('10.0.0.4', '10.0.0.5') 
+        VpnServerConfiguration = Get-AzVpnServerConfiguration -ResourceGroupName $rgName -Name $vpnConfigName
+        VirtualHub             = Get-AzVirtualHub -ResourceGroupName $rgName -Name $hubName
+    }
+    
+    New-AzP2sVpnGateway @newP2SGw    
    ```
+    For an existing User VPN Gateway the DNS servers can be modified using the following script. Replace the values for your environment.
+
+    ```powershell
+    $updateP2SGw = @{
+        ResourceGroupName = 'vwanRG'
+        Name              = 'P2SVpnGateway1'
+        CustomDnsServer   = @('10.0.0.10', '10.0.0.11')
+    }
+       
+    Update-AzP2sVpnGateway @updateP2SGw
+    ```
+
 2. Or, if you are using the Azure VPN Client for Windows 10, you can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags before importing it.
 
-   ```powershell
+   ```xml
       <azvpnprofile>
       <clientconfig>
 
 	      <dnsservers>
 		      <dnsserver>x.x.x.x</dnsserver>
-              <dnsserver>y.y.y.y</dnsserver>
+            <dnsserver>y.y.y.y</dnsserver>
 	      </dnsservers>
     
       </clientconfig>
