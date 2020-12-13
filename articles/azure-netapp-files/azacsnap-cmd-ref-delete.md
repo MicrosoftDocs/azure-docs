@@ -1,5 +1,5 @@
 ---
-title: Delete using Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+title: Delete using Azure Application Consistent Snapshot Tool | Microsoft Docs
 description: Provides a guide for running the delete command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Delete using Azure Application Consistent Snapshot Tool
+# Delete using Azure Application Consistent Snapshot Tool (preview)
 
 This article provides a guide for running the delete command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
 
@@ -51,7 +51,7 @@ This command takes the following arguments:
 azacsnap -c delete --delete sync --hanasid H80 --hanabackupid 157979797979
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Checks for any entries in the backup catalog for the SAP HANA backup ID 157979797979,
 gets the storage snapshot name and deletes both the entry in the backup catalog
 and the snapshot from all of the volumes containing the named snapshot.
@@ -60,7 +60,7 @@ and the snapshot from all of the volumes containing the named snapshot.
 azacsnap -c delete --delete sync --snapshot hana_hourly.2020-01-22_2358
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Checks for any entries in the backup catalog for the snapshot named hana_hourly.2020-01-22_2358,
 gets the SAP HANA backup ID and deletes both the entry in the backup catalog
 and the snapshot from any of the volumes containing the named snapshot.
@@ -71,7 +71,7 @@ and the snapshot from any of the volumes containing the named snapshot.
 azacsnap -c delete --delete hana --hanasid H80 --hanabackupid 157979797979
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Deletes the SAP HANA backup ID 157979797979 from the backup catalog for SID H80.
 
 ### Delete a snapshot using `storage` option`
@@ -80,7 +80,7 @@ azacsnap -c delete --delete hana --hanasid H80 --hanabackupid 157979797979
 azacsnap -c delete --delete storage --snapshot hana_hourly.2020-01-22_2358
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Deletes the snapshot from any volumes containing snapshot named hana_hourly.2020-01-22_2358.
 
 **Output using the `--delete storage` option**

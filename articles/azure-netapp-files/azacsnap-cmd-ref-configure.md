@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+title: Configure Azure Application Consistent Snapshot Tool | Microsoft Docs
 description: Provides a guide for running the configure command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Configure Azure Application Consistent Snapshot Tool
+# Configure Azure Application Consistent Snapshot Tool (preview)
 
-This article provides a guide for running the configure command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+This article provides a guide for running the configure command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
 
 ## Introduction
 
@@ -65,7 +65,6 @@ When adding a *database* to the configuration, the following values are required
 - **HANA Instance Number** = The SAP HANA Instance Number.
 - **HANA HDB User Store Key** = The SAP HANA user configured with permissions to run database backups.
 
-
 - Single node: IP and Hostname of the node
 - HSR with STONITH: IP and Hostname of the node
 - Scale-out (N+N, N+M): Current master node IP and host name
@@ -78,7 +77,7 @@ When adding *HLI Storage* to a database section, the following values are requir
 
 - **Storage User Name** = This value is the user name used to establish the SSH connection to the Storage.
 - **Storage IP Address** = The address of the Storage system.
-- **Storage Volume Name** = the volume name to snapshot.  This value can be determined multiple ways, perhaps the 
+- **Storage Volume Name** = the volume name to snapshot.  This value can be determined multiple ways, perhaps the
    simplest is to try the following shell command:
 
     ```bash
@@ -98,7 +97,7 @@ When adding *ANF Storage* to a database section, the following values are requir
 
 - **Service Principal Authentication filename** = this is the `authfile.json` file generated in the Cloud Shell when configuring
     communication with Azure NetApp Files storage.
-- **Full ANF Storage Volume Resource ID** = the full Resource ID of the Volume being snapshot.  This can be retrieved from: 
+- **Full ANF Storage Volume Resource ID** = the full Resource ID of the Volume being snapshot.  This can be retrieved from:
     Azure Portal –> ANF –> Volume –> Settings/Properties –> Resource ID
 
 ## Config file `azacsnap.json`
@@ -160,12 +159,12 @@ cat azacsnap.json
 }
 </pre>
 
-> [!NOTE] 
+> [!NOTE]
 > For a DR scenario where backups are to be run at the DR site, then the HANA Server Name
 configured in the DR configuration file (for example, `DR.json`) at the DR site should be the same as
 the production server name.
 
-> [!NOTE] 
+> [!NOTE]
 > For Azure Large Instance your storage IP address must be in the same subnet as your server pool. For example, in
 this case, our server pool subnet is 172. 18. 18 .0/24 and our assigned storage IP is 172.18.18.11.
 

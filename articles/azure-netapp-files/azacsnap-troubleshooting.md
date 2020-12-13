@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+title: Troubleshoot Azure Application Consistent Snapshot Tool | Microsoft Docs
 description: Provides troubleshooting content for using the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Troubleshoot Azure Application Consistent Snapshot Tool
+# Troubleshoot Azure Application Consistent Snapshot Tool (preview)
 
-This article provides troubleshooting content for using the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+This article provides troubleshooting content for using the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
 
 The following are common issues that you may encounter while running the commands. Follow the resolution instructions mentioned to fix the issue. If you still encounter an issue, open a Service Request from Azure portal and assign the request into the SAP HANA Large Instance queue for Microsoft Support to respond.
 
@@ -82,7 +82,7 @@ CRITICAL: Command 'test' failed with error:
     <font color=red>* -10104: Invalid value for KEY (SCADMIN)</font>
     </pre>
 
-    > [!NOTE] 
+    > [!NOTE]
     > To permanently add to the user's `$PATH`, update the user's `$HOME/.profile` file
 
 ## The `hdbuserstore` location

@@ -1,5 +1,5 @@
 ---
-title: What is Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+title: What is Azure Application Consistent Snapshot Tool | Microsoft Docs
 description: Provides an introduction for the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# What is Azure Application Consistent Snapshot Tool
+# What is Azure Application Consistent Snapshot Tool (preview)
 
 Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL).  
 
@@ -25,15 +25,15 @@ Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool tha
 
 AzAcSnap leverages the volume snapshot and replication functionalities in Azure NetApp Files and Azure Large Instance.  It provides the following benefits:
 
-- **Application-consistent data protection**   
+- **Application-consistent data protection**
     AzAcSnap is a centralized solution for backing up critical database files. It ensures database consistency before performing a storage volume snapshot. As a result, it ensures that the storage volume snapshot can be used for database recovery.
-- **Database catalog management**   
+- **Database catalog management**
     When you use AzAcSnap with a database that has a built-in backup catalog, the records within the catalog are kept current with storage snapshots.  This capability allows a database administrator to see the backup activity.
-- **Ad hoc volume protection**   
+- **Ad hoc volume protection**
     This capability is helpful for non-database volumes that don't need application quiescing before taking a storage snapshot.  Examples include SAP HANA log-backup volumes or SAPTRANS volumes.
-- **Cloning of storage volumes**   
+- **Cloning of storage volumes**
     This capability provides space-efficient storage volume clones for development and test purposes.
-- **Support for disaster recovery**   
+- **Support for disaster recovery**
     AzAcSnap leverages storage volume replication to provide options for recovering replicated application-consistent snapshots at a remote site.
 
 AzAcSnap is a single binary.  It does not need additional agents or plug-ins to interact with the database or the storage (Azure NetApp Files via Azure Resource Manager, and Azure Large Instance via SSH).  AzAcSnap must be installed on a system that has connectivity to the database and the storage.  However, the flexibility of installation and configuration allows for either a single centralized installation or a fully distributed installation with copies installed on each database installation.
@@ -48,7 +48,6 @@ AzAcSnap is a lightweight application that is typically executed from an externa
 
 The general format of the commands is as follows:
 `azacsnap -c [command] --[command] [sub-command] --[flag-name] [flag-value]`.
-
 
 ## Command options
 
@@ -77,12 +76,11 @@ The command options are as follows:
 - **`-c restore --restore snaptovol`** Creates a new volume based on the latest snapshot on the target volume. This command creates a new "cloned" volume based on the configured target volume, using the latest volume snapshot as the base to create the new volume.  This command does not interrupt the storage replication from primary to secondary. Instead clones of the latest available snapshot are created at the DR site and recommended filesystem mountpoints of the cloned volumes are presented. This command should be run on the Azure Large Instance system **in the DR region** (that is, the target fail-over system).
 - **`-c restore --restore revertvolume`** Reverts the target volume to a prior state based on the most recent snapshot.  Using this command as part of DR Failover into the paired DR region. This command **stops** storage replication from the primary site to the secondary site, and reverts the target DR volume(s) to their latest available snapshot on the DR volumes along with recommended filesystem mountpoints for the reverted DR volumes. This command should be run on the Azure Large Instance system **in the DR region** (that is, the target fail-over system).
 
-    > [!NOTE] 
+    > [!NOTE]
     > This sub-command (`--restore revertvolume`) is not available for Azure NetApp Files.
 
 - **`azacsnap.json`** the JSON configuration file.  The name can be customized by using the `--configfile` command-line option and passing the config filename as a parameter (e.g `--configfile H80.json`)
   - Create a *new* `azacsnap.json` config using `azacsnap -c configure --configuration new` or *edit* an existing config file using  `azacsnap -c configure --configuration edit`
-
 
 ## Next steps
 

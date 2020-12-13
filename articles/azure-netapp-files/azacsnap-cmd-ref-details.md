@@ -1,5 +1,5 @@
 ---
-title: Obtain details using Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+title: Obtain details using Azure Application Consistent Snapshot Tool | Microsoft Docs
 description: Provides a guide for running the details command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Obtain details using Azure Application Consistent Snapshot Tool
+# Obtain details using Azure Application Consistent Snapshot Tool (preview)
 
-This article provides a guide for running the details command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+This article provides a guide for running the details command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
 
 ## Introduction
 
@@ -79,16 +79,15 @@ List snapshot details called with snapshotFilter ''
 , hana_log_backups_h31_azsollabbl20a31_t210_vol, , , Size used by Snapshots, 1.49MB
 </pre>
 
-> [!NOTE] 
+> [!NOTE]
 > This example shows output for snapshots run using the previous version (v4.3) as well as snapshots taken with the latest version (5.0).
 
 ## Output of the `azacsnap -c details --details replication` command
 
-
 This command checks the storage replication status from the primary site to DR location and *must*
 be executed on the **DR site server**. This command checks **only** the volumes in the configuration file.
 
-> [!NOTE] 
+> [!NOTE]
 > This option is only available on **Azure Large Instance** (HLI) systems.
 
 ```bash
@@ -103,11 +102,10 @@ hana_shared_h80_t250_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a09
 hana_log_backups_h80_t250_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036635.2020-11-02_031500, 2.32KB, 00h 01m 04s
 </pre>
 
-
 The following example has broken replication status and, in this scenario, activating DR would likely
 result in incomplete data at the DR site.
 
-> [!NOTE] 
+> [!NOTE]
 > Note the warning in the following example about replication broken off for two of the
 volumes.
 

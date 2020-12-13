@@ -1,5 +1,5 @@
 ---
-title: Install the Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+title: Install the Azure Application Consistent Snapshot Tool | Microsoft Docs
 description: Provides a guide for installation of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Install Azure Application Consistent Snapshot Tool
+# Install Azure Application Consistent Snapshot Tool (preview)
 
-This article provides a guide for installation of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+This article provides a guide for installation of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
 
 ## Introduction
 
@@ -65,6 +65,7 @@ tools.
       - The examples above are for non-SSL communication to SAP HANA.
 
 ## Enable communication with storage
+
 This section explains how to enable communication with storage.
 
 ### Azure NetApp Files
@@ -90,7 +91,7 @@ Create RBAC Service Principal
     az ad sp create-for-rbac --sdk-auth
     ```
 
-    1. This should generate an output like the following example: 
+    1. This should generate an output like the following example:
 
         <pre>
         {
@@ -224,7 +225,7 @@ database, change the IP address, usernames, and passwords as appropriate:
 
 1. *OPTIONAL* - Prevent user's password from expiring
 
-    > [!NOTE] 
+    > [!NOTE]
     > Check with corporate policy before making this change.
 
    This example disables the password expiration for the AZACSNAP user, without this change the user's password will expire preventing snapshots to be taken correctly.  
@@ -252,7 +253,6 @@ database, change the IP address, usernames, and passwords as appropriate:
     <pre>
     DATA FILE : /home/azacsnap/.hdb/sapprdhdb80/SSFS_HDB.DAT
     KEY FILE : /home/azacsnap/.hdb/sapprdhdb80/SSFS_HDB.KEY
-
 
     KEY AZACSNAP
     ENV : <IP_address_of_host>:
@@ -299,7 +299,7 @@ usernames, and passwords as appropriate:
 
 1. *OPTIONAL* - Prevent user's password from expiring
 
-    > [!NOTE] 
+    > [!NOTE]
     > Check with corporate policy before making this change.
 
    This example disables the password expiration for the AZACSNAP user, without this change the user's password will expire preventing snapshots to be taken correctly.  
@@ -383,7 +383,7 @@ to the command line.
   - For commoncrypto:
     - `mv sapcli.pse <securityPath>/<SID>_truststore`
 
-> [!NOTE] 
+> [!NOTE]
 > The `<SID>` component of the file names must be the SAP HANA System Identifier
 all in upper case (for example, `H80`, `PR1`, etc.)
 
@@ -404,7 +404,7 @@ hdbsql \
     "sql statement"
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > The `\` character is a command line line-wrap to improve clarity of the
 multiple parameters passed on the command line.
 
@@ -421,7 +421,7 @@ private key and the `hdbuserstore` to the backup user's location. However, it is
 which enable communication with the storage back-end and SAP HANA to be manually done by a
 knowledgeable administrator after the installation.
 
-> [!NOTE] 
+> [!NOTE]
 > For earlier SAP HANA on Azure Large Instance installations, the directory of pre-installed
 snapshot tools was `/hana/shared/<SID>/exe/linuxx86_64/hdb`.
 
@@ -691,7 +691,7 @@ The following output shows the steps to complete after running the installer wit
 Step 2 will be necessary if "[Enable communication with SAP HANA](#enable-communication-with-sap-hana)" was not done before the
 installation.
 
-> [!NOTE] 
+> [!NOTE]
 > The test commands should execute correctly. Otherwise, the commands may fail.
 
 ## Next steps

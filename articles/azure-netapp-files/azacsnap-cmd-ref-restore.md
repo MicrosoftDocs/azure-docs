@@ -1,5 +1,5 @@
 ---
-title: Restore using Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+title: Restore using Azure Application Consistent Snapshot Tool | Microsoft Docs
 description: Provides a guide for running the restore command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
@@ -17,28 +17,28 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Restore using Azure Application Consistent Snapshot Tool
+# Restore using Azure Application Consistent Snapshot Tool (preview)
 
-This article provides a guide for running the restore command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
+This article provides a guide for running the restore command of the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files.
 
 ## Introduction
 
 Doing a volume restore from a snapshot is done using the `azacsnap -c restore` command.
 
-> [!NOTE] 
+> [!NOTE]
 > This does not perform a database recovery , only a restore of a volume as described for each of the options below.
 
 ## Perform a test DR failover `azacsnap -c restore --restore snaptovol`
 
 This command is like the "full" DR Failover command (`--restore restorevolume`), but rather than breaking the replication between the primary site and the disaster recovery site, a clone volume is created out of the disaster recovery volumes, allowing the restoration of the most recent snapshot in the DR site. Those cloned volumes are then usable by the customer to test Disaster Recovery without having to
-execute a complete failover of their HANA environment that breaks the replication agreement between the primary site and the disaster recovery site. 
+execute a complete failover of their HANA environment that breaks the replication agreement between the primary site and the disaster recovery site.
 
 - Multiple different restore points can be tested in this way,
 each with their own restoration point.
 - The clone is designated by the time-stamp at when the command was executed and represents the most recent data and other snapshot
 available when run.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > This operation applies only to Azure Large Instance.
 >
 > - When the this command is executed it requires the contact email for operations to liaise with prior to the deletion of the clones after 4 weeks.
@@ -97,7 +97,6 @@ Displaying Mount Points by Volume as follows:
 > [!IMPORTANT]
 > The "Displaying Mount Points by Volume" output is different for the various scenarios.
 
-
 ## Perform full DR failover `azacsnap -c restore --restore revertvolume`
 
 This command **stops** storage replication from the primary site to the  secondary site, restores the latest snapshot on the DR volumes, and provides the mountpoints for the DR volumes.
@@ -107,7 +106,7 @@ This command MUST be executed on the DR server using a configuration file (for e
 Perform a failover to DR site, by executing the command `azacsnap -c restore --restore revertvolume`.  This command requires a SID to be added as a parameter. This is the SID of the HANA instance,
 which needs to be recovered at the DR site.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Only run this command if you are planning to perform the DR exercise or a test. This command breaks the replication. You must contact Microsoft Operations to re-enable replication.
 
 At the high level, here are the steps for executing a DR failover:

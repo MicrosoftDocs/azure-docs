@@ -1,5 +1,5 @@
 ---
-title: Tips and tricks for using Azure Application Consistent Snapshot Tool for Azure NetApp Files | Microsoft Docs
+title: Tips and tricks for using Azure Application Consistent Snapshot Tool | Microsoft Docs
 description: Provides tips and tricks for using the Azure Application Consistent Snapshot Tool that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 12/14/2020
 ms.author: phjensen
 ---
 
-# Tips and tricks for using Azure Application Consistent Snapshot Tool
+# Tips and tricks for using Azure Application Consistent Snapshot Tool (preview)
 
 This article provides tips and tricks that might be helpful when you use AzAcSnap.
 
@@ -55,7 +55,7 @@ MAILTO=""
 Explanation of the above crontab.
 
 - `MAILTO=""`: by having an empty value this prevents cron from automatically trying to email the user when executing the crontab entry as it would likely end up in the local user's mail file.
-- Shorthand versions of timing for crontab entries are self-explanatory: 
+- Shorthand versions of timing for crontab entries are self-explanatory:
   - `@monthly` = Run once a month, that is, "0 0 1 * *".
   - `@weekly`  = Run once a week, that is,  "0 0 * * 0".
   - `@daily`   = Run once a day, that is,   "0 0 * * *".
@@ -75,7 +75,7 @@ Explanation of the above crontab.
 
 Further explanation of cron and the format of the crontab file here: <https://en.wikipedia.org/wiki/Cron>
 
-> [!NOTE] 
+> [!NOTE]
 > Users are responsible for monitoring the cron jobs to ensure snapshots are being
 generated successfully.
 
@@ -91,7 +91,7 @@ The following conditions should be monitored to ensure a healthy system:
     1. Check `/var/log/messages` for output from the `azacsnap` command.
 1. Consistency of the snapshots by restoring then to another system periodically.
 
-> [!NOTE] 
+> [!NOTE]
 > To list  snapshot details, execute the command `azacsnap -c details`.
 
 ## Delete a snapshot
@@ -99,16 +99,15 @@ The following conditions should be monitored to ensure a healthy system:
 To delete a snapshot, execute the command `azacsnap -c delete`. It's not possible to delete
 snapshots from the OS level. You must use the correct command (`azacsnap -c delete`) to delete the storage snapshots.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Be vigilant when you delete a snapshot. Once deleted, it is **IMPOSSIBLE** to recover
 the deleted snapshots.
-
 
 ## Restore a snapshot
 
 A storage volume snapshot can be restored to a new volume (`-c restore --restore snaptovol`).  For Azure Large Instance, the volume can be reverted to a snapshot (`-c restore --restore revertvolume`).
 
-> [!NOTE] 
+> [!NOTE]
 > There is **NO** database recovery command provided.
 
 A snapshot can be copied back to the SAP HANA data area, but SAP HANA must not be running when a
@@ -120,8 +119,8 @@ If you decide to perform the disaster recovery failover, the `azacsnap -c restor
 
 ## Set up snapshots for 'boot' volumes only
 
-> [!IMPORTANT] 
-> This operation applies only to Azure Large Instance. 
+> [!IMPORTANT]
+> This operation applies only to Azure Large Instance.
 
 In some cases, customers already have tools to protect SAP HANA and only want to configure 'boot' volume snapshots.  In this case, the task is simplified and the following steps should be taken.
 
@@ -218,12 +217,12 @@ In some cases, customers already have tools to protect SAP HANA and only want to
 
 1. Set up automatic snapshot backup.
 
-> [!NOTE] 
+> [!NOTE]
 > Setting up communication with SAP HANA is not required.
 
 ## Restore a 'boot' snapshot
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > This operation is for Azure Large Instance ony.
 > The Server will be restored to the point when the Snapshot was taken.
 
@@ -247,8 +246,8 @@ Key attributes of storage volume snapshots:
   - Shared: `/hana/shared/<SID>/.snapshot`
   - Logs: `/hana/logbackups/<SID>/.snapshot`
   - Boot: boot snapshots for HLI are **not visible** from OS level, but can be listed using `azacsnap -c details`.
- 
-  > [!NOTE] 
+
+  > [!NOTE]
   >  `.snapshot` is a read-only hidden *virtual* folder providing read-only access to the snapshots.
 
 - **Max snapshot:** The hardware can sustain up to 250 snapshots per volume. The snapshot
