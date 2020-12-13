@@ -53,7 +53,7 @@ In the left navigation pane, click **Application Insights** to jump to the **Ove
 
 * Click the link between customers-service and `petclinic` to see more details such as a query from SQL.
 
-* In the left navigation pane, click `Performance` to see the performance data of all applications' operations, as well as dependencies and roles.
+* In the left navigation pane, click **Performance** to see the performance data of all applications' operations, as well as dependencies and roles.
 
   [ ![IPA 4](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)
 
@@ -61,9 +61,17 @@ In the left navigation pane, click **Application Insights** to jump to the **Ove
 
   [ ![IPA 6](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)
 
-* Finally, you can click **Metrics** in the left navigation pane of the **Application Insights** page and select `customer | azure.applicationInsights` namespace.
+* In the left navigation pane, click **Metrics** in the left navigation pane of the **Application Insights** page and select `customer | azure.applicationInsights` namespace.
 
   [ ![IPA 7](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
+
+* In the left navigation pane, click **Live Metrics** to see the real time metrics for different dimensions.
+
+  [ ![IPA 7](media/spring-cloud-application-insights/petclinic-microservices-live-metrics)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.png)
+
+* In the left navigation pane, click **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability).
+
+  [ ![IPA 7](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
 ## ARM Template
 To use the Azure Resource Manager template, copy following content to `azuredeploy.json`.
