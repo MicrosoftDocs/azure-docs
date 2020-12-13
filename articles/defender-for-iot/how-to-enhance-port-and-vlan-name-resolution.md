@@ -4,7 +4,7 @@ description: Customize port and VLAN names on your sensors to enrich device reso
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 12/13/2020
 ms.topic: article
 ms.service: azure
 ---
@@ -19,13 +19,13 @@ For example, assign a name to a non-reserved port because that port shows unusua
 
 These names appear when:
 
-  - Selecting Asset groups from the Asset Map.
+  - Selecting **Device groups** from the **Device Map**.
 
   - Creating widgets that provide port information.
 
-### View custom port names in the asset map
+### View custom port names in the Device Map
 
-Ports that include a name defined by users appear in the Asset Map in the **Known Applications** group.
+Ports that include a name defined by users appear in the **Device Map** in the **Known Applications** group.
 
 :::image type="content" source="media/how-to-enrich-asset-information/image286.png" alt-text="Known Applications":::
 
@@ -49,7 +49,7 @@ Port names you defined appear in the widgets that cover traffic by port.
 
 ## Configure VLAN names
 
-You can enrich Asset Inventory data with asset VLAN numbers and tags. In addition to data enrichment, you can view the number of assets per VLAN and Bandwidth by VLAN widgets.
+You can enrich Device Inventory data with device VLAN numbers and tags. In addition to data enrichment, you can view the number of devices per VLAN and Bandwidth by VLAN widgets.
 
 VLANs support is based on 802.1q (up to VLAN ID 4094).
 
@@ -64,7 +64,7 @@ VLAN names can contain up to 50 ASCII characters.
 > [!NOTE]
 > VLAN names are not synchronized between the sensor and the management console. You need to define the name on the management console as well.  
 For Cisco switches, the following line should be added to the span configuration:  
-`monitor session 1 destination interface XX/XX encapsulation dot1q.`  
+`monitor session 1 destination interface XX/XX encapsulation dot1q.`  
 where XX/XX is the name and number of the port.
 
 **To configure VLANs:**
