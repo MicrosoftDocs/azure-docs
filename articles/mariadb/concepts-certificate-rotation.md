@@ -125,7 +125,10 @@ Since this update is a client-side change, if the client used to read data from 
 
 ###    12. If I am using Data-in replication, do I need to perform any action?
 If you are using [Data-in replication](concepts-data-in-replication.md) to connect to Azure Database for MySQL, there are two things to consider:
-*   If the data-replication is from a virtual machine (on-prem or Azure virtual machine) to Azure Database for MySQL, you need to check if SSL is being used to create the replica. Run **SHOW SLAVE STATUS** and check the following setting.  
+*   If the data-replication is from a virtual machine (on-prem or Azure virtual machine) to Azure Database for MySQL, you need to check if SSL is being used to create the replica. Run **SHOW SLAVE STATUS** and check the following setting. 
+
+> [!NOTE]
+>  This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
     ```azurecli-interactive
     Master_SSL_Allowed            : Yes

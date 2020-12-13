@@ -385,7 +385,7 @@ git remote add azure <deploymentLocalGitUrl-from-create-step>
 Push to the Azure remote to deploy your app with the following command. When Git Credential Manager prompts you for credentials, make sure you enter the credentials you created in **Configure a deployment user**, not the credentials you use to sign in to the Azure portal.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 This command may take a few minutes to run. While running, it displays information similar to the following example:
@@ -396,7 +396,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -546,7 +546,7 @@ Commit all the changes in Git, and then push the code changes to Azure.
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 Once the `git push` is complete, navigate to the Azure app and test the new functionality.

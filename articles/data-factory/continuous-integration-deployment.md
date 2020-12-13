@@ -36,9 +36,9 @@ Below is a sample overview of the CI/CD lifecycle in an Azure data factory that'
 
 1.  A developer [creates a feature branch](source-control.md#creating-feature-branches) to make a change. They debug their pipeline runs with their most recent changes. For more information on how to debug a pipeline run, see [Iterative development and debugging with Azure Data Factory](iterative-development-debugging.md).
 
-1.  After a developer is satisfied with their changes, they create a pull request from their feature branch to the master or collaboration branch to get their changes reviewed by peers.
+1.  After a developer is satisfied with their changes, they create a pull request from their feature branch to the main or collaboration branch to get their changes reviewed by peers.
 
-1.  After a pull request is approved and changes are merged in the master branch, the changes get published to the development factory.
+1.  After a pull request is approved and changes are merged in the main branch, the changes get published to the development factory.
 
 1.  When the team is ready to deploy the changes to a test or UAT (User Acceptance Testing) factory, the team goes to their Azure Pipelines release and deploys the desired version of the development factory to UAT. This deployment takes place as part of an Azure Pipelines task and uses Resource Manager template parameters to apply the appropriate configuration.
 

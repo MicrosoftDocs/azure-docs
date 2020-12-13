@@ -25,6 +25,9 @@ The replication lag on the secondary read replicas depends several factors. Thes
 
 In this article, you'll learn how to troubleshoot replication latency in Azure Database for MySQL. You'll also understand some common causes of increased replication latency on replica servers.
 
+> [!NOTE]
+> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 ## Replication concepts
 
 When a binary log is enabled, the source server writes committed transactions into the binary log. The binary log is used for replication. It's turned on by default for all newly provisioned servers that support up to 16 TB of storage. On replica servers, two threads run on each replica server. One thread is the *IO thread*, and the other is the *SQL thread*:
