@@ -1,5 +1,5 @@
 ---
-title: Virtual machine and disk performance
+title: Virtual machine and disk performance - Windows
 description: Learn more about how virtual machines and their attached disks work in combination for performance on Windows.
 author: albecker1
 ms.author: albecker
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ---
-# Virtual machine and disk performance
+# Virtual machine and disk performance (Windows)
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## Virtual machine uncached vs cached limits
