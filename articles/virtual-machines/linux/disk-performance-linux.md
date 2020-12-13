@@ -1,6 +1,6 @@
 ---
 title: Virtual machine and disk performance
-description: Learn more about how VMs and their attached disks work in combination for performance 
+description: Learn more about how virtual machines and their attached disks work in combination for performance on Linux.
 author: albecker1
 ms.author: albecker
 ms.date: 10/12/2020
