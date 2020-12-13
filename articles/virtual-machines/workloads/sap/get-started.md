@@ -14,7 +14,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/26/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -44,6 +44,8 @@ If you have specific questions, we are going to point you to specific documents 
 - What Azure Services, Azure VM types and Azure storage services are available in the different Azure regions, check the site [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) 
 - Are third party HA frame works, besides Windows and Pacemaker supported? Check bottom part of [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 - What Azure storage is best for my scenario? Read [Azure Storage types for SAP workload](./planning-guide-storage.md)
+- Is the Red Hat kernel in Oracle Enterprise Linux supported by SAP? Read SAP [SAP support note #1565179](https://launchpad.support.sap.com/#/notes/1565179)
+- Why are the Azure [Da(s)v4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)/[Ea(s)](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) VM families not certified for SAP HANA? The Azure Das/Eas VM families are based on AMD processor driven hardware. SAP HANA does not support AMD processors, not even in virtualized scenarios.
 
  
 ## SAP HANA on Azure (Large Instances)
@@ -71,12 +73,13 @@ In this section you can find information in how to configure SSO with most of th
 
 
 ## Documentation on integration of Azure services into SAP components
-In this section, you find documents about PowerBI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
+In this section, you find documents about Microsoft Power BI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
 
 
 
 ## Change Log
 
+- 12/12/2020: Added pointer to SAP note clarifying details on Oracle Enterprise Linux support by SAP to [What SAP software is supported for Azure deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support)
 - 11/26/2020: Adapt [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) and [Azure Storage types for SAP workload](./planning-guide-storage.md) to changed single [VM SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines)
 - 11/05/2020: Changing link to new SAP note about HANA supported file system types in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) 
 - 10/26/2020: Changing some tables for Azure premium storage configuration to clarify provisioned versus burst throughput in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
