@@ -214,7 +214,7 @@ Save the changes.
 
 ### Configure TLS/SSL certificate
 
-By default, MySQL Flexible Server enforces TLS connections from clients. To connect to your MySQL database in Azure, you must use the [_.pem_ certificate supplied by Azure Database for MySQL Flexible Server](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). Download [this certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)) and place it in the **ssl** folder in the local copy of the sample app repository.
+By default, MySQL Flexible Server enforces TLS connections from clients. To connect to your MySQL database in Azure, you must use the [_.pem_ certificate supplied by Azure Database for MySQL Flexible Server](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). Download [this certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)) and place it in the **SSL** folder in the local copy of the sample app repository.
 
 Open _config/database.php_ and add the `sslmode` and `options` parameters to `connections.mysql`, as shown in the following code.
 
