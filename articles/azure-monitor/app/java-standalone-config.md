@@ -167,6 +167,10 @@ If you want to add custom dimensions to all of your telemetry:
 
 `${...}` can be used to read the value from specified environment variable at startup.
 
+> [!NOTE]
+> If you add a custom dimension named `service.version`, the value will be stored in the `application_Version` column
+in the Application Insights Logs table instead of as a custom dimension.
+
 ## Telemetry processors (preview)
 
 This feature is in preview.
