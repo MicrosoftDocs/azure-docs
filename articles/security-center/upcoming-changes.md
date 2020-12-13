@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2020
+ms.date: 12/13/2020
 ms.author: memildin
 
 ---
@@ -27,7 +27,11 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-There are no upcoming important changes that require advance notice at this time. 
+### "Not applicable" resources to be reported as "Compliant" in Azure Policy assessments
+
+**Estimated date for change:** January 2021
+
+Currently, resources that are evaluated for a recommendation and found to be **not applicable** appear in Azure Policy as "Non-compliant". No user actions can change their state to "Compliant". From this planned change, they'll be reported as "Compliant" for improved clarity.
 
 
 ## Next steps
