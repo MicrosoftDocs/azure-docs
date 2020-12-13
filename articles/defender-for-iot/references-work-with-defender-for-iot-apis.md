@@ -68,19 +68,19 @@ This section describes the following sensor APIs.
 
 - /external/authentication/set_password_by_admin
 
-## Retrieve device information
+### Retrieve device information
 
 Use this API to request a list of all devices detected by a Defender for IoT sensor.
 
-### /api/v1/devices
+#### /api/v1/devices
 
-### Method
+#### Method
 
 **GET**
 
 Requests a list of all the devices detected by the Defender for IoT sensor.
 
-### Query params
+#### Query params
 
 - authorized - to filter only authorized and unauthorized devices
 
@@ -90,15 +90,15 @@ Requests a list of all the devices detected by the Defender for IoT sensor.
 
 `/api/v1/devices?authorized=false`
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Array of JSON Objects representing devices.
 
-### Device fields
+#### Device fields
 
 | Name | Type | Nullable | List of Values |
 |--|--|--|--|
@@ -115,14 +115,14 @@ Array of JSON Objects representing devices.
 | **protocols** | JSON array | Yes | Protocol object |
 | **firmware** | JSON array | Yes | Firmware object |
 
-### Protocol fields
+#### Protocol fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
 | **Name** | String | No |  |
 | **Addresses** | JSON Array | Yes | Master, or Numeric values |
 
-### Firmware fields
+#### Firmware fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
@@ -135,7 +135,7 @@ Array of JSON Objects representing devices.
 | **slot** | String | No | N/A, or The actual value |
 | **address** | String | No | N/A, or The actual value |
 
-### Response example
+#### Response example
 
 ```rest
 [
@@ -269,17 +269,17 @@ Array of JSON Objects representing devices.
 ]
 ```
 
-## Retrieve device connection information
+### Retrieve device connection information
 
 Use this API to request a list of all the connections per device.
 
-### /api/v1/devices/connections
+#### /api/v1/devices/connections
 
-### Method
+#### Method
 
 **GET**
 
-### Query params
+#### Query params
 
 - Without setting the query parameters all the device connections are returned.
 
@@ -311,15 +311,15 @@ Use this API to request a list of all the connections per device.
 
 `/api/v1/devices/2/connections?discoveredAfter=<epoch>`
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Array of JSON Objects representing device connections.
 
-### Fields
+#### Fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
@@ -330,14 +330,14 @@ Array of JSON Objects representing device connections.
 | **ports** | Number Array | No | - |
 | **protocols** | JSON Array | No | Protocol Field |
 
-### Protocol field
+#### Protocol field
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
 | **name** | String | No | - |
 | **commands** | String Array | No | - |
 
-### Response example
+#### Response example
 
 ```rest
 [
@@ -437,17 +437,17 @@ Array of JSON Objects representing device connections.
 ]
 ```
 
-## Retrieve information on CVEs
+### Retrieve information on CVEs
 
 Use this API to request a list of all known CVEs discovered on devices in the network.
 
-### /api/v1/devices/cves
+#### /api/v1/devices/cves
 
-### Method
+#### Method
 
 **GET**
 
-### Query params
+#### Query params
 
 - By default, provides the list of all the device IPs with CVEs, up to 100 top scored CVEs for each IP address.
 
@@ -469,15 +469,15 @@ Use this API to request a list of all known CVEs discovered on devices in the ne
 
 `/api/v1/devices/<ipAddress>/cves?top=50`
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Array of JSON Objects representing CVEs identified on ip addresses.
 
-### Fields
+#### Fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
@@ -487,7 +487,7 @@ Array of JSON Objects representing CVEs identified on ip addresses.
 | **attackVector** | String | No | Network, Adjacent Network, Local, or Physical |
 | **description** | String | No | - |
 
-### Response example
+#### Response example
 
 ```rest
 [
@@ -547,17 +547,17 @@ Array of JSON Objects representing CVEs identified on ip addresses.
 ]
 ```
 
-## Retrieve alert information
+### Retrieve alert information
 
 Use this API to request a list of all the alerts detected by the Defender for IoT sensor.
 
-### /api/v1/alerts
+#### /api/v1/alerts
 
-### Method
+#### Method
 
 **GET**
 
-### Query params
+#### Query params
 
 - **state** - to filter only handled, or unhandled alerts
 
@@ -583,15 +583,15 @@ Use this API to request a list of all the alerts detected by the Defender for Io
 
 `/api/v1/alerts?type=disconnections`
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Array of JSON Objects representing alerts.
 
-### Alert fields
+#### Alert fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
@@ -605,14 +605,14 @@ Array of JSON Objects representing alerts.
 | **destinationDevice** | Numeric | Yes | Device ID |
 | **additionalInformation** | Additional Information Object | Yes | - |
 
-### Additional information fields
+#### Additional information fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
 | **description** | String | No | - |
 | **information** | JSON Array | No | String |
 
-### Response example
+#### Response example
 
 ```rest
 [
@@ -675,17 +675,17 @@ Array of JSON Objects representing alerts.
 
 ```
 
-## Retrieve timeline events
+### Retrieve timeline events
 
 Use this API to request a list of events reported to the **Event Timeline**.
 
-### /api/v1/events
+#### /api/v1/events
 
-### Method
+#### Method
 
 **GET**
 
-### Query params:
+#### Query params:
 
 - **minutesTimeFrame** - Time frame from now backwards, by minute, in which the events were reported
 
@@ -701,15 +701,15 @@ Use this API to request a list of events reported to the **Event Timeline**.
 
 `/api/v1/events?type=REMOTE_ACCESS&minutesTimeFrame`
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Array of JSON Objects representing alerts.
 
-### Event fields
+#### Event fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|--|
@@ -719,7 +719,7 @@ Array of JSON Objects representing alerts.
 | **owner** | String | Yes | If the event was created manually, this field will include the username that created the event |
 | **content** | String | No | - |
 
-### Response example
+#### Response example
 
 ```rest
 [
@@ -792,21 +792,21 @@ Array of JSON Objects representing alerts.
 
 ```
 
-## Retrieve vulnerability information
+### Retrieve vulnerability information
 
 Use this API to request vulnerability assessment results for each device.
 
-### /api/v1/reports/vulnerabilities/devices
+#### /api/v1/reports/vulnerabilities/devices
 
-### Method
+#### Method
 
 **GET**
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Array of JSON Objects representing assessed devices.
 
@@ -818,7 +818,7 @@ The device object contains:
 
 - Vulnerabilities
 
-### Device fields
+#### Device fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
@@ -832,7 +832,7 @@ The device object contains:
 | **operatingSystem** | Operating System Object | Yes | - |
 | **vulnerabilities** | Vulnerabilities object | Yes | - |
 
-### Operating System fields
+#### Operating System fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
@@ -841,7 +841,7 @@ The device object contains:
 | **Version** | String | Yes | - |
 | **latestVersion** | String | Yes | - |
 
-### Vulnerabilities fields
+#### Vulnerabilities fields
  
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
@@ -857,7 +857,7 @@ The device object contains:
 | **malwareIndicationsDetected** | Boolean | No | True, or false |
 | **weakAuthentication** | Json array | Yes | Detected applications that are using weak authentication |
 
-### Password fields
+#### Password fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
@@ -865,7 +865,7 @@ The device object contains:
 | **protocol** | String | No | - |
 | **strength** | String | No | Very weak, Weak, Medium, or Strong |
 
-### Remote access fields
+#### Remote access fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
@@ -874,7 +874,7 @@ The device object contains:
 | **client** | String | No | IP Address |
 | **clientSoftware** | String | No | SSH, VNC, Remote desktop, or Team viewer |
 
-### Open port fields
+#### Open port fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
@@ -883,7 +883,7 @@ The device object contains:
 | **protocol** | string | Yes | - |
 | **isConflictingWithFirewall** | Boolean | No | True, or false |
 
-### CVE fields
+#### CVE fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
@@ -891,7 +891,7 @@ The device object contains:
 | **score** | Numeric | No | Double |
 | **description** | String | No | - |
 
-### Response example
+#### Response example
 
 ```rest
 [
@@ -1042,27 +1042,27 @@ The device object contains:
 
 ```
 
-## Retrieve security vulnerabilities
+### Retrieve security vulnerabilities
 
 Use this API to request general vulnerability assessment results. This provides insight your system security level.
 
 This assessment is based on general network and system information and not on a specific device evaluation.
 
-### /api/v1/reports/vulnerabilities/security
+#### /api/v1/reports/vulnerabilities/security
 
-### Method
+#### Method
 
 **GET**
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 JSON Object representing assessed results. Each key can be nullable, otherwise, it will contain a JSON object with non-nullable keys.
 
-## Result fields
+### Result fields
 
 **Keys**
 
@@ -1126,7 +1126,7 @@ JSON Object representing assessed results. Each key can be nullable, otherwise, 
 | **authorized** | Boolean | Yes, or No | 
 | **externalAddresses** | Json array | IP Address |
 
-### Response example
+#### Response example
 
 ```rest
 {
@@ -1285,25 +1285,25 @@ JSON Object representing assessed results. Each key can be nullable, otherwise, 
 
 ```
 
-## Retrieve operational vulnerabilities
+### Retrieve operational vulnerabilities
 
 Use this API to request general vulnerability assessment results. This provides insight into the operational status of your network. This assessment is based on general network and system information and not on a specific device evaluation.
 
-### /api/v1/reports/vulnerabilities/operational
+#### /api/v1/reports/vulnerabilities/operational
 
-### Method
+#### Method
 
 **GET**
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 JSON Object representing assessed results. Each key contains a JSON Array of results.
 
-### Result fields
+#### Result fields
 
 **Keys**
 
@@ -1351,7 +1351,7 @@ JSON Object representing assessed results. Each key contains a JSON Array of res
 | **lastDetectionTime** | Numeric | Epoch (UTC) |
 | **backToNormalTime** | Numeric | Epoch (UTC) |     
 
-### Response example
+#### Response example
 
 ```rest
 {
@@ -1478,30 +1478,30 @@ JSON Object representing assessed results. Each key contains a JSON Array of res
 
 ```
 
-## Validate user credentials
+### Validate user credentials
 
 Use this API to validate a Defender for IoT username and password. All Defender for IoT user roles can work with the API.
 
 You do not need a Defender for IoT access token to use this API.
 
-### /api/external/authentication/validation
+#### /api/external/authentication/validation
 
-### Method
+#### Method
 
 **POST**
 
-### Request type
+#### Request type
 
 **JSON**
 
-### Query params
+#### Query params
 
 | **Name** | **Type** | **Nullable** |
 |--|--|--|
 | **username** | String | No |
 | **password** | String | No |
 
-### Request example
+#### Request example
 
 ```rest
 request:
@@ -1516,11 +1516,11 @@ request:
 
 ```
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Message string with the operation status details:
 
@@ -1528,7 +1528,7 @@ Message string with the operation status details:
 
 - **Failure** – error: Credentials Validation Failed
 
-### Response example
+#### Response example
 
 ```rest
 response:
@@ -1541,21 +1541,21 @@ response:
 
 ```
 
-## Change password
+### Change password
 
 Use this API to let users  change their own passwords. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
-### /external/authentication/set_password
+#### /external/authentication/set_password
 
-### Method
+#### Method
 
 **POST**
 
-### Request type
+#### Request type
 
 **JSON**
 
-### Request example
+#### Request example
 
 ```rest
 request:
@@ -1572,11 +1572,11 @@ request:
 
 ```
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Message string with the operation status details:
 
@@ -1586,7 +1586,7 @@ Message string with the operation status details:
 
 - **Failure – error**: password does not match security policy
 
-### Response example
+#### Response example
 
 ```rest
 response:
@@ -1603,7 +1603,7 @@ response:
 
 ```
 
-### Device fields
+#### Device fields
 
 | **Name** | **Type** | **Nullable** |
 |--|--|--|
@@ -1611,21 +1611,21 @@ response:
 | **password** | String | No |
 | **new_password** | String | No |
 
-## User password update by system admin
+### User password update by system admin
 
 Use this API to let system administrators change passwords for specified users. Defender for IoT administrator user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
-### /external/authentication/set_password_by_admin
+#### /external/authentication/set_password_by_admin
 
-### Method
+#### Method
 
 **POST**
 
-### Request type
+#### Request type
 
 **JSON**
 
-### Request example
+#### Request example
 
 ```rest
 request:
@@ -1641,11 +1641,11 @@ request:
 }
 ```
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Message string with the operation status details:
 
@@ -1659,7 +1659,7 @@ Message string with the operation status details:
 
 - **Failure – error**: User does not have the permissions to change password
 
-### Response example
+#### Response example
 
 ```rest
 response:
@@ -1678,7 +1678,7 @@ response:
 
 ```
 
-### Device fields
+#### Device fields
 
 | **Name** | **Type** | **Nullable** |
 |--|--|--|
@@ -1687,7 +1687,7 @@ response:
 | **username** | String | No |
 | **new_password** | String | No |
 
-## On-premises management console API specifications
+### On-premises management console API specifications
 
 This section describes the following on-premises management console APIs.
 
@@ -1701,7 +1701,7 @@ Define conditions under which alerts will not be sent. For example, define and u
 
 The APIs you define here appear in the on-premises management console, Alert Exclusion rule window as a read-only exclusion rule
 
-### /external/v1/maintenanceWindow
+#### /external/v1/maintenanceWindow
 
 - **/external/authentication/validation**
 
@@ -1716,7 +1716,7 @@ The APIs you define here appear in the on-premises management console, Alert Exc
 
 ```
 
-### Change Password
+#### Change Password
 
 Use this API to let users  change their own passwords. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
@@ -1728,25 +1728,25 @@ Use this API to let system administrators change passwords for specific users. D
 
 - **/external/authentication/set_password_by_admin**
 
-## Retrieve device information
+### Retrieve device information
 
 This API requests a list of all devices detected by Defender for IoT sensors connected to an on-premises management console.
 
-### /external/v1/devices
+#### /external/v1/devices
 
-### Method
+#### Method
 
 **GET**
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Array of JSON Objects representing devices.
 
-### Query params
+#### Query params
 
 - **authorized** - to filter only authorized and unauthorized devices
 
@@ -1758,7 +1758,7 @@ Array of JSON Objects representing devices.
 
 ###### <a id="1">1</a> *You may not have the Site and zone ID. If this is the case, query all devices to retrieve the Site and Zone ID.*
 
-### Query params example
+#### Query params example
 
 `/external/v1/devices?authorized=true`
 
@@ -1770,7 +1770,7 @@ Array of JSON Objects representing devices.
 
 `/external/v1/devices?sensorId=8`
 
-### Device fields
+#### Device fields
 
 | Name | Type | Nullable | List of Values |
 |--|--|--|--|
@@ -1789,14 +1789,14 @@ Array of JSON Objects representing devices.
 | **Protocols** | JSON array | Yes | Protocol object |
 | **firmware** | JSON array | Yes | Firmware object |
 
-### Protocol fields
+#### Protocol fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
 | Name | String | No | - |
 | Addresses | JSON Array | Yes | Master, or Numeric values |
 
-### Firmware fields
+#### Firmware fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
@@ -1809,7 +1809,7 @@ Array of JSON Objects representing devices.
 | **slot** | String | No | N/A, or The actual value |
 | **address** | String | No | N/A, or The actual value |
 
-### Response example
+#### Response example
 
 ```rest
 [
@@ -1949,17 +1949,17 @@ Array of JSON Objects representing devices.
 ]
 ```
 
-## Retrieve alert information
+### Retrieve alert information
 
 Use this API to retrieve all or filtered alerts from an on-premises management console.
 
-### /external/v1/alerts
+#### /external/v1/alerts
 
-### Method
+#### Method
 
 **GET**
 
-### Query params
+#### Query params
 
 - **state** - to filter only handled and unhandled alerts
 
@@ -1987,7 +1987,7 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 
 ##### <a id="2">2</a> You may not have the Site and zone ID. If this is the case, query all devices to retrieve the Site and Zone ID.*
 
-### Alert fields
+#### Alert fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
@@ -2001,14 +2001,14 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 | **destinationDevice** | Numeric | Yes | Device ID |
 | **additionalInformation** | Additional Information Object | Yes | - |
 
-### Additional information fields
+#### Additional information fields
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
 | **description** | String | No | - |
 | **information** | JSON Array | No | String |
 
-### Response example
+#### Response example
 
 ```rest
 [
@@ -2106,7 +2106,7 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 ]
 ```
 
-## QRadar alerts
+### QRadar alerts
 
 Allows QRadar integration with Defender for IoT to identify the alerts generated by Defender for IoT and perform actions with these alerts. QRadar receives the data from Defender for IoT and then contacts the public API on-premises management console component.
 
@@ -2128,27 +2128,27 @@ Example of the payload sent to QRadar:
 <9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
 ```
 
-### /external/v1/alerts/&lt;UUID&gt;
+#### /external/v1/alerts/&lt;UUID&gt;
 
-### Method
+#### Method
 
 **PUT**
 
-### Request type
+#### Request type
 
 **JSON**
 
-### Request content
+#### Request content
 
 JSON object representing the action to perform on alert containing the UUID.
 
-### Action fields:
+#### Action fields:
 
 | Name | Type | Nullable | List Of Values |
 |--|--|--|--|
 | **action** | String | No | handle, or handleAndLearn |
 
-### Request example:
+#### Request example:
 
 ```rest
 {
@@ -2157,22 +2157,22 @@ JSON object representing the action to perform on alert containing the UUID.
 
 ```
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Array of JSON Objects representing devices
 
-### Response fields
+#### Response fields
 
 
 | Name | Type | Nullable | Description |
 |--|--|--|--|
 | **content / error** | String | No | If the request is successful, the content property appears. Otherwise, the error property appears. |
 
-### Possible content values
+#### Possible content values
 
 | Status code | Content value | Description |
 |--|--|--|
@@ -2185,7 +2185,7 @@ Array of JSON Objects representing devices
 | 500 | Unexpected Error occurred. | An unexpected error occurred. To resolve the issue, contact Technical Support. |
 | 500 | Couldn't execute request because no alert was found for this UUID. | The specified alert UUID was not found in the system. |
 
-### Response example
+#### Response example
 
 **Successful**
 
@@ -2203,7 +2203,7 @@ Array of JSON Objects representing devices
 }
 ```
 
-## Alert exclusions (maintenance window)
+### Alert exclusions (maintenance window)
 
 Define conditions under which alerts will not be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you may want to stop alert delivery of all alerts, except for malware alerts on critical devices.
 
@@ -2211,11 +2211,11 @@ The APIs you define here appear in the on-premises management console, Alert Exc
 
 :::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="The alert exclusions window showing a list of all the exclusion rules. ":::
 
-### /external/v1/maintenanceWindow
+#### /external/v1/maintenanceWindow
 
-### Method - POST
+#### Method - POST
 
-### Query parameters
+#### Query parameters
 
 - **ticketId**: The maintenance ticket ID in the user’s systems.
 
@@ -2237,7 +2237,7 @@ The APIs you define here appear in the on-premises management console, Alert Exc
 
 - **subnets**: Defines from which subnet to suppress alerts during the maintenance process. The subnet is sent in the following format: 192.168.0.0/16.
 
-### Error codes
+#### Error codes
 
 - **201 (Created)**: The action was successfully completed.
 
@@ -2260,19 +2260,19 @@ The APIs you define here appear in the on-premises management console, Alert Exc
 > [!NOTE]
 > Make sure that the ticketID is not linked to an existing open window. The exclusion rule that is generated: Maintenance-{token name}-{ticket ID}.
 
-### Method - PUT
+#### Method - PUT
 
 Allows updating the maintenance window duration after starting the maintenance process by changing the **ttl** parameter. The new duration definition overrides the previous one.
 
 This method is useful when you want to set a longer duration than the currently configured duration.
 
-### Query parameters
+#### Query parameters
 
 - **ticketId**: The maintenance ticket ID in the user’s systems.
 
 - **ttl**: Defines the duration of the window in minutes.
 
-### Error code
+#### Error code
 
 - **200 (OK)**: The action was successfully completed.
 
@@ -2291,15 +2291,15 @@ This method is useful when you want to set a longer duration than the currently 
 > [!NOTE]
 > Make sure that the ticket ID is linked to an existing open window.
 
-### Method - DELETE
+#### Method - DELETE
 
 Closes an existing maintenance window.
 
-### Query parameters
+#### Query parameters
 
 - **ticketId**: Logs the maintenance ticket ID in the user’s systems.
 
-### Error code
+#### Error code
 
 - **200 (OK)**: The action was successfully completed.
 
@@ -2312,11 +2312,11 @@ Closes an existing maintenance window.
 > [!NOTE]
 > Make sure that the ticket ID is linked to an existing open window.
 
-### Method - GET
+#### Method - GET
 
 Retrieve a log of all the open, close, and update actions that were performed in the system during the maintenance. You can retrieve a log only for maintenance windows that were active in the past and have been closed.
 
-### Query parameters
+#### Query parameters
 
 - **fromDate**: Filters the logs from the predefined date and later, the format is 2019-12-30.
 
@@ -2326,7 +2326,7 @@ Retrieve a log of all the open, close, and update actions that were performed in
 
 - **tokenName**: Filters the logs related to a specific tokenName.
 
-### Error code
+#### Error code
 
 - **200 (OK)**: The action was successfully completed.
 
@@ -2336,15 +2336,15 @@ Retrieve a log of all the open, close, and update actions that were performed in
 
 - **500 (Internal Server Error)**: Any other unexpected error.
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Array of JSON Objects representing maintenance window operations.
 
-### Response structure
+#### Response structure
 
 | Name | Type | Comment | Nullable |
 |--|--|--|--|
@@ -2357,21 +2357,21 @@ Array of JSON Objects representing maintenance window operations.
 | **ttl** | numeric | - | yes |
 | **operationType** | string | Values are “OPEN”, “UPDATE” and “CLOSE” | no |
 
-## Authenticate user credentials
+### Authenticate user credentials
 
 Use this API to validate user credentials. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
-### /external/authentication/validation
+#### /external/authentication/validation
 
-### Method
+#### Method
 
 **POST**
 
-### Request type
+#### Request type
 
 **JSON**
 
-### Request example
+#### Request example
 
 ```rest
 request:
@@ -2385,11 +2385,11 @@ request:
 }
 ```
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Message string with the operation status details:
 
@@ -2397,14 +2397,14 @@ Message string with the operation status details:
 
 - *Failure – error*: Credentials Validation Failed
 
-### Device fields
+#### Device fields
 
 | **Name** | **Type** | **Nullable** |
 |--|--|--|
 | **username** | String | No |
 | **password** | String | No |
 
-### Response example
+#### Response example
 
 ```rest
 response:
@@ -2416,21 +2416,21 @@ response:
 }
 ```
 
-## Change password
+### Change password
 
 Use this API to let users  change their own passwords. All Defender for IoT user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
-### /external/authentication/set_password
+#### /external/authentication/set_password
 
-### Method
+#### Method
 
 **POST**
 
-### Request type
+#### Request type
 
 **JSON**
 
-### Request example
+#### Request example
 
 ```rest
 request:
@@ -2447,11 +2447,11 @@ request:
 
 ```
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Message string with the operation status details:
 
@@ -2461,7 +2461,7 @@ Message string with the operation status details:
 
 - **Failure – error**: password does not match security policy
 
-### Response example
+#### Response example
 
 ```rest
 response:
@@ -2478,7 +2478,7 @@ response:
 
 ```
 
-### Device fields
+#### Device fields
 
 | **Name** | **Type** | **Nullable** |
 |--|--|--|
@@ -2486,21 +2486,21 @@ response:
 | **password** | String | No |
 | **new_password** | String | No |
 
-## User password update by system admin
+### User password update by system admin
 
 Use this API to let system administrators change passwords for specified users. Defender for IoT Admin user roles can work with the API. You do not need a Defender for IoT access token to use this API.
 
-### /external/authentication/set_password_by_admin
+#### /external/authentication/set_password_by_admin
 
-### Method
+#### Method
 
 **POST**
 
-### Request type
+#### Request type
 
 **JSON**
 
-### Request example
+#### Request example
 
 ```rest
 request:
@@ -2516,11 +2516,11 @@ request:
 }
 ```
 
-### Response type
+#### Response type
 
 **JSON**
 
-### Response content
+#### Response content
 
 Message string with the operation status details:
 
@@ -2534,7 +2534,7 @@ Message string with the operation status details:
 
 - **Failure – error**: User does not have the permissions to change password
 
-### Response example
+#### Response example
 
 ```rest
 response:
@@ -2553,7 +2553,7 @@ response:
 
 ```
 
-### Device fields
+#### Device fields
 
 | **Name** | **Type** | **Nullable** |
 |--|--|--|

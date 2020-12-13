@@ -221,7 +221,7 @@ To export logs:
 
 2. Select **Export Logs**.
 
-    :::image type="content" source="../../../../../../../../../Git/azure-docs-pr/articles/defender-for-iot/media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Export a log to the system support.":::
+    :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Export a log to the system support.":::
 
 3. In the **File Name** box, type the file name that you want to use for the log export. The default is, current date.
 
