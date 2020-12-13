@@ -67,7 +67,7 @@ In the left navigation pane, click **Application Insights** to jump to the **Ove
 
 * In the left navigation pane, click **Live Metrics** to see the real time metrics for different dimensions.
 
-  [ ![IPA 8](media/spring-cloud-application-insights/petclinic-microservices-live-metrics)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
+  [ ![IPA 8](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
 
 * In the left navigation pane, click **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability.jpg).
 
