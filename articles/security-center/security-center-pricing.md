@@ -63,7 +63,7 @@ Below is the pricing page for an example subscription. You'll notice that each p
 
 ## FAQ - Pricing and billing 
 
-- [How can I track who in my organization enabled Azure Defender changes in Azure Security Center](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center)
+- [How can I track who in my organization enabled Azure Defender changes in Azure Security Center?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
 - [What are the plans offered by Security Center?](#what-are-the-plans-offered-by-security-center)
 - [How do I enable Azure Defender for my subscription?](#how-do-i-enable-azure-defender-for-my-subscription)
 - [Can I enable Azure Defender for servers on a subset of servers in my subscription?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
@@ -73,12 +73,14 @@ Below is the pricing page for an example subscription. You'll notice that each p
 - [If a Log Analytics agent reports to multiple workspaces, is the 500-MB free data ingestion available on all of them?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
 - [Is the 500-MB free data ingestion calculated for an entire workspace or strictly per machine?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
 
-### How can I track who in my organization enabled Azure Defender changes in Azure Security Center
+### How can I track who in my organization enabled Azure Defender changes in Security Center?
 Azure Subscriptions may have multiple administrators with permissions to change the pricing settings. To find out which user made a change, use the Azure Activity Log.
 
-If the user's info isn't listed in the **Event initiated by** column, explore the event for the relevant details.
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Azure Activity log showing a pricing change event":::
 
-:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Azure Event Log showing a pricing change event":::
+If the user's info isn't listed in the **Event initiated by** column, explore the event's JSON for the relevant details.
+
+:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Azure Activity log JSON explorer":::
 
 
 ### What are the plans offered by Security Center? 
