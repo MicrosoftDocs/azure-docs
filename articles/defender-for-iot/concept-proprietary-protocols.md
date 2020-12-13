@@ -1,6 +1,5 @@
 ---
 title: Proprietary protocols
-description: In addition to embedded protocol support, you can secure IoT and ICS devices running proprietary and custom protocols, or protocols that deviate from any standard.
 description: Secure running proprietary and custom protocols, or protocols that deviate from any standard using the Horizon Open Development Environment (ODE) SDK.
 author: shhazam-ms
 manager: rkarlin
@@ -54,4 +53,4 @@ Working with Horizon provides customers and technology partners:
 
 ## See also
 
-[Defender for IoT Horizon](how-to-manage-proprietary-protocols.md)
+[Defender for IoT Horizon](resources-manage-proprietary-protocols.md)

@@ -89,7 +89,7 @@ Before the installation, ensure you have:
 
 - An ISO installer image.
 
-**To install:**
+To install:
 
 1. Burn the image to a DVD or prepare a disk on a key. Connect a portable DVD drive to your computer, right-click the ISO image, and select **Burn to disk**.
 
@@ -203,7 +203,7 @@ To configure Dell BIOS:
 
 6. Change the static subnet mask to **255.255.255.0**.
 
-   :::image type="content" source="media/tutorial-install-components/idrac-network-settings-screen.png" alt-text="Screenshot that shows the static subnet mask.":::
+   :::image type="content" source="media/tutorial-install-components/idrac-network-settings-screen-v2.png" alt-text="Screenshot that shows the static subnet mask.":::
 
 7. Select **Back** > **Finish**.
 
@@ -303,7 +303,7 @@ To manually configure:
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
-**To install:**
+To install:
 
 1. Verify that the version media is mounted to the appliance in one of the following ways:
 
@@ -317,7 +317,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 4. Select the **Map Device** button.
 
-   :::image type="content" source="media/tutorial-install-components/mapped-device-on-virtual-media-screen.png" alt-text="Screenshot that shows a mapped device.":::
+   :::image type="content" source="media/tutorial-install-components/mapped-device-on-virtual-media-screen-v2.png" alt-text="Screenshot that shows a mapped device.":::
 
 5. The media is mounted. Select **Close**.
 
@@ -368,25 +368,25 @@ This article describes the HPE ProLiant DL20 installation process, which include
 
 ### HPE ProLiant DL20 front panel
 
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-front-panel.png" alt-text="HPE ProLiant DL20 front panel.":::
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-front-panel-v2.png" alt-text="HPE ProLiant DL20 front panel.":::
 
 ### HPE ProLiant DL20 back panel
 
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel.png" alt-text="The back panel of the HPE ProLiant DL20.":::
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel-v2.png" alt-text="The back panel of the HPE ProLiant DL20.":::
 
 ### Enable remote access and update the password
 
 Use the following procedure to set up network options and update the default password.
 
-**To enable and update the password:**
+To enable and update the password:
 
 1. Connect a screen and a keyboard to the HP appliance, turn on the appliance, and press **F9**.
 
-    :::image type="content" source="media/tutorial-install-components/hpe-proliant-screen.png" alt-text="Screenshot that shows the HPE ProLiant window.":::
+    :::image type="content" source="media/tutorial-install-components/hpe-proliant-screen-v2.png" alt-text="Screenshot that shows the HPE ProLiant window.":::
 
 2. Go to **System Utilities** > **System Configuration** > **iLO 5 Configuration Utility** > **Network Options**.
 
-    :::image type="content" source="media/tutorial-install-components/system-configuration-window.png" alt-text="Screenshot that shows the System Configuration window.":::
+    :::image type="content" source="media/tutorial-install-components/system-configuration-window-v2.png" alt-text="Screenshot that shows the System Configuration window.":::
 
     1.  Select **Shared Network Port-LOM** from the **Network Interface Adapter** field.
     
@@ -406,7 +406,7 @@ Use the following procedure to set up network options and update the default pas
 
 The following procedure describes how to configure the HPE BIOS for the enterprise and SMB appliances.
 
-**To configure the HPE BIOS:**
+To configure the HPE BIOS:
 
 1. Select **System Utilities** > **System Configuration** > **BIOS/Platform Configuration (RBSU)**.
 
@@ -446,14 +446,14 @@ The following procedure describes how to configure the HPE BIOS for the enterpri
 
 11. The **Booting in Legacy** and **Boot Override** windows appear. Choose a boot override option; for example, to a CD-ROM, USB, HDD, or UEFI shell.
 
-    :::image type="content" source="media/tutorial-install-components/boot-override-window-one.png" alt-text="Screenshot that shows the first Boot Override window.":::
+    :::image type="content" source="media/tutorial-install-components/boot-override-window-one-v2.png" alt-text="Screenshot that shows the first Boot Override window.":::
 
-    :::image type="content" source="media/tutorial-install-components/boot-override-window-two.png" alt-text="Screenshot that shows the second Boot Override window.":::
+    :::image type="content" source="media/tutorial-install-components/boot-override-window-two-v2.png" alt-text="Screenshot that shows the second Boot Override window.":::
 ### Software installation (HPE ProLiant DL20 appliance)
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
-**To install the software:**
+To install the software:
 
 1. Connect the screen and keyboard to the appliance, and then connect to the CLI.
 
@@ -467,11 +467,11 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 5. Select **SENSOR-RELEASE-<version> Enterprise**.
 
-    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen.png" alt-text="Screenshot of the screen for selecting a version.":::
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot of the screen for selecting a version.":::
 
 6. In the Installation Wizard, define the appliance profile and network properties:
 
-    :::image type="content" source="media/tutorial-install-components/installation-wizard-screen.png" alt-text="Screenshot that shows the Installation Wizard.":::
+    :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
     | Parameter | Configuration |
     | ----------| ------------- |
@@ -519,7 +519,7 @@ The enterprise configuration is identical.
 
 This procedure describes the iLO installation from a virtual drive.
 
-**To install:**
+To install:
 
 1. Sign in to the iLO console, and then right-click the servers' screen.
 
@@ -539,7 +539,7 @@ This procedure describes the iLO installation from a virtual drive.
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
-**To install:**
+To install:
 
 1. Connect the screen and keyboard to the appliance, and then connect to the CLI.
 
@@ -551,11 +551,11 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 5. Select **SENSOR-RELEASE-<version> Enterprise**.
 
-    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen.png" alt-text="Screenshot that shows selecting the version.":::
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows selecting the version.":::
 
 6. In the Installation Wizard, define the appliance profile and network properties.
 
-    :::image type="content" source="media/tutorial-install-components/installation-wizard-screen.png" alt-text="Screenshot that shows the Installation Wizard.":::
+    :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
     | Parameter | Configuration |
     | ----------| ------------- |
@@ -625,7 +625,7 @@ Make sure the hypervisor is running.
 
 This procedure describes how to create a virtual machine by using Hyper-V.
 
-**To create a virtual machine:**
+To create a virtual machine:
 
 1. Create a virtual disk in Hyper-V Manager.
 
@@ -671,7 +671,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 This section describes the ESXi and Hyper-V software installation.
 
-**To install:**
+To install:
 
 1. Open the virtual machine console.
 
@@ -726,7 +726,7 @@ The on-premises management console supports both VMware and Hyper-V deployment o
 
 ### Create the virtual machine (ESXi)
 
-**To a create virtual machine (ESXi):**
+To a create virtual machine (ESXi):
 
 1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
@@ -758,7 +758,7 @@ The on-premises management console supports both VMware and Hyper-V deployment o
 
 ### Create the virtual machine (Hyper-V)
 
-**To create a virtual machine by using Hyper-V:**
+To create a virtual machine by using Hyper-V:
 
 1. Create a virtual disk in Hyper-V Manager.
 
@@ -824,7 +824,7 @@ The on-premises management console supports both VMware and Hyper-V deployment o
 
 Starting the virtual machine will start the installation process from the ISO image.
 
-**To install the software:**
+To install the software:
 
 1. Select **English**.
 
@@ -902,7 +902,7 @@ Post-installation validation must include the following tests:
 
 - **Errors from Core, log**: Displays errors from the core log file.
 
-**To access the tool:**
+To access the tool:
 
 1. Sign in to the sensor with the **Support** user credentials.
 
@@ -1024,7 +1024,7 @@ For any other issues, contact [Microsoft Support](https://support.microsoft.com/
 
 A vSwitch does not have mirroring capabilities, but you can use a simple workaround to implement a SPAN port.
 
-**To configure a SPAN port:**
+To configure a SPAN port:
 
 1. Open vSwitch properties.
 
@@ -1056,7 +1056,7 @@ You can enhance system security by preventing direct user access to the sensor. 
 
 :::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Screenshot that shows access to the sensor.":::
 
-**To enable tunneling:**
+To enable tunneling:
 
 1. Sign in to the on-premises management console's CLI with Defender for IoT or **Support** user credentials.
 

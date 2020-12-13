@@ -92,19 +92,20 @@ In the networking area, select VLAN and add names to the VLAN IDs discovered and
 ## Define a proxy to sensors
 
 Enhance system security by preventing user sign-in directly to the sensor. Instead leverage proxy tunneling to let users access the sensor directly from the on-premises management console with a single firewall rule. This narrows the possibility of unauthorized access to the network environment beyond the sensor.
+
 Use a proxy in environments where there is no direct connectivity to sensors.
 
-  :::image type="content" source="media/how-to-access-sensors-using-a-proxy/image310.png" alt-text="user":::
+  :::image type="content" source="media/how-to-access-sensors-using-a-proxy/proxy-diagram.png" alt-text="user":::
 
 Perform the following to set up tunneling, including:
 
-  - Connect a Sensor to the Management Console
+  - Connect a Sensor the on-premises management console
 
-  - Set up Tunneling on the Management Console
+  - Set up Tunneling on the on-premises management console
 
 To enable tunneling:
 
-1. Sign in to the management console appliance CLI with administrative credentials.
+1. Sign in to the on-premises management console appliance CLI with administrative credentials.
 
 2. Type: `sudo cyberx-management-tunnel-enable.`
 

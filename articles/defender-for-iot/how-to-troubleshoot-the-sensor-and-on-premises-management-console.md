@@ -8,7 +8,7 @@ ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
 ---
-# Troubleshooting
+# Troubleshoot the sensor and on-premises management console
 
 This article describes basic troubleshooting tools for the sensor and management console. In addition to the items described here, you can also:
 
@@ -41,7 +41,7 @@ To check the system sanity:
 
 1. In the Dashboard, make sure that `PPS > 0`.
 
-   :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view.png" alt-text="Screenshot of a sample dashboard."::: 
+   :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Screenshot of a sample dashboard."::: 
 
 2. From the side menu, select **Devices**.
 
@@ -210,6 +210,47 @@ notifications.max_time_to_report=10 (seconds)
 ```
 
 5. Save the changes, no reboot is required.
+
+## Export information for troubleshooting
+
+In addition to tools for monitoring and analyzing your network, you can also send information to the support team for further investigation. When exporting logs, the sensor will automatically generate a One Time Password (OTP), unique for the exported logs, in a separate text file. It is recommended that the OTP is sent to the support team in a separate message and medium from the exported logs. Extraction of exported logs by the support team will be possible only with the unique OTP used to encrypt the logs.
+
+To export logs:
+
+1. In the left pane, select **System Settings**.
+
+2. Select **Export Logs**.
+
+    :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Export a log to the system support.":::
+
+3. In the **File Name** box, type the file name that you want to use for the log export. The default is, current date.
+
+4. To define what data you want to export, select the data categories, as follows:  
+
+    | Export Category | Description |
+    |--|--|
+    | **Operating System Logs** | Select this option to get information about the operating system state. |
+    | **Installation/Upgrade logs** | Select this option for investigation of the installation and upgrade configuration parameters. |
+    | **System Sanity Output** | Select this option to check your system sanity output. |
+    | **Dissection Logs** | Select this option to allow advanced protocol dissection inspection. |
+    | **OS Kernel Dumps** | Select this option to export your kernel memory dump. A kernel memory dump contains all the memory in use by the kernel at the time of the issue that occurred in this kernel. The size of the dump file is smaller than the complete memory dump. Typically, the dump file is around one-third the size of the physical memory on the system. |
+    | **Forwarding logs** | Select this option for investigation of the Forwarding rules. |
+    | **SNMP Logs** | Select this option to receive the SNMP health check information. |
+    | **Core Application Logs** | Select this option for exporting the data about the core application configuration and operation. |
+    | **Communication with CM logs** | Select this option if there are continuous problems or interruptions of connection with management console. |
+    | **Web Application Logs** | Select this option to get information about all the requests sent from the applications web interface. |
+    | **System Backup** | Select this option to export a backup of all the systems data for investigating the exact state of the system. |
+    | **Dissection Statistics** | Select this option to allow advanced protocol statistics inspection. |
+    | **Database Logs** | Select this option to export logs from the system database. Investigating system logs assists in identifying system problems. |
+    | **Configuration** | Select this option to export information about all the configurable parameters to make sure everything was configured correctly. |
+
+5. To select all the options, select **Select All** next to **Choose Categories**.
+
+6. Select **Export Logs**.
+
+The exported logs are added to the **Archived Logs** list. Send the OTP to the support team in a separate message and medium from the exported logs. Extraction of exported logs by the support team will be possible only with the unique OTP used to encrypt the logs.
+
+The archived logs list can contain up to five items. If the number of items in the list goes beyond that number, the earliest item on the list is deleted.
 
 ## See also
 

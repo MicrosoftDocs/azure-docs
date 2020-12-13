@@ -226,7 +226,7 @@
     - name: Work with Defender for IoT CLI commands
       href: references-work-with-defender-for-iot-cli-commands.md
     - name: Manage proprietary protocols (Horizon)
-      href: references-manage-proprietary-protocols.md
+      href: resources-manage-proprietary-protocols.md
     - name: Defender for IoT glossary
       href: references-defender-for-iot-glossary.md
   - name: Device builders

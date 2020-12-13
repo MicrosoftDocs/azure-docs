@@ -107,36 +107,36 @@ Enter the following parameters:
     
 :::image type="content" source="media/how-to-work-with-alerts-sensor/configure-encryption.png" alt-text="Configure your encryption for your forwarding rule.":::
 
-| SYSLOG text message output fields | Description |
+| SYSLOG text message output fields | Description |
 |--|--|
 | Date and time | Date and time the syslog server machine received the information. |
 | Priority | User.Alert |
-| Hostname | Sensor IP address |
-| Protocol | TCP or UDP |
-| Message | Sensor – sensor name<br /> Alert – the title of the alert<br /> Type – the type of the alert. Can be, Protocol Violation, Policy Violation, Malware, Anomaly, or Operational<br /> Severity – the severity of the alert. Can be, Warning, Minor, Major, or Critical<br /> Source – source device name<br /> Source IP  – source device IP address<br /> Destination – destination device name<br /> Destination IP – destination device IP address<br /> Message – the message of the alert<br /> Alert group - The alert group associated with the alert. |
+| Hostname | Sensor IP address |
+| Protocol | TCP or UDP |
+| Message | Sensor – sensor name<br /> Alert – the title of the alert<br /> Type – the type of the alert. Can be, Protocol Violation, Policy Violation, Malware, Anomaly, or Operational<br /> Severity – the severity of the alert. Can be, Warning, Minor, Major, or Critical<br /> Source – source device name<br /> Source IP  – source device IP address<br /> Destination – destination device name<br /> Destination IP – destination device IP address<br /> Message – the message of the alert<br /> Alert group - The alert group associated with the alert. |
 
 
-| SYSLOG object output | Description |
+| SYSLOG object output | Description |
 |--|--|
-| Date and Time |	Date and time the syslog server machine received the information |  
-| Priority |	User.Alert | 
-| Hostname |	Sensor IP | 
-| Message |	Sensor name: the name of the appliance <br /> Alert time: the time the alert was detected: May vary from the time of the Syslog server machine depends on the Forwarding rule timezone configuration. <br /> Alert title: the title of the alert <br /> Alert message: the message of the alert <br /> Alert severity: the severity of the alert: Warning, Minor, Major, or Critical <br /> Alert type: Protocol Violation, Policy Violation, Malware, Anomaly, or Operational <br /> Protocol: the protocol of the alert  <br /> Source_MAC, IP address, name, vendor, or OS of the source device <br /> Destination_MAC, IP address, name, vendor, or OS of the destination. If data is missing, the value will be “N/A”.  <br /> alert_group The alert group associated with the alert. |
+| Date and Time |	Date and time the syslog server machine received the information |  
+| Priority |	User.Alert | 
+| Hostname |	Sensor IP | 
+| Message |	Sensor name: the name of the appliance <br /> Alert time: the time the alert was detected: May vary from the time of the Syslog server machine depends on the Forwarding rule timezone configuration. <br /> Alert title: the title of the alert <br /> Alert message: the message of the alert <br /> Alert severity: the severity of the alert: Warning, Minor, Major, or Critical <br /> Alert type: Protocol Violation, Policy Violation, Malware, Anomaly, or Operational <br /> Protocol: the protocol of the alert  <br /> Source_MAC, IP address, name, vendor, or OS of the source device <br /> Destination_MAC, IP address, name, vendor, or OS of the destination. If data is missing, the value will be “N/A”.  <br /> alert_group The alert group associated with the alert. |
 
 
-| SYSLOG CEF output format | Description |
+| SYSLOG CEF output format | Description |
 |--|--|
 | Date and time | Date and time the syslog server machine received the information. |
 | Priority | User.Alert | 
-| Hostname | Sensor IP address |
-| Message | CEF:0 <br />Azure Defender for IoT <br />Sensor name – the name of the sensor appliance <br />Sensor version <br />Alert title – the title of the alert <br />msg – the message of the alert <br />protocol – the protocol of the alert <br />severity – Warning, Minor, Major, or Critical <br />type – Protocol Violation, Policy Violation, Malware, Anomaly, or Operational <br /> start – the time the alert was detected <br />May vary from the time of the syslog server machine, depends on the Forwarding rule timezone configuration. <br />src_ip – source device IP address  <br />dst_ip – destination device IP address<br />cat - The alert group associated with the alert.  |
+| Hostname | Sensor IP address |
+| Message | CEF:0 <br />Azure Defender for IoT <br />Sensor name – the name of the sensor appliance <br />Sensor version <br />Alert title – the title of the alert <br />msg – the message of the alert <br />protocol – the protocol of the alert <br />severity – Warning, Minor, Major, or Critical <br />type – Protocol Violation, Policy Violation, Malware, Anomaly, or Operational <br /> start – the time the alert was detected <br />May vary from the time of the syslog server machine, depends on the Forwarding rule timezone configuration. <br />src_ip – source device IP address  <br />dst_ip – destination device IP address<br />cat - The alert group associated with the alert.  |
 
-| SYSLOG LEEF output format | Description |
+| SYSLOG LEEF output format | Description |
 |--|--|
-| Date and time |	Date and time the syslog server machine received the information |  
-| Priority |	User.Alert | 
-| Hostname |	Sensor IP |
-| Message |	Sensor Name: the name of the Azure Defender for IoT appliance <br />LEEF:1.0 <br />Azure Defender for IoT <br />Sensor  <br />Sensor Version <br />Azure Defender for IoT Alert <br />title – the title of the alert <br />msg – the message of the alert <br />protocol – the protocol of the alert<br />severity – the severity of the alert: Warning, Minor, Major, or Critical <br />type – the type of the alert: Protocol Violation, Policy Violation, Malware, Anomaly, or Operational <br />start – the time of the alert Note: It may be different from the time of the syslog server machine (this depends on the time zone configuration) <br />src_ip – source device IP address<br />dst_ip – destination device IP address <br />cat - The alert group associated with the alert. |
+| Date and time |	Date and time the syslog server machine received the information |  
+| Priority |	User.Alert | 
+| Hostname |	Sensor IP |
+| Message |	Sensor Name: the name of the Azure Defender for IoT appliance <br />LEEF:1.0 <br />Azure Defender for IoT <br />Sensor  <br />Sensor Version <br />Azure Defender for IoT Alert <br />title – the title of the alert <br />msg – the message of the alert <br />protocol – the protocol of the alert<br />severity – the severity of the alert: Warning, Minor, Major, or Critical <br />type – the type of the alert: Protocol Violation, Policy Violation, Malware, Anomaly, or Operational <br />start – the time of the alert Note: It may be different from the time of the syslog server machine (this depends on the time zone configuration) <br />src_ip – source device IP address<br />dst_ip – destination device IP address <br />cat - The alert group associated with the alert. |
 
 3. Select **Submit**.
 
@@ -202,4 +202,4 @@ This means the Forwarding Rules you define may be ignored based on Exclusion Rul
 
 ## See also
 
-[Integrations](concept-integrations.md)
+[Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
