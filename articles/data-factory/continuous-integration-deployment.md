@@ -23,7 +23,7 @@ Continuous integration is the practice of testing each change made to your code
 
 In Azure Data Factory, continuous integration and delivery (CI/CD) means moving Data Factory pipelines from one environment (development, test, production) to another. Azure Data Factory utilizes [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to store the configuration of your various ADF entities (pipelines, datasets, data flows, and so on). There are two suggested methods to promote a data factory to another environment:
 
--    Automated deployment using Data Factory's integration with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+-    Automated deployment using Data Factory's integration with [Azure Classic Release Pipeline](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
 -    Manually upload a Resource Manager template using Data Factory UX integration with Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -40,7 +40,7 @@ Below is a sample overview of the CI/CD lifecycle in an Azure data factory that'
 
 1.  After a pull request is approved and changes are merged in the master branch, the changes get published to the development factory.
 
-1.  When the team is ready to deploy the changes to a test or UAT (User Acceptance Testing) factory, the team goes to their Azure Pipelines release and deploys the desired version of the development factory to UAT. This deployment takes place as part of an Azure Pipelines task and uses Resource Manager template parameters to apply the appropriate configuration.
+1.  When the team is ready to deploy the changes to a test or UAT (User Acceptance Testing) factory, the team goes to their Azure Classic Release Pipeline and deploys the desired version of the development factory to UAT. This deployment takes place as part of an Azure Pipelines task and uses Resource Manager template parameters to apply the appropriate configuration.
 
 1.  After the changes have been verified in the test factory, deploy to the production factory by using the next task of the classic release pipeline.
 
@@ -53,7 +53,7 @@ The below image highlights the different steps of this lifecycle.
 
 ## Automate continuous integration by using Azure Classic Release Pipelines
 
-The following is a guide for setting up an Azure Classic Release Pipeline that automates the deployment of a data factory to multiple environments.
+The following is a guide for setting up an [Azure Classic Release Pipeline](/azure/devops/pipelines/release/?view=azure-devops) that automates the deployment of a data factory to multiple environments.
 
 ### Requirements
 
