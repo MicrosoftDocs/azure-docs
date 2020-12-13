@@ -42,18 +42,18 @@ Below is a sample overview of the CI/CD lifecycle in an Azure data factory that'
 
 1.  When the team is ready to deploy the changes to a test or UAT (User Acceptance Testing) factory, the team goes to their Azure Pipelines release and deploys the desired version of the development factory to UAT. This deployment takes place as part of an Azure Pipelines task and uses Resource Manager template parameters to apply the appropriate configuration.
 
-1.  After the changes have been verified in the test factory, deploy to the production factory by using the next task of the pipelines release.
+1.  After the changes have been verified in the test factory, deploy to the production factory by using the next task of the classic release pipeline.
 
 > [!NOTE]
-> Only the development factory is associated with a git repository. The test and production factories shouldn't have a git repository associated with them and should only be updated via an Azure DevOps pipeline or via a Resource Management template.
+> Only the development factory is associated with a git repository. The test and production factories shouldn't have a git repository associated with them and should only be updated via an Azure DevOps release or via a Resource Management template.
 
 The below image highlights the different steps of this lifecycle.
 
 ![Diagram of continuous integration with Azure Pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
 
-## Automate continuous integration by using Azure Pipelines releases
+## Automate continuous integration by using Azure Classic Release Pipelines
 
-The following is a guide for setting up an Azure Pipelines release that automates the deployment of a data factory to multiple environments.
+The following is a guide for setting up an Azure Classic Release Pipeline that automates the deployment of a data factory to multiple environments.
 
 ### Requirements
 
@@ -63,7 +63,7 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
 -   An [Azure key vault](https://azure.microsoft.com/services/key-vault/) that contains the secrets for each environment.
 
-### Set up an Azure Pipelines release
+### Set up an Azure Classic Release Pipeline
 
 1.  In [Azure DevOps](https://dev.azure.com/), open the project that's configured with your data factory.
 
@@ -108,7 +108,7 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
     ![Data Factory Prod Deployment](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-1.  Save the release pipeline.
+1.  Save the classic release pipeline.
 
 1. To trigger a release, select **Create release**. To automate the creation of releases, see [Azure DevOps release triggers](/azure/devops/pipelines/release/triggers?view=azure-devops)
 
@@ -119,7 +119,7 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
 ### Get secrets from Azure Key Vault
 
-If you have secrets to pass in an Azure Resource Manager template, we recommend that you use Azure Key Vault with the Azure Pipelines release.
+If you have secrets to pass in an Azure Resource Manager template, we recommend that you use Azure Key Vault with the Azure Classic Release.
 
 There are two ways to handle secrets:
 
