@@ -116,7 +116,7 @@ YARN controls the maximum sum of memory used by the containers on each Spark nod
 
 ![YARN Spark Memory Management](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
-## Change parameters for an application running in Jupyter notebook
+## Change parameters for an application running in Jupyter Notebook
 
 Spark clusters in HDInsight include a number of components by default. Each of these components includes default configuration values, which can be overridden as needed.
 
@@ -128,12 +128,12 @@ Spark clusters in HDInsight include a number of components by default. Each of t
 |Jupyter and Apache Zeppelin notebooks|Interactive browser-based UI for interacting with your Spark cluster.|
 |ODBC driver|Connects Spark clusters in HDInsight to business intelligence (BI) tools such as Microsoft Power BI and Tableau.|
 
-For applications running in the Jupyter notebook, use the `%%configure` command to make configuration changes from within the notebook itself. These configuration changes will be applied to the Spark jobs run from your notebook instance. Make such changes at the beginning of the application, before you run your first code cell. The changed configuration is applied to the Livy session when it gets created.
+For applications running in the Jupyter Notebook, use the `%%configure` command to make configuration changes from within the notebook itself. These configuration changes will be applied to the Spark jobs run from your notebook instance. Make such changes at the beginning of the application, before you run your first code cell. The changed configuration is applied to the Livy session when it gets created.
 
 > [!NOTE]  
 > To change the configuration at a later stage in the application, use the `-f` (force) parameter. However, all progress in the application will be lost.
 
-The code below shows how to change the configuration for an application running in a Jupyter notebook.
+The code below shows how to change the configuration for an application running in a Jupyter Notebook.
 
 ```
 %%configure
