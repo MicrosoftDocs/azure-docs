@@ -61,7 +61,7 @@ In the left navigation pane, click **Application Insights** to jump to the **Ove
 
   [ ![IPA 6](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)
 
-* In the left navigation pane, click **Metrics** in the left navigation pane of the **Application Insights** page and select `customer | azure.applicationInsights` namespace.
+* In the left navigation pane, click **Metrics** in the left navigation pane of the **Application Insights** page and select the namespace.
 
   [ ![IPA 7](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
 
