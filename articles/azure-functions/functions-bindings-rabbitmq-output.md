@@ -27,7 +27,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ```cs
 [FunctionName("RabbitMQOutput")]
-[return: RabbitMQ("QueueName", ConnectionStringSetting = "RabbitMQConnectionStringSetting")]
+[return: RabbitMQ("QueueName", ConnectionStringSetting = "ConnectionStringSetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
 {
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
@@ -84,7 +84,7 @@ Here's the binding data in the *function.json* file:
 
 Here's the C# script code:
 
-```cs
+```csx
 using System;
 using Microsoft.Extensions.Logging;
 
@@ -308,7 +308,7 @@ Use the following parameter types for the output binding:
 
 * `byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
 * `string` - If the parameter value is null when the function exits, Functions does not create a message.
-* `POCO` - If the message is properly formatted as a C# object
+* `POCO`
 
 When working with C# functions:
 

@@ -58,7 +58,7 @@ Here's the binding data in the *function.json* file:
 
 Here's the C# script code:
 
-```cs
+```csx
 using System;
 
 public static void Run(string myQueueItem, ILogger log)
@@ -222,9 +222,9 @@ The following table explains the binding configuration properties that you set i
 The following parameter types are available for the message:
 
 * [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) - the default format for RabbitMQ messages.
-  * `byte[]`- Through Body property.
+  * `byte[]`- Through Body property of the RabbitMQ Event.
 * `string` - If the message is text.
-* `JSON object` - If the message is delivered as a valid JSON string
+* `An object serializable as JSON` - If the message is delivered as a valid JSON string
 * `POCO` - If the message is properly formatted as a C# object
 
 # [C# Script](#tab/csharp-script)
@@ -250,10 +250,7 @@ Refer to Java [attributes and annotations](#attributes-and-annotations).
 ---
 
 ## Dead Letter Queues
-Dead letter queues and exchanges can't be controlled or configured from the RabbitMQ extensions and should be configured in RabbitMQ. Please refer to the [RabbitMQ documentation](https://www.rabbitmq.com/dlx.html).
-
-## RabbitMQ Dashboard
-If you would like to monitor your queues and exchanges for a certain RabbitMQ endpoint, first enable the [RabbitMQ management plugin](https://www.rabbitmq.com/management.html). Then, point your browser to the address of format http://{node-hostname}:15672 and log in with your user name and password.
+Dead letter queues and exchanges can't be controlled or configured from the RabbitMQ extensions. In order to use Dead Letter Queues, pre-configure the queue used by the trigger in RabbitMQ. Please refer to the [RabbitMQ documentation](https://www.rabbitmq.com/dlx.html).
 
 ## host.json settings
 
@@ -288,6 +285,12 @@ This section describes the global configuration settings available for this bind
 |userName|n/a|(optional if using ConnectionStringSetting) <br>Name to access the queue |
 |connectionString|n/a|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work.|
 |port|0|The maximum number of sessions that can be handled concurrently per scaled instance.|
+
+## Monitoring RabbitMQ Endpoint
+To monitor your queues and exchanges for a certain RabbitMQ endpoint:
+
+* Enable the [RabbitMQ management plugin](https://www.rabbitmq.com/management.html)
+* Browse to http://{node-hostname}:15672 and log in with your user name and password.
 
 ## Next steps
 
