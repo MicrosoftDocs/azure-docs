@@ -39,7 +39,7 @@ Prior F5 BIG-IP experience or knowledge isn't necessary, however, we do recommen
 
 - A wildcard or Subject Alternative Name (SAN) certificate, to publish web applications over Secure Socket Layer (SSL). [Let’s encrypt](https://letsencrypt.org/) offers free 90 days certificate for  testing.
 
-- An SSL certificate for securing the BIG-IPs management interface. A certificate used to publish web apps can be used, if its subject corresponds to the BIG-IP's Fully qualified domain name (FQDN). For example, a wildcard certificate defined with a subject *.contoso.com would be suitable for https://big-ip-vm.contoso.com:8443
+- An SSL certificate for securing the BIG-IPs management interface. A certificate used to publish web apps can be used, if its subject corresponds to the BIG-IP's Fully qualified domain name (FQDN). For example, a wildcard certificate defined with a subject *.contoso.com would be suitable for `https://big-ip-vm.contoso.com:8443`
 
 VM deployment and base system configs take approx. 30 minutes, at which point your BIG-IP platform will be ready for implementing any of the SHA scenarios listed [here](f5-aad-integration.md).
 

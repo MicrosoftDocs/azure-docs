@@ -117,8 +117,8 @@ outbound traffic, configure exceptions with Network Security Group rules. The se
 
 Virtual machines can use [private link](../../../private-link/private-link-overview.md) for
 communication to the Guest Configuration service. Apply tag with the name `EnablePrivateNeworkGC`
-and value `TRUE` to enable this feature. The tag can be applied before or after Guest Configuration
-policy definitions are applied to the machine.
+(with no "t" in Network) and value `TRUE` to enable this feature. The tag can be applied before
+or after Guest Configuration policy definitions are applied to the machine.
 
 Traffic is routed using the Azure
 [virtual public IP address](../../../virtual-network/what-is-ip-address-168-63-129-16.md) to

@@ -13,6 +13,8 @@ author: nitinme
 
 # Sign in to LUIS portal
 
+[!INCLUDE [LUIS Free account](includes/luis-portal-note.md)]
+
 Use this article to get started with the LUIS portal, and create an authoring resource. After completing the steps in this article, you will be able to create and publish LUIS apps.
 
 ## Access the portal

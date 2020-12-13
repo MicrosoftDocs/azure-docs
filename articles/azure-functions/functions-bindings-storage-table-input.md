@@ -19,7 +19,7 @@ Use the Azure Table storage input binding to read a table in an Azure Storage ac
 
 ### One entity
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that reads a single table row. For every message send to the queue, the function will be triggered.
+The following example shows a [C# function](functions-dotnet-class-library.md) that reads a single table row. For every message sent to the queue, the function will be triggered.
 
 The row key value "{queueTrigger}" indicates that the row key comes from the queue message string.
 

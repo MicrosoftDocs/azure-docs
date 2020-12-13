@@ -16,7 +16,7 @@ Logging and Threat Detection covers controls for detecting threats on Azure and 
 
 ## LT-1: Enable threat detection for Azure resources
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-1 | 6.7 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -50,7 +50,7 @@ In addition, use Azure Sentinel to build analytics rules, which hunt threats tha
 
 ## LT-2: Enable threat detection for Azure identity and access management
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-2 | 6.8 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -87,7 +87,7 @@ Azure Security Center can also alert on certain suspicious activities such as an
 
 ## LT-3: Enable logging for Azure network activities
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-3 | 9.3, 12.2, 12.5, 12.8 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -122,7 +122,7 @@ Ensure you are collecting DNS query logs to assist in correlating other network 
 
 ## LT-4: Enable logging for Azure resources
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-4 | 6.2, 6.3, 8.8 | AU-3, AU-12 |
 
@@ -148,7 +148,7 @@ Infrastructure and endpoint security
 
 ## LT-5: Centralize security log management and analysis
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-5 | 6.5, 6.6 | AU-3, SI-4 |
 
@@ -176,7 +176,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 ## LT-6: Configure log storage retention
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
@@ -204,7 +204,7 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 
 ## LT-7: Use approved time synchronization sources
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
