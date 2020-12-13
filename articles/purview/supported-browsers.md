@@ -1,5 +1,5 @@
 ---
-title: Supported Browsers
+title: Supported browsers
 description: This article provides the list of supported browsers for Azure Purview. 
 author: nayenama
 ms.author: nayenama

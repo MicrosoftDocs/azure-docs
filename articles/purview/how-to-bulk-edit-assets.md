@@ -13,7 +13,7 @@ ms.date: 11/24/2020
 
 This article describes how to tag multiple glossary terms to a list of selected assets in a single action.
 
-### Add Assets to **View selected** list using search
+### Add Assets to View selected list using search
 
 1. Search on the data asset you want to add to the list for bulk editing.
 
@@ -27,13 +27,13 @@ This article describes how to tag multiple glossary terms to a list of selected 
 
 4. Repeat the above steps to add all the data assets to the list.
 
-### Add Assets to **View selected** list from asset detail page
+### Add Assets to View selected list from asset detail page
 
 1. In the asset detail page, select the checkbox at the top right corner to add the asset to the bulk edit **View selected** list.
 
    :::image type="content" source="media/how-to-bulk-edit-assets/asset-list.png" alt-text="Screenshot of the asset.":::
 
-### Bulk edit assets in the **View selected** list to add, replace, or remove glossary terms.
+### Bulk edit assets in the View selected list to add, replace, or remove glossary terms.
 
 1. One you are done with the identification of all the data assets which needs to be bulk-edited, Select **View selected** list from search results page or asset details page.
 
@@ -63,7 +63,6 @@ This article describes how to tag multiple glossary terms to a list of selected 
 
    > [!Important]
    > The recommended number of assets for bulk edit are 15. Selecting more than 15 might cause performance issues.
-
    > The **View Selected** box will be visible only if there is at least one asset selected.
 
 
