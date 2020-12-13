@@ -210,8 +210,6 @@
     items:
     - name: Create a policy
       items:
-      - name: Get started with custom policies
-        href: custom-policy-get-started.md
       - name: Resource owner password credentials
         href: ropc-custom.md
         displayName: ropc
@@ -270,6 +268,8 @@
       items:
       - name: Custom policy overview
         href: custom-policy-trust-frameworks.md
+      - name: Get started with custom policies
+        href: custom-policy-get-started.md
       - name: TrustFrameworkPolicy
         href: trustframeworkpolicy.md
       - name: BuildingBlocks

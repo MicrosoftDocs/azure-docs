@@ -122,14 +122,14 @@ The following diagram shows the relationship between the policy files and the re
 
 Within an Azure AD B2C custom policy, you can integrate your own business logic to build the user experiences your require and extend functionality of the service. We have a set of best practices and recommendations to get started.
 
-1. Create your logic within the **extension policy**, or **relaying party policy**. You can add new elements, which will override the base policy by referencing the same ID. This will allow you to scale out your project while making it easier to upgrade base policy later on if Microsoft releases new starter packs.
-1. Within the **base policy**, we highly recommend avoiding making any changes.  When necessary make comments where the changes are made.
-1. When you're overriding an element, such as technical profile metadata, avoid copying the entire technical profile from the base policy. Instead, copy only the required section of the element. See [Disable email verification](custom-policy-disable-email-verification.md) for an example of how to make the change.
-1. To reduce duplication of technical profiles, where core functionality is shared, use [technical profile inclusion](technicalprofiles.md#include-technical-profile).
-1. Avoid writing to the Azure AD directory during sign-in, which may lead to throttling issues.
-1. If your policy has external dependencies, such as REST API makes sure they are highly available.
-1. For a better user experience, make sure your custom HTML templates, are globally deployed using [online content delivery](https://docs.microsoft.com/azure/cdn/). Azure Content Delivery Network (CDN) lets you reduce load times, save bandwidth, and speed responsiveness.
-1. If you want to make a change to user journey. Copy the entire user journey from the base policy to the extension policy. Provide a unique user journey ID to the user journey you have copied. Then in the [relying party policy](relyingparty.md), change the [default user journey](relyingparty.md#defaultuserjourney) element to point to the new user journey.
+- Create your logic within the **extension policy**, or **relaying party policy**. You can add new elements, which will override the base policy by referencing the same ID. This will allow you to scale out your project while making it easier to upgrade base policy later on if Microsoft releases new starter packs.
+- Within the **base policy**, we highly recommend avoiding making any changes.  When necessary make comments where the changes are made.
+- When you're overriding an element, such as technical profile metadata, avoid copying the entire technical profile from the base policy. Instead, copy only the required section of the element. See [Disable email verification](custom-policy-disable-email-verification.md) for an example of how to make the change.
+- To reduce duplication of technical profiles, where core functionality is shared, use [technical profile inclusion](technicalprofiles.md#include-technical-profile).
+- Avoid writing to the Azure AD directory during sign-in, which may lead to throttling issues.
+- If your policy has external dependencies, such as REST API makes sure they are highly available.
+- For a better user experience, make sure your custom HTML templates, are globally deployed using [online content delivery](https://docs.microsoft.com/azure/cdn/). Azure Content Delivery Network (CDN) lets you reduce load times, save bandwidth, and speed responsiveness.
+- If you want to make a change to user journey. Copy the entire user journey from the base policy to the extension policy. Provide a unique user journey ID to the user journey you have copied. Then in the [relying party policy](relyingparty.md), change the [default user journey](relyingparty.md#defaultuserjourney) element to point to the new user journey.
 
 ## Troubleshooting
 
@@ -159,9 +159,9 @@ You get started with Azure AD B2C custom policy:
 
 After you set up and test your Azure AD B2C policy, you can start customizing your policy. Go through the following articles to learn how to:
 
-1. [Add claims and customize user input](custom-policy-configure-user-input.md) using custom policies. Learn how to define a claim, add a claim to the user interface by customizing some of the starter pack technical profiles.
-1. [Customize the user interface](customize-ui-with-html.md) of your application using a custom policy. Learn how to create your own HTML content, and customize the content definition.
-1. [Localize the user interface](custom-policy-localization.md) of your application using a custom policy. Learn how to set up the list of supported languages, and provide language-specific labels, by adding the localized resources element.
-1. During your policy developing and testing you can [disable email verification](custom-policy-disable-email-verification.md). Learn how to overwrite a technical profile metadata.
-1. [Set up sign-in with a Google account](identity-provider-google-custom.md) using custom policies. Learn how to create a new claims provider with OAuth2 technical profile. Then customize the user journey to include the Google sign-in option.
-1. To diagnose problems with your custom policies you can [Collect Azure Active Directory B2C logs with Application Insights](troubleshoot-with-application-insights.md). Learn how to add new technical profiles, and configure your relaying party policy.
+- [Add claims and customize user input](custom-policy-configure-user-input.md) using custom policies. Learn how to define a claim, add a claim to the user interface by customizing some of the starter pack technical profiles.
+- [Customize the user interface](customize-ui-with-html.md) of your application using a custom policy. Learn how to create your own HTML content, and customize the content definition.
+- [Localize the user interface](custom-policy-localization.md) of your application using a custom policy. Learn how to set up the list of supported languages, and provide language-specific labels, by adding the localized resources element.
+- During your policy developing and testing you can [disable email verification](custom-policy-disable-email-verification.md). Learn how to overwrite a technical profile metadata.
+- [Set up sign-in with a Google account](identity-provider-google-custom.md) using custom policies. Learn how to create a new claims provider with OAuth2 technical profile. Then customize the user journey to include the Google sign-in option.
+- To diagnose problems with your custom policies you can [Collect Azure Active Directory B2C logs with Application Insights](troubleshoot-with-application-insights.md). Learn how to add new technical profiles, and configure your relaying party policy.
