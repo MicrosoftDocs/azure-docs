@@ -47,6 +47,8 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 
 ## Sentiment Analysis
 
+[!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
+
 #### [version 3.1-preview](#tab/version-3-1)
 
 > [!NOTE]
@@ -175,6 +177,8 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/sen
 
 ## Language detection
 
+[!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
+
 #### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
@@ -246,6 +250,8 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/lan
 
 ## Named Entity Recognition (NER)
 
+[!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
+
 #### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
@@ -302,6 +308,8 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
 ```
 
 ### Detecting personally identifying information
+
+[!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
 
 ```bash
 curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.3/entities/recognition/pii \
@@ -396,6 +404,8 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/ent
 ---
 
 ## Entity linking
+
+[!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
 
 #### [version 3.1-preview](#tab/version-3-1)
 
@@ -588,6 +598,8 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/ent
 
 ## Key phrase extraction
 
+[!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
+
 
 #### [version 3.1-preview](#tab/version-3-1)
 
@@ -654,15 +666,3 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/key
 ```
 
 ---
-
-<!--## Code samples
-
- Want to use the REST API with with a specific programming language? You can find the following code samples on GitHub.
-> * [C#](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/TextAnalyticsSentiment.cs)
-> * [Go]()
-> * [Java](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/java/Language/TextAnalytics)
-> * [JavaScript]()
-> * [PHP]()
-> * [Python](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/python/Language)
-> * [Ruby]()
--->
