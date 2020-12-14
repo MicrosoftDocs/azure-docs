@@ -87,7 +87,7 @@ To edit:
 
  VLAN names are not synchronized between the sensor and the management console. You should define identical names on components.
 
-In the networking area, select VLAN and add names to the VLAN IDs discovered and select **Save**.
+In the networking area, select **VLAN** and add names to the VLAN IDs discovered and select **Save**.
 
 ## Define a proxy to sensors
 

@@ -129,8 +129,6 @@
       items:
       - name: Backup and restore the management console 
         href: how-to-manage-the-on-premises-management-console.md
-      - name: Define backup and restore management console settings
-        href: how-to-define-management-console-network-settings.md
     - name: Work with threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
     - name: Work with device inventory information
