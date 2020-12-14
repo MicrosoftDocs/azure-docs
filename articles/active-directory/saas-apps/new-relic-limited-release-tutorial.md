@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the **User Attributes & Claims** section, make sure **Unique User Identifier** is mapped to a field that contains the email address being used at New Relic.
 
-   * The default field **user.userprincipalname** will work for you if it's values are the same as the New Relic email addresses.
+   * The default field **user.userprincipalname** will work for you if its values are the same as the New Relic email addresses.
    * The field  **user.mail** might work better for you if **user.userprincipalname** isn't the New Relic email address.
 
 1. In the **SAML Signing Certificate** section, copy **App Federation Metadata Url** and save its value for later use.
@@ -138,7 +138,7 @@ Follow these steps to configure SSO at New Relic.
 
    1. For **SSO target URL**, enter the value you previously saved from the Azure AD **Login URL** field.
 
-   1. After verifying that settings look good on both the Azure AD and New Relic sides, select **Save**. If both sides are not properly configured, your users won't be able to sign into New Relic.
+   1. After verifying that settings look good on both the Azure AD and New Relic sides, select **Save**. If both sides are not properly configured, your users won't be able to sign in to New Relic.
 
 ### Create a New Relic test user
 
