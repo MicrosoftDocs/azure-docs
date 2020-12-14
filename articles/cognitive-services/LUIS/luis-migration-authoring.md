@@ -96,15 +96,14 @@ A `*` symbol will appear next to the application name if you have a prediction r
 
 ## Migration notes
 
+* Before migration, coauthors are known as _collaborators_ on the LUIS app level. After migration, the Azure role of _contributor_ is used for the same functionality on the Azure resource level.
 * If you're a collaborator on applications, applications won't automatically migrate. You will be prompted to export these apps while going through the migration flow. You can also use the [export API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). You can import the app back into LUIS after migration. The import process creates a new app with a new app ID, for which you're the owner.
 * If you're the owner of the application, you won't need to export your apps because they'll migrate automatically. An email template with a list of all collaborators for each application is provided, so they can be notified of the migration process.
-* Before migration, coauthors are known as _collaborators_ on the LUIS app level. After migration, the Azure role of _contributor_ is used for the same functionality on the Azure resource level.
 * If you have signed-in to more than one [LUIS regional portal](./luis-reference-regions.md#luis-authoring-regions), you will be asked to migrate in multiple regions at once.
 * Applications will automatically migrate with you if you're the owner of the application. Applications will not migrate with you if you're a collaborator on the application. However, collaborators will be prompted to export the apps they need.
 * Application owners can't choose a subset of apps to migrate and there is no way for an owner to know if collaborators have migrated.
 * Migration does not automatically move or add collaborators to the Azure authoring resource. The app owner is the one who needs to complete this step after migration. This step requires [permissions to the Azure authoring resource](./luis-how-to-collaborate.md).
 * After contributors are assigned to the Azure resource, they will need to migrate before they can access applications. Otherwise, they won't have access to author the applications.
-* A migrated user can't be added as a collaborator of the application.
 
 
 ## Using apps after migration
