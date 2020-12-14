@@ -66,7 +66,11 @@ Add database to config? (y/n) [n]:
 Editing configuration complete, writing output to 'azacsnap.json'
 </pre>
 
-## SAP HANA values
+## Details of required values
+
+The following sections provide detailed guidance on the various values required for the configuration file.
+
+### SAP HANA values
 
 When adding a *database* to the configuration, the following values are required:
 
@@ -81,7 +85,7 @@ When adding a *database* to the configuration, the following values are required
 - HSR without STONITH: IP and Hostname of the node
 - Multi SID on Single node: Hostname and IP of the node hosting those SIDs
 
-## Azure Large Instance (HLI) storage values
+### Azure Large Instance (HLI) storage values
 
 When adding *HLI Storage* to a database section, the following values are required:
 
@@ -101,7 +105,7 @@ When adding *HLI Storage* to a database section, the following values are requir
     hana_shared_p40_soldub41_t020_vol
     </pre>
 
-## Azure NetApp Files (ANF) storage values
+### Azure NetApp Files (ANF) storage values
 
 When adding *ANF Storage* to a database section, the following values are required:
 
@@ -110,9 +114,9 @@ When adding *ANF Storage* to a database section, the following values are requir
 - **Full ANF Storage Volume Resource ID** = the full Resource ID of the Volume being snapshot.  This can be retrieved from:
     Azure Portal –> ANF –> Volume –> Settings/Properties –> Resource ID
 
-## Config file `azacsnap.json`
+## Configuration file overview (`azacsnap.json`)
 
-In the following screen, the `azacsnap.json` is configured with the one SID.
+In the following example, the `azacsnap.json` is configured with the one SID.
 
 The parameter values must be set to the customer's specific SAP HANA environment.
 For **Azure Large Instance** system, this information is provided by Microsoft Service Management during the onboarding/handover call, and
@@ -177,113 +181,6 @@ the production server name.
 > [!NOTE]
 > For Azure Large Instance your storage IP address must be in the same subnet as your server pool. For example, in
 this case, our server pool subnet is 172. 18. 18 .0/24 and our assigned storage IP is 172.18.18.11.
-
-## Configure the database
-
-This section explains how to configure the data base.
-
-### SAP HANA Configuration
-
-There are some recommended changes to be applied to SAP HANA to ensure protection of the log
-backups and catalog. By default, the `basepath_logbackup` and `basepath_catalogbackup` will output
-their files to the `$(DIR_INSTANCE)/backup/log` directory, and it is unlikely this path is on a volume
-which `azacsnap` is configured to snapshot these files will not be protected with storage snapshots.
-
-The following `hdbsql` command examples are intended to demonstrate setting the log and catalog
-paths to locations which are on storage volumes that can be snapshot by `azacsnap`. Be sure to check the
-values on the command line match the local SAP HANA configuration.
-
-### Configure log backup location
-
-In this example, the change is being made to the `basepath_logbackup` parameter.
-
-```bash
-hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> "ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence', 'basepath_logbackup') = '/hana/logbackups/H80' WITH RECONFIGURE"
-```
-
-### Configure catalog backup location
-
-In this example, the change is being made to the `basepath_catalogbackup` parameter.
-First, check to ensure the `basepath_catalogbackup` path exists on the filesystem, if not create the path with the same
-ownership as the directory.
-
-```bash
-ls -ld /hana/logbackups/H80/catalog
-```
-
-<pre>
-drwxr-x--- 4 h80adm sapsys 4096 Jan 17 06:55 /hana/logbackups/H80/catalog
-</pre>
-
-If the path needs to be created, the following example creates the path and sets the correct
-ownership and permissions. These commands will need to be run as root.
-
-```bash
-mkdir /hana/logbackups/H80/catalog
-chown --reference=/hana/shared/H80/HDB00 /hana/logbackups/H80/catalog
-chmod --reference=/hana/shared/H80/HDB00 /hana/logbackups/H80/catalog
-ls -ld /hana/logbackups/H80/catalog
-```
-
-<pre>
-drwxr-x--- 4 h80adm sapsys 4096 Jan 17 06:55 /hana/logbackups/H80/catalog
-</pre>
-
-The following example will change the SAP HANA setting.
-
-```bash
-hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> "ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence', 'basepath_catalogbackup') = '/hana/logbackups/H80/catalog' WITH RECONFIGURE"
-```
-
-### Check log and catalog backup locations
-
-After making the changes above, confirm that the settings are correct with the following command.
-In this example, the settings that have been set following the guidance above will display as
-SYSTEM settings.
-
-> This query also returns the DEFAULT settings for comparison.
-
-```bash
-hdbsql -jaxC -n <HANA_ip_address> - i 00 -U AZACSNAP "select * from sys.m_inifile_contents where (key = 'basepath_databackup' or key ='basepath_datavolumes' or key = 'basepath_logbackup' or key = 'basepath_logvolumes' or key = 'basepath_catalogbackup')"
-```
-
-<pre>
-global.ini,DEFAULT,,,persistence,basepath_catalogbackup,$(DIR_INSTANCE)/backup/log
-global.ini,DEFAULT,,,persistence,basepath_databackup,$(DIR_INSTANCE)/backup/data
-global.ini,DEFAULT,,,persistence,basepath_datavolumes,$(DIR_GLOBAL)/hdb/data
-global.ini,DEFAULT,,,persistence,basepath_logbackup,$(DIR_INSTANCE)/backup/log
-global.ini,DEFAULT,,,persistence,basepath_logvolumes,$(DIR_GLOBAL)/hdb/log
-global.ini,SYSTEM,,,persistence,basepath_catalogbackup,/hana/logbackups/H80/catalog
-global.ini,SYSTEM,,,persistence,basepath_datavolumes,/hana/data/H80
-global.ini,SYSTEM,,,persistence,basepath_logbackup,/hana/logbackups/H80
-global.ini,SYSTEM,,,persistence,basepath_logvolumes,/hana/log/H80
-</pre>
-
-### Configure log backup timeout
-
-The default setting for SAP HANA to perform a log backup is 900 seconds (15 minutes). It's
-recommended to reduce this value to 300 seconds (that is, 5 minutes).  Then it is possible to run regular
-backups (for example, every 10 minutes) by adding the log_backups volume into the OTHER volume section of the
-configuration file.
-
-```bash
-hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> "ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence', 'log_backup_timeout_s') = '300' WITH RECONFIGURE"
-```
-
-#### Check log backup timeout
-
-After making the change to the log backup timeout, check to ensure this has been set as follows.
-In this example, the settings that have been set will display as the SYSTEM settings, but this
-query also returns the DEFAULT settings for comparison.
-
-```bash
-hdbsql -jaxC -n <HANA_ip_address> - i 00 -U AZACSNAP "select * from sys.m_inifile_contents where key like '%log_backup_timeout%' "
-```
-
-<pre>
-global.ini,DEFAULT,,,persistence,log_backup_timeout_s,900
-global.ini,SYSTEM,,,persistence,log_backup_timeout_s,300
-</pre>
 
 ## Next steps
 
