@@ -11,8 +11,6 @@ ms.service: azure
 
 # About the on-premises management console
 
-## 
-
 The Defender for IoT on-premises management console delivers a real-time view of key IoT and OT risk indicators and alerts across all of your facilities. Tightly integrated with your SOC workflows and runbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats.  
 
 Defender for IoT provides a consolidated view of all your devices, and critical information about them, such as type (PLC, RTU, DCS, etc.), manufacturer, model, and firmware revision level, as well as alert information.  

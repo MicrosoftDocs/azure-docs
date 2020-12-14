@@ -10,19 +10,15 @@ ms.service: azure
 ---
 # Troubleshoot the sensor and on-premises management console
 
-This article describes basic troubleshooting tools for the sensor and management console. In addition to the items described here, you can also:
+This article describes basic troubleshooting tools for the sensor and management console. In addition to the items described here, you can also check the health of your system in the following ways:
 
-- Export Troubleshooting logs to support for further investigation.
+**Alerts**: An alert is created when the sensor interface that monitors the traffic is down. 
 
-- Check the health of your system in the following ways:
+**SNMP**: Sensor health is monitored using SNMP. Defender for IoT responds to SNMP queries sent from an authorized monitoring server. 
 
-    - Alerts: An alert is created when the sensor interface that monitors the traffic is down. 
+**System Notifications**: When the sensor is controlled by a management console, you can forward alerts about failed sensor backups and disconnected sensors.
 
-    - SNMP: Sensor health is monitored using SNMP. Defender for IoT responds to SNMP queries sent from an authorized monitoring server. For more information about SNMP, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).
-
-    - System Notifications: When the sensor is controlled by a management console, you can forward alerts about failed sensor backups and disconnected sensors.
-
-## Sensor Troubleshoot tools
+## Sensor troubleshooting tools
 ### No traffic indication
 
 The No Traffic indicator appears at the top of the console when the sensor recognizes that there is no traffic on one of the configured ports. This indication is visible to all users.
@@ -86,7 +82,7 @@ If an expected alert is not shown in the Alerts window, verify the following:
 
 ### Widgets show no data
 
-When the widgets in the **Trends & Statistics** window show no data, verify the following:
+When the widgets in the **Trends & Statistics** window show no data, perform the following:
 
   - Check the system sanity, see Checking System page 159.
 
@@ -100,7 +96,7 @@ When devices shown on the map appear not connected to each other, it might indic
 
 In such a case, you need to validate that you can see only the broadcast traffic and then ask the network engineer to fix the SPAN port configuration so that you could see the unicast traffic.
 
-To validate you are seeing only the broadcast traffic:
+To validate, you are seeing only the broadcast traffic:
 
    - In the Data Mining screen, create a report using the **All** option, then look at the traffic. The broadcast and multicast traffic only appears in the report and no unicast traffic.
 
@@ -159,7 +155,7 @@ To tweak the quality of service:
 
 2. To clear interface limitation: `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c`
 
-## On-premises management console troubleshooting solutions
+## On-premises management console troubleshooting tools
 
 ### Expected alerts are not shown
 
@@ -259,4 +255,3 @@ The archived logs list can contain up to five items. If the number of items in t
 - [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md)
 
 - [Understand sensor disconnection events](how-to-manage-sensors-from-the-on-premises-management-console.md#understand-sensor-disconnection-events)
-

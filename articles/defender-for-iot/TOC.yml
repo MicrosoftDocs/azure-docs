@@ -49,12 +49,8 @@
   items:
   - name: Agentless Solution for Enterprises
     items:
-    - name: Key advantages
-      href: concept-key-advantages.md
-    - name: Air gapped networks
-      href: concept-air-gapped-networks.md
-    - name: Proprietary protocols
-      href: concept-proprietary-protocols.md
+    - name: Key concepts
+      href: concept-key-concepts.md
     - name: Sensor console overview
       href: concept-sensor-console-overview.md
   - name: Agent-based solution for device builders
