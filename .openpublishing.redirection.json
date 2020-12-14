@@ -1656,6 +1656,12 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-create-your-first-pipeline.md",
+      "redirect_url": "/azure/machine-learning/how-to-create-machine-learning-pipelines",
+      "redirect_document_id": true
+    },
+    
+    {
       "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
       "redirect_document_id": false
@@ -22326,6 +22332,54 @@
       "source_path": "articles/cognitive-services/text-analytics/text-analytics-supported-languages.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/language-support",
       "redirect_document_id": true
+    },
+
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/text-analytics-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/java.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/nodejs.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/php.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/python.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Speech/index.md",
