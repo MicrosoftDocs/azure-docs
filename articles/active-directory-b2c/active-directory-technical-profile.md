@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -60,13 +60,13 @@ To read, update, or delete an existing user account, the input claim is a key th
 
 To create a new user account, the input claim is a key that uniquely identifies a local or federated account. For example, local account: **signInNames.emailAddress**, or **signInNames.userName**. For a federated account: the **alternativeSecurityId**.
 
-The [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) element may contain a collection of input claims transformation elements that are used to modify the input claim or generate new one.
+The [InputClaimsTransformations](technicalprofiles.md#input-claims-transformations) element may contain a collection of input claims transformation elements that are used to modify the input claim or generate new one.
 
 ## OutputClaims
 
 The **OutputClaims** element contains a list of claims returned by the Azure AD technical profile. You may need to map the name of the claim defined in your policy to the name defined in Azure Active Directory. You can also include claims that aren't returned by the Azure Active Directory, as long as you set the `DefaultValue` attribute.
 
-The [OutputClaimsTransformations](technicalprofiles.md#outputclaimstransformations) element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
+The [OutputClaimsTransformations](technicalprofiles.md#output-claims-transformations) element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
 For example, the **AAD-UserWriteUsingLogonEmail** technical profile creates a local account and returns the following claims:
 

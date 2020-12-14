@@ -22,6 +22,9 @@ Web Activity can be used to call a custom REST endpoint from a Data Factory pipe
 > [!NOTE]
 > Web Activity is supported for invoking URLs that are hosted in a private virtual network as well by leveraging self-hosted integration runtime. The integration runtime should have a line of sight to the URL endpoint. 
 
+> [!NOTE]
+> The maximum supported output response payload size is 4 MB.  
+
 ## Syntax
 
 ```json

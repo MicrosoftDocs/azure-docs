@@ -56,6 +56,17 @@ DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`AdminUserName`@`ServerName`*/ /*!50003
 DELIMITER ;
 ```
+#### ERROR 1227 (42000) at line 295: Access denied; you need (at least one of) the SUPER or SET_USER_ID privilege(s) for this operation
+
+The above error may occur while executing CREATE VIEW with DEFINER statements as part of importing a dump file or running a script. Azure Database for MySQL does not allow SUPER privileges or SET_USER_ID privilege to any user. 
+
+**Resolution**: 
+* Use the definer user to execute CREATE VIEW if possible. It is likely that there are many views with different definers having different permissions so this may not be feasible.  OR
+* Edit the dump file or CREATE VIEW script and remove the DEFINER= statement from the dump file OR 
+* Edit the dump file or CREATE VIEW script and replace the definer values with user with admin permissions who is performing the import or execute the script file.
+
+> [!Tip] 
+> Use sed or perl to modify a dump file or SQL script to replace the DEFINER= statement
 
 ## Next Steps
 If you did not find the answer you were looking for, consider following:
