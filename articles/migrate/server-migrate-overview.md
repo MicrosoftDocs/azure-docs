@@ -1,6 +1,9 @@
 ---
-title: Select a VMware migration option with Azure Migrate Server Migration | Microsoft Docs
+title: Select a VMware migration option with Azure Migrate Server Migration
 description: Provides an overview of options for migrating VMware VMs to Azure with Azure Migrate Server Migration
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
 ---

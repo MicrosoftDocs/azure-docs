@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/11/2020
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -73,8 +73,35 @@ The optional **RelyingParty** element contains the following elements:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | The default user journey for the RP application. |
+| Endpoints | 0:1 | A list of endpoints. For more information, see [UserInfo endpoint](userinfo-endpoint.md). |
 | UserJourneyBehaviors | 0:1 | The scope of the user journey behaviors. |
 | TechnicalProfile | 1:1 | A technical profile that's supported by the RP application. The technical profile provides a contract for the RP application to contact Azure AD B2C. |
+
+## Endpoints
+
+The **Endpoints** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| Endpoint | 1:1 | A reference to an endpoint.|
+
+The **Endpoint** element contains the following attributes:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| Id | Yes | A unique identifier of the endpoint.|
+| UserJourneyReferenceId | Yes | An identifier of the user journey in the policy. For more information, see [user journeys](userjourneys.md)  | 
+
+The following example shows a relying party with [UserInfo endpoint](userinfo-endpoint.md):
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <Endpoints>
+    <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
+  </Endpoints>
+  ...
+```
 
 ## DefaultUserJourney
 
@@ -113,7 +140,7 @@ The **UserJourneyBehaviors** element contains the following elements:
 | SessionExpiryInSeconds | 0:1 | The lifetime of Azure AD B2C's session cookie specified as an integer stored on the user's browser upon successful authentication. |
 | JourneyInsights | 0:1 | The Azure Application Insights instrumentation key to be used. |
 | ContentDefinitionParameters | 0:1 | The list of key value pairs to be appended to the content definition load URI. |
-|ScriptExecution| 0:1| The supported [JavaScript](javascript-samples.md) execution modes. Possible values: `Allow` or `Disallow` (default).
+|ScriptExecution| 0:1| The supported [JavaScript](javascript-and-page-layout.md) execution modes. Possible values: `Allow` or `Disallow` (default).
 
 ### SingleSignOn
 
@@ -161,7 +188,7 @@ The **ContentDefinitionParameter** element contains the following attribute:
 | --------- | -------- | ----------- |
 | Name | Yes | The name of the key value pair. |
 
-For more information, see [Configure the UI with dynamic content by using custom policies](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
+For more information, see [Configure the UI with dynamic content by using custom policies](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
 
 ## TechnicalProfile
 

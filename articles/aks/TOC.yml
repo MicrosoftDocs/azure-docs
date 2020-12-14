@@ -179,7 +179,7 @@
     - name: Deploy AKS with Terraform
       href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
       maintainContext: true
-    - name: Use the Kubernetes resource viewer (Preview)
+    - name: Azure Portal Kubernetes resource view
       href: kubernetes-portal.md
     - name: Use the Kubernetes dashboard
       href: kubernetes-dashboard.md
@@ -333,8 +333,10 @@
       href: spark-job.md
     - name: Use GPUs
       href: gpu-cluster.md
-    - name: Use Azure Database for PostgreSQL
-      href: ../postgresql/concepts-aks.md
+    - name: Build app with PostgreSQL
+      href: ../postgresql/flexible-server/tutorial-django-aks-database.md
+    - name: Build app with MySQL
+      href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md  
       maintainContext: true
     - name: Use Azure API Management
       href: ../api-management/api-management-kubernetes.md

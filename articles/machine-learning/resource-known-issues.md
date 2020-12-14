@@ -9,7 +9,7 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.custom: troubleshooting, contperfq4
+ms.custom: troubleshooting, contperf-fy20q4
 ms.date: 11/09/2020
 
 ---
@@ -206,7 +206,10 @@ If you are using file share for other workloads, such as data transfer, the re
     If you don't include the leading forward slash, '/',  you'll need to prefix the working directory e.g. `/mnt/batch/.../tmp/dataset` on the compute target to indicate where you want the dataset to be mounted.
 
 ### Mount dataset
-* **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: Re-try logic has been added in `azureml-sdk >=1.12.0` to mitigate the issue. If you are on previous azureml-sdk versions, please upgrade to the latest version. If you are already on `azureml-sdk>=1.12.0`, please recreate your environment so that you have the latest patch with the fix.
+* **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: 
+  * If you don't have any outbound [network security group](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) rules and are using `azureml-sdk>=1.12.0`, please update `azureml-dataset-runtime` and it's dependencies to be the latest for the specific minor version, or if you are using it in a run, please recreate your environment so it can have the latest patch with the fix. 
+  * If you are using `azureml-sdk<1.12.0`, please upgrade to the latest version.
+  * If you have outbound NSG rules, please make sure there is a outbound rule that allows all traffic for the service tag `AzureResourceMonitor`.
 
 ### Data labeling projects
 
@@ -351,7 +354,14 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
     pip install --upgrade pandas==0.23.4
     pip install --upgrade scikit-learn==0.20.3
   ```
- 
+
+* **Failed deployment**: For versions <= 1.18.0 of the SDK, the base image created for deployment may fail with the following error: "ImportError: cannot import name `cached_property` from `werkzeug`". 
+
+  The following steps can work around the issue:
+  1. Download the model package
+  2. Un-zip the package
+  3. Deploy using the un-zipped assets
+
 * **Forecasting R2 score is always zero**: This issue arises if the training data provided has time series that contains the same value for the last `n_cv_splits` + `forecasting_horizon` data points. If this pattern is expected in your time series, you can switch your primary metric to normalized root mean squared error.
  
 * **TensorFlow**: As of version 1.5.0 of the SDK, automated machine learning does not install TensorFlow models by default. To install TensorFlow and use it with your automated ML experiments, install tensorflow==1.12.0 via CondaDependecies. 
