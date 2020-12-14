@@ -4,7 +4,7 @@ description: Use an external REST API to access the data discovered by sensors a
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/13/2020
+ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
 ---
@@ -1687,7 +1687,7 @@ response:
 | **username** | String | No |
 | **new_password** | String | No |
 
-### On-premises management console API specifications
+## On-premises management console API specifications
 
 This section describes the following on-premises management console APIs.
 
