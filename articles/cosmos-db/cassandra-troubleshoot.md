@@ -78,7 +78,7 @@ cluster = Cluster.builder().addContactPoints(contactPoints).withPort(port)
 
 ### Version 4.x
 
-For version 4.x of the Java driver, set keep-alive by overriding settings in reference.conf and ensure keep-alive is [enabled in the operating system](https://knowledgebase.progress.com/articles/Article/configure-OS-TCP-KEEPALIVE-000080089):
+For version 4.x of the Java driver, set keep-alive by overriding settings in `reference.conf` and ensure keep-alive is [enabled in the operating system](https://knowledgebase.progress.com/articles/Article/configure-OS-TCP-KEEPALIVE-000080089):
 
 ```xml
 datastax-java-driver {
