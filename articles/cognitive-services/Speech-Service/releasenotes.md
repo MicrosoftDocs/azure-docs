@@ -25,7 +25,16 @@ Adding 51 new voices for a total of 129 neural voices across 54 languages/locale
 
 - 5 voices in preview locales: Kert in `et-EE` Estonian (Estonia), Colm in `ga-IE` Irish (Ireland), Nils in `lv-LV` Latvian (Latvia), Leonas in `lt-LT` Lithuanian (Lithuania), Joseph in `mt-MT` Maltese (Malta).
 
-With this release, we now support a total of 129 neural voices across 54 languages/locales. In addition, over 70 standard voices are available in 49 languages/locales. Visit [Language support](language-support.md#text-to-speech) for the full language and voice list. 
+With this release, we now support a total of 129 neural voices across 54 languages/locales. In addition, over 70 standard voices are available in 49 languages/locales. Visit [Language support](language-support.md#text-to-speech) for the full language and voice list.
+
+**Updates for zh-CN voices**
+- All Chinese neural voices support speaking Chinese and English (Mixlingual capability).
+- All Chinese neural voices support intonation adjustment. You can use SSML or Audio Content Creation tool to change the intonation best for your content. 
+- All Chinese multi-style neural voices support style degree control, so that you can adjust the emotion intensity, making it soft or strong.
+
+**Updates for Audio Content Creation**
+- Added style degree control for all Chinese Neural voices; Refined the customized break feature to include incremental breaks of 50ms.
+- The tool display language will be localized to your browser language automatically.
 
 ## Text-to-speech 2020-November release
 
