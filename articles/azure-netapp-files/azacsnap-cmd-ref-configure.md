@@ -25,6 +25,16 @@ This article provides a guide for running the configure command of the Azure App
 
 The configuration file can be created or edited by using the `azacsnap -c configure` command.
 
+## Command options
+
+The `-c configure` command has the following options
+
+- `--configuration new` to create a new configuration file.
+
+- `--configuration edit` to edit an existing configuration file.
+
+- `[--configfile <config filename>]` is an optional parameter allowing for custom configuration file names.
+
 ## Configuration file for snapshot tools
 
 A configuration file can be created by running `azacsnap -c configure --configuration new`.  By default the configuration filename is `azacsnap.json`.  A custom file name can be used with the `--configfile=` parameter (for example, `--configfile=<customname>.json`)

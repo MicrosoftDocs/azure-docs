@@ -23,18 +23,28 @@ This article provides a guide for running the details command of the Azure Appli
 
 ## Introduction
 
-Getting details of snapshots and backups is done using the `azacsnap -c details` command.
+The `azacsnap -c details` command lists the details of the snapshots (volume name, snapshot name, creation time, comments, snapshot size) stored on all the volumes in the configuration file.  The console output can be pasted into a spreadsheet for further analysis.
 
-## List snapshots `azacsnap -c details`
-
-This command lists the details of the snapshots (volume name, snapshot name, creation time, comments,
-snapshot size) stored on all the volumes in the configuration file.  The console output can be
-pasted into a spreadsheet for further analysis.
-
-Due to information stored at the back-end systems, the output of the command is slightly different
+Due to information stored in the back-end systems, the output of the command is slightly different
 when run on **Azure Large Instance** versus **Azure NetApp Files**.
 
-## Output of the `azacsnap -c details --details snapshots` command
+## Command options
+
+The `-c details` command has the following options:
+
+- `--details snapshots` Provides a list of basic details about the snapshots for each volume that has been configured. This command can be run on the primary server or on a server in the disaster-recovery location. The command provides the following information broken down by each volume that contains snapshots:
+  - Size of total snapshots in a volume.
+  - Each snapshot in that volume includes the following details:
+  - Snapshot name
+  - Create time
+  - Size of the snapshot
+  - Frequency of the snapshot
+
+- `--details replication` Provides basic details around the replication status from the production site to the disaster-recovery site. The command provides output to allow for monitoring to ensure replication is taking place.  It shows the size of the items that are being replicated. It also provides guidance if replication is taking too long or if the link is down.
+
+- `[--configfile <config filename>]` is an optional parameter allowing for custom configuration file names.
+
+### Output of the `azacsnap -c details --details snapshots` command
 
 The example below has been executed on an **Azure Large Instance** and the output has been trimmed for
 brevity.  Also be aware some of the lines may have been wrapped to fit the output.
@@ -82,7 +92,7 @@ List snapshot details called with snapshotFilter ''
 > [!NOTE]
 > This example shows output for snapshots run using the previous version (v4.3) as well as snapshots taken with the latest version (5.0).
 
-## Output of the `azacsnap -c details --details replication` command
+### Output of the `azacsnap -c details --details replication` command
 
 This command checks the storage replication status from the primary site to DR location and *must*
 be executed on the **DR site server**. This command checks **only** the volumes in the configuration file.
@@ -96,10 +106,10 @@ azacsnap -c details --details replication
 
 <pre>
 Getting replication details for HLI systems
-Volume, Link status, Current Replication Activity, Latest Snapshot Replicated, Size of Latest Snapshot Replicated, Current Lag Time between snapshots (HH:MM:SS)
-hana_data_h80_mnt00001_t250_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036590.2020-11-02_031000, 7.53MB, 00h 06m 02s
-hana_shared_h80_t250_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036594.2020-11-02_031000, 1.64MB, 00h 06m 04s
-hana_log_backups_h80_t250_xdp, Active, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036635.2020-11-02_031500, 2.32KB, 00h 01m 04s
+<font color="blue">Volume, Link status, Current Replication Activity, Latest Snapshot Replicated, Size of Latest Snapshot Replicated, Current Lag Time between snapshots (HH:MM:SS)</font>
+hana_data_h80_mnt00001_t250_xdp, <font color="green">Active</font>, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036590.2020-11-02_031000, 7.53MB, 00h 06m 02s
+hana_shared_h80_t250_xdp, <font color="green">Active</font>, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036594.2020-11-02_031000, 1.64MB, 00h 06m 04s
+hana_log_backups_h80_t250_xdp, <font color="green">Active</font>, Idle, snapmirror.d4b34832-8922-11e9-9b18-00a098f706fa_2151036635.2020-11-02_031500, 2.32KB, 00h 01m 04s
 </pre>
 
 The following example has broken replication status and, in this scenario, activating DR would likely

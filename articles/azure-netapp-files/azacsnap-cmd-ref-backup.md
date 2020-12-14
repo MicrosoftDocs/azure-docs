@@ -23,44 +23,32 @@ This article provides a guide for running the backup command of the Azure Applic
 
 ## Introduction
 
-A storage snapshot based backup is run using the `azacsnap -c backup` command.
+A storage snapshot based backup is run using the `azacsnap -c backup` command.  This command performs the orchestration of a database consistent storage snapshot on the DATA volumes, and a storage snapshot (without any database consistency setup) on the OTHER volumes.  
 
-## Back up snapshots `azazsnap -c backup`
+For DATA volumes `azacsnap` will prepare the database for a storage snapshot, then it will take the storage snapshot for all configured volumes, finally it will advise the database the snapshot is complete.  It will also manage any database entries which record snapshot backup activity (e.g. SAP HANA backup catalog).
 
-This command performs the orchestration of a database consistent storage snapshot on the
-DATA volumes, and a storage snapshot (without any database consistency setup) on the OTHER volumes.
+## Command options
 
-This command takes the following arguments:
+The `-c backup` command takes the following arguments:
 
 - `--volume=` type of volume to snapshot, this parameter may contain `data` or `other`
   - `data` snapshots the volumes within the dataVolume stanza of the configuration file.
   - `other` snapshots the volumes within the otherVolume stanza of the configuration file.
   
   > [!NOTE]
-  > By creating a separate config file with the boot volume as the otherVolume, it's possible for
-      `boot` snapshots to be taken on an entirely different schedule (for example, daily).
+  > By creating a separate config file with the boot volume as the otherVolume, it's possible for `boot` snapshots to be taken on an entirely different schedule (for example, daily).
 
-- `--prefix=` the customer snapshot prefix for the snapshot name. This parameter has two purposes. The
-    first purpose is to provide a unique name for grouping of snapshots. The second purpose is
-    for the command to determine the `--retention` number of storage snapshots that are
-    kept for the specified `--prefix`.
+- `--prefix=` the customer snapshot prefix for the snapshot name. This parameter has two purposes. Firstly purpose is to provide a unique name for grouping of snapshots. Secondly to determine the `--retention` number of storage snapshots that are kept for the specified `--prefix`.
 
     > [!IMPORTANT]
     > Only alpha numeric ("A-Z,a-z,0-9"), underscore ("_") and dash ("-") characters are allowed.
 
-- `--retention` the number of snapshots of the defined `--prefix` to be kept. Any additional
-    snapshots are removed after a new snapshot is taken for this `--prefix`.
-- `--trim` available for SAP HANA v2 and later, this option maintains the backup catalog and
-    on disk catalog and log backups. The number of entries to keep in the backup catalog is determined by
-    the `--retention` option above, and deletes older entries for the defined prefix (`--prefix`)
-    from the backup catalog, and the related physical logs backup. It also deletes any log backup
-    entries that are older than the oldest non-log backup entry. This operations helps to prevent the log
-    backups from using up all available disk space.
+- `--retention` the number of snapshots of the defined `--prefix` to be kept. Any additional snapshots are removed after a new snapshot is taken for this `--prefix`.
+
+- `--trim` available for SAP HANA v2 and later, this option maintains the backup catalog and on disk catalog and log backups. The number of entries to keep in the backup catalog is determined by the `--retention` option above, and deletes older entries for the defined prefix (`--prefix`) from the backup catalog, and the related physical logs backup. It also deletes any log backup entries that are older than the oldest non-log backup entry. This operations helps to prevent the log backups from using up all available disk space.
 
   > [!NOTE]
-  > The following example command will keep 9 storage snapshots and ensure the
-    backup catalog is continuously trimmed to match the 9 storage snapshots being
-    retained.
+  > The following example command will keep 9 storage snapshots and ensure the backup catalog is continuously trimmed to match the 9 storage snapshots being retained.
 
     ```bash
     azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim
@@ -69,15 +57,13 @@ This command takes the following arguments:
 - `[--ssl=]` an optional parameter that defines the encryption method used to communicate
     with SAP HANA, either `openssl` or `commoncrypto`. If defined, then the `azacsnap -c backup`
     command expects to find two files in the same directory, these files must be named after
-    the corresponding SID. Refer to [Using SSL for communication with SAP HANA](azacsnap-installation.md#using-ssl-for-communication-with-sap-hana).
-- `[--frequency=]` Deprecated, do not use.
+    the corresponding SID. Refer to [Using SSL for communication with SAP HANA](azacsnap-installation.md#using-ssl-for-communication-with-sap-hana). The following example takes a `hana` type snapshot with a prefix of `hana_TEST` and will keep `9` of them communicating with SAP HANA using SSL (`openssl`).
 
-The following example takes a `hana` type snapshot with a prefix of `hana_TEST` and will keep `9`
-of them communicating with SAP HANA using SSL (`openssl`).
+    ```bash
+    azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim --ssl=openssl
+    ```
 
-```bash
-azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim --ssl=openssl
-```
+- `[--configfile <config filename>]` is an optional parameter allowing for custom configuration file names.
 
 ## Snapshot backups are fast
 

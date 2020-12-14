@@ -25,25 +25,25 @@ This article provides a guide for running the delete command of the Azure Applic
 
 It is possible to delete volume snapshots and database catalog entries with the `azacsnap -c delete` command.
 
-## Delete a snapshot `azacsnap -c delete`
-
-This command deletes snapshots from the volumes.
-
+> [!IMPORTANT]
 Snapshots created less than 10 minutes before running this command should not be deleted due to the
 potential for interference with snapshot replication.
 
-This command takes the following arguments:
+## Command options
 
-- `--delete=` type of delete operation (`sync`, `storage`, `hana`).
-  - `sync` type deletion tries to link the SAP HANA backup ID to the volume snapshot name in order to
-       remove both the SAP HANA backup ID from the catalog and the snapshot from the storage volume.
-  - `storage` type deletion removes the snapshot from each of the volumes in the configuration file.
-       There is no interaction with SAP HANA.
-  - `hana` type deletion deletes the SAP HANA backup ID entry from the backup catalog.
-- `--snapshot=` (optional) The snapshot name to be permanently removed.
-- `--hanasid=` (optional) SAP HANA database SID containing the backup ID to be deleted.
-- `--hanabackupid=` (optional) SAP HANA backup ID to be deleted from SAP HANA backup catalog.
-- `--force` (optional) *Use with caution*.  This operation will force deletion without prompting for confirmation.
+The `-c delete` command has the following options:
+
+- `--delete hana` when used with the options `--hanasid <SID>` and `--hanabackupid <HANA backup id>` will delete entries from the SAP HANA backup catalog matching the criteria.
+
+- `--delete storage` when used with the option `--snapshot <snapshot name>` will delete the snapshot from the back-end storage system.
+
+- `--delete sync` when used with options `--hanasid <SID>` and `--hanabackupid <HANA backup id>` gets the storage snapshot name from the backup catalog for the `<HANA backup id>`, and then deletes the entry in the backup catalog _and_ the snapshot from any of the volumes containing the named snapshot.
+
+- `--delete sync` when used with `--snapshot <snapshot name>` will check for any entries in the backup catalog for the `<snapshot name>`, gets the SAP HANA backup ID and deletes both the entry in the backup catalog _and_ the snapshot from any of the volumes containing the named snapshot.
+
+- `[--force]` (optional) *Use with caution*.  This operation will force deletion without prompting for confirmation.
+
+- `[--configfile <config filename>]` is an optional parameter allowing for custom configuration file names.
 
 ### Delete a snapshot using `sync` option`
 

@@ -51,36 +51,39 @@ The general format of the commands is as follows:
 
 ## Command options
 
-The command options are as follows:
+The command options are as follows with the commands as the main bullets and the associated sub-commands as indented bullets:
 
 - **`-h`** provides extended command-line help with examples on AzAcSnap usage.
-- **`-c backup`** is the primary command to execute database consistent storage snapshots for
-    data (SAP HANA data volumes) & other (for example, shared, log backups, or boot) volumes.
-- **`-c test --test hana`** This command tests the connection to the SAP HANA instance and is
-    required to validate set up of the snapshot tools.
-- **`-c test --test storage`** This command ensures `azacsnap` has been configured correctly to
-    communicate with the underlying storage interface by creating a temporary storage
-    snapshot on all the configured `data` volumes, and then removing them. This command should be
-    run for every HANA instance on a server to ensure the snapshot tools can communicate with
-    the storage so they function as expected.
-- **`-c details --details snapshots`** Provides a list of basic details about the snapshots for each volume that has been configured. This command can be run on the primary server or on a server in the disaster-recovery location. The command provides the following information broken down by each volume that contains snapshots:
-  - Size of total snapshots in a volume.
-  - Each snapshot in that volume includes the following details:
-  - Snapshot name
-  - Create time
-  - Size of the snapshot
-  - Frequency of the snapshot
-- **`-c details --details replication`** Provides basic details around the replication status from the production site to the disaster-recovery site. The command monitors to ensure replication is taking place, and it shows the size of the items that are being replicated. It also provides guidance if replication is taking too long or if the link is down.
-- **`-c delete`** This command deletes a storage snapshot or a set of
-    snapshots. You can use either the SAP HANA Backup ID as found in HANA Studio or the storage snapshot name. The Backup ID is only tied to the `hana` snapshots, which are created for the data and shared volumes. Otherwise, if the snapshot name is entered, it searches for all snapshots that match the entered snapshot name.
-- **`-c restore --restore snaptovol`** Creates a new volume based on the latest snapshot on the target volume. This command creates a new "cloned" volume based on the configured target volume, using the latest volume snapshot as the base to create the new volume.  This command does not interrupt the storage replication from primary to secondary. Instead clones of the latest available snapshot are created at the DR site and recommended filesystem mountpoints of the cloned volumes are presented. This command should be run on the Azure Large Instance system **in the DR region** (that is, the target fail-over system).
-- **`-c restore --restore revertvolume`** Reverts the target volume to a prior state based on the most recent snapshot.  Using this command as part of DR Failover into the paired DR region. This command **stops** storage replication from the primary site to the secondary site, and reverts the target DR volume(s) to their latest available snapshot on the DR volumes along with recommended filesystem mountpoints for the reverted DR volumes. This command should be run on the Azure Large Instance system **in the DR region** (that is, the target fail-over system).
-
-    > [!NOTE]
-    > This sub-command (`--restore revertvolume`) is not available for Azure NetApp Files.
-
-- **`azacsnap.json`** the JSON configuration file.  The name can be customized by using the `--configfile` command-line option and passing the config filename as a parameter (e.g `--configfile H80.json`)
-  - Create a *new* `azacsnap.json` config using `azacsnap -c configure --configuration new` or *edit* an existing config file using  `azacsnap -c configure --configuration edit`
+- **`-c configure`** This command provides an interactive Q&A style interface to create or modify the `azacsnap` configuration file (default = `azacsnap.json`).
+  - **`--configuration new`** will create a new config file.
+  - **`--configuration edit`** will edit an existing config file.
+  - see the [configure](azacsnap-cmd-ref-configure.md) command reference.
+- **`-c test`** to test the validate the configuration file and test connectivity.
+  - **`--test hana`**  tests the connection to the SAP HANA instance.
+  - **`--test storage`** tests communication with the underlying storage interface by creating a temporary storage snapshot on all the configured `data` volumes, and then removing them.
+  - **`--test all`** will perform both the `hana` and `storage` tests in sequence.
+  - see the [test](azacsnap-cmd-ref-test.md) command reference.
+- **`-c backup`** is the primary command to execute database consistent storage snapshots for data (SAP HANA data volumes) & other (for example, shared, log backups, or boot) volumes.
+  - **`--volume data`** to snapshot all the volumes in the `dataVolume` stanza of the configuration file.
+  - **`--volume other`** to snapshot all the volumes in the `otherVolume` stanza of the configuration file.
+  - see the [backup](azacsnap-cmd-ref-backup.md) command reference.
+- **`-c details`** provides information on snapshots or replication.
+  - **`--details snapshots`** Provides a list of basic details about the snapshots for each volume that has been configured. This command can be run on the primary server or on a server in the disaster-recovery location. The command provides the following information broken down by each volume that contains snapshots:
+    - Size of total snapshots in a volume.
+    - Each snapshot in that volume includes the following details:
+    - Snapshot name
+    - Create time
+    - Size of the snapshot
+    - Frequency of the snapshot
+  - **`--details replication`** Provides basic details around the replication status from the production site to the disaster-recovery site. The command monitors to ensure replication is taking place, and it shows the size of the items that are being replicated. It also provides guidance if replication is taking too long or if the link is down.
+  - see the [details](azacsnap-cmd-ref-details.md) command reference.
+- **`-c delete`** This command deletes a storage snapshot or a set of snapshots. You can use either the SAP HANA Backup ID as found in HANA Studio or the storage snapshot name. The Backup ID is only tied to the `hana` snapshots, which are created for the data and shared volumes. Otherwise, if the snapshot name is entered, it searches for all snapshots that match the entered snapshot name.
+  - see the [delete](azacsnap-cmd-ref-delete.md) command reference.
+- **`-c restore`** provides two methods to restore a snapshot to a volume, by either creating a new volume based on the snapshot or rolling back a volume to a preview state.
+  - **`--restore snaptovol`** Creates a new volume based on the latest snapshot on the target volume.
+  - **`-c restore --restore revertvolume`** Reverts the target volume to a prior state based on the most recent snapshot.
+  - see the [restore](azacsnap-cmd-ref-restore.md) command reference.
+- **`[--configfile <configfilename>]`** The optional  command-line parameter to provide a different JSON configuration filename.  This is particularly useful for creating a separate configuration file per SID (e.g `--configfile H80.json`).
 
 ## Next steps
 

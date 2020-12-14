@@ -25,8 +25,21 @@ This article provides a guide for running the restore command of the Azure Appli
 
 Doing a volume restore from a snapshot is done using the `azacsnap -c restore` command.
 
-> [!NOTE]
-> This does not perform a database recovery , only a restore of a volume as described for each of the options below.
+> [!IMPORTANT]
+> This does not perform a database recovery, only a restore of volume(s) as described for each of the options below.
+
+## Command options
+
+The `-c restore` command has the following options:
+
+- `--restore snaptovol` Creates a new volume based on the latest snapshot on the target volume. This command creates a new "cloned" volume based on the configured target volume, using the latest volume snapshot as the base to create the new volume.  This command does not interrupt the storage replication from primary to secondary. Instead clones of the latest available snapshot are created at the DR site and recommended filesystem mountpoints of the cloned volumes are presented. This command should be run on the Azure Large Instance system **in the DR region** (that is, the target fail-over system).
+
+- `--restore revertvolume` Reverts the target volume to a prior state based on the most recent snapshot.  Using this command as part of DR Failover into the paired DR region. This command **stops** storage replication from the primary site to the secondary site, and reverts the target DR volume(s) to their latest available snapshot on the DR volumes along with recommended filesystem mountpoints for the reverted DR volumes. This command should be run on the Azure Large Instance system **in the DR region** (that is, the target fail-over system).
+    > [!NOTE]
+    > The sub-command (`--restore revertvolume`) is only available for Azure Large Instance and is not available for Azure NetApp Files.
+- `--hanasid <SAP HANA SID>` is the SAP HANA SID being selected from the configuration file to apply the volume restore commands to.
+
+- `[--configfile <config filename>]` is an optional parameter allowing for custom configuration file names.
 
 ## Perform a test DR failover `azacsnap -c restore --restore snaptovol`
 

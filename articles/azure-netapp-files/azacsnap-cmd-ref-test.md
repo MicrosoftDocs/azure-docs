@@ -25,6 +25,18 @@ This article explains how to run the test command of the Azure Application Consi
 
 A test of the configuration is done using the `azacsnap -c test` command.
 
+## Command options
+
+The `-c test` command has the following options:
+
+- `--test hana`  tests the connection to the SAP HANA instance.
+
+- `--test storage` tests communication with the underlying storage interface by creating a temporary storage snapshot on all the configured `data` volumes, and then removing them. 
+
+- `--test all` will perform both the `hana` and `storage` tests in sequence.
+
+- `[--configfile <config filename>]` is an optional parameter allowing for custom configuration file names.
+
 ## Check connectivity with SAP HANA `azacsnap -c test --test hana`
 
 This command checks the HANA connectivity for all the HANA instances in the configuration
