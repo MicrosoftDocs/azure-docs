@@ -185,7 +185,7 @@ By default, logging is only collected when that logging is performed at the INFO
 See the [configuration options](./java-standalone-config.md#auto-collected-logging) for how to change this level.
 
 If you want to attach custom dimensions to your logs, you can use
-[Log4j 1 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html),
+[Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html),
 [Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html),
 or [Logback MDC](http://logback.qos.ch/manual/mdc.html),
 and Application Insights Java 3.0 will automatically capture those MDC properties as custom dimensions
@@ -193,13 +193,13 @@ on your trace and exception telemetry.
 
 ### Send custom telemetry using Application Insights Java 2.x SDK
 
-Add `applicationinsights-core-2.6.0.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+Add `applicationinsights-core-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>2.6.0</version>
+  <version>2.6.2</version>
 </dependency>
 ```
 
