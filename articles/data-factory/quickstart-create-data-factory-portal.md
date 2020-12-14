@@ -40,7 +40,7 @@ Watching this video helps you understand the Data Factory UI:
 1. Select **Integration**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. On the **Create data factory** page, under **Basics** tab, select your Azure **Subscription** in which you want to create the data factory.
+1. On the **Create Data Factory** page, under **Basics** tab, select your Azure **Subscription** in which you want to create the data factory.
 1. For **Resource Group**, take one of the following steps:
 
     a. Select an existing resource group from the drop-down list.
@@ -64,21 +64,18 @@ Watching this video helps you understand the Data Factory UI:
 
 1. Select **Review + create**, and select **Create** after the validation is passed. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
 
-1. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
+1. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate browser tab.
    
    ![Home page for the data factory, with the "Author & Monitor" tile](./media/doc-common-process/data-factory-home-page.png)
    
    > [!NOTE]
    > If you see that the web browser is stuck at "Authorizing", clear the **Block third-party cookies and site data** check box. Or keep it selected, create an exception for **login.microsoftonline.com**, and then try to open the app again.
    
-1. On the **Let's get started** page, switch to the **Author** tab in the left panel. 
-
-    !["Let's get started" page](./media/doc-common-process/get-started-page-author-button.png)
 
 ## Create a linked service
 In this procedure, you create a linked service to link your Azure Storage account to the data factory. The linked service has the connection information that the Data Factory service uses at runtime to connect to it.
 
-1. Open [Manage tab](./author-management-hub.md) from the left pane.
+1. On the Azure Data Factory UI page, open [**Manage**](./author-management-hub.md) tab from the left pane.
 
 1. On the Linked services page, select **+New** to create a new linked service.
 
@@ -108,11 +105,12 @@ The output dataset represents the data that's copied to the destination. In the 
 
 In the linked service settings, you specified the Azure Storage account that contains the source data. In the source dataset settings, you specify where exactly the source data resides (blob container, folder, and file). In the sink dataset settings, you specify where the data is copied to (blob container, folder, and file). 
 
-1. Open **Author** tab from the left pane (the one with pencil icon).
+1. Select **Author** tab from the left pane.
 
 1. Select the **+** (plus) button, and then select **Dataset**.
 
    ![Menu for creating a dataset](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
+
 1. On the **New Dataset** page, select **Azure Blob Storage**, and then select **Continue**. 
 
 1. On the **Select Format** page, choose the format type of your data, and then select **Continue**. In this case, select **Binary** when copy files as-is without parsing the content.

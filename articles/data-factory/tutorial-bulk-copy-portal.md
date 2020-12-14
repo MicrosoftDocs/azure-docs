@@ -94,9 +94,7 @@ To verify and turn on this setting, go to your server > Security > Firewalls and
 1. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
    
 1. Click **Author & Monitor** tile to launch the Data Factory UI application in a separate tab.
-1. On the **Let's get started** page, switch to the **Author** tab in the left panel as shown in the following image:
 
-     ![Get started page](./media/doc-common-process/get-started-page-author-button.png)
 
 ## Create linked services
 You create linked services to link your data stores and computes to a data factory. A linked service has the connection information that the Data Factory service uses to connect to the data store at runtime. 
@@ -172,7 +170,9 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
 
 ### Create a dataset for source SQL Database
 
-1. Click **+ (plus)** in the left pane, and then click **Dataset**. 
+1. Select **Author** tab from the left pane.
+
+1. Select the **+** (plus) in the left pane, and then select **Dataset**. 
 
     ![New dataset menu](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
 1. In the **New Dataset** window, select **Azure SQL Database**, and then click **Continue**. 
