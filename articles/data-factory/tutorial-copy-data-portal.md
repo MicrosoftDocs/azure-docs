@@ -77,24 +77,26 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**.
-3. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
+3. On the **Create Data Factory** page, under **Basics** tab, select the Azure **Subscription** in which you want to create the data factory.
+4. For **Resource Group**, take one of the following steps:
+
+    a. Select an existing resource group from the drop-down list.
+
+    b. Select **Create new**, and enter the name of a new resource group.
+    
+    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
+5. Under **Region**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
+6. Under **Name**, enter **ADFTutorialDataFactory**.
 
    The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
      ![New data factory](./media/doc-common-process/name-not-available-error.png)
-4. Select the Azure **subscription** in which you want to create the data factory.
-5. For **Resource Group**, take one of the following steps:
 
-    a. Select **Use existing**, and select an existing resource group from the drop-down list.
-
-    b. Select **Create new**, and enter the name of a resource group. 
-         
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
-6. Under **Version**, select **V2**.
-7. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
-8. Select **Create**.
-9. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
-10. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
+7. Under **Version**, select **V2**.
+8. Select **Git configuration** tab on the top, and select the **Configure Git later** check box.
+9. Select **Review + create**, and select **Create** after the validation is passed.
+10. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
+11. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
 
 
 ## Create a pipeline

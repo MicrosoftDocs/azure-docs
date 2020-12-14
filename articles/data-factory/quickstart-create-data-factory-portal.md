@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.author: jingwang
 ---
 
@@ -40,26 +40,29 @@ Watching this video helps you understand the Data Factory UI:
 1. Select **Integration**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. On the **New data factory** page, enter **ADFTutorialDataFactory** for **Name**. 
+1. On the **Create data factory** page, under **Basics** tab, select your Azure **Subscription** in which you want to create the data factory.
+1. For **Resource Group**, take one of the following steps:
+
+    a. Select an existing resource group from the drop-down list.
+
+    b. Select **Create new**, and enter the name of a new resource group.
+    
+    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
+
+1. For **Region**, select the location for the data factory.
+
+   The list shows only locations that Data Factory supports, and where your Azure Data Factory meta data will be stored. The associated data stores (like Azure Storage and Azure SQL Database) and computes (like Azure HDInsight) that Data Factory uses can run in other regions.
  
+1. For **Name**, enter **ADFTutorialDataFactory**.
    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **&lt;yourname&gt;ADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
   
    ![Error when a name is not available](./media/doc-common-process/name-not-available-error.png)
-1. For **Subscription**, select your Azure subscription in which you want to create the data factory. 
-1. For **Resource Group**, use one of the following steps:
-     
-   - Select **Use existing**, and select an existing resource group from the list. 
-   - Select **Create new**, and enter the name of a resource group.   
-         
-   To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
+
 1. For **Version**, select **V2**.
-1. For **Location**, select the location for the data factory.
 
-   The list shows only locations that Data Factory supports, and where your Azure Data Factory meta data will be stored. The associated data stores (like Azure Storage and Azure SQL Database) and computes (like Azure HDInsight) that Data Factory uses can run in other regions.
+1. Select **Next: Git configuration**, and then select **Configure Git later** check box.
 
-1. Select **Next: Git configuration**, and then select **Configure Git later**.
-
-1. Select **Create**. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
+1. Select **Review + create**, and select **Create** after the validation is passed. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
 
 1. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
    
@@ -104,7 +107,9 @@ The input dataset represents the source data in the input folder. In the input d
 The output dataset represents the data that's copied to the destination. In the output dataset definition, you specify the blob container (**adftutorial**), the folder (**output**), and the file to which the data is copied. Each run of a pipeline has a unique ID associated with it. You can access this ID by using the system variable **RunId**. The name of the output file is dynamically evaluated based on the run ID of the pipeline.   
 
 In the linked service settings, you specified the Azure Storage account that contains the source data. In the source dataset settings, you specify where exactly the source data resides (blob container, folder, and file). In the sink dataset settings, you specify where the data is copied to (blob container, folder, and file). 
- 
+
+1. Open **Author** tab from the left pane (the one with pencil icon).
+
 1. Select the **+** (plus) button, and then select **Dataset**.
 
    ![Menu for creating a dataset](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
@@ -158,7 +163,7 @@ In this procedure, you create and validate a pipeline with a copy activity that 
 
 1. Switch to the **Sink** tab in the copy activity settings, and select **OutputDataset** for **Sink Dataset**.
 
-1. Click **Validate** on the pipeline toolbar above the canvas to validate the pipeline settings. Confirm that the pipeline has been successfully validated. To close the validation output, select the **>>** (right arrow) button. 
+1. Click **Validate** on the pipeline toolbar above the canvas to validate the pipeline settings. Confirm that the pipeline has been successfully validated. To close the validation output, select the Validation button in the top-right corner. 
 
    ![Validate a pipeline](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
 
@@ -180,7 +185,7 @@ In this procedure, you deploy entities (linked services, datasets, pipelines) to
 
     ![Publish all](./media/quickstart-create-data-factory-portal/publish-all.png)
 
-1. To trigger the pipeline manually, select **Add Trigger** on the pipeline toolbar, and then select **Trigger Now**. On the **Pipeline run** page, select **Finish**.
+1. To trigger the pipeline manually, select **Add Trigger** on the pipeline toolbar, and then select **Trigger Now**. On the **Pipeline run** page, select **OK**.
 
 ## Monitor the pipeline
 
