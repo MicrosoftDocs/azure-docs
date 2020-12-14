@@ -27,6 +27,9 @@ This tutorial describes the steps you need to perform in both G Suite and Azure 
 > * Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
 > * Updated default attribute mappings.
 
+> [!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in G Suite
