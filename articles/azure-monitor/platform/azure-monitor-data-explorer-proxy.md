@@ -16,8 +16,7 @@ The Azure Monitor cross service flow:
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Azure monitor and Azure Data Explorer cross service flow.":::
 
 >[!NOTE]
->* Azure Monitor cross service query is in private preview - AllowListing is required.
->* Contact the [Service Team](mailto:ADXProxy@microsoft.com) with any questions.
+>* Azure Monitor cross service query is in private preview - AllowListing is required contact the [Service Team](mailto:ADXProxy@microsoft.com) with any questions.
 ## Cross query your Log Analytics or Application Insights resources and Azure Data Explorer
 
 You can run the cross resource queries using client tools that support Kusto queries, such
