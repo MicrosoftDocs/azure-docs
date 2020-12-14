@@ -33,26 +33,22 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 > [!div renderon="docs"]
 > ## Register and download your quickstart application
 > To start your quickstart application, use either of the following options.
->
+<!--
+##The azure portal dows not have an option to auto-configure the auth code flow. Only implicit flow.
+## For the reason above, this section has been excluded.
+
 > ### Option 1 (Express): Register and auto configure your app and then download your code sample
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com).
 > 1. If your account gives you access to more than one tenant, select the account at the top right, and then set your portal session to the Azure Active Directory (Azure AD) tenant you want to use.
-<!-- 
-#When I copy & paste this link in the browser and I am already logged on to the azure portal, I get a weird split screen where I can create a new application but no option to configure my redirect URI as SPA. 
-#The screen does not split correctly.
-#I used chrome for this
 > 1. Select [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
--->
 > 3. Enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**.
-<!-- 
-#The autoconf page only provides an option for implicit flow
-> 1. Go to the quickstart pane and follow the instructions to download and automatically configure your new application.
--->
+> 1. Go to the quickstart pane and follow the instructions to download and automatically configure your new application.-->
+
 >
-> ### Option 2 (Manual): Register and manually configure your application and code sample
+> ### Option 1 (Manual): Register and manually configure your application and code sample
 >
 > #### Step 1: Register your application
 >
