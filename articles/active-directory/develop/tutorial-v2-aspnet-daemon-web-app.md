@@ -105,7 +105,7 @@ If you don't want to use the automation, use the steps in the following sections
     If there are more than two redirect URIs, you'll need to add them from the **Authentication** tab later, after the app is created successfully.
 1. Select **Register** to create the application.
 1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later use. You'll need it to configure the Visual Studio configuration file for this project.
-1. Under **Manage**, select **Authentication**. Then:
+1. Under **Manage**, select **Authentication**.
 1. Set **Logout URL** to `https://localhost:44316/Account/EndSession`.
 1. In the **Implicit grant** section, select **Access tokens** and **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user and call an API.
 1. Select **Save**.
