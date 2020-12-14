@@ -35,9 +35,9 @@ The following table illustrates the possible mappings between Apache Cassandra a
 > [!NOTE]
 > These are not exact mappings. Rather, we have provided the closest analogues to Apache Cassandra, and disambiguated any qualitative differences in the rightmost column. As mentioned above, we recommend reviewing Azure Cosmos DB's [consistency settings](consistency-levels.md). 
 
-:::image type="content" source="./media/cassandra-consistency/account.png" alt-text="Cassandra consistency model mapping" lightbox="./media/cassandra-consistency/account.png" :::
+:::image type="content" source="./media/cassandra-consistency/account.png" alt-text="Cassandra consistency account level mapping" lightbox="./media/cassandra-consistency/account.png" :::
 
-:::image type="content" source="./media/cassandra-consistency/dynamic.png" alt-text="Cassandra consistency model mapping" lightbox="./media/cassandra-consistency/dynamic.png" :::
+:::image type="content" source="./media/cassandra-consistency/dynamic.png" alt-text="Cassandra consistency dynamic mapping" lightbox="./media/cassandra-consistency/dynamic.png" :::
 
 If your Azure Cosmos account is configured with a consistency level other than the strong consistency, you can find out the probability that your clients may get strong and consistent reads for your workloads by looking at the *Probabilistically Bounded Staleness* (PBS) metric. This metric is exposed in the Azure portal, to learn more, see [Monitor Probabilistically Bounded Staleness (PBS) metric](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
