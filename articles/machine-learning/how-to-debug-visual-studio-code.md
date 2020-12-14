@@ -493,7 +493,7 @@ Local web service deployments require a working Docker installation on your loca
 
 2. For a better experience, you can go into the container with a new VS code interface. Select the `Docker` extention from the VS Code side bar, find your local container created, in this documentation it's `debug:1`. Right-click this container and select `"Attach Visual Studio Code"`, then a new VS Code interface will be opened automatically, and this interface shows the inside of your created container.
 
-    ![The container VS Code interface](./media/how-to-troubleshoot-deployment/container-interface.png)
+    ![The container VS Code interface](./media/how-to-troubleshoot-deployment/container-interface.PNG)
 
 3. Inside the container, run the following command in the shell
 
@@ -502,7 +502,7 @@ Local web service deployments require a working Docker installation on your loca
     ```
     Then you can see the following output in the shell inside your container:
 
-    ![The container run console output](./media/how-to-troubleshoot-deployment/container-run.png)
+    ![The container run console output](./media/how-to-troubleshoot-deployment/container-run.PNG)
 
 4. To attach VS Code to debugpy inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning Deployment: Docker Debug__ configuration. You can also select the __Run__ extention icon from the side bar, the __Azure Machine Learning Deployment: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
 
@@ -510,11 +510,11 @@ Local web service deployments require a working Docker installation on your loca
     
     After clicking the green arrow and attaching the debugger, in the container VS Code interface you can see some new information:
     
-    ![The container debugger attached information](./media/how-to-troubleshoot-deployment/Debugger-Attached.png)
+    ![The container debugger attached information](./media/how-to-troubleshoot-deployment/Debugger-Attached.PNG)
     
     Also, in your main VS Code interface, what you can see is following:
 
-    ![The VS Code breakpoint in score.py](./media/how-to-troubleshoot-deployment/VS-Code-Local-Debugger.png)
+    ![The VS Code breakpoint in score.py](./media/how-to-troubleshoot-deployment/VS-Code-Local-Debugger.PNG)
 
 And now, the local `score.py` which is attached to the container has already stopped at the breakpoints where you set. At this point, VS Code connects to debugpy inside the Docker container and stops the Docker container at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
 
