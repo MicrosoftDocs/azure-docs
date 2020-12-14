@@ -70,7 +70,7 @@ az provider register --namespace Microsoft.ContainerService
 ```
 
 ### Azure Confidential Computing feature registration on Azure (optional but recommended)
-Registering the AKS-ConfidentialComputinAddon on the Azure Subscription. This feature will add two daemonsets as discussed in details [here](confidential-nodes-aks-overview#aks-provided-daemon-sets-addon):
+Registering the AKS-ConfidentialComputinAddon on the Azure Subscription. This feature will add two daemonsets as discussed in details [here](/confidential-nodes-aks-overview#aks-provided-daemon-sets-addon):
 1. SGX Device Driver Plugin
 2. SGX Attestation Quote Helper
 
@@ -101,24 +101,24 @@ az group create --name myResourceGroup --location westus2
 Now create an AKS cluster using the az aks create command.
 
 ```azurecli-interactive
-# Create a new AKS cluster with a single system pool with Confidential Computing addon enabled
-az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys --enable-addon confcom
+# Create a new AKS cluster with  system node pool with Confidential Computing addon enabled
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom
 ```
 The above creates a new AKS cluster with system node pool. Now procced adding a user node of Confidential Computing Nodepool type on AKS (DCsv2)
 
-The below example adds a nodepool of `Standard_DC2s_v2` size. You can choose other supported list of DCsv2 SKUs and regions from [here](../virtual-machines/dcv2-series.md):
+The below example adds an user nodepool with 3 nodes of `Standard_DC2s_v2` size. You can choose other supported list of DCsv2 SKUs and regions from [here](../virtual-machines/dcv2-series.md):
 
 ```azurecli-interactive
-az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC2s_v2 --aks-custom-headers usegen2vm=true
+az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC2s_v2 --aks-custom-headers usegen2vm=true
 ```
-The above command should add a new node pool with **DC<x>s-v2** automatically run two daemon sets on this node pool - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
+The above command should add a new node pool with **DC<x>s-v2** automatically run two daemonsets on this node pool - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
 
 Get the credentials for your AKS cluster using the az aks get-credentials command:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
-Verify the nodes are created properly and the SGX-related daemon sets are running on **DC<x>s-v2** node pools using kubectl get pods & nodes command as shown below:
+Verify the nodes are created properly and the SGX-related daemonsets are running on **DC<x>s-v2** node pools using kubectl get pods & nodes command as shown below:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -186,7 +186,7 @@ kube-system     sgx-quote-helper-xxxx      1/1     Running
 If the output matches to the above, then your AKS cluster is now ready to run confidential applications.
 
 ## Hello World from isolated enclave application <a id="hello-world"></a>
-Create a file named *hello-world-enclave.yaml* and paste the following YAML manifest. This Open Enclave based sample application code can be found in the [Open Enclave project](https://github.com/openenclave/openenclave/tree/master/samples/helloworld).
+Create a file named *hello-world-enclave.yaml* and paste the following YAML manifest. This Open Enclave based sample application code can be found in the [Open Enclave project](https://github.com/openenclave/openenclave/tree/master/samples/helloworld). The below deployment assumes you have deployed the addon "confcom".
 
 ```yaml
 apiVersion: batch/v1
