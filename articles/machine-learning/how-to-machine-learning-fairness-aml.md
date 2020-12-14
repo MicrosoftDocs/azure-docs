@@ -44,7 +44,7 @@ The following example shows how to use the fairness package to upload model fair
 
 1. Train a sample model in a Jupyter notebook. 
 
-    For the dataset, we use the well-known adult census dataset, which we fetch from OpenML. For the purposes of this example, we treat this dataset as a loan decision problem and pretend that the label indicates whether or not each individual repaid a loan in the past. We will use the data to train a predictor to predict whether previously unseen individuals will repay a loan or not. The assumption is that the model predictions are used to decide whether an individual should be offered a loan.
+    For the dataset, we use the well-known adult census dataset, which we fetch from OpenML. We pretend that this is loan decision problem with the label indicating whether an individual repaid a previous loan. We will train a model to predict if previously unseen individuals will repay a loan. Such a model might be used in making loan decisions.
 
     ```python
     import copy
@@ -222,11 +222,11 @@ The following example shows how to use the fairness package to upload model fair
 
 ## Upload fairness insights for multiple models
 
-If you are interested in comparing multiple models and seeing how their fairness assessments differ, you can pass more than one model to the visualization dashboard and navigate their performance-fairness trade-offs.
+To compare multiple models and see how their fairness assessments differ, you can pass more than one model to the visualization dashboard and compare their performance-fairness trade-offs.
 
 1. Train your models:
     
-    In addition to the previous logistic regression model, we now create a second classifier, based on a Support Vector Machine estimator, and upload a fairness dashboard dictionary using Fairlearn's `metrics` package. Please note that here we skip the steps for loading and preprocessing data and go straight to the model training stage.
+    We now create a second classifier, based on a Support Vector Machine estimator, and upload a fairness dashboard dictionary using Fairlearn's `metrics` package. We assume that the previously trained model is still available.
 
 
     ```python
@@ -248,7 +248,7 @@ If you are interested in comparing multiple models and seeing how their fairness
 
 2. Register your models
 
-    Next register both models within Azure Machine Learning. For convenience in subsequent method calls, store the results in a dictionary, which maps the `id` of the registered model (a string in `name:version` format) to the predictor itself:
+    Next register both models within Azure Machine Learning. For convenience, store the results in a dictionary, which maps the `id` of the registered model (a string in `name:version` format) to the predictor itself:
 
     ```python
     model_dict = {}
@@ -331,9 +331,9 @@ If you are interested in comparing multiple models and seeing how their fairness
 
 You can use Fairlearn's [mitigation algorithms](https://fairlearn.github.io/master/user_guide/mitigation.html), compare their generated mitigated model(s) to the original unmitigated model, and navigate the performance/fairness trade-offs among compared models.
 
-In order to see an example that demonstrates the use of the [Grid Search](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) mitigation algorithm (which creates a collection of mitigated models with different fairness and performance trade offs) check out this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
+To see an example that demonstrates the use of the [Grid Search](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) mitigation algorithm (which creates a collection of mitigated models with different fairness and performance trade offs) check out this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
 
-Uploading multiple models' fairness insights in a single Run would allow for comparison of models with respect to fairness and performance. You can further click on any of the models displayed in the model comparison chart in order to see the detailed fairness insights of the particular model.
+Uploading multiple models' fairness insights in a single Run allows for comparison of models with respect to fairness and performance. You can click on any of the models displayed in the model comparison chart to see the detailed fairness insights of the particular model.
 
 
 [![Model Comparison Fairlearn Dashboard](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)
