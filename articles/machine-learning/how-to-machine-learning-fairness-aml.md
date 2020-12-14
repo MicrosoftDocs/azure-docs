@@ -40,11 +40,11 @@ Later versions of Fairlearn should also work in the following example code.
 
 ## Upload fairness insights for a single model
 
-The following example shows how to use the fairness package to upload model fairness insights into Azure Machine Learning and see the fairness assessment dashboard in Azure Machine Learning studio.
+The following example shows how to use the fairness package. We will upload model fairness insights into Azure Machine Learning and see the fairness assessment dashboard in Azure Machine Learning studio.
 
 1. Train a sample model in a Jupyter notebook. 
 
-    For the dataset, we use the well-known adult census dataset, which we fetch from OpenML. We pretend that this is loan decision problem with the label indicating whether an individual repaid a previous loan. We will train a model to predict if previously unseen individuals will repay a loan. Such a model might be used in making loan decisions.
+    For the dataset, we use the well-known adult census dataset, which we fetch from OpenML. We pretend we have a loan decision problem with the label indicating whether an individual repaid a previous loan. We will train a model to predict if previously unseen individuals will repay a loan. Such a model might be used in making loan decisions.
 
     ```python
     import copy
@@ -218,7 +218,7 @@ The following example shows how to use the fairness package to upload model fair
     1. If you registered your original model by following the previous steps, you can select **Models** in the left pane to view it.
     1. Select a model, and then the **Fairness** tab to view the explanation visualization dashboard.
 
-    To learn more about the visualization dashboard and what it contains, please check out Fairlearn's [user guide](https://fairlearn.github.io/master/user_guide/assessment.html#fairlearn-dashboard).
+    To learn more about the visualization dashboard and what it contains, check out Fairlearn's [user guide](https://fairlearn.github.io/master/user_guide/assessment.html#fairlearn-dashboard).
 
 ## Upload fairness insights for multiple models
 
