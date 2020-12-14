@@ -37,6 +37,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Contentsquare SSO supports **Just In Time** user provisioning
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Adding Contentsquare SSO from the gallery
 
 To configure the integration of Contentsquare SSO into Azure AD, you need to add Contentsquare SSO from the gallery to your list of managed SaaS apps.
