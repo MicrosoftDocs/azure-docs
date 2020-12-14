@@ -84,8 +84,8 @@ Enable replication as follows:
     - Encryption-at-rest with platform-managed key
     - Encryption-at-rest with customer-managed key
 
-> [!NOTE]
-> To replicate VMs with CMK, you'll need to [create a disk encryption set](https://go.microsoft.com/fwlink/?linkid=2151800) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
+   > [!NOTE]
+   > To replicate VMs with CMK, you'll need to [create a disk encryption set](https://go.microsoft.com/fwlink/?linkid=2151800) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
   
 10. In **Azure Hybrid Benefit**:
 
@@ -101,8 +101,8 @@ Enable replication as follows:
     - **Availability Zone**: Specify the Availability Zone to use.
     - **Availability Set**: Specify the Availability Set to use.
 
-> [!NOTE]
-> If you want to select a different availability option for a sets of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
+    > [!NOTE]
+    > If you want to select a different availability option for a sets of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
 
 
  ![VM compute settings](./media/tutorial-migrate-vmware/compute-settings.png)
