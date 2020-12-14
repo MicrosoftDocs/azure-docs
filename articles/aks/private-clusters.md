@@ -64,12 +64,12 @@ Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 
 ### No PrivateDNSZone
 
-## Prerequisites
+## No PrivateDNSZone Prerequisites
 No PrivateDNSZone
 * The Azure CLI version 0.4.67 or later
 * The api version 2020-11-01 or later
 
-## Create a private AKS cluster
+## Create a private AKS cluster with Private DNS Zone
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system]
