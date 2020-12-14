@@ -104,7 +104,7 @@ Now create an AKS cluster using the az aks create command.
 # Create a new AKS cluster with  system node pool with Confidential Computing addon enabled
 az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom
 ```
-The above creates a new AKS cluster with system node pool. Now procced adding a user node of Confidential Computing Nodepool type on AKS (DCsv2)
+The above creates a new AKS cluster with system node pool. Now proceed adding a user node of Confidential Computing Nodepool type on AKS (DCsv2)
 
 The below example adds an user nodepool with 3 nodes of `Standard_DC2s_v2` size. You can choose other supported list of DCsv2 SKUs and regions from [here](../virtual-machines/dcv2-series.md):
 
