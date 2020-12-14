@@ -1,6 +1,6 @@
 ---
 title: Key advantages
-description: The Defender for IoT sensor connects to a SPAN port or network TAP and immediately begins collecting ICS network traffic via passive (agentless) monitoring.
+description: Learn about basic Defender for IoT concepts.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: azure
 ---
 
-# Key concepts 
+# Basic concepts 
 
 - **Rapid non-invasive deployment:** The Defender for IoT sensor connects to a SPAN port or network TAP and immediately begins collecting ICS network traffic via passive (agentless) monitoring. It has zero impact on OT networks since it isn’t placed in the data path and doesn’t actively scan OT device. To deliver instant snapshots of detailed asset information, Defender for IoT sensor supplements passive monitoring with an optional active component that uses safe, vendor-approved commands to query both Windows and controller devices for asset details, as often or as infrequently as desired.
 
@@ -56,9 +56,7 @@ ms.service: azure
 
     - **Localize** text for alerts, events, and protocol parameters
 
-Proprietary protocol alerts
-
-Proprietary protocol alerts can be used to communicate information:
+In addition, proprietary protocol alerts can be used to communicate information:
 
 - About traffic detections based on protocols and underlying protocols in a proprietary Horizon plugin.
 
@@ -70,7 +68,7 @@ In addition, working with Horizon custom alerts lets you write your own alert ti
 
 Using custom, conditioned-based alert triggering and messaging helps pinpoint specific network activity and effectively update your security, IT, and operational teams.
 
-**- Air-gapped networks**: If you are working in an air-gapped environment, the  Defender for IoT on-premises management console delivers a real-time view of key IoT and OT risk indicators and alerts across all of your facilities. Tightly integrated with your SOC workflows and runbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats.  
+**Air-gapped networks**: If you are working in an air-gapped environment, the  Defender for IoT on-premises management console delivers a real-time view of key IoT and OT risk indicators and alerts across all of your facilities. Tightly integrated with your SOC workflows and runbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats.  
 
 Defender for IoT provides a consolidated view of all your devices, and critical information about them, such as type (PLC, RTU, DCS, etc.), manufacturer, model, and firmware revision level, as well as alert information.  
 
@@ -84,8 +82,10 @@ In addition to managing the data received from deployed sensors, the on-premises
 
 It is recommended that you familiarize yourself with the concepts, capabilities, and features available to sensors before working with the on-premises management console.
 
-
 **High availability:** Increase the resiliency of your Defender for IoT deployment by installing a on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 
 This deployment is implemented with a on-premises management console pair that includes a primary and secondary appliance.
 
+## Next step
+
+[Deploy and onboard a sensor](how-to-onboard-sensors.md)
