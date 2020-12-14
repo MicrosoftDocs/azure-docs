@@ -1,7 +1,7 @@
 ---
 title: Monitor delegated resources at scale
 description: Learn how to effectively use Azure Monitor Logs in a scalable way across the customer tenants you're managing.
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.topic: how-to
 ---
 
@@ -35,7 +35,25 @@ When you've determined which policies to deploy, you can [deploy them to your de
 
 ## Analyze the gathered data
 
-After you've deployed your policies, data will be logged in the Log Analytics workspaces you've created in each customer tenant. To gain insights across all managed customers, you can use tools such as [Azure Monitor Workbooks](../../azure-monitor/platform/workbooks-overview.md) to gather and analyze information from multiple data sources. 
+After you've deployed your policies, data will be logged in the Log Analytics workspaces you've created in each customer tenant. To gain insights across all managed customers, you can use tools such as [Azure Monitor Workbooks](../../azure-monitor/platform/workbooks-overview.md) to gather and analyze information from multiple data sources.
+
+## View alerts across customers
+
+You can view [alerts](../azure-monitor/platform/alerts-overview.md) for the delegated subscriptions in customer tenants that your manage.
+
+TO refresh alerts automatically across multiple customers, use an [Azure Resource Graph](../governance/resource-graph/overview.md) query to filter for alerts. You can pin the query to your dashboard and select all of the appropriate customers and subscriptions.
+
+The following example query will display severity 0 and 1 alerts, refreshing every 60 minutes.
+
+```kusto
+alertsmanagementresources
+| where type == "microsoft.alertsmanagement/alerts"
+| where properties.essentials.severity =~ "Sev0" or properties.essentials.severity =~ "Sev1"
+| where properties.essentials.monitorCondition == "Fired"
+| where properties.essentials.startDateTime > ago(60m)
+| project StartTime=properties.essentials.startDateTime,name,Description=properties.essentials.description, Severity=properties.essentials.severity, subscriptionId
+| sort by tostring(StartTime)
+```
 
 ## Next steps
 
