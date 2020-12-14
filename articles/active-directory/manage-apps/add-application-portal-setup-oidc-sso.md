@@ -44,7 +44,7 @@ To set up single sign-on for an application:
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png" alt-text="Screenshot shows the single sign-on option and the sign-up button." lightbox="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png":::
 
 
-2. Select **Sign-up** and you will be taken the app developers sign-on page. Sign in using Azure Active Directory sign-in credentials. 
+2. Select **Sign-up** and you will be taken to the app developers sign-on page. Sign in using Azure Active Directory sign-in credentials. 
 
    > [!IMPORTANT]
     > If you already have a subscription to the application then validation of user details and tenant/directory information will happen. If the application is not able to verify the user then it will redirect you to sign-up for the application service or to the error page.
