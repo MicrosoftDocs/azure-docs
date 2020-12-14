@@ -62,7 +62,7 @@ To run this sample you'll need:
 > 1. Note the **Value** of the client secret. You'll need it later.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### Step 2: Configure your application in the Azure portal
+> #### Step 1: Configure your application in the Azure portal
 >
 > To use the code sample in this quickstart, you need to:
 >
@@ -74,7 +74,7 @@ To run this sample you'll need:
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with these attributes.
 
-#### Step 3: Download the code sample
+#### Step 2: Download the code sample
 > [!div renderon="docs"]
 > [Download the Code Sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
@@ -102,7 +102,7 @@ To run this sample you'll need:
 > > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
-> #### Step 4: Configure the code sample
+> #### Step 3: Configure the code sample
 > 1. Extract the zip file to a local folder.
 > 1. If you use an integrated development environment, open the sample in your favorite IDE (optional).
 > 1. Open the application.properties file, which can be found in src/main/resources/ folder and replace the value of the fields *aad.clientId*, *aad.authority* and *aad.secretKey* with the respective values of **Application Id**, **Tenant Id** and **Client Secret** as the following:
@@ -135,9 +135,9 @@ To run this sample you'll need:
 
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### Step 5: Run the code sample
+> #### Step 3: Run the code sample
 > [!div renderon="docs"]
-> #### Step 6: Run the code sample
+> #### Step 4: Run the code sample
 
 To run the project, you can either:
 
