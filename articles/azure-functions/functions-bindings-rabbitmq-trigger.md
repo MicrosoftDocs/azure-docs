@@ -13,7 +13,7 @@ ms.custom:
 # RabbitMQ trigger for Azure Functions overview
 
 > [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Linux support will be released early in the 2021 calendar year. Consumption is not supported.
+> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Consumption and Linux are currently not supported.
 
 Use the RabbitMQ trigger to respond to messages from a RabbitMQ queue.
 
@@ -232,7 +232,13 @@ The following parameter types are available for the message:
 
 # [C# Script](#tab/csharp-script)
 
-The RabbitMQ message is passed into the function as either a string or JSON object.
+The following parameter types are available for the message:
+
+* [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) - the default format for RabbitMQ messages.
+  * `byte[]`- Through the 'Body' property of the RabbitMQ Event.
+* `string` - The message is text.
+* `An object serializable as JSON` - The message is delivered as a valid JSON string.
+* `POCO` - The message is formatted as a C# object. For a complete example, see C# [example](#example).
 
 # [JavaScript](#tab/javascript)
 

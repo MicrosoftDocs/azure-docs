@@ -289,7 +289,15 @@ When working with C# functions:
 
 # [C# Script](#tab/csharp-script)
 
-The RabbitMQ message is sent through a string.
+Use the following parameter types for the output binding:
+
+* `byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
+* `string` - If the parameter value is null when the function exits, Functions does not create a message.
+* `POCO` - If the parameter value isn't formatted as a C# object, an error will be received. For a complete example, see C# [example](#example).
+
+When working with C# functions:
+
+* Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
 
 # [JavaScript](#tab/javascript)
 
