@@ -60651,6 +60651,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/purview/powershell-register-scan-power-bi.md",
+      "redirect_url": "/azure/purview/register-scan-power-bi-tenant",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/notebooks/azure-notebooks-samples.md",
       "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
       "redirect_document_id": false
