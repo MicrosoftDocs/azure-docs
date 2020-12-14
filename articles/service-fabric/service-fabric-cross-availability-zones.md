@@ -402,12 +402,12 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
 >[!NOTE]
 > * Public IP and Load Balancer Resources should be using the Standard SKU as described earlier in the article.
 > * "multipleAvailabilityZones" property on the nodeType can only be defined at the time of nodeType creation and can't be modified later. Hence, existing nodeTypes can't be configured with this property.
-> * When "hierarchicalUpgradeDomain" is omitted or set to true, the cluster and application deployments will be slower as there are more upgrade domains in the cluster. It is important to correctly adjust the upgrade policy timeouts to incorporate for the upgrade time duration for 15 upgrade domains.
+> * When "sfZonalUpgradeMode" is omitted or set to "Hierarchical", the cluster and application deployments will be slower as there are more upgrade domains in the cluster. It is important to correctly adjust the upgrade policy timeouts to incorporate for the upgrade time duration for 15 upgrade domains.
 > * It is recommended to set the cluster reliability level to Platinum to ensure the cluster survives the one zone down scenario.
 
 >[!NOTE]
-> For best practice we recommend hierarchicalUpgradeDomain set to true or be omitted. Deployment will follow the zonal distribution of VMs impacting a smaller amount of replicas and/or instances making them safer.
-> Use hierarchicalUpgradeDomain set to false if deployment speed is a priority or only stateless workload runs on the node type with multiple AZ's. This will result in the UD walk to happen in parallel in all AZ’s.
+> For best practice we recommend sfZonalUpgradeMode set to Hierarchical or be omitted. Deployment will follow the zonal distribution of VMs impacting a smaller amount of replicas and/or instances making them safer.
+> Use sfZonalUpgradeMode set to Parallel if deployment speed is a priority or only stateless workload runs on the node type with multiple AZ's. This will result in the UD walk to happen in parallel in all AZ’s.
 
 ### Migration to the node type with multiple Availability Zones
 For all migration scenarios, a new nodeType needs to added which will have multiple availability zones supported. An existing nodeType can’t be migrated to support multiple zones.
