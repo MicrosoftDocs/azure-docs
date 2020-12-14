@@ -5,7 +5,7 @@ author: cachai2
 
 ms.assetid:
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 12/13/2020
 ms.author: cachai
 ms.custom:
 ---
@@ -23,7 +23,7 @@ For information on setup and configuration details, see the [overview](functions
 
 # [C#](#tab/csharp)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that reads and logs the RabbitMQ message:
+The following example shows a [C# function](functions-dotnet-class-library.md) that reads and logs the RabbitMQ message as a [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
 
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
@@ -35,6 +35,26 @@ public static void RabbitMQTrigger_BasicDeliverEventArgs(
     logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {Encoding.UTF8.GetString(args.Body)}");
 }
 ```
+
+The following example shows how to read the message as a POCO.
+
+```cs
+public class TestClass
+{
+    public string x { get; set; }
+}
+
+[FunctionName("RabbitMQTriggerCSharp")]
+public static void RabbitMQTrigger_BasicDeliverEventArgs(
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] TestClass pocObj,
+    ILogger logger
+    )
+{
+    logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {Encoding.UTF8.GetString(pocOBj)}");
+}
+```
+
+Like with Json objects, we will receive an error if the message isn't properly formatted as a C# object. If it is, it is then bound to the variable pocObj, which we can use for whatever we need it for.
 
 # [C# Script](#tab/csharp-script)
 
@@ -222,10 +242,10 @@ The following table explains the binding configuration properties that you set i
 The following parameter types are available for the message:
 
 * [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) - the default format for RabbitMQ messages.
-  * `byte[]`- Through Body property of the RabbitMQ Event.
-* `string` - If the message is text.
-* `An object serializable as JSON` - If the message is delivered as a valid JSON string
-* `POCO` - If the message is properly formatted as a C# object
+  * `byte[]`- Through the 'Body' property of the RabbitMQ Event.
+* `string` - The message is text.
+* `An object serializable as JSON` - The message is delivered as a valid JSON string.
+* `POCO` - The message is formatted as a C# object. For a complete example, see C# [example](#example).
 
 # [C# Script](#tab/csharp-script)
 
@@ -270,9 +290,6 @@ This section describes the global configuration settings available for this bind
 }
 ```
 
-> [!NOTE]
-> The connectionString takes precedence over hostName and userName. If these are all set, the connectionString will override the other two.
-
 |Property  |Default | Description |
 |---------|---------|---------|
 |prefetchCount|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
@@ -282,7 +299,10 @@ This section describes the global configuration settings available for this bind
 
 ## Local Testing
 
-If you are testing locally without connection strings, there are some additional settings to set in the "rabbitMQ" section of *host.json*:
+> [!NOTE]
+> The connectionString takes precedence over "hostName", "userName", and "password". If these are all set, the connectionString will override the other two.
+
+If you are testing locally without a connection string, you must set the "hostName" setting and "username" and "password" if applicable in the "rabbitMQ" section of *host.json*:
 
 ```json
 {

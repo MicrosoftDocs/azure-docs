@@ -5,7 +5,7 @@ author: cachai2
 
 ms.assetid: 
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 12/13/2020
 ms.author: cachai
 ms.custom: 
 ---
@@ -49,6 +49,24 @@ ILogger log)
     
      // send the message
     await outputEvents.AddAsync(JsonConvert.SerializeObject(myProcessedEvent));
+}
+```
+
+The following example shows how to send the messages as POCOs.
+
+```cs
+public class TestClass
+{
+    public string x { get; set; }
+}
+[FunctionName("RabbitMQOutput")]
+public static async Task Run(
+[RabbitMQTrigger("SourceQueue", ConnectionStringSetting = "TriggerConnectionString")] TestClass rabbitMQEvent,
+[RabbitMQ("DestinationQueue", ConnectionStringSetting = "OutputConnectionString")]IAsyncCollector<TestClass> outputPocos,
+ILogger log)
+{
+    // send the message
+    await outputPocos.Add(rabbitMQEvent);
 }
 ```
 
@@ -308,7 +326,7 @@ Use the following parameter types for the output binding:
 
 * `byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
 * `string` - If the parameter value is null when the function exits, Functions does not create a message.
-* `POCO`
+* `POCO` - If the parameter value isn't formatted as a C# object, an error will be received. For a complete example, see C# [example](#example).
 
 When working with C# functions:
 
