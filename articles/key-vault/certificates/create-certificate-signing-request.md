@@ -34,7 +34,7 @@ Key Vault partners with following two Certificate Authorities to simplify the cr
 The following steps will help you create a certificate from certificate authorities that are not partnered with Key Vault (for example, GoDaddy is not a trusted key vault CA) 
 
 
-### Azure PowerShell
+# [PowerShell](#tab/azure-powershell)
 
 
 
@@ -67,7 +67,7 @@ After the certificate request has been signed by the Issuer, you can bring back 
 
     Certificate request has now been successfully merged.
 
-### Azure portal
+# [Portal](#tab/azure-portal)
 
 1.	To generate CSR for the CA of your choice, navigate to the Key vault you want to add the certificate.
 2.	On the Key Vault properties pages, select **Certificates**.
@@ -118,6 +118,8 @@ Example
 
 ## Troubleshoot
 
+- To monitor or manage certificate request response, learn more [here](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
+
 - **Error type 'The public key of the end-entity certificate in the specified X.509 certificate content does not match the public part of the specified private key. Please check if certificate is valid'**
     This error can occur if you are not merging the CSR with the same CSR request initiated. Each time a CSR is created, it creates a private key which has to be matched when merging the signed request.
     
@@ -131,6 +133,7 @@ For more information, see the [Certificate operations in the Key Vault REST API 
 - **Error type 'The subject name provided is not a valid X500 name'**
     This error can occur if you have included any "special characters" in the values of SubjectName. See Notes in Azure portal and PowerShell instructions respectively. 
 
+---
 ## Next steps
 
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
