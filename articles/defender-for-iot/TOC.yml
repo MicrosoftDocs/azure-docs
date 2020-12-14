@@ -122,7 +122,7 @@
       - name: Manage sensors from the on-premises management console
         href: how-to-manage-sensors-from-the-on-premises-management-console.md
       - name: Manage individual sensors
-      href: how-to-manage-individual-sensors.md
+        href: how-to-manage-individual-sensors.md
     - name: Manage sensors on the cloud
       href: how-to-manage-sensors-on-the-cloud.md
     - name: Manage the on-premises management console

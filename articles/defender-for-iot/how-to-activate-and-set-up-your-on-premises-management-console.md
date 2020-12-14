@@ -23,7 +23,7 @@ Activation and setup of the on-premises management console ensures that:
 
 Verify that you have the username and password required for the on-premises management console.
 
-**To log in:**
+To log in:
 
 1. Open a web browser and enter the IP address for the on-premises management console, which you received during the system installation.
 
@@ -128,7 +128,7 @@ For each zone, you should assign at least one sensor. The five-level model provi
 
 You can edit your sites directly from any of the map views. When you're opening a site from a map view, the number of open alerts appears next to each zone.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/console-map-with-berlin-data-overlay.png" alt-text="Screenshot of on-premises management console map with Berlin data overlay.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/console-map-with-data-overlay-v2.png" alt-text="Screenshot of on-premises management console map with Berlin data overlay.":::
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/diagram-of-sensor-showing-relationships.png" alt-text="Diagram showing sensors and regional relationship.":::
 
@@ -184,7 +184,7 @@ Zones are logical entities that enable you to divide assets within a site into g
 
 You configure zones as a part of the site configuration process.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/site-management-zones-screen.png" alt-text="Screenshot of the Site Management Zones view.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/site-management-zones-screen-v2.png" alt-text="Screenshot of the Site Management Zones view.":::
 
 The following table describes the parameters in the **Site Management** window.
 

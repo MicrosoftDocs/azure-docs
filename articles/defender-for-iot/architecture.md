@@ -78,7 +78,7 @@ Managing Azure Defender for IoT across hybrid environments is accomplished via t
 #### Sensor console
 Sensor detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, asset inventory, and in an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. You can also use the console to view and handle threats detected by sensor engines, forward information to partner systems, manage users, and more.
 
-:::image type="content" source="./media/architecture/sensor-console.png" alt-text="Defender for IoT sensor console":::
+:::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Defender for IoT sensor console":::
 
 #### On-premises management console
 The on-premises management console enables security operations center (SOC) operators to manage and analyze alerts aggregated from multiple sensors into one single dashboard and provides an overall view of the health of the OT networks.
@@ -97,7 +97,7 @@ Tightly integrated with your SOC workflows and run books, it enables easy priori
 
 - Control all sensors – configure and monitor all sensors from a single location.
 
-   :::image type="content" source="media/updates/alerts-and-site-management.png" alt-text="Manage all of your alerts and information.":::
+   :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="Manage all of your alerts and information.":::
 
 #### Azure portal
 

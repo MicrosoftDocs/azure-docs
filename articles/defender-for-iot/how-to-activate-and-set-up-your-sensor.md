@@ -60,51 +60,51 @@ To sign-in for the first time:
 
 2. Enter the credentials that were defined during the sensor installation.
 
-3. After you sign-in successfully, the activation dialog box opens. Select **Upload** and navigate to the activation file downloaded during sensor onboarding.
+3. After you sign-in successfully, the activation dialog box opens. Select **Upload** and navigate to the activation file downloaded during sensor onboarding.
 
-   :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/activation-upload-screen-with-upload-button.png" alt-text="Select Upload and navigate":::
+   :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/activation-upload-screen-with-upload-button.png" alt-text="Select Upload and navigate":::
 
 4. Select the Sensor Network Configuration link if you want to change the sensor network configuration before activation. See [Update sensor network configuration before activation](#update-sensor-network-configuration-before-activation).
 
 5. Accept the terms and conditions.
 
-6. Select **Activate**.
+6. Select **Activate**.
 
       - Activation expiration periods
 
       - Switching from a local sensor management to cloud sensor management
 
-      - Assigning a new IoT Hub to a Cloud Connected sensor.
+      - Assigning a new IoT Hub to a Cloud Connected sensor.
 
-## Update sensor network configuration before activation  
+## Update sensor network configuration before activation  
 
 The sensor network configuration parameters were defined during the software installation or when a pre-configured sensor was purchased. The following parameters were defined:
 
-- IP Address
+- IP Address
 
-- DNS  
+- DNS  
 
 - Default Gateway
 
-- Subnet Mask
+- Subnet Mask
 
 - Host Name
 
-You may want to update this information before activating the sensor because:
+You may want to update this information before activating the sensor because:
 
-- You need to change the preconfigured parameters defined.  
+- You need to change the preconfigured parameters defined.  
 
-- You want to reconfigure network parameters post installation.
+- You want to reconfigure network parameters post installation.
 
 You can also define proxy settings before activating your sensor.
 
 To update sensor network configuration parameters:
 
-1. Select the **Sensor Network Configuration** link form the activation dialog box.  
+1. Select the **Sensor Network Configuration** link form the activation dialog box.
 
    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/editable-network-configuration-screen-v2.png" alt-text="Sensor Network Configuration":::
 
-2. The parameters defined during installation are displayed. The option to define the proxy is also available. Update any settings as required and select **Save**.  
+2. The parameters defined during installation are displayed. The option to define the proxy is also available. Update any settings as required and select **Save**.
 
 ## Subsequent logins
 
@@ -112,7 +112,7 @@ After successful first-time activation, the Azure Defender for IoT sensor consol
 
 After your sign-in, the Azure Defender for IoT console opens.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-log-in-screen-dashboard.png" alt-text="Azure Defender for IoT console":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-log-in-screen-dashboard-v2.png" alt-text="Azure Defender for IoT console":::
 
 ## Initial learning period
 
