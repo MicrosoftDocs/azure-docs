@@ -173,7 +173,7 @@ To learn more about the SCIM standards and benefits for your customers, see [pro
 To learn more about the Azure AD SCIM implementation, see [build a SCIM endpoint and configure user provisioning with Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
 
 ### Implement SCIM
-Azure AD provides [reference code](https://aka.ms/scimoverview) to help you build a SCIM endpoint. There are also many third party libraries / references that you can find on github.  
+Azure AD provides [reference code](https://aka.ms/scimoverview) to help you build a SCIM endpoint. There are also many third party libraries / references that you can find on GitHub.  
 
 ## Step 4 - Create your Azure tenant and test your app
 
