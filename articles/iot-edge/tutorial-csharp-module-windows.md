@@ -311,7 +311,7 @@ In the preceding section, you created an IoT Edge solution and added code to the
 
 1. Select **Build and Push IoT Edge Modules**.
 
-   The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image, based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
+   The build and push command starts three operations. First, it creates a new folder in the solution named *config*, which holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image, based on the appropriate Dockerfile for your target architecture. Then, the command runs `docker push` to push the image repository to your container registry.
 
    This process might take several minutes the first time, but it's faster the next time that you run the commands.
 
