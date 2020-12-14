@@ -250,11 +250,11 @@ Refer to Java [attributes and annotations](#attributes-and-annotations).
 ---
 
 ## Dead Letter Queues
-Dead letter queues and exchanges can't be controlled or configured from the RabbitMQ extensions. In order to use Dead Letter Queues, pre-configure the queue used by the trigger in RabbitMQ. Please refer to the [RabbitMQ documentation](https://www.rabbitmq.com/dlx.html).
+Dead letter queues and exchanges can't be controlled or configured from the RabbitMQ trigger.  In order to use dead letter queues, pre-configure the queue used by the trigger in RabbitMQ. Please refer to the [RabbitMQ documentation](https://www.rabbitmq.com/dlx.html).
 
 ## host.json settings
 
-This section describes the global configuration settings available for this binding in versions 2.x and higher. The example host.json file below contains only the settings for this binding. For more information about global configuration settings, see [host.json reference for Azure Functions version](functions-host-json.md).
+This section describes the global configuration settings available for this binding in versions 2.x and higher. The example *host.json* file below contains only the settings for this binding. For more information about global configuration settings, see [host.json reference for Azure Functions version](functions-host-json.md).
 
 ```json
 {
@@ -262,10 +262,7 @@ This section describes the global configuration settings available for this bind
     "extensions": {
         "rabbitMQ": {
             "prefetchCount": 100,
-            "hostName": "localhost",
             "queueName": "queue",
-            "password": "<your password>",
-            "userName": "<your username>",
             "connectionString": "amqp://user:password@url:port",
             "port": 10
         }
@@ -279,12 +276,33 @@ This section describes the global configuration settings available for this bind
 |Property  |Default | Description |
 |---------|---------|---------|
 |prefetchCount|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
-|hostName|n/a|(optional if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
 |queueName|n/a| Name of the queue to receive messages from. |
-|password|n/a|(optional if using ConnectionStringSetting) <br>Password to access the queue|
-|userName|n/a|(optional if using ConnectionStringSetting) <br>Name to access the queue |
 |connectionString|n/a|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work.|
 |port|0|The maximum number of sessions that can be handled concurrently per scaled instance.|
+
+## Local Testing
+
+If you are testing locally without connection strings, there are some additional settings to set in the "rabbitMQ" section of *host.json*:
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "rabbitMQ": {
+            ...
+            "hostName": "localhost",
+            "username": "<your username>",
+            "password": "<your password>"
+        }
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------|
+|hostName|n/a|(optional if using ConnectStringSetting) <br>Hostname of the queue (Ex: 10.26.45.210)|
+|userName|n/a|(optional if using ConnectionStringSetting) <br>Name to access the queue |
+|password|n/a|(optional if using ConnectionStringSetting) <br>Password to access the queue|
 
 ## Monitoring RabbitMQ Endpoint
 To monitor your queues and exchanges for a certain RabbitMQ endpoint:
