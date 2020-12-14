@@ -77,11 +77,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    a. In the **Sign-on URL** text box, type the URL:
+    In the **Sign-on URL** text box, type the URL:
     `https://login.contentsquare.com/`
-
-	b. In the **Reply URL** text box, type the URL:
-	`https://webapi.contentsquare.com/v1/auth/sso/assert`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
