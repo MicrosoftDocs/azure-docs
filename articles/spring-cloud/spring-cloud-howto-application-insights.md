@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Application Insights Java In-Process Agent in Azure Spring Cloud (Preview)
 
-This document explains how to monitor apps and microservices using the Application Insights Java agent in Azure Spring Cloud.
+This document explains how to monitor apps and microservices using the Application Insights Java agent in Azure Spring Cloud. 
 
 With this feature you can:
 
@@ -21,6 +21,15 @@ With this feature you can:
 * Monitor real-time live metrics.
 * Check request failures.
 * Check application metrics.
+
+Application Insights provides seven perspectives:
+
+* Application map
+* Performance
+* Failures
+* Metrics
+* Live Metrics
+* Availability
 
 ## Enable Java In-Process Agent for Application Insights
 
@@ -45,7 +54,7 @@ Enable Java In-Process Agent preview feature using the following procedure.
 
 When the **Application Insights** feature is enabled, you can:
 
-In the left navigation pane, click **Application Insights** to jump to the **Overview** page of Application Insights.
+In the left navigation pane, click **Application Insights** to jump to the **Overview** page of Application Insights. 
 
 * Click **Application Map** to see the status of calls between applications.
 
@@ -61,7 +70,7 @@ In the left navigation pane, click **Application Insights** to jump to the **Ove
 
   [ ![IPA 6](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)
 
-* In the left navigation pane, click **Metrics** in the left navigation pane of the **Application Insights** page and select the namespace.
+* In the left navigation pane, click **Metrics** and select the namespace, you will see both Spring Boot metrics and custom metrics, if any.
 
   [ ![IPA 7](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
 
