@@ -7,8 +7,7 @@
     href: architecture.md
   - name: Security Module for Azure RTOS
     href: iot-security-azure-rtos.md
-  - name: Security agents
-    href: security-agent-architecture.md
+  
   - name: Edge security module
     href: security-edge-architecture.md
     items:
@@ -35,6 +34,8 @@
       href: quickstart-azure-rtos-security-module.md
     - name: Onboard Azure Defender for IoT in IoT Hub
       href: quickstart-onboard-iot-hub.md
+    - name: Security agents
+      href: security-agent-architecture.md
     - name: Configure your solution
       href: quickstart-configure-your-solution.md
     - name: Create an Azure Defender for IoT module twin
@@ -50,9 +51,7 @@
   - name: Agentless Solution for Enterprises
     items:
     - name: Key concepts
-      href: concept-key-concepts.md
-    - name: Sensor console overview
-      href: concept-sensor-console-overview.md
+      href: concept-key-concepts.md    
   - name: Agent-based Solution for Device Builders
     items: 
     - name: Security Module for Azure RTOS
