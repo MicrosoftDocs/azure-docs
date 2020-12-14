@@ -111,7 +111,7 @@ Find and save the following values:
   * In the **Manage** section in the left pane, select **Properties**, find the **Tenant ID**, and then select the **Copy to clipboard** icon to save its value.
 * Atlas endpoint:
   * From the [Azure Purview accounts page](https://aka.ms/purviewportal) in the Azure portal, find and select your Azure Purview account in the list.
-  * Select **Overview**, find **Atlas Endpoint**, and then select the **Copy to clipboard** icon to save its value. Remove the *https://* portion of the string when you use it later.
+  * Select **Properties**, find **Atlas Endpoint**, and then select the **Copy to clipboard** icon to save its value. Remove the *https://* portion of the string when you use it later.
 * Account name:
   * Extract the name of your catalog from the Atlas endpoint string. For example, if your Atlas endpoint is `https://ThisIsMyCatalog.catalog.purview.azure.com`, your account name is `ThisIsMyCatalog`.
 
