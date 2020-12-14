@@ -89,7 +89,7 @@ The resolution for the error is
   ```
 * If you cannot log in to the MySQL to execute the above query itself, we recommend you to [reset the admin password using Azure portal](howto-create-manage-server-portal.md). The reset password option from Azure portal will help recreate the user, reset the password and restore the admin permissions, which will allow you to log in using server admin and perform further operations.
 
-## Next Steps
+## Next steps
 If you did not find the answer you are looking for, consider following:
 
 - Post your question on [Microsoft Q&A question page](/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
