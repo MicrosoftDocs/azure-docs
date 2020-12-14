@@ -12,7 +12,7 @@ ms.subservice: metrics
 
 # Viewing Multiple Resources in Metrics Explorer
 
-## Using the resource 
+## Using the resource scope picker
 
 The cross resource scope picker allows you to view metrics accross multiple resources that are within the same subscription and region. Below are instructions on how to view multiple resources in Azure Monitor Metrics Explorer. 
 
@@ -59,7 +59,7 @@ You are also able to expand the selected scopes to verify which resources this w
 
 Once you are finished selecting your scopes, click “Apply” to save your selections. 
 
-### Splitting and filtering by resource group or resources
+## Splitting and filtering by resource group or resources
 
 After plotting your resources, you can use the splitting and filtering tool to gain more insight into your data. 
 
@@ -73,7 +73,7 @@ In addition to splitting, you can use the filtering feature to only display the 
 
 ![Screenshot that shows how you can filter by resource group](./media/metrics-charts/027.png)
 
-### Pinning your multi-resource charts 
+## Pinning your multi-resource charts 
 
 > [!WARNING] 
 > You must have Monitoring Reader permission at the subscription level to visualize metrics across multiple resources, resource groups or a subscription. In order to do this, please follow the instructions in [this document](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
