@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -14,7 +14,7 @@ manager: lizross
 
 Windows Virtual Desktop uses Azure role-based access controls (RBAC) to assign roles to users and admins. These roles give admins permission to carry out certain tasks. To learn more about built-in roles for Azure RBAC, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
-The standard built-in roles for Azure are Owner, Contributor, and Reader. However, Windows Virtual Desktop has additional roles that let you separate management roles from host pools, app groups, and workspaces. This separation lets you have more granular control over administrative tasks. These roles are named in compliance with Azure's standard roles and least-privilege methodology.
+The standard built-in roles for Azure are Owner, Contributor, and Reader. However, Windows Virtual Desktop has additional roles that let you separate management roles for host pools, app groups, and workspaces. This separation lets you have more granular control over administrative tasks. These roles are named in compliance with Azure's standard roles and least-privilege methodology.
 
 Windows Virtual Desktop doesn't have a specific Owner role. However, you can use a standard Owner role for the service objects.
 
@@ -22,14 +22,13 @@ Windows Virtual Desktop doesn't have a specific Owner role. However, you can use
 
 The Desktop Virtualization Contributor role lets you manage all aspects of the deployment. However, it doesn't grant you access to compute resources. You'll also need the User Access Administrator role to publish app groups to users or user groups.
 
-| **Permission**                                        | **Permission type** |
-|-------------------------------------------------------|---------------------|
-| Microsoft.DesktopVirtualization/\*                    | Action              |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Action              |
-| Microsoft.Resources/deployments/\*                    | Action              |
-| Microsoft.Authorization/\*/read                       | Action              |
-| Microsoft.Insights/alertRules/\*                      | Action              |
-| Microsoft.Support/\*                                  | Action              |
+
+- Microsoft.DesktopVirtualization/\* 
+- Microsoft.Resources/subscriptions/resourceGroups/read
+- Microsoft.Resources/deployments/\*
+- Microsoft.Authorization/\*/read
+- Microsoft.Insights/alertRules/\*
+- Microsoft.Support/\*
 
 ## Desktop Virtualization Reader
 

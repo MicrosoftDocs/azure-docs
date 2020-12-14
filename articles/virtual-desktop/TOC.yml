@@ -122,7 +122,7 @@
     href: disaster-recovery.md
 - name: Concepts
   items:
-  - name: Role-based access control
+  - name: Built-in roles
     href: rbac.md
   - name: Authentication
     href: authentication.md
