@@ -99,7 +99,7 @@ Navigate to **Server Manager UI** under the Virtual Disks section, right-click t
 
 #### File recovery fails to auto mount because disk does not contain volumes** <br>
 
-While performing file recovery, the backup service detects volumes and auto mounts. However, if the backedup disks have raw partitions then those disks are not auto-mounted and we are unable to see the data disk for recovery.
+While performing file recovery, the backup service detects volumes and auto mounts. However, if the backed-up disks have raw partitions then those disks are not auto-mounted and we are unable to see the data disk for recovery.
 
 To solve this issue, follow the steps documented in this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms)
  
@@ -108,8 +108,8 @@ To solve this issue, follow the steps documented in this [article](https://docs.
 While running the File recovery script data disk failed to attach with the below error: <br>
 *The following partitions failed to mount since the OS couldn't identify the filesystem*
 
-- To resolve this issue, check if the Volume is encrypted with a third party application. If encrypted, then the disk or VM wont show up as encrypted on the portal
-1. Login to the backedup VM and run the command:<br>
+- To resolve this issue, check if the Volume is encrypted with a third-party application. If encrypted, then the disk or VM won't show up as encrypted on the portal
+1. Login to the backed-up VM and run the command:<br>
 *lsblk -f*<br>
 
 ![Disk without volume](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
@@ -138,7 +138,7 @@ To identify and resolve this issue, perform the following steps:
 
 ![Disk management1](./media/backup-azure-restore-files-from-vm/disk-management-8.png)
 
-4. In the **Add Drive Letter or Path** window select **Assign the following drive letter**, assign an available drive and Click **OK**. 
+4. In the **Add Drive Letter or Path** window select **Assign the following drive letter** and assign an available drive and Click **OK**. 
 
 ![Disk management2](./media/backup-azure-restore-files-from-vm/disk-management-9.png)
 
