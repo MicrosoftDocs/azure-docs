@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 12/14/2020
 ms.author: alkohli
 ---
 
@@ -58,11 +58,11 @@ A. Data Box Disk is supported for all regions within US, Canada, Australia, West
 ### Q. How can I import source data present at my location in one country/region to an Azure region in a different country?
 A. Data Box Disk supports data ingestion only within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where Data Box Disks can ship to and from any EU country/region.
 
-For example, if you wanted to move data at your location in Canada to an Azure WestUS storage account, then you could achieve it in the following way:
+For example, if you wanted to move data at your location in Canada to an Azure West US storage account, then you could achieve it in the following way:
 
 ### Option 1: 
 
-Ship a [supported disk](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) containing data using the [Azure Import/Export service](../storage/common/storage-import-export-service.md) from the source location in Canada to the Azure WestUS datacenter.
+Ship a [supported disk](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) containing data using the [Azure Import/Export service](../storage/common/storage-import-export-service.md) from the source location in Canada to the Azure West US datacenter.
 
 ### Option 2:
 
@@ -70,7 +70,7 @@ Ship a [supported disk](../storage/common/storage-import-export-requirements.md?
 
 2. After the data from your on-premises server is copied to the disks, return them to the Azure datacenter in Canada using Microsoft provided return labels. The data present on the Data Box Disk(s) then get uploaded to the destination storage account in the Canada Azure region chosen during order creation.
 
-3. You can then use a tool like AzCopy to copy the data to a storage account in WestUS . This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box Disk billing.
+3. You can then use a tool like AzCopy to copy the data to a storage account in West US . This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box Disk billing.
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, [contact Microsoft Support](./data-box-disk-contact-microsoft-support.md).
@@ -164,16 +164,16 @@ A. When tested with disks connected via USB 3.0, the disk performance was up to 
 A.  Data Box Disks are encrypted using BitLocker AES-128 bit encryption and the passkey is only available in the Azure portal. Log into the Azure portal using your account credentials to get the passkey. Supply this passkey when you run the Data Box Disk unlock tool.
 
 ### Q. How do I copy the data to the Data Box Disks? 
-A.  Use an SMB copy tool such as Robocopy, Diskboss, or even Windows File Explorer drag-and-drop to copy data onto disks.
+A.  Use an SMB copy tool such as `Robocopy`, `Diskboss`, or even Windows File Explorer drag-and-drop to copy data onto disks.
 
 ### Q. Are there any tips to speed up the data copy?
 A.  To speed up the copy process:
 
-- Use multiple streams of data copy. For instance, with Robocopy, use the multithreaded option. For more information on the exact command used, go to [Tutorial: Copy data to Azure Data Box Disk and verify](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
+- Use multiple streams of data copy. For instance, with `Robocopy`, use the multithreaded option. For more information on the exact command used, go to [Tutorial: Copy data to Azure Data Box Disk and verify](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 - Use multiple sessions.
 - Instead of copying over network share (where you could be limited by the network speeds) ensure that you have the data residing locally on the computer to which the disks are connected.
-- Ensure that you are using USB 3.0 or later throughout the copy process. Download and use the [USBView tool](/windows-hardware/drivers/debugger/usbview) to identify the USB controllers and USB devices connected to the computer.
-- Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop FIO tool](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
+- Ensure that you are using USB 3.0 or later throughout the copy process. Download and use the [`USBView` tool](/windows-hardware/drivers/debugger/usbview) to identify the USB controllers and USB devices connected to the computer.
+- Benchmark the performance of the computer used to copy the data. Download and use the [`FIO` tool from Bluestop](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
 
 ### Q. How to speed up the data if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:

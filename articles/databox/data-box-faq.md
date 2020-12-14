@@ -7,12 +7,12 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/11/2020
+ms.date: 12/14/2020
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
 
-The Microsoft Azure Data Box hybrid solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way using a transfer device. This FAQ contains questions and answers that you may have when you use Data Box in the Azure portal. 
+The Microsoft Azure Data Box hybrid solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way using a transfer device. This FAQ contains questions and answers that you may have when you use Data Box in the Azure portal.
 
 Questions and answers are arranged in the following categories:
 
@@ -56,13 +56,13 @@ A. Data Box is supported for all regions within US, West Europe, North Europe, F
 
 Data Box supports data ingestion or egress only within the same country/region as the destination and won't cross any international borders. The only exception is for orders in the European Union (EU), where Data Boxes can ship to and from any EU country/region.
 
-For example, in the import scenario, if you had the source data in Canada that you wanted to move to an Azure WestUS storage account, then you could achieve it in the following way:
+For example, in the import scenario, if you had the source data in Canada that you wanted to move to an Azure West US storage account, then you could achieve it in the following way:
 
 1. Order Data Box in Canada by choosing a storage account in Canada. The device is shipped from an Azure datacenter in Canada to the shipping address (in Canada) provided during order creation.
 
 2. Once the on-prem data copy to the Data Box is done, return the device to the Azure datacenter in Canada. The data present on the Data Box then gets uploaded to the destination storage account in the Canada Azure region chosen during order creation.
 
-3. You can then use a tool like AzCopy to copy the data to a storage account in WestUS. This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box billing.
+3. You can then use a tool like AzCopy to copy the data to a storage account in West US. This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box billing.
 
 ### Q. Who should I contact if I come across any issues with Data Box?
 A. If you come across any issues with Data Box, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
