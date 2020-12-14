@@ -21,7 +21,7 @@ ms.author: axelg
 
 ## Before you begin
 
-Check the agent status and version to make sure it is still supported. See [Minimum version support for virtual machine agents in Azure](https://docs.microsoft.com/en-us/troubleshoot/azure/virtual-machines/support-extensions-agent-version) to check version support, or [WALinuxAgent FAQ](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) for steps to find the status and version.
+Check the agent status and version to make sure it is still supported. See [Minimum version support for virtual machine agents in Azure](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version) to check version support, or [WALinuxAgent FAQ](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) for steps to find the status and version.
 
 ## Troubleshoot a Not Ready status
 
