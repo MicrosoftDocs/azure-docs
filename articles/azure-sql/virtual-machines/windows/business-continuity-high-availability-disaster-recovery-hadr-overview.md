@@ -86,7 +86,7 @@ For example, you can have two free passive secondaries when all three replicas a
 
 ![Two free passives when everything in Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
 
-Or you can configure a hybrid failover environment, with a licensed primary on-premises, one free passive for HA, and two free passives for DR: 
+Or you can configure a hybrid failover environment, with a licensed primary on-premises, one free passive for HA, one free passive for DR on-premises, and one free passive for DR in Azure:
 
 ![Three free passives when environment is hybrid with one primary on-premises replica](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
 
