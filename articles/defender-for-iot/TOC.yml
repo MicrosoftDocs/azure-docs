@@ -11,8 +11,6 @@
     href: security-agent-architecture.md
   - name: Edge security module
     href: security-edge-architecture.md
-  - name: Get started with Azure Defender for IoT
-    href: getting-started.md
     items:
     - name: IoT Hub
       href: iot-hub-integration.md
@@ -23,12 +21,14 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Agentless solution for Enterprises
+  - name: Agentless Solution for Enterprises
     items:
     - name: System prerequisites
       href: quickstart-system-prerequisites.md
     - name: Set up and onboarding overview
       href: quickstart-prepare-network-for-defender-for-iot.md
+    - name: Get started with Azure Defender for IoT
+      href: getting-started.md
   - name: Agent-based solution for Device Builders
     items: 
     - name: Configure Security Module for Azure RTOS
@@ -53,7 +53,7 @@
       href: concept-key-concepts.md
     - name: Sensor console overview
       href: concept-sensor-console-overview.md
-  - name: Agent-based solution for device builders
+  - name: Agent-based Solution for Device Builders
     items: 
     - name: Security Module for Azure RTOS
       items: 
@@ -83,7 +83,7 @@
       href: concept-pricing.md
 - name: How-to guides
   items:
-  - name: Agentless solution for enterprises 
+  - name: Agentless Solution for Enterprises 
     items:
     - name: Prepare your network
       items:
@@ -177,7 +177,7 @@
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
       
-  - name: Agent-based solution for device builders
+  - name: Agent-based Solution for Device Builders
     items: 
     - name: Work with Security Module for Azure RTOS
       href: how-to-azure-rtos-security-module.md
@@ -215,7 +215,7 @@
       href: how-to-customize-solution.md
 - name: References
   items:
-  - name: Agentless solution for enterprises
+  - name: Agentless Solution for Enterprises
     items:
     - name: Work with Defender for IoT APIs
       href: references-work-with-defender-for-iot-apis.md
@@ -225,7 +225,7 @@
       href: resources-manage-proprietary-protocols.md
     - name: Defender for IoT glossary
       href: references-defender-for-iot-glossary.md
-  - name: Device builders
+  - name: Agent-based Solution for Device Builders
     items: 
     - name: Security Module for Azure RTOS API
       href: azure-rtos-security-module-api.md
