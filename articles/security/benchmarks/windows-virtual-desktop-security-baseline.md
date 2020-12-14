@@ -14,9 +14,9 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Windows Virtual Desktop
 
-This security baseline applies guidance from the [Azure Security Benchmark version 2.0](overview.md) to Windows Virtual Desktop. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Windows Virtual Desktop. **Controls** not applicable to Windows Virtual Desktop have been excluded. 
+This security baseline applies guidance from the [Azure Security Benchmark version 2.0](overview.md) to Windows Virtual Desktop. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Windows Virtual Desktop. **Controls** not applicable to Windows Virtual Desktop have been excluded.
 
-Windows Virtual Desktop service includes the service itself, the Windows 10 Enterprise for multi-session virtual sku as well as FSLogix. For FSLogix-related security recommendations, see the security baseline for storage - ../../storage/common/security-baseline.md. The service has an agent running on those virtual machines but since the virtual machines are under full control of the customer, follow security recommendations for compute - ../../virtual-machines/windows/security-baseline.md
+Windows Virtual Desktop service includes the service itself, the Windows 10 Enterprise for multi-session virtual sku as well as FSLogix. For FSLogix-related security recommendations, see the security baseline for storage - ../../storage/common/security-baseline.md. The service has an agent running on virtual machines but since the virtual machines are under full control of the customer, follow security recommendations for compute - ../../virtual-machines/windows/security-baseline.md
 
 To see how Windows Virtual Desktop completely maps to the Azure Security Benchmark, see the [full Windows Virtual Desktop security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
@@ -32,13 +32,13 @@ To see how Windows Virtual Desktop completely maps to the Azure Security Benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40794).
 
-**Guidance**: When you deploy virtual machines to be registered to Windows Virtual Desktop you must create or use an existing virtual network. Ensure that all Azure virtual networks follow an enterprise segmentation principle that aligns to the business risks. Any system that could incur higher risk for the organization should be isolated within its own virtual network and sufficiently secured with either a network security group or Azure Firewall.
+**Guidance**: You must create or use an existing virtual network when you deploy virtual machines to be registered to Windows Virtual Desktop. Ensure that all Azure virtual networks follow an enterprise segmentation principle that aligns to the business risks. Any system that could incur higher risk for the organization should be isolated within its own virtual network and sufficiently secured with either a network security group or Azure Firewall.
 
-Use Adaptive Network Hardening with Azure Security Center to recommend network security group configurations that limit ports and source IPs based with the reference to external network traffic rules.
+Use Adaptive Network Hardening features in Azure Security Center to recommend network security group configurations which limit ports and source IPs with reference to external network traffic rules.
 
 Based on your applications and enterprise segmentation strategy, restrict or allow traffic between internal resources based on network security group rules. For specific well-defined applications (such as a 3-tier app), this can be a highly secure "deny by default, permit by exception" approach. This might not scale well if you have many applications and endpoints interacting with each other. You can also use Azure Firewall in circumstances where central management is required over a large number of enterprise segments or spokes (in a hub/spoke topology)
 
-For the network security groups (NSGs) associated with your virtual machine (that are part of Windows Virtual Desktop) subnets, you must allow outgoing traffic to specific endpoints. 
+For the network security groups associated with your virtual machine (that are part of Windows Virtual Desktop) subnets, you must allow outgoing traffic to specific endpoints. 
 
 - [Find out what URLs are required to be allowed access for Windows Virtual Desktop](../../virtual-desktop/safe-url-list.md)
 
@@ -61,9 +61,11 @@ For the network security groups (NSGs) associated with your virtual machine (tha
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40795).
 
-**Guidance**: Use Azure ExpressRoute or Azure virtual private network (VPN) to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment. ExpressRoute connections do not go over the public internet, and they offer more reliability, faster speeds, and lower latencies than typical internet connections. For point-to-site VPN and site-to-site VPN, you can connect on-premises devices or networks to a virtual network using any combination of these VPN options and Azure ExpressRoute.
+**Guidance**: Use Azure ExpressRoute or Azure virtual private network to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment. ExpressRoute connections do not go over the public internet, offer more reliability, faster speeds and lower latencies than typical internet connections. 
 
-To connect two or more virtual networks in Azure together, use virtual network peering. Network traffic between peered virtual networks is private and is kept on the Azure backbone network.
+For point-to-site and site-to-site virtual private networks, you can connect on-premises devices or networks to a virtual network using any combination of virtual private network options and Azure ExpressRoute.
+
+Use virtual network peering to connect two or more virtual networks together in Azure. Network traffic between peered virtual networks is private and stays on the Azure backbone network.
 
 - [What are the ExpressRoute connectivity models](../../expressroute/expressroute-connectivity-models.md) 
 
@@ -94,15 +96,13 @@ To connect two or more virtual networks in Azure together, use virtual network p
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40797).
 
-**Guidance**: Protect your Windows Virtual Desktop resources against attacks from external networks, including distributed denial of service (DDoS) attacks, application specific attacks, and unsolicited and potentially malicious internet traffic. Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. Protect your assets against DDoS attacks by enabling DDoS standard protection on your Azure virtual networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
+**Guidance**: Windows Virtual Desktop is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
-- [Azure Firewall Documentation](/azure/firewall/) 
+- [Azure Firewall Documentation](/azure/firewall)
 
 - [Manage Azure DDoS Protection Standard using the Azure Portal](/azure/virtual-network/manage-ddos-protection) 
 
 - [Azure Security Center recommendations](../../security-center/recommendations-reference.md#recs-network)
-
-Windows Virtual Desktop is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -230,13 +230,13 @@ Windows Virtual Desktop recommends to use Azure AD to create a service principal
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40783).
 
-**Guidance**: Windows Virtual Desktop uses Azure Active Directory (Azure AD), which supports strong authentication controls through multifactor authentication, and strong passwordless methods.
+**Guidance**: Windows Virtual Desktop uses Azure Active Directory (Azure AD), which supports strong authentication controls through multifactor authentication and strong passwordless methods.
 
 Multifactor authentication - Enable Azure AD multifactor authentication and follow Azure Security Center Identity and Access Management recommendations for some best practices in your multifactor authentication setup. Multifactor authentication can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
 
 Passwordless authentication – Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
 
-Windows Virtual Desktop supports Legacy password-based authentication such as Cloud-only accounts (user accounts created directly in the Azure) that have a baseline password policy or Hybrid accounts (user accounts that come from on-premises Active Directory) that will follow the on-premises password policies. When using password-based authentication, Azure AD provides a password protection capability the prevents users to set passwords that are easy to guess. Microsoft provides a global list of banned passwords that is updated based on telemetry, and customers can augment the list based on their needs (e.g. branding, cultural references, etc.). This password protection can be used for cloud-only and hybrid accounts.
+Windows Virtual Desktop supports legacy password-based authentication such as Cloud-only accounts (user accounts created directly in the Azure) that have a baseline password policy or Hybrid accounts (user accounts that come from on-premises Azure AD that will follow the on-premises password policies. When using password-based authentication, Azure AD provides a password protection capability the prevents users to set passwords that are easy to guess. Microsoft provides a global list of banned passwords that is updated based on telemetry, and customers can augment the list based on their needs (such as branding, cultural references, and so on). This password protection can be used for cloud-only and hybrid accounts.
 
 Note: Authentication based on password credentials alone are susceptible to popular attack methods. For higher security, use strong authentication such as multifactor authentication and a strong password policy. For third-party applications and marketplace services that may have default passwords, you should change them upon the service initial setup.
 
@@ -364,9 +364,7 @@ It is recommended to never include passwords in the custom command line paramete
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40788).
 
-**Guidance**: Windows Virtual Desktop uses Azure role-based access-control (Azure RBAC) to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups, to which they belong.
-
-Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers, security tools, and system management tools with agents installed on business-critical systems. Attackers who compromise these management and security systems can potentially immediately weaponize them to compromise business critical assets.
+**Guidance**: Windows Virtual Desktop uses Azure role-based access-control (Azure RBAC) to isolate access to business-critical systems. Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers, security tools, and system management tools with agents installed on business-critical systems. Attackers who compromise these management and security systems can potentially immediately weaponize them to compromise business critical assets.
 
 All types of access controls should be aligned to your enterprise segmentation strategy to ensure consistent access control.
 
