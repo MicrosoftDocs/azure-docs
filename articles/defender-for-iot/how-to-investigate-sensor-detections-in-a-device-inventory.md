@@ -33,7 +33,7 @@ The following Device Inventory attributes are displayed in the table.
 | Operating System | The OS of the device. |
 | Firmware | The device’s firmware. |
 | IP Address | The IP address of the device. |
-| VLAN | The VLAN of the device. See [Define VLAN Names](how-to-define-management-console-network-settings.md#define-vlan-names) for details about instructing the sensor to discover VLANs. |
+| VLAN | The VLAN of the device. For more information, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names).(how-to-define-management-console-network-settings.md#define-vlan-names) for details about instructing the sensor to discover VLANs. |
 | MAC Address | The MAC address of the device. |
 | Protocols | The protocols used by the device. |
 | Unacknowledged Alerts | The number of unacknowledged alerts associated with this device. |
