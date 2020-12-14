@@ -21,7 +21,7 @@ ms.author: axelg
 
 ## Before you begin
 
-Check the agent status and version. For steps to find agent information, see [FAQ](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output).
+Check the agent status and version to make sure it is still supported. See [Minimum version support for virtual machine agents in Azure](https://docs.microsoft.com/en-us/troubleshoot/azure/virtual-machines/support-extensions-agent-version) to check version support, or [WALinuxAgent FAQ](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) for steps to find the status and version.
 
 ## Troubleshoot a Not Ready status
 
@@ -52,7 +52,7 @@ Check the agent status and version. For steps to find agent information, see [FA
 
    If the service is running, restart it to resolve the issue. If the service is stopped, start it, wait a few minutes, and then check the status again.
 
-1. Make sure auto-update is enabled. Check the auto-update setting in /etc/waagent.conf.
+1. Make sure auto-update is enabled. Check the auto-update setting in **/etc/waagent.conf**.
 
    ```
    AutoUpdate.Enabled=y
