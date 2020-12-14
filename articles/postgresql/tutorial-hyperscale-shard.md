@@ -24,7 +24,7 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to 
 
 ## Prerequisites
 
-[!INCLUDE azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
+[!INCLUDE azure-postgresql-hyperscale-create-db](includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## Get started with distributed data
 
