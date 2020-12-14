@@ -58,6 +58,8 @@
     items:
     - name: Agent automatic upgrade
       href: how-to-automatic-upgrade.md
+    - name: Agent registry options
+      href: how-to-manage-registry-options.md
   - name: Develop
     items:
     - name: Transformations

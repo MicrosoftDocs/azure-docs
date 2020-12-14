@@ -13,6 +13,8 @@ ms.topic: include
 ---
 ## Sign in to LUIS portal
 
+[!INCLUDE [Note about portal deprecation](luis-portal-note.md)]
+
 A new user to LUIS needs to follow this procedure:
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), select your country/region and agree to the terms of use. If you see **My Apps** instead, a LUIS resource already exists and you should skip ahead to create an app. You will have two options signing up:

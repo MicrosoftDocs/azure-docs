@@ -30,7 +30,7 @@ Sending an invitation to an existing internal account lets you retain that userâ
 
 While in public preview, the method described in this article for inviting internal users to B2B collaboration canâ€™t be used in these instances:
 
-- The internal user has already been assigned an Exchange license.
+- The internal user has an assigned Exchange license.
 - The user is from a domain that is set up for direct federation in your directory.
 - The internal user is a cloud-only account, and their main account isn't in Azure AD.
 

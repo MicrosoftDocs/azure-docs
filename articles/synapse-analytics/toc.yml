@@ -100,8 +100,8 @@
       href: ./cicd/continuous-integration-deployment.md
     - name: Security
       items:
-      - name: Security baseline
-        href: security-baseline.md
+      # - name: Security baseline
+      #   href: security-baseline.md
       - name: Encryption
         href: ./security/workspaces-encryption.md
       - name: Network Security
@@ -584,7 +584,7 @@
       href: ./spark/apache-spark-delta-lake-overview.md
     - name: Manage libraries
       href: ./spark/apache-spark-azure-portal-add-libraries.md
-    - name: Use notebooks
+    - name: Use notebooks and IDE tools
       items:
       - name: Manage notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
@@ -1121,9 +1121,9 @@
     - name: Use the scoring wizard for dedicated SQL pools
       href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
       displayname: machine learning
-    - name: Train a model code-free with Azure AutoML
+    - name: Train a model code-free with automated ML
       href: ./machine-learning/tutorial-automl.md
-    - name: Train a model in Python with Azure AutoML
+    - name: Train a model in Python with automated ML
       href: ./spark/apache-spark-azure-machine-learning-tutorial.md
       displayname: machine learning
     - name: Create a model with Apache Spark MLlib

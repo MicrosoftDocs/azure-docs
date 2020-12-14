@@ -54,6 +54,8 @@ items:
     href: concept-business-glossary.md 
   - name: Data insights
     href: concept-insights.md
+  - name: Supported Browsers
+    href: supported-browsers.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
 - name: How-to guides
@@ -93,9 +95,6 @@ items:
       - name: Azure SQL Database
         href: register-scan-azure-sql-database.md
         displayName: Register and scan Azure SQL DB
-      - name: Azure SQL DB with a firewall
-        href: scan-sqlresource-firewall.md
-        displayName: Register and scan Azure SQL DB with a firewall
       - name: Azure SQL Database Managed Instance
         href: register-scan-azure-sql-database-managed-instance.md
         displayName: Register and scan Azure SQL DB Managed Instance
@@ -105,14 +104,16 @@ items:
         href: register-scan-on-premises-sql-server.md
       - name: Power BI tenant - Portal
         href: register-scan-power-bi-tenant.md
-      - name: Power BI tenant - PowerShell
-        href: powershell-register-scan-power-bi.md
+      # - name: Power BI tenant - PowerShell
+        # href: powershell-register-scan-power-bi.md
   - name: Business glossary
     items:
     - name: Create, import, & export glossary terms
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
       href: how-to-manage-term-templates.md
+    - name: Bulk edit assets to assign glossary terms 
+      href: how-to-bulk-edit-assets.md
   - name: Classify
     items: 
     - name: Create custom classification & classification rule
