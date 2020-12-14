@@ -26,7 +26,7 @@ Both unit monitors and aggregate monitors have a **Health monitor status** setti
 | Disabled | The monitor is disabled regardless of the setting of its parent. |
 | Same as parent | The monitor will be enabled or disabled depending on the setting of its parent. |
 
-When a monitor is disable, any criteria are shown as not available as shown in the following example.
+When a monitor is disabled, any criteria are shown as not available as shown in the following example.
 
 ![Disabled monitor](media/vminsights-health-configure/disabled-monitor.png)
 
