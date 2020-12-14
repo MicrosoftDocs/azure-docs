@@ -58,7 +58,15 @@ The following example shows how to specify the **TrustFrameworkPolicy** element:
    PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 ```
 
-## Base policy
+The **TrustFrameworkPolicy** element contains the following elements:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| BasePolicy| 0:1| The identifier of a base policy. |
+| [BuildingBlocks](buildingblocks.md) | 0:1 | The building blocks of your policy. |
+| [ClaimsProviders](claimsproviders.md) | 0:1 | A collection of claims providers. |
+| [UserJourneys](userjourneys.md) | 0:1 | A collection of user journeys. |
+| [RelyingParty](relyingparty.md) | 0:1 | A definition of a relying party policy. |
 
 To inherit a policy from another policy, a **BasePolicy** element must be declared under the **TrustFrameworkPolicy** element of the policy file. The **BasePolicy** element is a reference to the base policy from which this policy is derived.
 
@@ -90,10 +98,3 @@ The following example shows how to specify a base policy. This **B2C_1A_TrustFra
 </TrustFrameworkPolicy>
 ```
 
-The **TrustFrameworkPolicy** element contains the following elements:
-
-- BasePolicy as specified above
-- [BuildingBlocks](buildingblocks.md)
-- [ClaimsProviders](claimsproviders.md)
-- [UserJourneys](userjourneys.md)
-- [RelyingParty](relyingparty.md)
