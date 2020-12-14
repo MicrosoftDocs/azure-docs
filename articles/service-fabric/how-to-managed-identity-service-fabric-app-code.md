@@ -10,7 +10,7 @@ ms.date: 10/09/2019
 
 Service Fabric applications can leverage managed identities to access other Azure resources which support Azure Active Directory-based authentication. An application can obtain an [access token](../active-directory/develop/developer-glossary.md#access-token) representing its identity, which may be system-assigned or user-assigned, and use it as a 'bearer' token to authenticate itself to another service - also known as a [protected resource server](../active-directory/develop/developer-glossary.md#resource-server). The token represents the identity assigned to the Service Fabric application, and will only be issued to Azure resources (including SF applications) which share that identity. Refer to the [managed identity overview](../active-directory/managed-identities-azure-resources/overview.md) documentation for a detailed description of managed identities, as well as the distinction between system-assigned and user-assigned identities. We will refer to a managed-identity-enabled Service Fabric application as the [client application](../active-directory/develop/developer-glossary.md#client-application) throughout this article.
 
-A companion sample application demonstrating using system-assigned and user-assigned Service Fabric application managed identities with Reliable Services and containers can be found [here](https://github.com/Azure-Samples/service-fabric-managed-identity)
+See a companion sample application that demonstrates using system-assigned and user-assigned [Service Fabric application managed identities](https://github.com/Azure-Samples/service-fabric-managed-identity) with Reliable Services and containers.
 
 > [!IMPORTANT]
 > A managed identity represents the association between an Azure resource and a service principal in the corresponding Azure AD tenant associated with the subscription containing the resource. As such, in the context of Service Fabric, managed identities are only supported for applications deployed as Azure resources. 
@@ -20,17 +20,18 @@ A companion sample application demonstrating using system-assigned and user-assi
  to check for support, and then to the respective service's documentation for specific steps to grant an identity access to resources of interest. 
  
 
-## Leveraging a managed identity using Azure.Identity
+## Leverage a managed identity using Azure.Identity
 
-The Azure Identity SDK now supports Service Fabric. Using Azure.Ideneity makes writing code to use SF App MI easier because it handles fetching tokens, caching tokens, and server authentication. While accessing most Azure resources, the concept of a token is hidden.
+The Azure Identity SDK now supports Service Fabric. Using Azure.Identity makes writing code to use Service Fabric app managed identities easier because it handles fetching tokens, caching tokens, and server authentication. While accessing most Azure resources, the concept of a token is hidden.
 
-Service Fabric support is availabe starting with 
-- [Version 1.3.0 in C#](https://www.nuget.org/packages/Azure.Identity), a sample can be found [here](https://github.com/Azure-Samples/service-fabric-managed-identity)
-- [Version 1.5.0 in Python](https://pypi.org/project/azure-identity/), a sample can be found [here](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/tests/managed-identity-live/service-fabric/service_fabric.md)
-- [Version 1.2.0 in Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable)
+Service Fabric support is available in the following versions for these languages: 
+- [C# in version 1.3.0](https://www.nuget.org/packages/Azure.Identity). See a [C# sample](https://github.com/Azure-Samples/service-fabric-managed-identity).
+- [Python in version 1.5.0](https://pypi.org/project/azure-identity/). See a [Python sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/tests/managed-identity-live/service-fabric/service_fabric.md).
+- [Java in version 1.2.0](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable).
 
-C# sample of initializing credentials and using the credentials to fetch a secret from Key Vault:
-```c#
+C# sample of initializing credentials and using the credentials to fetch a secret from Azure Key Vault:
+
+```csharp
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 
