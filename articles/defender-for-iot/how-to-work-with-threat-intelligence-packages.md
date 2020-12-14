@@ -44,7 +44,7 @@ Packages you download from the Defender for IoT portal can be manually uploaded 
 
 ### Update a package on a single sensor
 
-1. Navigate to the Azure Defender for IoT, Updates page.
+1. Navigate to the Azure Defender for IoT, **Updates** page.
 
 2. Download and save the TI package.
 
@@ -58,15 +58,17 @@ Packages you download from the Defender for IoT portal can be manually uploaded 
 
 ### Update a package on multiple sensors simultaneously
 
-1. Navigate to the Azure Defender for IoT, Updates page.
+1. Navigate to the Azure Defender for IoT, **Updates** page.
+
 2. Download and save the TI package.
+
 3. Sign in to the management console.
 
 4. On the side menu, select **System Settings**.
 
 5. In the Sensor Engine Configuration section, select the sensors that should receive the updated packages.  
 
-6. In the  Select Threat Intelligence Data section, select the **+**.
+6. In the **Select Threat Intelligence Data** section, select the **+**.
 
 7. Upload the package.
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.service: azure
 ---
 
-# Investigate all enterprise sensor detections in a Device Inventory
+# Investigate all enterprise sensor detections in the Device Inventory
 
-Device information from connected sensors can be viewed from the on-premises management console in the Device Inventory. This gives on-premises management console users a comprehensive view of all network information. Use import, export, and filtering tools to manage this information. The status information about the connected sensor versions is also displayed.
+Device information from connected sensors can be viewed from the on-premises management console in the **Device Inventory**. This gives on-premises management console users a comprehensive view of all network information. Use import, export, and filtering tools to manage this information. The status information about the connected sensor versions is also displayed.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-data-table.png" alt-text="Screenshot of the device inventory data table.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png" alt-text="Screenshot of the device inventory data table.":::
 
 The following table describes the Device Inventory table columns.
 
@@ -62,7 +62,7 @@ You can use this information to learn. For example,
 
 - Users logged into devices.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-itens-highlighted.png" alt-text="Asset inventory screen data table.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Asset inventory screen data table.":::
 
 You can integrate data by:
 
@@ -172,7 +172,7 @@ To view a zone map:
 
 1. In the **Site Management** window, select **View Zone Map** from the bar that contains the zone name.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/default-region-to-default-business-unit.png" alt-text="Default region to default business unit.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/default-region-to-default-business-unit-v2.png" alt-text="Default region to default business unit.":::
 
 The Device Map window displays, showing all the network elements related to the selected zone, including the sensors, the devices connected to them and other information.
 
