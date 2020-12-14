@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/11/2020
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -73,8 +73,35 @@ The optional **RelyingParty** element contains the following elements:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | The default user journey for the RP application. |
+| Endpoints | 0:1 | A list of endpoints. For more information, see [UserInfo endpoint](userinfo-endpoint.md). |
 | UserJourneyBehaviors | 0:1 | The scope of the user journey behaviors. |
 | TechnicalProfile | 1:1 | A technical profile that's supported by the RP application. The technical profile provides a contract for the RP application to contact Azure AD B2C. |
+
+## Endpoints
+
+The **Endpoints** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| Endpoint | 1:1 | A reference to an endpoint.|
+
+The **Endpoint** element contains the following attributes:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| Id | Yes | A unique identifier of the endpoint.|
+| UserJourneyReferenceId | Yes | An identifier of the user journey in the policy. For more information, see [user journeys](userjourneys.md)  | 
+
+The following example shows a relying party with [UserInfo endpoint](userinfo-endpoint.md):
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <Endpoints>
+    <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
+  </Endpoints>
+  ...
+```
 
 ## DefaultUserJourney
 
