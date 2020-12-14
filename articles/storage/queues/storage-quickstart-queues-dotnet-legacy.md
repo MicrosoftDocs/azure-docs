@@ -51,7 +51,7 @@ Use [Git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 ```
 
-This command clones the repository to your local Git folder. To open the Visual Studio solution, look for the _storage-queues-dotnet-quickstart_ folder, open it, and double-click on _storage-queues-dotnet-quickstart.sln_.
+This command clones the repository to your local Git folder. To open the Visual Studio solution, look for the `storage-queues-dotnet-quickstart` folder, open it, and double-click on `storage-queues-dotnet-quickstart.sln`.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 

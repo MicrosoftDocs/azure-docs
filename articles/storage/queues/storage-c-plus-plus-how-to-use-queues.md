@@ -38,7 +38,7 @@ To do so, you will need to install the Azure Storage Client Library for C++ and 
 To install the Azure Storage Client Library for C++, you can use the following methods:
 
 - **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
-- **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quickstart](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg. Then, use the following command to install the library:
+- **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quickstart](https://github.com/microsoft/vcpkg#quick-start) to initialize `vcpkg`. Then, use the following command to install the library:
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
@@ -229,7 +229,7 @@ for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 
 ## How to: Get the queue length
 
-You can get an estimate of the number of messages in a queue. The `download_attributes` method asks Queue Storage to retrieve the queue attributes, including the message count. The `approximate_message_count` method gets the approximate number of messages in the queue.
+You can get an estimate of the number of messages in a queue. The `download_attributes` method returns queue properties including the message count. The `approximate_message_count` method gets the approximate number of messages in the queue.
 
 ```cpp
 // Retrieve storage account from connection-string.

@@ -8,7 +8,7 @@ ms.reviewer: fryu
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: storage
-ms.subservice: logs
+ms.subservice: queues
 ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli"
 ---
 
@@ -517,7 +517,7 @@ Here's an example:
 
 ### Accessing logs in an event hub
 
-Logs sent to an event hub aren't stored as a file, but you can verify that the event hub received the log information. In the Azure portal, go to your event hub and verify that the **incoming messages** count is greater than zero.
+Logs sent to an event hub aren't stored as a file, but you can verify that the event hub received the log information. In the Azure portal, go to your event hub and verify that the `incoming requests` count is greater than zero.
 
 ![Audit logs](media/monitor-queue-storage/event-hub-log.png)
 
@@ -529,7 +529,7 @@ You can access logs sent to a Log Analytics workspace by using Azure Monitor log
 
 For more information, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
-Data is stored in the **StorageQueueLogs** table.
+Data is stored in the `StorageQueueLogs` table.
 
 #### Sample Kusto queries
 

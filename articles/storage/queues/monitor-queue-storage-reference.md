@@ -25,17 +25,17 @@ Capacity metrics values are refreshed daily (up to 24 hours). The time grain def
 
 Azure Storage provides the following capacity metrics in Azure Monitor.
 
-#### Account-level
+#### Account-level capacity metrics
 
 [!INCLUDE [Account-level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
 
-#### Queue Storage
+#### Queue Storage metrics
 
 This table shows [Queue Storage metrics](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |
-| **QueueCapacity** | The amount of Queue Storage used by the storage account. <br><br> Unit: bytes <br> Aggregation type: `Average` <br> Value example: `1024` |
+| **QueueCapacity** | The amount of Queue Storage used by the storage account. <br><br> Unit: `Bytes` <br> Aggregation type: `Average` <br> Value example: `1024` |
 | **QueueCount** | The number of queues in the storage account. <br><br> Unit: `Count` <br> Aggregation type: `Average` <br> Value example: `1024` |
 | **QueueMessageCount** | The approximate number of queue messages in the storage account. <br><br> Unit: `Count` <br> Aggregation type: `Average` <br> Value example: `1024` |
 

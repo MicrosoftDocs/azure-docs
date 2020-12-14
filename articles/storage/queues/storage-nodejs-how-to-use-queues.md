@@ -17,7 +17,7 @@ ms.custom: seo-javascript-september2019, devx-track-js
 
 ## Overview
 
-This guide shows you how to accomplish common scenarios using the Microsoft Azure Queue Storage. The samples are written using the Node.js API. The scenarios covered include inserting, peeking, getting, and deleting queue messages. Also learn to create and delete queues.
+This guide shows you how to accomplish common scenarios using Azure Queue Storage. The samples are written using the Node.js API. The scenarios covered include inserting, peeking, getting, and deleting queue messages. Also learn to create and delete queues.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -71,7 +71,7 @@ var azure = require('azure-storage');
 
 # [JavaScript v12](#tab/javascript)
 
-The following code gets the value of an environment variable called `AZURE_STORAGE_CONNECTION_STRING` and uses it to create a [`QueueServiceClient`](/javascript/api/@azure/storage-queue/queueserviceclient) object. The `QueueServiceClient` object is then used to create a [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) object. The `QueueClient` object enables you to work with a specific queue.
+The following code gets the value of an environment variable called `AZURE_STORAGE_CONNECTION_STRING` and uses it to create a [`QueueServiceClient`](/javascript/api/@azure/storage-queue/queueserviceclient) object. This object is then used to create a [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) object that allows you to work with a specific queue.
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_CreateQueue":::
 

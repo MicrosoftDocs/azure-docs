@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Azure Queue Storage client library v12 - .NET"
-description: Learn how to use the Azure Queue Storage client library v2 for .NET to create a queue and add messages to the queue. Next, you learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
+description: Learn how to use the Azure Queue Storage client library v12 for .NET to create a queue and add messages to the queue. Next, you learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 07/24/2020
@@ -45,13 +45,13 @@ This section walks you through preparing a project to work with the Azure Queue 
 
 Create a .NET Core application named `QueuesQuickstartV12`.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `QueuesQuickstartV12`. This command creates a simple "hello world" C# project with a single source file named _Program.cs_.
+1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `QueuesQuickstartV12`. This command creates a simple "hello world" C# project with a single source file named `Program.cs`.
 
    ```console
    dotnet new console -n QueuesQuickstartV12
    ```
 
-1. Switch to the newly created _QueuesQuickstartV12_ directory.
+1. Switch to the newly created `QueuesQuickstartV12` directory.
 
    ```console
    cd QueuesQuickstartV12
@@ -69,7 +69,7 @@ dotnet add package Azure.Storage.Queues
 
 From the project directory:
 
-1. Open the _Program.cs_ file in your editor
+1. Open the `Program.cs` file in your editor
 1. Remove the `Console.WriteLine("Hello, World");` statement
 1. Add `using` directives
 1. Update the `Main` method declaration to [support async code](/dotnet/csharp/whats-new/csharp-7#async-main)
@@ -134,7 +134,7 @@ The code below retrieves the connection string for the storage account. The conn
 Add this code inside the `Main` method:
 
 ```csharp
-Console.WriteLine("Azure Queue storage v12 - .NET quickstart sample\n");
+Console.WriteLine("Azure Queue Storage client library v12 - .NET quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable called
@@ -189,7 +189,7 @@ SendReceipt receipt = await queueClient.SendMessageAsync("Third message");
 
 ### Peek at messages in a queue
 
-Peek at the messages in the queue by calling the [`PeekMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) method. The `PeekMessagesAsync` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
+Peek at the messages in the queue by calling the [`PeekMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) method. This method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
 
 Add this code to the end of the `Main` method:
 
@@ -208,7 +208,7 @@ foreach (PeekedMessage peekedMessage in peekedMessages)
 
 ### Update a message in a queue
 
-Update the contents of a message by calling the [`UpdateMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) method. The `UpdateMessageAsync` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content for the message, pass in the values from the `SendReceipt` that was saved earlier in the code. The `SendReceipt` values identify which message to update.
+Update the contents of a message by calling the [`UpdateMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) method. This method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content for the message, pass in the values from the `SendReceipt` that was saved earlier in the code. The `SendReceipt` values identify which message to update.
 
 ```csharp
 Console.WriteLine("\nUpdating the third message in the queue...");
@@ -288,7 +288,7 @@ dotnet run
 The output of the app is similar to the following example:
 
 ```output
-Azure Queue storage v12 - .NET quickstart sample
+Azure Queue Storage client library v12 - .NET quickstart sample
 
 Creating queue: quickstartqueues-5c72da2c-30cc-4f09-b05c-a95d9da52af2
 
@@ -329,5 +329,5 @@ For tutorials, samples, quick starts and other documentation, visit:
 > [Azure for .NET and .NET Core developers](/dotnet/azure/)
 
 - To learn more, see the [Azure Storage libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
-- To see more Azure Queue Storage sample apps, continue to the [Azure Queue Storage v12 .NET client library samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
+- For more Azure Queue Storage sample apps, see [Azure Queue Storage client library for .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
 - To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).

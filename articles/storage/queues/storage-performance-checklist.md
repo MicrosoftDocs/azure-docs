@@ -42,7 +42,7 @@ This article organizes proven practices for performance into a checklist you can
 | &nbsp; | Message size | [Are your messages compact to improve the performance of the queue?](#message-size) |
 | &nbsp; | Bulk retrieval | [Are you retrieving multiple messages in a single get operation?](#batch-retrieval) |
 | &nbsp; | Polling frequency | [Are you polling frequently enough to reduce the perceived latency of your application?](#queue-polling-interval) |
-| &nbsp; | Update message | [Are you using the update message operation to store progress in processing messages, so that you can avoid having to reprocess the entire message if an error occurs?](#use-update-message) |
+| &nbsp; | Update message | [Are you performing an update message operation to store progress in processing messages, so that you can avoid having to reprocess the entire message if an error occurs?](#perform-an-update-message-operation) |
 | &nbsp; | Architecture | [Are you using queues to make your entire application more scalable by keeping long-running workloads out of the critical path and scale then independently?](#application-architecture) |
 
 ## Scalability targets
@@ -63,7 +63,7 @@ If your application is approaching the scalability targets for a single storage 
 - Reconsider the workload that causes your application to approach or exceed the scalability target. Can you design it differently to use less bandwidth or capacity, or fewer transactions?
 - If your application must exceed one of the scalability targets, then create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. Storage accounts themselves have no cost other than your usage in terms of data stored, transactions made, or data transferred.
 - If your application is approaching the bandwidth targets, consider compressing data on the client side to reduce the bandwidth required to send the data to Azure Storage. While compressing data may save bandwidth and improve network performance, it can also have negative effects on performance. Evaluate the performance impact of the additional processing requirements for data compression and decompression on the client side. Keep in mind that storing compressed data can make troubleshooting more difficult because it may be more challenging to view the data using standard tools.
-- If your application is approaching the scalability targets, then make sure that you are using an exponential backoff for retries. It's best to try to avoid reaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly, which could make throttling worse. For more information, see [Timeout and Server Busy errors](#timeout-and-server-busy-errors) below.
+- If your application is approaching the scalability targets, then make sure that you are using an exponential backoff for retries. It's best to try to avoid reaching the scalability targets by implementing the recommendations described in this article. However, using an exponential backoff for retries will prevent your application from retrying rapidly, which could make throttling worse. For more information, see the [Timeout and Server Busy errors](#timeout-and-server-busy-errors) section.
 
 ## Networking
 
@@ -178,9 +178,9 @@ Most applications poll for messages from a queue, which can be one of the larges
 
 For up-to-date cost information, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-## Use **Update Message**
+## Perform an update message operation
 
-You can use the **Update Message** operation to increase the invisibility timeout or to update the state information of a message. Using **Update Message** can be a more efficient approach than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Your application can save the job state to the message and then continue working, instead of requeuing the message for the next step of the job every time a step completes. Keep in mind that each **Update Message** operation counts towards the scalability target.
+You can perform an update message operation to increase the invisibility timeout or to update the state information of a message. This approach can be a more efficient than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Your application can save the job state to the message and then continue working, instead of requeuing the message for the next step of the job every time a step completes. Keep in mind that each update message operation counts towards the scalability target.
 
 ## Application architecture
 

@@ -45,13 +45,13 @@ First, create an Azure Storage account. For a step-by-step guide to creating a s
 
 Create a .NET Core application named `QueueApp`. For simplicity, this app will both send and receive messages through the queue.
 
-1. In a console window (such as cmd, PowerShell, or Azure CLI), use the `dotnet new` command to create a new console app with the name `QueueApp`. This command creates a simple "hello world" C# project with a single source file named _Program.cs_.
+1. In a console window (such as cmd, PowerShell, or Azure CLI), use the `dotnet new` command to create a new console app with the name `QueueApp`. This command creates a simple "hello world" C# project with a single source file named `Program.cs`.
 
    ```console
    dotnet new console -n QueueApp
    ```
 
-2. Switch to the newly created _QueueApp_ folder and build the app to verify that all is well.
+2. Switch to the newly created `QueueApp` folder and build the app to verify that all is well.
 
    ```console
    cd QueueApp
@@ -99,7 +99,7 @@ Create a .NET Core application named `QueueApp`. For simplicity, this app will b
 
    # [.NET v12](#tab/dotnet)
 
-   Execute the following command from the project folder in the console window.
+   Run the following command from the project folder in the console window.
 
    ```console
    dotnet add package Azure.Storage.Queues
@@ -107,7 +107,7 @@ Create a .NET Core application named `QueueApp`. For simplicity, this app will b
 
    # [.NET v11](#tab/dotnetv11)
 
-   Execute the following commands from the project folder in the console window.
+   Run the following commands from the project folder in the console window.
 
    ```console
    dotnet add package Microsoft.Azure.Storage.Common
@@ -120,9 +120,9 @@ Create a .NET Core application named `QueueApp`. For simplicity, this app will b
 
 ### Add using statements
 
-1. From the command line in the project directory, type `code .` to open Visual Studio Code in the current directory. Keep the command-line window open. There will be more commands to execute later. If you're prompted to add C# assets required to build and debug, click the **Yes** button.
+1. From the command line in the project directory, type `code .` to open Visual Studio Code in the current directory. Keep the command-line window open. There will be more commands to run later. If you're prompted to add C# assets required to build and debug, click the **Yes** button.
 
-1. Open the _Program.cs_ source file and add the following namespaces right after the `using System;` statement. This app uses types from these namespaces to connect to Azure Storage and work with queues.
+1. Open the `Program.cs` source file and add the following namespaces right after the `using System;` statement. This app uses types from these namespaces to connect to Azure Storage and work with queues.
 
    # [.NET v12](#tab/dotnet)
 
@@ -132,7 +132,7 @@ Create a .NET Core application named `QueueApp`. For simplicity, this app will b
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
-1. Save the _Program.cs_ file.
+1. Save the `Program.cs` file.
 
 ## Add support for asynchronous code
 
@@ -144,7 +144,7 @@ Since the app uses cloud resources, the code runs asynchronously.
    static async Task Main(string[] args)
    ```
 
-1. Save the _Program.cs_ file.
+1. Save the `Program.cs` file.
 
 ## Create a queue
 
@@ -226,7 +226,7 @@ Create a new method to retrieve a message from the queue. Once the message is su
 
    This method receives a message from the queue by calling [`ReceiveMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), passing `1` in the first parameter to retrieve only the next message in the queue. After the message is received, delete it from the queue by calling [`DeleteMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
 
-   When a message is sent to the queue with a version of the SDK prior to v12, it is automatically Base64-encoded. Starting with v12 that functionality was removed. When you retrieve a message by using the v12 SDK, it is not automatically Base64-decoded. You must explicitly [Base64-decode](/dotnet/api/system.convert.frombase64string) the contents yourself.
+   When a message is sent to the queue with a version of the SDK prior to v12, it is automatically Base64-encoded. Starting with v12, that functionality was removed. When you retrieve a message by using the v12 SDK, it is not automatically Base64-decoded. You must explicitly [Base64-decode](/dotnet/api/system.convert.frombase64string) the contents yourself.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 

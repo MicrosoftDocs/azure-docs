@@ -108,7 +108,7 @@ Create a Java application named `queues-quickstart-v12`.
     [INFO] ------------------------------------------------------------------------
     ```
 
-1. Switch to the newly created _queues-quickstart-v12_ directory.
+1. Switch to the newly created `queues-quickstart-v12` directory.
 
    ```console
    cd queues-quickstart-v12
@@ -116,7 +116,7 @@ Create a Java application named `queues-quickstart-v12`.
 
 ### Install the package
 
-Open the _pom.xml_ file in your text editor. Add the following dependency element to the group of dependencies.
+Open the `pom.xml` file in your text editor. Add the following dependency element to the group of dependencies.
 
 ```xml
 <dependency>
@@ -130,8 +130,8 @@ Open the _pom.xml_ file in your text editor. Add the following dependency elemen
 
 From the project directory:
 
-1. Navigate to the _/src/main/java/com/queues/quickstart_ directory
-1. Open the _App.java_ file in your editor
+1. Navigate to the `/src/main/java/com/queues/quickstart` directory
+1. Open the `App.java` file in your editor
 1. Delete the `System.out.println("Hello, world");` statement
 1. Add `import` directives
 
@@ -141,7 +141,7 @@ Here's the code:
 package com.queues.quickstart;
 
 /**
- * Azure queue storage v12 SDK quickstart
+ * Azure Queue Storage client library v12 quickstart
  */
 import com.azure.storage.queue.*;
 import com.azure.storage.queue.models.*;
@@ -196,7 +196,7 @@ The code below retrieves the connection string for the storage account. The conn
 Add this code inside the `main` method:
 
 ```java
-System.out.println("Azure Queues storage v12 - Java quickstart sample\n");
+System.out.println("Azure Queue Storage client library v12 - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
@@ -254,7 +254,7 @@ SendMessageResult result = queueClient.sendMessage("Third message");
 
 ### Peek at messages in a queue
 
-Peek at the messages in the queue by calling the [`peekMessages`](/java/api/com.azure.storage.queue.queueclient.peekmessages) method. The `peekMessages` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
+Peek at the messages in the queue by calling the [`peekMessages`](/java/api/com.azure.storage.queue.queueclient.peekmessages) method. This method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
 
 Add this code to the end of the `main` method:
 
@@ -268,7 +268,7 @@ queueClient.peekMessages(10, null, null).forEach(
 
 ### Update a message in a queue
 
-Update the contents of a message by calling the [`updateMessage`](/java/api/com.azure.storage.queue.queueclient.updatemessage) method. The `updateMessage` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with new content for the message, pass in the message ID and pop receipt by using the `SendMessageResult` that was saved earlier in the code. The message ID and pop receipt identify which message to update.
+Update the contents of a message by calling the [`updateMessage`](/java/api/com.azure.storage.queue.queueclient.updatemessage) method. This method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with new content for the message, pass in the message ID and pop receipt by using the `SendMessageResult` that was saved earlier in the code. The message ID and pop receipt identify which message to update.
 
 ```java
 System.out.println("\nUpdating the third message in the queue...");
@@ -339,7 +339,7 @@ Then, build the package.
 mvn package
 ```
 
-Run the following `mvn` command to execute the app.
+Use the following `mvn` command to run the app.
 
 ```console
 mvn exec:java -Dexec.mainClass="com.queues.quickstart.App" -Dexec.cleanupDaemonThreads=false
@@ -348,7 +348,7 @@ mvn exec:java -Dexec.mainClass="com.queues.quickstart.App" -Dexec.cleanupDaemonT
 The output of the app is similar to the following example:
 
 ```output
-Azure Queues storage v12 - Java quickstart sample
+Azure Queue Storage client library v12 - Java quickstart sample
 
 Adding messages to the queue...
 
@@ -384,4 +384,4 @@ For tutorials, samples, quick starts, and other documentation, visit:
 > [!div class="nextstepaction"]
 > [Azure for Java cloud developers](/azure/developer/java/)
 
-- To see more Azure Queue Storage sample apps, continue to [Azure Queue Storage SDK v12 Java client library samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).
+- For more Azure Queue Storage sample apps, see [Azure Queue Storage client library v12 for Java - samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).

@@ -32,7 +32,7 @@ In this guide, you use the Queue Storage service features that can be called wit
 
 ### Install via composer
 
-1. Create a file named _composer.json_ in the root of your project and add the following code to it:
+1. Create a file named `composer.json` in the root of your project and add the following code to it:
 
     ```json
     {
@@ -44,7 +44,7 @@ In this guide, you use the Queue Storage service features that can be called wit
 
 2. Download [`composer.phar`](https://getcomposer.org/composer.phar) in your project root.
 
-3. Open a command prompt and execute the following command in your project root:
+3. Open a command prompt and run the following command in your project root:
 
     ```console
     php composer.phar install
@@ -66,7 +66,7 @@ require_once 'vendor/autoload.php';
 use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 ```
 
-In the following examples, the `require_once` statement is shown always, but only the classes that are necessary for the example to execute are referenced.
+In the following examples, the `require_once` statement is shown always, but only the classes required to run the example are referenced.
 
 ## Set up an Azure Storage connection
 
@@ -102,7 +102,7 @@ $queueClient = QueueRestProxy::createQueueService($connectionString);
 
 ## Create a queue
 
-A `QueueRestProxy` object lets you create a queue by using the `CreateQueue` method. When creating a queue, you can set options on the queue, but doing so is not required. The example below shows how to set metadata on a queue.
+A `QueueRestProxy` object lets you create a queue by using the `CreateQueue` method. When creating a queue, you can set options on the queue, but doing so is not required. This example shows how to set metadata on a queue.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -261,7 +261,7 @@ catch(ServiceException $e){
 
 ## Change the contents of a queued message
 
-You can change the contents of a message in-place in the queue by calling `QueueRestProxy->updateMessage`. If the message represents a work task, you could use this feature to update the status of the work task. The following code updates the queue message with new contents, and it sets the visibility timeout to extend another 60 seconds. This saves the state of work that's associated with the message, and it gives the client another minute to continue working on the message. You could use this technique to track multistep workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure. Typically, you would keep a retry count as well, and if the message is retried more than _n_ times, you would delete it. This protects against a message that triggers an application error each time it is processed.
+You can change the contents of a message in-place in the queue by calling `QueueRestProxy->updateMessage`. If the message represents a work task, you could use this feature to update the status of the work task. The following code updates the queue message with new contents, and it sets the visibility timeout to extend another 60 seconds. This saves the state of work that's associated with the message, and it gives the client another minute to continue working on the message. You could use this technique to track multistep workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure. Typically, you would keep a retry count as well, and if the message is retried more than *n* times, you would delete it. This protects against a message that triggers an application error each time it is processed.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -358,7 +358,7 @@ catch(ServiceException $e){
 
 ## Get queue length
 
-You can get an estimate of the number of messages in a queue. The `QueueRestProxy->getQueueMetadata` method asks Queue Storage to return metadata about the queue. Calling the `getApproximateMessageCount` method on the returned object provides a count of how many messages are in a queue. The count is only approximate because messages can be added or removed after Queue Storage responds to your request.
+You can get an estimate of the number of messages in a queue. The `QueueRestProxy->getQueueMetadata` method retrieves metadata about the queue. Calling the `getApproximateMessageCount` method on the returned object provides a count of how many messages are in a queue. The count is only approximate because messages can be added or removed after Queue Storage responds to your request.
 
 ```php
 require_once 'vendor/autoload.php';

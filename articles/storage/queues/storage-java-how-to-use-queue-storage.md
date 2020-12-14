@@ -27,7 +27,7 @@ This guide will show you how to code for common scenarios using the Azure Queue 
 
 # [Java v12](#tab/java)
 
-First, verify that your development system meets the prerequisites listed in [Azure Queue Storage client library for Java v12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
+First, verify that your development system meets the prerequisites listed in [Azure Queue Storage client library v12 for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
 
 To create a Java application named `queues-how-to-v12`:
 
@@ -88,7 +88,7 @@ To create a Java application named `queues-how-to-v12`:
     [INFO] ------------------------------------------------------------------------
         ```
 
-1. Switch to the newly created _queues-howto-v12_ directory.
+1. Switch to the newly created `queues-howto-v12` directory.
 
    ```console
    cd queues-howto-v12
@@ -96,7 +96,7 @@ To create a Java application named `queues-how-to-v12`:
 
 ### Install the package
 
-Open the _pom.xml_ file in your text editor. Add the following dependency element to the group of dependencies.
+Open the `pom.xml` file in your text editor. Add the following dependency element to the group of dependencies.
 
 ```xml
 <dependency>
@@ -148,7 +148,7 @@ final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-You can store this string in the service config file called _ServiceConfiguration.cscfg_. For an app running within a Microsoft Azure role, access the connection string by calling `RoleEnvironment.getConfigurationSettings`. Here's an example of getting the connection string from a `Setting` element named `StorageConnectionString`:
+You can store this string in the service config file called `ServiceConfiguration.cscfg`. For an app running within a Microsoft Azure role, access the connection string by calling `RoleEnvironment.getConfigurationSettings`. Here's an example of getting the connection string from a `Setting` element named `StorageConnectionString`:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -170,9 +170,10 @@ A `QueueClient` object contains the operations for interacting with a queue. The
 
 # [Java v8](#tab/java8)
 
-A `CloudQueueClient` object lets you get reference objects for queues. The following code creates a `CloudQueueClient` object. (Note: there are additional ways to create `CloudStorageAccount` objects. For more information, see `CloudStorageAccount` in the [Azure Storage client SDK reference](https://azure.github.io/azure-sdk-for-java/storage.html).)
+A `CloudQueueClient` object lets you get reference objects for queues. The following code creates a `CloudQueueClient` object that provides a reference to the queue you want to use. You can create the queue if it doesn't exist.
 
-Use the `CloudQueueClient` object to get a reference to the queue you want to use. You can create the queue if it doesn't exist.
+> [!NOTE]
+> There are others ways to create `CloudStorageAccount` objects. For more information, see `CloudStorageAccount` in the [Azure Storage client SDK reference](https://azure.github.io/azure-sdk-for-java/storage.html).)
 
 ```java
 try
@@ -283,7 +284,7 @@ catch (Exception e)
 
 ## How to: Change the contents of a queued message
 
-You can change the contents of a message in-place in the queue. If the message represents a work task, you could use this feature to update the status. The following code updates a queue message with new contents and sets the visibility timeout to extend another 30 seconds. Extending the visibility timeout gives the client another 30 seconds to continue working on the message. You could keep a retry count, as well. If the message is retried more than _n_ times, you would delete it. This scenario protects against a message that triggers an application error each time it's processed.
+You can change the contents of a message in-place in the queue. If the message represents a work task, you could use this feature to update the status. The following code updates a queue message with new contents and sets the visibility timeout to extend another 30 seconds. Extending the visibility timeout gives the client another 30 seconds to continue working on the message. You could keep a retry count, as well. If the message is retried more than *n* times, you would delete it. This scenario protects against a message that triggers an application error each time it's processed.
 
 # [Java v12](#tab/java)
 
@@ -389,13 +390,13 @@ You can get an estimate of the number of messages in a queue.
 
 # [Java v12](#tab/java)
 
-The `getProperties` method asks Queue Storage for several current values. One of the values is a count of how many messages are in a queue. The count is only approximate because messages can be added or removed after your request. The `getApproximateMessageCount` method returns the last value retrieved by the call to `getProperties`, without calling Queue Storage.
+The `getProperties` method returns several values including the number of messages currently in a queue. The count is only approximate because messages can be added or removed after your request. The `getApproximateMessageCount` method returns the last value retrieved by the call to `getProperties`, without calling Queue Storage.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_GetQueueLength":::
 
 # [Java v8](#tab/java8)
 
-The `downloadAttributes` method asks Queue Storage for several current values. One of the values is a count of how many messages are in a queue. The count is only approximate because messages can be added or removed after your request. The `getApproximateMessageCount` method returns the last value retrieved by the call to `downloadAttributes`, without calling Queue Storage.
+The `downloadAttributes` method retrieves several values including the number of messages currently in a queue. The count is only approximate because messages can be added or removed after your request. The `getApproximateMessageCount` method returns the last value retrieved by the call to `downloadAttributes`, without calling Queue Storage.
 
 ```java
 try

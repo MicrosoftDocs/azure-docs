@@ -51,7 +51,7 @@ Create a Python application named `queues-quickstart-v12`.
     mkdir queues-quickstart-v12
     ```
 
-1. Switch to the newly created _queues-quickstart-v12_ directory.
+1. Switch to the newly created `queues-quickstart-v12` directory.
 
     ```console
     cd queues-quickstart-v12
@@ -88,7 +88,7 @@ This command installs the Azure Queue Storage client library for Python package 
 
     ```
 
-1. Save the new file as _queues-quickstart-v12.py_ in the _queues-quickstart-v12_ directory.
+1. Save the new file as `queues-quickstart-v12.py` in the `queues-quickstart-v12` directory.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -181,7 +181,7 @@ Add this code to the end of the `try` block:
 
 ### Peek at messages in a queue
 
-Peek at the messages in the queue by calling the [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) method. The `peek_messages` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
+Peek at the messages in the queue by calling the [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) method. This method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
 
 Add this code to the end of the `try` block:
 
@@ -198,7 +198,7 @@ Add this code to the end of the `try` block:
 
 ### Update a message in a queue
 
-Update the contents of a message by calling the [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) method. The `update_message` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in values from the message that was saved earlier in the code. The `saved_message` values identify which message to update.
+Update the contents of a message by calling the [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) method. This method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content, pass in values from the message that was saved earlier in the code. The `saved_message` values identify which message to update.
 
 ```python
     print("\nUpdating the third message in the queue...")
@@ -263,7 +263,7 @@ Add this code to the end of the `try` block and save the file:
 
 This app creates and adds three messages to an Azure queue. The code lists the messages in the queue, then retrieves and deletes them, before finally deleting the queue.
 
-In your console window, navigate to the directory containing the _queues-quickstart-v12.py_ file, then execute the following `python` command to run the app.
+In your console window, navigate to the directory containing the `queues-quickstart-v12.py` file, then use the following `python` command to run the app.
 
 ```console
 python queues-quickstart-v12.py
@@ -272,7 +272,7 @@ python queues-quickstart-v12.py
 The output of the app is similar to the following example:
 
 ```output
-Azure Queue storage v12 - Python quickstart sample
+Azure Queue Storage client library v12 - Python quickstart sample
 Creating queue: quickstartqueues-cac365be-7ce6-4065-bd65-3756ea052cb8
 
 Adding messages to the queue...
@@ -312,4 +312,4 @@ For tutorials, samples, quick starts and other documentation, visit:
 > [Azure for Python developers](/azure/python/)
 
 - To learn more, see the [Azure Storage libraries for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
-- To see more Azure Queue Storage sample apps, continue to [Azure Queue Storage v12 Python client library samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
+- For more Azure Queue Storage sample apps, see [Azure Queue Storage client library v12 for Python - samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).

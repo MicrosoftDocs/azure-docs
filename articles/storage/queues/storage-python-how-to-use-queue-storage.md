@@ -203,13 +203,13 @@ You can get an estimate of the number of messages in a queue.
 
 # [Python v12](#tab/python)
 
-The [get_queue_properties](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#get-queue-properties---kwargs-) method asks Queue Storage to return properties about the queue, including the `approximate_message_count`.
+The [get_queue_properties](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#get-queue-properties---kwargs-) method returns queue properties including the `approximate_message_count`.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_GetQueueLength":::
 
 # [Python v2](#tab/python2)
 
-The [`get_queue_metadata`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-) method asks Queue Storage to return metadata about the queue, including the `approximate_message_count`.
+The [`get_queue_metadata`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-) method returns queue properties  including the `approximate_message_count`.
 
 ```python
 metadata = queue_service.get_queue_metadata(queue_name)

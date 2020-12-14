@@ -32,9 +32,11 @@ Create a Ruby application. For instructions, see [Create a Ruby application in A
 
 To use Azure Storage, you need to download and use the Ruby Azure package, which includes a set of convenience libraries that communicate with the storage REST services.
 
-### Use rubygems to obtain the package
+<!-- docutune:casing "Terminal (Mac)" -->
 
-1. Use a command-line interface such as PowerShell (Windows), terminal (Mac), or Bash (Unix).
+### Use RubyGems to obtain the package
+
+1. Use a command-line interface such as PowerShell (Windows), Terminal (Mac), or Bash (Unix).
 2. Type `gem install Azure` in the command window to install the gem and dependencies.
 
 ### Import the package
@@ -142,7 +144,7 @@ end
 
 ## How to: Get the queue length
 
-You can get an estimation of the number of messages in the queue. The `get_queue_metadata()` method asks Queue Storage to return the approximate message count and metadata about the queue.
+You can get an estimation of the number of messages in the queue. The `get_queue_metadata()` method returns the approximate message count and other queue metadata.
 
 ```ruby
 message_count, metadata = azure_queue_service.get_queue_metadata(

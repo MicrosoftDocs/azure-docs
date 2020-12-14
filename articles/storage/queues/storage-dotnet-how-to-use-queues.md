@@ -49,7 +49,7 @@ In Visual Studio, create a new Windows console application. The following steps 
 5. In the **Project name** field, enter a name for your application
 6. Select **Create**
 
-All code examples in this tutorial can be added to the `Main()` method of your console application's _Program.cs_ file.
+All code examples in this tutorial can be added to the `Main()` method of your console application's `Program.cs` file.
 
 You can use the Azure Storage client libraries in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
@@ -118,7 +118,7 @@ For more information about connection strings, see [Configure a connection strin
 > [!NOTE]
 > Your storage account key is similar to the root password for your storage account. Always be careful to protect your storage account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your key by using the Azure portal if you believe it may have been compromised.
 
-The best way to maintain your storage connection string is in a configuration file. To configure your connection string, open the _app.config_ file from Solution Explorer in Visual Studio. Add the contents of the `<appSettings>` element shown below. Replace `connection-string` with the value you copied from your storage account in the portal:
+The best way to maintain your storage connection string is in a configuration file. To configure your connection string, open the `app.config` file from Solution Explorer in Visual Studio. Add the contents of the `<appSettings>` element shown here. Replace `connection-string` with the value you copied from your storage account in the portal:
 
 ```xml
 <configuration>
@@ -145,7 +145,7 @@ To target the Azurite storage emulator, you can use a shortcut that maps to the 
 
 ### Add using directives
 
-Add the following `using` directives to the top of the _Program.cs_ file:
+Add the following `using` directives to the top of the `Program.cs` file:
 
 # [.NET v12](#tab/dotnet)
 
@@ -282,7 +282,7 @@ Console.WriteLine(peekedMessage.AsString);
 
 ## Change the contents of a queued message
 
-You can change the contents of a message in-place in the queue. If the message represents a work task, you could use this feature to update the status of the work task. The following code updates the queue message with new contents, and sets the visibility timeout to extend another 60 seconds. This saves the state of work associated with the message, and gives the client another minute to continue working on the message. You could use this technique to track multistep workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure. Typically, you would keep a retry count as well, and if the message is retried more than _n_ times, you would delete it. This protects against a message that triggers an application error each time it is processed.
+You can change the contents of a message in-place in the queue. If the message represents a work task, you could use this feature to update the status of the work task. The following code updates the queue message with new contents, and sets the visibility timeout to extend another 60 seconds. This saves the state of work associated with the message, and gives the client another minute to continue working on the message. You could use this technique to track multistep workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure. Typically, you would keep a retry count as well, and if the message is retried more than *n* times, you would delete it. This protects against a message that triggers an application error each time it is processed.
 
 # [.NET v12](#tab/dotnet)
 
@@ -422,13 +422,13 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 
 # [.NET v12](#tab/dotnet)
 
-You can get an estimate of the number of messages in a queue. The [`GetProperties`](/dotnet/api/azure.storage.queues.queueclient.getproperties) method asks Queue Storage to retrieve the queue properties, including the message count. The [`ApproximateMessagesCount`](/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) property contains the approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+You can get an estimate of the number of messages in a queue. The [`GetProperties`](/dotnet/api/azure.storage.queues.queueclient.getproperties) method returns queue properties including the message count. The [`ApproximateMessagesCount`](/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) property contains the approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_GetQueueLength":::
 
 # [.NET v11](#tab/dotnetv11)
 
-You can get an estimate of the number of messages in a queue. The [`FetchAttributes`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) method asks Queue Storage to retrieve the queue attributes, including the message count. The [`ApproximateMessageCount`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) property returns the last value retrieved by the `FetchAttributes` method, without calling Queue Storage.
+You can get an estimate of the number of messages in a queue. The [`FetchAttributes`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) method returns queue attributes including the message count. The [`ApproximateMessageCount`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) property returns the last value retrieved by the `FetchAttributes` method, without calling Queue Storage.
 
 ```csharp
 // Retrieve storage account from connection string.
