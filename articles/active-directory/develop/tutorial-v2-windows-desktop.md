@@ -105,7 +105,7 @@ To register your application and add your application registration information t
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application, for example `Win-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
-1. In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox)**.
+1. In the **Supported account types** section, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
 1. Select **Register**.
 1. Under **Manage**, select **Authentication** > **Add a platform**.
 1. Select **Mobile and desktop applications**.

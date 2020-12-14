@@ -106,19 +106,18 @@ If you don't want to use the automation, use the steps in the following sections
 1. Select **Register** to create the application.
 1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later use. You'll need it to configure the Visual Studio configuration file for this project.
 1. Under **Manage**, select **Authentication**. Then:
-    1. Set **Logout URL** to `https://localhost:44316/Account/EndSession`.
-    1. In the **Implicit grant** section, select **Access tokens** and **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user and call an API.
-    1. Select **Save**.
+1. Set **Logout URL** to `https://localhost:44316/Account/EndSession`.
+1. In the **Implicit grant** section, select **Access tokens** and **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user and call an API.
+1. Select **Save**.
 1. Under **Manage**, select **Certificates & secrets**.
-   1. In the **Client secrets** section, select **New client secret**. 
-   1. Enter a key description (for example, **app secret**),
-   1. Select a key duration of either **In 1 year**, **In 2 years**, or **Never Expires**.
-   1. Select **Add**.
-   1. When the key value appears, copy and save it in a safe location. You'll need this key later to configure the project in Visual Studio. It won't be displayed again or retrievable by any other means.
+1. In the **Client secrets** section, select **New client secret**. 
+1. Enter a key description (for example, **app secret**).
+1. Select a key duration of either **In 1 year**, **In 2 years**, or **Never Expires**.
+1. Select **Add**. Record the key value in a safe location. You'll need this key later to configure the project in Visual Studio.
 1. Under **Manage**, select **API permissions** > **Add a permission**.
-   1. In the **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
-   1. In the **Application permissions** section, ensure that the right permissions are selected: **User.Read.All**.
-   1. Select **Add permissions**.
+1. In the **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
+1. In the **Application permissions** section, ensure that the right permissions are selected: **User.Read.All**.
+1. Select **Add permissions**.
 
 ## Configure the sample to use your Azure AD tenant
 
