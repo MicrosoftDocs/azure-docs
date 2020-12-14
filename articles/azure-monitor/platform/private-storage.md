@@ -41,7 +41,8 @@ When connecting to Azure Monitor over a private link, Log Analytics agents are o
 For the storage account to successfully connect to your private link, it must:
 * Be located on your VNet or a peered network and connected to your VNet over a private link. This allows agents on your VNet to send logs to the storage account.
 * Be located on the same region as the workspace it’s linked to.
-* Allow Azure Monitor to access the storage account. If you chose to allow only select networks to access your storage account, you should also allow this exception: “allow trusted Microsoft services to access this storage account”. This allows Log Analytics to read the logs ingested to this storage account.
+* Allow Azure Monitor to access the storage account. If you chose to allow only select networks to access your storage account, you should select the exception: “Allow trusted Microsoft services to access this storage account”.
+![Storage account trust MS services image](./media/private-storage/storage-trust.png)
 * If your workspace handles traffic from other networks as well, you should configure the storage account to allow incoming traffic coming from the relevant networks/internet.
 
 ##### Link your storage account to a Log Analytics workspace
