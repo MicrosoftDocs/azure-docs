@@ -22,7 +22,7 @@ With this feature you can:
 * Check request failures.
 * Check application metrics.
 
-Application Insights provide seven perspectives:
+Application Insights provide many observable perspectives, including:
 
 * Application map
 * Performance
