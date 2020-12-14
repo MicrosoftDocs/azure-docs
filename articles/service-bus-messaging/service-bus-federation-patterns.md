@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 12/12/2020
 ---
 
-# message replication tasks patterns
+# Message replication tasks patterns
 
 The [federation overview](service-bus-federation-overview.md) and the [replicator
 functions overview](service-bus-federation-replicator-functions.md) explain the
