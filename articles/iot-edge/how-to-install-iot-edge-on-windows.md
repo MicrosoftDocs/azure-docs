@@ -32,7 +32,7 @@ Minimum system requirements:
 * Minimum Storage: 10 GB
 
 <!-- Temporary note; signage should be good by release -->
-[!NOTE]
+> [!NOTE]
 > The execution policy on the target device needs to be set to `Bypass` or `RemoteSigned`, because the IoT Edge for Windows module is not properly signed. Any deployment attempt with a different execution policy will fail as the module cannot be loaded.
 >
 > Signing of the Azure IoT Edge for Windows collaterals is ongoing work.
@@ -55,7 +55,7 @@ On the Windows Admin Center start page, under the list of connections, you will 
 
    ![Initial Windows Admin Center dashboard with target device listed](./media/how-to-install-iot-edge-on-windows/windows-admin-center-initial-dashboard.png)
 
-[!NOTE]
+> [!NOTE]
 > If you do not see your desired target device in the list, follow the [instructions to add your device before proceeding](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
 
 1. Select **Add**.
