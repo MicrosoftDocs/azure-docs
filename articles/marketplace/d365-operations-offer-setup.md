@@ -36,7 +36,7 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 
 - This ID is visible to customers in the web address for the offer and in Resource Manager templates, if applicable.
 - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- The Offer ID combined with the Publisher ID must be under 40 characters in length.<font color="red">[ still trure? ]</font>
+- The Offer ID combined with the Publisher ID must be under 40 characters in length. <font color="red">[ still true? ]</font>
 - The Offer ID can't be changed after you select **Create**.
 
 Enter an **Offer alias**. The offer alias is the name that's used for the offer in Partner Center.
@@ -74,7 +74,7 @@ A test drive is a great way to showcase your offer to potential customers by giv
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
-To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. <font color="red">[ Need to do this ]</font>With test drive, configuring a CRM is required (see next section). To remove test drive from your offer, clear this check box.
+To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. <font color="red">[ Need to make this part of the instruction somewhere, point to above link ]</font> With test drive, configuring a CRM is required (see next section). To remove test drive from your offer, clear this check box.
 
 ## Customer leads
 
@@ -92,5 +92,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Configure Dynamics 365 for Operations offer properties](d365-operations-properties.md)
+- [Configure offer properties](d365-operations-properties.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)

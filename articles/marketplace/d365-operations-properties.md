@@ -31,10 +31,10 @@ Enter an **App version** for your offer. Customers will see this number listed o
 
 ### Legal
 
-Provide the **Terms and conditions** that customers must accept before they can try your offer.<font color="red">[ Can they enter a link to a webpage? ]</font>
+Provide the **Terms and conditions** that customers must accept before they can try your offer. <font color="red">[ Can they enter a link to a webpage? ]</font>
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Offer listing**.
 
 ## Next steps
 
-- [Configure Dynamics 365 for Operations offer listing](d365-operations-offer-listing.md)
+- [Configure offer listing](d365-operations-offer-listing.md)
