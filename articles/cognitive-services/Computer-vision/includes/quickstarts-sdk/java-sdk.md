@@ -99,6 +99,8 @@ In the application's **main** method, add calls for the methods used in this qui
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
 
+> [!div class="nextstepaction"]
+> [I set up the client](?success=set-up-client#object-model) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=set-up-client)
 
 ## Object model
 
@@ -120,11 +122,12 @@ These code snippets show you how to do the following tasks with the Computer Vis
 
 ## Authenticate the client
 
-
 In a new method, instantiate a [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) object with your endpoint and key.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
+> [!div class="nextstepaction"]
+> [I authenticated the client](?success=authenticate-client#analyze-an-image) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## Analyze an image
 
@@ -206,6 +209,9 @@ The following code prints information about the type of image&mdash;whether it i
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
+> [!div class="nextstepaction"]
+> [I analyzed an image](?success=analyze-image#read-printed-and-handwritten-text) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## Read printed and handwritten text
 
 Computer Vision can read visible text in an image and convert it to a character stream. This section defines a method, `ReadFromFile`, that takes a local file path and prints the image's text to the console.
@@ -226,7 +232,6 @@ Then add the following method definition to your **ComputerVisionQuickstarts** c
 Then, add the following code to call the **readInStreamWithServiceResponseAsync** method for the given image.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_call)]
-
 
 The following block of code extracts the operation ID from the response of the Read call. It uses this ID with a helper method to print the text read results to the console. 
 
@@ -250,6 +255,9 @@ Finally, add the other helper method used above, which extracts the operation ID
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
 
+> [!div class="nextstepaction"]
+> [I read text](?success=read-printed-handwritten-text#run-the-application) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## Run the application
 
 You can build the app with:
@@ -264,6 +272,9 @@ Run the application with the `gradle run` command:
 gradle run
 ```
 
+> [!div class="nextstepaction"]
+> [I ran the application](?success=run-the-application#clean-up-resources) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## Clean up resources
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
@@ -271,12 +282,16 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [I cleaned up resources](?success=clean-up-resources#next-steps) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+
 ## Next steps
 
 In this quickstart, you learned how to use the Computer Vision Java library to do basis tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
 >[Computer Vision reference (Java)](/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
+
 
 * [What is Computer Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).

@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 12/03/2020
+ms.date: 12/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
 ---
@@ -24,6 +24,9 @@ HBv2 VMs feature 200 Gb/sec Mellanox HDR InfiniBand, while both HB and HC-series
 [HC-series](hc-series.md) VMs are optimized for applications driven by dense computation, such as implicit finite element analysis, molecular dynamics, and computational chemistry. HC VMs feature 44 Intel Xeon Platinum 8168 processor cores, 8 GB of RAM per CPU core, and no hyperthreading. The Intel Xeon Platinum platform supports Intel’s rich ecosystem of software tools such as the Intel Math Kernel Library.
 
 [H-series](h-series.md) VMs are optimized for applications driven by high CPU frequencies or large memory per core requirements. H-series VMs feature 8 or 16 Intel Xeon E5 2667 v3 processor cores, 7 or 14 GB of RAM per CPU core, and no hyperthreading. H-series features 56 Gb/sec Mellanox FDR InfiniBand in a non-blocking fat tree configuration for consistent RDMA performance. H-series VMs support Intel MPI 5.x and MS-MPI.
+
+> [!NOTE]
+> All HBv2, HB, and HC-series VMs have exclusive access to the physical servers. There is only 1 VM per physical server and there is no shared multi-tenancy with any other VMs for these VM sizes.
 
 > [!NOTE]
 > The [A8 – A11 VMs](./sizes-previous-gen.md#a-series---compute-intensive-instances) are planned for retirement on 3/2021. For more information, see [HPC Migration Guide](https://azure.microsoft.com/resources/hpc-migration-guide/).

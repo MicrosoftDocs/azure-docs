@@ -130,7 +130,7 @@ Update the IP filter rule attributes of the template based on your requirements.
 
 | Attribute                | Description |
 | ------------------------ | ----------- |
-| **FilterName**           | Provide a name for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus {'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''} are accepted. |
+| **FilterName**           | Provide a name for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted. |
 | **Action**               | Accepted values are **Accept** or **Reject** as the action for the IP filter rule. |
 | **ipMask**               | Provide a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255. |
 

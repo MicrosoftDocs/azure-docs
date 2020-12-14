@@ -42,7 +42,7 @@ aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 Add the [official stable Helm repository][helm-stable-repo], which contains the traefik ingress controller Helm chart.
 
 ```console
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add stable https://charts.helm.sh/stable
 ```
 
 Create a Kubernetes namespace for the traefik ingress controller and install it using `helm`.

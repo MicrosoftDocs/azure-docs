@@ -15,7 +15,7 @@ ms.subservice: B2C
 ---
 # Azure Active Directory B2C: Enable custom attributes in a custom profile policy
 
-In the [Add claims and customize user input using custom policies](custom-policy-configure-user-input.md) article you learn how to use built-in [user profile attributes](user-profile-attributes.md). In this article, you enable a custom attribute in your Azure Active Directory B2C (Azure AD B2C) directory. Later, you can use the new attribute as a custom claim in [user flows](user-flow-overview.md) or [custom policies](custom-policy-get-started.md) simultaneously.
+In the [Add claims and customize user input using custom policies](configure-user-input.md) article you learn how to use built-in [user profile attributes](user-profile-attributes.md). In this article, you enable a custom attribute in your Azure Active Directory B2C (Azure AD B2C) directory. Later, you can use the new attribute as a custom claim in [user flows](user-flow-overview.md) or [custom policies](custom-policy-get-started.md) simultaneously.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -127,7 +127,7 @@ The following example demonstrates the use of a custom attribute in Azure AD B2C
 
 ## Use a custom attribute in a policy
 
-Follow the guidance for how to [add claims and customize user input using custom policies](custom-policy-configure-user-input.md). This sample uses a built-in claim 'city'. To use a custom attribute, replace 'city' with your own custom attributes.
+Follow the guidance for how to [add claims and customize user input using custom policies](configure-user-input.md). This sample uses a built-in claim 'city'. To use a custom attribute, replace 'city' with your own custom attributes.
 
 
 ## Next steps

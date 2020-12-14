@@ -1,6 +1,9 @@
 ---
 title: Assess large numbers of VMware VMs for migration to Azure with Azure Migrate 
-description: Describes how to assess large numbers of VMware VMs for migration to Azure using the Azure Migrate service.e
+description: Describes how to assess large numbers of VMware VMs for migration to Azure using the Azure Migrate service.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/23/2020
 ---

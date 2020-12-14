@@ -22,6 +22,10 @@ The Azure SQL Database Managed Instance data source supports the following funct
 
 - **Lineage** between data assets for ADF copy and dataflow activities.
 
+### Known limitations
+
+Azure Purview doesn't support scanning of [views](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) in Azure SQL Managed Instance.
+
 ## Prerequisites
 
 - Create a new Purview account if you don't already have one.

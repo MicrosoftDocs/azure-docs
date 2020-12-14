@@ -6,14 +6,12 @@ cloud: na
 documentationcenter: na
 author: memildin
 manager: rkarlin
-
-ms.assetid:
 ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/02/2020
+ms.date: 12/01/2020
 ms.author: memildin
 
 ---

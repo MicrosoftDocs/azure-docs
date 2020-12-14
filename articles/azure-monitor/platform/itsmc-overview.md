@@ -26,7 +26,7 @@ ITSMC supports connections with the following ITSM tools:
 -	Cherwell
 
    >[!NOTE]
-> As of 1-Oct-2020 Cherwell and Provance ITSM integrations with Azure Alert will no longer will be enabled for new customers. New ITSM Connections will not be supported. Existing ITSM connections will be supported.
+> We propose our Cherwell and Provance customers to use [Webhook action](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) to Cherwell and Provance endpoint as another solution to the integration.
 
 With ITSMC, you can:
 
@@ -38,9 +38,12 @@ For information about legal terms and the privacy policy, see [Microsoft Privacy
 You can start using ITSMC by completing the following steps:
 
 1.	[Add ITSMC.](#add-it-service-management-connector)
-2.	[Create an ITSM connection.](#create-an-itsm-connection)
-3.	[Use the connection.](#use-itsmc)
-
+2. [Connect ITSM products/services with IT Service Management Connector](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections)
+3.	[Create an ITSM connection.](#create-an-itsm-connection)
+4.	[Use the connection.](#use-itsmc)
+   
+   >[!NOTE]
+> You must follow the steps by this order otherwise you will get an error.
 
 ##  Add IT Service Management Connector
 

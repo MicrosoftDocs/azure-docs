@@ -183,7 +183,7 @@ landingContent:
             url: /rest/api/maps/timezone
   
     # Card
-  - title: Developing with Elevation Service
+  - title: Developing with Elevation service
     linkLists:
       - linkListType: how-to-guide
         links:

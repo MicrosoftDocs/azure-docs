@@ -185,7 +185,6 @@ For more information on how to set up scans on various assets in Azure Purview, 
 |**Azure Blob Storage**     |[Register and Scan Azure Blob Storage](register-scan-azure-blob-storage-source.md)         |
 |**Azure Data Lake Storage**     |[Register and scan Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Register and scan Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |
 |**Azure SQL Databases**|[Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|
-|**Storage accounts behind firewalls**     |[Scan Storage Accounts behind a Firewall in Azure Purview](scan-sqlresource-firewall.md)         |
 | | |
 
 ## View labels on assets

@@ -133,6 +133,8 @@
         href: ares-for-enterprise-tutorial.md
       - name: Ariba
         href: ariba-tutorial.md
+      - name: Aruba User Experience Insight
+        href: aruba-user-experience-insight-tutorial.md
       - name: Asana
         href: asana-tutorial.md
       - name: ASC Contracts
@@ -165,6 +167,8 @@
         href: etouches-tutorial.md
       - name: AwardSpring
         href: awardspring-tutorial.md
+      - name: AwareGo
+        href: awarego-tutorial.md
       - name: AWS ClientVPN
         href: aws-clientvpn-tutorial.md
       - name: Axiad Cloud
@@ -255,6 +259,8 @@
         href: bugsnag-tutorial.md
       - name: BullseyeTDP
         href: bullseyetdp-tutorial.md
+      - name: Burp Suite Enterprise Edition
+        href: burp-suite-enterprise-edition-tutorial.md
       - name: Bynder
         href: bynder-tutorial.md
     - name: C
@@ -417,6 +423,8 @@
         href: corptax-tutorial.md
       - name: Costpoint
         href: costpoint-tutorial.md
+      - name: Count Me In - Operations Dashboard
+        href: count-me-in-operations-dashboard-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
       - name: Coupa Risk Assess
@@ -559,6 +567,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: Equinix Federation App
+        href: equinix-federation-app-tutorial.md
       - name: EasySSO for Jira
         href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
@@ -648,8 +658,8 @@
         href: formcom-tutorial.md
       - name: Fortes Change Cloud
         href: fortes-change-cloud-tutorial.md
-      - name: FortiWeb Web Application Firewall
-        href: fortiweb-web-application-firewall-tutorial.md
+      - name: FortiGate SSL VPN
+        href: fortigate-ssl-vpn-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
@@ -944,6 +954,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
+      - name: KFAdvance
+        href: kfadvance-tutorial.md
       - name: Khoros Care
         href: khoros-care-tutorial.md
       - name: Kindling
@@ -1006,6 +1018,8 @@
         href: lift-tutorial.md
       - name: LINE WORKS
         href: worksmobile-tutorial.md
+      - name: LinkedIn Talent Solutions
+        href: linkedin-talent-solutions-tutorial.md
       - name: Litmus
         href: litmus-tutorial.md
       - name: Learnster
@@ -1278,6 +1292,8 @@
         href: perforce-helix-core-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
+      - name: Perimeter 81
+        href: perimeter-81-tutorial.md
       - name: PerimeterX
         href: perimeterx-tutorial.md
       - name: Periscope Data
@@ -2147,6 +2163,8 @@
         href: sap-successfactors-writeback-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
+      - name: Shopify Plus
+        href: shopify-plus-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
       - name: Snowflake

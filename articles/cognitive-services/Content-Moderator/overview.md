@@ -79,4 +79,4 @@ As with all of the Cognitive Services, developers using the Content Moderator se
 
 ## Next steps
 
-To get started using Content Moderator on the web portal, follow [Try Content Moderator on the web](quick-start.md). Or, complete a [client library quickstart](client-libraries.md) to implement the basic scenarios in code.
+To get started using Content Moderator on the web portal, follow [Try Content Moderator on the web](quick-start.md). Or, complete a [client library or REST API quickstart](client-libraries.md) to implement the basic scenarios in code.

@@ -16,7 +16,7 @@ Asset Management covers controls to ensure security visibility and governance ov
 
 ## AM-1: Ensure security team has visibility into risks for assets
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | AM-1 | 1.1, 1.2 | CM-8, PM-5 |
 
@@ -42,7 +42,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 ## AM-2: Ensure security team has access to asset inventory and metadata
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | AM-2 | 1.1, 1.2,  1.4, 1.5,  9.1, 12.1 | CM-8, PM-5 |
 
@@ -68,7 +68,7 @@ Logically organize assets according to your organization’s taxonomy using Tags
 
 ## AM-3: Use only approved Azure services
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | AM-3 | 2.3, 2.4 | CM-7, CM-8 |
 
@@ -90,7 +90,7 @@ Use Azure Policy to audit and restrict which services users can provision in you
 
 ## AM-4: Ensure security of asset lifecycle management
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | AM-4 | 2.3, 2.4, 2.5 | CM-7, CM-8, CM-10, CM-11 |
 
@@ -112,7 +112,7 @@ Remove Azure resources when they are no longer needed.
 
 ## AM-5: Limit users' ability to interact with Azure Resource Manager
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | AM-5 | 2.9 | AC-3 |
 
@@ -130,7 +130,7 @@ Use Azure AD Conditional Access to limit users' ability to interact with Azure R
 
 ## AM-6: Use only approved applications in compute resources
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | AM-6 | 2.6, 2.7 | AC-3, CM-7, CM-8, CM-10, CM-11 |
 
