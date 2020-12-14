@@ -21,7 +21,7 @@ This article lists the steps to install the Azure IoT Edge for Linux on Windows 
 
 * An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* An [Azure IoT Edge device](how-to-manual-provision-symmetric-key#create-an-iot-edge-device-in-the-azure-portal.md).
+* An [Azure IoT Edge device](how-to-manual-provision-symmetric-key#register-a-new-device.md).
 * Access to [Windows Admin Center (WAC) with the Azure IoT Edge extension for WAC installed](https://microsoft.sharepoint.com/teams/AzureEFLOW/Wiki/Windows%20Admin%20Center.aspx). <!-- Update with proper links -->
 
 Minimum system requirements:
@@ -107,7 +107,7 @@ This section covers provisioning your device manually using your Azure IoT Edge 
 
 1. Click on the device ID of your device. Copy the **Primary Connection String** field. 
 
-1. Paste it into the device connection string field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center. Then, choose **Provisioning with the selected method**.
+1. Paste it into the device connection string field in the Windows Admin Center. Then, choose **Provisioning with the selected method**.
 
    ![Choose provisioning with the selected method after pasting your device's connection string](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-connection-string.png)
 
@@ -121,11 +121,11 @@ This section covers provisioning your device automatically using DPS and symmetr
 
 1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
 
-1. On the **Overview** tab, copy the **ID Scope** value. Paste it into the scope ID field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
+1. On the **Overview** tab, copy the **ID Scope** value. Paste it into the scope ID field in the Windows Admin Center.
 
-1. On the **Manage enrollments** tab in the Azure portal, switch to the **Individual Enrollments** tab. Copy the registration ID of the enrollment you created. Paste it into the registration ID field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
+1. On the **Manage enrollments** tab in the Azure portal, switch to the **Individual Enrollments** tab. Copy the registration ID of the enrollment you created. Paste it into the registration ID field in the Windows Admin Center.
 
-1. On the **Manage enrollments** tab in the Azure portal, select the enrollment you created. Copy the **Primary Key** value in the enrollment details. Paste it into the symmetric key field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
+1. On the **Manage enrollments** tab in the Azure portal, select the enrollment you created. Copy the **Primary Key** value in the enrollment details. Paste it into the symmetric key field in the Windows Admin Center.
 
 1. Choose **Provisioning with the selected method**.
 
@@ -149,15 +149,15 @@ This section covers provisioning your device automatically using DPS and X.509 c
 
 1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
 
-1. On the **Overview** tab, copy the **ID Scope** value. Paste it into the scope ID field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
+1. On the **Overview** tab, copy the **ID Scope** value. Paste it into the scope ID field in the Windows Admin Center.
 
-1. On the **Manage enrollments** tab in the Azure portal, switch to the **Individual Enrollments** tab. Copy the registration ID of the enrollment you created. Paste it into the registration ID field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
+1. On the **Manage enrollments** tab in the Azure portal, switch to the **Individual Enrollments** tab. Copy the registration ID of the enrollment you created. Paste it into the registration ID field in the Windows Admin Center.
 
 1. Upload your certificate and private key files.
 
 1. Choose **Provisioning with the selected method**.
 
-   ![Choose provisioning with the selected method after filling in the required fields for symmetric key provisioning](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-x509-certs.png)
+   ![Choose provisioning with the selected method after filling in the required fields for X.509 certificate provisioning](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-x509-certs.png)
 
 Continue to the [finish provisioning section](how-to-install-iot-edge-on-windows.md#finish-provisioning-your-device) for the final steps.
 
