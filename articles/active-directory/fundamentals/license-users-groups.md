@@ -49,7 +49,7 @@ You can view your available service plans, including the individual licenses, ch
 
 1. Select **All products** to view the All Products page and to see the **Total**, **Assigned**, **Available**, and **Expiring soon** numbers for your license plans.
 
-    :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png alt-text="services page - with service license plans - associated license info":::
+    :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png" alt-text="services page - with service license plans - associated license info":::
 
     > [!NOTE]
     > The numbers are defined as: 
