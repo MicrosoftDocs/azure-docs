@@ -310,7 +310,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (5/5), done.
 Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done.
 Total 5 (delta 3), reused 0 (delta 0)
-remote: Updating branch 'main'.
+remote: Updating branch 'master'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '6c7c716eee'.
 remote: Running custom deployment command...
@@ -321,7 +321,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      main -> main
+ * [new branch]      master -> master
 </pre>
 
 You may notice that the deployment process runs [Gulp](https://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it: 
@@ -472,7 +472,7 @@ In the local terminal window, commit your changes in Git, then push the code cha
 
 ```bash
 git commit -am "added article comment"
-git push azure main
+git push azure master
 ```
 
 Once the `git push` is complete, navigate to your Azure app and try out the new functionality.
