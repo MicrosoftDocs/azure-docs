@@ -8859,6 +8859,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/technical-profiles-overview.md",
+      "redirect_url": "/azure/active-directory-b2c/technicalprofiles",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/custom-policy-manage-sso-and-token-config.md",
       "redirect_url": "/azure/active-directory-b2c/configure-tokens-custom-policy",
       "redirect_document_id": false
