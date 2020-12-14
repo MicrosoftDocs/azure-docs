@@ -12,7 +12,7 @@ ms.date: 12/11/2020
 ---
 # Querying in Azure Cognitive Search
 
-Azure Cognitive Search offers an expansive query language to support a broad range of scenarios, from free form search, to highly-specified query patterns. This article summarizes the kinds of queries you can create.
+Azure Cognitive Search offers a rich query language to support a broad range of scenarios, from free text search, to highly-specified query patterns. This article summarizes the kinds of queries you can create.
 
 In Cognitive Search, a query is a full specification of a round-trip **`search`** operation, with parameters that both inform query execution and shape the response coming back. Parameters and parsers determine the type of query request. The following query example uses the [Search Documents (REST API)](/rest/api/searchservice/search-documents), targeting the [hotels demo index](search-get-started-portal.md).
 
@@ -33,7 +33,7 @@ Parameters used during query execution:
 
 + **`queryType`** sets the parser, which is either the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
 
-+ **`search`** provides the match criteria, usually whole terms or phrases, with or without operators. Any field that is attributed as *searchable* in the index schema is a candidate for this parameter. 
++ **`search`** provides the match criteria, usually whole terms or phrases, with or without operators. Any field that is attributed as *searchable* in the index schema is a candidate for this parameter.
 
 + **`searchFields`** constrains query execution to specific searchable fields.
 
@@ -105,10 +105,8 @@ An advanced query form depends on the Full Lucene parser and operators that trig
 
 ## Next steps
 
-Use the portal, or another tool such as Postman or Visual Studio Code, or one of the SDKs to explore queries in more depth. The following links will get you started.
+For a closer look at query implementation, review the examples for each syntax. If you are new to full text search, a closer look at what the query engine does might be an equally good choice.
 
-+ [Search explorer](search-explorer.md)
-+ [How to query in REST](search-get-started-rest.md)
-+ [How to query in .NET](search-get-started-dotnet.md)
-+ [How to query in Python](search-get-started-python.md)
-+ [How to query in JavaScript](search-get-started-javascript.md)
++ [Simple query examples](search-query-simple-examples.md)
++ [Lucene syntax query examples for building advanced queries](search-query-lucene-examples.md)
++ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
