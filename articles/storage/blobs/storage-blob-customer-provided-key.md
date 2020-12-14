@@ -33,9 +33,9 @@ To call this method, you might use code like the following:
 
 ```csharp
 Uri blobUri = new Uri(string.Format("https://{0}.blob.core.windows.net/{1}/{2}",
-                                    Constants.storageAccountName,
-                                    Constants.containerName,
-                                    Constants.blobName));
+                                    storageAccountName,
+                                    containerName,
+                                    blobName));
 
 AesCryptoServiceProvider keyAes = new AesCryptoServiceProvider();
 
@@ -45,8 +45,8 @@ Random rnd = new Random();
 rnd.NextBytes(buffer);
 
 await UploadBlobWithClientKey(new BlobUriBuilder(blobUri),
-                                new MemoryStream(buffer), 
-                                keyAes.Key);
+                              new MemoryStream(buffer), 
+                              keyAes.Key);
 ```
 
 ## Next steps
