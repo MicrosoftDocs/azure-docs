@@ -69,7 +69,7 @@ A load balancer rule is used to define how incoming traffic is distributed to th
 
 For example, use a load-balancing rule for port 80 to route traffic from your frontend IP to port 80 of your backend instances.
 
-:::image type="content" source="./media/load-balancer-components/lbrules.png" alt-text="Load balancer rule reference diagram" border="true":::
+:::image type="content" source="./media/load-balancer-components/lbrules.png" alt-text="Load balancer rule reference diagram" border="false":::
 
 *Figure: Load-Balancing rules*
 
@@ -101,7 +101,7 @@ Learn more about [HA ports](load-balancer-ha-ports-overview.md).
 
 An inbound NAT rule forwards incoming traffic sent to frontend IP address and port combination. The traffic is sent to a **specific** virtual machine or instance in the backend pool. Port forwarding is done by the same hash-based distribution as load balancing.
 
-:::image type="content" source="./media/load-balancer-components/inboundnatrules.png" alt-text="Inbound NAT rule reference diagram" border="true":::
+:::image type="content" source="./media/load-balancer-components/inboundnatrules.png" alt-text="Inbound NAT rule reference diagram" border="false":::
 
 *Figure: Inbound NAT rules*
 
@@ -115,7 +115,7 @@ Learn more about [outbound connections and rules](load-balancer-outbound-connect
 
 Basic load balancer doesn't support outbound rules.
 
-:::image type="content" source="./media/load-balancer-components/outboundrules.png" alt-text="Outbound rule reference diagram" border="true":::
+:::image type="content" source="./media/load-balancer-components/outbound-rules.png" alt-text="Outbound rule reference diagram" border="false":::
 
 *Figure: Outbound rules*
 
