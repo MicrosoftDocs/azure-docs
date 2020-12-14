@@ -14,7 +14,7 @@ ms.date: 12/14/2020
 
 # Introduction to Computer Vision spatial analysis
 
-Computer Vision spatial analysis is a new feature of Azure Cognitive Services Computer Vision which helps organizations maximize the value of their physical spaces by understanding people's movements and presence within a given area. It allows you to ingest video from CCTV or surveillance cameras, run AI skills to extract insights from the video streams, and generate events to be used by other systems. With input from a camera stream an AI skill can do things like count the number of people entering a space or measure compliance with social distancing guidelines.
+Computer Vision spatial analysis is a new feature of Azure Cognitive Services Computer Vision that helps organizations maximize the value of their physical spaces by understanding people's movements and presence within a given area. It allows you to ingest video from CCTV or surveillance cameras, run AI skills to extract insights from the video streams, and generate events to be used by other systems. With input from a camera stream, an AI skill can do things like count the number of people entering a space or measure compliance with social distancing guidelines.
 
 ## The basics of spatial analysis
 
@@ -43,7 +43,7 @@ The following are example use cases that we had in mind as we designed and teste
 
 **Minimum Staff Detection** - In a data center, cameras monitor activity around servers. When employees are physically fixing sensitive equipment two people are always required to be present during the repair for security reasons. Cameras are used to verify that this guideline is followed.
 
-**Workplace Optimization** - In a fast casual restaurant cameras in the kitchen are used to generate aggregate information about employee workflow. This is used by managers to improve processes and training for the team.
+**Workplace Optimization** - In a fast casual restaurant, cameras in the kitchen are used to generate aggregate information about employee workflow. This is used by managers to improve processes and training for the team.
 
 ## Considerations when choosing a use case
 
@@ -55,17 +55,17 @@ The following are example use cases that we had in mind as we designed and teste
 
 **Avoid use in protected spaces** - Protect individuals' privacy by evaluating camera locations and positions, adjusting angles and region of interests so they do not overlook protected areas such as restrooms.
 
-**Consider carefully use in schools or elderly care facilities** - Spatial analysis has not heavily tested with data containing minors
+**Carefully consider use in schools or elderly care facilities** - Spatial analysis has not heavily tested with data containing minors
 under the age of 18 or adults over age 65. We would recommend that customers thoroughly evaluate error rates for their scenario in environments where these ages predominate.
 
-**Consider carefully use in public spaces** - Evaluate camera locations and positions, adjusting angles and region of interests to minimize collection from public spaces. Lighting and weather in public spaces such as streets and parks will significantly impact the performance of the spatial analysis system, and it is extremely difficult to provide effective disclosure in public spaces.
+**Carefully consider use in public spaces** - Evaluate camera locations and positions, adjusting angles and region of interests to minimize collection from public spaces. Lighting and weather in public spaces such as streets and parks will significantly impact the performance of the spatial analysis system, and it is extremely difficult to provide effective disclosure in public spaces.
 
 ## Spatial analysis gating for public preview
 
 To ensure spatial analysis is used for scenarios it was designed for, we are making this technology available to customers through an application process. To get access to spatial analysis, you will need to start by filling out our online intake form. [Begin your
 application here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u).
 
-Access to the spatial analysis public preview is subject to Microsoft's sole discretion based on our eligibility criteria, vetting process, and availability to support a limited number of customers during this gated preview. In public preview we are looking for customers who have a significant relationship with Microsoft, are interested in working with us on the recommended use cases, and additional scenarios that are in keeping with our responsible AI commitments.
+Access to the spatial analysis public preview is subject to Microsoft's sole discretion based on our eligibility criteria, vetting process, and availability to support a limited number of customers during this gated preview. In public preview, we are looking for customers who have a significant relationship with Microsoft, are interested in working with us on the recommended use cases, and additional scenarios that are in keeping with our responsible AI commitments.
 
 ## Next steps
 
