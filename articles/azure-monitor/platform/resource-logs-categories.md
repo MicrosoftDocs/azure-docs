@@ -29,7 +29,7 @@ Some categories may only be supported for specific types of resources. See the r
 If you still something is missing, you can open a GitHub comment at the bottom of this article.
 ## Microsoft.AnalysisServices/servers
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -39,7 +39,7 @@ Cost: Free
 
 ## Microsoft.ApiManagement/service
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -48,7 +48,7 @@ Cost: Free
 
 ## Microsoft.AppPlatform/Spring
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -58,7 +58,7 @@ Cost: Free
 
 ## Microsoft.Automation/automationAccounts
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -69,7 +69,7 @@ Cost: Free
 
 ## Microsoft.Batch/batchAccounts
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -78,7 +78,7 @@ Cost: Free
 
 ## Microsoft.BatchAI/workspaces
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -89,7 +89,7 @@ Cost: Free
 
 ## Microsoft.Blockchain/blockchainMembers
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -101,7 +101,7 @@ Cost: Free
 
 ## Microsoft.Blockchain/cordaMembers
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -110,7 +110,7 @@ Cost: Free
 
 ## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -119,7 +119,7 @@ Cost: Free
 
 ## Microsoft.Cdn/profiles
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -128,7 +128,7 @@ Cost: Free
 
 ## Microsoft.Cdn/profiles/endpoints
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -137,7 +137,7 @@ Cost: Free
 
 ## Microsoft.ClassicNetwork/networksecuritygroups
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -146,7 +146,7 @@ Cost: Free
 
 ## Microsoft.CognitiveServices/accounts
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -157,7 +157,7 @@ Cost: Free
 
 ## Microsoft.ContainerRegistry/registries
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -167,7 +167,7 @@ Cost: Free
 
 ## Microsoft.ContainerService/managedClusters
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -180,7 +180,7 @@ Cost: Free
 
 ## Microsoft.CustomProviders/resourceproviders
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -189,7 +189,7 @@ Cost: Free
 
 ## Microsoft.Databricks/workspaces
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -207,7 +207,7 @@ Cost: Free
 
 ## Microsoft.DataFactory/factories
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -218,7 +218,7 @@ Cost: Free
 
 ## Microsoft.DataLakeStore/accounts
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -228,7 +228,7 @@ Cost: Free
 
 ## Microsoft.DataShare/accounts
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -240,7 +240,7 @@ Cost: Free
 
 ## Microsoft.DBforMariaDB/servers
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -250,7 +250,7 @@ Cost: Free
 
 ## Microsoft.DBforMySQL/flexibleServers
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -260,7 +260,7 @@ Cost: Free
 
 ## Microsoft.DBforMySQL/servers
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -270,7 +270,7 @@ Cost: Free
 
 ## Microsoft.DBforPostgreSQL/flexibleServers
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -279,7 +279,7 @@ Cost: Free
 
 ## Microsoft.DBforPostgreSQL/servers
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -290,7 +290,7 @@ Cost: Free
 
 ## Microsoft.DBforPostgreSQL/serversv2
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -299,7 +299,7 @@ Cost: Free
 
 ## Microsoft.DesktopVirtualization/applicationgroups
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -310,7 +310,7 @@ Cost: Free
 
 ## Microsoft.DesktopVirtualization/hostpools
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -323,7 +323,7 @@ Cost: Free
 
 ## Microsoft.DesktopVirtualization/workspaces
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -335,7 +335,7 @@ Cost: Free
 
 ## Microsoft.Devices/IotHubs
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -357,7 +357,7 @@ Cost: Free
 
 ## Microsoft.Devices/provisioningServices
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -367,7 +367,7 @@ Cost: Free
 
 ## Microsoft.DocumentDB/databaseAccounts
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -383,7 +383,7 @@ Cost: Free
 
 ## Microsoft.EventGrid/domains
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -393,7 +393,7 @@ Cost: Free
 
 ## Microsoft.EventGrid/systemTopics
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -402,7 +402,7 @@ Cost: Free
 
 ## Microsoft.EventGrid/topics
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -412,7 +412,7 @@ Cost: Free
 
 ## Microsoft.EventHub/namespaces
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -427,7 +427,7 @@ Cost: Free
 
 ## Microsoft.HealthcareApis/services
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -436,7 +436,7 @@ Cost: Free
 
 ## Microsoft.Insights/AutoscaleSettings
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -446,7 +446,7 @@ Cost: Free
 
 ## Microsoft.Insights/Components
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -465,7 +465,7 @@ Cost: Free
 
 ## Microsoft.KeyVault/vaults
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -474,7 +474,7 @@ Cost: Free
 
 ## Microsoft.Kusto/Clusters
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -489,7 +489,7 @@ Cost: Free
 
 ## Microsoft.Logic/integrationAccounts
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -498,7 +498,7 @@ Cost: Free
 
 ## Microsoft.Logic/workflows
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -507,7 +507,7 @@ Cost: Free
 
 ## Microsoft.MachineLearningServices/workspaces
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -520,7 +520,7 @@ Cost: Free
 
 ## Microsoft.Media/mediaservices
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -529,7 +529,7 @@ Cost: Free
 
 ## Microsoft.Network/applicationGateways
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -540,7 +540,7 @@ Cost: Free
 
 ## Microsoft.Network/azurefirewalls
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -550,7 +550,7 @@ Cost: Free
 
 ## Microsoft.Network/bastionHosts
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -559,7 +559,7 @@ Cost: Free
 
 ## Microsoft.Network/expressRouteCircuits
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -568,7 +568,7 @@ Cost: Free
 
 ## Microsoft.Network/frontdoors
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -578,7 +578,7 @@ Cost: Free
 
 ## Microsoft.Network/loadBalancers
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -588,7 +588,7 @@ Cost: Free
 
 ## Microsoft.Network/networksecuritygroups
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -599,7 +599,7 @@ Cost: Free
 
 ## Microsoft.Network/publicIPAddresses
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -610,7 +610,7 @@ Cost: Free
 
 ## Microsoft.Network/trafficManagerProfiles
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -619,7 +619,7 @@ Cost: Free
 
 ## Microsoft.Network/virtualNetworkGateways
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -632,7 +632,7 @@ Cost: Free
 
 ## Microsoft.Network/virtualNetworks
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -641,7 +641,7 @@ Cost: Free
 
 ## Microsoft.PowerBIDedicated/capacities
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -650,7 +650,7 @@ Cost: Free
 
 ## Microsoft.RecoveryServices/Vaults
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -672,7 +672,7 @@ Cost: Free
 
 ## Microsoft.Relay/namespaces
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -681,7 +681,7 @@ Cost: Free
 
 ## Microsoft.Search/searchServices
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -690,7 +690,7 @@ Cost: Free
 
 ## Microsoft.ServiceBus/namespaces
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -699,7 +699,7 @@ Cost: Free
 
 ## Microsoft.SignalRService/SignalR
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -708,7 +708,7 @@ Cost: Free
 
 ## Microsoft.Sql/managedInstances
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -719,7 +719,7 @@ Cost: Free
 
 ## Microsoft.Sql/managedInstances/databases
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -731,7 +731,7 @@ Cost: Free
 
 ## Microsoft.Sql/servers/databases
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -755,7 +755,7 @@ Cost: Free
 
 ## Microsoft.Storage/storageAccounts/blobServices
 
-Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
+Cost to export: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
 
 |Category |Category Display Name|
 |---|---|
@@ -766,7 +766,7 @@ Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.]
 
 ## Microsoft.Storage/storageAccounts/fileServices
 
-Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
+Cost to export: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
 
 |Category |Category Display Name|
 |---|---|
@@ -777,7 +777,7 @@ Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.]
 
 ## Microsoft.Storage/storageAccounts/queueServices
 
-Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
+Cost to export: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
  
 |Category |Category Display Name|
 |---|---|
@@ -788,7 +788,7 @@ Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.]
 
 ## Microsoft.Storage/storageAccounts/tableServices
 
-Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
+Cost to export: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
  
 |Category |Category Display Name|
 |---|---|
@@ -799,7 +799,7 @@ Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.]
 
 ## Microsoft.StreamAnalytics/streamingjobs
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -809,7 +809,7 @@ Cost: Free
 
 ## Microsoft.Synapse/workspaces
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -821,7 +821,7 @@ Cost: Free
 
 ## Microsoft.Synapse/workspaces/bigDataPools
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -830,7 +830,7 @@ Cost: Free
 
 ## Microsoft.Synapse/workspaces/sqlPools
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -844,7 +844,7 @@ Cost: Free
 
 ## microsoft.web/hostingenvironments
 
-Cost: Free 
+Cost to export: Free 
 
 |Category |Category Display Name|
 |---|---|
@@ -853,7 +853,7 @@ Cost: Free
 
 ## microsoft.web/sites
 
-Cost: Free 
+Cost to export: Free 
 
 
 |Category |Category Display Name|
@@ -868,7 +868,7 @@ Cost: Free
 
 ## microsoft.web/sites/slots
 
-Cost: Free 
+Cost to export: Free 
 
 
 |Category |Category Display Name|
