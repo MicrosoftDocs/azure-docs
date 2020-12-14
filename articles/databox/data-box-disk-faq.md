@@ -70,7 +70,7 @@ Ship a [supported disk](../storage/common/storage-import-export-requirements.md?
 
 2. After the data from your on-premises server is copied to the disks, return them to the Azure datacenter in Canada using Microsoft provided return labels. The data present on the Data Box Disk(s) then get uploaded to the destination storage account in the Canada Azure region chosen during order creation.
 
-3. You can then use a tool like AzCopy to copy the data to a storage account in West US . This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box Disk billing.
+3. You can then use a tool like AzCopy to copy the data to a storage account in West US. This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box Disk billing.
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, [contact Microsoft Support](./data-box-disk-contact-microsoft-support.md).
@@ -173,7 +173,7 @@ A.  To speed up the copy process:
 - Use multiple sessions.
 - Instead of copying over network share (where you could be limited by the network speeds) ensure that you have the data residing locally on the computer to which the disks are connected.
 - Ensure that you are using USB 3.0 or later throughout the copy process. Download and use the [`USBView` tool](/windows-hardware/drivers/debugger/usbview) to identify the USB controllers and USB devices connected to the computer.
-- Benchmark the performance of the computer used to copy the data. Download and use the [`FIO` tool from Bluestop](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
+- Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop `FIO` tool](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
 
 ### Q. How to speed up the data if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
