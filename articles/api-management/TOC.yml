@@ -42,6 +42,8 @@
         href: api-management-get-started-publish-versions.md
       - name: 9 - Customize developer portal
         href: api-management-howto-developer-portal-customize.md
+      - name: 10 - Manage APIs in Visual Studio Code
+        href: visual-studio-code-tutorial.md
 - name: Samples
   items:
       - name: Policies
