@@ -57,32 +57,26 @@ The command options are as follows with the commands as the main bullets and the
 - **`-c configure`** This command provides an interactive Q&A style interface to create or modify the `azacsnap` configuration file (default = `azacsnap.json`).
   - **`--configuration new`** will create a new config file.
   - **`--configuration edit`** will edit an existing config file.
-  - see the [configure](azacsnap-cmd-ref-configure.md) command reference.
-- **`-c test`** to test the validate the configuration file and test connectivity.
+  - refer to [configure command reference](azacsnap-cmd-ref-configure.md).
+- **`-c test`** validates the configuration file and test connectivity.
   - **`--test hana`**  tests the connection to the SAP HANA instance.
   - **`--test storage`** tests communication with the underlying storage interface by creating a temporary storage snapshot on all the configured `data` volumes, and then removing them.
   - **`--test all`** will perform both the `hana` and `storage` tests in sequence.
-  - see the [test](azacsnap-cmd-ref-test.md) command reference.
+  - refer to [test command reference](azacsnap-cmd-ref-test.md).
 - **`-c backup`** is the primary command to execute database consistent storage snapshots for data (SAP HANA data volumes) & other (for example, shared, log backups, or boot) volumes.
   - **`--volume data`** to snapshot all the volumes in the `dataVolume` stanza of the configuration file.
   - **`--volume other`** to snapshot all the volumes in the `otherVolume` stanza of the configuration file.
-  - see the [backup](azacsnap-cmd-ref-backup.md) command reference.
+  - refer to [backup command reference](azacsnap-cmd-ref-backup.md).
 - **`-c details`** provides information on snapshots or replication.
-  - **`--details snapshots`** Provides a list of basic details about the snapshots for each volume that has been configured. This command can be run on the primary server or on a server in the disaster-recovery location. The command provides the following information broken down by each volume that contains snapshots:
-    - Size of total snapshots in a volume.
-    - Each snapshot in that volume includes the following details:
-    - Snapshot name
-    - Create time
-    - Size of the snapshot
-    - Frequency of the snapshot
-  - **`--details replication`** Provides basic details around the replication status from the production site to the disaster-recovery site. The command monitors to ensure replication is taking place, and it shows the size of the items that are being replicated. It also provides guidance if replication is taking too long or if the link is down.
-  - see the [details](azacsnap-cmd-ref-details.md) command reference.
+  - **`--details snapshots`** Provides a list of basic details about the snapshots for each volume that has been configured.
+  - **`--details replication`** Provides basic details around the replication status from the production site to the disaster-recovery site.
+  - refer to [details command reference](azacsnap-cmd-ref-details.md).
 - **`-c delete`** This command deletes a storage snapshot or a set of snapshots. You can use either the SAP HANA Backup ID as found in HANA Studio or the storage snapshot name. The Backup ID is only tied to the `hana` snapshots, which are created for the data and shared volumes. Otherwise, if the snapshot name is entered, it searches for all snapshots that match the entered snapshot name.
-  - see the [delete](azacsnap-cmd-ref-delete.md) command reference.
+  - see the [delete](azacsnap-cmd-ref-delete.md).
 - **`-c restore`** provides two methods to restore a snapshot to a volume, by either creating a new volume based on the snapshot or rolling back a volume to a preview state.
   - **`--restore snaptovol`** Creates a new volume based on the latest snapshot on the target volume.
   - **`-c restore --restore revertvolume`** Reverts the target volume to a prior state based on the most recent snapshot.
-  - see the [restore](azacsnap-cmd-ref-restore.md) command reference.
+  - refer to [restore command reference](azacsnap-cmd-ref-restore.md).
 - **`[--configfile <configfilename>]`** The optional  command-line parameter to provide a different JSON configuration filename.  This is particularly useful for creating a separate configuration file per SID (e.g `--configfile H80.json`).
 
 ## Next steps
