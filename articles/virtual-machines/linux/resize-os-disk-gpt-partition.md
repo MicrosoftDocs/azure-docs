@@ -288,11 +288,9 @@ When the VM has restarted, complete these steps:
    1. Increase the size of the OS disk from the portal.
    1. Start the VM.
 
-1. When the VM has restarted, perform the following steps:
+1. When the VM has restarted, complete the following step:
 
-   Install the **cloud-utils-growpart** package to provide the **growpart** command, which is required to increase the size of the OS disk and the gdisk handler for GPT disk layouts
-
-   These packages are preinstalled on most marketplace images
+   - Install the **cloud-utils-growpart** package to provide the **growpart** command, which is required to increase the size of the OS disk and the gdisk handler for GPT disk layouts. These packages are preinstalled on most marketplace images.
 
    ```bash
    [root@dd-rhel7vm ~]# yum install cloud-utils-growpart gdisk
@@ -413,17 +411,15 @@ When the VM has restarted, complete these steps:
    [root@dd-rhel7vm ~]# sudo -i
    ```
 
-1. When the VM has restarted, perform the following steps:
+1. When the VM has restarted, complete the following step:
 
-   1. Install the **cloud-utils-growpart** package to provide the **growpart** command, which is required to increase the size of the OS disk and the gdisk handler for GPT disk layouts
-
-   This package is preinstalled on most marketplace images
+   - Install the **cloud-utils-growpart** package to provide the **growpart** command, which is required to increase the size of the OS disk and the gdisk handler for GPT disk layouts. This package is preinstalled on most marketplace images.
 
    ```bash
    [root@dd-rhel7vm ~]# yum install cloud-utils-growpart gdisk
    ```
 
-1. Use the **lsblk -f** command to verify the partition and filesystem type holding the root (**/**) partition
+1. Use the **lsblk -f** command to verify the partition and filesystem type holding the root (**/**) partition:
 
    ```bash
    [root@vm-dd-cent7 ~]# lsblk -f
@@ -437,7 +433,7 @@ When the VM has restarted, complete these steps:
    └─sdb1  ext4         923f51ff-acbd-4b91-b01b-c56140920098 /mnt/resource
    ```
 
-1. For verification, start by listing the partition table of the sda disk with **gdisk**.  In this example we see a 48GB disk with partition 2 at 29.0GiB.  The disk was expanded from 30 to 48GB in the Azure portal.
+1. For verification, start by listing the partition table of the sda disk with **gdisk**. In this example, we see a 48-GB disk with partition 2 at 29.0 GiB. The disk was expanded from 30 GB to 48 GB in the Azure portal.
 
    ```bash
    [root@vm-dd-cent7 ~]# gdisk -l /dev/sda
@@ -465,14 +461,14 @@ When the VM has restarted, complete these steps:
    15           10240         1024000   495.0 MiB   EF00  EFI System Partition
    ```
 
-1. Expand the partition for root, in this case sda2 by using the **growpart** command.  Using this command will expand the partition to use all of the contiguous space on the disk.
+1. Expand the partition for root, in this case sda2 by using the **growpart** command. Using this command expands the partition to use all of the contiguous space on the disk.
 
    ```bash
    [root@vm-dd-cent7 ~]# growpart /dev/sda 2
    CHANGED: partition=2 start=2050048 old: size=60862464 end=62912512 new: size=98613214 end=100663262
    ```
 
-1. Now print the new partition table with **gdisk** again.  Notice that partition 2 has expanded to 47.0 GiB
+1. Now print the new partition table with **gdisk** again.  Notice that partition 2 has expanded to 47.0 GiB:
 
    ```bash
    [root@vm-dd-cent7 ~]# gdisk -l /dev/sda
@@ -500,7 +496,7 @@ When the VM has restarted, complete these steps:
    15           10240         1024000   495.0 MiB   EF00  EFI System Partition
    ```
 
-1. Expand the filesystem on the partition with **xfs_growfs** which is appropriate for a standard marketplace generated RedHat system
+1. Expand the filesystem on the partition with **xfs_growfs**, which is appropriate for a standard marketplace-generated RedHat system:
 
    ```bash
    [root@vm-dd-cent7 ~]# xfs_growfs /
@@ -516,7 +512,7 @@ When the VM has restarted, complete these steps:
    data blocks changed from 7607808 to 12326651
    ```
 
-1. Verify the new size is reflected with the **df** command
+1. Verify the new size is reflected by using the **df** command:
 
    ```bash
    [root@vm-dd-cent7 ~]# df -hl
