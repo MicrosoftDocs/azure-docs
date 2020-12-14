@@ -70,9 +70,9 @@ To find more tutorials, use the table of contents on the left.
 | ![logo-Dome9 Arc](./media/tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Dome9 Arc](dome9arc-tutorial.md)|
 | ![logo-Drift](./media/tutorial-list/active-directory-saas-drift-tutorial.png)| [Drift](drift-tutorial.md)|
 | ![logo-Dropbox for Business](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)|
-| ![logo-EasySSO for Bamboo](./media/tutorial-list/active-directory-saas-easysso-for-bamboo-tutorial.png)| [EasySSO for Bamboo](easysso-for-bamboo-tutorial.md)|
-| ![logo-EasySSO for BitBucket](./media/tutorial-list/active-directory-saas-easysso-for-bitbucket-tutorial.png)| [EasySSO for BitBucket](easysso-for-bitbucket-tutorial.md)|
-| ![logo-EasySSO for Confluence](./media/tutorial-list/active-directory-saas-easysso-for-confluence-tutorial.png)| [EasySSO for Confluence](easysso-for-confluence-tutorial.md)|
+| ![logo-EasySSO for Bamboo](./media/tutorial-list/active-directory-saas-easy-sso-for-bamboo-tutorial.png)| [EasySSO for Bamboo](easysso-for-bamboo-tutorial.md)|
+| ![logo-EasySSO for BitBucket](./media/tutorial-list/active-directory-saas-easy-sso-for-bitbucket-tutorial.png)| [EasySSO for BitBucket](easysso-for-bitbucket-tutorial.md)|
+| ![logo-EasySSO for Confluence](./media/tutorial-list/active-directory-saas-easy-sso-for-confluence-tutorial.png)| [EasySSO for Confluence](easysso-for-confluence-tutorial.md)|
 | ![logo-Ekarda](./media/tutorial-list/active-directory-saas-ekarda-tutorial.png)| [Ekarda](ekarda-tutorial.md)|
 | ![logo-Elium](./media/tutorial-list/active-directory-saas-elium-tutorial.png)| [Elium](elium-tutorial.md)|
 | ![logo-Envoy](./media/tutorial-list/active-directory-saas-envoy-tutorial.png)| [Envoy](envoy-tutorial.md)|
@@ -102,13 +102,13 @@ To find more tutorials, use the table of contents on the left.
 | ![logo-PurelyHR](./media/tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](purelyhr-tutorial.md)|
 | ![logo-RingCentral](./media/tutorial-list/active-directory-saas-ringcentral-tutorial.png)| [RingCentral](ringcentral-tutorial.md)|
 | ![logo-Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)|
-| ![logo-SAP Cloud Platform Identity Authentication](./media/tutorial-list/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial.png)| [SAP Cloud Platform Identity Authentication](sap-hana-cloud-platform-identity-authentication-tutorial.md)|
+| ![logo-SAP Cloud Platform Identity Authentication](./media/tutorial-list/active-directory-saas-sap-hana-tutorial.png)| [SAP Cloud Platform Identity Authentication](sap-hana-cloud-platform-identity-authentication-tutorial.md)|
 | ![logo-ScaleX Enterprise](./media/tutorial-list/active-directory-saas-scalex-enterprise-tutorial.png)| [ScaleX Enterprise](scalex-enterprise-tutorial.md)|
 | ![logo-Screencast-O-Matic](./media/tutorial-list/active-directory-saas-screencast-tutorial.png)| [Screencast-O-Matic](screencast-tutorial.md)|
 | ![logo-Slack](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|
 | ![logo-SmartDraw](./media/tutorial-list/active-directory-saas-smartdraw-tutorial.png)| [SmartDraw](smartdraw-tutorial.md)|
 | ![logo-Soloinsight-CloudGate SSO](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|
-| ![logo-Tableau Online](./media/tutorial-list/active-directory-saas-tableauonline-tutorial.png)| [Tableau Online](tableauonline-tutorial.md)|
+| ![logo-Tableau Online](./media/tutorial-list/active-directory-saas-tableau-online-tutorial.png)| [Tableau Online](tableauonline-tutorial.md)|
 | ![logo-TargetProcess](./media/tutorial-list/active-directory-saas-target-process-tutorial.png)| [TargetProcess](target-process-tutorial.md)|
 | ![logo-Teamphoria](./media/tutorial-list/active-directory-saas-teamphoria-tutorial.png)| [Teamphoria](teamphoria-tutorial.md)|
 | ![logo-TextMagic](./media/tutorial-list/active-directory-saas-textmagic-tutorial.png)| [TextMagic](textmagic-tutorial.md)|
