@@ -3,8 +3,8 @@ title: Tutorial - Deploy a linked template
 description: Learn how to deploy a linked template
 ms.date: 03/13/2020
 ms.topic: tutorial
-ms.author: jgao 
-ms.custom: 
+ms.author: jgao
+ms.custom:
 ---
 
 # Tutorial: Deploy a linked template
@@ -27,11 +27,11 @@ You can separate the storage account resource into a linked template:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-The following template is the main template.  The highlighted **Microsoft.Resources/deployments** object shows how to call a linked template. The linked template cannot be stored as a local file or a file that is only available on your local network. You can only provide a URI value that includes either *http* or *https*. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item. The URI is passed to template using a parameter. See the highlighted parameter definition.
+The following template is the main template. The highlighted `Microsoft.Resources/deployments` object shows how to call a linked template. The linked template cannot be stored as a local file or a file that is only available on your local network. You can only provide a URI value that includes either `HTTP` or `HTTPS`. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item. The URI is passed to template using a parameter. See the highlighted parameter definition.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 
-Save a copy of the main template to your local computer with the .json extension, for example, azuredeploy.json. You don't need to save a copy of the linked template.  The linked template will be copied from a GitHub repository to a storage account.
+Save a copy of the main template to your local computer with the _.json_ extension, for example, _azuredeploy.json_. You don't need to save a copy of the linked template. The linked template will be copied from a GitHub repository to a storage account.
 
 ## Store the linked template
 
@@ -40,7 +40,7 @@ The following PowerShell script creates a storage account, creates a container, 
 Select **Try-it** to open the Cloud Shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
 > [!IMPORTANT]
-> Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique. In the template, the storage account name is the project name with "store" appended, and the project name must be between 3 and 11 characters. So the project name must meet the storage account name requirements and has less than 11 characters.
+> Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique. In the template, the storage account name is the project name with **store** appended, and the project name must be between 3 and 11 characters. So the project name must meet the storage account name requirements and has less than 11 characters.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
@@ -88,7 +88,7 @@ To deploy a private template in a storage account, generate a SAS token and incl
 If you haven't created the resource group, see [Create resource group](./deployment-tutorial-local-template.md#create-resource-group).
 
 > [!NOTE]
-> In the below Azure CLI code, date parameter -d would be an invalid argument in macOS. So macOS users, to add 2 hrs to current time in terminal on macOS you should use -v+2H.
+> In the below Azure CLI code, `date` parameter `-d` is an invalid argument in macOS. So macOS users, to add 2 hours to current time in terminal on macOS you should use `-v+2H`.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -171,7 +171,7 @@ Clean up the resources you deployed by deleting the resource group.
 
 ## Next steps
 
-You learned how to deploy a linked template. In the next tutorial, you learn how to create a DevOp pipeline to deploy a template.
+You learned how to deploy a linked template. In the next tutorial, you learn how to create a DevOps pipeline to deploy a template.
 
 > [!div class="nextstepaction"]
 > [Create a pipeline](./deployment-tutorial-pipeline.md)

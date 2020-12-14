@@ -26,6 +26,10 @@ In this quickstart, you create an Azure Purview account.
 
 * If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which will can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an
 EventHub namespace.
+
+    > [!important]
+    > You don't have to follow this step if you don't have Azure Policy or an existing Azure Policy is not blocking the creation of **Storage account** and **EventHub namespace**.
+
     1. Navigate to the Azure portal and search for **Policy**
     1. Follow [Create a custom policy definition](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) or modify existing policy to add two exceptions with `not` operator and `resourceBypass` tag:
 
@@ -148,7 +152,7 @@ If upon clicking Add you see two choices showing both marked (disabled) then thi
 
 1. Select **Add role assignment**.
 
-1. For the Role type in **Purview Data Curator Role** or **Purview Data Source Administrator Role** depending on what the Service Principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) for details).
+1. For the Role type in **Purview Data Curator Role** or **Purview Data Source Administrator Role** depending on what the security principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) and [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) for details).
 
 1. For **Assign access to** leave the default, **User, group, or service principal**.
 
