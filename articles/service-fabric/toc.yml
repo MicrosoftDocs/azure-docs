@@ -652,7 +652,7 @@
           href: service-fabric-cluster-creation-via-portal.md
         - name: Deploy an Azure Service Fabric Cluster across Availability Zones
           href: service-fabric-cross-availability-zones.md
-        - name: Deploy an Azure Service Fabric Cluster with Stateless node types
+        - name: Deploy an Azure Service Fabric cluster with stateless node types
           href: service-fabric-stateless-nodetypes.md
         - name: Set up Azure Active Directory authentication
           href: service-fabric-cluster-creation-setup-aad.md
