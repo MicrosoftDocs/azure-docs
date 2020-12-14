@@ -7,12 +7,9 @@
     href: architecture.md
   - name: Security Module for Azure RTOS
     href: iot-security-azure-rtos.md
-  - name: Security agents
-    href: security-agent-architecture.md
+  
   - name: Edge security module
     href: security-edge-architecture.md
-  - name: Get started with Azure Defender for IoT
-    href: getting-started.md
     items:
     - name: IoT Hub
       href: iot-hub-integration.md
@@ -23,18 +20,22 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Agentless solution for Enterprises
+  - name: Agentless Solution for Enterprises
     items:
     - name: System prerequisites
       href: quickstart-system-prerequisites.md
     - name: Set up and onboarding overview
       href: quickstart-prepare-network-for-defender-for-iot.md
+    - name: Get started with Azure Defender for IoT
+      href: getting-started.md
   - name: Agent-based solution for Device Builders
     items: 
     - name: Configure Security Module for Azure RTOS
       href: quickstart-azure-rtos-security-module.md
     - name: Onboard Azure Defender for IoT in IoT Hub
       href: quickstart-onboard-iot-hub.md
+    - name: Security agents
+      href: security-agent-architecture.md
     - name: Configure your solution
       href: quickstart-configure-your-solution.md
     - name: Create an Azure Defender for IoT module twin
@@ -49,15 +50,9 @@
   items:
   - name: Agentless Solution for Enterprises
     items:
-    - name: Key advantages
-      href: concept-key-advantages.md
-    - name: Air gapped networks
-      href: concept-air-gapped-networks.md
-    - name: Proprietary protocols
-      href: concept-proprietary-protocols.md
-    - name: Sensor console overview
-      href: concept-sensor-console-overview.md
-  - name: Agent-based solution for device builders
+    - name: Key concepts
+      href: concept-key-concepts.md    
+  - name: Agent-based Solution for Device Builders
     items: 
     - name: Security Module for Azure RTOS
       items: 
@@ -87,7 +82,7 @@
       href: concept-pricing.md
 - name: How-to guides
   items:
-  - name: Agentless solution for enterprises 
+  - name: Agentless Solution for Enterprises 
     items:
     - name: Prepare your network
       items:
@@ -179,7 +174,7 @@
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
       
-  - name: Agent-based solution for device builders
+  - name: Agent-based Solution for Device Builders
     items: 
     - name: Work with Security Module for Azure RTOS
       href: how-to-azure-rtos-security-module.md
@@ -217,7 +212,7 @@
       href: how-to-customize-solution.md
 - name: References
   items:
-  - name: Agentless solution for enterprises
+  - name: Agentless Solution for Enterprises
     items:
     - name: Work with Defender for IoT APIs
       href: references-work-with-defender-for-iot-apis.md
@@ -227,7 +222,7 @@
       href: resources-manage-proprietary-protocols.md
     - name: Defender for IoT glossary
       href: references-defender-for-iot-glossary.md
-  - name: Device builders
+  - name: Agent-based Solution for Device Builders
     items: 
     - name: Security Module for Azure RTOS API
       href: azure-rtos-security-module-api.md

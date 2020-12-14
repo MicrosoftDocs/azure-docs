@@ -4,7 +4,7 @@ description: You can perform sensor health monitoring using SNMP. The sensor res
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/3/2020
+ms.date: 12/14/2020
 ms.topic: how-to
 ms.service: azure
 ---

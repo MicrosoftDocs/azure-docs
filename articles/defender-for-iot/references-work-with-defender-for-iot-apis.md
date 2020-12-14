@@ -2561,3 +2561,7 @@ response:
 | **admin_password** | String | No |
 | **username** | String | No |
 | **new_password** | String | No |
+
+## See also
+[Investigate sensor detections in a Device Inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+[Investigate all enterprise sensor detections in a Device Inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
+ms.date: 12/14/2020
 ms.author: mlottner
 ---
 
-# Get started with Built-in IoT Hub integration
+# Get started with built-in IoT Hub integration
 
 This option enables you to use the service without using Defender for IoT security agents.
 
-## Enable Built-in IoT Hub integration
+## Enable built-in IoT Hub integration
 
 To enable monitoring your device identity management, device to cloud, and cloud to device communication patterns, do the following to start the service:
 
