@@ -84,7 +84,7 @@ Enable replication as follows:
     - Encryption-at-rest with platform-managed key
     - Encryption-at-rest with customer-managed key
 
-> [!Note]
+> [!NOTE]
 > To replicate VMs with CMK, you'll need to [create a disk encryption set](https://go.microsoft.com/fwlink/?linkid=2151800) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
   
 10. In **Azure Hybrid Benefit**:
