@@ -36,6 +36,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 Currently, resources that are evaluated for a recommendation and found to be **not applicable** appear in Azure Policy as "Non-compliant". No user actions can change their state to "Compliant". From this planned change, they'll be reported as "Compliant" for improved clarity.
 
+The only impact will be seen in Azure Policy where the number of compliant resources will increase. There will be no impact to your secure score in Azure Security Center.
 
 ### 35 preview recommendations added to increase coverage of Azure Security Benchmark
 
