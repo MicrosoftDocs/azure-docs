@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Get started with AzCopy

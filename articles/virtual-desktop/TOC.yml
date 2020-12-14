@@ -92,8 +92,18 @@
           href: diagnostics-log-analytics.md
   - name: Publish built-in apps
     href: publish-apps.md
-  - name: Set up MSIX app attach
-    href: app-attach.md
+  - name: Use MSIX app attach
+    items:
+        - name: Set up MSIX app attach with the Azure portal
+          href: app-attach-azure-portal.md
+        - name: Set up MSIX app attach with PowerShell
+          href: app-attach-powershell.md
+        - name: Create PowerShell scripts
+          href: app-attach.md
+        - name: Prepare an MSIX image
+          href: app-attach-image-prep.md
+        - name: Set up a file share
+          href: app-attach-file-share.md
   - name: Use Microsoft Teams
     href: teams-on-wvd.md
   - name: Set up Azure AD Multi-Factor Authentication

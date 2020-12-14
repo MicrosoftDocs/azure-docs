@@ -117,6 +117,8 @@ The "view detailed metrics" tab will open up the pre-populated workbook summariz
 
 [ ![Screenshot of the delete option for Azure Application Gateway analytics solution.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
 
+To find more information about the capabilities of the new workbook solution check out [Workbooks-overview](../platform/workbooks-overview.md)
+
 ## Azure Network Security Group analytics solution in Azure Monitor
 
 ![Azure Network Security Group Analytics symbol](media/azure-networking-analytics/azure-analytics-symbol.png)

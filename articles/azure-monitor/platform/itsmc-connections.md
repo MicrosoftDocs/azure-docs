@@ -309,8 +309,7 @@ The following sections provide details about how to connect your Provance produc
 
 > [!NOTE]
 > 
-> As of 1-Oct-2020 Provance ITSM integration with Azure Alert will no longer will be enabled for new customers. New ITSM Connections will not be supported. 
-> Existing ITSM connections will be supported.
+> We propose our Provance customers to use [Webhook action](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) to Cherwell and Provance endpoint as another solution to the integration.
 
 ### Prerequisites
 
@@ -367,8 +366,7 @@ The following sections provide details about how to connect your Cherwell produc
 
 > [!NOTE]
 > 
-> As of 1-Oct-2020 Cherwell  ITSM integration with Azure Alert will no longer will be enabled for new customers. New ITSM Connections will not be supported. 
-> Existing ITSM connections will be supported.
+> We propose our Cherwell customers to use [Webhook action](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) to Cherwell and Provance endpoint as another solution to the integration.
 
 ### Prerequisites
 

@@ -6,7 +6,7 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ---
@@ -23,8 +23,7 @@ You can bulk load data by right-clicking the following area within Synapse Studi
 
 ## Prerequisites
 
-- The wizard generates a COPY statement, which uses Azure Active Directory (Azure AD) pass-through for authentication. Your [Azure AD user must have access](
-./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md#d-azure-active-directory-authentication) to the workspace with at least the Storage Blob Data Contributor Azure role for the Azure Data Lake Storage Gen2 account. 
+- The wizard generates a COPY statement, which uses Azure Active Directory (Azure AD) pass-through for authentication. Your [Azure AD user must have access](./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md#d-azure-active-directory-authentication) to the workspace with at least the Storage Blob Data Contributor Azure role for the Azure Data Lake Storage Gen2 account. 
 
 - You must have the required [permissions to use the COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#permissions) and Create Table permissions if you're creating a new table to load to.
 
@@ -34,28 +33,26 @@ You can bulk load data by right-clicking the following area within Synapse Studi
 
 ## Steps
 
-1. On the **Source storage location** panel, select the storage account and the file or folder you're loading from. The wizard automatically tries to detect Parquet files. If the wizard can't confirm a Parquet file type, it uses delimited text (CSV) by default.
+1. On the **Source storage location** panel, select the storage account and the file or folder you're loading from. The wizard automatically tries to detect Parquet files and delimited text (CSV) files, including mapping the source fields from the file to the appropriate target SQL data types. 
 
    ![Screenshot that shows selecting a source location.](./sql/media/bulk-load/bulk-load-source-location.png)
 
-2. Select the file format settings, including the storage account where you want to write rejected rows (error file). Currently, the wizard supports only CSV and Parquet files.
+2. Select the file format settings, including your error settings for when there are rejected rows during the bulk load process. You can also select **Preview data** to see how the COPY statement will parse the file to help you configure the file format settings. Select **Preview data** every time you change a file format setting, to see how the COPY statement will parse the file with the updated setting.
 
-	![Screenshot that shows selecting file format settings.](./sql/media/bulk-load/bulk-load-file-format-settings.png)
-
-3. You can select **Preview data** to see how the COPY statement will parse the file to help you configure the file format settings. Select **Preview data** every time you change a file format setting, to see how the COPY statement will parse the file with the updated setting.
    ![Screenshot that shows previewing data.](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
    > [!NOTE]  
+   >
    > - The Bulk Load wizard doesn't support previewing the data with multi-character field terminators. When you specify a multi-character field terminator, the wizard will preview the data within a single column. 
+   > - When you select **Infer column names**, the Bulk Load wizard will parse the columns names from the first row specified by the **First row** field. The Bulk Load wizard will automatically increment the `FIRSTROW` value in the COPY statement by 1 to ignore this header row. 
    > - Specifying multi-character row terminators is supported in the COPY statement. However, the Bulk Load wizard doesn't support it and will throw an error.
 
-4. Select the dedicated SQL pool that you're using to load, including whether the load will be for an existing table or a new table.
+3. Select the dedicated SQL pool that you're using to load, including whether the load will be for an existing table or a new table.
    ![Screenshot that shows selecting a target location.](./sql/media/bulk-load/bulk-load-target-location.png)
+4. Select **Configure column mapping** to make sure you have the appropriate column mapping. Note columns names will be detected automatically if you enabled **Infer column names**. For new tables, configuring the column mapping is critical for updating the target column data types.
 
-5. Select **Configure column mapping** to make sure you have the appropriate column mapping. Note that column names will be detected automatically if you enabled **Infer column names**. For new tables, configuring the column mapping is critical for updating the target column data types.
    ![Screenshot that shows configuring column mapping.](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
-
-6. Select **Open script**. A T-SQL script is generated with the COPY statement to load from your data lake.
+5. Select **Open script**. A T-SQL script is generated with the COPY statement to load from your data lake.
    ![Screenshot that shows opening the SQL script.](./sql/media/bulk-load/bulk-load-target-final-script.png)
 
 ## Next steps

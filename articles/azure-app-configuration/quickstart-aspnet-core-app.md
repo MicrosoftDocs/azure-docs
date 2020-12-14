@@ -6,7 +6,7 @@ author: AlexandraKemperMS
 
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: "devx-track-csharp, contperfq1"
+ms.custom: "devx-track-csharp, contperf-fy21q1"
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: alkemper

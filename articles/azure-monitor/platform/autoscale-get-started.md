@@ -130,9 +130,11 @@ When the health check path is provided, App Service will ping the path on all in
 > [!NOTE]
 > Remember that your App Service Plan must be scaled out to 2 or more instances and be **Basic tier or higher** for the load balancer exclusion to occur. If you only have 1 instance, it will not be removed from the load balancer even if it is unhealthy. 
 
-The remaining healthy instances may experience increased load. To avoid overwhelming the remaining instances, no more than half of your instances will be excluded. For example, if an App Service Plan is scaled out to 4 instances and 3 of which are unhealthy, at most 2 will be excluded from the loadbalancer rotation. The other 2 instances (1 healthy and 1 unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded.If you would like to override this behavior, you can set the `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` app setting to a value between `0` and `100`. Setting this to a higher value means more unhealthy instances will be removed (the default value is 50).
+Additionally, the health check path is pinged when instances are added or restarted, such as during scale out operations, manual restarts, or deploying code through the SCM site. If the health check fails during these operations, the failing instances will not be added to the load balancer. This prevents these operations from negatively impacting your application’s availability.
 
-If an instance remains unhealthy for one hour, it will be replaced with new instance. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
+When using healthcheck, your remaining healthy instances may experience increased load. To avoid overwhelming the remaining instances, no more than half of your instances will be excluded. For example, if an App Service Plan is scaled out to 4 instances and 3 of which are unhealthy, at most 2 will be excluded from the loadbalancer rotation. The other 2 instances (1 healthy and 1 unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded.If you would like to override this behavior, you can set the `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` app setting to a value between `0` and `100`. Setting this to a higher value means more unhealthy instances will be removed (the default value is 50).
+
+If the health checks fail for all apps on an instance for one hour, the instance will be replaced. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
 
 ### Monitoring
 

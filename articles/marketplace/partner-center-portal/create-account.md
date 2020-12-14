@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Create a commercial marketplace account in Partner Center

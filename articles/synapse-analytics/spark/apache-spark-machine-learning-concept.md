@@ -38,8 +38,8 @@ Learn more about the machine learning capabilities by viewing the article on how
 ### SparkML and MLlib
 Spark's in-memory distributed computation capabilities make it a good choice for the iterative algorithms used in machine learning and graph computations. ```spark.ml``` provides a uniform set of high-level APIs that help users create and tune  machine learning pipelines.To learn more about ```spark.ml```, you can visit the [Apache Spark ML programming guide](https://spark.apache.org/docs/1.2.2/ml-guide.html).
 
-### Azure Machine Learning AutoML
-[Azure Machine Learning AutoML](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) (automated machine learning) helps automate the process of developing machine learning models. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. The components to run the Azure Machine Learning AutoML SDK is built directly into the Synapse Runtime.
+### Azure Machine Learning automated ML
+[Azure Machine Learning automated ML](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) (automated machine learning) helps automate the process of developing machine learning models. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. The components to run the Azure Machine Learning automated ML SDK is built directly into the Synapse Runtime.
 
 ### Open-source libraries
 Every Apache Spark pool in Azure Synapse Analytics comes with a set of pre-loaded and popular machine learning libraries.  Some of the relevant machine learning libraries that are included by default include:
@@ -63,7 +63,7 @@ Registering a model allows you to store, version, and track metadata about model
 To get started with machine learning in Azure Synapse Analytics, be sure to check out the following tutorials:
 - [Analyze data with Azure Synapse Notebooks](../spark/apache-spark-data-visualization-tutorial.md)
 
-- [Train a machine learning model with AutoML](../spark/apache-spark-azure-machine-learning-tutorial.md)
+- [Train a machine learning model with automated ML](../spark/apache-spark-azure-machine-learning-tutorial.md)
 
 - [Train a machine learning model with Apache Spark MLlib](../spark/apache-spark-machine-learning-mllib-notebook.md)
   

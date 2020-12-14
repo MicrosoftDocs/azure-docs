@@ -10,7 +10,7 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Deep learning vs. machine learning in Azure Machine Learning

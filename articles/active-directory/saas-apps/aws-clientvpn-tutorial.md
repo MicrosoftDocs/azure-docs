@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 12/11/2020
 ms.author: jeedes
 
 ---
@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | Reply URL |
     |------------|
-    | `https://<LOCALHOST>` |
+    | `http://<LOCALHOST>` |
     | `https://self-service.clientvpn.amazonaws.com/api/auth/sso/saml` |
     |
 
@@ -158,4 +158,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure AWS ClientVPN you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure AWS ClientVPN you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+
