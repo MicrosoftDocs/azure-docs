@@ -1,66 +1,66 @@
 ---
-title: Troubleshooting - Azure Monitor Application Insights Java
-description: Troubleshooting Azure Monitor Application Insights Java
+title: Troubleshooting Azure Monitor Application Insights for Java
+description: Learn how to troubleshoot the Java agent for Azure Monitor Application Insights
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
 ---
-# Troubleshooting Azure Monitor Application Insights Java
+# Troubleshooting guide: Azure Monitor Application Insights for Java
 
-In this article, we covered some of the common issues a user might face while instrumenting java application using the java agent along with the steps to resolve these issues.
+In this article, we cover some of the common issues that you might face while instrumenting a Java application by using the Java agent for Application Insights. We also cover the steps to resolve these issues. Application Insights is a feature of the Azure Monitor platform service.
 
-## Self-diagnostic log file
+## Check the self-diagnostic log file
 
-By default, Application Insights Java 3.0 will produce a log file named `applicationinsights.log` in the same directory where the `applicationinsights-agent-3.0.0.jar` file is located.
+By default, the Java 3.0 agent for Application Insights produces a log file named `applicationinsights.log` in the same directory that holds the `applicationinsights-agent-3.0.0.jar` file.
 
-This log file is the first place to check for hints to any issues you may be experiencing.
+This log file is the first place to check for hints to any issues you might be experiencing.
 
-## Upgrade from Application Insights Java 2.x SDK
+## Upgrade from the Application Insights Java 2.x SDK
 
-See [Upgrade from 2.x SDK](./java-standalone-upgrade-from-2x.md).
+If you're already using the Application Insights Java 2.x SDK in your application, you can keep using it. The Java 3.0 agent will detect it. For more information, see [Upgrade from the Java 2.x SDK](./java-standalone-upgrade-from-2x.md).
 
-## Upgrade from 3.0 Preview
+## Upgrade from Application Insights Java 3.0 Preview
 
-If upgrading from 3.0 Preview, please review all of the [configuration options](./java-standalone-config.md) carefully, as the json structure has completely changed in the 3.0 GA release.
+If you're upgrading from the Java 3.0 Preview agent, review all of the [configuration options](./java-standalone-config.md) carefully. The JSON structure has completely changed in the 3.0 general availability (GA) release.
 
 These changes include:
 
-1.  The configuration file name itself has changed from `ApplicationInsights.json` to `applicationinsights.json`.
-2.  The `instrumentationSettings` node is no longer present. All content in `instrumentationSettings` is moved to the root level. 
-3.  Configuration nodes like `sampling`, `jmxMetrics`, `instrumentation` and `heartbeat` are moved out of `preview` to the root level.
+-  The configuration file name has changed from `ApplicationInsights.json` to `applicationinsights.json`.
+-  The `instrumentationSettings` node is no longer present. All content in `instrumentationSettings` is moved to the root level. 
+-  Configuration nodes like `sampling`, `jmxMetrics`, `instrumentation`, and `heartbeat` are moved out of `preview` to the root level.
 
-## SSL certificate issues
+## Import SSL certificates
 
-If you are using the default Java keystore, it will already have all of the CA root certificates and you should not need to import any further SSL certificates.
+If you're using the default Java keystore, it will already have all of the CA root certificates. You shouldn't need to import more SSL certificates.
 
-If you are using a custom Java keystore, you may need to import the Application Insights Endpoint SSL Certificates into it.
+If you're using a custom Java keystore, you might need to import the Application Insights endpoint SSL certificates into it.
 
-### Some key terminology:
-*Keystore* is a repository of certificates, public and private keys. Usually JDK distributions have an executable to manage them – `keytool`.
+### Key terminology
+A *keystore* is a repository of certificates, public keys, and private keys. Usually, Java Development Kit distributions have an executable to manage them: `keytool`.
 
 The following example is a simple command to import an SSL certificate to the keystore:
 
 `keytool -importcert -alias your_ssl_certificate -file "your downloaded SSL certificate name".cer -keystore "Your KeyStore name" -storepass "Your keystore password" -noprompt`
 
-### Steps to download and add the SSL Certificate:
+### Steps to download and add an SSL certificate
 
-1.	Open your favorite browser and go to the `IngestionEndpoint` url present in the Connection String used to instrument your application as shown below
+1.	Open your favorite browser and go to the `IngestionEndpoint` URL present in the connection string that's used to instrument your application.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/ingestion-endpoint-url.png" alt-text="Application Insights Connection String":::
+    :::image type="content" source="media/java-ipa/troubleshooting/ingestion-endpoint-url.png" alt-text="Screenshot that shows an Application Insights connection string.":::
 
-2.	Click on the 'View site information' (lock) icon on the browser and click on 'Certificate' option as show below
+2.	Select the **View site information** (lock) icon in the browser, and then select the **Certificate** option.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="SSL Certificate Capture":::
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="Screenshot of the Certificate option in site information.":::
 
-3.	Go to details tab and click copy to file.
-4.	Click the next button and select “Base-64 encoded X.509 (.CER)” format and select next.
+3.	Go to the **Details** tab and select **Copy to file**.
+4.	Select the **Next** button, select **Base-64 encoded X.509 (.CER)** format, and then select **Next** again.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="SSL Certificate ExportWizard":::
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="Screenshot of the Certificate Export Wizard, with a format selected.":::
 
-5.	Specify the file you want to save the SSL certificate to. Finally click next and finish. You should see "The export was successful" message.
-6.	Once you have the certificate its time to import the certificate into a Java keystore. Use the above [command](#some-key-terminology) to import certificates.
+5.	Specify the file where you want to save the SSL certificate. Then select **Next** > **Finish**. You should see a "The export was successful" message.
+6.	After you have the certificate, it's time to import the certificate into a Java keystore. Use the [preceding command](#key-terminology) to import certificates.
 
 > [!WARNING]
-> You will need to repeat these steps to get the new certificate before the current certificate expires. You can find the expiration information in the "Details" tab of the Certificate popup as shown below
-
-:::image type="content" source="media/java-ipa/troubleshooting/certificate-details.png" alt-text="SSL Certificate Details":::
+> You'll need to repeat these steps to get the new certificate before the current certificate expires. You can find the expiration information on the **Details** tab of the **Certificate** dialog box.
+>
+> :::image type="content" source="media/java-ipa/troubleshooting/certificate-details.png" alt-text="Screenshot that shows SSL certificate details.":::

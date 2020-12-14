@@ -15,7 +15,7 @@ ms.author: cynthn
 
 This article guides you through how to create an Azure [dedicated host](../dedicated-hosts.md) to host your virtual machines (VMs). 
 
-Make sure that you have installed Azure CLI version 2.0.70 or later, and signed in to an Azure account using `az login`. 
+Make sure that you have installed Azure CLI version 2.16.0 or later, and signed in to an Azure account using `az login`. 
 
 
 ## Limitations
