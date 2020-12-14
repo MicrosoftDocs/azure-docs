@@ -21,7 +21,7 @@ An IoT Plug and Play device implements a model described by [Digital Twins Defin
 
 The IoT Plug and Play device used as an example in this article implements the [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) with [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) components.
 
-The following snippet shows the response to a **Get digital twin** request formatted as a JSON object. To learn more about the digital twin format, see [Understand IoT Plug and Play digital twins](./concepts-digital-twin.md#digital-twin-json-format):
+The following snippet shows the response to a **Get digital twin** request formatted as a JSON object. To learn more about the digital twin format, see [Understand IoT Plug and Play digital twins](./concepts-digital-twin.md#digital-twin-example):
 
 ```json
 {
