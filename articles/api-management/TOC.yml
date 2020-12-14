@@ -217,7 +217,7 @@
               href: api-management-sample-flexible-throttling.md
             - name: Using external services
               href: api-management-sample-send-request.md
-            - name: Manage secrets using properties
+            - name: Manage secrets using named values
               href: api-management-howto-properties.md
             - name: Access restriction policies
               href: api-management-access-restriction-policies.md

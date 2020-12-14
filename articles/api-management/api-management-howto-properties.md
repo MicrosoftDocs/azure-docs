@@ -141,12 +141,12 @@ You can test this in the Azure portal or the [developer portal](api-management-h
 
 :::image type="content" source="media/api-management-howto-properties/api-management-send-results.png" alt-text="Test API response":::
 
-If you look at the outbound [API Inspector trace](api-management-howto-api-inspector.md) for a call that includes the two previous sample policies with named values, you can see the two `set-header` policies with the named values inserted as well as the policy expression evaluation for the named value that contained the policy expression.
+If you look at the outbound [API trace](api-management-howto-api-inspector.md) for a call that includes the two previous sample policies with named values, you can see the two `set-header` policies with the named values inserted as well as the policy expression evaluation for the named value that contained the policy expression.
 
 :::image type="content" source="media/api-management-howto-properties/api-management-api-inspector-trace.png" alt-text="API Inspector trace":::
 
 > [!CAUTION]
-> If a policy references a secret in Azure Key Vault, the value from the key vault will be visible to users who have access to the API Inspector trace.
+> If a policy references a secret in Azure Key Vault, the value from the key vault will be visible to users who have access to subscriptions enabled for [API request tracing](api-management-howto-api-inspector.md).
 
 While named values can contain policy expressions, they can't contain other named values. If text containing a named value reference is used for a value, such as `Text: {{MyProperty}}`, that reference won't be resolved and replaced.
 
