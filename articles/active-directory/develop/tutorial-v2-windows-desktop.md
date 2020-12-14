@@ -100,18 +100,17 @@ You can quickly register your application by doing the following:
 ### Option 2: Advanced mode
 
 To register your application and add your application registration information to your solution, do the following:
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
-1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-1. Select **New registration**.
-   - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Win-App-calling-MsGraph`.
-   - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
-   - Select **Register** to create the application.
-1. In the list of pages for the app, select **Authentication**.
-   1. In the **Redirect URIs** section, in the Redirect URIs list:
-   1. In the **TYPE** column select **Public client/native (mobile & desktop)**.
-   1. In the **REDIRECT URI** column, enter `https://login.microsoftonline.com/common/oauth2/nativeclient`
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application, for example `Win-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
+1. In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox)**.
 1. Select **Register**.
+1. Under **Manage**, select **Authentication** > **Add a platform**.
+1. Select **Mobile and desktop applications**.
+1. In the **Redirect URIs** section, select **https://login.microsoftonline.com/common/oauth2/nativeclient**.
+1. Select **Configure**.
 1. Go to Visual Studio, open the *App.xaml.cs* file, and then replace `Enter_the_Application_Id_here` in the code snippet below with the application ID that you just registered and copied.
 
     ```csharp
