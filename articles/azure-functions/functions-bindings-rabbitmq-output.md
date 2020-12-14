@@ -17,7 +17,7 @@ ms.custom:
 
 Use the RabbitMQ output binding to send messages to a RabbitMQ queue.
 
-For information on setup and configuration details, see the [overview](functions-bindings-service-bus-output.md).
+For information on setup and configuration details, see the [overview](functions-bindings-rabbitmq-output.md).
 
 ## Example
 
@@ -27,7 +27,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ```cs
 [FunctionName("RabbitMQOutput")]
-[return: RabbitMQ("QueueName", ConnectionStringSetting = "ConnectionStringSetting")]
+[return: RabbitMQ("outputQueue", ConnectionStringSetting = "ConnectionStringSetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
 {
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
@@ -40,8 +40,8 @@ The following example shows how to use the IAsyncCollector interface to send mes
 ```cs
 [FunctionName("RabbitMQOutput")]
 public static async Task Run(
-[RabbitMQTrigger("SourceQueue", ConnectionStringSetting = "TriggerConnectionString")] string rabbitMQEvent,
-[RabbitMQ("DestinationQueue", ConnectionStringSetting = "OutputConnectionString")]IAsyncCollector<string> outputEvents,
+[RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "TriggerConnectionString")] string rabbitMQEvent,
+[RabbitMQ("destinationQueue", ConnectionStringSetting = "OutputConnectionString")]IAsyncCollector<string> outputEvents,
 ILogger log)
 {
     // processing:
@@ -59,20 +59,21 @@ public class TestClass
 {
     public string x { get; set; }
 }
+
 [FunctionName("RabbitMQOutput")]
 public static async Task Run(
-[RabbitMQTrigger("SourceQueue", ConnectionStringSetting = "TriggerConnectionString")] TestClass rabbitMQEvent,
-[RabbitMQ("DestinationQueue", ConnectionStringSetting = "OutputConnectionString")]IAsyncCollector<TestClass> outputPocos,
+[RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "TriggerConnectionString")] TestClass rabbitMQEvent,
+[RabbitMQ("destinationQueue", ConnectionStringSetting = "OutputConnectionString")]IAsyncCollector<TestClass> outputPocObj,
 ILogger log)
 {
     // send the message
-    await outputPocos.Add(rabbitMQEvent);
+    await outputPocObj.Add(rabbitMQEvent);
 }
 ```
 
 # [C# Script](#tab/csharp-script)
 
-The following example shows a RabbitMQ output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads in the message from an http trigger and outputs it to the RabbitMQ queue.
+The following example shows a RabbitMQ output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads in the message from an HTTP trigger and outputs it to the RabbitMQ queue.
 
 Here's the binding data in the *function.json* file:
 
@@ -115,7 +116,7 @@ public static void Run(string input, out string outputMessage, ILogger log)
 
 # [JavaScript](#tab/javascript)
 
-The following example shows a RabbitMQ output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads in the message from an http trigger and outputs it to the RabbitMQ queue.
+The following example shows a RabbitMQ output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads in the message from an HTTP trigger and outputs it to the RabbitMQ queue.
 
 Here's the binding data in the *function.json* file:
 
@@ -154,7 +155,7 @@ module.exports = function (context, input) {
 
 # [Powershell](#tab/powershell)
 
-The following example shows a RabbitMQ output binding in a *function.json* file and a [Powershell function](functions-reference-powershell.md) that uses the binding. The function reads in the message from an http trigger and outputs it to the RabbitMQ queue.
+The following example shows a RabbitMQ output binding in a *function.json* file and a [Powershell function](functions-reference-powershell.md) that uses the binding. The function reads in the message from an HTTP trigger and outputs it to the RabbitMQ queue.
 
 Here's the binding data in the *function.json* file:
 
@@ -196,7 +197,7 @@ Push-OutputBinding -Name outputMessage -Value $message
 
 # [Python](#tab/python)
 
-The following example shows a RabbitMQ output binding in a *function.json* file and a Python function that uses the binding. The function reads in the message from an http trigger and outputs it to the RabbitMQ queue.
+The following example shows a RabbitMQ output binding in a *function.json* file and a Python function that uses the binding. The function reads in the message from an HTTP trigger and outputs it to the RabbitMQ queue.
 
 Here's the binding data in the *function.json* file:
 
@@ -354,10 +355,10 @@ Use the following parameter types for the output binding:
 
 * `byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
 * `string` - If the parameter value is null when the function exits, Functions does not create a message.
-* `POJO` - If the message is properly formatted as a Java object
+* `POJO` - If the parameter value isn't formatted as a Java object, an error will be received.
 
 ---
 
 ## Next steps
 
-- [Run a function when a Service Bus queue or topic message is created (Trigger)](./functions-bindings-service-bus-trigger.md)
+- [Run a function when a RabbitMQ message is created (Trigger)](./functions-bindings-rabbitmq-trigger.md)

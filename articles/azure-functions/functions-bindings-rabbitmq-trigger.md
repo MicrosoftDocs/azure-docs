@@ -50,11 +50,11 @@ public static void RabbitMQTrigger_BasicDeliverEventArgs(
     ILogger logger
     )
 {
-    logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {Encoding.UTF8.GetString(pocOBj)}");
+    logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {Encoding.UTF8.GetString(pocObj)}");
 }
 ```
 
-Like with Json objects, we will receive an error if the message isn't properly formatted as a C# object. If it is, it is then bound to the variable pocObj, which we can use for whatever we need it for.
+Like with Json objects, an error will occur if the message isn't properly formatted as a C# object. If it is, it is then bound to the variable pocObj, which can be used for what whatever it is needed for.
 
 # [C# Script](#tab/csharp-script)
 
@@ -302,7 +302,7 @@ This section describes the global configuration settings available for this bind
 > [!NOTE]
 > The connectionString takes precedence over "hostName", "userName", and "password". If these are all set, the connectionString will override the other two.
 
-If you are testing locally without a connection string, you must set the "hostName" setting and "username" and "password" if applicable in the "rabbitMQ" section of *host.json*:
+If you are testing locally without a connection string, you should set the "hostName" setting and "username" and "password" if applicable in the "rabbitMQ" section of *host.json*:
 
 ```json
 {
@@ -332,4 +332,4 @@ To monitor your queues and exchanges for a certain RabbitMQ endpoint:
 
 ## Next steps
 
-- [Send RabbitMQ messages from Azure Functions (Output binding)](./functions-bindings-service-bus-output.md)
+- [Send RabbitMQ messages from Azure Functions (Output binding)](./functions-bindings-rabbitmq-output.md)
