@@ -30,10 +30,10 @@ With single-region writes, you can maintain strong consistency, while still main
 
 The Azure Cosmos DB platform provides a set of five well-defined, business use-case oriented consistency settings with respect to replication and the tradeoffs defined by the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem) and [PACLC theorem](https://en.wikipedia.org/wiki/PACELC_theorem). As this approach differs significantly from Apache Cassandra, we would recommend that you take time to review and understand Azure Cosmos DB consistency settings in our [documentation](consistency-levels.md), or watch this short [video](https://www.youtube.com/watch?v=t1--kZjrG-o) guide to understanding consistency settings in the Azure Cosmos DB platform.
 
-The following table illustrates the possible mappings between Apache Cassandra and Azure Cosmos DB consistency levels when using Cassandra API. This shows single region, multi-region (single master), and multi-region (multi-master) configurations.
+The following table illustrates the possible mappings between Apache Cassandra and Azure Cosmos DB consistency levels when using Cassandra API. This shows configurations for single region, multi-region reads with single-region writes, and multi-region writes.
 
 > [!NOTE]
-> These are not exact mappings. Rather, we have provided the closest analogues to Apache Cassandra, and disambiguated any qualitative differences in the rightmost column. As above, we recommend reviewing Azure Cosmos DB's [consistency settings](consistency-levels.md). 
+> These are not exact mappings. Rather, we have provided the closest analogues to Apache Cassandra, and disambiguated any qualitative differences in the rightmost column. As mentioned above, we recommend reviewing Azure Cosmos DB's [consistency settings](consistency-levels.md). 
 
 :::image type="content" source="./media/cassandra-consistency/account.png" alt-text="Cassandra consistency model mapping" lightbox="./media/cassandra-consistency/account.png" :::
 
