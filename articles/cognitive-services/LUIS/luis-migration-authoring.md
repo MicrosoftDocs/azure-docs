@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 
 ---
 # Migrate to an Azure resource authoring key
@@ -36,8 +36,6 @@ Migration has to be done from the [LUIS portal](https://www.luis.ai). If you cre
 * A valid Azure subscription. Ask your tenant admin to add you on the subscription, or [sign up for a free one](https://azure.microsoft.com/free/cognitive-services).
 * A LUIS Azure authoring resource from the LUIS portal or from the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne). 
     * Creating an authoring resource from the LUIS portal is part of the migration process described in the next section.
-
-If you're a collaborator on applications, applications won't automatically migrate. You will be prompted to export these apps while going through migration. You can also use the [export API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). You can import the app back into LUIS after migration. The import process creates a new app with a new app ID which you're the owner for. If you're the owner of the application, you won't need to export your apps because they'll migrate automatically. An email template with a list of all collaborators for each application is provided, so they can be notified of the migration process.
 
 ## Migration steps
 
@@ -97,6 +95,8 @@ A `*` symbol will appear next to the application name if you have a prediction r
 
 ## Migration notes
 
+* If you're a collaborator on applications, applications won't automatically migrate. You will be prompted to export these apps while going through the migration flow. You can also use the [export API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). You can import the app back into LUIS after migration. The import process creates a new app with a new app ID, for which you're the owner.
+* If you're the owner of the application, you won't need to export your apps because they'll migrate automatically. An email template with a list of all collaborators for each application is provided, so they can be notified of the migration process.
 * Before migration, coauthors are known as _collaborators_ on the LUIS app level. After migration, the Azure role of _contributor_ is used for the same functionality on the Azure resource level.
 * If you have signed-in to more than one [LUIS regional portal](./luis-reference-regions.md#luis-authoring-regions), you will be asked to migrate in multiple regions at once.
 * Applications will automatically migrate with you if you're the owner of the application. Applications will not migrate with you if you're a collaborator on the application. However, collaborators will be prompted to export the apps they need.
