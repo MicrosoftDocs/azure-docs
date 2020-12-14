@@ -299,10 +299,6 @@ To deploy the template spec, you use the same deployment commands. You pass in t
 
 # [Portal](#tab/azure-portal)
 
-1. From the top of the screen, in **Search resources, services and docs**, enter **template specs**, and then select **Template specs**.
-
-    :::image type="content" source="./media/quickstart-create-template-specs/search-template-spec.png" alt-text="search template specs":::
-
 1. Select the template spec you created. For example, **storageSpec**.
 
     :::image type="content" source="./media/quickstart-create-template-specs/select-template-spec.png" alt-text="select template specs":::
@@ -386,11 +382,15 @@ To deploy the template spec, you use the same deployment commands. You pass in t
 
 If you want to let other users in your organization deploy your template spec, you need to grant them read access. You can assign the Reader role to an Azure AD group for the resource group that contains template specs you want to share. For more information, see [Tutorial: Grant a group access to Azure resources using Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
 
-## Add new version
+## Update template
 
-As you work with template specs, you may need to update the template. In the earlier section, you created a template spec with version `1.0`. Rather than creating a new template spec for the revised template, add a new version to the existing template spec.
+Let's suppose you've identified a change you want to make to the template in your template spec. The following template is similar to your earlier template but it adds a prefix for the storage account name. Update azuredeploy.json.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/templatespecs/azuredeploy2.json":::
+
+## Add new version
+
+In the earlier section, you created a template spec with version `1.0`. Rather than creating a new template spec for the revised template, add a new version named `2.0` to the existing template spec. Users who want to continue using version `1.0` have that option.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -450,6 +450,32 @@ As you work with template specs, you may need to update the template. In the ear
 
 # [Portal](#tab/azure-portal)
 
+To save a new version:
+
+1. In your template spec, select **Create new version**.
+
+   :::image type="content" source="./media/quickstart-create-template-specs/select-versions.png" alt-text="create new version":::
+
+1. Name the new version `2.0` and optionally add notes. Select **Edit template**.
+
+   :::image type="content" source="./media/quickstart-create-template-specs/add-version-name.png" alt-text="name new version":::
+
+1. Replace the contents of the template with your updated template. Select **Review + Save**.
+1. Select **Save changes**.
+
+To deploy a version:
+
+1. In your template spec, select **Versions**
+
+   :::image type="content" source="./media/quickstart-create-template-specs/see-versions.png" alt-text="list versions":::
+
+1. For the version you want to deploy, select the three dots and **Deploy**.
+
+   :::image type="content" source="./media/quickstart-create-template-specs/deploy-version.png" alt-text="select version to deploy":::
+
+1. Fill in the fields as you did when deploying version `1.0`.
+1. Select **Review + create**.
+1. Select **Create**.
 
 # [ARM Template](#tab/azure-resource-manager)
 
