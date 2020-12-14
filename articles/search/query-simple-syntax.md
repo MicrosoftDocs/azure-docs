@@ -8,45 +8,31 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 12/14/2020
 ---
 
 # Simple query syntax in Azure Cognitive Search
 
-<!-- Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because of this flexibility, it is the default for queries in Azure Cognitive Search.
+Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because of this flexibility, it is the default for queries in Azure Cognitive Search.
 
-The simple syntax is used for query expressions passed in the `search` parameter of a [**Search Documents**](/rest/api/searchservice/search-documents)  request, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter expressions](search-filters.md) parameter of the same Search Documents API. The `search` and `$filter` parameters have different syntax, with their own rules for constructing queries, escaping strings, and so on.
+The simple syntax is used for query expressions passed in the **`search`** parameter of a [**Search Documents**](/rest/api/searchservice/search-documents) request, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter](search-filters.md) and [$Orderby](search-query-odata-orderby.md) expressions in the same request. OData parameters have different syntax and rules for constructing queries, escaping strings, and so on.
 
-Although the simple parser is based on the [Apache Lucene Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) class, the implementation in Azure Cognitive Search excludes fuzzy search. If you need [fuzzy search](search-query-fuzzy.md) or other advanced query forms, consider the alternative [full Lucene query syntax](query-lucene-syntax.md) instead. -->
+Although the simple parser is based on the [Apache Lucene Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) class, the implementation in Azure Cognitive Search excludes fuzzy search. If you need [fuzzy search](search-query-fuzzy.md) or other advanced query forms, consider the alternative [full Lucene query syntax](query-lucene-syntax.md) instead.
 
-## How to invoke simple parsing
+## Example showing simple syntax
 
-+ Target the documents collection of a single index (for example, `/indexes/hotel-rooms-sample/docs/`).
-
-+ Set `queryType=Simple` on the request if you need to explicitly invoke the simple parser (for example, to switch from `full` back to `simple`). Otherwise, you can exclude this parameter because it is the default.
-
-+ Pass a valid string in the `search` parameter. This parameter is optional. Unspecified, null or `*`, the query response consists of 50 documents in no particular order.
-
-   Valid strings consist of a term or phrase, and can include boolean and precedence operators. Prefix or wildcard search is also a valid expression in the simple syntax.
-
-   Apply escape characters or base64 URL encoding if the search string includes unsafe, reserved, or special characters.
-
-+ Optionally, set `searchMode` to specify whether NOT expressions are ANDed or ORed.
-
-A simple query is determined by the `queryType` and a valid string passed in the `search` parameter. A query request always targets the documents collection of a single index. The syntax described in this article pertains to the contents of the `search` parameter specifically.
+Although **`queryType`** is set below, it's the default value and can be omitted unless you are reverting from an alternate type. The following example is a term search over independent terms, with a requirement that all matching documents include the term "pool".
 
 ```http
 POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs/search?api-version=2020-06-30
 {
-  "search": "budget hotel +pool",
   "queryType": "simple",
-  "searchMode": "any"
+  "search": "budget hotel +pool",
+  "searchMode": "all"
 }
 ```
 
-A `queryType` can be either "simple" or "full", where "simple" is the default, and "full" invokes the [full Lucene query parser](query-lucene-syntax.md) for more advanced queries. For simple queries, setting the `queryType` is only necessary if you are resetting the syntax from full.
-
-The `searchMode` parameter is syntax-agnostic but because it is impactful, determining whether recall is favored over precision, make sure that you understand how it works, as described in the next section.
+The **`searchMode=all`** parameter is relevant in this example. Whenever operators are on the query, you should generally set **`searchMode=all`** to ensure that *all* of the criteria is matched. Otherwise, you can use the default **`searchMode=any`** that favors recall over precision.
 
 ## Search string composition
 

@@ -8,45 +8,33 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 12/14/2020
 ---
 
 # Lucene query syntax in Azure Cognitive Search
 
-Azure Cognitive Search offers the rich [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions are a few examples. Much of the Lucene Query Parser syntax is [implemented intact in Azure Cognitive Search](search-lucene-query-architecture.md), with the exception of *range searches* which are constructed in Azure Cognitive Search through `$filter` expressions. 
+When creating queries in Azure Cognitive Search, you can opt for the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions. Much of the Lucene Query Parser syntax is [implemented intact in Azure Cognitive Search](search-lucene-query-architecture.md), with the exception of *range searches* which are constructed in Azure Cognitive Search through `$filter` expressions. 
 
-> [!NOTE]
-> The full Lucene syntax is used for query expressions passed in the `search` parameter of the [Search Documents](/rest/api/searchservice/search-documents) API, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter](search-filters.md) parameter of that API. These different syntaxes have their own rules for constructing queries, escaping strings, and so on.
+The full Lucene syntax is used for query expressions passed in the **`search`** parameter of a [**Search Documents**](/rest/api/searchservice/search-documents) request, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter](search-filters.md) and [$Orderby](search-query-odata-orderby.md) expressions in the same request. OData parameters have different syntax and rules for constructing queries, escaping strings, and so on.
 
-## How to invoke full parsing
+## <a name="bkmk_example"></a> Example showing full syntax
 
-Set the `queryType` search parameter to specify which parser to use. Valid values include `simple|full`, with `simple` as the default, and `full` for Lucene. 
-
-<a name="bkmk_example"></a> 
-
-### Example showing full syntax
-
-The following example finds documents in the index using the Lucene query syntax, evident in the `queryType=full` parameter. This query returns hotels where the category field contains the term "budget" and all searchable fields containing the phrase "recently renovated". Documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3).  
-
-The `searchMode=all` parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.  
+Set the **`queryType`** search parameter to specify `full` for Lucene. The following example invokes in-field search and term boosting. This query looks for hotels where the category field contains the term "budget". Any documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3).  
 
 ```http
-POST /indexes/hotels/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-  "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
+  "search": "category:budget AND \"recently renovated\"^3",
   "searchMode": "all"
 }
 ```
 
-For additional examples, see [Lucene query syntax examples for building queries in Azure Cognitive Search](search-query-lucene-examples.md). For details about specifying the full contingent of query parameters, see [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents).
+The **`searchMode=all`** parameter is relevant in this example. Whenever operators are on the query, you should generally set **`searchMode=all`** to ensure that *all* of the criteria is matched.  
 
-> [!NOTE]  
-> Azure Cognitive Search also supports [Simple Query Syntax](query-simple-syntax.md), a simple and robust query language that can be used for straightforward keyword search.  
+For additional examples, see [Lucene query syntax examples](search-query-lucene-examples.md). For details about the query request and parameters, see [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).
 
-<a name="bkmk_syntax"></a> 
-
-## Syntax fundamentals  
+## <a name="bkmk_syntax"></a> Syntax fundamentals  
 
 the following syntax fundamentals apply to all queries that use the Lucene syntax.  
 
@@ -86,7 +74,7 @@ Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ]``. Reserved characters are `
 
 Field grouping is similar but scopes the grouping to a single field. For example, `hotelAmenities:(gym+(wifi||pool))` searches the field "hotelAmenities" for "gym" and "wifi", or "gym" and "pool".  
 
-##  <a name="bkmk_boolean"></a> Boolean search
+##  <a name="bkmk_boolean"></a> Boolean opreators
 
  Always specify text boolean operators (AND, OR, NOT) in all caps.  
 
@@ -129,14 +117,13 @@ The field specified in `fieldName:searchExpression` must be a `searchable` field
 
 A fuzzy search finds matches in terms that have a similar construction, expanding a term up to the maximum of 50 terms that meet the distance criteria of two or less. For more information, see [Fuzzy search](search-query-fuzzy.md).
 
- To do a fuzzy search, use the tilde "~" symbol at the end of a single word with an optional parameter, a number between 0 and 2 (default), that specifies the edit distance. For example, "blue~" or "blue~1" would return "blue", "blues", and "glue".
+To do a fuzzy search, use the tilde "~" symbol at the end of a single word with an optional parameter, a number between 0 and 2 (default), that specifies the edit distance. For example, "blue~" or "blue~1" would return "blue", "blues", and "glue".
 
- Fuzzy search can only be applied to terms, not phrases, but you can append the tilde to each term individually in a multi-part name or phrase. For example, "Unviersty~ of~ "Wshington~" would match on "University of Washington".
+Fuzzy search can only be applied to terms, not phrases, but you can append the tilde to each term individually in a multi-part name or phrase. For example, "Unviersty~ of~ "Wshington~" would match on "University of Washington".
  
 ##  <a name="bkmk_proximity"></a> Proximity search
 
 Proximity searches are used to find terms that are near each other in a document. Insert a tilde "~" symbol at the end of a phrase followed by the number of words that create the proximity boundary. For example, `"hotel airport"~5` will find the terms "hotel" and "airport" within 5 words of each other in a document.  
-
 
 ##  <a name="bkmk_termboost"></a> Term boosting
 
