@@ -1,9 +1,9 @@
 ---
 title: Build energy solutions with IoT Central | Microsoft Docs
 description: Learn to build energy solution using Azure IoT Central application templates.
-author: op-ravi
-ms.author: omravi
-ms.date: 10/23/2019
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
