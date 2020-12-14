@@ -120,7 +120,7 @@ As mentioned, virtual network peering is one way to access your private cluster.
 ## Limitations 
 * IP authorized ranges can't be applied to the private api server endpoint, they only apply to the public API server
 * [Azure Private Link service limitations][private-link-service] apply to private clusters.
-* No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider to use [Self-hosted Agents][devops-agents]. 
+* No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider to use [Self-hosted Agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser). 
 * For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network.
 * No support for converting existing AKS clusters into private clusters
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning. 
