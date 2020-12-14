@@ -6,7 +6,7 @@ services: azure-monitor
 
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.author: ritaroloff
+ms.author: riroloff
 ms.subservice: metrics
 ---
 
