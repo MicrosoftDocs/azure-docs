@@ -100,7 +100,7 @@ If you don't want to use the automation, use the steps in the following sections
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application, for example `dotnet-web-daemon-v2`. Users of your app might see this name, and you can change it later.
 1. In the **Supported account types** section, select **Accounts in any organizational directory**.
-1. In the **Redirect URI (optional)** section, select **Web** in the combo box and enter `https://localhost:44316/` and `https://localhost:44316/Account/GrantPermissions`  as a Redirect URIs.
+1. In the **Redirect URI (optional)** section, select **Web** in the combo box and enter `https://localhost:44316/` and `https://localhost:44316/Account/GrantPermissions` as Redirect URIs.
 
     If there are more than two redirect URIs, you'll need to add them from the **Authentication** tab later, after the app is created successfully.
 1. Select **Register** to create the application.
@@ -110,8 +110,7 @@ If you don't want to use the automation, use the steps in the following sections
     1. In the **Implicit grant** section, select **Access tokens** and **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user and call an API.
     1. Select **Save**.
 1. Under **Manage**, select **Certificates & secrets**.
-1. In the **Client secrets** section, select **New client secret**. Then:
-
+   1. In the **Client secrets** section, select **New client secret**. 
    1. Enter a key description (for example, **app secret**),
    1. Select a key duration of either **In 1 year**, **In 2 years**, or **Never Expires**.
    1. Select **Add**.
