@@ -133,6 +133,8 @@
         href: ares-for-enterprise-tutorial.md
       - name: Ariba
         href: ariba-tutorial.md
+      - name: Aruba User Experience Insight
+        href: aruba-user-experience-insight-tutorial.md
       - name: Asana
         href: asana-tutorial.md
       - name: ASC Contracts
@@ -257,6 +259,8 @@
         href: bugsnag-tutorial.md
       - name: BullseyeTDP
         href: bullseyetdp-tutorial.md
+      - name: Burp Suite Enterprise Edition
+        href: burp-suite-enterprise-edition-tutorial.md
       - name: Bynder
         href: bynder-tutorial.md
     - name: C
@@ -563,6 +567,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: Equinix Federation App
+        href: equinix-federation-app-tutorial.md
       - name: EasySSO for Jira
         href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
@@ -948,6 +954,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
+      - name: KFAdvance
+        href: kfadvance-tutorial.md
       - name: Khoros Care
         href: khoros-care-tutorial.md
       - name: Kindling
@@ -1010,6 +1018,8 @@
         href: lift-tutorial.md
       - name: LINE WORKS
         href: worksmobile-tutorial.md
+      - name: LinkedIn Talent Solutions
+        href: linkedin-talent-solutions-tutorial.md
       - name: Litmus
         href: litmus-tutorial.md
       - name: Learnster
@@ -1282,6 +1292,8 @@
         href: perforce-helix-core-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
+      - name: Perimeter 81
+        href: perimeter-81-tutorial.md
       - name: PerimeterX
         href: perimeterx-tutorial.md
       - name: Periscope Data
