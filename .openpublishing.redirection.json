@@ -1,5 +1,11 @@
 {
   "redirections": [
+    
+    {
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-authentication-error-rdp-vm.md",
+      "redirect_url": "https://docs.microsoft.com/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/virtual-machines/linux/optimization.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/optimization",
