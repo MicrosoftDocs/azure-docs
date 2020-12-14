@@ -106,6 +106,7 @@ It takes some time to propagate firewall rule changes. After you change firewall
 - [How do I grant access to pull or push images without permission to manage the registry resource?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [How do I enable automatic image quarantine for a registry?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 - [How do I enable anonymous pull access?](#how-do-i-enable-anonymous-pull-access)
+- [How do I push non-distributable layers to a registry?](#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ### How do I access Docker Registry HTTP API V2?
 
@@ -260,6 +261,30 @@ Setting up an Azure container registry for anonymous (public) pull access is cur
 > [!NOTE]
 > * Only the APIs required to pull a known image can be accessed anonymously. No other APIs for operations like tag list or repository list are accessible anonymously.
 > * Before attempting an anonymous pull operation, run `docker logout` to ensure that you clear any existing Docker credentials.
+
+### How do I push non-distributable layers to a registry?
+
+A non-distributable layer in a manifest contains a url parameter which content may be fetched from. Some possible use cases for enabling non-distributable layer pushes are for network restricted registries, air-gapped registries with restricted access, or for registries with no internet connectivity.
+
+For example, if you have NSG rules set up so that a VM can only pull images from your ACR, then this will cause docker pull failures for foreign/non-distributable layers, i.e. a Microsoft servercore image would contain foreign layer references to MCR in its manifest and would fail to pull in this scenario.
+
+To enable pushing of non-distributable layers:
+1. Edit the `daemon.json` file, which is located in `/etc/docker/` on Linux hosts and `C:\ProgramData\docker\config\daemon.json` on Windows Server. Assuming the file was previously empty, add the following contents:
+```json
+{
+  "allow-nondistributable-artifacts": ["myregistry.azurecr.io"]
+}
+```
+> The value is an array of registry addresses, separated by commas.
+
+2. Save and exit the file.
+
+3. Restart Docker.
+
+When you push images to the registries in the list, their non-distributable layers are pushed to the registry.
+
+> [!IMPORTANT]
+> * Warning: Non-distributable artifacts typically have restrictions on how and where they can be distributed and shared. Only use this feature to push artifacts to private registries and ensure that you are in compliance with any terms that cover redistributing non-distributable artifacts.
 
 ## Diagnostics and health checks
 
