@@ -269,13 +269,16 @@ A non-distributable layer in a manifest contains a url parameter which content m
 For example, if you have NSG rules set up so that a VM can only pull images from your ACR, then this will cause docker pull failures for foreign/non-distributable layers, i.e. a Microsoft servercore image would contain foreign layer references to MCR in its manifest and would fail to pull in this scenario.
 
 To enable pushing of non-distributable layers:
+
 1. Edit the `daemon.json` file, which is located in `/etc/docker/` on Linux hosts and `C:\ProgramData\docker\config\daemon.json` on Windows Server. Assuming the file was previously empty, add the following contents:
-```json
-{
-  "allow-nondistributable-artifacts": ["myregistry.azurecr.io"]
-}
-```
-> The value is an array of registry addresses, separated by commas.
+
+   ```json
+   {
+     "allow-nondistributable-artifacts": ["myregistry.azurecr.io"]
+   }
+   ```
+   > [!NOTE]
+   > The value is an array of registry addresses, separated by commas.
 
 2. Save and exit the file.
 
