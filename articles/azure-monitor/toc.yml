@@ -194,6 +194,8 @@
         href: platform/metric-chart-samples.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
+      - name: Understanding metrics aggregation 
+        href: platform/metrics-aggregation-explained.md
   - name: Azure Monitor Logs
     items:
     - name: Overview
