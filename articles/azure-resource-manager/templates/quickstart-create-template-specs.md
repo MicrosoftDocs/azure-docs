@@ -2,14 +2,14 @@
 title: Create and deploy template spec
 description: Learn how to create a template spec from ARM template. Then, deploy the template spec to a resource group in your subscription.
 author: tfitzmac
-ms.date: 12/11/2020
+ms.date: 12/14/2020
 ms.topic: quickstart
 ms.author: tomfitz
 ---
 
 # Quickstart: Create and deploy template spec (Preview)
 
-This quickstart shows you how to package an Azure Resource Manager template (ARM template) into a [template spec](template-specs.md) and then deploy that template spec. Your template spec contains an ARM template that deploys a storage account.
+This quickstart shows you how to package an Azure Resource Manager template (ARM template) into a [template spec](template-specs.md). Then, you deploy that template spec. Your template spec contains an ARM template that deploys a storage account.
 
 ## Prerequisites
 
@@ -20,9 +20,9 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Create template spec
 
-The template spec is a resource type named **Microsoft.Resources/templateSpecs**. To create your template spec, you can use the Azure portal, Azure PowerShell, Azure CLI, or an ARM template. In all options, you need an ARM template that is packaged within the template spec.
+The template spec is a resource type named `Microsoft.Resources/templateSpecs`. To create a template spec, use the Azure portal, Azure PowerShell, Azure CLI, or an ARM template. In all options, you need an ARM template that is packaged within the template spec.
 
-With PowerShell and CLI, the ARM template is passed in as a parameter to the command. With ARM template, the ARM template to package within the template spec is embedded within the template spec definition.
+With PowerShell and CLI, you pass the path to ARM template as a parameter to the command. With ARM template, you embed the ARM template within the template spec definition.
 
 These options are shown below.
 
@@ -78,7 +78,7 @@ These options are shown below.
 
 # [Portal](#tab/azure-portal)
 
-1. When you create a template spec with the portal, you can import a local template. Copy the following template and save it locally to a file named **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
+1. When you create a template spec with the portal, you can import a local template. Copy the following template and save it locally to a file named **azuredeploy.json**.
 
     :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
 
@@ -95,7 +95,10 @@ These options are shown below.
 
     :::image type="content" source="./media/quickstart-create-template-specs/open-folder.png" alt-text="open folder":::
 
-1. Search for your template and select it. Select **Open** and **Import**.
+1. Navigate to your template and select it. Select **Open**.
+1. Select **Import**.
+
+    :::image type="content" source="./media/quickstart-create-template-specs/select-import.png" alt-text="select-import":::
 
 1. Select or enter the following values:
 
@@ -103,7 +106,7 @@ These options are shown below.
     - **Subscription**: select an Azure subscription used for creating the template spec.
     - **Resource Group**: select **Create new**, and then enter a new resource group name.  For example, **templateSpecRG**.
     - **Location**: select a location for the resource group. For example,  **West US 2**.
-    - **Version**: enter a version for the template spec. For example, **1.0**, or **v1.0**.
+    - **Version**: enter a version for the template spec. Use **1.0**.
 
 1. Select **Review + Create**.
 1. Select **Create**.
@@ -233,7 +236,7 @@ These options are shown below.
 
 ## Deploy template spec
 
-You can now deploy the template spec. Deploying the template spec is just like deploying the template it contains, except that you pass in the resource ID of the template spec in Azure PowerShell or Azure CLI. You use the same deployment commands, and if needed, pass in parameter values for the template spec.
+You can now deploy the template spec. Deploying the template spec is just like deploying the template it contains, except you pass in the resource ID of the template spec in Azure PowerShell or Azure CLI. You use the same deployment commands, and if needed, pass in parameter values for the template spec.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -281,7 +284,7 @@ You can now deploy the template spec. Deploying the template spec is just like d
 1. Get the resource ID of the template spec.
 
     ```azurecli
-    id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+    id=$(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
     ```
 
     > [!NOTE]
@@ -392,6 +395,66 @@ You can now deploy the template spec. Deploying the template spec is just like d
 ## Grant access
 
 If you want to let other users in your organization deploy your template spec, you need to grant them read access. You can assign the Reader role to an Azure AD group for the resource group that contains template specs you want to share. For more information, see [Tutorial: Grant a group access to Azure resources using Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
+
+## Add new version
+
+As you work with template specs, you may need to update the template. In the earlier section, you created a template spec with version `1.0`. Rather than creating a new template spec for the revised template, add a new version to the existing template spec.
+
+# [PowerShell](#tab/azure-powershell)
+
+1. Create a new version of the template spec.
+
+   ```powershell
+   New-AzTemplateSpec `
+     -Name storageSpec `
+     -Version "2.0" `
+     -ResourceGroupName templateSpecRG `
+     -Location westus2 `
+     -TemplateFile "c:\Templates\azuredeploy.json"
+   ```
+
+1. To deploy the new version, first get the resource ID for the `2.0` version.
+
+   ```powershell
+   $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "2.0").Versions.Id
+   ```
+
+1. Now, deploy that version. Provide a prefix for the storage account name.
+
+   ```powershell
+   New-AzResourceGroupDeployment `
+     -TemplateSpecId $id `
+     -ResourceGroupName storageRG `
+     -namePrefix "demoaccount"
+   ```
+
+# [CLI](#tab/azure-cli)
+
+1. Create a new version of the template spec.
+
+   ```azurecli
+   az ts create \
+     --name storageSpec \
+     --version "2.0" \
+     --resource-group templateSpecRG \
+     --location "westus2" \
+     --template-file "c:\Templates\azuredeploy.json"
+   ```
+
+1. To deploy the new version, first get the resource ID for the `2.0` version.
+
+   ```azurecli
+   id=$(az ts show --name storageSpec --resource-group templateSpecRG --version "2.0" --query "id")
+   ```
+
+1. Now, deploy that version. Provide a prefix for the storage account name.
+
+   ```azurecli
+    az deployment group create \
+      --resource-group storageRG \
+      --template-spec $id \
+      --parameters namePrefix='demoaccount'
+    ```
 
 ## Clean up resources
 
