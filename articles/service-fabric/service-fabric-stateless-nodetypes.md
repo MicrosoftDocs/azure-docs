@@ -266,6 +266,6 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
 ```
 
 ## Next Steps 
-* [Reliable Services](ervice-fabric-reliable-services-introduction.md)
+* [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Node types and virtual machine scale sets](service-fabric-cluster-nodetypes.md)
 
