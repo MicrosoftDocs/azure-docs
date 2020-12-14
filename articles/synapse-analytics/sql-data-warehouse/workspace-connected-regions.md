@@ -10,6 +10,7 @@ ms.subservice: sql-dw
 ms.date: 11/11/2020
 ms.author: anvang
 ms.reviewer: jrasnick
+ms.custom: references_regions
 ---
 
 # Enabling Synapse workspace features on a dedicated SQL pool (formerly SQL DW) in your region.
