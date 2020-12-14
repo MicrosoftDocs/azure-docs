@@ -132,7 +132,7 @@ To identify and resolve this issue, perform the following steps:
 1. Go to **Disk Management** by running **diskmgmt** command in cmd window
 2. Check whether any additional disks are displayed. In the below example, Disk 2 is an additional disk.
 
-![Disk management](./media/backup-azure-restore-files-from-vm/disk-management-7.PNG)
+![Disk management](./media/backup-azure-restore-files-from-vm/disk-management-7.png)
 
 3. Right click on the **Volume** and select **Change Drive Letter and Paths**.
 
