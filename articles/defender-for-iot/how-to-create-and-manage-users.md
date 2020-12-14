@@ -80,7 +80,7 @@ This section describes how to define users. Cyberx, support and administrators u
 To define a user:
 
 1. From the sensor or on-premises management console left pane, select **Users**.
-2. In the Users window, select Create User.
+2. In the Users window, select **Create User**.
 3. In the **Create User** pane, define the following parameters:
 
 - **Username:** Enter a username.
