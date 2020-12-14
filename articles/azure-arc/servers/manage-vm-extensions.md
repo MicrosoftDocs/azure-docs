@@ -62,7 +62,7 @@ This feature depends on the following Azure resource providers in your subscript
 
 If they are not already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
 
-Be sure to review the documentation for each VM extension referenced in the previous table to understand if it has any network or system requirements. This can help you avoid experiencing any connectivity issues with a service or feature that relies on that VM extension. For example, Azure Monitor for VMs Dependency agent and the Azure Automation Hybrid Runbook Worker role depends on the Log Analytics agent.
+Be sure to review the documentation for each VM extension referenced in the previous table to understand if it has any network or system requirements. This can help you avoid experiencing any connectivity issues with an Azure service or feature that relies on that VM extension.
 
 ### Log Analytics VM extension
 
