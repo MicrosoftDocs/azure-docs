@@ -105,9 +105,9 @@ This section covers provisioning your device manually using your Azure IoT Edge 
 
 1. In the [Azure portal](https://ms.portal.azure.com/), navigate to the **IoT Edge** tab of your IoT Hub.
 
-1. Click on the device ID of your device.
+1. Click on the device ID of your device. Copy the **Primary Connection String** field. 
 
-1. Copy the **Primary Connection String** field and paste it into the device connection string field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center. Then, choose **Provisioning with the selected method**.
+1. Paste it into the device connection string field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center. Then, choose **Provisioning with the selected method**.
 
    ![Choose provisioning with the selected method after pasting your device's connection string](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-connection-string.png)
 
@@ -121,11 +121,11 @@ This section covers provisioning your device automatically using DPS and symmetr
 
 1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
 
-1. On the **Overview** tab, copy the **ID Scope** value and paste it into the scope ID field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
+1. On the **Overview** tab, copy the **ID Scope** value. Paste it into the scope ID field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
 
-1. On the **Manage enrollments** tab in the Azure portal, switch to the **Individual Enrollments** tab. Copy the registration ID of the enrollment you created and paste it into the registration ID field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
+1. On the **Manage enrollments** tab in the Azure portal, switch to the **Individual Enrollments** tab. Copy the registration ID of the enrollment you created. Paste it into the registration ID field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
 
-1. On the **Manage enrollments** tab in the Azure portal, select the enrollment you created. Find the **Primary Key** value in the enrollment details, copy it, and paste it into the symmetric key field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
+1. On the **Manage enrollments** tab in the Azure portal, select the enrollment you created. Copy the **Primary Key** value in the enrollment details. Paste it into the symmetric key field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
 
 1. Choose **Provisioning with the selected method**.
 
@@ -149,9 +149,9 @@ This section covers provisioning your device automatically using DPS and X.509 c
 
 1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
 
-1. On the **Overview** tab, copy the **ID Scope** value and paste it into the scope ID field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
+1. On the **Overview** tab, copy the **ID Scope** value. Paste it into the scope ID field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
 
-1. On the **Manage enrollments** tab in the Azure portal, switch to the **Individual Enrollments** tab. Copy the registration ID of the enrollment you created and paste it into the registration ID field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
+1. On the **Manage enrollments** tab in the Azure portal, switch to the **Individual Enrollments** tab. Copy the registration ID of the enrollment you created. Paste it into the registration ID field on the **Azure IoT Edge device provisioning** tab in the Windows Admin Center.
 
 1. Upload your certificate and private key files.
 
