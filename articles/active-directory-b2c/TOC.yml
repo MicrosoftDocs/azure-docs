@@ -368,6 +368,8 @@
         href: relyingparty.md
       - name: Claim resolvers
         href: claim-resolver-overview.md
+  - name: UserInfo endpoint
+    href: userinfo-endpoint.md
   - name: Partner integration
     items:
     - name: Azure AD B2C partner gallery
