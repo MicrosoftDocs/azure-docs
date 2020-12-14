@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 12/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
@@ -15,58 +15,38 @@ ms.custom: devx-track-csharp
 
 # Specify a customer-provided key on a request to Blob storage with .NET
 
-Clients making requests against Azure Blob storage have the option to provide an encryption key on an individual request. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Customer-provided keys can be stored in Azure Key Vault or in another key store.
+Clients making requests against Azure Blob storage have the option to provide an AES-256 encryption key on an individual request. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Customer-provided keys can be stored in Azure Key Vault or in another key store.
 
 This article shows how to specify a customer-provided key on a request with .NET.
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-To learn more about how to authenticate with the Azure Identity client library from Azure Storage, see the section titled **Authenticate with the Azure Identity library** in [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
+To learn more about how to authenticate with the Azure Identity client library, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
 
-## Example: Use a customer-provided key to upload a blob
+## Use a customer-provided key to write to a blob
 
-The following example creates a customer-provided key and uses that key to upload a blob. The code uploads a block, then commits the block list to write the blob to Azure Storage.
+The following example provides an AES-256 key when uploading a blob with the v12 client library for Blob storage. The example uses the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) object to authorize the write request with Azure AD, but you can also authorize the request with Shared Key credentials.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_UploadBlobWithClientKey":::
+
+To call this method, you might use code like the following:
 
 ```csharp
-async static Task UploadBlobWithClientKey(string accountName, string containerName,
-    string blobName, Stream data, byte[] key)
-{
-    const string blobServiceEndpointSuffix = ".blob.core.windows.net";
-    Uri accountUri = new Uri("https://" + accountName + blobServiceEndpointSuffix);
+Uri blobUri = new Uri(string.Format("https://{0}.blob.core.windows.net/{1}/{2}",
+                                    Constants.storageAccountName,
+                                    Constants.containerName,
+                                    Constants.blobName));
 
-    // Specify the customer-provided key on the options for the client.
-    BlobClientOptions options = new BlobClientOptions()
-    {
-        CustomerProvidedKey = new CustomerProvidedKey(key)
-    };
+AesCryptoServiceProvider keyAes = new AesCryptoServiceProvider();
 
-    // Create a client object for the Blob service, including options.
-    BlobServiceClient serviceClient = new BlobServiceClient(accountUri, 
-        new DefaultAzureCredential(), options);
+// Create an array of random bytes.
+byte[] buffer = new byte[1024];
+Random rnd = new Random();
+rnd.NextBytes(buffer);
 
-    // Create a client object for the container.
-    // The container client retains the credential and client options.
-    BlobContainerClient containerClient = serviceClient.GetBlobContainerClient(containerName);
-
-    // Create a new block blob client object.
-    // The blob client retains the credential and client options.
-    BlobClient blobClient = containerClient.GetBlobClient(blobName);
-
-    try
-    {
-        // Create the container if it does not exist.
-        await containerClient.CreateIfNotExistsAsync();
-
-        // Upload the data using the customer-provided key.
-        await blobClient.UploadAsync(data);
-    }
-    catch (RequestFailedException e)
-    {
-        Console.WriteLine(e.Message);
-        Console.ReadLine();
-        throw;
-    }
-}
+await UploadBlobWithClientKey(new BlobUriBuilder(blobUri),
+                                new MemoryStream(buffer), 
+                                keyAes.Key);
 ```
 
 ## Next steps
