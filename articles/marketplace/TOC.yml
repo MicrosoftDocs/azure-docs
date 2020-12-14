@@ -191,15 +191,15 @@
         items: 
         - name: Create the offer
           href: d365-operations-offer-setup.md
-        - name: Set properties
+        - name: Properties
           href: d365-operations-properties.md
-        - name: Set up the offer listing
+        - name: Offer listing
           href: d365-operations-offer-listing.md
-        - name: Set the availability
+        - name: Availability
           href: d365-operations-availability.md
-        - name: Set up technical configuration
+        - name: Technical configuration
           href: d365-operations-technical-configuration.md
-        - name: Set up supplemental content
+        - name: Supplemental content
           href: d365-operations-supplemental-content.md
         - name: Functional validation
           href: d365-operations-validation.md
