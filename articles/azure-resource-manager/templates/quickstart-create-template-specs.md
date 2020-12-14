@@ -24,13 +24,11 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
 
 With PowerShell and CLI, you pass the path to ARM template as a parameter to the command. With ARM template, you embed the ARM template within the template spec definition.
 
-These options are shown below.
+When you create a template spec with PowerShell, you can pass in a local template. Copy the following template and save it locally to a file named **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
+
+:::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
 
 # [PowerShell](#tab/azure-powershell)
-
-1. When you create a template spec with PowerShell, you can pass in a local template. Copy the following template and save it locally to a file named **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
-
-    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
 
 1. Create a new resource group to contain the template spec.
 
@@ -53,10 +51,6 @@ These options are shown below.
 
 # [CLI](#tab/azure-cli)
 
-1. When you create a template spec with CLI, you can pass in a local template. Copy the following template and save it locally to a file named **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
-
-    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
-
 1. Create a new resource group to contain the template spec.
 
     ```azurecli
@@ -78,10 +72,6 @@ These options are shown below.
 
 # [Portal](#tab/azure-portal)
 
-1. When you create a template spec with the portal, you can import a local template. Copy the following template and save it locally to a file named **azuredeploy.json**.
-
-    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. From the top of the screen, in **Search resources, services and docs**, enter **template specs**, and then select **Template specs**.
 
@@ -98,7 +88,7 @@ These options are shown below.
 1. Navigate to your template and select it. Select **Open**.
 1. Select **Import**.
 
-    :::image type="content" source="./media/quickstart-create-template-specs/select-import.png" alt-text="select-import":::
+    :::image type="content" source="./media/quickstart-create-template-specs/select-import.png" alt-text="select import option":::
 
 1. Select or enter the following values:
 
@@ -400,6 +390,8 @@ If you want to let other users in your organization deploy your template spec, y
 
 As you work with template specs, you may need to update the template. In the earlier section, you created a template spec with version `1.0`. Rather than creating a new template spec for the revised template, add a new version to the existing template spec.
 
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/azure-resource-manager/templatespecs/azuredeploy2.json":::
+
 # [PowerShell](#tab/azure-powershell)
 
 1. Create a new version of the template spec.
@@ -455,6 +447,8 @@ As you work with template specs, you may need to update the template. In the ear
       --template-spec $id \
       --parameters namePrefix='demoaccount'
     ```
+
+---
 
 ## Clean up resources
 
