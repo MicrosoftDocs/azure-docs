@@ -115,19 +115,6 @@ module.exports = async function (context, myQueueItem) {​​
 }​​;
 ```
 
-# [Powershell](#tab/powershell)
-
-The following example demonstrates how to read a RabbitMQ queue message via a trigger.
-
-```powershell
-# Input bindings are passed in via param block.
-param([string] $MyQueueItem, $TriggerMetadata)
-
-# Write out the queue message and insertion time to the information log.
-Write-Host "PowerShell rabbitmq trigger function processed work item: $MyQueueItem"
-Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
-```
-
 # [Python](#tab/python)
 
 The following example demonstrates how to read a RabbitMQ queue message via a trigger.
@@ -201,10 +188,6 @@ Attributes are not supported by C# Script.
 
 Attributes are not supported by JavaScript.
 
-# [Powershell](#tab/powershell)
-
-Attributes are not supported by Powershell
-
 # [Python](#tab/python)
 
 Attributes are not supported by Python.
@@ -255,10 +238,6 @@ The RabbitMQ message is passed into the function as either a string or JSON obje
 
 The RabbitMQ message is passed into the function as either a string or JSON object.
 
-# [Powershell](#tab/powershell)
-
-The RabbitMQ message is passed into the function as either a string or JSON object.
-
 # [Python](#tab/python)
 
 The RabbitMQ message is passed into the function as either a string or JSON object.
@@ -269,7 +248,7 @@ Refer to Java [attributes and annotations](#attributes-and-annotations).
 
 ---
 
-## Dead Letter Queues
+## Dead letter queues
 Dead letter queues and exchanges can't be controlled or configured from the RabbitMQ trigger.  In order to use dead letter queues, pre-configure the queue used by the trigger in RabbitMQ. Please refer to the [RabbitMQ documentation](https://www.rabbitmq.com/dlx.html).
 
 ## host.json settings
@@ -297,7 +276,7 @@ This section describes the global configuration settings available for this bind
 |connectionString|n/a|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work.|
 |port|0|The maximum number of sessions that can be handled concurrently per scaled instance.|
 
-## Local Testing
+## Local testing
 
 > [!NOTE]
 > The connectionString takes precedence over "hostName", "userName", and "password". If these are all set, the connectionString will override the other two.
@@ -324,7 +303,7 @@ If you are testing locally without a connection string, you should set the "host
 |userName|n/a|(optional if using ConnectionStringSetting) <br>Name to access the queue |
 |password|n/a|(optional if using ConnectionStringSetting) <br>Password to access the queue|
 
-## Monitoring RabbitMQ Endpoint
+## Monitoring RabbitMQ endpoint
 To monitor your queues and exchanges for a certain RabbitMQ endpoint:
 
 * Enable the [RabbitMQ management plugin](https://www.rabbitmq.com/management.html)

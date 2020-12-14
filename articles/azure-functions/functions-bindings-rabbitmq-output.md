@@ -13,7 +13,7 @@ ms.custom:
 # RabbitMQ output binding for Azure Functions overview
 
 > [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Linux support will be released early in the 2021 calendar year. Consumption is not supported.
+> The RabbitMQ bindings are only fully supported on **Windows Premium** plans. Consumption and Linux are currently not supported.
 
 Use the RabbitMQ output binding to send messages to a RabbitMQ queue.
 
@@ -153,48 +153,6 @@ module.exports = function (context, input) {
 };
 ```
 
-# [Powershell](#tab/powershell)
-
-The following example shows a RabbitMQ output binding in a *function.json* file and a [Powershell function](functions-reference-powershell.md) that uses the binding. The function reads in the message from an HTTP trigger and outputs it to the RabbitMQ queue.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "bindings": [
-        {
-            "type": "httpTrigger",
-            "direction": "in",
-            "authLevel": "anonymous",
-            "name": "Request",
-            "methods":[
-                "get",
-                "post"
-            ]
-        },
-        {
-            "type": "rabbitMQ",
-            "name": "outputMessage",
-            "queueName": "outputQueue",
-            "connectionStringSetting": "connectionStringAppSetting",
-            "direction": "out"
-        }
-    ]
-}
-```
-
-Here's the Powershell code:
-
-```powershell
-using namespace System.Net
-
-param($Request, $TriggerMetadata)
-Write-Host "PowerShell HTTP trigger function processed a request."
-
-$message = $Request.Query.Message
-Push-OutputBinding -Name outputMessage -Value $message
-```
-
 # [Python](#tab/python)
 
 The following example shows a RabbitMQ output binding in a *function.json* file and a Python function that uses the binding. The function reads in the message from an HTTP trigger and outputs it to the RabbitMQ queue.
@@ -287,10 +245,6 @@ Attributes are not supported by C# Script.
 
 Attributes are not supported by JavaScript.
 
-# [JavaScript](#tab/powershell)
-
-Attributes are not supported by Powershell.
-
 # [Python](#tab/python)
 
 Attributes are not supported by Python.
@@ -338,10 +292,6 @@ When working with C# functions:
 The RabbitMQ message is sent through a string.
 
 # [JavaScript](#tab/javascript)
-
-The RabbitMQ message is sent through a string.
-
-# [Powershell](#tab/powershell)
 
 The RabbitMQ message is sent through a string.
 
