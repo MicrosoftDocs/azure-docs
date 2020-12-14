@@ -29,7 +29,7 @@ To support nested IoT Edge scenarios, the container image for the connected regi
 ```azurecli-interactive
 az acr import \
   --name mycontainerregistry001 \
-  --source mcr.microsoft.com/acr/connected-registry:latest
+  --source mcr.microsoft.com/acr/connected-registry:0.1.0
 ```
 
 ## Create a client token for access to the cloud registry
@@ -41,7 +41,7 @@ az acr scope-map create \
   --description "Connected registry repo pull scope map." \
   --name conected-registry-pull \
   --registry mycontainerregistry001 \
-  --repository acr/connected-registry content/read
+  --repository "acr/connected-registry" content/read
 ```
 
 Next, use the following command to create a client token for the IoT Edge device and associate it to the scope map:
@@ -117,7 +117,7 @@ This will return the configuration for the connected registry including the newl
 
 The JSON above lists the environment variables that need to be passed to the connected registry container at the run time. The following environment variables are optional:
 
-- `ACR_REGISTRY_CERTIFICATE_VOLUME` - this is required if your connected registry will be accessible via HTTPS. The volume should point to the location where the HTTPS certificates are stored.
+- `ACR_REGISTRY_CERTIFICATE_VOLUME` - this is required if your connected registry will be accessible via HTTPS. The volume should point to the location where the HTTPS certificates are stored. If not set, the default location is `/var/acr/certs`.
 - `ACR_REGISTRY_DATA_VOLUME` - this can optionally be used to overwrite the default location `/var/acr/data` where the images will be stored byt the connected registry. This location must match the volume bind for the container.
 
 You will need the information for the IoT Edge manifest below.
@@ -139,7 +139,7 @@ To deploy the connected registry module using the Azure CLI, save the following 
                 "modules": {
                     "connected-registry": {
                         "settings": {
-                            "image": "mycontainerregistry001.azurecr.io/acr/connected-registry:latest",
+                            "image": "mycontainerregistry001.azurecr.io/acr/connected-registry:0.1.0",
                             "createOptions": "{\"HostConfig\":{\"Binds\":[\"/home/azureuser/connected-registry:/var/acr/data\"],\"PortBindings\":{\"8080/tcp\":[{\"HostPort\":\"8080\"}]}}}"
                         },
                         "type": "docker",
@@ -241,6 +241,17 @@ az iot edge set-modules \
 ```
 
 For more details you can refer to the [Deploy Azure IoT Edge modules with Azure CLI](../iot-edge/how-to-deploy-modules-cli.md) article.
+
+To check the status of the connected registry, use the following CLI command:
+
+```azurecli-interactive
+az acr connected-registry show \
+  --registry mycontainerregistry001 \
+  --name myconnectedregistry \
+  --output table
+```
+
+You may need to wait few minutes until the deployment of the connected registry completes.
 
 ## Next steps
 

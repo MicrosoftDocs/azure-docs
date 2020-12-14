@@ -33,7 +33,7 @@ Create a container registry using the [az acr create][az-acr-create] command. Th
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup \
   --name mycontainerregistry001 \
-  --sku Basic
+  --sku Premium
 ```
 
 This example creates a *Basic* registry, a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
@@ -51,7 +51,7 @@ az acr connected-registry create --registry mycontainerregistry001 \
 The above command will create a connected registry resource in Azure and link it to the *mycontainerregistry001* cloud ACR. The *hello-world* and *acr/connected-registry* repositories will be synchronized between the cloud ACR and the registry on premises. Because no `--mode` option is specified for the connected registry, it will allow _pull_ and _push_ functionality by default.
 
   > [!IMPORTANT]
-  > To support nested scenarios where lower leyers have no Internet access, you must always allow synchronization of the `acr/connected-registry` repository. This repository contains the image for the connected registry runtime.
+  > To support nested scenarios where lower layers have no Internet access, you must always allow synchronization of the `acr/connected-registry` repository. This repository contains the image for the connected registry runtime.
 
 ## Create a connected registry resource for pull-only functionality
 
@@ -60,7 +60,7 @@ You can use the connected registry [az acr connected-registry create][az-acr-con
 ```azurecli-interactive
 az acr connected-registry create --registry mycontainerregistry001 \
   --name myconnectedmirror \
-  --repository "hello-world" \
+  --repository "hello-world" "acr/connected-registry" \
   --mode mirror
 ```
 
