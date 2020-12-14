@@ -31,9 +31,7 @@ To get started, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
-
-* AwareGo supports **SP** initiated SSO.
+In this tutorial, you configure and test Azure AD SSO in a test environment. AwareGo supports a service provider (SP)-initiated SSO.
 
 
 ## Adding AwareGo from the gallery
@@ -68,13 +66,13 @@ To configure and test Azure AD SSO with AwareGo, do the following:
 
 To enable Azure AD SSO in the Azure portal, do the following:
 
-1. In the Azure portal, on the **AwareGo** application integration page, in the **Manage** section, select **single sign-on**.
+1. In the Azure portal, on the **AwareGo** application integration page, under **Manage**, select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. To edit the settings, on the **Set up Single Sign-On with SAML** pane, select the **Edit** button.
 
    ![Screenshot of the Edit button for Basic SAML Configuration.](common/edit-urls.png)
 
-1. In the edit pane, under **Basic SAML Configuration**, do the following:
+1. On the edit pane, under **Basic SAML Configuration**, do the following:
 
     a. In the **Sign on URL** box, enter either of the following URLs:
 
@@ -105,7 +103,7 @@ In this section, you create a test user in the Azure portal called B.Simon.
 1. On the **User** properties pane, do the following:
 
    a. In the **Name** box, enter **B.Simon**.  
-   b. In the **User name** box, enter the username in the following format: `<username>@<companydomain>.<extension>`. For example, `B.Simon@contoso.com`.  
+   b. In the **User name** box, enter the username in the following format: `<username>@<companydomain>.<extension>` (for example, *B.Simon@contoso.com*).  
    c. Select the **Show password** check box, and then note the value that's displayed in the **Password** box for later use.  
    d. Select **Create**.
 
