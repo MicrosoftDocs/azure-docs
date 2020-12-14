@@ -48,13 +48,13 @@ To download this update, go to the [Microsoft Update Catalog](https://www.catalo
 - **KB4537819**, which contains cumulative Windows Updates for 2012 R2 up to March 2020. For more information on what is included in this rollup, go to [February monthly security rollup](https://support.microsoft.com/help/4537819).
 - **KB4539946**, which is a Microsoft Update Standalone Package file, WindowsTH-KB4539946-x64. This file is used to update the device software.
 
-Download KB4539946, and follow these instructions to [Apply the update via local web UI](./storsimple-virtual-array-install-update-11#use-the-local-web-ui.md).
+Download KB4539946, and follow these instructions to [Apply the update via local web UI](./storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
 ## Known issues in Update 1.3
-No new issues were release-noted in Update 1.3. All the release-noted issues are carried over from previous releases. To see the summary of known issues included from the previous releases, go to [Known issues in Update 1.2](./storsimple-virtual-array-update-12-release-notes#known-issues-in-update-12.md).
+No new issues were release-noted in Update 1.3. All the release-noted issues are carried over from previous releases. To see the summary of known issues included from the previous releases, go to [Known issues in Update 1.2](./storsimple-virtual-array-update-12-release-notes.md#known-issues-in-update-12).
 
 ## Next steps
-Download KB4539946 and [Apply the update via local web UI](./storsimple-virtual-array-install-update-11#use-the-local-web-ui.md).
+Download KB4539946 and [Apply the update via local web UI](./storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
 ## References
 Looking for an older release note? Go to:
