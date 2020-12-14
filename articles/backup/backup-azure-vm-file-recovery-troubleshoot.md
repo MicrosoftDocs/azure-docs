@@ -141,11 +141,11 @@ To identify and resolve this issue, perform the following steps:
 
    ![Disk management3](./media/backup-azure-restore-files-from-vm/disk-management-10.png)
 
-The new volumes should get attached.  
+6. The new volumes should get attached.  
 
    ![Disk not mountiing](./media/backup-azure-restore-files-from-vm/disk-not-mounting-11.png)
 
-6. In the file explorer, the new volumes will be visible after rerunning the script.
+7. In the file explorer, the new volumes will be visible after rerunning the script.
 
    ![Disk not mounting1](./media/backup-azure-restore-files-from-vm/disk-not-mounting-12.png)
 
