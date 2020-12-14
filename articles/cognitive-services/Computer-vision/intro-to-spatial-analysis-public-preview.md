@@ -70,4 +70,4 @@ Access to the spatial analysis public preview is subject to Microsoft's sole dis
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Characteristics and limitations for spatial analysis](accuracy-and-limitations.md)
+> [Characteristics and limitations for spatial analysis](https://docs.microsoft.com/en-us/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)
