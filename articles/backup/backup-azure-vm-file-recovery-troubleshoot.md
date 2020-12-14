@@ -79,19 +79,14 @@ To resolve this issue, we need to manually set the Read-Write Access to the stor
 1. Set Read-Write access.<br>
 Navigate to Server Manager > File and Storage Services > Volumes > Storage Pools<br>
 
-
 ![Windows Storage](./media/backup-azure-restore-files-from-vm/windows-storage-1.png)
-
 
 2. In the **Storage Pool** window, right-click the available storage pool and select **Set Read-Write Access** option.<br>
 
-
 ![Windows Storage Read Write](./media/backup-azure-restore-files-from-vm/windows-storage-read-write-2.png)
-
 
 3. After storage pool is assigned with read/write access, we have to attach the virtual disk. <br>
 Navigate to **Server Manager UI** under the Virtual Disks section, right-click to select **Attach Virtual Disk** option.<br>
-
 
 ![Server manager Virtual Disk](./media/backup-azure-restore-files-from-vm/server-manager-virtual-disk-3.png)
 
