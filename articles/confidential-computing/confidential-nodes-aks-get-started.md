@@ -70,7 +70,7 @@ az provider register --namespace Microsoft.ContainerService
 ```
 
 ### Azure Confidential Computing feature registration on Azure (optional but recommended)
-Registering the AKS-ConfidentialComputinAddon on the Azure Subscription. This feature will add two daemonsets as discussed in details [here](/confidential-nodes-aks-overview#aks-provided-daemon-sets-addon):
+Registering the AKS-ConfidentialComputinAddon on the Azure Subscription. This feature will add two daemonsets as discussed in details [here](./confidential-nodes-aks-overview.md#aks-provided-daemon-sets-addon):
 1. SGX Device Driver Plugin
 2. SGX Attestation Quote Helper
 
