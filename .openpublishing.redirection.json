@@ -8859,6 +8859,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/technical-profiles-overview.md",
+      "redirect_url": "/azure/active-directory-b2c/technicalprofiles",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/custom-policy-manage-sso-and-token-config.md",
       "redirect_url": "/azure/active-directory-b2c/configure-tokens-custom-policy",
       "redirect_document_id": false
@@ -60648,6 +60653,11 @@
     {
       "source_path": "articles/purview/scan-sqlresource-firewall.md",
       "redirect_url": "/azure/purview/register-scan-azure-sql-database",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/purview/powershell-register-scan-power-bi.md",
+      "redirect_url": "/azure/purview/register-scan-power-bi-tenant",
       "redirect_document_id": true
     },
     {
