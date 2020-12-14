@@ -104,8 +104,8 @@ items:
         href: register-scan-on-premises-sql-server.md
       - name: Power BI tenant - Portal
         href: register-scan-power-bi-tenant.md
-      - name: Power BI tenant - PowerShell
-        href: powershell-register-scan-power-bi.md
+      # - name: Power BI tenant - PowerShell
+        # href: powershell-register-scan-power-bi.md
   - name: Business glossary
     items:
     - name: Create, import, & export glossary terms
