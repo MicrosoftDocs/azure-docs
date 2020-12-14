@@ -36,6 +36,7 @@ ms.author: aahi
 > * Go to the Azure portal and find the key and endpoint for the Text Analytics resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**. Then replace the strings in the code below with your key and endpoint.
 To call the Text Analytics API, you need the following information:
 > * You can find language specific samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
+
 |parameter  |Description  |
 |---------|---------|
 |`-X POST <endpoint>`     | Specifies your endpoint for accessing the API.        |
