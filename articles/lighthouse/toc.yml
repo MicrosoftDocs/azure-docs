@@ -24,9 +24,6 @@
   - name: Managed Service offers in Azure Marketplace
     displayName: azure marketplace, marketplace, managed service, private, plan
     href: ./concepts/managed-services-offers.md
-  - name: Recommended security practices
-    displayName: mfa, authentication, secure, group
-    href: ./concepts/recommended-security-practices.md
   - name: Cloud Solution Provider program considerations
     displayName: csp, aobo, partner
     href: ./concepts/cloud-solution-provider.md
@@ -36,6 +33,13 @@
   - name: Azure Lighthouse and Azure managed applications 
     displayName: managed apps, ama
     href: ./concepts/managed-applications.md
+  - name: Security
+    items:
+    - name: Recommended security practices
+      displayName: mfa, authentication, secure, group
+      href: ./concepts/recommended-security-practices.md
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Onboard a customer to Azure Lighthouse
@@ -50,12 +54,18 @@
   - name: Link your partner ID
     displayName: partner earned credit, pec, mpn
     href: ./how-to/partner-earned-credit.md
+  - name: Update a delegation
+    displayName: upgrade
+    href: ./how-to/update-delegation.md
   - name: Remove access to a delegation
     displayName: delete, undelegate
     href: ./how-to/remove-delegation.md
   - name: Azure Arc integration
     displayName: server, kubernetes, hybrid, infrastructure
     href: ./how-to/manage-hybrid-infrastructure-arc.md
+  - name: Azure Migrate integration
+    displayName: migration, project, on-prem
+    href: ./how-to/migration-at-scale.md
   - name: Azure Monitor integration
     items:
     - name: Use Azure Monitor Logs at scale
@@ -111,5 +121,7 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all
   - name: Product feedback
     href: https://feedback.azure.com/forums/922753

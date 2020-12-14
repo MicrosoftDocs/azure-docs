@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Deploy server-rendered Next.js websites on Azure Static Web Apps"
+title: "Tutorial: Deploy static-rendered Next.js websites on Azure Static Web Apps"
 description: "Generate and deploy Next.js dynamic sites with Azure Static Web Apps."
 services: static-web-apps
 author: christiannwamba
@@ -11,7 +11,7 @@ ms.custom: devx-track-js
 ---
 
 
-# Deploy server-rendered Next.js websites on Azure Static Web Apps Preview
+# Deploy static-rendered Next.js websites on Azure Static Web Apps Preview
 
 In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) generated static website to [Azure Static Web Apps](overview.md). To begin, you learn to set up, configure, and deploy a Next.js app. During this process, you also learn to deal with common challenges often faced when generating static pages with Next.js
 
@@ -25,9 +25,9 @@ In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) generated 
 
 Rather than using the Next.js CLI to create an app, you can use a starter repository that includes an existing Next.js app. This repository features a Next.js app with dynamic routes, which highlights a common deployment issue. Dynamic routes need an extra deployment configuration which you will learn more about in a moment.
 
-To begin, create a new repository under your GitHub account from a template repository. 
+To begin, create a new repository under your GitHub account from a template repository.
 
-1. Navigate to <http://github.com/staticwebdev/nextjs-starter/generate>
+1. Navigate to [https://github.com/staticwebdev/nextjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nextjs-starter/generate)
 1. Name the repository **nextjs-starter**
 1. Next, clone the new repo to your machine. Make sure to replace `<YOUR_GITHUB_ACCOUNT_NAME>` with your account name.
 
@@ -69,7 +69,7 @@ When you build a Next.js site using `npm run build`, the app is built as a tradi
 
     ```javascript
     module.exports = {
-      exportTrailingSlash: true,
+      trailingSlash: true,
       exportPathMap: function() {
         return {
           '/': { page: '/' }
@@ -203,7 +203,7 @@ The reason for this error is because Next.js only generated the home page based 
    const data = require('./utils/projectsData');
 
    module.exports = {
-     exportTrailingSlash: true,
+     trailingSlash: true,
      exportPathMap: async function () {
        const { projects } = data;
        const paths = {

@@ -98,7 +98,7 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 
 Navigate back to the app service that is configured for the custom domain name. Click **Custom domains**, then click **Hostnames**. To add the CNAME record you created, click **+ Add hostname**.
 
-![figure 1](./media/dns-custom-domain/figure1.png)
+![Screenshot that highlights the + Add hostname button.](./media/dns-custom-domain/figure1.png)
 
 Once the process is complete, run **nslookup** to validate name resolution is working.
 
@@ -131,7 +131,7 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 
 Navigate back to your storage account by clicking **Storage** > **Storage Accounts**, select your storage account and click **Custom domain**. Type in the alias you created without the asverify prefix in the text box, check **Use indirect CNAME validation**, and click **Save**. Once this step is complete, return to your DNS zone and create a CNAME record without the asverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix.
 
-![blob storage custom domain](./media/dns-custom-domain/indirectvalidate.png)
+![Screenshot that shows the Custom Domain page.](./media/dns-custom-domain/indirectvalidate.png)
 
 Validate DNS resolution by running `nslookup`
 

@@ -1,5 +1,5 @@
 - name: Azure Queue storage documentation
-  href: /azure/storage/queues/
+  href: ./index.yml
 - name: Overview
   expanded: true
   items:
@@ -70,7 +70,7 @@
     - name: Authorizing management operations
       href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Built-in security controls
-      href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Use Azure Private Endpoints
       href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json  
     - name: Security controls by Azure Policy
@@ -94,8 +94,6 @@
         href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Performance and scalability checklist
       href: storage-performance-checklist.md
-  - name: Concurrency
-    href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Monitor and troubleshoot
     items:
     - name: Monitor Queue storage
@@ -121,6 +119,8 @@
       href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Upgrade a storage account
       href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Recover a deleted storage account
+      href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Secure queue data
     items:
     - name: Authorize access to queue data
@@ -128,11 +128,11 @@
       - name: Authorization options for users
         items:
         - name: Portal
-          href: authorize-queue-access-portal.md
+          href: authorize-data-operations-portal.md
         - name: PowerShell
-          href: authorize-active-directory-powershell.md
+          href: authorize-data-operations-powershell.md
         - name: Azure CLI
-          href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: authorize-data-operations-cli.md
       - name: Manage access rights with Azure RBAC
         items:
         - name: Portal
@@ -266,10 +266,10 @@
       href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Storage Explorer accessibility
       href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Azure Storage on Microsoft Q&A
-    href: https://docs.microsoft.com/answers/topics/azure-queue-storage.html
-  - name: Azure Storage on Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/windows-azure-storage
+  - name: Queue storage on Microsoft Q&A
+    href: /answers/topics/azure-queue-storage.html
+  - name: Queue storage on Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-queues
   - name: Pricing for Queue storage
     href: https://azure.microsoft.com/pricing/details/storage/queues/
   - name: Azure pricing calculator
@@ -309,7 +309,7 @@
       - name: Azure Storage client library version 12.x
         href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
       - name: Blobs, Queues, and Files (version 8)
-        href: https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy
+        href: /java/api/overview/azure/storage?view=azure-java-legacy
       - name: Azure Storage client library version 8.x and earlier
         href: https://github.com/Azure/azure-storage-java
     - name: Node.js

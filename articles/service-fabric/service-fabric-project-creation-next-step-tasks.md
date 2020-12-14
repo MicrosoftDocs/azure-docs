@@ -19,7 +19,7 @@ Or, try out one of the following walk-throughs and create your first...
 - [Guest executable service on Windows](quickstart-guest-app.md) 
 - [Windows container application](service-fabric-get-started-containers.md) 
 
-You may also be interested in trying out our [sample applications](https://aka.ms/servicefabricsamples).
+You may also be interested in trying out our [sample applications](/samples/browse/?products=azure).
 
 ## Have questions or feedback?  Need to report an issue?
 Read through [common questions](service-fabric-common-questions.md) and find answers on what Service Fabric can do and how it should be used.
@@ -57,5 +57,3 @@ As with other platforms, a Service Fabric application usually goes through the f
 - [Create a Windows cluster in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 - Visualize your cluster, including deployed applications and physical layout, with [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 - [Version and upgrade your services](service-fabric-application-upgrade-tutorial.md)
-
-

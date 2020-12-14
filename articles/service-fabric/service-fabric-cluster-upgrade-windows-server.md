@@ -1,11 +1,8 @@
 ---
 title: Upgrade the version of a standalone cluster 
 description: Upgrade the Azure Service Fabric code that runs a standalone Service Fabric cluster.
-author: georgewallace
-
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: gwallace
 ---
 # Upgrade the Service Fabric version that runs on your cluster 
 

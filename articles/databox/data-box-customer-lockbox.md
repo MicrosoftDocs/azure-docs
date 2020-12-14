@@ -71,7 +71,6 @@ After the issue is resolved, the data copy job will progress to completion.
 
 ## Next steps
 
-- [Customer Lockbox for Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+- [Customer Lockbox for Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md)
 
 <!--- [Approve, audit support access requests to VMs using Customer Lockbox for Azure](https://azure.microsoft.com/blog/approve-audit-support-access-requests-to-vms-using-customer-lockbox-for-azure/)-->
-

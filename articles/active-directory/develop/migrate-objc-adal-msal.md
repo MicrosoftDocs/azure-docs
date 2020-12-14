@@ -133,7 +133,7 @@ MSAL provides more clarity between errors that can be handled by your app and th
 
 Handling all other errors in the [`MSALError` list](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) is optional. You could use the information in those errors to improve the user experience.
 
-See [Handling exceptions and errors using MSAL](msal-handling-exceptions.md) for more about MSAL error handling.
+See [Handling exceptions and errors using MSAL](msal-error-handling-ios.md) for more about MSAL error handling.
 
 ### Broker support
 

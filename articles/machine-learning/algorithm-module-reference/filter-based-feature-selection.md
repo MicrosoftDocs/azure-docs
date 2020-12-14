@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
+ms.date: 10/10/2020
 ---
 # Filter Based Feature Selection
 
@@ -85,8 +85,14 @@ You choose a standard statistical metric. The module computes the correlation be
 
     - If you specify fewer result columns than there are feature columns, the features are ranked by descending score. Only the top features are returned. 
 
-7.  Submit the pipeline, or select the Filter Based Feature Selection module and then select **Run selected**.
+7.  Submit the pipeline.
 
+> [!IMPORTANT]
+> If you are going to use **Filter Based Feature Selection** in inference, you need to use [Select Columns Transform](./select-columns-transform.md) to store the feature selected result and [Apply Transformation](./apply-transformation.md) to apply the feature selected transformation to the scoring dataset.
+>
+> Refer to the following screenshot to build your pipeline, to ensure that column selections are the same for the scoring process.
+> [!div class="mx-imgBorder"]
+> ![Sample pipeline](media/module/filter-based-feature-selection-score.png)
 
 ## Results
 

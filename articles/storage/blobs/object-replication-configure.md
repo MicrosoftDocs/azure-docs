@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -310,7 +310,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-To use the JSON file to configure the replication policy on the source account with PowerShell, retrieve the local file and convert from JSON to an object. Then call the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) command to configure the policy on the source account, as shown in the following example. Remember to replace values in angle brackets and the file path with your own values:
+To use the JSON file to define the replication policy on the source account with PowerShell, retrieve the local file and convert from JSON to an object. Then call the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) command to configure the policy on the source account, as shown in the following example. Remember to replace values in angle brackets and the file path with your own values:
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
@@ -344,6 +344,55 @@ az storage account or-policy create \
 ```
 
 ---
+
+## Check the replication status of a blob
+
+You can check the replication status for a blob in the source account using the Azure portal, PowerShell, or Azure CLI. Object replication properties are not populated until replication has either completed or failed.
+
+# [Azure portal](#tab/portal)
+
+To check the replication status for a blob in the source account in the Azure portal, follow these steps:
+
+1. Navigate to the source account in the Azure portal.
+1. Locate the container that includes the source blob.
+1. Select the blob to display its properties. If the blob has been replicated successfully, you'll see in the **Object replication** section that the status is set to *Complete*. The replication policy ID and the ID for the rule governing object replication for this container are also listed.
+
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Screenshot showing replication status for a blob in the source account":::
+
+# [PowerShell](#tab/powershell)
+
+To check the replication status for a blob in the source account with PowerShell, get the value of the object replication **ReplicationStatus** property, as shown in the following example. Remember to replace values in angle brackets with your own values:
+
+```powershell
+$ctxSrc = (Get-AzStorageAccount -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName).Context
+$blobSrc = Get-AzStorageBlob -Container $srcContainerName1 `
+    -Context $ctxSrc `
+    -Blob <blob-name>
+$blobSrc.BlobProperties.ObjectReplicationSourceProperties[0].Rules[0].ReplicationStatus
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To check the replication status for a blob in the source account with Azure CLI, get the value of the object replication **status** property, as shown in the following example:
+
+```azurecli
+az storage blob show \
+    --account-name <source-account-name> \
+    --container-name <source-container-name> \
+    --name <source-blob-name> \
+    --query 'objectReplicationSourceProperties[].rules[].status' \
+    --output tsv \
+    --auth-mode login
+```
+
+---
+
+If the replication status for a blob in the source account indicates failure, then investigate the following possible causes:
+
+- Make sure that the object replication policy is configured on the destination account.
+- Verify that the destination container still exists.
+- If the source blob has been encrypted with a customer-provided key as part of a write operation, then object replication will fail. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
 ## Remove a replication policy
 

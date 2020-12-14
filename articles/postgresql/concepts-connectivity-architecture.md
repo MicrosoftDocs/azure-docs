@@ -1,8 +1,8 @@
 ---
 title: Connectivity architecture - Azure Database for PostgreSQL - Single Server
 description: Describes the connectivity architecture of your Azure Database for PostgreSQL - Single Server.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
@@ -45,7 +45,7 @@ The following table lists the primary and secondary IPs of the Azure Database fo
 | India Central | 104.211.96.159	 |
 | India South | 104.211.224.146	 |
 | India West | 104.211.160.80	 |
-| Japan East | 13.78.61.196, 191.237.240.43	 |
+| Japan East | 13.78.61.196, 191.237.240.43, 40.79.192.23 |
 | Japan West | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7	 |
 | Korea Central | 52.231.32.42	 |
 | Korea South | 52.231.200.86	 |

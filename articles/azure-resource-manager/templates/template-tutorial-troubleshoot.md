@@ -1,6 +1,6 @@
 ﻿---
 title: Troubleshoot deployments
-description: Learn how to monitor and troubleshoot Azure Resource Manager template deployments. Shows activity logs and deployment history.
+description: Learn how to monitor and troubleshoot Azure Resource Manager template (ARM template) deployments. Shows activity logs and deployment history.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
@@ -9,7 +9,7 @@ ms.author: jgao
 
 # Tutorial: Troubleshoot ARM template deployments
 
-Learn how to troubleshoot Azure Resource Manager (ARM) template deployment errors. In this tutorial, you set up two errors in a template, and learn how to use the activity logs and deployment history to resolve the issues.
+Learn how to troubleshoot Azure Resource Manager template (ARM template) deployment errors. In this tutorial, you set up two errors in a template, and learn how to use the activity logs and deployment history to resolve the issues.
 
 There are two types of errors that are related to template deployment:
 
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-- Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+- Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Create a problematic template
 
@@ -91,14 +91,14 @@ The deployment error can be found from the Azure portal using the following proc
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Open the resource group by selecting **Resource groups** and then the resource group name. You shall see **1 Failed** under **Deployment**.
 
-    ![Resource Manager tutorial troubleshoot](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
+    ![Screenshot that highlights the failed deployment.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
 3. Select **Error details**.
 
-    ![Resource Manager tutorial troubleshoot](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
+    ![Screenshot that highlights the Error details link.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
     The error message is the same as the one shown earlier:
 
-    ![Resource Manager tutorial troubleshoot](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
+    ![Screenshot that shows the error details.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
 
 You can also find the error from the activity logs:
 

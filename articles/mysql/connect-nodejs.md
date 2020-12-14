@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Connect using Node.js - Azure Database for MySQL'
 description: This quickstart provides several Node.js code samples you can use to connect and query data from Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 5/26/2020
+ms.date: 12/11/2020
 ---
 # Quickstart: Use Node.js to connect and query data in Azure Database for MySQL
 
@@ -47,7 +47,13 @@ Depending on your platform, follow the instructions in the appropriate section t
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
    ```bash
-   sudo apt-get install -y nodejs npm
+    # Using Ubuntu
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    
+    # Using Debian, as root
+    curl -sL https://deb.nodesource.com/setup_14.x | bash -
+    apt-get install -y nodejs
    ```
 
 2. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
@@ -60,14 +66,10 @@ Depending on your platform, follow the instructions in the appropriate section t
    ```
 3. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
 
-### Mac OS
+### macOS
 
-1. Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
+1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your macOS installer.
 
-   ```bash
-   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-   brew install node
-   ```
 2. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
 
    ```bash
@@ -313,6 +315,16 @@ function deleteData(){
 				else  console.log('Done.') 
 		});
 };
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

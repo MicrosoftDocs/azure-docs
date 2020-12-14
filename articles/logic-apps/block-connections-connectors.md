@@ -219,7 +219,7 @@ For more information about Azure policy definitions, see these topics:
 
 * [Policy structure definition](../governance/policy/concepts/definition-structure.md)
 * [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
-* [Azure Policy built-in policy definitions for Azure Logic Apps](../logic-apps/policy-samples.md)
+* [Azure Policy built-in policy definitions for Azure Logic Apps](./policy-reference.md)
 
 <a name="create-policy-connector-usage"></a>
 
@@ -306,7 +306,7 @@ For more information about Azure policy definitions, see these topics:
 
 * [Policy structure definition](../governance/policy/concepts/definition-structure.md)
 * [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
-* [Azure Policy built-in policy definitions for Azure Logic Apps](../logic-apps/policy-samples.md)
+* [Azure Policy built-in policy definitions for Azure Logic Apps](./policy-reference.md)
 
 <a name="create-policy-assignment"></a>
 

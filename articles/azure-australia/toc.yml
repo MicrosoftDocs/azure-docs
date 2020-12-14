@@ -16,7 +16,7 @@
         href: azure-key-vault.md
       - name: Identity federation
         href: identity-federation.md
-      - name: RBAC and PIM
+      - name: Azure RBAC and PIM
         href: role-privileged.md
       - name: Site Recovery and Backup for Essential 8
         href: recovery-backup.md

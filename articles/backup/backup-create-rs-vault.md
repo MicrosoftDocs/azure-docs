@@ -30,7 +30,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
    - We recommend that if you're using Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting.
    - If you don't use Azure as a primary backup storage endpoint, then choose **Locally redundant**, which reduces the Azure storage costs.
    - Learn more about [geo](../storage/common/storage-redundancy.md#geo-redundant-storage) and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
-   - If you need data availability without downtime in a region, guaranteeing data residency, then choose [zone-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
+   - If you need data availability without downtime in a region, guaranteeing data residency, then choose [zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 >[!NOTE]
 >The Storage Replication settings for the vault aren't relevant for Azure file share backup as the current solution is snapshot based and there's no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.
@@ -60,7 +60,7 @@ Since this process is at the storage level, there are [pricing implications](htt
 >Before you begin:
 >
 >- Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
->- The Cross Region Restore (CRR) feature is now previewed in all Azure public regions and sovereign clouds.
+>- The Cross Region Restore (CRR) feature is now previewed in all Azure public regions.
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
 >- After opting-in, it might take up to 48 hours for the backup items to be available in secondary regions.
 >- Currently CRR for Azure VMs is supported only for Azure Resource Manger Azure VMs. Classic Azure VMs won't be supported.  When additional management types support CRR, then they'll be **automatically** enrolled.
@@ -72,8 +72,9 @@ A vault created with GRS redundancy includes the option to configure the Cross R
 
  ![Backup Configuration banner](./media/backup-azure-arm-restore-vms/banner.png)
 
-1. From the portal, go to Recovery Services vault > Settings > Properties.
-2. Select **Enable Cross Region Restore in this vault** to enable the functionality.
+1. From the portal, go to your Recovery Services vault > **Properties** (under **Settings**).
+1. Under **Backup Configuration**, select **Update**.
+1. Select **Enable Cross Region Restore in this vault** to enable the functionality.
 
    ![Enable Cross Region restore](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 

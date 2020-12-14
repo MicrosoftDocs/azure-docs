@@ -7,6 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
+ms.subservice: migration
 
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -60,7 +61,7 @@ Prepare both the source SQL Server VM and the target region for the move.
     - Azure Site Recovery automatically discovers and creates a virtual network when you enable replication for the source VM. You can also pre-create a network and assign it to the VM in the user flow for enabling replication. You need to manually create any other resources in the target region.
 - To create the most commonly used network resources that are relevant for you based on the source VM configuration, see the following documentation: 
     - [Network security groups](../../../virtual-network/tutorial-filter-network-traffic.md) 
-    - [Load balancer](../../../load-balancer/tutorial-load-balancer-standard-internal-portal.md)
+    - [Load balancer](../../../load-balancer/quickstart-load-balancer-standard-internal-portal.md)
     - [Public IP address](../../../virtual-network/virtual-network-public-ip-address.md)
     - For any additional networking components, see the [networking documentation](../../../virtual-network/virtual-networks-overview.md).
 - Manually create a non-production network in the target region if you want to test the configuration before you perform the final move to the target region. We recommend this step because it ensures minimal interference with the production network. 
@@ -127,7 +128,7 @@ The following steps show you how to move the SQL Server VM from your source regi
 1. You can monitor the failover process from the same **Site Recovery jobs** page you viewed when monitoring the failover test in the previous section. 
 1. After the job completes, check that the SQL Server VM appears in the target region as expected. 
 1. Navigate back to the vault, select **Replicated Items**, select the SQL Server VM, and select **Commit** to finish the move process to the target region. Wait until the commit job finishes. 
-1. Register your SQL Server VM with the SQL VM resource provider to enable **SQL virtual machine** manageability in the Azure portal and features associated with the resource provider. For more information, see [Register SQL Server VM with the SQL VM resource provider](sql-vm-resource-provider-register.md). 
+1. Register your SQL Server VM with the SQL IaaS Agent extension to enable **SQL virtual machine** manageability in the Azure portal and features associated with the extension. For more information, see [Register SQL Server VM with the SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md). 
 
   > [!WARNING]
   > SQL Server data consistency is only guaranteed with app-consistent snapshots. The **latest processed** snapshot can't be used for SQL Server failover as a crash recovery snapshot can't guarantee SQL Server data consistency. 
@@ -152,5 +153,3 @@ For more information, see the following articles:
 * [SQL Server on a Windows VM FAQ](frequently-asked-questions-faq.md)
 * [SQL Server on a Windows VM pricing guidance](pricing-guidance.md)
 * [SQL Server on a Windows VM release notes](doc-changes-updates-release-notes.md)
-
-

@@ -57,7 +57,7 @@ To learn more, see [Onboard your Azure subscription to Security Center Standard]
 
 ### Improve your Secure Score
 
-Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Azure Security Center](../security-center/security-center-secure-score.md).
+Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Azure Security Center](../security-center/secure-score-security-controls.md).
 
 ## Windows Virtual Desktop security best practices
 
@@ -65,17 +65,17 @@ Windows Virtual Desktop has many built-in security controls. In this section, yo
 
 ### Require multi-factor authentication
 
-Requiring multi-factor authentication for all users and admins in Windows Virtual Desktop improves the security of your entire deployment. To learn more, see [Enable Azure Multi-Factor Authentication for Windows Virtual Desktop](set-up-mfa.md).
+Requiring multi-factor authentication for all users and admins in Windows Virtual Desktop improves the security of your entire deployment. To learn more, see [Enable Azure AD Multi-Factor Authentication for Windows Virtual Desktop](set-up-mfa.md).
 
 ### Enable Conditional Access
 
-Enabling [Conditional Access](../active-directory/conditional-access/best-practices.md) lets you manage risks before you grant users access to your Windows Virtual Desktop environment. When deciding which users to grant access to, we recommend you also consider who the user is, how they sign in, and which device they're using.
+Enabling [Conditional Access](../active-directory/conditional-access/overview.md) lets you manage risks before you grant users access to your Windows Virtual Desktop environment. When deciding which users to grant access to, we recommend you also consider who the user is, how they sign in, and which device they're using.
 
 ### Collect audit logs
 
 Enabling audit log collection lets you view user and admin activity related to Windows Virtual Desktop. Some examples of key audit logs are:
 
--   [Azure Activity Log](../azure-monitor/platform/activity-log-collect.md)
+-   [Azure Activity Log](../azure-monitor/platform/activity-log.md)
 -   [Azure Active Directory Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Session hosts](../azure-monitor/platform/agent-windows.md)
@@ -88,7 +88,7 @@ When choosing a deployment model, you can either provide remote users access to 
 
 ### Monitor usage with Azure Monitor
 
-Monitor your Windows Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](../service-health/alerts-activity-log-service-notifications.md) for the Windows Virtual Desktop service to receive notifications whenever there's a service impacting event.
+Monitor your Windows Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) for the Windows Virtual Desktop service to receive notifications whenever there's a service impacting event.
 
 ## Session host security best practices
 

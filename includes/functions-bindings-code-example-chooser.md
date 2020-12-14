@@ -21,7 +21,7 @@ ms.custom: fasttrack-edit
 | SendGrid | [Output](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=csharp#example) | |
 | Service Bus |[Trigger](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=csharp#example)<br/>[Output](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=C%23) |
 | SignalR| [Trigger](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=csharp#example)<br/>[Input](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=csharp#example)<br/>[Output](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=csharp) | |
-| Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table.md?tabs=csharp#input)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table.md?tabs=csharp#output) | |
+| Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=csharp)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=csharp) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=csharp#example) | [Link](https://www.serverlesslibrary.net/?language=C%23&filtertext=timer) |
 | Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=csharp#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=C%23&filtertext=twilio) |
 
@@ -39,7 +39,7 @@ ms.custom: fasttrack-edit
 | SendGrid | [Output](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=java#example) | |
 | Service Bus |[Trigger](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=java#example)<br/>[Output](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=Java) |
 | SignalR| [Trigger](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=java#example)<br/>[Input](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=java#example)<br/>[Output](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=java) | |
-| Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table.md?tabs=java#input)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table.md?tabs=java#output) | |
+| Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=java)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=java) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=java#example) | [Link](https://www.serverlesslibrary.net/?language=Java&filtertext=timer) |
 | Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=java#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=Java&filtertext=twilio) |
 
@@ -57,7 +57,7 @@ ms.custom: fasttrack-edit
 | SendGrid | [Output](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=javascript#example) | |
 | Service Bus |[Trigger](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=javascript#example)<br/>[Output](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=JavaScript) |
 | SignalR| [Trigger](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=javascript#example)<br/>[Input](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=javascript#example)<br/>[Output](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=javascript) | |
-| Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table.md?tabs=javascript#input)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table.md?tabs=javascript#output) | |
+| Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=javascript)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=javascript) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=javascript#example) | [Link](https://www.serverlesslibrary.net/?language=JavaScript&filtertext=timer) |
 | Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=javascript#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=JavaScript&filtertext=twilio) |
 
@@ -75,7 +75,7 @@ ms.custom: fasttrack-edit
 | SendGrid | [Output](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=powershell#example) | |
 | Service Bus |[Trigger](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=powershell#example)<br/>[Output](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=PowerShell) |
 | SignalR| [Trigger](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=powershell#example)<br/>[Input](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=powershell#example)<br/>[Output](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=powershell) | |
-| Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table.md?tabs=powershell#input)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table.md?tabs=powershell#output) | |
+| Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=powershell)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=powershell) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=powershell#example) | [Link](https://www.serverlesslibrary.net/?language=PowerShell&filtertext=timer) |
 | Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=powershell#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=PowerShell&filtertext=twilio) |
 
@@ -93,7 +93,7 @@ ms.custom: fasttrack-edit
 | SendGrid | [Output](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=python#example) | |
 | Service Bus |[Trigger](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=python#example)<br/>[Output](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?technology=Service%20Bus%20Queue&language=Python) |
 | SignalR| [Trigger](../articles/azure-functions/functions-bindings-signalr-service-trigger.md?tabs=python#example)<br/>[Input](../articles/azure-functions/functions-bindings-signalr-service-input.md?tabs=python#example)<br/>[Output](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=python) | |
-| Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table.md?tabs=python#input)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table.md?tabs=python#output) | |
+| Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=python)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=python) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=python#example) | [Link](https://www.serverlesslibrary.net/?language=Python&filtertext=timer) |
 | Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=python#example---functions-2x-and-higher) | [Link](https://www.serverlesslibrary.net/?language=Python&filtertext=twilio) |
 

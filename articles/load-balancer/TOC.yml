@@ -13,6 +13,7 @@
   - name: Create public load balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
   - name: Create public load balancer - ARM template
+    displayName: Resource Manager
     href: quickstart-load-balancer-standard-public-template.md
   - name: Create internal load balancer - Portal
     href: quickstart-load-balancer-standard-internal-portal.md
@@ -21,6 +22,7 @@
   - name: Create internal load balancer - Azure CLI
     href: quickstart-load-balancer-standard-internal-cli.md
   - name: Create internal load balancer - ARM template
+    displayName: Resource Manager
     href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Tutorials
@@ -31,6 +33,8 @@
     href: tutorial-load-balancer-standard-public-zonal-portal.md
   - name: Configure port forwarding in Load Balancer
     href: tutorial-load-balancer-port-forwarding-portal.md
+  - name: Create cross-region load balancer - Portal
+    href: tutorial-cross-region-portal.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -45,7 +49,7 @@
     href: whats-new.md
   - name: Components
     href: components.md
-  - name: Concepts
+  - name: Load balancing algorithm
     href: concepts.md
   - name: SKUs
     href: skus.md
@@ -53,9 +57,11 @@
     items:
     - name: Health probes
       href: load-balancer-custom-probe-overview.md
+    - name: Azure Monitor Insights for Load Balancer
+      href: load-balancer-insights.md
     - name: Standard Load Balancer metrics and diagnostics
       href: load-balancer-standard-diagnostics.md
-    - name: Azure Monitor logs for Basic Load Balancer
+    - name: Azure Monitor logs for Load Balancer
       href: load-balancer-monitor-log.md
     - name: Get Load Balancer metrics with REST
       href: load-balancer-query-metrics-rest-api.md
@@ -63,23 +69,25 @@
     href: load-balancer-ha-ports-overview.md
   - name: Multiple frontends
     href: load-balancer-multivip-overview.md
-  - name: Outbound connections
+  - name: SNAT for outbound connections to internet
     href: load-balancer-outbound-connections.md
-  - name: TCP reset and TCP idle timeout
+  - name: Configuring outbound rules
+    href: outbound-rules.md
+  - name: TCP reset on idle timeout
     href: load-balancer-tcp-reset.md
   - name: Standard Load Balancer and Availability Zones
     href: load-balancer-standard-availability-zones.md
   - name: Floating IP configuration
     href: load-balancer-floating-ip.md
   - name: Security
-    items: 
+    items:
     - name: Security baseline
       href: security-baseline.md
   - name: Backend Pool management
     href: backend-pool-management.md
   - name: Standard Load Balancer and Virtual Machine Scale Sets
     href: load-balancer-standard-virtual-machine-scale-sets.md
-- name: How to
+- name: How-to
   items:
   - name: Portal settings
     href: manage.md
@@ -102,13 +110,13 @@
   - name: Create public Load Balancer with IPv6
     items:
     - name: Azure CLI
-      href: https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli
+      href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
     - name: Azure PowerShell
-      href: https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell
+      href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
     - name: Azure Resource Manager template
-      href: https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json
+      href: ../virtual-network/ipv6-configure-standard-load-balancer-template-json.md
       displayName: ARM
-  - name: Configure TCP idle timeout for Load Balancer
+  - name: Configure TCP reset and idle timeout
     href: load-balancer-tcp-idle-timeout.md
   - name: Configure distribution mode for Load Balancer
     href: load-balancer-distribution-mode.md
@@ -161,9 +169,9 @@
   - name: Python
     href: /python/api/azure-mgmt-network/azure.mgmt.network.v2019_02_01.operations.loadbalancersoperations
   - name: REST
-    href: https://msdn.microsoft.com/library/azure/mt163651.aspx
+    href: /rest/api/load-balancer/loadbalancers
   - name: Resource Manager template
-    href: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers
+    href: /azure/templates/microsoft.network/loadbalancers
     displayName: ARM
 - name: Resources
   items:

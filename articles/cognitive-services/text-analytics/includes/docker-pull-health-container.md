@@ -12,7 +12,7 @@ ms.date: 07/07/2020
 ms.author: aahi
 ---
 
-Fill out and submit the [Cognitive Services containers request form](https://aka.ms/csgate) to request access to the container.
+Fill out and submit the [Cognitive Services request form](https://aka.ms/csgate) to request access to the Text Analytics for health public preview.  This application applies for both the container and the hosted web API public preview.
 The form requests information about you, your company, and the user scenario for which you'll use the container. After you've submitted the form, the Azure Cognitive Services team reviews it to ensure that you meet the criteria for access to the private container registry.
 
 > [!IMPORTANT]
@@ -20,7 +20,7 @@ The form requests information about you, your company, and the user scenario for
 > * The Azure resource you use to run the container must have been created with the approved Azure subscription ID. 
 > * Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft.
 
-Use the docker login command with credentials provided in your onboarding email to connect to our private container registry for Cognitive Services containers.
+Once approved, you will be sent an email with the credentials to access the private container registry.  Use the docker login command with credentials provided in your onboarding email to connect to our private container registry for Cognitive Services containers.
 
 
 ```Docker

@@ -1,27 +1,16 @@
 ---
-title: The structure of Azure Dashboards | Microsoft Docs
+title: The structure of Azure Dashboards
 description: Walk through the JSON structure of an Azure Dashboard using an example dashboard. Includes reference to resource properties.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-
-
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 12/20/2019
-ms.author: mblythe
-
 ---
+
 # The structure of Azure Dashboards
 This document walks through the structure of an Azure dashboard, using the following dashboard as an example:
 
 ![sample dashboard](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Since shared [Azure dashboards are resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), this dashboard can be represented as JSON.  The following JSON represents the dashboard visualized above.
+Since shared [Azure dashboards are resources](../azure-resource-manager/management/overview.md), this dashboard can be represented as JSON.  The following JSON represents the dashboard visualized above.
 
 ```json
 
@@ -300,7 +289,7 @@ The name is the segment of the resource ID that does not include the subscriptio
 All dashboards are of type __Microsoft.Portal/dashboards__.
 
 ### The location property
-Unlike other resources, dashboards don’t have a runtime component.  For dashboards, the location indicates the primary geographic location that stores the dashboard’s JSON representation. The value should be one of the location codes that can be fetched using the [locations API on the subscriptions resource](https://docs.microsoft.com/rest/api/resources/subscriptions).
+Unlike other resources, dashboards don’t have a runtime component.  For dashboards, the location indicates the primary geographic location that stores the dashboard’s JSON representation. The value should be one of the location codes that can be fetched using the [locations API on the subscriptions resource](/rest/api/resources/subscriptions).
 
 ### The tags property
 Tags are a common feature of Azure resources that let you organize your resource by arbitrary name value pairs. For dashboards, there is one special tag called __hidden-title__. If your dashboard has this property populated, then it is used as the display name for your dashboard in the portal. Azure resource Ids cannot be renamed, but tags can. This tag gives you a way to have a renamable display name for your dashboard.

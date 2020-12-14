@@ -16,7 +16,7 @@ Network Security covers controls to secure and protect Azure networks. This incl
 
 ## NS-1: Implement security for internal traffic
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | NS-1 | 9.2, 9.4, 14.1, 14.2, 14.3 | AC-4, CA-3, SC-7 |
 
@@ -48,7 +48,7 @@ Use Azure Sentinel to discover the use of legacy insecure protocols such as SSL/
 
 ## NS-2: Connect private networks together
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | NS-2 | N/A | CA-3, AC-17, MA-4 |
 
@@ -76,7 +76,7 @@ To connect two or more virtual networks in Azure together, use virtual network p
 
 ## NS-3: Establish private network access to Azure services
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | NS-3 | 14.1 | AC-4, CA-3, SC-7 |
 
@@ -100,7 +100,7 @@ Private access is an additional defense in depth measure in addition to authenti
 
 ## NS-4: Protect applications and services from external network attacks
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | NS-4 | 9.5, 12.3, 12.9 | SC-5, SC-7 |
 
@@ -112,21 +112,25 @@ Protect Azure resources against attacks from external networks, including distri
 -	Protect your assets against DDoS attacks by enabling DDoS standard protection on your Azure virtual networks. 
 -	Use Azure Security Center to detect misconfiguration risks related to the above. 
 
-- [Azure Firewall Documentation](/azure/firewall/)
+- [Azure Firewall Documentation](../../firewall/index.yml)
 
 - [How to deploy Azure WAF](../../web-application-firewall/overview.md)
 
-- [Manage Azure DDoS Protection Standard using the Azure portal](../../virtual-network/manage-ddos-protection.md)
+- [Manage Azure DDoS Protection Standard using the Azure portal](../../ddos-protection/manage-ddos-protection.md)
 
 **Responsibility**: Customer
 
 **Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-None
+- [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
+
+- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+
+- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 ## NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | NS-5 | 12.6, 12.7 | SI-4 |
 
@@ -152,7 +156,7 @@ Note: If you have a regulatory or other requirement for IDS/IPS use, ensure that
 
 ## NS-6: Simplify network security rules
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | NS-6 | 1.5 | IA-4 |
 
@@ -164,7 +168,7 @@ You can also use application security groups to help simplify complex security c
 
 - [Understand and use service tags](../../virtual-network/service-tags-overview.md)
 
-- [Understand and use application security groups](/azure/virtual-network/security-overview#application-security-groups)
+- [Understand and use application security groups](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 **Responsibility**: Customer
 
@@ -178,7 +182,7 @@ You can also use application security groups to help simplify complex security c
 
 ## NS-7: Secure Domain Name Service (DNS)
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | NS-7 | N/A | SC-20, SC-21 |
 
@@ -200,5 +204,4 @@ When Azure DNS is used as your authoritative DNS service, ensure DNS zones and r
 
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
-- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
-
+- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)

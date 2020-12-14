@@ -1,6 +1,6 @@
 ---
 title: Deploy template - Azure portal
-description: Learn how to create your first Azure Resource Manager template using the Azure portal, and how to deploy it.
+description: Learn how to create your first Azure Resource Manager template (ARM template) using the Azure portal, and how to deploy it.
 author: mumian
 ms.date: 06/29/2020
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.author: jgao
 
 # Quickstart: Create and deploy ARM templates by using the Azure portal
 
-Learn how to generate an Azure Resource Manager (ARM) template using the Azure portal, and the process of editing and deploying the template from the portal. ARM templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+Learn how to generate an Azure Resource Manager template (ARM template) using the Azure portal, and the process of editing and deploying the template from the portal. ARM templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
 ![Resource Manager template quickstart portal diagram](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -60,7 +60,7 @@ Many experienced template developers use this method to generate templates when 
 1. Open the downloaded zip file, and then save **template.json** to your computer. In the next section, you use a template deployment tool to edit the template.
 1. Select the **Parameter** tab to see the values you provided for the parameters. Write down these values, you need them in the next section when you deploy the template.
 
-    ![Generate a template from the portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
+    ![Screenshot that highlights the Parameter tab that shows the values you provided.](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
     Using both the template file and the parameters file, you can create a resource, in this tutorial, an Azure storage account.
 

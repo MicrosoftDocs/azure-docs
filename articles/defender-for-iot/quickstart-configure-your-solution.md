@@ -39,7 +39,7 @@ After defining all of the resource relationships, Defender for IoT leverages Def
 To add new resource to your IoT solution, do the following:
 
 1. Open your **IoT Hub** in Azure portal.
-1. Select and open **Settings** from the **Security** section in the left menu, and then select **Monitored Resources**.
+1. Under **Security** select **Overview** followed by **Settings**, and then select **Monitored Resources**.
 1. Select **Edit** and select the monitored resources that belong to your IoT solution.
 1. Click **Add**.
 

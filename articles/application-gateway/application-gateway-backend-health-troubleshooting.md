@@ -21,7 +21,7 @@ successfully, Application Gateway resumes forwarding the requests.
 ### How to check backend health
 
 To check the health of your backend pool, you can use the
-**Backend Health** page on the Azure portal. Or, you can use [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), [CLI](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health), or [REST API](https://docs.microsoft.com/rest/api/application-gateway/applicationgateways/backendhealth).
+**Backend Health** page on the Azure portal. Or, you can use [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health), or [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 The status retrieved by any of these methods can be any one of the following:
 
@@ -94,7 +94,7 @@ Error messages
 backend server, it waits for a response from the backend server for a configured period. If the backend server doesn't
 respond within the configured period (the timeout value), it's marked as Unhealthy until it starts responding within the configured timeout period again.
 
-**Resolution:** Check why the backend server or application isn't responding within the configured timeout period, and also check the application dependencies. For example, check whether the database has any issues that might trigger a delay in response. If you're aware of the application's behavior and it should respond only after the timeout value, increase the timeout value from the custom probe settings. You must have a custom probe to change the timeout value. For information about how to configure a custom probe, [see the documentation page](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
+**Resolution:** Check why the backend server or application isn't responding within the configured timeout period, and also check the application dependencies. For example, check whether the database has any issues that might trigger a delay in response. If you're aware of the application's behavior and it should respond only after the timeout value, increase the timeout value from the custom probe settings. You must have a custom probe to change the timeout value. For information about how to configure a custom probe, [see the documentation page](./application-gateway-create-probe-portal.md).
 
 To increase the timeout value, follow these steps:
 
@@ -133,9 +133,9 @@ this message is displayed, it suggests that Application Gateway couldn't success
 
 1.  If the domain is private or internal, try to resolve it from a VM in the same virtual network. If you can resolve it, restart
     Application Gateway and check again. To restart Application Gateway, you need to
-    [stop](https://docs.microsoft.com/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0)
+    [stop](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0)
     and
-    [start](https://docs.microsoft.com/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0)
+    [start](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0)
     by using the PowerShell commands described in these linked resources.
 
 #### TCP connect error
@@ -161,7 +161,7 @@ session on the port specified, the probe is marked as Unhealthy with this messag
 1.  If you can't connect on the port from your local machine as well,
     then:
 
-    a.  Check the network security group (NSG) settings of the backend server's network adapter and subnet and whether inbound connections to the configured port are allowed. If they aren't, create a new rule to allow the connections. To learn how to create NSG rules, [see the documentation page](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#create-security-rules).
+    a.  Check the network security group (NSG) settings of the backend server's network adapter and subnet and whether inbound connections to the configured port are allowed. If they aren't, create a new rule to allow the connections. To learn how to create NSG rules, [see the documentation page](../virtual-network/tutorial-filter-network-traffic.md#create-security-rules).
 
     b.  Check whether the NSG settings of the Application Gateway subnet allow outbound public and private traffic, so that a connection can be made. Check the document page that's provided in step 3a to learn more about how to create NSG rules.
     ```azurepowershell
@@ -213,7 +213,7 @@ here:
 
 Or, if you think the response is legitimate and you want Application Gateway to accept other status codes as Healthy, you can create a custom probe. This approach is useful in situations where the backend website needs authentication. Because the probe requests don't carry any user credentials, they will fail, and an HTTP 401 status code will be returned by the backend server.
 
-To create a custom probe, follow [these steps](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
+To create a custom probe, follow [these steps](./application-gateway-create-probe-portal.md).
 
 #### HTTP response body mismatch
 
@@ -234,7 +234,7 @@ request contains the string **unauthorized**, it will be marked as Healthy. Othe
 
 1.  If they don't match, change the probe configuration so that is has the correct string value to accept.
 
-Learn more about [Application Gateway probe matching](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
+Learn more about [Application Gateway probe matching](./application-gateway-probe-overview.md#probe-matching).
 
 >[!NOTE]
 > For all TLS related error messages, to learn more about SNI behavior and differences between the v1 and v2 SKU, check the [TLS overview](ssl-overview.md) page.
@@ -276,7 +276,7 @@ store of Application Gateway. If the certificate wasn't issued by a trusted CA (
 Alternatively, you can export the root certificate from a client machine by directly accessing the server (bypassing Application Gateway) through browser and exporting the root certificate from the browser.
 
 For more information about how to extract and upload Trusted Root Certificates in Application Gateway, see
-[Export trusted root certificate (for v2 SKU)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+[Export trusted root certificate (for v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 
 #### Trusted root certificate mismatch
 
@@ -298,7 +298,7 @@ mismatch between the certificate that has been uploaded to Application Gateway a
 Follow steps 1-11 in the preceding method to upload the correct trusted root certificate to Application Gateway.
 
 For more information about how to extract and upload Trusted Root Certificates in Application Gateway, see
-[Export trusted root certificate (for v2 SKU)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+[Export trusted root certificate (for v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 > [!NOTE]
 > This error can also occur if the backend server doesn't exchange the complete chain of the cert, including the Root > Intermediate (if applicable) > Leaf during the TLS handshake. To verify, you can use OpenSSL commands from any client and connect to the backend server by using the configured settings in the Application Gateway probe.
 
@@ -422,7 +422,7 @@ This behavior can occur for one or more of the following reasons:
 
     e.	In the **Inbound Rules** section, add an inbound rule to allow destination port range 65503-65534 for v1 SKU or 65200-65535 v2 SKU with the **Source** set as **Any** or **Internet**.
 
-    f.	Select **Save** and verify that you can view the backend as Healthy. Alternatively, you can do that through [PowerShell/CLI](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+    f.	Select **Save** and verify that you can view the backend as Healthy. Alternatively, you can do that through [PowerShell/CLI](../virtual-network/manage-network-security-group.md).
 
 1.	Check whether your UDR has a default route (0.0.0.0/0) with the next hop not set as **Internet**:
     
@@ -449,4 +449,4 @@ This behavior can occur for one or more of the following reasons:
 Next steps
 ----------
 
-Learn more about [Application Gateway diagnostics and logging](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
+Learn more about [Application Gateway diagnostics and logging](./application-gateway-diagnostics.md).

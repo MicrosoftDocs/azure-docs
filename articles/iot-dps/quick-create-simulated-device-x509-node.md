@@ -71,7 +71,7 @@ This article demonstrates individual enrollments.
     npm install
     ```
 
-3. Create a _leaf_ X.509 certificate by running the script using your own _certificate-name_. The leaf certificate's common name becomes the [Registration ID](https://docs.microsoft.com/azure/iot-dps/concepts-device#registration-id) so be sure to only use lower-case alphanumerics and hyphens.
+3. Create a _leaf_ X.509 certificate by running the script using your own _certificate-name_. The leaf certificate's common name becomes the [Registration ID](./concepts-service.md#registration-id) so be sure to only use lower-case alphanumerics and hyphens.
 
     ```cmd/sh
     node create_test_cert.js device {certificate-name}
@@ -96,7 +96,7 @@ This article demonstrates individual enrollments.
 
 ## Simulate the device
 
-The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) provides an easy way to simulate a device. For further reading, see [Device concepts](https://docs.microsoft.com/azure/iot-dps/concepts-device).
+The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) provides an easy way to simulate a device. For further reading, see [Device concepts](./concepts-service.md).
 
 1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note the **_GLobal Device Endpoint_** and **_ID Scope_** values.
 

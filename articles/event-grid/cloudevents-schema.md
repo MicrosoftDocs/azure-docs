@@ -2,8 +2,8 @@
 title: Use Azure Event Grid with events in CloudEvents schema
 description: Describes how to use the CloudEvents schema for events in Azure Event Grid. The service supports events in the JSON implementation of Cloud Events. 
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.custom: devx-track-js, devx-track-csharp
+ms.date: 11/10/2020
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
 ---
 
 # Use CloudEvents v1.0 schema with Event Grid
@@ -15,11 +15,6 @@ CloudEvents is being built by several [collaborators](https://github.com/cloudev
 
 This article describes how to use the CloudEvents schema with Event Grid.
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
-## Install preview feature
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## CloudEvent schema
 
@@ -57,16 +52,20 @@ The headers values for events delivered in the CloudEvents schema and the Event 
 
 ## Configure Event Grid for CloudEvents
 
-You can use Event Grid for both input and output of events in CloudEvents schema. You can use CloudEvents for system events, like Blob Storage events and IoT Hub events, and custom events. It can also transform those events on the wire back and forth.
+You can use Event Grid for both input and output of events in the CloudEvents schema. The following table describes the possible transformations:
+
+ Event Grid resource | Input schema       | Delivery schema
+|---------------------|-------------------|---------------------
+| System Topics       | Event Grid Schema | Event Grid Schema or CloudEvent Schema
+| User Topics/Domains | Event Grid Schema | Event Grid Schema
+| User Topics/Domains | CloudEvent Schema | CloudEvent Schema
+| User Topics/Domains | Custom Schema     | Custom Schema OR Event Grid Schema OR CloudEvent Schema
+| PartnerTopics       | CloudEvent Schema | CloudEvent Schema
 
 
-| Input schema       | Output schema
-|--------------------|---------------------
-| CloudEvents format | CloudEvents format
-| Event Grid format  | CloudEvents format
-| Event Grid format  | Event Grid format
+For all event schemas, Event Grid requires validation when publishing to an Event Grid topic and when creating an event subscription.
 
-For all event schemas, Event Grid requires validation when publishing to an event grid topic and when creating an event subscription. For more information, see [Event Grid security and authentication](security-authentication.md).
+For more information, see [Event Grid security and authentication](security-authentication.md).
 
 ### Input schema
 
@@ -75,10 +74,6 @@ You set the input schema for a custom topic when you create the custom topic.
 For Azure CLI, use:
 
 ```azurecli-interactive
-# If you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create \
   --name <topic_name> \
   -l westcentralus \
@@ -89,11 +84,7 @@ az eventgrid topic create \
 For PowerShell, use:
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
-New-AzureRmEventGridTopic `
+New-AzEventGridTopic `
   -ResourceGroupName gridResourceGroup `
   -Location westcentralus `
   -Name <topic_name> `
@@ -118,9 +109,9 @@ az eventgrid event-subscription create \
 
 For PowerShell, use:
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `
@@ -148,15 +139,15 @@ The following sample C# code for an HTTP trigger simulates Event Grid trigger be
 
 ```csharp
 [FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
-    if (req.Method == "OPTIONS")
+    if (req.Method == HttpMethod.Options)
     {
         // If the request is for subscription validation, send back the validation code
         
         var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Add("Webhook-Allowed-Origin", "eventgrid.azure.net");
+        response.Headers.Add("Webhook-Allowed-Origin", "eventgrid.azure.net");
 
         return response;
     }

@@ -5,7 +5,7 @@
  author: sharad4u
  ms.service: multiple
  ms.topic: include
- ms.date: 05/09/2019
+ ms.date: 10/30/2020
  ms.author: sharadag
  ms.custom: include file
 ---
@@ -27,6 +27,7 @@ The following CAs are allowed when you create your own certificate:
 - D-TRUST Root Class 3 CA 2 2009
 - DigiCert Cloud Services CA-1
 - DigiCert Global Root CA
+- DigiCert Global Root G2
 - DigiCert High Assurance CA-3
 - DigiCert High Assurance EV Root CA
 - DigiCert SHA2 Extended Validation Server CA
@@ -49,6 +50,7 @@ The following CAs are allowed when you create your own certificate:
 - Go Daddy Root Certificate Authority - G2
 - Go Daddy Secure Certificate Authority - G2
 - Let's Encrypt Authority X3
+- Microsec e-Szigno Root CA 2009
 - QuoVadis Root CA2 G3
 - RapidSSL RSA CA 2018
 - Security Communication RootCA1

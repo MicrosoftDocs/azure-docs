@@ -66,7 +66,7 @@ Review [Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-
 
 You can use the [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Site Recovery.
 
-For detailed estimate on costs, run the deployment planner tool for [VMware](https://aka.ms/siterecovery_deployment_planner) or [Hyper-V](https://aka.ms/asr-deployment-planner), and use the [cost estimation report](https://aka.ms/asr_DP_costreport).
+For detailed estimate on costs, run the deployment planner tool for [VMware](./site-recovery-deployment-planner.md) or [Hyper-V](https://aka.ms/asr-deployment-planner), and use the [cost estimation report](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
 ### Managed disks are now used to replicate VMware VMs and physical servers. Do I incur additional charges for the cache storage account with managed disks?
@@ -267,6 +267,9 @@ Site Recovery creates a crash-consistent recovery point every 5 minutes.
 Application-consistent recovery points are created from application-consistent snapshots. Application-consistent recovery points capture the same data as crash-consistent snapshots while also capturing data in memory and all transactions in process.
 
 Because of their extra content, application-consistent snapshots are the most involved and take the longest. We recommend application-consistent recovery points for database operating systems and applications such as SQL Server.
+
+>[!Note]
+>Creation of application-consistent recovery points fails on Windows machine, if it has more than 64 volumes.
 
 ### What is the impact of application-consistent recovery points on application performance?
 

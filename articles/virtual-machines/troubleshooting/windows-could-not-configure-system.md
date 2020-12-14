@@ -24,7 +24,7 @@ This article provides steps to resolve issues where the Sysprep process prevents
 
 ## Symptom
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you will see that the screenshot displays an Install Windows error while Windows setup is starting services. The error will display the message:
+When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the VM, you will see that the screenshot displays an Install Windows error while Windows setup is starting services. The error will display the message:
 
 `Windows could not finish configuring the system. To attempt to resume configuration, restart the computer. Setup is starting services`
 
@@ -32,8 +32,8 @@ When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machine
 
 ## Cause
 
-This error is caused when the operating system (OS) is unable to complete the [Sysprep process](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-process-overview). This error will occur when you attempt an initial boot of a generalized VM. If you encounter this issue, recreate the generalized image, as the image is in an un-deployable state and cannot be recovered.
+This error is caused when the operating system (OS) is unable to complete the [Sysprep process](/windows-hardware/manufacture/desktop/sysprep-process-overview). This error will occur when you attempt an initial boot of a generalized VM. If you encounter this issue, recreate the generalized image, as the image is in an un-deployable state and cannot be recovered.
 
 ## Solution
 
-To fix this issue, follow the [Azure guidance on preparing/capturing an image](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed) and prepare a new generalized image.
+To fix this issue, follow the [Azure guidance on preparing/capturing an image](../windows/upload-generalized-managed.md) and prepare a new generalized image.

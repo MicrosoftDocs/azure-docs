@@ -6,7 +6,7 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
@@ -305,7 +305,7 @@ This section provides steps for user account provisioning from Workday to each A
 To provision to Active Directory on-premises, the Provisioning agent must be installed on a server that has .NET 4.7.1+ Framework and network access to the desired Active Directory domain(s).
 
 > [!TIP]
-> You can check the version of the .NET framework on your server using the instructions provided [here](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
+> You can check the version of the .NET framework on your server using the instructions provided [here](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > If the server does not have .NET 4.7.1 or higher installed, you can download it from [here](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
 Transfer the downloaded agent installer to the server host and follow the steps given below to complete the agent configuration.
@@ -404,7 +404,7 @@ In this step, we establish connectivity with Workday and Active Directory in the
    * **Notification Email –** Enter your email address, and check the "send email if failure occurs" checkbox.
 
      > [!NOTE]
-     > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) state.
+     > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](../app-provisioning/application-provisioning-quarantine-status.md) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the Workday credentials and the AD credentials configured on the agent setup are valid.
 
@@ -592,7 +592,7 @@ No, the solution does not maintain a cache of user profiles. The Azure AD provis
 
 #### Does the solution support assigning on-premises AD groups to the user?
 
-This functionality is not supported currently. Recommended workaround is to deploy a PowerShell script that queries the Microsoft Graph API endpoint for [audit log data](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) and use that to trigger scenarios such as group assignment. This PowerShell script can be attached to a task scheduler and deployed on the same box running the provisioning agent.  
+This functionality is not supported currently. Recommended workaround is to deploy a PowerShell script that queries the Microsoft Graph API endpoint for [audit log data](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) and use that to trigger scenarios such as group assignment. This PowerShell script can be attached to a task scheduler and deployed on the same box running the provisioning agent.  
 
 #### Which Workday APIs does the solution use to query and update Workday worker profiles?
 
@@ -678,7 +678,7 @@ Replace the variables [proxy-server] and [proxy-port] with your proxy server nam
 
 #### How do I ensure that the Provisioning Agent is able to communicate with the Azure AD tenant and no firewalls are blocking ports required by the agent?
 
-You can also check whether all of the [required ports](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) are open.
+You can also check whether all of the [required ports](../manage-apps/application-proxy-add-on-premises-application.md#open-ports) are open.
 
 #### Can one Provisioning Agent be configured to provision multiple AD domains?
 
@@ -1158,4 +1158,4 @@ With respect to data retention, the Azure AD provisioning service does not gener
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 * [Learn how to configure single sign-on between Workday and Azure Active Directory](workday-tutorial.md)
 * [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
-* [Learn how to use Microsoft Graph APIs to manage provisioning configurations](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Learn how to use Microsoft Graph APIs to manage provisioning configurations](/graph/api/resources/synchronization-overview)

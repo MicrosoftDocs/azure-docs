@@ -8,7 +8,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/14/2020
 ms.author: jingwang
 ---
 
@@ -42,7 +42,11 @@ The following setup is required on your Google Cloud Storage account:
 
 ## Required permissions
 
-To copy data from Google Cloud Storage, make sure you have granted the needed permissions. The permissions defined in the service account might contain `storage.buckets.get`, `storage.buckets.list`, or `storage.objects.get` for object operations.
+To copy data from Google Cloud Storage, make sure you've been granted the following permissions for object operations: ` storage.objects.get` and ` storage.objects.list`.
+
+If you use Data Factory UI to author, additional ` storage.buckets.list` permission is required for operations like testing connection to linked service and browsing from root. If you don't want to grant this permission, you can choose "Test connection to file path" or "Browse from specified path" options from the UI.
+
+For the full list of Google Cloud Storage roles and associated permissions, see [IAM roles for Cloud Storage](https://cloud.google.com/storage/docs/access-control/iam-roles) on the Google Cloud site.
 
 ## Getting started
 
@@ -142,7 +146,7 @@ The following properties are supported for Google Cloud Storage under `storeSett
 | OPTION 1: static path<br> | Copy from the given bucket or folder/file path specified in the dataset. If you want to copy all files from a bucket or folder, additionally specify `wildcardFileName` as `*`. |  |
 | OPTION 2: GCS prefix<br>- prefix | Prefix for the GCS key name under the given bucket configured in the dataset to filter source GCS files. GCS keys whose names start with `bucket_in_dataset/this_prefix` are selected. It utilizes GCS's service-side filter, which provides better performance than a wildcard filter. | No |
 | OPTION 3: wildcard<br>- wildcardFolderPath | The folder path with wildcard characters under the given bucket configured in a dataset to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your folder name has a wildcard or this escape character inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
-| OPTION 3: wildcard<br>- wildcardFileName | The file name with wildcard characters under the given bucket and folder path (or wildcard folder path) to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your folder name has a wildcard or this escape character inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
+| OPTION 3: wildcard<br>- wildcardFileName | The file name with wildcard characters under the given bucket and folder path (or wildcard folder path) to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your file name has a wildcard or this escape character inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
 | OPTION 3: a list of files<br>- fileListPath | Indicates to copy a given file set. Point to a text file that includes a list of files you want to copy, one file per line, which is the relative path to the path configured in the dataset.<br/>When you're using this option, do not specify the file name in the dataset. See more examples in [File list examples](#file-list-examples). |No |
 | ***Additional settings:*** |  | |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when **recursive** is set to **true** and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. <br>Allowed values are **true** (default) and **false**.<br>This property doesn't apply when you configure `fileListPath`. |No |

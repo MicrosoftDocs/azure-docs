@@ -1,6 +1,9 @@
 ---
 title: Discover, assess, and migrate Google Cloud Platform (GCP) VM instances to Azure
 description: This article describes how to migrate GCP VMs to Azure with Azure Migrate.
+author: deseelam
+ms.author: deseelam
+ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
@@ -69,7 +72,7 @@ Prepare Azure for migration with Azure Migrate: Server Migration tool.
 
 **Task** | **Details**
 --- | ---
-**Create an Azure Migrate project** | Your Azure account needs Contributer or Owner permissions to create a project.
+**Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to [create a new project](https://docs.microsoft.com/azure/migrate/create-manage-projects).
 **Verify permissions for your Azure account** | Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
 ### Assign permissions to create project
@@ -117,30 +120,6 @@ Prepare for appliance deployment as follows:
 
 - The replication appliance uses MySQL. Review the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
 - Review the Azure URLs required for the replication appliance to access [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
-
-## Add the Server Migration tool
-
-Set up an Azure Migrate project, and then add the Server Migration tool to it.
-
-1. In the Azure portal > **All services**, search for **Azure Migrate**.
-2. Under **Services**, select **Azure Migrate**.
-3. In **Overview**, click **Assess and migrate servers**.
-4. Under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
-
-    ![Discover and assess servers](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
-
-5. In **Discover, assess and migrate servers**, click **Add tools**.
-6. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
-7. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
-    - The project geography is used only to store the metadata gathered from GCP machines.
-    - You can select any target region when you run a migration.
-
-    ![Create an Azure Migrate project](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
-
-8. In **Select assessment tool**, select **Skip adding an assessment tool for now** > **Next**.
-9. In **Select migration tool**, select **Azure Migrate: Server Migration** > **Next**.
-10. In **Review + add tools**, review the settings, and click **Add tools**
-11. After adding the tool, it appears in the Azure Migrate project > **Servers** > **Migration tools**.
 
 ## Set up the replication appliance
 
@@ -362,7 +341,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
     - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
-    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/security-overview.md).
+    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
@@ -395,7 +374,7 @@ Mobility Agent is installed on the source VM to be migrated and is registered th
 **Answer:** You may have to make these changes before migrating your EC2 VMs to Azure:
 
 - If you are using cloud-init for your VM provisioning, you may want to disable cloud-init on the VM before replicating it to Azure. The provisioning steps performed by cloud-init on the VM maybe GCP specific and won't be valid after the migration to Azure. ​ 
-- Review the [prerequisites](#prerequisites) section to determine whether there are any changes necessary for the operating system you are
+- Review the [prerequisites](#prerequisites) section to determine whether there are any changes necessary for the operating system before you migrate them to Azure.
 - We always recommend you run a test migration before the final migration.  
 
 ## Next steps

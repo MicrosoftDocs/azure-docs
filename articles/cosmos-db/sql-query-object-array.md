@@ -3,12 +3,14 @@ title: Working with arrays and objects in Azure Cosmos DB
 description: Learn the SQL syntax to create arrays and objects in Azure Cosmos DB. This article also provides some examples to perform operations on array objects 
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/08/2020
 ms.author: tisande
 
 ---
 # Working with arrays and objects in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A key feature of the Azure Cosmos DB SQL API is array and object creation.
 
@@ -136,7 +138,7 @@ The results are:
 You can also aggregate over the result of an array iteration. For example, the following query counts the number of children among all families:
 
 ```sql
-SELECT COUNT(child)
+SELECT COUNT(1) AS Count
 FROM child IN Families.children
 ```
 
@@ -145,7 +147,7 @@ The results are:
 ```json
 [
   {
-    "$1": 3
+    "Count": 3
   }
 ]
 ```

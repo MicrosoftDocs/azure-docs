@@ -25,7 +25,7 @@ For more information on HDFS CLI, see the [official documentation](https://hadoo
 
 ## Use the HDFS CLI with an HDInsight Hadoop cluster on Linux
 
-First, establish [remote access to services](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). If you pick [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) the sample PowerShell code would look as follows:
+First, establish [remote access to services](../../hdinsight/hdinsight-hadoop-linux-information.md#remote-access-to-services). If you pick [SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) the sample PowerShell code would look as follows:
 
 ```powershell
 #Connect to the cluster via SSH.
@@ -116,4 +116,4 @@ You can view the complete list of commands on the [Apache Hadoop 2.4.1 File Syst
 
 * [Use an Azure Data Lake Storage Gen2 capable account in Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [Learn about access control lists on files and directories](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [Learn about access control lists on files and directories](./data-lake-storage-access-control.md)

@@ -1,6 +1,6 @@
 ---
-title: Configure app passwords for Azure Multi-Factor Authentication - Azure Active Directory
-description: Learn how to configure and use app passwords for legacy applications in Azure Multi-Factor Authentication
+title: Configure app passwords for Azure AD Multi-Factor Authentication - Azure Active Directory
+description: Learn how to configure and use app passwords for legacy applications in Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -8,16 +8,16 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/05/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Enable and use Azure Multi-Factor Authentication with legacy applications using app passwords
+# Enable and use Azure AD Multi-Factor Authentication with legacy applications using app passwords
 
-Some older, non-browser apps like Office 2010 or earlier and Apple Mail before iOS 11 don't understand pauses or breaks in the authentication process. If a user is enabled for Azure Multi-Factor Authentication and attempts to use one of these older, non-browser apps, they can't successfully authenticate. To use these applications in a secure way with Azure Multi-Factor Authentication enabled for user accounts, you can use app passwords. These app passwords replaced your traditional password to allow an app to bypass multi-factor authentication and work correctly.
+Some older, non-browser apps like Office 2010 or earlier and Apple Mail before iOS 11 don't understand pauses or breaks in the authentication process. If a user is enabled for Azure AD Multi-Factor Authentication and attempts to use one of these older, non-browser apps, they can't successfully authenticate. To use these applications in a secure way with Azure AD Multi-Factor Authentication enabled for user accounts, you can use app passwords. These app passwords replaced your traditional password to allow an app to bypass multi-factor authentication and work correctly.
 
 Modern authentication is supported for the Microsoft Office 2013 clients and later. Office 2013 clients, including Outlook, support modern authentication protocols and can be enabled to work with two-step verification. After the client is enabled, app passwords aren't required for the client.
 
@@ -28,7 +28,7 @@ This article shows you how to enable and use app passwords for legacy applicatio
 
 ## Overview and considerations
 
-When a user account is enabled for Azure Multi-Factor Authentication, the regular sign-in prompt is interrupted by a request for additional verification. Some older applications don't understand this break in the sign-in process, so authentication fails. To maintain user account security and leave Azure Multi-Factor Authentication enabled, app passwords can be used instead of the user's regular username and password. When an app password used during sign-in, there's no additional verification prompt, so authentication is successful.
+When a user account is enabled for Azure AD Multi-Factor Authentication, the regular sign-in prompt is interrupted by a request for additional verification. Some older applications don't understand this break in the sign-in process, so authentication fails. To maintain user account security and leave Azure AD Multi-Factor Authentication enabled, app passwords can be used instead of the user's regular username and password. When an app password used during sign-in, there's no additional verification prompt, so authentication is successful.
 
 App passwords are automatically generated, not specified by the user. This automatically generated password makes it harder for an attacker to guess, so is more secure. Users don't have to keep track of the passwords or enter them every time as app passwords are only entered once per application.
 
@@ -36,7 +36,7 @@ When you use app passwords, the following considerations apply:
 
 * There's a limit of 40 app passwords per user.
 * Applications that cache passwords and use them in on-premises scenarios can fail because the app password isn't known outside the work or school account. An example of this scenario is Exchange emails that are on-premises, but the archived mail is in the cloud. In this scenario, the same password doesn't work.
-* After Azure Multi-Factor Authentication is enabled on a user's account, app passwords can be used with most non-browser clients like Outlook and Microsoft Skype for Business. However, administrative actions can't be performed by using app passwords through non-browser applications, such as Windows PowerShell. The actions can't be performed even when the user has an administrative account.
+* After Azure AD Multi-Factor Authentication is enabled on a user's account, app passwords can be used with most non-browser clients like Outlook and Microsoft Skype for Business. However, administrative actions can't be performed by using app passwords through non-browser applications, such as Windows PowerShell. The actions can't be performed even when the user has an administrative account.
     * To run PowerShell scripts, create a service account with a strong password and don't enable the account for two-step verification.
 * If you suspect that a user account is compromised and revoke / reset the account password, app passwords should also be updated. App passwords aren't automatically revoked when a user account password is revoked / reset. The user should delete existing app passwords and create new ones.
    * For more information, see [Create and delete app passwords from the Additional security verification page](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
@@ -52,7 +52,7 @@ It's recommended to create one app password per device, rather than one app pass
 
 ## Federated or single sign-on app passwords
 
-Azure AD supports federation, or single sign-on (SSO), with on-premises Active Directory Domain Services (AD DS). If your organization is federated with Azure AD and you're using Azure Multi-Factor Authentication, the following app password considerations apply:
+Azure AD supports federation, or single sign-on (SSO), with on-premises Active Directory Domain Services (AD DS). If your organization is federated with Azure AD and you're using Azure AD Multi-Factor Authentication, the following app password considerations apply:
 
 >[!NOTE]
 > The following points apply only to federated (SSO) customers.
@@ -69,7 +69,7 @@ For example, suppose you have the following architecture:
 * Your on-premises instance of Active Directory is federated with Azure AD.
 * You use Exchange online.
 * You use Skype for Business on-premises.
-* You use Azure Multi-Factor Authentication.
+* You use Azure AD Multi-Factor Authentication.
 
 In this scenario, you use the following credentials:
 
@@ -96,10 +96,10 @@ By default, users can't create app passwords. The app passwords feature must be 
 
 ## Create an app password
 
-When users complete their initial registration for Azure Multi-Factor Authentication, there's an option to create app passwords at the end of the registration process.
+When users complete their initial registration for Azure AD Multi-Factor Authentication, there's an option to create app passwords at the end of the registration process.
 
-Users can also create app passwords after registration. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Users can also create app passwords after registration. For more information and detailed steps for your users, see [What are app passwords in Azure AD Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## Next steps
 
-For more information on how to allow users to quickly register for Azure Multi-Factor Authentication, see [Combined security information registration overview](concept-registration-mfa-sspr-combined.md).
+For more information on how to allow users to quickly register for Azure AD Multi-Factor Authentication, see [Combined security information registration overview](concept-registration-mfa-sspr-combined.md).

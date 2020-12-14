@@ -41,6 +41,7 @@ Microsoft Identity Web is available on NuGet as a set of packages that provide m
 - [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) - The main package. Required by all apps that use Microsoft Identity Web.
 - [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) - Optional. Adds UI for user sign-in and sign-out and an associated controller for web apps.
 - [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) - Optional. Provides simplified interaction with the Microsoft Graph API.
+- [Microsoft.Identity.Web.MicrosoftGraphBeta](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraphBeta) - Optional. Provides simplified interaction with the Microsoft Graph API [beta endpoint](/graph/api/overview?view=graph-rest-beta&preserve-view=true).
 
 #### Project templates
 
@@ -66,7 +67,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-00
 
 #### GitHub
 
-Microsoft Identity Web is an open-source project hosted on GitHub: [AzureAD/microsoft-identity-web](https://github.com/AzureAD/microsoft-identity-web?azure-portal=true)
+Microsoft Identity Web is an open-source project hosted on GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/microsoft-identity-web<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 The [repository wiki](https://github.com/AzureAD/microsoft-identity-web/wiki) contains additional documentation, and if you need help or discover a bug, you can [file an issue](https://github.com/AzureAD/microsoft-identity-web/issues).
 
@@ -78,7 +79,7 @@ Microsoft Identity Web includes several features not provided if you use the def
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | [Sign in users](scenario-web-app-sign-user-app-configuration.md) in web apps             | <li>Work or school accounts<li>Social identities (with Azure AD B2C) | <li>Work or school accounts<li>Personal Microsoft accounts<li>Social identities (with Azure AD B2C)     |
 | [Protect web APIs](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>Work or school accounts<li>Social identities (with Azure AD B2C) | <li>Work or school accounts<li>Personal Microsoft accounts<li>Social identities (with Azure AD B2C)     |
-| Issuer validation in multi-tenant apps                                                   | No                                                                   | Yes, for [all clouds](authentication-national-cloud.md) and [Azure AD B2C](/azure/active-directory-b2c) |
+| Issuer validation in multi-tenant apps                                                   | No                                                                   | Yes, for [all clouds](authentication-national-cloud.md) and [Azure AD B2C](../../active-directory-b2c/index.yml) |
 | Web app/API [calls Microsoft graph][scenario-api-call-graph]                             | No                                                                   | Yes                                                                                                     |
 | Web app/API [calls web API][scenario-api-call-api]                                       | No                                                                   | Yes                                                                                                     |
 | Supports certificate credentials                                                         | No                                                                   | Yes, including Azure Key Vault                                                                          |
@@ -95,8 +96,8 @@ To see Microsoft Identity Web in action, try our Blazor Server tutorial:
 
 The Microsoft Identity Web wiki on GitHub contains extensive reference documentation for various aspects of the library. For example, certificate usage, incremental consent, and conditional access reference can be found here:
 
-- [Using certificates with Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates?azure-portal=true) (GitHub)
-- [Incremental consent and conditional access](https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access?azure-portal=true) (GitHub)
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Using certificates with Microsoft.Identity.Web<span class="docon docon-navigate-external x-hidden-focus"></span></a> (GitHub)
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">Incremental consent and conditional access<span class="docon docon-navigate-external x-hidden-focus"></span></a> (GitHub)
 
 <!-- LINKS -->
 <!--  [miw-certs]: microsoft-identity-web-certificates.md  -->
