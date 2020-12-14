@@ -9,70 +9,8 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Using the client libraries
+  - name: Using the client libraries or REST API
     href: quickstarts-sdk/client-library.md
-  - name: Using the REST API
-    items:
-    - name: Analyze a remote image
-      items:
-      - name: Go
-        href: QuickStarts/go-analyze.md
-      - name: Java
-        href: QuickStarts/java-analyze.md
-      - name: JavaScript
-        href: QuickStarts/javascript-analyze.md
-      - name: Node.js
-        href: QuickStarts/node-analyze.md
-      - name: Python
-        href: QuickStarts/python-analyze.md
-    - name: Analyze a local image
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-analyze.md
-      - name: Python
-        href: QuickStarts/python-disk.md
-    - name: Generate a thumbnail
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-thumb.md
-      - name: Go
-        href: QuickStarts/go-thumb.md
-      - name: Java
-        href: QuickStarts/java-thumb.md
-      - name: JavaScript
-        href: QuickStarts/javascript-thumb.md
-      - name: Node.js
-        href: QuickStarts/node-thumb.md
-      - name: Python
-        href: QuickStarts/python-thumb.md
-    - name: Extract text (Read API)
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-hand-text.md
-      - name: Java
-        href: QuickStarts/java-hand-text.md
-      - name: JavaScript
-        href: QuickStarts/javascript-hand-text.md
-      - name: Python
-        href: QuickStarts/python-hand-text.md
-    - name: Extract text (OCR API)
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-print-text.md
-      - name: Go
-        href: QuickStarts/go-print-text.md
-      - name: Java
-        href: QuickStarts/java-print-text.md
-      - name: JavaScript
-        href: QuickStarts/javascript-print-text.md
-      - name: Node.js
-        href: QuickStarts/node-print-text.md
-      - name: Python
-        href: QuickStarts/python-print-text.md
-    - name: Use a domain model
-      items:
-      - name: Python
-        href: QuickStarts/python-domain.md
 - name: Tutorials
   items:
   - name: Generate metadata for images
@@ -103,17 +41,17 @@
     href: concept-generating-thumbnails.md
   - name: Adult content detection
     href: concept-detecting-adult-content.md
-- name: Responsible AI
+- name: Responsible use of AI
   items:
   - name: Spatial Analysis
     items:
-    - name: Transparency Note
+    - name: Transparency notes
       items:
       - name: Introduction to Spatial Analysis
         href: /legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
       - name: Characteristics and limitations
         href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
-    - name: Deployment Guidelines
+    - name: Integration and responsible use
       items:
       - name: Responsible use in AI deployment 
         href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext

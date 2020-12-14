@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.subservice: common
 ---
@@ -50,7 +50,7 @@ General-purpose v1 storage accounts provide access to all Azure Storage services
 - Queues
 - Tables
 
-You should use general-purpose v2 accounts in most cases. You can use general-purpose v1 accounts for these scenarios:
+Microsoft recommends general-purpose v2 accounts for most scenarios. You can use general-purpose v1 accounts for these scenarios:
 
 - Your applications require the Azure classic deployment model. General-purpose v2 accounts and Blob storage accounts support only the Azure Resource Manager deployment model.
 
@@ -148,7 +148,7 @@ You can grant access to the data in your storage account using any of the follow
 
 - **Azure Active Directory:** Use Azure Active Directory (Azure AD) credentials to authenticate a user, group, or other identity for access to blob and queue data. If authentication of an identity is successful, then Azure AD returns a token to use in authorizing the request to Azure Blob storage or Queue storage. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).
 - **Shared Key authorization:** Use your storage account access key to construct a connection string that your application uses at runtime to access Azure Storage. The values in the connection string are used to construct the *Authorization* header that is passed to Azure Storage. For more information, see [Configure Azure Storage connection strings](storage-configure-connection-string.md).
-- **Shared access signature:** Use a shared access signature to delegate access to resources in your storage account, if you aren't using Azure AD authorization. A shared access signature is a token that encapsulates all of the information needed to authorize a request to Azure Storage on the URL. You can specify the storage resource, the permissions granted, and the interval over which the permissions are valid as part of the shared access signature. For more information, see [Using shared access signatures (SAS)](storage-sas-overview.md).
+- **Shared access signature:** A shared access signature (SAS) is a token that permits delegated access to resources in your storage account. The SAS token encapsulates all of the information needed to authorize a request to Azure Storage on the URL. When you create a SAS, you can specify which permissions the SAS grants to a resource and the interval over which the permissions are valid. A SAS token can be signed with either Azure AD credentials or with Shared Key. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
 
 > [!NOTE]
 > Authenticating users or applications using Azure AD credentials provides superior security and ease of use over other means of authorization. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS.
@@ -188,3 +188,5 @@ For more information about the Azure Storage REST API, see [Azure Storage Servic
 
 - [Create a storage account](storage-account-create.md)
 - [Create a block blob storage account](../blobs/storage-blob-create-account-block-blob.md)
+- [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
+- [Recover a deleted storage account](storage-account-recover.md)

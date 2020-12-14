@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services 
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 11/09/2020
+ms.date: 12/09/2020
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure Synapse Analytics (formerly SQL DW)**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Azure Synapse Analytics (formerly SQL DW)/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
+This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure Synapse Analytics**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Azure Synapse Analytics /Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 
 > [!NOTE]
 > - If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
@@ -26,7 +26,7 @@ At a high level, this tutorial involves following steps:
 
 > [!div class="checklist"]
 > * Create a data factory.
-> * Create Azure SQL Database, Azure Synapse Analytics (formerly SQL DW), and Azure Storage linked services.
+> * Create Azure SQL Database, Azure Synapse Analytics, and Azure Storage linked services.
 > * Create Azure SQL Database and Azure Synapse Analytics datasets.
 > * Create a pipeline to look up the tables to be copied and another pipeline to perform the actual copy operation. 
 > * Start a pipeline run.
@@ -47,15 +47,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 * **Azure Storage account**. The Azure Storage account is used as staging blob storage in the bulk copy operation. 
 * **Azure SQL Database**. This database contains the source data. 
-* **Azure Synapse Analytics (formerly SQL DW)**. This data warehouse holds the data copied over from the SQL Database. 
+* **Azure Synapse Analytics**. This data warehouse holds the data copied over from the SQL Database. 
 
-### Prepare SQL Database and Azure Synapse Analytics (formerly SQL DW)
+### Prepare SQL Database and Azure Synapse Analytics 
 
 **Prepare the source Azure SQL Database**:
 
 Create a database in SQL Database with Adventure Works LT sample data following [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to an Azure Synapse Analytics.
 
-**Prepare the sink Azure Synapse Analytics (formerly SQL DW)**:
+**Prepare the sink Azure Synapse Analytics**:
 
 1. If you don't have an Azure Synapse Analytics workspace, see the [Get started with Azure Synapse Analytics](..\synapse-analytics\get-started.md) article for steps to create one.
 
@@ -63,7 +63,7 @@ Create a database in SQL Database with Adventure Works LT sample data following 
 
 ## Azure services to access SQL server
 
-For both SQL Database and Azure Synapse Analytics (formerly SQL DW), allow Azure services to access SQL server. Ensure that **Allow Azure services and resources to access this server** setting is turned **ON** for your server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure Synapse Analytics. 
+For both SQL Database and Azure Synapse Analytics, allow Azure services to access SQL server. Ensure that **Allow Azure services and resources to access this server** setting is turned **ON** for your server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure Synapse Analytics. 
 
 To verify and turn on this setting, go to your server > Security > Firewalls and virtual networks > set the **Allow Azure services and resources to access this server** to **ON**.
 
@@ -101,7 +101,7 @@ To verify and turn on this setting, go to your server > Security > Firewalls and
 ## Create linked services
 You create linked services to link your data stores and computes to a data factory. A linked service has the connection information that the Data Factory service uses to connect to the data store at runtime. 
 
-In this tutorial, you link your Azure SQL Database, Azure Synapse Analytics (formerly SQL DW), and Azure Blob Storage data stores to your data factory. The Azure SQL Database is the source data store. The Azure Synapse Analytics is the sink/destination data store. The Azure Blob Storage is to stage the data before the data is loaded into Azure Synapse Analytics by using PolyBase. 
+In this tutorial, you link your Azure SQL Database, Azure Synapse Analytics, and Azure Blob Storage data stores to your data factory. The Azure SQL Database is the source data store. The Azure Synapse Analytics is the sink/destination data store. The Azure Blob Storage is to stage the data before the data is loaded into Azure Synapse Analytics by using PolyBase. 
 
 ### Create the source Azure SQL Database linked service
 In this step, you create a linked service to link your database in Azure SQL Database to the data factory. 
@@ -132,8 +132,8 @@ In this step, you create a linked service to link your database in Azure SQL Dat
 ### Create the sink Azure Synapse Analytics linked service
 
 1. In the **Connections** tab, click **+ New** on the toolbar again. 
-1. In the **New Linked Service** window, select **Azure Synapse Analytics (formerly SQL DW)**, and click **Continue**. 
-1. In the **New Linked Service (Azure Synapse Analytics (formerly SQL DW))** window, do the following steps: 
+1. In the **New Linked Service** window, select **Azure Synapse Analytics**, and click **Continue**. 
+1. In the **New Linked Service (Azure Synapse Analytics)** window, do the following steps: 
    
     a. Enter **AzureSqlDWLinkedService** for **Name**.
      
@@ -182,10 +182,10 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
 1. Switch to the **Connection** tab, select any table for **Table**. This table is a dummy table. You specify a query on the source dataset when creating a pipeline. The query is used to extract data from your database. Alternatively, you can click **Edit** check box, and enter **dbo.dummyName** as the table name. 
  
 
-### Create a dataset for sink Azure Synapse Analytics (formerly SQL DW)
+### Create a dataset for sink Azure Synapse Analytics 
 
 1. Click **+ (plus)** in the left pane, and click **Dataset**. 
-1. In the **New Dataset** window, select **Azure Synapse Analytics (formerly SQL DW)**, and then click **Continue**.
+1. In the **New Dataset** window, select **Azure Synapse Analytics**, and then click **Continue**.
 1. In the **Set properties** window, under **Name**, enter **AzureSqlDWDataset**. Under **Linked service**, select **AzureSqlDWLinkedService**. Then click **OK**.
 1. Switch to the **Parameters** tab, click **+ New**, and enter **DWTableName** for the parameter name. Click **+ New** again, and enter **DWSchema** for the parameter name. If you copy/paste this name from the page, ensure that there's no **trailing space character** at the end of *DWTableName* and *DWSchema*. 
 1. Switch to the **Connection** tab, 
@@ -395,7 +395,7 @@ You performed the following steps in this tutorial:
 
 > [!div class="checklist"]
 > * Create a data factory.
-> * Create Azure SQL Database, Azure Synapse Analytics (formerly SQL DW), and Azure Storage linked services.
+> * Create Azure SQL Database, Azure Synapse Analytics, and Azure Storage linked services.
 > * Create Azure SQL Database and Azure Synapse Analytics datasets.
 > * Create a  pipeline to look up the tables to be copied and another pipeline to perform the actual copy operation. 
 > * Start a pipeline run.

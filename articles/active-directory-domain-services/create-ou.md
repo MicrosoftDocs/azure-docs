@@ -2,7 +2,7 @@
 title: Create an organizational unit (OU) in Azure AD Domain Services | Microsoft Docs'
 description: Learn how to create and manage a custom Organizational Unit (OU) in an Azure AD Domain Services managed domain.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Create an Organizational Unit (OU) in an Azure Active Directory Domain Services managed domain

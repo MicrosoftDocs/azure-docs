@@ -6,6 +6,7 @@ documentationcenter: ''
 author: MashaMSFT
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: management
 
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server

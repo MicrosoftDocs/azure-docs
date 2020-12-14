@@ -44,7 +44,7 @@ This is the hyperscale form factor of the Postgres database engine that is avail
 
 ## Next steps
 - **Create**
-   > **Just want to try things out?**  
+   > **Just want to try things out? You do not have a Kubernetes cluster available? We provide you with a sandbox:**  
    > Get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
    - **Create:**

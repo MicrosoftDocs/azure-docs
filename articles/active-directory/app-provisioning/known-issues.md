@@ -52,6 +52,10 @@ Azure AD currently can't provision null attributes. If an attribute is null on t
 
 Attribute-mapping expressions can have a maximum of 10,000 characters. 
 
+**Unsupported scoping filters**
+
+Directory extensions, appRoleAssignments, userType, and accountExpires are not supported as scoping filters.
+
 
 ## Service issues 
 

@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Azure Migrate appliance deployment and discovery
-description: Get help with deploying the Azure Migrate appliance and discovering machines.
-author: musa-57
+description: Get help with appliance deployment and machine discovery.
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
-ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
 ---

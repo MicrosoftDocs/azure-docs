@@ -15,7 +15,7 @@ ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
 
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ---
 # Using the location condition in a Conditional Access policy 
 

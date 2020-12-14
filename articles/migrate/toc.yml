@@ -74,7 +74,9 @@
     items:
     - name: Azure Migrate support
       href: migrate-support-matrix.md
-    - name: Security baseline for Azure Migrate
+  - name: Security
+    items:
+    - name: Security baseline
       href: security-baseline.md
   - name: Discover
     items:

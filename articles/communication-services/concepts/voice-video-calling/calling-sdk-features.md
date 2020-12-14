@@ -64,7 +64,7 @@ The following table represents the set of supported browsers and versions which 
 
 *Note that the latest version of Chrome is supported in addition to the previous two releases.<br/>
 
-**Note that Safari versions 13.1+ are supported. Outgoing video for Safari macOS is not yet supported, but it is supported on iOS. Outgoing screen sharing is only supported on desktop iOS.
+**Note that Safari versions 13.1+ are supported. Outgoing video for Safari macOS is not yet supported, but it is supported on iOS. Outgoing screen sharing is only supported on desktop iOS. 1:1 and group calls currently are not available on Safari.
 
 ## Calling client - browser security model
 

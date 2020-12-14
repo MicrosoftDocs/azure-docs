@@ -16,7 +16,7 @@ ms.date: 10/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # What are Azure AD access reviews?

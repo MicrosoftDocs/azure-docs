@@ -144,7 +144,7 @@ After the catalog configuration is complete, run the following scripts in the Po
 1. Use the following command to run the starter kit. Replace the `CatalogName`, `TenantID`, `SubscriptionID`, `newresourcegroupname`, and `CatalogResourceGroupName` placeholders. For `newresourcegroupname`, use a unique name for the resource group that will contain the data estate.
 
 > [!IMPORTANT]
-> The **newresourcegroupname** can be alphanumeric or numbers only. **No upper case alphabets and special characters are allowed.**
+> The **newresourcegroupname** use numbers and lower-case letters only and must be less than 17 characters. **No upper case alphabets and special characters are allowed.** This constraint comes from storage account naming rules.
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`

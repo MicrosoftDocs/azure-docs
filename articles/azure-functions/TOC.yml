@@ -33,6 +33,8 @@
             href: create-first-function-vs-code-python.md
           - name: TypeScript
             href: create-first-function-vs-code-typescript.md
+          - name: Other (Go/Rust)
+            href: create-first-function-vs-code-other.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
         - name: Command line

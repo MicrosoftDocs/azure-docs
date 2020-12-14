@@ -25,7 +25,7 @@ The following table summarizes by region where the ability to enable the Synapse
 | India South |March 31, 2021 |
 | India West |March 31, 2021 |
 | Switzerland West |March 31, 2021 |
-| UAE North |June 1, 2020 |July 1, 2020 |
+| UAE North |March 31, 2021 |
 
 ## Next steps
 Getting started with [Synapse Workspace and Studio](../get-started.md).
