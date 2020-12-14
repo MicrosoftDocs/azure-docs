@@ -1,5 +1,5 @@
 ---
-title: Deploy Stateless only Node Types in Service Fabric cluster
+title: Deploy Stateless-only Node Types in Service Fabric cluster
 description: Learn how to create and deploy Stateless Node types in Azure Service fabric cluster.
 author: peterpogorski
 
@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
 ---
-# Deploy an Azure Service Fabric cluster with Stateless only node types (Preview)
+# Deploy an Azure Service Fabric cluster with stateless-only node types (Preview)
 Service Fabric node types come with inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types relax this assumption for a node type, thus allowing node type to use other features such as faster scale out operations, support for Automatic OS Upgrades on Bronze durability and scaling out to more than 100 nodes in a single virtual machine scale set.
 
-* Primary Node types cannot be configured to be stateless
+* Primary node types cannot be configured to be stateless
 * Stateless node types are only supported with Bronze Durability Levels
 * Stateless node types are only supported on Service Fabric Runtime version 7.1.409 or above.
 
 
 Sample templates are available: [Service Fabric Stateless Node types template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
-## Enabling Stateless Node Types in the Service Fabric Cluster resource
-To set one or more node types as Stateless in a cluster resource, set the "isStateless" property to "true". When deploying a Service Fabric cluster with Stateless node types, do remember to have atleast one primary node type in the cluster resource.
+## Enabling stateless node types in Service Fabric cluster
+To set one or more node types as stateless in a cluster resource, set the **isStateless** property to "true". When deploying a Service Fabric cluster with stateless node types, do remember to have atleast one primary node type in the cluster resource.
 
 ```json
 {
@@ -61,8 +61,8 @@ To set one or more node types as Stateless in a cluster resource, set the "isSta
 }
 ```
 
-## Configuring virtual machine scale set resource for Stateless node types
-To enable Stateless node types, you should configure the underlying virtual machine scale set resource in the following way:
+## Configuring virtual machine scale set for stateless node types
+To enable stateless node types, you should configure the underlying virtual machine scale set resource in the following way:
 
 * The value  **singlePlacementGroup** property, which should be set to true/false depending on requirement to scale to more than 100 VMs.
 * The Scale set's **upgradeMode** which should be set to Rolling.
@@ -243,7 +243,7 @@ To begin, you will need to add the new resources to your existing Resource Manag
 * A NSG referenced by the subnet in which you deploy your virtual machine scale sets.
 
 
-An example of these resources can be found in the [sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-Windows-2-NodeType-Stateless-Secure).
+An example of these resources can be found in the [sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-2-NodeTypes-Windows-Stateless-Secure).
 
 ```powershell
 New-AzureRmResourceGroupDeployment `
@@ -264,4 +264,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
     -StoreLocation CurrentUser `
     -StoreName My 
 ```
+
+## Next Steps 
+* [Reliable Services](ervice-fabric-reliable-services-introduction.md)
+* [Node types and virtual machine scale sets](service-fabric-cluster-nodetypes.md)
 
