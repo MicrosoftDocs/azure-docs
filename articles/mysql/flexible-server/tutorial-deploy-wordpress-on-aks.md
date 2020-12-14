@@ -11,7 +11,8 @@ ms.custom: mvc
 
 # Tutorial: Deploy WordPress app on AKS with Azure Database for MySQL - Flexible Server
 
-In this quickstart, you deploy a WordPress application on Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL - Flexible Server (Preview) using the Azure CLI. [AKS](../../aks/intro-kubernetes.md) is a managed Kubernetes service that lets you quickly deploy and manage clusters. [Azure Database for MySQL - Flexible Server (Preview)](overview.md) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. Currently Flexible server is in Preview.
+In this quickstart, you deploy a WordPress application on Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL - Flexible Server (Preview) using the Azure CLI. 
+**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for MySQL - Flexible Server (Preview)](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. Currently Flexible server is in Preview.
 
 > [!NOTE]
 > - Azure Database for MySQL Flexible Server is currently in public preview
@@ -110,7 +111,7 @@ The server created has the below attributes:
 - Since the command is using Local context it will create the server in the resource group ```wordpress-project``` and in the region ```eastus```.
 
 
-## Build your WordPress docker image
+### Build your WordPress docker image
 
 Download the [latest WordPress](https://wordpress.org/download/) version. Create new directory ```my-wordpress-app``` for your project and use this simple folder structure
 
@@ -168,6 +169,7 @@ define('DB_COLLATE', '');
 define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
 ```
 
+### Create a Dockerfile
 Create a new Dockerfile and copy this code snippet. This Dockerfile in setting up Apache web server with PHP and enabling mysqli extension.
 
 ```docker
@@ -177,12 +179,12 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli
 ```
 
-## Build your Docker image
-Make sure you're in the directory ```my-wordpress-app``` in a terminal using the ```cd``` command. Run the following command to build your bulletin board image:
+### Build your docker image
+Make sure you're in the directory ```my-wordpress-app``` in a terminal using the ```cd``` command. Run the following command to build the image:
 
 ``` bash
 
-docker build --tag myblog:latest . 
+docker build --tag myblog:latest .
 
 ```
 
@@ -267,8 +269,6 @@ The following example output shows the Deployments and Services created successf
 
 ```output
 deployment "wordpress-blog" created
-service "php-svc" created
-deployment "azure-vote-front" created
 service "php-svc" created
 ```
 

@@ -19,7 +19,7 @@ ms:custom: fasttrack-edit
 
 # Microsoft identity platform ID tokens
 
-`id_tokens` are sent to the client application as part of an [OpenID Connect](v2-protocols-oidc.md) (OIDC) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user.
+`id_tokens` are sent to the client application as part of an [OpenID Connect](v2-protocols-oidc.md) (OIDC) flow. They can be sent alongside or instead of an access token, and are used by the client to authenticate the user.
 
 ## Using the id_token
 
@@ -92,7 +92,7 @@ This list shows the JWT claims that are in most id_tokens by default (except whe
 
 ### Using claims to reliably identify a user (Subject and Object ID)
 
-When identifying a user (say, looking them up in a database, or deciding what permissions they have), it's critical to use information that will remain constant and unique across time.  Legacy applications sometimes use field like the email address, a phone number, or the UPN.  All of these can change over time, and can also be reused over time - when an employee changes their name, or an employee is given an email address that matches that of a previous, no longer present employee). Thus, it is **critical** that your application not use human-readable data to identify a user - human readable generally means someone will read it, and want to change it.  Instead, use the claims provided by the OIDC standard, or the extension claims provided by Microsoft - the `sub` and `oid` claims.
+When identifying a user (say, looking them up in a database, or deciding what permissions they have), it's critical to use information that will remain constant and unique across time. Legacy applications sometimes use fields like the email address, a phone number, or the UPN.  All of these can change over time, and can also be reused over time - when an employee changes their name, or an employee is given an email address that matches that of a previous, no longer present employee). Thus, it is **critical** that your application not use human-readable data to identify a user - human readable generally means someone will read it, and want to change it. Instead, use the claims provided by the OIDC standard, or the extension claims provided by Microsoft - the `sub` and `oid` claims.
 
 To correctly store information per-user,  use `sub` or `oid` alone (which as GUIDs are unique), with `tid` used for routing or sharding if needed.  If you need to share data across services, `oid`+`tid` is best as all apps get the same `oid` and `tid` claims for a given user.  The `sub` claim in the Microsoft identity platform is "pair-wise" - it is unique based on a combination of the token recipient, tenant, and user.  Thus, two apps that request ID tokens for a given user will receive different `sub` claims, but the same `oid` claims for that user.
 

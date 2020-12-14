@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 12/11/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
@@ -16,7 +16,7 @@ ms.reviewer: tasharm, assafi, sumeh
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme-pre?view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples)
+[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 # [Version 3.0](#tab/version-3)
 
@@ -35,6 +35,7 @@ This article only describes version 3.x of the API.
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* To use the Analyze feature, you will need a Text Analytics resource with the standard (S) pricing tier.
 
 ## Setting up
 
@@ -49,7 +50,7 @@ Create a Maven project in your preferred IDE or development environment. Then ad
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.0-beta.1</version>
+        <version>5.1.0-beta.3</version>
     </dependency>
 </dependencies>
 ```
@@ -127,6 +128,7 @@ public static void main(String[] args) {
     recognizeEntitiesExample(client);
     recognizeLinkedEntitiesExample(client);
     extractKeyPhrasesExample(client);
+		AnalyzeOperationExample(client)
 }
 ```
 
@@ -594,3 +596,93 @@ Recognized phrases:
 cat
 veterinarian
 ```
+---
+
+## Use the API asynchronously with the Analyze operation
+
+# [Version 3.1 preview](#tab/version-3-1)
+
+> [!CAUTION]
+> To use Analyze operations, you must use a Text Analytics resource with the standard (S) pricing tier.  
+
+Create a new function called `analyzeOperationExample()`, which calls the `beginAnalyzeTasks()` function. The result will be a long running operation which will be polled for results.
+
+```java
+static void analyzeOperationExample(TextAnalyticsClient client)
+{
+		List<TextDocumentInput> documents = Arrays.asList(
+						new TextDocumentInput("0", "Microsoft was founded by Bill Gates and Paul Allen.")
+						);
+
+		SyncPoller<TextAnalyticsOperationResult, PagedIterable<AnalyzeTasksResult>> syncPoller =
+						client.beginAnalyzeTasks(documents,
+										new AnalyzeTasksOptions().setDisplayName("{tasks_display_name}")
+														.setEntitiesRecognitionTasks(Arrays.asList(new EntitiesTask())),
+										Context.NONE);
+
+		syncPoller.waitForCompletion();
+		PagedIterable<AnalyzeTasksResult> result = syncPoller.getFinalResult();
+
+		result.forEach(analyzeJobState -> {
+				System.out.printf("Job Display Name: %s, Job ID: %s.%n", analyzeJobState.getDisplayName(),
+								analyzeJobState.getJobId());
+				System.out.printf("Total tasks: %s, completed: %s, failed: %s, in progress: %s.%n",
+								analyzeJobState.getTotal(), analyzeJobState.getCompleted(), analyzeJobState.getFailed(),
+								analyzeJobState.getInProgress());
+
+				List<RecognizeEntitiesResultCollection> entityRecognitionTasks =
+								analyzeJobState.getEntityRecognitionTasks();
+				if (entityRecognitionTasks != null) {
+						entityRecognitionTasks.forEach(taskResult -> {
+								// Recognized entities for each of documents from a batch of documents
+								AtomicInteger counter = new AtomicInteger();
+								for (RecognizeEntitiesResult entitiesResult : taskResult) {
+										System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
+										if (entitiesResult.isError()) {
+												// Erroneous document
+												System.out.printf("Cannot recognize entities. Error: %s%n",
+																entitiesResult.getError().getMessage());
+										} else {
+												// Valid document
+												entitiesResult.getEntities().forEach(entity -> System.out.printf(
+																"Recognized entity: %s, entity category: %s, entity subcategory: %s, "
+																				+ "confidence score: %f.%n",
+																entity.getText(), entity.getCategory(), entity.getSubcategory(),
+																entity.getConfidenceScore()));
+										}
+								}
+						});
+				}
+		});
+	}
+```
+
+After you add this example to your application, call it in your `main()` method.
+
+```java
+analyzeOperationExample(client);
+```
+
+### Output
+
+```console
+Job Display Name: {tasks_display_name}, Job ID: 84fd4db4-0734-47ec-b263-ac5451e83f2a_637432416000000000.
+Total tasks: 1, completed: 1, failed: 0, in progress: 0.
+
+Text = Microsoft was founded by Bill Gates and Paul Allen., Id = 0, Language = null
+Recognized entity: Microsoft, entity category: Organization, entity subcategory: null, confidence score: 0.960000.
+Recognized entity: Bill Gates, entity category: Person, entity subcategory: null, confidence score: 1.000000.
+Recognized entity: Paul Allen, entity category: Person, entity subcategory: null, confidence score: 0.990000.
+```
+
+You can also use the Analyze operation to detect PII and key phrase extraction. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeTasksAsync.java) on GitHub.
+
+# [Version 3.0](#tab/version-3)
+
+This feature is not available in version 3.0.
+
+# [Version 2.1](#tab/version-2)
+
+This feature is not available in version 2.1.
+
+---
