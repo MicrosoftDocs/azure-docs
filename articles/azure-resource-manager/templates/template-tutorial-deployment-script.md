@@ -4,19 +4,17 @@ description: Learn how to use deployment scripts in Azure Resource Manager templ
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: carmonm
-editor:
 
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/25/2020
+ms.date: 12/14/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Use deployment scripts to create a self-signed certificate (Preview)
+# Tutorial: Use deployment scripts to create a self-signed certificate
 
 Learn how to use deployment scripts in Azure Resource Manager templates (ARM templates). Deployment scripts can be used to perform custom steps that can't be done by ARM templates. For example, creating a self-signed certificate.  In this tutorial, you create a template to deploy an Azure key vault, and then use a `Microsoft.Resources/deploymentScripts` resource in the same template to create a certificate and then add the certificate to the key vault. To learn more about deployment script, see [Use deployment scripts in ARM templates](./deployment-script-template.md).
 
@@ -174,7 +172,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     ```json
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2019-10-01-preview",
+      "apiVersion": "2020-10-01",
       "name": "createAddCertificate",
       "location": "[resourceGroup().location]",
       "dependsOn": [
