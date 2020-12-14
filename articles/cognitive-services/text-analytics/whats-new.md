@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -16,6 +16,10 @@ ms.custom: references_regions
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## December 2020
+
+* [Updated pricing](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) details for the Text Analytics API
 
 ## November 2020
 

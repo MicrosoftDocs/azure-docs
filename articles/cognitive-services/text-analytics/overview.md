@@ -20,7 +20,7 @@ The Text Analytics API is a cloud-based service that provides Natural Language P
 
 The API is a part of [Azure Cognitive Services](../index.yml), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/), or the [client library](quickstarts/text-analytics-sdk.md).
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
 ## Sentiment analysis
 

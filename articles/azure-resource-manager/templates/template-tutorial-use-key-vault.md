@@ -1,6 +1,6 @@
 ---
 title: Use Azure Key Vault in templates
-description: Learn how to use Azure Key Vault to pass secure parameter values during Resource Manager template deployment
+description: Learn how to use Azure Key Vault to pass secure parameter values during Azure Resource Manager template (ARM template) deployment.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.custom: seodec18
 
 # Tutorial: Integrate Azure Key Vault in your ARM template deployment
 
-Learn how to retrieve secrets from an Azure key vault and pass the secrets as parameters when you deploy an Azure Resource Manager (ARM) template. The parameter value is never exposed, because you reference only its key vault ID. You can reference the key vault secret by using a static ID or a dynamic ID. This tutorial uses a static ID. With the static ID approach, you reference the key vault in the template parameter file, not the template file. For more information about both approaches, see [Use Azure Key Vault to pass secure parameter value during deployment](./key-vault-parameter.md).
+Learn how to retrieve secrets from an Azure key vault and pass the secrets as parameters when you deploy an Azure Resource Manager template (ARM template). The parameter value is never exposed, because you reference only its key vault ID. You can reference the key vault secret by using a static ID or a dynamic ID. This tutorial uses a static ID. With the static ID approach, you reference the key vault in the template parameter file, not the template file. For more information about both approaches, see [Use Azure Key Vault to pass secure parameter value during deployment](./key-vault-parameter.md).
 
 In the [Set resource deployment order](./template-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine (VM). You need to provide the VM administrator username and password. Instead of providing the password, you can pre-store the password in an Azure key vault and then customize the template to retrieve the password from the key vault during the deployment.
 
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * To increase security, use a generated password for the VM administrator account. Here's a sample for generating a password:
 
     ```console

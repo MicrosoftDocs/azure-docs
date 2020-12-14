@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/25/2020
+ms.date: 12/10/2020
 ms.author: duau
 ---
 # ExpressRoute partners and peering locations
@@ -46,7 +46,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **South Korea** | Korea Central, Korea South |Busan, Seoul|
 | **UAE** | UAE Central, UAE North | Dubai, Dubai2 |
 | **South Africa** | South Africa West, South Africa North |Cape Town, Johannesburg |
-| **South America** | Brazil South |Sao Paulo |
+| **South America** | Brazil South |Bogota, Sao Paulo |
 
 ## Azure regions and geopolitical boundaries for national clouds
 The table below provides information on regions and geopolitical boundaries for national clouds.
@@ -78,6 +78,7 @@ The following table shows connectivity locations and the service providers for e
 | **Auckland** | [Vocus Group NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | n/a | 10G | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | n/a | 10G | AIS, UIH |
 | **Berlin** | [NTT GDC](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | Germany North | 10G | Equinix, NTT Global DataCenters EMEA|
+| **Bogota** | [Equinix BG1](https://www.equinix.com/locations/americas-colocation/colombia-colocation/bogota-data-centers/bg1/) | 3 | n/a | 10G | |
 | **Busan** | [LG CNS](https://www.lgcns.com/En/Service/DataCenter) | 2 | Korea South | n/a | LG CNS |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia Central | 10G, 100G | CDC |
 | **Canberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia Central 2| 10G, 100G | CDC, Equinix |
@@ -100,7 +101,7 @@ The following table shows connectivity locations and the service providers for e
 | **Kuala Lumpur** | [TIME dotCom Menara AIMS](https://www.time.com.my/enterprise/connectivity/direct-cloud) | 2 | n/a | n/a | TIME dotCom |
 | **Las Vegas** | [Switch LV](https://www.switch.com/las-vegas) | 1 | n/a | 10G, 100G | CenturyLink Cloud Connect, Megaport, PacketFabric |
 | **London** | [Equinix LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 1 | UK South | 10G, 100G | AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
-| **London2** | [Telehouse North Two](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | UK South | 10G, 100G | CenturyLink Cloud Connect, Colt, GTT, IX Reach, Equinix, Megaport, SES, Sohonet, Telehouse - KDDI |
+| **London2** | [Telehouse North Two](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | UK South | 10G, 100G | British Telecom, CenturyLink Cloud Connect, Colt, GTT, IX Reach, Equinix, Megaport, SES, Sohonet, Telehouse - KDDI |
 | **Los Angeles** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | n/a | 10G, 100G | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **Los Angeles2** | [Equinix LA1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/los-angeles-data-centers/la1/) | 1 | n/a | 10G, 100G | Equinix |
 | **Marseille** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | France South | n/a | DE-CIX, GEANT, Interxion, Jaguar Network, Ooredoo Cloud Connect |
@@ -156,10 +157,10 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | n/a | 10G, 100G | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | n/a | 10G, 100G | Equinix, Megaport, Verizon |
 | **New York** | [Equinix NY5](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny5/) | n/a | 10G, 100G | Equinix, CenturyLink Cloud Connect, Verizon |
-| **Phoenix** | [CyrusOne Chandler](https://cyrusone.com/locations/arizona/phoenix-arizona-chandler/) | US Gov Arizona | n/a | AT&T NetBond, CenturyLink Cloud Connect, Megaport |
+| **Phoenix** | [CyrusOne Chandler](https://cyrusone.com/locations/arizona/phoenix-arizona-chandler/) | US Gov Arizona | 10G, 100G | AT&T NetBond, CenturyLink Cloud Connect, Megaport |
 | **San Antonio** | [CyrusOne SA2](https://cyrusone.com/locations/texas/san-antonio-texas-ii/) | US Gov Texas | n/a | CenturyLink Cloud Connect, Megaport |
 | **Silicon Valley** | [Equinix SV4](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv4/) | n/a | 10G, 100G | AT&T, Equinix, Level 3 Communications, Verizon |
-| **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | n/a | n/a | Equinix, Megaport |
+| **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | n/a | 10G, 100G | Equinix, Megaport |
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD East, US Gov Virginia | 10G, 100G | AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### China

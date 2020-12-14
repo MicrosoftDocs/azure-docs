@@ -126,6 +126,8 @@
         href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: IoT Hub
         href: ../../iot-hub/horizontal-arm-route-messages.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: IoT Hub Device Provisioning Service
+        href: ../../iot-dps/quick-setup-auto-provision-rm.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Management and Governance
       items:
       - name: Advisor
@@ -513,6 +515,8 @@
     href: /python/api/overview/azure/resources?view=azure-python
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/paths/deploy-manage-resource-manager-templates/
   - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/
   - name: Azure Roadmap

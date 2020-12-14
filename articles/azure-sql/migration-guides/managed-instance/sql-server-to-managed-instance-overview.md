@@ -1,5 +1,5 @@
 ---
-title: "SQL Server to SQL Managed Instance - Migration overview"
+title: "SQL Server to SQL Managed Instance: Migration overview"
 description: Learn about the different tools and options available to migrate your SQL Server databases to Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -57,7 +57,7 @@ Some general guidelines to help you choose the right service tier and characteri
 You can choose compute and storage resources during deployment and then change them after using the [Azure portal](../../database/scale-resources.md) without incurring downtime for your application. 
 
 > [!IMPORTANT]
-> Any discrepancy in the [managed instance virtual network requirements](../../managed-instance/connectivity-architecture-overview.md#network-requirements) can prevent you from creating new instances or using existing ones. Learn more about [creating new](../../managed-instance/virtual-network-subnet-create-arm-template.md?branch=release-ignite-arc-data) and [configuring existing](../../managed-instance/vnet-existing-add-subnet.md?branch=release-ignite-arc-data) networks. 
+> Any discrepancy in the [managed instance virtual network requirements](../../managed-instance/connectivity-architecture-overview.md#network-requirements) can prevent you from creating new instances or using existing ones. Learn more about [creating new](../../managed-instance/virtual-network-subnet-create-arm-template.md) and [configuring existing](../../managed-instance/vnet-existing-add-subnet.md?branch=release-ignite-arc-data) networks. 
 
 ### SQL Server VM alternative
 

@@ -247,7 +247,7 @@ There is a limit of 20 sync service accounts in Azure AD. To get the list of exi
 To remove unused Azure AD service accounts, run the following Azure AD PowerShell cmdlet: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->Before you can use the above PowerShell commands you will need to install the [Azure Active Directory PowerShell for Graph module](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) and connect to your instance of Azure AD using [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+>Before you can use the above PowerShell commands you will need to install the [Azure Active Directory PowerShell for Graph module](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module) and connect to your instance of Azure AD using [Connect-AzureAD](/powershell/module/azuread/connect-azuread)
 
 For additional information on how to manage or reset the password for the Azure AD Connector account see [Manage the Azure AD Connect account](how-to-connect-azureadaccount.md)
 

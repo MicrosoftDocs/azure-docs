@@ -20,7 +20,7 @@ The processes of this quick start result in a production-ready environment for c
 Identify the subscription you plan to use to deploy Azure VMware Solution.  You can either create a new subscription or reuse an existing one.
 
 >[!NOTE]
->The subscription must be associated with a Microsoft Enterprise Agreement.
+>The subscription must be associated with a Microsoft Enterprise Agreement or a Cloud Solution Provider Azure plan. For more information, see [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
 
 ## Resource group
 
