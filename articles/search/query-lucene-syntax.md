@@ -17,7 +17,7 @@ When creating queries, you can opt for the [Lucene Query Parser](https://lucene.
 
 The full Lucene syntax is used for query expressions passed in the **`search`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [**`$filter`**](search-filters.md) and [**`$orderby`**](search-query-odata-orderby.md) expressions in the same request. OData parameters have different syntax and rules for constructing queries, escaping strings, and so on.
 
-## Example showing full syntax
+## Example (full syntax)
 
 Set the **`queryType`** parameter to specify full Lucene. The following example invokes in-field search and term boosting. This query looks for hotels where the category field contains the term "budget". Any documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3).  
 
@@ -30,7 +30,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-The **`searchMode=all`** parameter is relevant in this example. Whenever operators are on the query, you should generally set **`searchMode=all`** to ensure that *all* of the criteria is matched.  
+The **`searchMode`** parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.  
 
 For additional examples, see [Lucene query syntax examples](search-query-lucene-examples.md). For details about the query request and parameters, see [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).
 
@@ -64,7 +64,7 @@ Please ensure all unsafe and reserved characters are encoded in a URL. For examp
 
 Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ]``. Reserved characters are `; / ? : @ = + &`.
 
-##  <a name="bkmk_boolean"></a> Boolean operators
+## <a name="bkmk_boolean"></a> Boolean operators
 
 You can embed Boolean operators in a query string to improve the precision of a match. The full syntax supports text operators in addition to character operators. Always specify text boolean operators (AND, OR, NOT) in all caps.
 
@@ -138,17 +138,25 @@ If you were to use the en.lucene (English Lucene) analyzer, it would apply aggre
 
 On the other side, the Microsoft analyzers (in this case, the en.microsoft analyzer) are a bit more advanced and use lemmatization instead of stemming. This means that all generated tokens should be valid English words. For example, 'terminate', 'terminates' and 'termination' will mostly stay whole in the index, and would be a preferable choice for scenarios that depend a lot on wildcards and fuzzy search.
 
-##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring wildcard and regex queries
+## Scoring wildcard and regex queries
 
 Azure Cognitive Search uses frequency-based scoring ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) for text queries. However, for wildcard and regex queries where scope of terms can potentially be broad, the frequency factor is ignored to prevent the ranking from biasing towards matches from rarer terms. All matches are treated equally for wildcard and regex searches.
 
+## Special characters
+
+In some circumstances, you may want to search for a special character, like an '❤' emoji or the '€' sign. In such cases, make sure that the analyzer you use does not filter those characters out. The standard analyzer bypasses many special characters, excluding them from your index.
+
+Analyzers that will tokenize special characters include the "whitespace" analyzer, which takes into consideration any character sequences separated by whitespaces as tokens (so the "❤" string would be considered a token). Also, a language analyzer like the Microsoft English analyzer ("en.microsoft"), would take the "€" string as a token. You can [test an analyzer](/rest/api/searchservice/test-analyzer) to see what tokens it generates for a given query.
+
+When using Unicode characters, make sure symbols are properly escaped in the query url (for instance for "❤" would use the escape sequence `%E2%9D%A4+`). Postman does this translation automatically.  
+
 ## Precedence (grouping)
 
-You can use parentheses to create subqueries, including operators within the parenthetical statement. For example, `motel+(wifi||luxury)` will search for documents containing the "motel" term and either "wifi" or "luxury" (or both).
+You can use parentheses to create subqueries, including operators within the parenthetical statement. For example, `motel+(wifi|luxury)` will search for documents containing the "motel" term and either "wifi" or "luxury" (or both).
 
-Field grouping is similar but scopes the grouping to a single field. For example, `hotelAmenities:(gym+(wifi||pool))` searches the field "hotelAmenities" for "gym" and "wifi", or "gym" and "pool".  
+Field grouping is similar but scopes the grouping to a single field. For example, `hotelAmenities:(gym+(wifi|pool))` searches the field "hotelAmenities" for "gym" and "wifi", or "gym" and "pool".  
 
-##  <a name="bkmk_querysizelimits"></a> Query size limits
+## Query size limits
 
 There is a limit to the size of queries that you can send to Azure Cognitive Search. Specifically, you can have at most 1024 clauses (expressions separated by AND, OR, and so on). There is also a limit of approximately 32 KB on the size of any individual term in a query. If your application generates search queries programmatically, we recommend designing it in such a way that it does not generate queries of unbounded size.  
 

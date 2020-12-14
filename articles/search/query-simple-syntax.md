@@ -21,7 +21,7 @@ Although the simple parser is based on the [Apache Lucene Simple Query Parser](h
 
 ## Example (simple syntax)
 
-Although **`queryType`** is set below, it's the default and can be omitted unless you are reverting from an alternative type. The following example is a term search over independent terms, with a requirement that all matching documents include the term "pool".
+Although **`queryType`** is set below, it's the default and can be omitted unless you are reverting from an alternative type. The following example is a search over independent terms, with a requirement that all matching documents include "pool".
 
 ```http
 POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs/search?api-version=2020-06-30
@@ -32,13 +32,13 @@ POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs
 }
 ```
 
-The **`searchMode=all`** parameter is relevant in this example. Whenever boolean operators are on the query, you should generally set **`searchMode=all`** to ensure that *all* of the criteria is matched. Otherwise, you can use the default **`searchMode=any`** that favors recall over precision.
+The **`searchMode`** parameter is relevant in this example. Whenever boolean operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched. Otherwise, you can use the default `searchMode=any` that favors recall over precision.
 
 For additional examples, see [Simple query syntax examples](search-query-simple-examples.md). For details about the query request and parameters, see [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).
 
 ## Keyword search on terms and phrases
 
-Strings passed to the **`search`** parameter can include terms or phrases in any supported language, boolean operators, precedence operators, wildcard or prefix characters for "starts with" queries, escape characters, and URL encoding characters. The **`search`** parameter is optional. Unspecified, search (**`search=*`** or **`search=" "`**`) returns the top 50 documents in arbitrary (unranked) order.
+Strings passed to the **`search`** parameter can include terms or phrases in any supported language, boolean operators, precedence operators, wildcard or prefix characters for "starts with" queries, escape characters, and URL encoding characters. The **`search`** parameter is optional. Unspecified, search (`search=*` or `search=" "`) returns the top 50 documents in arbitrary (unranked) order.
 
 + A *term search* is a query of one or more terms, where any of the terms are considered a match.
 
@@ -109,8 +109,6 @@ When using Unicode characters, make sure symbols are properly escaped in the que
 ## Precedence (grouping)
 
 You can use parentheses to create subqueries, including operators within the parenthetical statement. For example, `motel+(wifi|luxury)` will search for documents containing the "motel" term and either "wifi" or "luxury" (or both).
-
-<a name="bkmk_querysizelimits"></a>
 
 ## Query size limits
 
