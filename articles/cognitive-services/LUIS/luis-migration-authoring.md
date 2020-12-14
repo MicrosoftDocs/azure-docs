@@ -6,11 +6,10 @@ services: cognitive-services
 author: aahill
 ms.author: aahi
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, contperfq2
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.custom: contperfq2
 ms.date: 12/14/2020
 
 ---
