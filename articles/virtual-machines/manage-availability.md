@@ -66,7 +66,7 @@ Fault domains define the group of virtual machines that share a common power sou
    ![Conceptual drawing of the update domain and fault domain configuration](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## Use managed disks for VMs in an availability set
-If you are currently using VMs with unmanaged disks, we highly recommend you covert from unmanaged to managed disks for [Linux](./linux/convert-unmanaged-to-managed-disks.md) and [Windows](./windows/convert-unmanaged-to-managed-disks.md).
+If you are currently using VMs with unmanaged disks, we highly recommend you convert from unmanaged to managed disks for [Linux](./linux/convert-unmanaged-to-managed-disks.md) and [Windows](./windows/convert-unmanaged-to-managed-disks.md).
 
 [Managed disks](./managed-disks-overview.md) provide better reliability for Availability Sets by ensuring that the disks of VMs in an Availability Set are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage fault domains (storage clusters) and aligning them with the VM fault domain. If a storage fault domain fails due to hardware or software failure, only the VM instance with disks on the storage fault domain fails.
 ![Managed disks FDs](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
