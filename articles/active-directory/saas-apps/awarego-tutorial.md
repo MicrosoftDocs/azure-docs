@@ -33,7 +33,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* AwareGo supports **SP** initiated SSO
+* AwareGo supports **SP** initiated SSO.
 
 
 ## Adding AwareGo from the gallery
@@ -105,7 +105,7 @@ In this section, you create a test user in the Azure portal called B.Simon.
 1. On the **User** properties pane, do the following:
 
    a. In the **Name** box, enter **B.Simon**.  
-   b. In the **User name** box, enter the username in the following format: `<username>@<companydomain>.<extension>`. For example, **B.Simon@contoso.com**.  
+   b. In the **User name** box, enter the username in the following format: `<username>@<companydomain>.<extension>`. For example, `B.Simon@contoso.com`.  
    c. Select the **Show password** check box, and then note the value that's displayed in the **Password** box for later use.  
    d. Select **Create**.
 
@@ -127,7 +127,7 @@ To configure single sign-on on the **AwareGo** side, send the **Certificate (Bas
 
 ### Create an AwareGo test user
 
-In this section, you create a user called Britta Simon in AwareGo. Work with [AwareGo support team](mailto:support@awarego.com) to add the users in the AwareGo platform. You must create and activate the users before you can use single sign-on.
+In this section, you create a user called Britta Simon in AwareGo. Work with the [AwareGo support team](mailto:support@awarego.com) to add the users in the AwareGo platform. You must create and activate the users before you can use single sign-on.
 
 ## Test SSO 
 
