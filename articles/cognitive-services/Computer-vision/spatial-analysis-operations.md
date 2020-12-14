@@ -20,7 +20,7 @@ The spatial analysis container implements the following operations:
 
 | Operation Identifier| Description|
 |---------|---------|
-| cognitiveservices.vision.spatialanalysis-personcount | Counts people in a designated zone in the camera's field of view. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
+| cognitiveservices.vision.spatialanalysis-personcount | Counts people in a designated zone in the camera's field of view. The zone must be fully covered by a single camera in order for PersonCount to record an accurate total. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crosses the line and provides directional info. 
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosses the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
@@ -613,7 +613,7 @@ Sample JSON for detections output by this operation.
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
 | `confidence` | float| Algorithm confidence|
-| `centerGroundPoint` | 2 float values| `x`, `y` values with the coordinates of the person's inferred location on the ground in feet. `x` is distance from the camera perpendicular to the camera image plane projected on the ground in feet. `y` is distance from the camera parallel to the image plane projected on the ground in feet. **Insert centerGroundPoint image here** For example, here the centerGroundPoint is {x: 4, y: 5}. This means that there's a person 4 feet away from the camera and 5 feet to the right, looking at the room top-down. See the diagram above.|
+| `centerGroundPoint` | 2 float values| `x`, `y` values with the coordinates of the person's inferred location on the ground in feet. `x` and `y` are coordinates on the floor plane, assuming the floor is level. The camera's location is the origin. `x` is the distance from the camera to the person along a line perpendicular to the camera image plane. `y` is the distance from the camera to the person along a line parallel to the camera image plane **Insert centerGroundPoint image here** For example, here the centerGroundPoint is {x: 4, y: 5}. This means that there's a person 4 feet away from the camera and 5 feet to the right, looking at the room top-down. See the diagram above.|
 
 | SourceInfo Field Name | Type| Description|
 |---------|---------|---------|
