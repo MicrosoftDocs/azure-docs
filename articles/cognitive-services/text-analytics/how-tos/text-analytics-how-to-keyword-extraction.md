@@ -83,7 +83,7 @@ For information about request definition, see [How to call the Text Analytics AP
 
 ## Step 2: Post the request
 
-Analysis is performed upon receipt of the request. For information about the size and number of requests you can send per minute or per second, see the [data limits](../overview.md#data-limits) section in the overview .
+Analysis is performed upon receipt of the request. For information about the size and number of requests you can send per minute or per second, see the [data limits](../overview.md#data-limits) section in the overview.
 
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 
