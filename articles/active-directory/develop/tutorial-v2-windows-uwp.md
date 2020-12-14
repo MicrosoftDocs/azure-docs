@@ -343,21 +343,23 @@ private async Task DisplayMessageAsync(string message)
 Now you need to register your application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **Azure Active Directory** > **App registrations**.
-1. Select **New registration**. Enter a meaningful application name that will be displayed to users of the app, for example, *UWP-App-calling-MSGraph*.
-1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox)**. Then select **Register** to continue.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application, for example `UWP-App-calling-MSGraph`. Users of your app might see this name, and you can change it later.
+1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox)**. 
+1. Select **Register**.
 1. On the overview page, find the **Application (client) ID** value and copy it. Go back to Visual Studio, open *MainPage.xaml.cs*, and replace the value of `ClientId` with this value.
 
 Configure authentication for your application:
 
-1. Back in the [Azure portal](https://portal.azure.com), under **Manage**, select **Authentication**.
-1. In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check https://login.microsoftonline.com/common/oauth2/nativeclient.
-1. Select **Save**.
+1. Back in the [Azure portal](https://portal.azure.com), under **Manage**, select **Authentication** > **Add a platform**, and then select **Mobile and desktop applications**.
+1. In the **Redirect URIs** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**.
+1. Select **Configure**.
 
 Configure API permissions for your application:
 
-1. Under **Manage**, select **API permissions**.
-1. Select **Add a permission**, and then make sure that you've selected **Microsoft APIs**.
+1. Under **Manage**, select **API permissions** > **Add a permission**.
 1. Select **Microsoft Graph**.
 1. Select **Delegated permissions**, search for *User.Read*, and verify that **User.Read** is selected.
 1. If you made any changes, select **Add permissions** to save them.
