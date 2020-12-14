@@ -18,15 +18,15 @@ An Azure account with an active subscription. [Create an account for free](https
 > [!NOTE]
 > Template Specs is currently in preview. To use it with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
-## Create template spec
+## Create template
 
-The template spec is a resource type named `Microsoft.Resources/templateSpecs`. To create a template spec, use the Azure portal, Azure PowerShell, Azure CLI, or an ARM template. In all options, you need an ARM template that is packaged within the template spec.
-
-With PowerShell and CLI, you pass the path to ARM template as a parameter to the command. With ARM template, you embed the ARM template within the template spec definition.
-
-When you create a template spec with PowerShell, you can pass in a local template. Copy the following template and save it locally to a file named **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
+When you create a template spec, you pass in a local template. Copy the following template and save it locally to a file named **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
 
 :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+## Create template spec
+
+The template spec is a resource type named `Microsoft.Resources/templateSpecs`. To create a template spec, use the Azure portal, Azure PowerShell, Azure CLI, or an ARM template.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -38,7 +38,7 @@ When you create a template spec with PowerShell, you can pass in a local templat
       -Location westus2
     ```
 
-1. Then, create the template spec in that resource group. You give the new template spec the name **storageSpec**.
+1. Then, create the template spec in that resource group. Give the new template spec the name **storageSpec**.
 
     ```azurepowershell
     New-AzTemplateSpec `
@@ -59,7 +59,7 @@ When you create a template spec with PowerShell, you can pass in a local templat
       --location westus2
     ```
 
-1. Then, create the template spec in that resource group. You give the new template spec the name **storageSpec**.
+1. Then, create the template spec in that resource group. Give the new template spec the name **storageSpec**.
 
     ```azurecli
     az ts create \
@@ -226,7 +226,7 @@ When you create a template spec with PowerShell, you can pass in a local templat
 
 ## Deploy template spec
 
-You can now deploy the template spec. Deploying the template spec is just like deploying the template it contains, except you pass in the resource ID of the template spec in Azure PowerShell or Azure CLI. You use the same deployment commands, and if needed, pass in parameter values for the template spec.
+To deploy the template spec, you use the same deployment commands. You pass in the resource ID of the template spec.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -390,7 +390,7 @@ If you want to let other users in your organization deploy your template spec, y
 
 As you work with template specs, you may need to update the template. In the earlier section, you created a template spec with version `1.0`. Rather than creating a new template spec for the revised template, add a new version to the existing template spec.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/azure-resource-manager/templatespecs/azuredeploy2.json":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/templatespecs/azuredeploy2.json":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -447,6 +447,12 @@ As you work with template specs, you may need to update the template. In the ear
       --template-spec $id \
       --parameters namePrefix='demoaccount'
     ```
+
+# [Portal](#tab/azure-portal)
+
+
+# [ARM Template](#tab/azure-resource-manager)
+
 
 ---
 
