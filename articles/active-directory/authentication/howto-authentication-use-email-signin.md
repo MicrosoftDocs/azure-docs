@@ -35,7 +35,7 @@ This article shows you how to enable and use email as an alternate login ID. Thi
 > This feature is for cloud-authenticated Azure AD users only.
 
 > [!NOTE]
-> This feature does not support PRT issuance for Managed domains currently.
+> Currently, this feature is not supported on Azure AD joined Windows 10 devices for tenants with cloud authentication. This feature is not applicable to Hybrid Azure AD joined devices.
 
 ## Overview of Azure AD sign-in approaches
 
